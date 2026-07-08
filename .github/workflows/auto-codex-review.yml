@@ -1,0 +1,96 @@
+name: auto-codex-review
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches-ignore:
+      - main
+
+jobs:
+  trigger-codex-review:
+    if: startsWith(github.head_ref, 'claude/') || startsWith(github.head_ref, 'antigravity/')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Detectar agente origen
+        id: agent
+        run: |
+          if [[ "${{ github.head_ref }}" == claude/* ]]; then
+            echo "origen=claude" >> "$GITHUB_OUTPUT"
+          else
+            echo "origen=antigravity" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Comentar y etiquetar para review de Codex
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ['codex-review-pendiente']
+            });
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: '🤖 PR de `${{ steps.agent.outputs.origen }}` — asignado a Codex para code review automático.'
+            });
+
+  codex-review:
+    needs: trigger-codex-review
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Ejecutar Codex CLI en modo review
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          npm install -g @openai/codex-cli
+          codex review --diff-only --output review-comments.md
+
+      - name: Publicar comentarios de Codex en el PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('review-comments.md', 'utf8');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: body
+            });
+
+      - name: Detectar cambios criticos (algoritmo de mastery/SM-2)
+        id: critico
+        run: |
+          git fetch origin main
+          CAMBIOS_CRITICOS=$(git diff origin/main...HEAD --name-only | grep -E '(mastery|sm2|spaced-repetition|schema)' || true)
+          if [ -n "$CAMBIOS_CRITICOS" ]; then
+            echo "es_critico=true" >> "$GITHUB_OUTPUT"
+            echo "archivos<<EOF" >> "$GITHUB_OUTPUT"
+            echo "$CAMBIOS_CRITICOS" >> "$GITHUB_OUTPUT"
+            echo "EOF" >> "$GITHUB_OUTPUT"
+          else
+            echo "es_critico=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Alerta de alta prioridad (mencion directa, sin Slack/email extra)
+        if: steps.critico.outputs.es_critico == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ['revision-manual-urgente']
+            });
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: "@" + context.repo.owner + " este PR toca archivos criticos (algoritmo de mastery/schema). Archivos afectados:\n```\n" + "${{ steps.critico.outputs.archivos }}" + "\n```\nRevision manual obligatoria antes de merge."
+            });
