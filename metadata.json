@@ -1,0 +1,6 @@
+{
+  "name": "MIRA - Aprendizaje Adaptativo",
+  "description": "Sistema de entrenamiento cognitivo y aprendizaje adaptativo para oposiciones basado en microconceptos, repetición espaciada y aseguramiento del dominio real.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

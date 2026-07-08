@@ -1,0 +1,375 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+import React, { useState, useEffect } from 'react';
+import { Brain, GraduationCap, BarChart2, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw } from 'lucide-react';
+import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from './data/initialData';
+import { MemoryState, Question, ConfidenceLevel, Attempt } from './types';
+import {
+  getMemoryStates,
+  getAttempts,
+  saveAttempt,
+  saveMemoryState,
+  resetAllProgress,
+  addTimeOffset,
+  getCurrentDate,
+  getTimeOffset
+} from './utils/db';
+import { getAdaptiveQuestion, processAttempt } from './utils/engine';
+
+import Dashboard from './components/Dashboard';
+import StudyArticle from './components/StudyArticle';
+import TrainScreen from './components/TrainScreen';
+import ErrorPanel from './components/ErrorPanel';
+import ForgettingCurve from './components/ForgettingCurve';
+import MockExam from './components/MockExam';
+
+export default function App() {
+  const [currentScreen, setCurrentScreen] = useState<
+    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'study_article'
+  >('dashboard');
+
+  const [memoryStates, setMemoryStates] = useState<Record<string, MemoryState>>({});
+  const [attempts, setAttempts] = useState<Attempt[]>([]);
+  const [activeConceptId, setActiveConceptId] = useState<string | null>(null);
+  
+  // Current active train question and its selection reason
+  const [activeQuestion, setActiveQuestion] = useState<Question | null>(null);
+  const [activeReason, setActiveReason] = useState<string>('');
+
+  // Initial load
+  useEffect(() => {
+    const states = getMemoryStates();
+    setMemoryStates(states);
+    setAttempts(getAttempts());
+  }, []);
+
+  // Sync and recalculate pending reviews count
+  const getPendingReviewsCount = () => {
+    const now = getCurrentDate();
+    const states = Object.keys(memoryStates).map(key => memoryStates[key]);
+    return states.filter(state => {
+      if (!state.next_review) return true; // never reviewed is pending
+      return new Date(state.next_review) <= now;
+    }).length;
+  };
+
+  const pendingCount = getPendingReviewsCount();
+
+  // Handle switching screens
+  const handleNavigate = (
+    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'study_article'
+  ) => {
+    setCurrentScreen(screen);
+    
+    // Clear targeted concept constraints when returning to general study or exiting train screen
+    if (screen !== 'train') {
+      setActiveConceptId(null);
+    }
+
+    // If entering the general train screen, generate the first adaptive question
+    if (screen === 'train') {
+      prepareNextAdaptiveQuestion(null, getMemoryStates());
+    }
+  };
+
+  // Prepares the next question for training, either general or target microconcept
+  const prepareNextAdaptiveQuestion = (targetId: string | null, states: Record<string, MemoryState>) => {
+    const now = getCurrentDate();
+    const candidateQuestions = targetId
+      ? INITIAL_QUESTIONS.filter(q => q.microconcept_id === targetId)
+      : INITIAL_QUESTIONS;
+
+    const selected = getAdaptiveQuestion(candidateQuestions, states, now);
+    if (selected) {
+      setActiveQuestion(selected.question);
+      setActiveReason(selected.reason);
+    } else {
+      setActiveQuestion(null);
+      setActiveReason('');
+    }
+  };
+
+  // Handles starting specific study for a single concept
+  const handleTrainSpecificConcept = (conceptId: string) => {
+    setActiveConceptId(conceptId);
+    setCurrentScreen('train');
+    prepareNextAdaptiveQuestion(conceptId, getMemoryStates());
+  };
+
+  // Primary action when user submits an answer
+  const handleAnswerSubmission = (
+    questionId: string,
+    microconceptId: string,
+    answer: string,
+    confidence: ConfidenceLevel,
+    responseTime: number
+  ) => {
+    const now = getCurrentDate();
+    const isCorrect = INITIAL_QUESTIONS.find(q => q.id === questionId)?.correct_answer === answer;
+
+    // Load current memory state
+    const currentStates = getMemoryStates();
+    const currentState = currentStates[microconceptId];
+
+    // Compute updated values via core cognitive engine
+    const result = processAttempt(currentState, isCorrect, confidence, responseTime, now);
+
+    // Save to database
+    saveMemoryState(result.updatedState);
+    
+    const newAttempt: Attempt = {
+      id: `att-${Date.now()}`,
+      user_id: 'user-default',
+      question_id: questionId,
+      microconcept_id: microconceptId,
+      answer_user: answer,
+      correct: isCorrect,
+      confidence,
+      response_time_seconds: responseTime,
+      created_at: now.toISOString()
+    };
+    saveAttempt(newAttempt);
+
+    // Reload state in memory
+    const updatedStates = getMemoryStates();
+    setMemoryStates(updatedStates);
+    setAttempts(getAttempts());
+
+    return {
+      feedbackTitle: result.feedbackTitle,
+      feedbackMessage: result.feedbackMessage,
+      feedbackType: result.feedbackType,
+      updatedState: result.updatedState
+    };
+  };
+
+  const handleNextQuestion = () => {
+    prepareNextAdaptiveQuestion(activeConceptId, getMemoryStates());
+  };
+
+  // Quick verification from Article Study screen
+  const handleQuickVerify = (question: Question, answer: string, confidence: ConfidenceLevel) => {
+    handleAnswerSubmission(question.id, question.microconcept_id, answer, confidence, 8);
+  };
+
+  // Handles completion of an entire exam block
+  const handleFinishExam = (
+    results: {
+      questionId: string;
+      microconceptId: string;
+      correct: boolean;
+      confidence: ConfidenceLevel;
+      responseTime: number;
+    }[]
+  ) => {
+    const now = getCurrentDate();
+    const currentStates = getMemoryStates();
+
+    // Iterate and update states sequentially for all exam attempts
+    results.forEach(res => {
+      const state = currentStates[res.microconceptId];
+      const engineResult = processAttempt(state, res.correct, res.confidence, res.responseTime, now);
+      saveMemoryState(engineResult.updatedState);
+
+      const attemptRecord: Attempt = {
+        id: `att-mock-${Date.now()}-${res.questionId}`,
+        user_id: 'user-default',
+        question_id: res.questionId,
+        microconcept_id: res.microconceptId,
+        answer_user: res.correct ? 'correct_answer_stub' : 'wrong_answer_stub',
+        correct: res.correct,
+        confidence: res.confidence,
+        response_time_seconds: res.responseTime,
+        created_at: now.toISOString()
+      };
+      saveAttempt(attemptRecord);
+    });
+
+    // Sync memory state
+    setMemoryStates(getMemoryStates());
+    setAttempts(getAttempts());
+  };
+
+  // Simulates passing of days and recalculates
+  const handleSimulateDays = (days: number) => {
+    addTimeOffset(days);
+    setMemoryStates(getMemoryStates());
+    setAttempts(getAttempts());
+  };
+
+  // Resets all history
+  const handleReset = () => {
+    resetAllProgress();
+    setMemoryStates(getMemoryStates());
+    setAttempts([]);
+    setCurrentScreen('dashboard');
+    setActiveConceptId(null);
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-50/50 flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
+      {/* Top Main Navigation Bar */}
+      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm" id="mira-header">
+        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+          <div
+            className="flex items-center gap-2.5 cursor-pointer"
+            onClick={() => handleNavigate('dashboard')}
+            id="brand-logo"
+          >
+            <div className="p-2 bg-indigo-600 text-white rounded-xl shadow-md shadow-indigo-100">
+              <GraduationCap className="w-5 h-5" />
+            </div>
+            <div>
+              <span className="text-base font-black tracking-tight text-slate-950 uppercase flex items-center gap-1.5">
+                MIRA <span className="text-[10px] bg-indigo-50 border border-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded font-bold tracking-wider">BOMBEROPRO</span>
+              </span>
+              <p className="text-[10px] text-slate-400 font-medium tracking-wide">Aprendizaje Adaptativo de Oposición</p>
+            </div>
+          </div>
+
+          <nav className="hidden md:flex items-center gap-1" id="mira-nav-items">
+            <button
+              id="nav-btn-dashboard"
+              onClick={() => handleNavigate('dashboard')}
+              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+                currentScreen === 'dashboard' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
+              }`}
+            >
+              <LayoutDashboard className="w-4 h-4" />
+              Dashboard
+            </button>
+            <button
+              id="nav-btn-study"
+              onClick={() => handleNavigate('study_article')}
+              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+                currentScreen === 'study_article' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
+              }`}
+            >
+              <BookOpen className="w-4 h-4" />
+              Temario
+            </button>
+            <button
+              id="nav-btn-errors"
+              onClick={() => handleNavigate('errors')}
+              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+                currentScreen === 'errors' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
+              }`}
+            >
+              <AlertTriangle className="w-4 h-4" />
+              Errores Críticos
+            </button>
+            <button
+              id="nav-btn-forgetting"
+              onClick={() => handleNavigate('forgetting_curve')}
+              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+                currentScreen === 'forgetting_curve' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
+              }`}
+            >
+              <BarChart2 className="w-4 h-4" />
+              Curva de Olvido
+            </button>
+            <button
+              id="nav-btn-exam"
+              onClick={() => handleNavigate('mock_exam')}
+              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+                currentScreen === 'mock_exam' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
+              }`}
+            >
+              <HelpCircle className="w-4 h-4" />
+              Simulacro
+            </button>
+          </nav>
+
+          <div className="flex items-center gap-2">
+            {pendingCount > 0 && currentScreen !== 'train' && (
+              <button
+                id="btn-quick-train"
+                onClick={() => handleNavigate('train')}
+                className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold transition flex items-center gap-1 shadow"
+              >
+                Repasar ({pendingCount})
+              </button>
+            )}
+          </div>
+        </div>
+      </header>
+
+      {/* Main Container Content */}
+      <main className="flex-1 max-w-6xl w-full mx-auto px-4 py-8">
+        {currentScreen === 'dashboard' && (
+          <Dashboard
+            memoryStates={memoryStates}
+            attempts={attempts}
+            microconcepts={INITIAL_MICROCONCEPTS}
+            pendingCount={pendingCount}
+            onNavigate={handleNavigate}
+            onReset={handleReset}
+            onSimulateDays={handleSimulateDays}
+          />
+        )}
+
+        {currentScreen === 'study_article' && (
+          <StudyArticle
+            microconcepts={INITIAL_MICROCONCEPTS}
+            memoryStates={memoryStates}
+            onTrainConcept={handleTrainSpecificConcept}
+            onQuickVerify={handleQuickVerify}
+          />
+        )}
+
+        {currentScreen === 'train' && (
+          <TrainScreen
+            question={activeQuestion}
+            selectionReason={activeReason}
+            microconcepts={INITIAL_MICROCONCEPTS}
+            memoryStates={memoryStates}
+            onAnswer={handleAnswerSubmission}
+            onNextQuestion={handleNextQuestion}
+            onNavigateHome={() => handleNavigate('dashboard')}
+          />
+        )}
+
+        {currentScreen === 'errors' && (
+          <ErrorPanel
+            memoryStates={memoryStates}
+            microconcepts={INITIAL_MICROCONCEPTS}
+            onTrainConcept={handleTrainSpecificConcept}
+            onNavigateHome={() => handleNavigate('dashboard')}
+          />
+        )}
+
+        {currentScreen === 'forgetting_curve' && (
+          <ForgettingCurve
+            memoryStates={memoryStates}
+            microconcepts={INITIAL_MICROCONCEPTS}
+            onSimulateDays={handleSimulateDays}
+          />
+        )}
+
+        {currentScreen === 'mock_exam' && (
+          <MockExam
+            microconcepts={INITIAL_MICROCONCEPTS}
+            onFinishExam={handleFinishExam}
+            onNavigateHome={() => handleNavigate('dashboard')}
+          />
+        )}
+      </main>
+
+      {/* Footer Branding Area */}
+      <footer className="border-t border-slate-100 py-6 bg-white text-slate-400 text-xs mt-12" id="mira-footer">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div>
+            <p className="font-semibold text-slate-600">MIRA — Método de Aprendizaje Adaptativo para Oposiciones</p>
+            <p className="text-[10px] text-slate-400 mt-0.5">Basado en Microconceptos, Interrogación activa, Repetición espaciada y Aseguramiento del dominio real.</p>
+          </div>
+          <div className="flex items-center gap-4">
+            <span className="font-mono text-[10px]">v1.0 (PROTOTIPO SEGURO LOCAL)</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
