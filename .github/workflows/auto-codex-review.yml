@@ -3,6 +3,7 @@ name: auto-codex-review
 on:
   pull_request:
     types: [opened, synchronize]
+permissions: {contents: read, issues: write, pull-requests: write}
 
 jobs:
   trigger-codex-review:
