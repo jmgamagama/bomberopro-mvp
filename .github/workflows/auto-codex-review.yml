@@ -3,8 +3,6 @@ name: auto-codex-review
 on:
   pull_request:
     types: [opened, synchronize]
-    branches-ignore:
-      - main
 
 jobs:
   trigger-codex-review:
