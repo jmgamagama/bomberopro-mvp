@@ -163,7 +163,7 @@ export default function MockExam({
           </div>
           
           <div className="space-y-2">
-            <h2 className="text-2xl font-black text-slate-800">Simulador de Examen Oficial</h2>
+            <h2 className="text-2xl font-black text-slate-800">Simulador de Examen</h2>
             <p className="text-sm text-slate-500 max-w-md mx-auto">
               Pon a prueba tu retención real en condiciones de examen ciego de oposición. 10 preguntas aleatorias de todos los niveles.
             </p>
