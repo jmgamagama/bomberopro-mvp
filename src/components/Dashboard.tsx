@@ -254,7 +254,7 @@ export default function Dashboard({
         <div className={`p-6 rounded-2xl border flex flex-col justify-between ${masteryBg}`} id="mira-mastery-card">
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-500">Dominio Real del Artículo 1</h3>
-            <p className="text-xs text-slate-400 mt-1">Algoritmo cognitivo MIRA calibrado</p>
+            <p className="text-xs text-slate-400 mt-1">Algoritmo de repetición espaciada (basado en SM-2)</p>
           </div>
           <div className="my-6 flex items-baseline gap-2">
             <span className={`text-6xl font-extrabold font-sans tracking-tight ${masteryColor}`}>
