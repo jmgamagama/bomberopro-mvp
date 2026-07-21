@@ -67,6 +67,15 @@ export interface Question {
   options?: string[]; // empty for open questions like memory/ordering if applicable, but we will provide choices for tests
   correct_answer: string;
   explanation: string;
+  // Nuevos campos según Decision 2 (alineado con pipeline)
+  fuente?: string;
+  version_convocatoria?: string;
+  tema?: {
+    numero: number;
+    titulo: string;
+  };
+  estado_qa?: 'borrador' | 'revision' | 'aprobada' | 'rechazada';
+  reportes?: string[];
 }
 
 export interface Attempt {

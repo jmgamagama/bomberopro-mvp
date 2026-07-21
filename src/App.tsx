@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Brain, GraduationCap, BarChart2, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw } from 'lucide-react';
+import { Brain, GraduationCap, BarChart2, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut } from 'lucide-react';
 import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from './data/initialData';
 import { MemoryState, Question, ConfidenceLevel, Attempt } from './types';
 import {
@@ -247,6 +247,12 @@ export default function App() {
     setActiveConceptId(null);
   };
 
+  const handleLogout = async () => {
+    if (supabase) {
+      await supabase.auth.signOut();
+    }
+  };
+
   if (loadingAuth) {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center font-sans">
@@ -343,6 +349,13 @@ export default function App() {
                 Repasar ({pendingCount})
               </button>
             )}
+            <button
+              onClick={handleLogout}
+              className="px-2.5 py-1.5 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg text-xs font-semibold transition flex items-center gap-1"
+              title="Cerrar sesión"
+            >
+              <LogOut className="w-4 h-4" />
+            </button>
           </div>
         </div>
       </header>
