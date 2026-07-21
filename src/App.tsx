@@ -25,6 +25,8 @@ import TrainScreen from './components/TrainScreen';
 import ErrorPanel from './components/ErrorPanel';
 import ForgettingCurve from './components/ForgettingCurve';
 import MockExam from './components/MockExam';
+import Login from './components/Login';
+import { supabase } from './lib/supabase';
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
@@ -35,6 +37,11 @@ export default function App() {
   const [attempts, setAttempts] = useState<Attempt[]>([]);
   const [activeConceptId, setActiveConceptId] = useState<string | null>(null);
   
+  // Supabase Auth and Data state
+  const [session, setSession] = useState<any>(null);
+  const [dbQuestions, setDbQuestions] = useState<Question[]>(INITIAL_QUESTIONS);
+  const [loadingAuth, setLoadingAuth] = useState(true);
+  
   // Current active train question and its selection reason
   const [activeQuestion, setActiveQuestion] = useState<Question | null>(null);
   const [activeReason, setActiveReason] = useState<string>('');
@@ -44,7 +51,35 @@ export default function App() {
     const states = getMemoryStates();
     setMemoryStates(states);
     setAttempts(getAttempts());
+
+    if (!supabase) {
+      setLoadingAuth(false);
+      return;
+    }
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      setLoadingAuth(false);
+      if (session) fetchQuestions();
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+      if (session) fetchQuestions();
+    });
+
+    return () => subscription.unsubscribe();
   }, []);
+
+  const fetchQuestions = async () => {
+    if (!supabase) return;
+    const { data, error } = await supabase.rpc('get_preparer_session_questions', { p_limit: 100 });
+    if (!error && data && data.length > 0) {
+      setDbQuestions(data);
+    }
+  };
 
   // Sync and recalculate pending reviews count
   const getPendingReviewsCount = () => {
@@ -79,8 +114,8 @@ export default function App() {
   const prepareNextAdaptiveQuestion = (targetId: string | null, states: Record<string, MemoryState>) => {
     const now = getCurrentDate();
     const candidateQuestions = targetId
-      ? INITIAL_QUESTIONS.filter(q => q.microconcept_id === targetId)
-      : INITIAL_QUESTIONS;
+      ? dbQuestions.filter(q => q.microconcept_id === targetId)
+      : dbQuestions;
 
     const selected = getAdaptiveQuestion(candidateQuestions, states, now);
     if (selected) {
@@ -109,7 +144,7 @@ export default function App() {
     answerChanges: number
   ) => {
     const now = getCurrentDate();
-    const isCorrect = INITIAL_QUESTIONS.find(q => q.id === questionId)?.correct_answer === answer;
+    const isCorrect = dbQuestions.find(q => q.id === questionId)?.correct_answer === answer;
 
     // Load current memory state
     const currentStates = getMemoryStates();
@@ -211,6 +246,18 @@ export default function App() {
     setCurrentScreen('dashboard');
     setActiveConceptId(null);
   };
+
+  if (loadingAuth) {
+    return (
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center font-sans">
+        <div className="animate-spin w-8 h-8 border-4 border-indigo-200 border-t-indigo-600 rounded-full"></div>
+      </div>
+    );
+  }
+
+  if (!session && supabase) {
+    return <Login />;
+  }
 
   return (
     <div className="min-h-screen bg-slate-50/50 flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">

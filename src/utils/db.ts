@@ -4,6 +4,7 @@
  */
 
 import { Attempt, MemoryState, Microconcept, Question, MemoryStatus } from '../types';
+import { supabase } from '../lib/supabase';
 import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from '../data/initialData';
 import { calculateRetrievability } from './engine';
 
@@ -60,10 +61,27 @@ export function getAttempts(): Attempt[] {
 /**
  * Saves a new attempt.
  */
-export function saveAttempt(attempt: Attempt): void {
+export async function saveAttempt(attempt: Attempt): Promise<void> {
   const list = getAttempts();
   list.push(attempt);
   localStorage.setItem(ATTEMPTS_KEY, JSON.stringify(list));
+
+  if (supabase) {
+    const session = await supabase.auth.getSession();
+    const userId = session.data.session?.user?.id;
+    if (userId) {
+      await supabase.from('attempts').insert({
+        user_id: userId,
+        question_id: attempt.question_id,
+        microconcept_id: attempt.microconcept_id,
+        answer_user: attempt.answer_user,
+        correct: attempt.correct,
+        confidence: attempt.confidence,
+        response_time_seconds: attempt.response_time_seconds,
+        created_at: attempt.created_at || new Date().toISOString()
+      });
+    }
+  }
 }
 
 /**
