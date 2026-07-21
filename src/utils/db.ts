@@ -71,14 +71,14 @@ export async function saveAttempt(attempt: Attempt): Promise<void> {
     const userId = session.data.session?.user?.id;
     if (userId) {
       await supabase.from('attempts').insert({
-        user_id: userId,
-        question_id: attempt.question_id,
-        microconcept_id: attempt.microconcept_id,
-        answer_user: attempt.answer_user,
-        correct: attempt.correct,
-        confidence: attempt.confidence,
-        response_time_seconds: attempt.response_time_seconds,
-        created_at: attempt.created_at || new Date().toISOString()
+        id_usuario: userId,
+        id_pregunta: attempt.question_id,
+        id_microconcepto: attempt.microconcept_id,
+        respuesta_usuario: attempt.answer_user,
+        es_correcto: attempt.correct,
+        nivel_confianza: attempt.confidence,
+        tiempo_respuesta_s: attempt.response_time_seconds,
+        creado_en: attempt.created_at || new Date().toISOString()
       });
     }
   }
@@ -136,10 +136,30 @@ export function getMemoryStates(): Record<string, MemoryState> {
 /**
  * Saves a specific microconcept's memory state.
  */
-export function saveMemoryState(state: MemoryState): void {
+export async function saveMemoryState(state: MemoryState): Promise<void> {
   const states = getMemoryStates();
   states[state.microconcept_id] = state;
   localStorage.setItem(MEMORY_STATES_KEY, JSON.stringify(states));
+
+  if (supabase) {
+    const session = await supabase.auth.getSession();
+    const userId = session.data.session?.user?.id;
+    if (userId) {
+      await supabase.from('user_question_state').upsert({
+        id_usuario: userId,
+        id_microconcepto: state.microconcept_id,
+        dominio_real: state.mastery_score,
+        estabilidad_memoria: state.memory_stability,
+        recuperabilidad: state.retrievability,
+        estado_memoria: state.status,
+        ultimo_repaso: state.last_review,
+        proximo_repaso: state.next_review,
+        aciertos_consecutivos: state.consecutive_correct,
+        errores_recientes: state.recent_errors_count,
+        etiqueta_error: state.error_tag || null
+      }, { onConflict: 'id_usuario, id_microconcepto' });
+    }
+  }
 }
 
 /**
