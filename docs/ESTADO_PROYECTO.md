@@ -37,16 +37,20 @@ Todos fusionados a `main`, en este orden:
 
 ## Estado de despliegue
 
-No hay despliegue en producción todavía. El proyecto sigue en fase de desarrollo local/repositorio: no se ha configurado hosting, dominio, ni pipeline de CI/CD más allá del workflow de code review automático (`auto-codex-review.yml`). Supabase está autorizado por OAuth en la cuenta de GitHub del usuario pero la integración de código (`src/lib/supabase.ts`, `src/hooks/useDatabase.ts`) se está construyendo en una conversación separada de Antigravity, en curso al cierre de esta sesión — no confirmada como fusionada a `main` todavía.
+No hay despliegue en producción todavía. El proyecto sigue en fase de desarrollo local/repositorio. Supabase está autorizado por OAuth y **la integración de código ya fue completada por Antigravity** en la rama `feature/supabase-auth`. Esta rama incluye:
+- Autenticación con Magic Link (OTP).
+- Manejo de sesión persistente.
+- Upsert de `attempts` y `user_question_state` en segundo plano.
+- Traducción del esquema de datos al castellano para coincidir con la BD de producción.
 
 ## Pendiente / siguientes pasos
 
-- Codex: PR de limpieza de dependencias (decisión 6) y de copy UX (decisión 7) — ya tiene luz verde, puede abrirlos directamente.
-- Antigravity: ampliar `types.ts` con el esquema de la decisión 2, una vez esté fusionado el PR de esquema de Supabase que ya tiene en curso.
-- Pendiente de decidir/ejecutar: integración real de Supabase a `main` (revisar que no choque con nada de lo fusionado en esta sesión — se confirmó que ninguno de los PRs #3/#5/#6/#7/#8 toca `src/lib/` ni `src/hooks/`, así que no hay riesgo de conflicto).
+- **Usuario (Admin)**: Revisar y aprobar/fusionar la Pull Request de la rama `feature/supabase-auth` hacia `main`.
+- **Codex**: PR de limpieza de dependencias (decisión 6) y de copy UX (decisión 7) — ya tiene luz verde, puede abrirlos directamente.
+- **Codex**: Implementar el contador de `answer_changes` en `TrainScreen` y añadirlo a la interfaz `Attempt` (Decisión D-2026-07-18-01).
 - Pendiente: conseguir los documentos internos del CPEI (ITF, protocolos, procedimientos) para poder generar preguntas de los temas 38-40.
 - Pendiente: crédito/presupuesto para generación de banco de preguntas con IA (Gemini 2.5 Flash u otro modelo) — el usuario preguntó por esto, ver conversación para detalle de costes.
 
 ## Nota sobre continuidad
 
-A partir de este punto, el trabajo de ingeniería sobre este repositorio continúa en Claude Code, no en otra sesión de Cowork. Esta sesión de Cowork se da por cerrada tras este commit.
+A partir de este punto, el bloque de infraestructura y contrato de datos de Antigravity queda 100% completado. El relevo de ingeniería frontend regresa a Codex o al humano a cargo para las limpiezas de UX y dependencias.
