@@ -240,6 +240,7 @@ export default function Dashboard({
               id="sim-btn-reset"
               onClick={() => onSimulateDays(-simOffset)}
               title="Restablecer reloj al tiempo actual"
+              aria-label="Restablecer reloj al tiempo actual"
               className="p-1 text-xs font-medium bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 rounded-md border border-rose-500/20 transition ml-1"
             >
               <RotateCcw className="w-4 h-4" />
@@ -263,7 +264,14 @@ export default function Dashboard({
             <span className="text-sm font-semibold text-slate-400">/ 100%</span>
           </div>
           <div className="space-y-2">
-            <div className="w-full bg-slate-200/60 rounded-full h-2.5 overflow-hidden">
+            <div
+              className="w-full bg-slate-200/60 rounded-full h-2.5 overflow-hidden"
+              role="progressbar"
+              aria-label="Dominio real global"
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={globalMastery}
+            >
               <div
                 className={`h-full rounded-full transition-all duration-500 ${
                   globalMastery >= 80 ? 'bg-emerald-500' : globalMastery < 40 ? 'bg-rose-500' : 'bg-amber-500'
@@ -366,7 +374,14 @@ export default function Dashboard({
               <span>Progreso diario:</span>
               <span className="font-bold">{dailyProgressPercent}%</span>
             </div>
-            <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
+            <div
+              className="w-full bg-slate-100 rounded-full h-2 overflow-hidden"
+              role="progressbar"
+              aria-label="Progreso diario"
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={dailyProgressPercent}
+            >
               <div
                 className="h-full bg-indigo-600 rounded-full transition-all duration-300"
                 style={{ width: `${dailyProgressPercent}%` }}
@@ -555,6 +570,7 @@ export default function Dashboard({
             }}
             className="p-2 text-slate-400 hover:text-rose-500 bg-white hover:bg-rose-50 border border-slate-200 hover:border-rose-100 rounded-xl transition"
             title="Restablecer todo el progreso"
+            aria-label="Restablecer todo el progreso"
           >
             <RotateCcw className="w-4 h-4" />
           </button>
