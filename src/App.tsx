@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Brain, GraduationCap, BarChart2, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw } from 'lucide-react';
+import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut } from 'lucide-react';
 import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from './data/initialData';
 import { MemoryState, Question, ConfidenceLevel, Attempt } from './types';
 import {
@@ -20,20 +20,29 @@ import {
 import { getAdaptiveQuestion, processAttempt } from './utils/engine';
 
 import Dashboard from './components/Dashboard';
-import StudyArticle from './components/StudyArticle';
+import TodayTraining from './components/TodayTraining';
 import TrainScreen from './components/TrainScreen';
 import ErrorPanel from './components/ErrorPanel';
 import ForgettingCurve from './components/ForgettingCurve';
 import MockExam from './components/MockExam';
+import Login from './components/Login';
+import { supabase } from './lib/supabase';
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
-    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'study_article'
+    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training'
   >('dashboard');
 
   const [memoryStates, setMemoryStates] = useState<Record<string, MemoryState>>({});
   const [attempts, setAttempts] = useState<Attempt[]>([]);
   const [activeConceptId, setActiveConceptId] = useState<string | null>(null);
+  
+  // Supabase Auth and Data state
+  const [session, setSession] = useState<any>(null);
+  const [dbQuestions, setDbQuestions] = useState<Question[]>(INITIAL_QUESTIONS);
+  const [dbQuestionsLoading, setDbQuestionsLoading] = useState(false);
+  const [dbQuestionsError, setDbQuestionsError] = useState<string | null>(null);
+  const [loadingAuth, setLoadingAuth] = useState(true);
   
   // Current active train question and its selection reason
   const [activeQuestion, setActiveQuestion] = useState<Question | null>(null);
@@ -44,7 +53,48 @@ export default function App() {
     const states = getMemoryStates();
     setMemoryStates(states);
     setAttempts(getAttempts());
+
+    if (!supabase) {
+      setLoadingAuth(false);
+      return;
+    }
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+      setLoadingAuth(false);
+      if (session) fetchQuestions();
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+      if (session) fetchQuestions();
+    });
+
+    return () => subscription.unsubscribe();
   }, []);
+
+  const fetchQuestions = async () => {
+    if (!supabase) return;
+    setDbQuestionsLoading(true);
+    setDbQuestionsError(null);
+    try {
+      const { data, error } = await supabase.rpc('get_preparer_session_questions', { p_limit: 100 });
+      if (error) throw error;
+      if (data) {
+        setDbQuestions(data);
+      } else {
+        setDbQuestions([]);
+      }
+    } catch (err: any) {
+      console.error("Error fetching questions:", err);
+      setDbQuestionsError(err.message || 'Error de conexión o sesión expirada.');
+      setDbQuestions([]);
+    } finally {
+      setDbQuestionsLoading(false);
+    }
+  };
 
   // Sync and recalculate pending reviews count
   const getPendingReviewsCount = () => {
@@ -60,7 +110,7 @@ export default function App() {
 
   // Handle switching screens
   const handleNavigate = (
-    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'study_article'
+    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training'
   ) => {
     setCurrentScreen(screen);
     
@@ -79,8 +129,8 @@ export default function App() {
   const prepareNextAdaptiveQuestion = (targetId: string | null, states: Record<string, MemoryState>) => {
     const now = getCurrentDate();
     const candidateQuestions = targetId
-      ? INITIAL_QUESTIONS.filter(q => q.microconcept_id === targetId)
-      : INITIAL_QUESTIONS;
+      ? dbQuestions.filter(q => q.microconcept_id === targetId)
+      : dbQuestions;
 
     const selected = getAdaptiveQuestion(candidateQuestions, states, now);
     if (selected) {
@@ -109,7 +159,7 @@ export default function App() {
     answerChanges: number
   ) => {
     const now = getCurrentDate();
-    const isCorrect = INITIAL_QUESTIONS.find(q => q.id === questionId)?.correct_answer === answer;
+    const isCorrect = dbQuestions.find(q => q.id === questionId)?.correct_answer === answer;
 
     // Load current memory state
     const currentStates = getMemoryStates();
@@ -212,6 +262,24 @@ export default function App() {
     setActiveConceptId(null);
   };
 
+  const handleLogout = async () => {
+    if (supabase) {
+      await supabase.auth.signOut();
+    }
+  };
+
+  if (loadingAuth) {
+    return (
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center font-sans">
+        <div className="animate-spin w-8 h-8 border-4 border-indigo-200 border-t-indigo-600 rounded-full"></div>
+      </div>
+    );
+  }
+
+  if (!session && supabase) {
+    return <Login />;
+  }
+
   return (
     <div className="min-h-screen bg-slate-50/50 flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
       {/* Top Main Navigation Bar */}
@@ -246,13 +314,13 @@ export default function App() {
             </button>
             <button
               id="nav-btn-study"
-              onClick={() => handleNavigate('study_article')}
+              onClick={() => handleNavigate('today_training')}
               className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'study_article' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
+                currentScreen === 'today_training' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
               }`}
             >
-              <BookOpen className="w-4 h-4" />
-              Temario
+              <Target className="w-4 h-4" />
+              Entrenamiento de Hoy
             </button>
             <button
               id="nav-btn-errors"
@@ -296,6 +364,13 @@ export default function App() {
                 Repasar ({pendingCount})
               </button>
             )}
+            <button
+              onClick={handleLogout}
+              className="px-2.5 py-1.5 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg text-xs font-semibold transition flex items-center gap-1"
+              title="Cerrar sesión"
+            >
+              <LogOut className="w-4 h-4" />
+            </button>
           </div>
         </div>
       </header>
@@ -314,12 +389,13 @@ export default function App() {
           />
         )}
 
-        {currentScreen === 'study_article' && (
-          <StudyArticle
-            microconcepts={INITIAL_MICROCONCEPTS}
-            memoryStates={memoryStates}
-            onTrainConcept={handleTrainSpecificConcept}
-            onQuickVerify={handleQuickVerify}
+        {currentScreen === 'today_training' && (
+          <TodayTraining
+            questions={dbQuestions}
+            isLoading={dbQuestionsLoading}
+            error={dbQuestionsError}
+            onStartTraining={() => handleNavigate('train')}
+            onNavigateHome={() => handleNavigate('dashboard')}
           />
         )}
 
