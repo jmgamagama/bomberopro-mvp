@@ -187,9 +187,9 @@ export default function StudyArticle({
                     </button>
                   </div>
                   
-                  <p className="text-xs font-semibold text-slate-800">{quickQuestion.question}</p>
+                  <p id={`quick-question-${mc.id}`} className="text-xs font-semibold text-slate-800">{quickQuestion.question}</p>
                   
-                  <div className="space-y-1.5">
+                  <div className="space-y-1.5" role="group" aria-labelledby={`quick-question-${mc.id}`}>
                     {quickQuestion.options?.map((opt, oIdx) => {
                       const isCorrectOpt = opt === quickQuestion.correct_answer;
                       const isSelected = opt === selectedAnswer;
@@ -209,6 +209,7 @@ export default function StudyArticle({
                           id={`opt-btn-${mc.id}-${oIdx}`}
                           disabled={hasChecked}
                           onClick={() => setSelectedAnswer(opt)}
+                          aria-pressed={isSelected}
                           className={`w-full text-left p-2.5 text-xs rounded-lg border transition flex items-center justify-between ${optionStyle}`}
                         >
                           <span>{opt}</span>
@@ -233,7 +234,7 @@ export default function StudyArticle({
                       Verificar respuesta
                     </button>
                   ) : (
-                    <div className="p-3 bg-white rounded-lg border border-slate-100 text-xs text-slate-600 space-y-1">
+                    <div className="p-3 bg-white rounded-lg border border-slate-100 text-xs text-slate-600 space-y-1" role="status" aria-live="polite">
                       <p className="font-bold text-slate-800">
                         {selectedAnswer === quickQuestion.correct_answer ? '🎉 ¡Correcto!' : '❌ Incorrecto'}
                       </p>
