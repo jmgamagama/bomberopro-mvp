@@ -40,6 +40,8 @@ export default function App() {
   // Supabase Auth and Data state
   const [session, setSession] = useState<any>(null);
   const [dbQuestions, setDbQuestions] = useState<Question[]>(INITIAL_QUESTIONS);
+  const [dbQuestionsLoading, setDbQuestionsLoading] = useState(false);
+  const [dbQuestionsError, setDbQuestionsError] = useState<string | null>(null);
   const [loadingAuth, setLoadingAuth] = useState(true);
   
   // Current active train question and its selection reason
@@ -75,9 +77,22 @@ export default function App() {
 
   const fetchQuestions = async () => {
     if (!supabase) return;
-    const { data, error } = await supabase.rpc('get_preparer_session_questions', { p_limit: 100 });
-    if (!error && data && data.length > 0) {
-      setDbQuestions(data);
+    setDbQuestionsLoading(true);
+    setDbQuestionsError(null);
+    try {
+      const { data, error } = await supabase.rpc('get_preparer_session_questions', { p_limit: 100 });
+      if (error) throw error;
+      if (data) {
+        setDbQuestions(data);
+      } else {
+        setDbQuestions([]);
+      }
+    } catch (err: any) {
+      console.error("Error fetching questions:", err);
+      setDbQuestionsError(err.message || 'Error de conexión o sesión expirada.');
+      setDbQuestions([]);
+    } finally {
+      setDbQuestionsLoading(false);
     }
   };
 
@@ -377,6 +392,8 @@ export default function App() {
         {currentScreen === 'today_training' && (
           <TodayTraining
             questions={dbQuestions}
+            isLoading={dbQuestionsLoading}
+            error={dbQuestionsError}
             onStartTraining={() => handleNavigate('train')}
             onNavigateHome={() => handleNavigate('dashboard')}
           />

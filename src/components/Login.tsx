@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import { Mail, Loader2 } from 'lucide-react';
 
@@ -6,6 +6,24 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
+
+  useEffect(() => {
+    // Check for errors in the URL hash (e.g. expired magic link)
+    const hash = window.location.hash;
+    if (hash && hash.includes('error=')) {
+      const params = new URLSearchParams(hash.substring(1));
+      const errorDesc = params.get('error_description');
+      if (errorDesc) {
+        let text = 'Ocurrió un error con el enlace mágico.';
+        if (errorDesc.toLowerCase().includes('expired')) {
+          text = 'El enlace mágico ha expirado o ya fue utilizado. Por favor, solicita uno nuevo.';
+        }
+        setMessage({ type: 'error', text });
+        // Clear the URL hash
+        window.history.replaceState(null, '', window.location.pathname);
+      }
+    }
+  }, []);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,7 +38,15 @@ export default function Login() {
     });
 
     if (error) {
-      setMessage({ type: 'error', text: error.message });
+      let errorMessage = 'Ocurrió un error al enviar el enlace.';
+      if (error.status === 429) {
+        errorMessage = 'Has solicitado demasiados enlaces. Por favor, espera un momento antes de volver a intentarlo.';
+      } else if (error.message.toLowerCase().includes('email')) {
+        errorMessage = 'El correo electrónico proporcionado no es válido.';
+      } else {
+        errorMessage = `Error: ${error.message}`;
+      }
+      setMessage({ type: 'error', text: errorMessage });
     } else {
       setMessage({ type: 'success', text: '¡Revisa tu correo para el enlace mágico!' });
     }
