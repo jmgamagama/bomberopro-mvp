@@ -127,10 +127,11 @@ export default function ForgettingCurve({
           </div>
 
           {/* Preset selector */}
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1" role="group" aria-label="Estabilidad de referencia">
             <span className="text-[10px] text-slate-400 font-mono mr-1.5">Referencia (S):</span>
             <button
               onClick={() => setSelectedStability(1.0)}
+              aria-pressed={selectedStability === 1.0}
               className={`px-2 py-1 text-[10px] font-bold rounded font-mono border ${
                 selectedStability === 1.0 ? 'bg-rose-50 border-rose-200 text-rose-700' : 'bg-slate-50 border-slate-200 text-slate-500 hover:bg-slate-100'
               }`}
@@ -139,6 +140,7 @@ export default function ForgettingCurve({
             </button>
             <button
               onClick={() => setSelectedStability(7.0)}
+              aria-pressed={selectedStability === 7.0}
               className={`px-2 py-1 text-[10px] font-bold rounded font-mono border ${
                 selectedStability === 7.0 ? 'bg-indigo-50 border-indigo-200 text-indigo-700' : 'bg-slate-50 border-slate-200 text-slate-500 hover:bg-slate-100'
               }`}
@@ -147,6 +149,7 @@ export default function ForgettingCurve({
             </button>
             <button
               onClick={() => setSelectedStability(15.0)}
+              aria-pressed={selectedStability === 15.0}
               className={`px-2 py-1 text-[10px] font-bold rounded font-mono border ${
                 selectedStability === 15.0 ? 'bg-emerald-50 border-emerald-200 text-emerald-700' : 'bg-slate-50 border-slate-200 text-slate-500 hover:bg-slate-100'
               }`}
@@ -158,7 +161,16 @@ export default function ForgettingCurve({
 
         {/* SVG Drawing Canvas */}
         <div className="relative w-full overflow-x-auto" id="ebbinghaus-svg-viewport">
-          <svg viewBox="0 0 500 180" className="w-full min-w-[480px] h-auto overflow-visible select-none">
+          <svg
+            viewBox="0 0 500 180"
+            className="w-full min-w-[480px] h-auto overflow-visible select-none"
+            role="group"
+            aria-labelledby="forgetting-curve-title forgetting-curve-description"
+          >
+            <title id="forgetting-curve-title">Curva de retención de los microconceptos</title>
+            <desc id="forgetting-curve-description">
+              Recuperabilidad estimada durante treinta días. Cada nodo permite abrir el detalle de un microconcepto.
+            </desc>
             {/* Grid Lines (Y-Axis) */}
             {[0.25, 0.5, 0.75, 1.0].map((v, i) => {
               const gy = 150 - v * 125;
@@ -214,7 +226,21 @@ export default function ForgettingCurve({
               else if (pt.rPct < 75) nodeColor = '#f59e0b'; // amber
 
               return (
-                <g key={pt.id} className="cursor-pointer group">
+                <g
+                  key={pt.id}
+                  className="cursor-pointer group"
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`${pt.id}: recuperabilidad ${pt.rPct}%`}
+                  aria-pressed={isSelected}
+                  onClick={() => setSelectedPointId(pt.id === selectedPointId ? null : pt.id)}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      setSelectedPointId(pt.id === selectedPointId ? null : pt.id);
+                    }
+                  }}
+                >
                   {/* Outer halo transition */}
                   <circle
                     cx={pt.cx}
@@ -231,7 +257,6 @@ export default function ForgettingCurve({
                     fill={nodeColor}
                     stroke="#ffffff"
                     strokeWidth="1.5"
-                    onClick={() => setSelectedPointId(pt.id === selectedPointId ? null : pt.id)}
                     className="transition-all duration-300"
                   />
                   {/* ID label above node */}
