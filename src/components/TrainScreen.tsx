@@ -6,6 +6,7 @@
 import React, { useState, useEffect } from 'react';
 import { Brain, Sparkles, ChevronRight, CheckCircle2, XCircle, AlertTriangle, HelpCircle, RefreshCw, ArrowLeft, Clock } from 'lucide-react';
 import { Question, ConfidenceLevel, MemoryState, Microconcept } from '../types';
+import { countAnswerChange } from '../utils/attempt';
 
 interface TrainScreenProps {
   question: Question | null;
@@ -17,7 +18,8 @@ interface TrainScreenProps {
     microconceptId: string,
     answer: string,
     confidence: ConfidenceLevel,
-    responseTime: number
+    responseTime: number,
+    answerChanges: number
   ) => {
     feedbackTitle: string;
     feedbackMessage: string;
@@ -43,6 +45,7 @@ export default function TrainScreen({
   const [isAnswered, setIsAnswered] = useState(false);
   const [startTime, setStartTime] = useState<number>(0);
   const [timeTaken, setTimeTaken] = useState<number>(0);
+  const [answerChanges, setAnswerChanges] = useState(0);
 
   // Feedback states
   const [feedback, setFeedback] = useState<{
@@ -58,6 +61,7 @@ export default function TrainScreen({
     setSelectedConfidence(null);
     setSelectedAnswer(null);
     setIsAnswered(false);
+    setAnswerChanges(0);
     setFeedback(null);
   }, [question?.id]);
 
@@ -97,7 +101,8 @@ export default function TrainScreen({
       question.microconcept_id,
       selectedAnswer,
       selectedConfidence,
-      elapsed
+      elapsed,
+      answerChanges
     );
 
     setFeedback({
@@ -207,7 +212,10 @@ export default function TrainScreen({
                     key={idx}
                     id={`train-option-${idx}`}
                     disabled={isAnswered}
-                    onClick={() => setSelectedAnswer(option)}
+                    onClick={() => {
+                      setAnswerChanges(current => current + countAnswerChange(selectedAnswer, option));
+                      setSelectedAnswer(option);
+                    }}
                     className={`w-full text-left p-4 text-xs rounded-xl border transition flex items-center justify-between leading-normal ${optionStyle}`}
                   >
                     <span>{option}</span>
