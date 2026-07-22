@@ -183,7 +183,7 @@ export default function MockExam({
 
       {/* BEFORE START SCREEN */}
       {!examStarted && (
-        <div className="max-w-2xl mx-auto p-8 bg-white border border-slate-100 rounded-3xl shadow-sm text-center space-y-6" id="exam-intro-card">
+        <div className="max-w-2xl mx-auto p-5 sm:p-8 bg-white border border-slate-100 rounded-2xl sm:rounded-3xl shadow-sm text-center space-y-6" id="exam-intro-card">
           <div className="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center mx-auto shadow-inner">
             <HelpCircle className="w-8 h-8 animate-pulse" />
           </div>
@@ -224,7 +224,7 @@ export default function MockExam({
       {examStarted && !examFinished && questions.length > 0 && (
         <div className="max-w-3xl mx-auto space-y-4" id="active-exam-container">
           {/* Progress bar and counter */}
-          <div className="flex items-center justify-between text-xs text-slate-500 font-mono">
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between text-xs text-slate-500 font-mono">
             <span>Pregunta {currentIdx + 1} de {questions.length}</span>
             <span
               role="timer"
@@ -250,7 +250,7 @@ export default function MockExam({
           </div>
 
           {/* Question layout */}
-          <div className="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-6">
+          <div className="p-4 sm:p-6 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-6">
             <h3 id="mock-question-text" className="text-base font-bold text-slate-800 leading-snug">
               {questions[currentIdx].question}
             </h3>
@@ -265,7 +265,7 @@ export default function MockExam({
                     id={`mock-option-${idx}`}
                     onClick={() => handleSelectAnswer(option)}
                     aria-pressed={isSelected}
-                    className={`w-full text-left p-4 text-xs rounded-xl border transition flex items-center justify-between leading-normal ${
+                    className={`w-full text-left p-3 sm:p-4 text-xs rounded-xl border transition flex items-center justify-between leading-normal ${
                       isSelected
                         ? 'border-indigo-600 bg-indigo-50/50 text-indigo-800 font-semibold'
                         : 'border-slate-200 bg-white hover:bg-slate-50 text-slate-700'
@@ -283,7 +283,7 @@ export default function MockExam({
                 Nivel de seguridad/confianza en esta respuesta:
               </span>
               
-              <div className="grid grid-cols-3 gap-3" role="group" aria-labelledby="mock-confidence-label">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3" role="group" aria-labelledby="mock-confidence-label">
                 {['baja', 'media', 'alta'].map(lvl => {
                   const isSelected = confidences[questions[currentIdx].id] === lvl;
                   let selectedStyle = 'border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-600';
@@ -327,26 +327,26 @@ export default function MockExam({
       {examFinished && testResults && (
         <div className="max-w-3xl mx-auto space-y-6" id="exam-finished-container">
           {/* Congrats banner card */}
-          <div className="p-6 bg-slate-900 text-slate-100 rounded-3xl shadow-sm text-center space-y-4 border border-slate-800">
+          <div className="p-5 sm:p-6 bg-slate-900 text-slate-100 rounded-2xl sm:rounded-3xl shadow-sm text-center space-y-4 border border-slate-800">
             <Award className="w-12 h-12 text-amber-400 mx-auto animate-bounce" />
             <div>
               <h3 className="text-xl font-bold text-slate-100">¡Simulacro Completado!</h3>
               <p className="text-xs text-slate-400">Desglose de rendimiento cognitivo y plan de repaso recomendado</p>
             </div>
 
-            <div className="grid grid-cols-3 gap-3 max-w-md mx-auto pt-4 border-t border-slate-800">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-3 max-w-md mx-auto pt-4 border-t border-slate-800">
               <div>
                 <span className="block text-[10px] uppercase text-slate-500 font-mono">Nota</span>
-                <strong className="text-3xl font-extrabold text-indigo-400">{testResults.score}</strong>
+                <strong className="text-2xl sm:text-3xl font-extrabold text-indigo-400">{testResults.score}</strong>
                 <span className="text-xs text-slate-500"> / {testResults.maxScore}</span>
               </div>
               <div>
                 <span className="block text-[10px] uppercase text-slate-500 font-mono">Acierto</span>
-                <strong className="text-3xl font-extrabold text-indigo-400">{testResults.pct}%</strong>
+                <strong className="text-2xl sm:text-3xl font-extrabold text-indigo-400">{testResults.pct}%</strong>
               </div>
               <div>
                 <span className="block text-[10px] uppercase text-slate-500 font-mono">Tiempo medio</span>
-                <strong className="text-3xl font-extrabold text-indigo-400">{testResults.avgTime}s</strong>
+                <strong className="text-2xl sm:text-3xl font-extrabold text-indigo-400">{testResults.avgTime}s</strong>
               </div>
             </div>
           </div>
