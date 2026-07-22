@@ -78,6 +78,7 @@ export interface Attempt {
   correct: boolean;
   confidence: ConfidenceLevel;
   response_time_seconds: number;
+  answer_changes: number;
   created_at: string; // ISO string
 }
 
