@@ -7,6 +7,7 @@ import React, { useState, useEffect } from 'react';
 import { HelpCircle, Clock, CheckCircle2, XCircle, AlertTriangle, Play, RotateCcw, ArrowLeft, ArrowRight, Brain, Sparkles, Award } from 'lucide-react';
 import { Question, ConfidenceLevel, Microconcept } from '../types';
 import { INITIAL_QUESTIONS } from '../data/initialData';
+import { calculateExamScore, EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS } from '../utils/examScoring';
 
 interface MockExamProps {
   microconcepts: Microconcept[];
@@ -45,6 +46,7 @@ export default function MockExam({
   // Results cache for the local review screen
   const [testResults, setTestResults] = useState<{
     score: number;
+    maxScore: number;
     pct: number;
     avgTime: number;
     failedConcepts: string[];
@@ -111,7 +113,9 @@ export default function MockExam({
     });
 
     const correctCount = submissionResults.filter(r => r.correct).length;
-    const score = correctCount; // e.g. 8 out of 10
+    const incorrectCount = submissionResults.length - correctCount;
+    const score = calculateExamScore({ correct: correctCount, incorrect: incorrectCount });
+    const maxScore = questions.length * EXAM_CORRECT_POINTS;
     const pct = Math.round((correctCount / questions.length) * 100);
     const avgTime = Math.round(submissionResults.reduce((acc, r) => acc + r.responseTime, 0) / questions.length);
 
@@ -125,6 +129,7 @@ export default function MockExam({
 
     setTestResults({
       score,
+      maxScore,
       pct,
       avgTime,
       failedConcepts,
@@ -175,6 +180,7 @@ export default function MockExam({
               Reglas del Simulacro:
             </p>
             <ul className="list-disc list-inside space-y-1.5 pl-1 leading-normal">
+              <li>Fórmula oficial: <strong>+{EXAM_CORRECT_POINTS.toFixed(3)}</strong> por acierto y <strong>{EXAM_INCORRECT_POINTS.toFixed(3)}</strong> por error.</li>
               <li>Consta de <strong>10 preguntas de test literal y confusión</strong>.</li>
               <li>No se muestra explicación ni corrección inmediata.</li>
               <li>Debes marcar tu <strong>nivel de confianza</strong> en cada respuesta.</li>
@@ -294,7 +300,7 @@ export default function MockExam({
               <div>
                 <span className="block text-[10px] uppercase text-slate-500 font-mono">Nota</span>
                 <strong className="text-3xl font-extrabold text-indigo-400">{testResults.score}</strong>
-                <span className="text-xs text-slate-500"> / 10</span>
+                <span className="text-xs text-slate-500"> / {testResults.maxScore}</span>
               </div>
               <div>
                 <span className="block text-[10px] uppercase text-slate-500 font-mono">Acierto</span>

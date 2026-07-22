@@ -14,7 +14,7 @@
 - 50 preguntas + 5 de reserva = 55 preguntas por examen
 - 3 respuestas alternativas por pregunta, 1 sola correcta
 - Tiempo: 60 minutos
-- Puntuacion: acierto +0,200 puntos / fallo -0,100 puntos (hay penalizacion por fallo, replicar en el motor de MIRA si se usa este dato para puntuar simulacros de esta convocatoria)
+- Puntuacion: acierto +0,200 puntos / fallo -0,066 puntos / blanco 0 puntos (replicar en el motor de MIRA al puntuar simulacros de esta convocatoria)
 - El 30% de las preguntas de la Prueba 1 y de la Prueba 2 deben versar sobre los temas 35 a 40 del Anexo I
 
 ## Objetivo de cobertura del banco de preguntas (propuesta)
