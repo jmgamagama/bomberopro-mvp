@@ -105,7 +105,8 @@ export default function App() {
     microconceptId: string,
     answer: string,
     confidence: ConfidenceLevel,
-    responseTime: number
+    responseTime: number,
+    answerChanges: number
   ) => {
     const now = getCurrentDate();
     const isCorrect = INITIAL_QUESTIONS.find(q => q.id === questionId)?.correct_answer === answer;
@@ -129,6 +130,7 @@ export default function App() {
       correct: isCorrect,
       confidence,
       response_time_seconds: responseTime,
+      answer_changes: answerChanges,
       created_at: now.toISOString()
     };
     saveAttempt(newAttempt);
@@ -152,7 +154,7 @@ export default function App() {
 
   // Quick verification from Article Study screen
   const handleQuickVerify = (question: Question, answer: string, confidence: ConfidenceLevel) => {
-    handleAnswerSubmission(question.id, question.microconcept_id, answer, confidence, 8);
+    handleAnswerSubmission(question.id, question.microconcept_id, answer, confidence, 8, 0);
   };
 
   // Handles completion of an entire exam block
@@ -183,6 +185,7 @@ export default function App() {
         correct: res.correct,
         confidence: res.confidence,
         response_time_seconds: res.responseTime,
+        answer_changes: 0,
         created_at: now.toISOString()
       };
       saveAttempt(attemptRecord);
