@@ -226,11 +226,23 @@ export default function MockExam({
           {/* Progress bar and counter */}
           <div className="flex items-center justify-between text-xs text-slate-500 font-mono">
             <span>Pregunta {currentIdx + 1} de {questions.length}</span>
-            <span className={remainingTime <= 300 ? 'font-bold text-rose-600' : ''}>
+            <span
+              role="timer"
+              aria-live={remainingTime <= 300 ? 'polite' : 'off'}
+              aria-atomic="true"
+              className={remainingTime <= 300 ? 'font-bold text-rose-600' : ''}
+            >
               Tiempo restante: {formatExamTime(remainingTime)}
             </span>
           </div>
-          <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+          <div
+            className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden"
+            role="progressbar"
+            aria-label="Progreso del simulacro"
+            aria-valuemin={1}
+            aria-valuemax={questions.length}
+            aria-valuenow={currentIdx + 1}
+          >
             <div
               className="h-full bg-indigo-600 transition-all duration-300"
               style={{ width: `${((currentIdx + 1) / questions.length) * 100}%` }}
@@ -239,12 +251,12 @@ export default function MockExam({
 
           {/* Question layout */}
           <div className="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-6">
-            <h3 className="text-base font-bold text-slate-800 leading-snug">
+            <h3 id="mock-question-text" className="text-base font-bold text-slate-800 leading-snug">
               {questions[currentIdx].question}
             </h3>
 
             {/* Answer options */}
-            <div className="space-y-2.5">
+            <div className="space-y-2.5" role="group" aria-labelledby="mock-question-text">
               {questions[currentIdx].options?.map((option, idx) => {
                 const isSelected = answers[questions[currentIdx].id] === option;
                 return (
@@ -252,6 +264,7 @@ export default function MockExam({
                     key={idx}
                     id={`mock-option-${idx}`}
                     onClick={() => handleSelectAnswer(option)}
+                    aria-pressed={isSelected}
                     className={`w-full text-left p-4 text-xs rounded-xl border transition flex items-center justify-between leading-normal ${
                       isSelected
                         ? 'border-indigo-600 bg-indigo-50/50 text-indigo-800 font-semibold'
@@ -266,11 +279,11 @@ export default function MockExam({
 
             {/* Confidence Widget */}
             <div className="pt-4 border-t border-slate-100 space-y-3">
-              <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">
+              <span id="mock-confidence-label" className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">
                 Nivel de seguridad/confianza en esta respuesta:
               </span>
               
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-3" role="group" aria-labelledby="mock-confidence-label">
                 {['baja', 'media', 'alta'].map(lvl => {
                   const isSelected = confidences[questions[currentIdx].id] === lvl;
                   let selectedStyle = 'border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-600';
@@ -285,6 +298,8 @@ export default function MockExam({
                       key={lvl}
                       id={`mock-conf-btn-${lvl}`}
                       onClick={() => handleSelectConfidence(lvl as ConfidenceLevel)}
+                      aria-pressed={isSelected}
+                      aria-label={`Confianza ${lvl}`}
                       className={`p-3 text-xs font-semibold rounded-xl border transition text-center capitalize ${selectedStyle}`}
                     >
                       {lvl}
