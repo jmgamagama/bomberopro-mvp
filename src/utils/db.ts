@@ -49,7 +49,12 @@ export function resetTimeOffset(): void {
  */
 export function getAttempts(): Attempt[] {
   const val = localStorage.getItem(ATTEMPTS_KEY);
-  return val ? JSON.parse(val) : [];
+  if (!val) return [];
+
+  return (JSON.parse(val) as Attempt[]).map(attempt => ({
+    ...attempt,
+    answer_changes: attempt.answer_changes ?? 0,
+  }));
 }
 
 /**
