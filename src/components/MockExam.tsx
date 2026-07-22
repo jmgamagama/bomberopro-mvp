@@ -8,6 +8,7 @@ import { HelpCircle, Clock, CheckCircle2, XCircle, AlertTriangle, Play, RotateCc
 import { Question, ConfidenceLevel, Microconcept } from '../types';
 import { INITIAL_QUESTIONS } from '../data/initialData';
 import { calculateExamScore, EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS } from '../utils/examScoring';
+import { EXAM_DURATION_SECONDS, formatExamTime, getRemainingExamSeconds } from '../utils/examTimer';
 
 interface MockExamProps {
   microconcepts: Microconcept[];
@@ -42,6 +43,7 @@ export default function MockExam({
   const [startTime, setStartTime] = useState<number>(0);
   const [currentQuestionStart, setCurrentQuestionStart] = useState<number>(0);
   const [totalElapsedTime, setTotalElapsedTime] = useState(0);
+  const [remainingTime, setRemainingTime] = useState(EXAM_DURATION_SECONDS);
 
   // Results cache for the local review screen
   const [testResults, setTestResults] = useState<{
@@ -69,6 +71,7 @@ export default function MockExam({
     setTestResults(null);
     setStartTime(Date.now());
     setCurrentQuestionStart(Date.now());
+    setRemainingTime(EXAM_DURATION_SECONDS);
   };
 
   const handleSelectAnswer = (option: string) => {
@@ -106,6 +109,7 @@ export default function MockExam({
       return {
         questionId: q.id,
         microconceptId: q.microconcept_id,
+        answered: ans !== '',
         correct,
         confidence,
         responseTime: rTime
@@ -113,18 +117,18 @@ export default function MockExam({
     });
 
     const correctCount = submissionResults.filter(r => r.correct).length;
-    const incorrectCount = submissionResults.length - correctCount;
+    const incorrectCount = submissionResults.filter(r => r.answered && !r.correct).length;
     const score = calculateExamScore({ correct: correctCount, incorrect: incorrectCount });
     const maxScore = questions.length * EXAM_CORRECT_POINTS;
     const pct = Math.round((correctCount / questions.length) * 100);
     const avgTime = Math.round(submissionResults.reduce((acc, r) => acc + r.responseTime, 0) / questions.length);
 
     const failedConcepts = Array.from(new Set(
-      submissionResults.filter(r => !r.correct).map(r => r.microconceptId)
+      submissionResults.filter(r => r.answered && !r.correct).map(r => r.microconceptId)
     ));
 
     const falseDomains = Array.from(new Set(
-      submissionResults.filter(r => !r.correct && r.confidence === 'alta').map(r => r.microconceptId)
+      submissionResults.filter(r => r.answered && !r.correct && r.confidence === 'alta').map(r => r.microconceptId)
     ));
 
     setTestResults({
@@ -139,8 +143,25 @@ export default function MockExam({
     setExamFinished(true);
     
     // Save attempts in the primary database
-    onFinishExam(submissionResults);
+    onFinishExam(submissionResults.filter(r => r.answered));
   };
+
+  useEffect(() => {
+    if (!examStarted || examFinished || startTime === 0) return;
+
+    const tick = () => {
+      const remaining = getRemainingExamSeconds(startTime, Date.now());
+      setRemainingTime(remaining);
+
+      if (remaining === 0) {
+        finishAndEvaluate();
+      }
+    };
+
+    const timerId = window.setInterval(tick, 1_000);
+    tick();
+    return () => window.clearInterval(timerId);
+  }, [examStarted, examFinished, startTime, answers, confidences, responseTimes, questions, currentQuestionStart]);
 
   const getConceptText = (id: string) => {
     return microconcepts.find(mc => mc.id === id)?.text || id;
@@ -205,7 +226,9 @@ export default function MockExam({
           {/* Progress bar and counter */}
           <div className="flex items-center justify-between text-xs text-slate-500 font-mono">
             <span>Pregunta {currentIdx + 1} de {questions.length}</span>
-            <span>Simulacro Ciego en Curso</span>
+            <span className={remainingTime <= 300 ? 'font-bold text-rose-600' : ''}>
+              Tiempo restante: {formatExamTime(remainingTime)}
+            </span>
           </div>
           <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
             <div
