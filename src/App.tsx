@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { Brain, GraduationCap, BarChart2, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut } from 'lucide-react';
+import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut } from 'lucide-react';
 import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from './data/initialData';
 import { MemoryState, Question, ConfidenceLevel, Attempt } from './types';
 import {
@@ -20,7 +20,7 @@ import {
 import { getAdaptiveQuestion, processAttempt } from './utils/engine';
 
 import Dashboard from './components/Dashboard';
-import StudyArticle from './components/StudyArticle';
+import TodayTraining from './components/TodayTraining';
 import TrainScreen from './components/TrainScreen';
 import ErrorPanel from './components/ErrorPanel';
 import ForgettingCurve from './components/ForgettingCurve';
@@ -30,7 +30,7 @@ import { supabase } from './lib/supabase';
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
-    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'study_article'
+    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training'
   >('dashboard');
 
   const [memoryStates, setMemoryStates] = useState<Record<string, MemoryState>>({});
@@ -95,7 +95,7 @@ export default function App() {
 
   // Handle switching screens
   const handleNavigate = (
-    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'study_article'
+    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training'
   ) => {
     setCurrentScreen(screen);
     
@@ -299,13 +299,13 @@ export default function App() {
             </button>
             <button
               id="nav-btn-study"
-              onClick={() => handleNavigate('study_article')}
+              onClick={() => handleNavigate('today_training')}
               className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'study_article' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
+                currentScreen === 'today_training' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
               }`}
             >
-              <BookOpen className="w-4 h-4" />
-              Temario
+              <Target className="w-4 h-4" />
+              Entrenamiento de Hoy
             </button>
             <button
               id="nav-btn-errors"
@@ -374,12 +374,11 @@ export default function App() {
           />
         )}
 
-        {currentScreen === 'study_article' && (
-          <StudyArticle
-            microconcepts={INITIAL_MICROCONCEPTS}
-            memoryStates={memoryStates}
-            onTrainConcept={handleTrainSpecificConcept}
-            onQuickVerify={handleQuickVerify}
+        {currentScreen === 'today_training' && (
+          <TodayTraining
+            questions={dbQuestions}
+            onStartTraining={() => handleNavigate('train')}
+            onNavigateHome={() => handleNavigate('dashboard')}
           />
         )}
 

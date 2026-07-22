@@ -1,0 +1,20 @@
+[
+    {
+        "id": "078c6408-457c-472a-a061-8a83f3044210",
+        "pregunta": "¿Cual es un valor superior del ordenamiento juridico segun la Constitucion Española?",
+        "opciones": [
+            "La monarquia",
+            "El pluralismo politico",
+            "La solidaridad",
+            "La jerarquia"
+        ],
+        "respuesta_correcta": 1,
+        "explicacion": "El art 1.1 CE enumera libertad, justicia, igualdad y pluralismo politico.",
+        "tema": "Constitucion",
+        "dificultad": "facil",
+        "fuente": "SIMULACRO Noviembre.docx",
+        "version_convocatoria": "CPEI_BADAJOZ_2026",
+        "estado_qa": "borrador_ia",
+        "reportes": []
+    }
+]

@@ -13,7 +13,7 @@ interface DashboardProps {
   attempts: Attempt[];
   microconcepts: Microconcept[];
   pendingCount: number;
-  onNavigate: (screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'study_article') => void;
+  onNavigate: (screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training') => void;
   onReset: () => void;
   onSimulateDays: (days: number) => void;
 }
@@ -541,10 +541,10 @@ export default function Dashboard({
         <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
           <button
             id="btn-nav-study"
-            onClick={() => onNavigate('study_article')}
+            onClick={() => onNavigate('today_training')}
             className="w-full sm:w-auto px-4 py-2 text-xs font-semibold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-xl transition border border-indigo-100 text-center"
           >
-            Aprender Artículo 1
+            Entrenamiento de Hoy
           </button>
           <button
             id="btn-reset-all"
