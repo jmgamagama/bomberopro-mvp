@@ -154,7 +154,7 @@ export default function TrainScreen({
   return (
     <div className="space-y-6" id="train-container">
       {/* Train Header Navigation */}
-      <div className="flex items-center justify-between" id="train-header-row">
+      <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between" id="train-header-row">
         <button
           id="btn-back-to-dash"
           onClick={onNavigateHome}
@@ -174,9 +174,9 @@ export default function TrainScreen({
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6" id="train-split-layout">
         {/* Left main column: Question and interaction */}
         <div className="lg:col-span-2 space-y-6">
-          <div className="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-4">
+          <div className="p-4 sm:p-6 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-4">
             {/* Question metadata */}
-            <div className="flex items-center justify-between text-xs text-slate-400 font-mono">
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between text-xs text-slate-400 font-mono">
               <span>Nivel: {question.level} — {question.type.replace('_', ' ')}</span>
               {currentState && (
                 <span>Dominio previo: {currentState.mastery_score}%</span>
@@ -216,7 +216,7 @@ export default function TrainScreen({
                       setAnswerChanges(current => current + countAnswerChange(selectedAnswer, option));
                       setSelectedAnswer(option);
                     }}
-                    className={`w-full text-left p-4 text-xs rounded-xl border transition flex items-center justify-between leading-normal ${optionStyle}`}
+                    className={`w-full text-left p-3 sm:p-4 text-xs rounded-xl border transition flex items-center justify-between leading-normal ${optionStyle}`}
                   >
                     <span>{option}</span>
                     {isAnswered && isCorrect && <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0" />}
@@ -233,7 +233,7 @@ export default function TrainScreen({
                   1. Elige tu nivel de seguridad/confianza antes de responder:
                 </span>
                 
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
                   <button
                     id="conf-btn-baja"
                     onClick={() => setSelectedConfidence('baja')}
