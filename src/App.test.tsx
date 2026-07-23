@@ -41,6 +41,7 @@ describe('App navigation', () => {
       name: 'Dashboard',
     });
     expect(dashboard).toHaveAttribute('aria-current', 'page');
+    expect(document.title).toBe('Dashboard | BomberoPro');
 
     const todayTraining = within(navigation).getByRole('button', {
       name: 'Entrenamiento de Hoy',
@@ -49,9 +50,11 @@ describe('App navigation', () => {
 
     expect(todayTraining).toHaveAttribute('aria-current', 'page');
     expect(dashboard).not.toHaveAttribute('aria-current');
+    expect(document.title).toBe('Entrenamiento de hoy | BomberoPro');
 
     fireEvent.click(screen.getByRole('button', { name: 'Ir al dashboard' }));
 
     expect(dashboard).toHaveAttribute('aria-current', 'page');
+    expect(document.title).toBe('Dashboard | BomberoPro');
   });
 });
