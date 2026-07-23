@@ -285,13 +285,15 @@ export default function App() {
       {/* Top Main Navigation Bar */}
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm" id="mira-header">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-          <div
-            className="flex items-center gap-2.5 cursor-pointer"
+          <button
+            type="button"
+            aria-label="Ir al dashboard"
+            className="flex items-center gap-2.5 cursor-pointer text-left"
             onClick={() => handleNavigate('dashboard')}
             id="brand-logo"
           >
             <div className="p-2 bg-indigo-600 text-white rounded-xl shadow-md shadow-indigo-100">
-              <GraduationCap className="w-5 h-5" />
+              <GraduationCap className="w-5 h-5" aria-hidden="true" />
             </div>
             <div>
               <span className="text-base font-black tracking-tight text-slate-950 uppercase flex items-center gap-1.5">
@@ -299,57 +301,66 @@ export default function App() {
               </span>
               <p className="text-[10px] text-slate-400 font-medium tracking-wide">Aprendizaje Adaptativo de Oposición</p>
             </div>
-          </div>
+          </button>
 
-          <nav className="hidden md:flex items-center gap-1" id="mira-nav-items">
+          <nav
+            aria-label="Navegación principal"
+            className="hidden md:flex items-center gap-1"
+            id="mira-nav-items"
+          >
             <button
               id="nav-btn-dashboard"
               onClick={() => handleNavigate('dashboard')}
+              aria-current={currentScreen === 'dashboard' ? 'page' : undefined}
               className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
                 currentScreen === 'dashboard' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
               }`}
             >
-              <LayoutDashboard className="w-4 h-4" />
+              <LayoutDashboard className="w-4 h-4" aria-hidden="true" />
               Dashboard
             </button>
             <button
               id="nav-btn-study"
               onClick={() => handleNavigate('today_training')}
+              aria-current={currentScreen === 'today_training' ? 'page' : undefined}
               className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
                 currentScreen === 'today_training' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
               }`}
             >
-              <Target className="w-4 h-4" />
+              <Target className="w-4 h-4" aria-hidden="true" />
               Entrenamiento de Hoy
             </button>
             <button
               id="nav-btn-errors"
               onClick={() => handleNavigate('errors')}
+              aria-current={currentScreen === 'errors' ? 'page' : undefined}
               className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
                 currentScreen === 'errors' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
               }`}
             >
-              <AlertTriangle className="w-4 h-4" />
+              <AlertTriangle className="w-4 h-4" aria-hidden="true" />
               Errores Críticos
             </button>
             <button
               id="nav-btn-forgetting"
               onClick={() => handleNavigate('forgetting_curve')}
+              aria-current={currentScreen === 'forgetting_curve' ? 'page' : undefined}
               className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
                 currentScreen === 'forgetting_curve' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
               }`}
             >
-              <BarChart2 className="w-4 h-4" />
+              <BarChart2 className="w-4 h-4" aria-hidden="true" />
               Curva de Olvido
             </button>
             <button
               id="nav-btn-exam"
               onClick={() => handleNavigate('mock_exam')}
+              aria-current={currentScreen === 'mock_exam' ? 'page' : undefined}
               className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
                 currentScreen === 'mock_exam' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
               }`}
             >
-              <HelpCircle className="w-4 h-4" />
+              <HelpCircle className="w-4 h-4" aria-hidden="true" />
               Simulacro
             </button>
           </nav>
@@ -366,10 +377,11 @@ export default function App() {
             )}
             <button
               onClick={handleLogout}
+              aria-label="Cerrar sesión"
               className="px-2.5 py-1.5 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg text-xs font-semibold transition flex items-center gap-1"
               title="Cerrar sesión"
             >
-              <LogOut className="w-4 h-4" />
+              <LogOut className="w-4 h-4" aria-hidden="true" />
             </button>
           </div>
         </div>
@@ -452,3 +464,4 @@ export default function App() {
     </div>
   );
 }
+
