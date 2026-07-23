@@ -9,6 +9,7 @@ import MockExam from './MockExam';
 
 describe('MockExam', () => {
   it('permite iniciar, responder y avanzar una pregunta', async () => {
+    vi.spyOn(window, 'confirm').mockReturnValue(true);
     const user = userEvent.setup();
     const onNavigateHome = vi.fn();
     const { container } = render(
