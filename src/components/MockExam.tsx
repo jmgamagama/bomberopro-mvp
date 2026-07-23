@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { HelpCircle, Clock, CheckCircle2, XCircle, AlertTriangle, Play, RotateCcw, ArrowLeft, ArrowRight, Brain, Sparkles, Award } from 'lucide-react';
 import { Question, ConfidenceLevel, Microconcept } from '../types';
 import { INITIAL_QUESTIONS } from '../data/initialData';
@@ -45,6 +45,7 @@ export default function MockExam({
   const [totalElapsedTime, setTotalElapsedTime] = useState(0);
   const [remainingTime, setRemainingTime] = useState(EXAM_DURATION_SECONDS);
   const hasExamInProgress = examStarted && !examFinished;
+  const finishStartedRef = useRef(false);
 
   // Results cache for the local review screen
   const [testResults, setTestResults] = useState<{
@@ -67,6 +68,7 @@ export default function MockExam({
     setAnswers({});
     setConfidences({});
     setResponseTimes({});
+    finishStartedRef.current = false;
     setExamStarted(true);
     setExamFinished(false);
     setTestResults(null);
@@ -111,6 +113,9 @@ export default function MockExam({
   };
 
   const finishAndEvaluate = () => {
+    if (finishStartedRef.current) return;
+    finishStartedRef.current = true;
+
     // Evaluate results
     const submissionResults = questions.map(q => {
       const ans = answers[q.id] || '';
