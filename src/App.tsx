@@ -28,6 +28,15 @@ import MockExam from './components/MockExam';
 import Login from './components/Login';
 import { supabase } from './lib/supabase';
 
+const SCREEN_TITLES = {
+  dashboard: 'Dashboard',
+  train: 'Entrenamiento',
+  errors: 'Errores críticos',
+  forgetting_curve: 'Curva de olvido',
+  mock_exam: 'Simulacro',
+  today_training: 'Entrenamiento de hoy',
+} as const;
+
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
     'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training'
@@ -47,6 +56,10 @@ export default function App() {
   // Current active train question and its selection reason
   const [activeQuestion, setActiveQuestion] = useState<Question | null>(null);
   const [activeReason, setActiveReason] = useState<string>('');
+
+  useEffect(() => {
+    document.title = `${SCREEN_TITLES[currentScreen]} | BomberoPro`;
+  }, [currentScreen]);
 
   // Initial load
   useEffect(() => {
