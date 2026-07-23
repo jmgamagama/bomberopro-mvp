@@ -282,6 +282,13 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-50/50 flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-indigo-700 focus:shadow-lg"
+      >
+        Saltar al contenido principal
+      </a>
+
       {/* Top Main Navigation Bar */}
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm" id="mira-header">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
@@ -388,7 +395,11 @@ export default function App() {
       </header>
 
       {/* Main Container Content */}
-      <main className="flex-1 max-w-6xl w-full mx-auto px-4 py-8">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="flex-1 max-w-6xl w-full mx-auto px-4 py-8"
+      >
         {currentScreen === 'dashboard' && (
           <Dashboard
             memoryStates={memoryStates}
@@ -464,4 +475,3 @@ export default function App() {
     </div>
   );
 }
-
