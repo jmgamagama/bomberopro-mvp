@@ -46,6 +46,7 @@ export default function MockExam({
   const [remainingTime, setRemainingTime] = useState(EXAM_DURATION_SECONDS);
   const hasExamInProgress = examStarted && !examFinished;
   const finishStartedRef = useRef(false);
+  const resultsSummaryRef = useRef<HTMLDivElement>(null);
 
   // Results cache for the local review screen
   const [testResults, setTestResults] = useState<{
@@ -191,6 +192,10 @@ export default function MockExam({
     window.addEventListener('beforeunload', handleBeforeUnload);
     return () => window.removeEventListener('beforeunload', handleBeforeUnload);
   }, [hasExamInProgress]);
+
+  useEffect(() => {
+    if (examFinished && testResults) resultsSummaryRef.current?.focus();
+  }, [examFinished, testResults]);
 
   const getConceptText = (id: string) => {
     return microconcepts.find(mc => mc.id === id)?.text || id;
@@ -356,11 +361,23 @@ export default function MockExam({
       {examFinished && testResults && (
         <div className="max-w-3xl mx-auto space-y-6" id="exam-finished-container">
           {/* Congrats banner card */}
-          <div className="p-5 sm:p-6 bg-slate-900 text-slate-100 rounded-2xl sm:rounded-3xl shadow-sm text-center space-y-4 border border-slate-800">
-            <Award className="w-12 h-12 text-amber-400 mx-auto animate-bounce" />
+          <div
+            ref={resultsSummaryRef}
+            className="p-5 sm:p-6 bg-slate-900 text-slate-100 rounded-2xl sm:rounded-3xl shadow-sm text-center space-y-4 border border-slate-800"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+            aria-labelledby="mock-result-title"
+            aria-describedby="mock-result-summary"
+            tabIndex={-1}
+          >
+            <Award className="w-12 h-12 text-amber-400 mx-auto animate-bounce" aria-hidden="true" />
             <div>
-              <h3 className="text-xl font-bold text-slate-100">¡Simulacro Completado!</h3>
+              <h3 id="mock-result-title" className="text-xl font-bold text-slate-100">¡Simulacro Completado!</h3>
               <p className="text-xs text-slate-400">Desglose de rendimiento cognitivo y plan de repaso recomendado</p>
+              <p id="mock-result-summary" className="sr-only">
+                Nota {testResults.score} de {testResults.maxScore}. Acierto {testResults.pct} por ciento. Tiempo medio {testResults.avgTime} segundos.
+              </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-3 max-w-md mx-auto pt-4 border-t border-slate-800">
