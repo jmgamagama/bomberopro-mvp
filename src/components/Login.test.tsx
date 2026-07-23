@@ -29,6 +29,7 @@ describe('Login', () => {
       options: { emailRedirectTo: window.location.origin },
     });
     expect(await screen.findByText(/revisa tu correo/i)).toBeInTheDocument();
+    expect(screen.getByRole('status')).toHaveTextContent(/revisa tu correo/i);
   });
 
   it('mantiene el estado de carga mientras Supabase responde', async () => {
@@ -53,5 +54,22 @@ describe('Login', () => {
     await user.type(screen.getByRole('textbox', { name: /correo electrónico/i }), 'ana@example.com');
     await user.click(screen.getByRole('button', { name: /recibir enlace mágico/i }));
     expect(await screen.findByText(/demasiados enlaces/i)).toBeInTheDocument();
+  });
+
+  it('enfoca y relaciona el correo con los errores accesibles', async () => {
+    signInWithOtp.mockResolvedValue({ error: { status: 429, message: 'rate limit' } });
+    const user = userEvent.setup();
+    render(<Login />);
+
+    const emailInput = screen.getByRole('textbox', { name: /correo/i });
+    expect(emailInput).toHaveFocus();
+
+    await user.type(emailInput, 'ana@example.com');
+    await user.click(screen.getByRole('button', { name: /recibir enlace/i }));
+
+    expect(await screen.findByRole('alert')).toHaveTextContent(/demasiados enlaces/i);
+    expect(emailInput).toHaveAttribute('aria-invalid', 'true');
+    expect(emailInput).toHaveAttribute('aria-describedby', 'login-message');
+    expect(emailInput).toHaveFocus();
   });
 });
