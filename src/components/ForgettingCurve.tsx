@@ -233,6 +233,8 @@ export default function ForgettingCurve({
                   tabIndex={0}
                   aria-label={`${pt.id}: recuperabilidad ${pt.rPct}%`}
                   aria-pressed={isSelected}
+                  aria-expanded={isSelected}
+                  aria-controls={isSelected ? 'fc-audit-panel' : undefined}
                   onClick={() => setSelectedPointId(pt.id === selectedPointId ? null : pt.id)}
                   onKeyDown={(event) => {
                     if (event.key === 'Enter' || event.key === ' ') {
@@ -276,10 +278,16 @@ export default function ForgettingCurve({
 
         {/* Selected Interactive Node Audit Panel */}
         {activePoint ? (
-          <div className="p-4 bg-indigo-50/50 border border-indigo-100 rounded-xl space-y-3 animation-fade-in" id="fc-audit-panel">
+          <div
+            className="p-4 bg-indigo-50/50 border border-indigo-100 rounded-xl space-y-3 animation-fade-in"
+            id="fc-audit-panel"
+            role="region"
+            aria-live="polite"
+            aria-labelledby="fc-audit-title"
+          >
             <div className="flex items-center justify-between border-b border-indigo-200/40 pb-2">
               <div className="flex items-center gap-1.5">
-                <span className="text-xs font-mono font-bold bg-indigo-600 text-white px-2 py-0.5 rounded">
+                <span id="fc-audit-title" className="text-xs font-mono font-bold bg-indigo-600 text-white px-2 py-0.5 rounded">
                   {activePoint.id}
                 </span>
                 <span className="text-xs font-semibold text-indigo-800">Artículo {activePoint.article}</span>
@@ -287,6 +295,7 @@ export default function ForgettingCurve({
               <button
                 onClick={() => setSelectedPointId(null)}
                 className="text-[10px] font-mono text-indigo-600 hover:text-indigo-800 font-bold"
+                aria-label={`Cerrar detalle de ${activePoint.id}`}
               >
                 CERRAR AUDITORÍA
               </button>
