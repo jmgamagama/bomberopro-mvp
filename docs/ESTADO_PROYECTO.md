@@ -1,6 +1,6 @@
 # Estado del proyecto — BomberoPro / MIRA
 
-Última actualización: 2026-07-15, por Claude (Cowork), al cierre de esta sesión.
+Última actualización: 2026-07-23, por Codex.
 
 ## Repositorio
 
@@ -35,9 +35,17 @@ Todos fusionados a `main`, en este orden:
 7. Copy UX: quitar claims sin validar ("calibrado", "oficial" en simulacros no oficiales).
 8. Blueprint de simulacro: 55 preguntas (50+5 reserva), 30% de temas 35-40, sin repetición por sesión, RNG con semilla registrada.
 
+## Avances posteriores
+
+- **PR #26** — fusionó `feature/supabase-auth` en `main`: autenticación con Magic Link, persistencia de sesión, traducción del contrato de datos y escritura de intentos/estado de usuario.
+- **PR #27–#35** — ampliaron la cobertura automatizada de los flujos principales y reforzaron accesibilidad en entrenamiento, feedback, errores y curva del olvido.
+- **PR #37–#38** — completaron la auditoría accesible de resultados del simulacro y login.
+- La fórmula del simulacro ya usa los valores oficiales: `+0,200` por acierto y `-0,066` por error.
+- `answer_changes` ya se captura en `TrainScreen` y se propaga con cada intento.
+
 ## Estado de despliegue
 
-No hay despliegue en producción todavía. El proyecto sigue en fase de desarrollo local/repositorio. Supabase está autorizado por OAuth y **la integración de código ya fue completada por Antigravity** en la rama `feature/supabase-auth`. Esta rama incluye:
+No hay despliegue en producción todavía. El proyecto sigue en fase de desarrollo local/repositorio. La integración de Supabase se fusionó en `main` mediante el PR #26 e incluye:
 - Autenticación con Magic Link (OTP).
 - Manejo de sesión persistente.
 - Upsert de `attempts` y `user_question_state` en segundo plano.
@@ -45,12 +53,11 @@ No hay despliegue en producción todavía. El proyecto sigue en fase de desarrol
 
 ## Pendiente / siguientes pasos
 
-- **Usuario (Admin)**: Revisar y aprobar/fusionar la Pull Request de la rama `feature/supabase-auth` hacia `main`.
-- **Codex**: PR de limpieza de dependencias (decisión 6) y de copy UX (decisión 7) — ya tiene luz verde, puede abrirlos directamente.
-- **Codex**: Implementar el contador de `answer_changes` en `TrainScreen` y añadirlo a la interfaz `Attempt` (Decisión D-2026-07-18-01).
+- Revisar y fusionar los PR de accesibilidad, estados de carga/error, cobertura y navegación abiertos a partir de #39.
+- Mantener separados los cambios de frontend de la rama de entrenamiento adaptativo mientras siga en desarrollo paralelo.
+- Preparar el despliegue cuando la configuración de entorno y las comprobaciones previas a producción estén cerradas.
 - Pendiente: conseguir los documentos internos del CPEI (ITF, protocolos, procedimientos) para poder generar preguntas de los temas 38-40.
-- Pendiente: crédito/presupuesto para generación de banco de preguntas con IA (Gemini 2.5 Flash u otro modelo) — el usuario preguntó por esto, ver conversación para detalle de costes.
 
 ## Nota sobre continuidad
 
-A partir de este punto, el bloque de infraestructura y contrato de datos de Antigravity queda 100% completado. El relevo de ingeniería frontend regresa a Codex o al humano a cargo para las limpiezas de UX y dependencias.
+El contrato e integración base de Supabase ya están en `main`. Para evitar conflictos, los siguientes cambios de Codex deben mantenerse en frontend, accesibilidad, pruebas y tooling hasta que finalice el trabajo paralelo de entrenamiento adaptativo.
