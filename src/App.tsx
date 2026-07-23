@@ -301,6 +301,9 @@ export default function App() {
       >
         Saltar al contenido principal
       </a>
+      <p className="sr-only" role="status" aria-live="polite" aria-atomic="true">
+        Pantalla actual: {SCREEN_TITLES[currentScreen]}
+      </p>
 
       {/* Top Main Navigation Bar */}
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm" id="mira-header">
