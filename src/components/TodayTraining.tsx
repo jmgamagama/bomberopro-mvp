@@ -12,7 +12,7 @@ interface TodayTrainingProps {
 
 export default function TodayTraining({ questions, isLoading, error, onStartTraining, onNavigateHome }: TodayTrainingProps) {
   return (
-    <div className="space-y-6 max-w-4xl mx-auto mt-4 sm:mt-8" id="today-training-root">
+    <div className="space-y-6 max-w-4xl mx-auto mt-4 sm:mt-8" id="today-training-root" aria-busy={isLoading}>
       <div className="p-5 sm:p-8 bg-white border border-slate-100 rounded-2xl sm:rounded-3xl shadow-sm space-y-6 text-center">
         <div className="mx-auto w-16 h-16 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center shadow-inner">
           <Target className="w-8 h-8" />
@@ -26,17 +26,17 @@ export default function TodayTraining({ questions, isLoading, error, onStartTrai
         </div>
 
         {isLoading ? (
-          <div className="py-12 flex flex-col items-center justify-center space-y-4">
-            <div className="w-10 h-10 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+          <div className="py-12 flex flex-col items-center justify-center space-y-4" role="status" aria-live="polite">
+            <div className="w-10 h-10 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin" aria-hidden="true"></div>
             <p className="text-slate-500 font-semibold text-sm">Consultando al motor adaptativo...</p>
           </div>
         ) : error ? (
-          <div className="py-8 px-4 sm:px-6 bg-red-50 rounded-2xl border border-red-200 text-center space-y-3 max-w-sm mx-auto">
+          <div className="py-8 px-4 sm:px-6 bg-red-50 rounded-2xl border border-red-200 text-center space-y-3 max-w-sm mx-auto" role="alert">
             <p className="text-red-600 font-bold text-sm">No se pudo cargar la sesión</p>
             <p className="text-red-500 text-xs">{error}</p>
           </div>
         ) : questions.length === 0 ? (
-          <div className="py-8 px-4 sm:px-6 bg-emerald-50 rounded-2xl border border-emerald-200 text-center space-y-3 max-w-sm mx-auto">
+          <div className="py-8 px-4 sm:px-6 bg-emerald-50 rounded-2xl border border-emerald-200 text-center space-y-3 max-w-sm mx-auto" role="status">
             <p className="text-emerald-700 font-bold text-sm">¡Al día por ahora!</p>
             <p className="text-emerald-600 text-xs">No hay preguntas urgentes para repasar en este momento. Vuelve más tarde o revisa tu curva de olvido.</p>
           </div>
