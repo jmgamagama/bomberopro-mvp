@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { HelpCircle, Clock, CheckCircle2, XCircle, AlertTriangle, Play, RotateCcw, ArrowLeft, ArrowRight, Brain, Sparkles, Award } from 'lucide-react';
 import { Question, ConfidenceLevel, Microconcept } from '../types';
 import { INITIAL_QUESTIONS } from '../data/initialData';
@@ -44,6 +44,8 @@ export default function MockExam({
   const [currentQuestionStart, setCurrentQuestionStart] = useState<number>(0);
   const [totalElapsedTime, setTotalElapsedTime] = useState(0);
   const [remainingTime, setRemainingTime] = useState(EXAM_DURATION_SECONDS);
+  const hasExamInProgress = examStarted && !examFinished;
+  const finishStartedRef = useRef(false);
 
   // Results cache for the local review screen
   const [testResults, setTestResults] = useState<{
@@ -66,6 +68,7 @@ export default function MockExam({
     setAnswers({});
     setConfidences({});
     setResponseTimes({});
+    finishStartedRef.current = false;
     setExamStarted(true);
     setExamFinished(false);
     setTestResults(null);
@@ -80,6 +83,17 @@ export default function MockExam({
 
   const handleSelectConfidence = (conf: ConfidenceLevel) => {
     setConfidences(prev => ({ ...prev, [questions[currentIdx].id]: conf }));
+  };
+
+  const handleNavigateHome = () => {
+    if (
+      hasExamInProgress
+      && !window.confirm('El simulacro sigue en curso. Si sales ahora, perderás las respuestas de este intento. ¿Quieres salir?')
+    ) {
+      return;
+    }
+
+    onNavigateHome();
   };
 
   const handleNext = () => {
@@ -99,6 +113,9 @@ export default function MockExam({
   };
 
   const finishAndEvaluate = () => {
+    if (finishStartedRef.current) return;
+    finishStartedRef.current = true;
+
     // Evaluate results
     const submissionResults = questions.map(q => {
       const ans = answers[q.id] || '';
@@ -163,6 +180,18 @@ export default function MockExam({
     return () => window.clearInterval(timerId);
   }, [examStarted, examFinished, startTime, answers, confidences, responseTimes, questions, currentQuestionStart]);
 
+  useEffect(() => {
+    if (!hasExamInProgress) return;
+
+    const handleBeforeUnload = (event: BeforeUnloadEvent) => {
+      event.preventDefault();
+      event.returnValue = '';
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, [hasExamInProgress]);
+
   const getConceptText = (id: string) => {
     return microconcepts.find(mc => mc.id === id)?.text || id;
   };
@@ -173,7 +202,7 @@ export default function MockExam({
       <div className="flex items-center justify-between" id="mock-exam-nav">
         <button
           id="btn-back-home-mock"
-          onClick={onNavigateHome}
+          onClick={handleNavigateHome}
           className="flex items-center gap-1 text-xs font-semibold text-slate-500 hover:text-slate-800 transition"
         >
           <ArrowLeft className="w-4 h-4" />
