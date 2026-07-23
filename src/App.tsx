@@ -414,7 +414,7 @@ export default function App() {
       <main
         id="main-content"
         tabIndex={-1}
-        className="flex-1 max-w-6xl w-full mx-auto px-4 py-8"
+        className="flex-1 max-w-6xl w-full mx-auto px-4 pt-8 pb-24 md:py-8"
       >
         {currentScreen === 'dashboard' && (
           <Dashboard
@@ -475,6 +475,69 @@ export default function App() {
           />
         )}
       </main>
+
+      <nav
+        aria-label="Navegación móvil"
+        className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_18px_rgba(15,23,42,0.08)] backdrop-blur-md md:hidden"
+      >
+        <div className="mx-auto grid max-w-lg grid-cols-5 px-1">
+          <button
+            type="button"
+            aria-current={currentScreen === 'dashboard' ? 'page' : undefined}
+            onClick={() => handleNavigate('dashboard')}
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+              currentScreen === 'dashboard' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
+            }`}
+          >
+            <LayoutDashboard className="h-5 w-5" aria-hidden="true" />
+            Dashboard
+          </button>
+          <button
+            type="button"
+            aria-current={currentScreen === 'today_training' ? 'page' : undefined}
+            onClick={() => handleNavigate('today_training')}
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+              currentScreen === 'today_training' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
+            }`}
+          >
+            <Target className="h-5 w-5" aria-hidden="true" />
+            Hoy
+          </button>
+          <button
+            type="button"
+            aria-current={currentScreen === 'errors' ? 'page' : undefined}
+            onClick={() => handleNavigate('errors')}
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+              currentScreen === 'errors' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
+            }`}
+          >
+            <AlertTriangle className="h-5 w-5" aria-hidden="true" />
+            Errores
+          </button>
+          <button
+            type="button"
+            aria-current={currentScreen === 'forgetting_curve' ? 'page' : undefined}
+            onClick={() => handleNavigate('forgetting_curve')}
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+              currentScreen === 'forgetting_curve' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
+            }`}
+          >
+            <BarChart2 className="h-5 w-5" aria-hidden="true" />
+            Curva
+          </button>
+          <button
+            type="button"
+            aria-current={currentScreen === 'mock_exam' ? 'page' : undefined}
+            onClick={() => handleNavigate('mock_exam')}
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+              currentScreen === 'mock_exam' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
+            }`}
+          >
+            <HelpCircle className="h-5 w-5" aria-hidden="true" />
+            Simulacro
+          </button>
+        </div>
+      </nav>
 
       {/* Footer Branding Area */}
       <footer className="border-t border-slate-100 py-6 bg-white text-slate-600 text-xs mt-12" id="mira-footer">
