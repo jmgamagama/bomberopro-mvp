@@ -4,11 +4,10 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
   plugins: [react()],
   test: {
-    environment: 'jsdom',
+    environment: 'node',
     setupFiles: ['./src/test/setup.ts'],
     restoreMocks: true,
-    fileParallelism: false,
-    maxWorkers: 1,
+    maxWorkers: 2,
     testTimeout: 30_000,
   },
 });
