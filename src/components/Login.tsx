@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { supabase } from '../lib/supabase';
 import { Mail, Loader2 } from 'lucide-react';
 
@@ -6,6 +6,7 @@ export default function Login() {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
+  const emailInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     // Check for errors in the URL hash (e.g. expired magic link)
@@ -24,6 +25,10 @@ export default function Login() {
       }
     }
   }, []);
+
+  useEffect(() => {
+    if (message?.type === 'error') emailInputRef.current?.focus();
+  }, [message]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -72,20 +77,31 @@ export default function Login() {
                 Correo Electrónico
               </label>
               <input
+                ref={emailInputRef}
                 id="email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="tu@email.com"
+                autoComplete="email"
+                inputMode="email"
+                autoFocus
                 required
+                aria-invalid={message?.type === 'error'}
+                aria-describedby={message ? 'login-message' : undefined}
                 className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-slate-800 font-medium"
               />
             </div>
 
             {message && (
-              <div className={`p-4 rounded-xl text-sm font-bold ${
+              <div
+                id="login-message"
+                role={message.type === 'error' ? 'alert' : 'status'}
+                aria-live={message.type === 'error' ? 'assertive' : 'polite'}
+                className={`p-4 rounded-xl text-sm font-bold ${
                 message.type === 'success' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-red-50 text-red-700 border border-red-200'
-              }`}>
+              }`}
+              >
                 {message.text}
               </div>
             )}
@@ -97,7 +113,7 @@ export default function Login() {
             >
               {loading ? (
                 <>
-                  <Loader2 className="w-5 h-5 animate-spin" />
+                  <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" />
                   Enviando enlace...
                 </>
               ) : (
