@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Brain, Sparkles, ChevronRight, CheckCircle2, XCircle, AlertTriangle, HelpCircle, RefreshCw, ArrowLeft, Clock } from 'lucide-react';
 import { Question, ConfidenceLevel, MemoryState, Microconcept } from '../types';
 import { countAnswerChange } from '../utils/attempt';
@@ -46,6 +46,7 @@ export default function TrainScreen({
   const [startTime, setStartTime] = useState<number>(0);
   const [timeTaken, setTimeTaken] = useState<number>(0);
   const [answerChanges, setAnswerChanges] = useState(0);
+  const feedbackRef = useRef<HTMLDivElement>(null);
 
   // Feedback states
   const [feedback, setFeedback] = useState<{
@@ -64,6 +65,10 @@ export default function TrainScreen({
     setAnswerChanges(0);
     setFeedback(null);
   }, [question?.id]);
+
+  useEffect(() => {
+    if (feedback) feedbackRef.current?.focus();
+  }, [feedback]);
 
   if (!question) {
     return (
@@ -304,7 +309,14 @@ export default function TrainScreen({
 
           {/* Active response feedback banner */}
           {isAnswered && feedback && (
-            <div className={`p-5 rounded-2xl border ${feedbackStyles.bg} space-y-3`} id="train-feedback-box">
+            <div
+              ref={feedbackRef}
+              className={`p-5 rounded-2xl border ${feedbackStyles.bg} space-y-3`}
+              id="train-feedback-box"
+              role="status"
+              aria-live="polite"
+              tabIndex={-1}
+            >
               <div className="flex items-start gap-2.5">
                 <div className="mt-0.5">{feedbackStyles.icon}</div>
                 <div>
