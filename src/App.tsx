@@ -17,7 +17,7 @@ import {
   getCurrentDate,
   getTimeOffset
 } from './utils/db';
-import { getAdaptiveQuestion, processAttempt } from './utils/engine';
+import { getAdaptiveQuestion, processAttempt, getAdaptiveDailySession } from './utils/engine';
 
 import Dashboard from './components/Dashboard';
 import TodayTraining from './components/TodayTraining';
@@ -83,7 +83,8 @@ export default function App() {
       const { data, error } = await supabase.rpc('get_preparer_session_questions', { p_limit: 100 });
       if (error) throw error;
       if (data) {
-        setDbQuestions(data);
+        const adaptiveSession = getAdaptiveDailySession(data, getMemoryStates(), 20);
+        setDbQuestions(adaptiveSession);
       } else {
         setDbQuestions([]);
       }

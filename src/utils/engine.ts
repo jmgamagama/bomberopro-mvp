@@ -310,3 +310,86 @@ export function getAdaptiveQuestion(
     reason: scoredQuestions[0].reason
   };
 }
+
+/**
+ * Adaptive session selector based on user mastery and question difficulty levels.
+ * Filters a larger pool of candidate questions down to a target session size,
+ * with a distribution of levels (1=Fácil, 2=Media, 3=Difícil) suited to the user's current mastery.
+ */
+export function getAdaptiveDailySession(
+  candidates: Question[],
+  memoryStates: Record<string, MemoryState>,
+  targetSize: number = 20
+): Question[] {
+  if (candidates.length <= targetSize) return candidates;
+
+  // Calculate average mastery score across all memory states
+  const states = Object.values(memoryStates);
+  let avgMastery = 50; // Default to medium mastery if no history
+  
+  if (states.length > 0) {
+    const totalMastery = states.reduce((sum, s) => sum + s.mastery_score, 0);
+    avgMastery = totalMastery / states.length;
+  }
+
+  // Determine target distribution based on average mastery
+  let targetL1 = 0;
+  let targetL2 = 0;
+  let targetL3 = 0;
+
+  if (avgMastery < 40) {
+    // Low mastery: 70% Level 1, 20% Level 2, 10% Level 3
+    targetL1 = Math.round(targetSize * 0.70);
+    targetL2 = Math.round(targetSize * 0.20);
+    targetL3 = targetSize - targetL1 - targetL2;
+  } else if (avgMastery <= 70) {
+    // Medium mastery: 30% Level 1, 40% Level 2, 30% Level 3
+    targetL1 = Math.round(targetSize * 0.30);
+    targetL2 = Math.round(targetSize * 0.40);
+    targetL3 = targetSize - targetL1 - targetL2;
+  } else {
+    // High mastery: 10% Level 1, 30% Level 2, 60% Level 3
+    targetL1 = Math.round(targetSize * 0.10);
+    targetL2 = Math.round(targetSize * 0.30);
+    targetL3 = targetSize - targetL1 - targetL2;
+  }
+
+  // Group candidates by level. Default to level 2 if missing.
+  const level1: Question[] = [];
+  const level2: Question[] = [];
+  const level3: Question[] = [];
+
+  // Shuffle candidates first so that picking the first N is random within the level
+  const shuffledCandidates = [...candidates].sort(() => Math.random() - 0.5);
+
+  shuffledCandidates.forEach(q => {
+    const nivel = q.nivel || 2; // Treat undefined/null as medium
+    if (nivel === 1) level1.push(q);
+    else if (nivel === 2) level2.push(q);
+    else level3.push(q);
+  });
+
+  const selected: Question[] = [];
+
+  // Helper to pick up to N items from a pool
+  const pick = (pool: Question[], amount: number) => {
+    const picked = pool.splice(0, amount);
+    selected.push(...picked);
+    return amount - picked.length; // Return how many we missed due to shortage
+  };
+
+  // Pick target amounts
+  let shortfall = 0;
+  shortfall += pick(level1, targetL1);
+  shortfall += pick(level2, targetL2);
+  shortfall += pick(level3, targetL3);
+
+  // If there's a shortfall (e.g. not enough questions in a specific level), fill it from whatever is left
+  if (shortfall > 0) {
+    const remainingPool = [...level1, ...level2, ...level3];
+    pick(remainingPool, shortfall);
+  }
+
+  return selected;
+}
+
