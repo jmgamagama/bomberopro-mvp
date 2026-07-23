@@ -319,7 +319,7 @@ export default function App() {
               <span className="text-base font-black tracking-tight text-slate-950 uppercase flex items-center gap-1.5">
                 MIRA <span className="text-[10px] bg-indigo-50 border border-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded font-bold tracking-wider">BOMBEROPRO</span>
               </span>
-              <p className="text-[10px] text-slate-400 font-medium tracking-wide">Aprendizaje Adaptativo de Oposición</p>
+              <p className="text-[10px] text-slate-600 font-medium tracking-wide">Aprendizaje Adaptativo de Oposición</p>
             </div>
           </button>
 
@@ -398,7 +398,7 @@ export default function App() {
             <button
               onClick={handleLogout}
               aria-label="Cerrar sesión"
-              className="px-2.5 py-1.5 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg text-xs font-semibold transition flex items-center gap-1"
+              className="px-2.5 py-1.5 text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-lg text-xs font-semibold transition flex items-center gap-1"
               title="Cerrar sesión"
             >
               <LogOut className="w-4 h-4" aria-hidden="true" />
@@ -474,11 +474,11 @@ export default function App() {
       </main>
 
       {/* Footer Branding Area */}
-      <footer className="border-t border-slate-100 py-6 bg-white text-slate-400 text-xs mt-12" id="mira-footer">
+      <footer className="border-t border-slate-100 py-6 bg-white text-slate-600 text-xs mt-12" id="mira-footer">
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
             <p className="font-semibold text-slate-600">MIRA — Método de Aprendizaje Adaptativo para Oposiciones</p>
-            <p className="text-[10px] text-slate-400 mt-0.5">Basado en Microconceptos, Interrogación activa, Repetición espaciada y Aseguramiento del dominio real.</p>
+            <p className="text-[10px] text-slate-500 mt-0.5">Basado en Microconceptos, Interrogación activa, Repetición espaciada y Aseguramiento del dominio real.</p>
           </div>
           <div className="flex items-center gap-4">
             <span className="font-mono text-[10px]">v1.0 (PROTOTIPO SEGURO LOCAL)</span>
