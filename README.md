@@ -1,20 +1,41 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# BomberoPro / MIRA
 
-# Run and deploy your AI Studio app
+Aplicación de entrenamiento para oposiciones de bombero basada en práctica activa,
+repetición espaciada y simulacros.
 
-This contains everything you need to run your app locally.
+## Desarrollo local
 
-View your app in AI Studio: https://ai.studio/apps/98973830-a945-4929-bc78-6bd7792cff37
+Requisitos:
 
-## Run Locally
+- Node.js 22
+- npm
 
-**Prerequisites:**  Node.js
+Instala las dependencias y arranca Vite:
 
+```bash
+npm ci
+npm run dev
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+La interfaz puede ejecutarse en modo local sin credenciales para trabajar en
+componentes, accesibilidad y pruebas.
+
+## Validación
+
+Antes de abrir un pull request:
+
+```bash
+npm run lint
+npm run build
+npm run test
+```
+
+El workflow `Quality Gate` ejecuta las mismas comprobaciones en cada pull request y
+en los pushes a `main`.
+
+## Documentación
+
+- [Estado del proyecto](docs/ESTADO_PROYECTO.md)
+- [Decisiones de arquitectura](docs/architecture-decisions.md)
+- [Contrato de integración con Supabase](docs/supabase-contract.md)
+- [Integración del pipeline de preguntas](docs/pipeline-integration.md)
