@@ -58,8 +58,8 @@ export default function ErrorPanel({
           </div>
 
           {falseDomains.length === 0 ? (
-            <div className="p-8 text-center bg-emerald-50/50 border border-emerald-100 rounded-2xl text-slate-600 space-y-2">
-              <CheckCircle2 className="w-8 h-8 text-emerald-500 mx-auto" />
+            <div className="p-8 text-center bg-emerald-50/50 border border-emerald-100 rounded-2xl text-slate-600 space-y-2" role="status">
+              <CheckCircle2 className="w-8 h-8 text-emerald-500 mx-auto" aria-hidden="true" />
               <p className="text-sm font-bold text-slate-800">¡Falsos dominios limpios!</p>
               <p className="text-xs text-slate-500">No tienes discrepancias de confianza. Tus aciertos y seguridad están bien calibrados.</p>
             </div>
@@ -122,8 +122,8 @@ export default function ErrorPanel({
           </div>
 
           {weakConcepts.length === 0 ? (
-            <div className="p-8 text-center bg-indigo-50/30 border border-indigo-100 rounded-2xl text-slate-600 space-y-2">
-              <Sparkles className="w-8 h-8 text-indigo-400 mx-auto" />
+            <div className="p-8 text-center bg-indigo-50/30 border border-indigo-100 rounded-2xl text-slate-600 space-y-2" role="status">
+              <Sparkles className="w-8 h-8 text-indigo-400 mx-auto" aria-hidden="true" />
               <p className="text-sm font-bold text-slate-800">¡Conocimiento consistente!</p>
               <p className="text-xs text-slate-500">No se detectan microconceptos débiles en estado de alerta actualmente.</p>
             </div>
