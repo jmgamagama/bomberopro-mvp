@@ -36,6 +36,7 @@ describe('TrainScreen', () => {
         onNavigateHome={onNavigateHome}
       />,
     );
+    expect(screen.getByRole('status')).toHaveAccessibleName(/al día por ahora/i);
     await user.click(screen.getByRole('button', { name: /volver al dashboard/i }));
     expect(onNavigateHome).toHaveBeenCalledOnce();
   });
