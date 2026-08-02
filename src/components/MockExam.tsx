@@ -7,6 +7,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { HelpCircle, Clock, CheckCircle2, XCircle, AlertTriangle, Play, RotateCcw, ArrowLeft, ArrowRight, Brain, Sparkles, Award } from 'lucide-react';
 import { Question, ConfidenceLevel, Microconcept } from '../types';
 import { INITIAL_QUESTIONS } from '../data/initialData';
+import { supabase } from '../lib/supabase';
 import { calculateExamScore, EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS } from '../utils/examScoring';
 import { EXAM_DURATION_SECONDS, formatExamTime, getRemainingExamSeconds } from '../utils/examTimer';
 
@@ -16,6 +17,7 @@ interface MockExamProps {
     results: {
       questionId: string;
       microconceptId: string;
+      answer: string;
       correct: boolean;
       confidence: ConfidenceLevel;
       responseTime: number;
@@ -31,8 +33,10 @@ export default function MockExam({
 }: MockExamProps) {
   const [examStarted, setExamStarted] = useState(false);
   const [examFinished, setExamFinished] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentIdx, setCurrentIdx] = useState(0);
+  const [examSeed, setExamSeed] = useState<number | null>(null);
   
   // User states
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -59,23 +63,44 @@ export default function MockExam({
   } | null>(null);
 
   // Generate 10 random mixed questions from the database
-  const startNewExam = () => {
-    // Shuffle INITIAL_QUESTIONS and take up to 10
-    const shuffled = [...INITIAL_QUESTIONS].sort(() => 0.5 - Math.random());
-    const selected = shuffled.slice(0, 10);
-    
-    setQuestions(selected);
-    setCurrentIdx(0);
-    setAnswers({});
-    setConfidences({});
-    setResponseTimes({});
-    finishStartedRef.current = false;
-    setExamStarted(true);
-    setExamFinished(false);
-    setTestResults(null);
-    setStartTime(Date.now());
-    setCurrentQuestionStart(Date.now());
-    setRemainingTime(EXAM_DURATION_SECONDS);
+  const startNewExam = async () => {
+    setIsLoading(true);
+    try {
+      // Intentar obtener de Supabase
+      let selected: Question[] = [];
+      const generatedSeed = (Math.random() * 2) - 1;
+      setExamSeed(generatedSeed);
+
+      if (supabase) {
+        const { data, error } = await supabase.rpc('get_blueprint_exam_questions', { p_seed: generatedSeed });
+        if (error) throw error;
+        if (data) selected = data;
+      }
+      
+      // Fallback a las iniciales si falla o no hay datos suficientes
+      if (!selected || selected.length === 0) {
+        console.warn("Usando fallback de preguntas locales (fallback mode: solo 10 preguntas disponibles)");
+        const shuffled = [...INITIAL_QUESTIONS].sort(() => 0.5 - Math.random());
+        selected = shuffled.slice(0, 10);
+      }
+
+      setQuestions(selected);
+      setCurrentIdx(0);
+      setAnswers({});
+      setConfidences({});
+      setResponseTimes({});
+      finishStartedRef.current = false;
+      setExamStarted(true);
+      setExamFinished(false);
+      setTestResults(null);
+      setStartTime(Date.now());
+      setCurrentQuestionStart(Date.now());
+      setRemainingTime(EXAM_DURATION_SECONDS);
+    } catch (err) {
+      console.error("Error iniciando el simulacro:", err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleSelectAnswer = (option: string) => {
@@ -128,6 +153,7 @@ export default function MockExam({
         questionId: q.id,
         microconceptId: q.microconcept_id,
         answered: ans !== '',
+        answer: ans,
         correct,
         confidence,
         responseTime: rTime
@@ -225,7 +251,7 @@ export default function MockExam({
           <div className="space-y-2">
             <h2 className="text-2xl font-black text-slate-800">Simulador de Examen</h2>
             <p className="text-sm text-slate-500 max-w-md mx-auto">
-              Pon a prueba tu retención real en condiciones de examen ciego de oposición. 10 preguntas aleatorias de todos los niveles.
+              Pon a prueba tu retención real en condiciones de examen ciego de oposición (Blueprint oficial).
             </p>
           </div>
 
@@ -236,9 +262,9 @@ export default function MockExam({
             </p>
             <ul className="list-disc list-inside space-y-1.5 pl-1 leading-normal">
               <li>Fórmula oficial: <strong>+{EXAM_CORRECT_POINTS.toFixed(3)}</strong> por acierto y <strong>{EXAM_INCORRECT_POINTS.toFixed(3)}</strong> por error.</li>
-              <li>Consta de <strong>10 preguntas de test literal y confusión</strong>.</li>
-              <li>No se muestra explicación ni corrección inmediata.</li>
-              <li>Debes marcar tu <strong>nivel de confianza</strong> en cada respuesta.</li>
+              <li>Consta de <strong>55 preguntas (50 + 5 reserva)</strong>.</li>
+              <li>Proporción oficial: <strong>30% de preguntas de temas 35-40</strong> garantizado.</li>
+              <li>Orden aleatorio con <strong>semilla RNG registrada</strong>.</li>
               <li>Al finalizar obtendrás un informe detallado con tu plan de estudio de sanea-errores.</li>
             </ul>
           </div>
@@ -246,10 +272,20 @@ export default function MockExam({
           <button
             id="btn-start-exam"
             onClick={startNewExam}
-            className="w-full max-w-md py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-2xl shadow-md hover:shadow-lg transition text-sm flex items-center justify-center gap-2"
+            disabled={isLoading}
+            className="w-full max-w-md py-4 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-400 text-white font-bold rounded-2xl shadow-md hover:shadow-lg transition text-sm flex items-center justify-center gap-2"
           >
-            <Play className="w-4 h-4 fill-current" />
-            Comenzar Simulacro
+            {isLoading ? (
+              <span className="flex items-center gap-2">
+                <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full"></div>
+                Preparando...
+              </span>
+            ) : (
+              <>
+                <Play className="w-4 h-4 fill-current" />
+                Comenzar Simulacro
+              </>
+            )}
           </button>
         </div>
       )}
@@ -399,6 +435,13 @@ export default function MockExam({
 
           {/* Diagnostics Column */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6" id="diagnostics-columns">
+            {/* Meta Data */}
+            <div className="md:col-span-2 text-center">
+                <span className="inline-block px-3 py-1 bg-slate-100 border border-slate-200 rounded-full text-[10px] text-slate-500 font-mono tracking-wider">
+                  SEMILLA RNG: {examSeed?.toFixed(8)}
+                </span>
+            </div>
+            
             {/* False Domains (Severe Risk) */}
             <div className="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-3">
               <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider font-mono flex items-center gap-1.5">

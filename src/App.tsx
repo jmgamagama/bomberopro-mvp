@@ -17,7 +17,7 @@ import {
   getCurrentDate,
   getTimeOffset
 } from './utils/db';
-import { getAdaptiveQuestion, processAttempt } from './utils/engine';
+import { getAdaptiveQuestion, processAttempt, getAdaptiveDailySession } from './utils/engine';
 
 import Dashboard from './components/Dashboard';
 import TodayTraining from './components/TodayTraining';
@@ -96,7 +96,8 @@ export default function App() {
       const { data, error } = await supabase.rpc('get_preparer_session_questions', { p_limit: 100 });
       if (error) throw error;
       if (data) {
-        setDbQuestions(data);
+        const adaptiveSession = getAdaptiveDailySession(data, getMemoryStates(), 20);
+        setDbQuestions(adaptiveSession);
       } else {
         setDbQuestions([]);
       }
@@ -225,6 +226,7 @@ export default function App() {
     results: {
       questionId: string;
       microconceptId: string;
+      answer: string;
       correct: boolean;
       confidence: ConfidenceLevel;
       responseTime: number;
@@ -244,7 +246,7 @@ export default function App() {
         user_id: 'user-default',
         question_id: res.questionId,
         microconcept_id: res.microconceptId,
-        answer_user: res.correct ? 'correct_answer_stub' : 'wrong_answer_stub',
+        answer_user: res.answer,
         correct: res.correct,
         confidence: res.confidence,
         response_time_seconds: res.responseTime,
