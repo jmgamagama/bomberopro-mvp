@@ -82,7 +82,7 @@ async function importData(filePath: string) {
       id: t.id,
       microconcept_id: t.microconcept_id,
       pregunta: t.pregunta,
-      opciones: JSON.stringify(t.opciones), // Si es jsonb
+      opciones: t.opciones, // Cliente Supabase lo serializa como jsonb automáticamente
       respuesta_correcta: t.respuesta_correcta,
       explicacion: t.explicacion,
       nivel: t.nivel,
@@ -90,7 +90,7 @@ async function importData(filePath: string) {
       version_convocatoria: t.version_convocatoria,
       estado_qa: t.estado_qa,
       reportes: t.reportes,
-      tema: JSON.stringify(t.tema) // Si es jsonb
+      tema: t.tema // Cliente Supabase lo serializa como jsonb automáticamente
     };
   });
 
