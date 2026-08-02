@@ -53,7 +53,7 @@ describe('MockExam', () => {
     expect(onNavigateHome).toHaveBeenCalledOnce();
   });
 
-  it('anuncia y enfoca el resumen al finalizar', () => {
+  it('anuncia y enfoca el resumen al finalizar', async () => {
     const onFinishExam = vi.fn();
     const { container } = render(
       <MockExam
@@ -63,7 +63,16 @@ describe('MockExam', () => {
       />,
     );
 
+    // Mock the RPC call to return INITIAL_QUESTIONS
+    (supabase.rpc as any).mockResolvedValue({
+      data: INITIAL_QUESTIONS.slice(0, 10),
+      error: null
+    });
+
     fireEvent.click(screen.getByRole('button', { name: /comenzar simulacro/i }));
+
+    // Wait for questions to load
+    await screen.findByText(/pregunta 1 de/i);
 
     for (let index = 0; index < 10; index += 1) {
       fireEvent.click(container.querySelector<HTMLButtonElement>('#mock-option-0')!);
