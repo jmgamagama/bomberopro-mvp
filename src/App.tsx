@@ -301,7 +301,7 @@ export default function App() {
       >
         Saltar al contenido principal
       </a>
-      <p className="sr-only" role="status" aria-live="polite" aria-atomic="true">
+      <p className="sr-only" role="status" aria-live="polite" aria-atomic="true" aria-label="Anuncio de pantalla actual">
         Pantalla actual: {SCREEN_TITLES[currentScreen]}
       </p>
 
