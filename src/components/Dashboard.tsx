@@ -178,15 +178,16 @@ export default function Dashboard({
 
   return (
     <div className="space-y-6" id="mira-dashboard-container">
+      <h1 className="sr-only">Dashboard de BomberoPro</h1>
       {/* Simulation Header Indicator */}
       <div className="flex flex-col md:flex-row md:items-center justify-between p-4 bg-slate-900 text-slate-100 rounded-2xl shadow-sm gap-4 border border-slate-800" id="mira-sim-bar">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-indigo-500/20 text-indigo-400 rounded-lg">
-            <Clock className="w-5 h-5 animate-pulse" />
+            <Clock className="w-5 h-5 animate-pulse" aria-hidden="true" />
           </div>
           <div>
             <div className="text-xs text-slate-400 font-medium font-mono uppercase tracking-wider">Fecha de Estudio Simulada</div>
-            <div className="text-base font-semibold text-slate-100">
+            <div className="text-base font-semibold text-slate-100" role="status" aria-live="polite" aria-atomic="true">
               {currentDate.toLocaleDateString('es-ES', {
                 weekday: 'long',
                 year: 'numeric',
@@ -198,11 +199,12 @@ export default function Dashboard({
             </div>
           </div>
         </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-xs text-slate-400 font-medium font-mono mr-1">Simular paso del tiempo:</span>
+        <div className="flex flex-wrap items-center gap-2" role="group" aria-labelledby="simulation-controls-label">
+          <span id="simulation-controls-label" className="text-xs text-slate-400 font-medium font-mono mr-1">Simular paso del tiempo:</span>
           <button
             id="sim-btn-1"
             onClick={() => onSimulateDays(1)}
+            aria-label="Simular un día"
             className="px-2.5 py-1 text-xs font-medium font-mono bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white rounded-md border border-slate-700 transition"
           >
             +1D
@@ -210,6 +212,7 @@ export default function Dashboard({
           <button
             id="sim-btn-3"
             onClick={() => onSimulateDays(3)}
+            aria-label="Simular tres días"
             className="px-2.5 py-1 text-xs font-medium font-mono bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white rounded-md border border-slate-700 transition"
           >
             +3D
@@ -217,6 +220,7 @@ export default function Dashboard({
           <button
             id="sim-btn-7"
             onClick={() => onSimulateDays(7)}
+            aria-label="Simular siete días"
             className="px-2.5 py-1 text-xs font-medium font-mono bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white rounded-md border border-slate-700 transition"
           >
             +7D
@@ -224,6 +228,7 @@ export default function Dashboard({
           <button
             id="sim-btn-15"
             onClick={() => onSimulateDays(15)}
+            aria-label="Simular quince días"
             className="px-2.5 py-1 text-xs font-medium font-mono bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white rounded-md border border-slate-700 transition"
           >
             +15D
@@ -231,6 +236,7 @@ export default function Dashboard({
           <button
             id="sim-btn-30"
             onClick={() => onSimulateDays(30)}
+            aria-label="Simular treinta días"
             className="px-2.5 py-1 text-xs font-medium font-mono bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white rounded-md border border-slate-700 transition"
           >
             +30D

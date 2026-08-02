@@ -72,9 +72,15 @@ export default function TrainScreen({
 
   if (!question) {
     return (
-      <div className="p-8 text-center bg-white border border-slate-100 rounded-2xl shadow-sm space-y-4" id="train-no-questions">
-        <Sparkles className="w-12 h-12 text-indigo-500 mx-auto animate-bounce" />
-        <h3 className="text-lg font-bold text-slate-800">🎉 ¡Al día por ahora!</h3>
+      <div
+        className="p-8 text-center bg-white border border-slate-100 rounded-2xl shadow-sm space-y-4"
+        id="train-no-questions"
+        role="status"
+        aria-live="polite"
+        aria-labelledby="train-no-questions-title"
+      >
+        <Sparkles className="w-12 h-12 text-indigo-500 mx-auto animate-bounce" aria-hidden="true" />
+        <h3 id="train-no-questions-title" className="text-lg font-bold text-slate-800">🎉 ¡Al día por ahora!</h3>
         <p className="text-sm text-slate-500 max-w-md mx-auto">
           No quedan microconceptos prioritarios pendientes de repaso inmediato. Has consolidado todo el temario en este momento.
         </p>

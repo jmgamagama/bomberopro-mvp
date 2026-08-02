@@ -342,8 +342,8 @@ export default function ForgettingCurve({
       {/* Simulator Quick Action controls inside the panel */}
       <div className="p-5 bg-slate-900 text-slate-200 rounded-2xl border border-slate-800 space-y-4" id="time-machine-panel">
         <div className="flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-indigo-400 animate-pulse" />
-          <h4 className="text-xs font-bold uppercase tracking-wider font-mono text-indigo-300">
+          <Sparkles className="w-4 h-4 text-indigo-400 animate-pulse" aria-hidden="true" />
+          <h4 id="time-machine-title" className="text-xs font-bold uppercase tracking-wider font-mono text-indigo-300">
             Máquina del Tiempo de Aprendizaje Adaptativo
           </h4>
         </div>
@@ -351,7 +351,7 @@ export default function ForgettingCurve({
           Para comprobar el poder predictivo del algoritmo MIRA, simula el paso de los días. Verás cómo disminuye la probabilidad de recordar cada microconcepto en base a tu historial previo.
         </p>
 
-        <div className="flex flex-wrap items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2" role="group" aria-labelledby="time-machine-title">
           <button
             id="fc-sim-1"
             onClick={() => onSimulateDays(1)}
@@ -393,7 +393,7 @@ export default function ForgettingCurve({
               onClick={() => onSimulateDays(-timeOffset)}
               className="px-3 py-2 text-xs font-semibold bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 border border-rose-500/20 rounded-lg transition flex items-center gap-1 ml-auto"
             >
-              <RotateCcw className="w-3.5 h-3.5" />
+              <RotateCcw className="w-3.5 h-3.5" aria-hidden="true" />
               Resetear Reloj
             </button>
           )}
