@@ -2,17 +2,23 @@ import { createClient } from '@supabase/supabase-js';
 import { validateJSON, PipelineQuestion } from './validate-questions';
 import path from 'path';
 
-// Determinar el cliente de Supabase
-const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.VITE_SUPABASE_ANON_KEY;
+let supabase: ReturnType<typeof createClient>;
 
-if (!supabaseUrl || !supabaseKey) {
-  console.error("❌ Error: Faltan las variables de entorno de Supabase.");
-  console.error("Asegúrate de ejecutar el script con --env-file=.env o exportando VITE_SUPABASE_URL y VITE_SUPABASE_ANON_KEY / SUPABASE_SERVICE_ROLE_KEY");
-  process.exit(1);
+function getSupabase() {
+  if (supabase) return supabase;
+  
+  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
+  const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.VITE_SUPABASE_ANON_KEY;
+
+  if (!supabaseUrl || !supabaseKey) {
+    console.error("❌ Error: Faltan las variables de entorno de Supabase.");
+    console.error("Asegúrate de ejecutar el script con --env-file=.env o exportando VITE_SUPABASE_URL y VITE_SUPABASE_ANON_KEY / SUPABASE_SERVICE_ROLE_KEY");
+    process.exit(1);
+  }
+  
+  supabase = createClient(supabaseUrl, supabaseKey);
+  return supabase;
 }
-
-const supabase = createClient(supabaseUrl, supabaseKey);
 
 // Reglas de mapeo (Pipeline -> App Schema)
 const MAP_DIFICULTAD = {
@@ -96,7 +102,8 @@ async function importData(filePath: string) {
 
   console.log("Subiendo a Supabase...");
   
-  const { data, error } = await supabase
+  const client = getSupabase();
+  const { data, error } = await client
     .from('questions')
     .upsert(dbRecords, { onConflict: 'id' });
 
