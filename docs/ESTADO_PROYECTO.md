@@ -61,3 +61,14 @@ No hay despliegue en producción todavía. El proyecto sigue en fase de desarrol
 ## Nota sobre continuidad
 
 El contrato e integración base de Supabase ya están en `main`. Para evitar conflictos, los siguientes cambios de Codex deben mantenerse en frontend, accesibilidad, pruebas y tooling hasta que finalice el trabajo paralelo de entrenamiento adaptativo.
+
+
+## Sesión 2 ago 2026 — CI roto en main y bridging PR #53
+
+Al fusionar los PR #46 y #47 (accesibilidad de navegación) quedó roto el Quality Gate de `main`: `App.test.tsx` buscaba el botón `+7D` por su texto visible, pero su `aria-label` pasó a "Simular siete días" (el nombre accesible prevalece sobre el texto en `getByRole`); y había dos elementos `role="status"` simultáneos en Dashboard (el anuncio de pantalla y el reloj del simulacro), lo que rompió `getByRole('status')` por ambigüedad.
+
+Arreglado en PR #54: aria-label "Anuncio de pantalla actual" en el <p role="status"> de App.tsx para desambiguar, y tests actualizados para buscar por nombre accesible en vez de texto. main quedo verde (Quality Gate).
+
+Fusionados tambien los PR de Codex #49-52 (docs y limpieza, validados sin coste porque Codex se quedo sin credito hasta el 29 jul).
+
+PR #53 (bridging de #47/#48 a main) seguia fallando el CI incluso reejecutando los jobs tras el fix: GitHub Actions reusa el merge-ref calculado en el push original al hacer "Re-run", no lo recalcula contra el main ya arreglado. Hizo falta un commit nuevo (evento synchronize) directamente en la rama del PR para forzar el recalculo. Al aplicar el mismo fix de aria-label en esa rama aparecio un conflicto real (ambas ramas habian arreglado las mismas lineas de forma distinta); resuelto en el editor de conflictos de GitHub y fusionado. main quedo verde (Quality Gate #56).
