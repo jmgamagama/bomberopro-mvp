@@ -42,7 +42,7 @@ describe('App navigation', () => {
     });
     expect(dashboard).toHaveAttribute('aria-current', 'page');
     expect(document.title).toBe('Dashboard | BomberoPro');
-      pect(screen.getByRole('status', { name: 'Anuncio de pantalla actual' })).toHaveTextContent(
+      expect(screen.getByRole('status', { name: 'Anuncio de pantalla actual' })).toHaveTextContent(
         'Pantalla actual: Dashboard',
     );
 
