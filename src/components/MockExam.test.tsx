@@ -18,6 +18,10 @@ describe('MockExam', () => {
   it('permite iniciar, responder y avanzar una pregunta', async () => {
     const user = userEvent.setup();
     const onNavigateHome = vi.fn();
+    
+    // Mock window.confirm para simular el click de aceptar abandonar el simulacro
+    const confirmSpy = vi.spyOn(window, 'confirm').mockImplementation(() => true);
+
     const { container } = render(
       <MockExam
         microconcepts={INITIAL_MICROCONCEPTS}
