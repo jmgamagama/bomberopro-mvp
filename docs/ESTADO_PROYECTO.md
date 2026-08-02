@@ -50,12 +50,12 @@ No hay despliegue en producción todavía. El proyecto sigue en fase de desarrol
 - Manejo de sesión persistente.
 - Upsert de `attempts` y `user_question_state` en segundo plano.
 - Traducción del esquema de datos al castellano para coincidir con la BD de producción.
+- **Preparativos de despliegue completados:** Se ha añadido configuración de enrutamiento SPA (`vercel.json`) y se han documentado las variables de entorno necesarias (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`) en `.env.example`. La compilación de producción (`npm run build`) pasa sin errores.
 
 ## Pendiente / siguientes pasos
 
 - Revisar y fusionar los PR de accesibilidad, estados de carga/error, cobertura y navegación abiertos a partir de #39.
 - Mantener separados los cambios de frontend de la rama de entrenamiento adaptativo mientras siga en desarrollo paralelo.
-- Preparar el despliegue cuando la configuración de entorno y las comprobaciones previas a producción estén cerradas.
 - Pendiente: conseguir los documentos internos del CPEI (ITF, protocolos, procedimientos) para poder generar preguntas de los temas 38-40.
 
 ## Nota sobre continuidad
