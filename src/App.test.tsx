@@ -42,8 +42,8 @@ describe('App navigation', () => {
     });
     expect(dashboard).toHaveAttribute('aria-current', 'page');
     expect(document.title).toBe('Dashboard | BomberoPro');
-      expect(screen.getByRole('status', { name: 'Anuncio de pantalla actual' })).toHaveTextContent(
-        'Pantalla actual: Dashboard',
+    expect(screen.getByRole('status', { name: 'Anuncio de pantalla actual' })).toHaveTextContent(
+      'Pantalla actual: Dashboard',
     );
 
     const todayTraining = within(navigation).getByRole('button', {
@@ -62,5 +62,16 @@ describe('App navigation', () => {
 
     expect(dashboard).toHaveAttribute('aria-current', 'page');
     expect(document.title).toBe('Dashboard | BomberoPro');
+
+    const mobileNavigation = screen.getByRole('navigation', {
+      name: 'Navegación móvil',
+    });
+    const mobileErrors = within(mobileNavigation).getByRole('button', {
+      name: 'Errores',
+    });
+    fireEvent.click(mobileErrors);
+
+    expect(mobileErrors).toHaveAttribute('aria-current', 'page');
+    expect(document.title).toBe('Errores críticos | BomberoPro');
   });
 });
