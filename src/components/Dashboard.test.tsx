@@ -50,7 +50,7 @@ describe('Dashboard', () => {
     const confirm = vi.spyOn(window, 'confirm').mockReturnValue(true);
     const { onReset, onSimulateDays } = renderDashboard();
 
-    fireEvent.click(screen.getByRole('button', { name: '+7D' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Simular siete días' }));    
     expect(onSimulateDays).toHaveBeenCalledWith(7);
 
     fireEvent.click(

@@ -42,8 +42,8 @@ describe('App navigation', () => {
     });
     expect(dashboard).toHaveAttribute('aria-current', 'page');
     expect(document.title).toBe('Dashboard | BomberoPro');
-    expect(screen.getByRole('status')).toHaveTextContent(
-      'Pantalla actual: Dashboard',
+      expect(screen.getByRole('status', { name: 'Anuncio de pantalla actual' })).toHaveTextContent(
+        'Pantalla actual: Dashboard',
     );
 
     const todayTraining = within(navigation).getByRole('button', {
@@ -54,7 +54,7 @@ describe('App navigation', () => {
     expect(todayTraining).toHaveAttribute('aria-current', 'page');
     expect(dashboard).not.toHaveAttribute('aria-current');
     expect(document.title).toBe('Entrenamiento de hoy | BomberoPro');
-    expect(screen.getByRole('status')).toHaveTextContent(
+    expect(screen.getByRole('status', { name: 'Anuncio de pantalla actual' })).toHaveTextContent(
       'Pantalla actual: Entrenamiento de hoy',
     );
 
