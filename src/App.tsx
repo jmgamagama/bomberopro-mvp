@@ -213,6 +213,7 @@ export default function App() {
     results: {
       questionId: string;
       microconceptId: string;
+      answer: string;
       correct: boolean;
       confidence: ConfidenceLevel;
       responseTime: number;
@@ -232,7 +233,7 @@ export default function App() {
         user_id: 'user-default',
         question_id: res.questionId,
         microconcept_id: res.microconceptId,
-        answer_user: res.correct ? 'correct_answer_stub' : 'wrong_answer_stub',
+        answer_user: res.answer,
         correct: res.correct,
         confidence: res.confidence,
         response_time_seconds: res.responseTime,

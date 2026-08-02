@@ -7,6 +7,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { HelpCircle, Clock, CheckCircle2, XCircle, AlertTriangle, Play, RotateCcw, ArrowLeft, ArrowRight, Brain, Sparkles, Award } from 'lucide-react';
 import { Question, ConfidenceLevel, Microconcept } from '../types';
 import { INITIAL_QUESTIONS } from '../data/initialData';
+import { supabase } from '../lib/supabase';
 import { calculateExamScore, EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS } from '../utils/examScoring';
 import { EXAM_DURATION_SECONDS, formatExamTime, getRemainingExamSeconds } from '../utils/examTimer';
 
@@ -16,6 +17,7 @@ interface MockExamProps {
     results: {
       questionId: string;
       microconceptId: string;
+      answer: string;
       correct: boolean;
       confidence: ConfidenceLevel;
       responseTime: number;
@@ -31,6 +33,7 @@ export default function MockExam({
 }: MockExamProps) {
   const [examStarted, setExamStarted] = useState(false);
   const [examFinished, setExamFinished] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [currentIdx, setCurrentIdx] = useState(0);
   
@@ -58,23 +61,41 @@ export default function MockExam({
   } | null>(null);
 
   // Generate 10 random mixed questions from the database
-  const startNewExam = () => {
-    // Shuffle INITIAL_QUESTIONS and take up to 10
-    const shuffled = [...INITIAL_QUESTIONS].sort(() => 0.5 - Math.random());
-    const selected = shuffled.slice(0, 10);
-    
-    setQuestions(selected);
-    setCurrentIdx(0);
-    setAnswers({});
-    setConfidences({});
-    setResponseTimes({});
-    finishStartedRef.current = false;
-    setExamStarted(true);
-    setExamFinished(false);
-    setTestResults(null);
-    setStartTime(Date.now());
-    setCurrentQuestionStart(Date.now());
-    setRemainingTime(EXAM_DURATION_SECONDS);
+  const startNewExam = async () => {
+    setIsLoading(true);
+    try {
+      // Intentar obtener de Supabase
+      let selected: Question[] = [];
+      if (supabase) {
+        const { data, error } = await supabase.rpc('get_random_exam_questions', { p_limit: 10 });
+        if (error) throw error;
+        if (data) selected = data;
+      }
+      
+      // Fallback a las iniciales si falla o no hay datos suficientes
+      if (!selected || selected.length === 0) {
+        console.warn("Usando fallback de preguntas locales");
+        const shuffled = [...INITIAL_QUESTIONS].sort(() => 0.5 - Math.random());
+        selected = shuffled.slice(0, 10);
+      }
+
+      setQuestions(selected);
+      setCurrentIdx(0);
+      setAnswers({});
+      setConfidences({});
+      setResponseTimes({});
+      finishStartedRef.current = false;
+      setExamStarted(true);
+      setExamFinished(false);
+      setTestResults(null);
+      setStartTime(Date.now());
+      setCurrentQuestionStart(Date.now());
+      setRemainingTime(EXAM_DURATION_SECONDS);
+    } catch (err) {
+      console.error("Error iniciando el simulacro:", err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleSelectAnswer = (option: string) => {
@@ -127,6 +148,7 @@ export default function MockExam({
         questionId: q.id,
         microconceptId: q.microconcept_id,
         answered: ans !== '',
+        answer: ans,
         correct,
         confidence,
         responseTime: rTime
@@ -241,10 +263,20 @@ export default function MockExam({
           <button
             id="btn-start-exam"
             onClick={startNewExam}
-            className="w-full max-w-md py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-2xl shadow-md hover:shadow-lg transition text-sm flex items-center justify-center gap-2"
+            disabled={isLoading}
+            className="w-full max-w-md py-4 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-400 text-white font-bold rounded-2xl shadow-md hover:shadow-lg transition text-sm flex items-center justify-center gap-2"
           >
-            <Play className="w-4 h-4 fill-current" />
-            Comenzar Simulacro
+            {isLoading ? (
+              <span className="flex items-center gap-2">
+                <div className="animate-spin w-4 h-4 border-2 border-white border-t-transparent rounded-full"></div>
+                Preparando...
+              </span>
+            ) : (
+              <>
+                <Play className="w-4 h-4 fill-current" />
+                Comenzar Simulacro
+              </>
+            )}
           </button>
         </div>
       )}
