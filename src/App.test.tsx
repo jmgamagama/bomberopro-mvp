@@ -62,5 +62,16 @@ describe('App navigation', () => {
 
     expect(dashboard).toHaveAttribute('aria-current', 'page');
     expect(document.title).toBe('Dashboard | BomberoPro');
+
+    const mobileNavigation = screen.getByRole('navigation', {
+      name: 'Navegación móvil',
+    });
+    const mobileErrors = within(mobileNavigation).getByRole('button', {
+      name: 'Errores',
+    });
+    fireEvent.click(mobileErrors);
+
+    expect(mobileErrors).toHaveAttribute('aria-current', 'page');
+    expect(document.title).toBe('Errores críticos | BomberoPro');
   });
 });
