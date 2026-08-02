@@ -56,8 +56,14 @@ export default function MockExam({
   const [testResults, setTestResults] = useState<{
     score: number;
     maxScore: number;
+    passed: boolean;
     pct: number;
     avgTime: number;
+    correctCount: number;
+    incorrectCount: number;
+    blankCount: number;
+    generalStats: { correct: number; incorrect: number; blank: number };
+    specificStats: { correct: number; incorrect: number; blank: number };
     failedConcepts: string[];
     falseDomains: string[];
   } | null>(null);
@@ -143,11 +149,14 @@ export default function MockExam({
     finishStartedRef.current = true;
 
     // Evaluate results
-    const submissionResults = questions.map(q => {
+    const submissionResults = questions.map((q, index) => {
       const ans = answers[q.id] || '';
-      const correct = ans === q.correct_answer;
+      const correct = ans !== '' && ans === q.correct_answer;
+      // If blank, confidence doesn't really matter, but default to 'media' if absent to avoid type errors
       const confidence = confidences[q.id] || 'media';
       const rTime = responseTimes[q.id] || Math.round((Date.now() - currentQuestionStart) / 1000);
+      const isSpecific = q.tema ? q.tema.numero >= 35 : false;
+      const isReserve = index >= 50; // questions 51-55 are reserve
 
       return {
         questionId: q.id,
@@ -156,37 +165,64 @@ export default function MockExam({
         answer: ans,
         correct,
         confidence,
-        responseTime: rTime
+        responseTime: rTime,
+        isSpecific,
+        isReserve
       };
     });
 
-    const correctCount = submissionResults.filter(r => r.correct).length;
-    const incorrectCount = submissionResults.filter(r => r.answered && !r.correct).length;
-    const score = calculateExamScore({ correct: correctCount, incorrect: incorrectCount });
-    const maxScore = questions.length * EXAM_CORRECT_POINTS;
-    const pct = Math.round((correctCount / questions.length) * 100);
-    const avgTime = Math.round(submissionResults.reduce((acc, r) => acc + r.responseTime, 0) / questions.length);
+    // Score only the official (first 50) questions
+    const officialResults = submissionResults.filter(r => !r.isReserve);
+    const officialCount = officialResults.length;
+
+    const correctCount = officialResults.filter(r => r.correct).length;
+    const incorrectCount = officialResults.filter(r => r.answered && !r.correct).length;
+    const blankCount = officialCount - correctCount - incorrectCount;
+    
+    let score = calculateExamScore({ correct: correctCount, incorrect: incorrectCount });
+    score = Math.max(0, score); // minimum score 0
+    const passed = score >= 5.0; // passing grade
+    const maxScore = officialCount * EXAM_CORRECT_POINTS;
+    const pct = Math.round((correctCount / officialCount) * 100);
+    const avgTime = officialCount > 0 ? Math.round(officialResults.reduce((acc, r) => acc + r.responseTime, 0) / officialCount) : 0;
 
     const failedConcepts = Array.from(new Set(
-      submissionResults.filter(r => r.answered && !r.correct).map(r => r.microconceptId)
+      officialResults.filter(r => r.answered && !r.correct).map(r => r.microconceptId)
     ));
 
     const falseDomains = Array.from(new Set(
-      submissionResults.filter(r => r.answered && !r.correct && r.confidence === 'alta').map(r => r.microconceptId)
+      officialResults.filter(r => r.answered && !r.correct && r.confidence === 'alta').map(r => r.microconceptId)
     ));
+
+    const generalResults = officialResults.filter(r => !r.isSpecific);
+    const specificResults = officialResults.filter(r => r.isSpecific);
 
     setTestResults({
       score,
       maxScore,
+      passed,
       pct,
       avgTime,
+      correctCount,
+      incorrectCount,
+      blankCount,
+      generalStats: {
+        correct: generalResults.filter(r => r.correct).length,
+        incorrect: generalResults.filter(r => r.answered && !r.correct).length,
+        blank: generalResults.filter(r => !r.answered).length
+      },
+      specificStats: {
+        correct: specificResults.filter(r => r.correct).length,
+        incorrect: specificResults.filter(r => r.answered && !r.correct).length,
+        blank: specificResults.filter(r => !r.answered).length
+      },
       failedConcepts,
       falseDomains
-    });
+    } as any);
 
     setExamFinished(true);
     
-    // Save attempts in the primary database
+    // Save attempts in the primary database (only for answered questions, including reserve if answered)
     onFinishExam(submissionResults.filter(r => r.answered));
   };
 
@@ -382,7 +418,7 @@ export default function MockExam({
             {/* Next Button */}
             <button
               id="btn-mock-next"
-              disabled={!answers[questions[currentIdx].id] || !confidences[questions[currentIdx].id]}
+              disabled={!!answers[questions[currentIdx].id] && !confidences[questions[currentIdx].id]}
               onClick={handleNext}
               className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-100 text-white disabled:text-slate-400 rounded-xl font-semibold text-xs transition shadow-sm text-center flex items-center justify-center gap-1"
             >
@@ -419,16 +455,47 @@ export default function MockExam({
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-3 max-w-md mx-auto pt-4 border-t border-slate-800">
               <div>
                 <span className="block text-[10px] uppercase text-slate-500 font-mono">Nota</span>
-                <strong className="text-2xl sm:text-3xl font-extrabold text-indigo-400">{testResults.score}</strong>
+                <strong className={`text-2xl sm:text-3xl font-extrabold ${testResults.passed ? 'text-emerald-400' : 'text-rose-400'}`}>
+                  {testResults.score.toFixed(3)}
+                </strong>
                 <span className="text-xs text-slate-500"> / {testResults.maxScore}</span>
+                <span className={`block text-[10px] uppercase font-bold mt-0.5 ${testResults.passed ? 'text-emerald-500' : 'text-rose-500'}`}>
+                  {testResults.passed ? 'Aprobado' : 'Suspenso'}
+                </span>
               </div>
               <div>
-                <span className="block text-[10px] uppercase text-slate-500 font-mono">Acierto</span>
-                <strong className="text-2xl sm:text-3xl font-extrabold text-indigo-400">{testResults.pct}%</strong>
+                <span className="block text-[10px] uppercase text-slate-500 font-mono">Aciertos / Fallos / Blancos</span>
+                <div className="text-xl sm:text-2xl font-bold flex items-center justify-center gap-1.5 mt-1">
+                  <span className="text-emerald-400" title="Aciertos">{testResults.correctCount}</span>
+                  <span className="text-slate-600 font-normal">/</span>
+                  <span className="text-rose-400" title="Fallos">{testResults.incorrectCount}</span>
+                  <span className="text-slate-600 font-normal">/</span>
+                  <span className="text-slate-400" title="En blanco">{testResults.blankCount}</span>
+                </div>
               </div>
               <div>
                 <span className="block text-[10px] uppercase text-slate-500 font-mono">Tiempo medio</span>
                 <strong className="text-2xl sm:text-3xl font-extrabold text-indigo-400">{testResults.avgTime}s</strong>
+              </div>
+            </div>
+            
+            {/* Topic Breakdown */}
+            <div className="grid grid-cols-2 gap-3 max-w-md mx-auto pt-4 border-t border-slate-800 text-xs text-slate-300">
+              <div className="bg-slate-800/50 p-2 rounded-lg border border-slate-700/50">
+                <span className="block text-[9px] uppercase text-slate-500 font-mono mb-1">Temas 1-34 (Generales)</span>
+                <div className="flex justify-between items-center px-1">
+                  <span className="text-emerald-400">{testResults.generalStats.correct} <CheckCircle2 className="w-3 h-3 inline" /></span>
+                  <span className="text-rose-400">{testResults.generalStats.incorrect} <XCircle className="w-3 h-3 inline" /></span>
+                  <span className="text-slate-400">{testResults.generalStats.blank} <span className="inline-block w-3 h-3 text-center">-</span></span>
+                </div>
+              </div>
+              <div className="bg-slate-800/50 p-2 rounded-lg border border-slate-700/50">
+                <span className="block text-[9px] uppercase text-slate-500 font-mono mb-1">Temas 35-40 (Específicos)</span>
+                <div className="flex justify-between items-center px-1">
+                  <span className="text-emerald-400">{testResults.specificStats.correct} <CheckCircle2 className="w-3 h-3 inline" /></span>
+                  <span className="text-rose-400">{testResults.specificStats.incorrect} <XCircle className="w-3 h-3 inline" /></span>
+                  <span className="text-slate-400">{testResults.specificStats.blank} <span className="inline-block w-3 h-3 text-center">-</span></span>
+                </div>
               </div>
             </div>
           </div>
