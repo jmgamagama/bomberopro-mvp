@@ -1,0 +1,38 @@
+[
+  {
+    "id": "PIPE-Q-001",
+    "pregunta": "¿Qué valor superior no está incluido expresamente en el Art. 1.1?",
+    "opciones": [
+      "Libertad",
+      "Justicia",
+      "Solidaridad",
+      "Pluralismo político"
+    ],
+    "respuesta_correcta": 2,
+    "explicacion": "El Artículo 1.1 incluye la libertad, la justicia, la igualdad y el pluralismo político. La solidaridad se encuentra en otros artículos pero no como valor superior en el 1.1.",
+    "tema": "Tema 1: La Constitución Española",
+    "dificultad": "media",
+    "fuente": "Constitución Española, Art 1.1",
+    "version_convocatoria": "2026-v1",
+    "estado_qa": "validado_humano",
+    "reportes": []
+  },
+  {
+    "id": "PIPE-Q-038",
+    "pregunta": "¿Cuál es la función principal de la bomba centrífuga en un BRP?",
+    "opciones": [
+      "Generar presión negativa en todo el circuito",
+      "Aumentar la energía cinética del fluido y transformarla en presión",
+      "Filtrar las impurezas del agua de abastecimiento",
+      "Mezclar automáticamente el espumógeno"
+    ],
+    "respuesta_correcta": 1,
+    "explicacion": "La bomba centrífuga impulsa el agua otorgándole energía cinética a través del rodete, transformándola posteriormente en presión en la voluta.",
+    "tema": "Tema 38: Vehículos de extinción",
+    "dificultad": "dificil",
+    "fuente": "Manual ITF CPEI",
+    "version_convocatoria": "2026-v1",
+    "estado_qa": "borrador_ia",
+    "reportes": []
+  }
+]
