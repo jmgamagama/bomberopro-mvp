@@ -28,14 +28,15 @@ describe('getRetrievabilityRisk', () => {
 });
 
 describe('getAdaptiveDailySession', () => {
-  const createMockQuestion = (id: string, nivel: number): Question => ({
+  const createMockQuestion = (id: string, numericLevel: number): Question => ({
     id,
-    pregunta: `Pregunta ${id}`,
-    opciones: [],
-    respuesta_correcta: 'A',
-    explicacion: '',
+    question: `Pregunta ${id}`,
+    options: [],
+    correct_answer: 'A',
+    explanation: '',
     microconcept_id: `mc_${id}`,
-    nivel,
+    type: 'test_literal',
+    level: numericLevel === 1 ? 'N1' : numericLevel === 3 ? 'N3' : 'N2',
   } as Question);
 
   const createMemoryState = (score: number): MemoryState => ({
@@ -58,9 +59,9 @@ describe('getAdaptiveDailySession', () => {
     const result = getAdaptiveDailySession(candidates, states, 10);
     
     // For size 10, low mastery expects: 7 L1, 2 L2, 1 L3
-    const l1Count = result.filter(q => q.nivel === 1).length;
-    const l2Count = result.filter(q => q.nivel === 2).length;
-    const l3Count = result.filter(q => q.nivel === 3).length;
+    const l1Count = result.filter(q => q.level === 'N1').length;
+    const l2Count = result.filter(q => q.level === 'N2').length;
+    const l3Count = result.filter(q => q.level === 'N3').length;
 
     expect(result).toHaveLength(10);
     expect(l1Count).toBe(7);
@@ -78,9 +79,9 @@ describe('getAdaptiveDailySession', () => {
     const result = getAdaptiveDailySession(candidates, states, 10);
     
     // For size 10, medium mastery expects: 3 L1, 4 L2, 3 L3
-    const l1Count = result.filter(q => q.nivel === 1).length;
-    const l2Count = result.filter(q => q.nivel === 2).length;
-    const l3Count = result.filter(q => q.nivel === 3).length;
+    const l1Count = result.filter(q => q.level === 'N1').length;
+    const l2Count = result.filter(q => q.level === 'N2').length;
+    const l3Count = result.filter(q => q.level === 'N3').length;
 
     expect(result).toHaveLength(10);
     expect(l1Count).toBe(3);
@@ -98,9 +99,9 @@ describe('getAdaptiveDailySession', () => {
     const result = getAdaptiveDailySession(candidates, states, 10);
     
     // For size 10, high mastery expects: 1 L1, 3 L2, 6 L3
-    const l1Count = result.filter(q => q.nivel === 1).length;
-    const l2Count = result.filter(q => q.nivel === 2).length;
-    const l3Count = result.filter(q => q.nivel === 3).length;
+    const l1Count = result.filter(q => q.level === 'N1').length;
+    const l2Count = result.filter(q => q.level === 'N2').length;
+    const l3Count = result.filter(q => q.level === 'N3').length;
 
     expect(result).toHaveLength(10);
     expect(l1Count).toBe(1);
@@ -118,6 +119,6 @@ describe('getAdaptiveDailySession', () => {
     const result = getAdaptiveDailySession(candidates, states, 10);
     
     expect(result).toHaveLength(10);
-    expect(result.every(q => q.nivel === 3)).toBe(true);
+    expect(result.every(q => q.level === 'N3')).toBe(true);
   });
 });

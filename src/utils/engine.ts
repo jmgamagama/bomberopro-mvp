@@ -363,9 +363,12 @@ export function getAdaptiveDailySession(
   const shuffledCandidates = [...candidates].sort(() => Math.random() - 0.5);
 
   shuffledCandidates.forEach(q => {
-    const nivel = q.nivel || 2; // Treat undefined/null as medium
-    if (nivel === 1) level1.push(q);
-    else if (nivel === 2) level2.push(q);
+    let numericLevel = 2; // Default to medium
+    if (q.level === 'N1') numericLevel = 1;
+    else if (q.level === 'N3') numericLevel = 3;
+
+    if (numericLevel === 1) level1.push(q);
+    else if (numericLevel === 2) level2.push(q);
     else level3.push(q);
   });
 
