@@ -17,7 +17,7 @@ import {
   getCurrentDate,
   getTimeOffset
 } from './utils/db';
-import { getAdaptiveQuestion, processAttempt, getAdaptiveDailySession } from './utils/engine';
+import { getAdaptiveQuestion, processAttempt, getAdaptiveDailySession, createNewMemoryState } from './utils/engine';
 
 import Dashboard from './components/Dashboard';
 import TodayTraining from './components/TodayTraining';
@@ -177,7 +177,7 @@ export default function App() {
 
     // Load current memory state
     const currentStates = getMemoryStates();
-    const currentState = currentStates[microconceptId];
+        const currentState = currentStates[microconceptId] || createNewMemoryState(microconceptId);
 
     // Compute updated values via core cognitive engine
     const result = processAttempt(currentState, isCorrect, confidence, responseTime, now);
@@ -237,7 +237,7 @@ export default function App() {
 
     // Iterate and update states sequentially for all exam attempts
     results.forEach(res => {
-      const state = currentStates[res.microconceptId];
+            const state = currentStates[res.microconceptId] || createNewMemoryState(res.microconceptId);
       const engineResult = processAttempt(state, res.correct, res.confidence, res.responseTime, now);
       saveMemoryState(engineResult.updatedState);
 

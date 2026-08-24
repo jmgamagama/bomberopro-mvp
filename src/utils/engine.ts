@@ -5,6 +5,22 @@
 
 import { ConfidenceLevel, MemoryState, MemoryStatus, Question, Attempt } from '../types';
 
+export function createNewMemoryState(microconceptId: string): MemoryState {
+    return {
+          user_id: 'user-default',
+          microconcept_id: microconceptId,
+          mastery_score: 0,
+          memory_stability: 1.0,
+          retrievability: 1.0,
+          status: 'Nuevo',
+          last_review: null,
+          next_review: null,
+          consecutive_correct: 0,
+          recent_errors_count: 0,
+          error_tag: null
+    };
+}
+
 /**
  * Calculates the memory retrievability (recuperabilidad_memoria) using the exponential forgetting curve.
  * Formula: R = e^(-t / S)
