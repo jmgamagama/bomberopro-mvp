@@ -37,6 +37,23 @@ const SCREEN_TITLES = {
   today_training: 'Entrenamiento de hoy',
 } as const;
 
+  const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds) => {
+      if (!supabase || !userId) return;
+      const numericQuestionId = Number(questionId);
+      if (!Number.isFinite(numericQuestionId)) return;
+      supabase.rpc('record_attempt', {
+            p_user_id: userId,
+            p_question_id: numericQuestionId,
+            p_acierto: isCorrect,
+            p_respuesta: answer,
+            p_tiempo_ms: Math.round(responseTimeSeconds * 1000),
+            p_modo: 'adaptativo',
+            p_session_id: null,
+            p_nivel: 1,
+            p_confidence: confidence
+      }).then(({ error }) => { if (error) console.error('record_attempt error:', error); });
+  };
+
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
     'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training'
@@ -198,6 +215,7 @@ export default function App() {
       created_at: now.toISOString()
     };
     saveAttempt(newAttempt);
+        syncAttemptToSupabase(session?.user?.id, questionId, isCorrect, answer, confidence, responseTime);
 
     // Reload state in memory
     const updatedStates = getMemoryStates();
@@ -254,6 +272,7 @@ export default function App() {
         created_at: now.toISOString()
       };
       saveAttempt(attemptRecord);
+            syncAttemptToSupabase(session?.user?.id, res.questionId, res.correct, res.answer, res.confidence, res.responseTime);
     });
 
     // Sync memory state
