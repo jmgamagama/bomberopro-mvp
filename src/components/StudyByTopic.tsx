@@ -140,8 +140,7 @@ if (!started) {
                h(Play, { size: 18 }), ' ' + (loadingQuestions ? 'Cargando...' : 'Empezar (' + selected.length + ' tema' + (selected.length === 1 ? '' : 's') + ')')
                )
              )
-           )
-  );
+           );
 }
 
 if (started && questions.length === 0) {
