@@ -188,7 +188,7 @@ export default function TrainScreen({
           <div className="p-4 sm:p-6 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-4">
             {/* Question metadata */}
             <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between text-xs text-slate-400 font-mono">
-              <span>Nivel: {question.level} — {question.type.replace('_', ' ')}</span>
+              <span>Nivel: {question.level} — {question.type.replace('_', ' ')} (estimación inicial, sin datos de examen)</span>
               {currentState && (
                 <span>Dominio previo: {currentState.mastery_score}%</span>
               )}
