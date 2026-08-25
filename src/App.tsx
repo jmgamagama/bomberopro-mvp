@@ -26,6 +26,7 @@ import ErrorPanel from './components/ErrorPanel';
 import ForgettingCurve from './components/ForgettingCurve';
 import MockExam from './components/MockExam';
 import Login from './components/Login';
+import StudyByTopic from './components/StudyByTopic';
 import { supabase } from './lib/supabase';
 
 const SCREEN_TITLES = {
@@ -35,6 +36,7 @@ const SCREEN_TITLES = {
   forgetting_curve: 'Curva de olvido',
   mock_exam: 'Simulacro',
   today_training: 'Entrenamiento de hoy',
+  study_by_topic: 'Estudio por Temas',
 } as const;
 
   const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds) => {
@@ -56,7 +58,7 @@ const SCREEN_TITLES = {
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
-    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training'
+    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic'
   >('dashboard');
 
   const [memoryStates, setMemoryStates] = useState<Record<string, MemoryState>>({});
@@ -141,7 +143,7 @@ export default function App() {
 
   // Handle switching screens
   const handleNavigate = (
-    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training'
+    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic'
   ) => {
     setCurrentScreen(screen);
     
@@ -413,6 +415,17 @@ export default function App() {
               <HelpCircle className="w-4 h-4" aria-hidden="true" />
               Simulacro
             </button>
+            <button
+              id="nav-btn-study-topic"
+              onClick={() => handleNavigate('study_by_topic')}
+              aria-current={currentScreen === 'study_by_topic' ? 'page' : undefined}
+              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+                currentScreen === 'study_by_topic' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
+              }`}
+              >
+            <BookOpen className="w-4 h-4" aria-hidden="true" />
+            Por Temas
+            </button>
           </nav>
 
           <div className="flex items-center gap-2">
@@ -501,13 +514,20 @@ export default function App() {
             onNavigateHome={() => handleNavigate('dashboard')}
           />
         )}
+
+        {currentScreen === 'study_by_topic' && (
+        <StudyByTopic
+          session={session}
+          onNavigateHome={() => handleNavigate('dashboard')}
+          />
+        )}
       </main>
 
       <nav
         aria-label="Navegación móvil"
         className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_18px_rgba(15,23,42,0.08)] backdrop-blur-md md:hidden"
       >
-        <div className="mx-auto grid max-w-lg grid-cols-5 px-1">
+        <div className="mx-auto grid max-w-lg grid-cols-6 px-1">
           <button
             type="button"
             aria-current={currentScreen === 'dashboard' ? 'page' : undefined}
@@ -562,6 +582,17 @@ export default function App() {
           >
             <HelpCircle className="h-5 w-5" aria-hidden="true" />
             Simulacro
+          </button>
+          <button
+            type="button"
+            aria-current={currentScreen === 'study_by_topic' ? 'page' : undefined}
+            onClick={() => handleNavigate('study_by_topic')}
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+              currentScreen === 'study_by_topic' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
+            }`}
+            >
+          <BookOpen className="h-5 w-5" aria-hidden="true" />
+          Temas
           </button>
         </div>
       </nav>
