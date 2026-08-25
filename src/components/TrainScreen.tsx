@@ -212,7 +212,7 @@ export default function TrainScreen({
                   } else if (isSelected) {
                     optionStyle = 'border-rose-300 bg-rose-50 text-rose-800 font-semibold';
                   } else {
-                    optionStyle = 'border-slate-100 bg-white text-slate-400 opacity-60';
+                    optionStyle = 'border-slate-200 bg-white text-slate-600';
                   }
                 } else if (isSelected) {
                   optionStyle = 'border-indigo-600 bg-indigo-50/50 text-indigo-800 font-semibold shadow-sm';
