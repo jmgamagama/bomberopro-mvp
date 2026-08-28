@@ -28,34 +28,15 @@ export default function Dashboard({
   onSimulateDays
 }: DashboardProps) {
   // Calculations
-  const statesList = Object.values(memoryStates);
-  const totalConcepts = microconcepts.length;
-  
-  // Overall Mastery = average of mastery scores
-  const globalMastery = totalConcepts > 0
-    ? Math.round(statesList.reduce((acc, s) => acc + s.mastery_score, 0) / totalConcepts)
-    : 0;
-
-  const countByStatus = (status: string) => statesList.filter(s => s.status === status).length;
-  
-  const dominados = countByStatus('Dominado') + countByStatus('Consolidado');
-  const debiles = countByStatus('Débil') + countByStatus('Inseguro');
-  const falsosDominios = countByStatus('Falso dominio');
-  
+  // NOTE: the legacy single-topic "SM-2 mastery" widget (Articulo 1 demo,
+  // hardcoded to 5 microconcepts) was removed from the UI below because it
+  // was disconnected from the real Supabase-backed, 40-topic question bank
+  // and produced nonsensical values (mastery > 100%, counts exceeding the
+  // fixed denominator). memoryStates/microconcepts props are kept for
+  // backwards compatibility with App.tsx but are no longer rendered here.
   const simOffset = getTimeOffset();
   const currentDate = getCurrentDate();
-
-  // Color logic for global mastery
-  let masteryColor = 'text-amber-500';
-  let masteryBg = 'bg-amber-50 border-amber-100';
-  if (globalMastery >= 80) {
-    masteryColor = 'text-emerald-500';
-    masteryBg = 'bg-emerald-50 border-emerald-100';
-  } else if (globalMastery < 40) {
-    masteryColor = 'text-rose-500';
-    masteryBg = 'bg-rose-50 border-rose-100';
-  }
-
+  
   // --- STUDY STREAK (RACHA) & DAILY TARGETS ---
   // Helper to convert date to "YYYY-MM-DD" local string based on simulated time
   const getSimulatedDateString = (date: Date) => {
@@ -180,6 +161,7 @@ export default function Dashboard({
     <div className="space-y-6" id="mira-dashboard-container">
       <h1 className="sr-only">Dashboard de BomberoPro</h1>
       {/* Simulation Header Indicator */}
+      {import.meta.env.DEV && (
       <div className="flex flex-col md:flex-row md:items-center justify-between p-4 bg-slate-900 text-slate-100 rounded-2xl shadow-sm gap-4 border border-slate-800" id="mira-sim-bar">
         <div className="flex items-center gap-3">
           <div className="p-2 bg-indigo-500/20 text-indigo-400 rounded-lg">
@@ -254,93 +236,8 @@ export default function Dashboard({
           )}
         </div>
       </div>
-
-      {/* Hero Performance Overview */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6" id="mira-performance-grid">
-        {/* Main Mastery Gauge Card */}
-        <div className={`p-6 rounded-2xl border flex flex-col justify-between ${masteryBg}`} id="mira-mastery-card">
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-500">Dominio Real del Artículo 1</h3>
-            <p className="text-xs text-slate-400 mt-1">Algoritmo de repetición espaciada (basado en SM-2)</p>
-          </div>
-          <div className="my-6 flex items-baseline gap-2">
-            <span className={`text-6xl font-extrabold font-sans tracking-tight ${masteryColor}`}>
-              {globalMastery}%
-            </span>
-            <span className="text-sm font-semibold text-slate-400">/ 100%</span>
-          </div>
-          <div className="space-y-2">
-            <div
-              className="w-full bg-slate-200/60 rounded-full h-2.5 overflow-hidden"
-              role="progressbar"
-              aria-label="Dominio real global"
-              aria-valuemin={0}
-              aria-valuemax={100}
-              aria-valuenow={globalMastery}
-            >
-              <div
-                className={`h-full rounded-full transition-all duration-500 ${
-                  globalMastery >= 80 ? 'bg-emerald-500' : globalMastery < 40 ? 'bg-rose-500' : 'bg-amber-500'
-                }`}
-                style={{ width: `${globalMastery}%` }}
-              />
-            </div>
-            <div className="flex justify-between text-xs text-slate-400 font-mono">
-              <span>0% Nulo</span>
-              <span>80% Dominado</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Detailed Stats Column */}
-        <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-3 gap-4" id="mira-stats-column">
-          {/* Box 1: Dominados */}
-          <div className="p-5 bg-white border border-slate-100 rounded-2xl flex flex-col justify-between shadow-sm hover:shadow transition">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Dominados / Consolidados</span>
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-            </div>
-            <div className="mt-4">
-              <span className="text-4xl font-extrabold text-slate-800">{dominados}</span>
-              <span className="text-sm text-slate-400 ml-1">/ {totalConcepts}</span>
-            </div>
-            <div className="text-xs text-slate-400 mt-2">
-              Microconceptos listos para el examen.
-            </div>
-          </div>
-
-          {/* Box 2: Debiles */}
-          <div className="p-5 bg-white border border-slate-100 rounded-2xl flex flex-col justify-between shadow-sm hover:shadow transition">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Inseguros / Débiles</span>
-              <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
-            </div>
-            <div className="mt-4">
-              <span className="text-4xl font-extrabold text-slate-800">{debiles}</span>
-              <span className="text-sm text-slate-400 ml-1">/ {totalConcepts}</span>
-            </div>
-            <div className="text-xs text-slate-400 mt-2">
-              Conceptos con lagunas o duda.
-            </div>
-          </div>
-
-          {/* Box 3: Falsos Dominios */}
-          <div className="p-5 bg-white border border-slate-100 rounded-2xl flex flex-col justify-between shadow-sm hover:shadow transition">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Falsos Dominios</span>
-              <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span>
-            </div>
-            <div className="mt-4">
-              <span className="text-4xl font-extrabold text-rose-500">{falsosDominios}</span>
-              <span className="text-sm text-slate-400 ml-1">/ {totalConcepts}</span>
-            </div>
-            <div className="text-xs text-rose-400/90 font-medium mt-2">
-              {falsosDominios > 0 ? '⚠️ ¡Riesgo alto en examen!' : 'Sin discrepancias críticas.'}
-            </div>
-          </div>
-        </div>
-      </div>
-
+      )}
+      
       {/* Dynamic Streak and Cognitive Bias Analytics */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6" id="mira-cognitive-diagnostics-row">
         {/* Streak and Daily Progress Card */}
@@ -556,7 +453,7 @@ export default function Dashboard({
           </div>
           <div>
             <h5 className="font-semibold text-sm text-slate-800">¿Quieres repasar primero el temario?</h5>
-            <p className="text-xs text-slate-500">Consulta el Artículo 1 desglosado por microconceptos y entrena de forma quirúrgica.</p>
+            <p className="text-xs text-slate-500">Elige un tema del temario oficial y entrena de forma quirúrgica sobre tus fallos.</p>
           </div>
         </div>
         <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
