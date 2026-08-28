@@ -76,6 +76,10 @@ export default function App() {
   const [activeQuestion, setActiveQuestion] = useState<Question | null>(null);
   const [activeReason, setActiveReason] = useState<string>('');
 
+  // Number of questions already answered in the current training session (resets each time a
+  // fresh session is started), used to render the "Pregunta X de Y" progress indicator.
+  const [sessionAnsweredCount, setSessionAnsweredCount] = useState(0);
+
   useEffect(() => {
     document.title = `${SCREEN_TITLES[currentScreen]} | BomberoPro`;
   }, [currentScreen]);
@@ -141,6 +145,14 @@ export default function App() {
 
   const pendingCount = getPendingReviewsCount();
 
+  // Pool of questions backing the current training session (the full adaptive daily session,
+  // or the subset for a single targeted microconcept), used to render session progress.
+  const sessionQuestionPool = activeConceptId
+    ? dbQuestions.filter(q => q.microconcept_id === activeConceptId)
+    : dbQuestions;
+  const sessionTotal = sessionQuestionPool.length;
+  const sessionCurrent = sessionTotal > 0 ? Math.min(sessionAnsweredCount + 1, sessionTotal) : 0;
+
   // Handle switching screens
   const handleNavigate = (
     screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic'
@@ -154,6 +166,7 @@ export default function App() {
 
     // If entering the general train screen, generate the first adaptive question
     if (screen === 'train') {
+      setSessionAnsweredCount(0);
       prepareNextAdaptiveQuestion(null, getMemoryStates());
     }
   };
@@ -179,6 +192,7 @@ export default function App() {
   const handleTrainSpecificConcept = (conceptId: string) => {
     setActiveConceptId(conceptId);
     setCurrentScreen('train');
+    setSessionAnsweredCount(0);
     prepareNextAdaptiveQuestion(conceptId, getMemoryStates());
   };
 
@@ -223,6 +237,7 @@ export default function App() {
     const updatedStates = getMemoryStates();
     setMemoryStates(updatedStates);
     setAttempts(getAttempts());
+    setSessionAnsweredCount(prev => prev + 1);
 
     return {
       feedbackTitle: result.feedbackTitle,
@@ -484,6 +499,8 @@ export default function App() {
             selectionReason={activeReason}
             microconcepts={INITIAL_MICROCONCEPTS}
             memoryStates={memoryStates}
+            sessionCurrent={sessionCurrent}
+            sessionTotal={sessionTotal}
             onAnswer={handleAnswerSubmission}
             onNextQuestion={handleNextQuestion}
             onNavigateHome={() => handleNavigate('dashboard')}
