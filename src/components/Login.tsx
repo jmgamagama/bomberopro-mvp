@@ -2,10 +2,7 @@ import React, { useState, useRef } from 'react';
 import { supabase } from '../lib/supabase';
 import { Lock, Mail, Loader2 } from 'lucide-react';
 
-type Mode = 'signup' | 'signin';
-
 export default function Login() {
-  const [mode, setMode] = useState<Mode>('signup');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -19,46 +16,57 @@ export default function Login() {
     setLoading(true);
     setMessage(null);
 
-    const { data, error } =
-      mode === 'signup'
-        ? await supabase!.auth.signUp({ email, password })
-        : await supabase!.auth.signInWithPassword({ email, password });
+    // Single "Entrar" flow: try to sign in first. If the account doesn't
+    // exist yet, create it automatically. The person never has to know or
+    // choose whether this is their first visit — one field, one button.
+    const signInResult = await supabase!.auth.signInWithPassword({ email, password });
 
-    if (error) {
+    if (!signInResult.error) {
+      // Session is set; the parent App component's onAuthStateChange
+      // listener picks it up automatically and swaps this screen out.
+      setLoading(false);
+      return;
+    }
+
+    if (signInResult.error.status === 429) {
+      setMessage({
+        type: 'error',
+        text: 'Demasiados intentos. Por favor, espera un momento antes de volver a intentarlo.',
+      });
+      focusEmail();
+      setLoading(false);
+      return;
+    }
+
+    // Sign-in failed for a reason other than rate limiting. Most likely this
+    // is a first-time visitor with no account yet, so attempt to create one
+    // with the same credentials they just typed.
+    const signUpResult = await supabase!.auth.signUp({ email, password });
+
+    if (signUpResult.error) {
       let errorMessage = 'Ocurrió un error. Inténtalo de nuevo.';
-      if (error.status === 429) {
+      if (signUpResult.error.status === 429) {
         errorMessage = 'Demasiados intentos. Por favor, espera un momento antes de volver a intentarlo.';
-      } else if (error.message.toLowerCase().includes('already registered')) {
-        errorMessage = 'Ese correo ya tiene una cuenta. Inicia sesión en su lugar.';
-        setMode('signin');
-      } else if (error.message.toLowerCase().includes('invalid login credentials')) {
-        errorMessage = 'Correo o contraseña incorrectos.';
-      } else if (error.message.toLowerCase().includes('password')) {
+      } else if (signUpResult.error.message.toLowerCase().includes('password')) {
         errorMessage = 'La contraseña debe tener al menos 6 caracteres.';
-      } else if (error.message.toLowerCase().includes('email')) {
+      } else if (signUpResult.error.message.toLowerCase().includes('email')) {
         errorMessage = 'El correo electrónico proporcionado no es válido.';
       } else {
-        errorMessage = `Error: ${error.message}`;
+        errorMessage = 'Correo o contraseña incorrectos.';
       }
       setMessage({ type: 'error', text: errorMessage });
       focusEmail();
-    } else if (mode === 'signup' && !data.session) {
-      // Fallback in case email confirmation is ever re-enabled server-side.
-      setMessage({
-        type: 'success',
-        text: 'Cuenta creada. Revisa tu correo para confirmar el acceso.',
-      });
+    } else if (!signUpResult.data.session) {
+      // Supabase returns no error and no session when the email is already
+      // registered (to avoid leaking which emails exist). In practice this
+      // means: existing account, wrong password.
+      setMessage({ type: 'error', text: 'Correo o contraseña incorrectos.' });
+      focusEmail();
     }
-    // If a session came back, the parent App component's onAuthStateChange
-    // listener picks it up automatically and swaps this screen out — no
-    // further action needed here.
+    // Otherwise a brand-new account was created and signed in automatically;
+    // onAuthStateChange takes over from here.
 
     setLoading(false);
-  };
-
-  const toggleMode = () => {
-    setMode(mode === 'signup' ? 'signin' : 'signup');
-    setMessage(null);
   };
 
   return (
@@ -69,9 +77,7 @@ export default function Login() {
             <Mail className="w-6 h-6 text-white" />
           </div>
           <h1 className="text-2xl font-black tracking-tight uppercase">MIRA Bomberopro</h1>
-          <p className="text-indigo-200 mt-2 text-sm font-medium">
-            {mode === 'signup' ? 'Crea tu cuenta de opositor' : 'Acceso Seguro de Opositor'}
-          </p>
+          <p className="text-indigo-200 mt-2 text-sm font-medium">Acceso de Opositor</p>
         </div>
 
         <div className="p-8">
@@ -107,16 +113,16 @@ export default function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                autoComplete={mode === 'signup' ? 'new-password' : 'current-password'}
+                autoComplete="current-password"
                 minLength={6}
                 required
                 aria-invalid={message?.type === 'error'}
                 aria-describedby={message ? 'login-message' : undefined}
                 className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-slate-800 font-medium"
               />
-              {mode === 'signup' && (
-                <p className="mt-2 text-xs text-slate-500">Mínimo 6 caracteres.</p>
-              )}
+              <p className="mt-2 text-xs text-slate-500">
+                Mínimo 6 caracteres. Si es tu primera vez, esto crea tu cuenta.
+              </p>
             </div>
 
             {message && (
@@ -142,22 +148,14 @@ export default function Login() {
               {loading ? (
                 <>
                   <Loader2 className="w-5 h-5 animate-spin" aria-hidden="true" />
-                  {mode === 'signup' ? 'Creando cuenta...' : 'Entrando...'}
+                  Entrando...
                 </>
               ) : (
                 <>
                   <Lock className="w-4 h-4" aria-hidden="true" />
-                  {mode === 'signup' ? 'Crear cuenta y empezar' : 'Entrar'}
+                  Entrar
                 </>
               )}
-            </button>
-
-            <button
-              type="button"
-              onClick={toggleMode}
-              className="w-full text-center text-sm font-bold text-indigo-600 hover:text-indigo-700 transition"
-            >
-              {mode === 'signup' ? '¿Ya tienes cuenta? Inicia sesión' : '¿No tienes cuenta? Regístrate'}
             </button>
           </form>
         </div>
