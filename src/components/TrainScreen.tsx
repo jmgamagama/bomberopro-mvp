@@ -13,6 +13,8 @@ interface TrainScreenProps {
   selectionReason: string;
   microconcepts: Microconcept[];
   memoryStates: Record<string, MemoryState>;
+  sessionCurrent: number;
+  sessionTotal: number;
   onAnswer: (
     questionId: string,
     microconceptId: string,
@@ -35,6 +37,8 @@ export default function TrainScreen({
   selectionReason,
   microconcepts,
   memoryStates,
+  sessionCurrent,
+  sessionTotal,
   onAnswer,
   onNextQuestion,
   onNavigateHome
@@ -45,6 +49,7 @@ export default function TrainScreen({
   const [isAnswered, setIsAnswered] = useState(false);
   const [startTime, setStartTime] = useState<number>(0);
   const [timeTaken, setTimeTaken] = useState<number>(0);
+  const [elapsedSeconds, setElapsedSeconds] = useState(0);
   const [answerChanges, setAnswerChanges] = useState(0);
   const feedbackRef = useRef<HTMLDivElement>(null);
 
@@ -64,7 +69,17 @@ export default function TrainScreen({
     setIsAnswered(false);
     setAnswerChanges(0);
     setFeedback(null);
+    setElapsedSeconds(0);
   }, [question?.id]);
+
+  // Live-updating chronometer while the question is unanswered
+  useEffect(() => {
+    if (isAnswered || !startTime) return;
+    const interval = setInterval(() => {
+      setElapsedSeconds(Math.floor((Date.now() - startTime) / 1000));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [startTime, isAnswered]);
 
   useEffect(() => {
     if (feedback) feedbackRef.current?.focus();
@@ -99,6 +114,15 @@ export default function TrainScreen({
 
   const relatedConcept = microconcepts.find(mc => mc.id === question.microconcept_id);
   const currentState = memoryStates[question.microconcept_id];
+
+  const formatElapsed = (totalSeconds: number) => {
+    const m = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
+    const s = (totalSeconds % 60).toString().padStart(2, '0');
+    return `${m}:${s}`;
+  };
+
+  const displayedSeconds = isAnswered ? timeTaken : elapsedSeconds;
+  const isWithinTarget = displayedSeconds < 15;
 
   const handleSubmit = () => {
     if (!selectedAnswer || !selectedConfidence) return;
@@ -182,13 +206,29 @@ export default function TrainScreen({
         </span>
       </div>
 
+      {/* Session progress counter */}
+      {sessionTotal > 0 && (
+        <div className="space-y-1.5" id="train-session-progress">
+          <div className="flex items-center justify-between text-xs text-slate-500 font-mono">
+            <span>Pregunta {sessionCurrent} de {sessionTotal}</span>
+            <span>Sesión de hoy</span>
+          </div>
+          <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-indigo-600 transition-all duration-300"
+              style={{ width: `${Math.min((sessionCurrent / sessionTotal) * 100, 100)}%` }}
+            />
+          </div>
+        </div>
+      )}
+
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6" id="train-split-layout">
         {/* Left main column: Question and interaction */}
         <div className="lg:col-span-2 space-y-6">
           <div className="p-4 sm:p-6 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-4">
             {/* Question metadata */}
             <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between text-xs text-slate-400 font-mono">
-              <span>Nivel: {question.level} — {question.type.replace('_', ' ')} (estimación inicial, sin datos de examen)</span>
+              <span>Nivel: {question.level} — {question.type.replace('_', ' ')}</span>
               {currentState && (
                 <span>Dominio previo: {currentState.mastery_score}%</span>
               )}
@@ -204,7 +244,7 @@ export default function TrainScreen({
               {question.options?.map((option, idx) => {
                 const isSelected = selectedAnswer === option;
                 const isCorrect = option === question.correct_answer;
-                
+
                 let optionStyle = 'border-slate-200 bg-white hover:bg-slate-50 text-slate-700';
                 if (isAnswered) {
                   if (isCorrect) {
@@ -212,7 +252,7 @@ export default function TrainScreen({
                   } else if (isSelected) {
                     optionStyle = 'border-rose-300 bg-rose-50 text-rose-800 font-semibold';
                   } else {
-                    optionStyle = 'border-slate-200 bg-white text-slate-600';
+                    optionStyle = 'border-slate-100 bg-white text-slate-400 opacity-60';
                   }
                 } else if (isSelected) {
                   optionStyle = 'border-indigo-600 bg-indigo-50/50 text-indigo-800 font-semibold shadow-sm';
@@ -243,7 +283,7 @@ export default function TrainScreen({
                 <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">
                   1. Elige tu nivel de seguridad/confianza antes de responder:
                 </span>
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
                   <button
                     id="conf-btn-baja"
@@ -349,7 +389,7 @@ export default function TrainScreen({
               <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider font-mono">
                 Microconcepto Relacionado
               </h4>
-              
+
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-[10px] font-bold font-mono px-2 py-0.5 bg-slate-100 text-slate-600 rounded">
@@ -370,7 +410,7 @@ export default function TrainScreen({
                   <h5 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono">
                     Impacto en Memoria Cognitiva
                   </h5>
-                  
+
                   <div className="grid grid-cols-2 gap-2 text-center">
                     <div className="p-2.5 bg-indigo-50/50 rounded-xl border border-indigo-500/10">
                       <span className="text-[10px] text-slate-400 block font-mono">Dominio Real</span>
@@ -379,7 +419,7 @@ export default function TrainScreen({
                     <div className="p-2.5 bg-indigo-50/50 rounded-xl border border-indigo-500/10">
                       <span className="text-[10px] text-slate-400 block font-mono">Estabilidad (S)</span>
                       <span className="text-lg font-bold text-indigo-700">
-                        {feedback.updatedState.memory_stability < 1 
+                        {feedback.updatedState.memory_stability < 1
                           ? `${Math.round(feedback.updatedState.memory_stability * 24 * 60)} min`
                           : `${feedback.updatedState.memory_stability.toFixed(1)} días`
                         }
@@ -403,11 +443,29 @@ export default function TrainScreen({
           )}
 
           {/* Time Warning Box */}
-          <div className="p-5 bg-indigo-900 text-indigo-100 rounded-2xl space-y-2 border border-indigo-950">
+          <div className="p-5 bg-indigo-900 text-indigo-100 rounded-2xl space-y-3 border border-indigo-950">
             <h5 className="text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-1.5">
-              <Clock className="w-4 h-4 animate-spin-slow" />
+              <Clock className={`w-4 h-4 ${!isAnswered ? 'animate-spin-slow' : ''}`} />
               Cronómetro de Automatización
             </h5>
+
+            <div className="flex items-center justify-between" id="automation-timer">
+              <span
+                className={`text-3xl font-black font-mono tabular-nums ${
+                  !isAnswered && !isWithinTarget ? 'text-amber-300' : 'text-white'
+                }`}
+              >
+                {formatElapsed(displayedSeconds)}
+              </span>
+              <span
+                className={`text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full ${
+                  isWithinTarget ? 'bg-emerald-500/20 text-emerald-300' : 'bg-amber-500/20 text-amber-300'
+                }`}
+              >
+                {isWithinTarget ? 'En objetivo' : 'Fuera de objetivo'}
+              </span>
+            </div>
+
             <p className="text-xs text-indigo-200">
               En oposiciones de alta exigencia, responder en menos de 15 segundos demuestra retención automatizada de largo plazo, sumando puntos de Dominio Real.
             </p>
