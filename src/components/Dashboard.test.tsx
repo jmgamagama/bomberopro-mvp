@@ -32,12 +32,12 @@ const renderDashboard = () => {
 };
 
 describe('Dashboard', () => {
-  it('expone el dominio global y navega a las acciones principales', () => {
+  it('no muestra el widget legado de dominio desconectado de Supabase y navega a las acciones principales', () => {
     const { onNavigate } = renderDashboard();
 
     expect(
-      screen.getByRole('progressbar', { name: 'Dominio real global' }),
-    ).toHaveAttribute('aria-valuenow', '0');
+      screen.queryByRole('progressbar', { name: 'Dominio real global' }),
+    ).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByRole('button', { name: /entrenar ahora/i }));
     fireEvent.click(screen.getByRole('button', { name: /hacer simulacro/i }));
