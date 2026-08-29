@@ -265,6 +265,7 @@ export default function App() {
       correct: boolean;
       confidence: ConfidenceLevel;
       responseTime: number;
+      answerChanges: number;
     }[]
   ) => {
     const now = getCurrentDate();
@@ -278,14 +279,14 @@ export default function App() {
 
       const attemptRecord: Attempt = {
         id: `att-mock-${Date.now()}-${res.questionId}`,
-        user_id: 'user-default',
+        user_id: session?.user?.id || 'user-default',
         question_id: res.questionId,
         microconcept_id: res.microconceptId,
         answer_user: res.answer,
         correct: res.correct,
         confidence: res.confidence,
         response_time_seconds: res.responseTime,
-        answer_changes: 0,
+        answer_changes: res.answerChanges || 0,
         created_at: now.toISOString()
       };
       saveAttempt(attemptRecord);

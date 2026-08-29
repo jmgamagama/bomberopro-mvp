@@ -9,6 +9,7 @@ import { Question, ConfidenceLevel, Microconcept } from '../types';
 import { INITIAL_QUESTIONS } from '../data/initialData';
 import { supabase } from '../lib/supabase';
 import { calculateExamScore, EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS } from '../utils/examScoring';
+import { countAnswerChange } from '../utils/attempt';
 import { EXAM_DURATION_SECONDS, formatExamTime, getRemainingExamSeconds } from '../utils/examTimer';
 
 interface MockExamProps {
@@ -18,9 +19,9 @@ interface MockExamProps {
       questionId: string;
       microconceptId: string;
       answer: string;
-      correct: boolean;
       confidence: ConfidenceLevel;
       responseTime: number;
+      answerChanges: number;
     }[]
   ) => void;
   onNavigateHome: () => void;
@@ -42,6 +43,7 @@ export default function MockExam({
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [confidences, setConfidences] = useState<Record<string, ConfidenceLevel>>({});
   const [responseTimes, setResponseTimes] = useState<Record<string, number>>({});
+  const [answerChanges, setAnswerChanges] = useState<Record<string, number>>({});
   
   // Time keeping
   const [startTime, setStartTime] = useState<number>(0);
@@ -95,6 +97,7 @@ export default function MockExam({
       setAnswers({});
       setConfidences({});
       setResponseTimes({});
+      setAnswerChanges({});
       finishStartedRef.current = false;
       setExamStarted(true);
       setExamFinished(false);
@@ -110,7 +113,15 @@ export default function MockExam({
   };
 
   const handleSelectAnswer = (option: string) => {
-    setAnswers(prev => ({ ...prev, [questions[currentIdx].id]: option }));
+    const qId = questions[currentIdx].id;
+    const currentAnswer = answers[qId] || '';
+    if (currentAnswer !== option) {
+      setAnswerChanges(prev => ({
+        ...prev,
+        [qId]: (prev[qId] || 0) + (currentAnswer ? 1 : 0) // solo cuenta como cambio si ya había respondido algo antes
+      }));
+    }
+    setAnswers(prev => ({ ...prev, [qId]: option }));
   };
 
   const handleSelectConfidence = (conf: ConfidenceLevel) => {
@@ -155,6 +166,7 @@ export default function MockExam({
       // If blank, confidence doesn't really matter, but default to 'media' if absent to avoid type errors
       const confidence = confidences[q.id] || 'media';
       const rTime = responseTimes[q.id] || Math.round((Date.now() - currentQuestionStart) / 1000);
+      const changes = answerChanges[q.id] || 0;
       const isSpecific = q.tema ? q.tema.numero >= 35 : false;
       const isReserve = index >= 50; // questions 51-55 are reserve
 
@@ -166,6 +178,7 @@ export default function MockExam({
         correct,
         confidence,
         responseTime: rTime,
+        answerChanges: changes,
         isSpecific,
         isReserve
       };
