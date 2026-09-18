@@ -10,6 +10,7 @@ import { INITIAL_QUESTIONS } from '../data/initialData';
 import { supabase } from '../lib/supabase';
 import { calculateExamScore, EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS } from '../utils/examScoring';
 import { EXAM_DURATION_SECONDS, formatExamTime, getRemainingExamSeconds } from '../utils/examTimer';
+import StudentConsultation from './StudentConsultationModal';
 
 interface MockExamProps {
   microconcepts: Microconcept[];
@@ -275,6 +276,11 @@ export default function MockExam({
           <ArrowLeft className="w-4 h-4" />
           Volver al Dashboard
         </button>
+        <StudentConsultation
+          variant="button"
+          context="Simulacro de Examen"
+          defaultReason="Tests y simulacros"
+        />
       </div>
 
       {/* BEFORE START SCREEN */}

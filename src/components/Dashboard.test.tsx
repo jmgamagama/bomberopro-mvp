@@ -60,4 +60,16 @@ describe('Dashboard', () => {
     expect(confirm).toHaveBeenCalledOnce();
     expect(onReset).toHaveBeenCalledOnce();
   });
+
+  it('muestra la tarjeta de consulta pedagógica y permite abrir el diálogo de ayuda', () => {
+    renderDashboard();
+
+    expect(screen.getByText('¿Dudas en tu preparación?')).toBeInTheDocument();
+    const consultButton = screen.getByRole('button', { name: /consultar al equipo/i });
+    expect(consultButton).toBeInTheDocument();
+
+    fireEvent.click(consultButton);
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
+    expect(screen.getByText(/el equipo revisará tu consulta de forma personalizada/i)).toBeInTheDocument();
+  });
 });

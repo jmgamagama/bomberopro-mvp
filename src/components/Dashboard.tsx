@@ -7,6 +7,7 @@ import React from 'react';
 import { Play, AlertTriangle, HelpCircle, BarChart2, BookOpen, RotateCcw, Clock, ArrowRight, Flame, Award, Zap, Target, TrendingUp } from 'lucide-react';
 import { MemoryState, Microconcept, Attempt } from '../types';
 import { getCurrentDate, getTimeOffset } from '../utils/db';
+import StudentConsultation from './StudentConsultationModal';
 
 interface DashboardProps {
   memoryStates: Record<string, MemoryState>;
@@ -444,6 +445,9 @@ export default function Dashboard({
           </div>
         </button>
       </div>
+
+      {/* Student Consultation Help Card */}
+      <StudentConsultation variant="card" context="Dashboard" />
 
       {/* Primary Study Link & Reset Button */}
       <div className="flex flex-col sm:flex-row items-center justify-between p-5 bg-slate-50 rounded-2xl border border-slate-200/60 gap-4" id="mira-dashboard-footer">
