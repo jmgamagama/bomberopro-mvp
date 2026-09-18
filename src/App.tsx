@@ -67,6 +67,7 @@ export default function App() {
   
   // Supabase Auth and Data state
   const [session, setSession] = useState<any>(null);
+  const [isDemoMode, setIsDemoMode] = useState(false);
   const [dbQuestions, setDbQuestions] = useState<Question[]>(INITIAL_QUESTIONS);
   const [dbQuestionsLoading, setDbQuestionsLoading] = useState(false);
   const [dbQuestionsError, setDbQuestionsError] = useState<string | null>(null);
@@ -215,9 +216,6 @@ export default function App() {
     // Compute updated values via core cognitive engine
     const result = processAttempt(currentState, isCorrect, confidence, responseTime, now);
 
-    // Save to database
-    saveMemoryState(result.updatedState);
-    
     const newAttempt: Attempt = {
       id: `att-${Date.now()}`,
       user_id: 'user-default',
@@ -230,14 +228,27 @@ export default function App() {
       answer_changes: answerChanges,
       created_at: now.toISOString()
     };
-    saveAttempt(newAttempt);
-        syncAttemptToSupabase(session?.user?.id, questionId, isCorrect, answer, confidence, responseTime);
 
-    // Reload state in memory
-    const updatedStates = getMemoryStates();
-    setMemoryStates(updatedStates);
-    setAttempts(getAttempts());
-    setSessionAnsweredCount(prev => prev + 1);
+    if (isDemoMode) {
+      // In read-only demo mode: update only React state in memory without persistence or network calls
+      setMemoryStates(prev => ({
+        ...prev,
+        [microconceptId]: result.updatedState
+      }));
+      setAttempts(prev => [newAttempt, ...prev]);
+      setSessionAnsweredCount(prev => prev + 1);
+    } else {
+      // Save to local database
+      saveMemoryState(result.updatedState);
+      saveAttempt(newAttempt);
+      syncAttemptToSupabase(session?.user?.id, questionId, isCorrect, answer, confidence, responseTime);
+
+      // Reload state in memory
+      const updatedStates = getMemoryStates();
+      setMemoryStates(updatedStates);
+      setAttempts(getAttempts());
+      setSessionAnsweredCount(prev => prev + 1);
+    }
 
     return {
       feedbackTitle: result.feedbackTitle,
@@ -313,7 +324,38 @@ export default function App() {
     setActiveConceptId(null);
   };
 
+  const resetDemoState = () => {
+    setAttempts([]);
+    setMemoryStates({});
+    setSessionAnsweredCount(0);
+    setActiveQuestion(null);
+    setActiveReason('');
+    setActiveConceptId(null);
+  };
+
+  const handleStartDemo = () => {
+    resetDemoState();
+    setIsDemoMode(true);
+    setDbQuestions(INITIAL_QUESTIONS);
+    setCurrentScreen('dashboard');
+  };
+
+  const handleExitDemo = () => {
+    resetDemoState();
+    // If an authenticated user exists, restore real data from storage
+    if (session) {
+      setMemoryStates(getMemoryStates());
+      setAttempts(getAttempts());
+    }
+    setIsDemoMode(false);
+    setCurrentScreen('dashboard');
+  };
+
   const handleLogout = async () => {
+    if (isDemoMode) {
+      handleExitDemo();
+      return;
+    }
     if (supabase) {
       await supabase.auth.signOut();
     }
@@ -333,12 +375,36 @@ export default function App() {
     );
   }
 
-  if (!session && supabase) {
-    return <Login />;
+  if (!session && supabase && !isDemoMode) {
+    return <Login onStartDemo={handleStartDemo} />;
   }
 
   return (
     <div className="min-h-screen bg-slate-50/50 flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
+      {isDemoMode && (
+        <div
+          role="region"
+          aria-label="Aviso de modo demostración"
+          className="bg-amber-400 text-slate-950 px-4 py-2 text-xs font-semibold shadow-xs"
+        >
+          <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+            <div className="flex items-center gap-2 text-center sm:text-left">
+              <span className="w-2 h-2 rounded-full bg-amber-900 animate-pulse shrink-0" aria-hidden="true" />
+              <span>
+                <strong>Modo demostración (Solo lectura)</strong>: Explorando una primera sesión de estudio sin cuenta ni persistencia de datos.
+              </span>
+            </div>
+            <button
+              type="button"
+              id="btn-exit-demo"
+              onClick={handleExitDemo}
+              className="px-2.5 py-1 bg-slate-950 hover:bg-slate-800 text-white rounded-lg text-xs font-bold transition shrink-0 cursor-pointer"
+            >
+              Salir de la demo
+            </button>
+          </div>
+        </div>
+      )}
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-bold focus:text-indigo-700 focus:shadow-lg"

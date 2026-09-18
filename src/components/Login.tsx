@@ -1,8 +1,12 @@
 import React, { useState, useRef } from 'react';
 import { supabase } from '../lib/supabase';
-import { Lock, Mail, Loader2 } from 'lucide-react';
+import { Lock, Mail, Loader2, BookOpen } from 'lucide-react';
 
-export default function Login() {
+interface LoginProps {
+  onStartDemo?: () => void;
+}
+
+export default function Login({ onStartDemo }: LoginProps = {}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -57,11 +61,24 @@ export default function Login() {
       setMessage({ type: 'error', text: errorMessage });
       focusEmail();
     } else if (!signUpResult.data.session) {
-      // Supabase returns no error and no session when the email is already
-      // registered (to avoid leaking which emails exist). In practice this
-      // means: existing account, wrong password.
-      setMessage({ type: 'error', text: 'Correo o contraseña incorrectos.' });
-      focusEmail();
+      // In Supabase with email enumeration protection, an existing account returns
+      // data.user with an empty identities array ([]). If identities is empty, it's an
+      // existing account with the wrong password.
+      const isExistingAccount =
+        signUpResult.data.user &&
+        Array.isArray(signUpResult.data.user.identities) &&
+        signUpResult.data.user.identities.length === 0;
+
+      if (isExistingAccount) {
+        setMessage({ type: 'error', text: 'Correo o contraseña incorrectos.' });
+        focusEmail();
+      } else {
+        // A new account was created, but email confirmation is required by Supabase before establishing a session.
+        setMessage({
+          type: 'success',
+          text: 'Cuenta creada. Revisa tu correo electrónico para confirmar tu cuenta y activar tu acceso.',
+        });
+      }
     }
     // Otherwise a brand-new account was created and signed in automatically;
     // onAuthStateChange takes over from here.
@@ -158,6 +175,23 @@ export default function Login() {
               )}
             </button>
           </form>
+
+          {onStartDemo && (
+            <div className="pt-6 mt-6 border-t border-slate-100 text-center space-y-2">
+              <p className="text-xs text-slate-500">
+                ¿Esperando la confirmación de correo o quieres probar antes?
+              </p>
+              <button
+                type="button"
+                id="btn-login-demo"
+                onClick={onStartDemo}
+                className="w-full py-2.5 px-4 bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-indigo-600 border border-slate-200 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <BookOpen className="w-4 h-4 text-indigo-500" aria-hidden="true" />
+                <span>Probar demostración de solo lectura (sin cuenta)</span>
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -53,14 +53,39 @@ describe('Login', () => {
 
   it('si la cuenta ya existe pero la contraseña no coincide, avisa con un mensaje claro', async () => {
     signInWithPassword.mockResolvedValue({ data: { session: null }, error: { status: 400, message: 'Invalid login credentials' } });
-    // Supabase responds with no error and no session when the email is already registered.
-    signUp.mockResolvedValue({ data: { session: null }, error: null });
+    // Supabase responds with no error and empty identities array when the email is already registered.
+    signUp.mockResolvedValue({ data: { session: null, user: { id: '1', identities: [] } }, error: null });
     const user = userEvent.setup();
     render(<Login />);
 
     await fillAndSubmit(user);
 
     expect(await screen.findByText(/correo o contraseña incorrectos/i)).toBeInTheDocument();
+  });
+
+  it('si la cuenta se crea pero requiere confirmación por correo, explica la confirmación claramente', async () => {
+    signInWithPassword.mockResolvedValue({ data: { session: null }, error: { status: 400, message: 'Invalid login credentials' } });
+    // Supabase returns a user with identities but no session when email confirmation is required
+    signUp.mockResolvedValue({ data: { session: null, user: { id: '1', identities: [{ id: 'ident-1' }] } }, error: null });
+    const user = userEvent.setup();
+    render(<Login />);
+
+    await fillAndSubmit(user);
+
+    expect(await screen.findByRole('status')).toHaveTextContent(/revisa tu correo/i);
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+  });
+
+  it('permite iniciar la demostración de solo lectura sin cuenta', async () => {
+    const onStartDemo = vi.fn();
+    const user = userEvent.setup();
+    render(<Login onStartDemo={onStartDemo} />);
+
+    const demoButton = screen.getByRole('button', { name: /probar demostración de solo lectura/i });
+    expect(demoButton).toBeInTheDocument();
+
+    await user.click(demoButton);
+    expect(onStartDemo).toHaveBeenCalledOnce();
   });
 
   it('mantiene el estado de carga mientras Supabase responde', async () => {

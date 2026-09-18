@@ -1,6 +1,7 @@
 import React from 'react';
 import { Target, Play, Sparkles } from 'lucide-react';
 import { Question } from '../types';
+import StudentConsultation from './StudentConsultationModal';
 
 interface TodayTrainingProps {
   questions: Question[];
@@ -68,13 +69,19 @@ export default function TodayTraining({ questions, isLoading, error, onStartTrai
           </>
         )}
 
-        <div className="pt-6">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
           <button
             onClick={onNavigateHome}
             className="text-xs font-semibold text-slate-400 hover:text-slate-600 transition"
           >
             Volver al Dashboard
           </button>
+          <span className="hidden sm:inline text-slate-300 text-xs" aria-hidden="true">•</span>
+          <StudentConsultation
+            variant="link"
+            context="Entrenamiento de Hoy"
+            defaultReason="Tarjetas y repasos"
+          />
         </div>
         
         <p className="text-[10px] text-slate-400 flex items-center justify-center gap-1.5 mt-4">

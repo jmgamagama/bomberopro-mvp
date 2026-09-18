@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Play, CheckCircle2, XCircle } from 'lucide-react';
 import { Question } from '../types';
 import { supabase } from '../lib/supabase';
+import StudentConsultation from './StudentConsultationModal';
 
 interface TopicOption {
   id: number;
@@ -111,9 +112,16 @@ const h = React.createElement;
 if (!started) {
   return h('div', { className: 'min-h-screen bg-slate-50 p-4' },
            h('div', { className: 'max-w-2xl mx-auto' },
-             h('button', { onClick: onNavigateHome, className: 'flex items-center gap-2 text-slate-600 mb-4' },
-               h(ArrowLeft, { size: 20 }), ' Volver'
+             h('div', { className: 'flex items-center justify-between mb-4' },
+               h('button', { onClick: onNavigateHome, className: 'flex items-center gap-2 text-slate-600' },
+                 h(ArrowLeft, { size: 20 }), ' Volver'
                ),
+               h(StudentConsultation, {
+                 variant: 'button',
+                 context: 'Estudio por Temas',
+                 defaultReason: 'Temario y estudio',
+               })
+             ),
              h('h1', { className: 'text-2xl font-bold text-slate-900 mb-2' }, 'Estudio por Temas'),
              h('p', { className: 'text-slate-600 mb-6' }, 'Elige uno o varios temas para practicar preguntas centradas en ese contenido.'),
              loadingTopics
@@ -170,9 +178,16 @@ return h('div', { className: 'min-h-screen bg-slate-50 p-4' },
            h('div', { className: 'flex items-center justify-between mb-4' },
              h('button', { onClick: onNavigateHome, className: 'flex items-center gap-2 text-slate-600' },
                h(ArrowLeft, { size: 20 }), ' Salir'
-                     ),
-             h('span', { className: 'text-sm text-slate-500' }, 'Pregunta ' + (idx + 1) + '/' + questions.length)
              ),
+             h('div', { className: 'flex items-center gap-3' },
+               h('span', { className: 'text-sm text-slate-500' }, 'Pregunta ' + (idx + 1) + '/' + questions.length),
+               h(StudentConsultation, {
+                 variant: 'button',
+                 context: 'Estudio por Temas: Pregunta ' + (idx + 1),
+                 defaultReason: 'Temario y estudio',
+               })
+             )
+           ),
            h('div', { className: 'bg-white rounded-xl p-5 shadow mb-4' },
              h('p', { className: 'text-slate-900 font-medium mb-4' }, currentQuestion.question),
              h('div', { className: 'flex flex-col gap-2' },

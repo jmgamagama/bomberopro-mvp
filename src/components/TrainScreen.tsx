@@ -7,6 +7,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Brain, Sparkles, ChevronRight, CheckCircle2, XCircle, AlertTriangle, HelpCircle, RefreshCw, ArrowLeft, Clock } from 'lucide-react';
 import { Question, ConfidenceLevel, MemoryState, Microconcept } from '../types';
 import { countAnswerChange } from '../utils/attempt';
+import StudentConsultation from './StudentConsultationModal';
 
 interface TrainScreenProps {
   question: Question | null;
@@ -99,7 +100,7 @@ export default function TrainScreen({
         <p className="text-sm text-slate-500 max-w-md mx-auto">
           No quedan microconceptos prioritarios pendientes de repaso inmediato. Has consolidado todo el temario en este momento.
         </p>
-        <div className="flex justify-center gap-3">
+        <div className="flex justify-center gap-3 flex-wrap">
           <button
             id="btn-back-home"
             onClick={onNavigateHome}
@@ -107,6 +108,11 @@ export default function TrainScreen({
           >
             Volver al Dashboard
           </button>
+          <StudentConsultation
+            variant="button"
+            context="Entrenamiento finalizado"
+            defaultReason="Tarjetas y repasos"
+          />
         </div>
       </div>
     );
@@ -199,11 +205,18 @@ export default function TrainScreen({
           Volver al Dashboard
         </button>
 
-        {/* Adaptive reason badge */}
-        <span className="px-3 py-1 bg-indigo-50 text-indigo-600 border border-indigo-100 text-xs font-semibold rounded-full flex items-center gap-1.5 shadow-sm font-mono">
-          <Sparkles className="w-3.5 h-3.5 animate-pulse text-indigo-500" />
-          MIRA: {selectionReason}
-        </span>
+        <div className="flex items-center gap-2 flex-wrap">
+          {/* Adaptive reason badge */}
+          <span className="px-3 py-1 bg-indigo-50 text-indigo-600 border border-indigo-100 text-xs font-semibold rounded-full flex items-center gap-1.5 shadow-sm font-mono">
+            <Sparkles className="w-3.5 h-3.5 animate-pulse text-indigo-500" />
+            MIRA: {selectionReason}
+          </span>
+          <StudentConsultation
+            variant="button"
+            context={`Entrenamiento: ${relatedConcept ? `Art. ${relatedConcept.article}` : 'Pregunta adaptativa'}`}
+            defaultReason="Tests y simulacros"
+          />
+        </div>
       </div>
 
       {/* Session progress counter */}
