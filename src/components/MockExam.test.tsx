@@ -74,6 +74,11 @@ describe('MockExam', () => {
     // Wait for questions to load
     await screen.findByText(/pregunta 1 de/i);
 
+    // The first selection is free; switching A -> B -> A counts as two changes.
+    fireEvent.click(container.querySelector<HTMLButtonElement>('#mock-option-0')!);
+    fireEvent.click(container.querySelector<HTMLButtonElement>('#mock-option-1')!);
+    fireEvent.click(container.querySelector<HTMLButtonElement>('#mock-option-0')!);
+
     for (let index = 0; index < 10; index += 1) {
       fireEvent.click(container.querySelector<HTMLButtonElement>('#mock-option-0')!);
       fireEvent.click(screen.getByRole('button', { name: /confianza media/i }));
@@ -85,5 +90,7 @@ describe('MockExam', () => {
     expect(summary).toHaveAccessibleName(/simulacro completado/i);
     expect(summary).toHaveAccessibleDescription(/nota .* acierto .* tiempo medio/i);
     expect(onFinishExam).toHaveBeenCalledOnce();
+    expect(onFinishExam.mock.calls[0][0][0]).toMatchObject({ answerChanges: 2 });
+    expect(onFinishExam.mock.calls[0][0][1]).toMatchObject({ answerChanges: 0 });
   });
 });
