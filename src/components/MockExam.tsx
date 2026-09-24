@@ -11,6 +11,7 @@ import { supabase } from '../lib/supabase';
 import { calculateExamScore, EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS } from '../utils/examScoring';
 import { EXAM_DURATION_SECONDS, formatExamTime, getRemainingExamSeconds } from '../utils/examTimer';
 import StudentConsultation from './StudentConsultationModal';
+import { countAnswerChange } from '../utils/attempt';
 
 interface MockExamProps {
   microconcepts: Microconcept[];
@@ -22,6 +23,7 @@ interface MockExamProps {
       correct: boolean;
       confidence: ConfidenceLevel;
       responseTime: number;
+      answerChanges: number;
     }[]
   ) => void;
   onNavigateHome: () => void;
@@ -51,6 +53,7 @@ export default function MockExam({
   const [remainingTime, setRemainingTime] = useState(EXAM_DURATION_SECONDS);
   const hasExamInProgress = examStarted && !examFinished;
   const finishStartedRef = useRef(false);
+  const answerChangesRef = useRef<Record<string, number>>({});
   const resultsSummaryRef = useRef<HTMLDivElement>(null);
 
   // Results cache for the local review screen
@@ -96,6 +99,7 @@ export default function MockExam({
       setAnswers({});
       setConfidences({});
       setResponseTimes({});
+      answerChangesRef.current = {};
       finishStartedRef.current = false;
       setExamStarted(true);
       setExamFinished(false);
@@ -111,7 +115,10 @@ export default function MockExam({
   };
 
   const handleSelectAnswer = (option: string) => {
-    setAnswers(prev => ({ ...prev, [questions[currentIdx].id]: option }));
+    const questionId = questions[currentIdx].id;
+    answerChangesRef.current[questionId] = (answerChangesRef.current[questionId] || 0)
+      + countAnswerChange(answers[questionId] ?? null, option);
+    setAnswers(prev => ({ ...prev, [questionId]: option }));
   };
 
   const handleSelectConfidence = (conf: ConfidenceLevel) => {
@@ -167,6 +174,7 @@ export default function MockExam({
         correct,
         confidence,
         responseTime: rTime,
+        answerChanges: answerChangesRef.current[q.id] || 0,
         isSpecific,
         isReserve
       };

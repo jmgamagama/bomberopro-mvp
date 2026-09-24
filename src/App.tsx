@@ -276,6 +276,7 @@ export default function App() {
       correct: boolean;
       confidence: ConfidenceLevel;
       responseTime: number;
+      answerChanges: number;
     }[]
   ) => {
     const now = getCurrentDate();
@@ -296,7 +297,7 @@ export default function App() {
         correct: res.correct,
         confidence: res.confidence,
         response_time_seconds: res.responseTime,
-        answer_changes: 0,
+        answer_changes: res.answerChanges,
         created_at: now.toISOString()
       };
       saveAttempt(attemptRecord);
