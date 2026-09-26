@@ -16,6 +16,8 @@ export function createNewMemoryState(microconceptId: string): MemoryState {
           last_review: null,
           next_review: null,
           consecutive_correct: 0,
+          spaced_high_confidence_successes: 0,
+          last_spaced_success_at: null,
           recent_errors_count: 0,
           error_tag: null
     };
@@ -117,6 +119,37 @@ export function calculateMasteryScore(params: {
   return Math.max(0, Math.min(100, score));
 }
 
+/** Conservative read adapter: legacy practice does not prove spaced recall.
+ * Returns a copy; it never rewrites or deletes stored history.
+ */
+export function normalizeSpacedEvidence(state: MemoryState, now: Date): MemoryState {
+  const result = { ...state };
+  const nowMs = now.getTime();
+  const evidenceMs = Date.parse(state.last_spaced_success_at ?? '');
+  const reviewMs = Date.parse(state.last_review ?? '');
+  const chronologyValid = !state.last_review || (Number.isFinite(reviewMs) && reviewMs <= nowMs);
+  const countValid = Number.isInteger(state.spaced_high_confidence_successes) &&
+    (state.spaced_high_confidence_successes ?? 0) > 0 &&
+    Number.isFinite(evidenceMs) && evidenceMs <= nowMs && chronologyValid;
+  result.spaced_high_confidence_successes = countValid ? Math.min(3, state.spaced_high_confidence_successes!) : 0;
+  result.last_spaced_success_at = countValid ? state.last_spaced_success_at : null;
+  if (result.spaced_high_confidence_successes < 3 || state.recent_errors_count > 0) {
+    result.mastery_score = Math.min(85, state.mastery_score);
+    result.memory_stability = Math.min(1, state.memory_stability);
+    if (state.status === 'Dominado' || state.status === 'Consolidado') {
+      result.status = state.recent_errors_count > 0 ? 'Débil' : 'Consolidando';
+    }
+    if (state.last_review && Number.isFinite(nowMs)) {
+      const latestReview = chronologyValid ? reviewMs + 86400000 : nowMs;
+      const next = Date.parse(state.next_review ?? '');
+      result.next_review = new Date(Number.isFinite(next) ? Math.min(next, latestReview) : latestReview).toISOString();
+    }
+    const elapsedDays = Number.isFinite(reviewMs) ? Math.max(0, (nowMs - reviewMs) / 86400000) : 0;
+    result.retrievability = calculateRetrievability(elapsedDays, result.memory_stability);
+  }
+  return result;
+}
+
 /**
  * Process a study attempt and schedules the next review.
  * Returns the updated MemoryState and any feedback messages.
@@ -133,27 +166,63 @@ export function processAttempt(
   feedbackMessage: string;
   feedbackType: 'correct_strong' | 'correct_insecure' | 'incorrect_normal' | 'incorrect_false_domain';
 } {
+  const nowMs = now.getTime();
+  if (!Number.isFinite(nowMs)) {
+    return {
+      updatedState: { ...currentState },
+      feedbackTitle: 'No se pudo registrar el repaso',
+      feedbackMessage: 'La fecha del repaso no es válida. Vuelve a intentarlo.',
+      feedbackType: 'incorrect_normal'
+    };
+  }
+
+  currentState = normalizeSpacedEvidence(currentState, now);
   const nextState = { ...currentState };
+  const dayMs = 24 * 60 * 60 * 1000;
+  const lastReviewMs = currentState.last_review ? Date.parse(currentState.last_review) : null;
+  const validReviewChronology = lastReviewMs === null || (Number.isFinite(lastReviewMs) && lastReviewMs <= nowMs);
+  const elapsedSinceReview = lastReviewMs !== null && validReviewChronology ? nowMs - lastReviewMs : null;
+  const earlyOrInvalidReview = !validReviewChronology || (elapsedSinceReview !== null && elapsedSinceReview < dayMs);
+
+  // Legacy consecutive_correct counts raw practice, not spaced evidence.
+  const priorSpacedCount = Number.isInteger(currentState.spaced_high_confidence_successes) &&
+    (currentState.spaced_high_confidence_successes ?? 0) >= 0
+    ? currentState.spaced_high_confidence_successes ?? 0
+    : 0;
+  const lastSpacedMs = currentState.last_spaced_success_at ? Date.parse(currentState.last_spaced_success_at) : null;
+  const validPriorEvidence = priorSpacedCount === 0 ||
+    (lastSpacedMs !== null && Number.isFinite(lastSpacedMs) && lastSpacedMs <= nowMs);
+  const qualifiesSpacedHigh = isCorrect && confidence === 'alta' && validReviewChronology && validPriorEvidence &&
+    (priorSpacedCount === 0 || (lastSpacedMs !== null && nowMs - lastSpacedMs >= dayMs));
+  const recoversError = isCorrect && confidence === 'alta' && elapsedSinceReview !== null && elapsedSinceReview >= dayMs;
 
   // Calculate days since last review
-  let daysSinceLast = 0;
-  if (currentState.last_review) {
-    const lastDate = new Date(currentState.last_review);
-    const diffTime = Math.abs(now.getTime() - lastDate.getTime());
-    daysSinceLast = diffTime / (1000 * 60 * 60 * 24);
-  }
+  const daysSinceLast = elapsedSinceReview === null ? 0 : elapsedSinceReview / dayMs;
 
   // Update error logs & streaks
   if (isCorrect) {
     nextState.consecutive_correct += 1;
-    nextState.recent_errors_count = Math.max(0, nextState.recent_errors_count - 1);
+    if (recoversError) {
+      nextState.recent_errors_count = Math.max(0, nextState.recent_errors_count - 1);
+      if (nextState.recent_errors_count === 0) nextState.error_tag = null;
+    }
   } else {
     nextState.consecutive_correct = 0;
     nextState.recent_errors_count += 1;
   }
+  if (!isCorrect || confidence !== 'alta' || !validPriorEvidence) {
+    nextState.spaced_high_confidence_successes = 0;
+    nextState.last_spaced_success_at = null;
+  } else if (qualifiesSpacedHigh) {
+    nextState.spaced_high_confidence_successes = Math.min(3, priorSpacedCount + 1);
+    nextState.last_spaced_success_at = now.toISOString();
+  } else {
+    nextState.spaced_high_confidence_successes = priorSpacedCount;
+    nextState.last_spaced_success_at = currentState.last_spaced_success_at ?? null;
+  }
 
   // Calculate new Dominio Real index
-  const newMastery = calculateMasteryScore({
+  let newMastery = calculateMasteryScore({
     isCorrect,
     confidence,
     responseTimeSeconds,
@@ -163,6 +232,10 @@ export function processAttempt(
     stability: currentState.memory_stability,
     currentMastery: currentState.mastery_score
   });
+
+  if ((nextState.spaced_high_confidence_successes ?? 0) < 3 || nextState.recent_errors_count > 0) {
+    newMastery = Math.min(85, newMastery);
+  }
 
   nextState.mastery_score = newMastery;
   nextState.last_review = now.toISOString();
@@ -201,42 +274,63 @@ export function processAttempt(
       feedbackTitle = 'Respuesta correcta, pero conocimiento inseguro';
       feedbackMessage = 'Has acertado por descarte o intuición, pero todavía no tienes este microconcepto seguro. Lo repetiremos pronto (en 1 día) para consolidarlo.';
       feedbackType = 'correct_insecure';
-      nextState.memory_stability = Math.min(100, currentState.memory_stability * 1.1 + 0.5);
+      nextState.memory_stability = earlyOrInvalidReview ? currentState.memory_stability : Math.min(100, currentState.memory_stability * 1.1 + 0.5);
     } else if (confidence === 'media') {
       status = 'Consolidando';
       nextReviewMinutes = 3 * 24 * 60; // 3 días
       feedbackTitle = '¡Buen trabajo!';
       feedbackMessage = 'Has respondido con confianza media. Estás consolidando el concepto. Lo repasaremos en 3 días para afianzar el recuerdo.';
       feedbackType = 'correct_strong';
-      nextState.memory_stability = Math.min(100, currentState.memory_stability * 1.5 + 1.0);
+      nextState.memory_stability = earlyOrInvalidReview ? currentState.memory_stability : Math.min(100, currentState.memory_stability * 1.5 + 1.0);
     } else {
       // confianza === 'alta'
-      if (nextState.consecutive_correct >= 3) {
+      if ((nextState.spaced_high_confidence_successes ?? 0) >= 3 && nextState.recent_errors_count === 0) {
         status = 'Dominado';
         nextReviewMinutes = 15 * 24 * 60; // 15 días
         feedbackTitle = '🔥 ¡Excelente! Microconcepto Dominado';
-        feedbackMessage = 'Llevas tres aciertos consecutivos con alta confianza. Has alcanzado el estado de Dominado. Espaciamos el repaso a 15 días.';
+        feedbackMessage = 'Tres aciertos con alta confianza separados por al menos 24 horas sugieren buen recuerdo. Dominado es una estimación heurística, no una certificación; programamos una nueva revisión en 15 días.';
         feedbackType = 'correct_strong';
-        nextState.memory_stability = Math.min(100, currentState.memory_stability * 2.5 + 5.0);
+        nextState.memory_stability = earlyOrInvalidReview || !qualifiesSpacedHigh
+          ? currentState.memory_stability
+          : Math.min(100, currentState.memory_stability * 2.5 + 5.0);
       } else {
-        status = 'Consolidado';
-        nextReviewMinutes = 7 * 24 * 60; // 7 días
+        status = 'Consolidando';
+        nextReviewMinutes = 24 * 60; // como máximo 1 día hasta reunir evidencia espaciada
         feedbackTitle = 'Buen dominio literal';
-        feedbackMessage = 'Respuesta correcta y con alta seguridad. Espaciamos la próxima revisión a 7 días.';
+        feedbackMessage = 'Respuesta correcta y con alta seguridad. Aún hacen falta repasos separados en el tiempo; volveremos a revisarlo pronto.';
         feedbackType = 'correct_strong';
-        nextState.memory_stability = Math.min(100, currentState.memory_stability * 2.0 + 3.0);
+        nextState.memory_stability = Math.min(1, currentState.memory_stability);
       }
+    }
+
+    if ((nextState.spaced_high_confidence_successes ?? 0) < 3) {
+      nextReviewMinutes = Math.min(nextReviewMinutes, 24 * 60);
+      nextState.memory_stability = Math.min(1, nextState.memory_stability);
+      if (confidence === 'media') {
+        feedbackMessage = 'Respuesta correcta con confianza media. Aún falta evidencia espaciada; revisaremos el concepto como máximo en un día.';
+      }
+    }
+
+    if (nextState.recent_errors_count > 0) {
+      status = currentState.status === 'Falso dominio' ? 'Falso dominio' : 'Débil';
+      nextReviewMinutes = Math.min(nextReviewMinutes, 24 * 60);
+      feedbackMessage += ' El error sigue pendiente de un repaso espaciado.';
     }
 
     // Override for extreme mastery score
     if (newMastery > 90 && status === 'Dominado') {
       nextReviewMinutes = 30 * 24 * 60; // 30 días
-      feedbackMessage += ' Al superar el 90% de dominio real global, la próxima revisión se programa en 30 días para mantenimiento.';
+      feedbackMessage += ' Con la puntuación actual, el intervalo heurístico de mantenimiento se estima en 30 días.';
     }
   }
 
   // Compute next review date
-  const nextReviewDate = new Date(now.getTime() + nextReviewMinutes * 60 * 1000);
+  let nextReviewDate = new Date(nowMs + nextReviewMinutes * 60 * 1000);
+  const priorNextReviewMs = currentState.next_review ? Date.parse(currentState.next_review) : NaN;
+  if (isCorrect && (earlyOrInvalidReview || nextState.recent_errors_count > 0) &&
+      Number.isFinite(priorNextReviewMs) && priorNextReviewMs > nowMs && priorNextReviewMs < nextReviewDate.getTime()) {
+    nextReviewDate = new Date(priorNextReviewMs);
+  }
   nextState.next_review = nextReviewDate.toISOString();
   nextState.status = status;
 

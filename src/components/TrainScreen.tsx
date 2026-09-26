@@ -413,7 +413,7 @@ export default function TrainScreen({
                   </span>
                 </div>
                 <p className="text-xs text-slate-800 font-serif leading-relaxed italic bg-slate-50 p-2.5 rounded-lg">
-                  "{relatedConcept.text}"
+                  {isAnswered ? `"${relatedConcept.text}"` : 'Responde primero sin pistas. El concepto se mostrará después de confirmar.'}
                 </p>
               </div>
 
@@ -443,7 +443,9 @@ export default function TrainScreen({
                   <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100 text-xs text-slate-500 flex justify-between items-center font-mono">
                     <span>Próximo Repaso:</span>
                     <span className="font-semibold text-slate-700">
-                      {feedback.updatedState.next_review ? new Date(feedback.updatedState.next_review).toLocaleTimeString('es-ES', {
+                      {feedback.updatedState.next_review ? new Date(feedback.updatedState.next_review).toLocaleString('es-ES', {
+                        day: '2-digit',
+                        month: 'short',
                         hour: '2-digit',
                         minute: '2-digit',
                         second: '2-digit'
@@ -480,7 +482,7 @@ export default function TrainScreen({
             </div>
 
             <p className="text-xs text-indigo-200">
-              En oposiciones de alta exigencia, responder en menos de 15 segundos demuestra retención automatizada de largo plazo, sumando puntos de Dominio Real.
+              El tiempo de respuesta es una señal orientativa. Responder rápido no demuestra recuerdo a largo plazo: necesitamos comprobarlo en repasos separados en el tiempo.
             </p>
           </div>
         </div>
