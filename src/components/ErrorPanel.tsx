@@ -5,11 +5,12 @@
 
 import React from 'react';
 import { AlertTriangle, Play, RefreshCw, Sparkles, BookOpen, Skull, CheckCircle2 } from 'lucide-react';
-import { MemoryState, Microconcept } from '../types';
+import { MemoryState, Microconcept, Question } from '../types';
 
 interface ErrorPanelProps {
   memoryStates: Record<string, MemoryState>;
   microconcepts: Microconcept[];
+  questions?: Question[];
   onTrainConcept: (conceptId: string) => void;
   onNavigateHome: () => void;
 }
@@ -17,6 +18,7 @@ interface ErrorPanelProps {
 export default function ErrorPanel({
   memoryStates,
   microconcepts,
+  questions,
   onTrainConcept,
   onNavigateHome
 }: ErrorPanelProps) {
@@ -26,8 +28,14 @@ export default function ErrorPanel({
   const falseDomains = statesList.filter(s => s.status === 'Falso dominio');
   const weakConcepts = statesList.filter(s => s.status === 'Débil' || s.recent_errors_count > 0);
 
-  // Map concepts back to their static properties for rendering
-  const getConceptDetails = (id: string) => microconcepts.find(mc => mc.id === id);
+  const getConceptDescription = (id: string) => {
+    const concept = microconcepts.find(mc => mc.id === id);
+    if (concept) return { label: 'Microconcepto', text: concept.text };
+    const question = questions?.find(candidate => candidate.microconcept_id === id);
+    if (question) return { label: 'Pregunta relacionada', text: question.question };
+    return { label: 'Microconcepto sin detalle disponible', text: id };
+  };
+  const hasQuestionAvailable = (id: string) => !questions || questions.some(question => question.microconcept_id === id);
 
   return (
     <div className="space-y-6" id="error-panel-root">
@@ -66,8 +74,8 @@ export default function ErrorPanel({
           ) : (
             <div className="space-y-4">
               {falseDomains.map(state => {
-                const details = getConceptDetails(state.microconcept_id);
-                if (!details) return null;
+                const details = getConceptDescription(state.microconcept_id);
+                const canRetrain = hasQuestionAvailable(state.microconcept_id);
 
                 return (
                   <div
@@ -83,7 +91,8 @@ export default function ErrorPanel({
                     </div>
 
                     <p className="text-xs text-slate-800 font-serif leading-relaxed italic bg-rose-50/10 p-2.5 rounded-lg border border-rose-100/10">
-                      "{details.text}"
+                      <span className="block text-[10px] font-sans font-semibold not-italic text-slate-500">{details.label}</span>
+                      {details.text}
                     </p>
 
                     <p className="text-xs text-slate-500 leading-normal">
@@ -97,13 +106,15 @@ export default function ErrorPanel({
                       
                       <button
                         id={`btn-retrain-err-${state.microconcept_id}`}
+                        disabled={!canRetrain}
                         onClick={() => onTrainConcept(state.microconcept_id)}
-                        className="w-full sm:w-auto px-3 py-2 sm:py-1.5 bg-rose-600 hover:bg-rose-700 text-white text-xs font-semibold rounded-lg shadow transition flex items-center justify-center gap-1"
+                        className="w-full sm:w-auto px-3 py-2 sm:py-1.5 bg-rose-600 hover:bg-rose-700 disabled:bg-slate-300 text-white text-xs font-semibold rounded-lg shadow transition flex items-center justify-center gap-1"
                       >
                         <RefreshCw className="w-3.5 h-3.5 animate-spin-slow" />
-                        Reentrenar Error
+                        {canRetrain ? 'Reentrenar Error' : 'Sin preguntas disponibles'}
                       </button>
                     </div>
+                    {!canRetrain && <p className="text-xs text-slate-500">No hay preguntas disponibles para este concepto en la sesión cargada.</p>}
                   </div>
                 );
               })}
@@ -130,8 +141,8 @@ export default function ErrorPanel({
           ) : (
             <div className="space-y-4">
               {weakConcepts.map(state => {
-                const details = getConceptDetails(state.microconcept_id);
-                if (!details) return null;
+                const details = getConceptDescription(state.microconcept_id);
+                const canRetrain = hasQuestionAvailable(state.microconcept_id);
 
                 return (
                   <div
@@ -147,7 +158,8 @@ export default function ErrorPanel({
                     </div>
 
                     <p className="text-xs text-slate-800 font-serif leading-relaxed italic bg-slate-50 p-2.5 rounded-lg">
-                      "{details.text}"
+                      <span className="block text-[10px] font-sans font-semibold not-italic text-slate-500">{details.label}</span>
+                      {details.text}
                     </p>
 
                     <p className="text-xs text-slate-500 leading-normal">
@@ -161,13 +173,15 @@ export default function ErrorPanel({
                       
                       <button
                         id={`btn-retrain-weak-${state.microconcept_id}`}
+                        disabled={!canRetrain}
                         onClick={() => onTrainConcept(state.microconcept_id)}
-                        className="w-full sm:w-auto px-3 py-2 sm:py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-lg shadow transition flex items-center justify-center gap-1"
+                        className="w-full sm:w-auto px-3 py-2 sm:py-1.5 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-300 text-white text-xs font-semibold rounded-lg shadow transition flex items-center justify-center gap-1"
                       >
                         <Play className="w-3 h-3 fill-current" />
-                        Reentrenar
+                        {canRetrain ? 'Reentrenar' : 'Sin preguntas disponibles'}
                       </button>
                     </div>
+                    {!canRetrain && <p className="text-xs text-slate-500">No hay preguntas disponibles para este concepto en la sesión cargada.</p>}
                   </div>
                 );
               })}
