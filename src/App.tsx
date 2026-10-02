@@ -29,6 +29,8 @@ import Login from './components/Login';
 import StudyByTopic from './components/StudyByTopic';
 import StudyPrelude from './components/StudyPrelude';
 import { supabase } from './lib/supabase';
+import { saveAttemptToServer } from './lib/saveAttemptToServer';
+import SaveFailureBanner from './components/SaveFailureBanner';
 
 // Normalize only the in-memory view; preserve the original local history for recovery.
 const getSafeMemoryStates = (): Record<string, MemoryState> => {
@@ -50,7 +52,8 @@ const SCREEN_TITLES = {
       if (!supabase || !userId) return;
       const numericQuestionId = Number(questionId);
       if (!Number.isFinite(numericQuestionId)) return;
-      supabase.rpc('record_attempt', {
+      // Si falla, saveAttemptToServer muestra el aviso visible (SaveFailureBanner); no se bloquea la UI.
+      void saveAttemptToServer({
             p_user_id: userId,
             p_question_id: numericQuestionId,
             p_acierto: isCorrect,
@@ -60,7 +63,7 @@ const SCREEN_TITLES = {
             p_session_id: null,
             p_nivel: 1,
             p_confidence: confidence
-      }).then(({ error }) => { if (error) console.error('record_attempt error:', error); });
+      });
   };
 
 export default function App() {
@@ -410,6 +413,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-50/50 flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
+      <SaveFailureBanner />
       {isDemoMode && (
         <div
           role="region"

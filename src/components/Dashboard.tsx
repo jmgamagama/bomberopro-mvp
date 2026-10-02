@@ -250,7 +250,7 @@ export default function Dashboard({
               </div>
               <div>
                 <h4 className="text-sm font-bold text-slate-800">Dinamizador de Rachas</h4>
-                <p className="text-[10px] text-slate-400">Consistencia en tiempo simulado</p>
+                <p className="text-[10px] text-slate-400">Constancia de estudio</p>
               </div>
             </div>
             <span className={`px-2 py-0.5 text-[10px] font-bold rounded-md border ${levelStyle}`}>

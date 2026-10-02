@@ -6,6 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Play, CheckCircle2, XCircle } from 'lucide-react';
 import { Question } from '../types';
 import { supabase } from '../lib/supabase';
+import { saveAttemptToServer } from '../lib/saveAttemptToServer';
 import StudentConsultation from './StudentConsultationModal';
 
 interface TopicOption {
@@ -78,7 +79,7 @@ const confirmAnswer = async () => {
   setAnswered(true);
   const responseTimeMs = Date.now() - startTime;
   if (supabase && session?.user?.id) {
-    await supabase.rpc('record_attempt', {
+    await saveAttemptToServer({
       p_user_id: session.user.id,
       p_question_id: Number(currentQuestion.id),
       p_acierto: isCorrect,
