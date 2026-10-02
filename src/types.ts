@@ -101,6 +101,9 @@ export interface MemoryState {
   last_review: string | null; // ISO string
   next_review: string | null; // ISO string
   consecutive_correct: number;
+  // Explicit spaced evidence; absent legacy fields carry no credit.
+  spaced_high_confidence_successes?: number;
+  last_spaced_success_at?: string | null;
   recent_errors_count: number;
   error_tag?: ErrorTag | null;
 }

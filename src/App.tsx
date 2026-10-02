@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut } from 'lucide-react';
 import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from './data/initialData';
 import { MemoryState, Question, ConfidenceLevel, Attempt } from './types';
@@ -17,7 +17,7 @@ import {
   getCurrentDate,
   getTimeOffset
 } from './utils/db';
-import { getAdaptiveQuestion, processAttempt, getAdaptiveDailySession, createNewMemoryState } from './utils/engine';
+import { getAdaptiveQuestion, processAttempt, getAdaptiveDailySession, createNewMemoryState, normalizeSpacedEvidence } from './utils/engine';
 
 import Dashboard from './components/Dashboard';
 import TodayTraining from './components/TodayTraining';
@@ -27,7 +27,14 @@ import ForgettingCurve from './components/ForgettingCurve';
 import MockExam from './components/MockExam';
 import Login from './components/Login';
 import StudyByTopic from './components/StudyByTopic';
+import StudyPrelude from './components/StudyPrelude';
 import { supabase } from './lib/supabase';
+
+// Normalize only the in-memory view; preserve the original local history for recovery.
+const getSafeMemoryStates = (): Record<string, MemoryState> => {
+  const now = getCurrentDate();
+  return Object.fromEntries(Object.entries(getMemoryStates()).map(([id, state]) => [id, normalizeSpacedEvidence(state, now)]));
+};
 
 const SCREEN_TITLES = {
   dashboard: 'Dashboard',
@@ -68,6 +75,7 @@ export default function App() {
   // Supabase Auth and Data state
   const [session, setSession] = useState<any>(null);
   const [isDemoMode, setIsDemoMode] = useState(false);
+  const [showStudyPilot, setShowStudyPilot] = useState(false);
   const [dbQuestions, setDbQuestions] = useState<Question[]>(INITIAL_QUESTIONS);
   const [dbQuestionsLoading, setDbQuestionsLoading] = useState(false);
   const [dbQuestionsError, setDbQuestionsError] = useState<string | null>(null);
@@ -80,14 +88,17 @@ export default function App() {
   // Number of questions already answered in the current training session (resets each time a
   // fresh session is started), used to render the "Pregunta X de Y" progress indicator.
   const [sessionAnsweredCount, setSessionAnsweredCount] = useState(0);
+  const [sessionQuestionPool, setSessionQuestionPool] = useState<Question[]>([]);
+  const [sessionCompleted, setSessionCompleted] = useState(false);
+  const answeredQuestionIds = useRef<Set<string>>(new Set());
 
   useEffect(() => {
-    document.title = `${SCREEN_TITLES[currentScreen]} | BomberoPro`;
-  }, [currentScreen]);
+    document.title = `${showStudyPilot ? 'Estudio guiado · artículo 1' : SCREEN_TITLES[currentScreen]} | BomberoPro`;
+  }, [currentScreen, showStudyPilot]);
 
   // Initial load
   useEffect(() => {
-    const states = getMemoryStates();
+    const states = getSafeMemoryStates();
     setMemoryStates(states);
     setAttempts(getAttempts());
 
@@ -120,7 +131,7 @@ export default function App() {
       const { data, error } = await supabase.rpc('get_preparer_session_questions', { p_limit: 100 });
       if (error) throw error;
       if (data) {
-        const adaptiveSession = getAdaptiveDailySession(data, getMemoryStates(), 20);
+        const adaptiveSession = getAdaptiveDailySession(data, getSafeMemoryStates(), 20);
         setDbQuestions(adaptiveSession);
       } else {
         setDbQuestions([]);
@@ -148,16 +159,16 @@ export default function App() {
 
   // Pool of questions backing the current training session (the full adaptive daily session,
   // or the subset for a single targeted microconcept), used to render session progress.
-  const sessionQuestionPool = activeConceptId
-    ? dbQuestions.filter(q => q.microconcept_id === activeConceptId)
-    : dbQuestions;
   const sessionTotal = sessionQuestionPool.length;
-  const sessionCurrent = sessionTotal > 0 ? Math.min(sessionAnsweredCount + 1, sessionTotal) : 0;
+  const sessionCurrent = sessionTotal > 0
+    ? Math.min(sessionAnsweredCount + (activeQuestion && answeredQuestionIds.current.has(activeQuestion.id) ? 0 : 1), sessionTotal)
+    : 0;
 
   // Handle switching screens
   const handleNavigate = (
     screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic'
   ) => {
+    setShowStudyPilot(false);
     setCurrentScreen(screen);
     
     // Clear targeted concept constraints when returning to general study or exiting train screen
@@ -167,17 +178,28 @@ export default function App() {
 
     // If entering the general train screen, generate the first adaptive question
     if (screen === 'train') {
-      setSessionAnsweredCount(0);
-      prepareNextAdaptiveQuestion(null, getMemoryStates());
+      setActiveConceptId(null);
+      startTrainingSession(null);
     }
   };
 
-  // Prepares the next question for training, either general or target microconcept
-  const prepareNextAdaptiveQuestion = (targetId: string | null, states: Record<string, MemoryState>) => {
-    const now = getCurrentDate();
-    const candidateQuestions = targetId
+  const startTrainingSession = (targetId: string | null) => {
+    const pool = (targetId
       ? dbQuestions.filter(q => q.microconcept_id === targetId)
-      : dbQuestions;
+      : dbQuestions).filter((question, index, questions) =>
+      questions.findIndex(candidate => candidate.id === question.id) === index
+    );
+    answeredQuestionIds.current = new Set();
+    setSessionQuestionPool(pool);
+    setSessionAnsweredCount(0);
+    setSessionCompleted(false);
+    prepareNextAdaptiveQuestion(pool, isDemoMode ? memoryStates : getSafeMemoryStates());
+  };
+
+  // Prepares the next question for training, either general or target microconcept
+  const prepareNextAdaptiveQuestion = (pool: Question[], states: Record<string, MemoryState>) => {
+    const now = getCurrentDate();
+    const candidateQuestions = pool.filter(q => !answeredQuestionIds.current.has(q.id));
 
     const selected = getAdaptiveQuestion(candidateQuestions, states, now);
     if (selected) {
@@ -186,6 +208,7 @@ export default function App() {
     } else {
       setActiveQuestion(null);
       setActiveReason('');
+      if (pool.length > 0) setSessionCompleted(true);
     }
   };
 
@@ -193,8 +216,7 @@ export default function App() {
   const handleTrainSpecificConcept = (conceptId: string) => {
     setActiveConceptId(conceptId);
     setCurrentScreen('train');
-    setSessionAnsweredCount(0);
-    prepareNextAdaptiveQuestion(conceptId, getMemoryStates());
+    startTrainingSession(conceptId);
   };
 
   // Primary action when user submits an answer
@@ -207,10 +229,12 @@ export default function App() {
     answerChanges: number
   ) => {
     const now = getCurrentDate();
-    const isCorrect = dbQuestions.find(q => q.id === questionId)?.correct_answer === answer;
+    answeredQuestionIds.current.add(questionId);
+    const isCorrect = (sessionQuestionPool.find(q => q.id === questionId)
+      ?? dbQuestions.find(q => q.id === questionId))?.correct_answer === answer;
 
     // Load current memory state
-    const currentStates = getMemoryStates();
+    const currentStates = isDemoMode ? memoryStates : getSafeMemoryStates();
         const currentState = currentStates[microconceptId] || createNewMemoryState(microconceptId);
 
     // Compute updated values via core cognitive engine
@@ -244,7 +268,7 @@ export default function App() {
       syncAttemptToSupabase(session?.user?.id, questionId, isCorrect, answer, confidence, responseTime);
 
       // Reload state in memory
-      const updatedStates = getMemoryStates();
+      const updatedStates = getSafeMemoryStates();
       setMemoryStates(updatedStates);
       setAttempts(getAttempts());
       setSessionAnsweredCount(prev => prev + 1);
@@ -259,7 +283,7 @@ export default function App() {
   };
 
   const handleNextQuestion = () => {
-    prepareNextAdaptiveQuestion(activeConceptId, getMemoryStates());
+    prepareNextAdaptiveQuestion(sessionQuestionPool, isDemoMode ? memoryStates : getSafeMemoryStates());
   };
 
   // Quick verification from Article Study screen
@@ -280,7 +304,7 @@ export default function App() {
     }[]
   ) => {
     const now = getCurrentDate();
-    const currentStates = getMemoryStates();
+    const currentStates = getSafeMemoryStates();
 
     // Iterate and update states sequentially for all exam attempts
     results.forEach(res => {
@@ -305,21 +329,21 @@ export default function App() {
     });
 
     // Sync memory state
-    setMemoryStates(getMemoryStates());
+    setMemoryStates(getSafeMemoryStates());
     setAttempts(getAttempts());
   };
 
   // Simulates passing of days and recalculates
   const handleSimulateDays = (days: number) => {
     addTimeOffset(days);
-    setMemoryStates(getMemoryStates());
+    setMemoryStates(getSafeMemoryStates());
     setAttempts(getAttempts());
   };
 
   // Resets all history
   const handleReset = () => {
     resetAllProgress();
-    setMemoryStates(getMemoryStates());
+    setMemoryStates(getSafeMemoryStates());
     setAttempts([]);
     setCurrentScreen('dashboard');
     setActiveConceptId(null);
@@ -329,6 +353,9 @@ export default function App() {
     setAttempts([]);
     setMemoryStates({});
     setSessionAnsweredCount(0);
+    setSessionQuestionPool([]);
+    setSessionCompleted(false);
+    answeredQuestionIds.current = new Set();
     setActiveQuestion(null);
     setActiveReason('');
     setActiveConceptId(null);
@@ -342,10 +369,11 @@ export default function App() {
   };
 
   const handleExitDemo = () => {
+    setShowStudyPilot(false);
     resetDemoState();
     // If an authenticated user exists, restore real data from storage
     if (session) {
-      setMemoryStates(getMemoryStates());
+      setMemoryStates(getSafeMemoryStates());
       setAttempts(getAttempts());
     }
     setIsDemoMode(false);
@@ -538,7 +566,25 @@ export default function App() {
         tabIndex={-1}
         className="flex-1 max-w-6xl w-full mx-auto px-4 pt-8 pb-24 md:py-8"
       >
-        {currentScreen === 'dashboard' && (
+        {showStudyPilot && isDemoMode && (
+          <StudyPrelude
+            preview
+            onStartQuestions={() => handleNavigate('train')}
+            onNavigateHome={() => handleNavigate('dashboard')}
+          />
+        )}
+
+        {currentScreen === 'dashboard' && !showStudyPilot && (
+          <>
+          {(isDemoMode || !supabase) && (
+            <div className="mb-6 rounded-xl border border-indigo-100 bg-white p-4">
+              <p className="mb-3 text-sm text-slate-600">Tema 1 · Artículo 1. Lectura, conceptos y recuerdo antes de practicar. Piloto pendiente de revisión humana; el progreso de esta demostración no se guarda.</p>
+              <button type="button" className="rounded-lg bg-indigo-700 px-4 py-2 font-semibold text-white" onClick={() => {
+                handleStartDemo();
+                setShowStudyPilot(true);
+              }}>Probar estudio guiado del artículo 1</button>
+            </div>
+          )}
           <Dashboard
             memoryStates={memoryStates}
             attempts={attempts}
@@ -548,6 +594,7 @@ export default function App() {
             onReset={handleReset}
             onSimulateDays={handleSimulateDays}
           />
+          </>
         )}
 
         {currentScreen === 'today_training' && (
@@ -560,7 +607,36 @@ export default function App() {
           />
         )}
 
-        {currentScreen === 'train' && (
+        {currentScreen === 'train' && sessionCompleted && (
+          <section className="p-8 text-center bg-white border border-emerald-100 rounded-2xl shadow-sm space-y-4" role="status" aria-live="polite">
+            <h2 className="text-xl font-bold text-slate-800">Sesión completada</h2>
+            <p className="text-sm text-slate-600">Has respondido {sessionAnsweredCount} de {sessionTotal} preguntas {activeConceptId ? 'de este microconcepto' : 'de la sesión de hoy'}.</p>
+            <p className="text-sm text-slate-600">{isDemoMode
+              ? 'En la demostración este progreso no se guarda. Puedes volver al inicio o probar otra sesión.'
+              : 'Tus respuestas se han guardado en este dispositivo. Puedes volver mañana para iniciar una nueva sesión.'}</p>
+            <button
+              type="button"
+              onClick={() => handleNavigate('dashboard')}
+              className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm"
+            >
+              Volver al Dashboard
+            </button>
+          </section>
+        )}
+
+        {currentScreen === 'train' && !sessionCompleted && sessionTotal === 0 && (
+          <section className="p-8 text-center bg-white border border-slate-100 rounded-2xl shadow-sm space-y-4" role="status">
+            <h2 className="text-lg font-bold text-slate-800">No hay preguntas disponibles</h2>
+            <p className="text-sm text-slate-600">{activeConceptId
+              ? `No hay preguntas disponibles para el microconcepto ${activeConceptId} en esta sesión.`
+              : 'No hay preguntas disponibles para esta sesión.'}</p>
+            <button type="button" onClick={() => handleNavigate('dashboard')} className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm">
+              Volver al Dashboard
+            </button>
+          </section>
+        )}
+
+        {currentScreen === 'train' && !sessionCompleted && sessionTotal > 0 && (
           <TrainScreen
             question={activeQuestion}
             selectionReason={activeReason}
@@ -578,6 +654,7 @@ export default function App() {
           <ErrorPanel
             memoryStates={memoryStates}
             microconcepts={INITIAL_MICROCONCEPTS}
+            questions={dbQuestions}
             onTrainConcept={handleTrainSpecificConcept}
             onNavigateHome={() => handleNavigate('dashboard')}
           />
@@ -599,7 +676,10 @@ export default function App() {
           />
         )}
 
-        {currentScreen === 'study_by_topic' && (
+        {currentScreen === 'study_by_topic' && isDemoMode && (
+          <StudyPrelude preview onStartQuestions={() => handleNavigate('train')} onNavigateHome={() => handleNavigate('dashboard')} />
+        )}
+        {currentScreen === 'study_by_topic' && !isDemoMode && (
         <StudyByTopic
           session={session}
           onNavigateHome={() => handleNavigate('dashboard')}

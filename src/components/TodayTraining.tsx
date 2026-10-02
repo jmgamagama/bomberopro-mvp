@@ -86,7 +86,7 @@ export default function TodayTraining({ questions, isLoading, error, onStartTrai
         
         <p className="text-[10px] text-slate-400 flex items-center justify-center gap-1.5 mt-4">
           <Sparkles className="w-3.5 h-3.5" />
-          Las preguntas han sido obtenidas de Supabase (get_preparer_session_questions).
+          Estas son las preguntas seleccionadas para esta sesión.
         </p>
       </div>
     </div>

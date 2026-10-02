@@ -67,11 +67,13 @@ describe('TrainScreen', () => {
       />,
     );
 
+    expect(container.querySelector('#train-sidebar')).not.toHaveTextContent(INITIAL_MICROCONCEPTS[0].text);
     expect(container.querySelector('#train-header-row')).toHaveClass('flex-col', 'sm:flex-row');
     await user.click(screen.getByRole('button', { name: question.options![0] }));
     await user.click(screen.getByRole('button', { name: question.options![1] }));
     await user.click(container.querySelector<HTMLButtonElement>('#conf-btn-alta')!);
     await user.click(screen.getByRole('button', { name: /confirmar respuesta/i }));
+    expect(container.querySelector('#train-sidebar')).toHaveTextContent(INITIAL_MICROCONCEPTS[0].text);
 
     expect(onAnswer).toHaveBeenCalledWith(
       question.id,

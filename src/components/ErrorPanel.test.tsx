@@ -4,7 +4,7 @@ import '../test/setup';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
-import { INITIAL_MICROCONCEPTS } from '../data/initialData';
+import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from '../data/initialData';
 import { MemoryState } from '../types';
 import ErrorPanel from './ErrorPanel';
 
@@ -55,5 +55,45 @@ describe('ErrorPanel', () => {
 
     await user.click(screen.getByRole('button', { name: /reentrenar error/i }));
     expect(onTrainConcept).toHaveBeenCalledWith(state.microconcept_id);
+  });
+
+  it('muestra errores sin microconcepto estático y evita reentrenar sin preguntas', async () => {
+    const user = userEvent.setup();
+    const onTrainConcept = vi.fn();
+    const withQuestion = createMemoryState({ microconcept_id: 'MC-CPEI-001', recent_errors_count: 0 });
+    const withoutQuestion = createMemoryState({
+      microconcept_id: 'MC-CPEI-002',
+      status: 'Débil',
+      recent_errors_count: 2,
+    });
+    const realQuestion = {
+      ...INITIAL_QUESTIONS[0],
+      id: 'Q-CPEI-001',
+      microconcept_id: withQuestion.microconcept_id,
+      question: 'Pregunta disponible para CPEI',
+    };
+
+    render(
+      <ErrorPanel
+        memoryStates={{
+          [withQuestion.microconcept_id]: withQuestion,
+          [withoutQuestion.microconcept_id]: withoutQuestion,
+        }}
+        microconcepts={INITIAL_MICROCONCEPTS}
+        questions={[realQuestion]}
+        onTrainConcept={onTrainConcept}
+        onNavigateHome={vi.fn()}
+      />,
+    );
+
+    expect(screen.getByText('Pregunta disponible para CPEI')).toBeInTheDocument();
+    expect(document.querySelector('#error-card-MC-CPEI-001')).toBeInTheDocument();
+    expect(document.querySelector('#weak-card-MC-CPEI-002')).toHaveTextContent('MC-CPEI-002');
+    expect(screen.getByText('Microconcepto sin detalle disponible')).toBeInTheDocument();
+    const unavailableButton = document.querySelector<HTMLButtonElement>('#btn-retrain-weak-MC-CPEI-002');
+    expect(unavailableButton).toBeDisabled();
+    expect(screen.getByText(/no hay preguntas disponibles para este concepto en la sesión cargada/i)).toBeInTheDocument();
+    if (unavailableButton) await user.click(unavailableButton);
+    expect(onTrainConcept).not.toHaveBeenCalled();
   });
 });
