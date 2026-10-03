@@ -199,11 +199,28 @@ await test('la clave es por usuario: B puede usar la misma clave sin colisionar 
   assert.equal((await v2(K(10), B, 3, false)).rows[0].r.status, 'saved');
 });
 
-await test('v2 guarda la confianza en attempts.confidence (record_attempt nunca lo hizo)', async () => {
-  assert.equal((await one(`select confidence c from attempts where client_attempt_id='${K(10)}' and user_id='${A}'`)).c, 'alta');
-  await as(B);
-  await db.query(`select public.record_attempt($1::uuid, 2, true, 'A', 1000, 'adaptativo', null, 1, 'alta')`, [B]);
-  assert.equal((await one(`select confidence c from attempts where user_id='${B}' and question_id=2`)).c, null);
+await test('v2 NO persiste la confianza en attempts (igual que record_attempt) pero sí ultima_confianza', async () => {
+  assert.equal((await one(`select confidence c from attempts where client_attempt_id='${K(10)}' and user_id='${A}'`)).c, null);
+  assert.equal((await one(`select ultima_confianza c from user_question_state where user_id='${A}' and question_id=3`)).c, 'alta');
+});
+
+await test('misma clave con CONTENIDO DISTINTO → 23505 y nada cambia (Codex P1: no confirmar lo no guardado)', async () => {
+  await as(A);
+  const snap = () => one(`select (select count(*) from attempts) n, (select veces_respondida from questions where id=3) r,
+                                 (select acierto from attempts where client_attempt_id='${K(10)}' and user_id='${A}') ac`);
+  const before = await snap();
+  const variantes = [
+    { ok: false },            // otro resultado
+    { resp: 'B' },            // otra respuesta
+    { ms: 9999 },             // otro tiempo
+    { modo: 'estudio_por_temas' },
+    { nivel: 2 },
+  ];
+  for (const v of variantes) {
+    assert.equal(await code(() => v2(K(10), A, 3, v.ok ?? true, v)), '23505', JSON.stringify(v));
+  }
+  assert.deepEqual(await snap(), before);
+  assert.equal((await v2(K(10), A, 3, true)).rows[0].r.status, 'duplicate'); // el idéntico sigue siendo duplicate
 });
 
 await test('EQUIVALENCIA de efectos de estado: la misma secuencia por record_attempt y por v2 deja lo mismo', async () => {

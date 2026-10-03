@@ -148,7 +148,16 @@ async function runFlush(): Promise<FlushResult> {
   }
 
   const queue = readPending(userId);
-  if (queue.length === 0) return { sent: 0, pending: 0 };
+  // Respuestas de OTRA cuenta (la sesión cambió mientras la interfaz aún era de A): no se envían
+  // con la sesión de B ni se atribuyen a B, pero NUNCA se quedan sin aviso.
+  const foreign = countAllPending() - queue.length;
+  if (queue.length === 0) {
+    if (foreign > 0) {
+      emitFailure('session', foreign);
+      return { sent: 0, pending: 0, failure: 'session' };
+    }
+    return { sent: 0, pending: 0 };
+  }
   emitState('saving', queue.length);
 
   let sent = 0;
@@ -176,7 +185,13 @@ async function runFlush(): Promise<FlushResult> {
   }
 
   const pending = countPending(userId);
-  if (!failure && pending === 0) emitState('saved', 0);
+  // `pending` del evento = TODO lo que sigue sin confirmar (de cualquier cuenta): el aviso solo
+  // se retira cuando es 0, así un éxito de B no oculta una pérdida de A.
+  if (!failure && pending === 0) emitState('saved', countAllPending());
+  if (!failure && foreign > 0) {
+    emitFailure('session', countAllPending());
+    failure = 'session';
+  }
   return { sent, pending, failure };
 }
 

@@ -18,7 +18,7 @@
 --       - 'saved'      -> fila nueva + efectos aplicados una sola vez.
 --       - 'duplicate'  -> la clave ya existía: no inserta, no toca contadores ni estado.
 --     y LANZA EXCEPCIÓN (en vez de ignorar) si no hay sesión, el usuario no coincide,
---     los argumentos son inválidos, la pregunta no existe o la clave se reutiliza.
+--     los argumentos son inválidos, la pregunta no existe o la clave se reutiliza con otro contenido.
 --   * v2 solo es ejecutable por `authenticated` (no por `anon`).
 --
 -- Qué NO hace (a propósito):
@@ -32,16 +32,12 @@
 --     respuesta: un reintento tardío queda con la hora del reintento. Relevante para
 --     las tareas 2 y 3.
 --
--- Cambio de comportamiento a revisar (deliberado):
---   * v2 guarda p_confidence también en attempts.confidence (record_attempt nunca lo
---     hacía; hoy attempts.confidence es NULL en las 6 filas existentes). Comprobado en
---     producción (3-oct-2026, solo lectura): attempts y user_question_state no tienen
---     restricciones CHECK, así que 'baja'/'media'/'alta' se guardan sin error.
---   * OJO, vocabulario: get_topic_study_questions y get_preparer_session_questions
---     priorizan `la.confidence IN ('dude','suerte')`, pero el cliente envía
---     'baja'/'media'/'alta'. Por tanto guardar la confianza NO activa esa prioridad (no
---     coincide nunca). Alinear ese vocabulario es parte de la tarea 3b, no de esta.
---     Para no guardar confianza basta quitar `confidence` del INSERT de v2.
+-- Confianza (decisión tras la revisión de Codex):
+--   * v2 NO guarda p_confidence en attempts.confidence, igual que record_attempt, para no
+--     mezclar este arreglo de persistencia con un cambio de comportamiento. Sigue
+--     actualizando user_question_state.ultima_confianza como antes. Guardarla (necesario
+--     para reconstruir el dominio) irá en la tarea 3b, junto con alinear el vocabulario:
+--     las RPC de estudio esperan 'dude'/'suerte' y el cliente envía 'baja'/'media'/'alta'.
 -- ==============================================================================
 
 -- 1) Clave de idempotencia por intento ------------------------------------------
@@ -80,8 +76,7 @@ DECLARE
   v_topic_id         integer;
   v_convocatoria_id  integer;
   v_attempt_id       bigint;
-  v_existing_id      bigint;
-  v_existing_q       bigint;
+  v_existing         attempts%ROWTYPE;
   v_step             integer;
   v_next_interval    interval;
   v_respuesta_char   char(1);
@@ -109,27 +104,36 @@ BEGIN
   -- segunda espera al commit de la primera y cae en DO NOTHING.
   INSERT INTO attempts (
     user_id, question_id, acierto, respuesta, tiempo_ms, modo, session_id, nivel,
-    confidence, client_attempt_id
+    client_attempt_id
   )
   VALUES (
     v_uid, p_question_id, p_acierto, v_respuesta_char, p_tiempo_ms, p_modo, p_session_id, p_nivel,
-    p_confidence, p_client_attempt_id
+    p_client_attempt_id
   )
   ON CONFLICT (user_id, client_attempt_id) WHERE client_attempt_id IS NOT NULL
   DO NOTHING
   RETURNING id INTO v_attempt_id;
 
   IF v_attempt_id IS NULL THEN
-    SELECT id, question_id INTO v_existing_id, v_existing_q
+    SELECT * INTO v_existing
       FROM attempts
      WHERE user_id = v_uid AND client_attempt_id = p_client_attempt_id;
 
-    -- La misma clave para otra pregunta es un fallo del cliente, no un reintento.
-    IF v_existing_q IS DISTINCT FROM p_question_id THEN
+    -- Solo es un reintento legítimo si el contenido es IDÉNTICO al ya guardado. Misma clave con
+    -- otra pregunta, otro resultado u otros datos es un fallo del cliente: se rechaza para que
+    -- nunca se confirme como guardado un contenido que no es el que está en la fila.
+    -- (p_confidence no se persiste en `attempts`, por eso no se compara.)
+    IF v_existing.question_id IS DISTINCT FROM p_question_id
+       OR v_existing.acierto   IS DISTINCT FROM p_acierto
+       OR v_existing.respuesta IS DISTINCT FROM v_respuesta_char
+       OR v_existing.tiempo_ms IS DISTINCT FROM p_tiempo_ms
+       OR v_existing.modo      IS DISTINCT FROM p_modo
+       OR v_existing.session_id IS DISTINCT FROM p_session_id
+       OR v_existing.nivel     IS DISTINCT FROM p_nivel THEN
       RAISE EXCEPTION 'client_attempt_id_reused' USING ERRCODE = '23505';
     END IF;
 
-    RETURN jsonb_build_object('status', 'duplicate', 'attempt_id', v_existing_id);
+    RETURN jsonb_build_object('status', 'duplicate', 'attempt_id', v_existing.id);
   END IF;
 
   -- ---- Efectos: MISMA lógica que record_attempt (leída en producción 3-oct-2026) ----

@@ -23,7 +23,10 @@ interface Props {
 
 /** Aviso visible y persistente cuando una respuesta no ha quedado confirmada en el servidor. */
 export default function SaveFailureBanner({ showIfPending = false }: Props) {
-  const [reason, setReason] = useState<SaveFailureReason | null>(null);
+  // `rejected` es una pérdida definitiva: solo la retira el usuario. session/error se retiran
+  // cuando el servidor confirma que ya no queda NADA pendiente (de ninguna cuenta).
+  const [transient, setTransient] = useState<'session' | 'error' | null>(null);
+  const [rejected, setRejected] = useState(false);
   const [pending, setPending] = useState(0);
   const [retrying, setRetrying] = useState(false);
 
@@ -31,18 +34,22 @@ export default function SaveFailureBanner({ showIfPending = false }: Props) {
     if (showIfPending) {
       const n = countAllPending();
       if (n > 0) {
-        setReason('session');
+        setTransient('session');
         setPending(n);
       }
     }
     const onFail = (e: Event) => {
       const detail = (e as CustomEvent<{ reason?: SaveFailureReason; pending?: number }>).detail;
-      setReason(detail?.reason === 'session' ? 'session' : detail?.reason === 'rejected' ? 'rejected' : 'error');
+      if (detail?.reason === 'rejected') setRejected(true);
+      else setTransient(detail?.reason === 'session' ? 'session' : 'error');
       setPending(typeof detail?.pending === 'number' ? detail.pending : 0);
     };
     const onState = (e: Event) => {
-      const detail = (e as CustomEvent<{ state?: string }>).detail;
-      if (detail?.state === 'saved') setReason(null); // todo lo pendiente quedó confirmado
+      const detail = (e as CustomEvent<{ state?: string; pending?: number }>).detail;
+      if (detail?.state === 'saved' && (detail.pending ?? 0) === 0) {
+        setTransient(null);
+        setPending(0);
+      }
     };
     window.addEventListener(SAVE_FAILED_EVENT, onFail);
     window.addEventListener(SAVE_STATE_EVENT, onState);
@@ -52,6 +59,7 @@ export default function SaveFailureBanner({ showIfPending = false }: Props) {
     };
   }, [showIfPending]);
 
+  const reason: SaveFailureReason | null = transient ?? (rejected ? 'rejected' : null);
   if (!reason) return null;
 
   const retry = async () => {
@@ -72,6 +80,7 @@ export default function SaveFailureBanner({ showIfPending = false }: Props) {
     >
       <span>
         {MESSAGES[reason]}
+        {transient && rejected && ` ${MESSAGES.rejected}`}
         {pending > 0 && (
           <strong className="ml-1">
             {pending === 1 ? '1 respuesta pendiente.' : `${pending} respuestas pendientes.`}
@@ -100,7 +109,10 @@ export default function SaveFailureBanner({ showIfPending = false }: Props) {
         )}
         <button
           type="button"
-          onClick={() => setReason(null)}
+          onClick={() => {
+            setTransient(null);
+            setRejected(false);
+          }}
           className="rounded-md border border-amber-300 px-3 py-1 text-xs font-bold hover:bg-amber-100"
         >
           Entendido

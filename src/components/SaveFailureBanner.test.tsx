@@ -73,6 +73,34 @@ describe('SaveFailureBanner', () => {
     expect(screen.queryByRole('alert')).toBeNull();
   });
 
+  it('un "guardada" con algo aún pendiente de otra cuenta NO retira el aviso', () => {
+    render(<SaveFailureBanner />);
+    fail('session', 1);
+    act(() => {
+      window.dispatchEvent(new CustomEvent(SAVE_STATE_EVENT, { detail: { state: 'saved', pending: 1 } }));
+    });
+    expect(screen.getByRole('alert').textContent).toMatch(/sesión ha caducado/i);
+  });
+
+  it('un rechazo definitivo no lo borra un éxito posterior: solo "Entendido"', async () => {
+    render(<SaveFailureBanner />);
+    fail('rejected', 0);
+    act(() => {
+      window.dispatchEvent(new CustomEvent(SAVE_STATE_EVENT, { detail: { state: 'saved', pending: 0 } }));
+    });
+    expect(screen.getByRole('alert').textContent).toMatch(/rechazado/i);
+    await userEvent.click(screen.getByRole('button', { name: 'Entendido' }));
+    expect(screen.queryByRole('alert')).toBeNull();
+  });
+
+  it('un fallo de conexión posterior no oculta un rechazo anterior', () => {
+    render(<SaveFailureBanner />);
+    fail('rejected', 0);
+    fail('error', 2);
+    expect(screen.getByRole('alert').textContent).toMatch(/rechazado/i);
+    expect(screen.getByRole('alert').textContent).toMatch(/conexión/i);
+  });
+
   it('avisa de un rechazo definitivo y no ofrece reintentar', () => {
     render(<SaveFailureBanner />);
     fail('rejected', 0);

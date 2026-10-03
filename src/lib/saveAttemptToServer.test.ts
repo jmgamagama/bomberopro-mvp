@@ -264,6 +264,40 @@ describe('saveAttemptToServer', () => {
     });
   });
 
+  describe('cambio de cuenta (revisión Codex P1-2 y P1-3)', () => {
+    it('respuesta de A guardada mientras la sesión ya es B: no se envía, se conserva y SE AVISA', async () => {
+      signedIn('user-2');
+      const l = listen();
+      const r = await saveAttemptToServer({ ...input, p_user_id: 'user-1' });
+      expect(r).toMatchObject({ ok: false, reason: 'session', pending: 1 });
+      expect(rpc).not.toHaveBeenCalled();
+      expect(countPending('user-1')).toBe(1);
+      expect(l.failures).toEqual(['session']);
+      l.stop();
+    });
+
+    it('un éxito de B no da por resuelta la pérdida pendiente de A: el evento "saved" lleva lo que sigue sin confirmar', async () => {
+      enqueuePending(pendingEntry('kA', 1, '2026-10-03T10:00:00.000Z', 'user-1'));
+      signedIn('user-2');
+      rpc.mockResolvedValue(saved);
+      const events: Array<{ type: string; detail: { state?: string; pending?: number; reason?: string } }> = [];
+      const h = (e: Event) => events.push({ type: e.type, detail: (e as CustomEvent).detail });
+      window.addEventListener(SAVE_STATE_EVENT, h);
+      window.addEventListener(SAVE_FAILED_EVENT, h);
+      const r = await saveAttemptToServer({ ...input, p_user_id: 'user-2', p_question_id: 5 });
+      window.removeEventListener(SAVE_STATE_EVENT, h);
+      window.removeEventListener(SAVE_FAILED_EVENT, h);
+
+      expect(r).toMatchObject({ ok: true, status: 'saved' }); // lo de B sí está guardado
+      const saved$ = events.find(e => e.detail.state === 'saved');
+      expect(saved$?.detail.pending).toBe(1); // …pero queda 1 sin confirmar (la de A)
+      const failed$ = events.find(e => e.type === SAVE_FAILED_EVENT);
+      expect(failed$?.detail).toMatchObject({ reason: 'session', pending: 1 });
+      expect(events.indexOf(failed$!)).toBeGreaterThan(events.indexOf(saved$!)); // el aviso llega DESPUÉS del "guardada"
+      expect(countPending('user-1')).toBe(1);
+    });
+  });
+
   describe('rechazo definitivo', () => {
     it('un P0002 sale de la cola, queda apartado para diagnóstico, avisa y no bloquea la siguiente', async () => {
       signedIn();
