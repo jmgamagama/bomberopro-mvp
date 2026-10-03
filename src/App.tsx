@@ -31,6 +31,8 @@ import StudyPrelude from './components/StudyPrelude';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer } from './lib/saveAttemptToServer';
 import SaveFailureBanner from './components/SaveFailureBanner';
+import SaveStatus from './components/SaveStatus';
+import { useAttemptSync } from './lib/useAttemptSync';
 
 // Normalize only the in-memory view; preserve the original local history for recovery.
 const getSafeMemoryStates = (): Record<string, MemoryState> => {
@@ -78,6 +80,8 @@ export default function App() {
   // Supabase Auth and Data state
   const [session, setSession] = useState<any>(null);
   const [isDemoMode, setIsDemoMode] = useState(false);
+  // Reenvía las respuestas pendientes al haber sesión y al recuperar la conexión.
+  useAttemptSync(session?.user?.id);
   const [showStudyPilot, setShowStudyPilot] = useState(false);
   const [dbQuestions, setDbQuestions] = useState<Question[]>(INITIAL_QUESTIONS);
   const [dbQuestionsLoading, setDbQuestionsLoading] = useState(false);
@@ -408,12 +412,19 @@ export default function App() {
   }
 
   if (!session && supabase && !isDemoMode) {
-    return <Login onStartDemo={handleStartDemo} />;
+    return (
+      <>
+        {/* Si la sesión caduca a mitad de estudio, aquí se avisa de lo que sigue pendiente. */}
+        <SaveFailureBanner showIfPending />
+        <Login onStartDemo={handleStartDemo} />
+      </>
+    );
   }
 
   return (
     <div className="min-h-screen bg-slate-50/50 flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
       <SaveFailureBanner />
+      <SaveStatus />
       {isDemoMode && (
         <div
           role="region"
