@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut } from 'lucide-react';
 import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from './data/initialData';
 import { MemoryState, Question, ConfidenceLevel, Attempt } from './types';
@@ -13,6 +13,9 @@ import {
   saveAttempt,
   saveMemoryState,
   resetAllProgress,
+  setProgressOwner,
+  canImportLegacyProgress,
+  importLegacyProgress,
   addTimeOffset,
   getCurrentDate,
   getTimeOffset
@@ -87,6 +90,9 @@ export default function App() {
   const [dbQuestionsLoading, setDbQuestionsLoading] = useState(false);
   const [dbQuestionsError, setDbQuestionsError] = useState<string | null>(null);
   const [loadingAuth, setLoadingAuth] = useState(true);
+  const [showLegacyImport, setShowLegacyImport] = useState(false);
+  const questionsRequest = useRef(0);
+  const authUserId = useRef<string | null>(null);
   
   // Current active train question and its selection reason
   const [activeQuestion, setActiveQuestion] = useState<Question | null>(null);
@@ -114,28 +120,61 @@ export default function App() {
       return;
     }
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
+    let active = true;
+    let receivedAuthEvent = false;
+    const acceptSession = (nextSession: any) => {
+      const nextId = nextSession?.user?.id ?? null;
+      if (authUserId.current !== nextId) {
+        authUserId.current = nextId;
+        questionsRequest.current += 1;
+      }
+      setSession(nextSession);
       setLoadingAuth(false);
-      if (session) fetchQuestions();
+    };
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!active || receivedAuthEvent) return;
+      acceptSession(session);
     });
 
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-      if (session) fetchQuestions();
+      receivedAuthEvent = true;
+      acceptSession(session);
     });
 
-    return () => subscription.unsubscribe();
+    return () => { active = false; subscription.unsubscribe(); };
   }, []);
 
-  const fetchQuestions = async () => {
+  // El progreso local pertenece a la cuenta con sesión (o a la demostración si no hay ninguna).
+  // Se recarga al resolverse la sesión y al cambiar de cuenta.
+  useLayoutEffect(() => {
+    if (loadingAuth) return;
+    const userId = session?.user?.id ?? null;
+    const request = ++questionsRequest.current;
+    setProgressOwner(userId);
+    setMemoryStates(getSafeMemoryStates());
+    setAttempts(getAttempts());
+    setShowLegacyImport(canImportLegacyProgress());
+    answeredQuestionIds.current = new Set();
+    setActiveQuestion(null);
+    setActiveReason('');
+    setSessionQuestionPool([]);
+    setSessionAnsweredCount(0);
+    setSessionCompleted(false);
+    setDbQuestions(userId ? [] : INITIAL_QUESTIONS);
+    setDbQuestionsError(null);
+    if (userId) void fetchQuestions(request);
+    else setDbQuestionsLoading(false);
+  }, [loadingAuth, session?.user?.id]);
+
+  const fetchQuestions = async (request: number) => {
     if (!supabase) return;
     setDbQuestionsLoading(true);
     setDbQuestionsError(null);
     try {
       const { data, error } = await supabase.rpc('get_preparer_session_questions', { p_limit: 100 });
+      if (request !== questionsRequest.current) return;
       if (error) throw error;
       if (data) {
         const adaptiveSession = getAdaptiveDailySession(data, getSafeMemoryStates(), 20);
@@ -144,12 +183,23 @@ export default function App() {
         setDbQuestions([]);
       }
     } catch (err: any) {
+      if (request !== questionsRequest.current) return;
       console.error("Error fetching questions:", err);
       setDbQuestionsError(err.message || 'Error de conexión o sesión expirada.');
       setDbQuestions([]);
     } finally {
-      setDbQuestionsLoading(false);
+      if (request === questionsRequest.current) setDbQuestionsLoading(false);
     }
+  };
+
+  const handleImportLegacyProgress = () => {
+    if (!importLegacyProgress()) return;
+    setShowLegacyImport(false);
+    setMemoryStates(getSafeMemoryStates());
+    setAttempts(getAttempts());
+    setDbQuestions([]);
+    const request = ++questionsRequest.current;
+    void fetchQuestions(request);
   };
 
   // Sync and recalculate pending reviews count
@@ -425,6 +475,16 @@ export default function App() {
     <div className="min-h-screen bg-slate-50/50 flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
       <SaveFailureBanner />
       <SaveStatus />
+      {session && !isDemoMode && showLegacyImport && (
+        <div role="region" aria-label="Progreso antiguo" className="border-b border-indigo-200 bg-indigo-50 px-4 py-3 text-sm text-slate-800">
+          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
+            <p>Hay progreso antiguo en este navegador sin cuenta identificada. Si es tuyo, puedes copiarlo a esta cuenta; no se borrará el original.</p>
+            <button type="button" onClick={handleImportLegacyProgress} className="rounded-lg bg-indigo-700 px-3 py-2 font-semibold text-white">
+              Importar mi progreso
+            </button>
+          </div>
+        </div>
+      )}
       {isDemoMode && (
         <div
           role="region"
