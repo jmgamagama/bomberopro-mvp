@@ -33,11 +33,15 @@
 --     las tareas 2 y 3.
 --
 -- Cambio de comportamiento a revisar (deliberado):
---   * v2 guarda p_confidence también en attempts.confidence. `record_attempt` nunca lo
---     hacía, así que get_topic_study_questions / get_preparer_session_questions leían
---     siempre NULL en `la.confidence` y su prioridad por 'dude'/'suerte' nunca se
---     activaba. A partir de los intentos nuevos, esa prioridad empieza a aplicarse.
---     Para evitarlo basta quitar `confidence` del INSERT de v2.
+--   * v2 guarda p_confidence también en attempts.confidence (record_attempt nunca lo
+--     hacía; hoy attempts.confidence es NULL en las 6 filas existentes). Comprobado en
+--     producción (3-oct-2026, solo lectura): attempts y user_question_state no tienen
+--     restricciones CHECK, así que 'baja'/'media'/'alta' se guardan sin error.
+--   * OJO, vocabulario: get_topic_study_questions y get_preparer_session_questions
+--     priorizan `la.confidence IN ('dude','suerte')`, pero el cliente envía
+--     'baja'/'media'/'alta'. Por tanto guardar la confianza NO activa esa prioridad (no
+--     coincide nunca). Alinear ese vocabulario es parte de la tarea 3b, no de esta.
+--     Para no guardar confianza basta quitar `confidence` del INSERT de v2.
 -- ==============================================================================
 
 -- 1) Clave de idempotencia por intento ------------------------------------------
