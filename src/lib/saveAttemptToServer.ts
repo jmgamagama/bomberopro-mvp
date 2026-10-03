@@ -224,6 +224,18 @@ export async function saveAttemptToServer(input: SaveAttemptInput): Promise<Save
     tries: 0,
   };
 
+  const existing = readPending(input.p_user_id).find(item => item.key === key);
+  if (existing) {
+    const fields: Array<keyof SaveAttemptParams> = [
+      'p_client_attempt_id', 'p_user_id', 'p_question_id', 'p_acierto', 'p_respuesta',
+      'p_tiempo_ms', 'p_modo', 'p_session_id', 'p_nivel', 'p_confidence',
+    ];
+    if (fields.some(field => existing.params[field] !== entry.params[field])) {
+      // Una clave identifica una respuesta exacta, también antes de llegar al servidor.
+      emitFailure('rejected', countAllPending());
+      return { ok: false, reason: 'rejected', clientAttemptId: key, pending: countPending(input.p_user_id) };
+    }
+  }
   if (!enqueuePending(entry)) {
     // Sin almacenamiento local no hay red de seguridad: se intenta una vez y, si falla, la respuesta puede perderse.
     console.error('attemptOutbox: no se puede persistir la respuesta; envío directo sin reintentos');

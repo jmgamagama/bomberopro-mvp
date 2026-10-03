@@ -101,6 +101,15 @@ describe('saveAttemptToServer', () => {
       expect(countAllPending()).toBe(0);
     });
 
+    it('no confirma otra respuesta que reutiliza una clave ya pendiente', async () => {
+      enqueuePending(pendingEntry('clave-fija', 7, '2026-10-03T10:00:00.000Z'));
+      signedIn();
+      rpc.mockResolvedValue(saved);
+      const r = await saveAttemptToServer({ ...input, p_client_attempt_id: 'clave-fija', p_respuesta: 'B' });
+      expect(r.ok).toBe(false);
+      expect(rpc).not.toHaveBeenCalled();
+      expect(countPending('user-1')).toBe(1);
+    });
     it('usa la clave que se le da en lugar de generar otra', async () => {
       signedIn();
       rpc.mockResolvedValue(saved);
