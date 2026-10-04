@@ -461,7 +461,7 @@ export default function App() {
     return (
       <>
         {/* Si la sesión caduca a mitad de estudio, aquí se avisa de lo que sigue pendiente. */}
-        <SaveFailureBanner showIfPending />
+        <SaveFailureBanner showIfPending /><div role="note" className="bg-fuchsia-700 px-4 py-1 text-center text-xs font-bold uppercase tracking-wide text-white">Vista previa de STAGING · datos de prueba · no es BomberoPro real</div>
         <Login onStartDemo={handleStartDemo} />
       </>
     );
@@ -469,6 +469,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-50/50 flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
+      <div role="note" className="bg-fuchsia-700 px-4 py-1 text-center text-xs font-bold uppercase tracking-wide text-white">
+        Vista previa de STAGING · datos de prueba · no es BomberoPro real
+      </div>
       <SaveFailureBanner />
       <SaveStatus />
       {session && !isDemoMode && showLegacyImport && (
