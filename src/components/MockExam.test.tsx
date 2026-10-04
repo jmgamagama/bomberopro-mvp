@@ -26,6 +26,7 @@ describe('MockExam', () => {
     const { container } = render(
       <MockExam
         microconcepts={INITIAL_MICROCONCEPTS}
+        useServerQuestions
         onFinishExam={vi.fn()}
         onNavigateHome={onNavigateHome}
       />,
@@ -58,6 +59,7 @@ describe('MockExam', () => {
     const { container } = render(
       <MockExam
         microconcepts={INITIAL_MICROCONCEPTS}
+        useServerQuestions
         onFinishExam={onFinishExam}
         onNavigateHome={vi.fn()}
       />,
@@ -92,5 +94,25 @@ describe('MockExam', () => {
     expect(onFinishExam).toHaveBeenCalledOnce();
     expect(onFinishExam.mock.calls[0][0][0]).toMatchObject({ answerChanges: 2 });
     expect(onFinishExam.mock.calls[0][0][1]).toMatchObject({ answerChanges: 0 });
+  });
+
+  it('sin sesión (demo) no pide el banco real al servidor: usa la muestra local y lo dice', async () => {
+    const user = userEvent.setup();
+    (supabase.rpc as any).mockClear();
+    render(<MockExam microconcepts={INITIAL_MICROCONCEPTS} onFinishExam={vi.fn()} onNavigateHome={vi.fn()} />);
+    await user.click(screen.getByRole('button', { name: /comenzar simulacro/i }));
+    expect(await screen.findByText(/pregunta 1 de 10/i)).toBeInTheDocument();
+    expect(supabase.rpc).not.toHaveBeenCalled();
+    expect(screen.getByRole('note').textContent).toMatch(/muestra/i);
+  });
+
+  it('si el servidor falla con sesión, no se queda bloqueado: usa la muestra y lo indica', async () => {
+    const user = userEvent.setup();
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    (supabase.rpc as any).mockResolvedValue({ data: null, error: { code: '42501', message: 'permission denied' } });
+    render(<MockExam microconcepts={INITIAL_MICROCONCEPTS} onFinishExam={vi.fn()} onNavigateHome={vi.fn()} useServerQuestions />);
+    await user.click(screen.getByRole('button', { name: /comenzar simulacro/i }));
+    expect(await screen.findByText(/pregunta 1 de 10/i)).toBeInTheDocument();
+    expect(screen.getByRole('note').textContent).toMatch(/muestra/i);
   });
 });

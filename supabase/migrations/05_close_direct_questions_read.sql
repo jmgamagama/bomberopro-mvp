@@ -1,0 +1,32 @@
+-- ==============================================================================
+-- Migración 05: cerrar la lectura directa de `questions` (tarea 4, MITIGACIÓN PARCIAL)
+-- ==============================================================================
+-- ESTADO: PROPUESTA. Probada en staging (bomberopro-staging, 4-oct-2026). NO aplicada en
+-- producción. Requiere aprobación expresa de JM.
+--
+-- Problema (comite/EVIDENCIA_SUPABASE.md §2; reproducido en staging):
+--   `anon` y `authenticated` tienen todos los privilegios de tabla sobre `questions` y la
+--   política RLS "read published" permite SELECT de las filas publicadas, columnas
+--   `correcta` y `explicacion` incluidas. Con la clave pública cualquiera puede descargar
+--   el banco completo con sus respuestas.
+--
+-- Qué hace:
+--   * Quita a `anon` y `authenticated` TODO privilegio directo sobre `questions`.
+--     La app no lee esta tabla directamente (solo vía RPC SECURITY DEFINER, que se
+--     ejecutan como su propietario y siguen funcionando). Verificado en `src/` y `scripts/`.
+--
+-- Qué NO hace (por eso es parcial):
+--   * Las RPC `get_preparer_session_questions` y `get_blueprint_exam_questions` siguen
+--     siendo ejecutables por `anon` y devuelven `correct_answer`. Cerrar eso es la tarea 7
+--     (revocar EXECUTE a anon) y, del todo, la 6b (corregir en servidor).
+--   * No cambia ninguna RPC ni la política "read published" (queda sin efecto).
+--
+-- Antes de aplicar en producción: confirmar con JM que NINGÚN integrador externo
+-- (n8n, importadores, hojas de cálculo) lee `questions` con la clave pública.
+-- ==============================================================================
+
+REVOKE ALL ON TABLE public.questions FROM anon, authenticated;
+
+-- Recuperación (devuelve exactamente los privilegios de antes, leídos en prod el 4-oct-2026):
+--   GRANT DELETE, INSERT, REFERENCES, SELECT, TRIGGER, TRUNCATE, UPDATE
+--     ON TABLE public.questions TO anon, authenticated;

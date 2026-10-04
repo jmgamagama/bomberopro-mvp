@@ -727,6 +727,7 @@ export default function App() {
             microconcepts={INITIAL_MICROCONCEPTS}
             onFinishExam={handleFinishExam}
             onNavigateHome={() => handleNavigate('dashboard')}
+            useServerQuestions={!!session && !isDemoMode}
           />
         )}
 
