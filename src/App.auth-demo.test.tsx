@@ -61,13 +61,13 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     rpcMock.mockClear();
   });
 
-  it('permite recorrer una primera sesión de estudio en demo, salir y reingresar sin arrastrar progreso en memoria ni persistir datos', async () => {
+  it('guarda el intento de la demo en este navegador y no lo envía al servidor', async () => {
     const user = userEvent.setup();
     render(<App />);
 
     // 1. Pantalla de Login inicial
     expect(await screen.findByRole('heading', { name: /mira bomberopro/i })).toBeInTheDocument();
-    const demoButton = screen.getByRole('button', { name: /probar demostración de solo lectura/i });
+    const demoButton = screen.getByRole('button', { name: /probar demostración \(sin cuenta\)/i });
     expect(demoButton).toBeInTheDocument();
 
     // 2. Iniciar demostración
@@ -75,7 +75,7 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
 
     // Entra a la aplicación en modo demo
     expect(await screen.findByRole('region', { name: /aviso de modo demostración/i })).toBeInTheDocument();
-    expect(screen.getByText(/modo demostración \(solo lectura\)/i)).toBeInTheDocument();
+    expect(screen.getByText(/el progreso se guarda en este navegador, sin cuenta/i)).toBeInTheDocument();
 
     // Ve el Dashboard inicial sin intentos previos
     expect(screen.getByRole('button', { name: /entrenar ahora/i })).toBeInTheDocument();
@@ -99,9 +99,9 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     // Muestra feedback cognitivo
     expect(await screen.findByText(/buen dominio literal/i)).toBeInTheDocument();
 
-    // VERIFICACIÓN CLAVE: Sin persistencia a localStorage ni llamadas a Supabase RPC
-    expect(saveAttempt).not.toHaveBeenCalled();
-    expect(saveMemoryState).not.toHaveBeenCalled();
+    // Se guarda en este navegador y no sale al servidor.
+    expect(saveAttempt).toHaveBeenCalledTimes(1);
+    expect(saveMemoryState).toHaveBeenCalledTimes(1);
     expect(rpcMock).not.toHaveBeenCalled();
 
     // 5. Salir de la demostración
@@ -111,7 +111,7 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     expect(await screen.findByRole('heading', { name: /mira bomberopro/i })).toBeInTheDocument();
 
     // 6. Reingreso a la demo: comprobar que no quedan datos ni progreso arrastrado
-    const reEnterDemoBtn = screen.getByRole('button', { name: /probar demostración de solo lectura/i });
+    const reEnterDemoBtn = screen.getByRole('button', { name: /probar demostración \(sin cuenta\)/i });
     await user.click(reEnterDemoBtn);
 
     // Nuevamente en Dashboard demo
@@ -129,9 +129,9 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     // El botón vuelve a estar en estado inicial "Selecciona una respuesta"
     expect(screen.getByRole('button', { name: /selecciona una respuesta/i })).toBeDisabled();
 
-    // Sin escrituras persistentes ni llamadas remotas en ningún momento
-    expect(saveAttempt).not.toHaveBeenCalled();
-    expect(saveMemoryState).not.toHaveBeenCalled();
+    // El reingreso empieza una sesión nueva. El intento anterior sigue guardado y no hubo llamada remota.
+    expect(saveAttempt).toHaveBeenCalledTimes(1);
+    expect(saveMemoryState).toHaveBeenCalledTimes(1);
     expect(rpcMock).not.toHaveBeenCalled();
   });
 });

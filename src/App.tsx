@@ -196,7 +196,7 @@ export default function App() {
     setSessionQuestionPool(pool);
     setSessionAnsweredCount(0);
     setSessionCompleted(false);
-    prepareNextAdaptiveQuestion(pool, isDemoMode ? memoryStates : getSafeMemoryStates());
+    prepareNextAdaptiveQuestion(pool, getSafeMemoryStates());
   };
 
   // Prepares the next question for training, either general or target microconcept
@@ -256,26 +256,17 @@ export default function App() {
       created_at: now.toISOString()
     };
 
-    if (isDemoMode) {
-      // In read-only demo mode: update only React state in memory without persistence or network calls
-      setMemoryStates(prev => ({
-        ...prev,
-        [microconceptId]: result.updatedState
-      }));
-      setAttempts(prev => [newAttempt, ...prev]);
-      setSessionAnsweredCount(prev => prev + 1);
-    } else {
-      // Save to local database
-      saveMemoryState(result.updatedState);
-      saveAttempt(newAttempt);
+    // Demo and local study share this browser's storage. Demo does not call the server.
+    saveMemoryState(result.updatedState);
+    saveAttempt(newAttempt);
+    if (!isDemoMode) {
       syncAttemptToSupabase(session?.user?.id, questionId, isCorrect, answer, confidence, responseTime);
-
-      // Reload state in memory
-      const updatedStates = getSafeMemoryStates();
-      setMemoryStates(updatedStates);
-      setAttempts(getAttempts());
-      setSessionAnsweredCount(prev => prev + 1);
     }
+
+    const updatedStates = getSafeMemoryStates();
+    setMemoryStates(updatedStates);
+    setAttempts(getAttempts());
+    setSessionAnsweredCount(prev => prev + 1);
 
     return {
       feedbackTitle: result.feedbackTitle,
@@ -286,7 +277,7 @@ export default function App() {
   };
 
   const handleNextQuestion = () => {
-    prepareNextAdaptiveQuestion(sessionQuestionPool, isDemoMode ? memoryStates : getSafeMemoryStates());
+    prepareNextAdaptiveQuestion(sessionQuestionPool, getSafeMemoryStates());
   };
 
   // Quick verification from Article Study screen
@@ -365,9 +356,18 @@ export default function App() {
   };
 
   const handleStartDemo = () => {
-    resetDemoState();
+    setShowStudyPilot(false);
     setIsDemoMode(true);
     setDbQuestions(INITIAL_QUESTIONS);
+    setMemoryStates(getSafeMemoryStates());
+    setAttempts(getAttempts());
+    setSessionAnsweredCount(0);
+    setSessionQuestionPool([]);
+    setSessionCompleted(false);
+    answeredQuestionIds.current = new Set();
+    setActiveQuestion(null);
+    setActiveReason('');
+    setActiveConceptId(null);
     setCurrentScreen('dashboard');
   };
 
@@ -424,7 +424,7 @@ export default function App() {
             <div className="flex items-center gap-2 text-center sm:text-left">
               <span className="w-2 h-2 rounded-full bg-amber-900 animate-pulse shrink-0" aria-hidden="true" />
               <span>
-                <strong>Modo demostración (Solo lectura)</strong>: Explorando una primera sesión de estudio sin cuenta ni persistencia de datos.
+                <strong>Modo demostración</strong>: el progreso se guarda en este navegador, sin cuenta.
               </span>
             </div>
             <button
@@ -582,7 +582,7 @@ export default function App() {
           <>
           {(isDemoMode || !supabase) && (
             <div className="mb-6 rounded-xl border border-indigo-100 bg-white p-4">
-              <p className="mb-3 text-sm text-slate-600">Tema 1 · Artículo 1. Lectura, conceptos y recuerdo antes de practicar. Piloto pendiente de revisión humana; el progreso de esta demostración no se guarda.</p>
+              <p className="mb-3 text-sm text-slate-600">Tema 1 · Artículo 1. Lectura, conceptos y recuerdo antes de practicar. Piloto pendiente de revisión humana. El progreso se guarda en este navegador.</p>
               <button type="button" className="rounded-lg bg-indigo-700 px-4 py-2 font-semibold text-white" onClick={() => {
                 handleStartDemo();
                 setShowStudyPilot(true);
@@ -615,9 +615,7 @@ export default function App() {
           <section className="p-8 text-center bg-white border border-emerald-100 rounded-2xl shadow-sm space-y-4" role="status" aria-live="polite">
             <h2 className="text-xl font-bold text-slate-800">Sesión completada</h2>
             <p className="text-sm text-slate-600">Has respondido {sessionAnsweredCount} de {sessionTotal} preguntas {activeConceptId ? 'de este microconcepto' : 'de la sesión de hoy'}.</p>
-            <p className="text-sm text-slate-600">{isDemoMode
-              ? 'En la demostración este progreso no se guarda. Puedes volver al inicio o probar otra sesión.'
-              : 'Tus respuestas se han guardado en este dispositivo. Puedes volver mañana para iniciar una nueva sesión.'}</p>
+            <p className="text-sm text-slate-600">Tus respuestas se han guardado en este navegador. Puedes volver mañana para iniciar una nueva sesión.</p>
             <button
               type="button"
               onClick={() => handleNavigate('dashboard')}

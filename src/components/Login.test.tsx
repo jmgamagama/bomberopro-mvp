@@ -81,7 +81,7 @@ describe('Login', () => {
     const user = userEvent.setup();
     render(<Login onStartDemo={onStartDemo} />);
 
-    const demoButton = screen.getByRole('button', { name: /probar demostración de solo lectura/i });
+    const demoButton = screen.getByRole('button', { name: /probar demostración \(sin cuenta\)/i });
     expect(demoButton).toBeInTheDocument();
 
     await user.click(demoButton);

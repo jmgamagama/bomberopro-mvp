@@ -14,7 +14,7 @@ import App from './App';
 import { saveAttempt, saveMemoryState } from './utils/db';
 
 describe('study pilot integration', () => {
-  it('takes the preview from reading to recall and a question without saving real progress', async () => {
+  it('takes the preview from reading to recall and saves the question in this browser', async () => {
     const user = userEvent.setup();
     render(<App />);
     await user.click(await screen.findByRole('button', { name: 'Probar estudio guiado del artículo 1' }));
@@ -30,8 +30,8 @@ describe('study pilot integration', () => {
     await user.click(screen.getByRole('button', { name: 'Estado social y democrático de Derecho' }));
     await user.click(screen.getByRole('button', { name: /alta.*totalmente seguro/i }));
     await user.click(screen.getByRole('button', { name: /confirmar respuesta/i }));
-    expect(saveAttempt).not.toHaveBeenCalled();
-    expect(saveMemoryState).not.toHaveBeenCalled();
+    expect(saveAttempt).toHaveBeenCalledTimes(1);
+    expect(saveMemoryState).toHaveBeenCalledTimes(1);
     expect(screen.getByRole('region', { name: 'Aviso de modo demostración' })).toBeInTheDocument();
   });
 });

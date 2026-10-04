@@ -188,7 +188,7 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
                 className="w-full py-2.5 px-4 bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-indigo-600 border border-slate-200 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer"
               >
                 <BookOpen className="w-4 h-4 text-indigo-500" aria-hidden="true" />
-                <span>Probar demostración de solo lectura (sin cuenta)</span>
+                <span>Probar demostración (sin cuenta)</span>
               </button>
             </div>
           )}
