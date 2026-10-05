@@ -27,17 +27,25 @@ interface MockExamProps {
     }[]
   ) => void;
   onNavigateHome: () => void;
+  /**
+   * Solo con una cuenta con sesión se piden preguntas reales al servidor. En demostración
+   * (sin sesión) se usan las preguntas de muestra locales: el banco real y sus respuestas no
+   * se sirven a usuarios anónimos (tarea 7).
+   */
+  useServerQuestions?: boolean;
 }
 
 export default function MockExam({
   microconcepts,
   onFinishExam,
-  onNavigateHome
+  onNavigateHome,
+  useServerQuestions = false
 }: MockExamProps) {
   const [examStarted, setExamStarted] = useState(false);
   const [examFinished, setExamFinished] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [questions, setQuestions] = useState<Question[]>([]);
+  const [sampleMode, setSampleMode] = useState(false);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [examSeed, setExamSeed] = useState<number | null>(null);
   
@@ -81,10 +89,10 @@ export default function MockExam({
       const generatedSeed = (Math.random() * 2) - 1;
       setExamSeed(generatedSeed);
 
-      if (supabase) {
+      if (supabase && useServerQuestions) {
         const { data, error } = await supabase.rpc('get_blueprint_exam_questions', { p_seed: generatedSeed });
-        if (error) throw error;
-        if (data) selected = data;
+        if (error) console.error('No se pudo obtener el simulacro del servidor; se usa la muestra local:', error);
+        else if (data) selected = data;
       }
       
       // Fallback a las iniciales si falla o no hay datos suficientes
@@ -92,6 +100,9 @@ export default function MockExam({
         console.warn("Usando fallback de preguntas locales (fallback mode: solo 10 preguntas disponibles)");
         const shuffled = [...INITIAL_QUESTIONS].sort(() => 0.5 - Math.random());
         selected = shuffled.slice(0, 10);
+        setSampleMode(true);
+      } else {
+        setSampleMode(false);
       }
 
       setQuestions(selected);
@@ -341,6 +352,11 @@ export default function MockExam({
       )}
 
       {/* ACTIVE EXAM RUNNING */}
+      {examStarted && !examFinished && questions.length > 0 && sampleMode && (
+        <p role="note" className="mb-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900">
+          Simulacro de muestra con {questions.length} preguntas de ejemplo. El simulacro completo con el banco real requiere una cuenta.
+        </p>
+      )}
       {examStarted && !examFinished && questions.length > 0 && (
         <div className="max-w-3xl mx-auto space-y-4" id="active-exam-container">
           {/* Progress bar and counter */}

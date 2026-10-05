@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
-import { getMemoryStates, saveMemoryState } from './db';
+import { getMemoryStates, saveMemoryState, setProgressOwner, canImportLegacyProgress, importLegacyProgress } from './db';
 import { createNewMemoryState, normalizeSpacedEvidence, processAttempt } from './engine';
 
 describe('local spaced evidence persistence', () => {
@@ -9,6 +9,7 @@ describe('local spaced evidence persistence', () => {
   beforeEach(() => {
     storageWindow = new JSDOM('', { url: 'https://storage.test' });
     vi.stubGlobal('localStorage', storageWindow.window.localStorage);
+    setProgressOwner(null);
   });
   afterEach(() => { vi.unstubAllGlobals(); storageWindow.window.close(); });
   it('preserves qualified evidence through the existing local persistence adapter', async () => {
@@ -26,6 +27,10 @@ describe('local spaced evidence persistence', () => {
       memory_stability: 30, last_review: '2026-09-01T10:00:00Z', next_review: '2026-10-01T10:00:00Z' };
     const original = JSON.stringify({ legacy });
     localStorage.setItem('mira_memory_states_v1', original);
+    expect(getMemoryStates().legacy).toBeUndefined();
+    setProgressOwner('A');
+    expect(canImportLegacyProgress()).toBe(true);
+    expect(importLegacyProgress()).toBe(true);
     const view = normalizeSpacedEvidence(getMemoryStates().legacy, new Date('2026-09-26T10:00:00Z'));
     expect(view.status).toBe('Consolidando');
     expect(localStorage.getItem('mira_memory_states_v1')).toBe(original);

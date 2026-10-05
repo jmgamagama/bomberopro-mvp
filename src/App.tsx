@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut } from 'lucide-react';
 import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from './data/initialData';
 import { MemoryState, Question, ConfidenceLevel, Attempt } from './types';
@@ -13,6 +13,9 @@ import {
   saveAttempt,
   saveMemoryState,
   resetAllProgress,
+  setProgressOwner,
+  canImportLegacyProgress,
+  importLegacyProgress,
   addTimeOffset,
   getCurrentDate,
   getTimeOffset
@@ -27,10 +30,11 @@ import ForgettingCurve from './components/ForgettingCurve';
 import MockExam from './components/MockExam';
 import Login from './components/Login';
 import StudyByTopic from './components/StudyByTopic';
-import StudyPrelude from './components/StudyPrelude';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer } from './lib/saveAttemptToServer';
 import SaveFailureBanner from './components/SaveFailureBanner';
+import SaveStatus from './components/SaveStatus';
+import { useAttemptSync } from './lib/useAttemptSync';
 
 // Normalize only the in-memory view; preserve the original local history for recovery.
 const getSafeMemoryStates = (): Record<string, MemoryState> => {
@@ -78,11 +82,15 @@ export default function App() {
   // Supabase Auth and Data state
   const [session, setSession] = useState<any>(null);
   const [isDemoMode, setIsDemoMode] = useState(false);
-  const [showStudyPilot, setShowStudyPilot] = useState(false);
+  // Reenvía las respuestas pendientes al haber sesión y al recuperar la conexión.
+  useAttemptSync(session?.user?.id);
   const [dbQuestions, setDbQuestions] = useState<Question[]>(INITIAL_QUESTIONS);
   const [dbQuestionsLoading, setDbQuestionsLoading] = useState(false);
   const [dbQuestionsError, setDbQuestionsError] = useState<string | null>(null);
   const [loadingAuth, setLoadingAuth] = useState(true);
+  const [showLegacyImport, setShowLegacyImport] = useState(false);
+  const questionsRequest = useRef(0);
+  const authUserId = useRef<string | null>(null);
   
   // Current active train question and its selection reason
   const [activeQuestion, setActiveQuestion] = useState<Question | null>(null);
@@ -96,8 +104,8 @@ export default function App() {
   const answeredQuestionIds = useRef<Set<string>>(new Set());
 
   useEffect(() => {
-    document.title = `${showStudyPilot ? 'Estudio guiado · artículo 1' : SCREEN_TITLES[currentScreen]} | BomberoPro`;
-  }, [currentScreen, showStudyPilot]);
+    document.title = `${SCREEN_TITLES[currentScreen]} | BomberoPro`;
+  }, [currentScreen]);
 
   // Initial load
   useEffect(() => {
@@ -110,28 +118,61 @@ export default function App() {
       return;
     }
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
+    let active = true;
+    let receivedAuthEvent = false;
+    const acceptSession = (nextSession: any) => {
+      const nextId = nextSession?.user?.id ?? null;
+      if (authUserId.current !== nextId) {
+        authUserId.current = nextId;
+        questionsRequest.current += 1;
+      }
+      setSession(nextSession);
       setLoadingAuth(false);
-      if (session) fetchQuestions();
+    };
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (!active || receivedAuthEvent) return;
+      acceptSession(session);
     });
 
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session);
-      if (session) fetchQuestions();
+      receivedAuthEvent = true;
+      acceptSession(session);
     });
 
-    return () => subscription.unsubscribe();
+    return () => { active = false; subscription.unsubscribe(); };
   }, []);
 
-  const fetchQuestions = async () => {
+  // El progreso local pertenece a la cuenta con sesión (o a la demostración si no hay ninguna).
+  // Se recarga al resolverse la sesión y al cambiar de cuenta.
+  useLayoutEffect(() => {
+    if (loadingAuth) return;
+    const userId = session?.user?.id ?? null;
+    const request = ++questionsRequest.current;
+    setProgressOwner(userId);
+    setMemoryStates(getSafeMemoryStates());
+    setAttempts(getAttempts());
+    setShowLegacyImport(canImportLegacyProgress());
+    answeredQuestionIds.current = new Set();
+    setActiveQuestion(null);
+    setActiveReason('');
+    setSessionQuestionPool([]);
+    setSessionAnsweredCount(0);
+    setSessionCompleted(false);
+    setDbQuestions(userId ? [] : INITIAL_QUESTIONS);
+    setDbQuestionsError(null);
+    if (userId) void fetchQuestions(request);
+    else setDbQuestionsLoading(false);
+  }, [loadingAuth, session?.user?.id]);
+
+  const fetchQuestions = async (request: number) => {
     if (!supabase) return;
     setDbQuestionsLoading(true);
     setDbQuestionsError(null);
     try {
       const { data, error } = await supabase.rpc('get_preparer_session_questions', { p_limit: 100 });
+      if (request !== questionsRequest.current) return;
       if (error) throw error;
       if (data) {
         const adaptiveSession = getAdaptiveDailySession(data, getSafeMemoryStates(), 20);
@@ -140,12 +181,23 @@ export default function App() {
         setDbQuestions([]);
       }
     } catch (err: any) {
+      if (request !== questionsRequest.current) return;
       console.error("Error fetching questions:", err);
       setDbQuestionsError(err.message || 'Error de conexión o sesión expirada.');
       setDbQuestions([]);
     } finally {
-      setDbQuestionsLoading(false);
+      if (request === questionsRequest.current) setDbQuestionsLoading(false);
     }
+  };
+
+  const handleImportLegacyProgress = () => {
+    if (!importLegacyProgress()) return;
+    setShowLegacyImport(false);
+    setMemoryStates(getSafeMemoryStates());
+    setAttempts(getAttempts());
+    setDbQuestions([]);
+    const request = ++questionsRequest.current;
+    void fetchQuestions(request);
   };
 
   // Sync and recalculate pending reviews count
@@ -171,7 +223,6 @@ export default function App() {
   const handleNavigate = (
     screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic'
   ) => {
-    setShowStudyPilot(false);
     setCurrentScreen(screen);
     
     // Clear targeted concept constraints when returning to general study or exiting train screen
@@ -372,7 +423,6 @@ export default function App() {
   };
 
   const handleExitDemo = () => {
-    setShowStudyPilot(false);
     resetDemoState();
     // If an authenticated user exists, restore real data from storage
     if (session) {
@@ -408,12 +458,29 @@ export default function App() {
   }
 
   if (!session && supabase && !isDemoMode) {
-    return <Login onStartDemo={handleStartDemo} />;
+    return (
+      <>
+        {/* Si la sesión caduca a mitad de estudio, aquí se avisa de lo que sigue pendiente. */}
+        <SaveFailureBanner showIfPending />
+        <Login onStartDemo={handleStartDemo} />
+      </>
+    );
   }
 
   return (
     <div className="min-h-screen bg-slate-50/50 flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
       <SaveFailureBanner />
+      <SaveStatus />
+      {session && !isDemoMode && showLegacyImport && (
+        <div role="region" aria-label="Progreso antiguo" className="border-b border-indigo-200 bg-indigo-50 px-4 py-3 text-sm text-slate-800">
+          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
+            <p>Hay progreso antiguo en este navegador sin cuenta identificada. Si es tuyo, puedes copiarlo a esta cuenta; no se borrará el original.</p>
+            <button type="button" onClick={handleImportLegacyProgress} className="rounded-lg bg-indigo-700 px-3 py-2 font-semibold text-white">
+              Importar mi progreso
+            </button>
+          </div>
+        </div>
+      )}
       {isDemoMode && (
         <div
           role="region"
@@ -570,25 +637,8 @@ export default function App() {
         tabIndex={-1}
         className="flex-1 max-w-6xl w-full mx-auto px-4 pt-8 pb-24 md:py-8"
       >
-        {showStudyPilot && isDemoMode && (
-          <StudyPrelude
-            preview
-            onStartQuestions={() => handleNavigate('train')}
-            onNavigateHome={() => handleNavigate('dashboard')}
-          />
-        )}
-
-        {currentScreen === 'dashboard' && !showStudyPilot && (
+        {currentScreen === 'dashboard' && (
           <>
-          {(isDemoMode || !supabase) && (
-            <div className="mb-6 rounded-xl border border-indigo-100 bg-white p-4">
-              <p className="mb-3 text-sm text-slate-600">Tema 1 · Artículo 1. Lectura, conceptos y recuerdo antes de practicar. Piloto pendiente de revisión humana; el progreso de esta demostración no se guarda.</p>
-              <button type="button" className="rounded-lg bg-indigo-700 px-4 py-2 font-semibold text-white" onClick={() => {
-                handleStartDemo();
-                setShowStudyPilot(true);
-              }}>Probar estudio guiado del artículo 1</button>
-            </div>
-          )}
           <Dashboard
             memoryStates={memoryStates}
             attempts={attempts}
@@ -677,13 +727,18 @@ export default function App() {
             microconcepts={INITIAL_MICROCONCEPTS}
             onFinishExam={handleFinishExam}
             onNavigateHome={() => handleNavigate('dashboard')}
+            useServerQuestions={!!session && !isDemoMode}
           />
         )}
 
-        {currentScreen === 'study_by_topic' && isDemoMode && (
-          <StudyPrelude preview onStartQuestions={() => handleNavigate('train')} onNavigateHome={() => handleNavigate('dashboard')} />
+        {currentScreen === 'study_by_topic' && (isDemoMode || !supabase) && (
+          <section aria-label="Estudio por temas no disponible en la demostración" className="rounded-xl border border-slate-200 bg-white p-6">
+            <h2 className="text-lg font-bold text-slate-900">Estudio por temas</h2>
+            <p className="mt-2 text-sm text-slate-600">Esta función guarda tu progreso y requiere una cuenta. Crea una cuenta o inicia sesión para usarla.</p>
+            <button type="button" className="mt-4 rounded-lg bg-indigo-700 px-4 py-2 font-semibold text-white" onClick={() => handleNavigate('dashboard')}>Volver al inicio</button>
+          </section>
         )}
-        {currentScreen === 'study_by_topic' && !isDemoMode && (
+        {currentScreen === 'study_by_topic' && !isDemoMode && !!supabase && (
         <StudyByTopic
           session={session}
           onNavigateHome={() => handleNavigate('dashboard')}
