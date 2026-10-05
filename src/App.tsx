@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
-import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut } from 'lucide-react';
+import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame } from 'lucide-react';
 import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from './data/initialData';
 import { MemoryState, Question, ConfidenceLevel, Attempt } from './types';
 import {
@@ -30,6 +30,8 @@ import ForgettingCurve from './components/ForgettingCurve';
 import MockExam from './components/MockExam';
 import Login from './components/Login';
 import StudyByTopic from './components/StudyByTopic';
+import DailySession from './components/DailySession';
+import OrdenaPasos from './components/OrdenaPasos';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer } from './lib/saveAttemptToServer';
 import SaveFailureBanner from './components/SaveFailureBanner';
@@ -51,6 +53,8 @@ const SCREEN_TITLES = {
   mock_exam: 'Simulacro',
   today_training: 'Entrenamiento de hoy',
   study_by_topic: 'Estudio por Temas',
+  sesion_diaria: 'Sesión diaria',
+  ordena_pasos: 'Ordena los pasos',
 } as const;
 
   const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds) => {
@@ -73,7 +77,7 @@ const SCREEN_TITLES = {
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
-    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic'
+    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'sesion_diaria' | 'ordena_pasos'
   >('dashboard');
 
   const [memoryStates, setMemoryStates] = useState<Record<string, MemoryState>>({});
@@ -222,7 +226,7 @@ export default function App() {
 
   // Handle switching screens
   const handleNavigate = (
-    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic'
+    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'sesion_diaria' | 'ordena_pasos'
   ) => {
     setCurrentScreen(screen);
     
@@ -608,6 +612,18 @@ export default function App() {
             <BookOpen className="w-4 h-4" aria-hidden="true" />
             Por Temas
             </button>
+
+            <button
+              id="nav-btn-sesion-diaria"
+              onClick={() => handleNavigate('sesion_diaria')}
+              aria-current={currentScreen === 'sesion_diaria' || currentScreen === 'ordena_pasos' ? 'page' : undefined}
+              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+                currentScreen === 'sesion_diaria' || currentScreen === 'ordena_pasos' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
+              }`}
+            >
+              <Flame className="w-4 h-4" aria-hidden="true" />
+              Sesión diaria
+            </button>
           </nav>
 
           <div className="flex items-center gap-2">
@@ -732,6 +748,20 @@ export default function App() {
           />
         )}
 
+        {currentScreen === 'sesion_diaria' && (
+          <DailySession
+            onNavigateHome={() => handleNavigate('dashboard')}
+            onOpenOrdenaPasos={() => handleNavigate('ordena_pasos')}
+          />
+        )}
+
+        {currentScreen === 'ordena_pasos' && (
+          <OrdenaPasos
+            onNavigateHome={() => handleNavigate('dashboard')}
+            onBackToDaily={() => handleNavigate('sesion_diaria')}
+          />
+        )}
+
         {currentScreen === 'study_by_topic' && (isDemoMode || !supabase) && (
           <section aria-label="Estudio por temas no disponible en la demostración" className="rounded-xl border border-slate-200 bg-white p-6">
             <h2 className="text-lg font-bold text-slate-900">Estudio por temas</h2>
@@ -751,7 +781,7 @@ export default function App() {
         aria-label="Navegación móvil"
         className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_18px_rgba(15,23,42,0.08)] backdrop-blur-md md:hidden"
       >
-        <div className="mx-auto grid max-w-lg grid-cols-6 px-1">
+        <div className="mx-auto grid max-w-lg grid-cols-7 px-1">
           <button
             type="button"
             aria-current={currentScreen === 'dashboard' ? 'page' : undefined}
@@ -817,6 +847,18 @@ export default function App() {
             >
           <BookOpen className="h-5 w-5" aria-hidden="true" />
           Temas
+          </button>
+
+          <button
+            type="button"
+            aria-current={currentScreen === 'sesion_diaria' || currentScreen === 'ordena_pasos' ? 'page' : undefined}
+            onClick={() => handleNavigate('sesion_diaria')}
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+              currentScreen === 'sesion_diaria' || currentScreen === 'ordena_pasos' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
+            }`}
+          >
+            <Flame className="h-5 w-5" aria-hidden="true" />
+            Diaria
           </button>
         </div>
       </nav>
