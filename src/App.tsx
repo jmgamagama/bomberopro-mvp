@@ -35,6 +35,7 @@ import { saveAttemptToServer } from './lib/saveAttemptToServer';
 import SaveFailureBanner from './components/SaveFailureBanner';
 import SaveStatus from './components/SaveStatus';
 import { useAttemptSync } from './lib/useAttemptSync';
+import { shuffleAllOptions } from './utils/shuffleOptions';
 
 // Normalize only the in-memory view; preserve the original local history for recovery.
 const getSafeMemoryStates = (): Record<string, MemoryState> => {
@@ -175,7 +176,7 @@ export default function App() {
       if (request !== questionsRequest.current) return;
       if (error) throw error;
       if (data) {
-        const adaptiveSession = getAdaptiveDailySession(data, getSafeMemoryStates(), 20);
+        const adaptiveSession = shuffleAllOptions(getAdaptiveDailySession(data, getSafeMemoryStates(), 20));
         setDbQuestions(adaptiveSession);
       } else {
         setDbQuestions([]);

@@ -8,6 +8,7 @@ import { Question } from '../types';
 import { supabase } from '../lib/supabase';
 import { saveAttemptToServer } from '../lib/saveAttemptToServer';
 import StudentConsultation from './StudentConsultationModal';
+import { shuffleAllOptions } from '../utils/shuffleOptions';
 
 interface TopicOption {
   id: number;
@@ -61,7 +62,7 @@ const startStudy = async () => {
     p_limit: 20
   });
   if (!error && data) {
-    setQuestions(data as Question[]);
+    setQuestions(shuffleAllOptions(data as Question[]));
     setStarted(true);
     setIdx(0);
     setCorrectCount(0);

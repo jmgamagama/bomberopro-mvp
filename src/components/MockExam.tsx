@@ -12,6 +12,7 @@ import { calculateExamScore, EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS } from '
 import { EXAM_DURATION_SECONDS, formatExamTime, getRemainingExamSeconds } from '../utils/examTimer';
 import StudentConsultation from './StudentConsultationModal';
 import { countAnswerChange } from '../utils/attempt';
+import { shuffleAllOptions } from '../utils/shuffleOptions';
 
 interface MockExamProps {
   microconcepts: Microconcept[];
@@ -105,7 +106,7 @@ export default function MockExam({
         setSampleMode(false);
       }
 
-      setQuestions(selected);
+      setQuestions(shuffleAllOptions(selected));
       setCurrentIdx(0);
       setAnswers({});
       setConfidences({});
