@@ -1,0 +1,1803 @@
+/** Tema 38 recall cards — local subset (198). Do not load MIRA base or invent cards. */
+
+export type Tema38RecallCard = {
+  id: string;
+  orden: number;
+  concepto: string;
+  respuesta: string;
+  fuente: string;
+  localizacion: string;
+  apartado: string;
+};
+
+export const TEMA38_RECALL_META = {
+  tema: 38,
+  title: "Tema 38 · ITF CPEI: horario, vestuario/EPIs, limpieza y gestión de EPIs colectivos",
+  count: 198,
+  source: "ITF oficiales CPEI (Horario 2022, Vestuario/Limpieza/Gestión EPIs 2026) rebuild desde PDFs",
+} as const;
+
+export const TEMA38_RECALL_CARDS: Tema38RecallCard[] = [
+  {
+    "id": "CPEI-T38-HOR-001",
+    "orden": 1,
+    "concepto": "¿Cuál es el objeto de la ITF Horario de actividades?",
+    "respuesta": "Definir la actividad de los efectivos que realizan su turno en los parques de bomberos del CPEI, siempre y cuando no se encuentren atendiendo una intervención, para garantizar un óptimo estado de los recursos humanos (formación, organización, preparación física,…) y materiales (revisión, calidad, orden,…).",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 2",
+    "apartado": "1. Objeto y alcance"
+  },
+  {
+    "id": "CPEI-T38-HOR-002",
+    "orden": 2,
+    "concepto": "¿A quién va dirigida la ITF Horario de actividades?",
+    "respuesta": "A todo el personal operativo del CPEI.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 2",
+    "apartado": "1. Objeto y alcance"
+  },
+  {
+    "id": "CPEI-T38-HOR-003",
+    "orden": 3,
+    "concepto": "¿En qué parques es de cumplimiento el horario de actividades diarias?",
+    "respuesta": "En todos los parques del CPEI-Badajoz, salvo que por motivo de atención a intervención o algún otro incidente que lo justifique.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 2",
+    "apartado": "2. Horario de actividades diarias"
+  },
+  {
+    "id": "CPEI-T38-HOR-004",
+    "orden": 4,
+    "concepto": "¿Quién puede alterar o autorizar el cambio del orden de las actividades del horario diario y qué debe hacer previamente?",
+    "respuesta": "El Jefe de Parque o el Jefe de Guardia, previa comunicación a superior jerárquico.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 2",
+    "apartado": "2. Horario de actividades diarias"
+  },
+  {
+    "id": "CPEI-T38-HOR-005",
+    "orden": 5,
+    "concepto": "Al alterar el orden de actividades del horario diario, ¿qué dos aspectos siguen siendo siempre prioritarios?",
+    "respuesta": "La revisión del EPI individual y la operatividad de camiones y herramientas del parque.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 2",
+    "apartado": "2. Horario de actividades diarias"
+  },
+  {
+    "id": "CPEI-T38-HOR-006",
+    "orden": 6,
+    "concepto": "¿En qué franja horaria se realiza el relevo y en qué zona del parque?",
+    "respuesta": "Entre las 7:50 y las 8:00, en una zona señalizada denominada ZONA RELEVO.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 2",
+    "apartado": "2. Horario de actividades diarias › Relevo"
+  },
+  {
+    "id": "CPEI-T38-HOR-007",
+    "orden": 7,
+    "concepto": "Durante el relevo, ¿quiénes deben estar presentes físicamente y qué se comprueba?",
+    "respuesta": "Los componentes del turno entrante y del turno saliente. Se comprueba que está el personal disponible y el material individual del que se dispone para realizar el servicio.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 2",
+    "apartado": "2. Horario de actividades diarias › Relevo"
+  },
+  {
+    "id": "CPEI-T38-HOR-008",
+    "orden": 8,
+    "concepto": "¿Dónde se registra la realización del relevo?",
+    "respuesta": "En la Tarea Programada del sistema SOS Emergencias.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 2",
+    "apartado": "2. Horario de actividades diarias › Relevo"
+  },
+  {
+    "id": "CPEI-T38-HOR-009",
+    "orden": 9,
+    "concepto": "Según el resumen del horario diario (apartado 2), ¿en qué franja se revisa el material individual y en qué zona?",
+    "respuesta": "De 8:00 a 8:30, en la zona señalizada denominada ZONA REVISIÓN.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 2",
+    "apartado": "2. Horario de actividades diarias › Revisión material individual"
+  },
+  {
+    "id": "CPEI-T38-HOR-010",
+    "orden": 10,
+    "concepto": "Según el resumen del horario diario, ¿en qué franja se revisan vehículos, herramientas y material colectivo?",
+    "respuesta": "De 8:30 a 9:45.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 3",
+    "apartado": "2. Horario de actividades diarias › Revisión vehículos"
+  },
+  {
+    "id": "CPEI-T38-HOR-011",
+    "orden": 11,
+    "concepto": "¿Quiénes participan en la reunión diaria de organización del trabajo y en qué franja?",
+    "respuesta": "La Jefatura del Parque o Jefe de Guardia y el Jefe de Turno, entre las 9:45 y las 10:00 (presencial en el despacho del Jefe de Parque u online).",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 3",
+    "apartado": "2. Horario › Reunión organización"
+  },
+  {
+    "id": "CPEI-T38-HOR-012",
+    "orden": 12,
+    "concepto": "¿Qué gestiones con Zimbra deben hacer los integrantes del turno en la franja 9:45-10:00?",
+    "respuesta": "Comprobar la bandeja de entrada del correo oficial respecto a comunicaciones oficiales y realizar gestiones informáticas de su puesto (solicitudes de cambio de turno, asuntos propios, otros permisos retribuidos, circulares, instrucciones, procedimientos…), usando el ordenador personal del parque.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 3",
+    "apartado": "2. Horario › Zimbra"
+  },
+  {
+    "id": "CPEI-T38-HOR-013",
+    "orden": 13,
+    "concepto": "¿Dónde debe realizarse siempre el desayuno del personal (10:00-10:30)?",
+    "respuesta": "Siempre en dependencias del parque.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 3",
+    "apartado": "2. Horario › Desayuno"
+  },
+  {
+    "id": "CPEI-T38-HOR-014",
+    "orden": 14,
+    "concepto": "¿En qué franja se realizan las tareas diarias (prácticas, inventario, prevención, formación…) y quién debe autorizarlas?",
+    "respuesta": "De 10:30 a 13:30. Deben contar con autorización del Jefe de Parque o superior jerárquico.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 3",
+    "apartado": "2. Horario › Tareas diarias"
+  },
+  {
+    "id": "CPEI-T38-HOR-015",
+    "orden": 15,
+    "concepto": "¿A qué horas evalúan JP y JG la revisión diaria y las tareas diarias mediante SOS?",
+    "respuesta": "Revisión diaria a las 11:00 horas; revisión de tareas a las 14:00 horas.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 3",
+    "apartado": "2. Horario › Control dirección"
+  },
+  {
+    "id": "CPEI-T38-HOR-016",
+    "orden": 16,
+    "concepto": "¿En qué franja se sitúan el almuerzo y descanso, y dónde deben realizarse?",
+    "respuesta": "De 14:00 a 15:00, siempre en dependencias del parque.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 4",
+    "apartado": "2. Horario › Almuerzo"
+  },
+  {
+    "id": "CPEI-T38-HOR-017",
+    "orden": 17,
+    "concepto": "¿En qué franjas queda el turno «en espera» según el horario diario?",
+    "respuesta": "De 15:00 a 17:00 y de 22:00 a 07:30.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 4",
+    "apartado": "2. Horario › En espera"
+  },
+  {
+    "id": "CPEI-T38-HOR-018",
+    "orden": 18,
+    "concepto": "¿En qué franja se realizan las actividades de formación-prevención online?",
+    "respuesta": "De 17:00 a 19:00.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 4",
+    "apartado": "2. Horario › Formación online"
+  },
+  {
+    "id": "CPEI-T38-HOR-019",
+    "orden": 19,
+    "concepto": "¿En qué franja se realiza el ejercicio físico y quién autoriza a personal ajeno al turno?",
+    "respuesta": "De 19:00 a 20:30. Cualquier personal ajeno al turno necesita autorización del Jefe de Parque o superior jerárquico.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 4",
+    "apartado": "2. Horario › Ejercicio físico"
+  },
+  {
+    "id": "CPEI-T38-HOR-020",
+    "orden": 20,
+    "concepto": "¿A qué hora aproximadamente comunica el Jefe de Guardia el listado de intervenciones diarias y con qué informe?",
+    "respuesta": "A las 23:00, utilizando el informe diario de SOS Emergencias.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 4",
+    "apartado": "2. Horario › Resumen intervenciones"
+  },
+  {
+    "id": "CPEI-T38-HOR-021",
+    "orden": 21,
+    "concepto": "¿Qué se hace en la revisión final previa al relevo (07:30-07:50)?",
+    "respuesta": "La reordenación, limpieza y puesta a punto de las dependencias y camiones del parque para que el turno entrante pueda empezar el trabajo con normalidad.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 4",
+    "apartado": "2. Horario › Revisión final"
+  },
+  {
+    "id": "CPEI-T38-HOR-022",
+    "orden": 22,
+    "concepto": "En el parque, ¿a partir de qué hora debe fichar el turno entrante y a qué hora el saliente?",
+    "respuesta": "El turno entrante a partir de las 7:50 horas; el turno saliente a las 08:00 horas.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 5",
+    "apartado": "3. Relevo › Parque"
+  },
+  {
+    "id": "CPEI-T38-HOR-023",
+    "orden": 23,
+    "concepto": "Para hacer el relevo, ¿cómo deben estar el turno entrante y el saliente?",
+    "respuesta": "Uniformados (según la ITF de Uniformidad y vestuario).",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 5",
+    "apartado": "3. Relevo › Parque"
+  },
+  {
+    "id": "CPEI-T38-HOR-024",
+    "orden": 24,
+    "concepto": "En el relevo, ¿qué deben comprobar los jefes de turno entrante y saliente respecto al personal?",
+    "respuesta": "Que están los efectivos que tienen que entrar según el cuadrante anual de guardias del parque.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 5",
+    "apartado": "3. Relevo › Parque"
+  },
+  {
+    "id": "CPEI-T38-HOR-025",
+    "orden": 25,
+    "concepto": "Tras el relevo, ¿hasta cuándo queda el traspaso del material individual y colectivo de uso individual a expensas de revisión detallada?",
+    "respuesta": "A expensas de ser revisado detalladamente en la revisión diaria entre las 8 y 8:30 horas.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 5",
+    "apartado": "3. Relevo › Parque"
+  },
+  {
+    "id": "CPEI-T38-HOR-026",
+    "orden": 26,
+    "concepto": "¿Cómo transmite el Jefe de Guardia saliente la finalización del turno al entrante?",
+    "respuesta": "Entre las 07:50 y 08:00, a través de aplicación SOS o correo electrónico ZIMBRA, comunicando incidencias de intervenciones en curso o dignas de mencionar, comprobando las anotaciones en la Tarea Programada del SOS Emergencias.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 5",
+    "apartado": "3.2. Jefatura de Guardia"
+  },
+  {
+    "id": "CPEI-T38-HOR-027",
+    "orden": 27,
+    "concepto": "¿Cuándo se da por efectivo el relevo entre Jefes de Guardia?",
+    "respuesta": "Cuando el JG entrante confirme con el JG saliente la comunicación y transmisión de novedades, si las hubiere.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 5",
+    "apartado": "3.2. Jefatura de Guardia"
+  },
+  {
+    "id": "CPEI-T38-HOR-028",
+    "orden": 28,
+    "concepto": "Tras el relevo de JG, ¿a quién debe notificarse dicha comunicación?",
+    "respuesta": "A la Dirección del CPEI, poniéndola en copia o notificándola por los mismos medios (SOS o Zimbra).",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 6",
+    "apartado": "3.2. Jefatura de Guardia"
+  },
+  {
+    "id": "CPEI-T38-HOR-029",
+    "orden": 29,
+    "concepto": "En el relevo de emisoristas, ¿cuándo se da por efectivo y qué debe hacer el entrante?",
+    "respuesta": "Cuando el entrante comunique al JG entrante la transmisión de novedades, que deberá registrar en la Tarea Programada del SOS.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 6",
+    "apartado": "3.3. Emisoristas"
+  },
+  {
+    "id": "CPEI-T38-HOR-030",
+    "orden": 30,
+    "concepto": "Si el turno saliente no está en el parque a la hora del relevo por una intervención, ¿a quién lo comunica el jefe de turno entrante?",
+    "respuesta": "Al jefe de parque y, en su defecto si no está en su horario de trabajo, al jefe de guardia o superior jerárquico operativo.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 6",
+    "apartado": "3.4. Incidencias › falta turno saliente"
+  },
+  {
+    "id": "CPEI-T38-HOR-031",
+    "orden": 31,
+    "concepto": "Como norma general, si el turno saliente está en una intervención a la hora del relevo, ¿dónde permanece el turno entrante?",
+    "respuesta": "En el parque, salvo que el jefe de guardia estime oportuna su presencia en la intervención.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 6",
+    "apartado": "3.4. Incidencias › falta turno saliente"
+  },
+  {
+    "id": "CPEI-T38-HOR-032",
+    "orden": 32,
+    "concepto": "¿Quién debe autorizar SIEMPRE la movilización del turno entrante para hacer el relevo en el lugar de la intervención?",
+    "respuesta": "El Jefe de Guardia (comunicándolo con carácter informativo al jefe de parque, si está en su horario de trabajo).",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 6",
+    "apartado": "3.4. Incidencias › falta turno saliente"
+  },
+  {
+    "id": "CPEI-T38-HOR-033",
+    "orden": 33,
+    "concepto": "Si falta personal del turno entrante en el relevo, ¿qué debe hacer el jefe de turno entrante?",
+    "respuesta": "Localizar al personal que falte e informar al jefe de parque y, en su defecto, al jefe de guardia. Si el retraso no está justificado, informar para que se tomen medidas conforme al Reglamento de Régimen Interior. Registrar la incidencia en la Tarea Programada del SOS Emergencias.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 7",
+    "apartado": "3.4. Incidencias › falta turno entrante"
+  },
+  {
+    "id": "CPEI-T38-HOR-034",
+    "orden": 34,
+    "concepto": "Según la ITF Horario, ¿qué puede suponer un retraso injustificado y/o la acumulación de retrasos injustificados?",
+    "respuesta": "La consideración de falta grave.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 7",
+    "apartado": "3.4. Incidencias › falta turno entrante"
+  },
+  {
+    "id": "CPEI-T38-HOR-035",
+    "orden": 35,
+    "concepto": "Si falta el emisorista entrante en el relevo, ¿quién lo comunica y a quién?",
+    "respuesta": "El emisorista saliente comunica al Jefe de Guardia que el entrante no se ha personado en Base; el JG gestiona la ausencia según el Convenio y acuerdos vigentes.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 7",
+    "apartado": "3.4. Incidencias › falta emisorista"
+  },
+  {
+    "id": "CPEI-T38-HOR-036",
+    "orden": 36,
+    "concepto": "¿Qué tres bloques de material conlleva la Revisión diaria I?",
+    "respuesta": "Material colectivo de uso individual, material individual y vestuario.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 7",
+    "apartado": "4. Revisión diaria I"
+  },
+  {
+    "id": "CPEI-T38-HOR-037",
+    "orden": 37,
+    "concepto": "¿En qué franja y dónde se asigna el material colectivo de uso individual?",
+    "respuesta": "Entre las 8:00 y las 8:10, en la sala de transmisiones del parque; el Jefe de Turno entrante asigna funciones y material dejando constancia en el Calendario del turno diario.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 8",
+    "apartado": "4.1. Asignación material colectivo uso individual"
+  },
+  {
+    "id": "CPEI-T38-HOR-038",
+    "orden": 38,
+    "concepto": "Enumera el material colectivo de uso individual que se asigna en la Revisión diaria I.",
+    "respuesta": "1 walkie para exteriores con microaltavoz (toda la dotación); 1 walkie atex (B1 y B2); 1 walkie de incendios estructurales con microaltavoz (toda la dotación); 1 máscara de presión positiva con módulo de comunicaciones C1 (toda la dotación); 1 linterna multifunción para el casco (toda la dotación); 1 chaleco reflectante para revisión diaria (toda la dotación); 1 móvil corporativo (toda la dotación); 1 detector de gases (toda la dotación); 1 cámara térmica (toda la dotación); 1 cinturón con herramientas de rescate (para bombero B2).",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 8",
+    "apartado": "4.1. Material colectivo de uso individual"
+  },
+  {
+    "id": "CPEI-T38-HOR-039",
+    "orden": 39,
+    "concepto": "¿Dónde deben localizarse walkies, máscara de presión positiva y linternas antes de la asignación?",
+    "respuesta": "En la sala de transmisiones, en un estante visible.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 8",
+    "apartado": "4.1. Walkies, máscara y linternas"
+  },
+  {
+    "id": "CPEI-T38-HOR-040",
+    "orden": 40,
+    "concepto": "Respecto a walkies, máscara de presión positiva y linternas asignados, ¿qué es obligatorio durante el turno?",
+    "respuesta": "Su portabilidad en todas las intervenciones que tenga el efectivo.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 8",
+    "apartado": "4.1. Walkies, máscara y linternas"
+  },
+  {
+    "id": "CPEI-T38-HOR-041",
+    "orden": 41,
+    "concepto": "¿Cómo se codifica un walkie de incendios estructurales según el ejemplo de la ITF?",
+    "respuesta": "W-ES-01-01, donde W = Walkie, ES = Estructural, 01 = código de parque (01 Alburquerque,…) y 01 = nº de orden (00 Jefe de Turno, 01 Bombero B1, 02 Bombero B2, etc.).",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 9",
+    "apartado": "4.1. Codificación walkies estructurales"
+  },
+  {
+    "id": "CPEI-T38-HOR-042",
+    "orden": 42,
+    "concepto": "¿Cómo se codifica un walkie ATEX según el ejemplo de la ITF?",
+    "respuesta": "W-AT-01-01, donde W = Walkie, AT = Atex, 01 = código de parque y 01 = nº de orden (00 Jefe de Turno, 01 B1, 02 B2, etc.).",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 9",
+    "apartado": "4.1. Codificación walkies ATEX"
+  },
+  {
+    "id": "CPEI-T38-HOR-043",
+    "orden": 43,
+    "concepto": "¿Cuántos chalecos reflectantes para revisión diaria deben haber como mínimo en cada vehículo?",
+    "respuesta": "Como mínimo dos chalecos reflectantes en cada vehículo del CPEI-Badajoz.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 9",
+    "apartado": "4.1. Chalecos reflectantes"
+  },
+  {
+    "id": "CPEI-T38-HOR-044",
+    "orden": 44,
+    "concepto": "¿Dónde deben estar el móvil corporativo, el detector de gases y la cámara térmica, y quién es responsable?",
+    "respuesta": "En la cabina del vehículo de primera salida, en la zona del mando. Quedan a disposición de toda la dotación siendo responsable el Jefe de Turno.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 9",
+    "apartado": "4.1. Móvil, detector y cámara"
+  },
+  {
+    "id": "CPEI-T38-HOR-045",
+    "orden": 45,
+    "concepto": "¿Dónde se guarda el cinturón con herramientas de rescate y a quién se asigna?",
+    "respuesta": "En la zona de Material de excarcelación del vehículo de primera salida; el jefe de turno lo asigna a un efectivo del turno (solo un bombero de la dotación).",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 9",
+    "apartado": "4.1. Cinturón rescate"
+  },
+  {
+    "id": "CPEI-T38-HOR-046",
+    "orden": 46,
+    "concepto": "Enumera el material individual que debe revisarse en la Revisión diaria I (cascos y prendas de intervención/forestal).",
+    "respuesta": "1 casco de intervención con barbuquejo, pantalla, gafas y cubrenucas; 1 casco técnico forestal con cubrenucas y soporte para pantalla y linterna; 1 gafas técnica-forestal de protección para el casco técnico forestal; 1 chaquetón de intervención; 1 cubrepantalón de intervención; 1 chaqueta técnica-forestal; 1 pantalón técnico-forestal; 1 chaqueta de lluvia; 1 pantalón de lluvia; 1 chaleco bombero alta visibilidad; 1 cazadora de invierno; 1 verdugo.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 10",
+    "apartado": "4. Revisión diaria I › Material individual"
+  },
+  {
+    "id": "CPEI-T38-HOR-047",
+    "orden": 47,
+    "concepto": "Enumera el calzado, guantes y protección respiratoria/auditiva del material individual de la Revisión diaria I.",
+    "respuesta": "1 par de botas de intervención; 1 par de zapatos de seguridad de permanencia; 1 par de zapatos de seguridad de permanencia de verano; 1 par de guantes de intervención; 1 par de guantes de trabajo mecánico; 1 máscara de presión positiva; 1 rosca de máscara; 1 media máscara; 1 mascarilla FFP2; 1 auricular para microaltavoz; 1 par de protectores auditivos reutilizables.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 10",
+    "apartado": "4. Revisión diaria I › Material individual"
+  },
+  {
+    "id": "CPEI-T38-HOR-048",
+    "orden": 48,
+    "concepto": "Tras comprobar el material individual en la ZONA REVISIÓN, ¿adónde debe trasladarse?",
+    "respuesta": "A una zona común accesible para su utilización durante el turno de trabajo.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 11",
+    "apartado": "4. Revisión diaria I › Zona revisión"
+  },
+  {
+    "id": "CPEI-T38-HOR-049",
+    "orden": 49,
+    "concepto": "Si hay material individual no operativo, defectuoso o inexistente, ¿antes de qué hora debe contactar el jefe de turno entrante con JP o JG?",
+    "respuesta": "Antes de las 8:30 horas.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 11",
+    "apartado": "4. Falta de material"
+  },
+  {
+    "id": "CPEI-T38-HOR-050",
+    "orden": 50,
+    "concepto": "Describe la cadena de gestión de una incidencia de material individual no operativo (pasos 1-3).",
+    "respuesta": "1) Jefe de turno entrante contacta verbal o telefónicamente con JP (o JG), registra en Tarea Programada de Revisión Diaria (Archivada) y genera incidencia. 2) JP (o JG) comunica al superior jerárquico operativo y deja registro en Incidencias del SOS. 3) Suboficial (o Oficial) resuelve (reposición con stock o compra) y deja constancia en Incidencias del SOS.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 11",
+    "apartado": "4. Falta de material › cadena"
+  },
+  {
+    "id": "CPEI-T38-HOR-051",
+    "orden": 51,
+    "concepto": "¿Qué material comprueba la Revisión diaria II?",
+    "respuesta": "Camiones (exterior e interior) y herramientas y materiales en vehículos y parque.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 12",
+    "apartado": "5. Revisión diaria II"
+  },
+  {
+    "id": "CPEI-T38-HOR-052",
+    "orden": 52,
+    "concepto": "¿En qué franja se realiza el control de escucha y quién lo inicia?",
+    "respuesta": "Entre las 8:50 y las 9:00; lo inicia el emisorista solicitando información a los parques vía radio con la emisora del CPEI.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 12",
+    "apartado": "5.3. Control de escucha"
+  },
+  {
+    "id": "CPEI-T38-HOR-053",
+    "orden": 53,
+    "concepto": "¿Qué cuatro datos solicita el emisorista a los parques en el control de escucha por radio?",
+    "respuesta": "Códigos del personal de servicio; vehículos fuera de servicio; estado de vehículos, personal y transmisiones; repetidor desde el que se transmite desde el parque.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 12",
+    "apartado": "5.3. Control de escucha"
+  },
+  {
+    "id": "CPEI-T38-HOR-054",
+    "orden": 54,
+    "concepto": "Además de la radio, ¿qué comprobación telefónica hace el emisorista en el control de escucha?",
+    "respuesta": "Una llamada desde Base al corporativo del Jefe de Turno para comprobar la operatividad del móvil corporativo.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 12",
+    "apartado": "5.3. Control de escucha"
+  },
+  {
+    "id": "CPEI-T38-HOR-055",
+    "orden": 55,
+    "concepto": "En temporada alta de incendios forestales, ¿qué control adicional hace el emisorista y en qué fechas?",
+    "respuesta": "Control de escucha con la emisora del PLAN INFOEX (del 15 de mayo al 15 de octubre), comprobando el funcionamiento de la emisora del camión bomba forestal/rural.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 12",
+    "apartado": "5.3. Control de escucha › INFOEX"
+  },
+  {
+    "id": "CPEI-T38-HOR-056",
+    "orden": 56,
+    "concepto": "¿A qué hora y a quiénes envía el Jefe de Guardia la información del control de escucha?",
+    "respuesta": "A las 9:00 horas, de forma obligatoria, a la Dirección del CPEI y a los Jefes de Parque vía SOS Emergencias.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 13",
+    "apartado": "5.3. Control de escucha"
+  },
+  {
+    "id": "CPEI-T38-HOR-057",
+    "orden": 57,
+    "concepto": "¿Quiénes mantienen la reunión diaria de organización del trabajo y de qué modos puede realizarse?",
+    "respuesta": "El Jefe de Parque o Jefe de Guardia con el Jefe de Turno; presencial en el despacho del Jefe de Parque o por videoconferencia.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 13",
+    "apartado": "6. Reunión diaria de organización"
+  },
+  {
+    "id": "CPEI-T38-HOR-058",
+    "orden": 58,
+    "concepto": "Si la ausencia del Jefe de Parque es imprevista, ¿con quién contacta el Jefe de Turno para las tareas diarias?",
+    "respuesta": "Con el Jefe de Guardia, para que le transmita las instrucciones necesarias.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 13",
+    "apartado": "6. Reunión diaria de organización"
+  },
+  {
+    "id": "CPEI-T38-HOR-059",
+    "orden": 59,
+    "concepto": "Tras la reunión de organización, ¿quién expone las tareas al turno?",
+    "respuesta": "El Jefe de Turno.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 13",
+    "apartado": "6. Reunión diaria de organización"
+  },
+  {
+    "id": "CPEI-T38-HOR-060",
+    "orden": 60,
+    "concepto": "¿Quiénes controlan la revisión diaria (antes de las 11:00) y las tareas (antes de las 14:00)?",
+    "respuesta": "Tanto el Jefe de Parque como el Jefe de Guardia.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 16",
+    "apartado": "8. Control de actividad"
+  },
+  {
+    "id": "CPEI-T38-HOR-061",
+    "orden": 61,
+    "concepto": "¿En qué franja comprueba el JP (o JG) que se han realizado relevo y revisión diaria?",
+    "respuesta": "Todos los días laborables entre las 10:30 y las 11:00 horas.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 16",
+    "apartado": "8.1. Control de revisión diaria"
+  },
+  {
+    "id": "CPEI-T38-HOR-062",
+    "orden": 62,
+    "concepto": "¿Qué tres elementos comprueba el JP/JG en el control de revisión diaria?",
+    "respuesta": "Asignación de funciones por el Jefe de Turno; la Tarea Programada de Relevo y Revisiones; gestión de incidencias en camiones y parque registradas en SOS.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 16",
+    "apartado": "8.1. Control de revisión diaria"
+  },
+  {
+    "id": "CPEI-T38-HOR-063",
+    "orden": 63,
+    "concepto": "La no justificación adecuada de tareas o la ausencia de registro, ¿cómo puede evaluarse?",
+    "respuesta": "Según el Reglamento de Régimen Interior del CPEI-Badajoz, pudiendo considerarse falta grave.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 16",
+    "apartado": "8.1. Control de revisión diaria"
+  },
+  {
+    "id": "CPEI-T38-HOR-064",
+    "orden": 64,
+    "concepto": "Para incidencias de camiones y herramientas, tras generarlas el Jefe de Turno en SOS, ¿con quién contacta el JP (o JG)?",
+    "respuesta": "Por teléfono con el Suboficial y, en su defecto, con el Oficial.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 17",
+    "apartado": "8.3. Gestión de incidencias › Camiones"
+  },
+  {
+    "id": "CPEI-T38-HOR-065",
+    "orden": 65,
+    "concepto": "Para incidencias de transmisiones en repetidores, ¿de quién se dispone como soporte técnico?",
+    "respuesta": "Del personal del Área de Fomento de Diputación de Badajoz.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 18",
+    "apartado": "8.3. Gestión de incidencias › Transmisiones"
+  },
+  {
+    "id": "CPEI-T38-HOR-066",
+    "orden": 66,
+    "concepto": "Si hay movimiento en el número de efectivos del turno, ¿cómo se actualiza en Central?",
+    "respuesta": "El Jefe de Turno lo comunica vía radio a la Central para que el emisorista lo refleje en el Control de Recursos, con el visto bueno del Jefe de Guardia o superior jerárquico.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 18",
+    "apartado": "8.3. Gestión de incidencias › Personal"
+  },
+  {
+    "id": "CPEI-T38-HOR-067",
+    "orden": 67,
+    "concepto": "¿Quién gestiona la plataforma Moodle de formación del bombero en el CPEI?",
+    "respuesta": "La Sección de Formación y Prevención del CPEI.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 19",
+    "apartado": "9. Formación y prevención online"
+  },
+  {
+    "id": "CPEI-T38-HOR-068",
+    "orden": 68,
+    "concepto": "¿Cuál es el horario habitual de ejercicio físico para personal a turnos y para no sometidos a turnos?",
+    "respuesta": "A turnos: a partir de las 19:00 horas. No sometidos a turnos: a partir de las 11:30 horas. Fuera de ese horario hace falta autorización del Jefe de Parque o superior jerárquico.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 20",
+    "apartado": "10. Ejercicio físico"
+  },
+  {
+    "id": "CPEI-T38-HOR-069",
+    "orden": 69,
+    "concepto": "¿Quién registra la Tarea Programada de Análisis Operacional o Briefing?",
+    "respuesta": "El Suboficial y, en su defecto, el Oficial.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 20",
+    "apartado": "12. Análisis operacional"
+  },
+  {
+    "id": "CPEI-T38-HOR-070",
+    "orden": 70,
+    "concepto": "¿Quiénes participan en el análisis operacional de una intervención relevante?",
+    "respuesta": "El Mando Responsable de la Intervención, el Mando responsable de la movilización, efectivos y emisoristas.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 20",
+    "apartado": "12. Análisis operacional"
+  },
+  {
+    "id": "CPEI-T38-HOR-071",
+    "orden": 71,
+    "concepto": "En la revisión final previa al relevo, ¿en qué se prestará especial cuidado?",
+    "respuesta": "En la limpieza y desinfección de zonas comunes y material de uso colectivo (cocina, salón, linternas, walkies).",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 21",
+    "apartado": "14. Revisión final previa al relevo"
+  },
+  {
+    "id": "CPEI-T38-HOR-072",
+    "orden": 72,
+    "concepto": "En el Anexo I de revisión diaria, ¿quién es el Jefe de Turno (J1) y cuál es su responsabilidad principal?",
+    "respuesta": "El Cabo o responsable de turno. Es responsable de que la revisión diaria de vehículos, herramientas y materiales se lleve a cabo, comprobando el registro de los bomberos.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 22",
+    "apartado": "Anexo I › Medios humanos"
+  },
+  {
+    "id": "CPEI-T38-HOR-073",
+    "orden": 73,
+    "concepto": "En la revisión diaria de camiones del Anexo I, ¿qué roles suelen revisar vehículo (exterior/interior) y qué roles herramientas?",
+    "respuesta": "Vehículo: B1, B3 y/o B5. Herramientas y materiales: B2 y B4 (como norma general).",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 23",
+    "apartado": "Anexo I › Bomberos"
+  },
+  {
+    "id": "CPEI-T38-HOR-074",
+    "orden": 74,
+    "concepto": "¿Qué EPI y material colectivo de uso individual exige el Anexo I para la revisión diaria de camiones?",
+    "respuesta": "EPI: chaqueta técnico forestal, pantalón técnico forestal, casco técnico forestal, gafas de protección ocular, botas de intervención (UNE-EN 15090), guantes de trabajo mecánico. Material colectivo: 1 radio-teléfono con microaltavoz, 1 linterna multifunción para el casco y 1 chaleco bombero alta visibilidad (toda la dotación).",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 23",
+    "apartado": "Anexo I › Uniformidad revisión"
+  },
+  {
+    "id": "CPEI-T38-HOR-075",
+    "orden": 75,
+    "concepto": "¿Cuáles son los cinco tipos de turno que contempla el Anexo I?",
+    "respuesta": "Tipo 1: J1+B1; Tipo 2: J1+B1+B2; Tipo 3: J1+B1+B2+B3; Tipo 4: J1+B1+B2+B3+B4; Tipo 5: J1+B1+B2+B3+B4+B5.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 24",
+    "apartado": "Anexo I › Tipos de turno"
+  },
+  {
+    "id": "CPEI-T38-HOR-076",
+    "orden": 76,
+    "concepto": "Como norma general, ¿qué bomberos revisan camiones y cuáles herramientas según el número de orden?",
+    "respuesta": "Camiones: el bombero con número impar. Herramientas de vehículos y parque: el bombero con número par.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 24",
+    "apartado": "Anexo I › Asignación impar/par"
+  },
+  {
+    "id": "CPEI-T38-HOR-077",
+    "orden": 77,
+    "concepto": "¿Cuál es el orden de revisión de vehículos según el Anexo I?",
+    "respuesta": "1) Bombas urbanas primera salida; 2) Pick up de rescate/extinción; 3) Autoescala; 4) Bomba rural/forestal; 5) Bomba nodriza pesada; 6) Unidad de mando y jefatura; 7) Unidad de transporte y carga.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 25",
+    "apartado": "Anexo I › Orden de vehículos"
+  },
+  {
+    "id": "CPEI-T38-HOR-078",
+    "orden": 78,
+    "concepto": "Según la tabla de revisión exterior, ¿qué nivel mínimo de combustible se exige a diario?",
+    "respuesta": "Nivel por encima de ¾ de su capacidad (>75%).",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 26",
+    "apartado": "Anexo I › Revisión exterior"
+  },
+  {
+    "id": "CPEI-T38-HOR-079",
+    "orden": 79,
+    "concepto": "Según la tabla de revisión exterior, ¿a qué presión deben estar los calderines en el sistema automático de carga?",
+    "respuesta": "A 8 kg.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 26",
+    "apartado": "Anexo I › Revisión exterior"
+  },
+  {
+    "id": "CPEI-T38-HOR-080",
+    "orden": 80,
+    "concepto": "En la revisión interior, ¿qué se comprueba diariamente sobre la tablet SOS?",
+    "respuesta": "Encenderla y comprobar que está al 100%, y que en la pantalla el color azul oscuro (disponible) está pulsado.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 27",
+    "apartado": "Anexo I › Revisión interior"
+  },
+  {
+    "id": "CPEI-T38-HOR-081",
+    "orden": 81,
+    "concepto": "¿Qué documentos deben comprobarse diariamente en la carpeta del vehículo?",
+    "respuesta": "Permiso de circulación, ficha técnica, seguro y tarjeta de combustible.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 27",
+    "apartado": "Anexo I › Documentación"
+  },
+  {
+    "id": "CPEI-T38-HOR-082",
+    "orden": 82,
+    "concepto": "Según la tabla de asignación del Anexo I (Tipo 5), ¿quién revisa el camión BUL 1 y quién sus herramientas?",
+    "respuesta": "Camión: B1. Herramientas: B2.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 24",
+    "apartado": "Anexo I › Tabla tipo turno"
+  },
+  {
+    "id": "CPEI-T38-HOR-083",
+    "orden": 83,
+    "concepto": "¿Con qué norma reflectante debe ir el Jefe de Turno en la revisión diaria de camiones?",
+    "respuesta": "Chaleco identificativo de mando de bomberos con norma reflectante UNE-EN 1486 para trabajos especiales de lucha contra incendio.",
+    "fuente": "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020)",
+    "localizacion": "PDF p. 23",
+    "apartado": "Anexo I › Jefe de Turno"
+  },
+  {
+    "id": "CPEI-T38-VES-001",
+    "orden": 84,
+    "concepto": "¿En aplicación de qué artículo y ley se elabora la ITF de Vestuario y EPIs?",
+    "respuesta": "El artículo 17.2 de la Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 2",
+    "apartado": "1. Objeto"
+  },
+  {
+    "id": "CPEI-T38-VES-002",
+    "orden": 85,
+    "concepto": "¿Cuáles son los cuatro objetivos que establece la ITF de Vestuario y EPIs?",
+    "respuesta": "1) Vestuario de permanencia y EPIs entregados al personal operativo, ámbito y temporada de uso. 2) Equipos que conforman los equipos básicos aprobados como EPIs. 3) Procedimiento de gestión de incidencias de EPIs y vestuario. 4) Procedimiento de cesión de EPIs o vestuario para actividades de formación.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 2",
+    "apartado": "1. Objeto"
+  },
+  {
+    "id": "CPEI-T38-VES-003",
+    "orden": 86,
+    "concepto": "¿Cuál es el ámbito de aplicación de la ITF de Vestuario y EPIs?",
+    "respuesta": "Todo el personal operativo del CPEI durante su tiempo de trabajo, tanto en parques y servicios centrales como en la intervención de siniestros a los que asista.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 2",
+    "apartado": "2. Ámbito de aplicación"
+  },
+  {
+    "id": "CPEI-T38-VES-004",
+    "orden": 87,
+    "concepto": "En la entrega a nuevas incorporaciones, ¿cuántos pulls de invierno y pantalones largos se entregan como vestuario de permanencia?",
+    "respuesta": "4 pulls de invierno y 2 pantalones largos.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 3",
+    "apartado": "3.1. Nuevas incorporaciones"
+  },
+  {
+    "id": "CPEI-T38-VES-005",
+    "orden": 88,
+    "concepto": "¿Cuándo se entrega la cazadora de invierno a una nueva incorporación?",
+    "respuesta": "Si la duración del contrato engloba el periodo de invierno.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 3",
+    "apartado": "3.1. Nuevas incorporaciones"
+  },
+  {
+    "id": "CPEI-T38-VES-006",
+    "orden": 89,
+    "concepto": "En la entrega anual a todo el personal, ¿cuántas camisetas de manga corta se entregan y cómo se reparte esa cantidad?",
+    "respuesta": "3 camisetas: 2 unidades durante el año y 1 más a reposición si se ve afectada en alguna intervención.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 4",
+    "apartado": "3.2. Entrega anual"
+  },
+  {
+    "id": "CPEI-T38-VES-007",
+    "orden": 90,
+    "concepto": "Al personal no sometido a turnos, ¿cuántas camisetas y pantalones se dan por año?",
+    "respuesta": "Cuatro camisetas por año y dos pantalones.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 4",
+    "apartado": "3.3. Otros"
+  },
+  {
+    "id": "CPEI-T38-VES-008",
+    "orden": 91,
+    "concepto": "Además de la renovación periódica del vestuario, ¿por qué motivos se sustituyen equipos?",
+    "respuesta": "Por rotura o cualquier deficiencia existente.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 4",
+    "apartado": "4. Sustitución de EPIs y vestuario"
+  },
+  {
+    "id": "CPEI-T38-VES-009",
+    "orden": 92,
+    "concepto": "¿Qué se considera sustitución ordinaria de EPI?",
+    "respuesta": "Toda incidencia detectada en el equipo que no incapacite su uso durante la guardia y no requiera sustitución inmediata.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 4",
+    "apartado": "4.1.1. Sustitución ordinario"
+  },
+  {
+    "id": "CPEI-T38-VES-010",
+    "orden": 93,
+    "concepto": "En la sustitución ordinaria, ¿cuál es el 1.er paso del bombero?",
+    "respuesta": "Registrar la incidencia detectada en sus EPIs a través del programa SOS, cuando proceda: en la tarea de revisión diaria de EPIs, o tras revisión obligatoria de EPIs usados en intervención/práctica/formación, etc., informando al Jefe de turno.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 4-5",
+    "apartado": "4.1.1. Procedimiento ordinario"
+  },
+  {
+    "id": "CPEI-T38-VES-011",
+    "orden": 94,
+    "concepto": "En la sustitución ordinaria, ¿qué debe indicar el Jefe de Turno en SOS sobre si la incidencia es solucionable en el parque?",
+    "respuesta": "Debe cumplimentar el campo solucionable SÍ/NO: si es solucionable, marca SÍ y cumplimenta RESOLUCIÓN; si no, marca NO e indica en GESTIÓN la necesidad.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 5",
+    "apartado": "4.1.1. Procedimiento ordinario › Jefe de Turno"
+  },
+  {
+    "id": "CPEI-T38-VES-012",
+    "orden": 95,
+    "concepto": "Tras cumplimentar la incidencia ordinaria, ¿a quién notifica el Jefe de Turno y en qué franja comunica el resultado de la revisión de EPIs?",
+    "respuesta": "Envía notificación desde la aplicación al Jefe de Parque. Comunica al JP (o JG en su ausencia) el resultado de la revisión de EPIs en horario 7:45-10:00 h a través del Informe de tarea (SOS).",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 6",
+    "apartado": "4.1.1. Procedimiento ordinario"
+  },
+  {
+    "id": "CPEI-T38-VES-013",
+    "orden": 96,
+    "concepto": "En la sustitución ordinaria, ¿qué hace el Gestor de Equipos (paso 4º)?",
+    "respuesta": "Supervisa el cumplimiento del procedimiento y el correcto registro, comunicando las actuaciones necesarias al almacén a través de la incidencia en SOS.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 6",
+    "apartado": "4.1.1. Procedimiento ordinario › Gestor"
+  },
+  {
+    "id": "CPEI-T38-VES-014",
+    "orden": 97,
+    "concepto": "En la sustitución ordinaria, ¿quién entrega el equipo al destinatario y qué dos actuaciones realiza tras la entrega?",
+    "respuesta": "El Jefe de Parque: recaba firma de ficha de registro de entrega (que remite a Almacén) y gestiona el cierre de la incidencia en «Resolución».",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 7",
+    "apartado": "4.1.1. Procedimiento ordinario › entrega"
+  },
+  {
+    "id": "CPEI-T38-VES-015",
+    "orden": 98,
+    "concepto": "¿Qué se considera sustitución extraordinaria de EPI?",
+    "respuesta": "Toda incidencia de un equipo generada durante una intervención/prácticas que lo haga inservible y requiera sustitución inmediata para que el personal afectado pueda continuar sus funciones.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 7",
+    "apartado": "4.1.2. Sustitución extraordinario"
+  },
+  {
+    "id": "CPEI-T38-VES-016",
+    "orden": 99,
+    "concepto": "En la sustitución extraordinaria, ¿de dónde puede retirar el JP/JG el equipo de sustitución de forma inmediata?",
+    "respuesta": "De los EPIs de sustitución disponibles en el Parque o de los EPIs del Almacén Periférico más cercano al parque afectado.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 8",
+    "apartado": "4.1.2. Sustitución extraordinario"
+  },
+  {
+    "id": "CPEI-T38-VES-017",
+    "orden": 100,
+    "concepto": "¿En qué parques se ubican los almacenes periféricos citados para sustitución extraordinaria de EPI?",
+    "respuesta": "Don Benito, Almendralejo, Puebla de la Calzada, Jerez de los Caballeros y Llerena.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 8",
+    "apartado": "4.1.2. Almacenes periféricos"
+  },
+  {
+    "id": "CPEI-T38-VES-018",
+    "orden": 101,
+    "concepto": "¿Cuándo se entrega nuevo vestuario fuera de la periodicidad del Convenio?",
+    "respuesta": "Solo si algún equipo ha sido deteriorado durante una intervención, debiendo reflejarse en el parte de la actividad por el inmediato superior del trabajador afectado.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 9",
+    "apartado": "4.2. Sustitución de vestuario"
+  },
+  {
+    "id": "CPEI-T38-VES-019",
+    "orden": 102,
+    "concepto": "Describe la secuencia de solicitud de sustitución de vestuario (pasos 1º a 3º).",
+    "respuesta": "1º Bombero registra incidencia en SOS indicando el nº de parte. 2º Jefe de Parque supervisa y, si procede, eleva a la Jefa de Servicio. 3º Jefa de Servicio comunica la resolución al JP y al almacén (si aprueba) a través de la incidencia en SOS.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 9",
+    "apartado": "4.2. Sustitución de vestuario › procedimiento"
+  },
+  {
+    "id": "CPEI-T38-VES-020",
+    "orden": 103,
+    "concepto": "Al extinguirse la relación laboral, ¿dónde debe devolver el trabajador los EPIs y el vestuario?",
+    "respuesta": "En el parque donde realice su última guardia (y después entregar el 100% del material en almacén central).",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 10",
+    "apartado": "5. Recogida de EPIs y vestuario"
+  },
+  {
+    "id": "CPEI-T38-VES-021",
+    "orden": 104,
+    "concepto": "¿Con cuánta antelación mínima comunica la Jefa de Negociado de Administración la fecha de fin de contrato?",
+    "respuesta": "Al menos con una semana de antelación, al responsable del Almacén Central y al Jefe de Parque afectado.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 10",
+    "apartado": "5. Recogida › procedimiento"
+  },
+  {
+    "id": "CPEI-T38-VES-022",
+    "orden": 105,
+    "concepto": "Tras la última guardia, ¿en cuánto tiempo máximo debe entregar el trabajador su equipación en almacén central?",
+    "respuesta": "En un periodo máximo de 5 días laborales tras su última guardia.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 11",
+    "apartado": "5. Recogida › procedimiento"
+  },
+  {
+    "id": "CPEI-T38-VES-023",
+    "orden": 106,
+    "concepto": "Tras la recogida en almacén central, ¿a quiénes se comunica el resultado por correo?",
+    "respuesta": "A la Jefa de sección de planificación, al Oficial y al Jefe de parque afectado.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 11",
+    "apartado": "5. Recogida › comunicación"
+  },
+  {
+    "id": "CPEI-T38-VES-024",
+    "orden": 107,
+    "concepto": "Para solicitar cesión de EPI/vestuario para formación externa, ¿con cuánta antelación mínima y a qué correo?",
+    "respuesta": "Como mínimo con 10 días de antelación, al correo cpei@dip-badajoz.es.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 12",
+    "apartado": "6.1. Solicitud de EPI y recursos"
+  },
+  {
+    "id": "CPEI-T38-VES-025",
+    "orden": 108,
+    "concepto": "En formación fuera de la jornada laboral, ¿quién valora la solicitud de cesión de EPI?",
+    "respuesta": "El Oficial del CPEI, que comunica la resolución al interesado y a su Jefe de Parque.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 12",
+    "apartado": "6.1.1. Formación fuera de jornada"
+  },
+  {
+    "id": "CPEI-T38-VES-026",
+    "orden": 109,
+    "concepto": "En formación durante la jornada laboral, ¿quién valora la idoneidad del programa y quién aprueba/deniega la cesión?",
+    "respuesta": "Valora la Sección de Formación y Prevención de Siniestros (informe). Aprueba o deniega el Gerente; la Jefa de Servicio informa al solicitante de la resolución final.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 13",
+    "apartado": "6.1.2. Formación durante jornada"
+  },
+  {
+    "id": "CPEI-T38-VES-027",
+    "orden": 110,
+    "concepto": "Tras aprobar la cesión, ¿quién cumplimenta y custodia la ficha Anexo I hasta la devolución?",
+    "respuesta": "El Jefe de Parque.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 13",
+    "apartado": "6.2. Entrega de EPI, vestuario y equipo"
+  },
+  {
+    "id": "CPEI-T38-VES-028",
+    "orden": 111,
+    "concepto": "Si el Jefe de Parque detecta deficiencias al devolver el equipo cedido, ¿a quién envía la ficha Anexo I?",
+    "respuesta": "Al Oficial de Extinción de Incendios, Rescate y Salvamento, vía correo electrónico.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 13",
+    "apartado": "6.2. Entrega › deficiencias"
+  },
+  {
+    "id": "CPEI-T38-VES-029",
+    "orden": 112,
+    "concepto": "¿Cuál es el único calzado permitido dentro de las estancias limpias del parque?",
+    "respuesta": "El calzado de seguridad de permanencia (uso exclusivo en jornada laboral; estancia en parque o en itinere).",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 15",
+    "apartado": "7.1. Vestuario de permanencia › Calzado"
+  },
+  {
+    "id": "CPEI-T38-VES-030",
+    "orden": 113,
+    "concepto": "¿En qué temporada y horario puede usarse el pantalón corto, y para qué está prohibido?",
+    "respuesta": "En verano, en estancia en parque y jornada laboral en horario 7:45-14:00 h. Está prohibido su uso para realizar deporte.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 15",
+    "apartado": "7.1. Vestuario › Pantalón corto"
+  },
+  {
+    "id": "CPEI-T38-VES-031",
+    "orden": 114,
+    "concepto": "¿Qué periodos define la ITF como invierno y verano?",
+    "respuesta": "Invierno: del 1 de noviembre al 30 de abril. Verano: del 1 de mayo al 31 de octubre.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 21",
+    "apartado": "9. Determinación de las estaciones anuales"
+  },
+  {
+    "id": "CPEI-T38-VES-032",
+    "orden": 115,
+    "concepto": "En el listado de EPIs básicos, ¿qué marca/modelo figura para el casco estructural?",
+    "respuesta": "MSA/GALLET F1XF.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 16",
+    "apartado": "7.2. EPIs › Intervención"
+  },
+  {
+    "id": "CPEI-T38-VES-033",
+    "orden": 116,
+    "concepto": "En el listado de EPIs básicos de rescate técnico-forestal, ¿qué marca/modelo tiene el casco de rescate técnico?",
+    "respuesta": "VALLFIREST/VF HELMET.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 16",
+    "apartado": "7.2. EPIs › Rescate técnico-forestal"
+  },
+  {
+    "id": "CPEI-T38-VES-034",
+    "orden": 117,
+    "concepto": "Para intervenciones con posible riesgo químico, biológico, carga electrostática o radiactivo, ¿qué dos EPIs lista la tabla?",
+    "respuesta": "Buzo de protección/termo capuz CoverPlus C500 y mascarilla FFP2 LK-Z1510.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 16",
+    "apartado": "7.2. EPIs › Riesgo químico/biológico"
+  },
+  {
+    "id": "CPEI-T38-VES-035",
+    "orden": 118,
+    "concepto": "¿Qué queda prohibido disponer dentro de la taquilla del operativo?",
+    "respuesta": "Cualquier tipo de material o equipo diferente a la dotación del equipo básico definida en la instrucción.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 20",
+    "apartado": "7.4. Ubicación de EPIs en parque"
+  },
+  {
+    "id": "CPEI-T38-VES-036",
+    "orden": 119,
+    "concepto": "El uso de cualquier prenda diferente de las mencionadas en el vestuario/EPI de la ITF, ¿qué consecuencia tiene?",
+    "respuesta": "Será causa de sanción disciplinaria. Solo se permite la utilización de camisetas antiguas con prendas superiores.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 15",
+    "apartado": "7. Condiciones › sanción"
+  },
+  {
+    "id": "CPEI-T38-VES-037",
+    "orden": 120,
+    "concepto": "¿Cómo se distribuye el contenido del bolso de transporte de EPIs?",
+    "respuesta": "Bolsa exterior para el casco; cuerpo central con EPIs restantes según época del año más vestuario; compartimento lateral para máscaras (visor protegido con bolsa de transporte); lengüeta amarilla de bolsillos para guantes.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 17",
+    "apartado": "7.3. Condiciones de uso › bolso"
+  },
+  {
+    "id": "CPEI-T38-VES-038",
+    "orden": 121,
+    "concepto": "En la taquilla, ¿qué va en el estante superior, en el perchero intermedio y en el estante inferior?",
+    "respuesta": "Superior: cascos (intervención F1 y rescate técnico) y bolso (máscara PP, media máscara y filtros, buzo termo/capuz, chaleco reflectante, protector auditivo, guantes). Perchero: percha 1 traje rescate técnico, percha 2 traje estructural, percha 3 traje fenómenos meteorológicos adversos. Inferior: botas de intervención.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 19",
+    "apartado": "7.4. Ubicación de EPIs en parque"
+  },
+  {
+    "id": "CPEI-T38-VES-039",
+    "orden": 122,
+    "concepto": "¿Cuándo se permiten las botas FAL/Torch Boa?",
+    "respuesta": "Solo en época de riesgo alto de incendios, para tareas de revisión en parques/formación (siempre que no implique motosierras) y salidas a campo, a quienes dispongan de ellas.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 20",
+    "apartado": "8.1. Botas FAL/Torch Boa"
+  },
+  {
+    "id": "CPEI-T38-VES-040",
+    "orden": 123,
+    "concepto": "¿Dónde debe situarse el código personal y galón del vestuario?",
+    "respuesta": "En un lugar visible y en la prenda superior.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 21",
+    "apartado": "10. Identificación vestuario"
+  },
+  {
+    "id": "CPEI-T38-VES-041",
+    "orden": 124,
+    "concepto": "¿Está permitida la manipulación de EPIs (serigrafía, pegatinas, etc.)?",
+    "respuesta": "Queda prohibida. Solo se pueden nominar con nombre/nº de identificación en zonas definidas por el fabricante, tras autorización del CPEI.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 21",
+    "apartado": "11. Régimen disciplinario"
+  },
+  {
+    "id": "CPEI-T38-VES-042",
+    "orden": 125,
+    "concepto": "Si un integrante requiere un EPI diferente al equipo básico autorizado, ¿a quién solicita permiso?",
+    "respuesta": "Al Oficial de Servicio, vía correo electrónico, con la justificación de la necesidad.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 18",
+    "apartado": "7.3. Condiciones de uso › permiso especial"
+  },
+  {
+    "id": "CPEI-T38-VES-043",
+    "orden": 126,
+    "concepto": "¿Qué EPIs no definidos en el equipo básico (excepto grupos especiales) deben hacerse con ellos al publicarse la instrucción?",
+    "respuesta": "Deben entregarse al Jefe de Parque en la siguiente guardia a la publicación de la instrucción.",
+    "fuente": "ITF Vestuario de permanencia y EPIs, edición 3ª (19/01/2026; fecha original 29/06/2022)",
+    "localizacion": "PDF p. 18",
+    "apartado": "7.3. Condiciones de uso"
+  },
+  {
+    "id": "CPEI-T38-LIM-001",
+    "orden": 127,
+    "concepto": "¿Cuál es el objeto de la ITF de Limpieza de EPIs en parque?",
+    "respuesta": "Definir el procedimiento de limpieza y desinfección de los EPIs utilizados por el personal operativo del CPEI-Badajoz, para garantizar su correcto estado en todo momento, ajustándose a las indicaciones del fabricante y a las exigencias normativas.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 2",
+    "apartado": "1. Objeto"
+  },
+  {
+    "id": "CPEI-T38-LIM-002",
+    "orden": 128,
+    "concepto": "Según el objeto, ¿de qué categoría son en su mayoría los EPIs del CPEI?",
+    "respuesta": "Categoría III (protegen sobre grave riesgo para la vida).",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 2",
+    "apartado": "1. Objeto"
+  },
+  {
+    "id": "CPEI-T38-LIM-003",
+    "orden": 129,
+    "concepto": "¿A quién afecta el alcance de la ITF de Limpieza?",
+    "respuesta": "A todo el personal del Consorcio que presta servicios en los distintos centros de trabajo del Consorcio.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 2",
+    "apartado": "2. Alcance"
+  },
+  {
+    "id": "CPEI-T38-LIM-004",
+    "orden": 130,
+    "concepto": "Cita al menos tres referencias normativas que marca la ITF de Limpieza.",
+    "respuesta": "Ley 31/1995 de PRL; RD 39/1997 (Reglamento de los Servicios de Prevención); RD 773/1997 (disposiciones mínimas sobre utilización de EPI); además guías técnicas del INSHT, NTP, normas UNE, fichas internacionales de seguridad química e instrucciones del fabricante.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 2-3",
+    "apartado": "3. Normativa"
+  },
+  {
+    "id": "CPEI-T38-LIM-005",
+    "orden": 131,
+    "concepto": "¿De qué dos circunstancias puede derivar el requerimiento de limpieza de EPIs?",
+    "respuesta": "Tras su uso (intervención/práctica/formación, etc.) y de forma periódica.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 3",
+    "apartado": "4. Procedimiento de gestión"
+  },
+  {
+    "id": "CPEI-T38-LIM-006",
+    "orden": 132,
+    "concepto": "Tras el uso, ¿es obligatorio limpiar tras cada uso individual o qué se exige?",
+    "respuesta": "No se requiere la limpieza tras cada uso, sino la gestión de la limpieza de todos los equipos dentro de la guardia, con registro obligatorio mediante incidencias en SOS y comunicación de actuaciones externas (lavandería central) en la misma guardia donde surge la necesidad.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 3",
+    "apartado": "4. Procedimiento de gestión › nota"
+  },
+  {
+    "id": "CPEI-T38-LIM-007",
+    "orden": 133,
+    "concepto": "Tras una intervención, ¿qué debe reflejar el MRI en el parte de intervención sobre materiales/EPIs?",
+    "respuesta": "La utilización o no de EPIs; la exposición a contaminantes con procedimiento de limpieza específico (amianto o biológico); y anotación sobre el tipo de exposición y el requerimiento de limpieza en parque.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 3",
+    "apartado": "4.1. Tras intervención › MRI"
+  },
+  {
+    "id": "CPEI-T38-LIM-008",
+    "orden": 134,
+    "concepto": "Tras la intervención, ¿cuál es el 1.er paso del bombero respecto a la limpieza?",
+    "respuesta": "Realizar siempre la limpieza en parque o en la propia intervención si fuera posible, adaptada al nivel de suciedad, según el Anexo I.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 3",
+    "apartado": "4.1. Tras intervención › Bombero"
+  },
+  {
+    "id": "CPEI-T38-LIM-009",
+    "orden": 135,
+    "concepto": "Al crear la incidencia en SOS tras limpieza, ¿qué dos opciones puede indicar el bombero?",
+    "respuesta": "Que se realiza limpieza del equipo en parque o intervención; o que se requiere limpieza en lavandería central por exposición a amianto o biológicos.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 4",
+    "apartado": "4.1. Tras intervención › Bombero SOS"
+  },
+  {
+    "id": "CPEI-T38-LIM-010",
+    "orden": 136,
+    "concepto": "Si la limpieza en parque es efectiva, ¿cómo clasifica y marca el Jefe de Turno la incidencia?",
+    "respuesta": "Marca SÍ solucionable; clasifica 04 EPI / 01 LIMPIEZA EN PARQUE; en RESOLUCIÓN indica la acción y el resultado; envía notificación a Jefe de Parque y Jefe de Guardia.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 4",
+    "apartado": "4.1. Jefe de Turno › limpieza efectiva"
+  },
+  {
+    "id": "CPEI-T38-LIM-011",
+    "orden": 137,
+    "concepto": "Si la limpieza en parque NO es efectiva, ¿a quiénes se envía notificación además de JP y JG?",
+    "respuesta": "También al sargento de logística.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 5",
+    "apartado": "4.1. Jefe de Turno › limpieza no efectiva"
+  },
+  {
+    "id": "CPEI-T38-LIM-012",
+    "orden": 138,
+    "concepto": "Cuando la limpieza no es efectiva, ¿qué gestiona el JP/JG respecto a lavandería central?",
+    "respuesta": "Comunica por correo el requerimiento de limpieza en lavandería central (a Sargento de Logística y operativo, JG o JP, Oficial, Jefa de Servicio y Gestor de equipos) y la necesidad de traslado de equipos de sustitución; gestiona la incidencia en SOS; y refleja las necesidades en las tareas programadas correspondientes a la franja horaria.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 5-6",
+    "apartado": "4.1. JP/JG › limpieza no efectiva"
+  },
+  {
+    "id": "CPEI-T38-LIM-013",
+    "orden": 139,
+    "concepto": "¿En qué tres tareas programadas puede reflejar el JP/JG la necesidad de lavandería central según la franja de la intervención?",
+    "respuesta": "Informe de supervisión de tareas de las 11:00 (intervenciones 8:00-11:00); resumen de intervenciones diarias del JG a las 23:00 (11:00-23:00); y antes del relevo 07:50-08:00 al JG (23:00-07:50).",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 6",
+    "apartado": "4.1. Tareas programadas según franja"
+  },
+  {
+    "id": "CPEI-T38-LIM-014",
+    "orden": 140,
+    "concepto": "¿Qué tipos de procedimiento de limpieza distingue el anexo de implantación?",
+    "respuesta": "A) Limpieza en parque (A.1 mantenimiento húmedo manual con agua y jabón; A.2 limpieza a máquina en parque para traje de rescate técnico). B) Limpieza en lavandería central (B.1 mantenimiento ordinario; B.2 mantenimiento periódico).",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 8",
+    "apartado": "Anexo implantación › tipos"
+  },
+  {
+    "id": "CPEI-T38-LIM-015",
+    "orden": 141,
+    "concepto": "¿Cuándo se hace el mantenimiento húmedo manual A.1 y dónde?",
+    "respuesta": "Siempre antes de la finalización de cada guardia (o tras intervención si el nivel de suciedad lo requiere), salvo exposición a restos biológicos (equipos textiles), amianto o limpiezas de hidrocarburos (limpieza en base). Se realiza en la pila/lavadero del parque o similar.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 8",
+    "apartado": "Anexo › A.1"
+  },
+  {
+    "id": "CPEI-T38-LIM-016",
+    "orden": 142,
+    "concepto": "¿Cuándo se usa la limpieza a máquina en parque A.2 y a qué temperatura?",
+    "respuesta": "Para traje de rescate técnico, cuando se requiere limpieza más en profundidad, tras un A.1 no efectivo, o en el mantenimiento periódico. En lavadora del parque a 40ºC (la tabla de p. 10 indica 30-40º según especificaciones).",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 8",
+    "apartado": "Anexo › A.2"
+  },
+  {
+    "id": "CPEI-T38-LIM-017",
+    "orden": 143,
+    "concepto": "¿Qué equipos van a lavandería central en mantenimiento ordinario B.1?",
+    "respuesta": "Equipos expuestos a restos biológicos (textiles), amianto (todos los equipos), limpiezas de hidrocarburos; y limpieza en parque no efectiva (trajes de intervención). En lavadora industrial.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 8",
+    "apartado": "Anexo › B.1"
+  },
+  {
+    "id": "CPEI-T38-LIM-018",
+    "orden": 144,
+    "concepto": "Antes de iniciar la limpieza en parque, ¿qué EPIs de protección del bombero deben estar disponibles?",
+    "respuesta": "Guantes UNE EN ISO 374-5; mascarillas tipo FFP2 UNE EN 149; gafas UNE EN 166.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 8",
+    "apartado": "Anexo › Antes del inicio"
+  },
+  {
+    "id": "CPEI-T38-LIM-019",
+    "orden": 145,
+    "concepto": "¿Qué tres zonas específicas debe definir el Jefe de Parque para la limpieza?",
+    "respuesta": "Zona de ventilación (perchas o taquillas ventiladas); zona de limpieza (lavadero o similar, cepillo, jabón neutro, manguera); zona de secado (no expuesta directamente al sol, lugares secos y ventilados).",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 9",
+    "apartado": "Anexo › Zonas del parque"
+  },
+  {
+    "id": "CPEI-T38-LIM-020",
+    "orden": 146,
+    "concepto": "¿Quién limpia los EPIs individuales y quién los de uso colectivo?",
+    "respuesta": "Individuales: cada usuario. Uso colectivo: el turno que lo utiliza (o el turno siguiente si no fue viable, previa autorización del JG al JT solicitante).",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 9",
+    "apartado": "Anexo › ¿Quién?"
+  },
+  {
+    "id": "CPEI-T38-LIM-021",
+    "orden": 147,
+    "concepto": "Enumera las fases del procedimiento interno de limpieza en parque.",
+    "respuesta": "1.º Inspección inicial de la prenda; 2.º Ventilación inicial de la prenda (si hubo exposición a humo/gases sin necesidad de vía húmeda); 3.º Mantenimiento húmedo manual o limpieza en máquina; más el proceso de secado en sombra según proceda.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 10-11",
+    "apartado": "2.1. Pasos a seguir"
+  },
+  {
+    "id": "CPEI-T38-LIM-022",
+    "orden": 148,
+    "concepto": "Si durante la intervención hubo exposición a humo y/o gases sin necesidad de vía húmeda, ¿qué hace el usuario?",
+    "respuesta": "Deja el equipo en la ZONA DE VENTILACIÓN. La ventilación siempre se realizará en zona de sombra. Si se requiere vía húmeda, no se realiza el paso 2º.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 11",
+    "apartado": "2.1. Paso 2º ventilación"
+  },
+  {
+    "id": "CPEI-T38-LIM-023",
+    "orden": 149,
+    "concepto": "En la limpieza húmeda, ¿qué productos están prohibidos?",
+    "respuesta": "Decolorantes, oxidantes, blanqueantes, lejías, suavizantes y activadores del lavado.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 11",
+    "apartado": "2.1. Paso 3º › prohibiciones"
+  },
+  {
+    "id": "CPEI-T38-LIM-024",
+    "orden": 150,
+    "concepto": "¿Qué equipos está prohibido lavar a máquina en parque?",
+    "respuesta": "Trajes de intervención, cubrenucas (aluminizado), guantes de intervención y botas de intervención.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 11",
+    "apartado": "2.1. Paso 3º › prohibido máquina"
+  },
+  {
+    "id": "CPEI-T38-LIM-025",
+    "orden": 151,
+    "concepto": "¿Cómo se limpian los trajes Axaton de intervención respecto al cepillo?",
+    "respuesta": "Mediante mangueo con agua, máximo con bayeta/paño de microfibra; está prohibido el uso de cepillo.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 11-12",
+    "apartado": "2.1. Trajes intervención"
+  },
+  {
+    "id": "CPEI-T38-LIM-026",
+    "orden": 152,
+    "concepto": "Si tras A.1 el resultado del traje de rescate técnico no es óptimo, ¿qué se hace?",
+    "respuesta": "Lavado a máquina en parque a 30ºC-40º (previo volteo del traje) y después proceso de secado en sombra.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 12",
+    "apartado": "Modo de ejecución › trajes"
+  },
+  {
+    "id": "CPEI-T38-LIM-027",
+    "orden": 153,
+    "concepto": "Describe los pasos de limpieza de cascos en parque.",
+    "respuesta": "1.º Enjuagar copa y componentes interiores con abundante agua (~40ºC). 2.º Frotar superficie con paño de microfibra o esponja. 3.º Enjuagar el casco completo con agua caliente ~40ºC. 4.º Secar al aire 24 h. Prohibido material abrasivo o con base de disolvente (acetona, alcohol) o agentes ablandadores.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 12",
+    "apartado": "Cascos"
+  },
+  {
+    "id": "CPEI-T38-LIM-028",
+    "orden": 154,
+    "concepto": "¿A qué temperatura máxima se seca la máscara de presión positiva tras limpieza/desinfección?",
+    "respuesta": "A un máximo de 60ºC.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 14",
+    "apartado": "Máscara presión positiva"
+  },
+  {
+    "id": "CPEI-T38-LIM-029",
+    "orden": 155,
+    "concepto": "En la desinfección de máscara con Neoform K plus (o similar), ¿qué concentración y tiempo indica la tabla para desinfección?",
+    "respuesta": "Concentración 1% durante 15 minutos (sin frotar durante el proceso de inmersión).",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 14",
+    "apartado": "Máscara › desinfección"
+  },
+  {
+    "id": "CPEI-T38-LIM-030",
+    "orden": 156,
+    "concepto": "Tras desinfectar la máscara, ¿cuánto tiempo aproximado se aclara con agua corriente y cuánto se sumerge al final del aclarado?",
+    "respuesta": "Aclarado en profundidad unos 3 minutos con agua corriente limpia y tibia; después inmersión en agua limpia y tibia durante 12 minutos.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 14",
+    "apartado": "Máscara › aclarado"
+  },
+  {
+    "id": "CPEI-T38-LIM-031",
+    "orden": 157,
+    "concepto": "Para desinfectar la media máscara 3M, ¿qué disolución de lejía indica el PDF?",
+    "respuesta": "30 ml de lejía doméstica en 7,5 l de agua; después aclarar en agua templada y secar al aire libre.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 15",
+    "apartado": "Media máscara 3M"
+  },
+  {
+    "id": "CPEI-T38-LIM-032",
+    "orden": 158,
+    "concepto": "¿Cuáles son los tres tipos de recipientes de logística para envío a lavandería central?",
+    "respuesta": "Bolsa de plástico al corte (exposición a amianto o riesgos biológicos; siempre en el vehículo); saca verde (trajes de mantenimiento ordinario y/o bolsas objeto de limpieza en lavandería central); flight-case rojo rígido (bolsas con EPIs para traslado a lavandería central).",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 16-17",
+    "apartado": "3.1. Tipos de recipientes"
+  },
+  {
+    "id": "CPEI-T38-LIM-033",
+    "orden": 159,
+    "concepto": "¿Qué material de logística ha facilitado el CPEI a cada parque y al almacén central?",
+    "respuesta": "Sacas verdes, rollo de bolsa de plástico al corte, flight-case y etiquetas para identificar exteriormente con nº de identificación de bomberos, señal de riesgo biológico y señal de riesgo amianto.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 17",
+    "apartado": "3.2.1. Logística inicial"
+  },
+  {
+    "id": "CPEI-T38-LIM-034",
+    "orden": 160,
+    "concepto": "¿Quién es responsable de mantener las existencias del material de logística de limpieza?",
+    "respuesta": "El Jefe de parque (entrega a los Jefes de Turno); los Jefes de Turno comunican al JP la necesidad de material de reposición.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 17",
+    "apartado": "3.2.1. Logística inicial"
+  },
+  {
+    "id": "CPEI-T38-LIM-035",
+    "orden": 161,
+    "concepto": "¿Qué códigos SOS usa la ITF para limpieza de máscara de presión positiva?",
+    "respuesta": "F.1 limpieza manual con agua y jabón (cada usuario tras intervención); F.2 limpieza y desinfección (turno siguiente); F.3 mantenimiento y desinfección colectiva en lavandería central.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 17",
+    "apartado": "3.2.2. Codificación SOS"
+  },
+  {
+    "id": "CPEI-T38-LIM-036",
+    "orden": 162,
+    "concepto": "En exposición a biológicos o amianto, ¿quién supervisa el empaquetado en bolsa de plástico in situ?",
+    "respuesta": "El Jefe de la intervención, al finalizar, por cada usuario; además supervisa la creación de la incidencia indicando limpieza por posible exposición a biológicos/amianto.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 18",
+    "apartado": "Gestión lavandería central › biológicos/amianto"
+  },
+  {
+    "id": "CPEI-T38-LIM-037",
+    "orden": 163,
+    "concepto": "¿Cuándo puede dejarse la limpieza en parque para el turno siguiente?",
+    "respuesta": "Cuando la llegada tras la intervención al parque sea fuera del horario del turno, o la intervención sea de madrugada y el Jefe de Turno considere que no es conveniente; requiere autorización del Jefe de Guardia.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 18-19",
+    "apartado": "Limpieza por el siguiente turno"
+  },
+  {
+    "id": "CPEI-T38-LIM-038",
+    "orden": 164,
+    "concepto": "Tras aprobación de limpieza en siguiente turno, ¿qué debe reflejar el Parte de Logística: Limpieza en parque?",
+    "respuesta": "Identificación del bombero afectado; de los EPIs afectados; del tipo de limpieza según código; fecha de la solicitud; e identificación del parte de intervención del que deriva la necesidad.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 19",
+    "apartado": "Parte de logística limpieza"
+  },
+  {
+    "id": "CPEI-T38-LIM-039",
+    "orden": 165,
+    "concepto": "¿A qué temperatura máxima se secan pulmo y ERAs en estufa de secado?",
+    "respuesta": "Temperatura máxima de 60°C, comprobando el correcto funcionamiento del equipo tras la limpieza.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 16",
+    "apartado": "Secado › pulmo/ERA"
+  },
+  {
+    "id": "CPEI-T38-LIM-040",
+    "orden": 166,
+    "concepto": "¿Cómo deben secarse las botas según la ITF de Limpieza?",
+    "respuesta": "Al aire libre, sin exponer directamente al sol ni a temperatura superior a 50º.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 16",
+    "apartado": "Secado › botas"
+  },
+  {
+    "id": "CPEI-T38-LIM-041",
+    "orden": 167,
+    "concepto": "Tras el envío a lavandería central, ¿quién gestiona la devolución al parque de origen?",
+    "respuesta": "Almacén gestiona el resultado de la limpieza en SOS y la devolución al parque de origen, informando al Jefe de Parque afectado de la fecha prevista de devolución.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 22",
+    "apartado": "3.2.5. Devolución desde lavandería"
+  },
+  {
+    "id": "CPEI-T38-LIM-042",
+    "orden": 168,
+    "concepto": "Al etiquetar equipos para lavandería central, ¿qué identificativos se usan?",
+    "respuesta": "Señal de posible riesgo biológico o amianto, e identificativos del número de bomberos a los que está adjudicado el equipo.",
+    "fuente": "ITF 03 Limpieza de EPIs en parque, edición 3ª (aprobación enero 2026; fecha original 15/11/2022)",
+    "localizacion": "PDF p. 21",
+    "apartado": "Envío a lavandería › etiquetado"
+  },
+  {
+    "id": "CPEI-T38-GES-001",
+    "orden": 169,
+    "concepto": "¿En aplicación de qué artículo y ley se elabora la ITF de Gestión de EPIs colectivos?",
+    "respuesta": "El artículo 17.2 de la Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 2",
+    "apartado": "1. Objeto"
+  },
+  {
+    "id": "CPEI-T38-GES-002",
+    "orden": 170,
+    "concepto": "¿Por qué el CPEI pone a disposición EPIs de uso colectivo?",
+    "respuesta": "Por la variabilidad de situaciones en las actuaciones y para disponer de equipos adecuados para intervenciones singulares durante la prestación del servicio de emergencia.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 2",
+    "apartado": "1. Objeto"
+  },
+  {
+    "id": "CPEI-T38-GES-003",
+    "orden": 171,
+    "concepto": "¿Cuáles son los tres objetivos de la ITF de Gestión de EPIs colectivos?",
+    "respuesta": "Designar los equipos como EPIs de uso colectivo; establecer el procedimiento de gestión de solicitud de uso; y el procedimiento de gestión tras el uso (revisión e higienización).",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 2",
+    "apartado": "1. Objeto"
+  },
+  {
+    "id": "CPEI-T38-GES-004",
+    "orden": 172,
+    "concepto": "¿En qué dos tipos se dividen los EPIs de uso colectivo?",
+    "respuesta": "Los ubicados en almacenes periféricos (distribuidos estratégicamente en algunos parques para suministro de todo el CPEI) y los existentes en todos los parques del CPEI.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 2-3",
+    "apartado": "3. Equipos de protección de uso colectivo"
+  },
+  {
+    "id": "CPEI-T38-GES-005",
+    "orden": 173,
+    "concepto": "¿Qué EPIs colectivos están en almacén de parque (todos los parques)?",
+    "respuesta": "EPIs de motosierra y EPIs de altura.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 3",
+    "apartado": "3. Tabla de ubicación"
+  },
+  {
+    "id": "CPEI-T38-GES-006",
+    "orden": 174,
+    "concepto": "¿En qué almacenes periféricos se ubican los EPIs acuáticos?",
+    "respuesta": "Almendralejo, Don Benito-VVA, Jerez de los Caballeros, Llerena, Mérida, Puebla de la Calzada y Zafra.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 3",
+    "apartado": "3. Tabla › Acuático"
+  },
+  {
+    "id": "CPEI-T38-GES-007",
+    "orden": 175,
+    "concepto": "¿En qué almacenes periféricos se ubican los EPIs de himenópteros?",
+    "respuesta": "Alburquerque, Castuera, Don Benito-VVA, Fregenal, Hornachos, Herrera del Duque, Llerena y Mérida.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 3",
+    "apartado": "3. Tabla › Himenópteros"
+  },
+  {
+    "id": "CPEI-T38-GES-008",
+    "orden": 176,
+    "concepto": "¿Para qué tipo de agua se destinan los EPIs de rescate/achique (vadeador) y dónde están?",
+    "respuesta": "Agua sin posibilidad de movimiento, a nivel máximo entre rodilla y cadera. Almacenes periféricos: Almendralejo, Don Benito-VVA, Mérida y Zafra.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 3",
+    "apartado": "3. Tabla › Rescate/achique"
+  },
+  {
+    "id": "CPEI-T38-GES-009",
+    "orden": 177,
+    "concepto": "¿Dónde está el grupo especial de EPIs de motosierra?",
+    "respuesta": "En almacenes periféricos de Alburquerque, Castuera, Fregenal y Hornachos.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 3",
+    "apartado": "3. Tabla › Motosierra grupo especial"
+  },
+  {
+    "id": "CPEI-T38-GES-010",
+    "orden": 178,
+    "concepto": "En intervención, ¿quién comunica al Jefe de Guardia la necesidad de EPI colectivo de almacén periférico?",
+    "respuesta": "El Mando de Intervención (MRI), de forma presencial en la intervención o vía telefónica.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 4",
+    "apartado": "4.1.1. Intervención › MRI"
+  },
+  {
+    "id": "CPEI-T38-GES-011",
+    "orden": 179,
+    "concepto": "Tras valoración afirmativa del JG sobre EPI colectivo periférico, ¿qué traslada al MRI?",
+    "respuesta": "La imposibilidad de ejecutar la intervención hasta disponer de los EPIs adecuados.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 4",
+    "apartado": "4.1.1. Intervención › JG"
+  },
+  {
+    "id": "CPEI-T38-GES-012",
+    "orden": 180,
+    "concepto": "Tras intervención con EPI colectivo periférico, ¿qué cambio de ubicación hace el JG en SOS?",
+    "respuesta": "Asigna los EPIs utilizados al almacén de EPIs del parque donde se encuentren tras su utilización; en el relevo comunica al nuevo JG para gestionar la devolución al almacén asignado y el cambio en SOS.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 5",
+    "apartado": "4.1.1. Intervención › JG tras uso"
+  },
+  {
+    "id": "CPEI-T38-GES-013",
+    "orden": 181,
+    "concepto": "Para tareas programadas con EPI colectivo periférico, ¿con cuánta antelación mínima comunica el JP al JG y Sargento de logística?",
+    "respuesta": "Mínimo con 2 días de antelación: necesidad y práctica, fechas de uso y participantes con tallas del traje de rescate técnico.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 5",
+    "apartado": "4.1.2. Tareas programadas"
+  },
+  {
+    "id": "CPEI-T38-GES-014",
+    "orden": 182,
+    "concepto": "Los EPIs colectivos del almacén del parque, ¿requieren autorización previa del JG para usarse en intervención?",
+    "respuesta": "No: su utilización no requiere autorización previa; están a disposición si el MRI lo considera necesario tras analizar la situación.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 7",
+    "apartado": "5.1. Uso en intervención (almacén parque)"
+  },
+  {
+    "id": "CPEI-T38-GES-015",
+    "orden": 183,
+    "concepto": "Tras usar EPI colectivo del parque, ¿qué incidencia genérica crea el MRI?",
+    "respuesta": "«USO EPIS COLECTIVOS», especificando la tipología (altura, motosierra, himenópteros), de forma inmediata cuando el transcurso lo permita (o aviso telefónico si no es posible).",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 7",
+    "apartado": "5.1. Tras la intervención › MRI"
+  },
+  {
+    "id": "CPEI-T38-GES-016",
+    "orden": 184,
+    "concepto": "Tras uso de EPI colectivo del parque, ¿a quién comunica el JP la utilización?",
+    "respuesta": "Al Jefe de Guardia (o al JP si comunica el JG) y al Sargento coordinador de logística; además supervisa revisión/limpieza y el registro en el parte.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 8",
+    "apartado": "5.1. Tras la intervención › JP"
+  },
+  {
+    "id": "CPEI-T38-GES-017",
+    "orden": 185,
+    "concepto": "¿Qué tres equipos componen la dotación colectiva de motosierra en parque?",
+    "respuesta": "Guantes, peto anticorte y manguito anticorte (marca Pattones Robert’s).",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 11",
+    "apartado": "Anexo I › Motosierra"
+  },
+  {
+    "id": "CPEI-T38-GES-018",
+    "orden": 186,
+    "concepto": "En el peto anticorte de motosierra, ¿a qué temperatura máxima se lava y qué está prohibido?",
+    "respuesta": "Lavar a mano o máquina a Tª inferior a 40º; prohibido lavar en seco; se permite blanqueadores, secado a máquina a temperatura baja y planchado a baja Tª.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 11-12",
+    "apartado": "Anexo I › Peto anticorte"
+  },
+  {
+    "id": "CPEI-T38-GES-019",
+    "orden": 187,
+    "concepto": "Respecto a los guantes de motosierra, ¿qué lavados están prohibidos?",
+    "respuesta": "Prohibido lavado a máquina, secadora y uso de blanqueadores. Si hay manchas, lavable a mano a Tª inferior a 60º; cepillar tras el uso.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 12",
+    "apartado": "Anexo I › Guantes motosierra"
+  },
+  {
+    "id": "CPEI-T38-GES-020",
+    "orden": 188,
+    "concepto": "¿Qué marca/modelo tiene el arnés anticaída del Anexo II (altura)?",
+    "respuesta": "PETZL Astro Bod Fast C083AA.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 13",
+    "apartado": "Anexo II › Arnés"
+  },
+  {
+    "id": "CPEI-T38-GES-021",
+    "orden": 189,
+    "concepto": "¿Qué marca/modelo tiene el descensor (dispositivo de regulación de cuerda) del equipo de altura?",
+    "respuesta": "PETZL I'D S D020AA00.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 13",
+    "apartado": "Anexo II › Descensor"
+  },
+  {
+    "id": "CPEI-T38-GES-022",
+    "orden": 190,
+    "concepto": "Tras usar equipos colectivos de altura, ¿qué obligación de mantenimiento fija la ITF?",
+    "respuesta": "Cada vez que se utilicen, realizar la revisión y mantenimiento según la ficha de revisión adjunta (aprobada en CCSS).",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 17",
+    "apartado": "Anexo II › Mantenimiento tras uso"
+  },
+  {
+    "id": "CPEI-T38-GES-023",
+    "orden": 191,
+    "concepto": "En el Anexo III (rescate acuático), ¿qué norma UNE cita el chaleco de rescate acuático HIKO?",
+    "respuesta": "CE-EN-ISO 12402-5:2006 / ISO 12402-6:2006 (chaleco); mosquetón CE 0426 - EN12275/B.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 24",
+    "apartado": "Anexo III › Chaleco acuático"
+  },
+  {
+    "id": "CPEI-T38-GES-024",
+    "orden": 192,
+    "concepto": "¿Qué clase y rango de temperatura de agua indica el neopreno integral del Anexo III?",
+    "respuesta": "EN 14225-1:2005 clase B; utilización en agua a 10º-18º.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 24",
+    "apartado": "Anexo III › Neopreno"
+  },
+  {
+    "id": "CPEI-T38-GES-025",
+    "orden": 193,
+    "concepto": "¿Para qué intervenciones está destinado el vadeador (Anexo V) y dónde está prohibido?",
+    "respuesta": "Para intervenciones con agua estancada sin posibilidad de movimiento; prohibido en ríos, barrancos, etc. La profundidad no debe sobrepasar la altura de la cintura del usuario.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 34",
+    "apartado": "Anexo V › Rescate/achique"
+  },
+  {
+    "id": "CPEI-T38-GES-026",
+    "orden": 194,
+    "concepto": "Antes de lavar el vadeador, ¿qué precaución indica el PDF respecto a los velcros?",
+    "respuesta": "Cerrar completamente todos los velcros, porque el lado macho puede raspar el tejido (pilling/snagging).",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 35",
+    "apartado": "Anexo V › Lavado"
+  },
+  {
+    "id": "CPEI-T38-GES-027",
+    "orden": 195,
+    "concepto": "¿Cómo se denomina el anexo de EPIs de himenópteros en el cuerpo del PDF?",
+    "respuesta": "Anexo VI: EPIs uso colectivo. Himenópteros (aunque el índice de portada lo lista como Anexo IV).",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 31",
+    "apartado": "Anexo himenópteros"
+  },
+  {
+    "id": "CPEI-T38-GES-028",
+    "orden": 196,
+    "concepto": "Los guantes con manguito protector de himenópteros, ¿admiten lavado a máquina?",
+    "respuesta": "No: el blusón/equipo asociado solo admite lavado a mano (y no necesita planchado). Los guantes se almacenan en condiciones secas, lejos de luz solar directa y fuentes de calor extremo.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 32",
+    "apartado": "Anexo himenópteros › mantenimiento"
+  },
+  {
+    "id": "CPEI-T38-GES-029",
+    "orden": 197,
+    "concepto": "Si un casco de rescate acuático recibe un golpe fuerte, ¿qué debe hacerse aunque aparentemente no esté dañado?",
+    "respuesta": "Debe ser destruido y reemplazado, porque el casco absorbe golpes mediante destrucción parcial de carcasa y forro, daño que puede no ser visible.",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 26",
+    "apartado": "Anexo III › Casco mantenimiento"
+  },
+  {
+    "id": "CPEI-T38-GES-030",
+    "orden": 198,
+    "concepto": "¿Cómo debe guardarse el traje húmedo/neopreno tras inspección y limpieza?",
+    "respuesta": "En percha multiuso (o percha grande con cremallera abierta), en lugar fresco y seco, protegido de la luz directa del sol y libre de generadores de ozono (máquinas eléctricas o de gas).",
+    "fuente": "ITF Gestión de equipos de protección de uso colectivo, edición 1ª (01/01/2026)",
+    "localizacion": "PDF p. 27",
+    "apartado": "Anexo III › Neopreno almacenamiento"
+  }
+];
