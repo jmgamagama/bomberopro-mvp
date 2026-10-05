@@ -7,7 +7,7 @@ interface Tema40RecallProps {
 }
 
 /**
- * Recuerdo del tema 40: flashcards locales (205) con concepto, respuesta y fuente visibles.
+ * Recuerdo del tema 40: flashcards locales (213 = 26 PT01 + 187 PT03) con concepto, respuesta y fuente visibles.
  * No carga el banco completo MIRA (9392) ni inventa preguntas de examen.
  */
 export default function Tema40Recall({ onNavigateHome }: Tema40RecallProps) {

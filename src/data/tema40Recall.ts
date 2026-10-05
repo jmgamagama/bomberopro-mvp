@@ -1,4 +1,4 @@
-/** Tema 40 recall cards — local subset (205) from BASE_MIRA_9392. Do not load all 9392. */
+/** Tema 40 recall cards — local subset (213 = 26 PT01 + 187 PT03 oficial). Do not load all 9392. */
 
 export type Tema40RecallCard = {
   id: string;
@@ -13,8 +13,8 @@ export type Tema40RecallCard = {
 export const TEMA40_RECALL_META = {
   "tema": 40,
   "title": "Tema 40 · Procedimientos de trabajo CPEI-Badajoz",
-  "count": 205,
-  "source": "BASE_MIRA_9392_CONCEPTOS__V2026-09-11.json"
+  "count": 213,
+  "source": "PT01 conducción (26) + PT03 amianto oficial (187)"
 } as const;
 
 export const TEMA40_RECALL_CARDS: Tema40RecallCard[] = [
@@ -253,1615 +253,1687 @@ export const TEMA40_RECALL_CARDS: Tema40RecallCard[] = [
     "apartado": "PT01 conducción"
   },
   {
-    "id": "CPEI-T40-S06-BAEC47C0A9",
+    "id": "CPEI-T40-PT03-001",
     "orden": 270,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Alcance CUALTIS | INSTRUCCIÓN OPERATIVA 1 | INSTRUCCIÓN OPERATIVA / AGUSTIN LAJAS»?",
-    "respuesta": "Alcance CUALTIS | INSTRUCCIÓN OPERATIVA 1 | INSTRUCCIÓN OPERATIVA / AGUSTIN LAJAS ROSADO / Doc Id: 38 - 143.664 - 20230530144214 CONSORCIO PROVINCIAL DE PREVENCIÓN Y EXTINCIÓN DE INCENDIOS DE BADAJOZ CARRETERA DE CACERES, S/N 06006 BADAJOZ BADAJOZ Concierto: 591300 · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 3",
-    "apartado": "PT03 amianto"
+    "concepto": "¿En aplicación de qué real decreto se elabora el PT03 y qué regula esa norma?",
+    "respuesta": "El RD 396/2006, por el que se establecen las disposiciones mínimas de seguridad y salud aplicables a los trabajos con riesgo de exposición al amianto.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 9 (Hoja 2)",
+    "apartado": "PT03 amianto · 1. Antecedente y objeto"
   },
   {
-    "id": "CPEI-T40-S06-310C0D2CEF",
+    "id": "CPEI-T40-PT03-002",
     "orden": 280,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PT03 CUALTIS | INSTRUCCIÓN OPERATIVA 3 | INSTRUCCIÓN OPERATIVA / AGUSTIN LAJAS»?",
-    "respuesta": "PT03 CUALTIS | INSTRUCCIÓN OPERATIVA 3 | INSTRUCCIÓN OPERATIVA / AGUSTIN LAJAS ROSADO / Doc Id: 38 - 143.664 - 20230530144214 CONSORCIO PROVINCIAL DE PREVENCIÓN Y EXTINCIÓN DE INCENDIOS DE BADAJOZ CARRETERA DE CACERES, S/N 06006 BADAJOZ BADAJOZ Concierto: 591300 · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 5",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué significa la abreviatura MCA en el PT03?",
+    "respuesta": "Materiales con contenido en amianto.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 9 (Hoja 2)",
+    "apartado": "PT03 amianto · 1. Antecedente y objeto"
   },
   {
-    "id": "CPEI-T40-S06-0EAD99EEC0",
+    "id": "CPEI-T40-PT03-003",
     "orden": 290,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «ANEXOS CUALTIS | INSTRUCCIÓN OPERATIVA 4 | INSTRUCCIÓN OPERATIVA / AGUSTIN LAJAS»?",
-    "respuesta": "ANEXOS CUALTIS | INSTRUCCIÓN OPERATIVA 4 | INSTRUCCIÓN OPERATIVA / AGUSTIN LAJAS ROSADO / Doc Id: 38 - 143.664 - 20230530144214 CONSORCIO PROVINCIAL DE PREVENCIÓN Y EXTINCIÓN DE INCENDIOS DE BADAJOZ CARRETERA DE CACERES, S/N 06006 BADAJOZ BADAJOZ Concierto: 591300 · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 6",
-    "apartado": "PT03 amianto"
+    "concepto": "Además de los incendios, ¿en qué otras intervenciones de bomberos puede darse exposición al amianto?",
+    "respuesta": "En los rescates por derrumbamientos o en las asistencias técnicas, por ejemplo.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 9 (Hoja 2)",
+    "apartado": "PT03 amianto · 1. Antecedente y objeto"
   },
   {
-    "id": "CPEI-T40-S06-E769F2406C",
+    "id": "CPEI-T40-PT03-004",
     "orden": 300,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PT03 CUALTIS | INSTRUCCIÓN OPERATIVA INSTRUCCIÓN OPERATIVA / Doc Id: 38 -»?",
-    "respuesta": "PT03 CUALTIS | INSTRUCCIÓN OPERATIVA INSTRUCCIÓN OPERATIVA / Doc Id: 38 - 143.664 - 20230530144214 CONSORCIO PROVINCIAL DE PREVENCIÓN Y EXTINCIÓN DE INCENDIOS DE BADAJOZ CARRETERA DE CACERES, S/N 06006 BADAJOZ BADAJOZ Concierto: 591300 · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 7",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué artículo del RD 396/2006 recoge la necesidad de elaborar un plan de trabajo específico y qué se describe en él?",
+    "respuesta": "El artículo 11. En el plan se describen las actividades a realizar, las medidas que se van a seguir, los procedimientos para la evaluación y el control del ambiente de trabajo, y la fecha de inicio y de duración de los trabajos, entre otros aspectos.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 9 (Hoja 2)",
+    "apartado": "PT03 amianto · 1. Antecedente y objeto"
   },
   {
-    "id": "CPEI-T40-S06-473ACE6960",
+    "id": "CPEI-T40-PT03-005",
     "orden": 310,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 2 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 2 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ 1.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 9",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué artículo del RD 396/2006 recoge la tramitación de los planes de trabajo, ante quién se presentan y cuánto puede durar ese trámite?",
+    "respuesta": "El artículo 12. Se presentan ante la Autoridad Laboral para que los apruebe; el procedimiento puede durar hasta 45 días.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 9 (Hoja 2)",
+    "apartado": "PT03 amianto · 1. Antecedente y objeto"
   },
   {
-    "id": "CPEI-T40-S06-B98F975069",
+    "id": "CPEI-T40-PT03-006",
     "orden": 320,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Las intervenciones de los bomberos en las que existe exposición al amianto»?",
-    "respuesta": "Las intervenciones de los bomberos en las que existe exposición al amianto no solo s e limitan a los incendios, sino que también se puede dar esta exposición en los rescates por derrumbamientos o en las asistencias técnicas, por ejemplo.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 9",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Por qué es inviable realizar los trámites de plan de trabajo en los servicios de extinción de incendios y salvamento?",
+    "respuesta": "Debido a la imprevisibilidad de las intervenciones que deben realizar los bomberos y a la necesidad de actuar en situaciones de emergencia vital.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 10 (Hoja 3)",
+    "apartado": "PT03 amianto · 1. Antecedente y objeto"
   },
   {
-    "id": "CPEI-T40-S06-BB87138FDA",
+    "id": "CPEI-T40-PT03-007",
     "orden": 330,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «No obstante, debido a que se trata de situaciones de emergencia que»?",
-    "respuesta": "No obstante, debido a que se trata de situaciones de emergencia que se dan en un momento puntual y qu e no pueden ser estimadas o previstas, y en las que se debe actuar de manera inmediata para proteger y salvar las vidas y la salud de las personas afectadas por la situación, resulta muy complejo estimar con exactitud los riesgos a los que se encontrarán e xpuestos los trabajadores y si en el lugar de la intervención hay presencia de MCA.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 9",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué establece el artículo 5 del RD 396/2006 y por qué no se aplica en las intervenciones de bomberos?",
+    "respuesta": "La necesidad de realizar una medición de la concentración de fibras de amianto en el lugar de trabajo a la hora de evaluar los riesgos, y su comparación con el valor límite de exposición recogido en el artículo 4. No es viable realizar estas mediciones previas en las intervenciones que realizan los bomberos.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 10 (Hoja 3)",
+    "apartado": "PT03 amianto · 1. Antecedente y objeto"
   },
   {
-    "id": "CPEI-T40-S06-9FED02AC96",
+    "id": "CPEI-T40-PT03-008",
     "orden": 340,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Como consecuencia de ello, se dificulta el establecimiento de protocolos específicos y»?",
-    "respuesta": "Como consecuencia de ello, se dificulta el establecimiento de protocolos específicos y concretos de actuación destinados a eliminar o reducir los riesgos de inhalación de fibras de amianto.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 9",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cuál es el objeto del documento PT03?",
+    "respuesta": "Establecer las situaciones más frecuentes en las que se pueden presentar operaciones que pueden generar fibras de amianto respirables y las normas de trabajo básicas y seguras para los efectivos del Consorcio que intervengan en la extinción de un incendio o durante tareas de rescate y/o asistencia técnica, formando parte del Plan de trabajo único según el Real Decreto 396/2006.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 10 (Hoja 3)",
+    "apartado": "PT03 amianto · 1. Antecedente y objeto"
   },
   {
-    "id": "CPEI-T40-S06-FA2F7CB67A",
+    "id": "CPEI-T40-PT03-009",
     "orden": 350,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «El Real Decreto 396/2006 en su artículo 11 recoge todo lo relativo»?",
-    "respuesta": "El Real Decreto 396/2006 en su artículo 11 recoge todo lo relativo a la necesidad de elaborar un plan de trabajo específico en el que se describen las actividades a realizar, las medidas que se van a seguir, los procedimientos para la ev aluación y el control del ambiente de trabajo, y la fecha de inicio y de duración de los trabajos, entre otros aspectos.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 9",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cuándo se entiende que existe exposición a amianto durante una intervención?",
+    "respuesta": "Cuando durante la actuación se requiera la manipulación (rotura) de materiales que lo contengan, bien para facilitar el acceso a zona de extinción o rescate, o porque se genere la demolición/derrumbe de construcciones donde existan estructuras/aislamientos con contenido de amianto.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 10 (Hoja 3)",
+    "apartado": "PT03 amianto · 1. Antecedente y objeto"
   },
   {
-    "id": "CPEI-T40-S06-206CEE57A1",
+    "id": "CPEI-T40-PT03-010",
     "orden": 360,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «El procedimiento de trabajo especifica las condiciones en las que se deben»?",
-    "respuesta": "El procedimiento de trabajo especifica las condiciones en las que se deben realizar los trabajos con exposición al amianto, requiriendo para ello una previsión del momento, el lugar, la duración, y los medios a emplear en la intervención, pero debido a la",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 9",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué ejemplos de material con amianto friable y no friable cita el PT03?",
+    "respuesta": "Friable: amianto proyectado, calorifugados, paneles aislantes, etc. No friable: fibrocemento, amianto-vinilo, etc.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 10 (Hoja 3)",
+    "apartado": "PT03 amianto · 1. Antecedente y objeto"
   },
   {
-    "id": "CPEI-T40-S06-F4E6344575",
+    "id": "CPEI-T40-PT03-011",
     "orden": 370,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 3 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 3 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ imprevisibilidad de las intervenciones que deben realizar los bomberos y a la necesidad de actuar en situaciones de emergencia vital, es inviable realizar este tipo de trámites en los servicios de extinción de incendios y salvamento.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 10",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué dos circunstancias tiene en cuenta el CPEI para optar por normas de actuación precisas ante posible exposición a amianto?",
+    "respuesta": "1) La escasa frecuencia. 2) La imposibilidad de ejecutar acciones previas de programación de planes de trabajo, mediciones, etc., debido a los requerimientos de actuación inmediata y no programada con antelación de cualquier intervención del CPEI.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 10–11 (Hojas 3–4)",
+    "apartado": "PT03 amianto · 1. Antecedente y objeto"
   },
   {
-    "id": "CPEI-T40-S06-95E0F6F17D",
+    "id": "CPEI-T40-PT03-012",
     "orden": 380,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «De igual forma, el Real Decreto 396/2006 establece en su artículo 5»?",
-    "respuesta": "De igual forma, el Real Decreto 396/2006 establece en su artículo 5 la necesidad de realizar una medición de la concentración de fibras de amianto en el lugar de trabajo a la ho ra de evaluar los riesgos, y su comparación con el valor límite de exposición recogido en el artículo 4, y como ocurre con los planes de trabajo, no es viable realizar estas mediciones previas en las intervenciones que realizan los bomberos.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 10",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué datos de los partes de intervención SOS cita el PT03 para justificar la escasa frecuencia?",
+    "respuesta": "En los 3 últimos años (el PDF escribe «2019-2021-2021»), 133 intervenciones con derrumbe o retirada de material: 1 intervención en la que se especifica retirar uralitas desprendidas y 2 en las que se retiran canalones, sin especificar el material.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 11 (Hoja 4)",
+    "apartado": "PT03 amianto · 1. Antecedente y objeto"
   },
   {
-    "id": "CPEI-T40-S06-0D1133C21D",
+    "id": "CPEI-T40-PT03-013",
     "orden": 390,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 4 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 4 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 11",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cuál es la frecuencia estimada de posible intervención con material friable en todo el CPEI?",
+    "respuesta": "Menor de 1 actuación al año en todo el CPEI.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 11 (Hoja 4)",
+    "apartado": "PT03 amianto · 1. Antecedente y objeto"
   },
   {
-    "id": "CPEI-T40-S06-2B94493E79",
+    "id": "CPEI-T40-PT03-014",
     "orden": 400,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Tras los datos analizados (estadística de partes de intervención SOS, con identificación»?",
-    "respuesta": "Tras los datos analizados (estadística de partes de intervención SOS, con identificación de tipos de intervención con derrumbe o retirada de material de los 3 últimos años, 2019 -2021-2021, con un total de 133 intervenciones), ha habido 1 intervención donde se especifica, retirar las uralitas que estaban desprendidas y 2 intervenciones en las que se retira canalones, pero no especifica el material que lo constituye.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 11",
-    "apartado": "PT03 amianto"
+    "concepto": "¿A qué personal afecta el alcance del PT03?",
+    "respuesta": "A todo el personal operativo del Consorcio: Oficial, Suboficial, Sargentos, Jefes de Parque, Cabos y Bomberos, que prestan sus servicios en los distintos centros de trabajo del Consorcio.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 11 (Hoja 4)",
+    "apartado": "PT03 amianto · 2. Alcance"
   },
   {
-    "id": "CPEI-T40-S06-54B87D01C8",
+    "id": "CPEI-T40-PT03-015",
     "orden": 410,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «La frecuencia de posible intervención con material friable es menor de 1»?",
-    "respuesta": "La frecuencia de posible intervención con material friable es menor de 1 actuación /año en todo el CPEI.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 11",
-    "apartado": "PT03 amianto"
+    "concepto": "¿En qué intervenciones es de aplicación el PT03?",
+    "respuesta": "En aquellas donde se realicen trabajos que requieran manipulación de material con contenido de amianto, en las que el integrante del CPEI deba realizar alguna modificación de su estructura (rotura), o en intervenciones donde se genere desplome o derrumbamiento de estructuras/elementos que contengan material con contenido de amianto.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 11 (Hoja 4)",
+    "apartado": "PT03 amianto · 2. Alcance"
   },
   {
-    "id": "CPEI-T40-S06-E1DF20B3AA",
+    "id": "CPEI-T40-PT03-016",
     "orden": 420,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «La imposibilidad de ejecutar acciones previas de programación de planes de trabajo»?",
-    "respuesta": "La imposibilidad de ejecutar acciones previas de programación de planes de trabajo, mediciones…etc, debido los requerimiento de actuación inmediata y no programadas con antelación, que acompañan a cualquier intervención realizada por el CPEI para conseguir el éxito de la misma. 2.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 11",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Con la revisión de quién y tras informar a qué órgano se implantan las normas de actuación del PT03, y quién debe darles publicidad?",
+    "respuesta": "Con la revisión y visto bueno del Servicio de Prevención del CPEI e informado el Comité de Seguridad y Salud. El Consorcio deberá darle publicidad por los medios oficiales disponibles.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 11 (Hoja 4)",
+    "apartado": "PT03 amianto · 2. Alcance"
   },
   {
-    "id": "CPEI-T40-S06-014ADE3C82",
+    "id": "CPEI-T40-PT03-017",
     "orden": 430,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Oficial, Suboficial, Sargentos, Jefes de Parque, Cabos y Bomberos, que prestan sus»?",
-    "respuesta": "Oficial, Suboficial, Sargentos, Jefes de Parque, Cabos y Bomberos, que prestan sus servicios en los distintos centros de trabajo del Consorcio.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 11",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Quiénes velarán por el cumplimiento del PT03 y de qué deben asegurarse?",
+    "respuesta": "Los responsables de las diversas áreas funcionales del CPEI; deben asegurarse de que todo el personal afectado lo conoce perfectamente, y del seguimiento y análisis de los casos que se originen, con el fin de mejorar las normas de actuación en caso de ser necesario.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 11 (Hoja 4)",
+    "apartado": "PT03 amianto · 3. Responsabilidades"
   },
   {
-    "id": "CPEI-T40-S06-A07A519333",
+    "id": "CPEI-T40-PT03-018",
     "orden": 440,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Este procedimiento será de aplicación en aquellas intervenciones donde se realicen trabajos»?",
-    "respuesta": "Este procedimiento será de aplicación en aquellas intervenciones donde se realicen trabajos que requieran manipulación de material con contenido de amianto, en las que el integrante del CPEI deba realizar alguna modificación de su estructura ( rotura) o en intervenciones donde se genere desplome o derrumbamiento de estructuras/elementos que contengan material con contenido de amianto.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 11",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué funciones y responsabilidades en prevención de riesgos laborales se asumen en el PT03?",
+    "respuesta": "Las marcadas en el Plan de Prevención vigente del CPEI, apartado 2.9. Organigrama preventivo.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 12 (Hoja 5)",
+    "apartado": "PT03 amianto · 3. Responsabilidades"
   },
   {
-    "id": "CPEI-T40-S06-E3C91B0320",
+    "id": "CPEI-T40-PT03-019",
     "orden": 450,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «En el mismo, se indicarán las pautas de actuación y medidas a»?",
-    "respuesta": "En el mismo, se indicarán las pautas de actuación y medidas a aplicar, según las circunstancias en las que se produzca la intervención.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 11",
-    "apartado": "PT03 amianto"
+    "concepto": "¿En qué norma se enmarca el PT03 y con qué documentos del CPEI debe ser coherente?",
+    "respuesta": "Se enmarca en la aplicación del RD 396/2006 y será coherente con el Protocolo de movilización vigente del CPEI-Badajoz, sus normas de trabajo y todos aquellos que le fueran de aplicación, así como con el Plan de Prevención vigente del CPEI-Badajoz.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 12 (Hoja 5)",
+    "apartado": "PT03 amianto · 4. Normativa"
   },
   {
-    "id": "CPEI-T40-S06-E1A10EE3E4",
+    "id": "CPEI-T40-PT03-020",
     "orden": 460,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Las normas de actuación deberán estar integrado en todos los estamentos del»?",
-    "respuesta": "Las normas de actuación deberán estar integrado en todos los estamentos del CPEI e implementadas una vez se haya dado a conocer al personal, ajustándose a los requerimientos oportunos en materia legal, de seguridad y prevención de riesgos laborales, contando con la revisión y visto bueno del Servicio de Prevención del CPEI e informado el Comité de Seguridad y Salud.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 11",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cómo define el PT03 el amianto?",
+    "respuesta": "Un conjunto de minerales (silicatos de composición variable) de naturaleza fibrosa cuyas excepcionales propiedades químicas (resistencia, aislamiento térmico, acústico y eléctrico…) han determinado su uso en infinidad de aplicaciones industriales y domésticas.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 12 (Hoja 5)",
+    "apartado": "PT03 amianto · 5. Riesgos"
   },
   {
-    "id": "CPEI-T40-S06-6E075A574A",
+    "id": "CPEI-T40-PT03-021",
     "orden": 470,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «El Consorcio deberá dar publicidad del mismo por los medios oficiales disponibles»?",
-    "respuesta": "El Consorcio deberá dar publicidad del mismo por los medios oficiales disponibles. 3.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 11",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué son las fibras y por qué las de amianto pueden alcanzar los alvéolos pulmonares?",
+    "respuesta": "Las fibras son partículas elongadas cuya longitud es varias veces superior al diámetro. Las de amianto pueden presentar tamaño microscópico (invisibles): son fibras respirables, con posibilidad de alcanzar hasta los alvéolos pulmonares.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 12 (Hoja 5)",
+    "apartado": "PT03 amianto · 5. Riesgos"
   },
   {
-    "id": "CPEI-T40-S06-B0D0083ED7",
+    "id": "CPEI-T40-PT03-022",
     "orden": 480,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Los responsables de las diversas áreas funcionales del CPEI velarán por el»?",
-    "respuesta": "Los responsables de las diversas áreas funcionales del CPEI velarán por el cumplimiento del presente Procedimiento de trabajo, asegurándose de que todo el personal afectado la conoce perfectamente y por el seguimiento y análisis de los casos que se originen, con el fin de mejorar las normas de actuación en caso de ser necesario..",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 11",
-    "apartado": "PT03 amianto"
+    "concepto": "¿De qué dos formas puede encontrarse el amianto en las instalaciones?",
+    "respuesta": "En estado puro (sin mezclar, como calorifugados, flocages…) o formando parte de productos (fibrocemento, amianto-vinilo…).",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 12 (Hoja 5)",
+    "apartado": "PT03 amianto · 5. Riesgos"
   },
   {
-    "id": "CPEI-T40-S06-849C2C080B",
+    "id": "CPEI-T40-PT03-023",
     "orden": 490,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 5 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 5 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ En este sentido, se asumirán las funciones y responsabilidades en prevención de riesgos laborales marcadas en el Plan de Prevención vigente del CPEI apartado 2.9.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 12",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué instalaciones y equipos pueden contener amianto según el PT03? (10 elementos)",
+    "respuesta": "1) Paneles de aislamiento en tabiques. 2) Baldosas y suelos de linóleo. 3) Aislamiento térmico (calorifugado en calderas, conducciones, etc.). 4) Aislamiento de estructuras metálicas (flocages). 5) Placas de falsos techos. 6) Instalaciones eléctricas. 7) Calderas, hornos y demás equipos que trabajan a altas temperaturas. 8) Tejados, tabiques pluviales, bajantes, jardineras, depósitos y otros elementos de fibrocemento. 9) Conducciones de agua corriente y aguas residuales. 10) Válvulas y juntas.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 12–13 (Hojas 5–6)",
+    "apartado": "PT03 amianto · 5. Riesgos"
   },
   {
-    "id": "CPEI-T40-S06-D725579163",
+    "id": "CPEI-T40-PT03-024",
     "orden": 500,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «El procedimiento se enmarca en la aplicación del RD 396/2006 y será»?",
-    "respuesta": "El procedimiento se enmarca en la aplicación del RD 396/2006 y será coherente y respetará lo establecido tanto el Protocolo de movilización vigente del CPEI -Badajoz, sus normas de trabajo y todos aquellos que le fueran de aplicación, en comunicación como el Plan de Prevención vigentes del CPEI-Badajoz. 5.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 12",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué nombre recibe en el PT03 el aislamiento de estructuras metálicas con amianto?",
+    "respuesta": "Flocages.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 12 (Hoja 5)",
+    "apartado": "PT03 amianto · 5. Riesgos"
   },
   {
-    "id": "CPEI-T40-S06-4F2901E521",
+    "id": "CPEI-T40-PT03-025",
     "orden": 510,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «El amianto es un conjunto de minerales (silicatos de composición variable) de»?",
-    "respuesta": "El amianto es un conjunto de minerales (silicatos de composición variable) de naturaleza fibrosa cuyas excepcionales propiedades químicas (resistencia, aislamiento térmico, acústico y eléctrico,…) han determinado su uso en infinidad de aplicaciones industriales y domésticas.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 12",
-    "apartado": "PT03 amianto"
-  },
-  {
-    "id": "CPEI-T40-S06-7BA83807FC",
-    "orden": 520,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Las fibras son partículas elongadas cuya longitud es varias veces superior al»?",
-    "respuesta": "Las fibras son partículas elongadas cuya longitud es varias veces superior al diámetro.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 12",
-    "apartado": "PT03 amianto"
-  },
-  {
-    "id": "CPEI-T40-S06-3D5B20C346",
-    "orden": 530,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Las de amianto además pueden p resentar tamaño microscópico (invisibles), fibras respirables»?",
-    "respuesta": "Las de amianto además pueden p resentar tamaño microscópico (invisibles), fibras respirables, presentando por tanto la posibilidad de alcanzar hasta los alvéolos pulmonares.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 12",
-    "apartado": "PT03 amianto"
-  },
-  {
-    "id": "CPEI-T40-S06-96F77E29E8",
-    "orden": 540,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Lo podemos encontrar en multitud de instalaciones, bien en estado puro (sin»?",
-    "respuesta": "Lo podemos encontrar en multitud de instalaciones, bien en estado puro (sin mezclar, tal y como calorifugados, fl ocages,….), como formando parte de un productos (fibrocemento, amianto-vinilo,….).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 12",
-    "apartado": "PT03 amianto"
-  },
-  {
-    "id": "CPEI-T40-S06-3EBEB97722",
-    "orden": 550,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Algunos de las instalaciones y equipos que pueden contener amianto: ⮚ Paneles»?",
-    "respuesta": "Algunos de las instalaciones y equipos que pueden contener amianto: ⮚ Paneles de aislamiento en tabiques. ⮚ Baldosas y suelos de linóleo. ⮚ Aislamiento térmico (calorifugado en calderas, conducciones, etc.). ⮚ Aislamiento de estructuras metálicas (flocages). ⮚ Placas de falsos techos. ⮚ Instalaciones eléctricas.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 12",
-    "apartado": "PT03 amianto"
-  },
-  {
-    "id": "CPEI-T40-S06-AD11D8BA6F",
-    "orden": 560,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 6 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 6 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ ⮚ Calderas, hornos y demás equipos que trabajan a altas temperaturas. ⮚ Tejados, tabiques pluviales, bajantes, jardineras, depósito s y otros elementos de fibrocemento. ⮚ Conducciones de agua corriente y aguas residuales. ⮚ Válvulas y juntas. ¿Cuándo resulta peligroso?",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 13",
-    "apartado": "PT03 amianto"
-  },
-  {
-    "id": "CPEI-T40-S06-89006DB1F4",
-    "orden": 570,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Si las fibras de amianto se liberan, pueden ser inhaladas, depositándose en»?",
+    "concepto": "¿Cuándo resulta peligroso el amianto?",
     "respuesta": "Si las fibras de amianto se liberan, pueden ser inhaladas, depositándose en los pulmones y causando enfermedades, incluso tras un largo periodo de latencia.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 13",
-    "apartado": "PT03 amianto"
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 13 (Hoja 6)",
+    "apartado": "PT03 amianto · 5. Riesgos › ¿Cuándo resulta peligroso?"
   },
   {
-    "id": "CPEI-T40-S06-2A6C0FF4F0",
+    "id": "CPEI-T40-PT03-026",
+    "orden": 520,
+    "concepto": "¿De qué depende, entre otros factores, la liberación de fibras de amianto?",
+    "respuesta": "Del tipo de material trabajado y de las operaciones efectuadas sobre el mismo.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 13 (Hoja 6)",
+    "apartado": "PT03 amianto · 5. Riesgos › ¿Cuándo resulta peligroso?"
+  },
+  {
+    "id": "CPEI-T40-PT03-027",
+    "orden": 530,
+    "concepto": "¿Por qué las operaciones con calorifugados o flocage son más peligrosas que las realizadas con fibrocemento o amianto-vinilo?",
+    "respuesta": "Porque calorifugados y flocage son materiales friables, con gran capacidad de emitir fibras al ambiente. En el fibrocemento o el amianto-vinilo las fibras están ligadas a otros componentes (no friables) y difícilmente emiten fibras, salvo cuando se someten a corte, pulido, rotura u otras operaciones que faciliten la dispersión de polvo.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 13 (Hoja 6)",
+    "apartado": "PT03 amianto · 5. Riesgos › ¿Cuándo resulta peligroso?"
+  },
+  {
+    "id": "CPEI-T40-PT03-028",
+    "orden": 540,
+    "concepto": "¿En qué categoría de carcinógenos están todas las variedades de amianto y qué implica?",
+    "respuesta": "Carcinógenas de categoría 1A: se ha constatado que provocan cáncer en el ser humano (de pulmón o pleura). Por ello cualquier exposición, por corta y reducida que sea, conlleva un riesgo para la salud.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 13 (Hoja 6)",
+    "apartado": "PT03 amianto · 5. Riesgos › Riesgos potenciales para la salud"
+  },
+  {
+    "id": "CPEI-T40-PT03-029",
+    "orden": 550,
+    "concepto": "¿Cuál es el tiempo de latencia del mesotelioma pleural según el PT03?",
+    "respuesta": "Largo: entre 35 y 40 años.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 13 (Hoja 6)",
+    "apartado": "PT03 amianto · 5. Riesgos › Riesgos potenciales para la salud"
+  },
+  {
+    "id": "CPEI-T40-PT03-030",
+    "orden": 560,
+    "concepto": "¿Qué enfermedad pueden desarrollar los trabajadores con exposiciones elevadas y prolongadas al amianto y en qué consiste?",
+    "respuesta": "Una neumoconiosis específica, la asbestosis, que se traduce en una cicatrización del tejido pulmonar y en consecuencia en una pérdida de la capacidad respiratoria.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 13 (Hoja 6)",
+    "apartado": "PT03 amianto · 5. Riesgos › Riesgos potenciales para la salud"
+  },
+  {
+    "id": "CPEI-T40-PT03-031",
+    "orden": 570,
+    "concepto": "Si el amianto es muy resistente al calor y al fuego, ¿por qué un incendio puede liberar sus fibras?",
+    "respuesta": "Porque en un incendio se alcanzan temperaturas muy altas que pueden propiciar la desintegración de los MCA. Además, por incendios, terremotos o deterioro, las estructuras colapsan y los derrumbamientos conllevan desprendimiento de fibras por la rotura de los MCA.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 13–14 (Hojas 6–7)",
+    "apartado": "PT03 amianto · 5. Riesgos › Riesgos potenciales para la salud"
+  },
+  {
+    "id": "CPEI-T40-PT03-032",
     "orden": 580,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «La liberación de fibras depende entre otros factores del tipo de material»?",
-    "respuesta": "La liberación de fibras depende entre otros factores del tipo de material trabajado así como las operaciones efectuadas sobre el mismo.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 13",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué puede ocurrir con las fibras de amianto liberadas a la atmósfera durante una intervención?",
+    "respuesta": "Pueden ser inhaladas por los bomberos o quedar suspendidas en los trajes de intervención, y posteriormente desprenderse de nuevo a la atmósfera, vehículos, etc.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 14 (Hoja 7)",
+    "apartado": "PT03 amianto · 5. Riesgos"
   },
   {
-    "id": "CPEI-T40-S06-6BE620FA8D",
+    "id": "CPEI-T40-PT03-033",
     "orden": 590,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Así operaciones con calorifugados, flocage,…., (materiales friables, con gran capacidad de emitir»?",
-    "respuesta": "Así operaciones con calorifugados, flocage,…., (materiales friables, con gran capacidad de emitir fibras al ambiente) son a priori bastante más peligrosas que las realizadas con materiales en los que las fibras se encuentran ligadas a otros componentes tales como fibrocemento, amianto -vinilo,…. (Materiales no friables y que difícilmente e miten fibras al ambiente salvo cuando son sometidos a operaciones de corte, pulido, rotura u otras que faciliten la dispersión de polvo al ambiente.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 13",
-    "apartado": "PT03 amianto"
+    "concepto": "En rescates de víctimas sepultadas o acorraladas por escombros, ¿en qué consiste el riesgo de amianto?",
+    "respuesta": "En que, si la edificación o instalación contenía MCA, estos han podido fragmentarse y estar esparcidos entre los escombros: peligro de inhalación de las fibras que han pasado a la atmósfera, o de manipulación directa del amianto como parte de los escombros a retirar, o por impregnación de los trajes de intervención y demás equipos.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 14 (Hoja 7)",
+    "apartado": "PT03 amianto · 5. Riesgos"
   },
   {
-    "id": "CPEI-T40-S06-6D6ABAA5B6",
+    "id": "CPEI-T40-PT03-034",
     "orden": 600,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Riesgos potenciales para la salud Todas las variedades de amianto son carcinógenas»?",
-    "respuesta": "Riesgos potenciales para la salud Todas las variedades de amianto son carcinógenas de categoría 1 A, es decir se ha constatado que provocan cáncer en el ser humano (de pulmón o pleura).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 13",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué retiradas quedan excluidas en las tareas de intervención/rescate y qué no forma parte de la actividad del CPEI?",
+    "respuesta": "Queda excluida cualquier retirada de elementos no imprescindibles para el acceso a la víctima o el desplazamiento durante la intervención. No está incluida en la actividad del CPEI la retirada y gestión de residuos procedentes de la instalación donde se intervenga.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 14 (Hoja 7)",
+    "apartado": "PT03 amianto · 5. Riesgos"
   },
   {
-    "id": "CPEI-T40-S06-0EEC82C3BB",
+    "id": "CPEI-T40-PT03-035",
     "orden": 610,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Esta característica hace que cualquier exposición por corta y reducida que sea»?",
-    "respuesta": "Esta característica hace que cualquier exposición por corta y reducida que sea conlleva un riesgo para la salud.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 13",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué cinco riesgos específicos recoge la evaluación previa del PT03?",
+    "respuesta": "1) Exposición a materiales friables a causa del incendio cuando en su estado inicial son no friables (material que pueda sufrir roturas, voluntarias o fortuitas por derrumbamiento). 2) Posible exposición a agentes químicos en el entorno, en trabajos en presencia de materiales con amianto, polvo de estructuras dañadas. 3) Posible manipulación de material con amianto en trabajos en presencia de materiales con amianto, polvo de derribo y otras causas. 4) Posible utilización de EPI inadecuados al tipo de intervención (presencia de fibra de amianto). 5) Posible manipulación de equipos de trabajo, EPI y vestuario contaminado con fibras de amianto de forma inadecuada.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 14–15 (Hojas 7–8)",
+    "apartado": "PT03 amianto · 5. Riesgos › Tabla de riesgos"
   },
   {
-    "id": "CPEI-T40-S06-5B58828692",
+    "id": "CPEI-T40-PT03-036",
     "orden": 620,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «El tiempo de latencia es largo, entre 35 y 40 años en»?",
-    "respuesta": "El tiempo de latencia es largo, entre 35 y 40 años en el caso de mesotelioma pleural.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 13",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué grado y qué consecuencia asigna la evaluación de riesgos del PT03 a todos sus riesgos específicos?",
+    "respuesta": "Grado: riesgo notable. Consecuencia: inhalación/absorción de fibras de amianto.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 14–15 (Hojas 7–8)",
+    "apartado": "PT03 amianto · 5. Riesgos › Tabla de riesgos"
   },
   {
-    "id": "CPEI-T40-S06-7E88AEFFD7",
+    "id": "CPEI-T40-PT03-037",
     "orden": 630,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Asimismo, en exposiciones elevadas durante un tiempo prolongado, pueden desarrollar una neumoconiosis»?",
-    "respuesta": "Asimismo, en exposiciones elevadas durante un tiempo prolongado, pueden desarrollar una neumoconiosis específica, asbestosis, la cual se traduce en una cicatrización del tejido pulmonar y en consecuencia en una pérdida de la capacidad respiratoria.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 13",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cuáles son las cuatro pautas de seguridad de la evaluación de riesgos para trabajos con material con amianto?",
+    "respuesta": "1) Evite la exposición innecesaria (permanezca en la zona únicamente durante las tareas que lo precisen). 2) Está prohibido comer, beber y fumar en lugares con exposición a amianto. 3) En lo posible, manipule los materiales enteros o intactos (ojo con los afectados por el incendio, pueden haber perdido su solidez) y adopte medidas para contener la dispersión en la retirada. 4) Use los EPI indicados por el Servicio, como mínimo mascarillas con filtros contra partículas P3 o ERA.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 15 (Hoja 8)",
+    "apartado": "PT03 amianto · 5. Riesgos › Medidas preventivas propuestas en la evaluación de riesgos"
   },
   {
-    "id": "CPEI-T40-S06-D016D546EA",
+    "id": "CPEI-T40-PT03-038",
     "orden": 640,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Aunque el amianto es una sustancia muy resistente al calor y al»?",
-    "respuesta": "Aunque el amianto es una sustancia muy resistente al calor y al fuego, cuando se produce un incendio las temperaturas a las que se llegan son muy altas y pueden propiciar la",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 13",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué está prohibido hacer en lugares con exposición a amianto?",
+    "respuesta": "Comer, beber y fumar.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 15 (Hoja 8)",
+    "apartado": "PT03 amianto · 5. Riesgos › Medidas preventivas propuestas en la evaluación de riesgos"
   },
   {
-    "id": "CPEI-T40-S06-D48419B9D4",
+    "id": "CPEI-T40-PT03-039",
     "orden": 650,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 7 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 7 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ desintegración de los MCA.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 14",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Por qué hay que tener especial cuidado al manipular materiales con amianto afectados por el incendio?",
+    "respuesta": "Porque es posible que hayan perdido su solidez.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 15 (Hoja 8)",
+    "apartado": "PT03 amianto · 5. Riesgos › Medidas preventivas propuestas en la evaluación de riesgos"
   },
   {
-    "id": "CPEI-T40-S06-3386B06D21",
+    "id": "CPEI-T40-PT03-040",
     "orden": 660,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Además, como consecuencia de los incendios, terremotos, o simplemente por el deterioro»?",
-    "respuesta": "Además, como consecuencia de los incendios, terremotos, o simplemente por el deterioro con el paso del tiempo, las estructuras colapsan y se producen derrumbamientos que conllevan desprendimientos de fibras de amianto como consecuencia de la rotura de los MCA.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 14",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué protección respiratoria mínima establece la evaluación de riesgos y por qué aunque no haya exposición a humos o gases?",
+    "respuesta": "Mascarillas con filtros contra partículas P3 o ERA, porque es posible que haya suspensión de fibras de amianto por exposición a materiales friables a causa del incendio/rescate cuando en su estado inicial no son friables.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 15 (Hoja 8)",
+    "apartado": "PT03 amianto · 5. Riesgos › Medidas preventivas propuestas en la evaluación de riesgos"
   },
   {
-    "id": "CPEI-T40-S06-0347F30FAD",
+    "id": "CPEI-T40-PT03-041",
     "orden": 670,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Las fibras de amianto se liberan a la atmósfera y pueden ser»?",
-    "respuesta": "Las fibras de amianto se liberan a la atmósfera y pueden ser inhaladas por los bomberos o quedar suspendidas en los trajes de intervención, y posteriormente ser desprendidos de nuevo a la at mósfera, vehículos…etc.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 14",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué dos EPI establece el Servicio para trabajos en presencia de amianto (apartado 5)?",
+    "respuesta": "1) Mascarilla autofiltrante FFP3, o mascarillas con filtro contra partículas tipo 3. 2) Traje NBQ de resistencia a la penetración de partículas o fibras de tamaño superior a 3 micras, provisto de capucha y cerrado en tobillos y puños.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 16 (Hoja 9)",
+    "apartado": "PT03 amianto · 5. Riesgos › Medidas preventivas propuestas en la evaluación de riesgos"
   },
   {
-    "id": "CPEI-T40-S06-484CAEAB97",
+    "id": "CPEI-T40-PT03-042",
     "orden": 680,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «En las intervenciones de rescate de víctimas que se encuentren sepultadas o»?",
-    "respuesta": "En las intervenciones de rescate de víctimas que se encuentren sepultadas o acorraladas por escombros o en las que se requiera romper alguna estructura para acceder a la víctima, el ambiente al que se expone el bombero es una atmósfera que puede contener polvos con fibra de amianto como consecuencia de los derrumbamientos/rotura y de la retirada de escombros para rescatar a las víctimas.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 14",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Frente a fibras de qué tamaño debe resistir el traje NBQ y cómo debe ir provisto y cerrado?",
+    "respuesta": "Partículas o fibras de tamaño superior a 3 micras; provisto de capucha y cerrado en tobillos y puños.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 16 (Hoja 9)",
+    "apartado": "PT03 amianto · 5. Riesgos › Medidas preventivas propuestas en la evaluación de riesgos"
   },
   {
-    "id": "CPEI-T40-S06-175BDD0137",
+    "id": "CPEI-T40-PT03-043",
     "orden": 690,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Por ello, en este tipo de actuaciones, el riesgo se encuentra en»?",
-    "respuesta": "Por ello, en este tipo de actuaciones, el riesgo se encuentra en que si la edificación o instala ción afectada contenía MCA estos han podido fragmentarse y encontrarse esparcidos entre el resto de los escombros, existiendo por tanto peligro de inhalación de las fibras de amianto que han pasado a la atmósfera, o peligro de manipulación directa del amia nto como parte de los escombros a retirar o por la impregnación de los trajes de intervención y demás equipos utilizados.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 14",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué medios humanos deben designarse previamente a la implantación del PT03?",
+    "respuesta": "Emisorista (E), Mando Responsable de Movilización (MRM), Mando Responsable de Intervención (MRI), Bombero (B) y Conductor (BC).",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 16–17 (Hojas 9–10)",
+    "apartado": "PT03 amianto · 6. Medios humanos"
   },
   {
-    "id": "CPEI-T40-S06-A41F21809B",
+    "id": "CPEI-T40-PT03-044",
     "orden": 700,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Se debe señalar, que en las tareas de intervención/rescate, está excluida cualquier»?",
-    "respuesta": "Se debe señalar, que en las tareas de intervención/rescate, está excluida cualquier retirada de elementos no imprescindibles para el a cceso a la víctima o desplazamiento durante la intervención, no estando incluida en la actividad del CPEI, la retirada y gestión de residuos procedentes de la instalación donde se intervenga.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 14",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué funciones tiene el emisorista (E) en el PT03?",
+    "respuesta": "Transmitir la información de la intervención a las dotaciones de los parques, recabando si es posible en la primera solicitud de información la existencia en el lugar de estructuras con fibrocemento; generar con el programa informático la ruta de acceso; y facilitar a las dotaciones toda la información que se genere y se transmita a la Central, específicamente si se conoce la existencia de estructuras con amianto.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 16 (Hoja 9)",
+    "apartado": "PT03 amianto · 6. Medios humanos › Emisorista"
   },
   {
-    "id": "CPEI-T40-S06-550F7364DB",
+    "id": "CPEI-T40-PT03-045",
     "orden": 710,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Los riesgos específicos a los que los trabajadores pueden estar expuestos, de»?",
-    "respuesta": "Los riesgos específicos a los que los trabajadores pueden estar expuestos, de acuerdo con la evaluación previa realizada.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 14",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Según qué protocolo actúa el emisorista y bajo la supervisión de quién?",
+    "respuesta": "Según el Protocolo de movilización y comunicación del CPEI y bajo la supervisión del Mando Responsable de la Movilización (MRM).",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 16 (Hoja 9)",
+    "apartado": "PT03 amianto · 6. Medios humanos › Emisorista"
   },
   {
-    "id": "CPEI-T40-S06-314B197E2E",
+    "id": "CPEI-T40-PT03-046",
     "orden": 720,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Riesgo Grado Consecuencias del riesgo Exposición a materiales friables a causa del»?",
-    "respuesta": "Riesgo Grado Consecuencias del riesgo Exposición a materiales friables a causa del incendio cuando en su estado inicial son no friables (material que pueda sufrir roturas, ya sea de forma voluntaria o fortuita (derrumbamiento).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 14",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Quiénes pueden ser Mando Responsable de la Movilización (MRM)?",
+    "respuesta": "Jefe de Guardia, Suboficial, Oficial.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 16 (Hoja 9)",
+    "apartado": "PT03 amianto · 6. Medios humanos › Mando Responsable de Movilización"
   },
   {
-    "id": "CPEI-T40-S06-FBC8CE3C72",
+    "id": "CPEI-T40-PT03-047",
     "orden": 730,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Riesgo notable Inhalación/absorción de fibras de amianto»?",
-    "respuesta": "Riesgo notable Inhalación/absorción de fibras de amianto.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 14",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué funciones tiene el Mando Responsable de la Movilización (MRM)?",
+    "respuesta": "Validar la movilización inicial de las dotaciones al lugar de la intervención, valorando en todo momento el apoyo y desmovilización según la información que le vaya transmitiendo el MRI. Siempre actuará según el Protocolo de movilización y comunicación del CPEI.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 16 (Hoja 9)",
+    "apartado": "PT03 amianto · 6. Medios humanos › Mando Responsable de Movilización"
   },
   {
-    "id": "CPEI-T40-S06-E763C9E0A6",
+    "id": "CPEI-T40-PT03-048",
     "orden": 740,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Posible exposición a agentes químicos en el entorno, en trabajos en presencia»?",
-    "respuesta": "Posible exposición a agentes químicos en el entorno, en trabajos en presencia de materiales Riesgo notable Inhalación/absorción de fibras de amianto.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 14",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Quiénes pueden ser Mando Responsable de la Intervención (MRI)?",
+    "respuesta": "Oficial, Suboficial, Sargento, Cabo, Bombero.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 16 (Hoja 9)",
+    "apartado": "PT03 amianto · 6. Medios humanos › Mando Responsable de Intervención"
   },
   {
-    "id": "CPEI-T40-S06-17E86C46BB",
+    "id": "CPEI-T40-PT03-049",
     "orden": 750,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 8 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 8 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ conteniendo amianto, polvo procedente de estructuras dañadas.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 15",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Quién asume la función de MRI en una intervención?",
+    "respuesta": "El efectivo de mayor rango de los presentes, según el Protocolo de Movilización vigente del CPEI-Badajoz; debe estar presente en el lugar de la intervención.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 16–17 (Hojas 9–10)",
+    "apartado": "PT03 amianto · 6. Medios humanos › Mando Responsable de Intervención"
   },
   {
-    "id": "CPEI-T40-S06-FEE44EBB22",
+    "id": "CPEI-T40-PT03-050",
     "orden": 760,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Posible manipulación de material con contenido en amianto en trabajos en presencia»?",
-    "respuesta": "Posible manipulación de material con contenido en amianto en trabajos en presencia de materiales conteniendo amianto, polvo procedente de derribo y otras causas.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 15",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué funciones tiene el MRI según el apartado de medios humanos?",
+    "respuesta": "Valorar inicialmente la situación (si existe posible presencia de elementos con amianto y si las operaciones pueden generar partículas de material friable); ordenar la aplicación de las normas si procede; supervisar antes de iniciar la actividad la correcta colocación de los equipos de protección y la planificación del trabajo con la herramienta adecuada; y actuar, si es el caso, en todo el proceso como recurso preventivo. Siempre según el Protocolo de movilización y comunicación del CPEI.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 17 (Hoja 10)",
+    "apartado": "PT03 amianto · 6. Medios humanos › Mando Responsable de Intervención"
   },
   {
-    "id": "CPEI-T40-S06-C4A90A695B",
+    "id": "CPEI-T40-PT03-051",
     "orden": 770,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Posible utilización de EPI´s inadecuado al tipo de intervención (presencia de fibra»?",
-    "respuesta": "Posible utilización de EPI´s inadecuado al tipo de intervención (presencia de fibra de amianto) Riesgo notable Inhalación/absorción de fibras de amianto.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 15",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué funciones tienen el Bombero (B) y el Conductor (BC) en el PT03?",
+    "respuesta": "Bombero: llevar a cabo las labores requeridas según el tipo de intervención (rescate o extinción), teniendo en cuenta las normas del procedimiento. Conductor: conducción de los vehículos movilizados (circulación durante el itinerario, señalización, estacionamiento, conexión de bomba si es necesario), teniendo en cuenta las normas del procedimiento.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 17 (Hoja 10)",
+    "apartado": "PT03 amianto · 6. Medios humanos › Bombero y Conductor"
   },
   {
-    "id": "CPEI-T40-S06-4A94985163",
+    "id": "CPEI-T40-PT03-052",
     "orden": 780,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Posible manipulación de equipos de trabajo, epi´s, vestu ario contaminado con fibras»?",
-    "respuesta": "Posible manipulación de equipos de trabajo, epi´s, vestu ario contaminado con fibras de amianto de forma inadecuada Riesgo notable Inhalación/absorción de fibras de amianto.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 15",
-    "apartado": "PT03 amianto"
+    "concepto": "Si se determina que la intervención está afectada por posible amianto friable, ¿quién se suma siempre a la dotación y qué funciones asume?",
+    "respuesta": "El Sargento de Guardia, haciendo especial seguimiento al cumplimiento del protocolo y asumiendo las funciones de Recurso preventivo.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 17 (Hoja 10)",
+    "apartado": "PT03 amianto · 6. Medios humanos"
   },
   {
-    "id": "CPEI-T40-S06-98A7702F5E",
+    "id": "CPEI-T40-PT03-053",
     "orden": 790,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Aun no existiendo exposición a humos o gases ya que es posible»?",
-    "respuesta": "Aun no existiendo exposición a humos o gases ya que es posible que haya suspensión de fibras de amianto por exposición a materiales friables a causa del incendio/rescate cuando en su estado inicial no son friables.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 15",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cuál es la dotación mínima en una intervención afectada por posible amianto friable?",
+    "respuesta": "2 binomios.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 17 (Hoja 10)",
+    "apartado": "PT03 amianto · 6. Medios humanos"
   },
   {
-    "id": "CPEI-T40-S06-B5C0319A20",
+    "id": "CPEI-T40-PT03-054",
     "orden": 800,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 9 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 9 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 16",
-    "apartado": "PT03 amianto"
+    "concepto": "Según la guía técnica del RD 396/2006, ¿qué EPI deben emplearse en actividades con riesgo de exposición al amianto?",
+    "respuesta": "1) Trajes de tipo 5, herméticos a la penetración de partículas sólidas (de un único uso, con capucha y cubrebotas del mismo tipo de protección). 2) Guantes de nitrilo desechables. 3) Máscara facial con adaptador de filtros del tipo P3 / mascarillas P3 (FP3).",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 17–18 (Hojas 10–11)",
+    "apartado": "PT03 amianto · 7.1. Equipo de protección individual"
   },
   {
-    "id": "CPEI-T40-S06-48E17096A0",
+    "id": "CPEI-T40-PT03-055",
     "orden": 810,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Haga uso de los EPI indicados en las instrucciones precisas de seguridad»?",
-    "respuesta": "Haga uso de los EPI indicados en las instrucciones precisas de seguridad establecidas por el Servicio para los trabajos en presencia de amianto. 1.- Mascarilla autofiltrante FFP3 , o mascarillas con filtro contra partículas tipo 3 2.- Traje NBQ de resistencia a la penetr ación de partículas o fibras de tamaño superior a 3 micras, provisto de capucha y cerrado en tobillos y puños.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 16",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué características tiene el traje de tipo 5 y qué debe incorporar para proteger toda la superficie corporal?",
+    "respuesta": "Es de un único uso y por tanto desechable; para proteger toda la superficie corporal ante la deposición de fibras de amianto debe incorporar capucha y estar acompañado por un cubrebotas del mismo tipo de protección.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 18 (Hoja 11)",
+    "apartado": "PT03 amianto · 7.1. Equipo de protección individual"
   },
   {
-    "id": "CPEI-T40-S06-8D58F7B2AE",
+    "id": "CPEI-T40-PT03-056",
     "orden": 820,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «En el presente procedimiento se definen las instrucciones precisas de seguridad establecidas»?",
-    "respuesta": "En el presente procedimiento se definen las instrucciones precisas de seguridad establecidas por el CPEI, para la ejecución de actividades con posible presencia de materiales con amianto friable. 6.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 16",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Por qué la utilización por los bomberos del conjunto de EPI de la guía técnica está considerablemente limitada?",
+    "respuesta": "Debido al resto de riesgos directos presentes en las intervenciones de los bomberos (acción de las llamas, riesgos mecánicos, etc.), siendo en ocasiones difícilmente compatibles.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 18 (Hoja 11)",
+    "apartado": "PT03 amianto · 7.1. Equipo de protección individual"
   },
   {
-    "id": "CPEI-T40-S06-86433EC223",
+    "id": "CPEI-T40-PT03-057",
     "orden": 830,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Siempre actuará según lo establecido en el P rotocolo de movilización y»?",
-    "respuesta": "Siempre actuará según lo establecido en el P rotocolo de movilización y comunicación del CPEI y bajo la supervisión del Mando Responsable de la Movilización (MRM).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 16",
-    "apartado": "PT03 amianto"
+    "concepto": "¿De qué materiales se fabrican fundamentalmente los monos de tipo 5 y qué caracteriza a los de polietileno?",
+    "respuesta": "Fundamentalmente polietileno y polipropileno. Los de polietileno suelen incorporar una lámina de polipropileno y se caracterizan por su baja transpirabilidad y su bajo desprendimiento de fibras.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 18 (Hoja 11)",
+    "apartado": "PT03 amianto · 7.1. Equipo de protección individual"
   },
   {
-    "id": "CPEI-T40-S06-7C5C25FB5F",
+    "id": "CPEI-T40-PT03-058",
     "orden": 840,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «El Mando Responsable de la Movilización (MRM) se encargará de validar la»?",
-    "respuesta": "El Mando Responsable de la Movilización (MRM) se encargará de validar la movilización inicial de las dotaciones al lugar de la intervención, valorando en todo momento el apoyo y desmovilización de las mismas según la información que le vaya transmitiendo el MRI (Mando Responsable de la Intervención).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 16",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué inconveniente tiene usar el mono tipo 5 bajo el traje de intervención o de rescate técnico?",
+    "respuesta": "Puede suponer un factor añadido de cansancio y sudoración durante una intervención en la que el trabajador ya está expuesto a un alto desgaste físico.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 18 (Hoja 11)",
+    "apartado": "PT03 amianto · 7.1. Equipo de protección individual"
   },
   {
-    "id": "CPEI-T40-S06-8EE9CC8068",
+    "id": "CPEI-T40-PT03-059",
     "orden": 850,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Siempre actuará según lo establecido en el Protocolo de movilización y comunicación»?",
-    "respuesta": "Siempre actuará según lo establecido en el Protocolo de movilización y comunicación del CPEI.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 16",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué equipos forman parte del equipo básico de todos los integrantes del CPEI y deben llevarse en todas las salidas (dotación de EPI)?",
+    "respuesta": "1) Buzo de protección/termo capuz tipo 5 impermeable a partículas (UNE-EN ISO 13982-1:2005). 2) Guantes de nitrilo desechables. 3) Media máscara (3M) con filtros contra partículas tipo P3, desechables. 4) Gafas de protección contra proyecciones de partículas de montura universal. 5) ERA de circuito abierto (ERACA) de aire comprimido con máscara completa (UNE-EN 137). 6) Trajes de nivel de intervención o rescate técnico (según intervención). 7) Bota de intervención (UNE-EN 15090, Tipo 2), suela y puntera reforzada. 8) Guantes de intervención de protección para bomberos (UNE-EN 659) o de rescate técnico según proceda.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 18–19 (Hojas 11–12)",
+    "apartado": "PT03 amianto · 7.1 › Dotación de EPI´s"
   },
   {
-    "id": "CPEI-T40-S06-E1B8503B38",
+    "id": "CPEI-T40-PT03-060",
     "orden": 860,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «El Mando Responsable de la Intervención (MRI) será el responsable de la»?",
-    "respuesta": "El Mando Responsable de la Intervención (MRI) será el responsable de la int ervención, estando presente en el lugar de la intervención.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 16",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué normas cita el PT03 para el buzo tipo 5, el ERACA con máscara completa, la bota de intervención y los guantes de intervención de bombero?",
+    "respuesta": "Buzo tipo 5: UNE-EN ISO 13982-1:2005 (ropa de protección contra partículas sólidas, categoría III). ERACA con máscara completa: UNE-EN 137. Bota de intervención: UNE-EN 15090, Tipo 2. Guantes de intervención: UNE-EN 659.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 18–19 (Hojas 11–12)",
+    "apartado": "PT03 amianto · 7.1 › Dotación de EPI´s"
   },
   {
-    "id": "CPEI-T40-S06-D7D8FB2A89",
+    "id": "CPEI-T40-PT03-061",
     "orden": 870,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Esta función la llevará a cabo, el efectivo de»?",
-    "respuesta": "Esta función la llevará a cabo, el efectivo de",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 16",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué se hace con los filtros P3 desechables de la media máscara tras su uso?",
+    "respuesta": "Posteriormente se retirarán y serán gestionados como residuos de amianto.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 18 (Hoja 11)",
+    "apartado": "PT03 amianto · 7.1 › Dotación de EPI´s"
   },
   {
-    "id": "CPEI-T40-S06-E775914401",
+    "id": "CPEI-T40-PT03-062",
     "orden": 880,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 10 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 10 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ mayor rango de los presentes según lo establecido en el Protocolo de Movilización vigente del CPEI -Badajoz.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 17",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Quién revisa los EPI y el material de desinfección, y con qué periodicidad?",
+    "respuesta": "Diariamente, cada bombero es responsable de revisar el correcto estado de sus EPI (revisión diaria). El Jefe de Turno revisa diariamente la existencia en todos los vehículos del material de desinfección indicado en el procedimiento, junto con una caja de guantes de vinilo.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 19 (Hoja 12)",
+    "apartado": "PT03 amianto · 7.1 › Revisión de EPI´s"
   },
   {
-    "id": "CPEI-T40-S06-A873BFBD94",
+    "id": "CPEI-T40-PT03-063",
     "orden": 890,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Siempre actuará según lo establecido en e l Protocolo de movilización y»?",
-    "respuesta": "Siempre actuará según lo establecido en e l Protocolo de movilización y comunicación del CPEI.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 17",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué equipamiento debe usar el personal de apoyo cuyo cometido no implique la permanencia en atmósfera (segunda actividad)?",
+    "respuesta": "El mismo equipamiento indicado anteriormente, principalmente protección respiratoria, buzo tipo 5, guantes de protección y gafas; deben tenerlo a su alcance en todo momento por si son movilizados por el Jefe de Guardia tras la activación del procedimiento de amianto.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 19 (Hoja 12)",
+    "apartado": "PT03 amianto · 7.1 › Dotación de EPI´s personal apoyo intervención"
   },
   {
-    "id": "CPEI-T40-S06-B98C82FF67",
+    "id": "CPEI-T40-PT03-064",
     "orden": 900,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Valorará inicialmente la situación (si existe posible presencia de elementos que contengan»?",
-    "respuesta": "Valorará inicialmente la situación (si existe posible presencia de elementos que contengan amianto, y las operaciones a desarrollar puedan hacer que se generen partículas de material friable), ordenará l a aplicación de las presentes normas si procede, supervisando antes de iniciar la actividad la correcta colocación de los equipos de protección, y la planificación del trabajo utilizando la herramienta adecuada actuando si es el caso en todo el proceso como recurso preventivo.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 17",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué es la «dotación equipos amianto» y cuándo debe llevarse?",
+    "respuesta": "Se dispone en el parque y contiene los elementos indicados de material en vehículo (fase limpieza gruesa en intervención); debe introducirse siempre en todas las salidas de vehículo.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 19 (Hoja 12)",
+    "apartado": "PT03 amianto · 7.2.1. Materiales e instalaciones necesarios (revisión diaria)"
   },
   {
-    "id": "CPEI-T40-S06-9D3D64BD48",
+    "id": "CPEI-T40-PT03-065",
     "orden": 910,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «BOMBERO El Bombero (B) llevará a cabo las labores requeridas según el»?",
-    "respuesta": "BOMBERO El Bombero (B) llevará a cabo las labores requeridas según el tipo de intervención (rescate o extinción), teniendo en cuenta las normas establecidas en el presente procedimiento.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 17",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué material debe llevar el vehículo para la fase de limpieza gruesa en intervención?",
+    "respuesta": "1) Guantes de nitrilo. 2) Mascarillas con filtros contra partículas tipo P3 (filtros desechables, gestionados como residuos de amianto). 3) Mascarillas P3 (FP3). 4) Lona de zona sucia. 5) Bolsas de plástico. 6) Identificación de material con amianto. 7) Bayeta. 8) Tijeras.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 19–20 (Hojas 12–13)",
+    "apartado": "PT03 amianto · 7.2.1. Materiales e instalaciones necesarios (revisión diaria) › Material en vehículo"
   },
   {
-    "id": "CPEI-T40-S06-7A96A1E1C3",
+    "id": "CPEI-T40-PT03-066",
     "orden": 920,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «CONDUCTOR El Conductor (BC) se encargará de la conducción de los vehículos»?",
-    "respuesta": "CONDUCTOR El Conductor (BC) se encargará de la conducción de los vehículos movilizados (circulación durante el itinerario, señalización, estacionamiento, conexión de bomba si es necesario) según el tipo de intervención, teniendo en cuenta las normas establecidas en el presente procedimiento.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 17",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué material debe haber en las duchas-vestuarios del parque para la fase de descontaminación?",
+    "respuesta": "Duchas de agua caliente y fría; contenedor de residuos con bolsa identificada con amianto; material fungible para la descontaminación (gel de ducha, cepillos de uñas, artículos de aseo, etc.); cinta adhesiva; ropa de muda limpia; bolsas de plástico.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 20 (Hoja 13)",
+    "apartado": "PT03 amianto · 7.2.1. Materiales e instalaciones necesarios (revisión diaria) › Material en parque"
   },
   {
-    "id": "CPEI-T40-S06-BD765C4706",
+    "id": "CPEI-T40-PT03-067",
     "orden": 930,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «La movilización de medios humano, siempre estar á en consonancia con el»?",
-    "respuesta": "La movilización de medios humano, siempre estar á en consonancia con el Protocolo de Movilización del CPEI, teniendo en cuenta que el caso de determinar que la intervención esta afectada por la posible existencia de amianto friable, el Sargento de Guardia siempre se sumará a la dotación, haciendo esp ecial seguimiento al cumplimiento del presente protocolo y asumiendo las funciones de Recurso preventivo y la dotación mínima será de 2 binomios. 7.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 17",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cuántas taquillas tiene cada trabajador y cómo se distribuyen?",
+    "respuesta": "Dos: una para la ropa de calle y otra para la de trabajo, convenientemente separadas entre sí por la zona de duchas. La ropa de calle se deja en el «vestuario limpio» y la de trabajo en el «vestuario sucio».",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 20 (Hoja 13)",
+    "apartado": "PT03 amianto · 7.2.1. Materiales e instalaciones necesarios (revisión diaria) › Material en parque"
   },
   {
-    "id": "CPEI-T40-S06-EBCB742373",
+    "id": "CPEI-T40-PT03-068",
     "orden": 940,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Trajes de tipo 5: herméticos a la penetración de partículas sólidas, se»?",
-    "respuesta": "Trajes de tipo 5: herméticos a la penetración de partículas sólidas, se debe prestar especial atención a las indicaciones de uso que proponga su fabricante (INSHT,",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 17",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué material debe haber en la zona lavadero?",
+    "respuesta": "Aspirador portátil de alta eficacia (AS 30-PRO), que se trasladará desde base por segunda actividad o personal designado por el Jefe de Guardia; bayeta microfibra; jabón neutro; bolsas de plástico; flight-case con identificador de amianto.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 20 (Hoja 13)",
+    "apartado": "PT03 amianto · 7.2.1. Materiales e instalaciones necesarios (revisión diaria) › Zona lavadero"
   },
   {
-    "id": "CPEI-T40-S06-32D2BBBF20",
+    "id": "CPEI-T40-PT03-069",
     "orden": 950,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 11 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 11 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ 2008).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 18",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué material está disponible para trasladar al emplazamiento de la intervención y al parque?",
+    "respuesta": "Aspirador portátil de alta eficacia AS 30-PRO y flight-case para traslado de material contaminado y desechos, con identificador de amianto.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 21 (Hoja 14)",
+    "apartado": "PT03 amianto · 7.2.1. Materiales e instalaciones necesarios (revisión diaria) › Material para traslado"
   },
   {
-    "id": "CPEI-T40-S06-4B84951CA2",
+    "id": "CPEI-T40-PT03-070",
     "orden": 960,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Este EPI es de un único uso y por tanto desechable y»?",
-    "respuesta": "Este EPI es de un único uso y por tanto desechable y para que proteja toda la superficie corporal ante la deposición de fibras de amianto, deberá incorporar capucha y estar acompañado por un cubre botas del mismo tipo de protección.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 18",
-    "apartado": "PT03 amianto"
+    "concepto": "¿De qué sistema dispone la lavandería central para las aguas de lavado y cómo se trata su filtro?",
+    "respuesta": "Sistema de desagüe adaptado para que todas las aguas de limpieza y lavado de los equipos utilizados en la intervención pasen por el sistema de filtrado instalado, para captar las posibles fibras. El filtro de captación se tratará posteriormente como residuo con contenido de amianto.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 21 (Hoja 14)",
+    "apartado": "PT03 amianto · 7.2.1. Materiales e instalaciones necesarios (revisión diaria) › Lavandería central"
   },
   {
-    "id": "CPEI-T40-S06-F5A363228B",
+    "id": "CPEI-T40-PT03-071",
     "orden": 970,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Máscara facial con adaptador de filtros del tipo P3/ mascarillas P3 (FP3)»?",
-    "respuesta": "Máscara facial con adaptador de filtros del tipo P3/ mascarillas P3 (FP3).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 18",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cómo se tratan los equipos desechables tras la actuación?",
+    "respuesta": "Los residuos generados (EPI desechables, plásticos, filtros, etc.) serán encapsulados y etiquetados, para posteriormente ser tratados por un gestor autorizado de residuos.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 21 (Hoja 14)",
+    "apartado": "PT03 amianto · 7.2.2. Tratamiento de equipos"
   },
   {
-    "id": "CPEI-T40-S06-F239A40385",
+    "id": "CPEI-T40-PT03-072",
     "orden": 980,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «La utilización por parte de los bomberos de este conjunto de EPI»?",
-    "respuesta": "La utilización por parte de los bomberos de este conjunto de EPI, se ve considerablemente limitada debido al resto de riesgos directos presentes en las intervenciones que realizan los bomberos (acción de las llamas, riesgos mecánicos…etc), siendo en ocasiones difícilmente compatibles.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 18",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cómo se tratan los equipos no desechables y auxiliares?",
+    "respuesta": "Tratamiento de descontaminación en la propia intervención, encapsulado y etiquetado para su posterior tratamiento en parque o lavandería central (todos los EPI).",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 21 (Hoja 14)",
+    "apartado": "PT03 amianto · 7.2.2. Tratamiento de equipos"
   },
   {
-    "id": "CPEI-T40-S06-FBD8F8BBE7",
+    "id": "CPEI-T40-PT03-073",
     "orden": 990,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Debemos señalar, que los monos de tipo 5 protegen ante la penetración»?",
-    "respuesta": "Debemos señalar, que los monos de tipo 5 protegen ante la penetración de partículas sólidas, utilizándose para ello diferentes métodos de tejido y materiales fundamentalmente el polietileno y el polipropileno.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 18",
-    "apartado": "PT03 amianto"
+    "concepto": "Antes de la intervención, ¿qué debe garantizarse como mínimo respecto a vehículos, EPI, materiales y herramientas?",
+    "respuesta": "Que hayan sido revisados según la Revisión de material del CPEI y registrados en el Parte de revisión diaria.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 22 (Hoja 15)",
+    "apartado": "PT03 amianto · 8. Tareas a realizar previas a la intervención"
   },
   {
-    "id": "CPEI-T40-S06-3B848D2E93",
+    "id": "CPEI-T40-PT03-074",
     "orden": 1000,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «El uso de este equipo, bajo el traje de intervención o de»?",
-    "respuesta": "El uso de este equipo, bajo el traje de intervención o de rescate técnico puede suponer un factor añadido de cansancio y sudoración durante una intervención, en la que ya el trabajador está expuesto a un alto desgaste físico por la propia realización de la intervención.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 18",
-    "apartado": "PT03 amianto"
+    "concepto": "Antes de la intervención, ¿en qué estado físico debe encontrarse el personal?",
+    "respuesta": "En perfecto estado, hidratados, habiendo tomado alimentos nutritivos sin comidas copiosas, sin haber ingerido alcohol y descansados.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 22 (Hoja 15)",
+    "apartado": "PT03 amianto · 8. Tareas a realizar previas a la intervención"
   },
   {
-    "id": "CPEI-T40-S06-FBDA3D7E0C",
+    "id": "CPEI-T40-PT03-075",
     "orden": 1010,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Por todo lo expuesto, se plantean varias alternativas par a la selección»?",
-    "respuesta": "Por todo lo expuesto, se plantean varias alternativas par a la selección de EPI´s, dependiendo de la intervención que se vaya a desarrollar, con objeto de obtener el mayor nivel de protección posible del trabajador, tanto de los riesgos inherentes al tipo de intervención, como a la posible exposición a fibras de amianto.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 18",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué debe conocer el personal y haberse definido al inicio de la guardia?",
+    "respuesta": "Las funciones a realizar en la intervención por el personal del turno de guardia (dirección, abastecimiento de agua, binomio de extinción, binomio de rescate, binomio de SOS-Apoyo y logística…).",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 22 (Hoja 15)",
+    "apartado": "PT03 amianto · 8. Tareas a realizar previas a la intervención"
   },
   {
-    "id": "CPEI-T40-S06-AC0DAAD344",
+    "id": "CPEI-T40-PT03-076",
     "orden": 1020,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Buzo de protección/termo capuz, tipo 5 impermeables a partículas (UNE-EN ISO 13982-1:2005»?",
-    "respuesta": "Buzo de protección/termo capuz, tipo 5 impermeables a partículas (UNE-EN ISO 13982-1:2005.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 18",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué dos tipos de intervenciones define el PT03 en las que pueden generarse operaciones con material con amianto friable?",
+    "respuesta": "1) Intervenciones con presencia de incendio. 2) Intervenciones sin presencia de incendio que requieran manipulación de material friable o rotura de material no friable que pueda transformarse en friable.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 22 (Hoja 15)",
+    "apartado": "PT03 amianto · 9. Procedimiento de trabajo con posible presencia de fibras de amianto friable"
   },
   {
-    "id": "CPEI-T40-S06-60C1ECC50A",
+    "id": "CPEI-T40-PT03-077",
     "orden": 1030,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Media mascara (3M) dotadas con filtros contra partículas tipo P3, con filtros»?",
-    "respuesta": "Media mascara (3M) dotadas con filtros contra partículas tipo P3, con filtros desechables que posteriormente se retirarán y serán gestionados como residuos de amianto.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 18",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Puede modificarse el PT03 durante la intervención?",
+    "respuesta": "De forma general queda prohibido. Solo de manera excepcional el MRI, basándose en su formación y experiencia, puede introducir modificaciones, sin dejar de cumplir las medidas de seguridad exigidas, disponiendo siempre del número imprescindible de efectivos y sin que en ningún caso supongan un aumento del riesgo para los intervinientes.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 22 (Hoja 15)",
+    "apartado": "PT03 amianto · 9. Procedimiento de trabajo con posible presencia de fibras de amianto friable"
   },
   {
-    "id": "CPEI-T40-S06-F11374E034",
+    "id": "CPEI-T40-PT03-078",
     "orden": 1040,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 12 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 12 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 19",
-    "apartado": "PT03 amianto"
+    "concepto": "Si el MRI introduce modificaciones al procedimiento, ¿dónde deben reflejarse y con qué objeto?",
+    "respuesta": "Finalizada la intervención, las circunstancias que han llevado a tomar nuevas decisiones y su resolución se reflejan en el Parte de intervención correspondiente, para determinar su adecuación o la posible necesidad de modificar el procedimiento.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 22 (Hoja 15)",
+    "apartado": "PT03 amianto · 9. Procedimiento de trabajo con posible presencia de fibras de amianto friable"
   },
   {
-    "id": "CPEI-T40-S06-D60EDB8A5D",
+    "id": "CPEI-T40-PT03-079",
     "orden": 1050,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Trajes de nivel de intervención o rescate técnico (según intervención)»?",
-    "respuesta": "Trajes de nivel de intervención o rescate técnico (según intervención).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 19",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cuáles son las fases de la intervención en que se estructura el procedimiento del apartado 9?",
+    "respuesta": "Fase cero: aviso y activación de los servicios de emergencia. Fase 1: aproximación, valoración inicial y ubicación de vehículos. Fase 2: intervención. Fase 3: fin de la intervención, limpieza gruesa in situ. Fase 4: llegada al parque. Fase 5: restitución de la normalidad.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 23, 25, 31, 32, 37, 41 (Hojas 16, 18, 24, 25, 30, 34)",
+    "apartado": "PT03 amianto · 9. Procedimiento de trabajo con posible presencia de fibras de amianto friable"
   },
   {
-    "id": "CPEI-T40-S06-1284A067E3",
+    "id": "CPEI-T40-PT03-080",
     "orden": 1060,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Bota de intervención: (UNE-EN 15090, Tipo 2) suela y puntera reforzada»?",
-    "respuesta": "Bota de intervención: (UNE-EN 15090, Tipo 2) suela y puntera reforzada.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 19",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Por qué vías tiene entrada generalmente el aviso a la CECOB?",
+    "respuesta": "1) Desde el Centro de Atención de Urgencias y Emergencias 1-1-2 Extremadura, a través de la llamada telefónica del Técnico Sectorial de Incendios. 2) Desde la línea telefónica propia del CPEI (emergencias 085), en la que un particular o empresa llama a la Central. 3) Desde un parque de bomberos del CPEI vía radio o teléfono. 4) Desde una central o personal operativo de un Cuerpo y Fuerza de Seguridad del Estado (Policía Local, Policía Nacional y/o Guardia Civil). 5) Desde la aplicación SOS Emergencias a través de un móvil o tablet.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 23 (Hoja 16)",
+    "apartado": "PT03 amianto · 9.1. Fase cero. Aviso y activación de los servicios de emergencia"
   },
   {
-    "id": "CPEI-T40-S06-BCE08C0BD0",
+    "id": "CPEI-T40-PT03-081",
     "orden": 1070,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Guantes de intervención de protección para bomberos (UNE -EN 659) o rescate»?",
-    "respuesta": "Guantes de intervención de protección para bomberos (UNE -EN 659) o rescate técnico según proceda.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 19",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cuál es el número de emergencias de la línea telefónica propia del CPEI?",
+    "respuesta": "085.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 23 (Hoja 16)",
+    "apartado": "PT03 amianto · 9.1. Fase cero. Aviso y activación de los servicios de emergencia"
   },
   {
-    "id": "CPEI-T40-S06-5E87F908DA",
+    "id": "CPEI-T40-PT03-082",
     "orden": 1080,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Diariamente: cada bombero será responsable de revisar el correcto estado de sus»?",
-    "respuesta": "Diariamente: cada bombero será responsable de revisar el correcto estado de sus EPi´s, mediante las tareas de revisión diaria de los mismo.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 19",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Por qué medios hace llegar la CECOB el aviso a la dotación de los parques?",
+    "respuesta": "Vía radio (preferentemente) o vía telefónica.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 23 (Hoja 16)",
+    "apartado": "PT03 amianto · 9.1. Fase cero. Aviso y activación de los servicios de emergencia"
   },
   {
-    "id": "CPEI-T40-S06-C01FB89BA3",
+    "id": "CPEI-T40-PT03-083",
     "orden": 1090,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Jefe Turno: revisión diaria de existencia en todos los vehículos, del material»?",
-    "respuesta": "Jefe Turno: revisión diaria de existencia en todos los vehículos, del material de desinfección indicados en el presente procedimiento, junto con caja de guantes de vinilo.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 19",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cómo pueden recibir los parques el aviso directamente y quién debe pasar la información a la CECOB?",
+    "respuesta": "Vía telefónica (de un particular o de cualquier empresa u organismo público o privado) o presencial (el alertante se persona en el parque). La información la pasa a la CECOB el Jefe de turno, según el Protocolo de Movilización del CPEI vigente.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 24 (Hoja 17)",
+    "apartado": "PT03 amianto · 9.1. Fase cero. Aviso y activación de los servicios de emergencia"
   },
   {
-    "id": "CPEI-T40-S06-6B5AAF5CA6",
+    "id": "CPEI-T40-PT03-084",
     "orden": 1100,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «En aquellos casos que exista personal apoyo cuyo cometido no implique la»?",
-    "respuesta": "En aquellos casos que exista personal apoyo cuyo cometido no implique la permanencia en atmósfera (segunda actividad), deberán hacer uso del mismo equ ipamiento indicado anteriormente, principalmente protección respiratoria, buzo tipo 5, guantes de protección y gafas, por lo que deberán disponer de los mismos a su alcance, en todo momento, por si son movilizados por el Jefe de Guardia en una intervención , tras activación del procedimiento de amianto.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 19",
-    "apartado": "PT03 amianto"
+    "concepto": "Cuando el aviso llega al CPEI, ¿con qué dos cuestiones se debe ampliar la información inicial básica?",
+    "respuesta": "1) ¿Se conoce si existe en el lugar de la intervención material con posibilidad de contenido en amianto? (tejados, bajantes y otros elementos de fibrocemento, aislamiento térmico, paneles, linóleo, flocages, falsos techos, calderas, conducciones…). 2) ¿Existe riesgo de desplome de alguna estructura? (¿se ha generado derrumbe de tejados, cubiertas o zonas con aislante térmico —fibrocemento, amianto-vinilo— o existe riesgo de desplome de dichos elementos?).",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 24 (Hoja 17)",
+    "apartado": "PT03 amianto · 9.1. Fase cero. Aviso y activación de los servicios de emergencia"
   },
   {
-    "id": "CPEI-T40-S06-DBF647BC73",
+    "id": "CPEI-T40-PT03-085",
     "orden": 1110,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Se dispondrá en el parque de “dotación equipos amianto”, que contendrán los»?",
-    "respuesta": "Se dispondrá en el parque de “dotación equipos amianto”, que contendrán los elementos indicados, y deberá introducirse siempre en todas las salidas de vehículo.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 19",
-    "apartado": "PT03 amianto"
+    "concepto": "Además de la información habitual, ¿qué datos sobre amianto se trasladan al MRI?",
+    "respuesta": "1) Posible existencia de material con contenido en amianto en el lugar de la intervención. 2) Existencia de derrumbes de estructuras o cubiertas que hayan generado material friable (escombros).",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 25 (Hoja 18)",
+    "apartado": "PT03 amianto · 9.1. Fase cero. Aviso y activación de los servicios de emergencia"
   },
   {
-    "id": "CPEI-T40-S06-0ABDC1B28B",
+    "id": "CPEI-T40-PT03-086",
     "orden": 1120,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 13 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 13 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 20",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Dónde debe quedar reflejada la información obtenida en el aviso y qué se hace después con el alertante?",
+    "respuesta": "En el Parte de la intervención desde la CECOB. Se mantendrá la comunicación con el alertante para ampliar la información posteriormente.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 25 (Hoja 18)",
+    "apartado": "PT03 amianto · 9.1. Fase cero. Aviso y activación de los servicios de emergencia"
   },
   {
-    "id": "CPEI-T40-S06-0884F6D9CB",
+    "id": "CPEI-T40-PT03-087",
     "orden": 1130,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Mascarillas dotadas con filtros contra partículas tipo P3, con filtros desechables que»?",
-    "respuesta": "Mascarillas dotadas con filtros contra partículas tipo P3, con filtros desechables que posteriormente se retirarán y serán gestionados como residuos de amianto.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 20",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cómo se realizan en el PT03 la activación de los servicios de emergencia (fase cero-2) y la aproximación (fase 1-A)?",
+    "respuesta": "Activación: según está establecido para cada tipo de intervención. Aproximación: se activará según el tipo de intervención.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 25 (Hoja 18)",
+    "apartado": "PT03 amianto · 9.1 / 9.2"
   },
   {
-    "id": "CPEI-T40-S06-DDCD6AF2AF",
+    "id": "CPEI-T40-PT03-088",
     "orden": 1140,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Identificación de material con amianto»?",
-    "respuesta": "Identificación de material con amianto.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 20",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué tres actuaciones comprende la fase 1?",
+    "respuesta": "A. Aproximación. B. Valoración inicial. C. Ubicación de vehículos.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 25 (Hoja 18)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos"
   },
   {
-    "id": "CPEI-T40-S06-7E10DA9984",
+    "id": "CPEI-T40-PT03-089",
     "orden": 1150,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Duchas de agua caliente y fría. o Contenedor de residuos con bolsa»?",
-    "respuesta": "Duchas de agua caliente y fría. o Contenedor de residuos con bolsa identificada con amianto: o Material fungible para la descontaminación de los trabajadores: gel de ducha, cepillos de uñas, artículos de aseo, etcétera. o Cinta adhesiva. o Ropa de muda limpia. o Bolsas de plástico.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 20",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué análisis añade el MRI al llegar al lugar del siniestro?",
+    "respuesta": "El análisis de la posible existencia de material con contenido en amianto y del riesgo de que este requiera o pueda transformarse en material friable (rotura de estructura, posibilidad de derrumbe, manipulación de escombros con restos de MCA, etc.) durante la intervención.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 26 (Hoja 19)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › B. Valoración inicial › Actuaciones del MRI"
   },
   {
-    "id": "CPEI-T40-S06-C53E11DC92",
+    "id": "CPEI-T40-PT03-090",
     "orden": 1160,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Cada trabajador dispondrá de dos taquillas, una para la ropa de calle»?",
-    "respuesta": "Cada trabajador dispondrá de dos taquillas, una para la ropa de calle y otra para la de trabajo, convenientemente separadas entre sí, por la zona de duchas.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 20",
-    "apartado": "PT03 amianto"
+    "concepto": "Si el MRI decide NO aplicar el procedimiento de amianto, ¿qué debe hacer?",
+    "respuesta": "Indicarlo al terminar la intervención en el parte de intervención SOS.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 26 (Hoja 19)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › B. Valoración inicial › Actuaciones del MRI"
   },
   {
-    "id": "CPEI-T40-S06-93CC327B90",
+    "id": "CPEI-T40-PT03-091",
     "orden": 1170,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Aspirador portátil de alta eficacia (AS 30-PRO) (SE TRASLADARA DESDE BASE POR»?",
-    "respuesta": "Aspirador portátil de alta eficacia (AS 30-PRO) (SE TRASLADARA DESDE BASE POR SEGUNDA ACTIVIDAD O PERSONAL DESIGNADO POR JEFE DE GUARDIA).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 20",
-    "apartado": "PT03 amianto"
+    "concepto": "Si el MRI decide aplicar el procedimiento de amianto, ¿qué dos cosas debe hacer?",
+    "respuesta": "1) Comunicar al Jefe de Guardia la necesidad de ACTIVAR el PROCEDIMIENTO DE AMIANTO. 2) Definir la estrategia de actuación, eligiendo siempre que sea posible la opción que no requiera manipular, romper, etc., material con contenido en amianto.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 26 (Hoja 19)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › B. Valoración inicial › Actuaciones del MRI"
   },
   {
-    "id": "CPEI-T40-S06-7D0BC0F441",
+    "id": "CPEI-T40-PT03-092",
     "orden": 1180,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «FLISGH CASE con identificador de amianto»?",
-    "respuesta": "FLISGH CASE con identificador de amianto.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 20",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué debe hacer el Jefe de Guardia al recibir del MRI la activación del procedimiento de amianto?",
+    "respuesta": "1) Gestionar el traslado de los medios que determine necesarios (personal, aspirador con filtro Hepa, flight-case para traslado de equipos, etc.). 2) Personarse en la intervención, asumiendo la función de Recurso Preventivo. 3) Informar al Jefe de Parque de la puesta en marcha del procedimiento.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 26 (Hoja 19)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › B. Valoración inicial › Actuaciones del Jefe de Guardia"
   },
   {
-    "id": "CPEI-T40-S06-6C689F7361",
+    "id": "CPEI-T40-PT03-093",
     "orden": 1190,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «FLISGH CASE, para traslado de material contaminado y desechos con identificador de»?",
-    "respuesta": "FLISGH CASE, para traslado de material contaminado y desechos con identificador de amianto.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 21",
-    "apartado": "PT03 amianto"
+    "concepto": "Definida la estrategia, ¿qué tres pasos se ejecutan en la ubicación de vehículos (F.1.C)?",
+    "respuesta": "F.1.C.1 Operación de acercamiento. F.1.C.2 Definir zona de descontaminación. F.1.C.3 Colocación de EPI.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 27–28 (Hojas 20–21)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos"
   },
   {
-    "id": "CPEI-T40-S06-7DA59A0980",
+    "id": "CPEI-T40-PT03-094",
     "orden": 1200,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Lavandería central: sistema de desagüe adaptado, para que t odas las aguas»?",
-    "respuesta": "Lavandería central: sistema de desagüe adaptado, para que t odas las aguas derivadas de las operaciones de limp ieza y lavado de equipos utilizados durante la intervención, sean desaguadas de tal forma que pasen por el sistema de filtrado instalado, con objeto de captar las posibles fibras que pudieran existir.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 21",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cómo se ejecutan las operaciones de acercamiento y preparación de material en el procedimiento de amianto?",
+    "respuesta": "Como en cualquier intervención.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 27 (Hoja 20)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.1 Operación de acercamiento"
   },
   {
-    "id": "CPEI-T40-S06-CF07F177C0",
+    "id": "CPEI-T40-PT03-095",
     "orden": 1210,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «El filtro de captación, será tratado posteriormente co mo residuo con contenido»?",
-    "respuesta": "El filtro de captación, será tratado posteriormente co mo residuo con contenido de amianto.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 21",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Quién determina la zona de descontaminación y dónde debe situarse?",
+    "respuesta": "El MRI; en una zona alejada de la posible atmósfera contaminada y del camión, y prepara el material necesario para la posterior descontaminación.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 27 (Hoja 20)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.2 Definir zona de descontaminación"
   },
   {
-    "id": "CPEI-T40-S06-065886A29C",
+    "id": "CPEI-T40-PT03-096",
     "orden": 1220,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Los residuos generados como consecuencia de la actuación, serán encapsulados y etiquetados»?",
-    "respuesta": "Los residuos generados como consecuencia de la actuación, serán encapsulados y etiquetados, para posteriormente ser tratados por un gestor autorizado de residuos (EPi´s desechables, plásticos, filtros…etc).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 21",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué se ubica en la zona de descontaminación?",
+    "respuesta": "1) Lona de material plástico extendida en el suelo («lona de zona sucia») con dos zonas: Lona 1 (zona de limpieza) y Lona 2 (zona de retirada de equipos). 2) Bolsas de plástico con indicativo «contiene material con amianto». 3) Bayetas. 4) EPI necesarios para la posterior descontaminación, ubicados por personal de apoyo junto a la Lona 2.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 28 (Hoja 21)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.2 Definir zona de descontaminación"
   },
   {
-    "id": "CPEI-T40-S06-6212B4AEEF",
+    "id": "CPEI-T40-PT03-097",
     "orden": 1230,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Equipos no desechables y auxiliares : tratamiento de descontaminación, en la propia»?",
-    "respuesta": "Equipos no desechables y auxiliares : tratamiento de descontaminación, en la propia intervención, encapsulado y etiquetado para posterior tratamiento en parque o lavandería central (todos los EPi´s), se gún se establece en el presente procedimiento de actuación.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 21",
-    "apartado": "PT03 amianto"
+    "concepto": "En la zona de descontaminación, ¿qué función tiene la LONA 1 y cuál la LONA 2?",
+    "respuesta": "LONA 1: zona de limpieza. LONA 2: zona de retirada de equipos.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 28 (Hoja 21)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.2 Definir zona de descontaminación"
   },
   {
-    "id": "CPEI-T40-S06-C1275E8A86",
+    "id": "CPEI-T40-PT03-098",
     "orden": 1240,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 15 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 15 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ 8.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 22",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué EPI para la posterior descontaminación coloca el personal de apoyo junto a la LONA 2?",
+    "respuesta": "1) Buzo de protección/termo capuz tipo 5 impermeable a partículas (si no se colocó antes de la intervención). 2) Mascarillas con filtros contra partículas tipo P3 (en el caso de que la intervención requiera uso de ERA). 3) Botas de intervención de sustitución.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 28 (Hoja 21)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.2 Definir zona de descontaminación"
   },
   {
-    "id": "CPEI-T40-S06-04D684E4CD",
+    "id": "CPEI-T40-PT03-099",
     "orden": 1250,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Deberán haber sido revisados según lo expuesto la Revisión de material del»?",
-    "respuesta": "Deberán haber sido revisados según lo expuesto la Revisión de material del CPEI y registrado en el Parte de revisión diaria.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 22",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cómo se realiza la colocación de los EPI y quién hace la supervisión final?",
+    "respuesta": "Por parejas, para asegurar el correcto precintado y colocación de los equipos, con supervisión final por parte del MRI.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 28 (Hoja 21)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.3 Colocación de EPI´s"
   },
   {
-    "id": "CPEI-T40-S06-CD17E77878",
+    "id": "CPEI-T40-PT03-100",
     "orden": 1260,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Deben encontrarse en perfecto estado, hidratados, habiendo tomado alimentos nutritivos sin comidas»?",
-    "respuesta": "Deben encontrarse en perfecto estado, hidratados, habiendo tomado alimentos nutritivos sin comidas copiosas ni haber ingerido alcohol y estando descansados.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 22",
-    "apartado": "PT03 amianto"
+    "concepto": "¿De qué depende qué EPI se colocan y cuáles son los dos momentos posibles de activación del procedimiento?",
+    "respuesta": "Del momento en que se active el procedimiento: 1) desde la información recibida del alertante, antes de la salida del parque; 2) una vez ubicados en el lugar de la intervención.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 28 (Hoja 21)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.3 Colocación de EPI´s"
   },
   {
-    "id": "CPEI-T40-S06-E6B38C1E08",
+    "id": "CPEI-T40-PT03-101",
     "orden": 1270,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Deben conocer y haberse definido al inicio de la guardia las funciones»?",
-    "respuesta": "Deben conocer y haberse definido al inicio de la guardia las funciones a realizar en la intervención del personal del turno de guardia (dirección, abastecimiento de agua, Binom io de extinción, Binomio de rescate, binomio de SOS -Apoyo y logística,...). 9.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 22",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cuándo se aplica la activación del procedimiento desde el parque (C.3.A)?",
+    "respuesta": "Cuando la información aportada por el alertante sea suficiente para decidir que es necesaria la activación, por indicar derrumbe con material de amianto en el punto de intervención, escombros con restos de material con amianto en la zona, etc., siempre que sea intervención de rescate SIN FUEGO.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 29 (Hoja 22)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.3 Colocación de EPI´s › C.3.A Activación del procedimiento desde el parque"
   },
   {
-    "id": "CPEI-T40-S06-2FBD0472A6",
+    "id": "CPEI-T40-PT03-102",
     "orden": 1280,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Se definen dos tipos de intervenciones, en las que se pueden generar»?",
-    "respuesta": "Se definen dos tipos de intervenciones, en las que se pueden generar operaciones con material con amianto friable. ➢ Intervenciones con presencia de incendio. ➢ Intervenciones sin presencia de incendio , que requieran manipulación de material friable o rotura de material no friable que pueda transformarse en friable.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 22",
-    "apartado": "PT03 amianto"
+    "concepto": "En la activación desde el parque (C.3.A), ¿dónde se colocan el buzo tipo 5 y los guantes de nitrilo respecto al traje de intervención?",
+    "respuesta": "Debajo del traje de intervención.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 29 (Hoja 22)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.3 Colocación de EPI´s › C.3.A Activación del procedimiento desde el parque"
   },
   {
-    "id": "CPEI-T40-S06-BA740CE4C8",
+    "id": "CPEI-T40-PT03-103",
     "orden": 1290,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «De forma general, queda prohibida la modificación del presente procedimiento durante la»?",
-    "respuesta": "De forma general, queda prohibida la modificación del presente procedimiento durante la intervención, en el caso que el MRI y de manera excepcional, basándose en su formación y experiencia, determine la necesidad introducir modificaciones, las establecerá sin dejar de cumplir las medidas de seguridad exigidas, disponiendo siempre del número imprescindible de efectivos y no pudiendo en ningún caso dichas modificaciones suponer un aumento del riesgo para los intervinientes.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 22",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cuál es el orden completo de colocación de EPI en la activación desde el parque (C.3.A, rescate sin fuego)? (8 pasos)",
+    "respuesta": "1º Buzo de protección/termo capuz tipo 5 impermeable a partículas, precintado tobillos, con caperuza colocada. 2º Doble guante de nitrilo, precintando las mangas del buzo con los guantes. 3º Traje de rescate técnico. 4º Media máscara con filtros contra partículas tipo P3. 5º Gafas de seguridad herméticas (UNE-EN 166). 6º Casco de rescate técnico (según tipo de intervención de origen). 7º Guantes de excarcelación o trabajo (según proceda) encima de los guantes de nitrilo. 8º Botas de intervención.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 29–30 (Hojas 22–23)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.3 Colocación de EPI´s › C.3.A Activación del procedimiento desde el parque"
   },
   {
-    "id": "CPEI-T40-S06-D97635DCDE",
+    "id": "CPEI-T40-PT03-104",
     "orden": 1300,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Finalizada la intervención, deber án reflejarse las circunstancias que ha llevado a»?",
-    "respuesta": "Finalizada la intervención, deber án reflejarse las circunstancias que ha llevado a tomar nuevas decisiones y su resolución en el Parte de intervención correspondiente, con objeto de determinar su adecuación o la posible necesidad de modificar el presente procedimiento.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 22",
-    "apartado": "PT03 amianto"
+    "concepto": "En C.3.A, ¿cómo debe colocarse el buzo (paso 1º)?",
+    "respuesta": "Buzo de protección/termo capuz tipo 5 impermeable a partículas, precintado en tobillos, con caperuza colocada.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 29 (Hoja 22)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.3 Colocación de EPI´s › C.3.A Activación del procedimiento desde el parque"
   },
   {
-    "id": "CPEI-T40-S06-94C3A405AF",
+    "id": "CPEI-T40-PT03-105",
     "orden": 1310,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «El aviso a la dotación de los parques de bomberos tiene entrada»?",
-    "respuesta": "El aviso a la dotación de los parques de bomberos tiene entrada desde la CECOB que le hará llegar la información vía radio (preferentemente) o vía telefónica.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 23",
-    "apartado": "PT03 amianto"
+    "concepto": "En C.3.A, ¿qué se coloca en el paso 2º y cómo se une al buzo?",
+    "respuesta": "Doble guante de nitrilo, precintando las mangas del buzo con los guantes.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 29 (Hoja 22)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.3 Colocación de EPI´s › C.3.A Activación del procedimiento desde el parque"
   },
   {
-    "id": "CPEI-T40-S06-A70532786F",
+    "id": "CPEI-T40-PT03-106",
     "orden": 1320,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 17 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 17 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ bomberos, también pueden recibir el aviso vía telefónica (procedente de un particular o de cualquier empresa u organismo público o privado) o vía presencial (el alertante se persona en las instalaciones del parque de bomberos).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 24",
-    "apartado": "PT03 amianto"
+    "concepto": "En C.3.A, ¿qué EPI se coloca justo después del traje de rescate técnico (paso 4º) y cuál después (paso 5º)?",
+    "respuesta": "4º Media máscara con filtros contra partículas tipo P3. 5º Gafas de seguridad herméticas (UNE-EN 166).",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 29 (Hoja 22)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.3 Colocación de EPI´s › C.3.A Activación del procedimiento desde el parque"
   },
   {
-    "id": "CPEI-T40-S06-92F8EE27F7",
+    "id": "CPEI-T40-PT03-107",
     "orden": 1330,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Desde el parque se debe pasar la información a la CECOB por»?",
-    "respuesta": "Desde el parque se debe pasar la información a la CECOB por parte del Jefe de turno, según lo establecido en el Protocolo de Movilización del CPEI vigente.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 24",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cómo deben colocarse el buzo y los guantes de nitrilo para evitar vías de penetración de las fibras de amianto?",
+    "respuesta": "De manera que no queden huecos entre ellos: el guante se coloca encima de la manga del mono y se precinta la unión, sellando estas coberturas con cinta adhesiva.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 30 (Hoja 23)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.3 Colocación de EPI´s › C.3.A Activación del procedimiento desde el parque › Nota"
   },
   {
-    "id": "CPEI-T40-S06-E44A4C13CF",
+    "id": "CPEI-T40-PT03-108",
     "orden": 1340,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Información Ejemplo de preguntas a realizar ¿Se conoce si existe en el»?",
-    "respuesta": "Información Ejemplo de preguntas a realizar ¿Se conoce si existe en el lugar de la intervención, material con posibilidad de contenido en amianto?",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 24",
-    "apartado": "PT03 amianto"
+    "concepto": "En la activación en el lugar de la intervención (C.3.B), ¿con qué EPI deben completar los intervinientes los propios de su tipo de intervención?",
+    "respuesta": "Con doble guante de nitrilo y protección respiratoria P3, en el caso de que la intervención no requiera el uso de ERA.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 30 (Hoja 23)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.3 Colocación de EPI´s › C.3.B Activación del procedimiento en el lugar de la intervención"
   },
   {
-    "id": "CPEI-T40-S06-8F7BC5CF2E",
+    "id": "CPEI-T40-PT03-109",
     "orden": 1350,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Existen elementos constructivos como: ⮚ Tejados, tabiques pluviales, bajantes, jardineras, depósitos y»?",
-    "respuesta": "Existen elementos constructivos como: ⮚ Tejados, tabiques pluviales, bajantes, jardineras, depósitos y otros elementos de fibrocemento?. ⮚ Aislamiento térmico (calorifugado en calderas, conducciones, etc.). ⮚ Paneles de aislamiento en tabiques. ⮚ Baldosas y suelos de linóleo. ⮚ Aislamiento de estructuras metálicas (flocages). ⮚ Placas de falsos techos.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 24",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cuál es el orden completo de colocación de los EPI «encima» en C.3.B (activación en el lugar)? (6 pasos)",
+    "respuesta": "1º Cubre pantalón y botas colocadas. 2º Doble guante de nitrilo. 3º Chaquetón, colocando el adaptador de las mangas encima del guante de nitrilo. 4º Protección respiratoria (con fuego: ERA; sin fuego: media máscara P3 o mascarilla P3/FP3). 5º Casco de intervención. 6º Guantes de intervención/técnicos encima de los guantes de vinilo.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 30 (Hoja 23)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.3 Colocación de EPI´s › C.3.B Activación del procedimiento en el lugar de la intervención"
   },
   {
-    "id": "CPEI-T40-S06-C96B994914",
+    "id": "CPEI-T40-PT03-110",
     "orden": 1360,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Instalaciones eléctricas. ⮚ Calderas, hornos y demás equipos que trabajan a altas»?",
-    "respuesta": "Instalaciones eléctricas. ⮚ Calderas, hornos y demás equipos que trabajan a altas temperaturas. ⮚ Conducciones de agua corriente y aguas residuales…etc. ¿Existe riesgo de desplome de alguna estructura?",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 24",
-    "apartado": "PT03 amianto"
+    "concepto": "En C.3.B (paso 4º), ¿qué protección respiratoria se usa en intervención CON fuego y cuál SIN fuego?",
+    "respuesta": "Con fuego: equipo autónomo de circuito abierto (ERA) de aire comprimido con máscara completa (UNE-EN 137), previamente filtrado con filtros tipo P3. Sin fuego: media máscara con filtros contra partículas tipo P3 o mascarilla P3/FP3.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 30 (Hoja 23)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.3 Colocación de EPI´s › C.3.B Activación del procedimiento en el lugar de la intervención"
   },
   {
-    "id": "CPEI-T40-S06-CDA410C329",
+    "id": "CPEI-T40-PT03-111",
     "orden": 1370,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «¿Se ha generado derrumbe de tejados, cubiertas o zonas con aislante térmico?»?",
-    "respuesta": "¿Se ha generado derrumbe de tejados, cubiertas o zonas con aislante térmico? (fibrocemento, amianto -vinilo,.) o existe riesgo de desplome de dichos elementos.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 24",
-    "apartado": "PT03 amianto"
+    "concepto": "En C.3.B (paso 3º), ¿cómo se coloca el chaquetón respecto a los guantes de nitrilo?",
+    "respuesta": "Colocando el adaptador de las mangas encima del guante de nitrilo.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 30 (Hoja 23)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.3 Colocación de EPI´s › C.3.B Activación del procedimiento en el lugar de la intervención"
   },
   {
-    "id": "CPEI-T40-S06-AB465F6447",
+    "id": "CPEI-T40-PT03-112",
     "orden": 1380,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 18 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 18 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ Desde el parque se debe pasar la información a la CECOB por parte del Jefe de turno, según lo establecido en el Protocolo de Movilización del CPEI vigente.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 25",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Hasta cuándo deben mantener los intervinientes todos los EPI colocados?",
+    "respuesta": "Durante toda la intervención, incluida la protección respiratoria, estén dentro o fuera de la zona de acción, incluidos los descansos de uso de ERACA o cambios de botella (se sustituirá por P3/FP3). Solo podrán retirarse en la fase final del procedimiento: aseo personal.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 31 (Hoja 24)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.3 Colocación de EPI´s › C.3.B Activación del procedimiento en el lugar de la intervención"
   },
   {
-    "id": "CPEI-T40-S06-460A4E2EE2",
+    "id": "CPEI-T40-PT03-113",
     "orden": 1390,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Posible existencia de material con contenido en amianto en el lugar de»?",
-    "respuesta": "Posible existencia de material con contenido en amianto en el lugar de la intervención.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 25",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cuánto tiempo máximo seguido se pueden mantener los EPI de respiración y qué descanso se establece?",
+    "respuesta": "No más de 60 minutos seguidos o dos botellas como máximo; se realizarán relevos y descansos de 30 minutos.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 31 (Hoja 24)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.3 Colocación de EPI´s › C.3.B Activación del procedimiento en el lugar de la intervención › Nota"
   },
   {
-    "id": "CPEI-T40-S06-CE238F8290",
+    "id": "CPEI-T40-PT03-114",
     "orden": 1400,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Existencia de derrumbes de estructuras o cubiertas, que hayan generado material friable»?",
-    "respuesta": "Existencia de derrumbes de estructuras o cubiertas, que hayan generado material friable (escombros).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 25",
-    "apartado": "PT03 amianto"
+    "concepto": "Si son necesarios relevos, ¿quién moviliza otro equipo de intervención y previa comunicación de quién?",
+    "respuesta": "El Jefe de Guardia, previa comunicación del MRI.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 31 (Hoja 24)",
+    "apartado": "PT03 amianto · 9.2. Fase 1: aproximación, valoración inicial y ubicación de vehículos › C. Ubicación de vehículos › F.1.C.3 Colocación de EPI´s › C.3.B Activación del procedimiento en el lugar de la intervención › Nota"
   },
   {
-    "id": "CPEI-T40-S06-6FA267C9B6",
+    "id": "CPEI-T40-PT03-115",
     "orden": 1410,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «La información obtenida, debe quedar reflejada en el Parte de la intervención»?",
-    "respuesta": "La información obtenida, debe quedar reflejada en el Parte de la intervención desde la CECOB.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 25",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cómo se desarrolla la intervención (fase 2) cuando hay amianto?",
+    "respuesta": "Como cualquier intervención donde no haya amianto, excepto que se deben tener en cuenta las indicaciones específicas del procedimiento.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 31 (Hoja 24)",
+    "apartado": "PT03 amianto · 9.3. Fase 2: intervención"
   },
   {
-    "id": "CPEI-T40-S06-312C294D0B",
+    "id": "CPEI-T40-PT03-116",
     "orden": 1420,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Una vez definidos ambos aspectos, se mantendrá la comunicación con el alertante»?",
-    "respuesta": "Una vez definidos ambos aspectos, se mantendrá la comunicación con el alertante para ampliar la información posteriormente.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 25",
-    "apartado": "PT03 amianto"
+    "concepto": "Siempre que sea posible, ¿qué debe hacerse antes de cualquier actuación que pueda generar material friable con amianto y con qué objeto?",
+    "respuesta": "Determinar la zona de actuación donde se haya identificado el material con amianto y mojar la zona de actuación (la estructura, paramento), con objeto de disminuir la posible emisión de fibras al ambiente.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 31 (Hoja 24)",
+    "apartado": "PT03 amianto · 9.3. Fase 2: intervención"
   },
   {
-    "id": "CPEI-T40-S06-61DF09E2EA",
+    "id": "CPEI-T40-PT03-117",
     "orden": 1430,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «ACTIVACIÓN DE LOS SERVICIOS DE EMERGENCIA Se activará según esta establecido para»?",
-    "respuesta": "ACTIVACIÓN DE LOS SERVICIOS DE EMERGENCIA Se activará según esta establecido para cada tipo de intervención.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 25",
-    "apartado": "PT03 amianto"
+    "concepto": "Si se requiere romper estructuras o elementos con amianto, ¿qué herramientas deben usarse y cuáles evitarse?",
+    "respuesta": "Las que generen una mínima cantidad de polvo, preferiblemente herramientas manuales o de baja velocidad de giro, evitando máquinas rotativas por la elevada emisión de polvo que pueden generar (si es posible, mojarlas previamente).",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 32 (Hoja 25)",
+    "apartado": "PT03 amianto · 9.3. Fase 2: intervención"
   },
   {
-    "id": "CPEI-T40-S06-ADA416985E",
+    "id": "CPEI-T40-PT03-118",
     "orden": 1440,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Se activará según el tipo de intervención»?",
-    "respuesta": "Se activará según el tipo de intervención.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 25",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué queda terminantemente prohibido durante la intervención con amianto?",
+    "respuesta": "Realizar cualquier operación de rotura o traslado de material con contenido de amianto si no es totalmente imprescindible para el desarrollo de la intervención.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 32 (Hoja 25)",
+    "apartado": "PT03 amianto · 9.3. Fase 2: intervención"
   },
   {
-    "id": "CPEI-T40-S06-757A71C3B2",
+    "id": "CPEI-T40-PT03-119",
     "orden": 1450,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Al análisis realizado en cualquier tipo de intervención al llegar al lugar»?",
-    "respuesta": "Al análisis realizado en cualquier tipo de intervención al llegar al lugar del siniestro, se le incluirá el análisis de la posible existencia de material con contenido en amianto y el riesgo de que éstos requieran o puedan transformarse en material friable (requerimiento de rotura de estructura, posibilidad de derrumbe, requerimiento de manipulación de escombros con restos de MCA..etc), durante la intervención.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 26",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cómo deben permanecer los intervinientes durante la fase 3 (limpieza gruesa in situ)?",
+    "respuesta": "Con el EPI completo perfectamente colocado durante TODA LA FASE, incluida la protección respiratoria.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 32 (Hoja 25)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ"
   },
   {
-    "id": "CPEI-T40-S06-2B9E8A36DD",
+    "id": "CPEI-T40-PT03-120",
     "orden": 1460,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «NO APLICACIÓN DEL PROCEDIMIENTO: indicará dicha cuestión al terminar la intervención en»?",
-    "respuesta": "NO APLICACIÓN DEL PROCEDIMIENTO: indicará dicha cuestión al terminar la intervención en el parte de intervención SOS.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 26",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué subfases componen la fase 3 (fin de la intervención)?",
+    "respuesta": "F.3.1 Limpieza in situ con agua. F.3.2 Retirada de EPI (Lona 2). F.3.3 Almacenamiento de material contaminado. F.3.4 Subida de bomberos al vehículo. F.3.5 Subida del conductor al vehículo. F.3.6 Traslado del flight-case de EPI.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 33, 34, 36, 37 (Hojas 26, 27, 29, 30)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ"
   },
   {
-    "id": "CPEI-T40-S06-8C0C50378F",
+    "id": "CPEI-T40-PT03-121",
     "orden": 1470,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Comunicar al Jefe de Guardia , la necesidad de ACTIVAR el PROCEDIMIENTO»?",
-    "respuesta": "Comunicar al Jefe de Guardia , la necesidad de ACTIVAR el PROCEDIMIENTO DE AMIANTO.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 26",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Con qué objeto se hace la limpieza in situ con agua y qué dos zonas se definen?",
+    "respuesta": "Para eliminar posibles restos de polvo acumulados tanto en los equipos utilizados como en los EPI. Zonas: 1º zona junto al vehículo; 2º lona zona sucia: Lona 1, zona de descontaminación.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 33 (Hoja 26)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.1 Limpieza in situ con agua"
   },
   {
-    "id": "CPEI-T40-S06-0AF653077C",
+    "id": "CPEI-T40-PT03-122",
     "orden": 1480,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Definir la estrategia de actuación, teniendo en cuenta que siempre que sea»?",
-    "respuesta": "Definir la estrategia de actuación, teniendo en cuenta que siempre que sea posible, se elegirá la opción que no requiera manipular, rom per…etc., material con contenido en amianto.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 26",
-    "apartado": "PT03 amianto"
+    "concepto": "Junto al vehículo, ¿cuál es la secuencia de limpieza del material que puede mojarse (mangueras, herramienta…)?",
+    "respuesta": "1º Limpieza in situ con agua a presión que no dañe el material. 2º Encapsulado de los equipos en bolsa de plástico y precintar. 3º Introducir la bolsa en una segunda bolsa con indicativo de amianto, cerrándola herméticamente.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 33 (Hoja 26)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.1 Limpieza in situ con agua"
   },
   {
-    "id": "CPEI-T40-S06-4FB7CA54BD",
+    "id": "CPEI-T40-PT03-123",
     "orden": 1490,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Gestionar el traslado de los medios que determine necesarios (personal integrante en»?",
-    "respuesta": "Gestionar el traslado de los medios que determine necesarios (personal integrante en la intervención, aspirador con filtro Hepa, Flight -case para traslado de equipos, …etc).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 26",
-    "apartado": "PT03 amianto"
+    "concepto": "En la Lona 1, ¿cuál es la secuencia de limpieza de los equipos que no pueden manguearse (cámaras térmicas, walkis, linternas…)?",
+    "respuesta": "1º Aspirar con la aspiradora AS 30-PRO (siempre que su tecnología lo permita). 2º Limpiar con bayeta húmeda. 3º Encapsular en bolsa de plástico y precintar. 4º Introducir la bolsa en una segunda bolsa con indicativo de amianto, cerrándola herméticamente.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 33 (Hoja 26)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.1 Limpieza in situ con agua"
   },
   {
-    "id": "CPEI-T40-S06-5064E0A8EC",
+    "id": "CPEI-T40-PT03-124",
     "orden": 1500,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Personarse en la intervención, asumiendo la función de Recurso Preventivo»?",
-    "respuesta": "Personarse en la intervención, asumiendo la función de Recurso Preventivo.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 26",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Quién tiene prohibida la permanencia en la zona de Lona 1 y a qué se limita si está en la zona?",
+    "respuesta": "El personal que no ha participado en la intervención; si existe, se limitará a preparar material limpio a los participantes en la zona de retirada de equipos (Lona 2).",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 33 (Hoja 26)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.1 Limpieza in situ con agua"
   },
   {
-    "id": "CPEI-T40-S06-7511FDFB16",
+    "id": "CPEI-T40-PT03-125",
     "orden": 1510,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Informar al Jefe de Parque de la puesta en marcha del procedimiento»?",
-    "respuesta": "Informar al Jefe de Parque de la puesta en marcha del procedimiento.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 26",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cuál es la secuencia de limpieza de EPI con agua por pareja? (4 pasos)",
+    "respuesta": "1º Los operarios en pareja manguean al compañero con todo el equipo puesto (incluido ERACA) para hacer la primera eliminación de polvo; una vez limpiado el traje del binomio, se repite con el MRI. 2º Limpieza exterior del casco con bayeta mojada. 3º Limpieza del equipo de respiración: espaldera, botella, media máscara. 4º Botas de intervención.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 33–34 (Hojas 26–27)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.1 Limpieza in situ con agua"
   },
   {
-    "id": "CPEI-T40-S06-C541FD4D8C",
+    "id": "CPEI-T40-PT03-126",
     "orden": 1520,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 20 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 20 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ FASE1.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 27",
-    "apartado": "PT03 amianto"
+    "concepto": "En la limpieza de EPI por pareja, una vez limpiado el traje del binomio, ¿con quién se repite el mangueo?",
+    "respuesta": "Con el MRI.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 33 (Hoja 26)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.1 Limpieza in situ con agua"
   },
   {
-    "id": "CPEI-T40-S06-98F4466726",
+    "id": "CPEI-T40-PT03-127",
     "orden": 1530,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Operaciones de acercamiento y preparación de material de intervención, se ejecutarán como»?",
-    "respuesta": "Operaciones de acercamiento y preparación de material de intervención, se ejecutarán como en cualquier intervención.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 27",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cuál es el orden completo de retirada de EPI en la Lona 2? (7 pasos)",
+    "respuesta": "1º Guantes de intervención (a bolsa de EPI INDIVIDUAL, manteniendo los guantes de nitrilo). 2º Equipo de respiración: desabrochar espaldera y desconectar. 3º Retirar la máscara de presión positiva y colocar de inmediato protección respiratoria frente a partículas (media máscara P3 o mascarilla P3/FP3). 4º Casco: desmontar el atalaje y embolsar (INDIVIDUAL). 5º Traje de intervención (situación A con buzo debajo o B sin buzo). 6º Botas: se retiran junto con el cubre pantalón, se limpian con agua y a bolsa INDIVIDUAL; se colocan botas de sustitución. 7º Gafas: se retiran, se limpian con agua y a bolsa INDIVIDUAL.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 34–36 (Hojas 27–29)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.2 Retirada de EPI´s (Lona 2)"
   },
   {
-    "id": "CPEI-T40-S06-30724CEDA9",
+    "id": "CPEI-T40-PT03-128",
     "orden": 1540,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «El MRI, determinará una zona alejada de la posible atmósfera contaminada y»?",
-    "respuesta": "El MRI, determinará una zona alejada de la posible atmósfera contaminada y del camión, y preparara el material necesario para la posterior descontaminación.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 27",
-    "apartado": "PT03 amianto"
+    "concepto": "Al retirar los guantes de intervención (paso 1º), ¿qué guantes se mantienen puestos y dónde van los de intervención?",
+    "respuesta": "Se mantienen los guantes de nitrilo; los de intervención se introducen en la bolsa de plástico de EPI INDIVIDUAL.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 34 (Hoja 27)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.2 Retirada de EPI´s (Lona 2)"
   },
   {
-    "id": "CPEI-T40-S06-A7DFAC0F30",
+    "id": "CPEI-T40-PT03-129",
     "orden": 1550,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 21 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 21 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 28",
-    "apartado": "PT03 amianto"
+    "concepto": "Al retirar la máscara de presión positiva (paso 3º), ¿qué hay que colocarse de inmediato?",
+    "respuesta": "Protección respiratoria frente a partículas (media máscara con filtro P3 o mascarilla P3/FP3). Si se llevaba puesta media máscara, se permanece con ella colocada.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 34–35 (Hojas 27–28)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.2 Retirada de EPI´s (Lona 2)"
   },
   {
-    "id": "CPEI-T40-S06-3B3A43120C",
+    "id": "CPEI-T40-PT03-130",
     "orden": 1560,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Lona de material plástico extendida en suelo, conformando dos zonas de descontaminación»?",
-    "respuesta": "Lona de material plástico extendida en suelo, conformando dos zonas de descontaminación (“lona de zona sucia”).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 28",
-    "apartado": "PT03 amianto"
+    "concepto": "En la retirada de EPI, ¿en qué bolsa van la espaldera y las botellas, y en cuál la máscara de presión positiva?",
+    "respuesta": "Espaldera y botellas de aire: bolsa de plástico de EPI COLECTIVOS. Máscara Presión+: bolsa de plástico de EPI INDIVIDUAL.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 35 (Hoja 28)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.2 Retirada de EPI´s (Lona 2)"
   },
   {
-    "id": "CPEI-T40-S06-4CFC1FF65B",
+    "id": "CPEI-T40-PT03-131",
     "orden": 1570,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Bolsas de plástico con indicativo de “contiene material con amianto”»?",
-    "respuesta": "Bolsas de plástico con indicativo de “contiene material con amianto”.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 28",
-    "apartado": "PT03 amianto"
+    "concepto": "En la retirada del traje (paso 5º), situación A (buzo nivel 5 debajo del traje de rescate técnico), ¿cómo se procede?",
+    "respuesta": "En pareja: 1º retirar el traje de intervención/técnico con ayuda de la pareja, sin movimientos bruscos, para evitar posibles desperfectos en el buzo interior; 2º introducir los equipos en la bolsa de EPI INDIVIDUAL de cada interviniente.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 35 (Hoja 28)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.2 Retirada de EPI´s (Lona 2)"
   },
   {
-    "id": "CPEI-T40-S06-37554BFDD7",
+    "id": "CPEI-T40-PT03-132",
     "orden": 1580,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Epi´s necesarios para la posterior descontaminación: serán ubicados por personal de apoyo»?",
-    "respuesta": "Epi´s necesarios para la posterior descontaminación: serán ubicados por personal de apoyo junto LONA 2.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 28",
-    "apartado": "PT03 amianto"
+    "concepto": "En la retirada del traje (paso 5º), situación B (sin buzo nivel 5), ¿cuál es la secuencia?",
+    "respuesta": "1º Retirar el traje técnico o de intervención con ayuda de la pareja, sin movimientos bruscos, metiéndolo en bolsa de EPI INDIVIDUAL y esta en otra bolsa señalizada con contenido de amianto. 2º El operario se coloca el buzo tipo 5, con la capucha. 3º Introducir los equipos en bolsa de EPI INDIVIDUAL de cada interviniente.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 35 (Hoja 28)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.2 Retirada de EPI´s (Lona 2)"
   },
   {
-    "id": "CPEI-T40-S06-634B09B9E5",
+    "id": "CPEI-T40-PT03-133",
     "orden": 1590,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Buzo de protección/termo capuz, tipo 5 impermeables a partículas (en el caso»?",
-    "respuesta": "Buzo de protección/termo capuz, tipo 5 impermeables a partículas (en el caso de no colocación previa a la intervención).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 28",
-    "apartado": "PT03 amianto"
+    "concepto": "En la retirada de EPI (paso 6º), ¿qué se hace con las botas de intervención y qué se calzan después los integrantes?",
+    "respuesta": "Se retiran junto con el cubre pantalón, se limpian con agua y se introducen en la bolsa de EPI INDIVIDUAL, cerrándola herméticamente. Los integrantes se colocan botas de intervención de sustitución.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 36 (Hoja 29)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.2 Retirada de EPI´s (Lona 2)"
   },
   {
-    "id": "CPEI-T40-S06-B777D3E925",
+    "id": "CPEI-T40-PT03-134",
     "orden": 1600,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Mascarillas dotadas con filtros contra partículas tipo P3 (en el caso de»?",
-    "respuesta": "Mascarillas dotadas con filtros contra partículas tipo P3 (en el caso de que la intervención requiera de uso de ERA).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 28",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué supervisa el MRI, como recurso preventivo, durante la retirada de EPI?",
+    "respuesta": "La correcta colocación y mantenimiento de los EPI de los integrantes y la ubicación de las bolsas herméticas de herramientas en el vehículo.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 36 (Hoja 29)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.2 Retirada de EPI´s (Lona 2)"
   },
   {
-    "id": "CPEI-T40-S06-24473A33B6",
+    "id": "CPEI-T40-PT03-135",
     "orden": 1610,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «La colocación de los EPi´s, se realizará por parejas, para asegurar el»?",
-    "respuesta": "La colocación de los EPi´s, se realizará por parejas, para asegurar el correcto precintado y colocación de los equipos, con supervisión final por parte del MRI.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 28",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Con qué EPI se permanece durante todo el proceso de retirada de EPI?",
+    "respuesta": "Con el buzo tipo 5 colocado con capucha, guantes de vinilo, gafas de protección y protección respiratoria P3.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 36 (Hoja 29)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.2 Retirada de EPI´s (Lona 2)"
   },
   {
-    "id": "CPEI-T40-S06-8FCDBC0EB3",
+    "id": "CPEI-T40-PT03-136",
     "orden": 1620,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Desde la información recibida por el acertantes, antes de la salida del»?",
-    "respuesta": "Desde la información recibida por el acertantes, antes de la salida del parque.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 28",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Dónde se introducen las bolsas con los equipos para su traslado y qué señalización se coloca?",
+    "respuesta": "Dentro del flight-case ubicado en el vehículo, para su traslado a lavandería o al parque. Señalización: bomberos participantes y señal de riesgo de amianto.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 36 (Hoja 29)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.3 Almacenamiento de material contaminado"
   },
   {
-    "id": "CPEI-T40-S06-BC24079654",
+    "id": "CPEI-T40-PT03-137",
     "orden": 1630,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Una vez ubicados en el lugar de la intervención»?",
-    "respuesta": "Una vez ubicados en el lugar de la intervención.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 28",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué cuatro tipos de sacas herméticas se generan en la descontaminación inicial in situ?",
+    "respuesta": "1) EPI de cada profesional (EPI INDIVIDUAL). 2) EPI de protección respiratoria colectivos (EPI COLECTIVOS). 3) Herramientas. 4) Bolsa de material de desecho contaminado.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 36 (Hoja 29)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.3 Almacenamiento de material contaminado"
   },
   {
-    "id": "CPEI-T40-S06-D81A06DCDE",
+    "id": "CPEI-T40-PT03-138",
     "orden": 1640,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 22 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 22 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ C.3.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 29",
-    "apartado": "PT03 amianto"
+    "concepto": "Si las circunstancias permiten llevar directamente a la lavandería central las sacas de EPI INDIVIDUAL y COLECTIVOS, ¿quién gestiona ese traslado y qué se evita?",
+    "respuesta": "El Jefe de Guardia gestionará dicho traslado directo, evitando fases intermedias de almacenamiento en parque.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 36–37 (Hojas 29–30)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.3 Almacenamiento de material contaminado › Nota"
   },
   {
-    "id": "CPEI-T40-S06-5D8A909572",
+    "id": "CPEI-T40-PT03-139",
     "orden": 1650,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Se aplicará cuando con la información aportada desde el alertante, sea suficiente»?",
-    "respuesta": "Se aplicará cuando con la información aportada desde el alertante, sea suficiente para tomar la decisión que es necesaria la activación del procedimiento, por indicar en dicha información: derrumbe con material de amianto en el punto de intervención, escom bros con restos de material con amianto en la zona de intervención…etc, siempre que sea intervención de rescate SIN FUEGO.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 29",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué hace el conductor antes de subir al vehículo (F.3.5)?",
+    "respuesta": "Cierra la bolsa herméticamente, la mete en la saca verde, cierra e introduce en el flight-case. Deposita el flight-case de EPI INDIVIDUAL y COLECTIVO junto a la lona de sucio. Retira la lona de sucio y la introduce en bolsa con cierre hermético junto con cualquier material/desecho usado para la limpieza. Se inicia el regreso al parque.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 37 (Hoja 30)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.5 Subida conductor vehículo"
   },
   {
-    "id": "CPEI-T40-S06-4EC2DCEEF7",
+    "id": "CPEI-T40-PT03-140",
     "orden": 1660,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Los integrantes del tren de salida, se ubicarán Buzo tipo 5 y»?",
-    "respuesta": "Los integrantes del tren de salida, se ubicarán Buzo tipo 5 y guantes de nitrilo, debajo del traje de intervención, según el siguiente orden: 1º.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 29",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Quién retirará la lona de sucio y los desechos de limpieza (material con posible resto de amianto) y cuándo?",
+    "respuesta": "Una empresa especializada, a la llegada al parque.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 37 (Hoja 30)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.5 Subida conductor vehículo"
   },
   {
-    "id": "CPEI-T40-S06-9013357180",
+    "id": "CPEI-T40-PT03-141",
     "orden": 1670,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Buzo de protección/termo capuz, tipo 5 impermeables a partículas, precintado tobillos, con»?",
-    "respuesta": "Buzo de protección/termo capuz, tipo 5 impermeables a partículas, precintado tobillos, con caperuza colocada 2º.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 29",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Quién traslada el flight-case de EPI a la lavandería central y cómo debe hacerlo?",
+    "respuesta": "El conductor de 2ª actividad o personal movilizado por el Jefe de Guardia: coloca los identificativos de los bomberos participantes y la identificación de riesgo por amianto, y lo traslada a la lavandería central, depositándolo sin abrirlo en la zona de sucio.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 37 (Hoja 30)",
+    "apartado": "PT03 amianto · 9.4. Fase 3: fin de la intervención. Limpieza gruesa in situ › F.3.6 Traslado de flight-case de EPIs"
   },
   {
-    "id": "CPEI-T40-S06-B8CEAD3887",
+    "id": "CPEI-T40-PT03-142",
     "orden": 1680,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Doble guantes de nitrilo, precintando mangas del buzo con los guantes. 3º»?",
-    "respuesta": "Doble guantes de nitrilo, precintando mangas del buzo con los guantes. 3º.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 29",
-    "apartado": "PT03 amianto"
+    "concepto": "Antes de la entrada del vehículo en el parque, ¿qué debe preparar el personal de apoyo?",
+    "respuesta": "1) Equipo de limpieza de vehículo. 2) Sacas de envío de equipos a lavandería de base, señalizadas con material con amianto, junto a la zona de limpieza de vehículos. 3) Ropa de permanencia de cada bombero junto a la salida de la ducha. 4) Bolsas en el contenedor de las duchas: una para EPI desechables y otra para ropa, con identificativo de amianto. 5) Bolsa de plástico junto a cada ducha (tantas duchas como integrantes). 6) Supervisar la zona de lavadero (jabón, cepillo, elemento textil para secado).",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 37–38 (Hojas 30–31)",
+    "apartado": "PT03 amianto · 9.5. Fase 4: llegada al parque"
   },
   {
-    "id": "CPEI-T40-S06-42AB206D6F",
+    "id": "CPEI-T40-PT03-143",
     "orden": 1690,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Media mascara dotadas con filtros contra partículas tipo P3. 5º»?",
-    "respuesta": "Media mascara dotadas con filtros contra partículas tipo P3. 5º.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 29",
-    "apartado": "PT03 amianto"
+    "concepto": "Al entrar en el parque, ¿dónde se ubica el vehículo y qué ocurre antes de que baje nadie?",
+    "respuesta": "Se ubica en la zona de limpieza de vehículos. Los operarios permanecen dentro con los EPI colocados (guantes, buzo, equipos de respiración P3) y el bombero de apoyo manguea el exterior del vehículo antes de que baje ningún integrante.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 38 (Hoja 31)",
+    "apartado": "PT03 amianto · 9.5. Fase 4: llegada al parque › F.4.1 Entrada del vehículo al parque"
   },
   {
-    "id": "CPEI-T40-S06-924528BA80",
+    "id": "CPEI-T40-PT03-144",
     "orden": 1700,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Casco de rescate técnico (según tipo de intervención de origen)»?",
-    "respuesta": "Casco de rescate técnico (según tipo de intervención de origen).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 29",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Adónde se dirigen los intervinientes al bajar del vehículo y cómo limpia el bombero de apoyo el interior?",
+    "respuesta": "Se dirigen a la zona de sucio para el aseo personal. El bombero de apoyo: 1º aspira el interior con aspiradora con filtro Hepa (AS 30-PRO); 2º limpia el interior con bayeta húmeda. Los desechos van en bolsa con identificativo de amianto.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 38 (Hoja 31)",
+    "apartado": "PT03 amianto · 9.5. Fase 4: llegada al parque › F.4.1 Entrada del vehículo al parque"
   },
   {
-    "id": "CPEI-T40-S06-A3941571C7",
+    "id": "CPEI-T40-PT03-145",
     "orden": 1710,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 23 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 23 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ 7º.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 30",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué modelo de aspirador con filtro Hepa cita el PT03 para limpiar equipos y vehículos?",
+    "respuesta": "AS 30-PRO (aspirador portátil de alta eficacia).",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 38 (Hoja 31)",
+    "apartado": "PT03 amianto · 9.5. Fase 4: llegada al parque › F.4.1 Entrada del vehículo al parque"
   },
   {
-    "id": "CPEI-T40-S06-49B8E16B69",
+    "id": "CPEI-T40-PT03-146",
     "orden": 1720,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Guantes de excarcelación o trabajo (según proceda) encima de los guantes de»?",
-    "respuesta": "Guantes de excarcelación o trabajo (según proceda) encima de los guantes de nitrilo. 8º.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 30",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cómo debe quedar la puerta del lavadero del parque mientras contiene material con amianto?",
+    "respuesta": "Cerrada herméticamente y correctamente advertido que en su interior hay material con amianto, impidiendo la entrada a personal no autorizado.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 38–39 (Hojas 31–32)",
+    "apartado": "PT03 amianto · 9.5. Fase 4: llegada al parque › F.4.2 Limpieza de equipos"
   },
   {
-    "id": "CPEI-T40-S06-8FAE33DE4D",
+    "id": "CPEI-T40-PT03-147",
     "orden": 1730,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «El buzo y los guantes de protección (nitrilo) deben colocarse de tal»?",
-    "respuesta": "El buzo y los guantes de protección (nitrilo) deben colocarse de tal manera que no queden huecos entre los mismos, con objeto de evitar la existencia de vía de penetración de las fibras de amianto.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 30",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cómo se agrupan las herramientas para descontaminarlas en el lavadero del parque?",
+    "respuesta": "Por lotes que pueden descontaminarse conjuntamente: mangueras y equipos sumergibles; equipos no sumergibles (cámaras térmicas, linternas, walkis…).",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 39 (Hoja 32)",
+    "apartado": "PT03 amianto · 9.5. Fase 4: llegada al parque › F.4.2 Limpieza de equipos"
   },
   {
-    "id": "CPEI-T40-S06-ACCBB4E618",
+    "id": "CPEI-T40-PT03-148",
     "orden": 1740,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Los intervinientes cumplimentarán los EPI´s necesarios según el tipo de intervención, con»?",
-    "respuesta": "Los intervinientes cumplimentarán los EPI´s necesarios según el tipo de intervención, con doble guante de nitrilo y p rotección respiratoria P3, en el caso de la que la intervención no requiera el uso de ERA.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 30",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cómo se limpian en el parque las mangueras, los equipos sumergibles y los no sumergibles?",
+    "respuesta": "Mangueras: sumergir en agua. Sumergibles: agua a 40 °C y detergente neutro (si el equipo lo permite), frotando con cepillo, y aclarado con agua a 40 °C. No sumergibles: bayeta húmeda.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 39 (Hoja 32)",
+    "apartado": "PT03 amianto · 9.5. Fase 4: llegada al parque › F.4.2 Limpieza de equipos"
   },
   {
-    "id": "CPEI-T40-S06-E0B9A790D3",
+    "id": "CPEI-T40-PT03-149",
     "orden": 1750,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Orden de colocación de los EPi´s encima: 1º»?",
-    "respuesta": "Orden de colocación de los EPi´s encima: 1º.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 30",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué se hace con el lavadero del parque al terminar la limpieza de herramientas?",
+    "respuesta": "Se llena por completo con agua a 40 °C y detergente, sumergiendo el cepillo y todo el material auxiliar, removiendo el agua para eliminar las fibras residuales; finalizado, se enjuaga con agua.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 39 (Hoja 32)",
+    "apartado": "PT03 amianto · 9.5. Fase 4: llegada al parque › F.4.2 Limpieza de equipos"
   },
   {
-    "id": "CPEI-T40-S06-CF8CB2B220",
+    "id": "CPEI-T40-PT03-150",
     "orden": 1760,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Equipo autónomos de circuito abierto (ERA) de aire comprimido con máscara completa»?",
-    "respuesta": "Equipo autónomos de circuito abierto (ERA) de aire comprimido con máscara completa (UNE-EN 137), previamente filtrado con filtros tipo P3 (ERA).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 30",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cuál es la secuencia de aseo personal de bomberos y conductor en la zona sucia del parque?",
+    "respuesta": "1) Retirada por pareja de los buzos tipo 5, a la bolsa de MATERIAL DESECHABLE. 2) Ducharse con guantes y mascarilla puestos. 3) Lavados cuerpo y cabeza, retirar los guantes desechables (bolsa de MATERIAL DESECHABLE). 4) Antes de vestirse, retirar la protección respiratoria: máscara facial en bolsa de EPI y filtros en bolsa de material desechable; enjuagarse después la cara. 5) Toda la ropa utilizada, en bolsa para lavado inmediato en la lavadora del parque. 6) En la zona limpia, ponerse ropa limpia y seca.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 39–40 (Hojas 32–33)",
+    "apartado": "PT03 amianto · 9.5. Fase 4: llegada al parque › F.4.3 Aseo personal"
   },
   {
-    "id": "CPEI-T40-S06-3913EDC4A0",
+    "id": "CPEI-T40-PT03-151",
     "orden": 1770,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Media m ascara dotadas con filtros contra partículas tipo P3 o mascarilla»?",
-    "respuesta": "Media m ascara dotadas con filtros contra partículas tipo P3 o mascarilla P3/FP3. 5º.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 30",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Con qué EPI puestos comienzan a ducharse los bomberos y cuándo se quitan los guantes?",
+    "respuesta": "Con guantes y mascarilla puestos. Los guantes desechables se retiran una vez lavados el cuerpo y la cabeza.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 39 (Hoja 32)",
+    "apartado": "PT03 amianto · 9.5. Fase 4: llegada al parque › F.4.3 Aseo personal"
   },
   {
-    "id": "CPEI-T40-S06-95C95C3E45",
+    "id": "CPEI-T40-PT03-152",
     "orden": 1780,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Guantes de intervención/técnicos encima de los guantes de vinilo»?",
-    "respuesta": "Guantes de intervención/técnicos encima de los guantes de vinilo.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 30",
-    "apartado": "PT03 amianto"
+    "concepto": "En el aseo personal, ¿cuándo se retira la protección respiratoria y adónde van la máscara y los filtros?",
+    "respuesta": "Antes de colocarse la ropa. La máscara facial con adaptador se encapsula en bolsa de EPI y los filtros de cartucho en la bolsa de material desechable; después el trabajador se enjuaga la cara.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 39 (Hoja 32)",
+    "apartado": "PT03 amianto · 9.5. Fase 4: llegada al parque › F.4.3 Aseo personal"
   },
   {
-    "id": "CPEI-T40-S06-8DD9A4FAF3",
+    "id": "CPEI-T40-PT03-153",
     "orden": 1790,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 24 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 24 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ Los intervinientes, mantendrán todo los EPI´s colocados durante toda la intervención, incluida protección respiratoria, estén dentro o fuera de la zona de acción, incluidos los tiempos de descanso de uso de ERACA o cambios de botella (se sustituirá por P 3/FP3).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 31",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Con qué EPI va equipado el operario de apoyo en el parque?",
+    "respuesta": "Guantes de vinilo y mascarilla P3.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 40 (Hoja 33)",
+    "apartado": "PT03 amianto · 9.5. Fase 4: llegada al parque › Tareas operario de apoyo"
   },
   {
-    "id": "CPEI-T40-S06-7636BAA4DE",
+    "id": "CPEI-T40-PT03-154",
     "orden": 1800,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Solo podrán retirarse en la fase final de este procedimiento»?",
-    "respuesta": "Solo podrán retirarse en la fase final de este procedimiento.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 31",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué bolsas debe trasladar el operario de apoyo y adónde?",
+    "respuesta": "La bolsa de material desechable, al contenedor destinado a tal fin (residuo de amianto, con posterior tratamiento por gestor autorizado); la bolsa de EPI con porta mascarilla, a la saca destinada a lavandería de base. Ambas perfectamente identificadas con el contenido y composición de los equipos.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 40 (Hoja 33)",
+    "apartado": "PT03 amianto · 9.5. Fase 4: llegada al parque › Tareas operario de apoyo"
   },
   {
-    "id": "CPEI-T40-S06-0C2BFF4029",
+    "id": "CPEI-T40-PT03-155",
     "orden": 1810,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «No se mantendrá Epi´s de respiración, más de 60` seguidos o dos»?",
-    "respuesta": "No se mantendrá Epi´s de respiración, más de 60` seguidos o dos botellas máximas, se procederá a realizar relevos y descansos de 30´.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 31",
-    "apartado": "PT03 amianto"
+    "concepto": "¿A qué temperatura se lava la ropa en el parque y qué prendas se introducen en primer lugar?",
+    "respuesta": "A 50º; en primer lugar los verdugos y otras prendas interiores utilizadas durante la intervención.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 40 (Hoja 33)",
+    "apartado": "PT03 amianto · 9.5. Fase 4: llegada al parque › Tareas operario de apoyo"
   },
   {
-    "id": "CPEI-T40-S06-70B77DD9EE",
+    "id": "CPEI-T40-PT03-156",
     "orden": 1820,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «En caso de ser necesario, el Jefe de Guardia, procederá a la»?",
-    "respuesta": "En caso de ser necesario, el Jefe de Guardia, procederá a la movilización de otro equipo de intervención, previa comunicación del MRI, para realizar los relevos que sean necesarios.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 31",
-    "apartado": "PT03 amianto"
+    "concepto": "Al terminar sus tareas, ¿dónde deposita el bombero de apoyo sus EPI?",
+    "respuesta": "Procede a su aseo personal, ubicando sus EPI (buzo, guantes, mascarilla) en la bolsa de material de desecho.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 40 (Hoja 33)",
+    "apartado": "PT03 amianto · 9.5. Fase 4: llegada al parque › Tareas operario de apoyo"
   },
   {
-    "id": "CPEI-T40-S06-75223E19F2",
+    "id": "CPEI-T40-PT03-157",
     "orden": 1830,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Determinar la zona de actuación donde se haya identificado la existencia de»?",
-    "respuesta": "Determinar la zona de actuación donde se haya identificado la existencia de material con contenido en amianto, procediéndos e siempre que sea posible, a mojar la zona de actuación (la estructura, paramento,), antes de realizar cualquier actuación donde puede generarse material friable con contenido en amianto, (con objeto de disminuir la posible emisión al ambiente de fibras).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 31",
-    "apartado": "PT03 amianto"
+    "concepto": "¿De qué tiempo mínimo de higiene personal disponen los trabajadores y quién lo organiza durante la intervención?",
+    "respuesta": "Un tiempo mínimo continuado de 10 minutos antes de la comida y otros diez minutos antes de abandonar el trabajo; el MRI organiza dicho descanso, si procede, durante la intervención.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 41 (Hoja 34)",
+    "apartado": "PT03 amianto · 9.5. Fase 4: llegada al parque › Medidas de higiene personal"
   },
   {
-    "id": "CPEI-T40-S06-5D419598A6",
+    "id": "CPEI-T40-PT03-158",
     "orden": 1840,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 25 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 25 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 32",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué deben hacer los trabajadores potencialmente expuestos antes de comer, beber o fumar?",
+    "respuesta": "Lavarse la cara, boca y manos.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 41 (Hoja 34)",
+    "apartado": "PT03 amianto · 9.5. Fase 4: llegada al parque › Medidas de higiene personal"
   },
   {
-    "id": "CPEI-T40-S06-91F2C44702",
+    "id": "CPEI-T40-PT03-159",
     "orden": 1850,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «En el caso de que se requiera romper estructuras o elemento con»?",
-    "respuesta": "En el caso de que se requiera romper estructuras o elemento con contenido de amianto, utilizar las herramientas que generen una mínima cantidad de polvo, preferiblemente herramientas manuales o las de baja velocidad de giro, evitando máquinas rotativas por la elevada emisión de polvo que pueden generar (si es posible mojarlas previamente, se realizará dicha operación).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 32",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué prohíbe el PT03 respecto a llevar al domicilio equipos o ropa de la intervención y qué es obligatorio?",
+    "respuesta": "Queda prohibido llevar a su domicilio cualquier equipo, EPI o vestuario utilizado en la intervención; es obligatoria la aplicación del sistema de limpieza y descontaminación interno implantado por el CPEI.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 41 (Hoja 34)",
+    "apartado": "PT03 amianto · 9.5. Fase 4: llegada al parque › Medidas de higiene personal"
   },
   {
-    "id": "CPEI-T40-S06-92DF2C79DD",
+    "id": "CPEI-T40-PT03-160",
     "orden": 1860,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Queda terminantemente prohibido realizar ninguna operación de rotura o traslado de material»?",
-    "respuesta": "Queda terminantemente prohibido realizar ninguna operación de rotura o traslado de material con contenido de amianto, si no es totalmente imprescindible para el desarrollo de la intervención.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 32",
-    "apartado": "PT03 amianto"
+    "concepto": "Una vez aseado, ¿qué datos debe recabar el MRI para el Parte de Intervención en SOS?",
+    "respuesta": "1) Procedencia del material friable con amianto generado: por derrumbes fortuitos; por rotura de elementos estructurales realizada por los actuantes (especificando si se usó medio húmedo o mojado previo de la superficie); por traslado de escombros o material de desecho. 2) Personal que ha podido estar expuesto. 3) Material utilizado. 4) Incidencias con la colocación o retirada de EPI.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 41–42 (Hojas 34–35)",
+    "apartado": "PT03 amianto · 9.6.1. Funciones del MRI (fase 5: restitución de la normalidad)"
   },
   {
-    "id": "CPEI-T40-S06-430A9F0473",
+    "id": "CPEI-T40-PT03-161",
     "orden": 1870,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Los intervinientes deberán permanecer con el EPI´s completo perfectamente colocado, durante TODA»?",
-    "respuesta": "Los intervinientes deberán permanecer con el EPI´s completo perfectamente colocado, durante TODA LA FASE, incluida la protección respiratoria.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 32",
-    "apartado": "PT03 amianto"
+    "concepto": "¿En qué datos se basa el MRI para redactar el Parte de Intervención?",
+    "respuesta": "En los datos recabados y anotados en el lugar del siniestro y en los registrados en el programa SOS EMERGENCIAS por el emisorista.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 42 (Hoja 35)",
+    "apartado": "PT03 amianto · 9.6.1. Funciones del MRI (fase 5: restitución de la normalidad)"
   },
   {
-    "id": "CPEI-T40-S06-2F2DE91BA3",
+    "id": "CPEI-T40-PT03-162",
     "orden": 1880,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Se realizará la limpieza en situ con agua, con objeto de eliminar»?",
-    "respuesta": "Se realizará la limpieza en situ con agua, con objeto de eliminar posibles restos de polvo que se hayan podido acumular, tanto de los equipos utilizados como de los EPI´s.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 33",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué se analiza en la reunión de los participantes tras la intervención?",
+    "respuesta": "1) Desarrollo de la intervención, para poner en valor las operaciones realizadas correctamente e identificar las que se deben mejorar. 2) Nivel de cumplimiento del procedimiento. 3) Acciones propuestas de mejora.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 42 (Hoja 35)",
+    "apartado": "PT03 amianto · 9.6.1. Funciones del MRI (fase 5: restitución de la normalidad)"
   },
   {
-    "id": "CPEI-T40-S06-46E3EE5BDA",
+    "id": "CPEI-T40-PT03-163",
     "orden": 1890,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «ZONA JUNTO A EL VEHÍCULO : material utilizado en la intervención que»?",
-    "respuesta": "ZONA JUNTO A EL VEHÍCULO : material utilizado en la intervención que puede ser mojado (mangueras, herramienta…etc.) en el exterior del vehículo. 1º.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 33",
-    "apartado": "PT03 amianto"
+    "concepto": "En la restitución de la normalidad, ¿qué funciones tiene el Jefe de Guardia?",
+    "respuesta": "Analizar, con ayuda del operario de apoyo del parque, la existencia de EPI de sustitución para los participantes, ubicándolos en la taquilla de cada interviniente; y tomar las decisiones para disponer de los equipos de repuesto, gestionando su traslado desde los Almacenes de Equipos de repuesto de urgencia, base, etc.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 42 (Hoja 35)",
+    "apartado": "PT03 amianto · 9.6.2. Funciones del Jefe de Guardia (fase 5)"
   },
   {
-    "id": "CPEI-T40-S06-51DABDCB9B",
+    "id": "CPEI-T40-PT03-164",
     "orden": 1900,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Limpieza en situ con agua a presión que no dañe el mismo»?",
-    "respuesta": "Limpieza en situ con agua a presión que no dañe el mismo. 2º.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 33",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué equipos de repuesto hay en el almacén del parque?",
+    "respuesta": "Chaquetón y cubre de intervención; ERAS.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 42 (Hoja 35)",
+    "apartado": "PT03 amianto · 9.6.2. Funciones del Jefe de Guardia (fase 5)"
   },
   {
-    "id": "CPEI-T40-S06-0B7E44A616",
+    "id": "CPEI-T40-PT03-165",
     "orden": 1910,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Introducir la bolsa, e n una segunda bolsa con indicativo de amianto»?",
-    "respuesta": "Introducir la bolsa, e n una segunda bolsa con indicativo de amianto, cerrándola herméticamente. 2º.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 33",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué compone el equipo de sustitución de los Almacenes de Equipos de repuesto de urgencia?",
+    "respuesta": "Botas de intervención; verdugos; guantes de intervención; media máscara; guantes de vinilo; gafas de protección; casco F1 y F2; trajes de rescate técnico.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 42–43 (Hojas 35–36)",
+    "apartado": "PT03 amianto · 9.6.2. Funciones del Jefe de Guardia (fase 5)"
   },
   {
-    "id": "CPEI-T40-S06-80D9E21E77",
+    "id": "CPEI-T40-PT03-166",
     "orden": 1920,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Equipos que no pueden ser mangueados (cámara térmicas, walquis, linternas…): se realizará»?",
-    "respuesta": "Equipos que no pueden ser mangueados (cámara térmicas, walquis, linternas…): se realizará limpieza con bayeta húmeda. 1º.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 33",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Dónde están los Almacenes de repuesto de urgencia y a qué parques atiende cada uno?",
+    "respuesta": "Puebla de la Calzada: Mérida y Alburquerque. Almendralejo: Villafranca y Hornachos. Don Benito: Castuera y Herrera del Duque. Jerez de los Caballeros: Fregenal de la Sierra y Olivenza. Llerena: Azuaga y Zafra.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 43 (Hoja 36)",
+    "apartado": "PT03 amianto · 9.6.2. Funciones del Jefe de Guardia (fase 5) › Tabla de almacenes"
   },
   {
-    "id": "CPEI-T40-S06-BA1C400349",
+    "id": "CPEI-T40-PT03-167",
     "orden": 1930,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Introducir la bolsa, e n una segunda bolsa con indicativo de amianto»?",
-    "respuesta": "Introducir la bolsa, e n una segunda bolsa con indicativo de amianto, cerrándola herméticamente.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 33",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué almacén de repuesto de urgencia atiende a los parques de Mérida y Alburquerque?",
+    "respuesta": "Puebla de la Calzada.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 43 (Hoja 36)",
+    "apartado": "PT03 amianto · 9.6.2. Funciones del Jefe de Guardia (fase 5) › Tabla de almacenes"
   },
   {
-    "id": "CPEI-T40-S06-FEF8952C4B",
+    "id": "CPEI-T40-PT03-168",
     "orden": 1940,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Limpieza de Epi´s con agua por pareja»?",
-    "respuesta": "Limpieza de Epi´s con agua por pareja.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 33",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué almacén de repuesto de urgencia atiende a los parques de Villafranca y Hornachos?",
+    "respuesta": "Almendralejo.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 43 (Hoja 36)",
+    "apartado": "PT03 amianto · 9.6.2. Funciones del Jefe de Guardia (fase 5) › Tabla de almacenes"
   },
   {
-    "id": "CPEI-T40-S06-444F8E940A",
+    "id": "CPEI-T40-PT03-169",
     "orden": 1950,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Esta zona está prohibida la permanencia de person al que no ha»?",
-    "respuesta": "Esta zona está prohibida la permanencia de person al que no ha participado en la intervención (si existe personal en la zona que no ha participado en la zona de posible exposición, se limitará a preparar material limpio a los participantes, en la zona de Lona retirada de equipos LONA 2). 1º.- Los operarios en pareja procederán al mangueo del compañero con todo el equipo puesto (incluido ERACA), con objeto de hacer la primera eliminación de partículas de polvo.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 33",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué almacén de repuesto de urgencia atiende a los parques de Castuera y Herrera del Duque?",
+    "respuesta": "Don Benito.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 43 (Hoja 36)",
+    "apartado": "PT03 amianto · 9.6.2. Funciones del Jefe de Guardia (fase 5) › Tabla de almacenes"
   },
   {
-    "id": "CPEI-T40-S06-1F51C0D281",
+    "id": "CPEI-T40-PT03-170",
     "orden": 1960,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Una vez limpiado el traje del binomio, se repite la operación con»?",
-    "respuesta": "Una vez limpiado el traje del binomio, se repite la operación con el MRI.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 33",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué almacén de repuesto de urgencia atiende a los parques de Fregenal de la Sierra y Olivenza?",
+    "respuesta": "Jerez de los Caballeros.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 43 (Hoja 36)",
+    "apartado": "PT03 amianto · 9.6.2. Funciones del Jefe de Guardia (fase 5) › Tabla de almacenes"
   },
   {
-    "id": "CPEI-T40-S06-BD65559496",
+    "id": "CPEI-T40-PT03-171",
     "orden": 1970,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 27 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 27 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ 2º.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 34",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué almacén de repuesto de urgencia atiende a los parques de Azuaga y Zafra?",
+    "respuesta": "Llerena.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 43 (Hoja 36)",
+    "apartado": "PT03 amianto · 9.6.2. Funciones del Jefe de Guardia (fase 5) › Tabla de almacenes"
   },
   {
-    "id": "CPEI-T40-S06-B58EBEF3F9",
+    "id": "CPEI-T40-PT03-172",
     "orden": 1980,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Limpieza exterior del casco con bayeta mojada. 3º»?",
-    "respuesta": "Limpieza exterior del casco con bayeta mojada. 3º.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 34",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué EPI se colocan los operarios de lavandería antes de entrar en la sala de sucio y en qué orden?",
+    "respuesta": "1º Guantes de vinilo (UNE-EN 374). 2º Buzo de protección/termo capuz tipo 5 impermeable a partículas, precintado mangas y tobillos, con caperuza colocada (EN 13982-1). 3º Mascarillas con filtros contra partículas tipo P3 (UNE-EN 149). 4º Gafas de seguridad herméticas (UNE-EN 166). Queda completamente prohibida su retirada durante la descontaminación.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 43 (Hoja 36)",
+    "apartado": "PT03 amianto · 10. Lavado en lavandería central › 10.1 Procedimiento de lavado en lavandería de base"
   },
   {
-    "id": "CPEI-T40-S06-C14ABA8A77",
+    "id": "CPEI-T40-PT03-173",
     "orden": 1990,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Limpieza del equipo de respiración: espaldera, botella, media mascara, 4º»?",
-    "respuesta": "Limpieza del equipo de respiración: espaldera, botella, media mascara, 4º.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 34",
-    "apartado": "PT03 amianto"
+    "concepto": "Una vez protegidos en la sala de sucio de lavandería, ¿qué se hace con el desagüe y qué equipo de filtrado se usa?",
+    "respuesta": "Se modifica el sentido del desagüe accionando la llave habilitada, para que toda el agua de la descontaminación pase por el sistema de filtrado instalado: equipo modelo AS300 M, con manguera con sensor capacitivo de agua.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 43–44 (Hojas 36–37)",
+    "apartado": "PT03 amianto · 10. Lavado en lavandería central › 10.1 Procedimiento de lavado en lavandería de base"
   },
   {
-    "id": "CPEI-T40-S06-D826E06D6E",
+    "id": "CPEI-T40-PT03-174",
     "orden": 2000,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Los intervinientes pasarán a LONA 2, para proceder a la retirada y»?",
-    "respuesta": "Los intervinientes pasarán a LONA 2, para proceder a la retirada y embolsado de los EPI´s, en el siguiente orden: 1º.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 34",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Qué etapas de filtrado tiene el equipo AS300 M de la lavandería y qué caudal tiene su bomba?",
+    "respuesta": "Tres etapas: 200 micras, 50 micras y la etapa de vertido de 1 micra. Bomba de 30 litros de caudal.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 44 (Hoja 37)",
+    "apartado": "PT03 amianto · 10. Lavado en lavandería central › 10.1 Procedimiento de lavado en lavandería de base"
   },
   {
-    "id": "CPEI-T40-S06-2ADF54D4C3",
+    "id": "CPEI-T40-PT03-175",
     "orden": 2010,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Retirar e introducir en bolsa de plástico de EPi´s INDIVIDUAL (manteniendo guantes»?",
-    "respuesta": "Retirar e introducir en bolsa de plástico de EPi´s INDIVIDUAL (manteniendo guantes de nitrilo colocados). 2º.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 34",
-    "apartado": "PT03 amianto"
+    "concepto": "¿En qué lotes se agrupan los EPI para descontaminarlos en la lavandería?",
+    "respuesta": "1) Conjuntos de vestimenta: chaqueta, cubre pantalón, guantes. 2) Equipos de respiración autónoma, máscaras portafiltros P3. 3) Verdugos junto con otras prendas de vestimenta interior. 4) Cascos. 5) Calzado.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 44 (Hoja 37)",
+    "apartado": "PT03 amianto · 10. Lavado en lavandería central › 10.2 Clasificación y agrupación de los equipos a descontaminar"
   },
   {
-    "id": "CPEI-T40-S06-794144496F",
+    "id": "CPEI-T40-PT03-176",
     "orden": 2020,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 28 Fecha original: 2/02/2022 Edición»?",
-    "respuesta": "PROCEDIMIENTO DE TRABAJO PT/P0 nº: 03 Hoja: 28 Fecha original: 2/02/2022 Edición: 2ª Fecha Ed. 02: 30/05/2023 TRABAJOS CON AMIANTO CONSORCIO PROVINCIAL DE EXTINCIÓN DE INCENDIOS DE BADAJOZ (en el caso de tener puesta media mascara, permanecerá con ella colocada).",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 35",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cuándo y cómo se hace una descontaminación gruesa inicial en el lavadero de la lavandería?",
+    "respuesta": "Antes de las lavadoras, si se observa una alta contaminación de los EPI y herramientas. Con agua a 40 °C, detergente y cepillo: se impregnan con agua y detergente, se frotan y se aclaran únicamente con agua a 40 °C. Al final, el lavadero se llena por completo con agua a 40 °C y detergente, se sumerge el cepillo y se remueve el agua.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 44 (Hoja 37)",
+    "apartado": "PT03 amianto · 10. Lavado en lavandería central › 10.2 Clasificación y agrupación de los equipos a descontaminar"
   },
   {
-    "id": "CPEI-T40-S06-6D2C3599C8",
+    "id": "CPEI-T40-PT03-177",
     "orden": 2030,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Espaldera y botellas de aire, se introducen en la bolsa de plástico»?",
-    "respuesta": "Espaldera y botellas de aire, se introducen en la bolsa de plástico de EPi´s COLECTIVOS.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 35",
-    "apartado": "PT03 amianto"
+    "concepto": "En la lavadora industrial, ¿qué temperatura y qué detergente se utilizan, y en qué cantidad?",
+    "respuesta": "40 °C; el detergente recomendado por el fabricante o, en caso contrario, uno que no contenga cloro, en cantidades del orden de 30 g o 3 ml de producto por kg de ropa seca (según sea sólido o líquido).",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 44 (Hoja 37)",
+    "apartado": "PT03 amianto · 10. Lavado en lavandería central › 10.2 Clasificación y agrupación de los equipos a descontaminar"
   },
   {
-    "id": "CPEI-T40-S06-9DAA142989",
+    "id": "CPEI-T40-PT03-178",
     "orden": 2040,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Máscara Presión+ se introduce en bolsa de plástico de EPi´s INDIVIDUAL, 4º»?",
-    "respuesta": "Máscara Presión+ se introduce en bolsa de plástico de EPi´s INDIVIDUAL, 4º.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 35",
-    "apartado": "PT03 amianto"
+    "concepto": "Sin recomendaciones del fabricante, ¿qué programa de lavado debe elegirse en la lavadora industrial?",
+    "respuesta": "El que menos revoluciones utilice (para evitar el desgaste por acción mecánica), con prelavado, lavado central y al menos tres ciclos de aclarado; el proceso no debe durar más de 30 minutos y el lavado central debe ocupar un mínimo del 40 % del ciclo completo.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF págs. 44–45 (Hojas 37–38)",
+    "apartado": "PT03 amianto · 10. Lavado en lavandería central › 10.2 Clasificación y agrupación de los equipos a descontaminar"
   },
   {
-    "id": "CPEI-T40-S06-657475C19F",
+    "id": "CPEI-T40-PT03-179",
     "orden": 2050,
-    "concepto": "¿Qué regla establece PT03 amianto sobre «Se procede a desmontar el atalaje, y embolsar en bolsa de plástico»?",
-    "respuesta": "Se procede a desmontar el atalaje, y embolsar en bolsa de plástico de EPi´s INDIVIDUAL. 5º.",
-    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2",
-    "localizacion": "página 35",
-    "apartado": "PT03 amianto"
+    "concepto": "¿Cómo se lavan las chaquetas y los pantalones y qué se recomienda con los mosquetones?",
+    "respuesta": "Primero, conjuntamente en la lavadora industrial, dados la vuelta y con cremalleras y velcros cerrados. Se recomienda meter los mosquetones de los arneses y de sujeción de los ERA en los bolsillos de pantalones y chaquetas, cerrándolos, para lavarlos en el mismo ciclo.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 45 (Hoja 38)",
+    "apartado": "PT03 amianto · 10. Lavado en lavandería central › 10.2 Clasificación y agrupación de los equipos a descontaminar"
+  },
+  {
+    "id": "CPEI-T40-PT03-180",
+    "orden": 2060,
+    "concepto": "¿Qué equipos se descontaminan en la lavadora tipo lavavajillas?",
+    "respuesta": "1) Los ERA al completo, incluyendo la máscara, los reductores y la botella de aire. 2) Los cascos junto con los guantes. 3) Media máscara portante filtro P3. 4) El calzado, siempre tras un lavado previo en el lavadero.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 45 (Hoja 38)",
+    "apartado": "PT03 amianto · 10. Lavado en lavandería central › 10.2 Clasificación y agrupación de los equipos a descontaminar"
+  },
+  {
+    "id": "CPEI-T40-PT03-181",
+    "orden": 2070,
+    "concepto": "Terminada la limpieza en las máquinas, ¿dónde se depositan los EPI?",
+    "respuesta": "En un armario de secado hasta que estén completamente listos para ser reutilizados, con el programa de secado recomendado por el fabricante.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 45 (Hoja 38)",
+    "apartado": "PT03 amianto · 10. Lavado en lavandería central › 10.2 Clasificación y agrupación de los equipos a descontaminar"
+  },
+  {
+    "id": "CPEI-T40-PT03-182",
+    "orden": 2080,
+    "concepto": "Al terminar la descontaminación de los equipos, ¿qué se hace con la lavadora antes de usarla para otros EPI?",
+    "respuesta": "Un lavado rápido en vacío con detergente y agua a 50 °C, para eliminar la posible contaminación remanente.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 45 (Hoja 38)",
+    "apartado": "PT03 amianto · 10. Lavado en lavandería central › 10.2 Clasificación y agrupación de los equipos a descontaminar"
+  },
+  {
+    "id": "CPEI-T40-PT03-183",
+    "orden": 2090,
+    "concepto": "¿Cuántos profesionales se recomienda destinar a las tareas de lavandería y cómo se reparten?",
+    "respuesta": "Al menos dos. Uno traslada los sacos a la sala de descontaminación, extrae y clasifica los equipos, los mete en las lavadoras y hace la limpieza previa en el lavadero (las tareas de mayor exposición). El otro configura los equipos de limpieza, comprueba la descontaminación (por si hace falta un segundo lavado), los mete en la secadora, los lleva a la sala de secado y comprueba periódicamente el secado.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 45 (Hoja 38)",
+    "apartado": "PT03 amianto · 10. Lavado en lavandería central › 10.2 Clasificación y agrupación de los equipos a descontaminar"
+  },
+  {
+    "id": "CPEI-T40-PT03-184",
+    "orden": 2100,
+    "concepto": "¿Qué deben hacer los operarios de lavandería al finalizar su tarea?",
+    "respuesta": "Quitarse dentro de la sala de lavado todos los EPI desechables, ensacarlos herméticamente e identificarlos con la etiqueta de residuo de amianto (excepto la protección respiratoria). Después ducharse en Base con la protección respiratoria puesta, metiendo la ropa que lleven bajo el mono en bolsa identificada con restos de amianto. Al terminar la ducha, quitarse la protección respiratoria, desechar los filtros como residuo de amianto y lavar la máscara.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 46 (Hoja 39)",
+    "apartado": "PT03 amianto · 10. Lavado en lavandería central › 10.3"
+  },
+  {
+    "id": "CPEI-T40-PT03-185",
+    "orden": 2110,
+    "concepto": "¿Qué se aconseja hacer con la ropa que se ponen los trabajadores al final de la descontaminación y por qué?",
+    "respuesta": "Depositarla en los contenedores correspondientes para limpiarla en lavadora, porque al manejar los sacos herméticos con los EPI o por contacto con superficies de la zona afectada se ha podido contaminar con fibras de amianto, con riesgo para el propio bombero y para terceros.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 46 (Hoja 39)",
+    "apartado": "PT03 amianto · 10. Lavado en lavandería central › 10.3"
+  },
+  {
+    "id": "CPEI-T40-PT03-186",
+    "orden": 2120,
+    "concepto": "¿Por qué no se considera necesaria una instalación de ventilación en la sala de descontaminación?",
+    "respuesta": "Por la escasa frecuencia de esta operación (no más de 1/2 veces por año) y por haberse realizado una descontaminación previa de los equipos.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 46 (Hoja 39)",
+    "apartado": "PT03 amianto · 10. Lavado en lavandería central › Nota: sala de descontaminación"
+  },
+  {
+    "id": "CPEI-T40-PT03-187",
+    "orden": 2130,
+    "concepto": "¿Qué formación necesita el personal que intervenga según el PT03?",
+    "respuesta": "1) Curso básico de prevención de riesgos laborales. 2) Curso de riesgos y medidas preventivas en trabajos con exposición a amianto.",
+    "fuente": "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023)",
+    "localizacion": "PDF p. 46 (Hoja 39)",
+    "apartado": "PT03 amianto · 11. Formación"
   }
 ];
 
