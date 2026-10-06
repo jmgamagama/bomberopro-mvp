@@ -4,7 +4,7 @@
  * Es la ÚNICA lista de temas/lotes cargados en la app: la pantalla «Recuerdo»,
  * las pestañas de temas y la Sesión diaria leen de aquí.
  *
- * Para añadir un mazo nuevo (p. ej. tema 36 lote 03):
+ * Para añadir un mazo nuevo (p. ej. tema 36 lote 05):
  *   1. crea src/data/<mazo>Recall.ts con `<MAZO>_RECALL_META` y `<MAZO>_RECALL_CARDS`
  *      (mismo formato que los existentes);
  *   2. impórtalo abajo y añade UNA línea `defineDeck(...)` a RECALL_DECKS.
@@ -17,6 +17,7 @@ import { canAccessDeck, getPlan, type Plan } from '../utils/plan';
 import { TEMA35_RECALL_CARDS, TEMA35_RECALL_META } from './tema35Recall';
 import { TEMA36_LOTE01_RECALL_CARDS, TEMA36_LOTE01_RECALL_META } from './tema36Lote01Recall';
 import { TEMA36_LOTE02_RECALL_CARDS, TEMA36_LOTE02_RECALL_META } from './tema36Lote02Recall';
+import { TEMA36_LOTE03_RECALL_CARDS, TEMA36_LOTE03_RECALL_META } from './tema36Lote03Recall';
 import { TEMA38_RECALL_CARDS, TEMA38_RECALL_META } from './tema38Recall';
 import { TEMA39_RECALL_CARDS, TEMA39_RECALL_META } from './tema39Recall';
 import { TEMA40_RECALL_CARDS, TEMA40_RECALL_META } from './tema40Recall';
@@ -86,6 +87,7 @@ export const RECALL_DECKS: readonly RecallDeck[] = [
   defineDeck(TEMA35_RECALL_META, TEMA35_RECALL_CARDS),
   defineDeck(TEMA36_LOTE01_RECALL_META, TEMA36_LOTE01_RECALL_CARDS),
   defineDeck(TEMA36_LOTE02_RECALL_META, TEMA36_LOTE02_RECALL_CARDS),
+  defineDeck(TEMA36_LOTE03_RECALL_META, TEMA36_LOTE03_RECALL_CARDS),
   defineDeck(TEMA38_RECALL_META, TEMA38_RECALL_CARDS),
   defineDeck(TEMA39_RECALL_META, TEMA39_RECALL_CARDS),
   defineDeck(TEMA40_RECALL_META, TEMA40_RECALL_CARDS),
@@ -109,4 +111,31 @@ export const RECALL_TOTAL_CARDS = RECALL_DECKS.reduce((sum, d) => sum + d.count,
 /** Mazos accesibles para el plan dado (por defecto, el plan actual). */
 export function getAccessibleDecks(plan: Plan = getPlan()): readonly RecallDeck[] {
   return RECALL_DECKS.filter((deck) => canAccessDeck(deck.id, plan));
+}
+
+function joinEs(items: readonly string[]): string {
+  return items.length <= 1 ? items.join('') : `${items.slice(0, -1).join(', ')} y ${items[items.length - 1]}`;
+}
+
+/** Resumen legible de los temas cargados: «35, 36 (lotes 01 a 03), 38, 39 y 40». */
+export function describeRecallCoverage(decks: readonly RecallDeck[] = RECALL_DECKS): string {
+  const byTema = new Map<number, string[]>();
+  for (const deck of decks) {
+    const lotes = byTema.get(deck.tema) ?? [];
+    if (deck.lote) lotes.push(deck.lote.replace(/^lote/i, ''));
+    byTema.set(deck.tema, lotes);
+  }
+  const parts = [...byTema.entries()]
+    .sort(([a], [b]) => a - b)
+    .map(([tema, lotes]) => {
+      if (lotes.length === 0) return String(tema);
+      if (lotes.length === 1) return `${tema} (lote ${lotes[0]})`;
+      const nums = lotes.map(Number).sort((a, b) => a - b);
+      const consecutive = nums.every((n, i) => i === 0 || n === nums[i - 1] + 1);
+      const sorted = [...lotes].sort();
+      return consecutive
+        ? `${tema} (lotes ${sorted[0]} a ${sorted[sorted.length - 1]})`
+        : `${tema} (lotes ${joinEs(sorted)})`;
+    });
+  return joinEs(parts);
 }

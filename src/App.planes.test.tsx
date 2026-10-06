@@ -6,6 +6,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import './test/setup';
 vi.mock('./lib/supabase', () => ({ supabase: null }));
 import App from './App';
+import { RECALL_DECKS } from './data/recallRegistry';
 
 async function openRecuerdo(user: ReturnType<typeof userEvent.setup>) {
   await screen.findByRole('button', { name: /Por Temas/ });
@@ -58,7 +59,7 @@ describe('planes con la bandera activada', () => {
     const user = userEvent.setup();
     render(<App />);
     const tablist = await openRecuerdo(user);
-    expect(within(tablist).getAllByRole('tab', { name: /\(Pro\)/ })).toHaveLength(5);
+    expect(within(tablist).getAllByRole('tab', { name: /\(Pro\)/ })).toHaveLength(RECALL_DECKS.length - 1);
     expect(within(tablist).getByRole('tab', { name: /T40/ })).toHaveAttribute('aria-selected', 'true');
     expect(screen.getByText(/Ficha 1 de 213/)).toBeInTheDocument();
 
