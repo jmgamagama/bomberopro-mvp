@@ -4,6 +4,8 @@
  */
 
 import type { RecallCard } from '../data/recallCards';
+import { dayNumberFromKey, toLocalDateKey } from './localDate';
+import { classifyCard, getCardSrs, type RecallCardStatus, type SrsStore } from './recallSrs';
 
 export const DAILY_SESSION_SIZE = 30;
 export const STREAK_STORAGE_KEY = 'mira_sesion_diaria_racha_v1';
@@ -13,13 +15,7 @@ export interface DailyStreak {
   streakCount: number;
 }
 
-/** Fecha local YYYY-MM-DD. */
-export function toLocalDateKey(date: Date = new Date()): string {
-  const y = date.getFullYear();
-  const m = String(date.getMonth() + 1).padStart(2, '0');
-  const d = String(date.getDate()).padStart(2, '0');
-  return `${y}-${m}-${d}`;
-}
+export { toLocalDateKey };
 
 function mulberry32(seed: number): () => number {
   let t = seed >>> 0;
@@ -46,11 +42,7 @@ function daySeed(dateKey: string): number {
   return y * 10000 + m * 100 + d;
 }
 
-/** Nº de día absoluto (días desde 1970-01-01) para una fecha local YYYY-MM-DD. */
-function dayNumber(dateKey: string): number {
-  const [y, m, d] = dateKey.split('-').map(Number);
-  return Math.floor(Date.UTC(y, m - 1, d) / 86_400_000);
-}
+const dayNumber = dayNumberFromKey;
 
 function hashString(value: string): number {
   let h = 2166136261;
@@ -107,6 +99,12 @@ export interface DailySessionOptions {
    * Un id de tema (`tema36`) prioriza todos sus lotes (`tema36-lote01`…), repartidos entre ellos.
    */
   preferredDeckId?: string | null;
+  /**
+   * Estado de repaso espaciado (src/utils/recallSrs.ts). Si hay fichas ya repasadas, la sesión
+   * prioriza: 1) vencidas, 2) fallidas, 3) nuevas (con el reparto/rotación de siempre) y,
+   * si aún sobra sitio, 4) las programadas más próximas.
+   */
+  srs?: SrsStore;
 }
 
 function matchesPreferred(deckKey: string, preferred: string): boolean {
@@ -121,6 +119,54 @@ export function pickDailyRecallSession(
   maxSize: number = DAILY_SESSION_SIZE,
   date: Date = new Date(),
   options: DailySessionOptions = {},
+): RecallCard[] {
+  if (pool.length === 0 || maxSize <= 0) return [];
+  const srs = options.srs;
+  if (!srs || !pool.some((card) => getCardSrs(srs, card.deckId, card.id))) {
+    return pickRotation(pool, maxSize, date, options);
+  }
+
+  const dateKey = toLocalDateKey(date);
+  const today = dayNumberFromKey(dateKey);
+  const preferred = options.preferredDeckId ?? null;
+  const total = Math.min(maxSize, pool.length);
+  const tiers: Record<RecallCardStatus, RecallCard[]> = { due: [], failed: [], new: [], scheduled: [] };
+  for (const card of pool) tiers[classifyCard(getCardSrs(srs, card.deckId, card.id), today)].push(card);
+
+  // Desempates: tema prioritario primero y, después, orden de rotación del día.
+  const prefRank = (c: RecallCard) => (preferred && c.deckId && matchesPreferred(c.deckId, preferred) ? 0 : 1);
+  const rot = (c: RecallCard) => hashString(`${c.id}|${dateKey}`);
+  const by = (key: (c: RecallCard) => number) => (a: RecallCard, b: RecallCard) =>
+    key(a) - key(b) || prefRank(a) - prefRank(b) || rot(a) - rot(b);
+  const st = (c: RecallCard) => getCardSrs(srs, c.deckId, c.id)!;
+
+  const picked: RecallCard[] = [
+    ...[...tiers.due].sort(by((c) => st(c).due)),
+    ...[...tiers.failed].sort(by((c) => st(c).lastReview)),
+  ].slice(0, total);
+  if (picked.length < total) {
+    picked.push(...pickRotation(tiers.new, total - picked.length, date, options));
+  }
+  if (picked.length < total) {
+    picked.push(...[...tiers.scheduled].sort(by((c) => st(c).due)).slice(0, total - picked.length));
+  }
+  return picked;
+}
+
+/** Recuento por tipo (vencidas, fallidas, nuevas, adelantadas) de una sesión. */
+export function summarizeSession(session: RecallCard[], srs: SrsStore, date: Date = new Date()): Record<RecallCardStatus, number> {
+  const today = dayNumberFromKey(toLocalDateKey(date));
+  const out: Record<RecallCardStatus, number> = { due: 0, failed: 0, new: 0, scheduled: 0 };
+  for (const card of session) out[classifyCard(getCardSrs(srs, card.deckId, card.id), today)]++;
+  return out;
+}
+
+/** Selección por cuotas y rotación diaria (sin estado de repaso). */
+function pickRotation(
+  pool: RecallCard[],
+  maxSize: number,
+  date: Date,
+  options: DailySessionOptions,
 ): RecallCard[] {
   if (pool.length === 0 || maxSize <= 0) return [];
   const dateKey = toLocalDateKey(date);

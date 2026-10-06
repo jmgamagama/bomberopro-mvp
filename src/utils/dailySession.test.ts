@@ -10,8 +10,11 @@ import {
   loadDailyStreak,
   pickDailyRecallSession,
   saveDailyStreak,
+  summarizeSession,
   toLocalDateKey,
 } from './dailySession';
+import { localDayNumber } from './localDate';
+import { GRADE_AGAIN, GRADE_GOOD, recordRecallGrade, type CardSrs, type SrsStore } from './recallSrs';
 
 // Pool completo (en la app se carga bajo demanda, un módulo por mazo).
 let RECALL_CARDS: RecallCard[] = [];
@@ -122,5 +125,74 @@ describe('sesión diaria con tema prioritario', () => {
     const base = pickDailyRecallSession(RECALL_CARDS, 30, date).map((c) => c.id);
     expect(pickDailyRecallSession(RECALL_CARDS, 30, date, { preferredDeckId: null }).map((c) => c.id)).toEqual(base);
     expect(pickDailyRecallSession(RECALL_CARDS, 30, date, { preferredDeckId: 'tema37' }).map((c) => c.id)).toEqual(base);
+  });
+});
+
+describe('sesión diaria con repaso espaciado', () => {
+  const date = new Date(2026, 9, 10, 9);
+  const today = localDayNumber(date);
+  const st = (over: Partial<CardSrs>): CardSrs => ({
+    interval: 3, ease: 2.5, due: today, reps: 2, correct: 2, wrong: 0, lastGrade: GRADE_GOOD, lastReview: today - 3, ...over,
+  });
+
+  it('sin estado guardado es idéntica a la rotación de siempre', () => {
+    const base = pickDailyRecallSession(RECALL_CARDS, 30, date).map((c) => c.id);
+    expect(pickDailyRecallSession(RECALL_CARDS, 30, date, { srs: {} }).map((c) => c.id)).toEqual(base);
+  });
+
+  it('prioriza vencidas (más antiguas primero), luego falladas y luego nuevas', () => {
+    const t40 = RECALL_CARDS.filter((c) => c.deckId === 'tema40');
+    const t35 = RECALL_CARDS.filter((c) => c.deckId === 'tema35');
+    const srs: SrsStore = {
+      tema40: {
+        [t40[0].id]: st({ due: today - 1 }),
+        [t40[1].id]: st({ due: today - 5 }),
+        [t40[2].id]: st({ lastGrade: GRADE_AGAIN, interval: 1, reps: 0, due: today, lastReview: today - 1 }),
+        [t40[3].id]: st({ due: today + 4 }), // programada: no entra mientras haya nuevas
+      },
+      tema35: { [t35[0].id]: st({ due: today }) },
+    };
+    const session = pickDailyRecallSession(RECALL_CARDS, 30, date, { srs });
+    expect(session).toHaveLength(30);
+    expect(session.slice(0, 4).map((c) => c.id)).toEqual([t40[1].id, t40[0].id, t35[0].id, t40[2].id]);
+    expect(session.some((c) => c.id === t40[3].id)).toBe(false);
+    expect(new Set(session.map((c) => c.id)).size).toBe(30);
+    const mix = summarizeSession(session, srs, date);
+    expect(mix).toEqual({ due: 3, failed: 1, new: 26, scheduled: 0 });
+  });
+
+  it('el tema prioritario desempata entre vencidas del mismo día y reparte las nuevas', () => {
+    const t40 = RECALL_CARDS.filter((c) => c.deckId === 'tema40');
+    const t35 = RECALL_CARDS.filter((c) => c.deckId === 'tema35');
+    const srs: SrsStore = { tema40: { [t40[0].id]: st({}) }, tema35: { [t35[0].id]: st({}) } };
+    const pref35 = pickDailyRecallSession(RECALL_CARDS, 30, date, { srs, preferredDeckId: 'tema35' });
+    expect(pref35[0].id).toBe(t35[0].id);
+    const pref40 = pickDailyRecallSession(RECALL_CARDS, 30, date, { srs, preferredDeckId: 'tema40' });
+    expect(pref40[0].id).toBe(t40[0].id);
+    expect(pref40.slice(2).filter((c) => c.topicId === 'tema40').length).toBe(Math.round(28 * 0.6));
+  });
+
+  it('respeta el tope del plan aunque haya más vencidas', () => {
+    const t40 = RECALL_CARDS.filter((c) => c.deckId === 'tema40');
+    const srs: SrsStore = { tema40: Object.fromEntries(t40.slice(0, 50).map((c, i) => [c.id, st({ due: today - (i % 7) })])) };
+    const free = pickDailyRecallSession(t40, 10, date, { srs });
+    expect(free).toHaveLength(10);
+    expect(summarizeSession(free, srs, date).due).toBe(10);
+  });
+
+  it('si ya no quedan nuevas ni vencidas, completa con las programadas más próximas', () => {
+    const t40 = RECALL_CARDS.filter((c) => c.deckId === 'tema40');
+    const srs: SrsStore = { tema40: Object.fromEntries(t40.map((c, i) => [c.id, st({ due: today + 1 + (i % 9) })])) };
+    const session = pickDailyRecallSession(t40, 10, date, { srs });
+    expect(session).toHaveLength(10);
+    expect(session.every((c) => srs.tema40[c.id].due === today + 1)).toBe(true);
+  });
+
+  it('autoevaluar fichas no toca la racha (solo completar la sesión la cuenta)', () => {
+    window.localStorage.clear();
+    saveDailyStreak({ lastCompletedDate: '2026-10-09', streakCount: 4 });
+    recordRecallGrade('tema40', 'x', GRADE_GOOD, date);
+    expect(loadDailyStreak().streakCount).toBe(4);
+    expect(completeDailySession(date).streakCount).toBe(5);
   });
 });
