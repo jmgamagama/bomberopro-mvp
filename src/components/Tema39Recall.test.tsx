@@ -27,6 +27,8 @@ describe('Tema39Recall', () => {
     const onNavigateHome = vi.fn();
     render(<Tema39Recall onNavigateHome={onNavigateHome} />);
     await screen.findByText(/Ficha 1 de/);
+    // La respuesta empieza oculta: primero se intenta recordar.
+    await userEvent.setup().click(screen.getByRole('button', { name: /Mostrar respuesta/i }));
     const first = TEMA39_RECALL_CARDS[0];
     const jsonFirst = fichasJson.fichas[0];
     expect(first.id).toBe(jsonFirst.id);

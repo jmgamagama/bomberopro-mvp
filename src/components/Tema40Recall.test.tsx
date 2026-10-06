@@ -19,6 +19,8 @@ describe('Tema40Recall', () => {
     const onNavigateHome = vi.fn();
     render(<Tema40Recall onNavigateHome={onNavigateHome} />);
     await screen.findByText(/Ficha 1 de/);
+    // La respuesta empieza oculta: primero se intenta recordar.
+    await userEvent.setup().click(screen.getByRole('button', { name: /Mostrar respuesta/i }));
     const first = TEMA40_RECALL_CARDS[0];
     expect(screen.getByRole('heading', { name: TEMA40_RECALL_META.title })).toBeInTheDocument();
     expect(screen.getByText(first.concepto)).toBeInTheDocument();
@@ -63,6 +65,8 @@ describe('textos de cara al opositor', () => {
   it('no muestra avisos internos y mantiene la fuente visible', async () => {
     render(<Tema40Recall onNavigateHome={vi.fn()} />);
     await screen.findByText(/Ficha 1 de/);
+    // La respuesta empieza oculta: primero se intenta recordar.
+    await userEvent.setup().click(screen.getByRole('button', { name: /Mostrar respuesta/i }));
     const text = document.body.textContent ?? '';
     expect(text).not.toMatch(/No es un banco de preguntas|9\.392|fichas locales|mazos|Datos de PT01/);
     expect(screen.getByText(/fichas de repaso con su fuente oficial/i)).toBeInTheDocument();

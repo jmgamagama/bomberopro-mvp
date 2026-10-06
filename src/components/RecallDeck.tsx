@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { ArrowLeft, ChevronLeft, ChevronRight, Eye, EyeOff } from 'lucide-react';
 import type { RecallDeck as RecallDeckData, RecallSourceCard } from '../data/recallRegistry';
 import { useRecallDeckCards } from '../hooks/useRecallDeckCards';
+import RecallGradeButtons, { formatInterval } from './RecallGradeButtons';
+import { localDayNumber } from '../utils/localDate';
+import { classifyCard, loadSrs, recordRecallGrade, type RecallGrade, type SrsStore } from '../utils/recallSrs';
 
 interface RecallDeckProps {
   deck: RecallDeckData;
@@ -48,15 +51,39 @@ function RecallDeckViewer({
   onNavigateHome,
 }: RecallDeckProps & { cards: readonly RecallSourceCard[] }) {
   const [index, setIndex] = useState(0);
-  const [revealed, setRevealed] = useState(true);
+  const [revealed, setRevealed] = useState(false);
+  const [srs, setSrs] = useState<SrsStore>(() => loadSrs());
+  const [lastSaved, setLastSaved] = useState<string | null>(null);
   const total = cards.length;
   const card = cards[index];
   const loteNumber = deck.lote ? deck.lote.replace(/^lote/i, '') : undefined;
+  const today = localDayNumber();
+  const cardState = srs[deck.id]?.[card.id];
+  const status = classifyCard(cardState, today);
+  const statusLabel =
+    status === 'new'
+      ? 'Nueva'
+      : status === 'due'
+        ? 'Para repasar hoy'
+        : status === 'failed'
+          ? 'Fallada: repásala'
+          : `Próximo repaso ${formatInterval(cardState!.due - today)}`;
 
   const go = (next: number) => {
     const clamped = Math.max(0, Math.min(total - 1, next));
     setIndex(clamped);
-    setRevealed(true);
+    setRevealed(false);
+  };
+
+  const grade = (g: RecallGrade) => {
+    const next = recordRecallGrade(deck.id, card.id, g);
+    setSrs(loadSrs());
+    setLastSaved(
+      index + 1 >= total
+        ? `Guardado. Próximo repaso ${formatInterval(next.due - today)}. Has llegado al final del lote.`
+        : `Guardado. Próximo repaso ${formatInterval(next.due - today)}.`,
+    );
+    if (index + 1 < total) go(index + 1);
   };
 
   return (
@@ -90,6 +117,14 @@ function RecallDeckViewer({
           <span className="font-semibold text-slate-800">
             Ficha {index + 1} de {total}
           </span>
+          <span
+            id="recall-card-status"
+            className={`rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+              status === 'failed' ? 'bg-rose-50 text-rose-700' : status === 'due' ? 'bg-amber-50 text-amber-800' : 'bg-slate-100 text-slate-600'
+            }`}
+          >
+            {statusLabel}
+          </span>
           <span className="rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-semibold text-indigo-700">
             {card.apartado || `Tema ${deck.tema}`}
             {card.localizacion ? ` · ${card.localizacion}` : ''}
@@ -111,12 +146,17 @@ function RecallDeckViewer({
               <p className="text-xs font-semibold uppercase tracking-wide text-amber-900">Fuente</p>
               <p className="mt-1 break-words text-sm font-medium text-slate-900">{card.fuente}</p>
             </div>
+            <RecallGradeButtons state={cardState} today={today} onGrade={grade} />
           </>
         ) : (
           <p className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-4 text-sm text-slate-600">
             Respuesta y fuente ocultas. Pulsa «Mostrar respuesta» para verlas.
           </p>
         )}
+
+        <p aria-live="polite" className="min-h-4 text-xs font-medium text-emerald-700" id="recall-grade-saved">
+          {lastSaved}
+        </p>
 
         <div className="grid grid-cols-2 gap-3 pt-1 sm:flex sm:flex-wrap">
           <button

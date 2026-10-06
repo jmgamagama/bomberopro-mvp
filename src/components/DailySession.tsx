@@ -1,16 +1,21 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Flame, Play, Eye, EyeOff, CheckCircle2, ListOrdered } from 'lucide-react';
+import { Flame, Play, Eye, EyeOff, CheckCircle2, ListOrdered, BarChart3, Lock } from 'lucide-react';
 import {
   pickDailyRecallSession,
   loadDailyStreak,
   completeDailySession,
+  summarizeSession,
   type DailyStreak,
 } from '../utils/dailySession';
+import RecallGradeButtons from './RecallGradeButtons';
+import RecallStats from './RecallStats';
+import { localDayNumber } from '../utils/localDate';
+import { getCardSrs, loadSrs, recordRecallGrade, type RecallGrade, type SrsStore } from '../utils/recallSrs';
 import type { RecallCard } from '../data/recallCards';
 import { RECALL_TOPICS, canAccessTopic, getRecallTopic } from '../data/recallRegistry';
 import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreferences';
 import { loadRecallPoolForPlan } from '../data/recallCards';
-import { getDailySessionSize, getPlan } from '../utils/plan';
+import { canSeeStats, getDailySessionSize, getPlan } from '../utils/plan';
 import { isPlanesEnabled } from '../config/features';
 
 interface DailySessionProps {
@@ -22,7 +27,7 @@ interface DailySessionProps {
   onOpenPlanes?: () => void;
 }
 
-type Phase = 'intro' | 'study' | 'done';
+type Phase = 'intro' | 'study' | 'done' | 'stats';
 
 export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false, onOpenPlanes }: DailySessionProps) {
   const plan = getPlan();
@@ -33,6 +38,12 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [streak, setStreak] = useState<DailyStreak>(() => loadDailyStreak());
+  // Estado de repaso al abrir la pantalla: fija la selección de hoy aunque se autoevalúe durante la sesión.
+  const [srsSnapshot] = useState<SrsStore>(() => loadSrs());
+  const [liveSrs, setLiveSrs] = useState<SrsStore>(srsSnapshot);
+  const [grades, setGrades] = useState<[number, number, number]>([0, 0, 0]);
+  const [returnPhase, setReturnPhase] = useState<Phase>('intro');
+  const today = localDayNumber();
 
   // Fichas de los mazos del plan, cargadas bajo demanda (un módulo por mazo).
   const [pool, setPool] = useState<RecallCard[] | null>(null);
@@ -57,9 +68,13 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
   const preferredTopic = preferredTopicRaw && canAccessTopic(preferredTopicRaw, plan) ? preferredTopicRaw : undefined;
   const effectivePreferred = preferredTopic?.id ?? null;
   const session = useMemo(
-    () => (pool ? pickDailyRecallSession(pool, sessionSize, undefined, { preferredDeckId: effectivePreferred }) : []),
-    [effectivePreferred, pool, sessionSize],
+    () =>
+      pool
+        ? pickDailyRecallSession(pool, sessionSize, undefined, { preferredDeckId: effectivePreferred, srs: srsSnapshot })
+        : [],
+    [effectivePreferred, pool, sessionSize, srsSnapshot],
   );
+  const mix = useMemo(() => summarizeSession(session, srsSnapshot), [session, srsSnapshot]);
   const loading = pool === null;
 
   const changePreferredDeck = (id: string) => {
@@ -78,6 +93,24 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
     setPhase('study');
     setIndex(0);
     setRevealed(false);
+  };
+
+  const openStats = (from: Phase) => {
+    setReturnPhase(from);
+    setPhase('stats');
+  };
+
+  const handleGrade = (grade: RecallGrade) => {
+    if (current?.deckId) {
+      recordRecallGrade(current.deckId, current.id, grade);
+      setLiveSrs(loadSrs());
+    }
+    setGrades((g) => {
+      const next: [number, number, number] = [g[0], g[1], g[2]];
+      next[grade] += 1;
+      return next;
+    });
+    handleNext();
   };
 
   const handleNext = () => {
@@ -161,6 +194,18 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
                 Hoy: {sessionTopics.map((topic) => topic.shortLabel).join(' · ')}
               </p>
             )}
+            {!loading && session.length > 0 && (
+              <p className="mx-auto max-w-md text-xs font-semibold text-slate-600" id="daily-session-mix">
+                {[
+                  mix.due > 0 ? `${mix.due} para repasar` : null,
+                  mix.failed > 0 ? `${mix.failed} falladas` : null,
+                  mix.new > 0 ? `${mix.new} nuevas` : null,
+                  mix.scheduled > 0 ? `${mix.scheduled} de repaso adelantado` : null,
+                ]
+                  .filter(Boolean)
+                  .join(' · ')}
+              </p>
+            )}
           </div>
 
           <div className="mx-auto my-6 grid max-w-sm grid-cols-2 gap-4">
@@ -184,6 +229,16 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
           >
             <Play className="h-5 w-5 fill-current" aria-hidden="true" />
             Empezar sesión de recuerdo
+          </button>
+
+          <button
+            type="button"
+            id="btn-open-stats"
+            onClick={() => openStats('intro')}
+            className="mx-auto flex min-h-11 items-center justify-center gap-2 rounded-xl border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+          >
+            {canSeeStats(plan) ? <BarChart3 className="h-4 w-4" aria-hidden="true" /> : <Lock className="h-4 w-4" aria-hidden="true" />}
+            Tu progreso{canSeeStats(plan) ? '' : ' (Pro)'}
           </button>
 
           <button
@@ -255,18 +310,13 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
                 </p>
                 {current.answer}
               </div>
-              <button
-                type="button"
-                id="btn-next-recall"
-                onClick={handleNext}
-                className="w-full rounded-xl bg-indigo-600 px-4 py-3 font-bold text-white hover:bg-indigo-700"
-              >
-                {index + 1 >= session.length ? 'Terminar sesión' : 'Siguiente ficha'}
-              </button>
+<RecallGradeButtons state={getCardSrs(liveSrs, current.deckId, current.id)} today={today} onGrade={handleGrade} />
             </div>
           )}
         </section>
       )}
+
+      {phase === 'stats' && <RecallStats onBack={() => setPhase(returnPhase)} onOpenPlanes={onOpenPlanes} />}
 
       {phase === 'done' && (
         <section className="space-y-5 rounded-2xl border border-emerald-100 bg-white p-8 text-center shadow-sm" role="status" aria-live="polite">
@@ -275,12 +325,22 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
           </div>
           <h2 className="text-xl font-bold text-slate-800">Sesión completada</h2>
           <p className="text-sm text-slate-600">Has repasado {session.length} fichas de recuerdo.</p>
+          <p className="text-xs text-slate-500" id="daily-session-grades">
+            La sabías: {grades[2]} · Dudosas: {grades[1]} · No la sabías: {grades[0]}
+          </p>
           <div className="mx-auto max-w-xs rounded-2xl border border-orange-100 bg-orange-50 p-4">
             <p className="text-[10px] font-bold uppercase tracking-wider text-orange-500">Racha</p>
             <p className="text-4xl font-black text-orange-600">{streak.streakCount}</p>
             <p className="text-xs text-orange-700">días seguidos</p>
           </div>
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <button
+              type="button"
+              onClick={() => openStats('done')}
+              className="min-h-11 rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+            >
+              Ver tu progreso
+            </button>
             <button
               type="button"
               onClick={onOpenOrdenaPasos}

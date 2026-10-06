@@ -46,6 +46,8 @@ describe('Tema36Lote02Recall', () => {
     const onNavigateHome = vi.fn();
     render(<Tema36Lote02Recall onNavigateHome={onNavigateHome} />);
     await screen.findByText(/Ficha 1 de/);
+    // La respuesta empieza oculta: primero se intenta recordar.
+    await userEvent.setup().click(screen.getByRole('button', { name: /Mostrar respuesta/i }));
     const first = TEMA36_LOTE02_RECALL_CARDS[0];
     expect(first.id).toBe('CPEI-T36-S02-47FD12BD6E');
     expect(first.concepto).toContain('Acedera');
@@ -57,17 +59,19 @@ describe('Tema36Lote02Recall', () => {
     expect(screen.getByText(/Ficha 1 de 79/)).toBeInTheDocument();
   });
 
-  it('permite ocultar la respuesta, avanzar y salir al inicio', async () => {
+  it('empieza con la respuesta oculta, permite mostrarla/ocultarla, avanzar y salir al inicio', async () => {
     const user = userEvent.setup();
     const onNavigateHome = vi.fn();
     render(<Tema36Lote02Recall onNavigateHome={onNavigateHome} />);
     await screen.findByText(/Ficha 1 de/);
+    expect(screen.queryByText(TEMA36_LOTE02_RECALL_CARDS[0].respuesta)).not.toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /Mostrar respuesta/i }));
+    expect(screen.getByText(TEMA36_LOTE02_RECALL_CARDS[0].respuesta)).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /Ocultar respuesta/i }));
     expect(screen.queryByText(TEMA36_LOTE02_RECALL_CARDS[0].respuesta)).not.toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /Siguiente/i }));
     expect(screen.getByText(/Ficha 2 de 79/)).toBeInTheDocument();
     expect(screen.getByText(TEMA36_LOTE02_RECALL_CARDS[1].concepto)).toBeInTheDocument();
-    expect(screen.getByText(TEMA36_LOTE02_RECALL_CARDS[1].respuesta)).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /Salir al inicio/i }));
     expect(onNavigateHome).toHaveBeenCalledOnce();
   });

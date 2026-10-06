@@ -39,6 +39,11 @@ export function getDailySessionSize(plan: Plan = getPlan()): number {
   return PLAN_LIMITS[plan].dailySessionSize;
 }
 
+/** Estadísticas de progreso: Pro con planes activados; con la bandera apagada, para todos. */
+export function canSeeStats(plan: Plan = getPlan()): boolean {
+  return PLAN_LIMITS[plan].stats;
+}
+
 function storage(): Storage | null {
   try {
     return typeof window !== 'undefined' ? window.localStorage : null;

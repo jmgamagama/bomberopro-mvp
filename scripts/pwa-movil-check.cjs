@@ -109,6 +109,42 @@ const tapTargetsOk = async (locator) => {
   check('sesión: 30 fichas', await page.getByText(/Recuerdo · 1 \/ 30/).isVisible());
   await page.screenshot({ path: `${OUT}/sesion-360.png` });
 
+  // Autoevaluación (repaso espaciado): 3 botones grandes tras ver la respuesta
+  const grades = page.getByRole('group', { name: '¿La sabías?' }).getByRole('button');
+  check('autoevaluación: 3 botones', (await grades.count()) === 3);
+  check('autoevaluación: botones ≥44 px y dentro de 360 px', await tapTargetsOk(grades));
+  await page.getByRole('group', { name: '¿La sabías?' }).scrollIntoViewIfNeeded();
+  await page.evaluate(() => window.scrollBy(0, 60));
+  await page.waitForTimeout(300);
+  await page.screenshot({ path: `${OUT}/autoevaluacion-360.png` });
+  await page.getByRole('button', { name: /^La sabía/ }).click();
+  await page.getByText(/Recuerdo · 2 \/ 30/).waitFor();
+  await page.getByRole('button', { name: /Mostrar respuesta/ }).click();
+  await page.getByRole('button', { name: /^No la sabía/ }).click();
+  await page.getByText(/Recuerdo · 3 \/ 30/).waitFor();
+  const srs = await page.evaluate(() => JSON.parse(localStorage.getItem('mira_recall_srs_v1') || '{}'));
+  const saved = Object.values(srs.d || {}).reduce((n, cards) => n + Object.keys(cards).length, 0);
+  check('autoevaluación guardada en mira_recall_srs_v1', srs.v === 1 && saved === 2, String(saved));
+
+  // Estadísticas de progreso
+  await page.getByRole('button', { name: 'Salir' }).click();
+  await mobile.getByRole('button', { name: 'Diaria' }).click();
+  await page.getByRole('heading', { name: 'Sesión diaria' }).waitFor();
+  await page.locator('#daily-session-mix').waitFor();
+  check('sesión: la fallada vuelve hoy', /1 falladas/.test(await page.locator('#daily-session-mix').textContent()));
+  await page.getByRole('button', { name: /^Tu progreso$/ }).click();
+  const stats = page.getByRole('region', { name: 'Tu progreso' });
+  await stats.waitFor();
+  check('estadísticas: 2 fichas vistas', (await stats.locator('dd').first().textContent()) === '2');
+  check('estadísticas sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
+  check('estadísticas: «Volver» y «Ver los 8 lotes» ≥44 px', await tapTargetsOk(stats.getByRole('button', { name: 'Volver' })) && await tapTargetsOk(stats.locator('summary')));
+  await stats.locator('summary').click();
+  check('estadísticas: lotes del tema 36 sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
+  await stats.locator('summary').click();
+  await page.evaluate(() => window.scrollTo(0, document.querySelector('#recall-stats').getBoundingClientRect().top + window.scrollY - 80));
+  await page.waitForTimeout(300);
+  await page.screenshot({ path: `${OUT}/estadisticas-360.png` });
+
   // Offline: recarga desde el SW y estudia fichas
   await ctx.setOffline(true);
   await page.reload();
@@ -125,6 +161,10 @@ const tapTargetsOk = async (locator) => {
   await page.getByRole('button', { name: /Siguiente/ }).click();
   await page.getByText('Ficha 2 de 79').waitFor();
   check('offline: se ven fichas y se avanza', true);
+  await page.getByRole('button', { name: /Mostrar respuesta/ }).click();
+  await page.getByRole('button', { name: /^Dudosa/ }).click();
+  await page.getByText('Ficha 3 de 79').waitFor();
+  check('offline: la autoevaluación se guarda', /Guardado/.test(await page.locator('#recall-grade-saved').textContent()));
   check('offline sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
   await page.evaluate(() => {
     const article = document.querySelector('#recall-deck-panel article');
