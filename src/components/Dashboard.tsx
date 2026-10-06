@@ -417,7 +417,7 @@ export default function Dashboard({
           </span>
           <h4 className="text-lg font-bold text-slate-800">Hacer Simulacro</h4>
           <p className="text-xs text-slate-500 mt-1.5 min-h-[32px]">
-            Examen ciego de 10 preguntas cronometradas con desglose de diagnóstico.
+            Como el examen real: 50 preguntas + 5 de reserva, 60 minutos, por tema según las bases.
           </p>
           <div className="mt-4 flex items-center text-xs font-semibold text-indigo-600 gap-1 group-hover:gap-2 transition-all">
             Iniciar Test <ArrowRight className="w-3.5 h-3.5" />

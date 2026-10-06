@@ -18,3 +18,15 @@ describe('nivel enviado al servidor', () => {
     expect(p.p_tiempo_ms).toBe(16281);
   });
 });
+
+import { classifyError } from './saveAttemptToServer';
+describe('clasificación de errores de guardado', () => {
+  it('datos mal formados (22P02) no bloquean la cola: rechazo definitivo', () => {
+    expect(classifyError({ code: '22P02' }, 400)).toMatchObject({ reason: 'rejected' });
+    expect(classifyError({ code: '23514' }, 400)).toMatchObject({ reason: 'rejected' });
+  });
+  it('sesión caducada sigue siendo sesión y la función ausente sigue en cola', () => {
+    expect(classifyError({ code: 'PGRST301' }, 401)).toMatchObject({ reason: 'session' });
+    expect(classifyError({ code: 'PGRST202' }, 404)).toMatchObject({ reason: 'error' });
+  });
+});
