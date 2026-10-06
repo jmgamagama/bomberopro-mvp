@@ -90,3 +90,22 @@ describe('sesión diaria con todos los temas cargados', () => {
     expect(tomorrow.some((c) => ids.has(c.id))).toBe(false);
   });
 });
+
+describe('sesión diaria con tema prioritario', () => {
+  it('el tema elegido ocupa ~60 % de la sesión y el resto de temas sigue presente', () => {
+    for (const deck of RECALL_DECKS) {
+      const session = pickDailyRecallSession(RECALL_CARDS, 30, new Date(2026, 9, 6), { preferredDeckId: deck.id });
+      expect(session).toHaveLength(30);
+      expect(new Set(session.map((c) => c.id)).size).toBe(30);
+      expect(session.filter((c) => c.deckId === deck.id)).toHaveLength(18);
+      expect(new Set(session.map((c) => c.deckId)).size).toBe(RECALL_DECKS.length);
+    }
+  });
+
+  it('sin preferencia (o con una desconocida) usa el reparto equilibrado', () => {
+    const date = new Date(2026, 9, 6);
+    const base = pickDailyRecallSession(RECALL_CARDS, 30, date).map((c) => c.id);
+    expect(pickDailyRecallSession(RECALL_CARDS, 30, date, { preferredDeckId: null }).map((c) => c.id)).toEqual(base);
+    expect(pickDailyRecallSession(RECALL_CARDS, 30, date, { preferredDeckId: 'tema37' }).map((c) => c.id)).toEqual(base);
+  });
+});

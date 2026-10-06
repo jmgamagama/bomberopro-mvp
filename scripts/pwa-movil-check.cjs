@@ -42,6 +42,22 @@ const scrollWidth = (page) => page.evaluate(() => document.documentElement.scrol
   check('precache incluye RecallHub y DailySession', precached.some((u) => /RecallHub-/.test(u)) && precached.some((u) => /DailySession-/.test(u)));
   check('nada de Supabase en caché', !precached.some((u) => /supabase/.test(u)));
 
+  // Bienvenida (usuario nuevo): en dos toques está estudiando.
+  await page.getByRole('heading', { name: /Prepara tu oposición/ }).waitFor();
+  check('bienvenida sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
+  check('bienvenida: botón «Empezar» visible sin desplazar', await page.getByRole('button', { name: 'Empezar sesión diaria' }).isVisible()
+    && (await page.getByRole('button', { name: 'Empezar sesión diaria' }).boundingBox()).y + 48 <= 740);
+  await page.screenshot({ path: `${OUT}/onboarding-360.png` });
+  let taps = 0;
+  await page.getByRole('radio', { name: /T40/ }).click(); taps++;
+  await page.getByRole('button', { name: 'Empezar sesión diaria' }).click(); taps++;
+  await page.getByText(/Recuerdo · 1 \/ 30/).waitFor();
+  check('bienvenida → sesión en 2 toques', taps === 2 && (await page.getByRole('button', { name: /Mostrar respuesta/ }).isVisible()));
+  check('sesión desde bienvenida sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
+  await page.goto(BASE);
+  await page.waitForLoadState('networkidle');
+  check('la bienvenida no se repite', (await page.getByRole('heading', { name: /Prepara tu oposición/ }).count()) === 0);
+
   const mobile = page.getByRole('navigation', { name: 'Navegación móvil' });
   check('inicio sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
 

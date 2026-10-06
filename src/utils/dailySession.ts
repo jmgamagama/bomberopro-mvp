@@ -101,10 +101,19 @@ function allocateQuotas(sizes: number[], total: number): number[] {
  *    de modo que días consecutivos muestran fichas distintas hasta completar el mazo (rotación);
  *  - el resultado del día se mezcla de forma determinista por fecha.
  */
+export interface DailySessionOptions {
+  /** Mazo a priorizar (≈60 % de la sesión); el resto se reparte entre los demás. */
+  preferredDeckId?: string | null;
+}
+
+/** Parte de la sesión reservada al tema prioritario. */
+export const PREFERRED_DECK_SHARE = 0.6;
+
 export function pickDailyRecallSession(
   pool: RecallCard[] = RECALL_CARDS,
   maxSize: number = DAILY_SESSION_SIZE,
   date: Date = new Date(),
+  options: DailySessionOptions = {},
 ): RecallCard[] {
   if (pool.length === 0 || maxSize <= 0) return [];
   const dateKey = toLocalDateKey(date);
@@ -119,7 +128,23 @@ export function pickDailyRecallSession(
   }
 
   const keys = [...groups.keys()];
-  const quotas = allocateQuotas(keys.map((k) => groups.get(k)!.length), Math.min(maxSize, pool.length));
+  const sizes = keys.map((k) => groups.get(k)!.length);
+  const total = Math.min(maxSize, pool.length);
+  const preferredIndex = options.preferredDeckId ? keys.indexOf(options.preferredDeckId) : -1;
+  let quotas: number[];
+  if (preferredIndex >= 0 && total < pool.length) {
+    const othersTotal = sizes.reduce((a, b, i) => (i === preferredIndex ? a : a + b), 0);
+    let preferredQuota = Math.min(sizes[preferredIndex], Math.round(total * PREFERRED_DECK_SHARE));
+    // Si los demás temas no llegan a cubrir el resto, el tema prioritario completa la sesión.
+    preferredQuota = Math.max(preferredQuota, total - othersTotal);
+    const otherIdx = keys.map((_, i) => i).filter((i) => i !== preferredIndex);
+    const otherQuotas = allocateQuotas(otherIdx.map((i) => sizes[i]), total - preferredQuota);
+    quotas = sizes.map(() => 0);
+    quotas[preferredIndex] = preferredQuota;
+    otherIdx.forEach((i, j) => { quotas[i] = otherQuotas[j]; });
+  } else {
+    quotas = allocateQuotas(sizes, total);
+  }
   const day = dayNumber(dateKey);
 
   const picked: RecallCard[] = [];

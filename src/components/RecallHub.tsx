@@ -21,7 +21,7 @@ export default function RecallHub({ onNavigateHome, initialDeckId }: RecallHubPr
     <div className="space-y-2">
       <div className="mx-auto max-w-3xl pt-2 sm:px-4">
         <p className="text-xs text-slate-500">
-          {RECALL_DECKS.length} mazos · {RECALL_TOTAL_CARDS} fichas de recuerdo locales
+          Elige un tema · {RECALL_TOTAL_CARDS} fichas de repaso con su fuente oficial
         </p>
         <div role="tablist" aria-label="Temas de recuerdo" className="mt-2 grid grid-cols-3 gap-2 sm:flex sm:flex-wrap">
           {RECALL_DECKS.map((d) => {

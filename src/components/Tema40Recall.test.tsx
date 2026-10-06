@@ -55,3 +55,14 @@ describe('Tema40Recall', () => {
     expect(onNavigateHome).toHaveBeenCalledOnce();
   });
 });
+
+describe('textos de cara al opositor', () => {
+  it('no muestra avisos internos y mantiene la fuente visible', () => {
+    render(<Tema40Recall onNavigateHome={vi.fn()} />);
+    const text = document.body.textContent ?? '';
+    expect(text).not.toMatch(/No es un banco de preguntas|9\.392|fichas locales|mazos|Datos de PT01/);
+    expect(screen.getByText(/fichas de repaso con su fuente oficial/i)).toBeInTheDocument();
+    expect(screen.getByText('Fuente')).toBeInTheDocument();
+    expect(screen.getByText(TEMA40_RECALL_CARDS[0].fuente)).toBeInTheDocument();
+  });
+});

@@ -49,16 +49,17 @@ export interface RecallDeck {
   /** Nombre legible: `tema 40`, `tema 36 lote 01`. */
   label: string;
   title: string;
+  /** Nombre del tema sin el prefijo «Tema N · » (para listas y selectores). */
+  name: string;
+  /** Procedencia de los datos (uso interno; no se muestra al opositor). */
   source: string;
   count: number;
-  notice: string;
   cards: readonly RecallSourceCard[];
 }
 
 function defineDeck(
   meta: RecallDeckMeta,
   cards: readonly RecallSourceCard[],
-  notice?: string,
 ): RecallDeck {
   if (cards.length !== meta.count) {
     throw new Error(`Mazo tema ${meta.tema}${meta.lote ? ` ${meta.lote}` : ''}: se esperaban ${meta.count} fichas y hay ${cards.length}`);
@@ -72,21 +73,21 @@ function defineDeck(
     shortLabel: `T${meta.tema}${loteNumber ? `·${Number(loteNumber)}` : ''}`,
     label,
     title: meta.title,
+    name: meta.title.replace(/^Tema\s+\d+\s*·\s*/, ''),
     source: meta.source,
     count: meta.count,
-    notice: notice ?? `Modo recuerdo del ${label}. No es un banco de preguntas de examen ni carga los 9.392 conceptos de MIRA.`,
     cards,
   };
 }
 
 /** Todos los mazos cargados, ordenados por tema y lote. */
 export const RECALL_DECKS: readonly RecallDeck[] = [
-  defineDeck(TEMA35_RECALL_META, TEMA35_RECALL_CARDS, 'Modo recuerdo del tema 35. No es un banco de preguntas de examen ni carga el tema 36 ni los 9.392 conceptos de MIRA.'),
-  defineDeck(TEMA36_LOTE01_RECALL_META, TEMA36_LOTE01_RECALL_CARDS, 'Modo recuerdo del tema 36 lote 01 (núcleo examen). No carga los 528 del tema ni lotes 02–08.'),
-  defineDeck(TEMA36_LOTE02_RECALL_META, TEMA36_LOTE02_RECALL_CARDS, 'Modo recuerdo del tema 36 lote 02 (municipios Acedera → Esparragosa de Lares). No carga los 528 del tema, ni el lote 01 ni los lotes 03–08.'),
-  defineDeck(TEMA38_RECALL_META, TEMA38_RECALL_CARDS, 'Modo recuerdo del tema 38. No es un banco de preguntas de examen ni carga la base MIRA antigua del tema 38.'),
-  defineDeck(TEMA39_RECALL_META, TEMA39_RECALL_CARDS, 'Modo recuerdo del tema 39. No es un banco de preguntas de examen ni carga la base MIRA antigua del tema 39.'),
-  defineDeck(TEMA40_RECALL_META, TEMA40_RECALL_CARDS, 'Modo recuerdo del tema 40. No es un banco de preguntas de examen ni carga los 9.392 conceptos de MIRA.'),
+  defineDeck(TEMA35_RECALL_META, TEMA35_RECALL_CARDS),
+  defineDeck(TEMA36_LOTE01_RECALL_META, TEMA36_LOTE01_RECALL_CARDS),
+  defineDeck(TEMA36_LOTE02_RECALL_META, TEMA36_LOTE02_RECALL_CARDS),
+  defineDeck(TEMA38_RECALL_META, TEMA38_RECALL_CARDS),
+  defineDeck(TEMA39_RECALL_META, TEMA39_RECALL_CARDS),
+  defineDeck(TEMA40_RECALL_META, TEMA40_RECALL_CARDS),
 ].sort((a, b) => a.tema - b.tema || (a.lote ?? '').localeCompare(b.lote ?? ''));
 
 const ids = new Set<string>();

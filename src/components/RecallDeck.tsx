@@ -29,11 +29,11 @@ export default function RecallDeck({ deck, onNavigateHome }: RecallDeckProps) {
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
         <div>
           <p className="text-sm font-semibold text-indigo-700">
-            Recuerdo · fichas locales{loteNumber ? ` · lote ${loteNumber}` : ''}
+            Fichas de repaso{loteNumber ? ` · lote ${loteNumber}` : ''}
           </p>
           <h1 className="mt-1 text-xl font-bold leading-snug sm:text-2xl">{deck.title}</h1>
           <p className="mt-1 text-sm text-slate-600">
-            {deck.count} fichas de recuerdo (concepto, respuesta y fuente). Datos de {deck.source}.
+            {deck.count} fichas de repaso con su fuente oficial.
           </p>
         </div>
         <button
@@ -47,7 +47,7 @@ export default function RecallDeck({ deck, onNavigateHome }: RecallDeckProps) {
       </div>
 
       <div role="status" className="rounded-xl border border-slate-200 bg-slate-50 p-3 text-sm text-slate-700">
-        {deck.notice}
+        Lee la pregunta, intenta responder de memoria y después comprueba la respuesta. Cada ficha indica su fuente oficial.
       </div>
 
       <article className="space-y-4 rounded-2xl border bg-white p-4 shadow-sm sm:p-6" aria-live="polite">

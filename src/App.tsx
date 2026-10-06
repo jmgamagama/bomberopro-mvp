@@ -33,6 +33,7 @@ import StudyByTopic from './components/StudyByTopic';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer } from './lib/saveAttemptToServer';
 import SaveFailureBanner from './components/SaveFailureBanner';
+import { hasCompletedOnboarding } from './utils/onboarding';
 import SaveStatus from './components/SaveStatus';
 import { useAttemptSync } from './lib/useAttemptSync';
 import { shuffleAllOptions } from './utils/shuffleOptions';
@@ -47,6 +48,7 @@ const getSafeMemoryStates = (): Record<string, MemoryState> => {
 const RecallHub = lazy(() => import('./components/RecallHub'));
 const DailySession = lazy(() => import('./components/DailySession'));
 const OrdenaPasos = lazy(() => import('./components/OrdenaPasos'));
+const Onboarding = lazy(() => import('./components/Onboarding'));
 
 const SCREEN_TITLES = {
   dashboard: 'Dashboard',
@@ -58,6 +60,7 @@ const SCREEN_TITLES = {
   study_by_topic: 'Estudio por Temas',
   recuerdo: 'Recuerdo',
   sesion_diaria: 'Sesión diaria',
+  onboarding: 'Bienvenida',
   ordena_pasos: 'Ordena los pasos',
 } as const;
 
@@ -81,8 +84,10 @@ const SCREEN_TITLES = {
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
-    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos'
-  >('dashboard');
+    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'onboarding'
+  >(() => (hasCompletedOnboarding() ? 'dashboard' : 'onboarding'));
+  // La bienvenida abre la sesión diaria directamente en la primera ficha.
+  const [dailyAutoStart, setDailyAutoStart] = useState(false);
 
   const [memoryStates, setMemoryStates] = useState<Record<string, MemoryState>>({});
   const [attempts, setAttempts] = useState<Attempt[]>([]);
@@ -230,8 +235,9 @@ export default function App() {
 
   // Handle switching screens
   const handleNavigate = (
-    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos'
+    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'onboarding'
   ) => {
+    setDailyAutoStart(false);
     setCurrentScreen(screen);
     
     // Clear targeted concept constraints when returning to general study or exiting train screen
@@ -428,7 +434,7 @@ export default function App() {
     resetDemoState();
     setIsDemoMode(true);
     setDbQuestions(INITIAL_QUESTIONS);
-    setCurrentScreen('dashboard');
+    setCurrentScreen(hasCompletedOnboarding() ? 'dashboard' : 'onboarding');
   };
 
   const handleExitDemo = () => {
@@ -642,7 +648,7 @@ export default function App() {
           </nav>
 
           <div className="flex items-center gap-2">
-            {pendingCount > 0 && currentScreen !== 'train' && (
+            {pendingCount > 0 && currentScreen !== 'train' && currentScreen !== 'onboarding' && (
               <button
                 id="btn-quick-train"
                 onClick={() => handleNavigate('train')}
@@ -764,12 +770,23 @@ export default function App() {
         )}
 
         <Suspense fallback={<p role="status" className="p-6 text-sm text-slate-500">Cargando fichas…</p>}>
+          {currentScreen === 'onboarding' && (
+            <Onboarding
+              onStart={() => {
+                handleNavigate('sesion_diaria');
+                setDailyAutoStart(true);
+              }}
+              onSkip={() => handleNavigate('dashboard')}
+            />
+          )}
+
           {currentScreen === 'recuerdo' && (
             <RecallHub onNavigateHome={() => handleNavigate('dashboard')} />
           )}
 
           {currentScreen === 'sesion_diaria' && (
             <DailySession
+              autoStart={dailyAutoStart}
               onNavigateHome={() => handleNavigate('dashboard')}
               onOpenOrdenaPasos={() => handleNavigate('ordena_pasos')}
             />
@@ -798,6 +815,7 @@ export default function App() {
         )}
       </main>
 
+      {currentScreen !== 'onboarding' && (
       <nav
         aria-label="Navegación móvil"
         className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_18px_rgba(15,23,42,0.08)] backdrop-blur-md md:hidden"
@@ -895,6 +913,7 @@ export default function App() {
           </button>
         </div>
       </nav>
+      )}
 
       {/* Footer Branding Area */}
       <footer className="border-t border-slate-100 py-6 bg-white text-slate-600 text-xs mt-12" id="mira-footer">
@@ -904,7 +923,7 @@ export default function App() {
             <p className="text-[10px] text-slate-500 mt-0.5">Basado en Microconceptos, Interrogación activa, Repetición espaciada y Aseguramiento del dominio real.</p>
           </div>
           <div className="flex items-center gap-4">
-            <span className="font-mono text-[10px]">v1.0 (PROTOTIPO SEGURO LOCAL)</span>
+            <span className="font-mono text-[10px]">v1.0</span>
           </div>
         </div>
       </footer>

@@ -8,21 +8,35 @@ import {
 } from '../utils/dailySession';
 import type { RecallCard } from '../data/recallCards';
 import { RECALL_DECKS } from '../data/recallRegistry';
+import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreferences';
 
 interface DailySessionProps {
   onNavigateHome: () => void;
   onOpenOrdenaPasos: () => void;
+  /** Empieza directamente en la primera ficha (p. ej. al venir de la bienvenida). */
+  autoStart?: boolean;
 }
 
 type Phase = 'intro' | 'study' | 'done';
 
-export default function DailySession({ onNavigateHome, onOpenOrdenaPasos }: DailySessionProps) {
-  const [phase, setPhase] = useState<Phase>('intro');
+export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false }: DailySessionProps) {
+  const [phase, setPhase] = useState<Phase>(autoStart ? 'study' : 'intro');
+  const [preferredDeckId, setPreferred] = useState<string | null>(() => getPreferredDeckId());
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [streak, setStreak] = useState<DailyStreak>(() => loadDailyStreak());
 
-  const session = useMemo(() => pickDailyRecallSession(), []);
+  const session = useMemo(
+    () => pickDailyRecallSession(undefined, undefined, undefined, { preferredDeckId }),
+    [preferredDeckId],
+  );
+  const preferredDeck = RECALL_DECKS.find((deck) => deck.id === preferredDeckId);
+
+  const changePreferredDeck = (id: string) => {
+    const next = id === 'todos' ? null : id;
+    setPreferredDeckId(next);
+    setPreferred(next);
+  };
   const current: RecallCard | undefined = session[index];
   const sessionDecks = useMemo(
     () => RECALL_DECKS.filter((deck) => session.some((card) => card.deckId === deck.id)),
@@ -57,8 +71,31 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos }: Dail
           <div className="space-y-2">
             <h2 className="text-2xl font-black tracking-tight text-slate-800">Sesión diaria</h2>
             <p className="mx-auto max-w-md text-sm leading-relaxed text-slate-500">
-              Hasta 30 fichas de recuerdo de todos los temas cargados. Sin opciones de examen: intenta recordar y revela la respuesta.
+              Hasta 30 fichas de repaso de todos los temas disponibles. Sin opciones de examen: intenta recordar y revela la respuesta.
             </p>
+            <div className="mx-auto max-w-sm pt-2 text-left">
+              <label htmlFor="daily-session-preferred" className="block text-xs font-semibold text-slate-600">
+                Tema prioritario
+              </label>
+              <select
+                id="daily-session-preferred"
+                value={preferredDeckId ?? 'todos'}
+                onChange={(e) => changePreferredDeck(e.target.value)}
+                className="mt-1 min-h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-800"
+              >
+                <option value="todos">Todos los temas (reparto equilibrado)</option>
+                {RECALL_DECKS.map((deck) => (
+                  <option key={deck.id} value={deck.id}>
+                    {deck.shortLabel} · {deck.name}
+                  </option>
+                ))}
+              </select>
+              {preferredDeck && (
+                <p className="mt-1 text-xs text-slate-500">
+                  La sesión prioriza el {preferredDeck.label} y mezcla fichas del resto de temas.
+                </p>
+              )}
+            </div>
             {sessionDecks.length > 0 && (
               <p className="mx-auto max-w-md text-xs text-slate-500" id="daily-session-decks">
                 Hoy: {sessionDecks.map((deck) => deck.shortLabel).join(' · ')}
