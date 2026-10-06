@@ -165,7 +165,7 @@ if (started && questions.length === 0) {
 if (idx >= questions.length) {
   return h('div', { className: 'min-h-screen bg-slate-50 p-4 flex items-center justify-center' },
            h('div', { className: 'max-w-md w-full text-center bg-white rounded-xl p-6 shadow' },
-             h('h2', { className: 'text-xl font-bold text-slate-900 mb-2' }, 'Sesion completada'),
+             h('h2', { className: 'text-xl font-bold text-slate-900 mb-2' }, 'Sesión completada'),
              h('p', { className: 'text-slate-600 mb-4' }, 'Acertaste ' + correctCount + ' de ' + questions.length + ' preguntas.'),
              h('div', { className: 'flex gap-2' },
                h('button', { onClick: restart, className: 'flex-1 bg-orange-500 text-white py-2 rounded-lg font-semibold' }, 'Elegir otros temas'),
@@ -220,10 +220,27 @@ return h('div', { className: 'min-h-screen bg-slate-50 p-4' },
                  )
              : null
              ),
+           !answered && answer
+           ? h('div', { className: 'bg-white rounded-xl p-4 shadow mb-4' },
+               h('p', { className: 'text-sm font-semibold text-slate-700 mb-2' }, '¿Cómo de seguro estás?'),
+               h('div', { className: 'grid grid-cols-3 gap-2', role: 'radiogroup', 'aria-label': 'Seguridad de tu respuesta' },
+                 [['alta', 'Lo sé'], ['media', 'Creo que sí'], ['baja', 'Me la juego']].map(([value, label]) =>
+                   h('button', {
+                     key: value,
+                     type: 'button',
+                     role: 'radio',
+                     'aria-checked': confidence === value,
+                     onClick: () => setConfidence(value as any),
+                     className: 'py-2 rounded-lg border text-sm font-semibold ' +
+                       (confidence === value ? 'border-orange-500 bg-orange-50 text-orange-700' : 'border-slate-200 text-slate-600')
+                   }, label))
+               )
+             )
+           : null,
            !answered
            ? h('button', {
              onClick: confirmAnswer,
-             disabled: !answer,
+             disabled: !answer || !confidence,
              className: 'w-full bg-orange-500 text-white py-3 rounded-lg font-semibold disabled:opacity-50'
            }, 'Confirmar respuesta')
            : h('button', {

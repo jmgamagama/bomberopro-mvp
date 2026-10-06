@@ -87,10 +87,13 @@ const PERMANENT_CODES = new Set(['22023', '23503', '23505', 'P0002']);
 
 type RpcError = { code?: string; message?: string } | null;
 
-function classifyError(error: NonNullable<RpcError>, httpStatus?: number): SendOutcome {
+export function classifyError(error: NonNullable<RpcError>, httpStatus?: number): SendOutcome {
   const code = String(error.code ?? '');
   if (SESSION_CODES.has(code) || httpStatus === 401 || httpStatus === 403) return { kind: 'failed', reason: 'session', code };
   if (PERMANENT_CODES.has(code)) return { kind: 'failed', reason: 'rejected', code };
+  // Datos mal formados (22xxx) o que violan una regla (23xxx): reenviar daría lo mismo y
+  // bloquearía la cola. Se apartan como rechazo definitivo en vez de culpar a la conexión.
+  if (/^2[23]/.test(code)) return { kind: 'failed', reason: 'rejected', code };
   // Incluye PGRST202/42883 (la función aún no existe: migración sin aplicar). No se cae a `record_attempt`:
   // esa función ignora en silencio y no es idempotente. La respuesta queda en cola.
   return { kind: 'failed', reason: 'error', code: code || 'unknown' };

@@ -339,6 +339,7 @@ export default function ForgettingCurve({
         )}
       </div>
 
+      {import.meta.env.DEV && (<>
       {/* Simulator Quick Action controls inside the panel */}
       <div className="p-5 bg-slate-900 text-slate-200 rounded-2xl border border-slate-800 space-y-4" id="time-machine-panel">
         <div className="flex items-center gap-2">
@@ -399,6 +400,7 @@ export default function ForgettingCurve({
           )}
         </div>
       </div>
+      </>)}
 
       {/* Visual Trace of Microconcepts */}
       <div className="space-y-4" id="forgetting-concepts-grid">

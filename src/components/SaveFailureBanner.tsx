@@ -11,7 +11,7 @@ const MESSAGES: Record<SaveFailureReason, string> = {
   session:
     'Tu sesión ha caducado y tu última respuesta no se ha guardado en tu cuenta. Inicia sesión de nuevo con la misma cuenta: las respuestas pendientes se conservan en este dispositivo y se enviarán solas.',
   error:
-    'No hemos podido guardar tu última respuesta (posible fallo de conexión). Sigue pendiente en este dispositivo: pulsa Reintentar o comprueba tu conexión; se enviará sola al recuperarla.',
+    'Tus respuestas están a salvo en este dispositivo y se subirán a tu cuenta en cuanto sea posible. Puedes seguir estudiando.',
   rejected:
     'El servidor ha rechazado una de tus respuestas y no se guardará en tu cuenta. Si te vuelve a pasar, avísanos con la pregunta y la hora.',
 };
@@ -79,7 +79,9 @@ export default function SaveFailureBanner({ showIfPending = false }: Props) {
       id="mira-save-failure-banner"
     >
       <span>
-        {MESSAGES[reason]}
+        {reason === 'error' && typeof navigator !== 'undefined' && navigator.onLine === false
+          ? 'Sin conexión a internet: tus respuestas se guardan en este dispositivo y se enviarán solas al recuperarla.'
+          : MESSAGES[reason]}
         {transient && rejected && ` ${MESSAGES.rejected}`}
         {pending > 0 && (
           <strong className="ml-1">

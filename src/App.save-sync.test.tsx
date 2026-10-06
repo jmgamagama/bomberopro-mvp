@@ -82,7 +82,7 @@ describe('guardado pendiente con la aplicación completa', () => {
     const account = (id: string) => ({ user: { id } });
     getSession.mockResolvedValue({ data: { session: account('A') }, error: null });
     const resolvers: Array<(result: { data: typeof INITIAL_QUESTIONS; error: null }) => void> = [];
-    rpcMock.mockImplementation((fn: string) => fn === 'get_preparer_session_questions'
+    rpcMock.mockImplementation((fn: string) => fn === 'get_study_session'
       ? new Promise(resolve => resolvers.push(resolve))
       : Promise.resolve({ data: { status: 'saved', attempt_id: 1 }, error: null }));
 
@@ -107,14 +107,14 @@ describe('guardado pendiente con la aplicación completa', () => {
     const account = () => ({ user: { id: 'A' } });
     getSession.mockResolvedValue({ data: { session: account() }, error: null });
     let resolveQuestions!: (result: { data: typeof INITIAL_QUESTIONS; error: null }) => void;
-    rpcMock.mockImplementation((fn: string) => fn === 'get_preparer_session_questions'
+    rpcMock.mockImplementation((fn: string) => fn === 'get_study_session'
       ? new Promise(resolve => { resolveQuestions = resolve; })
       : Promise.resolve({ data: { status: 'saved', attempt_id: 1 }, error: null }));
 
     render(<App />);
     await waitFor(() => expect(resolveQuestions).toBeTypeOf('function'));
     await act(async () => authChanged?.('TOKEN_REFRESHED', account()));
-    expect(rpcMock.mock.calls.filter(call => call[0] === 'get_preparer_session_questions')).toHaveLength(1);
+    expect(rpcMock.mock.calls.filter(call => call[0] === 'get_study_session')).toHaveLength(1);
     await act(async () => resolveQuestions({ data: INITIAL_QUESTIONS.slice(0, 1), error: null }));
     fireEvent.click(document.querySelector('#nav-btn-study')!);
     expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe('1');

@@ -31,7 +31,8 @@ import MockExam from './components/MockExam';
 import Login from './components/Login';
 import StudyByTopic from './components/StudyByTopic';
 import { supabase } from './lib/supabase';
-import { saveAttemptToServer } from './lib/saveAttemptToServer';
+import { saveAttemptToServer, toLevelInt } from './lib/saveAttemptToServer';
+import UpdateBanner from './components/UpdateBanner';
 import SaveFailureBanner from './components/SaveFailureBanner';
 import SaveStatus from './components/SaveStatus';
 import { useAttemptSync } from './lib/useAttemptSync';
@@ -53,7 +54,7 @@ const SCREEN_TITLES = {
   study_by_topic: 'Estudio por Temas',
 } as const;
 
-  const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds) => {
+  const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds, modo: 'adaptativo' | 'simulacro' = 'adaptativo', nivel: unknown = 1) => {
       if (!supabase || !userId) return;
       const numericQuestionId = Number(questionId);
       if (!Number.isFinite(numericQuestionId)) return;
@@ -64,9 +65,9 @@ const SCREEN_TITLES = {
             p_acierto: isCorrect,
             p_respuesta: answer,
             p_tiempo_ms: Math.round(responseTimeSeconds * 1000),
-            p_modo: 'adaptativo',
+            p_modo: modo,
             p_session_id: null,
-            p_nivel: 1,
+            p_nivel: toLevelInt(nivel),
             p_confidence: confidence
       });
   };
@@ -103,6 +104,8 @@ export default function App() {
   const [sessionQuestionPool, setSessionQuestionPool] = useState<Question[]>([]);
   const [sessionCompleted, setSessionCompleted] = useState(false);
   const answeredQuestionIds = useRef<Set<string>>(new Set());
+  // true cuando la sesión cargada ya se ha usado (se ha respondido algo): la siguiente sesión se pide de nuevo.
+  const sessionCompletedRef = useRef(false);
 
   useEffect(() => {
     document.title = `${SCREEN_TITLES[currentScreen]} | BomberoPro`;
@@ -167,20 +170,27 @@ export default function App() {
     else setDbQuestionsLoading(false);
   }, [loadingAuth, session?.user?.id]);
 
+  // La sesión la decide el servidor: repasos vencidos primero y preguntas nuevas repartidas por
+  // tema según el peso en el examen. El orden que devuelve se respeta tal cual.
+  const loadServerSession = async (): Promise<Question[]> => {
+    if (!supabase) return [];
+    const res = await supabase.rpc('get_study_session', { p_limit: 20 });
+    if (!res.error) return shuffleAllOptions((res.data ?? []) as Question[]);
+    // Compatibilidad: si la función nueva no existiera, se usa la anterior.
+    console.error('get_study_session error, se usa la selección anterior:', res.error);
+    const old = await supabase.rpc('get_preparer_session_questions', { p_limit: 100 });
+    if (old.error) throw old.error;
+    return shuffleAllOptions(getAdaptiveDailySession(old.data ?? [], getSafeMemoryStates(), 20));
+  };
+
   const fetchQuestions = async (request: number) => {
     if (!supabase) return;
     setDbQuestionsLoading(true);
     setDbQuestionsError(null);
     try {
-      const { data, error } = await supabase.rpc('get_preparer_session_questions', { p_limit: 100 });
+      const questions = await loadServerSession();
       if (request !== questionsRequest.current) return;
-      if (error) throw error;
-      if (data) {
-        const adaptiveSession = shuffleAllOptions(getAdaptiveDailySession(data, getSafeMemoryStates(), 20));
-        setDbQuestions(adaptiveSession);
-      } else {
-        setDbQuestions([]);
-      }
+      setDbQuestions(questions);
     } catch (err: any) {
       if (request !== questionsRequest.current) return;
       console.error("Error fetching questions:", err);
@@ -234,14 +244,28 @@ export default function App() {
     // If entering the general train screen, generate the first adaptive question
     if (screen === 'train') {
       setActiveConceptId(null);
-      startTrainingSession(null);
+      void startTrainingSession(null);
     }
   };
 
-  const startTrainingSession = (targetId: string | null) => {
+  const serverMode = Boolean(session?.user?.id) && !isDemoMode;
+
+  const startTrainingSession = async (targetId: string | null) => {
+    let source = dbQuestions;
+    // Cada sesión nueva pide una sesión nueva al servidor, para no repetir las mismas 20
+    // y para incluir los repasos que hayan vencido desde la última vez.
+    if (serverMode && !targetId && sessionCompletedRef.current) {
+      try {
+        source = await loadServerSession();
+        setDbQuestions(source);
+      } catch (err) {
+        console.error('No se pudo pedir una sesión nueva:', err);
+      }
+    }
+    sessionCompletedRef.current = false;
     const pool = (targetId
-      ? dbQuestions.filter(q => q.microconcept_id === targetId)
-      : dbQuestions).filter((question, index, questions) =>
+      ? source.filter(q => q.microconcept_id === targetId)
+      : source).filter((question, index, questions) =>
       questions.findIndex(candidate => candidate.id === question.id) === index
     );
     answeredQuestionIds.current = new Set();
@@ -256,14 +280,22 @@ export default function App() {
     const now = getCurrentDate();
     const candidateQuestions = pool.filter(q => !answeredQuestionIds.current.has(q.id));
 
-    const selected = getAdaptiveQuestion(candidateQuestions, states, now);
+    // Con cuenta manda el orden del servidor; en la demo, el motor local.
+    const selected = serverMode
+      ? (candidateQuestions[0]
+          ? { question: candidateQuestions[0], reason: (candidateQuestions[0] as any).motivo === 'repaso' ? 'Repaso programado' : 'Pregunta nueva' }
+          : null)
+      : getAdaptiveQuestion(candidateQuestions, states, now);
     if (selected) {
       setActiveQuestion(selected.question);
       setActiveReason(selected.reason);
     } else {
       setActiveQuestion(null);
       setActiveReason('');
-      if (pool.length > 0) setSessionCompleted(true);
+      if (pool.length > 0) {
+        setSessionCompleted(true);
+        sessionCompletedRef.current = true;
+      }
     }
   };
 
@@ -271,7 +303,7 @@ export default function App() {
   const handleTrainSpecificConcept = (conceptId: string) => {
     setActiveConceptId(conceptId);
     setCurrentScreen('train');
-    startTrainingSession(conceptId);
+    void startTrainingSession(conceptId);
   };
 
   // Primary action when user submits an answer
@@ -320,7 +352,9 @@ export default function App() {
       // Save to local database
       saveMemoryState(result.updatedState);
       saveAttempt(newAttempt);
-      syncAttemptToSupabase(session?.user?.id, questionId, isCorrect, answer, confidence, responseTime);
+      sessionCompletedRef.current = true;
+      const answeredQuestion = sessionQuestionPool.find(q => q.id === questionId) ?? dbQuestions.find(q => q.id === questionId);
+      syncAttemptToSupabase(session?.user?.id, questionId, isCorrect, answer, confidence, responseTime, 'adaptativo', answeredQuestion?.level);
 
       // Reload state in memory
       const updatedStates = getSafeMemoryStates();
@@ -380,7 +414,7 @@ export default function App() {
         created_at: now.toISOString()
       };
       saveAttempt(attemptRecord);
-            syncAttemptToSupabase(session?.user?.id, res.questionId, res.correct, res.answer, res.confidence, res.responseTime);
+            syncAttemptToSupabase(session?.user?.id, res.questionId, res.correct, res.answer, res.confidence, res.responseTime, 'simulacro', 1);
     });
 
     // Sync memory state
@@ -462,6 +496,7 @@ export default function App() {
     return (
       <>
         {/* Si la sesión caduca a mitad de estudio, aquí se avisa de lo que sigue pendiente. */}
+        <UpdateBanner />
         <SaveFailureBanner showIfPending />
         <Login onStartDemo={handleStartDemo} />
       </>
@@ -470,6 +505,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-50/50 flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
+      <UpdateBanner />
       <SaveFailureBanner />
       <SaveStatus />
       {session && !isDemoMode && showLegacyImport && (

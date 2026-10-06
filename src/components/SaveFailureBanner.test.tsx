@@ -42,7 +42,7 @@ describe('SaveFailureBanner', () => {
   it('muestra aviso de conexión y se puede cerrar', async () => {
     render(<SaveFailureBanner />);
     fail('error');
-    expect(screen.getByRole('alert').textContent).toMatch(/conexión/i);
+    expect(screen.getByRole('alert').textContent).toMatch(/a salvo en este dispositivo/i);
     expect(screen.queryByRole('button', { name: 'Recargar' })).toBeNull();
     await userEvent.click(screen.getByRole('button', { name: 'Entendido' }));
     expect(screen.queryByRole('alert')).toBeNull();
@@ -98,7 +98,7 @@ describe('SaveFailureBanner', () => {
     fail('rejected', 0);
     fail('error', 2);
     expect(screen.getByRole('alert').textContent).toMatch(/rechazado/i);
-    expect(screen.getByRole('alert').textContent).toMatch(/conexión/i);
+    expect(screen.getByRole('alert').textContent).toMatch(/a salvo en este dispositivo/i);
   });
 
   it('avisa de un rechazo definitivo y no ofrece reintentar', () => {
