@@ -627,6 +627,7 @@ export default function App() {
               title="Cerrar sesión"
             >
               <LogOut className="w-4 h-4" aria-hidden="true" />
+              <span>Salir</span>
             </button>
           </div>
         </div>

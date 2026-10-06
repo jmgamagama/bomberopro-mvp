@@ -11,6 +11,7 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+  const [mode, setMode] = useState<'entrar' | 'crear'>('entrar');
   const emailInputRef = useRef<HTMLInputElement>(null);
 
   const focusEmail = () => emailInputRef.current?.focus();
@@ -70,7 +71,7 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
         signUpResult.data.user.identities.length === 0;
 
       if (isExistingAccount) {
-        setMessage({ type: 'error', text: 'Correo o contraseña incorrectos.' });
+        setMessage({ type: 'error', text: 'Ese correo ya tiene cuenta y la contraseña no coincide. Pulsa «¿Has olvidado la contraseña?» para entrar con un enlace.' });
         focusEmail();
       } else {
         // A new account was created, but email confirmation is required by Supabase before establishing a session.
@@ -86,6 +87,32 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
     setLoading(false);
   };
 
+  // Acceso sin contraseña: enlace de un solo uso al correo. Sirve para "he olvidado la contraseña".
+  const handleMagicLink = async () => {
+    if (!email) {
+      setMessage({ type: 'error', text: 'Escribe primero tu correo y vuelve a pulsar.' });
+      focusEmail();
+      return;
+    }
+    setLoading(true);
+    setMessage(null);
+    const { error } = await supabase!.auth.signInWithOtp({
+      email,
+      options: { shouldCreateUser: false, emailRedirectTo: window.location.origin },
+    });
+    setLoading(false);
+    setMessage(
+      error
+        ? { type: 'error', text: error.status === 429 ? 'Demasiados intentos. Espera un minuto.' : 'No hemos podido enviar el enlace. Revisa el correo escrito.' }
+        : { type: 'success', text: 'Te hemos enviado un enlace a tu correo. Ábrelo en este ordenador y entrarás directamente.' },
+    );
+  };
+
+  const switchMode = (next: 'entrar' | 'crear') => {
+    setMode(next);
+    setMessage(null);
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4 font-sans text-slate-800">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100">
@@ -98,6 +125,20 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
         </div>
 
         <div className="p-8">
+          <div role="tablist" className="grid grid-cols-2 gap-1 p-1 mb-6 bg-slate-100 rounded-xl">
+            {(['entrar', 'crear'] as const).map(m => (
+              <button
+                key={m}
+                type="button"
+                role="tab"
+                aria-selected={mode === m}
+                onClick={() => switchMode(m)}
+                className={`py-2.5 rounded-lg text-sm font-bold transition ${mode === m ? 'bg-white text-indigo-700 shadow' : 'text-slate-500 hover:text-slate-700'}`}
+              >
+                {m === 'entrar' ? 'Ya tengo cuenta' : 'Crear cuenta gratis'}
+              </button>
+            ))}
+          </div>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="email" className="block text-sm font-bold text-slate-700 mb-2">
@@ -130,7 +171,7 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                autoComplete="current-password"
+                autoComplete={mode === 'crear' ? 'new-password' : 'current-password'}
                 minLength={6}
                 required
                 aria-invalid={message?.type === 'error'}
@@ -138,8 +179,17 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
                 className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-slate-800 font-medium"
               />
               <p className="mt-2 text-xs text-slate-500">
-                Mínimo 6 caracteres. Si es tu primera vez, esto crea tu cuenta.
+                {mode === 'crear' ? 'Elige una contraseña de al menos 6 caracteres.' : 'La que pusiste al crear tu cuenta.'}
               </p>
+              {mode === 'entrar' && (
+                <button
+                  type="button"
+                  onClick={handleMagicLink}
+                  className="mt-2 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline underline-offset-2"
+                >
+                  ¿Has olvidado la contraseña? Entra con un enlace al correo
+                </button>
+              )}
             </div>
 
             {message && (
@@ -170,7 +220,7 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
               ) : (
                 <>
                   <Lock className="w-4 h-4" aria-hidden="true" />
-                  Entrar
+                  {mode === 'crear' ? 'Crear mi cuenta' : 'Entrar'}
                 </>
               )}
             </button>
@@ -179,7 +229,7 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
           {onStartDemo && (
             <div className="pt-6 mt-6 border-t border-slate-100 text-center space-y-2">
               <p className="text-xs text-slate-500">
-                ¿Esperando la confirmación de correo o quieres probar antes?
+                ¿Solo quieres echar un vistazo? (no se guarda nada)
               </p>
               <button
                 type="button"
@@ -188,7 +238,7 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
                 className="w-full py-2.5 px-4 bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-indigo-600 border border-slate-200 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer"
               >
                 <BookOpen className="w-4 h-4 text-indigo-500" aria-hidden="true" />
-                <span>Probar demostración de solo lectura (sin cuenta)</span>
+                <span>Probar sin cuenta</span>
               </button>
             </div>
           )}

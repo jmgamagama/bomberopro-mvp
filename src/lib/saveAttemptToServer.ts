@@ -96,11 +96,31 @@ function classifyError(error: NonNullable<RpcError>, httpStatus?: number): SendO
   return { kind: 'failed', reason: 'error', code: code || 'unknown' };
 }
 
+/**
+ * El nivel llega a veces como texto ("N1", "N2"…) desde las preguntas de estudio por temas,
+ * y el servidor espera un entero: con "N1" la llamada fallaba (400, 22P02) y la respuesta
+ * se quedaba en cola para siempre. Se normaliza al enviar, así también se reparan las
+ * respuestas que ya estaban en cola con el formato antiguo.
+ */
+export function toLevelInt(value: unknown): number {
+  if (typeof value === 'number' && Number.isFinite(value)) return Math.max(1, Math.round(value));
+  const m = String(value ?? '').match(/\d+/);
+  return m ? Math.max(1, parseInt(m[0], 10)) : 1;
+}
+
+export function normalizeParams(params: SaveAttemptParams): SaveAttemptParams {
+  return {
+    ...params,
+    p_nivel: toLevelInt(params.p_nivel),
+    p_tiempo_ms: Number.isFinite(params.p_tiempo_ms) ? Math.round(params.p_tiempo_ms) : 0,
+  };
+}
+
 /** Envía UNA respuesta. Solo devuelve "confirmed" si el servidor responde expresamente saved/duplicate. */
 async function sendOne(entry: PendingAttempt): Promise<SendOutcome> {
   if (!supabase) return { kind: 'failed', reason: 'error', code: 'no_backend' };
   try {
-    const res = (await supabase.rpc('record_attempt_v2', entry.params)) as {
+    const res = (await supabase.rpc('record_attempt_v2', normalizeParams(entry.params))) as {
       data: unknown;
       error: RpcError;
       status?: number;
