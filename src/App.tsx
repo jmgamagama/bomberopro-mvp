@@ -40,6 +40,7 @@ import OrdenaPasos from './components/OrdenaPasos';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer } from './lib/saveAttemptToServer';
 import SaveFailureBanner from './components/SaveFailureBanner';
+import Tema36Lote02Recall from './components/Tema36Lote02Recall';
 import SaveStatus from './components/SaveStatus';
 import { useAttemptSync } from './lib/useAttemptSync';
 import { shuffleAllOptions } from './utils/shuffleOptions';
@@ -57,6 +58,7 @@ const SCREEN_TITLES = {
   forgetting_curve: 'Curva de olvido',
   mock_exam: 'Simulacro',
   today_training: 'Entrenamiento de hoy',
+  tema36_lote02_recall: 'Recuerdo tema 36 lote 02',
   study_by_topic: 'Estudio por Temas',
   tema40_recall: 'Recuerdo tema 40',
   tema35_recall: 'Recuerdo tema 35',
@@ -87,7 +89,7 @@ const SCREEN_TITLES = {
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
-    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'tema40_recall' | 'tema35_recall' | 'tema38_recall' | 'tema39_recall' | 'tema36_lote01_recall' | 'sesion_diaria' | 'ordena_pasos'
+    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'tema40_recall' | 'tema35_recall' | 'tema38_recall' | 'tema39_recall' | 'tema36_lote01_recall' | 'sesion_diaria' | 'ordena_pasos' | 'tema36_lote02_recall'
   >('dashboard');
 
   const [memoryStates, setMemoryStates] = useState<Record<string, MemoryState>>({});
@@ -236,7 +238,7 @@ export default function App() {
 
   // Handle switching screens
   const handleNavigate = (
-    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'tema40_recall' | 'tema35_recall' | 'tema38_recall' | 'tema39_recall' | 'tema36_lote01_recall' | 'sesion_diaria' | 'ordena_pasos'
+    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'tema40_recall' | 'tema35_recall' | 'tema38_recall' | 'tema39_recall' | 'tema36_lote01_recall' | 'sesion_diaria' | 'ordena_pasos' | 'tema36_lote02_recall'
   ) => {
     setCurrentScreen(screen);
     
@@ -612,6 +614,17 @@ export default function App() {
               Simulacro
             </button>
             <button
+              id="nav-btn-tema36-lote02-recall"
+              onClick={() => handleNavigate('tema36_lote02_recall')}
+              aria-current={currentScreen === 'tema36_lote02_recall' ? 'page' : undefined}
+              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+                currentScreen === 'tema36_lote02_recall' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
+              }`}
+            >
+              <Brain className="w-4 h-4" aria-hidden="true" />
+              Recuerdo T36·2
+            </button>
+            <button
               id="nav-btn-study-topic"
               onClick={() => handleNavigate('study_by_topic')}
               aria-current={currentScreen === 'study_by_topic' ? 'page' : undefined}
@@ -825,6 +838,10 @@ export default function App() {
             onNavigateHome={() => handleNavigate('dashboard')}
             onBackToDaily={() => handleNavigate('sesion_diaria')}
           />
+        )}
+
+        {currentScreen === 'tema36_lote02_recall' && (
+          <Tema36Lote02Recall onNavigateHome={() => handleNavigate('dashboard')} />
         )}
 
         {currentScreen === 'study_by_topic' && (isDemoMode || !supabase) && (
