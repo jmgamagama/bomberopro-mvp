@@ -67,7 +67,7 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
 
     // 1. Pantalla de Login inicial
     expect(await screen.findByRole('heading', { name: /mira bomberopro/i })).toBeInTheDocument();
-    const demoButton = screen.getByRole('button', { name: /probar demostración de solo lectura/i });
+    const demoButton = screen.getByRole('button', { name: /probar sin cuenta/i });
     expect(demoButton).toBeInTheDocument();
 
     // 2. Iniciar demostración
@@ -111,7 +111,7 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     expect(await screen.findByRole('heading', { name: /mira bomberopro/i })).toBeInTheDocument();
 
     // 6. Reingreso a la demo: comprobar que no quedan datos ni progreso arrastrado
-    const reEnterDemoBtn = screen.getByRole('button', { name: /probar demostración de solo lectura/i });
+    const reEnterDemoBtn = screen.getByRole('button', { name: /probar sin cuenta/i });
     await user.click(reEnterDemoBtn);
 
     // Nuevamente en Dashboard demo

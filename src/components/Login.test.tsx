@@ -60,7 +60,7 @@ describe('Login', () => {
 
     await fillAndSubmit(user);
 
-    expect(await screen.findByText(/correo o contraseña incorrectos/i)).toBeInTheDocument();
+    expect(await screen.findByText(/la contraseña no coincide/i)).toBeInTheDocument();
   });
 
   it('si la cuenta se crea pero requiere confirmación por correo, explica la confirmación claramente', async () => {
@@ -81,7 +81,7 @@ describe('Login', () => {
     const user = userEvent.setup();
     render(<Login onStartDemo={onStartDemo} />);
 
-    const demoButton = screen.getByRole('button', { name: /probar demostración de solo lectura/i });
+    const demoButton = screen.getByRole('button', { name: /probar sin cuenta/i });
     expect(demoButton).toBeInTheDocument();
 
     await user.click(demoButton);

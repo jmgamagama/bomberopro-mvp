@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Play, CheckCircle2, XCircle } from 'lucide-react';
 import { Question } from '../types';
 import { supabase } from '../lib/supabase';
-import { saveAttemptToServer } from '../lib/saveAttemptToServer';
+import { saveAttemptToServer, toLevelInt } from '../lib/saveAttemptToServer';
 import StudentConsultation from './StudentConsultationModal';
 import { shuffleAllOptions } from '../utils/shuffleOptions';
 
@@ -88,7 +88,7 @@ const confirmAnswer = async () => {
       p_tiempo_ms: responseTimeMs,
       p_modo: 'estudio_por_temas',
       p_session_id: null,
-      p_nivel: currentQuestion.level ?? 1,
+      p_nivel: toLevelInt(currentQuestion.level),
       p_confidence: confidence || null
     });
   }
