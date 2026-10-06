@@ -1,0 +1,733 @@
+/** Tema 36 lote 02 recall cards — local subset (79). Self-contained: do not load all 528 tema 36 cards, lote 01 or lotes 03–08. */
+
+export type Tema36Lote02RecallCard = {
+  id: string;
+  orden: number;
+  concepto: string;
+  respuesta: string;
+  fuente: string;
+  localizacion: string;
+  apartado: string;
+};
+
+export const TEMA36_LOTE02_RECALL_META = {
+  tema: 36,
+  lote: "lote02",
+  title: "Tema 36 · Lote 02 — Municipios restantes (INE + población ≤5.000): Acedera → Esparragosa de Lares",
+  count: 79,
+  source: "tema36_fichas.json + tema36_lotes.json",
+} as const;
+
+export const TEMA36_LOTE02_RECALL_CARDS: Tema36Lote02RecallCard[] = [
+  {
+    "id": "CPEI-T36-S02-47FD12BD6E",
+    "orden": 60,
+    "concepto": "¿Cuál es el código INE del municipio de Acedera?",
+    "respuesta": "06001",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Acedera"
+  },
+  {
+    "id": "CPEI-T36-S02-B0776D9C68",
+    "orden": 70,
+    "concepto": "¿Qué población oficial tenía Acedera a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "815 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Acedera"
+  },
+  {
+    "id": "CPEI-T36-S02-297615769D",
+    "orden": 100,
+    "concepto": "¿Cuál es el código INE del municipio de Ahillones?",
+    "respuesta": "06003",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Ahillones"
+  },
+  {
+    "id": "CPEI-T36-S02-840896551A",
+    "orden": 110,
+    "concepto": "¿Qué población oficial tenía Ahillones a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "793 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Ahillones"
+  },
+  {
+    "id": "CPEI-T36-S02-934323137C",
+    "orden": 120,
+    "concepto": "¿Cuál es el código INE del municipio de Alange?",
+    "respuesta": "06004",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Alange"
+  },
+  {
+    "id": "CPEI-T36-S02-9CC642C609",
+    "orden": 130,
+    "concepto": "¿Qué población oficial tenía Alange a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "1.802 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Alange"
+  },
+  {
+    "id": "CPEI-T36-S02-3CF4C7A8C3",
+    "orden": 140,
+    "concepto": "¿Cuál es el código INE del municipio de Albuera, La?",
+    "respuesta": "06005",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Albuera, La"
+  },
+  {
+    "id": "CPEI-T36-S02-34E86A97E6",
+    "orden": 150,
+    "concepto": "¿Qué población oficial tenía Albuera, La a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "1.995 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Albuera, La"
+  },
+  {
+    "id": "CPEI-T36-S02-26AB86A0D4",
+    "orden": 160,
+    "concepto": "¿Cuál es el código INE del municipio de Alburquerque?",
+    "respuesta": "06006",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Alburquerque"
+  },
+  {
+    "id": "CPEI-T36-S02-08D599770D",
+    "orden": 170,
+    "concepto": "¿Qué población oficial tenía Alburquerque a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "4.928 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Alburquerque"
+  },
+  {
+    "id": "CPEI-T36-S02-E1514C6C4E",
+    "orden": 180,
+    "concepto": "¿Cuál es el código INE del municipio de Alconchel?",
+    "respuesta": "06007",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Alconchel"
+  },
+  {
+    "id": "CPEI-T36-S02-918E698693",
+    "orden": 190,
+    "concepto": "¿Qué población oficial tenía Alconchel a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "1.592 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Alconchel"
+  },
+  {
+    "id": "CPEI-T36-S02-4D1920092C",
+    "orden": 200,
+    "concepto": "¿Cuál es el código INE del municipio de Alconera?",
+    "respuesta": "06008",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Alconera"
+  },
+  {
+    "id": "CPEI-T36-S02-472D739251",
+    "orden": 210,
+    "concepto": "¿Qué población oficial tenía Alconera a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "748 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Alconera"
+  },
+  {
+    "id": "CPEI-T36-S02-23166918FE",
+    "orden": 220,
+    "concepto": "¿Cuál es el código INE del municipio de Aljucén?",
+    "respuesta": "06009",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Aljucén"
+  },
+  {
+    "id": "CPEI-T36-S02-779772272C",
+    "orden": 230,
+    "concepto": "¿Qué población oficial tenía Aljucén a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "252 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Aljucén"
+  },
+  {
+    "id": "CPEI-T36-S02-0515FA0056",
+    "orden": 240,
+    "concepto": "¿Cuál es el código INE del municipio de Almendral?",
+    "respuesta": "06010",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Almendral"
+  },
+  {
+    "id": "CPEI-T36-S02-81991455D3",
+    "orden": 250,
+    "concepto": "¿Qué población oficial tenía Almendral a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "1.202 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Almendral"
+  },
+  {
+    "id": "CPEI-T36-S02-A4E1067663",
+    "orden": 280,
+    "concepto": "¿Cuál es el código INE del municipio de Arroyo de San Serván?",
+    "respuesta": "06012",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Arroyo de San Serván"
+  },
+  {
+    "id": "CPEI-T36-S02-C2424EB30B",
+    "orden": 290,
+    "concepto": "¿Qué población oficial tenía Arroyo de San Serván a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "4.001 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Arroyo de San Serván"
+  },
+  {
+    "id": "CPEI-T36-S02-C856DAFEE8",
+    "orden": 300,
+    "concepto": "¿Cuál es el código INE del municipio de Atalaya?",
+    "respuesta": "06013",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Atalaya"
+  },
+  {
+    "id": "CPEI-T36-S02-B30307050C",
+    "orden": 310,
+    "concepto": "¿Qué población oficial tenía Atalaya a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "258 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Atalaya"
+  },
+  {
+    "id": "CPEI-T36-S02-C4E4F0B97F",
+    "orden": 360,
+    "concepto": "¿Cuál es el código INE del municipio de Barcarrota?",
+    "respuesta": "06016",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Barcarrota"
+  },
+  {
+    "id": "CPEI-T36-S02-3E07B3CDA7",
+    "orden": 370,
+    "concepto": "¿Qué población oficial tenía Barcarrota a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "3.456 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Barcarrota"
+  },
+  {
+    "id": "CPEI-T36-S02-817123A0DD",
+    "orden": 380,
+    "concepto": "¿Cuál es el código INE del municipio de Baterno?",
+    "respuesta": "06017",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Baterno"
+  },
+  {
+    "id": "CPEI-T36-S02-70F3918E5A",
+    "orden": 390,
+    "concepto": "¿Qué población oficial tenía Baterno a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "231 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Baterno"
+  },
+  {
+    "id": "CPEI-T36-S02-B533057D1E",
+    "orden": 400,
+    "concepto": "¿Cuál es el código INE del municipio de Benquerencia de la Serena?",
+    "respuesta": "06018",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Benquerencia de la Serena"
+  },
+  {
+    "id": "CPEI-T36-S02-5EB7EBA418",
+    "orden": 410,
+    "concepto": "¿Qué población oficial tenía Benquerencia de la Serena a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "771 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Benquerencia de la Serena"
+  },
+  {
+    "id": "CPEI-T36-S02-26F39F3B8A",
+    "orden": 420,
+    "concepto": "¿Cuál es el código INE del municipio de Berlanga?",
+    "respuesta": "06019",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Berlanga"
+  },
+  {
+    "id": "CPEI-T36-S02-034DE3174F",
+    "orden": 430,
+    "concepto": "¿Qué población oficial tenía Berlanga a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "2.171 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Berlanga"
+  },
+  {
+    "id": "CPEI-T36-S02-45F08EAC3C",
+    "orden": 440,
+    "concepto": "¿Cuál es el código INE del municipio de Bienvenida?",
+    "respuesta": "06020",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Bienvenida"
+  },
+  {
+    "id": "CPEI-T36-S02-83CDF1FA97",
+    "orden": 450,
+    "concepto": "¿Qué población oficial tenía Bienvenida a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "1.999 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Bienvenida"
+  },
+  {
+    "id": "CPEI-T36-S02-F0911B689E",
+    "orden": 460,
+    "concepto": "¿Cuál es el código INE del municipio de Bodonal de la Sierra?",
+    "respuesta": "06021",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Bodonal de la Sierra"
+  },
+  {
+    "id": "CPEI-T36-S02-325FBA237E",
+    "orden": 470,
+    "concepto": "¿Qué población oficial tenía Bodonal de la Sierra a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "982 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Bodonal de la Sierra"
+  },
+  {
+    "id": "CPEI-T36-S02-96B1D605A6",
+    "orden": 480,
+    "concepto": "¿Cuál es el código INE del municipio de Burguillos del Cerro?",
+    "respuesta": "06022",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Burguillos del Cerro"
+  },
+  {
+    "id": "CPEI-T36-S02-FB51ADC80D",
+    "orden": 490,
+    "concepto": "¿Qué población oficial tenía Burguillos del Cerro a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "2.940 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Burguillos del Cerro"
+  },
+  {
+    "id": "CPEI-T36-S02-ADA3CCC8E0",
+    "orden": 500,
+    "concepto": "¿Cuál es el código INE del municipio de Cabeza del Buey?",
+    "respuesta": "06023",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Cabeza del Buey"
+  },
+  {
+    "id": "CPEI-T36-S02-FC4B962B91",
+    "orden": 510,
+    "concepto": "¿Qué población oficial tenía Cabeza del Buey a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "4.489 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Cabeza del Buey"
+  },
+  {
+    "id": "CPEI-T36-S02-2CF6E62E90",
+    "orden": 520,
+    "concepto": "¿Cuál es el código INE del municipio de Cabeza la Vaca?",
+    "respuesta": "06024",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Cabeza la Vaca"
+  },
+  {
+    "id": "CPEI-T36-S02-7AA053CCE0",
+    "orden": 530,
+    "concepto": "¿Qué población oficial tenía Cabeza la Vaca a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "1.257 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Cabeza la Vaca"
+  },
+  {
+    "id": "CPEI-T36-S02-2161B7CF7E",
+    "orden": 560,
+    "concepto": "¿Cuál es el código INE del municipio de Calera de León?",
+    "respuesta": "06026",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Calera de León"
+  },
+  {
+    "id": "CPEI-T36-S02-303B6C5F15",
+    "orden": 570,
+    "concepto": "¿Qué población oficial tenía Calera de León a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "912 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Calera de León"
+  },
+  {
+    "id": "CPEI-T36-S02-9DD7A04F24",
+    "orden": 580,
+    "concepto": "¿Cuál es el código INE del municipio de Calzadilla de los Barros?",
+    "respuesta": "06027",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Calzadilla de los Barros"
+  },
+  {
+    "id": "CPEI-T36-S02-A3B62D5A94",
+    "orden": 590,
+    "concepto": "¿Qué población oficial tenía Calzadilla de los Barros a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "679 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Calzadilla de los Barros"
+  },
+  {
+    "id": "CPEI-T36-S02-C711EFB378",
+    "orden": 600,
+    "concepto": "¿Cuál es el código INE del municipio de Campanario?",
+    "respuesta": "06028",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Campanario"
+  },
+  {
+    "id": "CPEI-T36-S02-70AA21CDFE",
+    "orden": 610,
+    "concepto": "¿Qué población oficial tenía Campanario a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "4.702 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Campanario"
+  },
+  {
+    "id": "CPEI-T36-S02-6F1EE76649",
+    "orden": 620,
+    "concepto": "¿Cuál es el código INE del municipio de Campillo de Llerena?",
+    "respuesta": "06029",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Campillo de Llerena"
+  },
+  {
+    "id": "CPEI-T36-S02-825C789D63",
+    "orden": 630,
+    "concepto": "¿Qué población oficial tenía Campillo de Llerena a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "1.321 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Campillo de Llerena"
+  },
+  {
+    "id": "CPEI-T36-S02-C3D5CB5CBE",
+    "orden": 640,
+    "concepto": "¿Cuál es el código INE del municipio de Capilla?",
+    "respuesta": "06030",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Capilla"
+  },
+  {
+    "id": "CPEI-T36-S02-43BFBC0259",
+    "orden": 650,
+    "concepto": "¿Qué población oficial tenía Capilla a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "142 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Capilla"
+  },
+  {
+    "id": "CPEI-T36-S02-F349121FC0",
+    "orden": 660,
+    "concepto": "¿Cuál es el código INE del municipio de Carmonita?",
+    "respuesta": "06031",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Carmonita"
+  },
+  {
+    "id": "CPEI-T36-S02-5DFE9C074D",
+    "orden": 670,
+    "concepto": "¿Qué población oficial tenía Carmonita a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "514 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Carmonita"
+  },
+  {
+    "id": "CPEI-T36-S02-C035E983C9",
+    "orden": 680,
+    "concepto": "¿Cuál es el código INE del municipio de Carrascalejo, El?",
+    "respuesta": "06032",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Carrascalejo, El"
+  },
+  {
+    "id": "CPEI-T36-S02-782B68AE7E",
+    "orden": 690,
+    "concepto": "¿Qué población oficial tenía Carrascalejo, El a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "80 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Carrascalejo, El"
+  },
+  {
+    "id": "CPEI-T36-S02-B4894BAB3B",
+    "orden": 700,
+    "concepto": "¿Cuál es el código INE del municipio de Casas de Don Pedro?",
+    "respuesta": "06033",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Casas de Don Pedro"
+  },
+  {
+    "id": "CPEI-T36-S02-5BB42F37F4",
+    "orden": 710,
+    "concepto": "¿Qué población oficial tenía Casas de Don Pedro a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "1.375 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Casas de Don Pedro"
+  },
+  {
+    "id": "CPEI-T36-S02-B9EDBF9D89",
+    "orden": 720,
+    "concepto": "¿Cuál es el código INE del municipio de Casas de Reina?",
+    "respuesta": "06034",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Casas de Reina"
+  },
+  {
+    "id": "CPEI-T36-S02-1B839231C7",
+    "orden": 730,
+    "concepto": "¿Qué población oficial tenía Casas de Reina a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "200 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Casas de Reina"
+  },
+  {
+    "id": "CPEI-T36-S02-F1E4260A8A",
+    "orden": 740,
+    "concepto": "¿Cuál es el código INE del municipio de Castilblanco?",
+    "respuesta": "06035",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Castilblanco"
+  },
+  {
+    "id": "CPEI-T36-S02-F747C4BE74",
+    "orden": 750,
+    "concepto": "¿Qué población oficial tenía Castilblanco a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "820 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Castilblanco"
+  },
+  {
+    "id": "CPEI-T36-S02-496C03743E",
+    "orden": 780,
+    "concepto": "¿Cuál es el código INE del municipio de Cheles?",
+    "respuesta": "06042",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Cheles"
+  },
+  {
+    "id": "CPEI-T36-S02-A5CB6D28FC",
+    "orden": 790,
+    "concepto": "¿Qué población oficial tenía Cheles a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "1.175 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Cheles"
+  },
+  {
+    "id": "CPEI-T36-S02-3D17FA8A55",
+    "orden": 800,
+    "concepto": "¿Cuál es el código INE del municipio de Codosera, La?",
+    "respuesta": "06037",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Codosera, La"
+  },
+  {
+    "id": "CPEI-T36-S02-B982985EE6",
+    "orden": 810,
+    "concepto": "¿Qué población oficial tenía Codosera, La a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "1.983 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Codosera, La"
+  },
+  {
+    "id": "CPEI-T36-S02-C7E64CE2DC",
+    "orden": 820,
+    "concepto": "¿Cuál es el código INE del municipio de Cordobilla de Lácara?",
+    "respuesta": "06038",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Cordobilla de Lácara"
+  },
+  {
+    "id": "CPEI-T36-S02-7AE70F9C4A",
+    "orden": 830,
+    "concepto": "¿Cuál es el código INE del municipio de Coronada, La?",
+    "respuesta": "06039",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Coronada, La"
+  },
+  {
+    "id": "CPEI-T36-S02-0BA0479869",
+    "orden": 840,
+    "concepto": "¿Qué población oficial tenía Coronada, La a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "2.136 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Coronada, La"
+  },
+  {
+    "id": "CPEI-T36-S02-6E740CE1E9",
+    "orden": 850,
+    "concepto": "¿Cuál es el código INE del municipio de Corte de Peleas?",
+    "respuesta": "06040",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Corte de Peleas"
+  },
+  {
+    "id": "CPEI-T36-S02-78291C4359",
+    "orden": 860,
+    "concepto": "¿Qué población oficial tenía Corte de Peleas a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "1.153 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Corte de Peleas"
+  },
+  {
+    "id": "CPEI-T36-S02-86A8CECBF7",
+    "orden": 870,
+    "concepto": "¿Cuál es el código INE del municipio de Cristina?",
+    "respuesta": "06041",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Cristina"
+  },
+  {
+    "id": "CPEI-T36-S02-ED60620F5E",
+    "orden": 880,
+    "concepto": "¿Qué población oficial tenía Cristina a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "549 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Cristina"
+  },
+  {
+    "id": "CPEI-T36-S02-8B5B1910BC",
+    "orden": 910,
+    "concepto": "¿Cuál es el código INE del municipio de Don Álvaro?",
+    "respuesta": "06043",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Don Álvaro"
+  },
+  {
+    "id": "CPEI-T36-S02-390D5D4AC5",
+    "orden": 920,
+    "concepto": "¿Qué población oficial tenía Don Álvaro a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "841 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Don Álvaro"
+  },
+  {
+    "id": "CPEI-T36-S02-4A51EC0EF5",
+    "orden": 930,
+    "concepto": "¿Cuál es el código INE del municipio de Entrín Bajo?",
+    "respuesta": "06045",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Entrín Bajo"
+  },
+  {
+    "id": "CPEI-T36-S02-47395FA529",
+    "orden": 940,
+    "concepto": "¿Qué población oficial tenía Entrín Bajo a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "548 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Entrín Bajo"
+  },
+  {
+    "id": "CPEI-T36-S02-552709F706",
+    "orden": 950,
+    "concepto": "¿Cuál es el código INE del municipio de Esparragalejo?",
+    "respuesta": "06046",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Esparragalejo"
+  },
+  {
+    "id": "CPEI-T36-S02-03B7FA360F",
+    "orden": 960,
+    "concepto": "¿Qué población oficial tenía Esparragalejo a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "1.506 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Esparragalejo"
+  },
+  {
+    "id": "CPEI-T36-S02-4E754909DA",
+    "orden": 970,
+    "concepto": "¿Cuál es el código INE del municipio de Esparragosa de Lares?",
+    "respuesta": "06048",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Esparragosa de Lares"
+  },
+  {
+    "id": "CPEI-T36-S02-AF3A28A313",
+    "orden": 980,
+    "concepto": "¿Qué población oficial tenía Esparragosa de Lares a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "839 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
+    "apartado": "Esparragosa de Lares"
+  }
+];
