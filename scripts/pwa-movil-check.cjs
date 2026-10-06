@@ -65,7 +65,7 @@ const scrollWidth = (page) => page.evaluate(() => document.documentElement.scrol
   await mobile.getByRole('button', { name: 'Recuerdo' }).click();
   const tablist = page.getByRole('tablist', { name: 'Temas de recuerdo' });
   await tablist.waitFor();
-  check('recuerdo: 6 pestañas', (await tablist.getByRole('tab').count()) === 6);
+  check('recuerdo: 8 pestañas', (await tablist.getByRole('tab').count()) === 8);
   check('recuerdo sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
   await tablist.getByRole('tab', { name: /T40/ }).click();
   await page.getByText('Ficha 1 de 213').waitFor();

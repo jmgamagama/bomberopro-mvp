@@ -18,6 +18,7 @@ import { TEMA35_RECALL_CARDS, TEMA35_RECALL_META } from './tema35Recall';
 import { TEMA36_LOTE01_RECALL_CARDS, TEMA36_LOTE01_RECALL_META } from './tema36Lote01Recall';
 import { TEMA36_LOTE02_RECALL_CARDS, TEMA36_LOTE02_RECALL_META } from './tema36Lote02Recall';
 import { TEMA36_LOTE03_RECALL_CARDS, TEMA36_LOTE03_RECALL_META } from './tema36Lote03Recall';
+import { TEMA36_LOTE04_RECALL_CARDS, TEMA36_LOTE04_RECALL_META } from './tema36Lote04Recall';
 import { TEMA38_RECALL_CARDS, TEMA38_RECALL_META } from './tema38Recall';
 import { TEMA39_RECALL_CARDS, TEMA39_RECALL_META } from './tema39Recall';
 import { TEMA40_RECALL_CARDS, TEMA40_RECALL_META } from './tema40Recall';
@@ -88,6 +89,7 @@ export const RECALL_DECKS: readonly RecallDeck[] = [
   defineDeck(TEMA36_LOTE01_RECALL_META, TEMA36_LOTE01_RECALL_CARDS),
   defineDeck(TEMA36_LOTE02_RECALL_META, TEMA36_LOTE02_RECALL_CARDS),
   defineDeck(TEMA36_LOTE03_RECALL_META, TEMA36_LOTE03_RECALL_CARDS),
+  defineDeck(TEMA36_LOTE04_RECALL_META, TEMA36_LOTE04_RECALL_CARDS),
   defineDeck(TEMA38_RECALL_META, TEMA38_RECALL_CARDS),
   defineDeck(TEMA39_RECALL_META, TEMA39_RECALL_CARDS),
   defineDeck(TEMA40_RECALL_META, TEMA40_RECALL_CARDS),
@@ -117,7 +119,7 @@ function joinEs(items: readonly string[]): string {
   return items.length <= 1 ? items.join('') : `${items.slice(0, -1).join(', ')} y ${items[items.length - 1]}`;
 }
 
-/** Resumen legible de los temas cargados: «35, 36 (lotes 01 a 03), 38, 39 y 40». */
+/** Resumen legible de los temas cargados: «35, 36 (lotes 01 a 04), 38, 39 y 40». */
 export function describeRecallCoverage(decks: readonly RecallDeck[] = RECALL_DECKS): string {
   const byTema = new Map<number, string[]>();
   for (const deck of decks) {
