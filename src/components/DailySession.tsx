@@ -12,7 +12,7 @@ import RecallStats from './RecallStats';
 import { localDayNumber } from '../utils/localDate';
 import { getCardSrs, loadSrs, recordRecallGrade, type RecallGrade, type SrsStore } from '../utils/recallSrs';
 import type { RecallCard } from '../data/recallCards';
-import { RECALL_TOPICS, canAccessTopic, getRecallTopic } from '../data/recallRegistry';
+import { RECALL_BLOQUES, RECALL_TOPICS, canAccessTopic, getRecallTopic } from '../data/recallRegistry';
 import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreferences';
 import { loadRecallPoolForPlan } from '../data/recallCards';
 import { canSeeStats, getDailySessionSize, getPlan } from '../utils/plan';
@@ -160,17 +160,21 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
                 className="mt-1 min-h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-800"
               >
                 <option value="todos">Todos los temas (reparto equilibrado)</option>
-                {RECALL_TOPICS.map((topic) => {
-                  const isLocked = !canAccessTopic(topic, plan);
-                  const lotes = topic.decks.length > 1 ? ` (${topic.decks.length} lotes)` : '';
-                  return (
-                    <option key={topic.id} value={topic.id} disabled={isLocked}>
-                      {topic.shortLabel} · {topic.name}
-                      {lotes}
-                      {isLocked ? ' (Pro)' : ''}
-                    </option>
-                  );
-                })}
+                {RECALL_BLOQUES.map((b) => (
+                  <optgroup key={b.id} label={b.label}>
+                    {b.topics.map((topic) => {
+                      const isLocked = !canAccessTopic(topic, plan);
+                      const lotes = topic.decks.length > 1 ? ` (${topic.decks.length} lotes)` : '';
+                      return (
+                        <option key={topic.id} value={topic.id} disabled={isLocked}>
+                          {topic.shortLabel} · {topic.name}
+                          {lotes}
+                          {isLocked ? ' (Pro)' : ''}
+                        </option>
+                      );
+                    })}
+                  </optgroup>
+                ))}
               </select>
               {preferredTopic && (
                 <p className="mt-1 text-xs text-slate-500">

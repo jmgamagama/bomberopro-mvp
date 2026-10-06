@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { CalendarClock, Check, FileText, Flame, Lock, Play } from 'lucide-react';
 import { CONVOCATORIA_CPEI_2026 as C } from '../data/convocatoria';
-import { RECALL_TOPICS, RECALL_TOTAL_CARDS, canAccessTopic, getRecallTopic } from '../data/recallRegistry';
+import { RECALL_BLOQUES, RECALL_TOTAL_CARDS, canAccessTopic, getRecallTopic, type RecallTopic } from '../data/recallRegistry';
 import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreferences';
 import { completeOnboarding } from '../utils/onboarding';
 import { getPlan } from '../utils/plan';
@@ -37,14 +37,17 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
     onSkip();
   };
 
-  const options = [
-    { id: ALL, label: 'Todos los temas', detail: `${RECALL_TOTAL_CARDS} fichas`, locked: false },
-    ...RECALL_TOPICS.map((t) => ({
-      id: t.id,
-      label: t.decks.length > 1 ? `${t.title}` : `${t.shortLabel} · ${t.name}`,
-      detail: t.decks.length > 1 ? `${t.count} fichas · ${t.decks.length} lotes` : `${t.count} fichas`,
-      locked: !canAccessTopic(t, plan),
-    })),
+  type Option = { id: string; label: string; detail: string; locked: boolean };
+  const toOption = (t: RecallTopic): Option => ({
+    id: t.id,
+    label: t.decks.length > 1 ? `${t.title}` : `${t.shortLabel} · ${t.name}`,
+    detail: t.decks.length > 1 ? `${t.count} fichas · ${t.decks.length} lotes` : `${t.count} fichas`,
+    locked: !canAccessTopic(t, plan),
+  });
+  // «Todos los temas» y, debajo, los temas agrupados por bloque (parte común / específica).
+  const groups: { id: string; label: string | null; options: Option[] }[] = [
+    { id: ALL, label: null, options: [{ id: ALL, label: 'Todos los temas', detail: `${RECALL_TOTAL_CARDS} fichas`, locked: false }] },
+    ...RECALL_BLOQUES.map((b) => ({ id: b.id, label: `${b.label} · ${b.topics.length} ${b.topics.length === 1 ? 'tema' : 'temas'}`, options: b.topics.map(toOption) })),
   ];
 
   return (
@@ -97,40 +100,49 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
 
       <fieldset className="space-y-2">
         <legend className="text-sm font-bold text-slate-800">¿Qué quieres repasar primero?</legend>
-        <div className="grid gap-2" role="radiogroup" aria-label="Tema para la sesión diaria">
-          {options.map((o) => {
-            const selected = choice === o.id;
-            return (
-              <button
-                key={o.id}
-                type="button"
-                role="radio"
-                aria-checked={selected}
-                aria-disabled={o.locked || undefined}
-                disabled={o.locked}
-                id={`onboarding-opcion-${o.id}`}
-                onClick={() => setChoice(o.id)}
-                className={`flex min-h-11 w-full items-center justify-between gap-3 rounded-xl border px-3.5 py-2 text-left text-sm transition ${
-                  selected ? 'border-indigo-300 bg-indigo-50 text-indigo-900' : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
-                } disabled:cursor-not-allowed disabled:opacity-60`}
-              >
-                <span className="min-w-0">
-                  <span className="block font-semibold leading-snug break-words">
-                    {o.locked && <Lock className="mr-1 inline h-3.5 w-3.5 align-[-2px]" aria-hidden="true" />}
-                    {o.label} <span className="font-normal text-slate-500">· {o.detail}{o.locked ? ' · Pro' : ''}</span>
-                  </span>
-                </span>
-                <span
-                  aria-hidden="true"
-                  className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${
-                    selected ? 'border-indigo-600 bg-indigo-600 text-white' : 'border-slate-300'
-                  }`}
-                >
-                  {selected && <Check className="h-3.5 w-3.5" />}
-                </span>
-              </button>
-            );
-          })}
+        <div className="space-y-3" role="radiogroup" aria-label="Tema para la sesión diaria">
+          {groups.map((g) => (
+            <div key={g.id} role="presentation" id={`onboarding-grupo-${g.id}`} className="space-y-2">
+              {g.label && (
+                <p aria-hidden="true" className="px-0.5 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                  {g.label}
+                </p>
+              )}
+              {g.options.map((o) => {
+                const selected = choice === o.id;
+                return (
+                  <button
+                    key={o.id}
+                    type="button"
+                    role="radio"
+                    aria-checked={selected}
+                    aria-disabled={o.locked || undefined}
+                    disabled={o.locked}
+                    id={`onboarding-opcion-${o.id}`}
+                    onClick={() => setChoice(o.id)}
+                    className={`flex min-h-11 w-full items-center justify-between gap-3 rounded-xl border px-3.5 py-2 text-left text-sm transition ${
+                      selected ? 'border-indigo-300 bg-indigo-50 text-indigo-900' : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
+                    } disabled:cursor-not-allowed disabled:opacity-60`}
+                  >
+                    <span className="min-w-0">
+                      <span className="block font-semibold leading-snug break-words">
+                        {o.locked && <Lock className="mr-1 inline h-3.5 w-3.5 align-[-2px]" aria-hidden="true" />}
+                        {o.label} <span className="font-normal text-slate-500">· {o.detail}{o.locked ? ' · Pro' : ''}</span>
+                      </span>
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${
+                        selected ? 'border-indigo-600 bg-indigo-600 text-white' : 'border-slate-300'
+                      }`}
+                    >
+                      {selected && <Check className="h-3.5 w-3.5" />}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          ))}
         </div>
       </fieldset>
 

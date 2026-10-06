@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Lock } from 'lucide-react';
 import RecallDeck from './RecallDeck';
-import { RECALL_DECKS, RECALL_TOPICS, RECALL_TOTAL_CARDS, canAccessTopic, type RecallDeck as RecallDeckData } from '../data/recallRegistry';
+import { RECALL_BLOQUES, RECALL_DECKS, RECALL_TOPICS, RECALL_TOTAL_CARDS, canAccessTopic, type RecallDeck as RecallDeckData } from '../data/recallRegistry';
 import { isPlanesEnabled } from '../config/features';
 import { canAccessDeck, getPlan } from '../utils/plan';
 
@@ -51,36 +51,42 @@ export default function RecallHub({ onNavigateHome, initialDeckId, onOpenPlanes 
         <p className="text-xs text-slate-500">
           Elige un tema · {RECALL_TOTAL_CARDS} fichas de repaso con su fuente oficial
         </p>
-        <div
-          role="tablist"
-          aria-label="Temas de recuerdo"
-          className="mt-2 grid gap-1.5 sm:flex sm:flex-wrap sm:gap-2"
-          style={{ gridTemplateColumns: `repeat(${RECALL_TOPICS.length}, minmax(0, 1fr))` }}
-        >
-          {RECALL_TOPICS.map((t) => {
-            const selected = t.id === topic.id;
-            const isLocked = !canAccessTopic(t, plan);
-            return (
-              <button
-                key={t.id}
-                type="button"
-                role="tab"
-                id={`recall-tab-${t.id}`}
-                aria-selected={selected}
-                aria-controls="recall-deck-panel"
-                aria-label={`${t.shortLabel} · ${t.count} fichas${t.decks.length > 1 ? ` · ${t.decks.length} lotes` : ''}${isLocked ? ' (Pro)' : ''}`}
-                title={t.title}
-                onClick={() => selectTopic(t.id)}
-                className={tabClass(selected)}
-              >
-                <span className="inline-flex items-center gap-0.5">
-                  {isLocked && <Lock className="h-3 w-3 shrink-0" aria-hidden="true" />}
-                  {t.shortLabel}
-                </span>
-                <span className="text-[10px] font-medium opacity-75">{t.count}</span>
-              </button>
-            );
-          })}
+        {/* Temas agrupados por bloque (parte común / específica) en una cuadrícula compacta
+            que salta de línea: sin scroll horizontal a 360 px y botones de al menos 44 px. */}
+        <div role="tablist" aria-label="Temas de recuerdo" className="mt-2 space-y-2">
+          {RECALL_BLOQUES.map((b) => (
+            <div key={b.id} role="presentation" id={`recall-bloque-${b.id}`}>
+              <p aria-hidden="true" className="px-0.5 pb-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                {b.label} · {b.topics.length} {b.topics.length === 1 ? 'tema' : 'temas'}
+              </p>
+              <div role="presentation" className="grid grid-cols-4 gap-1.5 min-[400px]:grid-cols-5 sm:grid-cols-8 sm:gap-2">
+                {b.topics.map((t) => {
+                  const selected = t.id === topic.id;
+                  const isLocked = !canAccessTopic(t, plan);
+                  return (
+                    <button
+                      key={t.id}
+                      type="button"
+                      role="tab"
+                      id={`recall-tab-${t.id}`}
+                      aria-selected={selected}
+                      aria-controls="recall-deck-panel"
+                      aria-label={`${t.shortLabel} · ${t.count} fichas${t.decks.length > 1 ? ` · ${t.decks.length} lotes` : ''} · ${b.label}${isLocked ? ' (Pro)' : ''}`}
+                      title={t.title}
+                      onClick={() => selectTopic(t.id)}
+                      className={`${tabClass(selected)} min-w-11`}
+                    >
+                      <span className="inline-flex items-center gap-0.5">
+                        {isLocked && <Lock className="h-3 w-3 shrink-0" aria-hidden="true" />}
+                        {t.shortLabel}
+                      </span>
+                      <span className="text-[10px] font-medium opacity-75">{t.count}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
         </div>
 
         {hasLotes && (

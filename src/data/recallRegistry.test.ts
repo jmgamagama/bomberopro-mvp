@@ -2,9 +2,11 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+  RECALL_BLOQUES,
   RECALL_DECKS,
   RECALL_TOPICS,
   RECALL_TOTAL_CARDS,
+  bloqueDeTema,
   describeRecallCoverage,
   getLoadedDeckCards,
   getRecallDeck,
@@ -55,6 +57,17 @@ describe('registro central de recuerdo', () => {
     expect(toTopicId('tema36-lote02')).toBe('tema36');
     expect(toTopicId('tema40')).toBe('tema40');
     expect(toTopicId('tema37')).toBeNull();
+  });
+
+  it('agrupa los temas por bloque del temario (1-7 común, 8-40 específica)', () => {
+    expect(bloqueDeTema(1)).toBe('comun');
+    expect(bloqueDeTema(7)).toBe('comun');
+    expect(bloqueDeTema(8)).toBe('especifica');
+    expect(bloqueDeTema(40)).toBe('especifica');
+    // Solo se listan los bloques con algún tema cargado (hoy, todos de la parte específica).
+    expect(RECALL_BLOQUES.map((b) => [b.id, b.label])).toEqual([['especifica', 'Parte específica']]);
+    expect(RECALL_BLOQUES.flatMap((b) => b.topics.map((t) => t.id))).toEqual(RECALL_TOPICS.map((t) => t.id));
+    expect(RECALL_BLOQUES.reduce((n, b) => n + b.count, 0)).toBe(RECALL_TOTAL_CARDS);
   });
 
   it('cada mazo declara sus fichas y el total es la suma', () => {

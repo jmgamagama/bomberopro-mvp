@@ -64,10 +64,14 @@ export interface RecallDeck {
   count: number;
 }
 
+/** Bloque del temario (BOP Badajoz n.º 135/2026, anexo I): temas 1-7 parte común, 8-40 parte específica. */
+export type RecallBloqueId = 'comun' | 'especifica';
+
 export interface RecallTopic {
   /** `tema35`, `tema36`… */
   id: string;
   tema: number;
+  bloque: RecallBloqueId;
   shortLabel: string;
   /** «Tema 36 (todos los lotes)» si tiene lotes; si no, el título del mazo. */
   title: string;
@@ -237,6 +241,13 @@ export const RECALL_DECKS: readonly RecallDeck[] = DECK_SOURCES.map((src) => {
   return deck;
 }).sort((a, b) => a.tema - b.tema || (a.lote ?? '').localeCompare(b.lote ?? ''));
 
+const BLOQUE_LABELS: Record<RecallBloqueId, string> = { comun: 'Parte común', especifica: 'Parte específica' };
+
+/** Bloque al que pertenece un tema del temario (1-7 común; 8-40 específica). */
+export function bloqueDeTema(tema: number): RecallBloqueId {
+  return tema <= 7 ? 'comun' : 'especifica';
+}
+
 /** Temas (agrupan los lotes de un mismo tema), ordenados por número de tema. */
 export const RECALL_TOPICS: readonly RecallTopic[] = (() => {
   const byTema = new Map<number, RecallDeck[]>();
@@ -250,6 +261,7 @@ export const RECALL_TOPICS: readonly RecallTopic[] = (() => {
     return {
       id: `tema${tema}`,
       tema,
+      bloque: bloqueDeTema(tema),
       shortLabel: `T${tema}`,
       title: grouped ? `Tema ${tema} (todos los lotes)` : decks[0].title,
       name: grouped ? TOPIC_NAMES[tema] ?? `Tema ${tema}` : decks[0].name,
@@ -258,6 +270,22 @@ export const RECALL_TOPICS: readonly RecallTopic[] = (() => {
     };
   });
 })();
+
+export interface RecallBloque {
+  id: RecallBloqueId;
+  /** «Parte común» / «Parte específica». */
+  label: string;
+  topics: readonly RecallTopic[];
+  count: number;
+}
+
+/** Temas agrupados por bloque del temario (solo los bloques con algún tema cargado). */
+export const RECALL_BLOQUES: readonly RecallBloque[] = (['comun', 'especifica'] as const)
+  .map((id) => {
+    const topics = RECALL_TOPICS.filter((t) => t.bloque === id);
+    return { id, label: BLOQUE_LABELS[id], topics, count: topics.reduce((n, t) => n + t.count, 0) };
+  })
+  .filter((b) => b.topics.length > 0);
 
 export function getRecallDeck(id: string): RecallDeck {
   const deck = RECALL_DECKS.find((d) => d.id === id);

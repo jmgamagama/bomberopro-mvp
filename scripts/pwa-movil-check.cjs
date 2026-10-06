@@ -59,6 +59,8 @@ const tapTargetsOk = async (locator) => {
   check('bienvenida: botón «Empezar» visible sin desplazar', await page.getByRole('button', { name: 'Empezar sesión diaria' }).isVisible()
     && (await page.getByRole('button', { name: 'Empezar sesión diaria' }).boundingBox()).y + 48 <= 740);
   await page.screenshot({ path: `${OUT}/onboarding-360.png` });
+  check('bienvenida: tema 16 en el grupo «Parte específica»', (await page.locator('#onboarding-grupo-especifica').getByRole('radio', { name: /T16/ }).count()) === 1);
+  check('bienvenida: opciones ≥44 px y dentro de 360 px', await tapTargetsOk(page.getByRole('radio')));
   let taps = 0;
   await page.getByRole('radio', { name: /T40/ }).click(); taps++;
   await page.getByRole('button', { name: 'Empezar sesión diaria' }).click(); taps++;
@@ -76,7 +78,9 @@ const tapTargetsOk = async (locator) => {
   await mobile.getByRole('button', { name: 'Recuerdo' }).click();
   const tablist = page.getByRole('tablist', { name: 'Temas de recuerdo' });
   await tablist.waitFor();
-  check('recuerdo: 5 pestañas de tema (T35, T36, T38, T39, T40)', (await tablist.getByRole('tab').count()) === 5);
+  check('recuerdo: 6 pestañas de tema (T16, T35, T36, T38, T39, T40)', (await tablist.getByRole('tab').count()) === 6);
+  check('recuerdo: temas agrupados por bloque (Parte específica)', await page.locator('#recall-bloque-especifica').isVisible()
+    && /Parte específica/i.test(await page.locator('#recall-bloque-especifica').textContent()));
   check('recuerdo sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
   check('recuerdo: pestañas de tema ≥44 px y dentro de 360 px', await tapTargetsOk(tablist.getByRole('tab')));
 
@@ -97,11 +101,20 @@ const tapTargetsOk = async (locator) => {
   check('recuerdo: pestaña T40 seleccionada', (await tablist.getByRole('tab', { name: /T40/ }).getAttribute('aria-selected')) === 'true');
   await page.waitForTimeout(400); // deja terminar la transición de color de la pestaña
   await page.screenshot({ path: `${OUT}/recuerdo-360.png` });
+  // Fase 1: tema 16 (OACI/UIT, 48 fichas)
+  await tablist.getByRole('tab', { name: /^T16/ }).click();
+  await page.getByText('Ficha 1 de 48').waitFor();
+  check('recuerdo T16: 48 fichas OACI/UIT', (await tablist.getByRole('tab', { name: /^T16/ }).getAttribute('aria-selected')) === 'true');
+  check('recuerdo T16 sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(400);
+  await page.screenshot({ path: `${OUT}/recuerdo-fase1-360.png` });
 
   // Sesión diaria
   await mobile.getByRole('button', { name: 'Diaria' }).click();
   await page.getByRole('heading', { name: 'Sesión diaria' }).waitFor();
   check('sesión intro sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
+  check('tema prioritario: T16 en el grupo «Parte específica»', (await page.locator('#daily-session-preferred optgroup[label="Parte específica"] option[value="tema16"]').count()) === 1);
   await page.getByRole('button', { name: /Empezar sesión/ }).click();
   await page.getByRole('button', { name: /Mostrar respuesta/ }).click();
   await page.getByText('Respuesta', { exact: true }).waitFor();
