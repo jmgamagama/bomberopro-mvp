@@ -34,6 +34,7 @@ import Tema40Recall from './components/Tema40Recall';
 import Tema35Recall from './components/Tema35Recall';
 import Tema38Recall from './components/Tema38Recall';
 import Tema39Recall from './components/Tema39Recall';
+import Tema36Lote01Recall from './components/Tema36Lote01Recall';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer } from './lib/saveAttemptToServer';
 import SaveFailureBanner from './components/SaveFailureBanner';
@@ -59,6 +60,7 @@ const SCREEN_TITLES = {
   tema35_recall: 'Recuerdo tema 35',
   tema38_recall: 'Recuerdo tema 38',
   tema39_recall: 'Recuerdo tema 39',
+  tema36_lote01_recall: 'Recuerdo tema 36 lote 01',
 } as const;
 
   const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds) => {
@@ -81,7 +83,7 @@ const SCREEN_TITLES = {
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
-    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'tema40_recall' | 'tema35_recall' | 'tema38_recall' | 'tema39_recall'
+    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'tema40_recall' | 'tema35_recall' | 'tema38_recall' | 'tema39_recall' | 'tema36_lote01_recall'
   >('dashboard');
 
   const [memoryStates, setMemoryStates] = useState<Record<string, MemoryState>>({});
@@ -230,7 +232,7 @@ export default function App() {
 
   // Handle switching screens
   const handleNavigate = (
-    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'tema40_recall' | 'tema35_recall' | 'tema38_recall' | 'tema39_recall'
+    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'tema40_recall' | 'tema35_recall' | 'tema38_recall' | 'tema39_recall' | 'tema36_lote01_recall'
   ) => {
     setCurrentScreen(screen);
     
@@ -660,6 +662,17 @@ export default function App() {
               <Brain className="w-4 h-4" aria-hidden="true" />
               Recuerdo T39
             </button>
+            <button
+              id="nav-btn-tema36-lote01-recall"
+              onClick={() => handleNavigate('tema36_lote01_recall')}
+              aria-current={currentScreen === 'tema36_lote01_recall' ? 'page' : undefined}
+              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+                currentScreen === 'tema36_lote01_recall' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
+              }`}
+            >
+              <Brain className="w-4 h-4" aria-hidden="true" />
+              Recuerdo T36·1
+            </button>
           </nav>
 
           <div className="flex items-center gap-2">
@@ -812,6 +825,10 @@ export default function App() {
 
         {currentScreen === 'tema35_recall' && (
           <Tema35Recall onNavigateHome={() => handleNavigate('dashboard')} />
+        )}
+
+        {currentScreen === 'tema36_lote01_recall' && (
+          <Tema36Lote01Recall onNavigateHome={() => handleNavigate('dashboard')} />
         )}
       </main>
 
