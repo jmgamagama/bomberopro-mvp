@@ -1,46 +1,34 @@
 /**
- * Pool local de fichas de recuerdo (sin opciones de examen).
- * Se construye a partir de microconceptos y respuestas ya existentes en main.
+ * Pool local de fichas de recuerdo (sin opciones de examen) para la Sesión diaria.
+ * Se construye a partir de TODOS los mazos del registro central (src/data/recallRegistry.ts):
+ * un mazo añadido al registro entra automáticamente en la sesión diaria.
  */
 
-import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from './initialData';
+import { RECALL_DECKS } from './recallRegistry';
 
 export interface RecallCard {
   id: string;
   prompt: string;
   answer: string;
   fuente: string;
+  /** Mazo de origen (`tema40`, `tema36-lote01`…). */
+  deckId?: string;
+  /** Etiqueta corta del mazo (`T40`, `T36·1`…). */
+  deckLabel?: string;
 }
 
 function buildRecallPool(): RecallCard[] {
-  const cards: RecallCard[] = [];
-
-  for (const mc of INITIAL_MICROCONCEPTS) {
-    cards.push({
-      id: `${mc.id}-recuerdo`,
-      prompt: `Recuerda el contenido literal (art. ${mc.article}):`,
-      answer: mc.text,
-      fuente: `Microconcepto ${mc.id}`,
-    });
-    cards.push({
-      id: `${mc.id}-explica`,
-      prompt: `¿Qué debes tener en cuenta al estudiar: «${mc.text}»?`,
-      answer: mc.explanation,
-      fuente: `Microconcepto ${mc.id}`,
-    });
-  }
-
-  for (const q of INITIAL_QUESTIONS) {
-    cards.push({
-      id: `${q.id}-recuerdo`,
-      prompt: q.question,
-      answer: q.correct_answer,
-      fuente: q.fuente ?? `Pregunta ${q.id}`,
-    });
-  }
-
-  return cards;
+  return RECALL_DECKS.flatMap((deck) =>
+    deck.cards.map((card) => ({
+      id: card.id,
+      prompt: card.concepto,
+      answer: card.respuesta,
+      fuente: card.localizacion ? `${card.fuente} · ${card.localizacion}` : card.fuente,
+      deckId: deck.id,
+      deckLabel: deck.shortLabel,
+    })),
+  );
 }
 
-/** Pool estático de recuerdo disponible en el cliente. */
+/** Pool estático de recuerdo disponible en el cliente (todas las fichas de todos los mazos). */
 export const RECALL_CARDS: RecallCard[] = buildRecallPool();

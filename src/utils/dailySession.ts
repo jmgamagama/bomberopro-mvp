@@ -46,9 +46,60 @@ function daySeed(dateKey: string): number {
   return y * 10000 + m * 100 + d;
 }
 
+/** Nº de día absoluto (días desde 1970-01-01) para una fecha local YYYY-MM-DD. */
+function dayNumber(dateKey: string): number {
+  const [y, m, d] = dateKey.split('-').map(Number);
+  return Math.floor(Date.UTC(y, m - 1, d) / 86_400_000);
+}
+
+function hashString(value: string): number {
+  let h = 2166136261;
+  for (let i = 0; i < value.length; i++) {
+    h ^= value.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
 /**
- * Elige hasta `maxSize` fichas de recuerdo (por defecto 30).
- * Sin planificador SRS: rotación determinista por día sobre el pool local.
+ * Reparte `total` plazas entre grupos proporcionalmente a su tamaño (mayor resto),
+ * con al menos 1 por grupo cuando hay plazas suficientes.
+ */
+function allocateQuotas(sizes: number[], total: number): number[] {
+  const n = sizes.length;
+  const poolSize = sizes.reduce((a, b) => a + b, 0);
+  if (total >= poolSize) return [...sizes];
+  const quotas = sizes.map(() => 0);
+  let remaining = total;
+  if (total >= n) {
+    for (let i = 0; i < n; i++) if (sizes[i] > 0) { quotas[i] = 1; remaining--; }
+  }
+  const capacity = sizes.map((s, i) => s - quotas[i]);
+  const capTotal = capacity.reduce((a, b) => a + b, 0);
+  const exact = capacity.map((c) => (capTotal > 0 ? (c * remaining) / capTotal : 0));
+  exact.forEach((x, i) => { const add = Math.min(capacity[i], Math.floor(x)); quotas[i] += add; });
+  remaining = total - quotas.reduce((a, b) => a + b, 0);
+  const order = exact
+    .map((x, i) => ({ i, frac: x - Math.floor(x) }))
+    .sort((a, b) => b.frac - a.frac || a.i - b.i);
+  while (remaining > 0) {
+    let progressed = false;
+    for (const { i } of order) {
+      if (remaining === 0) break;
+      if (quotas[i] < sizes[i]) { quotas[i]++; remaining--; progressed = true; }
+    }
+    if (!progressed) break;
+  }
+  return quotas;
+}
+
+/**
+ * Elige hasta `maxSize` fichas de recuerdo (por defecto 30) de TODOS los mazos del pool.
+ * Sin planificador SRS:
+ *  - cada mazo (`deckId`) aporta una cuota proporcional a su tamaño (mínimo 1 si caben);
+ *  - dentro de cada mazo se recorre un orden barajado fijo, avanzando una ventana por día,
+ *    de modo que días consecutivos muestran fichas distintas hasta completar el mazo (rotación);
+ *  - el resultado del día se mezcla de forma determinista por fecha.
  */
 export function pickDailyRecallSession(
   pool: RecallCard[] = RECALL_CARDS,
@@ -57,8 +108,31 @@ export function pickDailyRecallSession(
 ): RecallCard[] {
   if (pool.length === 0 || maxSize <= 0) return [];
   const dateKey = toLocalDateKey(date);
-  const shuffled = seededShuffle(pool, daySeed(dateKey));
-  return shuffled.slice(0, Math.min(maxSize, pool.length));
+  const seed = daySeed(dateKey);
+
+  const groups = new Map<string, RecallCard[]>();
+  for (const card of pool) {
+    const key = card.deckId ?? '';
+    const list = groups.get(key);
+    if (list) list.push(card);
+    else groups.set(key, [card]);
+  }
+
+  const keys = [...groups.keys()];
+  const quotas = allocateQuotas(keys.map((k) => groups.get(k)!.length), Math.min(maxSize, pool.length));
+  const day = dayNumber(dateKey);
+
+  const picked: RecallCard[] = [];
+  keys.forEach((key, gi) => {
+    const quota = quotas[gi];
+    if (quota <= 0) return;
+    const ordered = seededShuffle(groups.get(key)!, hashString(key || 'pool'));
+    const n = ordered.length;
+    const start = (((day * quota) % n) + n) % n;
+    for (let k = 0; k < quota; k++) picked.push(ordered[(start + k) % n]);
+  });
+
+  return seededShuffle(picked, seed);
 }
 
 function readStorage(): Storage | null {

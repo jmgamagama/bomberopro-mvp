@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
-import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame } from 'lucide-react';
+import React, { useState, useEffect, useLayoutEffect, useRef, lazy, Suspense } from 'react';
+import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers } from 'lucide-react';
 import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from './data/initialData';
 import { MemoryState, Question, ConfidenceLevel, Attempt } from './types';
 import {
@@ -30,17 +30,9 @@ import ForgettingCurve from './components/ForgettingCurve';
 import MockExam from './components/MockExam';
 import Login from './components/Login';
 import StudyByTopic from './components/StudyByTopic';
-import Tema40Recall from './components/Tema40Recall';
-import Tema35Recall from './components/Tema35Recall';
-import Tema38Recall from './components/Tema38Recall';
-import Tema39Recall from './components/Tema39Recall';
-import Tema36Lote01Recall from './components/Tema36Lote01Recall';
-import DailySession from './components/DailySession';
-import OrdenaPasos from './components/OrdenaPasos';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer } from './lib/saveAttemptToServer';
 import SaveFailureBanner from './components/SaveFailureBanner';
-import Tema36Lote02Recall from './components/Tema36Lote02Recall';
 import SaveStatus from './components/SaveStatus';
 import { useAttemptSync } from './lib/useAttemptSync';
 import { shuffleAllOptions } from './utils/shuffleOptions';
@@ -51,6 +43,11 @@ const getSafeMemoryStates = (): Record<string, MemoryState> => {
   return Object.fromEntries(Object.entries(getMemoryStates()).map(([id, state]) => [id, normalizeSpacedEvidence(state, now)]));
 };
 
+// Pantallas de recuerdo: se cargan bajo demanda para no meter todos los mazos en el bundle inicial.
+const RecallHub = lazy(() => import('./components/RecallHub'));
+const DailySession = lazy(() => import('./components/DailySession'));
+const OrdenaPasos = lazy(() => import('./components/OrdenaPasos'));
+
 const SCREEN_TITLES = {
   dashboard: 'Dashboard',
   train: 'Entrenamiento',
@@ -58,13 +55,8 @@ const SCREEN_TITLES = {
   forgetting_curve: 'Curva de olvido',
   mock_exam: 'Simulacro',
   today_training: 'Entrenamiento de hoy',
-  tema36_lote02_recall: 'Recuerdo tema 36 lote 02',
   study_by_topic: 'Estudio por Temas',
-  tema40_recall: 'Recuerdo tema 40',
-  tema35_recall: 'Recuerdo tema 35',
-  tema38_recall: 'Recuerdo tema 38',
-  tema39_recall: 'Recuerdo tema 39',
-  tema36_lote01_recall: 'Recuerdo tema 36 lote 01',
+  recuerdo: 'Recuerdo',
   sesion_diaria: 'Sesión diaria',
   ordena_pasos: 'Ordena los pasos',
 } as const;
@@ -89,7 +81,7 @@ const SCREEN_TITLES = {
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
-    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'tema40_recall' | 'tema35_recall' | 'tema38_recall' | 'tema39_recall' | 'tema36_lote01_recall' | 'sesion_diaria' | 'ordena_pasos' | 'tema36_lote02_recall'
+    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos'
   >('dashboard');
 
   const [memoryStates, setMemoryStates] = useState<Record<string, MemoryState>>({});
@@ -238,7 +230,7 @@ export default function App() {
 
   // Handle switching screens
   const handleNavigate = (
-    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'tema40_recall' | 'tema35_recall' | 'tema38_recall' | 'tema39_recall' | 'tema36_lote01_recall' | 'sesion_diaria' | 'ordena_pasos' | 'tema36_lote02_recall'
+    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos'
   ) => {
     setCurrentScreen(screen);
     
@@ -614,17 +606,6 @@ export default function App() {
               Simulacro
             </button>
             <button
-              id="nav-btn-tema36-lote02-recall"
-              onClick={() => handleNavigate('tema36_lote02_recall')}
-              aria-current={currentScreen === 'tema36_lote02_recall' ? 'page' : undefined}
-              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'tema36_lote02_recall' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <Brain className="w-4 h-4" aria-hidden="true" />
-              Recuerdo T36·2
-            </button>
-            <button
               id="nav-btn-study-topic"
               onClick={() => handleNavigate('study_by_topic')}
               aria-current={currentScreen === 'study_by_topic' ? 'page' : undefined}
@@ -635,62 +616,18 @@ export default function App() {
             <BookOpen className="w-4 h-4" aria-hidden="true" />
             Por Temas
             </button>
-            <button
-              id="nav-btn-tema40-recall"
-              onClick={() => handleNavigate('tema40_recall')}
-              aria-current={currentScreen === 'tema40_recall' ? 'page' : undefined}
-              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'tema40_recall' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <Brain className="w-4 h-4" aria-hidden="true" />
-              Recuerdo T40
-            </button>
-            <button
-              id="nav-btn-tema35-recall"
-              onClick={() => handleNavigate('tema35_recall')}
-              aria-current={currentScreen === 'tema35_recall' ? 'page' : undefined}
-              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'tema35_recall' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <Brain className="w-4 h-4" aria-hidden="true" />
-              Recuerdo T35
-            </button>
-            <button
-              id="nav-btn-tema38-recall"
-              onClick={() => handleNavigate('tema38_recall')}
-              aria-current={currentScreen === 'tema38_recall' ? 'page' : undefined}
-              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'tema38_recall' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <Brain className="w-4 h-4" aria-hidden="true" />
-              Recuerdo T38
-            </button>
-            <button
-              id="nav-btn-tema39-recall"
-              onClick={() => handleNavigate('tema39_recall')}
-              aria-current={currentScreen === 'tema39_recall' ? 'page' : undefined}
-              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'tema39_recall' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <Brain className="w-4 h-4" aria-hidden="true" />
-              Recuerdo T39
-            </button>
-            <button
-              id="nav-btn-tema36-lote01-recall"
-              onClick={() => handleNavigate('tema36_lote01_recall')}
-              aria-current={currentScreen === 'tema36_lote01_recall' ? 'page' : undefined}
-              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'tema36_lote01_recall' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <Brain className="w-4 h-4" aria-hidden="true" />
-              Recuerdo T36·1
-            </button>
 
+            <button
+              id="nav-btn-recuerdo"
+              onClick={() => handleNavigate('recuerdo')}
+              aria-current={currentScreen === 'recuerdo' ? 'page' : undefined}
+              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+                currentScreen === 'recuerdo' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
+              }`}
+            >
+              <Layers className="w-4 h-4" aria-hidden="true" />
+              Recuerdo
+            </button>
             <button
               id="nav-btn-sesion-diaria"
               onClick={() => handleNavigate('sesion_diaria')}
@@ -826,23 +763,25 @@ export default function App() {
           />
         )}
 
-        {currentScreen === 'sesion_diaria' && (
-          <DailySession
-            onNavigateHome={() => handleNavigate('dashboard')}
-            onOpenOrdenaPasos={() => handleNavigate('ordena_pasos')}
-          />
-        )}
+        <Suspense fallback={<p role="status" className="p-6 text-sm text-slate-500">Cargando fichas…</p>}>
+          {currentScreen === 'recuerdo' && (
+            <RecallHub onNavigateHome={() => handleNavigate('dashboard')} />
+          )}
 
-        {currentScreen === 'ordena_pasos' && (
-          <OrdenaPasos
-            onNavigateHome={() => handleNavigate('dashboard')}
-            onBackToDaily={() => handleNavigate('sesion_diaria')}
-          />
-        )}
+          {currentScreen === 'sesion_diaria' && (
+            <DailySession
+              onNavigateHome={() => handleNavigate('dashboard')}
+              onOpenOrdenaPasos={() => handleNavigate('ordena_pasos')}
+            />
+          )}
 
-        {currentScreen === 'tema36_lote02_recall' && (
-          <Tema36Lote02Recall onNavigateHome={() => handleNavigate('dashboard')} />
-        )}
+          {currentScreen === 'ordena_pasos' && (
+            <OrdenaPasos
+              onNavigateHome={() => handleNavigate('dashboard')}
+              onBackToDaily={() => handleNavigate('sesion_diaria')}
+            />
+          )}
+        </Suspense>
 
         {currentScreen === 'study_by_topic' && (isDemoMode || !supabase) && (
           <section aria-label="Estudio por temas no disponible en la demostración" className="rounded-xl border border-slate-200 bg-white p-6">
@@ -851,31 +790,11 @@ export default function App() {
             <button type="button" className="mt-4 rounded-lg bg-indigo-700 px-4 py-2 font-semibold text-white" onClick={() => handleNavigate('dashboard')}>Volver al inicio</button>
           </section>
         )}
-
-        {currentScreen === 'tema38_recall' && (
-          <Tema38Recall onNavigateHome={() => handleNavigate('dashboard')} />
-        )}
-
-        {currentScreen === 'tema39_recall' && (
-          <Tema39Recall onNavigateHome={() => handleNavigate('dashboard')} />
-        )}
         {currentScreen === 'study_by_topic' && !isDemoMode && !!supabase && (
         <StudyByTopic
           session={session}
           onNavigateHome={() => handleNavigate('dashboard')}
           />
-        )}
-
-        {currentScreen === 'tema40_recall' && (
-          <Tema40Recall onNavigateHome={() => handleNavigate('dashboard')} />
-        )}
-
-        {currentScreen === 'tema35_recall' && (
-          <Tema35Recall onNavigateHome={() => handleNavigate('dashboard')} />
-        )}
-
-        {currentScreen === 'tema36_lote01_recall' && (
-          <Tema36Lote01Recall onNavigateHome={() => handleNavigate('dashboard')} />
         )}
       </main>
 
@@ -883,7 +802,7 @@ export default function App() {
         aria-label="Navegación móvil"
         className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_18px_rgba(15,23,42,0.08)] backdrop-blur-md md:hidden"
       >
-        <div className="mx-auto grid max-w-lg grid-cols-7 px-1">
+        <div className="mx-auto grid max-w-lg grid-cols-8 px-1">
           <button
             type="button"
             aria-current={currentScreen === 'dashboard' ? 'page' : undefined}
@@ -949,6 +868,18 @@ export default function App() {
             >
           <BookOpen className="h-5 w-5" aria-hidden="true" />
           Temas
+          </button>
+
+          <button
+            type="button"
+            aria-current={currentScreen === 'recuerdo' ? 'page' : undefined}
+            onClick={() => handleNavigate('recuerdo')}
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+              currentScreen === 'recuerdo' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
+            }`}
+          >
+            <Layers className="h-5 w-5" aria-hidden="true" />
+            Recuerdo
           </button>
 
           <button

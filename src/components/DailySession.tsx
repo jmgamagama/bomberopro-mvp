@@ -7,6 +7,7 @@ import {
   type DailyStreak,
 } from '../utils/dailySession';
 import type { RecallCard } from '../data/recallCards';
+import { RECALL_DECKS } from '../data/recallRegistry';
 
 interface DailySessionProps {
   onNavigateHome: () => void;
@@ -23,6 +24,10 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos }: Dail
 
   const session = useMemo(() => pickDailyRecallSession(), []);
   const current: RecallCard | undefined = session[index];
+  const sessionDecks = useMemo(
+    () => RECALL_DECKS.filter((deck) => session.some((card) => card.deckId === deck.id)),
+    [session],
+  );
   const progressLabel = session.length === 0 ? '0 / 0' : `${index + 1} / ${session.length}`;
 
   const startSession = () => {
@@ -52,8 +57,13 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos }: Dail
           <div className="space-y-2">
             <h2 className="text-2xl font-black tracking-tight text-slate-800">Sesión diaria</h2>
             <p className="mx-auto max-w-md text-sm leading-relaxed text-slate-500">
-              Hasta 30 fichas de recuerdo. Sin opciones de examen: intenta recordar y revela la respuesta.
+              Hasta 30 fichas de recuerdo de todos los temas cargados. Sin opciones de examen: intenta recordar y revela la respuesta.
             </p>
+            {sessionDecks.length > 0 && (
+              <p className="mx-auto max-w-md text-xs text-slate-500" id="daily-session-decks">
+                Hoy: {sessionDecks.map((deck) => deck.shortLabel).join(' · ')}
+              </p>
+            )}
           </div>
 
           <div className="mx-auto my-6 grid max-w-sm grid-cols-2 gap-4">
@@ -106,7 +116,12 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos }: Dail
 
           <div className="space-y-3">
             <h2 className="text-lg font-bold text-slate-800 sm:text-xl">{current.prompt}</h2>
-            <p className="text-[11px] text-slate-400">Fuente: {current.fuente}</p>
+            <p className="text-[11px] text-slate-400">
+              {current.deckLabel && (
+                <span className="mr-2 rounded-full bg-indigo-50 px-2 py-0.5 font-semibold text-indigo-700">{current.deckLabel}</span>
+              )}
+              Fuente: {current.fuente}
+            </p>
           </div>
 
           {!revealed ? (

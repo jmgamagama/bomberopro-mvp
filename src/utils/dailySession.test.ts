@@ -2,6 +2,7 @@
 
 import { beforeEach, describe, expect, it } from 'vitest';
 import { RECALL_CARDS } from '../data/recallCards';
+import { RECALL_DECKS, RECALL_TOTAL_CARDS } from '../data/recallRegistry';
 import {
   DAILY_SESSION_SIZE,
   STREAK_STORAGE_KEY,
@@ -59,5 +60,33 @@ describe('sesión diaria de recuerdo', () => {
     saveDailyStreak({ lastCompletedDate: '2026-10-01', streakCount: 5 });
     const next = completeDailySession(new Date(2026, 9, 5, 12, 0, 0));
     expect(next.streakCount).toBe(1);
+  });
+});
+
+describe('sesión diaria con todos los temas cargados', () => {
+  it('el pool incluye las fichas de todos los mazos del registro', () => {
+    expect(RECALL_CARDS).toHaveLength(RECALL_TOTAL_CARDS);
+    for (const deck of RECALL_DECKS) {
+      expect(RECALL_CARDS.filter((c) => c.deckId === deck.id)).toHaveLength(deck.count);
+    }
+  });
+
+  it('incluye fichas de varios temas (todos los mazos) con un máximo de 30 sin repetir', () => {
+    for (let day = 1; day <= 31; day++) {
+      const session = pickDailyRecallSession(RECALL_CARDS, DAILY_SESSION_SIZE, new Date(2026, 9, day));
+      expect(session).toHaveLength(30);
+      expect(new Set(session.map((c) => c.id)).size).toBe(30);
+      const decks = new Set(session.map((c) => c.deckId));
+      expect(decks.size).toBe(RECALL_DECKS.length);
+      const temas = new Set(session.map((c) => RECALL_DECKS.find((d) => d.id === c.deckId)!.tema));
+      expect(temas.size).toBeGreaterThanOrEqual(5);
+    }
+  });
+
+  it('rota por día: dos días seguidos no repiten fichas', () => {
+    const today = pickDailyRecallSession(RECALL_CARDS, 30, new Date(2026, 9, 6));
+    const tomorrow = pickDailyRecallSession(RECALL_CARDS, 30, new Date(2026, 9, 7));
+    const ids = new Set(today.map((c) => c.id));
+    expect(tomorrow.some((c) => ids.has(c.id))).toBe(false);
   });
 });
