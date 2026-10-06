@@ -84,6 +84,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 16,
+      title: 'Tema 16 · El código ICAO (alfabeto radiotelefónico) y códigos Q de la UIT',
+      count: 48,
+      source: 'BASE MIRA tema 16, subconjunto OACI/UIT revisado ficha a ficha (RR UIT 2024 ap. 14 y art. 32/53, Rec. UIT-R M.1172, OACI Anexo 10 vol. II)',
+    },
+    load: () => import('./tema16Recall').then((m) => m.TEMA16_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 35,
       title: 'Tema 35 · Red de carreteras de Extremadura (provincia de Badajoz)',
       count: 150,
@@ -314,7 +323,7 @@ function joinEs(items: readonly string[]): string {
   return items.length <= 1 ? items.join('') : `${items.slice(0, -1).join(', ')} y ${items[items.length - 1]}`;
 }
 
-/** Resumen legible de los temas cargados: «35, 36 (lotes 01 a 08), 38, 39 y 40». */
+/** Resumen legible de los temas cargados: «16, 35, 36 (lotes 01 a 08), 38, 39 y 40». */
 export function describeRecallCoverage(decks: readonly RecallDeck[] = RECALL_DECKS): string {
   const byTema = new Map<number, string[]>();
   for (const deck of decks) {

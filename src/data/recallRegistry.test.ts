@@ -27,6 +27,7 @@ async function moduleFor(deckId: string) {
 describe('registro central de recuerdo', () => {
   it('contiene un único mazo por tema/lote cargado, ordenado por tema', () => {
     expect(RECALL_DECKS.map((d) => d.id)).toEqual([
+      'tema16',
       'tema35',
       'tema36-lote01',
       'tema36-lote02',
@@ -40,12 +41,12 @@ describe('registro central de recuerdo', () => {
       'tema39',
       'tema40',
     ]);
-    expect(RECALL_DECKS.map((d) => d.shortLabel)).toEqual(['T35', 'T36·1', 'T36·2', 'T36·3', 'T36·4', 'T36·5', 'T36·6', 'T36·7', 'T36·8', 'T38', 'T39', 'T40']);
+    expect(RECALL_DECKS.map((d) => d.shortLabel)).toEqual(['T16', 'T35', 'T36·1', 'T36·2', 'T36·3', 'T36·4', 'T36·5', 'T36·6', 'T36·7', 'T36·8', 'T38', 'T39', 'T40']);
     expect(RECALL_DECKS.some((d) => d.tema === 37)).toBe(false);
   });
 
   it('agrupa los lotes del tema 36 en un único tema', () => {
-    expect(RECALL_TOPICS.map((t) => t.id)).toEqual(['tema35', 'tema36', 'tema38', 'tema39', 'tema40']);
+    expect(RECALL_TOPICS.map((t) => t.id)).toEqual(['tema16', 'tema35', 'tema36', 'tema38', 'tema39', 'tema40']);
     const t36 = getRecallTopic('tema36')!;
     expect(t36.title).toBe('Tema 36 (todos los lotes)');
     expect(t36.decks.map((d) => d.loteLabel)).toEqual(['Lote 1', 'Lote 2', 'Lote 3', 'Lote 4', 'Lote 5', 'Lote 6', 'Lote 7', 'Lote 8']);
@@ -59,6 +60,7 @@ describe('registro central de recuerdo', () => {
   it('cada mazo declara sus fichas y el total es la suma', () => {
     const counts = Object.fromEntries(RECALL_DECKS.map((d) => [d.id, d.count]));
     expect(counts).toEqual({
+      tema16: 48,
       tema35: 150,
       'tema36-lote01': 78,
       'tema36-lote02': 79,
@@ -72,7 +74,7 @@ describe('registro central de recuerdo', () => {
       tema39: 149,
       tema40: 213,
     });
-    expect(RECALL_TOTAL_CARDS).toBe(1238);
+    expect(RECALL_TOTAL_CARDS).toBe(1286);
   });
 
   it('los metadatos del registro coinciden con los del módulo de cada mazo', async () => {
@@ -125,7 +127,7 @@ describe('registro central de recuerdo', () => {
   });
 
   it('describeRecallCoverage resume los temas y lotes cargados', () => {
-    expect(describeRecallCoverage()).toBe('35, 36 (lotes 01 a 08), 38, 39 y 40');
+    expect(describeRecallCoverage()).toBe('16, 35, 36 (lotes 01 a 08), 38, 39 y 40');
     expect(describeRecallCoverage([getRecallDeck('tema40')])).toBe('40');
     expect(describeRecallCoverage([getRecallDeck('tema36-lote01'), getRecallDeck('tema36-lote03')])).toBe('36 (lotes 01 y 03)');
   });
