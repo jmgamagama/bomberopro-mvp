@@ -1,12 +1,12 @@
 // @vitest-environment jsdom
 // Página de planes detrás de VITE_FEATURE_PLANES: apagada no aparece nada nuevo.
-import { render, screen, within } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import './test/setup';
 vi.mock('./lib/supabase', () => ({ supabase: null }));
 import App from './App';
-import { RECALL_DECKS } from './data/recallRegistry';
+import { RECALL_TOPICS } from './data/recallRegistry';
 
 async function openRecuerdo(user: ReturnType<typeof userEvent.setup>) {
   await screen.findByRole('button', { name: /Por Temas/ });
@@ -59,9 +59,16 @@ describe('planes con la bandera activada', () => {
     const user = userEvent.setup();
     render(<App />);
     const tablist = await openRecuerdo(user);
-    expect(within(tablist).getAllByRole('tab', { name: /\(Pro\)/ })).toHaveLength(RECALL_DECKS.length - 1);
+    expect(within(tablist).getAllByRole('tab', { name: /\(Pro\)/ })).toHaveLength(RECALL_TOPICS.length - 1);
     expect(within(tablist).getByRole('tab', { name: /T40/ })).toHaveAttribute('aria-selected', 'true');
-    expect(screen.getByText(/Ficha 1 de 213/)).toBeInTheDocument();
+    expect(await screen.findByText(/Ficha 1 de 213/)).toBeInTheDocument();
+
+    // Tema 36: todos sus lotes con candado.
+    await user.click(within(tablist).getByRole('tab', { name: /^T36/ }));
+    const lotes = screen.getByRole('tablist', { name: 'Lotes del tema 36' });
+    const t36 = RECALL_TOPICS.find((t) => t.id === 'tema36')!;
+    expect(within(lotes).getAllByRole('tab', { name: /\(Pro\)/ })).toHaveLength(t36.decks.length);
+    expect(screen.getByText('Tema incluido en Pro')).toBeInTheDocument();
 
     await user.click(within(tablist).getByRole('tab', { name: /T35/ }));
     expect(screen.getByText('Tema incluido en Pro')).toBeInTheDocument();
@@ -78,8 +85,8 @@ describe('planes con la bandera activada', () => {
     await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-sesion-diaria')!);
     expect(await screen.findByText(/Hasta 10 fichas/)).toBeInTheDocument();
     expect(document.querySelector('#daily-session-plan')).toHaveTextContent('Plan Gratis');
-    expect(document.querySelector('#daily-session-decks')).toHaveTextContent('T40');
-    expect(document.querySelector('#daily-session-decks')!.textContent).not.toMatch(/T35|T38/);
+    await waitFor(() => expect(document.querySelector('#daily-session-decks')).toHaveTextContent('T40'));
+    expect(document.querySelector('#daily-session-decks')!.textContent).not.toMatch(/T35|T36|T38/);
     await user.click(screen.getByRole('button', { name: /Empezar sesión/ }));
     expect(screen.getByText(/Recuerdo · 1 \/ 10/)).toBeInTheDocument();
   });

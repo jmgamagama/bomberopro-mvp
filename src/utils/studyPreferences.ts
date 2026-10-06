@@ -1,8 +1,11 @@
 /**
  * Preferencia local (localStorage) del tema prioritario de la sesión diaria. Sin Supabase.
  * La bandera de bienvenida vive en ./onboarding (módulo ligero).
+ *
+ * Se guarda un id de TEMA (`tema40`, `tema36`). Un id de lote guardado por versiones
+ * anteriores (`tema36-lote02`) se interpreta como su tema (`tema36`).
  */
-import { RECALL_DECKS } from '../data/recallRegistry';
+import { toTopicId } from '../data/recallRegistry';
 
 export const PREFERRED_DECK_STORAGE_KEY = 'mira_tema_preferido_v1';
 
@@ -14,15 +17,15 @@ function storage(): Storage | null {
   }
 }
 
-/** Id de mazo prioritario (p. ej. `tema40`) o `null` para «Todos los temas». */
+/** Id del tema prioritario (p. ej. `tema40`, `tema36`) o `null` para «Todos los temas». */
 export function getPreferredDeckId(): string | null {
-  const id = storage()?.getItem(PREFERRED_DECK_STORAGE_KEY) ?? null;
-  return id && RECALL_DECKS.some((d) => d.id === id) ? id : null;
+  return toTopicId(storage()?.getItem(PREFERRED_DECK_STORAGE_KEY) ?? null);
 }
 
 export function setPreferredDeckId(id: string | null): void {
   const s = storage();
   if (!s) return;
-  if (id && RECALL_DECKS.some((d) => d.id === id)) s.setItem(PREFERRED_DECK_STORAGE_KEY, id);
+  const topicId = toTopicId(id);
+  if (topicId) s.setItem(PREFERRED_DECK_STORAGE_KEY, topicId);
   else s.removeItem(PREFERRED_DECK_STORAGE_KEY);
 }

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { CalendarClock, Check, FileText, Flame, Lock, Play } from 'lucide-react';
 import { CONVOCATORIA_CPEI_2026 as C } from '../data/convocatoria';
-import { RECALL_DECKS, RECALL_TOTAL_CARDS } from '../data/recallRegistry';
+import { RECALL_TOPICS, RECALL_TOTAL_CARDS, canAccessTopic, getRecallTopic } from '../data/recallRegistry';
 import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreferences';
 import { completeOnboarding } from '../utils/onboarding';
-import { canAccessDeck, getPlan } from '../utils/plan';
+import { getPlan } from '../utils/plan';
 
 interface OnboardingProps {
   /** El opositor pulsó «Empezar sesión diaria»: abrir la sesión ya en la primera ficha. */
@@ -22,8 +22,8 @@ const ALL = 'todos';
 export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
   const plan = getPlan();
   const [choice, setChoice] = useState<string>(() => {
-    const stored = getPreferredDeckId();
-    return stored && canAccessDeck(stored, plan) ? stored : ALL;
+    const stored = getRecallTopic(getPreferredDeckId() ?? '');
+    return stored && canAccessTopic(stored, plan) ? stored.id : ALL;
   });
 
   const start = () => {
@@ -39,11 +39,11 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
 
   const options = [
     { id: ALL, label: 'Todos los temas', detail: `${RECALL_TOTAL_CARDS} fichas`, locked: false },
-    ...RECALL_DECKS.map((d) => ({
-      id: d.id,
-      label: `${d.shortLabel} · ${d.name}`,
-      detail: `${d.count} fichas`,
-      locked: !canAccessDeck(d.id, plan),
+    ...RECALL_TOPICS.map((t) => ({
+      id: t.id,
+      label: t.decks.length > 1 ? `${t.title}` : `${t.shortLabel} · ${t.name}`,
+      detail: t.decks.length > 1 ? `${t.count} fichas · ${t.decks.length} lotes` : `${t.count} fichas`,
+      locked: !canAccessTopic(t, plan),
     })),
   ];
 

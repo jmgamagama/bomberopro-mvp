@@ -15,9 +15,10 @@ describe('Tema40Recall', () => {
     expect(TEMA40_RECALL_CARDS.filter((c) => c.id.startsWith('CPEI-T40-PT03-')).length).toBe(187);
   });
 
-  it('muestra concepto, respuesta y fuente en la primera ficha', () => {
+  it('muestra concepto, respuesta y fuente en la primera ficha', async () => {
     const onNavigateHome = vi.fn();
     render(<Tema40Recall onNavigateHome={onNavigateHome} />);
+    await screen.findByText(/Ficha 1 de/);
     const first = TEMA40_RECALL_CARDS[0];
     expect(screen.getByRole('heading', { name: TEMA40_RECALL_META.title })).toBeInTheDocument();
     expect(screen.getByText(first.concepto)).toBeInTheDocument();
@@ -26,7 +27,7 @@ describe('Tema40Recall', () => {
     expect(screen.getByText(/Ficha 1 de 213/)).toBeInTheDocument();
   });
 
-  it('muestra una ficha PT03 oficial (CPEI-T40-PT03-001) con pregunta, respuesta y fuente', () => {
+  it('muestra una ficha PT03 oficial (CPEI-T40-PT03-001) con pregunta, respuesta y fuente', async () => {
     const card = TEMA40_RECALL_CARDS.find((c) => c.id === 'CPEI-T40-PT03-001');
     expect(card).toBeDefined();
     expect(card!.concepto).toContain('real decreto');
@@ -36,6 +37,7 @@ describe('Tema40Recall', () => {
 
     const onNavigateHome = vi.fn();
     render(<Tema40Recall onNavigateHome={onNavigateHome} />);
+    await screen.findByText(/Ficha 1 de/);
     // Navigate to that card index
     const idx = TEMA40_RECALL_CARDS.findIndex((c) => c.id === 'CPEI-T40-PT03-001');
     expect(idx).toBeGreaterThanOrEqual(0);
@@ -48,6 +50,7 @@ describe('Tema40Recall', () => {
     const user = userEvent.setup();
     const onNavigateHome = vi.fn();
     render(<Tema40Recall onNavigateHome={onNavigateHome} />);
+    await screen.findByText(/Ficha 1 de/);
     await user.click(screen.getByRole('button', { name: /Siguiente/i }));
     expect(screen.getByText(/Ficha 2 de 213/)).toBeInTheDocument();
     expect(screen.getByText(TEMA40_RECALL_CARDS[1].concepto)).toBeInTheDocument();
@@ -57,8 +60,9 @@ describe('Tema40Recall', () => {
 });
 
 describe('textos de cara al opositor', () => {
-  it('no muestra avisos internos y mantiene la fuente visible', () => {
+  it('no muestra avisos internos y mantiene la fuente visible', async () => {
     render(<Tema40Recall onNavigateHome={vi.fn()} />);
+    await screen.findByText(/Ficha 1 de/);
     const text = document.body.textContent ?? '';
     expect(text).not.toMatch(/No es un banco de preguntas|9\.392|fichas locales|mazos|Datos de PT01/);
     expect(screen.getByText(/fichas de repaso con su fuente oficial/i)).toBeInTheDocument();

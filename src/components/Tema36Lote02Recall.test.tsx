@@ -42,9 +42,10 @@ describe('Tema36Lote02Recall', () => {
     expect(TEMA36_LOTE02_RECALL_CARDS.some((c) => c.id === 'CPEI-T36-S01-2A0B8D8C18')).toBe(false);
   });
 
-  it('muestra concepto, respuesta y fuente de la primera ficha (muestra CPEI-T36-S02-47FD12BD6E)', () => {
+  it('muestra concepto, respuesta y fuente de la primera ficha (muestra CPEI-T36-S02-47FD12BD6E)', async () => {
     const onNavigateHome = vi.fn();
     render(<Tema36Lote02Recall onNavigateHome={onNavigateHome} />);
+    await screen.findByText(/Ficha 1 de/);
     const first = TEMA36_LOTE02_RECALL_CARDS[0];
     expect(first.id).toBe('CPEI-T36-S02-47FD12BD6E');
     expect(first.concepto).toContain('Acedera');
@@ -60,6 +61,7 @@ describe('Tema36Lote02Recall', () => {
     const user = userEvent.setup();
     const onNavigateHome = vi.fn();
     render(<Tema36Lote02Recall onNavigateHome={onNavigateHome} />);
+    await screen.findByText(/Ficha 1 de/);
     await user.click(screen.getByRole('button', { name: /Ocultar respuesta/i }));
     expect(screen.queryByText(TEMA36_LOTE02_RECALL_CARDS[0].respuesta)).not.toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /Siguiente/i }));

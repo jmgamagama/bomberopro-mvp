@@ -1,7 +1,7 @@
 // Comprobación E2E de la PWA móvil (360x740) contra `vite preview`.
 // Uso: npm run build && npx vite preview --port 4173 &  luego
 //      npm i --no-save playwright && npx playwright install chromium
-//      BASE=http://127.0.0.1:4173 OUT=./pwa-capturas node scripts/pwa-movil-check.cjs
+//      BASE=http://127.0.0.1:4173 OUT=./pwa-capturas [T36_LOTES=8] node scripts/pwa-movil-check.cjs
 const { chromium } = require('playwright');
 const BASE = process.env.BASE || 'http://127.0.0.1:4173';
 const OUT = process.env.OUT || 'pwa-capturas';
@@ -9,6 +9,17 @@ require('node:fs').mkdirSync(OUT, { recursive: true });
 const results = [];
 const check = (name, ok, detail = '') => { results.push({ name, ok, detail }); console.log(`${ok ? 'OK  ' : 'FAIL'} ${name} ${detail}`); };
 const scrollWidth = (page) => page.evaluate(() => document.documentElement.scrollWidth);
+// Nº de lotes del tema 36 esperados en el sub-selector de Recuerdo.
+const T36_LOTES = Number(process.env.T36_LOTES || 8);
+// Zonas táctiles: todas ≥44 px de alto y dentro del viewport de 360 px.
+const tapTargetsOk = async (locator) => {
+  const n = await locator.count();
+  for (let i = 0; i < n; i++) {
+    const b = await locator.nth(i).boundingBox();
+    if (!b || b.height < 44 || b.x < 0 || b.x + b.width > 360) return false;
+  }
+  return n > 0;
+};
 
 (async () => {
   const browser = await chromium.launch();
@@ -65,8 +76,22 @@ const scrollWidth = (page) => page.evaluate(() => document.documentElement.scrol
   await mobile.getByRole('button', { name: 'Recuerdo' }).click();
   const tablist = page.getByRole('tablist', { name: 'Temas de recuerdo' });
   await tablist.waitFor();
-  check('recuerdo: 8 pestañas', (await tablist.getByRole('tab').count()) === 8);
+  check('recuerdo: 5 pestañas de tema (T35, T36, T38, T39, T40)', (await tablist.getByRole('tab').count()) === 5);
   check('recuerdo sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
+  check('recuerdo: pestañas de tema ≥44 px y dentro de 360 px', await tapTargetsOk(tablist.getByRole('tab')));
+
+  // Tema 36: pestaña única con selector de lote
+  await tablist.getByRole('tab', { name: /^T36/ }).click();
+  const lotes = page.getByRole('tablist', { name: 'Lotes del tema 36' });
+  await lotes.waitFor();
+  const nLotes = await lotes.getByRole('tab').count();
+  check(`recuerdo T36: ${T36_LOTES} lotes en el sub-selector`, nLotes === T36_LOTES, String(nLotes));
+  check('recuerdo T36: lotes ≥44 px y dentro de 360 px', await tapTargetsOk(lotes.getByRole('tab')));
+  await lotes.getByRole('tab', { name: new RegExp(`^Lote ${T36_LOTES} ·`) }).click();
+  await page.getByText(/^Ficha 1 de \d+$/).waitFor();
+  check('recuerdo T36 sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
+  await page.waitForTimeout(400);
+  await page.screenshot({ path: `${OUT}/recuerdo-t36-360.png` });
   await tablist.getByRole('tab', { name: /T40/ }).click();
   await page.getByText('Ficha 1 de 213').waitFor();
   check('recuerdo: pestaña T40 seleccionada', (await tablist.getByRole('tab', { name: /T40/ }).getAttribute('aria-selected')) === 'true');
@@ -94,7 +119,8 @@ const scrollWidth = (page) => page.evaluate(() => document.documentElement.scrol
   await page.getByRole('navigation', { name: 'Navegación móvil' }).getByRole('button', { name: 'Recuerdo' }).click();
   const tl = page.getByRole('tablist', { name: 'Temas de recuerdo' });
   await tl.waitFor({ timeout: 10000 });
-  await tl.getByRole('tab', { name: /T36·2/ }).click();
+  await tl.getByRole('tab', { name: /^T36/ }).click();
+  await page.getByRole('tablist', { name: 'Lotes del tema 36' }).getByRole('tab', { name: /^Lote 2 ·/ }).click();
   await page.getByText('Ficha 1 de 79').waitFor();
   await page.getByRole('button', { name: /Siguiente/ }).click();
   await page.getByText('Ficha 2 de 79').waitFor();

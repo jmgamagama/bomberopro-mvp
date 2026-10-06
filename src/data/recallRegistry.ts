@@ -1,27 +1,23 @@
 /**
- * Registro central de mazos de recuerdo (fichas locales concepto → respuesta → fuente).
+ * Registro central de mazos de recuerdo (concepto → respuesta → fuente).
  *
- * Es la ÚNICA lista de temas/lotes cargados en la app: la pantalla «Recuerdo»,
- * las pestañas de temas y la Sesión diaria leen de aquí.
+ * Es la ÚNICA lista de temas/lotes de la app: la pantalla «Recuerdo», la Sesión
+ * diaria, la bienvenida y la página de planes leen de aquí.
  *
- * Para añadir un mazo nuevo (p. ej. tema 36 lote 05):
+ * El registro solo contiene METADATOS (título, nº de fichas…). Las fichas de cada
+ * mazo viven en su propio módulo y se cargan BAJO DEMANDA con `loadRecallDeckCards`
+ * (import dinámico → un fichero JS por mazo en el build). Así nunca se cargan los
+ * 528 del tema 36 en un solo módulo, ni los 9.392 conceptos de MIRA, y no hay
+ * preguntas tipo test.
+ *
+ * Para añadir un mazo nuevo:
  *   1. crea src/data/<mazo>Recall.ts con `<MAZO>_RECALL_META` y `<MAZO>_RECALL_CARDS`
  *      (mismo formato que los existentes);
- *   2. impórtalo abajo y añade UNA línea `defineDeck(...)` a RECALL_DECKS.
- *
- * Cada mazo es un subconjunto local y revisado: aquí NO se cargan los 9.392
- * conceptos de MIRA ni los 528 del tema 36 de golpe, y no hay preguntas tipo test.
+ *   2. añade UNA entrada a DECK_SOURCES con sus metadatos y su `load` (import dinámico).
+ *   Los tests comprueban que los metadatos coinciden con los del módulo.
  */
 
 import { canAccessDeck, getPlan, type Plan } from '../utils/plan';
-import { TEMA35_RECALL_CARDS, TEMA35_RECALL_META } from './tema35Recall';
-import { TEMA36_LOTE01_RECALL_CARDS, TEMA36_LOTE01_RECALL_META } from './tema36Lote01Recall';
-import { TEMA36_LOTE02_RECALL_CARDS, TEMA36_LOTE02_RECALL_META } from './tema36Lote02Recall';
-import { TEMA36_LOTE03_RECALL_CARDS, TEMA36_LOTE03_RECALL_META } from './tema36Lote03Recall';
-import { TEMA36_LOTE04_RECALL_CARDS, TEMA36_LOTE04_RECALL_META } from './tema36Lote04Recall';
-import { TEMA38_RECALL_CARDS, TEMA38_RECALL_META } from './tema38Recall';
-import { TEMA39_RECALL_CARDS, TEMA39_RECALL_META } from './tema39Recall';
-import { TEMA40_RECALL_CARDS, TEMA40_RECALL_META } from './tema40Recall';
 
 /** Ficha de recuerdo tal como viene de los JSON limpios de cada tema. */
 export interface RecallSourceCard {
@@ -42,64 +38,177 @@ interface RecallDeckMeta {
   source: string;
 }
 
+interface DeckSource {
+  meta: RecallDeckMeta;
+  load: () => Promise<readonly RecallSourceCard[]>;
+}
+
 export interface RecallDeck {
   /** Identificador estable: `tema40`, `tema36-lote01`… */
   id: string;
+  /** Tema al que pertenece (`tema36`): agrupa los lotes en la interfaz. */
+  topicId: string;
   tema: number;
   lote?: string;
-  /** Etiqueta corta para pestañas: `T40`, `T36·1`… */
+  /** Etiqueta corta: `T40`, `T36·1`… */
   shortLabel: string;
+  /** Etiqueta corta dentro de su tema: `Lote 1` (o la de `shortLabel` si no hay lotes). */
+  loteLabel: string;
   /** Nombre legible: `tema 40`, `tema 36 lote 01`. */
   label: string;
   title: string;
-  /** Nombre del tema sin el prefijo «Tema N · » (para listas y selectores). */
+  /** Nombre sin el prefijo «Tema N · » (para listas y selectores). */
   name: string;
   /** Procedencia de los datos (uso interno; no se muestra al opositor). */
   source: string;
   count: number;
-  cards: readonly RecallSourceCard[];
 }
 
-function defineDeck(
-  meta: RecallDeckMeta,
-  cards: readonly RecallSourceCard[],
-): RecallDeck {
-  if (cards.length !== meta.count) {
-    throw new Error(`Mazo tema ${meta.tema}${meta.lote ? ` ${meta.lote}` : ''}: se esperaban ${meta.count} fichas y hay ${cards.length}`);
-  }
+export interface RecallTopic {
+  /** `tema35`, `tema36`… */
+  id: string;
+  tema: number;
+  shortLabel: string;
+  /** «Tema 36 (todos los lotes)» si tiene lotes; si no, el título del mazo. */
+  title: string;
+  name: string;
+  count: number;
+  decks: readonly RecallDeck[];
+}
+
+/** Nombre de los temas que se cargan por lotes (bloque del temario, tema36_lotes.md). */
+const TOPIC_NAMES: Record<number, string> = {
+  36: 'Territorio de la provincia de Badajoz: municipios, límites, orografía e hidrografía',
+};
+
+const DECK_SOURCES: readonly DeckSource[] = [
+  {
+    meta: {
+      tema: 35,
+      title: 'Tema 35 · Red de carreteras de Extremadura (provincia de Badajoz)',
+      count: 150,
+      source: 'Decreto 98/2008 + Extremadura en Cifras (JSON limpio score 100%)',
+    },
+    load: () => import('./tema35Recall').then((m) => m.TEMA35_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 36,
+      lote: 'lote01',
+      title: 'Tema 36 · Lote 01 — Núcleo de examen: marco, municipios clave, oro/hidro/embalses',
+      count: 78,
+      source: 'tema36_fichas.json + tema36_lotes.json',
+    },
+    load: () => import('./tema36Lote01Recall').then((m) => m.TEMA36_LOTE01_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 36,
+      lote: 'lote02',
+      title: 'Tema 36 · Lote 02 — Municipios restantes (INE + población ≤5.000): Acedera → Esparragosa de Lares',
+      count: 79,
+      source: 'tema36_fichas.json + tema36_lotes.json',
+    },
+    load: () => import('./tema36Lote02Recall').then((m) => m.TEMA36_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 36,
+      lote: 'lote03',
+      title: 'Tema 36 · Lote 03 — Municipios restantes (INE + población ≤5.000): Esparragosa de la Serena → Nogales',
+      count: 78,
+      source: 'tema36_fichas.json + tema36_lotes.json',
+    },
+    load: () => import('./tema36Lote03Recall').then((m) => m.TEMA36_LOTE03_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 36,
+      lote: 'lote04',
+      title: 'Tema 36 · Lote 04 — Municipios restantes (INE + población ≤5.000): Oliva de Mérida → Táliga',
+      count: 78,
+      source: 'tema36_fichas.json + tema36_lotes.json',
+    },
+    load: () => import('./tema36Lote04Recall').then((m) => m.TEMA36_LOTE04_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 38,
+      title: 'Tema 38 · ITF CPEI: horario, vestuario/EPIs, limpieza y gestión de EPIs colectivos',
+      count: 198,
+      source: 'ITF oficiales CPEI (Horario 2022, Vestuario/Limpieza/Gestión EPIs 2026) rebuild desde PDFs',
+    },
+    load: () => import('./tema38Recall').then((m) => m.TEMA38_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 39,
+      title: 'Tema 39 · Protocolo de movilización CPEI + SOS operativo + SOS personal',
+      count: 149,
+      source: 'Protocolo movilización BOP 224/2025 + SOS operativo/personal (rebuild desde PDFs oficiales)',
+    },
+    load: () => import('./tema39Recall').then((m) => m.TEMA39_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 40,
+      title: 'Tema 40 · Procedimientos de trabajo CPEI-Badajoz',
+      count: 213,
+      source: 'PT01 conducción (26) + PT03 amianto oficial (187)',
+    },
+    load: () => import('./tema40Recall').then((m) => m.TEMA40_RECALL_CARDS),
+  },
+];
+
+function defineDeck(meta: RecallDeckMeta): RecallDeck {
   const loteNumber = meta.lote ? meta.lote.replace(/^lote/i, '') : undefined;
-  const label = `tema ${meta.tema}${loteNumber ? ` lote ${loteNumber}` : ''}`;
+  const shortLabel = `T${meta.tema}${loteNumber ? `·${Number(loteNumber)}` : ''}`;
   return {
     id: `tema${meta.tema}${meta.lote ? `-${meta.lote}` : ''}`,
+    topicId: `tema${meta.tema}`,
     tema: meta.tema,
     lote: meta.lote,
-    shortLabel: `T${meta.tema}${loteNumber ? `·${Number(loteNumber)}` : ''}`,
-    label,
+    shortLabel,
+    loteLabel: loteNumber ? `Lote ${Number(loteNumber)}` : shortLabel,
+    label: `tema ${meta.tema}${loteNumber ? ` lote ${loteNumber}` : ''}`,
     title: meta.title,
     name: meta.title.replace(/^Tema\s+\d+\s*·\s*/, ''),
     source: meta.source,
     count: meta.count,
-    cards,
   };
 }
 
-/** Todos los mazos cargados, ordenados por tema y lote. */
-export const RECALL_DECKS: readonly RecallDeck[] = [
-  defineDeck(TEMA35_RECALL_META, TEMA35_RECALL_CARDS),
-  defineDeck(TEMA36_LOTE01_RECALL_META, TEMA36_LOTE01_RECALL_CARDS),
-  defineDeck(TEMA36_LOTE02_RECALL_META, TEMA36_LOTE02_RECALL_CARDS),
-  defineDeck(TEMA36_LOTE03_RECALL_META, TEMA36_LOTE03_RECALL_CARDS),
-  defineDeck(TEMA36_LOTE04_RECALL_META, TEMA36_LOTE04_RECALL_CARDS),
-  defineDeck(TEMA38_RECALL_META, TEMA38_RECALL_CARDS),
-  defineDeck(TEMA39_RECALL_META, TEMA39_RECALL_CARDS),
-  defineDeck(TEMA40_RECALL_META, TEMA40_RECALL_CARDS),
-].sort((a, b) => a.tema - b.tema || (a.lote ?? '').localeCompare(b.lote ?? ''));
+const LOADERS = new Map<string, DeckSource['load']>();
 
-const ids = new Set<string>();
-for (const deck of RECALL_DECKS) {
-  if (ids.has(deck.id)) throw new Error(`Mazo de recuerdo duplicado: ${deck.id}`);
-  ids.add(deck.id);
-}
+/** Todos los mazos registrados, ordenados por tema y lote (solo metadatos). */
+export const RECALL_DECKS: readonly RecallDeck[] = DECK_SOURCES.map((src) => {
+  const deck = defineDeck(src.meta);
+  if (LOADERS.has(deck.id)) throw new Error(`Mazo de recuerdo duplicado: ${deck.id}`);
+  LOADERS.set(deck.id, src.load);
+  return deck;
+}).sort((a, b) => a.tema - b.tema || (a.lote ?? '').localeCompare(b.lote ?? ''));
+
+/** Temas (agrupan los lotes de un mismo tema), ordenados por número de tema. */
+export const RECALL_TOPICS: readonly RecallTopic[] = (() => {
+  const byTema = new Map<number, RecallDeck[]>();
+  for (const deck of RECALL_DECKS) {
+    const list = byTema.get(deck.tema) ?? [];
+    list.push(deck);
+    byTema.set(deck.tema, list);
+  }
+  return [...byTema.entries()].map(([tema, decks]) => {
+    const grouped = decks.some((d) => d.lote);
+    return {
+      id: `tema${tema}`,
+      tema,
+      shortLabel: `T${tema}`,
+      title: grouped ? `Tema ${tema} (todos los lotes)` : decks[0].title,
+      name: grouped ? TOPIC_NAMES[tema] ?? `Tema ${tema}` : decks[0].name,
+      count: decks.reduce((n, d) => n + d.count, 0),
+      decks,
+    };
+  });
+})();
 
 export function getRecallDeck(id: string): RecallDeck {
   const deck = RECALL_DECKS.find((d) => d.id === id);
@@ -107,12 +216,58 @@ export function getRecallDeck(id: string): RecallDeck {
   return deck;
 }
 
-/** Total de fichas de recuerdo cargadas en la app. */
+export function getRecallTopic(id: string): RecallTopic | undefined {
+  return RECALL_TOPICS.find((t) => t.id === id);
+}
+
+/** Tema (`tema36`) de un id de tema o de mazo (`tema36-lote02` → `tema36`). */
+export function toTopicId(id: string | null | undefined): string | null {
+  if (!id) return null;
+  if (getRecallTopic(id)) return id;
+  return RECALL_DECKS.find((d) => d.id === id)?.topicId ?? null;
+}
+
+/** Total de fichas de recuerdo registradas en la app. */
 export const RECALL_TOTAL_CARDS = RECALL_DECKS.reduce((sum, d) => sum + d.count, 0);
 
 /** Mazos accesibles para el plan dado (por defecto, el plan actual). */
 export function getAccessibleDecks(plan: Plan = getPlan()): readonly RecallDeck[] {
   return RECALL_DECKS.filter((deck) => canAccessDeck(deck.id, plan));
+}
+
+/** Un tema es accesible si el plan incluye al menos uno de sus lotes. */
+export function canAccessTopic(topic: RecallTopic, plan: Plan = getPlan()): boolean {
+  return topic.decks.some((deck) => canAccessDeck(deck.id, plan));
+}
+
+const cardCache = new Map<string, readonly RecallSourceCard[]>();
+const pending = new Map<string, Promise<readonly RecallSourceCard[]>>();
+
+/** Fichas de un mazo ya cargado (o `undefined` si aún no se ha pedido). */
+export function getLoadedDeckCards(id: string): readonly RecallSourceCard[] | undefined {
+  return cardCache.get(id);
+}
+
+/** Carga (una sola vez) las fichas de un mazo: import dinámico de su módulo. */
+export function loadRecallDeckCards(id: string): Promise<readonly RecallSourceCard[]> {
+  const cached = cardCache.get(id);
+  if (cached) return Promise.resolve(cached);
+  const inFlight = pending.get(id);
+  if (inFlight) return inFlight;
+  const load = LOADERS.get(id);
+  if (!load) return Promise.reject(new Error(`Mazo de recuerdo desconocido: ${id}`));
+  const deck = getRecallDeck(id);
+  const promise = load()
+    .then((cards) => {
+      if (cards.length !== deck.count) {
+        throw new Error(`Mazo ${deck.label}: se esperaban ${deck.count} fichas y hay ${cards.length}`);
+      }
+      cardCache.set(id, cards);
+      return cards;
+    })
+    .finally(() => pending.delete(id));
+  pending.set(id, promise);
+  return promise;
 }
 
 function joinEs(items: readonly string[]): string {

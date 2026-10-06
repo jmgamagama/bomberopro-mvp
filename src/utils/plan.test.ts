@@ -11,20 +11,20 @@ import {
   hasRegisteredPlanInterest,
   registerPlanInterest,
 } from './plan';
-import { RECALL_DECKS, getAccessibleDecks } from '../data/recallRegistry';
-import { RECALL_CARDS, getRecallCardsForPlan } from '../data/recallCards';
+import { RECALL_DECKS, RECALL_TOTAL_CARDS, getAccessibleDecks } from '../data/recallRegistry';
+import { loadRecallPoolForPlan } from '../data/recallCards';
 
 describe('plan: bandera VITE_FEATURE_PLANES desactivada (por defecto)', () => {
   beforeEach(() => vi.stubEnv('VITE_FEATURE_PLANES', ''));
   afterEach(() => vi.unstubAllEnvs());
 
-  it('getPlan() es pro y nada cambia: todos los temas y sesión de 30', () => {
+  it('getPlan() es pro y nada cambia: todos los temas y sesión de 30', async () => {
     expect(isPlanesEnabled()).toBe(false);
     expect(getPlan()).toBe('pro');
     expect(getAccessibleDecks()).toHaveLength(RECALL_DECKS.length);
     expect(RECALL_DECKS.every((d) => canAccessDeck(d.id))).toBe(true);
     expect(getDailySessionSize()).toBe(30);
-    expect(getRecallCardsForPlan()).toBe(RECALL_CARDS);
+    expect(await loadRecallPoolForPlan()).toHaveLength(RECALL_TOTAL_CARDS);
   });
 });
 
@@ -35,13 +35,13 @@ describe('plan: bandera VITE_FEATURE_PLANES activada', () => {
   });
   afterEach(() => vi.unstubAllEnvs());
 
-  it('el usuario está en Gratis: solo tema 40 y 10 fichas al día', () => {
+  it('el usuario está en Gratis: solo tema 40 y 10 fichas al día', async () => {
     expect(isPlanesEnabled()).toBe(true);
     expect(getPlan()).toBe('free');
     expect(getAccessibleDecks().map((d) => d.id)).toEqual(['tema40']);
     expect(canAccessDeck('tema35')).toBe(false);
     expect(getDailySessionSize()).toBe(10);
-    const cards = getRecallCardsForPlan();
+    const cards = await loadRecallPoolForPlan();
     expect(cards).toHaveLength(213);
     expect(cards.every((c) => c.deckId === 'tema40')).toBe(true);
   });

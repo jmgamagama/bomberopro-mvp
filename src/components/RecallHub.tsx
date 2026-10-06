@@ -1,31 +1,49 @@
 import { useState } from 'react';
 import { Lock } from 'lucide-react';
 import RecallDeck from './RecallDeck';
-import { RECALL_DECKS, RECALL_TOTAL_CARDS } from '../data/recallRegistry';
+import { RECALL_DECKS, RECALL_TOPICS, RECALL_TOTAL_CARDS, canAccessTopic, type RecallDeck as RecallDeckData } from '../data/recallRegistry';
 import { isPlanesEnabled } from '../config/features';
 import { canAccessDeck, getPlan } from '../utils/plan';
 
 interface RecallHubProps {
   onNavigateHome: () => void;
+  /** Mazo (`tema36-lote02`) o tema (`tema36`) a abrir al entrar. */
   initialDeckId?: string;
   /** Abre la página de planes (solo se usa con VITE_FEATURE_PLANES activado). */
   onOpenPlanes?: () => void;
 }
 
+const tabClass = (selected: boolean) =>
+  `inline-flex min-h-11 flex-col items-center justify-center rounded-lg border px-1 py-1 text-xs font-semibold leading-tight transition sm:px-3 ${
+    selected ? 'border-indigo-200 bg-indigo-50 text-indigo-700' : 'border-slate-200 text-slate-600 hover:bg-slate-50'
+  }`;
+
 /**
- * Pantalla única «Recuerdo»: una pestaña por cada mazo del registro central
- * (src/data/recallRegistry.ts). Añadir un mazo al registro lo añade aquí.
- * Con planes activados, los temas Pro muestran candado.
+ * Pantalla única «Recuerdo»: una pestaña por TEMA del registro central
+ * (src/data/recallRegistry.ts). Los temas con lotes (tema 36) muestran un
+ * segundo selector de lote. Solo se cargan las fichas del lote abierto.
+ * Con planes activados, los temas/lotes Pro muestran candado.
  */
 export default function RecallHub({ onNavigateHome, initialDeckId, onOpenPlanes }: RecallHubProps) {
   const plan = getPlan();
   const planesOn = isPlanesEnabled();
   const firstAccessible = RECALL_DECKS.find((d) => canAccessDeck(d.id, plan)) ?? RECALL_DECKS[0];
-  const [deckId, setDeckId] = useState(
-    () => RECALL_DECKS.find((d) => d.id === initialDeckId)?.id ?? firstAccessible.id,
-  );
-  const deck = RECALL_DECKS.find((d) => d.id === deckId) ?? firstAccessible;
+  const [deckId, setDeckId] = useState(() => {
+    const byDeck = RECALL_DECKS.find((d) => d.id === initialDeckId);
+    if (byDeck) return byDeck.id;
+    const byTopic = RECALL_TOPICS.find((t) => t.id === initialDeckId);
+    return byTopic ? byTopic.decks[0].id : firstAccessible.id;
+  });
+  const deck: RecallDeckData = RECALL_DECKS.find((d) => d.id === deckId) ?? firstAccessible;
+  const topic = RECALL_TOPICS.find((t) => t.id === deck.topicId) ?? RECALL_TOPICS[0];
   const locked = !canAccessDeck(deck.id, plan);
+  const hasLotes = topic.decks.length > 1;
+
+  const selectTopic = (topicId: string) => {
+    const next = RECALL_TOPICS.find((t) => t.id === topicId);
+    if (!next || next.id === topic.id) return;
+    setDeckId((next.decks.find((d) => canAccessDeck(d.id, plan)) ?? next.decks[0]).id);
+  };
 
   return (
     <div className="space-y-2">
@@ -33,33 +51,73 @@ export default function RecallHub({ onNavigateHome, initialDeckId, onOpenPlanes 
         <p className="text-xs text-slate-500">
           Elige un tema · {RECALL_TOTAL_CARDS} fichas de repaso con su fuente oficial
         </p>
-        <div role="tablist" aria-label="Temas de recuerdo" className="mt-2 grid grid-cols-3 gap-2 sm:flex sm:flex-wrap">
-          {RECALL_DECKS.map((d) => {
-            const selected = d.id === deck.id;
-            const isLocked = !canAccessDeck(d.id, plan);
+        <div
+          role="tablist"
+          aria-label="Temas de recuerdo"
+          className="mt-2 grid gap-1.5 sm:flex sm:flex-wrap sm:gap-2"
+          style={{ gridTemplateColumns: `repeat(${RECALL_TOPICS.length}, minmax(0, 1fr))` }}
+        >
+          {RECALL_TOPICS.map((t) => {
+            const selected = t.id === topic.id;
+            const isLocked = !canAccessTopic(t, plan);
             return (
               <button
-                key={d.id}
+                key={t.id}
                 type="button"
                 role="tab"
-                id={`recall-tab-${d.id}`}
+                id={`recall-tab-${t.id}`}
                 aria-selected={selected}
                 aria-controls="recall-deck-panel"
-                aria-label={isLocked ? `${d.shortLabel} · ${d.count} (Pro)` : undefined}
-                title={d.title}
-                onClick={() => setDeckId(d.id)}
-                className={`inline-flex min-h-11 items-center justify-center gap-1 rounded-lg border px-2 py-1.5 text-xs font-semibold transition sm:px-3 ${
-                  selected ? 'border-indigo-200 bg-indigo-50 text-indigo-700' : 'border-slate-200 text-slate-600 hover:bg-slate-50'
-                }`}
+                aria-label={`${t.shortLabel} · ${t.count} fichas${t.decks.length > 1 ? ` · ${t.decks.length} lotes` : ''}${isLocked ? ' (Pro)' : ''}`}
+                title={t.title}
+                onClick={() => selectTopic(t.id)}
+                className={tabClass(selected)}
               >
-                {isLocked && <Lock className="h-3 w-3 shrink-0" aria-hidden="true" />}
-                {d.shortLabel} · {d.count}
+                <span className="inline-flex items-center gap-0.5">
+                  {isLocked && <Lock className="h-3 w-3 shrink-0" aria-hidden="true" />}
+                  {t.shortLabel}
+                </span>
+                <span className="text-[10px] font-medium opacity-75">{t.count}</span>
               </button>
             );
           })}
         </div>
+
+        {hasLotes && (
+          <div className="mt-2 rounded-xl border border-slate-200 bg-slate-50/70 p-2" id="recall-lotes">
+            <p className="px-1 pb-1.5 text-[11px] font-semibold text-slate-600">
+              Tema {topic.tema} · {topic.decks.length} lotes · elige uno
+            </p>
+            <div role="tablist" aria-label={`Lotes del tema ${topic.tema}`} className="grid grid-cols-4 gap-1.5 sm:flex sm:flex-wrap sm:gap-2">
+              {topic.decks.map((d) => {
+                const selected = d.id === deck.id;
+                const isLocked = !canAccessDeck(d.id, plan);
+                return (
+                  <button
+                    key={d.id}
+                    type="button"
+                    role="tab"
+                    id={`recall-tab-${d.id}`}
+                    aria-selected={selected}
+                    aria-controls="recall-deck-panel"
+                    aria-label={`${d.loteLabel} · ${d.count} fichas${isLocked ? ' (Pro)' : ''}`}
+                    title={d.title}
+                    onClick={() => setDeckId(d.id)}
+                    className={`${tabClass(selected)} ${selected ? '' : 'bg-white'}`}
+                  >
+                    <span className="inline-flex items-center gap-0.5">
+                      {isLocked && <Lock className="h-3 w-3 shrink-0" aria-hidden="true" />}
+                      {d.loteLabel}
+                    </span>
+                    <span className="text-[10px] font-medium opacity-75">{d.count}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
-      <div key={deck.id} role="tabpanel" id="recall-deck-panel" aria-labelledby={`recall-tab-${deck.id}`}>
+      <div key={deck.id} role="tabpanel" id="recall-deck-panel" aria-labelledby={`recall-tab-${hasLotes ? deck.id : topic.id}`}>
         {locked ? (
           <section
             aria-label={`${deck.title} (Pro)`}

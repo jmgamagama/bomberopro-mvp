@@ -1,8 +1,8 @@
 // @vitest-environment jsdom
 
-import { beforeEach, describe, expect, it } from 'vitest';
-import { RECALL_CARDS } from '../data/recallCards';
-import { RECALL_DECKS, RECALL_TOTAL_CARDS } from '../data/recallRegistry';
+import { beforeAll, beforeEach, describe, expect, it } from 'vitest';
+import { loadRecallPool, type RecallCard } from '../data/recallCards';
+import { RECALL_DECKS, RECALL_TOPICS, RECALL_TOTAL_CARDS } from '../data/recallRegistry';
 import {
   DAILY_SESSION_SIZE,
   STREAK_STORAGE_KEY,
@@ -12,6 +12,12 @@ import {
   saveDailyStreak,
   toLocalDateKey,
 } from './dailySession';
+
+// Pool completo (en la app se carga bajo demanda, un módulo por mazo).
+let RECALL_CARDS: RecallCard[] = [];
+beforeAll(async () => {
+  RECALL_CARDS = await loadRecallPool();
+});
 
 describe('sesión diaria de recuerdo', () => {
   beforeEach(() => {
@@ -93,13 +99,22 @@ describe('sesión diaria con todos los temas cargados', () => {
 
 describe('sesión diaria con tema prioritario', () => {
   it('el tema elegido ocupa ~60 % de la sesión y el resto de temas sigue presente', () => {
-    for (const deck of RECALL_DECKS) {
-      const session = pickDailyRecallSession(RECALL_CARDS, 30, new Date(2026, 9, 6), { preferredDeckId: deck.id });
+    for (const topic of RECALL_TOPICS) {
+      const session = pickDailyRecallSession(RECALL_CARDS, 30, new Date(2026, 9, 6), { preferredDeckId: topic.id });
       expect(session).toHaveLength(30);
       expect(new Set(session.map((c) => c.id)).size).toBe(30);
-      expect(session.filter((c) => c.deckId === deck.id)).toHaveLength(18);
+      expect(session.filter((c) => c.topicId === topic.id)).toHaveLength(18);
       expect(new Set(session.map((c) => c.deckId)).size).toBe(RECALL_DECKS.length);
     }
+  });
+
+  it('priorizar el tema 36 reparte su parte entre todos sus lotes', () => {
+    const t36 = RECALL_TOPICS.find((t) => t.id === 'tema36')!;
+    const session = pickDailyRecallSession(RECALL_CARDS, 30, new Date(2026, 9, 6), { preferredDeckId: 'tema36' });
+    for (const deck of t36.decks) expect(session.some((c) => c.deckId === deck.id)).toBe(true);
+    // Un id de lote concreto sigue funcionando (prioriza solo ese lote).
+    const lote = pickDailyRecallSession(RECALL_CARDS, 30, new Date(2026, 9, 6), { preferredDeckId: 'tema36-lote02' });
+    expect(lote.filter((c) => c.deckId === 'tema36-lote02')).toHaveLength(18);
   });
 
   it('sin preferencia (o con una desconocida) usa el reparto equilibrado', () => {

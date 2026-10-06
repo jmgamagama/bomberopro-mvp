@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Flame, Play, Eye, EyeOff, CheckCircle2, ListOrdered } from 'lucide-react';
 import {
   pickDailyRecallSession,
@@ -7,10 +7,10 @@ import {
   type DailyStreak,
 } from '../utils/dailySession';
 import type { RecallCard } from '../data/recallCards';
-import { RECALL_DECKS } from '../data/recallRegistry';
+import { RECALL_TOPICS, canAccessTopic, getRecallTopic } from '../data/recallRegistry';
 import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreferences';
-import { getRecallCardsForPlan } from '../data/recallCards';
-import { canAccessDeck, getDailySessionSize, getPlan } from '../utils/plan';
+import { loadRecallPoolForPlan } from '../data/recallCards';
+import { getDailySessionSize, getPlan } from '../utils/plan';
 import { isPlanesEnabled } from '../config/features';
 
 interface DailySessionProps {
@@ -34,13 +34,33 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
   const [revealed, setRevealed] = useState(false);
   const [streak, setStreak] = useState<DailyStreak>(() => loadDailyStreak());
 
+  // Fichas de los mazos del plan, cargadas bajo demanda (un módulo por mazo).
+  const [pool, setPool] = useState<RecallCard[] | null>(null);
+  const [loadError, setLoadError] = useState(false);
+  useEffect(() => {
+    let alive = true;
+    loadRecallPoolForPlan(plan).then(
+      (cards) => alive && setPool(cards),
+      () => {
+        if (!alive) return;
+        setLoadError(true);
+        setPool([]);
+      },
+    );
+    return () => {
+      alive = false;
+    };
+  }, [plan]);
+
   // Un tema prioritario que el plan no incluye se ignora (reparto equilibrado).
-  const effectivePreferred = preferredDeckId && canAccessDeck(preferredDeckId, plan) ? preferredDeckId : null;
+  const preferredTopicRaw = preferredDeckId ? getRecallTopic(preferredDeckId) : undefined;
+  const preferredTopic = preferredTopicRaw && canAccessTopic(preferredTopicRaw, plan) ? preferredTopicRaw : undefined;
+  const effectivePreferred = preferredTopic?.id ?? null;
   const session = useMemo(
-    () => pickDailyRecallSession(getRecallCardsForPlan(plan), sessionSize, undefined, { preferredDeckId: effectivePreferred }),
-    [effectivePreferred, plan, sessionSize],
+    () => (pool ? pickDailyRecallSession(pool, sessionSize, undefined, { preferredDeckId: effectivePreferred }) : []),
+    [effectivePreferred, pool, sessionSize],
   );
-  const preferredDeck = RECALL_DECKS.find((deck) => deck.id === effectivePreferred);
+  const loading = pool === null;
 
   const changePreferredDeck = (id: string) => {
     const next = id === 'todos' ? null : id;
@@ -48,8 +68,8 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
     setPreferred(next);
   };
   const current: RecallCard | undefined = session[index];
-  const sessionDecks = useMemo(
-    () => RECALL_DECKS.filter((deck) => session.some((card) => card.deckId === deck.id)),
+  const sessionTopics = useMemo(
+    () => RECALL_TOPICS.filter((topic) => session.some((card) => card.topicId === topic.id)),
     [session],
   );
   const progressLabel = session.length === 0 ? '0 / 0' : `${index + 1} / ${session.length}`;
@@ -107,25 +127,38 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
                 className="mt-1 min-h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-800"
               >
                 <option value="todos">Todos los temas (reparto equilibrado)</option>
-                {RECALL_DECKS.map((deck) => {
-                  const isLocked = !canAccessDeck(deck.id, plan);
+                {RECALL_TOPICS.map((topic) => {
+                  const isLocked = !canAccessTopic(topic, plan);
+                  const lotes = topic.decks.length > 1 ? ` (${topic.decks.length} lotes)` : '';
                   return (
-                    <option key={deck.id} value={deck.id} disabled={isLocked}>
-                      {deck.shortLabel} · {deck.name}
+                    <option key={topic.id} value={topic.id} disabled={isLocked}>
+                      {topic.shortLabel} · {topic.name}
+                      {lotes}
                       {isLocked ? ' (Pro)' : ''}
                     </option>
                   );
                 })}
               </select>
-              {preferredDeck && (
+              {preferredTopic && (
                 <p className="mt-1 text-xs text-slate-500">
-                  La sesión prioriza el {preferredDeck.label} y mezcla fichas del resto de temas.
+                  La sesión prioriza el tema {preferredTopic.tema}
+                  {preferredTopic.decks.length > 1 ? ' (todos sus lotes)' : ''} y mezcla fichas del resto de temas.
                 </p>
               )}
             </div>
-            {sessionDecks.length > 0 && (
+            {loading && (
+              <p role="status" className="mx-auto max-w-md text-xs text-slate-500" id="daily-session-loading">
+                Preparando tu sesión…
+              </p>
+            )}
+            {loadError && (
+              <p role="alert" className="mx-auto max-w-md text-xs text-red-700">
+                No se han podido cargar las fichas. Comprueba la conexión y vuelve a intentarlo.
+              </p>
+            )}
+            {sessionTopics.length > 0 && (
               <p className="mx-auto max-w-md text-xs text-slate-500" id="daily-session-decks">
-                Hoy: {sessionDecks.map((deck) => deck.shortLabel).join(' · ')}
+                Hoy: {sessionTopics.map((topic) => topic.shortLabel).join(' · ')}
               </p>
             )}
           </div>
@@ -164,6 +197,21 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
           </button>
 
           <button type="button" onClick={onNavigateHome} className="mx-auto min-h-11 px-4 text-xs font-semibold text-slate-500 transition hover:text-slate-700">
+            Volver al Dashboard
+          </button>
+        </section>
+      )}
+
+      {phase === 'study' && loading && (
+        <p role="status" className="rounded-2xl border border-slate-100 bg-white p-6 text-center text-sm text-slate-600 shadow-sm">
+          Preparando tu sesión…
+        </p>
+      )}
+
+      {phase === 'study' && !loading && !current && (
+        <section role="status" className="space-y-3 rounded-2xl border border-slate-100 bg-white p-6 text-center text-sm text-slate-600 shadow-sm">
+          <p>No hay fichas disponibles para la sesión de hoy.</p>
+          <button type="button" onClick={onNavigateHome} className="min-h-11 rounded-xl border border-slate-200 px-4 py-2 font-semibold text-slate-700">
             Volver al Dashboard
           </button>
         </section>

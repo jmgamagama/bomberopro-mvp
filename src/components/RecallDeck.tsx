@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ArrowLeft, ChevronLeft, ChevronRight, Eye, EyeOff } from 'lucide-react';
-import type { RecallDeck as RecallDeckData } from '../data/recallRegistry';
+import type { RecallDeck as RecallDeckData, RecallSourceCard } from '../data/recallRegistry';
+import { useRecallDeckCards } from '../hooks/useRecallDeckCards';
 
 interface RecallDeckProps {
   deck: RecallDeckData;
@@ -8,14 +9,48 @@ interface RecallDeckProps {
 }
 
 /**
- * Visor genérico de un mazo de recuerdo: flashcards locales con concepto, respuesta y fuente visibles.
+ * Visor genérico de un mazo de recuerdo: flashcards con concepto, respuesta y fuente visibles.
+ * Las fichas del mazo se cargan bajo demanda (solo las de este mazo).
  * No carga el banco completo MIRA (9392) ni inventa preguntas de examen.
  */
 export default function RecallDeck({ deck, onNavigateHome }: RecallDeckProps) {
+  const state = useRecallDeckCards(deck.id);
+  if (state.status === 'ready') {
+    return (
+      <div key={deck.id}>
+        <RecallDeckViewer deck={deck} cards={state.cards} onNavigateHome={onNavigateHome} />
+      </div>
+    );
+  }
+  return (
+    <section className="mx-auto max-w-3xl space-y-3 py-4 text-slate-900 sm:px-4 sm:py-6" aria-label={`Recuerdo ${deck.label}`}>
+      <h1 className="text-xl font-bold leading-snug sm:text-2xl">{deck.title}</h1>
+      <p role="status" className="rounded-xl border border-slate-200 bg-slate-50 p-3 text-sm text-slate-700">
+        {state.status === 'loading'
+          ? `Cargando ${deck.count} fichas…`
+          : 'No se han podido cargar las fichas. Comprueba la conexión y vuelve a intentarlo.'}
+      </p>
+      <button
+        type="button"
+        onClick={onNavigateHome}
+        className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border px-4 py-2 text-sm font-semibold hover:bg-slate-50"
+      >
+        <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+        Salir al inicio
+      </button>
+    </section>
+  );
+}
+
+function RecallDeckViewer({
+  deck,
+  cards,
+  onNavigateHome,
+}: RecallDeckProps & { cards: readonly RecallSourceCard[] }) {
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(true);
-  const total = deck.cards.length;
-  const card = deck.cards[index];
+  const total = cards.length;
+  const card = cards[index];
   const loteNumber = deck.lote ? deck.lote.replace(/^lote/i, '') : undefined;
 
   const go = (next: number) => {

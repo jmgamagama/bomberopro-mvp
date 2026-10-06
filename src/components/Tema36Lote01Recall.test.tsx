@@ -23,9 +23,10 @@ describe('Tema36Lote01Recall', () => {
     expect(TEMA36_LOTE01_RECALL_CARDS.every((c) => c.id.startsWith('CPEI-T36-'))).toBe(true);
   });
 
-  it('muestra concepto, respuesta y fuente de la primera ficha (muestra CPEI-T36-S01-2A0B8D8C18)', () => {
+  it('muestra concepto, respuesta y fuente de la primera ficha (muestra CPEI-T36-S01-2A0B8D8C18)', async () => {
     const onNavigateHome = vi.fn();
     render(<Tema36Lote01Recall onNavigateHome={onNavigateHome} />);
+    await screen.findByText(/Ficha 1 de/);
     const first = TEMA36_LOTE01_RECALL_CARDS[0];
     const jsonFirst = fichasJson.fichas[0];
     expect(first.id).toBe(jsonFirst.id);
@@ -46,6 +47,7 @@ describe('Tema36Lote01Recall', () => {
     const user = userEvent.setup();
     const onNavigateHome = vi.fn();
     render(<Tema36Lote01Recall onNavigateHome={onNavigateHome} />);
+    await screen.findByText(/Ficha 1 de/);
     await user.click(screen.getByRole('button', { name: /Siguiente/i }));
     expect(screen.getByText(/Ficha 2 de 78/)).toBeInTheDocument();
     expect(screen.getByText(TEMA36_LOTE01_RECALL_CARDS[1].concepto)).toBeInTheDocument();

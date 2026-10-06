@@ -3,7 +3,7 @@
  * mismo espíritu que mira_attempts_v1 — sin Supabase nuevo.
  */
 
-import { RECALL_CARDS, type RecallCard } from '../data/recallCards';
+import type { RecallCard } from '../data/recallCards';
 
 export const DAILY_SESSION_SIZE = 30;
 export const STREAK_STORAGE_KEY = 'mira_sesion_diaria_racha_v1';
@@ -102,15 +102,22 @@ function allocateQuotas(sizes: number[], total: number): number[] {
  *  - el resultado del día se mezcla de forma determinista por fecha.
  */
 export interface DailySessionOptions {
-  /** Mazo a priorizar (≈60 % de la sesión); el resto se reparte entre los demás. */
+  /**
+   * Tema o mazo a priorizar (≈60 % de la sesión); el resto se reparte entre los demás.
+   * Un id de tema (`tema36`) prioriza todos sus lotes (`tema36-lote01`…), repartidos entre ellos.
+   */
   preferredDeckId?: string | null;
+}
+
+function matchesPreferred(deckKey: string, preferred: string): boolean {
+  return deckKey === preferred || deckKey.startsWith(`${preferred}-`);
 }
 
 /** Parte de la sesión reservada al tema prioritario. */
 export const PREFERRED_DECK_SHARE = 0.6;
 
 export function pickDailyRecallSession(
-  pool: RecallCard[] = RECALL_CARDS,
+  pool: RecallCard[],
   maxSize: number = DAILY_SESSION_SIZE,
   date: Date = new Date(),
   options: DailySessionOptions = {},
@@ -130,17 +137,21 @@ export function pickDailyRecallSession(
   const keys = [...groups.keys()];
   const sizes = keys.map((k) => groups.get(k)!.length);
   const total = Math.min(maxSize, pool.length);
-  const preferredIndex = options.preferredDeckId ? keys.indexOf(options.preferredDeckId) : -1;
+  const preferred = options.preferredDeckId ?? null;
+  const preferredIdx = preferred ? keys.map((k, i) => (matchesPreferred(k, preferred) ? i : -1)).filter((i) => i >= 0) : [];
   let quotas: number[];
-  if (preferredIndex >= 0 && total < pool.length) {
-    const othersTotal = sizes.reduce((a, b, i) => (i === preferredIndex ? a : a + b), 0);
-    let preferredQuota = Math.min(sizes[preferredIndex], Math.round(total * PREFERRED_DECK_SHARE));
+  if (preferredIdx.length > 0 && total < pool.length) {
+    const isPreferred = (i: number) => preferredIdx.includes(i);
+    const preferredSize = preferredIdx.reduce((a, i) => a + sizes[i], 0);
+    const othersTotal = sizes.reduce((a, b, i) => (isPreferred(i) ? a : a + b), 0);
+    let preferredQuota = Math.min(preferredSize, Math.round(total * PREFERRED_DECK_SHARE));
     // Si los demás temas no llegan a cubrir el resto, el tema prioritario completa la sesión.
     preferredQuota = Math.max(preferredQuota, total - othersTotal);
-    const otherIdx = keys.map((_, i) => i).filter((i) => i !== preferredIndex);
+    const otherIdx = keys.map((_, i) => i).filter((i) => !isPreferred(i));
+    const prefQuotas = allocateQuotas(preferredIdx.map((i) => sizes[i]), preferredQuota);
     const otherQuotas = allocateQuotas(otherIdx.map((i) => sizes[i]), total - preferredQuota);
     quotas = sizes.map(() => 0);
-    quotas[preferredIndex] = preferredQuota;
+    preferredIdx.forEach((i, j) => { quotas[i] = prefQuotas[j]; });
     otherIdx.forEach((i, j) => { quotas[i] = otherQuotas[j]; });
   } else {
     quotas = allocateQuotas(sizes, total);

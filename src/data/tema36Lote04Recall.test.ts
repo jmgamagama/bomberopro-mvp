@@ -5,7 +5,7 @@ import { TEMA36_LOTE01_RECALL_CARDS } from './tema36Lote01Recall';
 import { TEMA36_LOTE02_RECALL_CARDS } from './tema36Lote02Recall';
 import { TEMA36_LOTE03_RECALL_CARDS } from './tema36Lote03Recall';
 import { TEMA36_LOTE04_RECALL_CARDS, TEMA36_LOTE04_RECALL_META } from './tema36Lote04Recall';
-import { getRecallDeck } from './recallRegistry';
+import { getRecallDeck, loadRecallDeckCards } from './recallRegistry';
 
 const fichasJson = JSON.parse(
   readFileSync(resolve(__dirname, '../../data/tema36/fichas_lote04_78.json'), 'utf-8'),
@@ -55,10 +55,12 @@ describe('tema 36 lote 04 (municipios Oliva de Mérida → Táliga)', () => {
     }
   });
 
-  it('entra por el registro central como mazo T36·4', () => {
+  it('entra por el registro central como lote 4 del tema 36', async () => {
     const deck = getRecallDeck('tema36-lote04');
     expect(deck.shortLabel).toBe('T36·4');
     expect(deck.count).toBe(78);
-    expect(deck.cards).toBe(TEMA36_LOTE04_RECALL_CARDS);
+    expect(deck.topicId).toBe('tema36');
+    expect(deck.loteLabel).toBe('Lote 4');
+    expect(await loadRecallDeckCards(deck.id)).toBe(TEMA36_LOTE04_RECALL_CARDS);
   });
 });

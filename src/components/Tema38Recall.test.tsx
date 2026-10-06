@@ -23,9 +23,10 @@ describe('Tema38Recall', () => {
     expect(TEMA38_RECALL_CARDS.every((c) => c.id.startsWith('CPEI-T38-'))).toBe(true);
   });
 
-  it('muestra concepto, respuesta y fuente de la primera ficha (muestra CPEI-T38-HOR-001)', () => {
+  it('muestra concepto, respuesta y fuente de la primera ficha (muestra CPEI-T38-HOR-001)', async () => {
     const onNavigateHome = vi.fn();
     render(<Tema38Recall onNavigateHome={onNavigateHome} />);
+    await screen.findByText(/Ficha 1 de/);
     const first = TEMA38_RECALL_CARDS[0];
     const jsonFirst = fichasJson.fichas[0];
     expect(first.id).toBe(jsonFirst.id);
@@ -47,6 +48,7 @@ describe('Tema38Recall', () => {
     const user = userEvent.setup();
     const onNavigateHome = vi.fn();
     render(<Tema38Recall onNavigateHome={onNavigateHome} />);
+    await screen.findByText(/Ficha 1 de/);
     await user.click(screen.getByRole('button', { name: /Siguiente/i }));
     expect(screen.getByText(/Ficha 2 de 198/)).toBeInTheDocument();
     expect(screen.getByText(TEMA38_RECALL_CARDS[1].concepto)).toBeInTheDocument();
