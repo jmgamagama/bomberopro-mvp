@@ -153,6 +153,16 @@ const DECK_SOURCES: readonly DeckSource[] = [
   },
   {
     meta: {
+      tema: 36,
+      lote: 'lote07',
+      title: 'Tema 36 · Lote 07 — Límites administrativos: Guadiana → Puebla de Sancho Pérez',
+      count: 55,
+      source: 'tema36_fichas.json + tema36_lotes.json',
+    },
+    load: () => import('./tema36Lote07Recall').then((m) => m.TEMA36_LOTE07_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 38,
       title: 'Tema 38 · ITF CPEI: horario, vestuario/EPIs, limpieza y gestión de EPIs colectivos',
       count: 198,
@@ -294,7 +304,7 @@ function joinEs(items: readonly string[]): string {
   return items.length <= 1 ? items.join('') : `${items.slice(0, -1).join(', ')} y ${items[items.length - 1]}`;
 }
 
-/** Resumen legible de los temas cargados: «35, 36 (lotes 01 a 06), 38, 39 y 40». */
+/** Resumen legible de los temas cargados: «35, 36 (lotes 01 a 07), 38, 39 y 40». */
 export function describeRecallCoverage(decks: readonly RecallDeck[] = RECALL_DECKS): string {
   const byTema = new Map<number, string[]>();
   for (const deck of decks) {
