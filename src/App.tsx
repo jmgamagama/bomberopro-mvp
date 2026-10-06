@@ -646,7 +646,7 @@ export default function App() {
               <button
                 id="btn-quick-train"
                 onClick={() => handleNavigate('train')}
-                className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold transition flex items-center gap-1 shadow"
+                className="min-h-11 px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold transition flex items-center gap-1 shadow"
               >
                 Repasar ({pendingCount})
               </button>
@@ -654,7 +654,7 @@ export default function App() {
             <button
               onClick={handleLogout}
               aria-label="Cerrar sesión"
-              className="px-2.5 py-1.5 text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-lg text-xs font-semibold transition flex items-center gap-1"
+              className="min-h-11 min-w-11 px-2.5 py-1.5 text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-lg text-xs font-semibold transition flex items-center justify-center gap-1"
               title="Cerrar sesión"
             >
               <LogOut className="w-4 h-4" aria-hidden="true" />

@@ -1,0 +1,103 @@
+// Comprobación E2E de la PWA móvil (360x740) contra `vite preview`.
+// Uso: npm run build && npx vite preview --port 4173 &  luego
+//      npm i --no-save playwright && npx playwright install chromium
+//      BASE=http://127.0.0.1:4173 OUT=./pwa-capturas node scripts/pwa-movil-check.cjs
+const { chromium } = require('playwright');
+const BASE = process.env.BASE || 'http://127.0.0.1:4173';
+const OUT = process.env.OUT || 'pwa-capturas';
+require('node:fs').mkdirSync(OUT, { recursive: true });
+const results = [];
+const check = (name, ok, detail = '') => { results.push({ name, ok, detail }); console.log(`${ok ? 'OK  ' : 'FAIL'} ${name} ${detail}`); };
+const scrollWidth = (page) => page.evaluate(() => document.documentElement.scrollWidth);
+
+(async () => {
+  const browser = await chromium.launch();
+  const ctx = await browser.newContext({ viewport: { width: 360, height: 740 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, locale: 'es-ES' });
+  const page = await ctx.newPage();
+  const errors = [];
+  page.on('pageerror', (e) => errors.push(e.message));
+
+  await page.goto(BASE);
+  await page.waitForLoadState('networkidle');
+  const manifestHref = await page.getAttribute('link[rel="manifest"]', 'href');
+  check('manifest enlazado', manifestHref === '/manifest.webmanifest', manifestHref);
+  const manifest = await (await page.request.get(BASE + manifestHref)).json();
+  check('manifest nombre/display', manifest.name === 'BomberoPro' && manifest.display === 'standalone' && manifest.lang === 'es');
+
+  // Service worker activo y controlando la página
+  const swState = await page.evaluate(async () => {
+    const reg = await navigator.serviceWorker.ready;
+    return reg.active && reg.active.state;
+  });
+  check('service worker activo', swState === 'activated', swState);
+  await page.reload();
+  await page.waitForLoadState('networkidle');
+  check('SW controla la página', await page.evaluate(() => !!navigator.serviceWorker.controller));
+  const precached = await page.evaluate(async () => {
+    const urls = [];
+    for (const k of await caches.keys()) for (const r of await (await caches.open(k)).keys()) urls.push(new URL(r.url).pathname);
+    return urls;
+  });
+  check('precache incluye chunk de fichas', precached.some((u) => /recallRegistry-.*\.js$/.test(u)), `${precached.length} entradas`);
+  check('precache incluye RecallHub y DailySession', precached.some((u) => /RecallHub-/.test(u)) && precached.some((u) => /DailySession-/.test(u)));
+  check('nada de Supabase en caché', !precached.some((u) => /supabase/.test(u)));
+
+  const mobile = page.getByRole('navigation', { name: 'Navegación móvil' });
+  check('inicio sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
+
+  // Recuerdo
+  await mobile.getByRole('button', { name: 'Recuerdo' }).click();
+  const tablist = page.getByRole('tablist', { name: 'Temas de recuerdo' });
+  await tablist.waitFor();
+  check('recuerdo: 6 pestañas', (await tablist.getByRole('tab').count()) === 6);
+  check('recuerdo sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
+  await tablist.getByRole('tab', { name: /T40/ }).click();
+  await page.getByText('Ficha 1 de 213').waitFor();
+  check('recuerdo: pestaña T40 seleccionada', (await tablist.getByRole('tab', { name: /T40/ }).getAttribute('aria-selected')) === 'true');
+  await page.waitForTimeout(400); // deja terminar la transición de color de la pestaña
+  await page.screenshot({ path: `${OUT}/recuerdo-360.png` });
+
+  // Sesión diaria
+  await mobile.getByRole('button', { name: 'Diaria' }).click();
+  await page.getByRole('heading', { name: 'Sesión diaria' }).waitFor();
+  check('sesión intro sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
+  await page.getByRole('button', { name: /Empezar sesión/ }).click();
+  await page.getByRole('button', { name: /Mostrar respuesta/ }).click();
+  await page.getByText('Respuesta', { exact: true }).waitFor();
+  check('sesión ficha sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
+  check('sesión: 30 fichas', await page.getByText(/Recuerdo · 1 \/ 30/).isVisible());
+  await page.screenshot({ path: `${OUT}/sesion-360.png` });
+
+  // Offline: recarga desde el SW y estudia fichas
+  await ctx.setOffline(true);
+  await page.reload();
+  await page.waitForLoadState('domcontentloaded');
+  await page.getByRole('navigation', { name: 'Navegación móvil' }).waitFor({ timeout: 10000 });
+  check('offline: la app recarga', true);
+  check('offline: navigator.onLine = false', (await page.evaluate(() => navigator.onLine)) === false);
+  await page.getByRole('navigation', { name: 'Navegación móvil' }).getByRole('button', { name: 'Recuerdo' }).click();
+  const tl = page.getByRole('tablist', { name: 'Temas de recuerdo' });
+  await tl.waitFor({ timeout: 10000 });
+  await tl.getByRole('tab', { name: /T36·2/ }).click();
+  await page.getByText('Ficha 1 de 79').waitFor();
+  await page.getByRole('button', { name: /Siguiente/ }).click();
+  await page.getByText('Ficha 2 de 79').waitFor();
+  check('offline: se ven fichas y se avanza', true);
+  check('offline sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
+  await page.evaluate(() => {
+    const article = document.querySelector('#recall-deck-panel article');
+    window.scrollTo(0, article.getBoundingClientRect().top + window.scrollY - 96);
+  });
+  await page.waitForTimeout(300);
+  await page.screenshot({ path: `${OUT}/offline-360.png` });
+  await page.getByRole('navigation', { name: 'Navegación móvil' }).getByRole('button', { name: 'Diaria' }).click();
+  await page.getByRole('heading', { name: 'Sesión diaria' }).waitFor({ timeout: 10000 });
+  check('offline: sesión diaria disponible', true);
+  await ctx.setOffline(false);
+
+  check('sin errores de página', errors.length === 0, errors.join(' | '));
+  await browser.close();
+  const failed = results.filter((r) => !r.ok);
+  console.log(`\n${results.length - failed.length}/${results.length} comprobaciones OK`);
+  process.exit(failed.length ? 1 : 0);
+})().catch((e) => { console.error('ERROR', e.message); process.exit(1); });

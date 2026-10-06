@@ -19,11 +19,11 @@ export default function RecallHub({ onNavigateHome, initialDeckId }: RecallHubPr
 
   return (
     <div className="space-y-2">
-      <div className="mx-auto max-w-3xl px-4 pt-2">
+      <div className="mx-auto max-w-3xl pt-2 sm:px-4">
         <p className="text-xs text-slate-500">
           {RECALL_DECKS.length} mazos · {RECALL_TOTAL_CARDS} fichas de recuerdo locales
         </p>
-        <div role="tablist" aria-label="Temas de recuerdo" className="mt-2 flex flex-wrap gap-2">
+        <div role="tablist" aria-label="Temas de recuerdo" className="mt-2 grid grid-cols-3 gap-2 sm:flex sm:flex-wrap">
           {RECALL_DECKS.map((d) => {
             const selected = d.id === deck.id;
             return (
@@ -36,7 +36,7 @@ export default function RecallHub({ onNavigateHome, initialDeckId }: RecallHubPr
                 aria-controls="recall-deck-panel"
                 title={d.title}
                 onClick={() => setDeckId(d.id)}
-                className={`rounded-lg border px-3 py-1.5 text-xs font-semibold transition ${
+                className={`min-h-11 rounded-lg border px-2 py-1.5 text-xs font-semibold transition sm:px-3 ${
                   selected ? 'border-indigo-200 bg-indigo-50 text-indigo-700' : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                 }`}
               >

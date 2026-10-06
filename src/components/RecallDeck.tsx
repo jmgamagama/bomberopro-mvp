@@ -25,13 +25,13 @@ export default function RecallDeck({ deck, onNavigateHome }: RecallDeckProps) {
   };
 
   return (
-    <section className="mx-auto max-w-3xl space-y-6 px-4 py-6 text-slate-900" aria-label={`Recuerdo ${deck.label}`}>
-      <div className="flex items-start justify-between gap-4">
+    <section className="mx-auto max-w-3xl space-y-5 py-4 text-slate-900 sm:space-y-6 sm:px-4 sm:py-6" aria-label={`Recuerdo ${deck.label}`}>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-4">
         <div>
           <p className="text-sm font-semibold text-indigo-700">
             Recuerdo · fichas locales{loteNumber ? ` · lote ${loteNumber}` : ''}
           </p>
-          <h1 className="mt-1 text-2xl font-bold">{deck.title}</h1>
+          <h1 className="mt-1 text-xl font-bold leading-snug sm:text-2xl">{deck.title}</h1>
           <p className="mt-1 text-sm text-slate-600">
             {deck.count} fichas de recuerdo (concepto, respuesta y fuente). Datos de {deck.source}.
           </p>
@@ -39,7 +39,7 @@ export default function RecallDeck({ deck, onNavigateHome }: RecallDeckProps) {
         <button
           type="button"
           onClick={onNavigateHome}
-          className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-semibold hover:bg-slate-50"
+          className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 self-start rounded-lg border px-4 py-2 text-sm font-semibold hover:bg-slate-50"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden="true" />
           Salir al inicio
@@ -50,7 +50,7 @@ export default function RecallDeck({ deck, onNavigateHome }: RecallDeckProps) {
         {deck.notice}
       </div>
 
-      <article className="space-y-4 rounded-2xl border bg-white p-5 shadow-sm" aria-live="polite">
+      <article className="space-y-4 rounded-2xl border bg-white p-4 shadow-sm sm:p-6" aria-live="polite">
         <div className="flex flex-wrap items-center justify-between gap-2 text-sm text-slate-600">
           <span className="font-semibold text-slate-800">
             Ficha {index + 1} de {total}
@@ -63,18 +63,18 @@ export default function RecallDeck({ deck, onNavigateHome }: RecallDeckProps) {
 
         <div>
           <p className="text-xs font-semibold uppercase tracking-wide text-indigo-700">Concepto</p>
-          <h2 className="mt-1 text-lg font-bold leading-snug">{card.concepto}</h2>
+          <h2 className="mt-1 text-lg font-bold leading-snug break-words sm:text-xl">{card.concepto}</h2>
         </div>
 
         {revealed ? (
           <>
             <div className="rounded-xl border border-emerald-100 bg-emerald-50/60 p-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-emerald-800">Respuesta</p>
-              <p className="mt-1 whitespace-pre-wrap text-slate-900">{card.respuesta}</p>
+              <p className="mt-1 whitespace-pre-wrap break-words text-[17px] leading-relaxed text-slate-900">{card.respuesta}</p>
             </div>
             <div className="rounded-xl border border-amber-100 bg-amber-50/70 p-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-amber-900">Fuente</p>
-              <p className="mt-1 text-sm font-medium text-slate-900">{card.fuente}</p>
+              <p className="mt-1 break-words text-sm font-medium text-slate-900">{card.fuente}</p>
             </div>
           </>
         ) : (
@@ -83,11 +83,11 @@ export default function RecallDeck({ deck, onNavigateHome }: RecallDeckProps) {
           </p>
         )}
 
-        <div className="flex flex-wrap gap-3 pt-1">
+        <div className="grid grid-cols-2 gap-3 pt-1 sm:flex sm:flex-wrap">
           <button
             type="button"
             onClick={() => setRevealed((v) => !v)}
-            className="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-semibold hover:bg-slate-50"
+            className="col-span-2 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border px-4 py-2 text-sm font-semibold hover:bg-slate-50"
           >
             {revealed ? <EyeOff className="h-4 w-4" aria-hidden="true" /> : <Eye className="h-4 w-4" aria-hidden="true" />}
             {revealed ? 'Ocultar respuesta' : 'Mostrar respuesta'}
@@ -96,7 +96,7 @@ export default function RecallDeck({ deck, onNavigateHome }: RecallDeckProps) {
             type="button"
             onClick={() => go(index - 1)}
             disabled={index === 0}
-            className="inline-flex items-center gap-1 rounded-lg border px-4 py-2 text-sm font-semibold hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
+            className="inline-flex min-h-11 items-center justify-center gap-1 rounded-lg border px-4 py-2 text-sm font-semibold hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
           >
             <ChevronLeft className="h-4 w-4" aria-hidden="true" />
             Anterior
@@ -105,7 +105,7 @@ export default function RecallDeck({ deck, onNavigateHome }: RecallDeckProps) {
             type="button"
             onClick={() => go(index + 1)}
             disabled={index >= total - 1}
-            className="inline-flex items-center gap-1 rounded-lg bg-indigo-700 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-800 disabled:cursor-not-allowed disabled:opacity-40"
+            className="inline-flex min-h-11 items-center justify-center gap-1 rounded-lg bg-indigo-700 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-800 disabled:cursor-not-allowed disabled:opacity-40"
           >
             Siguiente
             <ChevronRight className="h-4 w-4" aria-hidden="true" />

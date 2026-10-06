@@ -464,7 +464,7 @@ export default function Dashboard({
           <button
             id="btn-nav-study"
             onClick={() => onNavigate('today_training')}
-            className="w-full sm:w-auto px-4 py-2 text-xs font-semibold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-xl transition border border-indigo-100 text-center"
+            className="min-h-11 w-full sm:w-auto px-4 py-2 text-xs font-semibold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-xl transition border border-indigo-100 text-center"
           >
             Entrenamiento de Hoy
           </button>
@@ -475,7 +475,7 @@ export default function Dashboard({
                 onReset();
               }
             }}
-            className="p-2 text-slate-400 hover:text-rose-500 bg-white hover:bg-rose-50 border border-slate-200 hover:border-rose-100 rounded-xl transition"
+            className="flex min-h-11 min-w-11 items-center justify-center p-2 text-slate-400 hover:text-rose-500 bg-white hover:bg-rose-50 border border-slate-200 hover:border-rose-100 rounded-xl transition"
             title="Restablecer todo el progreso"
             aria-label="Restablecer todo el progreso"
           >
