@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { CalendarClock, Check, FileText, Flame, Play } from 'lucide-react';
+import { CalendarClock, Check, FileText, Flame, Lock, Play } from 'lucide-react';
 import { CONVOCATORIA_CPEI_2026 as C } from '../data/convocatoria';
 import { RECALL_DECKS, RECALL_TOTAL_CARDS } from '../data/recallRegistry';
 import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreferences';
 import { completeOnboarding } from '../utils/onboarding';
+import { canAccessDeck, getPlan } from '../utils/plan';
 
 interface OnboardingProps {
   /** El opositor pulsó «Empezar sesión diaria»: abrir la sesión ya en la primera ficha. */
@@ -19,7 +20,11 @@ const ALL = 'todos';
  * Dos toques hasta la primera ficha: tema → «Empezar sesión diaria».
  */
 export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
-  const [choice, setChoice] = useState<string>(() => getPreferredDeckId() ?? ALL);
+  const plan = getPlan();
+  const [choice, setChoice] = useState<string>(() => {
+    const stored = getPreferredDeckId();
+    return stored && canAccessDeck(stored, plan) ? stored : ALL;
+  });
 
   const start = () => {
     setPreferredDeckId(choice === ALL ? null : choice);
@@ -33,8 +38,13 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
   };
 
   const options = [
-    { id: ALL, label: 'Todos los temas', detail: `${RECALL_TOTAL_CARDS} fichas` },
-    ...RECALL_DECKS.map((d) => ({ id: d.id, label: `${d.shortLabel} · ${d.name}`, detail: `${d.count} fichas` })),
+    { id: ALL, label: 'Todos los temas', detail: `${RECALL_TOTAL_CARDS} fichas`, locked: false },
+    ...RECALL_DECKS.map((d) => ({
+      id: d.id,
+      label: `${d.shortLabel} · ${d.name}`,
+      detail: `${d.count} fichas`,
+      locked: !canAccessDeck(d.id, plan),
+    })),
   ];
 
   return (
@@ -96,15 +106,18 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
                 type="button"
                 role="radio"
                 aria-checked={selected}
+                aria-disabled={o.locked || undefined}
+                disabled={o.locked}
                 id={`onboarding-opcion-${o.id}`}
                 onClick={() => setChoice(o.id)}
                 className={`flex min-h-11 w-full items-center justify-between gap-3 rounded-xl border px-3.5 py-2 text-left text-sm transition ${
                   selected ? 'border-indigo-300 bg-indigo-50 text-indigo-900' : 'border-slate-200 bg-white text-slate-700 hover:bg-slate-50'
-                }`}
+                } disabled:cursor-not-allowed disabled:opacity-60`}
               >
                 <span className="min-w-0">
                   <span className="block font-semibold leading-snug break-words">
-                    {o.label} <span className="font-normal text-slate-500">· {o.detail}</span>
+                    {o.locked && <Lock className="mr-1 inline h-3.5 w-3.5 align-[-2px]" aria-hidden="true" />}
+                    {o.label} <span className="font-normal text-slate-500">· {o.detail}{o.locked ? ' · Pro' : ''}</span>
                   </span>
                 </span>
                 <span

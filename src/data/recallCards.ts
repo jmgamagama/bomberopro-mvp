@@ -4,7 +4,8 @@
  * un mazo añadido al registro entra automáticamente en la sesión diaria.
  */
 
-import { RECALL_DECKS } from './recallRegistry';
+import { RECALL_DECKS, getAccessibleDecks } from './recallRegistry';
+import type { Plan } from '../utils/plan';
 
 export interface RecallCard {
   id: string;
@@ -17,8 +18,8 @@ export interface RecallCard {
   deckLabel?: string;
 }
 
-function buildRecallPool(): RecallCard[] {
-  return RECALL_DECKS.flatMap((deck) =>
+function buildRecallPool(decks = RECALL_DECKS): RecallCard[] {
+  return decks.flatMap((deck) =>
     deck.cards.map((card) => ({
       id: card.id,
       prompt: card.concepto,
@@ -32,3 +33,9 @@ function buildRecallPool(): RecallCard[] {
 
 /** Pool estático de recuerdo disponible en el cliente (todas las fichas de todos los mazos). */
 export const RECALL_CARDS: RecallCard[] = buildRecallPool();
+
+/** Fichas de los mazos accesibles para el plan (por defecto, el plan actual). */
+export function getRecallCardsForPlan(plan?: Plan): RecallCard[] {
+  const decks = getAccessibleDecks(plan);
+  return decks.length === RECALL_DECKS.length ? RECALL_CARDS : buildRecallPool(decks);
+}

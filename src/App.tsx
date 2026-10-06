@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect, useLayoutEffect, useRef, lazy, Suspense } from 'react';
-import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers } from 'lucide-react';
+import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles } from 'lucide-react';
 import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from './data/initialData';
 import { MemoryState, Question, ConfidenceLevel, Attempt } from './types';
 import {
@@ -34,6 +34,7 @@ import { supabase } from './lib/supabase';
 import { saveAttemptToServer } from './lib/saveAttemptToServer';
 import SaveFailureBanner from './components/SaveFailureBanner';
 import { hasCompletedOnboarding } from './utils/onboarding';
+import { isPlanesEnabled } from './config/features';
 import SaveStatus from './components/SaveStatus';
 import { useAttemptSync } from './lib/useAttemptSync';
 import { shuffleAllOptions } from './utils/shuffleOptions';
@@ -49,6 +50,7 @@ const RecallHub = lazy(() => import('./components/RecallHub'));
 const DailySession = lazy(() => import('./components/DailySession'));
 const OrdenaPasos = lazy(() => import('./components/OrdenaPasos'));
 const Onboarding = lazy(() => import('./components/Onboarding'));
+const Planes = lazy(() => import('./components/Planes'));
 
 const SCREEN_TITLES = {
   dashboard: 'Dashboard',
@@ -61,6 +63,7 @@ const SCREEN_TITLES = {
   recuerdo: 'Recuerdo',
   sesion_diaria: 'Sesión diaria',
   onboarding: 'Bienvenida',
+  planes: 'Planes',
   ordena_pasos: 'Ordena los pasos',
 } as const;
 
@@ -84,8 +87,11 @@ const SCREEN_TITLES = {
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
-    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'onboarding'
+    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'onboarding' | 'planes'
   >(() => (hasCompletedOnboarding() ? 'dashboard' : 'onboarding'));
+  // Página de planes: solo con VITE_FEATURE_PLANES=true (por defecto no aparece nada).
+  const planesEnabled = isPlanesEnabled();
+  const openPlanes = planesEnabled ? () => handleNavigate('planes') : undefined;
   // La bienvenida abre la sesión diaria directamente en la primera ficha.
   const [dailyAutoStart, setDailyAutoStart] = useState(false);
 
@@ -235,7 +241,7 @@ export default function App() {
 
   // Handle switching screens
   const handleNavigate = (
-    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'onboarding'
+    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'onboarding' | 'planes'
   ) => {
     setDailyAutoStart(false);
     setCurrentScreen(screen);
@@ -645,6 +651,19 @@ export default function App() {
               <Flame className="w-4 h-4" aria-hidden="true" />
               Sesión diaria
             </button>
+            {planesEnabled && (
+              <button
+                id="nav-btn-planes"
+                onClick={() => handleNavigate('planes')}
+                aria-current={currentScreen === 'planes' ? 'page' : undefined}
+                className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+                  currentScreen === 'planes' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
+                }`}
+              >
+                <Sparkles className="w-4 h-4" aria-hidden="true" />
+                Planes
+              </button>
+            )}
           </nav>
 
           <div className="flex items-center gap-2">
@@ -780,13 +799,18 @@ export default function App() {
             />
           )}
 
+          {planesEnabled && currentScreen === 'planes' && (
+            <Planes onNavigateHome={() => handleNavigate('dashboard')} />
+          )}
+
           {currentScreen === 'recuerdo' && (
-            <RecallHub onNavigateHome={() => handleNavigate('dashboard')} />
+            <RecallHub onNavigateHome={() => handleNavigate('dashboard')} onOpenPlanes={openPlanes} />
           )}
 
           {currentScreen === 'sesion_diaria' && (
             <DailySession
               autoStart={dailyAutoStart}
+              onOpenPlanes={openPlanes}
               onNavigateHome={() => handleNavigate('dashboard')}
               onOpenOrdenaPasos={() => handleNavigate('ordena_pasos')}
             />

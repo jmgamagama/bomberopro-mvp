@@ -13,6 +13,7 @@
  * conceptos de MIRA ni los 528 del tema 36 de golpe, y no hay preguntas tipo test.
  */
 
+import { canAccessDeck, getPlan, type Plan } from '../utils/plan';
 import { TEMA35_RECALL_CARDS, TEMA35_RECALL_META } from './tema35Recall';
 import { TEMA36_LOTE01_RECALL_CARDS, TEMA36_LOTE01_RECALL_META } from './tema36Lote01Recall';
 import { TEMA36_LOTE02_RECALL_CARDS, TEMA36_LOTE02_RECALL_META } from './tema36Lote02Recall';
@@ -104,3 +105,8 @@ export function getRecallDeck(id: string): RecallDeck {
 
 /** Total de fichas de recuerdo cargadas en la app. */
 export const RECALL_TOTAL_CARDS = RECALL_DECKS.reduce((sum, d) => sum + d.count, 0);
+
+/** Mazos accesibles para el plan dado (por defecto, el plan actual). */
+export function getAccessibleDecks(plan: Plan = getPlan()): readonly RecallDeck[] {
+  return RECALL_DECKS.filter((deck) => canAccessDeck(deck.id, plan));
+}

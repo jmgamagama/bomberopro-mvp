@@ -9,28 +9,38 @@ import {
 import type { RecallCard } from '../data/recallCards';
 import { RECALL_DECKS } from '../data/recallRegistry';
 import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreferences';
+import { getRecallCardsForPlan } from '../data/recallCards';
+import { canAccessDeck, getDailySessionSize, getPlan } from '../utils/plan';
+import { isPlanesEnabled } from '../config/features';
 
 interface DailySessionProps {
   onNavigateHome: () => void;
   onOpenOrdenaPasos: () => void;
   /** Empieza directamente en la primera ficha (p. ej. al venir de la bienvenida). */
   autoStart?: boolean;
+  /** Abre la página de planes (solo con VITE_FEATURE_PLANES activado). */
+  onOpenPlanes?: () => void;
 }
 
 type Phase = 'intro' | 'study' | 'done';
 
-export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false }: DailySessionProps) {
+export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false, onOpenPlanes }: DailySessionProps) {
+  const plan = getPlan();
+  const planesOn = isPlanesEnabled();
+  const sessionSize = getDailySessionSize(plan);
   const [phase, setPhase] = useState<Phase>(autoStart ? 'study' : 'intro');
   const [preferredDeckId, setPreferred] = useState<string | null>(() => getPreferredDeckId());
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [streak, setStreak] = useState<DailyStreak>(() => loadDailyStreak());
 
+  // Un tema prioritario que el plan no incluye se ignora (reparto equilibrado).
+  const effectivePreferred = preferredDeckId && canAccessDeck(preferredDeckId, plan) ? preferredDeckId : null;
   const session = useMemo(
-    () => pickDailyRecallSession(undefined, undefined, undefined, { preferredDeckId }),
-    [preferredDeckId],
+    () => pickDailyRecallSession(getRecallCardsForPlan(plan), sessionSize, undefined, { preferredDeckId: effectivePreferred }),
+    [effectivePreferred, plan, sessionSize],
   );
-  const preferredDeck = RECALL_DECKS.find((deck) => deck.id === preferredDeckId);
+  const preferredDeck = RECALL_DECKS.find((deck) => deck.id === effectivePreferred);
 
   const changePreferredDeck = (id: string) => {
     const next = id === 'todos' ? null : id;
@@ -71,24 +81,41 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
           <div className="space-y-2">
             <h2 className="text-2xl font-black tracking-tight text-slate-800">Sesión diaria</h2>
             <p className="mx-auto max-w-md text-sm leading-relaxed text-slate-500">
-              Hasta 30 fichas de repaso de todos los temas disponibles. Sin opciones de examen: intenta recordar y revela la respuesta.
+              Hasta {sessionSize} fichas de repaso de todos los temas disponibles. Sin opciones de examen: intenta recordar y revela la respuesta.
             </p>
+            {planesOn && plan === 'free' && (
+              <p className="mx-auto max-w-md rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-900" id="daily-session-plan">
+                Plan Gratis: {sessionSize} fichas al día del tema 40. Con Pro, sesión completa de 30 fichas de todos los temas.
+                {onOpenPlanes && (
+                  <>
+                    {' '}
+                    <button type="button" onClick={onOpenPlanes} className="min-h-11 font-semibold text-indigo-700 underline">
+                      Ver planes
+                    </button>
+                  </>
+                )}
+              </p>
+            )}
             <div className="mx-auto max-w-sm pt-2 text-left">
               <label htmlFor="daily-session-preferred" className="block text-xs font-semibold text-slate-600">
                 Tema prioritario
               </label>
               <select
                 id="daily-session-preferred"
-                value={preferredDeckId ?? 'todos'}
+                value={effectivePreferred ?? 'todos'}
                 onChange={(e) => changePreferredDeck(e.target.value)}
                 className="mt-1 min-h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-800"
               >
                 <option value="todos">Todos los temas (reparto equilibrado)</option>
-                {RECALL_DECKS.map((deck) => (
-                  <option key={deck.id} value={deck.id}>
-                    {deck.shortLabel} · {deck.name}
-                  </option>
-                ))}
+                {RECALL_DECKS.map((deck) => {
+                  const isLocked = !canAccessDeck(deck.id, plan);
+                  return (
+                    <option key={deck.id} value={deck.id} disabled={isLocked}>
+                      {deck.shortLabel} · {deck.name}
+                      {isLocked ? ' (Pro)' : ''}
+                    </option>
+                  );
+                })}
               </select>
               {preferredDeck && (
                 <p className="mt-1 text-xs text-slate-500">
