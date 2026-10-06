@@ -32,11 +32,12 @@ describe('registro central de recuerdo', () => {
       'tema36-lote02',
       'tema36-lote03',
       'tema36-lote04',
+      'tema36-lote05',
       'tema38',
       'tema39',
       'tema40',
     ]);
-    expect(RECALL_DECKS.map((d) => d.shortLabel)).toEqual(['T35', 'T36·1', 'T36·2', 'T36·3', 'T36·4', 'T38', 'T39', 'T40']);
+    expect(RECALL_DECKS.map((d) => d.shortLabel)).toEqual(['T35', 'T36·1', 'T36·2', 'T36·3', 'T36·4', 'T36·5', 'T38', 'T39', 'T40']);
     expect(RECALL_DECKS.some((d) => d.tema === 37)).toBe(false);
   });
 
@@ -44,7 +45,7 @@ describe('registro central de recuerdo', () => {
     expect(RECALL_TOPICS.map((t) => t.id)).toEqual(['tema35', 'tema36', 'tema38', 'tema39', 'tema40']);
     const t36 = getRecallTopic('tema36')!;
     expect(t36.title).toBe('Tema 36 (todos los lotes)');
-    expect(t36.decks.map((d) => d.loteLabel)).toEqual(['Lote 1', 'Lote 2', 'Lote 3', 'Lote 4']);
+    expect(t36.decks.map((d) => d.loteLabel)).toEqual(['Lote 1', 'Lote 2', 'Lote 3', 'Lote 4', 'Lote 5']);
     expect(t36.count).toBe(t36.decks.reduce((n, d) => n + d.count, 0));
     expect(getRecallTopic('tema40')!.title).toBe(getRecallDeck('tema40').title);
     expect(toTopicId('tema36-lote02')).toBe('tema36');
@@ -60,11 +61,12 @@ describe('registro central de recuerdo', () => {
       'tema36-lote02': 79,
       'tema36-lote03': 78,
       'tema36-lote04': 78,
+      'tema36-lote05': 50,
       tema38: 198,
       tema39: 149,
       tema40: 213,
     });
-    expect(RECALL_TOTAL_CARDS).toBe(1023);
+    expect(RECALL_TOTAL_CARDS).toBe(1073);
   });
 
   it('los metadatos del registro coinciden con los del módulo de cada mazo', async () => {
@@ -114,7 +116,7 @@ describe('registro central de recuerdo', () => {
   });
 
   it('describeRecallCoverage resume los temas y lotes cargados', () => {
-    expect(describeRecallCoverage()).toBe('35, 36 (lotes 01 a 04), 38, 39 y 40');
+    expect(describeRecallCoverage()).toBe('35, 36 (lotes 01 a 05), 38, 39 y 40');
     expect(describeRecallCoverage([getRecallDeck('tema40')])).toBe('40');
     expect(describeRecallCoverage([getRecallDeck('tema36-lote01'), getRecallDeck('tema36-lote03')])).toBe('36 (lotes 01 y 03)');
   });
