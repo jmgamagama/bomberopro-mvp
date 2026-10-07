@@ -40,3 +40,8 @@ jobs:
 
       - name: Test
         run: npm run test
+
+      - name: SQL engine tests (PGlite)
+        run: |
+          npm i --no-save @electric-sql/pglite
+          node supabase/tests/concept_engine.pglite.mjs
