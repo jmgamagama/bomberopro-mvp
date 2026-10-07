@@ -69,8 +69,10 @@ await test('primer uso: sesión con conceptos nuevos (ficha y su recuperación d
   assert.equal(firstFicha.concept_id, 'C01', 'empieza por prioridad 1 en orden del documento');
   const fichaPos = firstFicha.pos, recPos = s.find(x => x.concept_id === 'C01' && x.motivo === 'NUEVO_RECUPERACION').pos;
   assert.ok(recPos - fichaPos >= 3, 'la recuperación va separada de la ficha');
-  // Nuevos: tope del 40 % de 20 min a 75 s = 6 conceptos.
-  assert.equal(s.filter(x => x.formato === 'ficha').length, 6);
+  // Sin repasos, el tiempo libre se llena: 20 min / 110 s por concepto nuevo = 10 conceptos.
+  assert.equal(s.filter(x => x.formato === 'ficha').length, 10);
+  const secs = s.reduce((a, x) => a + (x.formato === 'ficha' ? 75 : x.formato === 'test' ? 35 : 25), 0);
+  assert.ok(secs <= 1200 && secs >= 1200 * 0.8, `la sesión ocupa casi todo el tiempo pedido (${secs} s)`);
   // Las preguntas servidas tienen 3 opciones e incluyen la correcta.
   for (const x of s.filter(x => x.formato === 'test')) {
     assert.equal(x.options.length, 3); assert.ok(x.options.includes(x.correct_answer));
@@ -180,9 +182,9 @@ await test('deuda enorme y poco tiempo: 0 conceptos nuevos y los vencidos caben 
   assert.equal(s[0].motivo, 'ERROR_RECIENTE', 'los errores van primero');
 });
 
-await test('mucho tiempo: más conceptos nuevos, con tope del 40 %', async () => {
+await test('mucho tiempo: más conceptos nuevos hasta agotar el temario', async () => {
   const s = await session('00000000-0000-0000-0000-0000000000cc', 120, at(0));
-  assert.equal(s.filter(x => x.formato === 'ficha').length, 30, 'todos los nuevos caben (tope 38)');
+  assert.equal(s.filter(x => x.formato === 'ficha').length, 30, 'todos los nuevos caben (tope 65)');
 });
 
 await test('recuerdo libre sin pregunta: autoevaluación crea memoria', async () => {

@@ -293,10 +293,11 @@ END $$;
 -- 7) Planificador de sesión v1 (reloj inyectable) ---------------------------------------
 -- Decide QUÉ concepto, CÓMO (ficha / recuerdo / test) y con qué PRIORIDAD, dentro de un
 -- presupuesto de tiempo. Cada fila lleva su motivo para poder explicar la decisión.
--- Costes medios estimados: test 35 s, recuerdo 25 s, concepto nuevo (ficha + test) 75 s.
+-- Costes medios estimados: test 35 s, recuerdo 25 s, ficha 75 s (concepto nuevo completo,
+-- ficha + primera recuperación, ≈110 s).
 -- Control de deuda: los conceptos nuevos solo ocupan el tiempo que dejan libre los
--- repasos vencidos, con tope del 40 % de la sesión y 0 nuevos si hay más repasos
--- vencidos de los que caben hoy (primero se paga la deuda).
+-- repasos vencidos, y 0 nuevos si hay más repasos vencidos de los que caben hoy
+-- (primero se paga la deuda).
 CREATE OR REPLACE FUNCTION public._concept_session(p_user uuid, p_topic integer, p_minutes integer, p_now timestamptz)
 RETURNS TABLE(pos integer, concept_id text, formato text, motivo text, prioridad double precision,
               recuerdo_estimado double precision, dias_vencido double precision,
@@ -333,10 +334,12 @@ BEGIN
     SELECT d.*, sum(d.coste) OVER (ORDER BY d.prioridad DESC, d.concept_id) AS acum FROM due d
   ),
   params AS (
-    -- Control de deuda: si los vencidos no caben, se quedan los de mayor prioridad y no entra
-    -- ningún concepto nuevo; si caben, los nuevos usan el tiempo libre con tope del 40 %.
-    SELECT CASE WHEN coalesce(sum(d.coste), 0) > v_budget THEN 0
-                ELSE LEAST(floor((v_budget - coalesce(sum(d.coste), 0)) / 75.0), floor(0.4 * v_budget / 75.0))::int
+    -- Control de deuda: los vencidos entran primero. Si no caben, se quedan los de mayor
+    -- prioridad y no entra ningún concepto nuevo. Si sobra tiempo, se llena con conceptos
+    -- nuevos; cada uno cuesta su ficha (75 s) más su primera recuperación (≈35 s) = 110 s.
+    -- Así la deuda se autorregula: cuantos más repasos vencen, menos conceptos nuevos entran.
+    SELECT CASE WHEN coalesce(sum(d.coste), 0) >= v_budget THEN 0
+                ELSE floor((v_budget - coalesce(sum(d.coste), 0)) / 110.0)::int
            END AS new_cap
       FROM due d
   ),
