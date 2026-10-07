@@ -133,11 +133,12 @@ describe('guardado pendiente con la aplicación completa', () => {
     getSession.mockResolvedValue({ data: { session: next === 'B' ? account('B') : null }, error: null });
     await act(async () => authChanged?.(next === 'B' ? 'SIGNED_IN' : 'SIGNED_OUT', next === 'B' ? account('B') : null));
     if (next === 'demo') fireEvent.click(await screen.findByRole('button', { name: /probar sin cuenta/i }));
-    fireEvent.click(document.querySelector('#nav-btn-study')!);
     const expectedCount = next === 'B' ? '1' : String(INITIAL_QUESTIONS.length);
-    await waitFor(() => expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe(expectedCount));
 
+    // Resolver antes de navegar: la invalidación debe venir de la cuenta/demo,
+    // no de abandonar la pantalla de entrenamiento.
     await act(async () => resolveSecond({ data: [questionA, { ...questionA, id: '102' }], error: null }));
+    fireEvent.click(document.querySelector('#nav-btn-study')!);
     expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe(expectedCount);
     fireEvent.click(screen.getByRole('button', { name: /comenzar sesión automática/i }));
     expect(screen.queryByRole('heading', { name: questionA.question })).not.toBeInTheDocument();
