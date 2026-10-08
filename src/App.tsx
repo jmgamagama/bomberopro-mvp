@@ -759,6 +759,10 @@ export default function App() {
             sessionTotal={sessionTotal}
             onAnswer={handleAnswerSubmission}
             onNextQuestion={handleNextQuestion}
+            onSkipQuestion={() => {
+              if (activeQuestion) answeredQuestionIds.current.add(activeQuestion.id);
+              handleNextQuestion();
+            }}
             onNavigateHome={() => handleNavigate('dashboard')}
           />
         )}
