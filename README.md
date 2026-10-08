@@ -20,6 +20,18 @@ npm run dev
 La interfaz puede ejecutarse en modo local sin credenciales para trabajar en
 componentes, accesibilidad y pruebas.
 
+## Despliegue con backend
+
+Vercel usa `npm run build:deploy`, que exige `VITE_SUPABASE_URL` y
+`VITE_SUPABASE_ANON_KEY` antes de generar el frontend. Configúralas para cada
+entorno que despliegues, incluidos los previews. Utiliza la clave pública anon
+o publicable; nunca una clave secret/service_role en variables `VITE_*`.
+
+La comprobación detecta valores ausentes, URLs incompatibles y claves de servidor
+conocidas; no demuestra que las credenciales sean válidas ni que las migraciones,
+RPC o autenticación funcionen. Verifica esos puntos con un smoke test conectado.
+`npm run build` sigue disponible para compilar la interfaz local sin backend.
+
 ## Validación
 
 Antes de abrir un pull request:

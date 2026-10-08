@@ -94,6 +94,7 @@ export default function App() {
   const [loadingAuth, setLoadingAuth] = useState(true);
   const [showLegacyImport, setShowLegacyImport] = useState(false);
   const questionsRequest = useRef(0);
+  const trainingRequest = useRef(0);
   const authUserId = useRef<string | null>(null);
   
   // Current active train question and its selection reason
@@ -131,6 +132,7 @@ export default function App() {
       if (authUserId.current !== nextId) {
         authUserId.current = nextId;
         questionsRequest.current += 1;
+        trainingRequest.current += 1;
       }
       setSession(nextSession);
       setLoadingAuth(false);
@@ -156,6 +158,7 @@ export default function App() {
     if (loadingAuth) return;
     const userId = session?.user?.id ?? null;
     const request = ++questionsRequest.current;
+    trainingRequest.current += 1;
     setProgressOwner(userId);
     setMemoryStates(getSafeMemoryStates());
     setAttempts(getAttempts());
@@ -166,6 +169,7 @@ export default function App() {
     setSessionQuestionPool([]);
     setSessionAnsweredCount(0);
     setSessionCompleted(false);
+    sessionCompletedRef.current = false;
     setDbQuestions(userId ? [] : INITIAL_QUESTIONS);
     setDbQuestionsError(null);
     if (userId) void fetchQuestions(request);
@@ -240,6 +244,7 @@ export default function App() {
     
     // Clear targeted concept constraints when returning to general study or exiting train screen
     if (screen !== 'train') {
+      trainingRequest.current += 1;
       setActiveConceptId(null);
     }
 
@@ -253,17 +258,23 @@ export default function App() {
   const serverMode = Boolean(session?.user?.id) && !isDemoMode;
 
   const startTrainingSession = async (targetId: string | null) => {
+    const request = ++trainingRequest.current;
+    const owner = authUserId.current;
+    const isCurrentRequest = () => request === trainingRequest.current && owner === authUserId.current;
     let source = dbQuestions;
     // Cada sesión nueva pide una sesión nueva al servidor, para no repetir las mismas 20
     // y para incluir los repasos que hayan vencido desde la última vez.
     if (serverMode && !targetId && sessionCompletedRef.current) {
       try {
         source = await loadServerSession();
+        if (!isCurrentRequest()) return;
         setDbQuestions(source);
       } catch (err) {
+        if (!isCurrentRequest()) return;
         console.error('No se pudo pedir una sesión nueva:', err);
       }
     }
+    if (!isCurrentRequest()) return;
     sessionCompletedRef.current = false;
     const pool = (targetId
       ? source.filter(q => q.microconcept_id === targetId)
@@ -441,6 +452,7 @@ export default function App() {
   };
 
   const resetDemoState = () => {
+    trainingRequest.current += 1;
     setAttempts([]);
     setMemoryStates({});
     setSessionAnsweredCount(0);

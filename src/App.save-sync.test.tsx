@@ -98,6 +98,53 @@ describe('guardado pendiente con la aplicación completa', () => {
     await act(async () => resolvers[0]({ data: INITIAL_QUESTIONS.slice(0, 1), error: null }));
     expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe('2');
   });
+  it.each(['B', 'demo'])('una segunda sesión tardía de A no reemplaza las preguntas de %s', async next => {
+    let authChanged: ((event: string, session: unknown) => void) | undefined;
+    onAuthStateChange.mockImplementation(callback => {
+      authChanged = callback;
+      return { data: { subscription: { unsubscribe: vi.fn() } } };
+    });
+    const account = (id: string) => ({ user: { id } });
+    const questionA = { ...INITIAL_QUESTIONS[0], id: '101', question: 'Pregunta privada de A' };
+    const questionB = { ...INITIAL_QUESTIONS[0], id: '201', question: 'Pregunta de B' };
+    getSession.mockResolvedValue({ data: { session: account('A') }, error: null });
+    let sessionCalls = 0;
+    let resolveSecond!: (result: { data: typeof INITIAL_QUESTIONS; error: null }) => void;
+    rpcMock.mockImplementation((fn: string) => {
+      if (fn !== 'get_study_session') return Promise.resolve({ data: { status: 'saved', attempt_id: 1 }, error: null });
+      sessionCalls += 1;
+      if (sessionCalls === 2) return new Promise(resolve => { resolveSecond = resolve; });
+      return Promise.resolve({ data: [sessionCalls === 1 ? questionA : questionB], error: null });
+    });
+
+    render(<App />);
+    await waitFor(() => expect(sessionCalls).toBe(1));
+    fireEvent.click(document.querySelector('#nav-btn-study')!);
+    await waitFor(() => expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe('1'));
+    fireEvent.click(screen.getByRole('button', { name: /comenzar sesión automática/i }));
+    expect(screen.getByRole('heading', { name: questionA.question })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: questionA.correct_answer }));
+    fireEvent.click(document.querySelector('#conf-btn-alta')!);
+    fireEvent.click(screen.getByRole('button', { name: /confirmar respuesta/i }));
+    fireEvent.click(document.querySelector('#nav-btn-dashboard')!);
+    fireEvent.click(screen.getByRole('button', { name: /entrenar ahora/i }));
+    await waitFor(() => expect(resolveSecond).toBeTypeOf('function'));
+
+    getSession.mockResolvedValue({ data: { session: next === 'B' ? account('B') : null }, error: null });
+    await act(async () => authChanged?.(next === 'B' ? 'SIGNED_IN' : 'SIGNED_OUT', next === 'B' ? account('B') : null));
+    if (next === 'demo') fireEvent.click(await screen.findByRole('button', { name: /probar sin cuenta/i }));
+    const expectedCount = next === 'B' ? '1' : String(INITIAL_QUESTIONS.length);
+
+    // Resolver antes de navegar: la invalidación debe venir de la cuenta/demo,
+    // no de abandonar la pantalla de entrenamiento.
+    await act(async () => resolveSecond({ data: [questionA, { ...questionA, id: '102' }], error: null }));
+    fireEvent.click(document.querySelector('#nav-btn-study')!);
+    expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe(expectedCount);
+    fireEvent.click(screen.getByRole('button', { name: /comenzar sesión automática/i }));
+    expect(screen.queryByRole('heading', { name: questionA.question })).not.toBeInTheDocument();
+    if (next === 'B') expect(screen.getByRole('heading', { name: questionB.question })).toBeInTheDocument();
+  });
+
   it('renovar el token de la misma cuenta no cancela su sesión de preguntas', async () => {
     let authChanged: ((event: string, session: unknown) => void) | undefined;
     onAuthStateChange.mockImplementation(callback => {
