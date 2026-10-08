@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, BookOpen, CheckCircle2, XCircle, Loader2 } from 'lucide-react';
 import {
-  PILOT_TOPIC_ID,
+  ALL_TOPICS,
   STATE_LABELS,
   flushConceptEvents,
   isCorrectOption,
@@ -66,7 +66,7 @@ export default function ConceptStudy({ userId, onExit }: Props) {
   const shownAt = useRef(Date.now());
 
   const refreshProgress = async () => {
-    try { setProgress(await loadConceptProgress(PILOT_TOPIC_ID)); } catch { /* se muestra sin progreso */ }
+    try { setProgress(await loadConceptProgress(ALL_TOPICS)); } catch { /* se muestra sin progreso */ }
   };
 
   useEffect(() => {
@@ -84,7 +84,7 @@ export default function ConceptStudy({ userId, onExit }: Props) {
   const start = async () => {
     setPhase('cargando'); setError(null);
     try {
-      const data = await loadConceptSession(PILOT_TOPIC_ID, minutes);
+      const data = await loadConceptSession(ALL_TOPICS, minutes);
       if (data.length === 0) {
         setError('Hoy no tienes nada pendiente en este tema. Vuelve mañana.');
         setPhase('inicio');
@@ -153,7 +153,7 @@ export default function ConceptStudy({ userId, onExit }: Props) {
       <div className="mx-auto max-w-2xl">
         {header}
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <p className="text-xs font-bold uppercase tracking-wider text-indigo-600">Tema 40 · Piloto</p>
+          <p className="text-xs font-bold uppercase tracking-wider text-indigo-600">Estudiar hoy · Temas 35, 39 y 40</p>
           <h1 className="mt-1 text-xl font-bold text-slate-900">Procedimientos de trabajo CPEI: conducción y amianto</h1>
           <p className="mt-2 text-sm text-slate-600">
             Estudias conceptos, no preguntas sueltas. BomberoPro decide qué toca hoy: primero lo que estás a punto de olvidar, después conceptos nuevos.

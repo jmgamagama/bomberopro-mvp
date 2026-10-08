@@ -10,6 +10,8 @@ import { supabase } from './supabase';
 import { newAttemptKey } from './saveAttemptToServer';
 
 export const PILOT_TOPIC_ID = 40;
+/** null = sesión mezclada con todos los temas preparados (migración 13). */
+export const ALL_TOPICS: number | null = null;
 
 export type ConceptFormat = 'ficha' | 'recuerdo' | 'test';
 export type SelfGrade = 'no' | 'dude' | 'si';
@@ -148,14 +150,14 @@ export async function recordConceptEvent(
   return { saved: false, pending: pendingConceptEvents(userId) };
 }
 
-export async function loadConceptSession(topicId: number, minutes: number): Promise<ConceptSessionItem[]> {
+export async function loadConceptSession(topicId: number | null, minutes: number): Promise<ConceptSessionItem[]> {
   if (!supabase) return [];
   const { data, error } = await supabase.rpc('get_concept_session', { p_topic: topicId, p_minutes: minutes });
   if (error) throw error;
   return (data ?? []) as ConceptSessionItem[];
 }
 
-export async function loadConceptProgress(topicId: number): Promise<ConceptProgress | null> {
+export async function loadConceptProgress(topicId: number | null): Promise<ConceptProgress | null> {
   if (!supabase) return null;
   const { data, error } = await supabase.rpc('get_concept_progress', { p_topic: topicId });
   if (error) throw error;
