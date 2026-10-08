@@ -8,6 +8,7 @@ import { Question } from '../types';
 import { supabase } from '../lib/supabase';
 import { saveAttemptToServer, toLevelInt } from '../lib/saveAttemptToServer';
 import StudentConsultation from './StudentConsultationModal';
+import ReportQuestionButton from './ReportQuestionButton';
 import { shuffleAllOptions } from '../utils/shuffleOptions';
 
 interface TopicOption {
@@ -187,7 +188,8 @@ return h('div', { className: 'min-h-screen bg-slate-50 p-4' },
                  variant: 'button',
                  context: 'Estudio por Temas: Pregunta ' + (idx + 1),
                  defaultReason: 'Temario y estudio',
-               })
+               }),
+               h(ReportQuestionButton, { questionId: currentQuestion.id, onReported: nextQuestion })
              )
            ),
            h('div', { className: 'bg-white rounded-xl p-5 shadow mb-4' },

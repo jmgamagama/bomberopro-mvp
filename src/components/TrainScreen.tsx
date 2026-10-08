@@ -8,6 +8,7 @@ import { Brain, Sparkles, ChevronRight, CheckCircle2, XCircle, AlertTriangle, He
 import { Question, ConfidenceLevel, MemoryState, Microconcept } from '../types';
 import { countAnswerChange } from '../utils/attempt';
 import StudentConsultation from './StudentConsultationModal';
+import ReportQuestionButton from './ReportQuestionButton';
 
 interface TrainScreenProps {
   question: Question | null;
@@ -31,6 +32,8 @@ interface TrainScreenProps {
   };
   onNextQuestion: () => void;
   onNavigateHome: () => void;
+  /** Salta la pregunta actual sin contarla (tras reportarla). */
+  onSkipQuestion?: () => void;
 }
 
 export default function TrainScreen({
@@ -42,6 +45,7 @@ export default function TrainScreen({
   sessionTotal,
   onAnswer,
   onNextQuestion,
+  onSkipQuestion,
   onNavigateHome
 }: TrainScreenProps) {
   // Confidence state
@@ -216,6 +220,7 @@ export default function TrainScreen({
             context={`Entrenamiento: ${relatedConcept ? `Art. ${relatedConcept.article}` : 'Pregunta adaptativa'}`}
             defaultReason="Tests y simulacros"
           />
+          <ReportQuestionButton questionId={question?.id} onReported={onSkipQuestion ?? onNextQuestion} />
         </div>
       </div>
 
