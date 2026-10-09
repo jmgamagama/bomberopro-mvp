@@ -738,6 +738,10 @@ export default function App() {
             questions={dbQuestions}
             isLoading={dbQuestionsLoading}
             error={dbQuestionsError}
+            onRetry={() => {
+              const request = ++questionsRequest.current;
+              void fetchQuestions(request);
+            }}
             onStartTraining={() => handleNavigate('train')}
             onNavigateHome={() => handleNavigate('dashboard')}
           />
