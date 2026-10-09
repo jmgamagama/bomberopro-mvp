@@ -1,0 +1,34 @@
+name: Concept outbox acceptance
+on:
+  pull_request:
+    paths:
+      - 'src/lib/conceptEngine*'
+      - 'src/components/ConceptStudy.tsx'
+      - 'scripts/qa-concept-outbox.mjs'
+      - '.github/workflows/concept-outbox-acceptance.yml'
+permissions:
+  contents: read
+concurrency:
+  group: concept-acceptance-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  acceptance:
+    if: github.head_ref == 'codex/fix-concept-outbox-retention'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm install --no-save --package-lock=false playwright
+      - run: npx playwright install --with-deps chromium
+      - name: Verify PR frontend with labelled QA account against production backend
+        run: node scripts/qa-concept-outbox.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: concept-outbox-evidence
+          path: qa-concept-outbox.json
