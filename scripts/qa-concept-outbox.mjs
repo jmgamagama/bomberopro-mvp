@@ -65,7 +65,19 @@ try {
     await p.getByRole('button', { name: '10 min', exact: true }).click();
     await p.getByRole('button', { name: 'Empezar', exact: true }).click();
     report.stage = 'twin first ficha';
-    await p.getByRole('button', { name: 'Entendido', exact: true }).waitFor();
+    await p.getByRole('button', { name: /^(Entendido|Confirmar respuesta|Mostrar respuesta)$/ }).first().waitFor();
+  };
+  const submitEvent = async p => {
+    const understood = p.getByRole('button', { name: 'Entendido', exact: true });
+    if (await understood.isVisible()) { await understood.click(); return; }
+    if (await p.getByRole('radio').count()) {
+      await p.getByRole('radio').first().click();
+      await p.getByRole('button', { name: 'Creo que sí', exact: true }).click();
+      await p.getByRole('button', { name: 'Confirmar respuesta', exact: true }).click();
+      return;
+    }
+    await p.getByRole('button', { name: 'Mostrar respuesta', exact: true }).click();
+    await p.getByRole('button', { name: 'No lo sabía', exact: true }).click();
   };
   let twin = await context.newPage();
   await openSession(twin);
@@ -79,7 +91,7 @@ try {
   });
   await page.getByRole('button', { name: 'Entendido', exact: true }).click();
   await held;
-  await twin.getByRole('button', { name: 'Entendido', exact: true }).click();
+  await submitEvent(twin);
   for (let i = 0; i < 20; i++) {
     if (await page.evaluate(() => JSON.parse(localStorage.getItem('bomberopro:concept-events:v1') || '[]').length) === 2) break;
     await delay(250);
@@ -98,8 +110,8 @@ try {
   report.checks.push('Second tab enqueues during suspended RPC; closing and reopening preserves both events');
   await context.setOffline(true);
   await Promise.all([
-    page.getByRole('button', { name: 'Entendido', exact: true }).click(),
-    twin.getByRole('button', { name: 'Entendido', exact: true }).click(),
+    submitEvent(page),
+    submitEvent(twin),
   ]);
   await page.getByRole('status').filter({ hasText: /pendientes de confirmar/i }).waitFor();
   const queueLength = await page.evaluate(() => JSON.parse(localStorage.getItem('bomberopro:concept-events:v1') || '[]').length);
