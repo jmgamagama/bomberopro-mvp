@@ -21,70 +21,24 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
     setLoading(true);
     setMessage(null);
 
-    // Single "Entrar" flow: try to sign in first. If the account doesn't
-    // exist yet, create it automatically. The person never has to know or
-    // choose whether this is their first visit — one field, one button.
-    const signInResult = await supabase!.auth.signInWithPassword({ email, password });
-
-    if (!signInResult.error) {
-      // Session is set; the parent App component's onAuthStateChange
-      // listener picks it up automatically and swaps this screen out.
-      setLoading(false);
-      return;
-    }
-
-    if (signInResult.error.status === 429) {
-      setMessage({
-        type: 'error',
-        text: 'Demasiados intentos. Por favor, espera un momento antes de volver a intentarlo.',
-      });
-      focusEmail();
-      setLoading(false);
-      return;
-    }
-
-    // Sign-in failed for a reason other than rate limiting. Most likely this
-    // is a first-time visitor with no account yet, so attempt to create one
-    // with the same credentials they just typed.
-    const signUpResult = await supabase!.auth.signUp({ email, password });
-
-    if (signUpResult.error) {
-      let errorMessage = 'Ocurrió un error. Inténtalo de nuevo.';
-      if (signUpResult.error.status === 429) {
-        errorMessage = 'Demasiados intentos. Por favor, espera un momento antes de volver a intentarlo.';
-      } else if (signUpResult.error.message.toLowerCase().includes('password')) {
-        errorMessage = 'La contraseña debe tener al menos 6 caracteres.';
-      } else if (signUpResult.error.message.toLowerCase().includes('email')) {
-        errorMessage = 'El correo electrónico proporcionado no es válido.';
-      } else {
-        errorMessage = 'Correo o contraseña incorrectos.';
-      }
-      setMessage({ type: 'error', text: errorMessage });
-      focusEmail();
-    } else if (!signUpResult.data.session) {
-      // In Supabase with email enumeration protection, an existing account returns
-      // data.user with an empty identities array ([]). If identities is empty, it's an
-      // existing account with the wrong password.
-      const isExistingAccount =
-        signUpResult.data.user &&
-        Array.isArray(signUpResult.data.user.identities) &&
-        signUpResult.data.user.identities.length === 0;
-
-      if (isExistingAccount) {
-        setMessage({ type: 'error', text: 'Ese correo ya tiene cuenta y la contraseña no coincide. Pulsa «¿Has olvidado la contraseña?» para entrar con un enlace.' });
+    try {
+      const result = mode === 'crear'
+        ? await supabase!.auth.signUp({ email: email.trim(), password })
+        : await supabase!.auth.signInWithPassword({ email: email.trim(), password });
+      if (result.error) {
+        setMessage({ type: 'error', text: result.error.status === 429
+          ? 'Demasiados intentos. Espera un momento antes de volver a intentarlo.'
+          : mode === 'crear' ? 'No hemos podido crear la cuenta. Revisa el correo y la contraseña.'
+          : 'No hemos podido entrar. Revisa tus datos o solicita un enlace al correo.' });
         focusEmail();
-      } else {
-        // A new account was created, but email confirmation is required by Supabase before establishing a session.
-        setMessage({
-          type: 'success',
-          text: 'Cuenta creada. Revisa tu correo electrónico para confirmar tu cuenta y activar tu acceso.',
-        });
+      } else if (mode === 'crear' && !result.data.session) {
+        setMessage({ type: 'success', text: 'Revisa tu correo para confirmar el acceso. Si ya tenías cuenta, inicia sesión o solicita un enlace.' });
       }
+    } catch {
+      setMessage({ type: 'error', text: 'No hemos podido conectar. Comprueba tu conexión e inténtalo de nuevo.' });
+    } finally {
+      setLoading(false);
     }
-    // Otherwise a brand-new account was created and signed in automatically;
-    // onAuthStateChange takes over from here.
-
-    setLoading(false);
   };
 
   // Acceso sin contraseña: enlace de un solo uso al correo. Sirve para "he olvidado la contraseña".
@@ -96,16 +50,19 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
     }
     setLoading(true);
     setMessage(null);
-    const { error } = await supabase!.auth.signInWithOtp({
-      email,
-      options: { shouldCreateUser: false, emailRedirectTo: window.location.origin },
-    });
-    setLoading(false);
-    setMessage(
-      error
+    try {
+      const { error } = await supabase!.auth.signInWithOtp({
+        email: email.trim(),
+        options: { shouldCreateUser: false, emailRedirectTo: window.location.origin },
+      });
+      setMessage(error
         ? { type: 'error', text: error.status === 429 ? 'Demasiados intentos. Espera un minuto.' : 'No hemos podido enviar el enlace. Revisa el correo escrito.' }
-        : { type: 'success', text: 'Te hemos enviado un enlace a tu correo. Ábrelo en este ordenador y entrarás directamente.' },
-    );
+        : { type: 'success', text: 'Revisa tu correo y abre el enlace para entrar.' });
+    } catch {
+      setMessage({ type: 'error', text: 'No hemos podido conectar. Comprueba tu conexión e inténtalo de nuevo.' });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const switchMode = (next: 'entrar' | 'crear') => {
@@ -125,13 +82,13 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
         </div>
 
         <div className="p-8">
-          <div role="tablist" className="grid grid-cols-2 gap-1 p-1 mb-6 bg-slate-100 rounded-xl">
+          <div role="group" aria-label="Tipo de acceso" className="grid grid-cols-2 gap-1 p-1 mb-6 bg-slate-100 rounded-xl">
             {(['entrar', 'crear'] as const).map(m => (
               <button
                 key={m}
                 type="button"
-                role="tab"
-                aria-selected={mode === m}
+                aria-pressed={mode === m}
+                disabled={loading}
                 onClick={() => switchMode(m)}
                 className={`py-2.5 rounded-lg text-sm font-bold transition ${mode === m ? 'bg-white text-indigo-700 shadow' : 'text-slate-500 hover:text-slate-700'}`}
               >
@@ -185,6 +142,7 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
                 <button
                   type="button"
                   onClick={handleMagicLink}
+                  disabled={loading}
                   className="mt-2 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline underline-offset-2"
                 >
                   ¿Has olvidado la contraseña? Entra con un enlace al correo
