@@ -14,13 +14,13 @@ export function useRemoteConceptProgress(userId: string | null, active: boolean)
     context.current = { userId, active, key: context.current.key + 1 };
   }
   const request = useRef(0);
-  const [snapshot, setSnapshot] = useState<{ key: number; state: RemoteConceptState }>({ key: -1, state: { status: 'loading' } });
+  const [snapshot, setSnapshot] = useState<{ key: number; owner: string | null; state: RemoteConceptState }>({ key: -1, owner: null, state: { status: 'loading' } });
   const refresh = useCallback(async () => {
     if (!userId || !active) return;
     const key = context.current.key;
     const version = ++request.current;
     const current = () => context.current.key === key && version === request.current;
-    setSnapshot({ key, state: { status: 'loading' } });
+    setSnapshot({ key, owner: userId, state: { status: 'loading' } });
     try {
       if (!supabase) throw new Error('backend_not_configured');
       const { data: auth, error: authError } = await supabase.auth.getSession();
@@ -29,9 +29,9 @@ export function useRemoteConceptProgress(userId: string | null, active: boolean)
       const { data, error } = await supabase.rpc('get_concept_progress', { p_topic: null })
         .setHeader('Authorization', `Bearer ${auth.session.access_token}`);
       if (error) throw error;
-      if (current()) setSnapshot({ key, state: { status: 'ready', data: data as ConceptProgress | null } });
+      if (current()) setSnapshot({ key, owner: userId, state: { status: 'ready', data: data as ConceptProgress | null } });
     } catch {
-      if (current()) setSnapshot({ key, state: { status: 'error' } });
+      if (current()) setSnapshot({ key, owner: userId, state: { status: 'error' } });
     }
   }, [userId, active]);
 
@@ -58,5 +58,5 @@ export function useRemoteConceptProgress(userId: string | null, active: boolean)
       window.removeEventListener(SAVE_STATE_EVENT, saved);
     };
   }, [userId, active, refresh]);
-  return { state: snapshot.key === context.current.key ? snapshot.state : { status: 'loading' } as RemoteConceptState, refresh };
+  return { state: (snapshot.key === context.current.key || (!active && snapshot.owner === userId)) ? snapshot.state : { status: 'loading' } as RemoteConceptState, refresh };
 }
