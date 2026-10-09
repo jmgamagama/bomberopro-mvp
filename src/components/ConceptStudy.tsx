@@ -9,6 +9,7 @@ import {
   loadConceptSession,
   recordConceptEvent,
   rejectedConceptEvents,
+  supportsCrossTabCoordination,
   type Confidence,
   type ConceptProgress,
   type ConceptSessionItem,
@@ -160,6 +161,9 @@ export default function ConceptStudy({ userId, onExit }: Props) {
 
   const saveNote = (
     <>
+      {!supportsCrossTabCoordination() && <p role="status" className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-900">
+        Usa una sola pestaña de estudio en este navegador para mantener tus respuestas sincronizadas.
+      </p>}
       {volatileSaveFailure && <p role="alert" className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-xs text-red-900">
         No se pudo guardar una respuesta ni conservarla en este dispositivo. Comprueba el almacenamiento y la conexión antes de seguir.
       </p>}
