@@ -34,7 +34,8 @@ export default function TodayTraining({ questions, isLoading, error, onStartTrai
         ) : error ? (
           <div className="py-8 px-4 sm:px-6 bg-red-50 rounded-2xl border border-red-200 text-center space-y-3 max-w-sm mx-auto" role="alert">
             <p className="text-red-600 font-bold text-sm">No se pudo cargar la sesión</p>
-            <p className="text-red-500 text-xs">{error}</p>
+            <p className="text-red-700 text-sm">Comprueba tu conexión y vuelve a intentarlo.</p>
+            <button type="button" onClick={() => window.location.reload()} className="rounded-xl bg-indigo-700 px-4 py-3 text-sm font-semibold text-white">Reintentar</button>
           </div>
         ) : questions.length === 0 ? (
           <div className="py-8 px-4 sm:px-6 bg-emerald-50 rounded-2xl border border-emerald-200 text-center space-y-3 max-w-sm mx-auto" role="status">
