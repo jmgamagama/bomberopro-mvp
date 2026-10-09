@@ -28,7 +28,7 @@ const call = async (path, body, token) => {
   if (!response.ok) throw new Error('API ' + response.status + ': ' + (data.code || data.error_code || 'failed'));
   return data;
 };
-let browser;
+let browser, debugPage;
 const report = { date: new Date().toISOString(), scope: 'PR build + production backend, same-context racing tabs and isolated mobile context', checks: [] };
 try {
   for (let i = 0; i < 60; i++) { try { if ((await fetch(local)).ok) break; } catch {} await delay(500); }
@@ -40,6 +40,7 @@ try {
   browser = await chromium.launch({ headless: true });
   const context = await browser.newContext();
   const page = await context.newPage();
+  debugPage = page;
   page.setDefaultTimeout(30000);
   const login = async p => {
     await p.goto(local);
@@ -48,17 +49,22 @@ try {
     await p.locator('button[type=submit]').click();
     await p.getByRole('button', { name: /Estudiar hoy/i }).waitFor();
   };
+  report.stage = 'primary login';
   await login(page);
   await page.getByRole('button', { name: /Estudiar hoy/i }).click();
   await page.getByRole('button', { name: '10 min', exact: true }).click();
   await page.getByRole('button', { name: 'Empezar', exact: true }).click();
+  report.stage = 'primary first ficha';
   await page.getByRole('button', { name: 'Entendido', exact: true }).waitFor();
   const openSession = async p => {
+    debugPage = p;
+    report.stage = 'twin dashboard';
     await p.goto(local);
     await p.getByRole('button', { name: /Estudiar hoy/i }).waitFor();
     await p.getByRole('button', { name: /Estudiar hoy/i }).click();
     await p.getByRole('button', { name: '10 min', exact: true }).click();
     await p.getByRole('button', { name: 'Empezar', exact: true }).click();
+    report.stage = 'twin first ficha';
     await p.getByRole('button', { name: 'Entendido', exact: true }).waitFor();
   };
   let twin = await context.newPage();
@@ -150,7 +156,9 @@ try {
   report.checks.push('Independent mobile viewport context recovers same remote progress');
   report.pass = true;
 } catch (error) {
-  report.pass = false; report.error = error.message; process.exitCode = 1;
+  report.pass = false; report.error = error.message;
+  try { report.visiblePage = (await debugPage.locator('body').innerText()).slice(0,1600); } catch {}
+  process.exitCode = 1;
 } finally {
   if (browser) await browser.close();
   server.kill();
