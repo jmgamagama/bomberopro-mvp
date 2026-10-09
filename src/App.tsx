@@ -37,6 +37,7 @@ import MyReports from './components/MyReports';
 import ConceptStudy from './components/ConceptStudy';
 import SaveFailureBanner from './components/SaveFailureBanner';
 import SaveStatus from './components/SaveStatus';
+import { useRemoteConceptProgress } from './lib/useRemoteConceptProgress';
 import { useAttemptSync } from './lib/useAttemptSync';
 import { shuffleAllOptions } from './utils/shuffleOptions';
 
@@ -90,6 +91,8 @@ export default function App() {
   const [isDemoMode, setIsDemoMode] = useState(false);
   // Reenvía las respuestas pendientes al haber sesión y al recuperar la conexión.
   useAttemptSync(session?.user?.id);
+  const conceptOwner = session?.user?.id && !isDemoMode ? session.user.id : null;
+  const remoteConcepts = useRemoteConceptProgress(conceptOwner, currentScreen === 'dashboard');
   const [dbQuestions, setDbQuestions] = useState<Question[]>(INITIAL_QUESTIONS);
   const [dbQuestionsLoading, setDbQuestionsLoading] = useState(false);
   const [dbQuestionsError, setDbQuestionsError] = useState<string | null>(null);
@@ -229,7 +232,9 @@ export default function App() {
     }).length;
   };
 
-  const pendingCount = getPendingReviewsCount();
+  const pendingCount = conceptOwner
+    ? (remoteConcepts.state.status === 'ready' ? remoteConcepts.state.data?.vencidos ?? 0 : 0)
+    : getPendingReviewsCount();
 
   // Pool of questions backing the current training session (the full adaptive daily session,
   // or the subset for a single targeted microconcept), used to render session progress.
@@ -667,7 +672,7 @@ export default function App() {
             {pendingCount > 0 && currentScreen !== 'train' && (
               <button
                 id="btn-quick-train"
-                onClick={() => handleNavigate('train')}
+                onClick={() => handleNavigate(conceptOwner ? 'concept_t40' : 'train')}
                 className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold transition flex items-center gap-1 shadow"
               >
                 Repasar ({pendingCount})
@@ -715,6 +720,8 @@ export default function App() {
             </button>
           )}
           <Dashboard
+            remoteProgress={conceptOwner ? remoteConcepts.state : undefined}
+            onRetryProgress={() => { void remoteConcepts.refresh(); }}
             memoryStates={memoryStates}
             attempts={attempts}
             microconcepts={INITIAL_MICROCONCEPTS}
