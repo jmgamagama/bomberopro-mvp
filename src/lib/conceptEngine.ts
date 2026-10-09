@@ -65,7 +65,7 @@ interface PendingEvent { userId: string; event: ConceptEvent; tries: number; cre
 
 const QUEUE_KEY = 'bomberopro:concept-events:v1';
 let sending: Promise<unknown> = Promise.resolve();
-const confirmations = new Set<string>();
+const confirmations = new Map<string, string>();
 const confirmationKey = (userId: string, id: string) => `${userId}:${id}`;
 let lockUnavailable = false;
 export function supportsCrossTabCoordination(): boolean {
@@ -162,8 +162,8 @@ async function flush(userId: string): Promise<number> {
         p.event.p_client_event_id === item.event.p_client_event_id &&
         JSON.stringify(p.event) === JSON.stringify(item.event);
       if (res.ok) {
-        confirmations.add(confirmationKey(userId, item.event.p_client_event_id));
-        if (confirmations.size > 1000) confirmations.delete(confirmations.values().next().value!);
+        confirmations.set(confirmationKey(userId, item.event.p_client_event_id), JSON.stringify(item.event));
+        if (confirmations.size > 1000) confirmations.delete(confirmations.keys().next().value!);
         // El recibo procede de RPC. Se escribe antes de retirar el evento, para recuperación tras cierre.
         if (rememberReceipt(userId, item.event)) writeQueue(current.filter(p => !matches(p)));
         return;
@@ -217,7 +217,7 @@ export async function recordConceptEvent(
   return serial(userId, async () => {
     await flush(userId);
     const key = confirmationKey(userId, full.p_client_event_id);
-    const saved = confirmations.has(key) || receiptConfirms(userId, full);
+    const saved = confirmations.get(key) === JSON.stringify(full) || receiptConfirms(userId, full);
     confirmations.delete(key);
     if (!saved && !readQueue().some(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id)) {
       await mutateQueue(current => {
