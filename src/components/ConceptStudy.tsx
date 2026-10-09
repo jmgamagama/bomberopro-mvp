@@ -4,6 +4,7 @@ import {
   ALL_TOPICS,
   STATE_LABELS,
   flushConceptEvents,
+  pendingConceptEvents,
   isCorrectOption,
   loadConceptProgress,
   loadConceptSession,
@@ -74,7 +75,7 @@ export default function ConceptStudy({ userId, onExit }: Props) {
 
   const refreshProgress = async () => {
     const owner = userId;
-    try { const data = await loadConceptProgress(ALL_TOPICS); if (ownerRef.current === owner) setProgress(data); } catch { /* se muestra sin progreso */ }
+    try { const data = await loadConceptProgress(ALL_TOPICS, userId); if (ownerRef.current === owner) setProgress(data); } catch { /* se muestra sin progreso */ }
   };
 
   useEffect(() => {
@@ -89,9 +90,17 @@ export default function ConceptStudy({ userId, onExit }: Props) {
     };
     void retry();
     void refreshProgress();
+    const changed = (event: StorageEvent) => {
+      if (!active || !event.key?.startsWith('bomberopro:concept-events:v1')) return;
+      const pending = pendingConceptEvents(userId);
+      setPendingSave(pending);
+      setRejectedSave(rejectedConceptEvents(userId));
+      if (pending === 0) void refreshProgress();
+    };
+    window.addEventListener('storage', changed);
     window.addEventListener('online', retry);
     const timer = window.setInterval(() => { void retry(); }, 30_000);
-    return () => { active = false; window.clearInterval(timer); window.removeEventListener('online', retry); };
+    return () => { active = false; window.clearInterval(timer); window.removeEventListener('online', retry); window.removeEventListener('storage', changed); };
   }, [userId]);
 
   const item = items[idx];
@@ -104,7 +113,7 @@ export default function ConceptStudy({ userId, onExit }: Props) {
   const start = async () => {
     setPhase('cargando'); setError(null);
     try {
-      const data = await loadConceptSession(ALL_TOPICS, minutes);
+      const data = await loadConceptSession(ALL_TOPICS, minutes, userId);
       if (ownerRef.current !== userId) return;
       if (data.length === 0) {
         setError('Hoy no tienes nada pendiente en este tema. Vuelve mañana.');
