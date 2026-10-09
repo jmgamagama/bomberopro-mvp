@@ -1,15 +1,18 @@
 // @vitest-environment jsdom
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-const { rpc, getSession } = vi.hoisted(() => ({ rpc: vi.fn(), getSession: vi.fn() }));
-vi.mock('./supabase', () => ({ supabase: { rpc, auth: { getSession } } }));
+const { rpc, getSession, setHeader } = vi.hoisted(() => ({ rpc: vi.fn(), getSession: vi.fn(), setHeader: vi.fn() }));
+vi.mock('./supabase', () => ({ supabase: {
+  rpc: (...args: unknown[]) => { const response = rpc(...args); return { setHeader: (name: string, value: string) => { setHeader(name, value); return response; } }; },
+  auth: { getSession },
+} }));
 
 import { flushConceptEvents, isCorrectOption, isPermanentError, pendingConceptEvents, recordConceptEvent } from './conceptEngine';
 
 const U = 'user-1';
 
 describe('motor por conceptos (cliente)', () => {
-  beforeEach(() => { localStorage.clear(); rpc.mockReset(); getSession.mockReset(); getSession.mockResolvedValue({ data: { session: { user: { id: U } } }, error: null }); });
+  beforeEach(() => { localStorage.clear(); rpc.mockReset(); setHeader.mockReset(); getSession.mockReset(); getSession.mockResolvedValue({ data: { session: { user: { id: U }, access_token: 'token-A' } }, error: null }); });
 
   it('envía la evidencia y la quita de la cola cuando el servidor confirma', async () => {
     rpc.mockResolvedValue({ data: { status: 'saved', estado: 'aprendiendo' }, error: null });
@@ -89,6 +92,16 @@ describe('motor por conceptos (cliente)', () => {
     await Promise.all([first, second]);
     expect(pendingConceptEvents(U)).toBe(1);
     expect(JSON.parse(localStorage.getItem('bomberopro:concept-events:v1')!)[0].event.p_concept_id).toBe('B');
+  });
+
+  it('fija la autorización de A aunque la sesión cambie mientras se envía', async () => {
+    rpc.mockImplementation(() => {
+      getSession.mockResolvedValue({ data: { session: { user: { id: 'B' }, access_token: 'token-B' } }, error: null });
+      return Promise.resolve({ data: { status: 'saved' }, error: null });
+    });
+    const result = await recordConceptEvent(U, { p_concept_id: 'C1', p_kind: 'ficha' });
+    expect(result.saved).toBe(true);
+    expect(setHeader).toHaveBeenCalledWith('Authorization', 'Bearer token-A');
   });
 
   it('corrige por el texto de la opción', () => {
