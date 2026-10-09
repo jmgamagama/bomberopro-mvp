@@ -12,6 +12,8 @@ Construir una plataforma de estudio para oposiciones de bomberos que ayude al al
 ## Trabajo de Codex y otros agentes
 Codex puede analizar, proponer, implementar y revisar mejoras de producto y arquitectura. Las decisiones con impacto en datos, algoritmo de estudio o experiencia del alumno deben explicarse en un PR y quedar sujetas a revisión antes de fusionar. Claude, Antigravity y Codex colaboran sobre el mismo contrato; ningún agente es la fuente de verdad por su nombre.
 
+Consulta los documentos del comité cuando estén disponibles y confirma su vigencia; el protocolo compartido está en `comite/PRUEBA_TEMA40.md`. No interpretes el silencio como aprobación. Un subagente definido en `.claude/agents/` solo está disponible cuando Claude Code lo carga; una skill definida tampoco crea una ejecución automática.
+
 Para tareas independientes, usar ramas separadas y comunicar qué archivos toca cada agente. Evitar cambios concurrentes sobre la misma migración, componente o contrato de datos. No afirmar que otros agentes están ejecutando tareas si no se ha comprobado.
 
 ## Convenciones
@@ -33,6 +35,7 @@ Documentar resultados y limitaciones reales. Para documentación aislada, revisa
 ## Seguridad de contenido y datos
 - Las preguntas `borrador_ia` o `validado_automatico` no deben llegar al alumno hasta revisión humana. Verificar filtros en consultas, RPC y vistas, no solo en la interfaz.
 - No cargar datos en Supabase de producción ni modificar el esquema sin comprobar el contrato real, usar entorno de prueba y preparar una recuperación.
+- Antes de afirmar que un intento se guardó, comprobar el resultado observable y la fila correspondiente; `record_attempt` puede terminar sin insertar cuando la sesión no coincide con el usuario.
 - No exponer la clave `service_role` en el frontend, commits, registros o artefactos. Mantenerla solo en ejecución de servidor segura.
 - Mantener los IDs externos de preguntas separados de los IDs numéricos internos usados por RPC e intentos, salvo migración revisada.
 
