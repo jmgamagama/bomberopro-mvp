@@ -33,6 +33,7 @@ import StudyByTopic from './components/StudyByTopic';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer, toLevelInt } from './lib/saveAttemptToServer';
 import UpdateBanner from './components/UpdateBanner';
+import MyReports from './components/MyReports';
 import ConceptStudy from './components/ConceptStudy';
 import SaveFailureBanner from './components/SaveFailureBanner';
 import SaveStatus from './components/SaveStatus';
@@ -76,7 +77,7 @@ const SCREEN_TITLES = {
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
-    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40'
+    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'my_reports'
   >('dashboard');
 
   const [memoryStates, setMemoryStates] = useState<Record<string, MemoryState>>({});
@@ -238,7 +239,7 @@ export default function App() {
 
   // Handle switching screens
   const handleNavigate = (
-    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40'
+    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'my_reports'
   ) => {
     setCurrentScreen(screen);
     
@@ -706,6 +707,11 @@ export default function App() {
               <span className="shrink-0 rounded-xl bg-white px-4 py-2 text-sm font-bold text-indigo-700">Empezar</span>
             </button>
           )}
+          {!isDemoMode && session?.user?.id && supabase && (
+            <button type="button" id="btn-my-reports" onClick={() => handleNavigate('my_reports')} className="mb-4 text-sm font-semibold text-indigo-700 underline">
+              Mis reportes
+            </button>
+          )}
           <Dashboard
             memoryStates={memoryStates}
             attempts={attempts}
@@ -716,6 +722,10 @@ export default function App() {
             onSimulateDays={handleSimulateDays}
           />
           </>
+        )}
+
+        {currentScreen === 'my_reports' && session?.user?.id && !isDemoMode && (
+          <MyReports onExit={() => handleNavigate('dashboard')} />
         )}
 
         {currentScreen === 'concept_t40' && session?.user?.id && !isDemoMode && (
