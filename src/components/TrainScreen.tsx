@@ -100,9 +100,9 @@ export default function TrainScreen({
         aria-labelledby="train-no-questions-title"
       >
         <Sparkles className="w-12 h-12 text-indigo-500 mx-auto animate-bounce" aria-hidden="true" />
-        <h3 id="train-no-questions-title" className="text-lg font-bold text-slate-800">🎉 ¡Al día por ahora!</h3>
+        <h3 id="train-no-questions-title" className="text-lg font-bold text-slate-800">Sesión sin preguntas</h3>
         <p className="text-sm text-slate-500 max-w-md mx-auto">
-          No quedan microconceptos prioritarios pendientes de repaso inmediato. Has consolidado todo el temario en este momento.
+          No hay preguntas disponibles en esta sesión. Vuelve al inicio para elegir otra actividad.
         </p>
         <div className="flex justify-center gap-3 flex-wrap">
           <button
@@ -281,6 +281,7 @@ export default function TrainScreen({
                     key={idx}
                     id={`train-option-${idx}`}
                     disabled={isAnswered}
+                    aria-pressed={isSelected}
                     onClick={() => {
                       setAnswerChanges(current => current + countAnswerChange(selectedAnswer, option));
                       setSelectedAnswer(option);
@@ -305,6 +306,7 @@ export default function TrainScreen({
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
                   <button
                     id="conf-btn-baja"
+                    aria-pressed={selectedConfidence === 'baja'}
                     onClick={() => setSelectedConfidence('baja')}
                     className={`p-3 text-xs font-semibold rounded-xl border transition flex flex-col items-center justify-center gap-1 ${
                       selectedConfidence === 'baja'
@@ -317,6 +319,7 @@ export default function TrainScreen({
                   </button>
                   <button
                     id="conf-btn-media"
+                    aria-pressed={selectedConfidence === 'media'}
                     onClick={() => setSelectedConfidence('media')}
                     className={`p-3 text-xs font-semibold rounded-xl border transition flex flex-col items-center justify-center gap-1 ${
                       selectedConfidence === 'media'
@@ -329,6 +332,7 @@ export default function TrainScreen({
                   </button>
                   <button
                     id="conf-btn-alta"
+                    aria-pressed={selectedConfidence === 'alta'}
                     onClick={() => setSelectedConfidence('alta')}
                     className={`p-3 text-xs font-semibold rounded-xl border transition flex flex-col items-center justify-center gap-1 ${
                       selectedConfidence === 'alta'
@@ -358,16 +362,8 @@ export default function TrainScreen({
                     ? 'Selecciona tu confianza'
                     : 'Confirmar respuesta'}
                 </button>
-              ) : (
-                <button
-                  id="btn-next-question"
-                  onClick={onNextQuestion}
-                  className="w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-semibold text-xs transition shadow-md flex items-center justify-center gap-1"
-                >
-                  Siguiente Pregunta
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-              )}
+              ) : null
+              }
             </div>
           </div>
 
@@ -395,6 +391,16 @@ export default function TrainScreen({
                 <p className="font-semibold text-slate-800">Soporte y justificación legal:</p>
                 <p>{question.explanation}</p>
               </div>
+              <button
+                type="button"
+                id="btn-next-question"
+                onClick={onNextQuestion}
+                className="w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-semibold text-sm transition flex items-center justify-center gap-1"
+              >
+                Siguiente pregunta
+                <ChevronRight className="w-4 h-4" aria-hidden="true" />
+              </button>
+
             </div>
           )}
         </div>

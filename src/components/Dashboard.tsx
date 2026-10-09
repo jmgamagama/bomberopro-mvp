@@ -14,7 +14,7 @@ interface DashboardProps {
   attempts: Attempt[];
   microconcepts: Microconcept[];
   pendingCount: number;
-  onNavigate: (screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training') => void;
+  onNavigate: (screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic') => void;
   onReset: () => void;
   onSimulateDays: (days: number) => void;
 }
@@ -131,12 +131,8 @@ export default function Dashboard({
   let calibrationStatus = 'Pendiente de calibración';
   let calibrationColor = 'text-slate-500';
   let calibrationDesc = 'Responde preguntas con confianza alta para medir tu sesgo de seguridad.';
-  if (totalAttempts > 0) {
-    if (totalHigh === 0) {
-      calibrationStatus = 'Cautela Preventiva';
-      calibrationColor = 'text-indigo-500';
-      calibrationDesc = 'Estás respondiendo con prudencia extrema sin emplear confianza alta. Confía en tus certezas.';
-    } else if (calibrationIndex >= 90) {
+  if (totalHigh > 0) {
+    if (calibrationIndex >= 90) {
       calibrationStatus = '🎯 Calibración Perfecta';
       calibrationColor = 'text-emerald-500';
       calibrationDesc = 'Tu alta seguridad coincide con aciertos reales. Gran precisión cognitiva en tus juicios.';
@@ -323,7 +319,7 @@ export default function Dashboard({
                 <span className="text-[10px] text-slate-400 block font-mono">Diagnóstico Cognitivo:</span>
                 <span className={`text-xs font-extrabold ${calibrationColor}`}>{calibrationStatus}</span>
               </div>
-              <span className="text-xl font-black font-mono text-slate-700">{calibrationIndex}%</span>
+              <span className="text-xl font-black font-mono text-slate-700">{totalHigh > 0 ? `${calibrationIndex}%` : 'Sin datos'}</span>
             </div>
 
             <p className="text-[10px] text-slate-500 leading-normal bg-slate-50/50 p-2.5 rounded-lg italic min-h-[36px]">
@@ -463,10 +459,10 @@ export default function Dashboard({
         <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
           <button
             id="btn-nav-study"
-            onClick={() => onNavigate('today_training')}
+            onClick={() => onNavigate('study_by_topic')}
             className="w-full sm:w-auto px-4 py-2 text-xs font-semibold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-xl transition border border-indigo-100 text-center"
           >
-            Entrenamiento de Hoy
+            Estudiar por temas
           </button>
           <button
             id="btn-reset-all"

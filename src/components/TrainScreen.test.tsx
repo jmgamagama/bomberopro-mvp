@@ -38,7 +38,7 @@ describe('TrainScreen', () => {
         onNavigateHome={onNavigateHome}
       />,
     );
-    expect(screen.getByRole('status')).toHaveAccessibleName(/al día por ahora/i);
+    expect(screen.getByRole('status')).toHaveAccessibleName(/sesión sin preguntas/i);
     await user.click(screen.getByRole('button', { name: /volver al dashboard/i }));
     expect(onNavigateHome).toHaveBeenCalledOnce();
   });
@@ -71,6 +71,7 @@ describe('TrainScreen', () => {
     expect(container.querySelector('#train-header-row')).toHaveClass('flex-col', 'sm:flex-row');
     await user.click(screen.getByRole('button', { name: question.options![0] }));
     await user.click(screen.getByRole('button', { name: question.options![1] }));
+    expect(screen.getByRole('button', { name: question.options![1] })).toHaveAttribute('aria-pressed', 'true');
     await user.click(container.querySelector<HTMLButtonElement>('#conf-btn-alta')!);
     await user.click(screen.getByRole('button', { name: /confirmar respuesta/i }));
     expect(container.querySelector('#train-sidebar')).toHaveTextContent(INITIAL_MICROCONCEPTS[0].text);
@@ -84,6 +85,9 @@ describe('TrainScreen', () => {
       1,
     );
     expect(screen.getByText('Respuesta registrada')).toBeInTheDocument();
+    expect(container.querySelector('#train-feedback-box')).toHaveFocus();
+    await user.tab();
+    expect(screen.getByRole('button', { name: /siguiente pregunta/i })).toHaveFocus();
     await user.click(screen.getByRole('button', { name: /siguiente pregunta/i }));
     expect(onNextQuestion).toHaveBeenCalledOnce();
   });

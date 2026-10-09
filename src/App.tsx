@@ -55,6 +55,7 @@ const SCREEN_TITLES = {
   today_training: 'Entrenamiento de hoy',
   study_by_topic: 'Estudio por Temas',
   concept_t40: 'Estudiar hoy',
+  my_reports: 'Mis reportes',
 } as const;
 
   const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds, modo: 'adaptativo' | 'simulacro' = 'adaptativo', nivel: unknown = 1) => {
@@ -737,6 +738,10 @@ export default function App() {
             questions={dbQuestions}
             isLoading={dbQuestionsLoading}
             error={dbQuestionsError}
+            onRetry={() => {
+              const request = ++questionsRequest.current;
+              void fetchQuestions(request);
+            }}
             onStartTraining={() => handleNavigate('train')}
             onNavigateHome={() => handleNavigate('dashboard')}
           />

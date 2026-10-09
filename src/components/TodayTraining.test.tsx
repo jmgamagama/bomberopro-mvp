@@ -13,6 +13,7 @@ const renderTraining = (overrides = {}) => {
     isLoading: false,
     error: null,
     onStartTraining: vi.fn(),
+    onRetry: vi.fn(),
     onNavigateHome: vi.fn(),
     ...overrides,
   };
@@ -26,10 +27,13 @@ describe('TodayTraining', () => {
     expect(screen.queryByRole('button', { name: /comenzar sesión/i })).not.toBeInTheDocument();
   });
 
-  it('muestra el error recibido y permite volver al dashboard', async () => {
+  it('muestra una recuperación clara y permite reintentar o volver al dashboard', async () => {
     const user = userEvent.setup();
     const { props } = renderTraining({ questions: [], error: 'RPC no disponible' });
-    expect(screen.getByText('RPC no disponible')).toBeInTheDocument();
+    expect(screen.getByText(/comprueba tu conexión/i)).toBeInTheDocument();
+    expect(screen.queryByText('RPC no disponible')).not.toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /reintentar/i }));
+    expect(props.onRetry).toHaveBeenCalledOnce();
     await user.click(screen.getByRole('button', { name: /volver al dashboard/i }));
     expect(props.onNavigateHome).toHaveBeenCalledOnce();
   });
