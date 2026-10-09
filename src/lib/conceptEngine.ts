@@ -214,7 +214,7 @@ export async function recordConceptEvent(
       return { saved: res.ok, pending: res.ok ? 0 : 1, rejected: rejectedConceptEvents(userId), storageUnavailable: true };
     });
   }
-  return serial(async () => {
+  return serial(userId, async () => {
     await flush(userId);
     const key = confirmationKey(userId, full.p_client_event_id);
     const saved = confirmations.has(key) || receiptConfirms(userId, full);
