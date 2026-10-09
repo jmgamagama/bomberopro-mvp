@@ -114,6 +114,11 @@ try {
     submitEvent(twin),
   ]);
   await page.getByRole('status').filter({ hasText: /pendientes de confirmar/i }).waitFor();
+  report.stage = 'simultaneous offline queue';
+  for (let i = 0; i < 40; i++) {
+    if (await page.evaluate(() => JSON.parse(localStorage.getItem('bomberopro:concept-events:v1') || '[]').length) === 2) break;
+    await delay(250);
+  }
   const queueLength = await page.evaluate(() => JSON.parse(localStorage.getItem('bomberopro:concept-events:v1') || '[]').length);
   if (queueLength !== 2) throw new Error('Offline event not retained');
   report.checks.push('Simultaneous offline enqueue in two tabs retains both events');
