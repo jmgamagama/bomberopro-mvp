@@ -233,16 +233,24 @@ export async function recordConceptEvent(
   });
 }
 
-export async function loadConceptSession(topicId: number | null, minutes: number): Promise<ConceptSessionItem[]> {
+async function ownedRpc(name: string, args: Record<string, unknown>, userId?: string) {
+  if (!supabase) return { data: null, error: null };
+  if (!userId) return supabase.rpc(name, args);
+  const { data, error } = await supabase.auth.getSession();
+  if (error || data.session?.user?.id !== userId || !data.session.access_token) throw new Error('session_mismatch');
+  return supabase.rpc(name, args).setHeader('Authorization', `Bearer ${data.session.access_token}`);
+}
+
+export async function loadConceptSession(topicId: number | null, minutes: number, userId?: string): Promise<ConceptSessionItem[]> {
   if (!supabase) return [];
-  const { data, error } = await supabase.rpc('get_concept_session', { p_topic: topicId, p_minutes: minutes });
+  const { data, error } = await ownedRpc('get_concept_session', { p_topic: topicId, p_minutes: minutes }, userId);
   if (error) throw error;
   return (data ?? []) as ConceptSessionItem[];
 }
 
-export async function loadConceptProgress(topicId: number | null): Promise<ConceptProgress | null> {
+export async function loadConceptProgress(topicId: number | null, userId?: string): Promise<ConceptProgress | null> {
   if (!supabase) return null;
-  const { data, error } = await supabase.rpc('get_concept_progress', { p_topic: topicId });
+  const { data, error } = await ownedRpc('get_concept_progress', { p_topic: topicId }, userId);
   if (error) throw error;
   return data as ConceptProgress;
 }
