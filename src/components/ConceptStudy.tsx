@@ -124,6 +124,7 @@ export default function ConceptStudy({ userId, onExit }: Props) {
       setItems(data); setIdx(0); setStats({ tests: 0, aciertos: 0, nuevos: 0 }); resetItem();
       setPhase('sesion');
     } catch {
+      if (ownerRef.current !== userId) return;
       setError('No se ha podido preparar la sesión. Comprueba la conexión e inténtalo de nuevo.');
       setPhase('inicio');
     }
