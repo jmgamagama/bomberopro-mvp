@@ -14,7 +14,7 @@ interface DashboardProps {
   attempts: Attempt[];
   microconcepts: Microconcept[];
   pendingCount: number;
-  onNavigate: (screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training') => void;
+  onNavigate: (screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic') => void;
   onReset: () => void;
   onSimulateDays: (days: number) => void;
 }
@@ -132,11 +132,7 @@ export default function Dashboard({
   let calibrationColor = 'text-slate-500';
   let calibrationDesc = 'Responde preguntas con confianza alta para medir tu sesgo de seguridad.';
   if (totalHigh > 0) {
-    if (totalHigh === 0) {
-      calibrationStatus = 'Cautela Preventiva';
-      calibrationColor = 'text-indigo-500';
-      calibrationDesc = 'Estás respondiendo con prudencia extrema sin emplear confianza alta. Confía en tus certezas.';
-    } else if (calibrationIndex >= 90) {
+    if (calibrationIndex >= 90) {
       calibrationStatus = '🎯 Calibración Perfecta';
       calibrationColor = 'text-emerald-500';
       calibrationDesc = 'Tu alta seguridad coincide con aciertos reales. Gran precisión cognitiva en tus juicios.';
