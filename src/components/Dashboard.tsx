@@ -505,7 +505,7 @@ function RemoteDashboard({ state, onRetry, onNavigate }: {
         <p className="mt-1 text-sm text-slate-600">En tu cuenta, disponible en todos tus dispositivos. Incluye los temas preparados para estudiar por conceptos.</p>
         {state.status === 'loading' && <p role="status" className="mt-6 text-slate-600">Cargando el progreso de tu cuenta…</p>}
         {state.status === 'error' && <div className="mt-6">
-          <p role="alert" className="text-sm text-red-700">No se ha podido cargar tu progreso. Tus datos guardados siguen en tu cuenta.</p>
+          <p role="alert" className="text-sm text-red-700">No se ha podido cargar tu progreso. Comprueba la conexión y vuelve a intentarlo.</p>
           <button type="button" onClick={onRetry} className="mt-3 rounded-xl bg-indigo-600 px-4 py-2 font-semibold text-white">Reintentar</button>
         </div>}
         {state.status === 'ready' && (!progress || progress.total === 0) && <p className="mt-6 text-slate-600">Todavía no hay conceptos disponibles para estudiar. Puedes practicar por temas.</p>}
