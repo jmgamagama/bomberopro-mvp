@@ -413,6 +413,7 @@ export default function App() {
     results.forEach(res => {
             const state = currentStates[res.microconceptId] || createNewMemoryState(res.microconceptId);
       const engineResult = processAttempt(state, res.correct, res.confidence, res.responseTime, now);
+      currentStates[res.microconceptId] = engineResult.updatedState;
       saveMemoryState(engineResult.updatedState);
 
       const attemptRecord: Attempt = {
