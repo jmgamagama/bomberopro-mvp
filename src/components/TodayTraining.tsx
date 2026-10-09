@@ -8,10 +8,11 @@ interface TodayTrainingProps {
   isLoading: boolean;
   error: string | null;
   onStartTraining: () => void;
+  onRetry: () => void;
   onNavigateHome: () => void;
 }
 
-export default function TodayTraining({ questions, isLoading, error, onStartTraining, onNavigateHome }: TodayTrainingProps) {
+export default function TodayTraining({ questions, isLoading, error, onRetry, onStartTraining, onNavigateHome }: TodayTrainingProps) {
   return (
     <div className="space-y-6 max-w-4xl mx-auto mt-4 sm:mt-8" id="today-training-root" aria-busy={isLoading}>
       <div className="p-5 sm:p-8 bg-white border border-slate-100 rounded-2xl sm:rounded-3xl shadow-sm space-y-6 text-center">
@@ -35,7 +36,7 @@ export default function TodayTraining({ questions, isLoading, error, onStartTrai
           <div className="py-8 px-4 sm:px-6 bg-red-50 rounded-2xl border border-red-200 text-center space-y-3 max-w-sm mx-auto" role="alert">
             <p className="text-red-600 font-bold text-sm">No se pudo cargar la sesión</p>
             <p className="text-red-700 text-sm">Comprueba tu conexión y vuelve a intentarlo.</p>
-            <button type="button" onClick={() => window.location.reload()} className="rounded-xl bg-indigo-700 px-4 py-3 text-sm font-semibold text-white">Reintentar</button>
+            <button type="button" onClick={onRetry} className="rounded-xl bg-indigo-700 px-4 py-3 text-sm font-semibold text-white">Reintentar</button>
           </div>
         ) : questions.length === 0 ? (
           <div className="py-8 px-4 sm:px-6 bg-emerald-50 rounded-2xl border border-emerald-200 text-center space-y-3 max-w-sm mx-auto" role="status">
