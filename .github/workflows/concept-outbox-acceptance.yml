@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   acceptance:
-    if: github.head_ref == 'codex/fix-concept-outbox-retention'
+    if: startsWith(github.head_ref, 'codex/fix-concept-')
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

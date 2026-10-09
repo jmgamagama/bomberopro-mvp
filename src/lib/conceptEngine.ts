@@ -65,10 +65,45 @@ interface PendingEvent { userId: string; event: ConceptEvent; tries: number; cre
 
 const QUEUE_KEY = 'bomberopro:concept-events:v1';
 let sending: Promise<unknown> = Promise.resolve();
-const confirmations = new Set<string>();
+const confirmations = new Map<string, string>();
 const confirmationKey = (userId: string, id: string) => `${userId}:${id}`;
-function serial<T>(work: () => Promise<T>): Promise<T> {
-  const result = sending.then(work, work);
+let lockUnavailable = false;
+export function supportsCrossTabCoordination(): boolean {
+  return !lockUnavailable && typeof navigator !== 'undefined' && !!navigator.locks?.request;
+}
+function browserLock<T>(name: string, work: () => T | Promise<T>): Promise<T> {
+  if (!supportsCrossTabCoordination()) return Promise.resolve(work());
+  let started = false;
+  return navigator.locks.request(name, () => { started = true; return work(); }).catch(error => {
+    if (started) throw error;
+    lockUnavailable = true;
+    return work();
+  });
+}
+function mutateQueue<T>(work: (queue: PendingEvent[]) => T): Promise<T> {
+  // La cola contiene varias cuentas: el bloqueo de escritura debe abarcar todo el documento.
+  return browserLock(QUEUE_KEY + ':storage', () => work(readQueue()));
+}
+interface Receipt { userId: string; event: ConceptEvent; confirmedAt: number }
+const RECEIPTS_KEY = QUEUE_KEY + ':receipts';
+function readReceipts(): Receipt[] {
+  try { const data = JSON.parse(localStorage.getItem(RECEIPTS_KEY) || '[]'); return Array.isArray(data) ? data : []; } catch { return []; }
+}
+function receiptConfirms(userId: string, event: ConceptEvent): boolean {
+  return readReceipts().some(r => r.userId === userId && JSON.stringify(r.event) === JSON.stringify(event));
+}
+function rememberReceipt(userId: string, event: ConceptEvent): boolean {
+  try {
+    const entries = readReceipts().filter(r => r.confirmedAt > Date.now() - 7 * 86400000 &&
+      !(r.userId === userId && r.event.p_client_event_id === event.p_client_event_id));
+    entries.push({ userId, event, confirmedAt: Date.now() });
+    localStorage.setItem(RECEIPTS_KEY, JSON.stringify(entries.slice(-1000)));
+    return true;
+  } catch { return false; }
+}
+function serial<T>(userId: string, work: () => Promise<T>): Promise<T> {
+  const guarded = () => browserLock(QUEUE_KEY + ':send:' + userId, work);
+  const result = sending.then(guarded, guarded);
   sending = result.catch(() => undefined);
   return result;
 }
@@ -122,28 +157,31 @@ async function flush(userId: string): Promise<number> {
   const batch = readQueue().filter(p => p.userId === userId && !p.rejected);
   for (const item of batch) {
     const res = await send(userId, item.event);
-    const current = readQueue();
-    const matches = (p: PendingEvent) => p.userId === userId &&
-      p.event.p_client_event_id === item.event.p_client_event_id;
-    if (res.ok) {
-      confirmations.add(confirmationKey(userId, item.event.p_client_event_id));
-      if (confirmations.size > 1000) confirmations.delete(confirmations.values().next().value!);
-      writeQueue(current.filter(p => !matches(p)));
-      continue;
-    }
-    const queued = current.find(matches);
-    if (queued) {
-      queued.tries += 1;
-      if (res.permanent) queued.rejected = true;
-    }
-    writeQueue(current);
-    if (!res.permanent) break;
+    await mutateQueue(current => {
+      const matches = (p: PendingEvent) => p.userId === userId &&
+        p.event.p_client_event_id === item.event.p_client_event_id &&
+        JSON.stringify(p.event) === JSON.stringify(item.event);
+      if (res.ok) {
+        confirmations.set(confirmationKey(userId, item.event.p_client_event_id), JSON.stringify(item.event));
+        if (confirmations.size > 1000) confirmations.delete(confirmations.keys().next().value!);
+        // El recibo procede de RPC. Se escribe antes de retirar el evento, para recuperación tras cierre.
+        if (rememberReceipt(userId, item.event)) writeQueue(current.filter(p => !matches(p)));
+        return;
+      }
+      const queued = current.find(matches);
+      if (queued) {
+        queued.tries += 1;
+        if (res.permanent) queued.rejected = true;
+      }
+      writeQueue(current);
+    });
+    if (!res.ok && !res.permanent) break;
   }
   return pendingConceptEvents(userId);
 }
 
 export function flushConceptEvents(userId: string): Promise<number> {
-  return serial(() => flush(userId));
+  return serial(userId, () => flush(userId));
 }
 
 /** Guarda antes de esperar al envío; conserva las respuestas hasta confirmación explícita. */
@@ -152,20 +190,22 @@ export async function recordConceptEvent(
   event: Omit<ConceptEvent, 'p_client_event_id'> & { p_client_event_id?: string },
 ): Promise<{ saved: boolean; data?: any; pending: number; rejected: number; storageUnavailable?: boolean }> {
   const full: ConceptEvent = { ...event, p_client_event_id: event.p_client_event_id ?? newAttemptKey() };
-  const queue = readQueue();
-  const existing = queue.find(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id);
-  if (existing && JSON.stringify(existing.event) !== JSON.stringify(full)) {
-    return { saved: false, pending: pendingConceptEvents(userId), rejected: rejectedConceptEvents(userId) };
-  }
-  if (!existing) {
-    confirmations.delete(confirmationKey(userId, full.p_client_event_id));
-    queue.push({ userId, event: full, tries: 0, createdAt: new Date().toISOString() });
-    writeQueue(queue);
-  }
+  const conflict = await mutateQueue(queue => {
+    const existing = queue.find(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id);
+    if (existing && JSON.stringify(existing.event) !== JSON.stringify(full)) return true;
+    if (!existing && !receiptConfirms(userId, full)) {
+      confirmations.delete(confirmationKey(userId, full.p_client_event_id));
+      queue.push({ userId, event: full, tries: 0, createdAt: new Date().toISOString() });
+      writeQueue(queue);
+    }
+    return false;
+  });
+  if (conflict) return { saved: false, pending: pendingConceptEvents(userId), rejected: rejectedConceptEvents(userId) };
+  if (receiptConfirms(userId, full)) return { saved: true, pending: pendingConceptEvents(userId), rejected: rejectedConceptEvents(userId) };
   // No prometer guardado si el almacenamiento impidió encolar el evento.
   const retained = readQueue().some(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id);
   if (!retained) {
-    return serial(async () => {
+    return serial(userId, async () => {
       await flush(userId);
       if (pendingConceptEvents(userId) > rejectedConceptEvents(userId)) {
         return { saved: false, pending: pendingConceptEvents(userId) + 1, rejected: rejectedConceptEvents(userId), storageUnavailable: true };
@@ -174,15 +214,18 @@ export async function recordConceptEvent(
       return { saved: res.ok, pending: res.ok ? 0 : 1, rejected: rejectedConceptEvents(userId), storageUnavailable: true };
     });
   }
-  return serial(async () => {
+  return serial(userId, async () => {
     await flush(userId);
     const key = confirmationKey(userId, full.p_client_event_id);
-    const saved = confirmations.has(key);
+    const saved = confirmations.get(key) === JSON.stringify(full) || receiptConfirms(userId, full);
     confirmations.delete(key);
     if (!saved && !readQueue().some(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id)) {
-      const current = readQueue();
-      current.push({ userId, event: full, tries: 1, createdAt: new Date().toISOString() });
-      writeQueue(current);
+      await mutateQueue(current => {
+        if (!current.some(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id) && !receiptConfirms(userId, full)) {
+          current.push({ userId, event: full, tries: 1, createdAt: new Date().toISOString() });
+          writeQueue(current);
+        }
+      });
       const retained = readQueue().some(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id);
       return { saved: false, pending: Math.max(1, pendingConceptEvents(userId)), rejected: rejectedConceptEvents(userId), storageUnavailable: !retained };
     }
@@ -190,16 +233,24 @@ export async function recordConceptEvent(
   });
 }
 
-export async function loadConceptSession(topicId: number | null, minutes: number): Promise<ConceptSessionItem[]> {
+async function ownedRpc(name: string, args: Record<string, unknown>, userId?: string) {
+  if (!supabase) return { data: null, error: null };
+  if (!userId) return supabase.rpc(name, args);
+  const { data, error } = await supabase.auth.getSession();
+  if (error || data.session?.user?.id !== userId || !data.session.access_token) throw new Error('session_mismatch');
+  return supabase.rpc(name, args).setHeader('Authorization', `Bearer ${data.session.access_token}`);
+}
+
+export async function loadConceptSession(topicId: number | null, minutes: number, userId?: string): Promise<ConceptSessionItem[]> {
   if (!supabase) return [];
-  const { data, error } = await supabase.rpc('get_concept_session', { p_topic: topicId, p_minutes: minutes });
+  const { data, error } = await ownedRpc('get_concept_session', { p_topic: topicId, p_minutes: minutes }, userId);
   if (error) throw error;
   return (data ?? []) as ConceptSessionItem[];
 }
 
-export async function loadConceptProgress(topicId: number | null): Promise<ConceptProgress | null> {
+export async function loadConceptProgress(topicId: number | null, userId?: string): Promise<ConceptProgress | null> {
   if (!supabase) return null;
-  const { data, error } = await supabase.rpc('get_concept_progress', { p_topic: topicId });
+  const { data, error } = await ownedRpc('get_concept_progress', { p_topic: topicId }, userId);
   if (error) throw error;
   return data as ConceptProgress;
 }

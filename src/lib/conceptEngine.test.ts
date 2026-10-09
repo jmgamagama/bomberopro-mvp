@@ -87,7 +87,7 @@ describe('motor por conceptos (cliente)', () => {
     const first = recordConceptEvent(U, { p_concept_id: 'A', p_kind: 'ficha' });
     await vi.waitFor(() => expect(confirm).toBeTypeOf('function'));
     const second = recordConceptEvent(U, { p_concept_id: 'B', p_kind: 'ficha' });
-    expect(pendingConceptEvents(U)).toBe(2);
+    await vi.waitFor(() => expect(pendingConceptEvents(U)).toBe(2));
     confirm({ data: { status: 'saved' }, error: null });
     await Promise.all([first, second]);
     expect(pendingConceptEvents(U)).toBe(1);
@@ -111,6 +111,29 @@ describe('motor por conceptos (cliente)', () => {
     });
     const result = await recordConceptEvent(U, { p_concept_id: 'C1', p_kind: 'ficha' });
     expect(result.saved).toBe(false);
+  });
+
+  it('un recibo confirmado persiste al recargar el módulo y evita reenvío', async () => {
+    const event = { p_client_event_id: 'stable-id', p_concept_id: 'C1', p_kind: 'ficha' as const };
+    rpc.mockResolvedValue({ data: { status: 'saved' }, error: null });
+    expect((await recordConceptEvent(U, event)).saved).toBe(true);
+    vi.resetModules();
+    rpc.mockClear();
+    const fresh = await import('./conceptEngine');
+    expect((await fresh.recordConceptEvent(U, event)).saved).toBe(true);
+    expect(rpc).not.toHaveBeenCalled();
+  });
+
+  it('no confirma un contenido distinto por una clave confirmada en background', async () => {
+    rpc.mockRejectedValueOnce(new TypeError('offline'));
+    const event = { p_client_event_id: 'reused-id', p_concept_id: 'C1', p_kind: 'ficha' as const };
+    await recordConceptEvent(U, event);
+    rpc.mockResolvedValue({ data: { status: 'saved' }, error: null });
+    await flushConceptEvents(U);
+    rpc.mockResolvedValue({ data: null, error: { code: '23505' } });
+    const other = await recordConceptEvent(U, { ...event, p_concept_id: 'C2' });
+    expect(other.saved).toBe(false);
+    expect(other.rejected).toBe(1);
   });
 
   it('corrige por el texto de la opción', () => {
