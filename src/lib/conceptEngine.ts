@@ -61,10 +61,18 @@ export interface ConceptEvent {
   p_session_id?: string | null;
 }
 
-interface PendingEvent { userId: string; event: ConceptEvent; tries: number; createdAt: string }
+interface PendingEvent { userId: string; event: ConceptEvent; tries: number; createdAt: string; rejected?: boolean }
 
 const QUEUE_KEY = 'bomberopro:concept-events:v1';
-const MAX_TRIES = 8;
+let sending: Promise<unknown> = Promise.resolve();
+const confirmations = new Set<string>();
+const confirmationKey = (userId: string, id: string) => `${userId}:${id}`;
+function serial<T>(work: () => Promise<T>): Promise<T> {
+  const result = sending.then(work, work);
+  sending = result.catch(() => undefined);
+  return result;
+}
+
 
 function readQueue(): PendingEvent[] {
   try {
@@ -89,10 +97,18 @@ export function isPermanentError(code: string | undefined): boolean {
   return !!code && (/^2[23]/.test(code) || code === 'P0002');
 }
 
-async function send(event: ConceptEvent): Promise<{ ok: boolean; permanent?: boolean; data?: any }> {
+export function rejectedConceptEvents(userId: string): number {
+  return readQueue().filter(p => p.userId === userId && p.rejected).length;
+}
+
+async function send(userId: string, event: ConceptEvent): Promise<{ ok: boolean; permanent?: boolean; data?: any }> {
   if (!supabase) return { ok: false };
   try {
-    const { data, error } = await supabase.rpc('record_concept_event', event);
+    const { data: auth, error: authError } = await supabase.auth.getSession();
+    if (authError || auth.session?.user?.id !== userId || !auth.session.access_token) return { ok: false };
+    // Fijar el token de la cuenta comprobada para que un cambio A→B no cambie el dueño de esta petición.
+    const { data, error } = await supabase.rpc('record_concept_event', event)
+      .setHeader('Authorization', `Bearer ${auth.session.access_token}`);
     if (error) return { ok: false, permanent: isPermanentError((error as any).code) };
     const status = (data as any)?.status;
     return { ok: status === 'saved' || status === 'duplicate', data };
@@ -101,53 +117,77 @@ async function send(event: ConceptEvent): Promise<{ ok: boolean; permanent?: boo
   }
 }
 
-/** Envía en orden lo pendiente de esta cuenta. Devuelve cuántos quedan. */
-export async function flushConceptEvents(userId: string): Promise<number> {
-  const queue = readQueue();
-  const mine = queue.filter(p => p.userId === userId);
-  const others = queue.filter(p => p.userId !== userId);
-  const remaining: PendingEvent[] = [];
-  let blocked = false;
-  for (const item of mine) {
-    if (blocked) { remaining.push(item); continue; }
-    const res = await send(item.event);
-    if (res.ok || res.permanent) continue; // confirmado, o descartado por inválido
-    item.tries += 1;
-    if (item.tries < MAX_TRIES) remaining.push(item);
-    blocked = true; // conservar el orden: si falla la red, el resto esperará
+/** La cola se relee tras cada petición: ninguna respuesta borra eventos añadidos entretanto. */
+async function flush(userId: string): Promise<number> {
+  const batch = readQueue().filter(p => p.userId === userId && !p.rejected);
+  for (const item of batch) {
+    const res = await send(userId, item.event);
+    const current = readQueue();
+    const matches = (p: PendingEvent) => p.userId === userId &&
+      p.event.p_client_event_id === item.event.p_client_event_id;
+    if (res.ok) {
+      confirmations.add(confirmationKey(userId, item.event.p_client_event_id));
+      if (confirmations.size > 1000) confirmations.delete(confirmations.values().next().value!);
+      writeQueue(current.filter(p => !matches(p)));
+      continue;
+    }
+    const queued = current.find(matches);
+    if (queued) {
+      queued.tries += 1;
+      if (res.permanent) queued.rejected = true;
+    }
+    writeQueue(current);
+    if (!res.permanent) break;
   }
-  writeQueue([...others, ...remaining]);
-  return remaining.length;
+  return pendingConceptEvents(userId);
 }
 
-/**
- * Registra una evidencia. Primero la guarda en la cola local; después intenta enviarla.
- * Devuelve la respuesta del servidor si se confirmó, o null si quedó pendiente.
- */
+export function flushConceptEvents(userId: string): Promise<number> {
+  return serial(() => flush(userId));
+}
+
+/** Guarda antes de esperar al envío; conserva las respuestas hasta confirmación explícita. */
 export async function recordConceptEvent(
   userId: string,
   event: Omit<ConceptEvent, 'p_client_event_id'> & { p_client_event_id?: string },
-): Promise<{ saved: boolean; data?: any; pending: number }> {
+): Promise<{ saved: boolean; data?: any; pending: number; rejected: number; storageUnavailable?: boolean }> {
   const full: ConceptEvent = { ...event, p_client_event_id: event.p_client_event_id ?? newAttemptKey() };
   const queue = readQueue();
-  queue.push({ userId, event: full, tries: 0, createdAt: new Date().toISOString() });
-  writeQueue(queue);
-  const before = readQueue().filter(p => p.userId === userId).length;
-  // Si había pendientes anteriores, se envían en orden antes que esta.
-  if (before > 1) {
-    const left = await flushConceptEvents(userId);
-    return { saved: left === 0, pending: left };
+  const existing = queue.find(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id);
+  if (existing && JSON.stringify(existing.event) !== JSON.stringify(full)) {
+    return { saved: false, pending: pendingConceptEvents(userId), rejected: rejectedConceptEvents(userId) };
   }
-  const res = await send(full);
-  if (res.ok || res.permanent) {
-    writeQueue(readQueue().filter(p => p.event.p_client_event_id !== full.p_client_event_id));
-    return { saved: res.ok, data: res.data, pending: pendingConceptEvents(userId) };
+  if (!existing) {
+    confirmations.delete(confirmationKey(userId, full.p_client_event_id));
+    queue.push({ userId, event: full, tries: 0, createdAt: new Date().toISOString() });
+    writeQueue(queue);
   }
-  const q = readQueue();
-  const mine = q.find(p => p.event.p_client_event_id === full.p_client_event_id);
-  if (mine) mine.tries += 1;
-  writeQueue(q);
-  return { saved: false, pending: pendingConceptEvents(userId) };
+  // No prometer guardado si el almacenamiento impidió encolar el evento.
+  const retained = readQueue().some(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id);
+  if (!retained) {
+    return serial(async () => {
+      await flush(userId);
+      if (pendingConceptEvents(userId) > rejectedConceptEvents(userId)) {
+        return { saved: false, pending: pendingConceptEvents(userId) + 1, rejected: rejectedConceptEvents(userId), storageUnavailable: true };
+      }
+      const res = await send(userId, full);
+      return { saved: res.ok, pending: res.ok ? 0 : 1, rejected: rejectedConceptEvents(userId), storageUnavailable: true };
+    });
+  }
+  return serial(async () => {
+    await flush(userId);
+    const key = confirmationKey(userId, full.p_client_event_id);
+    const saved = confirmations.has(key);
+    confirmations.delete(key);
+    if (!saved && !readQueue().some(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id)) {
+      const current = readQueue();
+      current.push({ userId, event: full, tries: 1, createdAt: new Date().toISOString() });
+      writeQueue(current);
+      const retained = readQueue().some(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id);
+      return { saved: false, pending: Math.max(1, pendingConceptEvents(userId)), rejected: rejectedConceptEvents(userId), storageUnavailable: !retained };
+    }
+    return { saved, pending: pendingConceptEvents(userId), rejected: rejectedConceptEvents(userId) };
+  });
 }
 
 export async function loadConceptSession(topicId: number | null, minutes: number): Promise<ConceptSessionItem[]> {

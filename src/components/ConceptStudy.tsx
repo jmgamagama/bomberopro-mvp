@@ -8,6 +8,7 @@ import {
   loadConceptProgress,
   loadConceptSession,
   recordConceptEvent,
+  rejectedConceptEvents,
   type Confidence,
   type ConceptProgress,
   type ConceptSessionItem,
@@ -55,6 +56,8 @@ export default function ConceptStudy({ userId, onExit }: Props) {
   const [idx, setIdx] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [pendingSave, setPendingSave] = useState(0);
+  const [rejectedSave, setRejectedSave] = useState(0);
+  const [volatileSaveFailure, setVolatileSaveFailure] = useState(false);
   const [stats, setStats] = useState({ tests: 0, aciertos: 0, nuevos: 0 });
   const sessionId = useRef<string>(newAttemptKey());
 
@@ -70,8 +73,18 @@ export default function ConceptStudy({ userId, onExit }: Props) {
   };
 
   useEffect(() => {
-    void flushConceptEvents(userId).then(setPendingSave);
+    let active = true;
+    const retry = async () => {
+      const pending = await flushConceptEvents(userId);
+      if (!active) return;
+      setPendingSave(pending);
+      setRejectedSave(rejectedConceptEvents(userId));
+    };
+    void retry();
     void refreshProgress();
+    window.addEventListener('online', retry);
+    const timer = window.setInterval(() => { void retry(); }, 30_000);
+    return () => { active = false; window.clearInterval(timer); window.removeEventListener('online', retry); };
   }, [userId]);
 
   const item = items[idx];
@@ -102,6 +115,9 @@ export default function ConceptStudy({ userId, onExit }: Props) {
   const save = async (ev: Parameters<typeof recordConceptEvent>[1]) => {
     const r = await recordConceptEvent(userId, { ...ev, p_session_id: sessionId.current, p_response_ms: Date.now() - shownAt.current });
     setPendingSave(r.pending);
+    setRejectedSave(r.rejected);
+    if (r.storageUnavailable && !r.saved) setVolatileSaveFailure(true);
+    if (r.saved) void refreshProgress();
   };
 
   const next = () => {
@@ -142,10 +158,18 @@ export default function ConceptStudy({ userId, onExit }: Props) {
     </div>
   );
 
-  const saveNote = pendingSave > 0 && (
-    <p role="status" className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-900">
-      {pendingSave} {pendingSave === 1 ? 'respuesta guardada' : 'respuestas guardadas'} en este dispositivo; se enviarán solas en cuanto haya conexión.
-    </p>
+  const saveNote = (
+    <>
+      {volatileSaveFailure && <p role="alert" className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-xs text-red-900">
+        No se pudo guardar una respuesta ni conservarla en este dispositivo. Comprueba el almacenamiento y la conexión antes de seguir.
+      </p>}
+      {rejectedSave > 0 && <p role="alert" className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-xs text-red-900">
+        {rejectedSave} respuestas no se pudieron registrar. Se conservan en este dispositivo para revisión.
+      </p>}
+      {pendingSave > rejectedSave && !volatileSaveFailure && <p role="status" className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-900">
+        {pendingSave - rejectedSave} respuestas pendientes de confirmar. Se reintentará el envío al recuperar la conexión.
+      </p>}
+    </>
   );
 
   if (phase === 'inicio' || phase === 'cargando') {
