@@ -179,6 +179,13 @@ export async function recordConceptEvent(
     const key = confirmationKey(userId, full.p_client_event_id);
     const saved = confirmations.has(key);
     confirmations.delete(key);
+    if (!saved && !readQueue().some(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id)) {
+      const current = readQueue();
+      current.push({ userId, event: full, tries: 1, createdAt: new Date().toISOString() });
+      writeQueue(current);
+      const retained = readQueue().some(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id);
+      return { saved: false, pending: Math.max(1, pendingConceptEvents(userId)), rejected: rejectedConceptEvents(userId), storageUnavailable: !retained };
+    }
     return { saved, pending: pendingConceptEvents(userId), rejected: rejectedConceptEvents(userId) };
   });
 }
