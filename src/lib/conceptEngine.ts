@@ -65,6 +65,8 @@ interface PendingEvent { userId: string; event: ConceptEvent; tries: number; cre
 
 const QUEUE_KEY = 'bomberopro:concept-events:v1';
 let sending: Promise<unknown> = Promise.resolve();
+const confirmations = new Set<string>();
+const confirmationKey = (userId: string, id: string) => `${userId}:${id}`;
 function serial<T>(work: () => Promise<T>): Promise<T> {
   const result = sending.then(work, work);
   sending = result.catch(() => undefined);
@@ -103,8 +105,10 @@ async function send(userId: string, event: ConceptEvent): Promise<{ ok: boolean;
   if (!supabase) return { ok: false };
   try {
     const { data: auth, error: authError } = await supabase.auth.getSession();
-    if (authError || auth.session?.user?.id !== userId) return { ok: false };
-    const { data, error } = await supabase.rpc('record_concept_event', event);
+    if (authError || auth.session?.user?.id !== userId || !auth.session.access_token) return { ok: false };
+    // Fijar el token de la cuenta comprobada para que un cambio A→B no cambie el dueño de esta petición.
+    const { data, error } = await supabase.rpc('record_concept_event', event)
+      .setHeader('Authorization', `Bearer ${auth.session.access_token}`);
     if (error) return { ok: false, permanent: isPermanentError((error as any).code) };
     const status = (data as any)?.status;
     return { ok: status === 'saved' || status === 'duplicate', data };
@@ -122,6 +126,8 @@ async function flush(userId: string): Promise<number> {
     const matches = (p: PendingEvent) => p.userId === userId &&
       p.event.p_client_event_id === item.event.p_client_event_id;
     if (res.ok) {
+      confirmations.add(confirmationKey(userId, item.event.p_client_event_id));
+      if (confirmations.size > 1000) confirmations.delete(confirmations.values().next().value!);
       writeQueue(current.filter(p => !matches(p)));
       continue;
     }
@@ -158,13 +164,17 @@ export async function recordConceptEvent(
   // No prometer guardado si el almacenamiento impidió encolar el evento.
   const retained = readQueue().some(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id);
   if (!retained) {
-    const res = await send(userId, full);
-    return { saved: res.ok, pending: res.ok ? 0 : 1, rejected: rejectedConceptEvents(userId), storageUnavailable: true };
+    return serial(async () => {
+      const res = await send(userId, full);
+      return { saved: res.ok, pending: res.ok ? 0 : 1, rejected: rejectedConceptEvents(userId), storageUnavailable: true };
+    });
   }
   return serial(async () => {
     await flush(userId);
-    const remains = readQueue().some(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id);
-    return { saved: !remains, pending: pendingConceptEvents(userId), rejected: rejectedConceptEvents(userId) };
+    const key = confirmationKey(userId, full.p_client_event_id);
+    const saved = confirmations.has(key);
+    confirmations.delete(key);
+    return { saved, pending: pendingConceptEvents(userId), rejected: rejectedConceptEvents(userId) };
   });
 }
 
