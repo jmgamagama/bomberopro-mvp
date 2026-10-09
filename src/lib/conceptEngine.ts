@@ -158,6 +158,7 @@ export async function recordConceptEvent(
     return { saved: false, pending: pendingConceptEvents(userId), rejected: rejectedConceptEvents(userId) };
   }
   if (!existing) {
+    confirmations.delete(confirmationKey(userId, full.p_client_event_id));
     queue.push({ userId, event: full, tries: 0, createdAt: new Date().toISOString() });
     writeQueue(queue);
   }
@@ -165,6 +166,10 @@ export async function recordConceptEvent(
   const retained = readQueue().some(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id);
   if (!retained) {
     return serial(async () => {
+      await flush(userId);
+      if (pendingConceptEvents(userId) > rejectedConceptEvents(userId)) {
+        return { saved: false, pending: pendingConceptEvents(userId) + 1, rejected: rejectedConceptEvents(userId), storageUnavailable: true };
+      }
       const res = await send(userId, full);
       return { saved: res.ok, pending: res.ok ? 0 : 1, rejected: rejectedConceptEvents(userId), storageUnavailable: true };
     });
