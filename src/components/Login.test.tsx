@@ -19,7 +19,7 @@ import Login from './Login';
 async function fillAndSubmit(user: ReturnType<typeof userEvent.setup>, email = 'ana@example.com', password = 'secreto123') {
   await user.type(screen.getByLabelText(/correo electrónico/i), email);
   await user.type(screen.getByLabelText(/contraseña/i), password);
-  await user.click(screen.getByRole('button', { name: /^entrar$/i }));
+  await user.click(screen.getByRole('button', { name: /^(entrar|crear mi cuenta)$/i }));
 }
 
 describe('Login', () => {
@@ -39,15 +39,16 @@ describe('Login', () => {
     expect(signUp).not.toHaveBeenCalled();
   });
 
-  it('si la cuenta no existe, la crea automáticamente con las mismas credenciales', async () => {
+  it('crea una cuenta solamente al elegir Crear cuenta', async () => {
     signInWithPassword.mockResolvedValue({ data: { session: null }, error: { status: 400, message: 'Invalid login credentials' } });
     signUp.mockResolvedValue({ data: { session: { user: { id: '1' } } }, error: null });
     const user = userEvent.setup();
     render(<Login />);
 
+    await user.click(screen.getByRole('button', { name: /crear cuenta gratis/i }));
     await fillAndSubmit(user);
 
-    expect(signInWithPassword).toHaveBeenCalledWith({ email: 'ana@example.com', password: 'secreto123' });
+    expect(signInWithPassword).not.toHaveBeenCalled();
     await waitFor(() => expect(signUp).toHaveBeenCalledWith({ email: 'ana@example.com', password: 'secreto123' }));
   });
 
@@ -60,7 +61,7 @@ describe('Login', () => {
 
     await fillAndSubmit(user);
 
-    expect(await screen.findByText(/la contraseña no coincide/i)).toBeInTheDocument();
+    expect(await screen.findByText(/revisa tus datos/i)).toBeInTheDocument();
   });
 
   it('si la cuenta se crea pero requiere confirmación por correo, explica la confirmación claramente', async () => {
@@ -70,10 +71,21 @@ describe('Login', () => {
     const user = userEvent.setup();
     render(<Login />);
 
+    await user.click(screen.getByRole('button', { name: /crear cuenta gratis/i }));
     await fillAndSubmit(user);
 
     expect(await screen.findByRole('status')).toHaveTextContent(/revisa tu correo/i);
     expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+  });
+
+  it('recupera el formulario tras un fallo de conexión', async () => {
+    signInWithPassword.mockRejectedValue(new Error('offline'));
+    const user = userEvent.setup();
+    render(<Login />);
+    await fillAndSubmit(user);
+    expect(await screen.findByRole('alert')).toHaveTextContent(/comprueba tu conexión/i);
+    expect(screen.getByRole('button', { name: /^entrar$/i })).toBeEnabled();
+    expect(signUp).not.toHaveBeenCalled();
   });
 
   it('permite iniciar la demostración de solo lectura sin cuenta', async () => {
@@ -101,7 +113,8 @@ describe('Login', () => {
     expect(screen.getByRole('button', { name: /entrando/i })).toBeDisabled();
 
     resolveSignIn({ data: { session: null }, error: { status: 400, message: 'Invalid login credentials' } });
-    await waitFor(() => expect(signUp).toHaveBeenCalled());
+    await waitFor(() => expect(screen.getByRole('button', { name: /^entrar$/i })).toBeEnabled());
+    expect(signUp).not.toHaveBeenCalled();
   });
 
   it('traduce el rate limit de Supabase a un mensaje útil sin intentar crear cuenta', async () => {
