@@ -104,6 +104,15 @@ describe('motor por conceptos (cliente)', () => {
     expect(setHeader).toHaveBeenCalledWith('Authorization', 'Bearer token-A');
   });
 
+  it('no interpreta la desaparición local como confirmación remota', async () => {
+    rpc.mockImplementation(() => {
+      localStorage.clear();
+      return Promise.resolve({ data: null, error: { code: 'PGRST301' } });
+    });
+    const result = await recordConceptEvent(U, { p_concept_id: 'C1', p_kind: 'ficha' });
+    expect(result.saved).toBe(false);
+  });
+
   it('corrige por el texto de la opción', () => {
     expect(isCorrectOption({ correct_answer: 'Jefe de Parque' }, 'Jefe de Parque')).toBe(true);
     expect(isCorrectOption({ correct_answer: 'Jefe de Parque' }, 'Jefe de Guardia')).toBe(false);
