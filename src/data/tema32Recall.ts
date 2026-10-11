@@ -1,0 +1,363 @@
+/** Tema 32 recall cards — fase 2: generadas SOLO desde el texto oficial consolidado (BOE-A-2006-5515). Calidad: data/tema32/tema32_calidad.md. */
+
+export type Tema32RecallCard = {
+  id: string;
+  orden: number;
+  concepto: string;
+  respuesta: string;
+  fuente: string;
+  localizacion: string;
+  apartado: string;
+};
+
+export const TEMA32_RECALL_META = {
+  "tema": 32,
+  "title": "Tema 32 · CTE (RD 314/2006): objeto, ámbito y exigencias básicas SI y SUA",
+  "count": 38,
+  "source": "Fase 2 · texto consolidado BOE-A-2006-5515, Parte I (arts. 1-3, 11 y 12; últ. act. 15/06/2022)"
+} as const;
+
+export const TEMA32_RECALL_CARDS: Tema32RecallCard[] = [
+  {
+    "id": "CPEI-T32-OF-3929CA9C",
+    "orden": 10,
+    "concepto": "Según el art. 1.1 del CTE, ¿qué es el Código Técnico de la Edificación?",
+    "respuesta": "El marco normativo por el que se regulan las exigencias básicas de calidad que deben cumplir los edificios, incluidas sus instalaciones, para satisfacer los requisitos básicos de seguridad y habitabilidad",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 1. Objeto, apdo. 1. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a1",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 1. Objeto, apdo. 1",
+    "apartado": "Objeto y ámbito"
+  },
+  {
+    "id": "CPEI-T32-OF-4167F46E",
+    "orden": 20,
+    "concepto": "Según el art. 1.1 del CTE, ¿en desarrollo de qué ley se aprueba el Código Técnico de la Edificación?",
+    "respuesta": "La Ley 38/1999, de 5 de noviembre, de Ordenación de la Edificación",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 1. Objeto, apdo. 1. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a1",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 1. Objeto, apdo. 1",
+    "apartado": "Objeto y ámbito"
+  },
+  {
+    "id": "CPEI-T32-OF-EC8884D4",
+    "orden": 30,
+    "concepto": "Según el art. 1.2 del CTE, ¿qué seis requisitos básicos de la LOE desarrolla el Código Técnico?",
+    "respuesta": "«Seguridad estructural», «seguridad en caso de incendio», «seguridad de utilización y accesibilidad», «higiene, salud y protección del medio ambiente», «protección contra el ruido» y «ahorro de energía y aislamiento térmico»",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 1. Objeto, apdo. 2. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a1",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 1. Objeto, apdo. 2",
+    "apartado": "Objeto y ámbito"
+  },
+  {
+    "id": "CPEI-T32-OF-F4EDD02C",
+    "orden": 40,
+    "concepto": "Según el art. 1.3 del CTE, ¿qué requisitos funcionales sí se desarrollan en el propio CTE?",
+    "respuesta": "Los vinculados a la accesibilidad de personas con movilidad o comunicación reducidas",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 1. Objeto, apdo. 3. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a1",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 1. Objeto, apdo. 3",
+    "apartado": "Objeto y ámbito"
+  },
+  {
+    "id": "CPEI-T32-OF-A2A42DBD",
+    "orden": 50,
+    "concepto": "Según el art. 1.4 del CTE, ¿en qué fases deben cumplirse las exigencias básicas de los edificios?",
+    "respuesta": "En el proyecto, la construcción, el mantenimiento, la conservación y el uso de los edificios y sus instalaciones, así como en las intervenciones en los edificios existentes",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 1. Objeto, apdo. 4. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a1",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 1. Objeto, apdo. 4",
+    "apartado": "Objeto y ámbito"
+  },
+  {
+    "id": "CPEI-T32-OF-9CA66B7A",
+    "orden": 60,
+    "concepto": "Según el art. 2.1 del CTE, ¿a qué edificaciones se aplica el Código Técnico?",
+    "respuesta": "A las edificaciones públicas y privadas cuyos proyectos precisen disponer de la correspondiente licencia o autorización legalmente exigible",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 2. Ámbito de aplicación, apdo. 1. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a2",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 2. Ámbito de aplicación, apdo. 1",
+    "apartado": "Objeto y ámbito"
+  },
+  {
+    "id": "CPEI-T32-OF-D93373FD",
+    "orden": 70,
+    "concepto": "Según el art. 2.2 del CTE, ¿qué construcciones de nueva planta quedan excluidas de su aplicación?",
+    "respuesta": "Aquellas construcciones de sencillez técnica y de escasa entidad constructiva, que no tengan carácter residencial o público, ya sea de forma eventual o permanente, que se desarrollen en una sola planta y no afecten a la seguridad de las personas",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 2. Ámbito de aplicación, apdo. 2. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a2",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 2. Ámbito de aplicación, apdo. 2",
+    "apartado": "Objeto y ámbito"
+  },
+  {
+    "id": "CPEI-T32-OF-179791D7",
+    "orden": 80,
+    "concepto": "Según el art. 2.3 del CTE, en intervenciones en edificios existentes, ¿dónde se justifica su cumplimiento?",
+    "respuesta": "En el proyecto o en una memoria suscrita por técnico competente",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 2. Ámbito de aplicación, apdo. 3. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a2",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 2. Ámbito de aplicación, apdo. 3",
+    "apartado": "Objeto y ámbito"
+  },
+  {
+    "id": "CPEI-T32-OF-D2384186",
+    "orden": 90,
+    "concepto": "Según el art. 2.3 del CTE, en edificios existentes, ¿pueden reducirse las condiciones preexistentes menos exigentes que las de los documentos básicos?",
+    "respuesta": "No se podrán reducir las condiciones preexistentes relacionadas con las exigencias básicas, cuando dichas condiciones sean menos exigentes que las establecidas en los documentos básicos",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 2. Ámbito de aplicación, apdo. 3. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a2",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 2. Ámbito de aplicación, apdo. 3",
+    "apartado": "Objeto y ámbito"
+  },
+  {
+    "id": "CPEI-T32-OF-105DB4C1",
+    "orden": 100,
+    "concepto": "Según el art. 2.6 del CTE, ¿qué debe cumplirse en todo cambio de uso característico de un edificio existente?",
+    "respuesta": "Las exigencias básicas del CTE",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 2. Ámbito de aplicación, apdo. 6. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a2",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 2. Ámbito de aplicación, apdo. 6",
+    "apartado": "Objeto y ámbito"
+  },
+  {
+    "id": "CPEI-T32-OF-3599764C",
+    "orden": 110,
+    "concepto": "Según el art. 3.1 del CTE, ¿en cuántas partes se ordena el Código Técnico de la Edificación?",
+    "respuesta": "En dos partes",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 3. Contenido del CTE, apdo. 1. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a3",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 3. Contenido del CTE, apdo. 1",
+    "apartado": "Objeto y ámbito"
+  },
+  {
+    "id": "CPEI-T32-OF-07C5C6AA",
+    "orden": 120,
+    "concepto": "Según el art. 3.1.b) del CTE, ¿por qué documentos está formada la segunda parte del Código?",
+    "respuesta": "Por los denominados Documentos Básicos, en adelante DB",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 3. Contenido del CTE, apdo. 1.b. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a3",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 3. Contenido del CTE, apdo. 1.b",
+    "apartado": "Objeto y ámbito"
+  },
+  {
+    "id": "CPEI-T32-OF-4C76FC35",
+    "orden": 130,
+    "concepto": "Según el art. 11.1 del CTE, ¿en qué consiste el objetivo del requisito básico «Seguridad en caso de incendio»?",
+    "respuesta": "En reducir a límites aceptables el riesgo de que los usuarios de un edificio sufran daños derivados de un incendio de origen accidental",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 1. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a11",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 1",
+    "apartado": "Exigencias básicas SI"
+  },
+  {
+    "id": "CPEI-T32-OF-4E01499B",
+    "orden": 140,
+    "concepto": "Según el art. 11.3 del CTE, ¿qué Documento Básico especifica los parámetros de la seguridad en caso de incendio?",
+    "respuesta": "El Documento Básico DB-SI",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 3. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a11",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 3",
+    "apartado": "Exigencias básicas SI"
+  },
+  {
+    "id": "CPEI-T32-OF-3F52B627",
+    "orden": 150,
+    "concepto": "Según el art. 11.3 del CTE, ¿mediante qué reglamento cumplen las exigencias básicas de incendio los establecimientos de uso industrial?",
+    "respuesta": "Mediante el «Reglamento de seguridad contra incendios en los establecimientos industriales»",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 3. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a11",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 3",
+    "apartado": "Exigencias básicas SI"
+  },
+  {
+    "id": "CPEI-T32-OF-CFDA78FB",
+    "orden": 160,
+    "concepto": "Según el art. 11 del CTE, ¿qué riesgo limita la exigencia básica SI 1?",
+    "respuesta": "El riesgo de propagación del incendio por el interior del edificio, tanto al mismo edificio como a otros edificios colindantes",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.1. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a11",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.1",
+    "apartado": "Exigencias básicas SI"
+  },
+  {
+    "id": "CPEI-T32-OF-1FD543C1",
+    "orden": 170,
+    "concepto": "Según el art. 11 del CTE, ¿cómo se denomina la exigencia básica SI 1?",
+    "respuesta": "Propagación interior",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.1. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a11",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.1",
+    "apartado": "Exigencias básicas SI"
+  },
+  {
+    "id": "CPEI-T32-OF-3C9E503C",
+    "orden": 180,
+    "concepto": "Según el art. 11 del CTE, ¿cómo se denomina la exigencia básica SI 2?",
+    "respuesta": "Propagación exterior",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.2. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a11",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.2",
+    "apartado": "Exigencias básicas SI"
+  },
+  {
+    "id": "CPEI-T32-OF-75CE996E",
+    "orden": 190,
+    "concepto": "Según el art. 11 del CTE, ¿cómo se denomina la exigencia básica SI 3?",
+    "respuesta": "Evacuación de ocupantes",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.3. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a11",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.3",
+    "apartado": "Exigencias básicas SI"
+  },
+  {
+    "id": "CPEI-T32-OF-A83C8E40",
+    "orden": 200,
+    "concepto": "Según la exigencia básica SI 3 del CTE, ¿de qué medios dispondrá el edificio?",
+    "respuesta": "De los medios de evacuación adecuados para facilitar que los ocupantes puedan abandonarlo o alcanzar un lugar seguro dentro del mismo en condiciones de seguridad",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.3. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a11",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.3",
+    "apartado": "Exigencias básicas SI"
+  },
+  {
+    "id": "CPEI-T32-OF-F205C923",
+    "orden": 210,
+    "concepto": "Según el art. 11 del CTE, ¿cómo se denomina la exigencia básica SI 4?",
+    "respuesta": "Instalaciones de protección contra incendios",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.4. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a11",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.4",
+    "apartado": "Exigencias básicas SI"
+  },
+  {
+    "id": "CPEI-T32-OF-CA077B30",
+    "orden": 220,
+    "concepto": "Según la exigencia básica SI 4 del CTE, ¿para qué dispondrá el edificio de equipos e instalaciones adecuados?",
+    "respuesta": "Para hacer posible la detección, el control y la extinción del incendio, así como la transmisión de la alarma a los ocupantes",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.4. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a11",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.4",
+    "apartado": "Exigencias básicas SI"
+  },
+  {
+    "id": "CPEI-T32-OF-04DDC429",
+    "orden": 230,
+    "concepto": "Según el art. 11 del CTE, ¿cómo se denomina la exigencia básica SI 5?",
+    "respuesta": "Intervención de bomberos",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.5. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a11",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.5",
+    "apartado": "Exigencias básicas SI"
+  },
+  {
+    "id": "CPEI-T32-OF-E14AF7C2",
+    "orden": 240,
+    "concepto": "Según la exigencia básica SI 5 del CTE, ¿qué intervención se facilitará?",
+    "respuesta": "La intervención de los equipos de rescate y de extinción de incendios",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.5. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a11",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.5",
+    "apartado": "Exigencias básicas SI"
+  },
+  {
+    "id": "CPEI-T32-OF-1D251EB1",
+    "orden": 250,
+    "concepto": "Según el art. 11 del CTE, ¿cómo se denomina la exigencia básica SI 6?",
+    "respuesta": "Resistencia estructural al incendio",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.6. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a11",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.6",
+    "apartado": "Exigencias básicas SI"
+  },
+  {
+    "id": "CPEI-T32-OF-CA75278E",
+    "orden": 260,
+    "concepto": "Según la exigencia básica SI 6 del CTE, ¿durante cuánto tiempo mantendrá la estructura portante su resistencia al fuego?",
+    "respuesta": "Durante el tiempo necesario para que puedan cumplirse las anteriores exigencias básicas",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.6. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a11",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 11. Exigencias básicas de seguridad en caso de incendio (SI), apdo. 11.6",
+    "apartado": "Exigencias básicas SI"
+  },
+  {
+    "id": "CPEI-T32-OF-BDAECA3F",
+    "orden": 270,
+    "concepto": "Según el art. 12.1 del CTE, ¿en qué consiste el objetivo del requisito básico «Seguridad de utilización y accesibilidad»?",
+    "respuesta": "En reducir a límites aceptables el riesgo de que los usuarios sufran daños inmediatos en el uso previsto de los edificios",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 1. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a12",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 1",
+    "apartado": "Exigencias básicas SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-F713CF8E",
+    "orden": 280,
+    "concepto": "Según el art. 12 del CTE, ¿cómo se denomina la exigencia básica SUA 1?",
+    "respuesta": "Seguridad frente al riesgo de caídas",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.1. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a12",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.1",
+    "apartado": "Exigencias básicas SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-B1E619BE",
+    "orden": 290,
+    "concepto": "Según el art. 12 del CTE, ¿cómo se denomina la exigencia básica SUA 2?",
+    "respuesta": "Seguridad frente al riesgo de impacto o de atrapamiento",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.2. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a12",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.2",
+    "apartado": "Exigencias básicas SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-45DC0575",
+    "orden": 300,
+    "concepto": "Según el art. 12 del CTE, ¿cómo se denomina la exigencia básica SUA 3?",
+    "respuesta": "Seguridad frente al riesgo de aprisionamiento",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.3. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a12",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.3",
+    "apartado": "Exigencias básicas SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-A9202727",
+    "orden": 310,
+    "concepto": "Según el art. 12 del CTE, ¿qué exigencia básica es la «Seguridad frente al riesgo causado por iluminación inadecuada»?",
+    "respuesta": "Exigencia básica SUA 4",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.4. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a12",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.4",
+    "apartado": "Exigencias básicas SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-0D6A6C07",
+    "orden": 320,
+    "concepto": "Según la exigencia básica SUA 4 del CTE, ¿en qué zonas se limita el riesgo de daños por iluminación inadecuada?",
+    "respuesta": "En zonas de circulación de los edificios, tanto interiores como exteriores, incluso en caso de emergencia o de fallo del alumbrado normal",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.4. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a12",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.4",
+    "apartado": "Exigencias básicas SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-A3C5F3A0",
+    "orden": 330,
+    "concepto": "Según el art. 12 del CTE, ¿cómo se denomina la exigencia básica SUA 5?",
+    "respuesta": "Seguridad frente al riesgo causado por situaciones con alta ocupación",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.5. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a12",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.5",
+    "apartado": "Exigencias básicas SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-38C64B2F",
+    "orden": 340,
+    "concepto": "Según la exigencia básica SUA 6 del CTE, ¿en qué lugares se limita el riesgo de caídas que puedan derivar en ahogamiento?",
+    "respuesta": "En piscinas, depósitos, pozos y similares",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.6. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a12",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.6",
+    "apartado": "Exigencias básicas SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-D474641E",
+    "orden": 350,
+    "concepto": "Según el art. 12 del CTE, ¿qué exigencia básica es la «Seguridad frente al riesgo causado por vehículos en movimiento»?",
+    "respuesta": "Exigencia básica SUA 7",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.7. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a12",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.7",
+    "apartado": "Exigencias básicas SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-94C63E37",
+    "orden": 360,
+    "concepto": "Según la exigencia básica SUA 7 del CTE, ¿atendiendo a qué se limita el riesgo causado por vehículos en movimiento?",
+    "respuesta": "Atendiendo a los tipos de pavimentos y la señalización y protección de las zonas de circulación rodada y de las personas",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.7. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a12",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.7",
+    "apartado": "Exigencias básicas SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-87FA2B8F",
+    "orden": 370,
+    "concepto": "Según la exigencia básica SUA 8 del CTE, ¿qué riesgos causados por la acción del rayo se limitan?",
+    "respuesta": "El riesgo de electrocución y de incendio",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.8. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a12",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.8",
+    "apartado": "Exigencias básicas SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-F587D0EB",
+    "orden": 380,
+    "concepto": "Según el art. 12 del CTE, ¿cómo se denomina la exigencia básica SUA 9?",
+    "respuesta": "Accesibilidad",
+    "fuente": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.9. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a12",
+    "localizacion": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.9",
+    "apartado": "Exigencias básicas SUA"
+  }
+];

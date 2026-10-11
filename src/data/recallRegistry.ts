@@ -88,6 +88,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 32,
+      title: "Tema 32 · CTE (RD 314/2006): objeto, ámbito y exigencias básicas SI y SUA",
+      count: 38,
+      source: "Fase 2 · texto consolidado BOE-A-2006-5515, Parte I (arts. 1-3, 11 y 12; últ. act. 15/06/2022)",
+    },
+    load: () => import('./tema32Recall').then((m) => m.TEMA32_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 33,
       title: "Tema 33 · RIPCI (RD 513/2017): abastecimiento de agua, hidrantes, BIE y columna seca",
       count: 67,
