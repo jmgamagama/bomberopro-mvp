@@ -88,6 +88,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 30,
+      title: "Tema 30 · Planes especiales de Extremadura: INUNCAEX, TRANSCAEX, RADIOCAEX y PLASISMEX",
+      count: 87,
+      source: "Fase 3 · textos íntegros oficiales en juntaex.es de INUNCAEX (Decreto 39/2025), TRANSCAEX (Decreto 189/2019), RADIOCAEX (Decreto 200/2019) y PLASISMEX (Decreto 127/2009)",
+    },
+    load: () => import('./tema30Recall').then((m) => m.TEMA30_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 29,
       title: "Tema 29 · PLATERCAEX: objetivo, alcance, estructura y operatividad",
       count: 81,
