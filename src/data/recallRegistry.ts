@@ -89,6 +89,46 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 10,
+      lote: 'lote02',
+      title: "Tema 10 · lote 2: abastecimiento de agua y uso de BIE (NTP 420 y NTP 1035 del INSST)",
+      count: 13,
+      source: "Fase 5 · INSST, NTP 420 (1996) y NTP 1035 (2015), insst.es",
+    },
+    load: () => import('./tema10Lote02Recall').then((m) => m.TEMA10_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 12,
+      lote: 'lote02',
+      title: "Tema 12 · lote 2: métodos de extinción y uso de extintores (NTP 99 y NTP 536 del INSST)",
+      count: 23,
+      source: "Fase 5 · INSST, NTP 99 (1984) y NTP 536 (1999), insst.es",
+    },
+    load: () => import('./tema12Lote02Recall').then((m) => m.TEMA12_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 22,
+      lote: 'lote02',
+      title: "Tema 22 · lote 2: anclajes, líneas de vida, factor de caída y sistemas anticaídas (NTP 809, 843, 1170 y 1218 del INSST)",
+      count: 27,
+      source: "Fase 5 · INSST, NTP 809 (2008), NTP 843 (2009), NTP 1170 (2022) y NTP 1218 (2025), insst.es",
+    },
+    load: () => import('./tema22Lote02Recall').then((m) => m.TEMA22_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 34,
+      lote: 'lote03',
+      title: "Tema 34 · RD 164/2025 (RSCIEI), lote 3: requisitos constructivos (anexo II), extinción automática y control de humos (anexo III, 7 y 8) y zonas particulares (anexo IV)",
+      count: 35,
+      source: "Fase 5 · texto consolidado BOE-A-2025-7190 (reglamento, anexos II, III apdos. 7-8 y IV; últ. act. 20/12/2025)",
+    },
+    load: () => import('./tema34Lote03Recall').then((m) => m.TEMA34_LOTE03_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 28,
       title: "Tema 28 · Electricidad: riesgo eléctrico, redes y procedimientos (RD 614/2001, REBT y RLAT)",
       count: 29,
