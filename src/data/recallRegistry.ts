@@ -89,6 +89,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 8,
+      title: "Tema 8 · Teoría del fuego y explosiones (documentos del INSST)",
+      count: 25,
+      source: "Fase 4 · INSST, temas oficiales del proceso selectivo: «El riesgo de incendio (I)» (v. abril 2025) y «Explosiones» (2026), insst.es",
+    },
+    load: () => import('./tema8Recall').then((m) => m.TEMA8_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 14,
       title: "Tema 14 · Vehículos prioritarios y de servicios auxiliares: RGC, RGV y RD 159/2021",
       count: 24,
