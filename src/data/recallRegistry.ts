@@ -89,6 +89,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 14,
+      title: "Tema 14 · Vehículos prioritarios y de servicios auxiliares: RGC, RGV y RD 159/2021",
+      count: 24,
+      source: "Fase 3 · RGC (BOE-A-2003-23514) y RGV (BOE-A-1999-1826), últ. act. 01/10/2026; RD 159/2021 (BOE-A-2021-4194), últ. act. 20/12/2025",
+    },
+    load: () => import('./tema14Recall').then((m) => m.TEMA14_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 16,
       lote: 'lote02',
       title: "Tema 16 · Comunicaciones, lote 2: fundamentos, servicios, estaciones y modalidades (RR UIT 2024)",
