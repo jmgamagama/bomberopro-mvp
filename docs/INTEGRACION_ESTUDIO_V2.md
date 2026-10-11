@@ -47,3 +47,6 @@ Sale de `feat/temas-fase2-oficial`, ya incluida aquí: `git fetch release && git
 - Fusionado 3382d59 de `feat/temas-fase5-oficial` sin conflictos (lote 3 del tema 34, lote 2 del tema 22, lote 2 de los temas 10 y 12).
 - origin/main avanzó a 1cbdf5f (#102, Claude: registro de sesiones de estudio, migración 15). Fusionado sin conflictos; migración y lógica de sesiones sin tocar.
 - Registro: 2881 fichas, 47 mazos, 34 temas.
+
+## Migraciones = main
+Nuestra cadena traía 64543cb, que modificaba `supabase/migrations/06_revoke_anon_answer_rpcs.sql` (añadía el REVOKE de `get_random_exam_questions`). Para cumplir «las migraciones vienen con main», `supabase/` se ha dejado idéntico a origin/main. Ese REVOKE queda pendiente: debe proponerse como migración NUEVA en un PR aparte (no editar la 06).
