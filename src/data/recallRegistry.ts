@@ -89,6 +89,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 5,
+      title: "Tema 5 · Reglamento de Régimen Interno del CPEI de Badajoz",
+      count: 28,
+      source: "Fase 3 · Reglamento de Régimen Interno del CPEI, texto único vigente (BOP Badajoz nº 149, anuncio 5370/2012, 06/08/2012)",
+    },
+    load: () => import('./tema5Recall').then((m) => m.TEMA5_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 4,
       title: "Tema 4 · Estructura orgánica de la Diputación de Badajoz (acuerdo de 29/10/2025)",
       count: 28,
