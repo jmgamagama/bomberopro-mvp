@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
-import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut } from 'lucide-react';
+import React, { useState, useEffect, useLayoutEffect, useRef, lazy, Suspense } from 'react';
+import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles } from 'lucide-react';
 import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from './data/initialData';
 import { MemoryState, Question, ConfidenceLevel, Attempt } from './types';
 import {
@@ -36,6 +36,8 @@ import UpdateBanner from './components/UpdateBanner';
 import MyReports from './components/MyReports';
 import ConceptStudy from './components/ConceptStudy';
 import SaveFailureBanner from './components/SaveFailureBanner';
+import { hasCompletedOnboarding } from './utils/onboarding';
+import { isPlanesEnabled } from './config/features';
 import SaveStatus from './components/SaveStatus';
 import { useAttemptSync } from './lib/useAttemptSync';
 import { shuffleAllOptions } from './utils/shuffleOptions';
@@ -45,6 +47,13 @@ const getSafeMemoryStates = (): Record<string, MemoryState> => {
   const now = getCurrentDate();
   return Object.fromEntries(Object.entries(getMemoryStates()).map(([id, state]) => [id, normalizeSpacedEvidence(state, now)]));
 };
+
+// Pantallas de recuerdo: se cargan bajo demanda para no meter todos los mazos en el bundle inicial.
+const RecallHub = lazy(() => import('./components/RecallHub'));
+const DailySession = lazy(() => import('./components/DailySession'));
+const OrdenaPasos = lazy(() => import('./components/OrdenaPasos'));
+const Onboarding = lazy(() => import('./components/Onboarding'));
+const Planes = lazy(() => import('./components/Planes'));
 
 const SCREEN_TITLES = {
   dashboard: 'Dashboard',
@@ -56,6 +65,11 @@ const SCREEN_TITLES = {
   study_by_topic: 'Estudio por Temas',
   concept_t40: 'Estudiar hoy',
   my_reports: 'Mis reportes',
+  recuerdo: 'Recuerdo',
+  sesion_diaria: 'Sesión diaria',
+  onboarding: 'Bienvenida',
+  planes: 'Planes',
+  ordena_pasos: 'Ordena los pasos',
 } as const;
 
   const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds, modo: 'adaptativo' | 'simulacro' = 'adaptativo', nivel: unknown = 1) => {
@@ -78,8 +92,13 @@ const SCREEN_TITLES = {
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
-    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'my_reports'
-  >('dashboard');
+    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'onboarding' | 'planes'
+  >(() => (hasCompletedOnboarding() ? 'dashboard' : 'onboarding'));
+  // Página de planes: solo con VITE_FEATURE_PLANES=true (por defecto no aparece nada).
+  const planesEnabled = isPlanesEnabled();
+  const openPlanes = planesEnabled ? () => handleNavigate('planes') : undefined;
+  // La bienvenida abre la sesión diaria directamente en la primera ficha.
+  const [dailyAutoStart, setDailyAutoStart] = useState(false);
 
   const [memoryStates, setMemoryStates] = useState<Record<string, MemoryState>>({});
   const [attempts, setAttempts] = useState<Attempt[]>([]);
@@ -240,8 +259,9 @@ export default function App() {
 
   // Handle switching screens
   const handleNavigate = (
-    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'my_reports'
+    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'onboarding' | 'planes'
   ) => {
+    setDailyAutoStart(false);
     setCurrentScreen(screen);
     
     // Clear targeted concept constraints when returning to general study or exiting train screen
@@ -471,7 +491,7 @@ export default function App() {
     resetDemoState();
     setIsDemoMode(true);
     setDbQuestions(INITIAL_QUESTIONS);
-    setCurrentScreen('dashboard');
+    setCurrentScreen(hasCompletedOnboarding() ? 'dashboard' : 'onboarding');
   };
 
   const handleExitDemo = () => {
@@ -661,14 +681,50 @@ export default function App() {
             <BookOpen className="w-4 h-4" aria-hidden="true" />
             Por Temas
             </button>
+
+            <button
+              id="nav-btn-recuerdo"
+              onClick={() => handleNavigate('recuerdo')}
+              aria-current={currentScreen === 'recuerdo' ? 'page' : undefined}
+              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+                currentScreen === 'recuerdo' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
+              }`}
+            >
+              <Layers className="w-4 h-4" aria-hidden="true" />
+              Recuerdo
+            </button>
+            <button
+              id="nav-btn-sesion-diaria"
+              onClick={() => handleNavigate('sesion_diaria')}
+              aria-current={currentScreen === 'sesion_diaria' || currentScreen === 'ordena_pasos' ? 'page' : undefined}
+              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+                currentScreen === 'sesion_diaria' || currentScreen === 'ordena_pasos' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
+              }`}
+            >
+              <Flame className="w-4 h-4" aria-hidden="true" />
+              Sesión diaria
+            </button>
+            {planesEnabled && (
+              <button
+                id="nav-btn-planes"
+                onClick={() => handleNavigate('planes')}
+                aria-current={currentScreen === 'planes' ? 'page' : undefined}
+                className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+                  currentScreen === 'planes' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
+                }`}
+              >
+                <Sparkles className="w-4 h-4" aria-hidden="true" />
+                Planes
+              </button>
+            )}
           </nav>
 
           <div className="flex items-center gap-2">
-            {pendingCount > 0 && currentScreen !== 'train' && (
+            {pendingCount > 0 && currentScreen !== 'train' && currentScreen !== 'onboarding' && (
               <button
                 id="btn-quick-train"
                 onClick={() => handleNavigate('train')}
-                className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold transition flex items-center gap-1 shadow"
+                className="min-h-11 px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold transition flex items-center gap-1 shadow"
               >
                 Repasar ({pendingCount})
               </button>
@@ -676,7 +732,7 @@ export default function App() {
             <button
               onClick={handleLogout}
               aria-label="Cerrar sesión"
-              className="px-2.5 py-1.5 text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-lg text-xs font-semibold transition flex items-center gap-1"
+              className="min-h-11 min-w-11 px-2.5 py-1.5 text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-lg text-xs font-semibold transition flex items-center justify-center gap-1"
               title="Cerrar sesión"
             >
               <LogOut className="w-4 h-4" aria-hidden="true" />
@@ -822,6 +878,42 @@ export default function App() {
           />
         )}
 
+        <Suspense fallback={<p role="status" className="p-6 text-sm text-slate-500">Cargando fichas…</p>}>
+          {currentScreen === 'onboarding' && (
+            <Onboarding
+              onStart={() => {
+                handleNavigate('sesion_diaria');
+                setDailyAutoStart(true);
+              }}
+              onSkip={() => handleNavigate('dashboard')}
+            />
+          )}
+
+          {planesEnabled && currentScreen === 'planes' && (
+            <Planes onNavigateHome={() => handleNavigate('dashboard')} />
+          )}
+
+          {currentScreen === 'recuerdo' && (
+            <RecallHub onNavigateHome={() => handleNavigate('dashboard')} onOpenPlanes={openPlanes} />
+          )}
+
+          {currentScreen === 'sesion_diaria' && (
+            <DailySession
+              autoStart={dailyAutoStart}
+              onOpenPlanes={openPlanes}
+              onNavigateHome={() => handleNavigate('dashboard')}
+              onOpenOrdenaPasos={() => handleNavigate('ordena_pasos')}
+            />
+          )}
+
+          {currentScreen === 'ordena_pasos' && (
+            <OrdenaPasos
+              onNavigateHome={() => handleNavigate('dashboard')}
+              onBackToDaily={() => handleNavigate('sesion_diaria')}
+            />
+          )}
+        </Suspense>
+
         {currentScreen === 'study_by_topic' && (isDemoMode || !supabase) && (
           <section aria-label="Estudio por temas no disponible en la demostración" className="rounded-xl border border-slate-200 bg-white p-6">
             <h2 className="text-lg font-bold text-slate-900">Estudio por temas</h2>
@@ -837,11 +929,12 @@ export default function App() {
         )}
       </main>
 
+      {currentScreen !== 'onboarding' && (
       <nav
         aria-label="Navegación móvil"
         className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_18px_rgba(15,23,42,0.08)] backdrop-blur-md md:hidden"
       >
-        <div className="mx-auto grid max-w-lg grid-cols-6 px-1">
+        <div className="mx-auto grid max-w-lg grid-cols-8 px-1">
           <button
             type="button"
             aria-current={currentScreen === 'dashboard' ? 'page' : undefined}
@@ -908,8 +1001,33 @@ export default function App() {
           <BookOpen className="h-5 w-5" aria-hidden="true" />
           Temas
           </button>
+
+          <button
+            type="button"
+            aria-current={currentScreen === 'recuerdo' ? 'page' : undefined}
+            onClick={() => handleNavigate('recuerdo')}
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+              currentScreen === 'recuerdo' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
+            }`}
+          >
+            <Layers className="h-5 w-5" aria-hidden="true" />
+            Recuerdo
+          </button>
+
+          <button
+            type="button"
+            aria-current={currentScreen === 'sesion_diaria' || currentScreen === 'ordena_pasos' ? 'page' : undefined}
+            onClick={() => handleNavigate('sesion_diaria')}
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+              currentScreen === 'sesion_diaria' || currentScreen === 'ordena_pasos' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
+            }`}
+          >
+            <Flame className="h-5 w-5" aria-hidden="true" />
+            Diaria
+          </button>
         </div>
       </nav>
+      )}
 
       {/* Footer Branding Area */}
       <footer className="border-t border-slate-100 py-6 bg-white text-slate-600 text-xs mt-12" id="mira-footer">
@@ -919,7 +1037,7 @@ export default function App() {
             <p className="text-[10px] text-slate-500 mt-0.5">Basado en Microconceptos, Interrogación activa, Repetición espaciada y Aseguramiento del dominio real.</p>
           </div>
           <div className="flex items-center gap-4">
-            <span className="font-mono text-[10px]">v1.0 (PROTOTIPO SEGURO LOCAL)</span>
+            <span className="font-mono text-[10px]">v1.0</span>
           </div>
         </div>
       </footer>

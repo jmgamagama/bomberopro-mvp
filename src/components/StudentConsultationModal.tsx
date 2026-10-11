@@ -312,7 +312,7 @@ export default function StudentConsultation({
             ref={triggerRef}
             type="button"
             onClick={() => setIsOpen(true)}
-            className="w-full sm:w-auto shrink-0 px-4 py-2.5 text-xs font-bold text-indigo-600 hover:text-indigo-700 bg-white hover:bg-indigo-50/80 border border-indigo-200 hover:border-indigo-300 rounded-xl shadow-2xs transition flex items-center justify-center gap-1.5 cursor-pointer"
+            className="min-h-11 w-full sm:w-auto shrink-0 px-4 py-2.5 text-xs font-bold text-indigo-600 hover:text-indigo-700 bg-white hover:bg-indigo-50/80 border border-indigo-200 hover:border-indigo-300 rounded-xl shadow-2xs transition flex items-center justify-center gap-1.5 cursor-pointer"
           >
             <Mail className="w-3.5 h-3.5" aria-hidden="true" />
             <span>Consultar al equipo</span>
