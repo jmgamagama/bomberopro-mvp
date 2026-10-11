@@ -88,6 +88,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 1,
+      title: "Tema 1 · La Constitución Española de 1978: Título Preliminar y Título I",
+      count: 129,
+      source: "Fase 2 · texto consolidado BOE-A-1978-31229 (arts. 1-55; últ. act. 20/05/2026)",
+    },
+    load: () => import('./tema1Recall').then((m) => m.TEMA1_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 6,
       title: "Tema 6 · Ley 31/1995 de Prevención de Riesgos Laborales",
       count: 94,
