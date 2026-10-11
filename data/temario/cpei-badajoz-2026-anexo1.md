@@ -4,7 +4,8 @@
 
 - Documento: Bases de la convocatoria — Consorcio para la Prestacion del Servicio de Prevencion y Extincion de Incendios en la Provincia de Badajoz (CPEI)
 - Plaza convocada: Conductor/a Bombero/a, escala Administracion Especial, subescala Servicios Especiales, grupo C1
-- Plazas: 9 (turno libre, concurso-oposicion)
+- Plazas: 38 (turno libre, concurso-oposicion). Texto literal del BOP: «La provisión por turno libre, mediante concurso-oposición, de un total de treinta y ocho (38) plazas vacantes de funcionarios/as, de Conductor/a Bombero/a, encuadradas en la escala de Administración Especial, subescala Servicios Especiales, clase Extinción de Incendios, grupo C, subgrupo C1, de las cuales nueve (9) corresponden a la oferta de empleo público de 2024 del Consorcio CPEI, aprobada mediante resolución de la Presidencia del Consorcio de fecha 17 de julio de 2024 y publicada en el Diario Oficial de Extremadura (DOE) número 149, de fecha 1 de agosto de 2024, y veintinueve (29) corresponden a la oferta de empleo público de 2026 del Consorcio CPEI, aprobada mediante resolución de la Presidencia del Consorcio de fecha 24 de abril de 2026 y publicada en el Diario Oficial de Extremadura (DOE) número 86, de fecha 7 de mayo de 2026.» (base primera)
+- Bases publicadas: BOP de Badajoz nº 135, de 17/07/2026, anuncio 2843/2026. Manda sobre el borrador .docx (corregidos plazas y temas 7 y 34 el 2026-10-11)
 - Fichero origen: borrador CPEI DE BADAJOZ OPOSICION 2026.docx (aportado por el usuario)
 - Fecha de incorporacion a este repo: 2026-07-13
 - version_convocatoria a usar en el esquema de preguntas: `cpei-badajoz-2026`
@@ -42,7 +43,7 @@
 
 **Tema 6.** Ley 31/1995, de 8 de noviembre, de Prevencion de Riesgos Laborales: Objeto, ambito de aplicacion y definiciones. Politica en materia de prevencion de riesgos para proteger la seguridad y salud en el trabajo. Derechos y obligaciones. Servicios de Prevencion.
 
-**Tema 7.** Ley 8/2011, de 23 de marzo, de Igualdad entre Mujeres y Hombres y contra la Violencia de Genero en Extremadura: Disposiciones generales. Integracion de la perspectiva de Genero en las Politicas Publicas. Violencia de Genero: Derechos de las mujeres en situaciones de violencia de genero a la atencion integral y efectiva. El II Plan de Igualdad de la Diputacion Provincial de Badajoz 2019-2023: Finalidad y principios; Objetivos; Vigencia y estructura.
+**Tema 7.** Ley 8/2011, de 23 de marzo, de Igualdad entre Mujeres y Hombres y contra la Violencia de Género en Extremadura: Disposiciones generales. Integración de la perspectiva de Género en las Políticas Públicas. Violencia de Género: Derechos de las mujeres en situaciones de violencia de género a la atención integral y efectiva.
 
 ### Parte especifica
 
@@ -98,7 +99,7 @@
 
 **Tema 33.** Real Decreto 513/2017, de 22 de mayo, por el que se aprueba el Reglamento de instalaciones de proteccion contra incendios: objeto y ambito de aplicacion. Sistemas de abastecimiento de agua contra incendios, hidrantes, bocas de incendio equipadas, columnas secas.
 
-**Tema 34.** Real Decreto 2267/2004, de 3 de diciembre, por el que se aprueba el Reglamento de Seguridad contra Incendios en los Establecimientos Industriales: objeto y ambito de aplicacion. Condiciones y requisitos que deben satisfacer los establecimientos industriales en relacion con su seguridad contra incendios.
+**Tema 34.** Real Decreto 164/2025, de 4 de marzo, por el que se aprueba el Reglamento de seguridad contra incendios en los establecimientos industriales.
 
 **Tema 35.** Red de carreteras de la region de Extremadura (carreteras de la provincia de Badajoz). Fuente: https://ciudadano.gobex.es/web/infraestructuras/mapa-de-carreteras — peso alto en el examen (incluido en el 30% de temas 35-40).
 
