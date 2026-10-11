@@ -82,10 +82,21 @@ export interface RecallTopic {
 
 /** Nombre de los temas que se cargan por lotes (bloque del temario, tema36_lotes.md). */
 const TOPIC_NAMES: Record<number, string> = {
+  34: 'Reglamento de seguridad contra incendios en los establecimientos industriales (RD 164/2025)',
   36: 'Territorio de la provincia de Badajoz: municipios, límites, orografía e hidrografía',
 };
 
 const DECK_SOURCES: readonly DeckSource[] = [
+  {
+    meta: {
+      tema: 34,
+      lote: 'lote01',
+      title: "Tema 34 · RD 164/2025 (RSCIEI), lote 1: articulado y caracterización (anexo I)",
+      count: 58,
+      source: "Fase 3 · texto consolidado BOE-A-2025-7190 (reglamento, arts. 1-18 y anexo I; últ. act. 20/12/2025)",
+    },
+    load: () => import('./tema34Lote01Recall').then((m) => m.TEMA34_LOTE01_RECALL_CARDS),
+  },
   {
     meta: {
       tema: 32,
