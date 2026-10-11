@@ -1,0 +1,24 @@
+name: Editorial skills parity
+on:
+  pull_request:
+    paths:
+      - '.agents/skills/**'
+      - '.claude/skills/**'
+      - 'scripts/check-editorial-skills.mjs'
+      - '.github/workflows/editorial-skills.yml'
+  push:
+    paths:
+      - '.agents/skills/**'
+      - '.claude/skills/**'
+      - 'scripts/check-editorial-skills.mjs'
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/check-editorial-skills.mjs
