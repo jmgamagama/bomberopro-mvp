@@ -89,6 +89,26 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 10,
+      lote: 'lote02',
+      title: "Tema 10 · lote 2: abastecimiento de agua y uso de BIE (NTP 420 y NTP 1035 del INSST)",
+      count: 13,
+      source: "Fase 5 · INSST, NTP 420 (1996) y NTP 1035 (2015), insst.es",
+    },
+    load: () => import('./tema10Lote02Recall').then((m) => m.TEMA10_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 12,
+      lote: 'lote02',
+      title: "Tema 12 · lote 2: métodos de extinción y uso de extintores (NTP 99 y NTP 536 del INSST)",
+      count: 23,
+      source: "Fase 5 · INSST, NTP 99 (1984) y NTP 536 (1999), insst.es",
+    },
+    load: () => import('./tema12Lote02Recall').then((m) => m.TEMA12_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 22,
       lote: 'lote02',
       title: "Tema 22 · lote 2: anclajes, líneas de vida, factor de caída y sistemas anticaídas (NTP 809, 843, 1170 y 1218 del INSST)",

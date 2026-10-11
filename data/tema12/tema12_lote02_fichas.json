@@ -1,0 +1,409 @@
+{
+ "tema": 12,
+ "titulo": "Tema 12 · lote 2: métodos de extinción y uso de extintores (NTP 99 y NTP 536 del INSST)",
+ "epigrafe_bop": "Mecanismos de extincion. Agentes Extintores. Extintores portatiles norma UNE-EN 3.7. Clasificacion, generalidades, cargas nominales. Identificacion de los extintores. Emplazamiento y distribucion. Extintores moviles. Norma UNE-EN1866-1. Cargas nominales, tiempo de utilizacion.",
+ "normas": [
+  {
+   "id": "INSST-NTP099",
+   "norma": "INSST, NTP 99: Métodos de extinción y agentes extintores (1984)",
+   "url": "https://www.insst.es/documents/94886/7888278/ntp_099.pdf",
+   "ultima_actualizacion": "1984",
+   "tipo": "texto consolidado del BOE"
+  },
+  {
+   "id": "INSST-NTP536",
+   "norma": "INSST, NTP 536: Extintores de incendio portátiles: utilización (1999)",
+   "url": "https://www.insst.es/documents/94886/7865585/ntp_536.pdf",
+   "ultima_actualizacion": "1999",
+   "tipo": "texto consolidado del BOE"
+  }
+ ],
+ "estado": "cargado",
+ "propuestas": 23,
+ "entran_tras_filtro": 23,
+ "descartadas": [],
+ "cobertura": {
+  "Mecanismos de extinción (eliminación, sofocación, enfriamiento, inhibición)": "cubierto",
+  "Agentes e incompatibilidades": "parcial",
+  "Tipos de extintor, tiempo de utilización y uso": "cubierto (sin las referencias reglamentarias derogadas de 1993)"
+ },
+ "muestra_revisada": [
+  {
+   "id": "CPEI-T12-OF-C0FD5BBE",
+   "concepto": "Según la NTP 99, ¿por debajo de qué temperatura de inflamación es nula la efectividad del agua pulverizada en fuegos tipo B?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T12-OF-B6D3C647",
+   "concepto": "Según la NTP 536, ¿hacia dónde se dirige el chorro del extintor?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T12-OF-B9A778FE",
+   "concepto": "Según la NTP 536, ¿por qué la boquilla del extintor de CO2 es de material aislante?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T12-OF-5D91D995",
+   "concepto": "Según la NTP 536, ¿qué distancia mínima al fuego debe dejarse al acercarse con un extintor?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T12-OF-01F5D69D",
+   "concepto": "Según la NTP 536, en espacios abiertos, ¿en qué dirección hay que acercarse al fuego?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T12-OF-E0DE0CE4",
+   "concepto": "Según la NTP 536 del INSST, ¿qué masa máxima en funcionamiento tiene un extintor portátil?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T12-OF-833E5D10",
+   "concepto": "Según la NTP 99, ¿qué puede ocurrir al aplicar agua a chorro sobre fuegos tipo A con sólidos disgregados?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T12-OF-ECE4AFB4",
+   "concepto": "Según la NTP 99, ¿cómo se elimina indirectamente el combustible?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T12-OF-0D9C6C25",
+   "concepto": "Según la NTP 99, ¿cuál es prácticamente el único agente capaz de enfriar notablemente los fuegos?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T12-OF-445E3B05",
+   "concepto": "Según la NTP 99, ¿qué método de extinción actúa sobre la energía?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T12-OF-D2310CF7",
+   "concepto": "Según la NTP 99, ¿a qué atribuyen algunos autores el gran efecto extintor del polvo sobre las llamas?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T12-OF-4C52869C",
+   "concepto": "Según la NTP 536, ¿cuánto dura aproximadamente la descarga de un extintor según tipo y capacidad?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T12-OF-F86A4835",
+   "concepto": "Según la NTP 536, en los extintores de presión no permanente, ¿dónde va el agente impulsor?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T12-OF-EE7D57AE",
+   "concepto": "Según la NTP 99, ¿qué gases inertes se proyectan para sofocar por dilución de la mezcla?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T12-OF-C99A2CAA",
+   "concepto": "Según la NTP 99, ¿qué efectividad tiene el anhídrido carbónico en extinción con extintores?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T12-OF-A96BAE5E",
+   "concepto": "Según la NTP 536, en los extintores de presión permanente con gas propelente, ¿qué permite reconocerlos?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T12-OF-70D49CDD",
+   "concepto": "Según la NTP 99, ¿qué método de extinción actúa sobre el comburente?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T12-OF-304A472C",
+   "concepto": "Según la NTP 99, ¿en qué fase arden todos los combustibles?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T12-OF-0ED7A35D",
+   "concepto": "Según la NTP 99 del INSST, ¿qué cuatro factores deben coexistir para que un incendio se inicie o mantenga?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T12-OF-4181E44A",
+   "concepto": "Según la NTP 99, ¿qué método de extinción actúa sobre la reacción en cadena?",
+   "veredicto": "OK",
+   "nota": ""
+  }
+ ],
+ "errores_muestra": 0,
+ "pct_errores_muestra": 0.0,
+ "fichas": [
+  {
+   "id": "CPEI-T12-OF-0ED7A35D",
+   "orden": 10,
+   "concepto": "Según la NTP 99 del INSST, ¿qué cuatro factores deben coexistir para que un incendio se inicie o mantenga?",
+   "respuesta": "Combustible, Comburente (aire), Energía y Reacción en Cadena (radicales libres)",
+   "fuente": "NTP 99 (INSST), Año: 1984, pág. 1. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p01",
+   "localizacion": "NTP 99 (INSST), Año: 1984, pág. 1",
+   "apartado": "Mecanismos de extinción",
+   "norma": "INSST-NTP099",
+   "bloque_boe": "p01"
+  },
+  {
+   "id": "CPEI-T12-OF-CBDAA5D2",
+   "orden": 20,
+   "concepto": "Según la NTP 99, ¿qué método de extinción actúa sobre el combustible?",
+   "respuesta": "ELIMINACIÓN",
+   "fuente": "NTP 99 (INSST), Año: 1984, pág. 1. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p01",
+   "localizacion": "NTP 99 (INSST), Año: 1984, pág. 1",
+   "apartado": "Mecanismos de extinción",
+   "norma": "INSST-NTP099",
+   "bloque_boe": "p01"
+  },
+  {
+   "id": "CPEI-T12-OF-70D49CDD",
+   "orden": 30,
+   "concepto": "Según la NTP 99, ¿qué método de extinción actúa sobre el comburente?",
+   "respuesta": "SOFOCACIÓN",
+   "fuente": "NTP 99 (INSST), Año: 1984, pág. 1. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p01",
+   "localizacion": "NTP 99 (INSST), Año: 1984, pág. 1",
+   "apartado": "Mecanismos de extinción",
+   "norma": "INSST-NTP099",
+   "bloque_boe": "p01"
+  },
+  {
+   "id": "CPEI-T12-OF-445E3B05",
+   "orden": 40,
+   "concepto": "Según la NTP 99, ¿qué método de extinción actúa sobre la energía?",
+   "respuesta": "ENFRIAMIENTO",
+   "fuente": "NTP 99 (INSST), Año: 1984, pág. 1. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p01",
+   "localizacion": "NTP 99 (INSST), Año: 1984, pág. 1",
+   "apartado": "Mecanismos de extinción",
+   "norma": "INSST-NTP099",
+   "bloque_boe": "p01"
+  },
+  {
+   "id": "CPEI-T12-OF-4181E44A",
+   "orden": 50,
+   "concepto": "Según la NTP 99, ¿qué método de extinción actúa sobre la reacción en cadena?",
+   "respuesta": "INHIBICIÓN",
+   "fuente": "NTP 99 (INSST), Año: 1984, pág. 1. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p01",
+   "localizacion": "NTP 99 (INSST), Año: 1984, pág. 1",
+   "apartado": "Mecanismos de extinción",
+   "norma": "INSST-NTP099",
+   "bloque_boe": "p01"
+  },
+  {
+   "id": "CPEI-T12-OF-ECE4AFB4",
+   "orden": 60,
+   "concepto": "Según la NTP 99, ¿cómo se elimina indirectamente el combustible?",
+   "respuesta": "Refrigerando los combustibles alrededor de la zona de fuego",
+   "fuente": "NTP 99 (INSST), Año: 1984, pág. 1. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p01",
+   "localizacion": "NTP 99 (INSST), Año: 1984, pág. 1",
+   "apartado": "Mecanismos de extinción",
+   "norma": "INSST-NTP099",
+   "bloque_boe": "p01"
+  },
+  {
+   "id": "CPEI-T12-OF-EE7D57AE",
+   "orden": 70,
+   "concepto": "Según la NTP 99, ¿qué gases inertes se proyectan para sofocar por dilución de la mezcla?",
+   "respuesta": "N2 ó CO2",
+   "fuente": "NTP 99 (INSST), ● ●, pág. 2. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p02",
+   "localizacion": "NTP 99 (INSST), ● ●, pág. 2",
+   "apartado": "Mecanismos de extinción",
+   "norma": "INSST-NTP099",
+   "bloque_boe": "p02"
+  },
+  {
+   "id": "CPEI-T12-OF-0D9C6C25",
+   "orden": 80,
+   "concepto": "Según la NTP 99, ¿cuál es prácticamente el único agente capaz de enfriar notablemente los fuegos?",
+   "respuesta": "El agua o su mezcla con aditivos",
+   "fuente": "NTP 99 (INSST), ● ●, pág. 2. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p02",
+   "localizacion": "NTP 99 (INSST), ● ●, pág. 2",
+   "apartado": "Mecanismos de extinción",
+   "norma": "INSST-NTP099",
+   "bloque_boe": "p02"
+  },
+  {
+   "id": "CPEI-T12-OF-D2310CF7",
+   "orden": 90,
+   "concepto": "Según la NTP 99, ¿a qué atribuyen algunos autores el gran efecto extintor del polvo sobre las llamas?",
+   "respuesta": "A una inhibición física por la separación espacial de los radicales libres",
+   "fuente": "NTP 99 (INSST), ● ●, pág. 2. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p02",
+   "localizacion": "NTP 99 (INSST), ● ●, pág. 2",
+   "apartado": "Mecanismos de extinción",
+   "norma": "INSST-NTP099",
+   "bloque_boe": "p02"
+  },
+  {
+   "id": "CPEI-T12-OF-304A472C",
+   "orden": 100,
+   "concepto": "Según la NTP 99, ¿en qué fase arden todos los combustibles?",
+   "respuesta": "En fase gas o vapor",
+   "fuente": "NTP 99 (INSST), ● ●, pág. 2. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p02",
+   "localizacion": "NTP 99 (INSST), ● ●, pág. 2",
+   "apartado": "Mecanismos de extinción",
+   "norma": "INSST-NTP099",
+   "bloque_boe": "p02"
+  },
+  {
+   "id": "CPEI-T12-OF-833E5D10",
+   "orden": 110,
+   "concepto": "Según la NTP 99, ¿qué puede ocurrir al aplicar agua a chorro sobre fuegos tipo A con sólidos disgregados?",
+   "respuesta": "Pueden dispersar el incendio",
+   "fuente": "NTP 99 (INSST), Si se pretende la extinción o solo la protección de riesgos vecinos. La velocidad con que actuará (accionamiento manual o automático). El tamaño y tipo de riesgo. El valor del riesgo a proteger. La ubicación del riesgo. El posible daño a causar por el agente extintor en las instalaciones. El costo del equipo que posibilitará la extinción. Etc. De hecho el principio fundamental que guía al diseñador de una protección contra incendios es que, salvo incompatibilidades, la mayoría de los riesgos pueden extinguirse con la mayoría de agentes extintores, si se escoge la forma de aplicación adecuada, como queda reflejado en la tabla 1, incluida en la NBE-CPI-82 (1). Tabla 1:Adecuación de los extintores, pág. 3. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p03",
+   "localizacion": "NTP 99 (INSST), Si se pretende la extinción o solo la protección de riesgos vecinos. La velocidad con que actuará (accionamiento manual o automático). El tamaño y tipo de riesgo. El valor del riesgo a proteger. La ubicación del riesgo. El posible daño a causar por el agente extintor en las instalaciones. El costo del equipo que posibilitará la extinción. Etc. De hecho el principio fundamental que guía al diseñador de una protección contra incendios es que, salvo incompatibilidades, la mayoría de los riesgos pueden extinguirse con la mayoría de agentes extintores, si se escoge la forma de aplicación adecuada, como queda reflejado en la tabla 1, incluida en la NBE-CPI-82 (1). Tabla 1:Adecuación de los extintores, pág. 3",
+   "apartado": "Agentes extintores",
+   "norma": "INSST-NTP099",
+   "bloque_boe": "p03"
+  },
+  {
+   "id": "CPEI-T12-OF-C0FD5BBE",
+   "orden": 120,
+   "concepto": "Según la NTP 99, ¿por debajo de qué temperatura de inflamación es nula la efectividad del agua pulverizada en fuegos tipo B?",
+   "respuesta": "Inferior a 38oC",
+   "fuente": "NTP 99 (INSST), Si se pretende la extinción o solo la protección de riesgos vecinos. La velocidad con que actuará (accionamiento manual o automático). El tamaño y tipo de riesgo. El valor del riesgo a proteger. La ubicación del riesgo. El posible daño a causar por el agente extintor en las instalaciones. El costo del equipo que posibilitará la extinción. Etc. De hecho el principio fundamental que guía al diseñador de una protección contra incendios es que, salvo incompatibilidades, la mayoría de los riesgos pueden extinguirse con la mayoría de agentes extintores, si se escoge la forma de aplicación adecuada, como queda reflejado en la tabla 1, incluida en la NBE-CPI-82 (1). Tabla 1:Adecuación de los extintores, pág. 3. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p03",
+   "localizacion": "NTP 99 (INSST), Si se pretende la extinción o solo la protección de riesgos vecinos. La velocidad con que actuará (accionamiento manual o automático). El tamaño y tipo de riesgo. El valor del riesgo a proteger. La ubicación del riesgo. El posible daño a causar por el agente extintor en las instalaciones. El costo del equipo que posibilitará la extinción. Etc. De hecho el principio fundamental que guía al diseñador de una protección contra incendios es que, salvo incompatibilidades, la mayoría de los riesgos pueden extinguirse con la mayoría de agentes extintores, si se escoge la forma de aplicación adecuada, como queda reflejado en la tabla 1, incluida en la NBE-CPI-82 (1). Tabla 1:Adecuación de los extintores, pág. 3",
+   "apartado": "Agentes extintores",
+   "norma": "INSST-NTP099",
+   "bloque_boe": "p03"
+  },
+  {
+   "id": "CPEI-T12-OF-C99A2CAA",
+   "orden": 130,
+   "concepto": "Según la NTP 99, ¿qué efectividad tiene el anhídrido carbónico en extinción con extintores?",
+   "respuesta": "Muy baja efectividad",
+   "fuente": "NTP 99 (INSST), Si se pretende la extinción o solo la protección de riesgos vecinos. La velocidad con que actuará (accionamiento manual o automático). El tamaño y tipo de riesgo. El valor del riesgo a proteger. La ubicación del riesgo. El posible daño a causar por el agente extintor en las instalaciones. El costo del equipo que posibilitará la extinción. Etc. De hecho el principio fundamental que guía al diseñador de una protección contra incendios es que, salvo incompatibilidades, la mayoría de los riesgos pueden extinguirse con la mayoría de agentes extintores, si se escoge la forma de aplicación adecuada, como queda reflejado en la tabla 1, incluida en la NBE-CPI-82 (1). Tabla 1:Adecuación de los extintores, pág. 3. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p03",
+   "localizacion": "NTP 99 (INSST), Si se pretende la extinción o solo la protección de riesgos vecinos. La velocidad con que actuará (accionamiento manual o automático). El tamaño y tipo de riesgo. El valor del riesgo a proteger. La ubicación del riesgo. El posible daño a causar por el agente extintor en las instalaciones. El costo del equipo que posibilitará la extinción. Etc. De hecho el principio fundamental que guía al diseñador de una protección contra incendios es que, salvo incompatibilidades, la mayoría de los riesgos pueden extinguirse con la mayoría de agentes extintores, si se escoge la forma de aplicación adecuada, como queda reflejado en la tabla 1, incluida en la NBE-CPI-82 (1). Tabla 1:Adecuación de los extintores, pág. 3",
+   "apartado": "Agentes extintores",
+   "norma": "INSST-NTP099",
+   "bloque_boe": "p03"
+  },
+  {
+   "id": "CPEI-T12-OF-0C7B138E",
+   "orden": 140,
+   "concepto": "Según la NTP 99, ¿en cuánto tiempo aproximado se consume el agente de un extintor portátil?",
+   "respuesta": "Unos 20 segundos",
+   "fuente": "NTP 99 (INSST), Si se pretende la extinción o solo la protección de riesgos vecinos. La velocidad con que actuará (accionamiento manual o automático). El tamaño y tipo de riesgo. El valor del riesgo a proteger. La ubicación del riesgo. El posible daño a causar por el agente extintor en las instalaciones. El costo del equipo que posibilitará la extinción. Etc. De hecho el principio fundamental que guía al diseñador de una protección contra incendios es que, salvo incompatibilidades, la mayoría de los riesgos pueden extinguirse con la mayoría de agentes extintores, si se escoge la forma de aplicación adecuada, como queda reflejado en la tabla 1, incluida en la NBE-CPI-82 (1). Tabla 1:Adecuación de los extintores, pág. 3. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p03",
+   "localizacion": "NTP 99 (INSST), Si se pretende la extinción o solo la protección de riesgos vecinos. La velocidad con que actuará (accionamiento manual o automático). El tamaño y tipo de riesgo. El valor del riesgo a proteger. La ubicación del riesgo. El posible daño a causar por el agente extintor en las instalaciones. El costo del equipo que posibilitará la extinción. Etc. De hecho el principio fundamental que guía al diseñador de una protección contra incendios es que, salvo incompatibilidades, la mayoría de los riesgos pueden extinguirse con la mayoría de agentes extintores, si se escoge la forma de aplicación adecuada, como queda reflejado en la tabla 1, incluida en la NBE-CPI-82 (1). Tabla 1:Adecuación de los extintores, pág. 3",
+   "apartado": "Tipos y uso de extintores",
+   "norma": "INSST-NTP099",
+   "bloque_boe": "p03"
+  },
+  {
+   "id": "CPEI-T12-OF-E0DE0CE4",
+   "orden": 150,
+   "concepto": "Según la NTP 536 del INSST, ¿qué masa máxima en funcionamiento tiene un extintor portátil?",
+   "respuesta": "Una masa igual o inferior a 20 kg",
+   "fuente": "NTP 536 (INSST), Año: 1999, pág. 1. INSST-NTP536, texto consolidado (últ. actualización 1999): https://www.insst.es/documents/94886/7865585/ntp_536.pdf#p01",
+   "localizacion": "NTP 536 (INSST), Año: 1999, pág. 1",
+   "apartado": "Tipos y uso de extintores",
+   "norma": "INSST-NTP536",
+   "bloque_boe": "p01"
+  },
+  {
+   "id": "CPEI-T12-OF-A96BAE5E",
+   "orden": 160,
+   "concepto": "Según la NTP 536, en los extintores de presión permanente con gas propelente, ¿qué permite reconocerlos?",
+   "respuesta": "Un manómetro indicador de la presión del gas impulsor",
+   "fuente": "NTP 536 (INSST), Año: 1999, pág. 1. INSST-NTP536, texto consolidado (últ. actualización 1999): https://www.insst.es/documents/94886/7865585/ntp_536.pdf#p01",
+   "localizacion": "NTP 536 (INSST), Año: 1999, pág. 1",
+   "apartado": "Tipos y uso de extintores",
+   "norma": "INSST-NTP536",
+   "bloque_boe": "p01"
+  },
+  {
+   "id": "CPEI-T12-OF-F86A4835",
+   "orden": 170,
+   "concepto": "Según la NTP 536, en los extintores de presión no permanente, ¿dónde va el agente impulsor?",
+   "respuesta": "Presurizado en un botellín instalado dentro o fuera del extintor",
+   "fuente": "NTP 536 (INSST), 1. Cuerpo del extintor 2. Agente extintor 3. Agente impulsor 4. Manómetro 5. Tubo sonda de salida, pág. 2. INSST-NTP536, texto consolidado (últ. actualización 1999): https://www.insst.es/documents/94886/7865585/ntp_536.pdf#p02",
+   "localizacion": "NTP 536 (INSST), 1. Cuerpo del extintor 2. Agente extintor 3. Agente impulsor 4. Manómetro 5. Tubo sonda de salida, pág. 2",
+   "apartado": "Tipos y uso de extintores",
+   "norma": "INSST-NTP536",
+   "bloque_boe": "p02"
+  },
+  {
+   "id": "CPEI-T12-OF-CE0EB46F",
+   "orden": 180,
+   "concepto": "Según la NTP 536, ¿con qué periodicidad se realizan las pruebas de presión de la placa de diseño?",
+   "respuesta": "Periodicidad de cinco años",
+   "fuente": "NTP 536 (INSST), En la siguiente casilla se da la referencia del fabricante que cumple con las exigencias legales de la ITC-MIE-AP5 (ver referencias bibliográficas). En la próxima casilla se indica la marca de la entidad autorizada que ha intervenido para la homologación del aparato. Conjuntamente a esta marca se da la información sobre las características del continente del extintor y la norma seguida para homologar con los códigos correspondientes al aparato extintor. Todo lo anterior cumple con los mínimos exigidos por la ITC-MIE-AP5. A continuación viene la casilla con las referencias del distribuidor y otra última con las referencias del mantenedor y/o encargado. Todos ellos deben cumplir con las exigencias legales. En la Figura 4 se presenta un ejemplo de placa de diseño según normas. En ella se puede apreciar el nombre del organismo autonómico como autoridad competente para controlar las pruebas periódicas de presión. La casilla superior esta reservada para el número de registro. En la primera casilla de la izquierda se indica la presión de diseño o de timbre que corresponde a la presión máxima de servicio (en este caso 20kg/cm2), pág. 4. INSST-NTP536, texto consolidado (últ. actualización 1999): https://www.insst.es/documents/94886/7865585/ntp_536.pdf#p04",
+   "localizacion": "NTP 536 (INSST), En la siguiente casilla se da la referencia del fabricante que cumple con las exigencias legales de la ITC-MIE-AP5 (ver referencias bibliográficas). En la próxima casilla se indica la marca de la entidad autorizada que ha intervenido para la homologación del aparato. Conjuntamente a esta marca se da la información sobre las características del continente del extintor y la norma seguida para homologar con los códigos correspondientes al aparato extintor. Todo lo anterior cumple con los mínimos exigidos por la ITC-MIE-AP5. A continuación viene la casilla con las referencias del distribuidor y otra última con las referencias del mantenedor y/o encargado. Todos ellos deben cumplir con las exigencias legales. En la Figura 4 se presenta un ejemplo de placa de diseño según normas. En ella se puede apreciar el nombre del organismo autonómico como autoridad competente para controlar las pruebas periódicas de presión. La casilla superior esta reservada para el número de registro. En la primera casilla de la izquierda se indica la presión de diseño o de timbre que corresponde a la presión máxima de servicio (en este caso 20kg/cm2), pág. 4",
+   "apartado": "Tipos y uso de extintores",
+   "norma": "INSST-NTP536",
+   "bloque_boe": "p04"
+  },
+  {
+   "id": "CPEI-T12-OF-B9A778FE",
+   "orden": 190,
+   "concepto": "Según la NTP 536, ¿por qué la boquilla del extintor de CO2 es de material aislante?",
+   "respuesta": "Para evitar que la temperatura especialmente baja del gas licuado produzca quemaduras",
+   "fuente": "NTP 536 (INSST), En la siguiente casilla se da la referencia del fabricante que cumple con las exigencias legales de la ITC-MIE-AP5 (ver referencias bibliográficas). En la próxima casilla se indica la marca de la entidad autorizada que ha intervenido para la homologación del aparato. Conjuntamente a esta marca se da la información sobre las características del continente del extintor y la norma seguida para homologar con los códigos correspondientes al aparato extintor. Todo lo anterior cumple con los mínimos exigidos por la ITC-MIE-AP5. A continuación viene la casilla con las referencias del distribuidor y otra última con las referencias del mantenedor y/o encargado. Todos ellos deben cumplir con las exigencias legales. En la Figura 4 se presenta un ejemplo de placa de diseño según normas. En ella se puede apreciar el nombre del organismo autonómico como autoridad competente para controlar las pruebas periódicas de presión. La casilla superior esta reservada para el número de registro. En la primera casilla de la izquierda se indica la presión de diseño o de timbre que corresponde a la presión máxima de servicio (en este caso 20kg/cm2), pág. 4. INSST-NTP536, texto consolidado (últ. actualización 1999): https://www.insst.es/documents/94886/7865585/ntp_536.pdf#p04",
+   "localizacion": "NTP 536 (INSST), En la siguiente casilla se da la referencia del fabricante que cumple con las exigencias legales de la ITC-MIE-AP5 (ver referencias bibliográficas). En la próxima casilla se indica la marca de la entidad autorizada que ha intervenido para la homologación del aparato. Conjuntamente a esta marca se da la información sobre las características del continente del extintor y la norma seguida para homologar con los códigos correspondientes al aparato extintor. Todo lo anterior cumple con los mínimos exigidos por la ITC-MIE-AP5. A continuación viene la casilla con las referencias del distribuidor y otra última con las referencias del mantenedor y/o encargado. Todos ellos deben cumplir con las exigencias legales. En la Figura 4 se presenta un ejemplo de placa de diseño según normas. En ella se puede apreciar el nombre del organismo autonómico como autoridad competente para controlar las pruebas periódicas de presión. La casilla superior esta reservada para el número de registro. En la primera casilla de la izquierda se indica la presión de diseño o de timbre que corresponde a la presión máxima de servicio (en este caso 20kg/cm2), pág. 4",
+   "apartado": "Tipos y uso de extintores",
+   "norma": "INSST-NTP536",
+   "bloque_boe": "p04"
+  },
+  {
+   "id": "CPEI-T12-OF-4C52869C",
+   "orden": 200,
+   "concepto": "Según la NTP 536, ¿cuánto dura aproximadamente la descarga de un extintor según tipo y capacidad?",
+   "respuesta": "De 8 a 60 segundos",
+   "fuente": "NTP 536 (INSST), edificación mencionadas anteriormente. La eficacia mínima indicada en la NBE-CPI/96 es de 21A-113B para la mayoría de usos de los edificios. En esta misma norma es una referencia general que el número mínimo de extintores deberá ser el suficiente para que el recorrido real en cada planta desde cualquier origen de evacuación hasta un extintor no supere los quince metros, pág. 6. INSST-NTP536, texto consolidado (últ. actualización 1999): https://www.insst.es/documents/94886/7865585/ntp_536.pdf#p06",
+   "localizacion": "NTP 536 (INSST), edificación mencionadas anteriormente. La eficacia mínima indicada en la NBE-CPI/96 es de 21A-113B para la mayoría de usos de los edificios. En esta misma norma es una referencia general que el número mínimo de extintores deberá ser el suficiente para que el recorrido real en cada planta desde cualquier origen de evacuación hasta un extintor no supere los quince metros, pág. 6",
+   "apartado": "Tipos y uso de extintores",
+   "norma": "INSST-NTP536",
+   "bloque_boe": "p06"
+  },
+  {
+   "id": "CPEI-T12-OF-B6D3C647",
+   "orden": 210,
+   "concepto": "Según la NTP 536, ¿hacia dónde se dirige el chorro del extintor?",
+   "respuesta": "A la base de las llamas con movimiento de barrido",
+   "fuente": "NTP 536 (INSST), edificación mencionadas anteriormente. La eficacia mínima indicada en la NBE-CPI/96 es de 21A-113B para la mayoría de usos de los edificios. En esta misma norma es una referencia general que el número mínimo de extintores deberá ser el suficiente para que el recorrido real en cada planta desde cualquier origen de evacuación hasta un extintor no supere los quince metros, pág. 6. INSST-NTP536, texto consolidado (últ. actualización 1999): https://www.insst.es/documents/94886/7865585/ntp_536.pdf#p06",
+   "localizacion": "NTP 536 (INSST), edificación mencionadas anteriormente. La eficacia mínima indicada en la NBE-CPI/96 es de 21A-113B para la mayoría de usos de los edificios. En esta misma norma es una referencia general que el número mínimo de extintores deberá ser el suficiente para que el recorrido real en cada planta desde cualquier origen de evacuación hasta un extintor no supere los quince metros, pág. 6",
+   "apartado": "Tipos y uso de extintores",
+   "norma": "INSST-NTP536",
+   "bloque_boe": "p06"
+  },
+  {
+   "id": "CPEI-T12-OF-5D91D995",
+   "orden": 220,
+   "concepto": "Según la NTP 536, ¿qué distancia mínima al fuego debe dejarse al acercarse con un extintor?",
+   "respuesta": "Como mínimo un metro",
+   "fuente": "NTP 536 (INSST), 1. Descolgar el extintor asiéndolo por la maneta o asa fija que disponga y dejarlo sobre el suelo en posición vertical. 2. En caso de que el extintor posea manguera asirla por la boquilla para evitar la salida incontrolada del agente extintor. En caso de que el extintor fuese de CO2 llevar cuidado especial de asir la boquilla por la parte aislada destinada para ello y no dirigirla hacia las personas. 3. Comprobar en caso de que exista válvula o disco de seguridad que están en posición sin peligro de proyección de fluido hacia el usuario. 4. Quitar el pasador de seguridad tirando de su anilla. 5. Acercarse al fuego dejando como mínimo un metro de distancia hasta él. En caso de espacios abiertos acercarse en la dirección del viento. 6. Apretar la maneta y, en caso de que exista, apretar la palanca de accionamiento de la boquilla. Realizar una pequeña descarga de comprobación de salida del agente extintor. 7. Dirigir el chorro a la base de las llamas. 8. En el caso de incendios de líquidos proyectar superficialmente el agente extintor efectuando un barrido horizontal y evitando que la propia presión de impulsión pueda provocar el derrame incontrolado del producto en combustión. Avanzar gradualmente desde los extremos, pág. 7. INSST-NTP536, texto consolidado (últ. actualización 1999): https://www.insst.es/documents/94886/7865585/ntp_536.pdf#p07",
+   "localizacion": "NTP 536 (INSST), 1. Descolgar el extintor asiéndolo por la maneta o asa fija que disponga y dejarlo sobre el suelo en posición vertical. 2. En caso de que el extintor posea manguera asirla por la boquilla para evitar la salida incontrolada del agente extintor. En caso de que el extintor fuese de CO2 llevar cuidado especial de asir la boquilla por la parte aislada destinada para ello y no dirigirla hacia las personas. 3. Comprobar en caso de que exista válvula o disco de seguridad que están en posición sin peligro de proyección de fluido hacia el usuario. 4. Quitar el pasador de seguridad tirando de su anilla. 5. Acercarse al fuego dejando como mínimo un metro de distancia hasta él. En caso de espacios abiertos acercarse en la dirección del viento. 6. Apretar la maneta y, en caso de que exista, apretar la palanca de accionamiento de la boquilla. Realizar una pequeña descarga de comprobación de salida del agente extintor. 7. Dirigir el chorro a la base de las llamas. 8. En el caso de incendios de líquidos proyectar superficialmente el agente extintor efectuando un barrido horizontal y evitando que la propia presión de impulsión pueda provocar el derrame incontrolado del producto en combustión. Avanzar gradualmente desde los extremos, pág. 7",
+   "apartado": "Tipos y uso de extintores",
+   "norma": "INSST-NTP536",
+   "bloque_boe": "p07"
+  },
+  {
+   "id": "CPEI-T12-OF-01F5D69D",
+   "orden": 230,
+   "concepto": "Según la NTP 536, en espacios abiertos, ¿en qué dirección hay que acercarse al fuego?",
+   "respuesta": "En la dirección del viento",
+   "fuente": "NTP 536 (INSST), 1. Descolgar el extintor asiéndolo por la maneta o asa fija que disponga y dejarlo sobre el suelo en posición vertical. 2. En caso de que el extintor posea manguera asirla por la boquilla para evitar la salida incontrolada del agente extintor. En caso de que el extintor fuese de CO2 llevar cuidado especial de asir la boquilla por la parte aislada destinada para ello y no dirigirla hacia las personas. 3. Comprobar en caso de que exista válvula o disco de seguridad que están en posición sin peligro de proyección de fluido hacia el usuario. 4. Quitar el pasador de seguridad tirando de su anilla. 5. Acercarse al fuego dejando como mínimo un metro de distancia hasta él. En caso de espacios abiertos acercarse en la dirección del viento. 6. Apretar la maneta y, en caso de que exista, apretar la palanca de accionamiento de la boquilla. Realizar una pequeña descarga de comprobación de salida del agente extintor. 7. Dirigir el chorro a la base de las llamas. 8. En el caso de incendios de líquidos proyectar superficialmente el agente extintor efectuando un barrido horizontal y evitando que la propia presión de impulsión pueda provocar el derrame incontrolado del producto en combustión. Avanzar gradualmente desde los extremos, pág. 7. INSST-NTP536, texto consolidado (últ. actualización 1999): https://www.insst.es/documents/94886/7865585/ntp_536.pdf#p07",
+   "localizacion": "NTP 536 (INSST), 1. Descolgar el extintor asiéndolo por la maneta o asa fija que disponga y dejarlo sobre el suelo en posición vertical. 2. En caso de que el extintor posea manguera asirla por la boquilla para evitar la salida incontrolada del agente extintor. En caso de que el extintor fuese de CO2 llevar cuidado especial de asir la boquilla por la parte aislada destinada para ello y no dirigirla hacia las personas. 3. Comprobar en caso de que exista válvula o disco de seguridad que están en posición sin peligro de proyección de fluido hacia el usuario. 4. Quitar el pasador de seguridad tirando de su anilla. 5. Acercarse al fuego dejando como mínimo un metro de distancia hasta él. En caso de espacios abiertos acercarse en la dirección del viento. 6. Apretar la maneta y, en caso de que exista, apretar la palanca de accionamiento de la boquilla. Realizar una pequeña descarga de comprobación de salida del agente extintor. 7. Dirigir el chorro a la base de las llamas. 8. En el caso de incendios de líquidos proyectar superficialmente el agente extintor efectuando un barrido horizontal y evitando que la propia presión de impulsión pueda provocar el derrame incontrolado del producto en combustión. Avanzar gradualmente desde los extremos, pág. 7",
+   "apartado": "Tipos y uso de extintores",
+   "norma": "INSST-NTP536",
+   "bloque_boe": "p07"
+  }
+ ]
+}

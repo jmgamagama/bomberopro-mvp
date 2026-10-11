@@ -1,0 +1,139 @@
+/** Tema 10 recall cards — fase 2: generadas SOLO desde el texto oficial consolidado (INSST-NTP420, INSST-NTP1035). Calidad: data/tema10/tema10_lote02_calidad.md. */
+
+export type Tema10RecallCard = {
+  id: string;
+  orden: number;
+  concepto: string;
+  respuesta: string;
+  fuente: string;
+  localizacion: string;
+  apartado: string;
+};
+
+export const TEMA10_LOTE02_RECALL_META = {
+  "tema": 10,
+  "lote": "lote02",
+  "title": "Tema 10 · lote 2: abastecimiento de agua y uso de BIE (NTP 420 y NTP 1035 del INSST)",
+  "count": 13,
+  "source": "Fase 5 · INSST, NTP 420 (1996) y NTP 1035 (2015), insst.es"
+} as const;
+
+export const TEMA10_LOTE02_RECALL_CARDS: Tema10RecallCard[] = [
+  {
+    "id": "CPEI-T10-OF-114BFDD9",
+    "orden": 10,
+    "concepto": "Según la NTP 420 del INSST, ¿qué duración tiene un escenario de incendio de categoría I?",
+    "respuesta": "Duración del incendio hasta 10 minutos",
+    "fuente": "NTP 420 (INSST), Fig. 1: Representación de dos típicos bloques de incendio en una planta química El análisis de riesgo de incendio debería incluir a efectos del consumo de agua y otros medios de actuación una clasificación por categorías de todos los escenarios identificados, basada fundamentalmente en una estimación de la duración del incendio y del área total afectada por el incendio. La duración del incendio puede ser estimada aplicando cualquier método garantizado de cálculo de caudal de fuga que se puede encontrar en fuentes especializadas. Existen distintas metodologías y programas informáticos de apoyo para fugas de gas, líquido y el caso de dos fases. En dichos programas la duración del incendio depende del diámetro del orificio, caudal de fuga, tiempos de fuga basados en bancos de datos experimentales sobre recipientes, duración de la fuga según las cantidades almacenadas y emplazamiento de válvulas de cierre, velocidad de combustión (no aplicable al caso de dardo de fuego, jet fire) y extensión de la superficie del incendio (no aplicable para dardo de fuego ni para incendio con llamarada, flash fires). Los escenarios de incendio podrían ser clasificados en tres categorías: ●, pág. 2. INSST-NTP420, texto consolidado (últ. actualización 1996): https://www.insst.es/documents/94886/7871500/ntp_420.pdf#p02",
+    "localizacion": "NTP 420 (INSST), Fig. 1: Representación de dos típicos bloques de incendio en una planta química El análisis de riesgo de incendio debería incluir a efectos del consumo de agua y otros medios de actuación una clasificación por categorías de todos los escenarios identificados, basada fundamentalmente en una estimación de la duración del incendio y del área total afectada por el incendio. La duración del incendio puede ser estimada aplicando cualquier método garantizado de cálculo de caudal de fuga que se puede encontrar en fuentes especializadas. Existen distintas metodologías y programas informáticos de apoyo para fugas de gas, líquido y el caso de dos fases. En dichos programas la duración del incendio depende del diámetro del orificio, caudal de fuga, tiempos de fuga basados en bancos de datos experimentales sobre recipientes, duración de la fuga según las cantidades almacenadas y emplazamiento de válvulas de cierre, velocidad de combustión (no aplicable al caso de dardo de fuego, jet fire) y extensión de la superficie del incendio (no aplicable para dardo de fuego ni para incendio con llamarada, flash fires). Los escenarios de incendio podrían ser clasificados en tres categorías: ●, pág. 2",
+    "apartado": "Abastecimiento de agua"
+  },
+  {
+    "id": "CPEI-T10-OF-8E34FDEA",
+    "orden": 20,
+    "concepto": "Según la NTP 420, ¿qué duración tiene un escenario de incendio de categoría III?",
+    "respuesta": "Duración del incendio más de 60 minutos",
+    "fuente": "NTP 420 (INSST), Fig. 1: Representación de dos típicos bloques de incendio en una planta química El análisis de riesgo de incendio debería incluir a efectos del consumo de agua y otros medios de actuación una clasificación por categorías de todos los escenarios identificados, basada fundamentalmente en una estimación de la duración del incendio y del área total afectada por el incendio. La duración del incendio puede ser estimada aplicando cualquier método garantizado de cálculo de caudal de fuga que se puede encontrar en fuentes especializadas. Existen distintas metodologías y programas informáticos de apoyo para fugas de gas, líquido y el caso de dos fases. En dichos programas la duración del incendio depende del diámetro del orificio, caudal de fuga, tiempos de fuga basados en bancos de datos experimentales sobre recipientes, duración de la fuga según las cantidades almacenadas y emplazamiento de válvulas de cierre, velocidad de combustión (no aplicable al caso de dardo de fuego, jet fire) y extensión de la superficie del incendio (no aplicable para dardo de fuego ni para incendio con llamarada, flash fires). Los escenarios de incendio podrían ser clasificados en tres categorías: ●, pág. 2. INSST-NTP420, texto consolidado (últ. actualización 1996): https://www.insst.es/documents/94886/7871500/ntp_420.pdf#p02",
+    "localizacion": "NTP 420 (INSST), Fig. 1: Representación de dos típicos bloques de incendio en una planta química El análisis de riesgo de incendio debería incluir a efectos del consumo de agua y otros medios de actuación una clasificación por categorías de todos los escenarios identificados, basada fundamentalmente en una estimación de la duración del incendio y del área total afectada por el incendio. La duración del incendio puede ser estimada aplicando cualquier método garantizado de cálculo de caudal de fuga que se puede encontrar en fuentes especializadas. Existen distintas metodologías y programas informáticos de apoyo para fugas de gas, líquido y el caso de dos fases. En dichos programas la duración del incendio depende del diámetro del orificio, caudal de fuga, tiempos de fuga basados en bancos de datos experimentales sobre recipientes, duración de la fuga según las cantidades almacenadas y emplazamiento de válvulas de cierre, velocidad de combustión (no aplicable al caso de dardo de fuego, jet fire) y extensión de la superficie del incendio (no aplicable para dardo de fuego ni para incendio con llamarada, flash fires). Los escenarios de incendio podrían ser clasificados en tres categorías: ●, pág. 2",
+    "apartado": "Abastecimiento de agua"
+  },
+  {
+    "id": "CPEI-T10-OF-FF45616C",
+    "orden": 30,
+    "concepto": "Según la NTP 420, ¿qué valor umbral de radiación se toma para daños estructurales?",
+    "respuesta": "32 kW/ m2",
+    "fuente": "NTP 420 (INSST), Fig. 1: Representación de dos típicos bloques de incendio en una planta química El análisis de riesgo de incendio debería incluir a efectos del consumo de agua y otros medios de actuación una clasificación por categorías de todos los escenarios identificados, basada fundamentalmente en una estimación de la duración del incendio y del área total afectada por el incendio. La duración del incendio puede ser estimada aplicando cualquier método garantizado de cálculo de caudal de fuga que se puede encontrar en fuentes especializadas. Existen distintas metodologías y programas informáticos de apoyo para fugas de gas, líquido y el caso de dos fases. En dichos programas la duración del incendio depende del diámetro del orificio, caudal de fuga, tiempos de fuga basados en bancos de datos experimentales sobre recipientes, duración de la fuga según las cantidades almacenadas y emplazamiento de válvulas de cierre, velocidad de combustión (no aplicable al caso de dardo de fuego, jet fire) y extensión de la superficie del incendio (no aplicable para dardo de fuego ni para incendio con llamarada, flash fires). Los escenarios de incendio podrían ser clasificados en tres categorías: ●, pág. 2. INSST-NTP420, texto consolidado (últ. actualización 1996): https://www.insst.es/documents/94886/7871500/ntp_420.pdf#p02",
+    "localizacion": "NTP 420 (INSST), Fig. 1: Representación de dos típicos bloques de incendio en una planta química El análisis de riesgo de incendio debería incluir a efectos del consumo de agua y otros medios de actuación una clasificación por categorías de todos los escenarios identificados, basada fundamentalmente en una estimación de la duración del incendio y del área total afectada por el incendio. La duración del incendio puede ser estimada aplicando cualquier método garantizado de cálculo de caudal de fuga que se puede encontrar en fuentes especializadas. Existen distintas metodologías y programas informáticos de apoyo para fugas de gas, líquido y el caso de dos fases. En dichos programas la duración del incendio depende del diámetro del orificio, caudal de fuga, tiempos de fuga basados en bancos de datos experimentales sobre recipientes, duración de la fuga según las cantidades almacenadas y emplazamiento de válvulas de cierre, velocidad de combustión (no aplicable al caso de dardo de fuego, jet fire) y extensión de la superficie del incendio (no aplicable para dardo de fuego ni para incendio con llamarada, flash fires). Los escenarios de incendio podrían ser clasificados en tres categorías: ●, pág. 2",
+    "apartado": "Abastecimiento de agua"
+  },
+  {
+    "id": "CPEI-T10-OF-6CC88C52",
+    "orden": 40,
+    "concepto": "Según la NTP 420, ¿en qué tres etapas puede basarse la estrategia de protección en plantas químicas?",
+    "respuesta": "Detección y alarma; prevención de cualquier daño a las estructuras y progreso de la situación de incendio; consecución del control y la extinción final del incendio",
+    "fuente": "NTP 420 (INSST), Fig. 2: Cuadro resumen de grupos de escenarios de incendio, pág. 3. INSST-NTP420, texto consolidado (últ. actualización 1996): https://www.insst.es/documents/94886/7871500/ntp_420.pdf#p03",
+    "localizacion": "NTP 420 (INSST), Fig. 2: Cuadro resumen de grupos de escenarios de incendio, pág. 3",
+    "apartado": "Abastecimiento de agua"
+  },
+  {
+    "id": "CPEI-T10-OF-D65F7BA7",
+    "orden": 50,
+    "concepto": "Según la NTP 420, ¿qué caudal mínimo de agua de extinción proponen los manuales guía?",
+    "respuesta": "4-20 litros/min/m2",
+    "fuente": "NTP 420 (INSST), Los caudales de aplicación de agua contra incendios están expresados por m2 de recipiente o por m2 de área de su superficie proyectada. La Tabla 1 se puede usar para estimación del número de hidrantes y monitores requeridos para proveer el agua de enfriamiento del escenario de incendio. También se puede aplicar para establecer el criterio de proyecto para sistemas fijos de difusores de agua y de diluvio. Los manuales guías generales proponen un caudal mínimo de agua de extinción de 4-20 litros/min/m2 (expresado por m2 del área de la superficie proyectada). Los caudales de aplicación serán evaluados para cada escenario de incendio por separado. Para estos cálculos puede ser de utilidad el manual guía NFPA-11. Si dentro de la filosofía de protección contra incendios se considera que es recomendable usar espuma corno medio de extinción, se deberá tener en cuenta para el cálculo de demanda total de agua contra incendios. El sistema de actuación para plantas existentes puede ser el representado en la Figura 3, pág. 4. INSST-NTP420, texto consolidado (últ. actualización 1996): https://www.insst.es/documents/94886/7871500/ntp_420.pdf#p04",
+    "localizacion": "NTP 420 (INSST), Los caudales de aplicación de agua contra incendios están expresados por m2 de recipiente o por m2 de área de su superficie proyectada. La Tabla 1 se puede usar para estimación del número de hidrantes y monitores requeridos para proveer el agua de enfriamiento del escenario de incendio. También se puede aplicar para establecer el criterio de proyecto para sistemas fijos de difusores de agua y de diluvio. Los manuales guías generales proponen un caudal mínimo de agua de extinción de 4-20 litros/min/m2 (expresado por m2 del área de la superficie proyectada). Los caudales de aplicación serán evaluados para cada escenario de incendio por separado. Para estos cálculos puede ser de utilidad el manual guía NFPA-11. Si dentro de la filosofía de protección contra incendios se considera que es recomendable usar espuma corno medio de extinción, se deberá tener en cuenta para el cálculo de demanda total de agua contra incendios. El sistema de actuación para plantas existentes puede ser el representado en la Figura 3, pág. 4",
+    "apartado": "Abastecimiento de agua"
+  },
+  {
+    "id": "CPEI-T10-OF-7A2FE47A",
+    "orden": 60,
+    "concepto": "Según la NTP 1035 del INSST, ¿qué es una BIE?",
+    "respuesta": "Una instalación semifija de extinción de incendios",
+    "fuente": "NTP 1035 (INSST), AÑO 2015, pág. 1. INSST-NTP1035, texto consolidado (últ. actualización 2015): https://www.insst.es/documents/94886/7803791/NTP+1035.pdf#p01",
+    "localizacion": "NTP 1035 (INSST), AÑO 2015, pág. 1",
+    "apartado": "Uso de BIE"
+  },
+  {
+    "id": "CPEI-T10-OF-70349260",
+    "orden": 70,
+    "concepto": "Según la NTP 1035, ¿qué hay que hacer con la manguera flexible plana antes de utilizarla?",
+    "respuesta": "Desenrollarla por completo",
+    "fuente": "NTP 1035 (INSST), 2 Notas Técnicas de Prevención, pág. 2. INSST-NTP1035, texto consolidado (últ. actualización 2015): https://www.insst.es/documents/94886/7803791/NTP+1035.pdf#p02",
+    "localizacion": "NTP 1035 (INSST), 2 Notas Técnicas de Prevención, pág. 2",
+    "apartado": "Uso de BIE"
+  },
+  {
+    "id": "CPEI-T10-OF-5B0EF6D8",
+    "orden": 80,
+    "concepto": "Según la NTP 1035, ¿cuántas personas como mínimo deben usar la BIE de manguera flexible plana de 45 mm?",
+    "respuesta": "Como mínimo entre dos personas",
+    "fuente": "NTP 1035 (INSST), 3 Notas Técnicas de Prevención, pág. 3. INSST-NTP1035, texto consolidado (últ. actualización 2015): https://www.insst.es/documents/94886/7803791/NTP+1035.pdf#p03",
+    "localizacion": "NTP 1035 (INSST), 3 Notas Técnicas de Prevención, pág. 3",
+    "apartado": "Uso de BIE"
+  },
+  {
+    "id": "CPEI-T10-OF-AA947CA0",
+    "orden": 90,
+    "concepto": "Según la NTP 1035, ¿qué hay que hacer antes de abrir cualquier puerta en un incendio?",
+    "respuesta": "Tóquela ligeramente y si quema no la abra",
+    "fuente": "NTP 1035 (INSST), 3 Notas Técnicas de Prevención, pág. 3. INSST-NTP1035, texto consolidado (últ. actualización 2015): https://www.insst.es/documents/94886/7803791/NTP+1035.pdf#p03",
+    "localizacion": "NTP 1035 (INSST), 3 Notas Técnicas de Prevención, pág. 3",
+    "apartado": "Uso de BIE"
+  },
+  {
+    "id": "CPEI-T10-OF-92CF9CF8",
+    "orden": 100,
+    "concepto": "Según la NTP 1035, ¿qué se comprueba en el manómetro de la BIE?",
+    "respuesta": "Si el manómetro indica presión de agua de la red de abastecimiento",
+    "fuente": "NTP 1035 (INSST), 4 Notas Técnicas de Prevención, pág. 4. INSST-NTP1035, texto consolidado (últ. actualización 2015): https://www.insst.es/documents/94886/7803791/NTP+1035.pdf#p04",
+    "localizacion": "NTP 1035 (INSST), 4 Notas Técnicas de Prevención, pág. 4",
+    "apartado": "Uso de BIE"
+  },
+  {
+    "id": "CPEI-T10-OF-10B2981E",
+    "orden": 110,
+    "concepto": "Según la NTP 1035, ¿a qué distancia del fuego hay que detenerse con la lanza?",
+    "respuesta": "A más de dos metros del fuego",
+    "fuente": "NTP 1035 (INSST), 4 Notas Técnicas de Prevención, pág. 4. INSST-NTP1035, texto consolidado (últ. actualización 2015): https://www.insst.es/documents/94886/7803791/NTP+1035.pdf#p04",
+    "localizacion": "NTP 1035 (INSST), 4 Notas Técnicas de Prevención, pág. 4",
+    "apartado": "Uso de BIE"
+  },
+  {
+    "id": "CPEI-T10-OF-CE274796",
+    "orden": 120,
+    "concepto": "Según la NTP 1035, ¿qué modo de chorro hace de pantalla y protege del humo?",
+    "respuesta": "Pulverización cónica",
+    "fuente": "NTP 1035 (INSST), 4 Notas Técnicas de Prevención, pág. 4. INSST-NTP1035, texto consolidado (últ. actualización 2015): https://www.insst.es/documents/94886/7803791/NTP+1035.pdf#p04",
+    "localizacion": "NTP 1035 (INSST), 4 Notas Técnicas de Prevención, pág. 4",
+    "apartado": "Uso de BIE"
+  },
+  {
+    "id": "CPEI-T10-OF-F32DFE11",
+    "orden": 130,
+    "concepto": "Según la NTP 1035, ¿qué hay que esperar antes de volver a enrollar la manguera en su carrete?",
+    "respuesta": "A que la manguera esté seca",
+    "fuente": "NTP 1035 (INSST), 4 Notas Técnicas de Prevención, pág. 4. INSST-NTP1035, texto consolidado (últ. actualización 2015): https://www.insst.es/documents/94886/7803791/NTP+1035.pdf#p04",
+    "localizacion": "NTP 1035 (INSST), 4 Notas Técnicas de Prevención, pág. 4",
+    "apartado": "Uso de BIE"
+  }
+];
