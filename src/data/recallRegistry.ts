@@ -89,6 +89,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 27,
+      title: "Tema 27 · Edificación: acciones y estados límite (CTE DB SE y DB SE-AE)",
+      count: 22,
+      source: "Fase 3 · CTE DB SE (RD 732/2019) y DB SE-AE (Orden VIV/984/2009), textos consolidados del Ministerio en codigotecnico.org",
+    },
+    load: () => import('./tema27Recall').then((m) => m.TEMA27_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 23,
       title: "Tema 23 · Inundaciones: Plan Estatal de Protección Civil ante el Riesgo de Inundaciones",
       count: 21,
