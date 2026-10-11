@@ -88,6 +88,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 2,
+      title: "Tema 2 · El Estatuto de Autonomía de Extremadura",
+      count: 121,
+      source: "Fase 2 · texto consolidado BOE-A-2011-1638 (Estatuto, arts. 1-48; sin modificaciones registradas desde 29/01/2011)",
+    },
+    load: () => import('./tema2Recall').then((m) => m.TEMA2_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 32,
       title: "Tema 32 · CTE (RD 314/2006): objeto, ámbito y exigencias básicas SI y SUA",
       count: 38,

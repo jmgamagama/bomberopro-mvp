@@ -1,0 +1,1110 @@
+/** Tema 2 recall cards — fase 2: generadas SOLO desde el texto oficial consolidado (BOE-A-2011-1638). Calidad: data/tema02/tema02_calidad.md. */
+
+export type Tema2RecallCard = {
+  id: string;
+  orden: number;
+  concepto: string;
+  respuesta: string;
+  fuente: string;
+  localizacion: string;
+  apartado: string;
+};
+
+export const TEMA2_RECALL_META = {
+  "tema": 2,
+  "title": "Tema 2 · El Estatuto de Autonomía de Extremadura",
+  "count": 121,
+  "source": "Fase 2 · texto consolidado BOE-A-2011-1638 (Estatuto, arts. 1-48; sin modificaciones registradas desde 29/01/2011)"
+} as const;
+
+export const TEMA2_RECALL_CARDS: Tema2RecallCard[] = [
+  {
+    "id": "CPEI-T02-OF-8698341C",
+    "orden": 10,
+    "concepto": "Según el art. 1.1 del Estatuto de Autonomía de Extremadura, ¿qué es el Estatuto para la Comunidad Autónoma?",
+    "respuesta": "Su norma institucional básica",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 1. Comunidad Autónoma de Extremadura, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a1",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 1. Comunidad Autónoma de Extremadura, apdo. 1",
+    "apartado": "Disposiciones generales"
+  },
+  {
+    "id": "CPEI-T02-OF-73A20DCE",
+    "orden": 20,
+    "concepto": "Según el art. 1.3 del Estatuto de Autonomía de Extremadura, ¿de dónde emanan los poderes de la Comunidad Autónoma?",
+    "respuesta": "Del pueblo, de la Constitución y del presente Estatuto",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 1. Comunidad Autónoma de Extremadura, apdo. 3. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a1",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 1. Comunidad Autónoma de Extremadura, apdo. 3",
+    "apartado": "Disposiciones generales"
+  },
+  {
+    "id": "CPEI-T02-OF-E467D0ED",
+    "orden": 30,
+    "concepto": "Según el art. 1.4 del Estatuto de Autonomía de Extremadura, ¿en qué países se proyecta Extremadura como elemento diferencial?",
+    "respuesta": "En Portugal e Iberoamérica",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 1. Comunidad Autónoma de Extremadura, apdo. 4. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a1",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 1. Comunidad Autónoma de Extremadura, apdo. 4",
+    "apartado": "Disposiciones generales"
+  },
+  {
+    "id": "CPEI-T02-OF-32F18FD3",
+    "orden": 40,
+    "concepto": "Según el art. 1.4 del Estatuto de Autonomía de Extremadura, ¿qué mundo predomina en Extremadura como elemento diferencial?",
+    "respuesta": "El predominio del mundo rural",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 1. Comunidad Autónoma de Extremadura, apdo. 4. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a1",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 1. Comunidad Autónoma de Extremadura, apdo. 4",
+    "apartado": "Disposiciones generales"
+  },
+  {
+    "id": "CPEI-T02-OF-B6407A18",
+    "orden": 50,
+    "concepto": "Según el art. 2.1 del Estatuto de Autonomía de Extremadura, ¿cuál es el territorio de Extremadura?",
+    "respuesta": "El de los municipios comprendidos dentro de los actuales límites de las provincias de Badajoz y Cáceres",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 2. Territorio, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a2",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 2. Territorio, apdo. 1",
+    "apartado": "Disposiciones generales"
+  },
+  {
+    "id": "CPEI-T02-OF-A6116D08",
+    "orden": 60,
+    "concepto": "Según el art. 2.2 del Estatuto de Autonomía de Extremadura, ¿cuándo pueden tener efectos extraterritoriales los actos de las instituciones extremeñas?",
+    "respuesta": "Cuando sea necesario para el pleno ejercicio de aquellas de sus competencias cuya naturaleza lo requiera",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 2. Territorio, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a2",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 2. Territorio, apdo. 2",
+    "apartado": "Disposiciones generales"
+  },
+  {
+    "id": "CPEI-T02-OF-269D00B4",
+    "orden": 70,
+    "concepto": "Según el art. 3.1 del Estatuto de Autonomía de Extremadura, ¿quiénes ostentan la condición política de extremeños?",
+    "respuesta": "Los ciudadanos españoles que, de acuerdo con las leyes generales del Estado, tengan vecindad administrativa en cualquiera de los municipios de Extremadura",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 3. Extremeñas y extremeños, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a3",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 3. Extremeñas y extremeños, apdo. 1",
+    "apartado": "Disposiciones generales"
+  },
+  {
+    "id": "CPEI-T02-OF-7D1EF072",
+    "orden": 80,
+    "concepto": "Según el art. 3.2 del Estatuto de Autonomía de Extremadura, ¿qué españoles residentes en el extranjero son extremeños?",
+    "respuesta": "Los que hayan tenido la última vecindad administrativa en Extremadura y acrediten esta condición en la correspondiente representación diplomática de España",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 3. Extremeñas y extremeños, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a3",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 3. Extremeñas y extremeños, apdo. 2",
+    "apartado": "Disposiciones generales"
+  },
+  {
+    "id": "CPEI-T02-OF-396DBC52",
+    "orden": 90,
+    "concepto": "Según el art. 3.3 del Estatuto de Autonomía de Extremadura, ¿implica la identidad extremeña de las comunidades asentadas fuera la concesión de derechos políticos?",
+    "respuesta": "No: sin que, en ningún caso, implique la concesión de derechos políticos",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 3. Extremeñas y extremeños, apdo. 3. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a3",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 3. Extremeñas y extremeños, apdo. 3",
+    "apartado": "Disposiciones generales"
+  },
+  {
+    "id": "CPEI-T02-OF-C3698617",
+    "orden": 100,
+    "concepto": "Según el art. 4.1 del Estatuto de Autonomía de Extremadura, ¿cómo está formada la bandera extremeña?",
+    "respuesta": "Por tres franjas horizontales iguales, verde la superior, blanca la central y negra la inferior",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 4. Símbolos, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a4",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 4. Símbolos, apdo. 1",
+    "apartado": "Disposiciones generales"
+  },
+  {
+    "id": "CPEI-T02-OF-D0A26AF4",
+    "orden": 110,
+    "concepto": "Según el art. 4.2 del Estatuto de Autonomía de Extremadura, ¿qué mayoría exige la ley que regule el escudo y el himno de Extremadura?",
+    "respuesta": "Mayoría de dos tercios de los diputados",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 4. Símbolos, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a4",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 4. Símbolos, apdo. 2",
+    "apartado": "Disposiciones generales"
+  },
+  {
+    "id": "CPEI-T02-OF-BC7B14D0",
+    "orden": 120,
+    "concepto": "Según el art. 4.3 del Estatuto de Autonomía de Extremadura, ¿qué día es el día de Extremadura?",
+    "respuesta": "El 8 de septiembre",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 4. Símbolos, apdo. 3. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a4",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 4. Símbolos, apdo. 3",
+    "apartado": "Disposiciones generales"
+  },
+  {
+    "id": "CPEI-T02-OF-0461D0FB",
+    "orden": 130,
+    "concepto": "Según el art. 5 del Estatuto de Autonomía de Extremadura, ¿cuál es la capital de Extremadura?",
+    "respuesta": "La ciudad de Mérida",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 5. Capitalidad. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a5",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 5. Capitalidad",
+    "apartado": "Disposiciones generales"
+  },
+  {
+    "id": "CPEI-T02-OF-8BF54C8A",
+    "orden": 140,
+    "concepto": "Según el art. 5 del Estatuto de Autonomía de Extremadura, ¿de qué instituciones es sede la capital de Extremadura?",
+    "respuesta": "De la Asamblea, de la Presidencia y de la Junta",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 5. Capitalidad. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a5",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 5. Capitalidad",
+    "apartado": "Disposiciones generales"
+  },
+  {
+    "id": "CPEI-T02-OF-B94C472B",
+    "orden": 150,
+    "concepto": "Según el art. 6.1 del Estatuto de Autonomía de Extremadura, ¿cuáles son los derechos fundamentales de los extremeños?",
+    "respuesta": "Los establecidos en la Constitución",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 6. Derechos y deberes de los extremeños, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a6",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 6. Derechos y deberes de los extremeños, apdo. 1",
+    "apartado": "Derechos, deberes y principios rectores"
+  },
+  {
+    "id": "CPEI-T02-OF-B71DFF68",
+    "orden": 160,
+    "concepto": "Según el art. 6.1 del Estatuto de Autonomía de Extremadura, ¿qué dos derechos se citan especialmente ante los poderes públicos regionales?",
+    "respuesta": "El de participar en los asuntos públicos directamente o por medio de representantes y el de petición",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 6. Derechos y deberes de los extremeños, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a6",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 6. Derechos y deberes de los extremeños, apdo. 1",
+    "apartado": "Derechos, deberes y principios rectores"
+  },
+  {
+    "id": "CPEI-T02-OF-BF9CC97B",
+    "orden": 170,
+    "concepto": "Según el art. 7.3 del Estatuto de Autonomía de Extremadura, ¿contra qué lucharán los poderes públicos regionales en las zonas rurales?",
+    "respuesta": "Contra la despoblación de las zonas rurales",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 7. Principios rectores de los poderes públicos extremeños, apdo. 3. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a7",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 7. Principios rectores de los poderes públicos extremeños, apdo. 3",
+    "apartado": "Derechos, deberes y principios rectores"
+  },
+  {
+    "id": "CPEI-T02-OF-B57E97ED",
+    "orden": 180,
+    "concepto": "Según el art. 7.4 del Estatuto de Autonomía de Extremadura, ¿con quiénes promoverán los poderes públicos la concertación y el diálogo social?",
+    "respuesta": "Con sindicatos y empresarios",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 7. Principios rectores de los poderes públicos extremeños, apdo. 4. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a7",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 7. Principios rectores de los poderes públicos extremeños, apdo. 4",
+    "apartado": "Derechos, deberes y principios rectores"
+  },
+  {
+    "id": "CPEI-T02-OF-BBDE43CB",
+    "orden": 190,
+    "concepto": "Según el art. 7.7 del Estatuto de Autonomía de Extremadura, ¿qué ecosistema característico de la región se cita expresamente?",
+    "respuesta": "La dehesa",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 7. Principios rectores de los poderes públicos extremeños, apdo. 7. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a7",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 7. Principios rectores de los poderes públicos extremeños, apdo. 7",
+    "apartado": "Derechos, deberes y principios rectores"
+  },
+  {
+    "id": "CPEI-T02-OF-3DA34292",
+    "orden": 200,
+    "concepto": "Según el art. 7.8 del Estatuto de Autonomía de Extremadura, ¿por qué uso del agua velarán los poderes públicos?",
+    "respuesta": "Por un uso racional del agua y por su distribución solidaria entre los ciudadanos que la precisen",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 7. Principios rectores de los poderes públicos extremeños, apdo. 8. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a7",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 7. Principios rectores de los poderes públicos extremeños, apdo. 8",
+    "apartado": "Derechos, deberes y principios rectores"
+  },
+  {
+    "id": "CPEI-T02-OF-C8F3D084",
+    "orden": 210,
+    "concepto": "Según el art. 7.9 del Estatuto de Autonomía de Extremadura, ¿qué retorno vigilarán estrictamente los poderes públicos en materia energética?",
+    "respuesta": "El retorno a la región de los beneficios resultantes de la exportación de energía fuera de su territorio",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 7. Principios rectores de los poderes públicos extremeños, apdo. 9. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a7",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 7. Principios rectores de los poderes públicos extremeños, apdo. 9",
+    "apartado": "Derechos, deberes y principios rectores"
+  },
+  {
+    "id": "CPEI-T02-OF-BFBB1F68",
+    "orden": 220,
+    "concepto": "Según el art. 7.10 del Estatuto de Autonomía de Extremadura, ¿qué sistemas operativos y licencias se consideran instrumentos útiles para la difusión de la cultura?",
+    "respuesta": "La extensión de los sistemas operativos de código abierto y el uso de las licencias de libre copia y distribución",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 7. Principios rectores de los poderes públicos extremeños, apdo. 10. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a7",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 7. Principios rectores de los poderes públicos extremeños, apdo. 10",
+    "apartado": "Derechos, deberes y principios rectores"
+  },
+  {
+    "id": "CPEI-T02-OF-1590080B",
+    "orden": 230,
+    "concepto": "Según el art. 7.11 del Estatuto de Autonomía de Extremadura, ¿de qué derechos es aspiración esencial la más estricta garantía?",
+    "respuesta": "De los derechos a la salud, a la educación y a la protección pública en caso de dependencia",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 7. Principios rectores de los poderes públicos extremeños, apdo. 11. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a7",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 7. Principios rectores de los poderes públicos extremeños, apdo. 11",
+    "apartado": "Derechos, deberes y principios rectores"
+  },
+  {
+    "id": "CPEI-T02-OF-74DD84C7",
+    "orden": 240,
+    "concepto": "Según el art. 7.15 del Estatuto de Autonomía de Extremadura, ¿qué lengua se cita en la integración de las personas con discapacidad?",
+    "respuesta": "La lengua de signos española",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 7. Principios rectores de los poderes públicos extremeños, apdo. 15. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a7",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 7. Principios rectores de los poderes públicos extremeños, apdo. 15",
+    "apartado": "Derechos, deberes y principios rectores"
+  },
+  {
+    "id": "CPEI-T02-OF-66AE9EF7",
+    "orden": 250,
+    "concepto": "Según el art. 7.19 del Estatuto de Autonomía de Extremadura, ¿con qué país impulsarán todo tipo de relaciones los poderes públicos?",
+    "respuesta": "Con Portugal",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 7. Principios rectores de los poderes públicos extremeños, apdo. 19. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a7",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 7. Principios rectores de los poderes públicos extremeños, apdo. 19",
+    "apartado": "Derechos, deberes y principios rectores"
+  },
+  {
+    "id": "CPEI-T02-OF-997D6AAE",
+    "orden": 260,
+    "concepto": "Según el art. 8.3 del Estatuto de Autonomía de Extremadura, ¿qué podrá establecer la Comunidad Autónoma en el ejercicio de sus competencias?",
+    "respuesta": "Políticas propias",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 8. Disposiciones generales, apdo. 3. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a8",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 8. Disposiciones generales, apdo. 3",
+    "apartado": "Competencias"
+  },
+  {
+    "id": "CPEI-T02-OF-9C0DD975",
+    "orden": 270,
+    "concepto": "Según el art. 9 del Estatuto de Autonomía de Extremadura, ¿qué fuero es de competencia exclusiva en su conservación, defensa y protección?",
+    "respuesta": "El Fuero de Baylío",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 9. Competencias exclusivas, apdo. 1.4. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a9",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 9. Competencias exclusivas, apdo. 1.4",
+    "apartado": "Competencias"
+  },
+  {
+    "id": "CPEI-T02-OF-89F74D92",
+    "orden": 280,
+    "concepto": "Según el art. 9.1 del Estatuto de Autonomía de Extremadura, ¿qué competencia tiene Extremadura en protección civil y emergencias?",
+    "respuesta": "Competencia exclusiva",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 9. Competencias exclusivas, apdo. 1.42. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a9",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 9. Competencias exclusivas, apdo. 1.42",
+    "apartado": "Competencias"
+  },
+  {
+    "id": "CPEI-T02-OF-B297951F",
+    "orden": 290,
+    "concepto": "Según el art. 9.1 del Estatuto de Autonomía de Extremadura, ¿qué competencia exclusiva tiene la Comunidad en relación con las policías locales?",
+    "respuesta": "Coordinación y demás facultades previstas en la ley orgánica correspondiente en relación con las policías locales",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 9. Competencias exclusivas, apdo. 1.41. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a9",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 9. Competencias exclusivas, apdo. 1.41",
+    "apartado": "Competencias"
+  },
+  {
+    "id": "CPEI-T02-OF-07F01CC0",
+    "orden": 300,
+    "concepto": "Según el art. 9.1 del Estatuto de Autonomía de Extremadura, ¿qué ecosistema tiene competencia exclusiva de mantenimiento, conservación y mejora?",
+    "respuesta": "La dehesa",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 9. Competencias exclusivas, apdo. 1.33. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a9",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 9. Competencias exclusivas, apdo. 1.33",
+    "apartado": "Competencias"
+  },
+  {
+    "id": "CPEI-T02-OF-9E018AAE",
+    "orden": 310,
+    "concepto": "Según el art. 9.1 del Estatuto de Autonomía de Extremadura, ¿qué servicio propio de predicción es competencia exclusiva?",
+    "respuesta": "Servicio meteorológico de la Comunidad Autónoma",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 9. Competencias exclusivas, apdo. 1.35. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a9",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 9. Competencias exclusivas, apdo. 1.35",
+    "apartado": "Competencias"
+  },
+  {
+    "id": "CPEI-T02-OF-7B79C2C5",
+    "orden": 320,
+    "concepto": "Según el art. 9.1 del Estatuto de Autonomía de Extremadura, ¿sobre qué aguas tiene competencia exclusiva de ordenación, planificación y gestión?",
+    "respuesta": "Las aguas que discurran íntegramente por el territorio de Extremadura",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 9. Competencias exclusivas, apdo. 1.36. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a9",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 9. Competencias exclusivas, apdo. 1.36",
+    "apartado": "Competencias"
+  },
+  {
+    "id": "CPEI-T02-OF-5AB50021",
+    "orden": 330,
+    "concepto": "Según el art. 9.1 del Estatuto de Autonomía de Extremadura, ¿qué consultas populares son competencia exclusiva?",
+    "respuesta": "Consultas populares no vinculantes diferentes al referéndum",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 9. Competencias exclusivas, apdo. 1.50. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a9",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 9. Competencias exclusivas, apdo. 1.50",
+    "apartado": "Competencias"
+  },
+  {
+    "id": "CPEI-T02-OF-A20497FC",
+    "orden": 340,
+    "concepto": "Según el art. 9.2 del Estatuto de Autonomía de Extremadura, ¿qué funciones corresponden a la Comunidad en las materias de competencia exclusiva?",
+    "respuesta": "La función legislativa, la potestad reglamentaria y, en ejercicio de la función ejecutiva, la adopción de cuantas medidas, decisiones y actos procedan",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 9. Competencias exclusivas, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a9",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 9. Competencias exclusivas, apdo. 2",
+    "apartado": "Competencias"
+  },
+  {
+    "id": "CPEI-T02-OF-EEF359A7",
+    "orden": 350,
+    "concepto": "Según el art. 10.1 del Estatuto de Autonomía de Extremadura, ¿qué competencia tiene Extremadura sobre montes, aprovechamientos forestales y vías pecuarias?",
+    "respuesta": "Competencias de desarrollo normativo y ejecución",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 10. Competencias de desarrollo normativo y ejecución, apdo. 1.2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a10",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 10. Competencias de desarrollo normativo y ejecución, apdo. 1.2",
+    "apartado": "Competencias"
+  },
+  {
+    "id": "CPEI-T02-OF-5A624A61",
+    "orden": 360,
+    "concepto": "Según el art. 10.1 del Estatuto de Autonomía de Extremadura, ¿qué competencia tiene Extremadura sobre educación y enseñanza?",
+    "respuesta": "Competencias de desarrollo normativo y ejecución",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 10. Competencias de desarrollo normativo y ejecución, apdo. 1.4. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a10",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 10. Competencias de desarrollo normativo y ejecución, apdo. 1.4",
+    "apartado": "Competencias"
+  },
+  {
+    "id": "CPEI-T02-OF-73B9E692",
+    "orden": 370,
+    "concepto": "Según el art. 10.2 del Estatuto de Autonomía de Extremadura, ¿qué corresponde a la Comunidad en las materias de desarrollo normativo y ejecución?",
+    "respuesta": "Desarrollar, ejecutar y, en su caso, complementar la normativa del Estado, mediante la legislación propia de desarrollo, la potestad reglamentaria y la función ejecutiva",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 10. Competencias de desarrollo normativo y ejecución, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a10",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 10. Competencias de desarrollo normativo y ejecución, apdo. 2",
+    "apartado": "Competencias"
+  },
+  {
+    "id": "CPEI-T02-OF-12C51B69",
+    "orden": 380,
+    "concepto": "Según el art. 11.1 del Estatuto de Autonomía de Extremadura, ¿qué competencia tiene la Comunidad sobre el sistema penitenciario?",
+    "respuesta": "Competencias de ejecución",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 11. Competencias de ejecución, apdo. 1.1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a11",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 11. Competencias de ejecución, apdo. 1.1",
+    "apartado": "Competencias"
+  },
+  {
+    "id": "CPEI-T02-OF-A5CD972A",
+    "orden": 390,
+    "concepto": "Según el art. 11.1 del Estatuto de Autonomía de Extremadura, ¿qué competencia tiene la Comunidad en trabajo y relaciones laborales?",
+    "respuesta": "Competencias de ejecución",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 11. Competencias de ejecución, apdo. 1.7. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a11",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 11. Competencias de ejecución, apdo. 1.7",
+    "apartado": "Competencias"
+  },
+  {
+    "id": "CPEI-T02-OF-F6BA58D4",
+    "orden": 400,
+    "concepto": "Según el art. 11.1 del Estatuto de Autonomía de Extremadura, ¿qué gestión de espacios naturales estatales es competencia de ejecución?",
+    "respuesta": "Gestión de los parques nacionales",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 11. Competencias de ejecución, apdo. 1.11. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a11",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 11. Competencias de ejecución, apdo. 1.11",
+    "apartado": "Competencias"
+  },
+  {
+    "id": "CPEI-T02-OF-CADA18DF",
+    "orden": 410,
+    "concepto": "Según el art. 11.2 del Estatuto de Autonomía de Extremadura, ¿qué potestades corresponden a la Comunidad en las materias de competencia de ejecución?",
+    "respuesta": "La potestad reglamentaria organizativa y la adopción de planes, programas, medidas, decisiones y actos",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 11. Competencias de ejecución, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a11",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 11. Competencias de ejecución, apdo. 2",
+    "apartado": "Competencias"
+  },
+  {
+    "id": "CPEI-T02-OF-4EDF2CC7",
+    "orden": 420,
+    "concepto": "Según el art. 12.1 del Estatuto de Autonomía de Extremadura, ¿qué normativa supranacional desarrolla y ejecuta la Comunidad?",
+    "respuesta": "La normativa de la Unión Europea en los ámbitos materiales de competencia autonómica",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 12. Desarrollo y ejecución de normas supranacionales, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a12",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 12. Desarrollo y ejecución de normas supranacionales, apdo. 1",
+    "apartado": "Competencias"
+  },
+  {
+    "id": "CPEI-T02-OF-6C9CFD3B",
+    "orden": 430,
+    "concepto": "Según el art. 13.2 del Estatuto de Autonomía de Extremadura, ¿qué actividades corresponden a la Comunidad en todas las materias de su competencia?",
+    "respuesta": "Las actividades de policía, de servicio público y de fomento",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 13. Otras facultades asociadas a las competencias, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a13",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 13. Otras facultades asociadas a las competencias, apdo. 2",
+    "apartado": "Competencias"
+  },
+  {
+    "id": "CPEI-T02-OF-3E73EEFB",
+    "orden": 440,
+    "concepto": "Según el art. 14 del Estatuto de Autonomía de Extremadura, ¿en qué términos debe actualizarse el elenco competencial de Extremadura?",
+    "respuesta": "En términos de homogeneidad respecto del conjunto de las Comunidades Autónomas",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 14. Homogeneidad competencial. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a14",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 14. Homogeneidad competencial",
+    "apartado": "Competencias"
+  },
+  {
+    "id": "CPEI-T02-OF-2E2B6788",
+    "orden": 450,
+    "concepto": "Según el art. 15.1 del Estatuto de Autonomía de Extremadura, ¿a través de qué instituciones ejerce la Comunidad sus poderes?",
+    "respuesta": "A través de la Asamblea, del Presidente y de la Junta de Extremadura",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 15. Instituciones de autogobierno y otras instituciones estatutarias, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a15",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 15. Instituciones de autogobierno y otras instituciones estatutarias, apdo. 1",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-5CEDFFE0",
+    "orden": 460,
+    "concepto": "Según el art. 15.2 del Estatuto de Autonomía de Extremadura, ¿cuáles son las instituciones estatutarias dotadas de autonomía orgánica, funcional y presupuestaria?",
+    "respuesta": "El Consejo Consultivo, el Consejo de Cuentas, el Consejo Económico y Social y el Personero del Común",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 15. Instituciones de autogobierno y otras instituciones estatutarias, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a15",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 15. Instituciones de autogobierno y otras instituciones estatutarias, apdo. 2",
+    "apartado": "Otras instituciones"
+  },
+  {
+    "id": "CPEI-T02-OF-C18AA51E",
+    "orden": 470,
+    "concepto": "Según el art. 16.1 del Estatuto de Autonomía de Extremadura, ¿por cuántos años es elegida la Asamblea?",
+    "respuesta": "Por cuatro años",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 16. Carácter y atribuciones, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a16",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 16. Carácter y atribuciones, apdo. 1",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-C65147DE",
+    "orden": 480,
+    "concepto": "Según el art. 16.1 del Estatuto de Autonomía de Extremadura, ¿qué autonomías tiene la Asamblea de Extremadura?",
+    "respuesta": "Autonomía reglamentaria, presupuestaria, administrativa y disciplinaria",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 16. Carácter y atribuciones, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a16",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 16. Carácter y atribuciones, apdo. 1",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-4C6C95E8",
+    "orden": 490,
+    "concepto": "Según el art. 16.2.d) del Estatuto de Autonomía de Extremadura, ¿qué mayoría exige la aprobación y modificación del Reglamento de la Asamblea?",
+    "respuesta": "Mayoría absoluta de la Cámara en una votación final sobre el conjunto del proyecto",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 16. Carácter y atribuciones, apdo. 2.d. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a16",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 16. Carácter y atribuciones, apdo. 2.d",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-10CE4297",
+    "orden": 500,
+    "concepto": "Según el art. 16.2.f) del Estatuto de Autonomía de Extremadura, ¿qué normas de la Junta convalida la Asamblea?",
+    "respuesta": "Sus Decretos-leyes",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 16. Carácter y atribuciones, apdo. 2.f. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a16",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 16. Carácter y atribuciones, apdo. 2.f",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-3C0D5B88",
+    "orden": 510,
+    "concepto": "Según el art. 16.2.l) del Estatuto de Autonomía de Extremadura, ¿a qué senadores designa la Asamblea?",
+    "respuesta": "A los senadores a que se refiere el artículo 69.5 de la Constitución",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 16. Carácter y atribuciones, apdo. 2.l. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a16",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 16. Carácter y atribuciones, apdo. 2.l",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-9672EBCC",
+    "orden": 520,
+    "concepto": "Según el art. 17.1 del Estatuto de Autonomía de Extremadura, ¿cuál es el número máximo de diputados de la Asamblea?",
+    "respuesta": "65",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 17. Elecciones, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a17",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 17. Elecciones, apdo. 1",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-F0747175",
+    "orden": 530,
+    "concepto": "Según el art. 17.1 del Estatuto de Autonomía de Extremadura, ¿de acuerdo con qué criterios se eligen los diputados de la Asamblea?",
+    "respuesta": "De acuerdo con criterios de representación proporcional",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 17. Elecciones, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a17",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 17. Elecciones, apdo. 1",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-36CD4CE0",
+    "orden": 540,
+    "concepto": "Según el art. 17.2 del Estatuto de Autonomía de Extremadura, ¿mediante qué se convocan las elecciones a la Asamblea?",
+    "respuesta": "Mediante decreto del Presidente de la Comunidad Autónoma",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 17. Elecciones, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a17",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 17. Elecciones, apdo. 2",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-10715587",
+    "orden": 550,
+    "concepto": "Según el art. 17.3 del Estatuto de Autonomía de Extremadura, ¿cuál es la circunscripción electoral?",
+    "respuesta": "La provincia",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 17. Elecciones, apdo. 3. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a17",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 17. Elecciones, apdo. 3",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-DF392B0B",
+    "orden": 560,
+    "concepto": "Según el art. 17.4 del Estatuto de Autonomía de Extremadura, ¿qué mayoría requiere la ley electoral?",
+    "respuesta": "Mayoría de tres quintos de los diputados de la Asamblea",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 17. Elecciones, apdo. 4. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a17",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 17. Elecciones, apdo. 4",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-7F5BDA67",
+    "orden": 570,
+    "concepto": "Según el art. 17.4 del Estatuto de Autonomía de Extremadura, ¿con qué criterios se compondrán en todo caso las candidaturas?",
+    "respuesta": "Con criterios de igualdad de género",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 17. Elecciones, apdo. 4. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a17",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 17. Elecciones, apdo. 4",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-89EB4474",
+    "orden": 580,
+    "concepto": "Según el art. 17.5 del Estatuto de Autonomía de Extremadura, ¿en qué plazo convoca el Presidente cesante la sesión constitutiva de la Asamblea electa?",
+    "respuesta": "Dentro de los quince días siguientes a la celebración de las elecciones",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 17. Elecciones, apdo. 5. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a17",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 17. Elecciones, apdo. 5",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-F5D833C9",
+    "orden": 590,
+    "concepto": "Según el art. 18.1 del Estatuto de Autonomía de Extremadura, ¿a qué mandato no están sujetos los diputados de la Asamblea?",
+    "respuesta": "No estarán sujetos a mandato imperativo",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 18. Estatuto de los diputados, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a18",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 18. Estatuto de los diputados, apdo. 1",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-26CF2104",
+    "orden": 600,
+    "concepto": "Según el art. 18.2 del Estatuto de Autonomía de Extremadura, ¿en qué caso pueden ser detenidos los diputados durante su mandato en el territorio de la Comunidad?",
+    "respuesta": "En caso de flagrante delito",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 18. Estatuto de los diputados, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a18",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 18. Estatuto de los diputados, apdo. 2",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-05074968",
+    "orden": 610,
+    "concepto": "Según el art. 18.2 del Estatuto de Autonomía de Extremadura, ¿qué tribunal decide sobre la inculpación, prisión, procesamiento y juicio de los diputados?",
+    "respuesta": "El Tribunal Superior de Justicia de Extremadura",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 18. Estatuto de los diputados, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a18",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 18. Estatuto de los diputados, apdo. 2",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-46C05C63",
+    "orden": 620,
+    "concepto": "Según el art. 18.2 del Estatuto de Autonomía de Extremadura, fuera del territorio de la Comunidad, ¿ante quién es exigible la responsabilidad penal de los diputados?",
+    "respuesta": "Ante la Sala de lo Penal del Tribunal Supremo",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 18. Estatuto de los diputados, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a18",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 18. Estatuto de los diputados, apdo. 2",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-A5632CC7",
+    "orden": 630,
+    "concepto": "Según el art. 18.3 del Estatuto de Autonomía de Extremadura, ¿qué vecindad deben tener los diputados de la Asamblea?",
+    "respuesta": "Vecindad administrativa en Extremadura",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 18. Estatuto de los diputados, apdo. 3. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a18",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 18. Estatuto de los diputados, apdo. 3",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-84FD7B14",
+    "orden": 640,
+    "concepto": "Según el art. 18.4 del Estatuto de Autonomía de Extremadura, ¿quiénes continúan en sus funciones hasta la constitución de la nueva Cámara?",
+    "respuesta": "Los miembros de la Diputación Permanente",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 18. Estatuto de los diputados, apdo. 4. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a18",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 18. Estatuto de los diputados, apdo. 4",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-FE8424BB",
+    "orden": 650,
+    "concepto": "Según el art. 19.1 del Estatuto de Autonomía de Extremadura, ¿qué órganos elige la Asamblea de entre sus miembros?",
+    "respuesta": "El Presidente, la Mesa y la Diputación Permanente",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 19. Órganos, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a19",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 19. Órganos, apdo. 1",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-1D62A126",
+    "orden": 660,
+    "concepto": "Según el art. 19.4 del Estatuto de Autonomía de Extremadura, ¿qué órgano sustituye al Pleno entre los períodos ordinarios de sesiones?",
+    "respuesta": "La Diputación Permanente",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 19. Órganos, apdo. 4. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a19",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 19. Órganos, apdo. 4",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-61094DFC",
+    "orden": 670,
+    "concepto": "Según el art. 21.2 del Estatuto de Autonomía de Extremadura, ¿qué asistencia y mayoría se requieren para la validez de los acuerdos del Pleno y de las Comisiones?",
+    "respuesta": "Asistencia de la mayoría de sus miembros y la aprobación de la mayoría simple de los votos emitidos",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 21. Régimen de funcionamiento, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a21",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 21. Régimen de funcionamiento, apdo. 2",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-2F14AB0F",
+    "orden": 680,
+    "concepto": "Según el art. 22.1 del Estatuto de Autonomía de Extremadura, ¿dónde reside la potestad legislativa de la Comunidad Autónoma?",
+    "respuesta": "En el Pleno de la Asamblea",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 22. Potestad legislativa, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a22",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 22. Potestad legislativa, apdo. 1",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-F71D6D4B",
+    "orden": 690,
+    "concepto": "Según el art. 22.2 del Estatuto de Autonomía de Extremadura, ¿cómo se denominan las normas con rango de ley que dicta la Junta por delegación de la Asamblea?",
+    "respuesta": "Decretos legislativos",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 22. Potestad legislativa, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a22",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 22. Potestad legislativa, apdo. 2",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-E4E1D41A",
+    "orden": 700,
+    "concepto": "Según el art. 23.4 del Estatuto de Autonomía de Extremadura, ¿cuántas firmas acreditadas requiere la iniciativa legislativa popular?",
+    "respuesta": "Al menos 45.000 firmas acreditadas del censo para las elecciones a la Asamblea",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 23. Iniciativa legislativa, apdo. 4. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a23",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 23. Iniciativa legislativa, apdo. 4",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-1F790B35",
+    "orden": 710,
+    "concepto": "Según el art. 23.3 del Estatuto de Autonomía de Extremadura, ¿qué mayoría exige la ley que regula la iniciativa legislativa de las entidades locales?",
+    "respuesta": "Mayoría absoluta",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 23. Iniciativa legislativa, apdo. 3. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a23",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 23. Iniciativa legislativa, apdo. 3",
+    "apartado": "Asamblea"
+  },
+  {
+    "id": "CPEI-T02-OF-E3C39068",
+    "orden": 720,
+    "concepto": "Según el art. 24.1 del Estatuto de Autonomía de Extremadura, ¿qué representación ostenta el Presidente de la Comunidad Autónoma?",
+    "respuesta": "La más alta representación de la Comunidad Autónoma",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 24. Carácter y funciones, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a24",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 24. Carácter y funciones, apdo. 1",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-261B5DB5",
+    "orden": 730,
+    "concepto": "Según el art. 25.1 del Estatuto de Autonomía de Extremadura, ¿quién elige y quién nombra al Presidente de la Comunidad?",
+    "respuesta": "Es elegido por la Asamblea de Extremadura de entre sus miembros y nombrado por el Rey",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 25. Investidura, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a25",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 25. Investidura, apdo. 1",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-526B31B8",
+    "orden": 740,
+    "concepto": "Según el art. 25.2 del Estatuto de Autonomía de Extremadura, ¿qué proporción de miembros de la Cámara debe presentar a los candidatos a la Presidencia?",
+    "respuesta": "Al menos, por la cuarta parte de los miembros de la Cámara",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 25. Investidura, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a25",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 25. Investidura, apdo. 2",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-96CD18B8",
+    "orden": 750,
+    "concepto": "Según el art. 25.3 del Estatuto de Autonomía de Extremadura, ¿qué mayoría necesita el candidato en la primera votación de investidura?",
+    "respuesta": "Mayoría absoluta",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 25. Investidura, apdo. 3. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a25",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 25. Investidura, apdo. 3",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-9A9534E5",
+    "orden": 760,
+    "concepto": "Según el art. 25.4 del Estatuto de Autonomía de Extremadura, ¿cuándo se celebra la segunda votación de investidura?",
+    "respuesta": "Cuarenta y ocho horas después de la primera",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 25. Investidura, apdo. 4. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a25",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 25. Investidura, apdo. 4",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-2D19C185",
+    "orden": 770,
+    "concepto": "Según el art. 25.4 del Estatuto de Autonomía de Extremadura, ¿qué mayoría se requiere en la segunda votación de investidura?",
+    "respuesta": "Mayoría simple",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 25. Investidura, apdo. 4. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a25",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 25. Investidura, apdo. 4",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-551E5136",
+    "orden": 780,
+    "concepto": "Según el art. 25.4 del Estatuto de Autonomía de Extremadura, ¿en qué plazo desde la primera votación queda disuelta la Asamblea si no hay Presidente elegido?",
+    "respuesta": "En el plazo de dos meses",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 25. Investidura, apdo. 4. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a25",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 25. Investidura, apdo. 4",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-B420C8BC",
+    "orden": 790,
+    "concepto": "Según el art. 26.2.a) del Estatuto de Autonomía de Extremadura, ¿en nombre de quién promulga el Presidente las leyes de la Asamblea?",
+    "respuesta": "En nombre del Rey",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 26. Atribuciones, apdo. 2.a. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a26",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 26. Atribuciones, apdo. 2.a",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-5FD05479",
+    "orden": 800,
+    "concepto": "Según el art. 26.3.b) del Estatuto de Autonomía de Extremadura, ¿mediante qué crea o extingue el Presidente Vicepresidencias y Consejerías?",
+    "respuesta": "Mediante decretos del Presidente",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 26. Atribuciones, apdo. 3.b. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a26",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 26. Atribuciones, apdo. 3.b",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-85E030BA",
+    "orden": 810,
+    "concepto": "Según el art. 27.1 del Estatuto de Autonomía de Extremadura, ¿con qué deliberación previa puede el Presidente disolver anticipadamente la Asamblea?",
+    "respuesta": "Previa deliberación de la Junta de Extremadura y bajo su exclusiva responsabilidad",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 27. Disolución anticipada de la Asamblea, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a27",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 27. Disolución anticipada de la Asamblea, apdo. 1",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-8AC17CE4",
+    "orden": 820,
+    "concepto": "Según el art. 27.2 del Estatuto de Autonomía de Extremadura, ¿cuánto tiempo debe transcurrir desde la anterior disolución para aprobar un nuevo decreto de disolución?",
+    "respuesta": "Un año",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 27. Disolución anticipada de la Asamblea, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a27",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 27. Disolución anticipada de la Asamblea, apdo. 2",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-A8D09617",
+    "orden": 830,
+    "concepto": "Según el art. 27.2 del Estatuto de Autonomía de Extremadura, ¿durante qué trámite no puede aprobarse el decreto de disolución?",
+    "respuesta": "Cuando esté en trámite una moción de censura",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 27. Disolución anticipada de la Asamblea, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a27",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 27. Disolución anticipada de la Asamblea, apdo. 2",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-10D21173",
+    "orden": 840,
+    "concepto": "Según el art. 28.1 del Estatuto de Autonomía de Extremadura, ¿sobre qué puede plantear el Presidente la cuestión de confianza?",
+    "respuesta": "Sobre una declaración política general en el marco de las competencias de la Comunidad Autónoma",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 28. Cuestión de confianza, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a28",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 28. Cuestión de confianza, apdo. 1",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-FE6D53D7",
+    "orden": 850,
+    "concepto": "Según el art. 28.2 del Estatuto de Autonomía de Extremadura, ¿cuándo se entiende otorgada la confianza al Presidente?",
+    "respuesta": "Cuando vote a favor de la misma la mayoría simple de los miembros de la Asamblea",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 28. Cuestión de confianza, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a28",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 28. Cuestión de confianza, apdo. 2",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-BDE89E04",
+    "orden": 860,
+    "concepto": "Según el art. 28.3 del Estatuto de Autonomía de Extremadura, si se niega la confianza, ¿en qué plazo máximo se convoca sesión para elegir nuevo Presidente?",
+    "respuesta": "En el plazo máximo de quince días",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 28. Cuestión de confianza, apdo. 3. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a28",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 28. Cuestión de confianza, apdo. 3",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-C6740E74",
+    "orden": 870,
+    "concepto": "Según el art. 29.1 del Estatuto de Autonomía de Extremadura, ¿qué mayoría exige la adopción de una moción de censura?",
+    "respuesta": "Mayoría absoluta",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 29. Moción de censura, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a29",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 29. Moción de censura, apdo. 1",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-4CC3BC5F",
+    "orden": 880,
+    "concepto": "Según el art. 29.1 del Estatuto de Autonomía de Extremadura, ¿qué porcentaje de miembros de la Cámara debe proponer una moción de censura?",
+    "respuesta": "Al menos, por un quince por ciento de los miembros de la Cámara",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 29. Moción de censura, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a29",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 29. Moción de censura, apdo. 1",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-423A45D4",
+    "orden": 890,
+    "concepto": "Según el art. 29.2 del Estatuto de Autonomía de Extremadura, ¿cuánto tiempo debe transcurrir desde su presentación para votar una moción de censura?",
+    "respuesta": "Cinco días",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 29. Moción de censura, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a29",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 29. Moción de censura, apdo. 2",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-CE6CF932",
+    "orden": 900,
+    "concepto": "Según el art. 29.2 del Estatuto de Autonomía de Extremadura, ¿en qué plazo pueden presentarse mociones de censura alternativas?",
+    "respuesta": "En los dos primeros días de dicho plazo",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 29. Moción de censura, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a29",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 29. Moción de censura, apdo. 2",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-6292CEF0",
+    "orden": 910,
+    "concepto": "Según el art. 29.4 del Estatuto de Autonomía de Extremadura, ¿cuándo pueden impulsar otra moción los signatarios de una moción de censura rechazada?",
+    "respuesta": "Hasta transcurrido un año desde la presentación de aquella",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 29. Moción de censura, apdo. 4. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a29",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 29. Moción de censura, apdo. 4",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-B1A5C29A",
+    "orden": 920,
+    "concepto": "Según el art. 30.1 del Estatuto de Autonomía de Extremadura, ¿ante quién presenta por escrito el Presidente su dimisión voluntaria?",
+    "respuesta": "Al Presidente de la Asamblea",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 30. Otras causas de cese del Presidente, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a30",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 30. Otras causas de cese del Presidente, apdo. 1",
+    "apartado": "Presidente"
+  },
+  {
+    "id": "CPEI-T02-OF-10F9326C",
+    "orden": 930,
+    "concepto": "Según el art. 31.1 del Estatuto de Autonomía de Extremadura, ¿qué es la Junta de Extremadura?",
+    "respuesta": "El órgano colegiado que ejerce las funciones propias del Gobierno de la Comunidad Autónoma",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 31. Carácter y función, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a31",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 31. Carácter y función, apdo. 1",
+    "apartado": "Junta de Extremadura"
+  },
+  {
+    "id": "CPEI-T02-OF-6C8BD764",
+    "orden": 940,
+    "concepto": "Según el art. 31.2 del Estatuto de Autonomía de Extremadura, ¿cómo responde políticamente la Junta ante la Asamblea?",
+    "respuesta": "De forma solidaria",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 31. Carácter y función, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a31",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 31. Carácter y función, apdo. 2",
+    "apartado": "Junta de Extremadura"
+  },
+  {
+    "id": "CPEI-T02-OF-AB9DA09F",
+    "orden": 950,
+    "concepto": "Según el art. 32.4 del Estatuto de Autonomía de Extremadura, ¿qué conflictos resuelve la Junta cuando no hay reserva a favor del Estado?",
+    "respuesta": "Los conflictos de competencias entre corporaciones locales",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 32. Atribuciones, apdo. 4. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a32",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 32. Atribuciones, apdo. 4",
+    "apartado": "Junta de Extremadura"
+  },
+  {
+    "id": "CPEI-T02-OF-11B7D5F8",
+    "orden": 960,
+    "concepto": "Según el art. 33.1 del Estatuto de Autonomía de Extremadura, ¿en qué caso puede la Junta dictar Decretos-leyes?",
+    "respuesta": "En caso de extraordinaria y urgente necesidad",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 33. Legislación de urgencia, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a33",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 33. Legislación de urgencia, apdo. 1",
+    "apartado": "Junta de Extremadura"
+  },
+  {
+    "id": "CPEI-T02-OF-F9D9D944",
+    "orden": 970,
+    "concepto": "Según el art. 33.2 del Estatuto de Autonomía de Extremadura, ¿qué materias no pueden ser objeto de Decreto-ley?",
+    "respuesta": "La reforma del Estatuto, las leyes de presupuestos o las materias objeto de leyes para las que se requiera una mayoría cualificada",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 33. Legislación de urgencia, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a33",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 33. Legislación de urgencia, apdo. 2",
+    "apartado": "Junta de Extremadura"
+  },
+  {
+    "id": "CPEI-T02-OF-9AA14A9F",
+    "orden": 980,
+    "concepto": "Según el art. 33.3 del Estatuto de Autonomía de Extremadura, ¿en qué plazo debe la Asamblea convalidar los Decretos-leyes?",
+    "respuesta": "En el plazo improrrogable de un mes desde su publicación oficial",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 33. Legislación de urgencia, apdo. 3. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a33",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 33. Legislación de urgencia, apdo. 3",
+    "apartado": "Junta de Extremadura"
+  },
+  {
+    "id": "CPEI-T02-OF-5BB2B4EA",
+    "orden": 990,
+    "concepto": "Según el art. 34.1 del Estatuto de Autonomía de Extremadura, ¿quiénes componen la Junta de Extremadura?",
+    "respuesta": "El Presidente, los Vicepresidentes, de haberlos, y los Consejeros",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 34. Composición, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a34",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 34. Composición, apdo. 1",
+    "apartado": "Junta de Extremadura"
+  },
+  {
+    "id": "CPEI-T02-OF-76ED1F94",
+    "orden": 1000,
+    "concepto": "Según el art. 34.3 del Estatuto de Autonomía de Extremadura, ¿en qué casos suplen al Presidente los Vicepresidentes o los Consejeros?",
+    "respuesta": "En caso de vacante, ausencia o enfermedad",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 34. Composición, apdo. 3. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a34",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 34. Composición, apdo. 3",
+    "apartado": "Junta de Extremadura"
+  },
+  {
+    "id": "CPEI-T02-OF-AB73C4DD",
+    "orden": 1010,
+    "concepto": "Según el art. 35.2.a) del Estatuto de Autonomía de Extremadura, ¿dónde deben residir los miembros de la Junta?",
+    "respuesta": "En Extremadura",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 35. Estatuto de los miembros, apdo. 2.a. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a35",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 35. Estatuto de los miembros, apdo. 2.a",
+    "apartado": "Junta de Extremadura"
+  },
+  {
+    "id": "CPEI-T02-OF-91AB7D9C",
+    "orden": 1020,
+    "concepto": "Según el art. 35.2.c) del Estatuto de Autonomía de Extremadura, ¿ante qué tribunal es exigible la responsabilidad penal del Presidente y los Consejeros por actos en la Comunidad?",
+    "respuesta": "Ante el Tribunal Superior de Justicia de Extremadura",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 35. Estatuto de los miembros, apdo. 2.c. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a35",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 35. Estatuto de los miembros, apdo. 2.c",
+    "apartado": "Junta de Extremadura"
+  },
+  {
+    "id": "CPEI-T02-OF-C5843E41",
+    "orden": 1030,
+    "concepto": "Según el art. 36 del Estatuto de Autonomía de Extremadura, ¿cuándo cesa la Junta de Extremadura?",
+    "respuesta": "Cuando lo hace su Presidente",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 36. Cese. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a36",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 36. Cese",
+    "apartado": "Junta de Extremadura"
+  },
+  {
+    "id": "CPEI-T02-OF-533C715D",
+    "orden": 1040,
+    "concepto": "Según el art. 37.2 del Estatuto de Autonomía de Extremadura, ¿qué principios respetará la Administración regional en su actuación?",
+    "respuesta": "Los principios de buena fe, confianza legítima, transparencia, calidad en el servicio a los ciudadanos",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 37. Principios rectores, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a37",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 37. Principios rectores, apdo. 2",
+    "apartado": "Administración"
+  },
+  {
+    "id": "CPEI-T02-OF-49091235",
+    "orden": 1050,
+    "concepto": "Según el art. 38 del Estatuto de Autonomía de Extremadura, ¿qué potestades tiene la Administración autonómica en el ejercicio de sus competencias?",
+    "respuesta": "Las mismas potestades y facultades que la del Estado",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 38. Potestades. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a38",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 38. Potestades",
+    "apartado": "Administración"
+  },
+  {
+    "id": "CPEI-T02-OF-A92AD449",
+    "orden": 1060,
+    "concepto": "Según el art. 38.b) del Estatuto de Autonomía de Extremadura, ¿qué órgano propio podrá crear la Comunidad para ejercer la potestad expropiatoria?",
+    "respuesta": "Un órgano propio de determinación de justiprecios",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 38. Potestades, letra b. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a38",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 38. Potestades, letra b",
+    "apartado": "Administración"
+  },
+  {
+    "id": "CPEI-T02-OF-F599D89F",
+    "orden": 1070,
+    "concepto": "Según el art. 40.1 del Estatuto de Autonomía de Extremadura, ¿en qué plazo promulga el Presidente las leyes de la Asamblea?",
+    "respuesta": "En el plazo de diez días desde su remisión oficial por la Cámara",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 40. Publicidad normativa, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a40",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 40. Publicidad normativa, apdo. 1",
+    "apartado": "Ejercicio y control de los poderes"
+  },
+  {
+    "id": "CPEI-T02-OF-3A987142",
+    "orden": 1080,
+    "concepto": "Según el art. 40.4 del Estatuto de Autonomía de Extremadura, ¿cuándo entran en vigor, salvo disposición en contrario, las leyes de la Asamblea?",
+    "respuesta": "A los veinte días de su publicación íntegra en el «Diario Oficial de Extremadura»",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 40. Publicidad normativa, apdo. 4. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a40",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 40. Publicidad normativa, apdo. 4",
+    "apartado": "Ejercicio y control de los poderes"
+  },
+  {
+    "id": "CPEI-T02-OF-7378CFF8",
+    "orden": 1090,
+    "concepto": "Según el art. 41.1 del Estatuto de Autonomía de Extremadura, ¿de qué recurso están excluidas las leyes de la Asamblea y los decretos leyes?",
+    "respuesta": "Del recurso contencioso-administrativo",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 41. Control jurisdiccional de disposiciones y actos, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a41",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 41. Control jurisdiccional de disposiciones y actos, apdo. 1",
+    "apartado": "Ejercicio y control de los poderes"
+  },
+  {
+    "id": "CPEI-T02-OF-45B2D273",
+    "orden": 1100,
+    "concepto": "Según el art. 44.2 del Estatuto de Autonomía de Extremadura, ¿en qué plazo debe requerirse de incompetencia en un conflicto entre instituciones de autogobierno?",
+    "respuesta": "En el plazo de un mes desde que se tenga noticia de la supuesta extralimitación",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 44. Conflictos entre instituciones de autogobierno, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a44",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 44. Conflictos entre instituciones de autogobierno, apdo. 2",
+    "apartado": "Ejercicio y control de los poderes"
+  },
+  {
+    "id": "CPEI-T02-OF-C7E672C4",
+    "orden": 1110,
+    "concepto": "Según el art. 44.2 del Estatuto de Autonomía de Extremadura, ¿qué órgano emite dictamen no vinculante en los conflictos entre instituciones de autogobierno?",
+    "respuesta": "El Consejo Consultivo",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 44. Conflictos entre instituciones de autogobierno, apdo. 2. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a44",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 44. Conflictos entre instituciones de autogobierno, apdo. 2",
+    "apartado": "Ejercicio y control de los poderes"
+  },
+  {
+    "id": "CPEI-T02-OF-1C32E83C",
+    "orden": 1120,
+    "concepto": "Según el art. 45.1 del Estatuto de Autonomía de Extremadura, ¿en qué ciudad tiene su sede el Consejo Consultivo?",
+    "respuesta": "En la ciudad de Badajoz",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 45. Consejo Consultivo, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a45",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 45. Consejo Consultivo, apdo. 1",
+    "apartado": "Otras instituciones"
+  },
+  {
+    "id": "CPEI-T02-OF-7678BCC9",
+    "orden": 1130,
+    "concepto": "Según el art. 45.1 del Estatuto de Autonomía de Extremadura, ¿qué es el Consejo Consultivo?",
+    "respuesta": "El órgano consultivo superior de las instituciones y de las administraciones de la Comunidad Autónoma",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 45. Consejo Consultivo, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a45",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 45. Consejo Consultivo, apdo. 1",
+    "apartado": "Otras instituciones"
+  },
+  {
+    "id": "CPEI-T02-OF-400FB0F2",
+    "orden": 1140,
+    "concepto": "Según el art. 46.1 del Estatuto de Autonomía de Extremadura, ¿en qué ciudad tiene su sede el Consejo de Cuentas?",
+    "respuesta": "En la ciudad de Cáceres",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 46. Consejo de Cuentas, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a46",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 46. Consejo de Cuentas, apdo. 1",
+    "apartado": "Otras instituciones"
+  },
+  {
+    "id": "CPEI-T02-OF-2D136A1E",
+    "orden": 1150,
+    "concepto": "Según el art. 46.1 del Estatuto de Autonomía de Extremadura, ¿de qué institución depende el Consejo de Cuentas?",
+    "respuesta": "Dependiente de la Asamblea",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 46. Consejo de Cuentas, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a46",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 46. Consejo de Cuentas, apdo. 1",
+    "apartado": "Otras instituciones"
+  },
+  {
+    "id": "CPEI-T02-OF-7CC07839",
+    "orden": 1160,
+    "concepto": "Según el art. 46.1 del Estatuto de Autonomía de Extremadura, ¿con qué criterios fiscaliza las cuentas el Consejo de Cuentas?",
+    "respuesta": "Con criterios de legalidad, economía y eficiencia en el gasto",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 46. Consejo de Cuentas, apdo. 1. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a46",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 46. Consejo de Cuentas, apdo. 1",
+    "apartado": "Otras instituciones"
+  },
+  {
+    "id": "CPEI-T02-OF-F4664EE8",
+    "orden": 1170,
+    "concepto": "Según el art. 47 del Estatuto de Autonomía de Extremadura, ¿en qué ciudad tiene su sede el Consejo Económico y Social?",
+    "respuesta": "En la ciudad de Mérida",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 47. Consejo Económico y Social. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a47",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 47. Consejo Económico y Social",
+    "apartado": "Otras instituciones"
+  },
+  {
+    "id": "CPEI-T02-OF-B791785C",
+    "orden": 1180,
+    "concepto": "Según el art. 47 del Estatuto de Autonomía de Extremadura, ¿qué naturaleza tiene el Consejo Económico y Social de Extremadura?",
+    "respuesta": "Órgano colegiado consultivo de la Junta en materias socioeconómicas",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 47. Consejo Económico y Social. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a47",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 47. Consejo Económico y Social",
+    "apartado": "Otras instituciones"
+  },
+  {
+    "id": "CPEI-T02-OF-6C0EDEF1",
+    "orden": 1190,
+    "concepto": "Según el art. 48 del Estatuto de Autonomía de Extremadura, ¿en qué ciudad tiene su sede el Personero del Común?",
+    "respuesta": "En la ciudad de Plasencia",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 48. Personero del Común. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a48",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 48. Personero del Común",
+    "apartado": "Otras instituciones"
+  },
+  {
+    "id": "CPEI-T02-OF-D1CCD906",
+    "orden": 1200,
+    "concepto": "Según el art. 48 del Estatuto de Autonomía de Extremadura, ¿a qué institución constitucional son similares las funciones del Personero del Común?",
+    "respuesta": "Al Defensor del Pueblo previsto en la Constitución",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 48. Personero del Común. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a48",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 48. Personero del Común",
+    "apartado": "Otras instituciones"
+  },
+  {
+    "id": "CPEI-T02-OF-10A98E22",
+    "orden": 1210,
+    "concepto": "Según el art. 48 del Estatuto de Autonomía de Extremadura, ¿por qué mayoría debe ser elegido el Personero del Común?",
+    "respuesta": "Por tres quintas partes de los miembros de la Asamblea de Extremadura",
+    "fuente": "Estatuto de Autonomía de Extremadura, Artículo 48. Personero del Común. BOE-A-2011-1638, texto consolidado (últ. actualización 29/01/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a48",
+    "localizacion": "Estatuto de Autonomía de Extremadura, Artículo 48. Personero del Común",
+    "apartado": "Otras instituciones"
+  }
+];
