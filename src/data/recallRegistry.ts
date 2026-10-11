@@ -88,6 +88,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 31,
+      title: "Tema 31 · RD 1215/1997: utilización de los equipos de trabajo",
+      count: 83,
+      source: "Fase 2 · texto consolidado BOE-A-1997-17824 (arts. 1-6, disposiciones y anexos I-II; últ. act. 13/11/2004)",
+    },
+    load: () => import('./tema31Recall').then((m) => m.TEMA31_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 3,
       title: "Tema 3 · LBRL: la Provincia (organización y competencias)",
       count: 66,
