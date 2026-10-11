@@ -42,3 +42,8 @@ Sale de `feat/temas-fase2-oficial`, ya incluida aquí: `git fetch release && git
 ## Actualización: fase 4 hasta b3593d6
 - origin/main sin cambios (f3b466a). Fusionado b3593d6 de `feat/temas-fase4-oficial` sin conflictos (temas 8, 10, 12 y 28).
 - Registro: 2783 fichas, 43 mazos, 34 temas.
+
+## Actualización: fase 5 hasta 3382d59 y main 1cbdf5f
+- Fusionado 3382d59 de `feat/temas-fase5-oficial` sin conflictos (lote 3 del tema 34, lote 2 del tema 22, lote 2 de los temas 10 y 12).
+- origin/main avanzó a 1cbdf5f (#102, Claude: registro de sesiones de estudio, migración 15). Fusionado sin conflictos; migración y lógica de sesiones sin tocar.
+- Registro: 2881 fichas, 47 mazos, 34 temas.
