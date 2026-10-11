@@ -38,3 +38,9 @@ Documentar resultados y limitaciones reales. Para documentación aislada, revisa
 
 ## PR
 Título breve con alcance. Describir qué cambió, por qué, cómo se comprobó y los riesgos pendientes. No fusionar automáticamente cambios que afecten datos, evaluación, selección adaptativa o visibilidad del banco de preguntas.
+
+## Skills editoriales multiagente
+- Toda pregunta nueva o modificada debe pasar por `verificar-banco-preguntas` antes de proponerse para publicación; la revisión humana y los filtros del servidor son obligatorios.
+- Para migraciones, SQL, RLS, índices o funciones PostgreSQL, aplicar `supabase-postgres-best-practices` cuando esté instalada y comprobar las migraciones reales. Nunca sustituye las pruebas ni la revisión.
+- Codex y Antigravity comparten `.agents/skills/` y Claude Code `.claude/skills/`; mantener idéntica la skill editorial mediante `node scripts/check-editorial-skills.mjs`.
+- Consultar `docs/SKILLS_MULTIAGENTE.md` antes de instalar o actualizar skills externas. No actualizar automáticamente ni sobrescribir las skills propias.
