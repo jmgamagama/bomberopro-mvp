@@ -89,6 +89,16 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 22,
+      lote: 'lote02',
+      title: "Tema 22 · lote 2: anclajes, líneas de vida, factor de caída y sistemas anticaídas (NTP 809, 843, 1170 y 1218 del INSST)",
+      count: 27,
+      source: "Fase 5 · INSST, NTP 809 (2008), NTP 843 (2009), NTP 1170 (2022) y NTP 1218 (2025), insst.es",
+    },
+    load: () => import('./tema22Lote02Recall').then((m) => m.TEMA22_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 34,
       lote: 'lote03',
       title: "Tema 34 · RD 164/2025 (RSCIEI), lote 3: requisitos constructivos (anexo II), extinción automática y control de humos (anexo III, 7 y 8) y zonas particulares (anexo IV)",
