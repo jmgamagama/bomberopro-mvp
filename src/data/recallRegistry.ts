@@ -90,6 +90,16 @@ const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
       tema: 34,
+      lote: 'lote02',
+      title: "Tema 34 · RD 164/2025 (RSCIEI), lote 2: instalaciones de protección activa (anexo III)",
+      count: 39,
+      source: "Fase 3 · texto consolidado BOE-A-2025-7190 (reglamento, anexo III; últ. act. 20/12/2025)",
+    },
+    load: () => import('./tema34Lote02Recall').then((m) => m.TEMA34_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 34,
       lote: 'lote01',
       title: "Tema 34 · RD 164/2025 (RSCIEI), lote 1: articulado y caracterización (anexo I)",
       count: 58,
