@@ -89,6 +89,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 20,
+      title: "Tema 20 · Incendios forestales: Plan INFOEX (Decreto 132/2022, mod. 136/2024)",
+      count: 24,
+      source: "Fase 3 · Plan INFOEX: artículos 6, 7, 10-13 y 16 del Decreto 132/2022 en la redacción del Decreto 136/2024 (DOE nº 215, 05/11/2024)",
+    },
+    load: () => import('./tema20Recall').then((m) => m.TEMA20_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 5,
       title: "Tema 5 · Reglamento de Régimen Interno del CPEI de Badajoz",
       count: 28,
