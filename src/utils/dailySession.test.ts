@@ -86,7 +86,9 @@ describe('sesión diaria con todos los temas cargados', () => {
       expect(session).toHaveLength(30);
       expect(new Set(session.map((c) => c.id)).size).toBe(30);
       const decks = new Set(session.map((c) => c.deckId));
-      expect(decks.size).toBe(RECALL_DECKS.length);
+      // Con más mazos que plazas (30) el reparto es proporcional y no caben todos cada día.
+      if (RECALL_DECKS.length <= DAILY_SESSION_SIZE) expect(decks.size).toBe(RECALL_DECKS.length);
+      else expect(decks.size).toBeGreaterThanOrEqual(15);
       const temas = new Set(session.map((c) => RECALL_DECKS.find((d) => d.id === c.deckId)!.tema));
       expect(temas.size).toBeGreaterThanOrEqual(5);
     }
@@ -106,12 +108,14 @@ describe('sesión diaria con tema prioritario', () => {
       const session = pickDailyRecallSession(RECALL_CARDS, 30, new Date(2026, 9, 6), { preferredDeckId: topic.id });
       expect(session).toHaveLength(30);
       expect(new Set(session.map((c) => c.id)).size).toBe(30);
-      expect(session.filter((c) => c.topicId === topic.id)).toHaveLength(18);
+      // Un tema con menos de 18 fichas aporta todas las que tiene.
+      const propias = Math.min(18, RECALL_CARDS.filter((c) => c.topicId === topic.id).length);
+      expect(session.filter((c) => c.topicId === topic.id)).toHaveLength(propias);
       // El resto (12 fichas) se reparte entre los demás mazos en proporción a su tamaño
       // (con muchos temas, uno pequeño puede quedarse sin hueco ese día).
       const otros = RECALL_TOPICS.filter((t) => t.id !== topic.id).length;
       const otrosEnSesion = new Set(session.filter((c) => c.topicId !== topic.id).map((c) => c.topicId)).size;
-      expect(session.filter((c) => c.topicId !== topic.id)).toHaveLength(12);
+      expect(session.filter((c) => c.topicId !== topic.id)).toHaveLength(30 - propias);
       expect(otrosEnSesion).toBeGreaterThanOrEqual(Math.min(otros, 4));
     }
   });
