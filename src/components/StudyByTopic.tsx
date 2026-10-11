@@ -2,7 +2,7 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, Play, CheckCircle2, XCircle } from 'lucide-react';
 import { Question } from '../types';
 import { supabase } from '../lib/supabase';
@@ -10,6 +10,7 @@ import { saveAttemptToServer, toLevelInt } from '../lib/saveAttemptToServer';
 import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
 import { shuffleAllOptions } from '../utils/shuffleOptions';
+import { newStudySessionId, startStudySession, finishStudySession } from '../lib/studySession';
 
 interface TopicOption {
   id: number;
@@ -35,6 +36,9 @@ export default function StudyByTopic({ session, onNavigateHome }: StudyByTopicPr
   const [answered, setAnswered] = useState(false);
   const [startTime, setStartTime] = useState(0);
   const [correctCount, setCorrectCount] = useState(0);
+  // Sesión de estudio en curso (para medir sesiones terminadas). null si no hay cuenta.
+  const sessionIdRef = useRef<string | null>(null);
+  const finishedRef = useRef(false);
 
 useEffect(() => {
   const loadTopics = async () => {
@@ -64,6 +68,11 @@ const startStudy = async () => {
   });
   if (!error && data) {
     setQuestions(shuffleAllOptions(data as Question[]));
+    finishedRef.current = false;
+    sessionIdRef.current = session?.user?.id ? newStudySessionId() : null;
+    if (sessionIdRef.current) {
+      void startStudySession(sessionIdRef.current, 'estudio_por_temas', selected, (data as Question[]).length);
+    }
     setStarted(true);
     setIdx(0);
     setCorrectCount(0);
@@ -73,6 +82,14 @@ const startStudy = async () => {
 };
 
 const currentQuestion = questions[idx];
+
+// Al llegar a la pantalla de resultados, la sesión queda terminada (una sola vez).
+useEffect(() => {
+  if (started && questions.length > 0 && idx >= questions.length && sessionIdRef.current && !finishedRef.current) {
+    finishedRef.current = true;
+    void finishStudySession(sessionIdRef.current, 'estudio_por_temas');
+  }
+}, [started, idx, questions.length]);
 
 const confirmAnswer = async () => {
   if (!currentQuestion || !answer) return;
@@ -88,7 +105,7 @@ const confirmAnswer = async () => {
       p_respuesta: answer,
       p_tiempo_ms: responseTimeMs,
       p_modo: 'estudio_por_temas',
-      p_session_id: null,
+      p_session_id: sessionIdRef.current,
       p_nivel: toLevelInt(currentQuestion.level),
       p_confidence: confidence || null
     });
