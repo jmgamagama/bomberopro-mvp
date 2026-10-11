@@ -89,6 +89,16 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 16,
+      lote: 'lote02',
+      title: "Tema 16 · Comunicaciones, lote 2: fundamentos, servicios, estaciones y modalidades (RR UIT 2024)",
+      count: 21,
+      source: "Fase 3 · Reglamento de Radiocomunicaciones de la UIT, edición de 2024, vol. 1 (arts. 1 y 2), versión oficial en español",
+    },
+    load: () => import('./tema16Lote02Recall').then((m) => m.TEMA16_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 27,
       title: "Tema 27 · Edificación: acciones y estados límite (CTE DB SE y DB SE-AE)",
       count: 22,

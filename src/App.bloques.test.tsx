@@ -22,14 +22,14 @@ describe('selectores de tema agrupados por bloque', () => {
     const grupo = document.querySelector<HTMLElement>('#onboarding-grupo-especifica')!;
     expect(grupo).toHaveTextContent(`Parte específica · ${temas(ESPECIFICA.length)}`);
     expect(within(grupo).getAllByRole('radio')).toHaveLength(ESPECIFICA.length);
-    expect(within(grupo).getByRole('radio', { name: /T16 · El código ICAO/ })).toBeInTheDocument();
+    expect(within(grupo).getByRole('radio', { name: /^Tema 16 \(todos los lotes\)/ })).toBeInTheDocument();
     const comun = document.querySelector<HTMLElement>('#onboarding-grupo-comun');
     if (COMUN.length === 0) expect(comun).toBeNull();
     else expect(within(comun!).getAllByRole('radio')).toHaveLength(COMUN.length);
     expect(document.querySelector('#onboarding-grupo-todos')).toContainElement(screen.getByRole('radio', { name: /Todos los temas/ }));
   });
 
-  it('Recuerdo: pestañas en cuadrícula por bloque y el tema 16 abre sus 48 fichas', async () => {
+  it('Recuerdo: pestañas en cuadrícula por bloque y un tema de un solo mazo (T35) abre sus 150 fichas', async () => {
     const user = userEvent.setup();
     render(<App />);
     await user.click(await screen.findByRole('button', { name: 'Saltar' }));
@@ -43,8 +43,8 @@ describe('selectores de tema agrupados por bloque', () => {
     // Cuadrícula que salta de línea (sin columnas fijas por nº de temas → sin scroll horizontal).
     expect(bloque.querySelector('.grid-cols-4')).not.toBeNull();
     expect(tablist.getAttribute('style')).toBeNull();
-    await user.click(within(tablist).getByRole('tab', { name: /^T16 · 48 fichas · Parte específica/ }));
-    expect(await screen.findByText('Ficha 1 de 48')).toBeInTheDocument();
+    await user.click(within(tablist).getByRole('tab', { name: /^T35 · 150 fichas · Parte específica/ }));
+    expect(await screen.findByText('Ficha 1 de 150')).toBeInTheDocument();
   });
 
   it('Sesión diaria: el tema prioritario agrupa las opciones por bloque', async () => {
