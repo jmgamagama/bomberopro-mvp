@@ -6,6 +6,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import './test/setup';
 vi.mock('./lib/supabase', () => ({ supabase: null }));
 import App from './App';
+import { RECALL_TOPICS } from './data/recallRegistry';
 import { SRS_STORAGE_KEY, loadSrs } from './utils/recallSrs';
 import { TEMA40_RECALL_CARDS } from './data/tema40Recall';
 
@@ -93,7 +94,7 @@ describe('estadísticas de progreso', () => {
     expect(within(stats).getByText('Racha')).toBeInTheDocument();
     expect(within(stats).getByRole('progressbar', { name: /T40: 2 de 213/ })).toBeInTheDocument();
     expect(within(stats).getByText('Ver los 8 lotes')).toBeInTheDocument();
-    expect(within(stats).getAllByRole('progressbar').length).toBe(6 + 8);
+    expect(within(stats).getAllByRole('progressbar').length).toBe(RECALL_TOPICS.length + 8);
     await user.click(within(stats).getByRole('button', { name: 'Volver' }));
     expect(screen.getByRole('heading', { name: 'Sesión diaria' })).toBeInTheDocument();
   });

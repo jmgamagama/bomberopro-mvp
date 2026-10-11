@@ -6,7 +6,11 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import './test/setup';
 vi.mock('./lib/supabase', () => ({ supabase: null }));
 import App from './App';
-import { RECALL_TOPICS } from './data/recallRegistry';
+import { RECALL_BLOQUES, RECALL_TOPICS } from './data/recallRegistry';
+
+const ESPECIFICA = RECALL_TOPICS.filter((t) => t.bloque === 'especifica');
+const COMUN = RECALL_TOPICS.filter((t) => t.bloque === 'comun');
+const temas = (n: number) => `${n} tema${n === 1 ? '' : 's'}`;
 
 describe('selectores de tema agrupados por bloque', () => {
   beforeEach(() => window.localStorage.clear());
@@ -16,10 +20,12 @@ describe('selectores de tema agrupados por bloque', () => {
     render(<App />);
     await screen.findByRole('heading', { name: /Prepara tu oposición/ });
     const grupo = document.querySelector<HTMLElement>('#onboarding-grupo-especifica')!;
-    expect(grupo).toHaveTextContent(/Parte específica · 6 temas/);
-    expect(within(grupo).getAllByRole('radio')).toHaveLength(RECALL_TOPICS.length);
+    expect(grupo).toHaveTextContent(`Parte específica · ${temas(ESPECIFICA.length)}`);
+    expect(within(grupo).getAllByRole('radio')).toHaveLength(ESPECIFICA.length);
     expect(within(grupo).getByRole('radio', { name: /T16 · El código ICAO/ })).toBeInTheDocument();
-    expect(document.querySelector('#onboarding-grupo-comun')).toBeNull();
+    const comun = document.querySelector<HTMLElement>('#onboarding-grupo-comun');
+    if (COMUN.length === 0) expect(comun).toBeNull();
+    else expect(within(comun!).getAllByRole('radio')).toHaveLength(COMUN.length);
     expect(document.querySelector('#onboarding-grupo-todos')).toContainElement(screen.getByRole('radio', { name: /Todos los temas/ }));
   });
 
@@ -31,8 +37,9 @@ describe('selectores de tema agrupados por bloque', () => {
     const tablist = await screen.findByRole('tablist', { name: 'Temas de recuerdo' });
     const bloque = document.querySelector<HTMLElement>('#recall-bloque-especifica')!;
     expect(tablist).toContainElement(bloque);
-    expect(bloque).toHaveTextContent(/Parte específica · 6 temas/);
-    expect(within(tablist).getAllByRole('tab')).toHaveLength(6);
+    expect(bloque).toHaveTextContent(`Parte específica · ${temas(ESPECIFICA.length)}`);
+    expect(within(tablist).getAllByRole('tab')).toHaveLength(RECALL_TOPICS.length);
+    expect(RECALL_BLOQUES.length).toBe(COMUN.length > 0 ? 2 : 1);
     // Cuadrícula que salta de línea (sin columnas fijas por nº de temas → sin scroll horizontal).
     expect(bloque.querySelector('.grid-cols-4')).not.toBeNull();
     expect(tablist.getAttribute('style')).toBeNull();
@@ -47,7 +54,11 @@ describe('selectores de tema agrupados por bloque', () => {
     await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-sesion-diaria')!);
     const select = await screen.findByLabelText('Tema prioritario');
     const group = select.querySelector('optgroup[label="Parte específica"]')!;
-    expect([...group.querySelectorAll('option')].map((o) => o.value)).toEqual(RECALL_TOPICS.map((t) => t.id));
+    expect([...group.querySelectorAll('option')].map((o) => o.value)).toEqual(ESPECIFICA.map((t) => t.id));
+    if (COMUN.length > 0) {
+      const comun = select.querySelector('optgroup[label="Parte común"]')!;
+      expect([...comun.querySelectorAll('option')].map((o) => o.value)).toEqual(COMUN.map((t) => t.id));
+    }
     await user.selectOptions(select, 'tema16');
     expect(window.localStorage.getItem('mira_tema_preferido_v1')).toBe('tema16');
   });

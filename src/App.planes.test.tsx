@@ -25,7 +25,7 @@ describe('planes con la bandera desactivada', () => {
     expect(document.querySelector('#nav-btn-planes')).toBeNull();
     expect(screen.queryByRole('button', { name: /Planes/ })).toBeNull();
     expect(within(tablist).queryAllByRole('tab', { name: /\(Pro\)/ })).toHaveLength(0);
-    expect(within(tablist).getByRole('tab', { name: /T16/ })).toHaveAttribute('aria-selected', 'true');
+    expect(within(tablist).getByRole('tab', { name: new RegExp(`^${RECALL_TOPICS[0].shortLabel} ·`) })).toHaveAttribute('aria-selected', 'true');
 
     await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-sesion-diaria')!);
     expect(await screen.findByText(/Hasta 30 fichas/)).toBeInTheDocument();

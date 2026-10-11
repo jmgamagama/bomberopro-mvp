@@ -31,7 +31,7 @@ describe('Onboarding', () => {
     expect(radios[0]).toHaveTextContent('Todos los temas');
     expect(radios[0]).toHaveAttribute('aria-checked', 'true');
     for (const topic of RECALL_TOPICS.filter((t) => t.decks.length === 1)) {
-      expect(within(group).getByRole('radio', { name: new RegExp(topic.shortLabel) })).toHaveTextContent(topic.name);
+      expect(within(group).getByRole('radio', { name: new RegExp(`^${topic.shortLabel} ·`) })).toHaveTextContent(topic.name);
     }
     const t36 = RECALL_TOPICS.find((t) => t.id === 'tema36')!;
     const t36Radio = within(group).getByRole('radio', { name: /Tema 36 \(todos los lotes\)/ });

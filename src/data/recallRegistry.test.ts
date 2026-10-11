@@ -26,29 +26,41 @@ async function moduleFor(deckId: string) {
   return { meta: mod[`${prefix}_META`] as { title: string; count: number; tema: number; lote?: string }, cards: mod[`${prefix}_CARDS`] };
 }
 
+// <generado:fase2>
+// Tabla generada por /workspace/fase2/finalize.py al registrar cada tema.
+const EXPECTED_DECKS: Array<[string, string, number]> = [
+  ['tema3', 'T3', 66],
+  ['tema16', 'T16', 48],
+  ['tema35', 'T35', 150],
+  ['tema36-lote01', 'T36·1', 78],
+  ['tema36-lote02', 'T36·2', 79],
+  ['tema36-lote03', 'T36·3', 78],
+  ['tema36-lote04', 'T36·4', 78],
+  ['tema36-lote05', 'T36·5', 50],
+  ['tema36-lote06', 'T36·6', 55],
+  ['tema36-lote07', 'T36·7', 55],
+  ['tema36-lote08', 'T36·8', 55],
+  ['tema38', 'T38', 198],
+  ['tema39', 'T39', 149],
+  ['tema40', 'T40', 213],
+];
+const EXPECTED_TOPICS = ["tema3", "tema16", "tema35", "tema36", "tema38", "tema39", "tema40"];
+const EXPECTED_BLOQUES = [["comun", "Parte común"], ["especifica", "Parte específica"]];
+const EXPECTED_TOTAL = 1352;
+const EXPECTED_COVERAGE = '3, 16, 35, 36 (lotes 01 a 08), 38, 39 y 40';
+// </generado:fase2>
+
 describe('registro central de recuerdo', () => {
   it('contiene un único mazo por tema/lote cargado, ordenado por tema', () => {
-    expect(RECALL_DECKS.map((d) => d.id)).toEqual([
-      'tema16',
-      'tema35',
-      'tema36-lote01',
-      'tema36-lote02',
-      'tema36-lote03',
-      'tema36-lote04',
-      'tema36-lote05',
-      'tema36-lote06',
-      'tema36-lote07',
-      'tema36-lote08',
-      'tema38',
-      'tema39',
-      'tema40',
-    ]);
-    expect(RECALL_DECKS.map((d) => d.shortLabel)).toEqual(['T16', 'T35', 'T36·1', 'T36·2', 'T36·3', 'T36·4', 'T36·5', 'T36·6', 'T36·7', 'T36·8', 'T38', 'T39', 'T40']);
+    expect(RECALL_DECKS.map((d) => d.id)).toEqual(EXPECTED_DECKS.map(([id]) => id));
+    expect(RECALL_DECKS.map((d) => d.shortLabel)).toEqual(EXPECTED_DECKS.map(([, label]) => label));
     expect(RECALL_DECKS.some((d) => d.tema === 37)).toBe(false);
+    // Temas sin permiso de uso de su fuente (docs/PERMISOS_FUENTES.md): no se cargan.
+    expect(RECALL_DECKS.some((d) => [15, 18, 19].includes(d.tema))).toBe(false);
   });
 
   it('agrupa los lotes del tema 36 en un único tema', () => {
-    expect(RECALL_TOPICS.map((t) => t.id)).toEqual(['tema16', 'tema35', 'tema36', 'tema38', 'tema39', 'tema40']);
+    expect(RECALL_TOPICS.map((t) => t.id)).toEqual(EXPECTED_TOPICS);
     const t36 = getRecallTopic('tema36')!;
     expect(t36.title).toBe('Tema 36 (todos los lotes)');
     expect(t36.decks.map((d) => d.loteLabel)).toEqual(['Lote 1', 'Lote 2', 'Lote 3', 'Lote 4', 'Lote 5', 'Lote 6', 'Lote 7', 'Lote 8']);
@@ -64,30 +76,18 @@ describe('registro central de recuerdo', () => {
     expect(bloqueDeTema(7)).toBe('comun');
     expect(bloqueDeTema(8)).toBe('especifica');
     expect(bloqueDeTema(40)).toBe('especifica');
-    // Solo se listan los bloques con algún tema cargado (hoy, todos de la parte específica).
-    expect(RECALL_BLOQUES.map((b) => [b.id, b.label])).toEqual([['especifica', 'Parte específica']]);
-    expect(RECALL_BLOQUES.flatMap((b) => b.topics.map((t) => t.id))).toEqual(RECALL_TOPICS.map((t) => t.id));
+    // Solo se listan los bloques con algún tema cargado.
+    expect(RECALL_BLOQUES.map((b) => [b.id, b.label])).toEqual(EXPECTED_BLOQUES);
+    expect(RECALL_BLOQUES.flatMap((b) => b.topics.map((t) => t.id))).toEqual(
+      [...RECALL_TOPICS].sort((a, b) => Number(a.bloque !== 'comun') - Number(b.bloque !== 'comun') || a.tema - b.tema).map((t) => t.id),
+    );
     expect(RECALL_BLOQUES.reduce((n, b) => n + b.count, 0)).toBe(RECALL_TOTAL_CARDS);
   });
 
   it('cada mazo declara sus fichas y el total es la suma', () => {
     const counts = Object.fromEntries(RECALL_DECKS.map((d) => [d.id, d.count]));
-    expect(counts).toEqual({
-      tema16: 48,
-      tema35: 150,
-      'tema36-lote01': 78,
-      'tema36-lote02': 79,
-      'tema36-lote03': 78,
-      'tema36-lote04': 78,
-      'tema36-lote05': 50,
-      'tema36-lote06': 55,
-      'tema36-lote07': 55,
-      'tema36-lote08': 55,
-      tema38: 198,
-      tema39: 149,
-      tema40: 213,
-    });
-    expect(RECALL_TOTAL_CARDS).toBe(1286);
+    expect(counts).toEqual(Object.fromEntries(EXPECTED_DECKS.map(([id, , n]) => [id, n])));
+    expect(RECALL_TOTAL_CARDS).toBe(EXPECTED_TOTAL);
   });
 
   it('los metadatos del registro coinciden con los del módulo de cada mazo', async () => {
@@ -140,7 +140,7 @@ describe('registro central de recuerdo', () => {
   });
 
   it('describeRecallCoverage resume los temas y lotes cargados', () => {
-    expect(describeRecallCoverage()).toBe('16, 35, 36 (lotes 01 a 08), 38, 39 y 40');
+    expect(describeRecallCoverage()).toBe(EXPECTED_COVERAGE);
     expect(describeRecallCoverage([getRecallDeck('tema40')])).toBe('40');
     expect(describeRecallCoverage([getRecallDeck('tema36-lote01'), getRecallDeck('tema36-lote03')])).toBe('36 (lotes 01 y 03)');
   });

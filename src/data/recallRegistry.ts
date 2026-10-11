@@ -88,6 +88,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 3,
+      title: "Tema 3 · LBRL: la Provincia (organización y competencias)",
+      count: 66,
+      source: "Fase 2 · texto consolidado BOE-A-1985-5392 (Título III, arts. 31-38; últ. act. 03/10/2026)",
+    },
+    load: () => import('./tema3Recall').then((m) => m.TEMA3_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 16,
       title: 'Tema 16 · El código ICAO (alfabeto radiotelefónico) y códigos Q de la UIT',
       count: 48,

@@ -107,7 +107,12 @@ describe('sesión diaria con tema prioritario', () => {
       expect(session).toHaveLength(30);
       expect(new Set(session.map((c) => c.id)).size).toBe(30);
       expect(session.filter((c) => c.topicId === topic.id)).toHaveLength(18);
-      expect(new Set(session.map((c) => c.deckId)).size).toBe(RECALL_DECKS.length);
+      // El resto (12 fichas) se reparte entre los demás mazos en proporción a su tamaño
+      // (con muchos temas, uno pequeño puede quedarse sin hueco ese día).
+      const otros = RECALL_TOPICS.filter((t) => t.id !== topic.id).length;
+      const otrosEnSesion = new Set(session.filter((c) => c.topicId !== topic.id).map((c) => c.topicId)).size;
+      expect(session.filter((c) => c.topicId !== topic.id)).toHaveLength(12);
+      expect(otrosEnSesion).toBeGreaterThanOrEqual(Math.min(otros, 4));
     }
   });
 
