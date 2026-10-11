@@ -88,6 +88,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 33,
+      title: "Tema 33 · RIPCI (RD 513/2017): abastecimiento de agua, hidrantes, BIE y columna seca",
+      count: 67,
+      source: "Fase 2 · texto consolidado BOE-A-2017-6606 (arts. 1-2 y anexo I, apdos. 2, 3, 5 y 6; últ. act. 03/09/2025)",
+    },
+    load: () => import('./tema33Recall').then((m) => m.TEMA33_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 7,
       title: "Tema 7 · Ley 8/2011 de Igualdad y contra la violencia de género en Extremadura",
       count: 64,
