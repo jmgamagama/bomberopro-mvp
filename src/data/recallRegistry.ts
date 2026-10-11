@@ -89,6 +89,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 21,
+      title: "Tema 21 · Accidentes de tráfico: Procedimiento Unificado de Rescate (Manual básico DGT)",
+      count: 42,
+      source: "Fase 3 · Manual básico de rescate en accidentes de tráfico (DGT-APRAT, 2019), PDF oficial en dgt.es",
+    },
+    load: () => import('./tema21Recall').then((m) => m.TEMA21_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 22,
       title: "Tema 22 · Trabajos temporales en altura: RD 1215/1997, anexo II.4",
       count: 33,
