@@ -1,0 +1,237 @@
+/** Tema 14 recall cards — fase 2: generadas SOLO desde el texto oficial consolidado (BOE-A-2003-23514, BOE-A-1999-1826, BOE-A-2021-4194). Calidad: data/tema14/tema14_calidad.md. */
+
+export type Tema14RecallCard = {
+  id: string;
+  orden: number;
+  concepto: string;
+  respuesta: string;
+  fuente: string;
+  localizacion: string;
+  apartado: string;
+};
+
+export const TEMA14_RECALL_META = {
+  "tema": 14,
+  "title": "Tema 14 · Vehículos prioritarios y de servicios auxiliares: RGC, RGV y RD 159/2021",
+  "count": 24,
+  "source": "Fase 3 · RGC (BOE-A-2003-23514) y RGV (BOE-A-1999-1826), últ. act. 01/10/2026; RD 159/2021 (BOE-A-2021-4194), últ. act. 20/12/2025"
+} as const;
+
+export const TEMA14_RECALL_CARDS: Tema14RecallCard[] = [
+  {
+    "id": "CPEI-T14-OF-096DEC3C",
+    "orden": 10,
+    "concepto": "Según el Reglamento General de Circulación, ¿qué vehículos tienen prioridad de paso sobre los demás vehículos y usuarios de la vía?",
+    "respuesta": "Los vehículos de servicios de urgencia, públicos o privados, cuando se hallen en servicio de tal carácter",
+    "fuente": "Reglamento General de Circulación, Artículo 67. Vehículos prioritarios, art. 67.1. BOE-A-2003-23514, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a67",
+    "localizacion": "Reglamento General de Circulación, Artículo 67. Vehículos prioritarios, art. 67.1",
+    "apartado": "Vehículos prioritarios"
+  },
+  {
+    "id": "CPEI-T14-OF-5F4675D5",
+    "orden": 20,
+    "concepto": "Según el Reglamento General de Circulación, ¿cuándo harán uso ponderado de su régimen especial los conductores de vehículos prioritarios?",
+    "respuesta": "Únicamente cuando circulen en prestación de un servicio urgente",
+    "fuente": "Reglamento General de Circulación, Artículo 67. Vehículos prioritarios, art. 67.2. BOE-A-2003-23514, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a67",
+    "localizacion": "Reglamento General de Circulación, Artículo 67. Vehículos prioritarios, art. 67.2",
+    "apartado": "Vehículos prioritarios"
+  },
+  {
+    "id": "CPEI-T14-OF-7DDD000D",
+    "orden": 30,
+    "concepto": "Según el Reglamento General de Circulación, ¿qué normas pueden dejar de cumplir los conductores de vehículos prioritarios bajo su exclusiva responsabilidad?",
+    "respuesta": "Las normas de los títulos II, III y IV, salvo las órdenes y señales de los agentes",
+    "fuente": "Reglamento General de Circulación, Artículo 68. Facultades de los conductores de los vehículos prioritarios, art. 68.1. BOE-A-2003-23514, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a68",
+    "localizacion": "Reglamento General de Circulación, Artículo 68. Facultades de los conductores de los vehículos prioritarios, art. 68.1",
+    "apartado": "Vehículos prioritarios"
+  },
+  {
+    "id": "CPEI-T14-OF-F4664487",
+    "orden": 40,
+    "concepto": "Según el Reglamento General de Circulación, ¿qué órdenes y señales son siempre de obligado cumplimiento para los vehículos prioritarios?",
+    "respuesta": "Las órdenes y señales de los agentes",
+    "fuente": "Reglamento General de Circulación, Artículo 68. Facultades de los conductores de los vehículos prioritarios, art. 68.1. BOE-A-2003-23514, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a68",
+    "localizacion": "Reglamento General de Circulación, Artículo 68. Facultades de los conductores de los vehículos prioritarios, art. 68.1",
+    "apartado": "Vehículos prioritarios"
+  },
+  {
+    "id": "CPEI-T14-OF-2D8AA3F6",
+    "orden": 50,
+    "concepto": "Según el Reglamento General de Circulación, en autopista o autovía y en servicio urgente, ¿por dónde pueden circular en sentido contrario los vehículos prioritarios?",
+    "respuesta": "Siempre que lo hagan por el arcén",
+    "fuente": "Reglamento General de Circulación, Artículo 68. Facultades de los conductores de los vehículos prioritarios, art. 68.1. BOE-A-2003-23514, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a68",
+    "localizacion": "Reglamento General de Circulación, Artículo 68. Facultades de los conductores de los vehículos prioritarios, art. 68.1",
+    "apartado": "Vehículos prioritarios"
+  },
+  {
+    "id": "CPEI-T14-OF-F6175BF3",
+    "orden": 60,
+    "concepto": "Según el Reglamento General de Circulación, ¿qué vehículos tienen el carácter de prioritarios?",
+    "respuesta": "Los vehículos de los servicios de policía, extinción de incendios, protección civil y salvamento, y de asistencia sanitaria, pública o privada, que circulen en servicio urgente",
+    "fuente": "Reglamento General de Circulación, Artículo 68. Facultades de los conductores de los vehículos prioritarios, art. 68.2. BOE-A-2003-23514, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a68",
+    "localizacion": "Reglamento General de Circulación, Artículo 68. Facultades de los conductores de los vehículos prioritarios, art. 68.2",
+    "apartado": "Vehículos prioritarios"
+  },
+  {
+    "id": "CPEI-T14-OF-73480F07",
+    "orden": 70,
+    "concepto": "Según el Reglamento General de Circulación, ¿cómo deben advertir de su presencia los vehículos prioritarios?",
+    "respuesta": "Mediante la utilización simultánea de la señal luminosa y del aparato emisor de señales acústicas especiales",
+    "fuente": "Reglamento General de Circulación, Artículo 68. Facultades de los conductores de los vehículos prioritarios, art. 68.2. BOE-A-2003-23514, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a68",
+    "localizacion": "Reglamento General de Circulación, Artículo 68. Facultades de los conductores de los vehículos prioritarios, art. 68.2",
+    "apartado": "Vehículos prioritarios"
+  },
+  {
+    "id": "CPEI-T14-OF-1C900B50",
+    "orden": 80,
+    "concepto": "Según el Reglamento General de Circulación, ¿cuándo deben usar los vehículos prioritarios la señal luminosa aisladamente?",
+    "respuesta": "Cuando la omisión de las señales acústicas especiales no entrañe peligro alguno para los demás usuarios",
+    "fuente": "Reglamento General de Circulación, Artículo 68. Facultades de los conductores de los vehículos prioritarios, art. 68.2. BOE-A-2003-23514, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a68",
+    "localizacion": "Reglamento General de Circulación, Artículo 68. Facultades de los conductores de los vehículos prioritarios, art. 68.2",
+    "apartado": "Vehículos prioritarios"
+  },
+  {
+    "id": "CPEI-T14-OF-88B82327",
+    "orden": 90,
+    "concepto": "Según el Reglamento General de Circulación, ¿qué consideración tienen las infracciones del artículo 68?",
+    "respuesta": "La consideración de graves",
+    "fuente": "Reglamento General de Circulación, Artículo 68. Facultades de los conductores de los vehículos prioritarios, art. 68.3. BOE-A-2003-23514, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a68",
+    "localizacion": "Reglamento General de Circulación, Artículo 68. Facultades de los conductores de los vehículos prioritarios, art. 68.3",
+    "apartado": "Vehículos prioritarios"
+  },
+  {
+    "id": "CPEI-T14-OF-2E44B0F0",
+    "orden": 100,
+    "concepto": "Según el Reglamento General de Circulación, ¿quién determina los lugares donde deben situarse los vehículos de servicios de urgencia?",
+    "respuesta": "Los agentes de la autoridad responsable de la vigilancia, regulación y control del tráfico",
+    "fuente": "Reglamento General de Circulación, Artículo 68. Facultades de los conductores de los vehículos prioritarios, art. 68.1. BOE-A-2003-23514, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a68",
+    "localizacion": "Reglamento General de Circulación, Artículo 68. Facultades de los conductores de los vehículos prioritarios, art. 68.1",
+    "apartado": "Vehículos prioritarios"
+  },
+  {
+    "id": "CPEI-T14-OF-24650B9B",
+    "orden": 110,
+    "concepto": "Según el Reglamento General de Circulación, ¿cómo deben facilitar el paso los demás conductores al percibir un vehículo prioritario?",
+    "respuesta": "Apartándose normalmente a su derecha o deteniéndose si fuera preciso",
+    "fuente": "Reglamento General de Circulación, Artículo 69. Comportamiento de los demás conductores respecto de los vehículos prioritarios, art. 69. BOE-A-2003-23514, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a69",
+    "localizacion": "Reglamento General de Circulación, Artículo 69. Comportamiento de los demás conductores respecto de los vehículos prioritarios, art. 69",
+    "apartado": "Vehículos prioritarios"
+  },
+  {
+    "id": "CPEI-T14-OF-0D6644C0",
+    "orden": 120,
+    "concepto": "Según el Reglamento General de Circulación, ¿qué señal en el vehículo indica vehículo prioritario?",
+    "respuesta": "V-1",
+    "fuente": "Reglamento General de Circulación, Artículo 173. Objeto, significado y clases, art. 173.2. BOE-A-2003-23514, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a173",
+    "localizacion": "Reglamento General de Circulación, Artículo 173. Objeto, significado y clases, art. 173.2",
+    "apartado": "Señalización del vehículo"
+  },
+  {
+    "id": "CPEI-T14-OF-F81A9E3C",
+    "orden": 130,
+    "concepto": "Según el Reglamento General de Circulación, ¿qué indica la señal V-2 en un vehículo?",
+    "respuesta": "Vehículos para obras o servicios, tractores agrícolas, maquinaria agrícola automotriz, demás vehículos especiales, transportes especiales y columnas militares",
+    "fuente": "Reglamento General de Circulación, Artículo 173. Objeto, significado y clases, art. 173.2. BOE-A-2003-23514, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a173",
+    "localizacion": "Reglamento General de Circulación, Artículo 173. Objeto, significado y clases, art. 173.2",
+    "apartado": "Señalización del vehículo"
+  },
+  {
+    "id": "CPEI-T14-OF-A8DE9DF1",
+    "orden": 140,
+    "concepto": "Según el Reglamento General de Circulación, ¿qué longitud supera el vehículo señalizado con la V-6 (vehículo largo)?",
+    "respuesta": "Una longitud superior a 12 metros",
+    "fuente": "Reglamento General de Circulación, Artículo 173. Objeto, significado y clases, art. 173.2. BOE-A-2003-23514, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a173",
+    "localizacion": "Reglamento General de Circulación, Artículo 173. Objeto, significado y clases, art. 173.2",
+    "apartado": "Señalización del vehículo"
+  },
+  {
+    "id": "CPEI-T14-OF-0E19EF70",
+    "orden": 150,
+    "concepto": "Según el Reglamento General de Circulación, ¿qué indica la señal V-11?",
+    "respuesta": "Indica que el vehículo transporta mercancías peligrosas",
+    "fuente": "Reglamento General de Circulación, Artículo 173. Objeto, significado y clases, art. 173.2. BOE-A-2003-23514, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514#a173",
+    "localizacion": "Reglamento General de Circulación, Artículo 173. Objeto, significado y clases, art. 173.2",
+    "apartado": "Señalización del vehículo"
+  },
+  {
+    "id": "CPEI-T14-OF-19E5A8FB",
+    "orden": 160,
+    "concepto": "Según el Reglamento General de Vehículos, ¿requiere autorización administrativa la utilización de la señal V-1?",
+    "respuesta": "No requerirá autorización administrativa alguna",
+    "fuente": "Reglamento General de Vehículos, V-1. VEHÍCULO PRIORITARIO, anexo XI, V-1.2. BOE-A-1999-1826, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1999-1826#v-1",
+    "localizacion": "Reglamento General de Vehículos, V-1. VEHÍCULO PRIORITARIO, anexo XI, V-1.2",
+    "apartado": "Señalización del vehículo"
+  },
+  {
+    "id": "CPEI-T14-OF-FD0B4172",
+    "orden": 170,
+    "concepto": "Según el Reglamento General de Vehículos, ¿de qué color son las luces de la señal luminosa V-1?",
+    "respuesta": "De color azul",
+    "fuente": "Reglamento General de Vehículos, V-1. VEHÍCULO PRIORITARIO, anexo XI, V-1.3. BOE-A-1999-1826, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1999-1826#v-1",
+    "localizacion": "Reglamento General de Vehículos, V-1. VEHÍCULO PRIORITARIO, anexo XI, V-1.3",
+    "apartado": "Señalización del vehículo"
+  },
+  {
+    "id": "CPEI-T14-OF-80F4B4B3",
+    "orden": 180,
+    "concepto": "Según el Reglamento General de Vehículos, ¿qué reglamento CEPE/ONU deben cumplir las luces de la señal V-1?",
+    "respuesta": "Reglamento CEPE/ONU número 65",
+    "fuente": "Reglamento General de Vehículos, V-1. VEHÍCULO PRIORITARIO, anexo XI, V-1.3. BOE-A-1999-1826, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1999-1826#v-1",
+    "localizacion": "Reglamento General de Vehículos, V-1. VEHÍCULO PRIORITARIO, anexo XI, V-1.3",
+    "apartado": "Señalización del vehículo"
+  },
+  {
+    "id": "CPEI-T14-OF-AC7D8B85",
+    "orden": 190,
+    "concepto": "Según el Reglamento General de Vehículos, ¿a qué distancia mínima debe ser visible la señal luminosa V-1 en todas las direcciones?",
+    "respuesta": "A una distancia mínima de 50 metros",
+    "fuente": "Reglamento General de Vehículos, V-1. VEHÍCULO PRIORITARIO, anexo XI, V-1.3. BOE-A-1999-1826, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1999-1826#v-1",
+    "localizacion": "Reglamento General de Vehículos, V-1. VEHÍCULO PRIORITARIO, anexo XI, V-1.3",
+    "apartado": "Señalización del vehículo"
+  },
+  {
+    "id": "CPEI-T14-OF-1C78304E",
+    "orden": 200,
+    "concepto": "Según el Reglamento General de Vehículos, ¿en qué vehículos queda prohibido el montaje de la señal V-1?",
+    "respuesta": "En vehículos que no sean prioritarios",
+    "fuente": "Reglamento General de Vehículos, V-1. VEHÍCULO PRIORITARIO, anexo XI, V-1.5. BOE-A-1999-1826, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1999-1826#v-1",
+    "localizacion": "Reglamento General de Vehículos, V-1. VEHÍCULO PRIORITARIO, anexo XI, V-1.5",
+    "apartado": "Señalización del vehículo"
+  },
+  {
+    "id": "CPEI-T14-OF-64B85871",
+    "orden": 210,
+    "concepto": "Según el Reglamento General de Vehículos, ¿en qué vehículos se instalarán aparatos emisores de señales acústicas especiales?",
+    "respuesta": "Sólo en los vehículos que tengan el carácter de prioritarios",
+    "fuente": "Reglamento General de Vehículos, Artículo 11. Generalidades. Condiciones técnicas, art. 11.7. BOE-A-1999-1826, texto consolidado (últ. actualización 01/10/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1999-1826#a11",
+    "localizacion": "Reglamento General de Vehículos, Artículo 11. Generalidades. Condiciones técnicas, art. 11.7",
+    "apartado": "Señalización del vehículo"
+  },
+  {
+    "id": "CPEI-T14-OF-CE023FC5",
+    "orden": 220,
+    "concepto": "Según el RD 159/2021, ¿qué es el «servicio de auxilio en vías públicas»?",
+    "respuesta": "El conjunto de operaciones y actuaciones necesarias para realizar el auxilio y rescate de un vehículo que, como consecuencia de avería o accidente, ha dejado de tener capacidad para seguir circulando por sí mismo en circunstancias ordinarias",
+    "fuente": "RD 159/2021, Artículo 2. Definiciones, art. 2.a). BOE-A-2021-4194, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2021-4194#a2",
+    "localizacion": "RD 159/2021, Artículo 2. Definiciones, art. 2.a)",
+    "apartado": "Servicios de auxilio en vías públicas"
+  },
+  {
+    "id": "CPEI-T14-OF-BA6D2B15",
+    "orden": 230,
+    "concepto": "Según el RD 159/2021, ¿dónde comienza la operación de auxilio?",
+    "respuesta": "En el punto donde el vehículo de auxilio se encuentre en posición operativa",
+    "fuente": "RD 159/2021, Artículo 4. Operación de auxilio, art. 4.1. BOE-A-2021-4194, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2021-4194#a4",
+    "localizacion": "RD 159/2021, Artículo 4. Operación de auxilio, art. 4.1",
+    "apartado": "Servicios de auxilio en vías públicas"
+  },
+  {
+    "id": "CPEI-T14-OF-B1D9EFE6",
+    "orden": 240,
+    "concepto": "Según el RD 159/2021, ¿qué registro se crea en la Jefatura Central de Tráfico para el auxilio en vías públicas?",
+    "respuesta": "Registro Estatal de Auxilio en Vías Públicas (REAV)",
+    "fuente": "RD 159/2021, Artículo 10. Creación del Registro Estatal de Auxilio en Vías Públicas, art. 10. BOE-A-2021-4194, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2021-4194#a1-2",
+    "localizacion": "RD 159/2021, Artículo 10. Creación del Registro Estatal de Auxilio en Vías Públicas, art. 10",
+    "apartado": "Servicios de auxilio en vías públicas"
+  }
+];

@@ -89,6 +89,106 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 14,
+      title: "Tema 14 · Vehículos prioritarios y de servicios auxiliares: RGC, RGV y RD 159/2021",
+      count: 24,
+      source: "Fase 3 · RGC (BOE-A-2003-23514) y RGV (BOE-A-1999-1826), últ. act. 01/10/2026; RD 159/2021 (BOE-A-2021-4194), últ. act. 20/12/2025",
+    },
+    load: () => import('./tema14Recall').then((m) => m.TEMA14_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 16,
+      lote: 'lote02',
+      title: "Tema 16 · Comunicaciones, lote 2: fundamentos, servicios, estaciones y modalidades (RR UIT 2024)",
+      count: 21,
+      source: "Fase 3 · Reglamento de Radiocomunicaciones de la UIT, edición de 2024, vol. 1 (arts. 1 y 2), versión oficial en español",
+    },
+    load: () => import('./tema16Lote02Recall').then((m) => m.TEMA16_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 27,
+      title: "Tema 27 · Edificación: acciones y estados límite (CTE DB SE y DB SE-AE)",
+      count: 22,
+      source: "Fase 3 · CTE DB SE (RD 732/2019) y DB SE-AE (Orden VIV/984/2009), textos consolidados del Ministerio en codigotecnico.org",
+    },
+    load: () => import('./tema27Recall').then((m) => m.TEMA27_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 23,
+      title: "Tema 23 · Inundaciones: Plan Estatal de Protección Civil ante el Riesgo de Inundaciones",
+      count: 21,
+      source: "Fase 3 · texto consolidado BOE-A-2011-14277 (Plan Estatal de Inundaciones; últ. act. 19/12/2025)",
+    },
+    load: () => import('./tema23Recall').then((m) => m.TEMA23_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 24,
+      title: "Tema 24 · Marco legal: RD 630/2013, Catálogo español de especies exóticas invasoras",
+      count: 19,
+      source: "Fase 3 · texto consolidado BOE-A-2013-8565 (RD 630/2013; últ. act. 19/12/2025)",
+    },
+    load: () => import('./tema24Recall').then((m) => m.TEMA24_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 20,
+      title: "Tema 20 · Incendios forestales: Plan INFOEX (Decreto 132/2022, mod. 136/2024)",
+      count: 24,
+      source: "Fase 3 · Plan INFOEX: artículos 6, 7, 10-13 y 16 del Decreto 132/2022 en la redacción del Decreto 136/2024 (DOE nº 215, 05/11/2024)",
+    },
+    load: () => import('./tema20Recall').then((m) => m.TEMA20_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 5,
+      title: "Tema 5 · Reglamento de Régimen Interno del CPEI de Badajoz",
+      count: 28,
+      source: "Fase 3 · Reglamento de Régimen Interno del CPEI, texto único vigente (BOP Badajoz nº 149, anuncio 5370/2012, 06/08/2012)",
+    },
+    load: () => import('./tema5Recall').then((m) => m.TEMA5_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 4,
+      title: "Tema 4 · Estructura orgánica de la Diputación de Badajoz (acuerdo de 29/10/2025)",
+      count: 28,
+      source: "Fase 3 · acuerdo de reorganización de la estructura orgánica (BOP Badajoz nº 206, anuncio 4611/2025, 29/10/2025)",
+    },
+    load: () => import('./tema4Recall').then((m) => m.TEMA4_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 13,
+      title: "Tema 13 · Equipos de protección individual: RD 773/1997 y Reglamento (UE) 2016/425",
+      count: 25,
+      source: "Fase 3 · RD 773/1997 (BOE-A-1997-12735, últ. act. 18/12/2025) y Reglamento (UE) 2016/425 (EUR-Lex)",
+    },
+    load: () => import('./tema13Recall').then((m) => m.TEMA13_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 17,
+      title: "Tema 17 · Socorrismo: desfibriladores fuera del ámbito sanitario (RD 365/2009)",
+      count: 14,
+      source: "Fase 3 · RD 365/2009 (BOE-A-2009-5490, texto original sin modificaciones)",
+    },
+    load: () => import('./tema17Recall').then((m) => m.TEMA17_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 21,
+      title: "Tema 21 · Accidentes de tráfico: Procedimiento Unificado de Rescate (Manual básico DGT)",
+      count: 42,
+      source: "Fase 3 · Manual básico de rescate en accidentes de tráfico (DGT-APRAT, 2019), PDF oficial en dgt.es",
+    },
+    load: () => import('./tema21Recall').then((m) => m.TEMA21_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 22,
       title: "Tema 22 · Trabajos temporales en altura: RD 1215/1997, anexo II.4",
       count: 33,

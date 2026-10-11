@@ -59,7 +59,7 @@ const tapTargetsOk = async (locator) => {
   check('bienvenida: botón «Empezar» visible sin desplazar', await page.getByRole('button', { name: 'Empezar sesión diaria' }).isVisible()
     && (await page.getByRole('button', { name: 'Empezar sesión diaria' }).boundingBox()).y + 48 <= 740);
   await page.screenshot({ path: `${OUT}/onboarding-360.png` });
-  check('bienvenida: tema 16 en el grupo «Parte específica»', (await page.locator('#onboarding-grupo-especifica').getByRole('radio', { name: /T16/ }).count()) === 1);
+  check('bienvenida: tema 16 en el grupo «Parte específica»', (await page.locator('#onboarding-grupo-especifica').getByRole('radio', { name: /T16\b|^Tema 16 / }).count()) === 1);
   check('bienvenida: opciones ≥44 px y dentro de 360 px', await tapTargetsOk(page.getByRole('radio')));
   let taps = 0;
   await page.getByRole('radio', { name: /T40/ }).click(); taps++;
