@@ -89,6 +89,42 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 28,
+      title: "Tema 28 · Electricidad: riesgo eléctrico, redes y procedimientos (RD 614/2001, REBT y RLAT)",
+      count: 29,
+      source: "Fase 4 · RD 614/2001 (BOE-A-2001-11881) y REBT (BOE-A-2002-18099), últ. act. 18/12/2025; RD 223/2008 (BOE-A-2008-5269), últ. act. 19/12/2025",
+    },
+    load: () => import('./tema28Recall').then((m) => m.TEMA28_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 12,
+      title: "Tema 12 · Mecanismos de extinción, agentes y extintores (RIPCI e INSST)",
+      count: 21,
+      source: "Fase 4 · RD 513/2017, RIPCI (BOE-A-2017-6606), últ. act. 19/12/2025; INSST, tema «El riesgo de incendio (I)» (v. abril 2025)",
+    },
+    load: () => import('./tema12Recall').then((m) => m.TEMA12_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 10,
+      title: "Tema 10 · Abastecimiento de agua, hidrantes, BIE y columnas secas (RIPCI)",
+      count: 34,
+      source: "Fase 4 · RD 513/2017, RIPCI (BOE-A-2017-6606), últ. act. 19/12/2025, anexo I sección 1.ª",
+    },
+    load: () => import('./tema10Recall').then((m) => m.TEMA10_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 8,
+      title: "Tema 8 · Teoría del fuego y explosiones (documentos del INSST)",
+      count: 25,
+      source: "Fase 4 · INSST, temas oficiales del proceso selectivo: «El riesgo de incendio (I)» (v. abril 2025) y «Explosiones» (2026), insst.es",
+    },
+    load: () => import('./tema8Recall').then((m) => m.TEMA8_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 14,
       title: "Tema 14 · Vehículos prioritarios y de servicios auxiliares: RGC, RGV y RD 159/2021",
       count: 24,
