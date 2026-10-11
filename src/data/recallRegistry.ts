@@ -88,6 +88,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 32,
+      title: "Tema 32 · CTE: objeto, ámbito, exigencias básicas SI y SUA, DB SI (SI 4 y SI 5) y DB SUA (SUA 4 y SUA 7)",
+      count: 91,
+      source: "Fase 2-3 · CTE Parte I (BOE-A-2006-5515, últ. act. 15/06/2022) y DB SI / DB SUA consolidados del Ministerio (codigotecnico.org)",
+    },
+    load: () => import('./tema32Recall').then((m) => m.TEMA32_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 30,
       title: "Tema 30 · Planes especiales de Extremadura: INUNCAEX, TRANSCAEX, RADIOCAEX y PLASISMEX",
       count: 87,
@@ -112,15 +121,6 @@ const DECK_SOURCES: readonly DeckSource[] = [
       source: "Fase 2 · texto consolidado BOE-A-2011-1638 (Estatuto, arts. 1-48; sin modificaciones registradas desde 29/01/2011)",
     },
     load: () => import('./tema2Recall').then((m) => m.TEMA2_RECALL_CARDS),
-  },
-  {
-    meta: {
-      tema: 32,
-      title: "Tema 32 · CTE (RD 314/2006): objeto, ámbito y exigencias básicas SI y SUA",
-      count: 38,
-      source: "Fase 2 · texto consolidado BOE-A-2006-5515, Parte I (arts. 1-3, 11 y 12; últ. act. 15/06/2022)",
-    },
-    load: () => import('./tema32Recall').then((m) => m.TEMA32_RECALL_CARDS),
   },
   {
     meta: {
