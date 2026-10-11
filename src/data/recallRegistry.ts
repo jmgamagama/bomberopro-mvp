@@ -89,6 +89,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 10,
+      title: "Tema 10 · Abastecimiento de agua, hidrantes, BIE y columnas secas (RIPCI)",
+      count: 34,
+      source: "Fase 4 · RD 513/2017, RIPCI (BOE-A-2017-6606), últ. act. 19/12/2025, anexo I sección 1.ª",
+    },
+    load: () => import('./tema10Recall').then((m) => m.TEMA10_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 8,
       title: "Tema 8 · Teoría del fuego y explosiones (documentos del INSST)",
       count: 25,
