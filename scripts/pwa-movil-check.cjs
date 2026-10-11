@@ -79,7 +79,9 @@ const tapTargetsOk = async (locator) => {
   const tablist = page.getByRole('tablist', { name: 'Temas de recuerdo' });
   await tablist.waitFor();
   // Nº de temas esperados en Recuerdo (fase 1: 6; fase 2 añade 3, 31, 6, 1, 7, 33, 32 y 2).
-  const N_TEMAS = Number(process.env.N_TEMAS || 14);
+  const N_TEMAS = Number(process.env.N_TEMAS || new Set(
+    [...require('node:fs').readFileSync(require('node:path').join(__dirname, '../src/data/recallRegistry.ts'), 'utf8').matchAll(/^      tema: (\d+),/gm)].map((m) => m[1]),
+  ).size || 14);
   check(`recuerdo: ${N_TEMAS} pestañas de tema`, (await tablist.getByRole('tab').count()) === N_TEMAS, String(await tablist.getByRole('tab').count()));
   check('recuerdo: temas agrupados por bloque (Parte específica)', await page.locator('#recall-bloque-especifica').isVisible()
     && /Parte específica/i.test(await page.locator('#recall-bloque-especifica').textContent()));
@@ -161,10 +163,10 @@ const tapTargetsOk = async (locator) => {
   await stats.waitFor();
   check('estadísticas: 2 fichas vistas', (await stats.locator('dd').first().textContent()) === '2');
   check('estadísticas sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
-  check('estadísticas: «Volver» y «Ver los 8 lotes» ≥44 px', await tapTargetsOk(stats.getByRole('button', { name: 'Volver' })) && await tapTargetsOk(stats.locator('summary')));
-  await stats.locator('summary').click();
+  check('estadísticas: «Volver» y «Ver los 8 lotes» ≥44 px', await tapTargetsOk(stats.getByRole('button', { name: 'Volver' })) && await tapTargetsOk(stats.locator('summary', { hasText: 'Ver los 8 lotes' })));
+  await stats.locator('summary', { hasText: 'Ver los 8 lotes' }).click();
   check('estadísticas: lotes del tema 36 sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
-  await stats.locator('summary').click();
+  await stats.locator('summary', { hasText: 'Ver los 8 lotes' }).click();
   await page.evaluate(() => window.scrollTo(0, document.querySelector('#recall-stats').getBoundingClientRect().top + window.scrollY - 80));
   await page.waitForTimeout(300);
   await page.screenshot({ path: `${OUT}/estadisticas-360.png` });

@@ -82,10 +82,85 @@ export interface RecallTopic {
 
 /** Nombre de los temas que se cargan por lotes (bloque del temario, tema36_lotes.md). */
 const TOPIC_NAMES: Record<number, string> = {
+  34: 'Reglamento de seguridad contra incendios en los establecimientos industriales (RD 164/2025)',
   36: 'Territorio de la provincia de Badajoz: municipios, límites, orografía e hidrografía',
 };
 
 const DECK_SOURCES: readonly DeckSource[] = [
+  {
+    meta: {
+      tema: 22,
+      title: "Tema 22 · Trabajos temporales en altura: RD 1215/1997, anexo II.4",
+      count: 33,
+      source: "Fase 3 · texto consolidado BOE-A-1997-17824 (RD 1215/1997, anexo II.4; últ. act. 18/12/2025)",
+    },
+    load: () => import('./tema22Recall').then((m) => m.TEMA22_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 25,
+      title: "Tema 25 · Mercancías peligrosas: ADR 2025 (conceptos, cisternas, panel naranja, placas-etiquetas y actuación)",
+      count: 47,
+      source: "Fase 3 · ADR 2025, Anejos A y B (BOE-A-2025-77, BOE nº 3 de 03/01/2025)",
+    },
+    load: () => import('./tema25Recall').then((m) => m.TEMA25_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 26,
+      title: "Tema 26 · Guías INSARAG Vol. II, Manual B: Operaciones",
+      count: 60,
+      source: "Fase 3 · Guías INSARAG 2020, Vol. II, Manual B: Operaciones (ONU-OCHA, versión oficial en español)",
+    },
+    load: () => import('./tema26Recall').then((m) => m.TEMA26_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 34,
+      lote: 'lote02',
+      title: "Tema 34 · RD 164/2025 (RSCIEI), lote 2: instalaciones de protección activa (anexo III)",
+      count: 39,
+      source: "Fase 3 · texto consolidado BOE-A-2025-7190 (reglamento, anexo III; últ. act. 20/12/2025)",
+    },
+    load: () => import('./tema34Lote02Recall').then((m) => m.TEMA34_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 34,
+      lote: 'lote01',
+      title: "Tema 34 · RD 164/2025 (RSCIEI), lote 1: articulado y caracterización (anexo I)",
+      count: 58,
+      source: "Fase 3 · texto consolidado BOE-A-2025-7190 (reglamento, arts. 1-18 y anexo I; últ. act. 20/12/2025)",
+    },
+    load: () => import('./tema34Lote01Recall').then((m) => m.TEMA34_LOTE01_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 32,
+      title: "Tema 32 · CTE: objeto, ámbito, exigencias básicas SI y SUA, DB SI (SI 4 y SI 5) y DB SUA (SUA 4 y SUA 7)",
+      count: 91,
+      source: "Fase 2-3 · CTE Parte I (BOE-A-2006-5515, últ. act. 15/06/2022) y DB SI / DB SUA consolidados del Ministerio (codigotecnico.org)",
+    },
+    load: () => import('./tema32Recall').then((m) => m.TEMA32_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 30,
+      title: "Tema 30 · Planes especiales de Extremadura: INUNCAEX, TRANSCAEX, RADIOCAEX y PLASISMEX",
+      count: 87,
+      source: "Fase 3 · textos íntegros oficiales en juntaex.es de INUNCAEX (Decreto 39/2025), TRANSCAEX (Decreto 189/2019), RADIOCAEX (Decreto 200/2019) y PLASISMEX (Decreto 127/2009)",
+    },
+    load: () => import('./tema30Recall').then((m) => m.TEMA30_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 29,
+      title: "Tema 29 · PLATERCAEX: objetivo, alcance, estructura y operatividad",
+      count: 81,
+      source: "Fase 3 · PLATERCAEX (Decreto 187/2019, DOE nº 247 de 26/12/2019), texto íntegro oficial en juntaex.es (PDF de 31/01/2020)",
+    },
+    load: () => import('./tema29Recall').then((m) => m.TEMA29_RECALL_CARDS),
+  },
   {
     meta: {
       tema: 2,
@@ -94,15 +169,6 @@ const DECK_SOURCES: readonly DeckSource[] = [
       source: "Fase 2 · texto consolidado BOE-A-2011-1638 (Estatuto, arts. 1-48; sin modificaciones registradas desde 29/01/2011)",
     },
     load: () => import('./tema2Recall').then((m) => m.TEMA2_RECALL_CARDS),
-  },
-  {
-    meta: {
-      tema: 32,
-      title: "Tema 32 · CTE (RD 314/2006): objeto, ámbito y exigencias básicas SI y SUA",
-      count: 38,
-      source: "Fase 2 · texto consolidado BOE-A-2006-5515, Parte I (arts. 1-3, 11 y 12; últ. act. 15/06/2022)",
-    },
-    load: () => import('./tema32Recall').then((m) => m.TEMA32_RECALL_CARDS),
   },
   {
     meta: {

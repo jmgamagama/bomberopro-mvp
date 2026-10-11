@@ -15,8 +15,8 @@ const fichasJson = JSON.parse(readFileSync(resolve(__dirname, '../../data/tema32
 
 describe('tema 32 · fase 2 (texto oficial consolidado)', () => {
   it('carga exactamente las fichas del JSON de calidad', () => {
-    expect(TEMA32_RECALL_META).toMatchObject({ tema: 32, count: 38 });
-    expect(fichasJson).toMatchObject({ tema: 32, estado: 'cargado', entran_tras_filtro: 38 });
+    expect(TEMA32_RECALL_META).toMatchObject({ tema: 32, count: 91 });
+    expect(fichasJson).toMatchObject({ tema: 32, estado: 'cargado', entran_tras_filtro: 91 });
     expect(TEMA32_RECALL_CARDS.map((c) => [c.id, c.concepto, c.respuesta, c.fuente])).toEqual(
       fichasJson.fichas.map((c) => [c.id, c.concepto, c.respuesta, c.fuente]),
     );
@@ -30,7 +30,7 @@ describe('tema 32 · fase 2 (texto oficial consolidado)', () => {
   });
 
   it('cada ficha cita norma, artículo y enlace oficial; sin duplicados ni respuesta en la pregunta', () => {
-    expect(TEMA32_RECALL_CARDS.every((c) => /BOE\-A\-2006\-5515/.test(c.fuente) && /https:\/\/www\.(boe|doe)\.(es|juntaex\.es)/.test(c.fuente))).toBe(true);
+    expect(TEMA32_RECALL_CARDS.every((c) => /BOE\-A\-2006\-5515|DB\ SI|DB\ SUA/.test(c.fuente) && /https:\/\/www\.(boe\.es|doe\.juntaex\.es|juntaex\.es|codigotecnico\.org)/.test(c.fuente))).toBe(true);
     expect(TEMA32_RECALL_CARDS.every((c) => c.id.startsWith('CPEI-T32-OF-') && c.concepto.includes('?'))).toBe(true);
     expect(new Set(TEMA32_RECALL_CARDS.map((c) => c.id)).size).toBe(TEMA32_RECALL_CARDS.length);
     expect(new Set(TEMA32_RECALL_CARDS.map((c) => c.concepto)).size).toBe(TEMA32_RECALL_CARDS.length);
@@ -38,7 +38,7 @@ describe('tema 32 · fase 2 (texto oficial consolidado)', () => {
   });
 
   it('se registra como mazo bajo demanda', async () => {
-    expect(getRecallDeck('tema32').count).toBe(38);
+    expect(getRecallDeck('tema32').count).toBe(91);
     expect(await loadRecallDeckCards('tema32')).toBe(TEMA32_RECALL_CARDS);
   });
 });

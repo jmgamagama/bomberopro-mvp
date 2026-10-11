@@ -1,4 +1,4 @@
-/** Tema 32 recall cards — fase 2: generadas SOLO desde el texto oficial consolidado (BOE-A-2006-5515). Calidad: data/tema32/tema32_calidad.md. */
+/** Tema 32 recall cards — fase 2: generadas SOLO desde el texto oficial consolidado (BOE-A-2006-5515, DB SI, DB SUA). Calidad: data/tema32/tema32_calidad.md. */
 
 export type Tema32RecallCard = {
   id: string;
@@ -12,9 +12,9 @@ export type Tema32RecallCard = {
 
 export const TEMA32_RECALL_META = {
   "tema": 32,
-  "title": "Tema 32 · CTE (RD 314/2006): objeto, ámbito y exigencias básicas SI y SUA",
-  "count": 38,
-  "source": "Fase 2 · texto consolidado BOE-A-2006-5515, Parte I (arts. 1-3, 11 y 12; últ. act. 15/06/2022)"
+  "title": "Tema 32 · CTE: objeto, ámbito, exigencias básicas SI y SUA, DB SI (SI 4 y SI 5) y DB SUA (SUA 4 y SUA 7)",
+  "count": 91,
+  "source": "Fase 2-3 · CTE Parte I (BOE-A-2006-5515, últ. act. 15/06/2022) y DB SI / DB SUA consolidados del Ministerio (codigotecnico.org)"
 } as const;
 
 export const TEMA32_RECALL_CARDS: Tema32RecallCard[] = [
@@ -359,5 +359,482 @@ export const TEMA32_RECALL_CARDS: Tema32RecallCard[] = [
     "fuente": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.9. BOE-A-2006-5515, texto consolidado (últ. actualización 15/06/2022): https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a12",
     "localizacion": "CTE (RD 314/2006), Parte I, Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA), apdo. 12.9",
     "apartado": "Exigencias básicas SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-C5F45DB6",
+    "orden": 390,
+    "concepto": "Según el DB SI, ¿qué eficacia mínima deben tener los extintores portátiles exigidos con carácter general?",
+    "respuesta": "Uno de eficacia 21A -113B",
+    "fuente": "CTE DB SI, SI 4, tabla 1.1, pág. 32. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=32",
+    "localizacion": "CTE DB SI, SI 4, tabla 1.1, pág. 32",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-8E3F71D0",
+    "orden": 400,
+    "concepto": "Según el DB SI, ¿a qué recorrido máximo desde todo origen de evacuación debe haber un extintor en cada planta?",
+    "respuesta": "A 15 m de recorrido en cada planta, como máximo",
+    "fuente": "CTE DB SI, SI 4, tabla 1.1, pág. 32. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=32",
+    "localizacion": "CTE DB SI, SI 4, tabla 1.1, pág. 32",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-059E7EC3",
+    "orden": 410,
+    "concepto": "Según el DB SI, con carácter general, ¿en qué plantas se exige ascensor de emergencia?",
+    "respuesta": "En las plantas cuya altura de evacuación exceda de 28 m",
+    "fuente": "CTE DB SI, SI 4, tabla 1.1, pág. 32. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=32",
+    "localizacion": "CTE DB SI, SI 4, tabla 1.1, pág. 32",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-D35F054A",
+    "orden": 420,
+    "concepto": "Según el DB SI, ¿cuántos hidrantes exteriores se exigen como mínimo, en general, hasta 10.000 m2 construidos?",
+    "respuesta": "Al menos un hidrante hasta 10.000 m2 de superficie construida y uno más por cada 10.000 m2 adicionales o fracción",
+    "fuente": "CTE DB SI, SI 4, tabla 1.1, pág. 32. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=32",
+    "localizacion": "CTE DB SI, SI 4, tabla 1.1, pág. 32",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-2B7AD772",
+    "orden": 430,
+    "concepto": "Según el DB SI, con carácter general, ¿a partir de qué altura de evacuación se exige instalación automática de extinción en todo edificio?",
+    "respuesta": "En todo edificio cuya altura de evacuación exceda de 80 m",
+    "fuente": "CTE DB SI, SI 4, tabla 1.1, pág. 33. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=33",
+    "localizacion": "CTE DB SI, SI 4, tabla 1.1, pág. 33",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-E93A4E14",
+    "orden": 440,
+    "concepto": "Según el DB SI, ¿a partir de qué potencia instalada se exige extinción automática en cocinas de uso Hospitalario o Residencial Público?",
+    "respuesta": "Exceda de 20 kW",
+    "fuente": "CTE DB SI, SI 4, tabla 1.1, pág. 33. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=33",
+    "localizacion": "CTE DB SI, SI 4, tabla 1.1, pág. 33",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-726914BC",
+    "orden": 450,
+    "concepto": "Según el DB SI, en uso Residencial Vivienda, ¿cuándo se exige columna seca?",
+    "respuesta": "Si la altura de evacuación excede de 24 m",
+    "fuente": "CTE DB SI, SI 4, tabla 1.1, pág. 33. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=33",
+    "localizacion": "CTE DB SI, SI 4, tabla 1.1, pág. 33",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-44319C5F",
+    "orden": 460,
+    "concepto": "Según el DB SI, en uso Residencial Vivienda, ¿cuándo se exige sistema de detección y de alarma de incendio?",
+    "respuesta": "Si la altura de evacuación excede de 50 m",
+    "fuente": "CTE DB SI, SI 4, tabla 1.1, pág. 33. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=33",
+    "localizacion": "CTE DB SI, SI 4, tabla 1.1, pág. 33",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-06BE4873",
+    "orden": 470,
+    "concepto": "Según el DB SI, en uso Residencial Público, ¿cuándo se exigen bocas de incendio equipadas?",
+    "respuesta": "Si la superficie construida excede de 1.000 m2 o el establecimiento está previsto para dar alojamiento a más de 50 personas",
+    "fuente": "CTE DB SI, SI 4, tabla 1.1, pág. 33. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=33",
+    "localizacion": "CTE DB SI, SI 4, tabla 1.1, pág. 33",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-62463AB8",
+    "orden": 480,
+    "concepto": "Según el DB SI, en uso Hospitalario, ¿cuándo se exige columna seca?",
+    "respuesta": "Si la altura de evacuación excede de 15 m",
+    "fuente": "CTE DB SI, SI 4, tabla 1.1, pág. 33. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=33",
+    "localizacion": "CTE DB SI, SI 4, tabla 1.1, pág. 33",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-327AFFA6",
+    "orden": 490,
+    "concepto": "Según el DB SI, en uso Hospitalario, ¿cuándo debe haber comunicación telefónica directa con el servicio de bomberos?",
+    "respuesta": "Si el edificio dispone de más de 100 camas",
+    "fuente": "CTE DB SI, SI 4, tabla 1.1, pág. 33. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=33",
+    "localizacion": "CTE DB SI, SI 4, tabla 1.1, pág. 33",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-15E1A7A9",
+    "orden": 500,
+    "concepto": "Según el DB SI, en uso Pública concurrencia, ¿cuándo se exige sistema de alarma?",
+    "respuesta": "Si la ocupación excede de 500 personas",
+    "fuente": "CTE DB SI, SI 4, tabla 1.1, pág. 34. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=34",
+    "localizacion": "CTE DB SI, SI 4, tabla 1.1, pág. 34",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-9D3F92FE",
+    "orden": 510,
+    "concepto": "Según el DB SI, en uso Aparcamiento, ¿cuándo se exige columna seca?",
+    "respuesta": "Si existen más de tres plantas bajo rasante o más de cuatro sobre rasante, con tomas en todas sus plantas",
+    "fuente": "CTE DB SI, SI 4, tabla 1.1, pág. 34. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=34",
+    "localizacion": "CTE DB SI, SI 4, tabla 1.1, pág. 34",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-E15F6AA4",
+    "orden": 520,
+    "concepto": "Según el DB SI, ¿en qué aparcamientos se exige instalación automática de extinción en todo caso?",
+    "respuesta": "En todo aparcamiento robotizado",
+    "fuente": "CTE DB SI, SI 4, tabla 1.1, pág. 35. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=35",
+    "localizacion": "CTE DB SI, SI 4, tabla 1.1, pág. 35",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-24002F62",
+    "orden": 530,
+    "concepto": "Según el DB SI, ¿de qué tipo son las BIE exigidas en zonas de riesgo especial alto, salvo en Residencial Vivienda?",
+    "respuesta": "Los equipos serán de tipo 45 mm",
+    "fuente": "CTE DB SI, SI 4, tabla 1.1, nota 2, pág. 35. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=35",
+    "localizacion": "CTE DB SI, SI 4, tabla 1.1, nota 2, pág. 35",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-75F76413",
+    "orden": 540,
+    "concepto": "Según el DB SI, ¿a qué distancia máxima de la fachada accesible pueden computarse los hidrantes de la vía pública?",
+    "respuesta": "A menos de 100 m de la fachada accesible del edificio",
+    "fuente": "CTE DB SI, SI 4, tabla 1.1, nota 3, pág. 35. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=35",
+    "localizacion": "CTE DB SI, SI 4, tabla 1.1, nota 3, pág. 35",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-5C2D494F",
+    "orden": 550,
+    "concepto": "Según el DB SI, ¿qué real decreto rige la señalización de las instalaciones manuales de protección contra incendios?",
+    "respuesta": "Real Decreto 513/2017, de 22 de mayo",
+    "fuente": "CTE DB SI, SI 4, apdo. 2, pág. 35. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=35",
+    "localizacion": "CTE DB SI, SI 4, apdo. 2, pág. 35",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-D8CEB504",
+    "orden": 560,
+    "concepto": "Según el DB SI, ¿qué anchura mínima libre deben tener los viales de aproximación de los vehículos de bomberos?",
+    "respuesta": "Anchura mínima libre 3,5 m",
+    "fuente": "CTE DB SI, SI 5, apdo. 1.1, pág. 36. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=36",
+    "localizacion": "CTE DB SI, SI 5, apdo. 1.1, pág. 36",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-F9D8FE9E",
+    "orden": 570,
+    "concepto": "Según el DB SI, ¿qué gálibo mínimo deben tener los viales de aproximación de bomberos?",
+    "respuesta": "Altura mínima libre o gálibo 4,5 m",
+    "fuente": "CTE DB SI, SI 5, apdo. 1.1, pág. 36. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=36",
+    "localizacion": "CTE DB SI, SI 5, apdo. 1.1, pág. 36",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-E4311B0B",
+    "orden": 580,
+    "concepto": "Según el DB SI, ¿qué capacidad portante deben tener los viales de aproximación de bomberos?",
+    "respuesta": "Capacidad portante del vial 20 kN/m²",
+    "fuente": "CTE DB SI, SI 5, apdo. 1.1, pág. 36. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=36",
+    "localizacion": "CTE DB SI, SI 5, apdo. 1.1, pág. 36",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-2AD372C2",
+    "orden": 590,
+    "concepto": "Según el DB SI, en tramos curvos de los viales de aproximación, ¿qué radios mínimos delimitan el carril de rodadura?",
+    "respuesta": "5,30 m y 12,50 m",
+    "fuente": "CTE DB SI, SI 5, apdo. 1.1, pág. 36. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=36",
+    "localizacion": "CTE DB SI, SI 5, apdo. 1.1, pág. 36",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-FD045505",
+    "orden": 600,
+    "concepto": "Según el DB SI, ¿qué edificios deben disponer de espacio de maniobra para los bomberos?",
+    "respuesta": "Los edificios con una altura de evacuación descendente mayor que 9 m",
+    "fuente": "CTE DB SI, SI 5, apdo. 1.2, pág. 36. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=36",
+    "localizacion": "CTE DB SI, SI 5, apdo. 1.2, pág. 36",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-03F2B874",
+    "orden": 610,
+    "concepto": "Según el DB SI, ¿qué resistencia al punzonamiento debe tener el suelo del espacio de maniobra?",
+    "respuesta": "100 kN sobre 20 cm",
+    "fuente": "CTE DB SI, SI 5, apdo. 1.2, pág. 36. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=36",
+    "localizacion": "CTE DB SI, SI 5, apdo. 1.2, pág. 36",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-ED3FA285",
+    "orden": 620,
+    "concepto": "Según el DB SI, si el edificio tiene columna seca, ¿a qué distancia máxima de cada punto de conexión debe haber acceso para un equipo de bombeo?",
+    "respuesta": "A menos de 18 m de cada punto de conexión a ella",
+    "fuente": "CTE DB SI, SI 5, apdo. 1.2, pág. 37. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=37",
+    "localizacion": "CTE DB SI, SI 5, apdo. 1.2, pág. 37",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-41770E55",
+    "orden": 630,
+    "concepto": "Según el DB SI, ¿en qué vías sin salida debe disponerse espacio para la maniobra de los vehículos de extinción?",
+    "respuesta": "En las vías de acceso sin salida de más de 20 m de largo",
+    "fuente": "CTE DB SI, SI 5, apdo. 1.2, pág. 37. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=37",
+    "localizacion": "CTE DB SI, SI 5, apdo. 1.2, pág. 37",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-61075721",
+    "orden": 640,
+    "concepto": "Según el DB SI, ¿qué anchura debe tener la franja que separa una zona edificada de la forestal?",
+    "respuesta": "Una franja de 25 m de anchura",
+    "fuente": "CTE DB SI, SI 5, apdo. 1.2, pág. 37. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=37",
+    "localizacion": "CTE DB SI, SI 5, apdo. 1.2, pág. 37",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-BC6762FA",
+    "orden": 650,
+    "concepto": "Según el DB SI, ¿qué anchura tiene el camino perimetral en zonas edificadas limítrofes con áreas forestales?",
+    "respuesta": "Un camino perimetral de 5 m",
+    "fuente": "CTE DB SI, SI 5, apdo. 1.2, pág. 37. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=37",
+    "localizacion": "CTE DB SI, SI 5, apdo. 1.2, pág. 37",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-4A6E8860",
+    "orden": 660,
+    "concepto": "Según el DB SI, si no hay dos vías alternativas en zona limítrofe con área forestal, ¿cómo debe finalizar el acceso único?",
+    "respuesta": "En un fondo de saco de forma circular de 12,50 m de radio",
+    "fuente": "CTE DB SI, SI 5, apdo. 1.2, pág. 37. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=37",
+    "localizacion": "CTE DB SI, SI 5, apdo. 1.2, pág. 37",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-5951E519",
+    "orden": 670,
+    "concepto": "Según el DB SI, ¿qué altura máxima puede tener el alféizar de los huecos de acceso para bomberos respecto del nivel de la planta?",
+    "respuesta": "No sea mayor que 1,20 m",
+    "fuente": "CTE DB SI, SI 5, apdo. 2, pág. 37. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=37",
+    "localizacion": "CTE DB SI, SI 5, apdo. 2, pág. 37",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-2EDA32C5",
+    "orden": 680,
+    "concepto": "Según el DB SI, ¿qué dimensiones mínimas horizontal y vertical deben tener los huecos de fachada para bomberos?",
+    "respuesta": "0,80 m y 1,20 m respectivamente",
+    "fuente": "CTE DB SI, SI 5, apdo. 2, pág. 37. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=37",
+    "localizacion": "CTE DB SI, SI 5, apdo. 2, pág. 37",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-34B455E9",
+    "orden": 690,
+    "concepto": "Según el DB SI, ¿qué distancia máxima puede haber entre los ejes verticales de dos huecos consecutivos de acceso para bomberos?",
+    "respuesta": "No debe exceder de 25 m",
+    "fuente": "CTE DB SI, SI 5, apdo. 2, pág. 37. DB SI del CTE (RD 314/2006, modificado por última vez por RD 164/2025); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 164/2025 (BOE 10/04/2025); PDF de 05/05/2025): https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf#page=37",
+    "localizacion": "CTE DB SI, SI 5, apdo. 2, pág. 37",
+    "apartado": "DB SI"
+  },
+  {
+    "id": "CPEI-T32-OF-DE77B11F",
+    "orden": 700,
+    "concepto": "Según el DB SUA, ¿qué iluminancia mínima debe proporcionar el alumbrado normal en zonas exteriores de circulación?",
+    "respuesta": "20 lux en zonas exteriores",
+    "fuente": "CTE DB SUA, SUA 4, apdo. 1, pág. 21. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=21",
+    "localizacion": "CTE DB SUA, SUA 4, apdo. 1, pág. 21",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-5C53881C",
+    "orden": 710,
+    "concepto": "Según el DB SUA, ¿qué iluminancia mínima debe proporcionar el alumbrado normal en zonas interiores de circulación, salvo aparcamientos?",
+    "respuesta": "100 lux en zonas interiores",
+    "fuente": "CTE DB SUA, SUA 4, apdo. 1, pág. 21. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=21",
+    "localizacion": "CTE DB SUA, SUA 4, apdo. 1, pág. 21",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-C1AB43AB",
+    "orden": 720,
+    "concepto": "Según el DB SUA, ¿qué iluminancia mínima se exige en aparcamientos interiores?",
+    "respuesta": "50 lux",
+    "fuente": "CTE DB SUA, SUA 4, apdo. 1, pág. 21. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=21",
+    "localizacion": "CTE DB SUA, SUA 4, apdo. 1, pág. 21",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-9A72BBA5",
+    "orden": 730,
+    "concepto": "Según el DB SUA, ¿qué factor de uniformidad media mínimo debe tener el alumbrado normal?",
+    "respuesta": "Del 40% como mínimo",
+    "fuente": "CTE DB SUA, SUA 4, apdo. 1, pág. 21. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=21",
+    "localizacion": "CTE DB SUA, SUA 4, apdo. 1, pág. 21",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-9C698A38",
+    "orden": 740,
+    "concepto": "Según el DB SUA, ¿a partir de qué ocupación debe contar un recinto con alumbrado de emergencia?",
+    "respuesta": "Todo recinto cuya ocupación sea mayor que 100 personas",
+    "fuente": "CTE DB SUA, SUA 4, apdo. 2.1, pág. 21. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=21",
+    "localizacion": "CTE DB SUA, SUA 4, apdo. 2.1, pág. 21",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-9B09A251",
+    "orden": 750,
+    "concepto": "Según el DB SUA, ¿qué aparcamientos deben contar con alumbrado de emergencia?",
+    "respuesta": "Los aparcamientos cerrados o cubiertos cuya superficie construida exceda de 100 m2",
+    "fuente": "CTE DB SUA, SUA 4, apdo. 2.1, pág. 21. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=21",
+    "localizacion": "CTE DB SUA, SUA 4, apdo. 2.1, pág. 21",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-FD1EF18E",
+    "orden": 760,
+    "concepto": "Según el DB SUA, ¿a qué altura mínima sobre el suelo se sitúan las luminarias de emergencia?",
+    "respuesta": "Al menos a 2 m por encima del nivel del suelo",
+    "fuente": "CTE DB SUA, SUA 4, apdo. 2.2, pág. 21. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=21",
+    "localizacion": "CTE DB SUA, SUA 4, apdo. 2.2, pág. 21",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-FECF8F0F",
+    "orden": 770,
+    "concepto": "Según el DB SUA, ¿qué descenso de tensión se considera fallo de alimentación del alumbrado normal?",
+    "respuesta": "El descenso de la tensión de alimentación por debajo del 70% de su valor nominal",
+    "fuente": "CTE DB SUA, SUA 4, apdo. 2.3, pág. 22. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=22",
+    "localizacion": "CTE DB SUA, SUA 4, apdo. 2.3, pág. 22",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-7DEAB7CC",
+    "orden": 780,
+    "concepto": "Según el DB SUA, ¿qué nivel de iluminación debe alcanzar el alumbrado de emergencia de las vías de evacuación a los 5 s?",
+    "respuesta": "Al menos el 50% del nivel de iluminación requerido",
+    "fuente": "CTE DB SUA, SUA 4, apdo. 2.3, pág. 22. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=22",
+    "localizacion": "CTE DB SUA, SUA 4, apdo. 2.3, pág. 22",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-FB152115",
+    "orden": 790,
+    "concepto": "Según el DB SUA, ¿durante cuánto tiempo mínimo debe cumplir sus condiciones de servicio el alumbrado de emergencia tras el fallo?",
+    "respuesta": "Durante una hora, como mínimo",
+    "fuente": "CTE DB SUA, SUA 4, apdo. 2.3, pág. 22. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=22",
+    "localizacion": "CTE DB SUA, SUA 4, apdo. 2.3, pág. 22",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-F17DB4B7",
+    "orden": 800,
+    "concepto": "Según el DB SUA, en vías de evacuación de hasta 2 m de anchura, ¿qué iluminancia horizontal mínima debe haber a lo largo del eje central?",
+    "respuesta": "1 lux",
+    "fuente": "CTE DB SUA, SUA 4, apdo. 2.3, pág. 22. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=22",
+    "localizacion": "CTE DB SUA, SUA 4, apdo. 2.3, pág. 22",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-FDA66EFE",
+    "orden": 810,
+    "concepto": "Según el DB SUA, ¿qué iluminancia horizontal mínima se exige en los puntos donde están los equipos de seguridad e instalaciones manuales contra incendios?",
+    "respuesta": "5 Iux, como mínimo",
+    "fuente": "CTE DB SUA, SUA 4, apdo. 2.3, pág. 22. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=22",
+    "localizacion": "CTE DB SUA, SUA 4, apdo. 2.3, pág. 22",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-D3FBFCEA",
+    "orden": 820,
+    "concepto": "Según el DB SUA, ¿qué relación máxima entre iluminancia máxima y mínima se admite a lo largo de la línea central de una vía de evacuación?",
+    "respuesta": "40:1",
+    "fuente": "CTE DB SUA, SUA 4, apdo. 2.3, pág. 22. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=22",
+    "localizacion": "CTE DB SUA, SUA 4, apdo. 2.3, pág. 22",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-22375610",
+    "orden": 830,
+    "concepto": "Según el DB SUA, ¿qué valor mínimo debe tener el índice de rendimiento cromático Ra de las lámparas de emergencia?",
+    "respuesta": "Será 40",
+    "fuente": "CTE DB SUA, SUA 4, apdo. 2.3, pág. 22. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=22",
+    "localizacion": "CTE DB SUA, SUA 4, apdo. 2.3, pág. 22",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-072D799C",
+    "orden": 840,
+    "concepto": "Según el DB SUA, ¿qué luminancia mínima debe tener cualquier área de color de seguridad de una señal?",
+    "respuesta": "Al menos de 2 cd/m 2",
+    "fuente": "CTE DB SUA, SUA 4, apdo. 2.4, pág. 22. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=22",
+    "localizacion": "CTE DB SUA, SUA 4, apdo. 2.4, pág. 22",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-0588672F",
+    "orden": 850,
+    "concepto": "Según el DB SUA, ¿a qué zonas es aplicable la sección SUA 7?",
+    "respuesta": "A las zonas de uso Aparcamiento (lo que excluye a los garajes de una vivienda unifamiliar) así como a las vías de circulación de vehículos existentes en los edificios",
+    "fuente": "CTE DB SUA, SUA 7, apdo. 1, pág. 27. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=27",
+    "localizacion": "CTE DB SUA, SUA 7, apdo. 1, pág. 27",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-848B6251",
+    "orden": 860,
+    "concepto": "Según el DB SUA, ¿qué profundidad mínima y pendiente máxima debe tener el espacio de acceso y espera de un aparcamiento?",
+    "respuesta": "De 4,5 m como mínimo y una pendiente del 5% como máximo",
+    "fuente": "CTE DB SUA, SUA 7, apdo. 2, pág. 27. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=27",
+    "localizacion": "CTE DB SUA, SUA 7, apdo. 2, pág. 27",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-E7C2DE98",
+    "orden": 870,
+    "concepto": "Según el DB SUA, ¿qué anchura mínima debe tener un recorrido peatonal previsto por una rampa para vehículos?",
+    "respuesta": "Una anchura de 80 cm, como mínimo",
+    "fuente": "CTE DB SUA, SUA 7, apdo. 2, pág. 27. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=27",
+    "localizacion": "CTE DB SUA, SUA 7, apdo. 2, pág. 27",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-A84BA795",
+    "orden": 880,
+    "concepto": "Según el DB SUA, ¿en qué plantas de aparcamiento deben identificarse los itinerarios peatonales de uso público?",
+    "respuesta": "En plantas de Aparcamiento con capacidad mayor que 200 vehículos o con superficie mayor que 5000 m2",
+    "fuente": "CTE DB SUA, SUA 7, apdo. 3, pág. 27. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=27",
+    "localizacion": "CTE DB SUA, SUA 7, apdo. 3, pág. 27",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-C4A6E2A6",
+    "orden": 890,
+    "concepto": "Según el DB SUA, ¿a qué distancia mínima de las puertas se sitúan las barreras de protección de los itinerarios peatonales en aparcamientos?",
+    "respuesta": "A una distancia de las puertas de 1,20 m, como mínimo",
+    "fuente": "CTE DB SUA, SUA 7, apdo. 3, pág. 27. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=27",
+    "localizacion": "CTE DB SUA, SUA 7, apdo. 3, pág. 27",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-91017A6A",
+    "orden": 900,
+    "concepto": "Según el DB SUA, ¿qué velocidad máxima de circulación debe señalizarse en los aparcamientos?",
+    "respuesta": "20 km/h",
+    "fuente": "CTE DB SUA, SUA 7, apdo. 4, pág. 27. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=27",
+    "localizacion": "CTE DB SUA, SUA 7, apdo. 4, pág. 27",
+    "apartado": "DB SUA"
+  },
+  {
+    "id": "CPEI-T32-OF-6E9F6D23",
+    "orden": 910,
+    "concepto": "Según el DB SUA, en aparcamientos con acceso de transporte pesado, ¿qué debe señalizarse además?",
+    "respuesta": "Los gálibos y las alturas limitadas",
+    "fuente": "CTE DB SUA, SUA 7, apdo. 4, pág. 27. DB SUA del CTE (RD 314/2006, modificado por última vez por RD 450/2022); texto íntegro oficial (texto consolidado del Ministerio con modificaciones hasta RD 450/2022 (BOE 15/06/2022); PDF de 24/05/2023): https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf#page=27",
+    "localizacion": "CTE DB SUA, SUA 7, apdo. 4, pág. 27",
+    "apartado": "DB SUA"
   }
 ];
