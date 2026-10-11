@@ -163,10 +163,10 @@ const tapTargetsOk = async (locator) => {
   await stats.waitFor();
   check('estadísticas: 2 fichas vistas', (await stats.locator('dd').first().textContent()) === '2');
   check('estadísticas sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
-  check('estadísticas: «Volver» y «Ver los 8 lotes» ≥44 px', await tapTargetsOk(stats.getByRole('button', { name: 'Volver' })) && await tapTargetsOk(stats.locator('summary')));
-  await stats.locator('summary').click();
+  check('estadísticas: «Volver» y «Ver los 8 lotes» ≥44 px', await tapTargetsOk(stats.getByRole('button', { name: 'Volver' })) && await tapTargetsOk(stats.locator('summary', { hasText: 'Ver los 8 lotes' })));
+  await stats.locator('summary', { hasText: 'Ver los 8 lotes' }).click();
   check('estadísticas: lotes del tema 36 sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
-  await stats.locator('summary').click();
+  await stats.locator('summary', { hasText: 'Ver los 8 lotes' }).click();
   await page.evaluate(() => window.scrollTo(0, document.querySelector('#recall-stats').getBoundingClientRect().top + window.scrollY - 80));
   await page.waitForTimeout(300);
   await page.screenshot({ path: `${OUT}/estadisticas-360.png` });

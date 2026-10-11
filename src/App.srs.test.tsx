@@ -94,7 +94,9 @@ describe('estadísticas de progreso', () => {
     expect(within(stats).getByText('Racha')).toBeInTheDocument();
     expect(within(stats).getByRole('progressbar', { name: /T40: 2 de 213/ })).toBeInTheDocument();
     expect(within(stats).getByText('Ver los 8 lotes')).toBeInTheDocument();
-    expect(within(stats).getAllByRole('progressbar').length).toBe(RECALL_TOPICS.length + 8);
+    expect(within(stats).getAllByRole('progressbar').length).toBe(
+      RECALL_TOPICS.length + RECALL_TOPICS.reduce((n, t) => n + (t.decks.length > 1 ? t.decks.length : 0), 0),
+    );
     await user.click(within(stats).getByRole('button', { name: 'Volver' }));
     expect(screen.getByRole('heading', { name: 'Sesión diaria' })).toBeInTheDocument();
   });
