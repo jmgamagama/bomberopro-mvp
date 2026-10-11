@@ -89,6 +89,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 24,
+      title: "Tema 24 · Marco legal: RD 630/2013, Catálogo español de especies exóticas invasoras",
+      count: 19,
+      source: "Fase 3 · texto consolidado BOE-A-2013-8565 (RD 630/2013; últ. act. 19/12/2025)",
+    },
+    load: () => import('./tema24Recall').then((m) => m.TEMA24_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 20,
       title: "Tema 20 · Incendios forestales: Plan INFOEX (Decreto 132/2022, mod. 136/2024)",
       count: 24,
