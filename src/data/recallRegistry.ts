@@ -89,6 +89,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 26,
+      title: "Tema 26 · Guías INSARAG Vol. II, Manual B: Operaciones",
+      count: 60,
+      source: "Fase 3 · Guías INSARAG 2020, Vol. II, Manual B: Operaciones (ONU-OCHA, versión oficial en español)",
+    },
+    load: () => import('./tema26Recall').then((m) => m.TEMA26_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 34,
       lote: 'lote02',
       title: "Tema 34 · RD 164/2025 (RSCIEI), lote 2: instalaciones de protección activa (anexo III)",
