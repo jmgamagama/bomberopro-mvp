@@ -50,3 +50,12 @@ Sale de `feat/temas-fase2-oficial`, ya incluida aquí: `git fetch release && git
 
 ## Migraciones = main
 Nuestra cadena traía 64543cb, que modificaba `supabase/migrations/06_revoke_anon_answer_rpcs.sql` (añadía el REVOKE de `get_random_exam_questions`). Para cumplir «las migraciones vienen con main», `supabase/` se ha dejado idéntico a origin/main. Ese REVOKE queda pendiente: debe proponerse como migración NUEVA en un PR aparte (no editar la 06).
+
+## Migración 16: revoke de get_random_exam_questions (NO aplicada)
+- Archivo: `supabase/migrations/16_revoke_random_exam_questions.sql` (sigue la convención `NN_nombre.sql`; la 15 es la última de main). No se ha ejecutado contra ningún entorno.
+- Sustituye a la edición de la 06 que traía 64543cb: la 06 queda idéntica a main (puede estar ya aplicada en producción).
+- Firma, tomada de `02_mock_exam_rpc.sql`: `public.get_random_exam_questions(p_limit int)` → `(integer)`.
+- `REVOKE EXECUTE … FROM PUBLIC, anon` dentro de un bloque `DO` que comprueba `pg_proc`: si la función no existe, solo emite un NOTICE.
+- Sin `GRANT` a authenticated: el cliente no llama a esta RPC (el simulacro usa `get_blueprint_exam_questions`). La 64543cb sí lo concedía; aquí se omite por mínimo privilegio. Al revocar PUBLIC, authenticated también pierde el permiso heredado; la reversión está en la cabecera del SQL.
+- Test: `supabase/migrations16.test.ts` (vitest) comprueba la firma, el REVOKE de PUBLIC y anon, que no hay GRANT ni otras sentencias, la idempotencia y que la 06 es igual a origin/main (hash sha256 y, si hay git, `git show origin/main:`).
+- Aplicarla requiere aprobación expresa de JM, primero en staging.
