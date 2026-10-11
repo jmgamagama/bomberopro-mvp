@@ -39,6 +39,7 @@ import SaveFailureBanner from './components/SaveFailureBanner';
 import SaveStatus from './components/SaveStatus';
 import { useAttemptSync } from './lib/useAttemptSync';
 import { shuffleAllOptions } from './utils/shuffleOptions';
+import { newStudySessionId, startStudySession, finishStudySession } from './lib/studySession';
 
 // Normalize only the in-memory view; preserve the original local history for recovery.
 const getSafeMemoryStates = (): Record<string, MemoryState> => {
@@ -58,7 +59,7 @@ const SCREEN_TITLES = {
   my_reports: 'Mis reportes',
 } as const;
 
-  const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds, modo: 'adaptativo' | 'simulacro' = 'adaptativo', nivel: unknown = 1) => {
+  const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds, modo: 'adaptativo' | 'simulacro' = 'adaptativo', nivel: unknown = 1, sessionId: string | null = null) => {
       if (!supabase || !userId) return;
       const numericQuestionId = Number(questionId);
       if (!Number.isFinite(numericQuestionId)) return;
@@ -70,7 +71,7 @@ const SCREEN_TITLES = {
             p_respuesta: answer,
             p_tiempo_ms: Math.round(responseTimeSeconds * 1000),
             p_modo: modo,
-            p_session_id: null,
+            p_session_id: sessionId,
             p_nivel: toLevelInt(nivel),
             p_confidence: confidence
       });
@@ -111,6 +112,11 @@ export default function App() {
   const answeredQuestionIds = useRef<Set<string>>(new Set());
   // true cuando la sesión cargada ya se ha usado (se ha respondido algo): la siguiente sesión se pide de nuevo.
   const sessionCompletedRef = useRef(false);
+  // Sesión de entrenamiento en el servidor: el id se crea al empezar, pero la sesión solo se abre
+  // con la primera respuesta (abrir la pantalla sin responder no cuenta como sesión).
+  const trainingSessionId = useRef<string>(newStudySessionId());
+  const trainingSessionOpened = useRef(false);
+  const trainingSessionFinished = useRef(false);
 
   useEffect(() => {
     document.title = `${SCREEN_TITLES[currentScreen]} | BomberoPro`;
@@ -295,6 +301,9 @@ export default function App() {
       questions.findIndex(candidate => candidate.id === question.id) === index
     );
     answeredQuestionIds.current = new Set();
+    trainingSessionId.current = newStudySessionId();
+    trainingSessionOpened.current = false;
+    trainingSessionFinished.current = false;
     setSessionQuestionPool(pool);
     setSessionAnsweredCount(0);
     setSessionCompleted(false);
@@ -321,6 +330,10 @@ export default function App() {
       if (pool.length > 0) {
         setSessionCompleted(true);
         sessionCompletedRef.current = true;
+        if (trainingSessionOpened.current && !trainingSessionFinished.current) {
+          trainingSessionFinished.current = true;
+          void finishStudySession(trainingSessionId.current, 'adaptativo');
+        }
       }
     }
   };
@@ -380,7 +393,11 @@ export default function App() {
       saveAttempt(newAttempt);
       sessionCompletedRef.current = true;
       const answeredQuestion = sessionQuestionPool.find(q => q.id === questionId) ?? dbQuestions.find(q => q.id === questionId);
-      syncAttemptToSupabase(session?.user?.id, questionId, isCorrect, answer, confidence, responseTime, 'adaptativo', answeredQuestion?.level);
+      if (session?.user?.id && !trainingSessionOpened.current) {
+        trainingSessionOpened.current = true;
+        void startStudySession(trainingSessionId.current, 'adaptativo', null, sessionQuestionPool.length || null);
+      }
+      syncAttemptToSupabase(session?.user?.id, questionId, isCorrect, answer, confidence, responseTime, 'adaptativo', answeredQuestion?.level, trainingSessionId.current);
 
       // Reload state in memory
       const updatedStates = getSafeMemoryStates();
@@ -416,10 +433,17 @@ export default function App() {
       confidence: ConfidenceLevel;
       responseTime: number;
       answerChanges: number;
-    }[]
+    }[],
+    totalQuestions?: number
   ) => {
     const now = getCurrentDate();
     const currentStates = getSafeMemoryStates();
+    const examSessionId = newStudySessionId();
+    const plannedQuestions = totalQuestions ?? results.length;
+    const recordExamSession = Boolean(session?.user?.id) && plannedQuestions > 0;
+    if (recordExamSession) {
+      void startStudySession(examSessionId, 'simulacro', null, plannedQuestions);
+    }
 
     // Iterate and update states sequentially for all exam attempts
     results.forEach(res => {
@@ -441,8 +465,11 @@ export default function App() {
         created_at: now.toISOString()
       };
       saveAttempt(attemptRecord);
-            syncAttemptToSupabase(session?.user?.id, res.questionId, res.correct, res.answer, res.confidence, res.responseTime, 'simulacro', 1);
+            syncAttemptToSupabase(session?.user?.id, res.questionId, res.correct, res.answer, res.confidence, res.responseTime, 'simulacro', 1, examSessionId);
     });
+    if (recordExamSession) {
+      void finishStudySession(examSessionId, 'simulacro');
+    }
 
     // Sync memory state
     setMemoryStates(getSafeMemoryStates());
