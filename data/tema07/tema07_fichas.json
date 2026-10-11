@@ -1,0 +1,870 @@
+{
+ "tema": 7,
+ "titulo": "Tema 7 · Ley 8/2011 de Igualdad y contra la violencia de género en Extremadura",
+ "epigrafe_bop": "Ley 8/2011, de 23 de marzo, de Igualdad entre Mujeres y Hombres y contra la Violencia de Género en Extremadura: Disposiciones generales. Integración de la perspectiva de Género en las Políticas Públicas. Violencia de Género: Derechos de las mujeres en situaciones de violencia de género a la atención integral y efectiva.",
+ "normas": [
+  {
+   "id": "BOE-A-2011-6651",
+   "norma": "Ley 8/2011, de 23 de marzo, de Igualdad entre mujeres y hombres y contra la violencia de género en Extremadura (DOE n.º 59, de 25/03/2011); el BOE no registra modificaciones posteriores",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651",
+   "ultima_actualizacion": "25/03/2011"
+  }
+ ],
+ "estado": "cargado",
+ "propuestas": 66,
+ "entran_tras_filtro": 64,
+ "descartadas": [
+  {
+   "norma": "L8",
+   "bloque": "a2",
+   "apartado": "apdo. 3.c",
+   "concepto": "Según el art. 2.3 de la Ley 8/2011 de Extremadura, ¿qué universidad queda incluida en su ámbito de aplicación?",
+   "respuesta": "La Universidad de Extremadura",
+   "motivo": "respuesta dentro de la pregunta"
+  },
+  {
+   "norma": "L8",
+   "bloque": "a7-11",
+   "apartado": "",
+   "concepto": "Según el art. 79 de la Ley 8/2011 de Extremadura, ¿cuáles son los tres medios de prueba calificados para identificar las situaciones de violencia de género?",
+   "respuesta": "El informe del Instituto de la Mujer de Extremadura; la sentencia de cualquier orden jurisdiccional, aunque no haya ganado firmeza; la orden de protección vigente",
+   "motivo": "respuesta no localizada en el artículo citado (score 0.65)"
+  }
+ ],
+ "cobertura": {
+  "Disposiciones generales (Título Preliminar, arts. 1-4)": "cubierto",
+  "Integración de la perspectiva de género en las políticas públicas (Título II, arts. 21-32)": "cubierto",
+  "Violencia de género: derechos a la atención integral y efectiva (Título IV, cap. II, arts. 78-83)": "cubierto",
+  "Nota": "El II Plan de Igualdad de la Diputación no forma parte del epígrafe del BOP y no se incluye."
+ },
+ "muestra_revisada": [
+  {
+   "id": "CPEI-T07-OF-C7EACEB3",
+   "concepto": "Según el art. 29.1 de la Ley 8/2011 de Extremadura, ¿en qué nombramientos se garantizará la representación equilibrada de hombres y mujeres?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T07-OF-9C6F77FC",
+   "concepto": "Según el art. 80.a) de la Ley 8/2011 de Extremadura, ¿qué cuerpos policiales deben prestar la atención específica de protección a las víctimas?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T07-OF-E3D922C6",
+   "concepto": "Según el art. 81.a) de la Ley 8/2011 de Extremadura, ¿qué servicio presta la atención sanitaria a las víctimas mediante un protocolo de atención y asistencia?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T07-OF-5B390815",
+   "concepto": "Según el principio de acción positiva de la Ley 8/2011 de Extremadura, ¿cómo habrán de ser las medidas específicas a favor de las mujeres?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T07-OF-0275780D",
+   "concepto": "Según el art. 3 de la Ley 8/2011 de Extremadura, ¿de qué mujeres se garantizarán con especial atención los derechos?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T07-OF-79EA779F",
+   "concepto": "Según el art. 32.1 de la Ley 8/2011 de Extremadura, ¿qué materias incluirán los temarios de las pruebas selectivas de acceso al empleo público autonómico?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T07-OF-56F6D884",
+   "concepto": "Según el art. 82.6 de la Ley 8/2011 de Extremadura, en los delitos más graves que causen alarma social, ¿qué acción puede ejercer la Junta de Extremadura personándose?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T07-OF-15AE8569",
+   "concepto": "Según el art. 28.1.b) de la Ley 8/2011 de Extremadura, ¿qué indicadores deben incorporarse en las operaciones estadísticas?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T07-OF-8DA71B59",
+   "concepto": "Según el art. 4 de la Ley 8/2011 de Extremadura, ¿en qué consiste el uso no sexista del lenguaje?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T07-OF-63368F6C",
+   "concepto": "Según el art. 1 de la Ley 8/2011 de Extremadura, ¿qué derecho tiene por objeto hacer efectivo la ley?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T07-OF-238AED14",
+   "concepto": "Según el art. 22.3 de la Ley 8/2011 de Extremadura, ¿para qué colectivos podrán ponerse en marcha de forma prioritaria acciones positivas?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T07-OF-28A0AEBA",
+   "concepto": "Según el art. 21 de la Ley 8/2011 de Extremadura (transversalidad), ¿en qué fases de las disposiciones normativas incorporarán los poderes públicos la perspectiva de igualdad de género?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T07-OF-0162A4E9",
+   "concepto": "Según el art. 3 de la Ley 8/2011 de Extremadura, ¿durante cuánto tiempo serán aplicables las medidas de acción positiva que corrigen situaciones patentes de desigualdad de hecho?",
+   "veredicto": "ERROR",
+   "nota": "la respuesta («dichas situaciones») no se entendía sola con la pregunta original; corregida la pregunta tras la revisión"
+  },
+  {
+   "id": "CPEI-T07-OF-A07D8BE5",
+   "concepto": "Según el art. 30.2 de la Ley 8/2011 de Extremadura, ¿qué empresas tienen preferencia en la adjudicación de contratos en caso de igualdad de proposiciones?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T07-OF-9CFB12F6",
+   "concepto": "Según el art. 4 de la Ley 8/2011 de Extremadura, ¿qué se entiende por discriminación directa?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T07-OF-316147D3",
+   "concepto": "Según el art. 25.1 de la Ley 8/2011 de Extremadura, ¿cada cuánto tiempo aprueba la Junta el Plan Estratégico para la Igualdad entre Mujeres y Hombres?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T07-OF-C1F106DF",
+   "concepto": "Según el art. 78.2 de la Ley 8/2011 de Extremadura, ¿en los términos de qué ley orgánica será integral la atención a las víctimas de violencia de género?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T07-OF-4FBC91E7",
+   "concepto": "Según el art. 27.4 de la Ley 8/2011 de Extremadura, ¿qué Consejería controla el cumplimiento de las obligaciones sobre lenguaje e imagen no sexista?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T07-OF-41D88937",
+   "concepto": "Según el art. 78.1 de la Ley 8/2011 de Extremadura, ¿a quiénes prestará la Junta de Extremadura una atención real y efectiva?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T07-OF-D00C476F",
+   "concepto": "Según el art. 27.3 de la Ley 8/2011 de Extremadura, ¿qué imagen de las mujeres deben promover de forma activa los poderes públicos extremeños?",
+   "veredicto": "OK",
+   "nota": ""
+  }
+ ],
+ "errores_muestra": 1,
+ "pct_errores_muestra": 5.0,
+ "fichas": [
+  {
+   "id": "CPEI-T07-OF-63368F6C",
+   "orden": 10,
+   "concepto": "Según el art. 1 de la Ley 8/2011 de Extremadura, ¿qué derecho tiene por objeto hacer efectivo la ley?",
+   "respuesta": "El derecho de igualdad de trato y oportunidades entre mujeres y hombres en la Comunidad Autónoma de Extremadura",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 1. Objeto de la ley. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a1",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 1. Objeto de la ley",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a1"
+  },
+  {
+   "id": "CPEI-T07-OF-6D0C5D77",
+   "orden": 20,
+   "concepto": "Según el art. 1 de la Ley 8/2011 de Extremadura, además de la igualdad, ¿qué pretende combatir de modo integral la ley?",
+   "respuesta": "La violencia de género",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 1. Objeto de la ley. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a1",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 1. Objeto de la ley",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a1"
+  },
+  {
+   "id": "CPEI-T07-OF-8A07F483",
+   "orden": 30,
+   "concepto": "Según el art. 1.c) de la Ley 8/2011 de Extremadura, ¿qué derechos se reconocen a las mujeres que sufren violencia de género y a su núcleo familiar?",
+   "respuesta": "Los derechos de atención, asistencia, protección y recuperación integral",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 1. Objeto de la ley, letra c. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a1",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 1. Objeto de la ley, letra c",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a1"
+  },
+  {
+   "id": "CPEI-T07-OF-95B58BBC",
+   "orden": 40,
+   "concepto": "Según el art. 2.1 de la Ley 8/2011 de Extremadura, ¿cuál es su ámbito territorial de aplicación?",
+   "respuesta": "El ámbito territorial de la Comunidad Autónoma de Extremadura",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 2. Ámbitos de aplicación, apdo. 1. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 2. Ámbitos de aplicación, apdo. 1",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2"
+  },
+  {
+   "id": "CPEI-T07-OF-50D78E36",
+   "orden": 50,
+   "concepto": "Según el art. 2.3.e) de la Ley 8/2011 de Extremadura, ¿qué entidades privadas quedan incluidas en su ámbito de aplicación?",
+   "respuesta": "Las entidades privadas que suscriban contratos o convenios de colaboración con las Administraciones Públicas de Extremadura o sean beneficiarias de ayudas o subvenciones concedidas por ellas",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 2. Ámbitos de aplicación, apdo. 3.e. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 2. Ámbitos de aplicación, apdo. 3.e",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2"
+  },
+  {
+   "id": "CPEI-T07-OF-ED49C6FF",
+   "orden": 60,
+   "concepto": "Según el art. 3 de la Ley 8/2011 de Extremadura, ¿qué proscribe el principio de igualdad de trato entre mujeres y hombres?",
+   "respuesta": "Cualquier discriminación, directa o indirecta, por razón de sexo, en todos los ámbitos de la vida",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 3. Principios generales, apdo. 1. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a3",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 3. Principios generales, apdo. 1",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a3"
+  },
+  {
+   "id": "CPEI-T07-OF-964AB428",
+   "orden": 70,
+   "concepto": "Según el art. 3 de la Ley 8/2011 de Extremadura, ¿cómo se entiende la corresponsabilidad?",
+   "respuesta": "Como reparto equilibrado entre mujeres y hombres de las responsabilidades familiares, las tareas domésticas y el cuidado de las personas en situación de dependencia",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 3. Principios generales, apdo. 7. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a3",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 3. Principios generales, apdo. 7",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a3"
+  },
+  {
+   "id": "CPEI-T07-OF-5B390815",
+   "orden": 80,
+   "concepto": "Según el principio de acción positiva de la Ley 8/2011 de Extremadura, ¿cómo habrán de ser las medidas específicas a favor de las mujeres?",
+   "respuesta": "Razonables y proporcionadas en relación con el objetivo perseguido en cada caso",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 3. Principios generales, apdo. 8. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a3",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 3. Principios generales, apdo. 8",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a3"
+  },
+  {
+   "id": "CPEI-T07-OF-0162A4E9",
+   "orden": 90,
+   "concepto": "Según el art. 3 de la Ley 8/2011 de Extremadura, ¿durante cuánto tiempo serán aplicables las medidas de acción positiva que corrigen situaciones patentes de desigualdad de hecho?",
+   "respuesta": "En tanto subsistan dichas situaciones",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 3. Principios generales, apdo. 8. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a3",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 3. Principios generales, apdo. 8",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a3"
+  },
+  {
+   "id": "CPEI-T07-OF-CEDCCF92",
+   "orden": 100,
+   "concepto": "Según el art. 3 de la Ley 8/2011 de Extremadura, ¿en qué fases supone la integración de la perspectiva de género la consideración sistemática de las situaciones de mujeres y hombres?",
+   "respuesta": "En todas sus fases de diagnóstico, planificación, ejecución y evaluación",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 3. Principios generales, apdo. 10. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a3",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 3. Principios generales, apdo. 10",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a3"
+  },
+  {
+   "id": "CPEI-T07-OF-472142A3",
+   "orden": 110,
+   "concepto": "Según el art. 3 de la Ley 8/2011 de Extremadura, ¿qué comprende la interseccionalidad?",
+   "respuesta": "Las técnicas de análisis y planificación que tienen en cuenta la interacción que se produce entre el género y otros factores de discriminación",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 3. Principios generales, apdo. 11. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a3",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 3. Principios generales, apdo. 11",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a3"
+  },
+  {
+   "id": "CPEI-T07-OF-17A1C878",
+   "orden": 120,
+   "concepto": "Según el art. 3 de la Ley 8/2011 de Extremadura, ¿en qué candidaturas electorales se fomentará la composición equilibrada de mujeres y hombres?",
+   "respuesta": "En las candidaturas a las elecciones a la Asamblea de Extremadura",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 3. Principios generales, apdo. 12. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a3",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 3. Principios generales, apdo. 12",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a3"
+  },
+  {
+   "id": "CPEI-T07-OF-0275780D",
+   "orden": 130,
+   "concepto": "Según el art. 3 de la Ley 8/2011 de Extremadura, ¿de qué mujeres se garantizarán con especial atención los derechos?",
+   "respuesta": "De las mujeres que viven en el medio rural",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 3. Principios generales, apdo. 13. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a3",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 3. Principios generales, apdo. 13",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a3"
+  },
+  {
+   "id": "CPEI-T07-OF-9CFB12F6",
+   "orden": 140,
+   "concepto": "Según el art. 4 de la Ley 8/2011 de Extremadura, ¿qué se entiende por discriminación directa?",
+   "respuesta": "La situación en que se encuentra una persona que, en atención a su sexo, sea, haya sido o pudiera ser tratada de manera menos favorable que otra en situación homóloga",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 4. Definiciones, apdo. 1. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a4",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 4. Definiciones, apdo. 1",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a4"
+  },
+  {
+   "id": "CPEI-T07-OF-3DDCA9C4",
+   "orden": 150,
+   "concepto": "Según el art. 4 de la Ley 8/2011 de Extremadura, ¿qué se entiende por discriminación indirecta?",
+   "respuesta": "La situación en que la aplicación de una disposición, criterio o práctica aparentemente neutros pone a las personas de un sexo en desventaja particular con respecto a las personas del otro",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 4. Definiciones, apdo. 2. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a4",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 4. Definiciones, apdo. 2",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a4"
+  },
+  {
+   "id": "CPEI-T07-OF-407FE722",
+   "orden": 160,
+   "concepto": "Según el art. 4 de la Ley 8/2011 de Extremadura, ¿qué constituye cualquier trato desfavorable relacionado con el embarazo, la maternidad o la paternidad?",
+   "respuesta": "Discriminación directa por razón de sexo",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 4. Definiciones, apdo. 3. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a4",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 4. Definiciones, apdo. 3",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a4"
+  },
+  {
+   "id": "CPEI-T07-OF-4CDAB887",
+   "orden": 170,
+   "concepto": "Según el art. 4 de la Ley 8/2011 de Extremadura, ¿qué porcentajes definen la representación equilibrada?",
+   "respuesta": "Cada sexo ni supere el sesenta por ciento ni sea menos del cuarenta por ciento",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 4. Definiciones, apdo. 4. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a4",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 4. Definiciones, apdo. 4",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a4"
+  },
+  {
+   "id": "CPEI-T07-OF-DD6A311B",
+   "orden": 180,
+   "concepto": "Según el art. 4 de la Ley 8/2011 de Extremadura, ¿de conformidad con qué ley orgánica se define la violencia de género?",
+   "respuesta": "La Ley Orgánica 1/2004, de 28 de diciembre, de Medidas de Protección Integral contra la Violencia de género",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 4. Definiciones, apdo. 5. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a4",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 4. Definiciones, apdo. 5",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a4"
+  },
+  {
+   "id": "CPEI-T07-OF-FBBC3CD7",
+   "orden": 190,
+   "concepto": "Según el art. 4 de la Ley 8/2011 de Extremadura, ¿por parte de quién se ejerce la violencia de género sobre las mujeres?",
+   "respuesta": "Por parte de quienes sean o hayan sido sus cónyuges o de quienes estén o hayan estado ligados a ellas por relaciones similares de afectividad, aún sin convivencia",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 4. Definiciones, apdo. 5. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a4",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 4. Definiciones, apdo. 5",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a4"
+  },
+  {
+   "id": "CPEI-T07-OF-8E73A565",
+   "orden": 200,
+   "concepto": "Según el art. 4 de la Ley 8/2011 de Extremadura, ¿qué es el acoso sexual?",
+   "respuesta": "La situación en que se produce cualquier comportamiento verbal, no verbal o físico de índole sexual, con el propósito o el efecto de atentar contra la dignidad de una persona",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 4. Definiciones, apdo. 6. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a4",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 4. Definiciones, apdo. 6",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a4"
+  },
+  {
+   "id": "CPEI-T07-OF-BD3BFD51",
+   "orden": 210,
+   "concepto": "Según el art. 4 de la Ley 8/2011 de Extremadura, ¿qué es el acoso por razón de sexo?",
+   "respuesta": "La situación en que se produce un comportamiento relacionado con el sexo de una persona, con el propósito o el efecto de atentar contra la dignidad de la persona y crear un entorno intimidatorio, hostil, degradante, humillante u ofensivo",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 4. Definiciones, apdo. 7. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a4",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 4. Definiciones, apdo. 7",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a4"
+  },
+  {
+   "id": "CPEI-T07-OF-EFE0CC9A",
+   "orden": 220,
+   "concepto": "Según el art. 4.8 de la Ley 8/2011 de Extremadura, ¿qué es condicionar un derecho a la aceptación de una situación de acoso sexual?",
+   "respuesta": "Acto de discriminación por razón de sexo",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 4. Definiciones, apdo. 8. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a4",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 4. Definiciones, apdo. 8",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a4"
+  },
+  {
+   "id": "CPEI-T07-OF-8DA71B59",
+   "orden": 230,
+   "concepto": "Según el art. 4 de la Ley 8/2011 de Extremadura, ¿en qué consiste el uso no sexista del lenguaje?",
+   "respuesta": "En la utilización de expresiones lingüísticamente correctas sustitutivas de otras, correctas o no, que invisibilizan el femenino o lo sitúan en un plano secundario respecto al masculino",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 4. Definiciones, apdo. 9. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a4",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 4. Definiciones, apdo. 9",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a4"
+  },
+  {
+   "id": "CPEI-T07-OF-28A0AEBA",
+   "orden": 240,
+   "concepto": "Según el art. 21 de la Ley 8/2011 de Extremadura (transversalidad), ¿en qué fases de las disposiciones normativas incorporarán los poderes públicos la perspectiva de igualdad de género?",
+   "respuesta": "En la elaboración, ejecución y seguimiento",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 21. Transversalidad de género. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-3",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 21. Transversalidad de género",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-3"
+  },
+  {
+   "id": "CPEI-T07-OF-176F9FC8",
+   "orden": 250,
+   "concepto": "Según el art. 22.1 de la Ley 8/2011 de Extremadura, ¿en qué políticas públicas se integra especialmente el principio de interseccionalidad?",
+   "respuesta": "De inclusión social",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 22. Desarrollo del principio de interseccionalidad, apdo. 1. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-4",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 22. Desarrollo del principio de interseccionalidad, apdo. 1",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-4"
+  },
+  {
+   "id": "CPEI-T07-OF-238AED14",
+   "orden": 260,
+   "concepto": "Según el art. 22.3 de la Ley 8/2011 de Extremadura, ¿para qué colectivos podrán ponerse en marcha de forma prioritaria acciones positivas?",
+   "respuesta": "Para aquellos colectivos en los que confluyan diversos factores de discriminación",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 22. Desarrollo del principio de interseccionalidad, apdo. 3. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-4",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 22. Desarrollo del principio de interseccionalidad, apdo. 3",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-4"
+  },
+  {
+   "id": "CPEI-T07-OF-40A6FF1B",
+   "orden": 270,
+   "concepto": "Según el art. 23.2 de la Ley 8/2011 de Extremadura, ¿qué informe deben incorporar todos los Proyectos de Ley que apruebe el Consejo de Gobierno?",
+   "respuesta": "Un informe sobre su impacto por razón de género",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 23. Evaluación del impacto de género, apdo. 2. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-5",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 23. Evaluación del impacto de género, apdo. 2",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-5"
+  },
+  {
+   "id": "CPEI-T07-OF-2567DC4B",
+   "orden": 280,
+   "concepto": "Según el art. 23.2 de la Ley 8/2011 de Extremadura, cuando la Asamblea requiere el informe de impacto de género a la Junta, ¿en qué plazo dictamina esta?",
+   "respuesta": "En el plazo de un mes",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 23. Evaluación del impacto de género, apdo. 2. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-5",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 23. Evaluación del impacto de género, apdo. 2",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-5"
+  },
+  {
+   "id": "CPEI-T07-OF-58093FC8",
+   "orden": 290,
+   "concepto": "Según el art. 23.3 de la Ley 8/2011 de Extremadura, ¿qué requieren los reglamentos y planes del Consejo de Gobierno antes de su aprobación?",
+   "respuesta": "La emisión de un informe de evaluación del impacto de género",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 23. Evaluación del impacto de género, apdo. 3. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-5",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 23. Evaluación del impacto de género, apdo. 3",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-5"
+  },
+  {
+   "id": "CPEI-T07-OF-2058C006",
+   "orden": 300,
+   "concepto": "Según el art. 23.5 de la Ley 8/2011 de Extremadura, ¿a propuesta de quién elabora la Junta las directrices para la evaluación previa del impacto de género?",
+   "respuesta": "A propuesta del Instituto de la Mujer de Extremadura",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 23. Evaluación del impacto de género, apdo. 5. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-5",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 23. Evaluación del impacto de género, apdo. 5",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-5"
+  },
+  {
+   "id": "CPEI-T07-OF-FBE8D21C",
+   "orden": 310,
+   "concepto": "Según el art. 23.6 de la Ley 8/2011 de Extremadura, ¿de qué debe ir acompañado en todos los casos el informe de evaluación de impacto de género?",
+   "respuesta": "De indicadores pertinentes en género, mecanismos y medidas dirigidas a paliar y neutralizar los posibles impactos negativos que se detecten sobre las mujeres y los hombres",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 23. Evaluación del impacto de género, apdo. 6. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-5",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 23. Evaluación del impacto de género, apdo. 6",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-5"
+  },
+  {
+   "id": "CPEI-T07-OF-966F09B4",
+   "orden": 320,
+   "concepto": "Según el art. 24 de la Ley 8/2011 de Extremadura, ¿qué documento debe acompañar al proyecto de norma explicando los trámites de evaluación de impacto de género?",
+   "respuesta": "Una memoria que explique detalladamente los trámites realizados en relación con el artículo anterior y los resultados de la misma",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 24. Memoria explicativa de igualdad, apdo. 1. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-6",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 24. Memoria explicativa de igualdad, apdo. 1",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-6"
+  },
+  {
+   "id": "CPEI-T07-OF-316147D3",
+   "orden": 330,
+   "concepto": "Según el art. 25.1 de la Ley 8/2011 de Extremadura, ¿cada cuánto tiempo aprueba la Junta el Plan Estratégico para la Igualdad entre Mujeres y Hombres?",
+   "respuesta": "Cada cuatro años",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 25. Plan Estratégico para la Igualdad entre Mujeres y Hombres, apdo. 1. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-7",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 25. Plan Estratégico para la Igualdad entre Mujeres y Hombres, apdo. 1",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-7"
+  },
+  {
+   "id": "CPEI-T07-OF-CEAA52B8",
+   "orden": 340,
+   "concepto": "Según el art. 25.1 de la Ley 8/2011 de Extremadura, ¿con el dictamen de qué órgano se aprueba el Plan Estratégico para la Igualdad?",
+   "respuesta": "Con el dictamen del Consejo Extremeño de Participación de las Mujeres",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 25. Plan Estratégico para la Igualdad entre Mujeres y Hombres, apdo. 1. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-7",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 25. Plan Estratégico para la Igualdad entre Mujeres y Hombres, apdo. 1",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-7"
+  },
+  {
+   "id": "CPEI-T07-OF-6E15BD61",
+   "orden": 350,
+   "concepto": "Según el art. 25.1 de la Ley 8/2011 de Extremadura, ¿qué contendrá el Plan Estratégico para la Igualdad?",
+   "respuesta": "Las líneas prioritarias y las medidas destinadas a alcanzar la plena igualdad entre mujeres y hombres y para eliminar la discriminación por razón de sexo",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 25. Plan Estratégico para la Igualdad entre Mujeres y Hombres, apdo. 1. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-7",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 25. Plan Estratégico para la Igualdad entre Mujeres y Hombres, apdo. 1",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-7"
+  },
+  {
+   "id": "CPEI-T07-OF-5B94EA06",
+   "orden": 360,
+   "concepto": "Según el art. 26.1 de la Ley 8/2011 de Extremadura, ¿qué órgano emite el informe de evaluación de impacto de género sobre el anteproyecto de Ley del Presupuesto?",
+   "respuesta": "La Comisión de Impacto de Género de los Presupuestos",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 26. Enfoque de género en el presupuesto, apdo. 1. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-8",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 26. Enfoque de género en el presupuesto, apdo. 1",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-8"
+  },
+  {
+   "id": "CPEI-T07-OF-1CB887F8",
+   "orden": 370,
+   "concepto": "Según el art. 26.2 de la Ley 8/2011 de Extremadura, ¿qué auditorías impulsa la Comisión de Impacto de Género en los Presupuestos?",
+   "respuesta": "La realización de auditorías de género en las Consejerías, empresas y organismos de la Junta de Extremadura",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 26. Enfoque de género en el presupuesto, apdo. 2. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-8",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 26. Enfoque de género en el presupuesto, apdo. 2",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-8"
+  },
+  {
+   "id": "CPEI-T07-OF-966C8D68",
+   "orden": 380,
+   "concepto": "Según el art. 27.2 de la Ley 8/2011 de Extremadura, ¿qué medios de comunicación están obligados a hacer un uso no sexista del lenguaje?",
+   "respuesta": "Los medios de comunicación públicos extremeños o que reciban subvenciones públicas",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 27. Lenguaje e imagen no sexista, apdo. 2. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-9",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 27. Lenguaje e imagen no sexista, apdo. 2",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-9"
+  },
+  {
+   "id": "CPEI-T07-OF-D00C476F",
+   "orden": 390,
+   "concepto": "Según el art. 27.3 de la Ley 8/2011 de Extremadura, ¿qué imagen de las mujeres deben promover de forma activa los poderes públicos extremeños?",
+   "respuesta": "Una imagen de autonomía de las mujeres",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 27. Lenguaje e imagen no sexista, apdo. 3. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-9",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 27. Lenguaje e imagen no sexista, apdo. 3",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-9"
+  },
+  {
+   "id": "CPEI-T07-OF-4FBC91E7",
+   "orden": 400,
+   "concepto": "Según el art. 27.4 de la Ley 8/2011 de Extremadura, ¿qué Consejería controla el cumplimiento de las obligaciones sobre lenguaje e imagen no sexista?",
+   "respuesta": "La Consejería competente en asuntos de Presidencia",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 27. Lenguaje e imagen no sexista, apdo. 4. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-9",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 27. Lenguaje e imagen no sexista, apdo. 4",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-9"
+  },
+  {
+   "id": "CPEI-T07-OF-0B754A10",
+   "orden": 410,
+   "concepto": "Según el art. 28.1.a) de la Ley 8/2011 de Extremadura, ¿qué variable deben incluir sistemáticamente las estadísticas y encuestas de los poderes públicos?",
+   "respuesta": "La variable sexo",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 28. Estadísticas e investigaciones con perspectiva de género, apdo. 1.a. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-10",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 28. Estadísticas e investigaciones con perspectiva de género, apdo. 1.a",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-10"
+  },
+  {
+   "id": "CPEI-T07-OF-15AE8569",
+   "orden": 420,
+   "concepto": "Según el art. 28.1.b) de la Ley 8/2011 de Extremadura, ¿qué indicadores deben incorporarse en las operaciones estadísticas?",
+   "respuesta": "Indicadores de género",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 28. Estadísticas e investigaciones con perspectiva de género, apdo. 1.b. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-10",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 28. Estadísticas e investigaciones con perspectiva de género, apdo. 1.b",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-10"
+  },
+  {
+   "id": "CPEI-T07-OF-C7EACEB3",
+   "orden": 430,
+   "concepto": "Según el art. 29.1 de la Ley 8/2011 de Extremadura, ¿en qué nombramientos se garantizará la representación equilibrada de hombres y mujeres?",
+   "respuesta": "En el nombramiento de titulares de órganos directivos de la Administración de la Comunidad Autónoma de Extremadura cuya designación corresponda al Consejo de Gobierno",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 29. Representación equilibrada de los órganos directivos y colegiados, apdo. 1. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-11",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 29. Representación equilibrada de los órganos directivos y colegiados, apdo. 1",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-11"
+  },
+  {
+   "id": "CPEI-T07-OF-CEEF714B",
+   "orden": 440,
+   "concepto": "Según el art. 29.2 de la Ley 8/2011 de Extremadura, ¿qué personas se excluyen del cómputo de la representación equilibrada en los órganos colegiados?",
+   "respuesta": "Aquellas personas que formen parte en función del cargo específico que desempeñen",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 29. Representación equilibrada de los órganos directivos y colegiados, apdo. 2. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a2-11",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 29. Representación equilibrada de los órganos directivos y colegiados, apdo. 2",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a2-11"
+  },
+  {
+   "id": "CPEI-T07-OF-A07D8BE5",
+   "orden": 450,
+   "concepto": "Según el art. 30.2 de la Ley 8/2011 de Extremadura, ¿qué empresas tienen preferencia en la adjudicación de contratos en caso de igualdad de proposiciones?",
+   "respuesta": "Aquellas empresas que, en el momento de acreditar su solvencia técnica, tengan la marca de excelencia o desarrollen medidas destinadas a lograr la igualdad de oportunidades",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 30. Contratación pública, apdo. 2. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a3-2",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 30. Contratación pública, apdo. 2",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a3-2"
+  },
+  {
+   "id": "CPEI-T07-OF-19AF4E3F",
+   "orden": 460,
+   "concepto": "Según el art. 31.2 de la Ley 8/2011 de Extremadura, ¿durante cuánto tiempo quedan excluidas del acceso a beneficios de empleo las empresas sancionadas por discriminación?",
+   "respuesta": "Durante seis meses",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 31. Ayudas y subvenciones, apdo. 2. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a3-3",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 31. Ayudas y subvenciones, apdo. 2",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a3-3"
+  },
+  {
+   "id": "CPEI-T07-OF-BAA00901",
+   "orden": 470,
+   "concepto": "Según el art. 31.1 de la Ley 8/2011 de Extremadura, ¿qué valoración incorporará la Administración a las bases reguladoras de las subvenciones públicas?",
+   "respuesta": "La valoración de actuaciones de efectiva consecución de la igualdad de género por parte de las entidades solicitantes",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 31. Ayudas y subvenciones, apdo. 1. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a3-3",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 31. Ayudas y subvenciones, apdo. 1",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a3-3"
+  },
+  {
+   "id": "CPEI-T07-OF-79EA779F",
+   "orden": 480,
+   "concepto": "Según el art. 32.1 de la Ley 8/2011 de Extremadura, ¿qué materias incluirán los temarios de las pruebas selectivas de acceso al empleo público autonómico?",
+   "respuesta": "Materias relativas a la normativa sobre igualdad y violencia de género",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 32. Medidas para eliminar desigualdades y promover la igualdad, apdo. 1. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a3-4",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 32. Medidas para eliminar desigualdades y promover la igualdad, apdo. 1",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a3-4"
+  },
+  {
+   "id": "CPEI-T07-OF-0C775F6A",
+   "orden": 490,
+   "concepto": "Según el art. 32.3 de la Ley 8/2011 de Extremadura, ¿qué deben garantizar las normas de los jurados de premios promovidos por la Administración autonómica?",
+   "respuesta": "Una representación equilibrada de mujeres y hombres con capacitación, competencia y preparación adecuada",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 32. Medidas para eliminar desigualdades y promover la igualdad, apdo. 3. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a3-4",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 32. Medidas para eliminar desigualdades y promover la igualdad, apdo. 3",
+   "apartado": "Perspectiva de género en las políticas públicas",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a3-4"
+  },
+  {
+   "id": "CPEI-T07-OF-41D88937",
+   "orden": 500,
+   "concepto": "Según el art. 78.1 de la Ley 8/2011 de Extremadura, ¿a quiénes prestará la Junta de Extremadura una atención real y efectiva?",
+   "respuesta": "A las mujeres víctimas de violencia de género o en riesgo de padecerla",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 78. Derecho a la atención efectiva, apdo. 1. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a7-10",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 78. Derecho a la atención efectiva, apdo. 1",
+   "apartado": "Violencia de género: derechos",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a7-10"
+  },
+  {
+   "id": "CPEI-T07-OF-C1F106DF",
+   "orden": 510,
+   "concepto": "Según el art. 78.2 de la Ley 8/2011 de Extremadura, ¿en los términos de qué ley orgánica será integral la atención a las víctimas de violencia de género?",
+   "respuesta": "La Ley Orgánica 1/2004, de 28 de diciembre, de violencia de género",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 78. Derecho a la atención efectiva, apdo. 2. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a7-10",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 78. Derecho a la atención efectiva, apdo. 2",
+   "apartado": "Violencia de género: derechos",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a7-10"
+  },
+  {
+   "id": "CPEI-T07-OF-FD1E4CA5",
+   "orden": 520,
+   "concepto": "Según el art. 78.2 de la Ley 8/2011 de Extremadura, ¿qué atención incluye la asistencia sanitaria a las víctimas de violencia de género?",
+   "respuesta": "La atención psicológica especializada",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 78. Derecho a la atención efectiva, apdo. 2. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a7-10",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 78. Derecho a la atención efectiva, apdo. 2",
+   "apartado": "Violencia de género: derechos",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a7-10"
+  },
+  {
+   "id": "CPEI-T07-OF-84AA7639",
+   "orden": 530,
+   "concepto": "Según el art. 79.b) de la Ley 8/2011 de Extremadura, ¿vale como medio de prueba de violencia de género una sentencia que no sea firme?",
+   "respuesta": "Sí: la sentencia de cualquier orden jurisdiccional, aunque no haya ganado firmeza",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 79. Identificación de las situaciones de violencia de género, letra b. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a7-11",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 79. Identificación de las situaciones de violencia de género, letra b",
+   "apartado": "Violencia de género: derechos",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a7-11"
+  },
+  {
+   "id": "CPEI-T07-OF-9C6F77FC",
+   "orden": 540,
+   "concepto": "Según el art. 80.a) de la Ley 8/2011 de Extremadura, ¿qué cuerpos policiales deben prestar la atención específica de protección a las víctimas?",
+   "respuesta": "Las Fuerzas y Cuerpos de Seguridad del Estado y la Policía Local",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 80. Contenido del derecho a la protección efectiva, letra a. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a8-2",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 80. Contenido del derecho a la protección efectiva, letra a",
+   "apartado": "Violencia de género: derechos",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a8-2"
+  },
+  {
+   "id": "CPEI-T07-OF-390F0C61",
+   "orden": 550,
+   "concepto": "Según el art. 80.b) de la Ley 8/2011 de Extremadura, ¿a qué pueden acceder las víctimas que han de abandonar su domicilio?",
+   "respuesta": "A residencias o centros de acogida que ofrezcan un recurso especializado",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 80. Contenido del derecho a la protección efectiva, letra b. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a8-2",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 80. Contenido del derecho a la protección efectiva, letra b",
+   "apartado": "Violencia de género: derechos",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a8-2"
+  },
+  {
+   "id": "CPEI-T07-OF-E3D922C6",
+   "orden": 560,
+   "concepto": "Según el art. 81.a) de la Ley 8/2011 de Extremadura, ¿qué servicio presta la atención sanitaria a las víctimas mediante un protocolo de atención y asistencia?",
+   "respuesta": "El Servicio Extremeño de Salud",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 81. Derecho a la atención y la asistencia sanitarias específicas, letra a. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a8-3",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 81. Derecho a la atención y la asistencia sanitarias específicas, letra a",
+   "apartado": "Violencia de género: derechos",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a8-3"
+  },
+  {
+   "id": "CPEI-T07-OF-A2A118F2",
+   "orden": 570,
+   "concepto": "Según el art. 81.b) de la Ley 8/2011 de Extremadura, ¿qué atención prestan los dispositivos terapéuticos de la Red de Atención a Víctimas?",
+   "respuesta": "Atención psicológica especializada a las mujeres víctimas, a los hijos e hijas de ésta, así como a menores víctimas de la violencia de género",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 81. Derecho a la atención y la asistencia sanitarias específicas, letra b. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a8-3",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 81. Derecho a la atención y la asistencia sanitarias específicas, letra b",
+   "apartado": "Violencia de género: derechos",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a8-3"
+  },
+  {
+   "id": "CPEI-T07-OF-025C22A8",
+   "orden": 580,
+   "concepto": "Según el art. 82.1 de la Ley 8/2011 de Extremadura, ¿qué derecho de asistencia prestan los Colegios de Abogados a las víctimas?",
+   "respuesta": "El derecho de asistencia y defensa gratuita",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 82. Derecho a la información, atención y asistencia jurídica, apdo. 1. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a8-4",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 82. Derecho a la información, atención y asistencia jurídica, apdo. 1",
+   "apartado": "Violencia de género: derechos",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a8-4"
+  },
+  {
+   "id": "CPEI-T07-OF-3682BB11",
+   "orden": 590,
+   "concepto": "Según el art. 82.3 de la Ley 8/2011 de Extremadura, ¿a qué asistencia tienen derecho las mujeres que sufren o han sufrido violencia de género?",
+   "respuesta": "A la asistencia jurídica gratuita",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 82. Derecho a la información, atención y asistencia jurídica, apdo. 3. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a8-4",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 82. Derecho a la información, atención y asistencia jurídica, apdo. 3",
+   "apartado": "Violencia de género: derechos",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a8-4"
+  },
+  {
+   "id": "CPEI-T07-OF-56F6D884",
+   "orden": 600,
+   "concepto": "Según el art. 82.6 de la Ley 8/2011 de Extremadura, en los delitos más graves que causen alarma social, ¿qué acción puede ejercer la Junta de Extremadura personándose?",
+   "respuesta": "La acción popular",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 82. Derecho a la información, atención y asistencia jurídica, apdo. 6. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a8-4",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 82. Derecho a la información, atención y asistencia jurídica, apdo. 6",
+   "apartado": "Violencia de género: derechos",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a8-4"
+  },
+  {
+   "id": "CPEI-T07-OF-01EF5F71",
+   "orden": 610,
+   "concepto": "Según el art. 83.2.a) de la Ley 8/2011 de Extremadura, ¿a qué deben facilitar el acceso las Administraciones a las víctimas en situación de precariedad económica?",
+   "respuesta": "A una vivienda",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 83. Derecho a la atención social, apdo. 2.a. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a8-5",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 83. Derecho a la atención social, apdo. 2.a",
+   "apartado": "Violencia de género: derechos",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a8-5"
+  },
+  {
+   "id": "CPEI-T07-OF-1D0F8A0F",
+   "orden": 620,
+   "concepto": "Según el art. 83.2.d) de la Ley 8/2011 de Extremadura, ¿qué ayudas se facilitarán a los hijos e hijas de las víctimas de violencia de género?",
+   "respuesta": "Ayudas escolares",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 83. Derecho a la atención social, apdo. 2.d. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a8-5",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 83. Derecho a la atención social, apdo. 2.d",
+   "apartado": "Violencia de género: derechos",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a8-5"
+  },
+  {
+   "id": "CPEI-T07-OF-BE8BBA24",
+   "orden": 630,
+   "concepto": "Según el art. 83.3 de la Ley 8/2011 de Extremadura, ¿qué tendrá asegurada el alumnado afectado por cambios de centro derivados de violencia de género o acoso escolar?",
+   "respuesta": "Su escolarización inmediata",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 83. Derecho a la atención social, apdo. 3. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a8-5",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 83. Derecho a la atención social, apdo. 3",
+   "apartado": "Violencia de género: derechos",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a8-5"
+  },
+  {
+   "id": "CPEI-T07-OF-3B44CD7E",
+   "orden": 640,
+   "concepto": "Según el art. 83.5 de la Ley 8/2011 de Extremadura, ¿qué rentas se tienen en cuenta para determinar la necesidad económica de la víctima?",
+   "respuesta": "Sólo las rentas o ingresos personales de que disponga la mujer solicitante",
+   "fuente": "Ley 8/2011 de Extremadura, Artículo 83. Derecho a la atención social, apdo. 5. BOE-A-2011-6651, texto consolidado (últ. actualización 25/03/2011): https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651#a8-5",
+   "localizacion": "Ley 8/2011 de Extremadura, Artículo 83. Derecho a la atención social, apdo. 5",
+   "apartado": "Violencia de género: derechos",
+   "norma": "BOE-A-2011-6651",
+   "bloque_boe": "a8-5"
+  }
+ ]
+}

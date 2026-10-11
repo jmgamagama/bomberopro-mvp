@@ -88,6 +88,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 7,
+      title: "Tema 7 · Ley 8/2011 de Igualdad y contra la violencia de género en Extremadura",
+      count: 64,
+      source: "Fase 2 · texto consolidado BOE-A-2011-6651 (Tít. Preliminar, Tít. II y Tít. IV cap. II; sin modificaciones registradas desde 25/03/2011)",
+    },
+    load: () => import('./tema7Recall').then((m) => m.TEMA7_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 1,
       title: "Tema 1 · La Constitución Española de 1978: Título Preliminar y Título I",
       count: 129,
