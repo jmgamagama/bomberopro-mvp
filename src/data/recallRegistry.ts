@@ -89,6 +89,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 12,
+      title: "Tema 12 · Mecanismos de extinción, agentes y extintores (RIPCI e INSST)",
+      count: 21,
+      source: "Fase 4 · RD 513/2017, RIPCI (BOE-A-2017-6606), últ. act. 19/12/2025; INSST, tema «El riesgo de incendio (I)» (v. abril 2025)",
+    },
+    load: () => import('./tema12Recall').then((m) => m.TEMA12_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 10,
       title: "Tema 10 · Abastecimiento de agua, hidrantes, BIE y columnas secas (RIPCI)",
       count: 34,
