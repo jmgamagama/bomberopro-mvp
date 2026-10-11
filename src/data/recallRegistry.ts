@@ -89,6 +89,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 22,
+      title: "Tema 22 · Trabajos temporales en altura: RD 1215/1997, anexo II.4",
+      count: 33,
+      source: "Fase 3 · texto consolidado BOE-A-1997-17824 (RD 1215/1997, anexo II.4; últ. act. 18/12/2025)",
+    },
+    load: () => import('./tema22Recall').then((m) => m.TEMA22_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 25,
       title: "Tema 25 · Mercancías peligrosas: ADR 2025 (conceptos, cisternas, panel naranja, placas-etiquetas y actuación)",
       count: 47,
