@@ -1,0 +1,267 @@
+{
+ "tema": 17,
+ "titulo": "Tema 17 · Socorrismo: desfibriladores fuera del ámbito sanitario (RD 365/2009)",
+ "epigrafe_bop": "Socorrismo: Definición. Normas generales de actuación ante un accidente. Anatomía y fisiología humana: Sistemas respiratorios, cardiocirculatorio y locomotor. Soporte vital básico. Atención inicial. Reanimación cardio pulmonar. Heridas y hemorragias: clasificación y comportamiento. Quemaduras: clasificación, manejo y complicaciones. Fracturas y luxaciones: clasificación, manejo. Traumatismo craneal, traumatismo de columna, politraumatizado. Atención inicial ante emergencias neurológicas, psiquiátricas-gestacionales y cuidados al neonato.",
+ "normas": [
+  {
+   "id": "BOE-A-2009-5490",
+   "norma": "Real Decreto 365/2009, desfibriladores semiautomáticos y automáticos externos fuera del ámbito sanitario",
+   "url": "https://www.boe.es/buscar/doc.php?id=BOE-A-2009-5490",
+   "ultima_actualizacion": "texto original BOE nº 80 de 02/04/2009, sin modificaciones",
+   "tipo": "texto consolidado del BOE"
+  }
+ ],
+ "estado": "cargado",
+ "propuestas": 14,
+ "entran_tras_filtro": 14,
+ "descartadas": [],
+ "cobertura": {
+  "Marco normativo del uso de DESA (RD 365/2009)": "cubierto",
+  "Socorrismo, anatomía, SVB/RCP, heridas, quemaduras, fracturas, traumatismos y emergencias específicas": "PENDIENTE: sin fuente de administración oficial accesible (las guías ERC son de una sociedad científica; queda a tu decisión aceptarlas)",
+  "Decreto 16/2019 de Extremadura (DEA)": "no incluido: modificado por el Decreto-ley 3/2021 y sin texto consolidado oficial"
+ },
+ "muestra_revisada": [
+  {
+   "id": "CPEI-T17-OF-787E4D88",
+   "concepto": "Según el RD 365/2009, ¿qué debe señalizarse en lugar visible respecto del DESA?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T17-OF-80F0C9E2",
+   "concepto": "Según el RD 365/2009, ¿en qué lugares se promoverá la instalación de los DESA?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T17-OF-911B1EEE",
+   "concepto": "Según el RD 365/2009, ¿qué marcado deben ostentar los DESA instalados?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T17-OF-F901F06C",
+   "concepto": "Según el RD 365/2009, ¿qué norma sobre productos sanitarios deben cumplir los DESA?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T17-OF-F03CB3C5",
+   "concepto": "Según el RD 365/2009, ¿a quién se autoriza el uso de los DESA?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T17-OF-9A139DA4",
+   "concepto": "Según el RD 365/2009, ¿qué es un DESA?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T17-OF-13559035",
+   "concepto": "Según el RD 365/2009, ¿qué declaración se realiza al notificar la instalación de un DESA?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T17-OF-F8140F1A",
+   "concepto": "Según el RD 365/2009, ¿con qué dispositivos promoverán las CCAA mecanismos de coordinación para extender el uso de los DESA?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T17-OF-2305714E",
+   "concepto": "Según el RD 365/2009, ¿en qué condiciones deben utilizarse los DESA?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T17-OF-A6E35181",
+   "concepto": "Según el RD 365/2009, ¿quién es responsable del mantenimiento y conservación de un DESA instalado?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T17-OF-E6FC22E5",
+   "concepto": "Según el RD 365/2009, ¿qué regula este real decreto?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T17-OF-3A5C48A1",
+   "concepto": "Según el RD 365/2009, ¿a qué otros aparatos se aplica también la regulación prevista para los DESA?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T17-OF-7AF86C7C",
+   "concepto": "Según el RD 365/2009, ¿a quién debe notificarse la instalación de un DESA?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T17-OF-307181E1",
+   "concepto": "Según el RD 365/2009, ¿qué consideración tienen las infracciones contra este real decreto?",
+   "veredicto": "OK",
+   "nota": ""
+  }
+ ],
+ "errores_muestra": 0,
+ "pct_errores_muestra": 0.0,
+ "fichas": [
+  {
+   "id": "CPEI-T17-OF-E6FC22E5",
+   "orden": 10,
+   "concepto": "Según el RD 365/2009, ¿qué regula este real decreto?",
+   "respuesta": "Las condiciones y requisitos mínimos para la utilización y mantenimiento de los desfibriladores semiautomáticos externos fuera del ámbito sanitario",
+   "fuente": "RD 365/2009, Este real decreto tiene por objeto regular las condiciones y requisitos mínimos para la utilización y mantenimiento de los desfibriladores semiautomáticos externos fuera del ámbito sanitario, art. 1. BOE-A-2009-5490, texto consolidado (últ. actualización texto original BOE nº 80 de 02/04/2009, sin modificaciones): https://www.boe.es/buscar/doc.php?id=BOE-A-2009-5490#a1",
+   "localizacion": "RD 365/2009, Este real decreto tiene por objeto regular las condiciones y requisitos mínimos para la utilización y mantenimiento de los desfibriladores semiautomáticos externos fuera del ámbito sanitario, art. 1",
+   "apartado": "DESA fuera del ámbito sanitario",
+   "norma": "BOE-A-2009-5490",
+   "bloque_boe": "a1"
+  },
+  {
+   "id": "CPEI-T17-OF-3A5C48A1",
+   "orden": 20,
+   "concepto": "Según el RD 365/2009, ¿a qué otros aparatos se aplica también la regulación prevista para los DESA?",
+   "respuesta": "Los desfibriladores automáticos externos",
+   "fuente": "RD 365/2009, Este real decreto tiene por objeto regular las condiciones y requisitos mínimos para la utilización y mantenimiento de los desfibriladores semiautomáticos externos fuera del ámbito sanitario, art. 1. BOE-A-2009-5490, texto consolidado (últ. actualización texto original BOE nº 80 de 02/04/2009, sin modificaciones): https://www.boe.es/buscar/doc.php?id=BOE-A-2009-5490#a1",
+   "localizacion": "RD 365/2009, Este real decreto tiene por objeto regular las condiciones y requisitos mínimos para la utilización y mantenimiento de los desfibriladores semiautomáticos externos fuera del ámbito sanitario, art. 1",
+   "apartado": "DESA fuera del ámbito sanitario",
+   "norma": "BOE-A-2009-5490",
+   "bloque_boe": "a1"
+  },
+  {
+   "id": "CPEI-T17-OF-9A139DA4",
+   "orden": 30,
+   "concepto": "Según el RD 365/2009, ¿qué es un DESA?",
+   "respuesta": "El producto sanitario destinado a analizar el ritmo cardiaco, identificar las arritmias mortales tributarias de desfibrilación y administrar una descarga eléctrica con la finalidad de restablecer el ritmo cardiaco viable con altos niveles de seguridad",
+   "fuente": "RD 365/2009, A los efectos de este real decreto se entiende por desfibrilador semiautomático externo (DESA) el producto sanitario destinado a analizar el ritmo cardiaco, identificar las arritmias mortales tributarias de desfibrilación y administrar una descarga eléctrica con la finalidad de restablecer el ritmo cardiaco viable con altos niveles de seguridad. Esta definición incluye también a los denominados desfibriladores externos automáticos, art. 2. BOE-A-2009-5490, texto consolidado (últ. actualización texto original BOE nº 80 de 02/04/2009, sin modificaciones): https://www.boe.es/buscar/doc.php?id=BOE-A-2009-5490#a2",
+   "localizacion": "RD 365/2009, A los efectos de este real decreto se entiende por desfibrilador semiautomático externo (DESA) el producto sanitario destinado a analizar el ritmo cardiaco, identificar las arritmias mortales tributarias de desfibrilación y administrar una descarga eléctrica con la finalidad de restablecer el ritmo cardiaco viable con altos niveles de seguridad. Esta definición incluye también a los denominados desfibriladores externos automáticos, art. 2",
+   "apartado": "DESA fuera del ámbito sanitario",
+   "norma": "BOE-A-2009-5490",
+   "bloque_boe": "a2"
+  },
+  {
+   "id": "CPEI-T17-OF-911B1EEE",
+   "orden": 40,
+   "concepto": "Según el RD 365/2009, ¿qué marcado deben ostentar los DESA instalados?",
+   "respuesta": "El marcado CE",
+   "fuente": "RD 365/2009, 1. Los DESA que sean instalados según lo dispuesto en los artículos siguientes, deberán cumplir con lo establecido en el Real Decreto 414/1996, de 1 de marzo, por el que se regulan los productos sanitarios, ostentando el marcado CE que garantiza su conformidad con los requisitos esenciales que les resultan de aplicación, art. 3.1. BOE-A-2009-5490, texto consolidado (últ. actualización texto original BOE nº 80 de 02/04/2009, sin modificaciones): https://www.boe.es/buscar/doc.php?id=BOE-A-2009-5490#a3",
+   "localizacion": "RD 365/2009, 1. Los DESA que sean instalados según lo dispuesto en los artículos siguientes, deberán cumplir con lo establecido en el Real Decreto 414/1996, de 1 de marzo, por el que se regulan los productos sanitarios, ostentando el marcado CE que garantiza su conformidad con los requisitos esenciales que les resultan de aplicación, art. 3.1",
+   "apartado": "DESA fuera del ámbito sanitario",
+   "norma": "BOE-A-2009-5490",
+   "bloque_boe": "a3"
+  },
+  {
+   "id": "CPEI-T17-OF-F901F06C",
+   "orden": 50,
+   "concepto": "Según el RD 365/2009, ¿qué norma sobre productos sanitarios deben cumplir los DESA?",
+   "respuesta": "Real Decreto 414/1996, de 1 de marzo",
+   "fuente": "RD 365/2009, 1. Los DESA que sean instalados según lo dispuesto en los artículos siguientes, deberán cumplir con lo establecido en el Real Decreto 414/1996, de 1 de marzo, por el que se regulan los productos sanitarios, ostentando el marcado CE que garantiza su conformidad con los requisitos esenciales que les resultan de aplicación, art. 3.1. BOE-A-2009-5490, texto consolidado (últ. actualización texto original BOE nº 80 de 02/04/2009, sin modificaciones): https://www.boe.es/buscar/doc.php?id=BOE-A-2009-5490#a3",
+   "localizacion": "RD 365/2009, 1. Los DESA que sean instalados según lo dispuesto en los artículos siguientes, deberán cumplir con lo establecido en el Real Decreto 414/1996, de 1 de marzo, por el que se regulan los productos sanitarios, ostentando el marcado CE que garantiza su conformidad con los requisitos esenciales que les resultan de aplicación, art. 3.1",
+   "apartado": "DESA fuera del ámbito sanitario",
+   "norma": "BOE-A-2009-5490",
+   "bloque_boe": "a3"
+  },
+  {
+   "id": "CPEI-T17-OF-2305714E",
+   "orden": 60,
+   "concepto": "Según el RD 365/2009, ¿en qué condiciones deben utilizarse los DESA?",
+   "respuesta": "En las condiciones especificadas por su fabricante",
+   "fuente": "RD 365/2009, 1. Los DESA que sean instalados según lo dispuesto en los artículos siguientes, deberán cumplir con lo establecido en el Real Decreto 414/1996, de 1 de marzo, por el que se regulan los productos sanitarios, ostentando el marcado CE que garantiza su conformidad con los requisitos esenciales que les resultan de aplicación, art. 3.2. BOE-A-2009-5490, texto consolidado (últ. actualización texto original BOE nº 80 de 02/04/2009, sin modificaciones): https://www.boe.es/buscar/doc.php?id=BOE-A-2009-5490#a3",
+   "localizacion": "RD 365/2009, 1. Los DESA que sean instalados según lo dispuesto en los artículos siguientes, deberán cumplir con lo establecido en el Real Decreto 414/1996, de 1 de marzo, por el que se regulan los productos sanitarios, ostentando el marcado CE que garantiza su conformidad con los requisitos esenciales que les resultan de aplicación, art. 3.2",
+   "apartado": "DESA fuera del ámbito sanitario",
+   "norma": "BOE-A-2009-5490",
+   "bloque_boe": "a3"
+  },
+  {
+   "id": "CPEI-T17-OF-7AF86C7C",
+   "orden": 70,
+   "concepto": "Según el RD 365/2009, ¿a quién debe notificarse la instalación de un DESA?",
+   "respuesta": "A la autoridad sanitaria de la comunidad autónoma del lugar o del establecimiento en el que se vaya a disponer",
+   "fuente": "RD 365/2009, 1. Para su instalación, las entidades públicas o privadas así como los particulares que pretendan instalar un DESA, deberán notificarlo a la autoridad sanitaria de la comunidad autónoma del lugar o del establecimiento en el que se vaya a disponer, realizando una declaración responsable de que cumplen los requisitos previstos en el apartado 2 de este artículo, art. 4.1. BOE-A-2009-5490, texto consolidado (últ. actualización texto original BOE nº 80 de 02/04/2009, sin modificaciones): https://www.boe.es/buscar/doc.php?id=BOE-A-2009-5490#a4",
+   "localizacion": "RD 365/2009, 1. Para su instalación, las entidades públicas o privadas así como los particulares que pretendan instalar un DESA, deberán notificarlo a la autoridad sanitaria de la comunidad autónoma del lugar o del establecimiento en el que se vaya a disponer, realizando una declaración responsable de que cumplen los requisitos previstos en el apartado 2 de este artículo, art. 4.1",
+   "apartado": "DESA fuera del ámbito sanitario",
+   "norma": "BOE-A-2009-5490",
+   "bloque_boe": "a4"
+  },
+  {
+   "id": "CPEI-T17-OF-13559035",
+   "orden": 80,
+   "concepto": "Según el RD 365/2009, ¿qué declaración se realiza al notificar la instalación de un DESA?",
+   "respuesta": "Una declaración responsable",
+   "fuente": "RD 365/2009, 1. Para su instalación, las entidades públicas o privadas así como los particulares que pretendan instalar un DESA, deberán notificarlo a la autoridad sanitaria de la comunidad autónoma del lugar o del establecimiento en el que se vaya a disponer, realizando una declaración responsable de que cumplen los requisitos previstos en el apartado 2 de este artículo, art. 4.1. BOE-A-2009-5490, texto consolidado (últ. actualización texto original BOE nº 80 de 02/04/2009, sin modificaciones): https://www.boe.es/buscar/doc.php?id=BOE-A-2009-5490#a4",
+   "localizacion": "RD 365/2009, 1. Para su instalación, las entidades públicas o privadas así como los particulares que pretendan instalar un DESA, deberán notificarlo a la autoridad sanitaria de la comunidad autónoma del lugar o del establecimiento en el que se vaya a disponer, realizando una declaración responsable de que cumplen los requisitos previstos en el apartado 2 de este artículo, art. 4.1",
+   "apartado": "DESA fuera del ámbito sanitario",
+   "norma": "BOE-A-2009-5490",
+   "bloque_boe": "a4"
+  },
+  {
+   "id": "CPEI-T17-OF-787E4D88",
+   "orden": 90,
+   "concepto": "Según el RD 365/2009, ¿qué debe señalizarse en lugar visible respecto del DESA?",
+   "respuesta": "Su instalación y las normas de utilización",
+   "fuente": "RD 365/2009, 1. Para su instalación, las entidades públicas o privadas así como los particulares que pretendan instalar un DESA, deberán notificarlo a la autoridad sanitaria de la comunidad autónoma del lugar o del establecimiento en el que se vaya a disponer, realizando una declaración responsable de que cumplen los requisitos previstos en el apartado 2 de este artículo, art. 4.2.b). BOE-A-2009-5490, texto consolidado (últ. actualización texto original BOE nº 80 de 02/04/2009, sin modificaciones): https://www.boe.es/buscar/doc.php?id=BOE-A-2009-5490#a4",
+   "localizacion": "RD 365/2009, 1. Para su instalación, las entidades públicas o privadas así como los particulares que pretendan instalar un DESA, deberán notificarlo a la autoridad sanitaria de la comunidad autónoma del lugar o del establecimiento en el que se vaya a disponer, realizando una declaración responsable de que cumplen los requisitos previstos en el apartado 2 de este artículo, art. 4.2.b)",
+   "apartado": "DESA fuera del ámbito sanitario",
+   "norma": "BOE-A-2009-5490",
+   "bloque_boe": "a4"
+  },
+  {
+   "id": "CPEI-T17-OF-80F0C9E2",
+   "orden": 100,
+   "concepto": "Según el RD 365/2009, ¿en qué lugares se promoverá la instalación de los DESA?",
+   "respuesta": "En aquellos lugares en que se concentre o transite un gran número de personas",
+   "fuente": "RD 365/2009, Las administraciones sanitarias de las comunidades autónomas promoverán y recomendarán la instalación de los DESA, de acuerdo con las indicaciones o recomendaciones de los organismos internacionales, en aquellos lugares en que se concentre o transite un gran número de personas, art. 5. BOE-A-2009-5490, texto consolidado (últ. actualización texto original BOE nº 80 de 02/04/2009, sin modificaciones): https://www.boe.es/buscar/doc.php?id=BOE-A-2009-5490#a5",
+   "localizacion": "RD 365/2009, Las administraciones sanitarias de las comunidades autónomas promoverán y recomendarán la instalación de los DESA, de acuerdo con las indicaciones o recomendaciones de los organismos internacionales, en aquellos lugares en que se concentre o transite un gran número de personas, art. 5",
+   "apartado": "DESA fuera del ámbito sanitario",
+   "norma": "BOE-A-2009-5490",
+   "bloque_boe": "a5"
+  },
+  {
+   "id": "CPEI-T17-OF-F8140F1A",
+   "orden": 110,
+   "concepto": "Según el RD 365/2009, ¿con qué dispositivos promoverán las CCAA mecanismos de coordinación para extender el uso de los DESA?",
+   "respuesta": "Protección civil, bomberos, policía local y otros que fuesen necesarios",
+   "fuente": "RD 365/2009, Las administraciones sanitarias de las comunidades autónomas promoverán y recomendarán la instalación de los DESA, de acuerdo con las indicaciones o recomendaciones de los organismos internacionales, en aquellos lugares en que se concentre o transite un gran número de personas, art. 5. BOE-A-2009-5490, texto consolidado (últ. actualización texto original BOE nº 80 de 02/04/2009, sin modificaciones): https://www.boe.es/buscar/doc.php?id=BOE-A-2009-5490#a5",
+   "localizacion": "RD 365/2009, Las administraciones sanitarias de las comunidades autónomas promoverán y recomendarán la instalación de los DESA, de acuerdo con las indicaciones o recomendaciones de los organismos internacionales, en aquellos lugares en que se concentre o transite un gran número de personas, art. 5",
+   "apartado": "DESA fuera del ámbito sanitario",
+   "norma": "BOE-A-2009-5490",
+   "bloque_boe": "a5"
+  },
+  {
+   "id": "CPEI-T17-OF-F03CB3C5",
+   "orden": 120,
+   "concepto": "Según el RD 365/2009, ¿a quién se autoriza el uso de los DESA?",
+   "respuesta": "A todas aquellas personas que estén en posesión de los conocimientos mínimos y básicos necesarios para ello",
+   "fuente": "RD 365/2009, 1. Las comunidades autónomas establecerán los mecanismos necesarios para autorizar el uso de los DESA a todas aquellas personas que estén en posesión de los conocimientos mínimos y básicos necesarios para ello, art. 6.1. BOE-A-2009-5490, texto consolidado (últ. actualización texto original BOE nº 80 de 02/04/2009, sin modificaciones): https://www.boe.es/buscar/doc.php?id=BOE-A-2009-5490#a6",
+   "localizacion": "RD 365/2009, 1. Las comunidades autónomas establecerán los mecanismos necesarios para autorizar el uso de los DESA a todas aquellas personas que estén en posesión de los conocimientos mínimos y básicos necesarios para ello, art. 6.1",
+   "apartado": "DESA fuera del ámbito sanitario",
+   "norma": "BOE-A-2009-5490",
+   "bloque_boe": "a6"
+  },
+  {
+   "id": "CPEI-T17-OF-A6E35181",
+   "orden": 130,
+   "concepto": "Según el RD 365/2009, ¿quién es responsable del mantenimiento y conservación de un DESA instalado?",
+   "respuesta": "Los organismos, empresas e instituciones públicas y privadas que instalen un DESA",
+   "fuente": "RD 365/2009, 1. Los organismos, empresas e instituciones públicas y privadas que instalen un DESA serán responsables de garantizar su mantenimiento y conservación, de acuerdo con las instrucciones del fabricante, art. 7.1. BOE-A-2009-5490, texto consolidado (últ. actualización texto original BOE nº 80 de 02/04/2009, sin modificaciones): https://www.boe.es/buscar/doc.php?id=BOE-A-2009-5490#a7",
+   "localizacion": "RD 365/2009, 1. Los organismos, empresas e instituciones públicas y privadas que instalen un DESA serán responsables de garantizar su mantenimiento y conservación, de acuerdo con las instrucciones del fabricante, art. 7.1",
+   "apartado": "DESA fuera del ámbito sanitario",
+   "norma": "BOE-A-2009-5490",
+   "bloque_boe": "a7"
+  },
+  {
+   "id": "CPEI-T17-OF-307181E1",
+   "orden": 140,
+   "concepto": "Según el RD 365/2009, ¿qué consideración tienen las infracciones contra este real decreto?",
+   "respuesta": "Infracción en materia de sanidad",
+   "fuente": "RD 365/2009, 1. Los organismos, empresas e instituciones públicas y privadas que instalen un DESA serán responsables de garantizar su mantenimiento y conservación, de acuerdo con las instrucciones del fabricante, art. 7.2. BOE-A-2009-5490, texto consolidado (últ. actualización texto original BOE nº 80 de 02/04/2009, sin modificaciones): https://www.boe.es/buscar/doc.php?id=BOE-A-2009-5490#a7",
+   "localizacion": "RD 365/2009, 1. Los organismos, empresas e instituciones públicas y privadas que instalen un DESA serán responsables de garantizar su mantenimiento y conservación, de acuerdo con las instrucciones del fabricante, art. 7.2",
+   "apartado": "DESA fuera del ámbito sanitario",
+   "norma": "BOE-A-2009-5490",
+   "bloque_boe": "a7"
+  }
+ ]
+}

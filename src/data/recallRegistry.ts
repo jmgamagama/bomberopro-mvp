@@ -89,6 +89,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 17,
+      title: "Tema 17 · Socorrismo: desfibriladores fuera del ámbito sanitario (RD 365/2009)",
+      count: 14,
+      source: "Fase 3 · RD 365/2009 (BOE-A-2009-5490, texto original sin modificaciones)",
+    },
+    load: () => import('./tema17Recall').then((m) => m.TEMA17_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 21,
       title: "Tema 21 · Accidentes de tráfico: Procedimiento Unificado de Rescate (Manual básico DGT)",
       count: 42,
