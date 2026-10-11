@@ -235,36 +235,125 @@ export default function Dashboard({
       </div>
       )}
       
+      {/* Main Actions Row — primero en móvil: la acción principal debe verse sin desplazar (auditoría UX 11-oct-2026) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="mira-dashboard-actions">
+        {/* Action 1: Entrenar */}
+        <button
+          id="action-train"
+          onClick={() => onNavigate('train')}
+          className="group relative p-6 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl text-left shadow-md hover:shadow-lg transition overflow-hidden border border-indigo-700"
+        >
+          <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform">
+            <Play className="w-20 h-20" />
+          </div>
+          <span className="inline-block px-2.5 py-1 text-xs font-semibold bg-indigo-800 text-white rounded-full uppercase tracking-wider mb-3">
+            Algoritmo Adaptativo
+          </span>
+          <h4 className="text-lg font-bold">Entrenar Ahora</h4>
+          <p className="text-sm text-indigo-50 mt-1.5 min-h-[32px]">
+            {pendingCount > 0
+              ? `Tienes ${pendingCount} preguntas de repaso prioritario pendientes.`
+              : 'Al día. Estudia nuevos microconceptos o mantén tu dominio.'}
+          </p>
+          <div className="mt-4 flex items-center text-sm font-semibold text-white gap-1 group-hover:gap-2 transition-all">
+            Comenzar <ArrowRight className="w-3.5 h-3.5" />
+          </div>
+        </button>
+
+        {/* Action 2: Ver errores */}
+        <button
+          id="action-errors"
+          onClick={() => onNavigate('errors')}
+          className="group relative p-6 bg-white hover:bg-slate-50 text-slate-800 rounded-2xl text-left border border-slate-500 shadow-sm hover:shadow transition"
+        >
+          <div className="absolute top-0 right-0 p-8 text-rose-100 group-hover:scale-110 transition-transform">
+            <AlertTriangle className="w-20 h-20" />
+          </div>
+          <span className="inline-block px-2.5 py-1 text-xs font-semibold bg-rose-50 text-rose-800 border border-rose-100 rounded-full uppercase tracking-wider mb-3">
+            Análisis de Fallos
+          </span>
+          <h4 className="text-lg font-bold text-slate-800">Repasar Errores</h4>
+          <p className="text-sm text-slate-600 mt-1.5 min-h-[32px]">
+            Repasa confusiones frecuentes y sanea tus alertas de falso dominio.
+          </p>
+          <div className="mt-4 flex items-center text-sm font-semibold text-indigo-600 gap-1 group-hover:gap-2 transition-all">
+            Ir a Errores Críticos <ArrowRight className="w-3.5 h-3.5" />
+          </div>
+        </button>
+
+        {/* Action 3: Simulacro */}
+        <button
+          id="action-mock-exam"
+          onClick={() => onNavigate('mock_exam')}
+          className="group relative p-6 bg-white hover:bg-slate-50 text-slate-800 rounded-2xl text-left border border-slate-500 shadow-sm hover:shadow transition"
+        >
+          <div className="absolute top-0 right-0 p-8 text-indigo-50 group-hover:scale-110 transition-transform">
+            <HelpCircle className="w-20 h-20" />
+          </div>
+          <span className="inline-block px-2.5 py-1 text-xs font-semibold bg-indigo-50 text-indigo-600 border border-indigo-100 rounded-full uppercase tracking-wider mb-3">
+            Simulador Real
+          </span>
+          <h4 className="text-lg font-bold text-slate-800">Hacer Simulacro</h4>
+          <p className="text-sm text-slate-600 mt-1.5 min-h-[32px]">
+            Como el examen real: 50 preguntas + 5 de reserva, 60 minutos, por tema según las bases.
+          </p>
+          <div className="mt-4 flex items-center text-sm font-semibold text-indigo-600 gap-1 group-hover:gap-2 transition-all">
+            Iniciar Test <ArrowRight className="w-3.5 h-3.5" />
+          </div>
+        </button>
+
+        {/* Action 4: Curva del Olvido */}
+        <button
+          id="action-forgetting-curve"
+          onClick={() => onNavigate('forgetting_curve')}
+          className="group relative p-6 bg-white hover:bg-slate-50 text-slate-800 rounded-2xl text-left border border-slate-500 shadow-sm hover:shadow transition"
+        >
+          <div className="absolute top-0 right-0 p-8 text-amber-50 group-hover:scale-110 transition-transform">
+            <BarChart2 className="w-20 h-20" />
+          </div>
+          <span className="inline-block px-2.5 py-1 text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-100 rounded-full uppercase tracking-wider mb-3">
+            Análisis de Retención
+          </span>
+          <h4 className="text-lg font-bold text-slate-800">Curva de Olvido</h4>
+          <p className="text-sm text-slate-600 mt-1.5 min-h-[32px]">
+            Estabilidad de memoria y probabilidad de recuerdo en tiempo real.
+          </p>
+          <div className="mt-4 flex items-center text-sm font-semibold text-indigo-600 gap-1 group-hover:gap-2 transition-all">
+            Ver Gráficos de Memoria <ArrowRight className="w-3.5 h-3.5" />
+          </div>
+        </button>
+      </div>
+
       {/* Dynamic Streak and Cognitive Bias Analytics */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6" id="mira-cognitive-diagnostics-row">
         {/* Streak and Daily Progress Card */}
         <div className="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow transition flex flex-col justify-between" id="mira-streak-card">
-          <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3 mb-4">
             <div className="flex items-center gap-2">
               <div className="p-2 bg-rose-50 text-rose-500 rounded-lg">
                 <Flame className="w-5 h-5" />
               </div>
               <div>
                 <h4 className="text-sm font-bold text-slate-800">Dinamizador de Rachas</h4>
-                <p className="text-[10px] text-slate-400">Constancia de estudio</p>
+                <p className="text-xs text-slate-600">Constancia de estudio</p>
               </div>
             </div>
-            <span className={`px-2 py-0.5 text-[10px] font-bold rounded-md border ${levelStyle}`}>
+            <span className={`px-2 py-0.5 text-xs font-bold rounded-md border ${levelStyle}`}>
               {levelBadge.toUpperCase()}
             </span>
           </div>
 
           <div className="grid grid-cols-2 gap-4 my-3 text-center">
             <div className="p-4 bg-rose-50/30 border border-rose-500/10 rounded-xl">
-              <span className="text-[10px] text-slate-400 block font-mono">Racha de Estudio</span>
+              <span className="text-xs text-slate-600 block font-mono">Racha de Estudio</span>
               <span className="text-3xl font-extrabold text-rose-500 font-mono flex items-center justify-center gap-1">
-                {currentStreak} <span className="text-xs font-semibold text-slate-400">días</span>
+                {currentStreak} <span className="text-xs font-semibold text-slate-600">días</span>
               </span>
             </div>
             <div className="p-4 bg-indigo-50/30 border border-indigo-500/10 rounded-xl">
-              <span className="text-[10px] text-slate-400 block font-mono">Meta de Hoy</span>
+              <span className="text-xs text-slate-600 block font-mono">Meta de Hoy</span>
               <span className="text-3xl font-extrabold text-indigo-600 font-mono flex items-center justify-center gap-1">
-                {attemptsToday.length} <span className="text-xs font-semibold text-slate-400">/ {dailyTarget}</span>
+                {attemptsToday.length} <span className="text-xs font-semibold text-slate-600">/ {dailyTarget}</span>
               </span>
             </div>
           </div>
@@ -287,7 +376,7 @@ export default function Dashboard({
                 style={{ width: `${dailyProgressPercent}%` }}
               />
             </div>
-            <p className="text-[10px] text-slate-400 text-center italic mt-1">
+            <p className="text-xs text-slate-600 text-center italic mt-1">
               {attemptsToday.length >= dailyTarget
                 ? '¡Fabuloso! Meta diaria completada para este día de estudio.'
                 : `Responde ${dailyTarget - attemptsToday.length} preguntas más hoy para mantener viva tu racha cognitiva.`}
@@ -297,41 +386,41 @@ export default function Dashboard({
 
         {/* Cognitive Calibration Diagnostics */}
         <div className="p-6 bg-white border border-slate-100 rounded-2xl shadow-sm hover:shadow transition flex flex-col justify-between" id="mira-calibration-card">
-          <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
-            <div className="flex items-center gap-2">
-              <div className="p-2 bg-indigo-50 text-indigo-600 rounded-lg">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 pb-3 mb-4">
+            <div className="flex items-center gap-2 min-w-0">
+              <div className="p-2 bg-indigo-50 text-indigo-600 rounded-lg shrink-0">
                 <Target className="w-5 h-5" />
               </div>
-              <div>
+              <div className="min-w-0 break-words">
                 <h4 className="text-sm font-bold text-slate-800">Autocalibración & Sesgo</h4>
-                <p className="text-[10px] text-slate-400">Precisión de tu seguridad declarada</p>
+                <p className="text-xs text-slate-600">Precisión de tu seguridad declarada</p>
               </div>
             </div>
-            <span className="px-2 py-0.5 text-[10px] font-bold font-mono rounded-md border bg-indigo-50 text-indigo-600 border-indigo-100">
+            <span className="px-2 py-0.5 text-xs font-bold font-mono rounded-md border bg-indigo-50 text-indigo-600 border-indigo-100">
               {totalAttempts} INTENTOS
             </span>
           </div>
 
           <div className="space-y-3.5 my-1">
             {/* Status Indicator */}
-            <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-between">
+            <div className="p-3 bg-slate-50 rounded-xl border border-slate-100 flex flex-wrap items-center justify-between gap-2">
               <div>
-                <span className="text-[10px] text-slate-400 block font-mono">Diagnóstico Cognitivo:</span>
+                <span className="text-xs text-slate-600 block font-mono">Diagnóstico Cognitivo:</span>
                 <span className={`text-xs font-extrabold ${calibrationColor}`}>{calibrationStatus}</span>
               </div>
               <span className="text-xl font-black font-mono text-slate-700">{totalHigh > 0 ? `${calibrationIndex}%` : 'Sin datos'}</span>
             </div>
 
-            <p className="text-[10px] text-slate-500 leading-normal bg-slate-50/50 p-2.5 rounded-lg italic min-h-[36px]">
+            <p className="text-xs text-slate-500 leading-normal bg-slate-50/50 p-2.5 rounded-lg italic min-h-[36px]">
               {calibrationDesc}
             </p>
 
-            <div className="grid grid-cols-2 gap-3 text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-center">
               {/* Average response speed */}
               <div className="p-2 bg-slate-50 rounded-xl border border-slate-100 text-left pl-3 flex items-center gap-2">
-                <Zap className={`w-4 h-4 ${avgResponseTime === 0 ? 'text-slate-400' : avgResponseTime <= 15 ? 'text-emerald-500' : 'text-amber-500'}`} />
+                <Zap className={`w-4 h-4 ${avgResponseTime === 0 ? 'text-slate-600' : avgResponseTime <= 15 ? 'text-emerald-500' : 'text-amber-500'}`} />
                 <div>
-                  <span className="text-[9px] text-slate-400 block font-mono">Velocidad Media:</span>
+                  <span className="text-xs text-slate-600 block font-mono">Velocidad Media:</span>
                   <strong className="text-slate-700 text-xs font-mono">
                     {avgResponseTime > 0 ? `${avgResponseTime.toFixed(1)}s` : 'N/A'}
                   </strong>
@@ -342,7 +431,7 @@ export default function Dashboard({
               <div className="p-2 bg-slate-50 rounded-xl border border-slate-100 text-left pl-3 flex items-center gap-2">
                 <TrendingUp className={`w-4 h-4 ${insecurityIndex <= 20 ? 'text-emerald-500' : 'text-indigo-500'}`} />
                 <div>
-                  <span className="text-[9px] text-slate-400 block font-mono">Índice Inseguridad:</span>
+                  <span className="text-xs text-slate-600 block font-mono">Índice Inseguridad:</span>
                   <strong className="text-slate-700 text-xs font-mono">
                     {insecurityIndex}%
                   </strong>
@@ -351,95 +440,6 @@ export default function Dashboard({
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Main Actions Row */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" id="mira-dashboard-actions">
-        {/* Action 1: Entrenar */}
-        <button
-          id="action-train"
-          onClick={() => onNavigate('train')}
-          className="group relative p-6 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl text-left shadow-md hover:shadow-lg transition overflow-hidden border border-indigo-700"
-        >
-          <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform">
-            <Play className="w-20 h-20" />
-          </div>
-          <span className="inline-block px-2.5 py-1 text-[10px] font-semibold bg-indigo-500 text-indigo-100 rounded-full uppercase tracking-wider mb-3">
-            Algoritmo Adaptativo
-          </span>
-          <h4 className="text-lg font-bold">Entrenar Ahora</h4>
-          <p className="text-xs text-indigo-100/80 mt-1.5 min-h-[32px]">
-            {pendingCount > 0
-              ? `Tienes ${pendingCount} preguntas de repaso prioritario pendientes.`
-              : 'Al día. Estudia nuevos microconceptos o mantén tu dominio.'}
-          </p>
-          <div className="mt-4 flex items-center text-xs font-semibold text-white gap-1 group-hover:gap-2 transition-all">
-            Comenzar <ArrowRight className="w-3.5 h-3.5" />
-          </div>
-        </button>
-
-        {/* Action 2: Ver errores */}
-        <button
-          id="action-errors"
-          onClick={() => onNavigate('errors')}
-          className="group relative p-6 bg-white hover:bg-slate-50 text-slate-800 rounded-2xl text-left border border-slate-100 shadow-sm hover:shadow transition"
-        >
-          <div className="absolute top-0 right-0 p-8 text-rose-100 group-hover:scale-110 transition-transform">
-            <AlertTriangle className="w-20 h-20" />
-          </div>
-          <span className="inline-block px-2.5 py-1 text-[10px] font-semibold bg-rose-50 text-rose-600 border border-rose-100 rounded-full uppercase tracking-wider mb-3">
-            Análisis de Fallos
-          </span>
-          <h4 className="text-lg font-bold text-slate-800">Repasar Errores</h4>
-          <p className="text-xs text-slate-500 mt-1.5 min-h-[32px]">
-            Repasa confusiones frecuentes y sanea tus alertas de falso dominio.
-          </p>
-          <div className="mt-4 flex items-center text-xs font-semibold text-indigo-600 gap-1 group-hover:gap-2 transition-all">
-            Ir a Errores Críticos <ArrowRight className="w-3.5 h-3.5" />
-          </div>
-        </button>
-
-        {/* Action 3: Simulacro */}
-        <button
-          id="action-mock-exam"
-          onClick={() => onNavigate('mock_exam')}
-          className="group relative p-6 bg-white hover:bg-slate-50 text-slate-800 rounded-2xl text-left border border-slate-100 shadow-sm hover:shadow transition"
-        >
-          <div className="absolute top-0 right-0 p-8 text-indigo-50 group-hover:scale-110 transition-transform">
-            <HelpCircle className="w-20 h-20" />
-          </div>
-          <span className="inline-block px-2.5 py-1 text-[10px] font-semibold bg-indigo-50 text-indigo-600 border border-indigo-100 rounded-full uppercase tracking-wider mb-3">
-            Simulador Real
-          </span>
-          <h4 className="text-lg font-bold text-slate-800">Hacer Simulacro</h4>
-          <p className="text-xs text-slate-500 mt-1.5 min-h-[32px]">
-            Como el examen real: 50 preguntas + 5 de reserva, 60 minutos, por tema según las bases.
-          </p>
-          <div className="mt-4 flex items-center text-xs font-semibold text-indigo-600 gap-1 group-hover:gap-2 transition-all">
-            Iniciar Test <ArrowRight className="w-3.5 h-3.5" />
-          </div>
-        </button>
-
-        {/* Action 4: Curva del Olvido */}
-        <button
-          id="action-forgetting-curve"
-          onClick={() => onNavigate('forgetting_curve')}
-          className="group relative p-6 bg-white hover:bg-slate-50 text-slate-800 rounded-2xl text-left border border-slate-100 shadow-sm hover:shadow transition"
-        >
-          <div className="absolute top-0 right-0 p-8 text-amber-50 group-hover:scale-110 transition-transform">
-            <BarChart2 className="w-20 h-20" />
-          </div>
-          <span className="inline-block px-2.5 py-1 text-[10px] font-semibold bg-amber-50 text-amber-600 border border-amber-100 rounded-full uppercase tracking-wider mb-3">
-            Análisis de Retención
-          </span>
-          <h4 className="text-lg font-bold text-slate-800">Curva de Olvido</h4>
-          <p className="text-xs text-slate-500 mt-1.5 min-h-[32px]">
-            Estabilidad de memoria y probabilidad de recuerdo en tiempo real.
-          </p>
-          <div className="mt-4 flex items-center text-xs font-semibold text-indigo-600 gap-1 group-hover:gap-2 transition-all">
-            Ver Gráficos de Memoria <ArrowRight className="w-3.5 h-3.5" />
-          </div>
-        </button>
       </div>
 
       {/* Student Consultation Help Card */}
@@ -453,14 +453,14 @@ export default function Dashboard({
           </div>
           <div>
             <h5 className="font-semibold text-sm text-slate-800">¿Quieres repasar primero el temario?</h5>
-            <p className="text-xs text-slate-500">Elige un tema del temario oficial y entrena de forma quirúrgica sobre tus fallos.</p>
+            <p className="text-sm text-slate-600">Elige un tema del temario oficial y entrena de forma quirúrgica sobre tus fallos.</p>
           </div>
         </div>
         <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
           <button
             id="btn-nav-study"
             onClick={() => onNavigate('study_by_topic')}
-            className="w-full sm:w-auto px-4 py-2 text-xs font-semibold bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-xl transition border border-indigo-100 text-center"
+            className="w-full sm:w-auto min-h-11 px-4 py-2 text-sm font-semibold bg-indigo-50 hover:bg-indigo-100 text-indigo-800 rounded-xl transition border border-indigo-600 text-center"
           >
             Estudiar por temas
           </button>
@@ -471,7 +471,7 @@ export default function Dashboard({
                 onReset();
               }
             }}
-            className="p-2 text-slate-400 hover:text-rose-500 bg-white hover:bg-rose-50 border border-slate-200 hover:border-rose-100 rounded-xl transition"
+            className="min-h-11 min-w-11 flex items-center justify-center text-slate-600 hover:text-rose-600 bg-white hover:bg-rose-50 border border-slate-500 hover:border-rose-600 rounded-xl transition"
             title="Restablecer todo el progreso"
             aria-label="Restablecer todo el progreso"
           >

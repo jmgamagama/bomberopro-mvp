@@ -125,7 +125,6 @@ describe('guardado pendiente con la aplicación completa', () => {
     expect(screen.getByRole('heading', { name: questionA.question })).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: questionA.correct_answer }));
     fireEvent.click(document.querySelector('#conf-btn-alta')!);
-    fireEvent.click(screen.getByRole('button', { name: /confirmar respuesta/i }));
     fireEvent.click(document.querySelector('#nav-btn-dashboard')!);
     fireEvent.click(screen.getByRole('button', { name: /entrenar ahora/i }));
     await waitFor(() => expect(resolveSecond).toBeTypeOf('function'));

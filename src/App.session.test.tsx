@@ -37,7 +37,6 @@ describe('finite training session', () => {
       expect(screen.getByText(`Pregunta ${index + 1} de 2`)).toBeInTheDocument();
       await user.click(screen.getByRole('button', { name: question.correct_answer }));
       await user.click(screen.getByRole('button', { name: /alta.*totalmente seguro/i }));
-      await user.click(screen.getByRole('button', { name: /confirmar respuesta/i }));
       expect(screen.getByText(`Pregunta ${index + 1} de 2`)).toBeInTheDocument();
       await user.click(screen.getByRole('button', { name: /siguiente pregunta/i }));
     }
