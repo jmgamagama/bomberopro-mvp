@@ -78,7 +78,9 @@ const tapTargetsOk = async (locator) => {
   await mobile.getByRole('button', { name: 'Recuerdo' }).click();
   const tablist = page.getByRole('tablist', { name: 'Temas de recuerdo' });
   await tablist.waitFor();
-  check('recuerdo: 6 pestañas de tema (T16, T35, T36, T38, T39, T40)', (await tablist.getByRole('tab').count()) === 6);
+  // Nº de temas esperados en Recuerdo (fase 1: 6; fase 2 añade 3, 31, 6, 1, 7, 33, 32 y 2).
+  const N_TEMAS = Number(process.env.N_TEMAS || 14);
+  check(`recuerdo: ${N_TEMAS} pestañas de tema`, (await tablist.getByRole('tab').count()) === N_TEMAS, String(await tablist.getByRole('tab').count()));
   check('recuerdo: temas agrupados por bloque (Parte específica)', await page.locator('#recall-bloque-especifica').isVisible()
     && /Parte específica/i.test(await page.locator('#recall-bloque-especifica').textContent()));
   check('recuerdo sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
@@ -109,6 +111,15 @@ const tapTargetsOk = async (locator) => {
   await page.evaluate(() => window.scrollTo(0, 0));
   await page.waitForTimeout(400);
   await page.screenshot({ path: `${OUT}/recuerdo-fase1-360.png` });
+
+  // Fase 2: tema 3 (LBRL, 66 fichas desde el texto consolidado del BOE)
+  await tablist.getByRole('tab', { name: /^T3 ·/ }).click();
+  await page.getByText('Ficha 1 de 66').waitFor();
+  check('recuerdo T3: 66 fichas LBRL (fase 2)', (await tablist.getByRole('tab', { name: /^T3 ·/ }).getAttribute('aria-selected')) === 'true');
+  check('recuerdo T3 sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(400);
+  await page.screenshot({ path: `${OUT}/recuerdo-fase2-360.png` });
 
   // Sesión diaria
   await mobile.getByRole('button', { name: 'Diaria' }).click();
