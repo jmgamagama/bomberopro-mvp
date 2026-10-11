@@ -89,6 +89,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 28,
+      title: "Tema 28 · Electricidad: riesgo eléctrico, redes y procedimientos (RD 614/2001, REBT y RLAT)",
+      count: 29,
+      source: "Fase 4 · RD 614/2001 (BOE-A-2001-11881) y REBT (BOE-A-2002-18099), últ. act. 18/12/2025; RD 223/2008 (BOE-A-2008-5269), últ. act. 19/12/2025",
+    },
+    load: () => import('./tema28Recall').then((m) => m.TEMA28_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 12,
       title: "Tema 12 · Mecanismos de extinción, agentes y extintores (RIPCI e INSST)",
       count: 21,
