@@ -89,6 +89,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 4,
+      title: "Tema 4 · Estructura orgánica de la Diputación de Badajoz (acuerdo de 29/10/2025)",
+      count: 28,
+      source: "Fase 3 · acuerdo de reorganización de la estructura orgánica (BOP Badajoz nº 206, anuncio 4611/2025, 29/10/2025)",
+    },
+    load: () => import('./tema4Recall').then((m) => m.TEMA4_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 13,
       title: "Tema 13 · Equipos de protección individual: RD 773/1997 y Reglamento (UE) 2016/425",
       count: 25,
