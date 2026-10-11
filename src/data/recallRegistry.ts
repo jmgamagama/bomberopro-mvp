@@ -89,6 +89,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 25,
+      title: "Tema 25 · Mercancías peligrosas: ADR 2025 (conceptos, cisternas, panel naranja, placas-etiquetas y actuación)",
+      count: 47,
+      source: "Fase 3 · ADR 2025, Anejos A y B (BOE-A-2025-77, BOE nº 3 de 03/01/2025)",
+    },
+    load: () => import('./tema25Recall').then((m) => m.TEMA25_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 26,
       title: "Tema 26 · Guías INSARAG Vol. II, Manual B: Operaciones",
       count: 60,
