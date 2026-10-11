@@ -88,6 +88,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 29,
+      title: "Tema 29 · PLATERCAEX: objetivo, alcance, estructura y operatividad",
+      count: 81,
+      source: "Fase 3 · PLATERCAEX (Decreto 187/2019, DOE nº 247 de 26/12/2019), texto íntegro oficial en juntaex.es (PDF de 31/01/2020)",
+    },
+    load: () => import('./tema29Recall').then((m) => m.TEMA29_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 2,
       title: "Tema 2 · El Estatuto de Autonomía de Extremadura",
       count: 121,
