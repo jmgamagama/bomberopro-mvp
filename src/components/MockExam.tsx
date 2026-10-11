@@ -25,7 +25,8 @@ interface MockExamProps {
       confidence: ConfidenceLevel;
       responseTime: number;
       answerChanges: number;
-    }[]
+    }[],
+    totalQuestions?: number
   ) => void;
   onNavigateHome: () => void;
   /**
@@ -244,7 +245,7 @@ export default function MockExam({
     setExamFinished(true);
     
     // Save attempts in the primary database (only for answered questions, including reserve if answered)
-    onFinishExam(submissionResults.filter(r => r.answered));
+    onFinishExam(submissionResults.filter(r => r.answered), submissionResults.length);
   };
 
   useEffect(() => {
