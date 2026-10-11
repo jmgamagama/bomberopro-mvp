@@ -89,6 +89,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 13,
+      title: "Tema 13 · Equipos de protección individual: RD 773/1997 y Reglamento (UE) 2016/425",
+      count: 25,
+      source: "Fase 3 · RD 773/1997 (BOE-A-1997-12735, últ. act. 18/12/2025) y Reglamento (UE) 2016/425 (EUR-Lex)",
+    },
+    load: () => import('./tema13Recall').then((m) => m.TEMA13_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 17,
       title: "Tema 17 · Socorrismo: desfibriladores fuera del ámbito sanitario (RD 365/2009)",
       count: 14,
