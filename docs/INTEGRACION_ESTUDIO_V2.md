@@ -34,3 +34,7 @@ Sale de `feat/temas-fase2-oficial`, ya incluida aquí: `git fetch release && git
 - Fusionado origin/main f3b466a (#101 «UX móvil», Claude). Conflictos solo de clases CSS en `App.tsx`, `Dashboard.tsx` y `StudentConsultationModal.tsx`: se adoptan las de #101 (contraste/tamaños WCAG; ya incluyen `min-h-11`).
 - Fusionado exactamente 38cd56d de `feat/temas-fase3-oficial` (temas 22, 25, 26, 29, 30 y 34 lotes 01-02) sin conflictos. Registro: 2406 fichas, 28 mazos, 20 temas.
 - Para el resto de fase 3: `git fetch release && git merge release/feat/temas-fase3-oficial`.
+
+## Actualización: fase 3 hasta 689431e
+- origin/main sin cambios (f3b466a). Fusionado 689431e sin conflictos (temas 4, 5, 13, 14, 16 lote 2, 17, 20, 21, 23, 24 y 27).
+- Registro: 2674 fichas, 39 mazos, 30 temas.
