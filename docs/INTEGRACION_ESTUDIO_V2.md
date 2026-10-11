@@ -1,0 +1,31 @@
+# Integración estudio v2
+
+Rama `integracion/estudio-v2` = `origin/main` (5c5eb03, PR #95) + cadena local `release/estudio-v1 … feat/temas-fase2-oficial` (fd6dc5a) + `fix/anexo1-bop` (225fec8).
+
+## Conflictos resueltos
+- `.gitignore`: se conservan ambas reglas (`content/`, `supabase/migrations/*_datos_*.sql` de main y `pwa-capturas/` nuestra).
+- `vercel.json`: se conserva `buildCommand: npm run build:deploy` de main y las cabeceras de caché de la PWA (sw.js, manifest, index.html sin caché; assets inmutables).
+- `src/App.tsx`: unión de pantallas. Main aporta `concept_t40` («Estudiar hoy») y `my_reports` («Mis reportes»); nosotros `recuerdo`, `sesion_diaria`, `ordena_pasos`, `onboarding`, `planes`. Se mantiene el arranque en bienvenida si no se completó el onboarding.
+- `src/components/Dashboard.tsx`: botón `btn-nav-study` con destino y texto de main («Estudiar por temas» → `study_by_topic`) y nuestra altura táctil `min-h-11`.
+- Lógica de Supabase, outbox (`useAttemptSync`, `conceptEngine`) y migraciones: sin cambios respecto a main.
+
+## Funciones solapadas (ambas accesibles)
+| Función | Origen | Acceso | Datos |
+|---|---|---|---|
+| **Estudiar hoy** (`concept_t40`, `ConceptStudy`) | Claude (#89, #91, #93) | Tarjeta grande en el panel, solo con sesión iniciada y Supabase | Motor de conceptos en servidor (temas 35, 39, 40), «una sola memoria» |
+| **Sesión diaria** (`sesion_diaria`) | Nuestra | Navegación lateral/inferior y bienvenida | Fichas de recuerdo locales + repaso espaciado `mira_recall_srs_v1` (localStorage) |
+| **Recuerdo** (`recuerdo`) | Nuestra | Navegación | Registro de fichas de todos los temas |
+
+No se duplica navegación: «Estudiar hoy» sigue solo como tarjeta del panel; «Sesión diaria» solo en la barra de navegación.
+
+## Cómo unificarlas después (propuesta, no implementada)
+1. Mapear cada ficha de recuerdo a un `concept_id` del motor (donde exista) y que la valoración de la ficha emita un `concept_event` por la misma vía/outbox que el resto de pantallas («una sola memoria»).
+2. Usar `mira_recall_srs_v1` solo como caché offline/invitado; con sesión, la fuente de verdad pasa a ser el servidor (migrar estados locales una vez, idempotente).
+3. Fusionar en una sola entrada «Estudiar hoy» que mezcle preguntas del motor y fichas pendientes; mantener «Sesión diaria» como modo invitado/demo.
+4. Esto requiere nueva migración y revisión de Codex/Claude: no hacerlo sin acordarlo.
+
+## PWA
+`pwa.config.ts`: todas las peticiones a Supabase (`*.supabase.co|in` y el dominio de `VITE_SUPABASE_URL`: REST, RPC, Auth, Storage) son `NetworkOnly` y quedan fuera del `navigateFallback`; el outbox vive en localStorage y no depende del service worker.
+
+## Integrar después `feat/temas-fase3-oficial`
+Sale de `feat/temas-fase2-oficial`, ya incluida aquí: `git fetch release && git merge release/feat/temas-fase3-oficial` sobre esta rama. Solo deberían aparecer conflictos en registros de temas (índice de fichas), sumando entradas de ambos lados. Repetir vitest, tsc, build y pwa-movil-check.
