@@ -88,6 +88,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 6,
+      title: "Tema 6 · Ley 31/1995 de Prevención de Riesgos Laborales",
+      count: 94,
+      source: "Fase 2 · texto consolidado BOE-A-1995-24292 (caps. I-IV, arts. 1-32 bis; últ. act. 09/04/2026)",
+    },
+    load: () => import('./tema6Recall').then((m) => m.TEMA6_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 31,
       title: "Tema 31 · RD 1215/1997: utilización de los equipos de trabajo",
       count: 83,
