@@ -1,0 +1,397 @@
+{
+ "tema": 23,
+ "titulo": "Tema 23 · Inundaciones: Plan Estatal de Protección Civil ante el Riesgo de Inundaciones",
+ "epigrafe_bop": "Intervención en inundaciones, ríos y riadas: Definición de crecida y los factores del proceso, daños, áreas inundables. Catálogo de riesgos de la actividad y factores que influyen en la inundación. Características de las inundaciones y medidas de mitigación. Técnicas de rescate en aguas superficiales: configuración y conocimiento de los ríos. Material de rescate en el medio acuático. Principios y técnicas del rescate: fases del salvamento, comunicaciones y señales. Primeros auxilios en ahogados.",
+ "normas": [
+  {
+   "id": "BOE-A-2011-14277",
+   "norma": "Plan Estatal de Protección Civil ante el Riesgo de Inundaciones (Acuerdo del Consejo de Ministros de 29/07/2011)",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277",
+   "ultima_actualizacion": "19/12/2025",
+   "tipo": "texto consolidado del BOE"
+  }
+ ],
+ "estado": "cargado",
+ "propuestas": 23,
+ "entran_tras_filtro": 21,
+ "descartadas": [
+  {
+   "norma": "PEI",
+   "bloque": "A1",
+   "apartado": "apdo. 1.1",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿en qué tipos se encuadran las inundaciones consideradas?",
+   "respuesta": "Inundaciones por precipitación «in situ»; inundaciones por escorrentía, avenida o desbordamiento de cauces; inundaciones por rotura o la operación incorrecta de obras de infraestructura hidráulica",
+   "motivo": "respuesta no localizada en el artículo citado (score 0.67)"
+  },
+  {
+   "norma": "PEI",
+   "bloque": "A1",
+   "apartado": "apdo. 1.1",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué riesgo natural produce más habitualmente daños a las personas y los bienes?",
+   "respuesta": "Las inundaciones",
+   "motivo": "respuesta dentro de la pregunta"
+  }
+ ],
+ "cobertura": {
+  "Tipos de inundación, causas, marco normativo, zonas inundables (SNCZI)": "cubierto",
+  "Fases y situaciones; organización estatal": "cubierto",
+  "Técnicas y material de rescate acuático, señales y primeros auxilios en ahogados": "PENDIENTE: sin norma oficial; requieren manuales técnicos"
+ },
+ "muestra_revisada": [
+  {
+   "id": "CPEI-T23-OF-0C35FF39",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿a quién corresponde la declaración de interés nacional de una emergencia por inundaciones?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T23-OF-DBB24F6A",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿cuándo se aprobó la Directriz Básica de Protección Civil ante el Riesgo de Inundaciones?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T23-OF-81BA774E",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿a quién corresponde la Dirección Operativa de las emergencias declaradas de interés nacional?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T23-OF-4C7053A2",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿hasta cuándo se prolonga la fase de normalización?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T23-OF-B2D2D991",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué define la situación 0 de la fase de emergencia?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T23-OF-F058C5CE",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué causas pueden provocar o potenciar las inundaciones por escorrentía, avenida o desbordamiento de cauces?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T23-OF-7D8DB258",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué sistema es la referencia cartográfica para delimitar las zonas con riesgo de inundaciones?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T23-OF-A3F66CD8",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿quién declara la situación 3?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T23-OF-6488270B",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué define la situación 1?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T23-OF-ACB42C66",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué define la situación 2?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T23-OF-2B32A458",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿a quién corresponden los medios de vigilancia y seguimiento en inundaciones por precipitación «in situ»?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T23-OF-7D057DD1",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué niveles de planificación considera la Directriz de Inundaciones?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T23-OF-5A45E1BC",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿quién preside el Consejo de Dirección del Plan Estatal?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T23-OF-0FEE7093",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué real decreto rige la identificación del riesgo de inundaciones?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T23-OF-1D1D3C3D",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿cuál es el objetivo general de la fase de pre-emergencia?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T23-OF-21F69FB8",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué apartado de la Norma Básica de Protección Civil dispone que el riesgo de inundaciones será objeto de planes especiales?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T23-OF-CD1B1372",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué directiva europea traspone el RD 903/2010?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T23-OF-26AD74A5",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué caracteriza a la fase de pre-emergencia?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T23-OF-0FD68107",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué tres zonas climatológicas se distinguen en España de forma muy general?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T23-OF-9A169C5D",
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿quién ejerce la vicepresidencia del Consejo de Dirección del Plan Estatal?",
+   "veredicto": "OK",
+   "nota": ""
+  }
+ ],
+ "errores_muestra": 0,
+ "pct_errores_muestra": 0.0,
+ "fichas": [
+  {
+   "id": "CPEI-T23-OF-0FD68107",
+   "orden": 10,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué tres zonas climatológicas se distinguen en España de forma muy general?",
+   "respuesta": "Una de clara influencia atlántica, otra de influencia mediterránea y otra continental",
+   "fuente": "Plan Estatal de Inundaciones, 1. Objeto y ámbito, apdo. 1.1. BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A1",
+   "localizacion": "Plan Estatal de Inundaciones, 1. Objeto y ámbito, apdo. 1.1",
+   "apartado": "Tipos de inundación y marco",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A1"
+  },
+  {
+   "id": "CPEI-T23-OF-F058C5CE",
+   "orden": 20,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué causas pueden provocar o potenciar las inundaciones por escorrentía, avenida o desbordamiento de cauces?",
+   "respuesta": "Precipitaciones, deshielo o fusión de nieve, obstrucción de cauces naturales o artificiales, invasión de cauces, aterramientos o dificultad de avenamiento y acción de las mareas",
+   "fuente": "Plan Estatal de Inundaciones, 1. Objeto y ámbito, apdo. 1.1. BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A1",
+   "localizacion": "Plan Estatal de Inundaciones, 1. Objeto y ámbito, apdo. 1.1",
+   "apartado": "Tipos de inundación y marco",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A1"
+  },
+  {
+   "id": "CPEI-T23-OF-DBB24F6A",
+   "orden": 30,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿cuándo se aprobó la Directriz Básica de Protección Civil ante el Riesgo de Inundaciones?",
+   "respuesta": "Por Acuerdo del Consejo de Ministros, de 9 de diciembre de 1994",
+   "fuente": "Plan Estatal de Inundaciones, 1. Objeto y ámbito, apdo. 1.2. BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A1",
+   "localizacion": "Plan Estatal de Inundaciones, 1. Objeto y ámbito, apdo. 1.2",
+   "apartado": "Tipos de inundación y marco",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A1"
+  },
+  {
+   "id": "CPEI-T23-OF-7D057DD1",
+   "orden": 40,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué niveles de planificación considera la Directriz de Inundaciones?",
+   "respuesta": "Estatal, autonómico y de ámbito local",
+   "fuente": "Plan Estatal de Inundaciones, 1. Objeto y ámbito, apdo. 1.2. BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A1",
+   "localizacion": "Plan Estatal de Inundaciones, 1. Objeto y ámbito, apdo. 1.2",
+   "apartado": "Tipos de inundación y marco",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A1"
+  },
+  {
+   "id": "CPEI-T23-OF-21F69FB8",
+   "orden": 50,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué apartado de la Norma Básica de Protección Civil dispone que el riesgo de inundaciones será objeto de planes especiales?",
+   "respuesta": "Apartado 6",
+   "fuente": "Plan Estatal de Inundaciones, 1. Objeto y ámbito, apdo. 1.2. BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A1",
+   "localizacion": "Plan Estatal de Inundaciones, 1. Objeto y ámbito, apdo. 1.2",
+   "apartado": "Tipos de inundación y marco",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A1"
+  },
+  {
+   "id": "CPEI-T23-OF-0FEE7093",
+   "orden": 60,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué real decreto rige la identificación del riesgo de inundaciones?",
+   "respuesta": "Real Decreto 903/2010, de 9 de julio, de evaluación y gestión de riesgos de inundación",
+   "fuente": "Plan Estatal de Inundaciones, 2. Identificación del riesgo de inundaciones en España, apdo. 2. BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A2",
+   "localizacion": "Plan Estatal de Inundaciones, 2. Identificación del riesgo de inundaciones en España, apdo. 2",
+   "apartado": "Tipos de inundación y marco",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A2"
+  },
+  {
+   "id": "CPEI-T23-OF-7D8DB258",
+   "orden": 70,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué sistema es la referencia cartográfica para delimitar las zonas con riesgo de inundaciones?",
+   "respuesta": "El Sistema Nacional de Cartografía de Zonas Inundables (SNCZI)",
+   "fuente": "Plan Estatal de Inundaciones, 2. Identificación del riesgo de inundaciones en España, apdo. 2. BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A2",
+   "localizacion": "Plan Estatal de Inundaciones, 2. Identificación del riesgo de inundaciones en España, apdo. 2",
+   "apartado": "Tipos de inundación y marco",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A2"
+  },
+  {
+   "id": "CPEI-T23-OF-CD1B1372",
+   "orden": 80,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué directiva europea traspone el RD 903/2010?",
+   "respuesta": "La Directiva Europea de Inundaciones (2007/60/CE)",
+   "fuente": "Plan Estatal de Inundaciones, 2. Identificación del riesgo de inundaciones en España, apdo. 2. BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A2",
+   "localizacion": "Plan Estatal de Inundaciones, 2. Identificación del riesgo de inundaciones en España, apdo. 2",
+   "apartado": "Tipos de inundación y marco",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A2"
+  },
+  {
+   "id": "CPEI-T23-OF-26AD74A5",
+   "orden": 90,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué caracteriza a la fase de pre-emergencia?",
+   "respuesta": "La existencia de información sobre la posibilidad de ocurrencia de sucesos capaces de dar lugar a inundaciones",
+   "fuente": "Plan Estatal de Inundaciones, 4. Fases y situaciones, apdo. 4.A). BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A4",
+   "localizacion": "Plan Estatal de Inundaciones, 4. Fases y situaciones, apdo. 4.A)",
+   "apartado": "Fases y situaciones",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A4"
+  },
+  {
+   "id": "CPEI-T23-OF-1D1D3C3D",
+   "orden": 100,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿cuál es el objetivo general de la fase de pre-emergencia?",
+   "respuesta": "La alerta de las autoridades y servicios implicados en el plan correspondiente, así como la información a la población potencialmente afectada",
+   "fuente": "Plan Estatal de Inundaciones, 4. Fases y situaciones, apdo. 4.A). BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A4",
+   "localizacion": "Plan Estatal de Inundaciones, 4. Fases y situaciones, apdo. 4.A)",
+   "apartado": "Fases y situaciones",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A4"
+  },
+  {
+   "id": "CPEI-T23-OF-2B32A458",
+   "orden": 110,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿a quién corresponden los medios de vigilancia y seguimiento en inundaciones por precipitación «in situ»?",
+   "respuesta": "A la Agencia Estatal de Meteorología",
+   "fuente": "Plan Estatal de Inundaciones, 4. Fases y situaciones, apdo. 4.A). BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A4",
+   "localizacion": "Plan Estatal de Inundaciones, 4. Fases y situaciones, apdo. 4.A)",
+   "apartado": "Fases y situaciones",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A4"
+  },
+  {
+   "id": "CPEI-T23-OF-60055403",
+   "orden": 120,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿con qué organismos se sigue la evolución hidrológica de los desbordamientos?",
+   "respuesta": "Con las diferentes Confederaciones Hidrográficas",
+   "fuente": "Plan Estatal de Inundaciones, 4. Fases y situaciones, apdo. 4.A). BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A4",
+   "localizacion": "Plan Estatal de Inundaciones, 4. Fases y situaciones, apdo. 4.A)",
+   "apartado": "Fases y situaciones",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A4"
+  },
+  {
+   "id": "CPEI-T23-OF-B2D2D991",
+   "orden": 130,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué define la situación 0 de la fase de emergencia?",
+   "respuesta": "Las informaciones meteorológicas e hidrológicas permiten prever la inminencia de inundaciones en el ámbito del Plan, con peligro para personas y bienes",
+   "fuente": "Plan Estatal de Inundaciones, 4. Fases y situaciones, apdo. 4.B). BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A4",
+   "localizacion": "Plan Estatal de Inundaciones, 4. Fases y situaciones, apdo. 4.B)",
+   "apartado": "Fases y situaciones",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A4"
+  },
+  {
+   "id": "CPEI-T23-OF-6488270B",
+   "orden": 140,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué define la situación 1?",
+   "respuesta": "Se han producido inundaciones en zonas localizadas, cuya atención puede quedar asegurada mediante el empleo de los medios y recursos disponibles en las zonas afectadas",
+   "fuente": "Plan Estatal de Inundaciones, 4. Fases y situaciones, apdo. 4.B). BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A4",
+   "localizacion": "Plan Estatal de Inundaciones, 4. Fases y situaciones, apdo. 4.B)",
+   "apartado": "Fases y situaciones",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A4"
+  },
+  {
+   "id": "CPEI-T23-OF-ACB42C66",
+   "orden": 150,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué define la situación 2?",
+   "respuesta": "Se han producido inundaciones que superan la capacidad de atención de los medios y recursos disponibles",
+   "fuente": "Plan Estatal de Inundaciones, 4. Fases y situaciones, apdo. 4.B). BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A4",
+   "localizacion": "Plan Estatal de Inundaciones, 4. Fases y situaciones, apdo. 4.B)",
+   "apartado": "Fases y situaciones",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A4"
+  },
+  {
+   "id": "CPEI-T23-OF-A3F66CD8",
+   "orden": 160,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿quién declara la situación 3?",
+   "respuesta": "El/la Ministro/a de Interior",
+   "fuente": "Plan Estatal de Inundaciones, 4. Fases y situaciones, apdo. 4.B). BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A4",
+   "localizacion": "Plan Estatal de Inundaciones, 4. Fases y situaciones, apdo. 4.B)",
+   "apartado": "Fases y situaciones",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A4"
+  },
+  {
+   "id": "CPEI-T23-OF-4C7053A2",
+   "orden": 170,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿hasta cuándo se prolonga la fase de normalización?",
+   "respuesta": "Hasta el restablecimiento de las condiciones mínimas imprescindibles para el retorno a la normalidad en las zonas afectadas por la inundación",
+   "fuente": "Plan Estatal de Inundaciones, 4. Fases y situaciones, apdo. 4.C). BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A4",
+   "localizacion": "Plan Estatal de Inundaciones, 4. Fases y situaciones, apdo. 4.C)",
+   "apartado": "Fases y situaciones",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A4"
+  },
+  {
+   "id": "CPEI-T23-OF-0C35FF39",
+   "orden": 180,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿a quién corresponde la declaración de interés nacional de una emergencia por inundaciones?",
+   "respuesta": "Al o a la Ministro/a del Interior",
+   "fuente": "Plan Estatal de Inundaciones, 5. Organización, apdo. 5. BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A5",
+   "localizacion": "Plan Estatal de Inundaciones, 5. Organización, apdo. 5",
+   "apartado": "Organización",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A5"
+  },
+  {
+   "id": "CPEI-T23-OF-5A45E1BC",
+   "orden": 190,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿quién preside el Consejo de Dirección del Plan Estatal?",
+   "respuesta": "Ministro/a del Interior",
+   "fuente": "Plan Estatal de Inundaciones, 5. Organización, apdo. 5.1.1. BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A5",
+   "localizacion": "Plan Estatal de Inundaciones, 5. Organización, apdo. 5.1.1",
+   "apartado": "Organización",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A5"
+  },
+  {
+   "id": "CPEI-T23-OF-9A169C5D",
+   "orden": 200,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿quién ejerce la vicepresidencia del Consejo de Dirección del Plan Estatal?",
+   "respuesta": "Subsecretario/a del Interior",
+   "fuente": "Plan Estatal de Inundaciones, 5. Organización, apdo. 5.1.1. BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A5",
+   "localizacion": "Plan Estatal de Inundaciones, 5. Organización, apdo. 5.1.1",
+   "apartado": "Organización",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A5"
+  },
+  {
+   "id": "CPEI-T23-OF-81BA774E",
+   "orden": 210,
+   "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿a quién corresponde la Dirección Operativa de las emergencias declaradas de interés nacional?",
+   "respuesta": "A la persona que ocupa el cargo de General Jefe de la Unidad Militar de Emergencias",
+   "fuente": "Plan Estatal de Inundaciones, 5. Organización, apdo. 5.2. BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A5",
+   "localizacion": "Plan Estatal de Inundaciones, 5. Organización, apdo. 5.2",
+   "apartado": "Organización",
+   "norma": "BOE-A-2011-14277",
+   "bloque_boe": "A5"
+  }
+ ]
+}

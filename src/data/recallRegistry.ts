@@ -89,6 +89,15 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 23,
+      title: "Tema 23 · Inundaciones: Plan Estatal de Protección Civil ante el Riesgo de Inundaciones",
+      count: 21,
+      source: "Fase 3 · texto consolidado BOE-A-2011-14277 (Plan Estatal de Inundaciones; últ. act. 19/12/2025)",
+    },
+    load: () => import('./tema23Recall').then((m) => m.TEMA23_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 24,
       title: "Tema 24 · Marco legal: RD 630/2013, Catálogo español de especies exóticas invasoras",
       count: 19,
