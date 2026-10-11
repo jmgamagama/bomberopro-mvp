@@ -38,3 +38,7 @@ Sale de `feat/temas-fase2-oficial`, ya incluida aquí: `git fetch release && git
 ## Actualización: fase 3 hasta 689431e
 - origin/main sin cambios (f3b466a). Fusionado 689431e sin conflictos (temas 4, 5, 13, 14, 16 lote 2, 17, 20, 21, 23, 24 y 27).
 - Registro: 2674 fichas, 39 mazos, 30 temas.
+
+## Actualización: fase 4 hasta b3593d6
+- origin/main sin cambios (f3b466a). Fusionado b3593d6 de `feat/temas-fase4-oficial` sin conflictos (temas 8, 10, 12 y 28).
+- Registro: 2783 fichas, 43 mazos, 34 temas.
