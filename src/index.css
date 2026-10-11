@@ -17,3 +17,10 @@
     }
   }
 }
+
+/* Auditoría UX móvil (11-oct-2026): con el texto ampliado al 200 % las palabras largas
+   (identificadores, nombres de tema) desbordaban en horizontal. Solo parte una palabra
+   cuando no cabe entera en su línea. */
+#mira-app-root {
+  overflow-wrap: anywhere;
+}

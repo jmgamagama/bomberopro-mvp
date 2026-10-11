@@ -73,7 +73,7 @@ export default function ReportQuestionButton({ questionId, onReported, className
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className={`inline-flex items-center gap-1.5 rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-slate-600 hover:border-red-200 hover:bg-red-50 hover:text-red-700 ${className}`}
+        className={`inline-flex min-h-11 items-center gap-1.5 rounded-xl border border-slate-500 bg-white px-3 py-1.5 text-sm font-semibold text-slate-700 hover:border-red-600 hover:bg-red-50 hover:text-red-700 ${className}`}
       >
         <Flag className="h-3.5 w-3.5" aria-hidden="true" />
         <span>Reportar pregunta</span>
