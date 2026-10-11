@@ -279,6 +279,17 @@ export default function App() {
 
   const serverMode = Boolean(session?.user?.id) && !isDemoMode;
 
+  // Auditoría UX móvil (11-oct-2026): al cambiar de pantalla o de pregunta se conservaba el
+  // desplazamiento anterior y el test se abría con el enunciado fuera de la pantalla.
+  useEffect(() => {
+    if (typeof window === 'undefined' || typeof window.scrollTo !== 'function') return;
+    try {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    } catch {
+      /* entornos sin desplazamiento (pruebas) */
+    }
+  }, [currentScreen, activeQuestion?.id]);
+
   const startTrainingSession = async (targetId: string | null) => {
     const request = ++trainingRequest.current;
     const owner = authUserId.current;
@@ -559,20 +570,22 @@ export default function App() {
         <div
           role="region"
           aria-label="Aviso de modo demostración"
-          className="bg-amber-400 text-slate-950 px-4 py-2 text-xs font-semibold shadow-xs"
+          className="bg-amber-400 text-slate-950 px-3 sm:px-4 py-1.5 text-sm font-semibold shadow-xs"
         >
-          <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-            <div className="flex items-center gap-2 text-center sm:text-left">
-              <span className="w-2 h-2 rounded-full bg-amber-900 animate-pulse shrink-0" aria-hidden="true" />
+          <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
+            <div className="flex items-center gap-2 text-left">
+              <span className="hidden sm:block w-2 h-2 rounded-full bg-amber-900 animate-pulse shrink-0" aria-hidden="true" />
               <span>
-                <strong>Modo demostración (Solo lectura)</strong>: Explorando una primera sesión de estudio sin cuenta ni persistencia de datos.
+                <strong><span className="sm:hidden">Demo</span><span className="hidden sm:inline">Modo demostración</span></strong>
+                <span className="sm:hidden">: no se guarda nada.</span>
+                <span className="hidden sm:inline"> (Solo lectura): Explorando una primera sesión de estudio sin cuenta ni persistencia de datos.</span>
               </span>
             </div>
             <button
               type="button"
               id="btn-exit-demo"
               onClick={handleExitDemo}
-              className="px-2.5 py-1 bg-slate-950 hover:bg-slate-800 text-white rounded-lg text-xs font-bold transition shrink-0 cursor-pointer"
+              className="min-h-11 px-2.5 py-1 bg-slate-950 hover:bg-slate-800 text-white rounded-lg text-sm font-bold transition shrink-0 cursor-pointer"
             >
               Salir de la demo
             </button>
@@ -590,12 +603,13 @@ export default function App() {
       </p>
 
       {/* Top Main Navigation Bar */}
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm" id="mira-header">
-        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      {/* En el móvil la cabecera no es fija: ya hay barra inferior fija y cada píxel cuenta. */}
+      <header className="relative md:sticky md:top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm" id="mira-header">
+        <div className="max-w-6xl mx-auto px-4 min-h-14 py-1.5 md:py-0 md:h-16 flex flex-wrap items-center justify-between gap-2">
           <button
             type="button"
             aria-label="Ir al dashboard"
-            className="flex items-center gap-2.5 cursor-pointer text-left"
+            className="flex min-h-11 min-w-0 items-center gap-2.5 cursor-pointer text-left"
             onClick={() => handleNavigate('dashboard')}
             id="brand-logo"
           >
@@ -603,10 +617,10 @@ export default function App() {
               <GraduationCap className="w-5 h-5" aria-hidden="true" />
             </div>
             <div>
-              <span className="text-base font-black tracking-tight text-slate-950 uppercase flex items-center gap-1.5">
-                MIRA <span className="text-[10px] bg-indigo-50 border border-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded font-bold tracking-wider">BOMBEROPRO</span>
+              <span className="text-base font-black tracking-tight text-slate-950 uppercase flex flex-wrap items-center gap-1.5">
+                MIRA <span className="text-xs bg-indigo-50 border border-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded font-bold tracking-wider">BOMBEROPRO</span>
               </span>
-              <p className="text-[10px] text-slate-600 font-medium tracking-wide">Aprendizaje Adaptativo de Oposición</p>
+              <p className="hidden sm:block text-xs text-slate-600 font-medium tracking-wide">Aprendizaje Adaptativo de Oposición</p>
             </div>
           </button>
 
@@ -724,7 +738,7 @@ export default function App() {
               <button
                 id="btn-quick-train"
                 onClick={() => handleNavigate('train')}
-                className="min-h-11 px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold transition flex items-center gap-1 shadow"
+                className="min-h-11 px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-bold transition flex items-center gap-1 shadow"
               >
                 Repasar ({pendingCount})
               </button>
@@ -732,7 +746,7 @@ export default function App() {
             <button
               onClick={handleLogout}
               aria-label="Cerrar sesión"
-              className="min-h-11 min-w-11 px-2.5 py-1.5 text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-lg text-xs font-semibold transition flex items-center justify-center gap-1"
+              className="min-h-11 min-w-11 px-2.5 py-1.5 text-slate-600 hover:text-red-600 hover:bg-red-50 rounded-lg text-xs font-semibold transition flex items-center justify-center gap-1"
               title="Cerrar sesión"
             >
               <LogOut className="w-4 h-4" aria-hidden="true" />
@@ -939,18 +953,18 @@ export default function App() {
             type="button"
             aria-current={currentScreen === 'dashboard' ? 'page' : undefined}
             onClick={() => handleNavigate('dashboard')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
               currentScreen === 'dashboard' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
             }`}
           >
             <LayoutDashboard className="h-5 w-5" aria-hidden="true" />
-            Dashboard
+            Inicio
           </button>
           <button
             type="button"
             aria-current={currentScreen === 'today_training' ? 'page' : undefined}
             onClick={() => handleNavigate('today_training')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
               currentScreen === 'today_training' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
             }`}
           >
@@ -961,7 +975,7 @@ export default function App() {
             type="button"
             aria-current={currentScreen === 'errors' ? 'page' : undefined}
             onClick={() => handleNavigate('errors')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
               currentScreen === 'errors' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
             }`}
           >
@@ -972,7 +986,7 @@ export default function App() {
             type="button"
             aria-current={currentScreen === 'forgetting_curve' ? 'page' : undefined}
             onClick={() => handleNavigate('forgetting_curve')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
               currentScreen === 'forgetting_curve' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
             }`}
           >
@@ -983,7 +997,7 @@ export default function App() {
             type="button"
             aria-current={currentScreen === 'mock_exam' ? 'page' : undefined}
             onClick={() => handleNavigate('mock_exam')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
               currentScreen === 'mock_exam' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
             }`}
           >
@@ -994,7 +1008,7 @@ export default function App() {
             type="button"
             aria-current={currentScreen === 'study_by_topic' ? 'page' : undefined}
             onClick={() => handleNavigate('study_by_topic')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
               currentScreen === 'study_by_topic' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
             }`}
             >
@@ -1034,10 +1048,10 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
             <p className="font-semibold text-slate-600">MIRA — Método de Aprendizaje Adaptativo para Oposiciones</p>
-            <p className="text-[10px] text-slate-500 mt-0.5">Basado en Microconceptos, Interrogación activa, Repetición espaciada y Aseguramiento del dominio real.</p>
+            <p className="text-xs text-slate-600 mt-0.5">Basado en Microconceptos, Interrogación activa, Repetición espaciada y Aseguramiento del dominio real.</p>
           </div>
           <div className="flex items-center gap-4">
-            <span className="font-mono text-[10px]">v1.0</span>
+            <span className="font-mono text-xs">v1.0 (PROTOTIPO SEGURO LOCAL)</span>
           </div>
         </div>
       </footer>

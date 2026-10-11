@@ -71,14 +71,14 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4 font-sans text-slate-800">
+    <div role="main" className="min-h-screen bg-slate-50 flex items-center justify-center p-4 font-sans text-slate-800">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100">
         <div className="bg-indigo-600 p-8 text-center text-white">
           <div className="mx-auto w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4 backdrop-blur-sm">
             <Mail className="w-6 h-6 text-white" />
           </div>
           <h1 className="text-2xl font-black tracking-tight uppercase">MIRA Bomberopro</h1>
-          <p className="text-indigo-200 mt-2 text-sm font-medium">Acceso de Opositor</p>
+          <p className="text-indigo-50 mt-2 text-base font-medium">Acceso de Opositor</p>
         </div>
 
         <div className="p-8">
@@ -90,7 +90,7 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
                 aria-pressed={mode === m}
                 disabled={loading}
                 onClick={() => switchMode(m)}
-                className={`py-2.5 rounded-lg text-sm font-bold transition ${mode === m ? 'bg-white text-indigo-700 shadow' : 'text-slate-500 hover:text-slate-700'}`}
+                className={`min-h-11 py-2.5 rounded-lg text-sm font-bold transition ${mode === m ? 'bg-white text-indigo-700 shadow' : 'text-slate-700 hover:text-slate-900'}`}
               >
                 {m === 'entrar' ? 'Ya tengo cuenta' : 'Crear cuenta gratis'}
               </button>
@@ -114,7 +114,7 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
                 required
                 aria-invalid={message?.type === 'error'}
                 aria-describedby={message ? 'login-message' : undefined}
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-slate-800 font-medium"
+                className="w-full px-4 py-3 rounded-xl border border-slate-500 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-slate-800 font-medium"
               />
             </div>
 
@@ -133,9 +133,9 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
                 required
                 aria-invalid={message?.type === 'error'}
                 aria-describedby={message ? 'login-message' : undefined}
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-slate-800 font-medium"
+                className="w-full px-4 py-3 rounded-xl border border-slate-500 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-slate-800 font-medium"
               />
-              <p className="mt-2 text-xs text-slate-500">
+              <p className="mt-2 text-sm text-slate-600">
                 {mode === 'crear' ? 'Elige una contraseña de al menos 6 caracteres.' : 'La que pusiste al crear tu cuenta.'}
               </p>
               {mode === 'entrar' && (
@@ -186,14 +186,14 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
 
           {onStartDemo && (
             <div className="pt-6 mt-6 border-t border-slate-100 text-center space-y-2">
-              <p className="text-xs text-slate-500">
+              <p className="text-sm text-slate-600">
                 ¿Solo quieres echar un vistazo? (no se guarda nada)
               </p>
               <button
                 type="button"
                 id="btn-login-demo"
                 onClick={onStartDemo}
-                className="w-full py-2.5 px-4 bg-slate-50 hover:bg-slate-100 text-slate-700 hover:text-indigo-600 border border-slate-200 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full min-h-12 py-2.5 px-4 bg-white hover:bg-slate-100 text-slate-700 hover:text-indigo-600 border border-slate-500 rounded-xl text-sm font-bold transition flex items-center justify-center gap-2 cursor-pointer"
               >
                 <BookOpen className="w-4 h-4 text-indigo-500" aria-hidden="true" />
                 <span>Probar sin cuenta</span>

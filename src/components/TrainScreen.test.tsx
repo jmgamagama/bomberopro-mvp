@@ -73,7 +73,6 @@ describe('TrainScreen', () => {
     await user.click(screen.getByRole('button', { name: question.options![1] }));
     expect(screen.getByRole('button', { name: question.options![1] })).toHaveAttribute('aria-pressed', 'true');
     await user.click(container.querySelector<HTMLButtonElement>('#conf-btn-alta')!);
-    await user.click(screen.getByRole('button', { name: /confirmar respuesta/i }));
     expect(container.querySelector('#train-sidebar')).toHaveTextContent(INITIAL_MICROCONCEPTS[0].text);
 
     expect(onAnswer).toHaveBeenCalledWith(
@@ -90,5 +89,36 @@ describe('TrainScreen', () => {
     expect(screen.getByRole('button', { name: /siguiente pregunta/i })).toHaveFocus();
     await user.click(screen.getByRole('button', { name: /siguiente pregunta/i }));
     expect(onNextQuestion).toHaveBeenCalledOnce();
+  });
+  it('responde en dos toques: la seguridad está bloqueada hasta elegir y al tocarla corrige', async () => {
+    const user = userEvent.setup();
+    const question = INITIAL_QUESTIONS[0];
+    const onAnswer = vi.fn(() => ({
+      feedbackTitle: 'Respuesta registrada',
+      feedbackMessage: 'ok',
+      feedbackType: 'correct_strong' as const,
+      updatedState: memoryState,
+    }));
+    const { container } = render(
+      <TrainScreen
+        question={question}
+        selectionReason="Repaso"
+        microconcepts={INITIAL_MICROCONCEPTS}
+        memoryStates={{ [question.microconcept_id]: memoryState }}
+        sessionCurrent={1}
+        sessionTotal={20}
+        onAnswer={onAnswer}
+        onNextQuestion={vi.fn()}
+        onNavigateHome={vi.fn()}
+      />,
+    );
+    const media = container.querySelector<HTMLButtonElement>('#conf-btn-media')!;
+    expect(media).toBeDisabled();
+    expect(container.querySelector('#btn-submit-answer')).toBeNull();
+    await user.click(screen.getByRole('button', { name: question.options![0] }));
+    expect(media).toBeEnabled();
+    await user.click(media);
+    expect(onAnswer).toHaveBeenCalledOnce();
+    expect(onAnswer).toHaveBeenCalledWith(question.id, question.microconcept_id, question.options![0], 'media', expect.any(Number), 0);
   });
 });
