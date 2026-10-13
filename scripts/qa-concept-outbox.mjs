@@ -135,8 +135,11 @@ try {
     if (await page.getByRole('heading', { name: 'Sesión terminada', exact: true }).isVisible()) break;
     const understood = page.getByRole('button', { name: 'Entendido', exact: true });
     const next = page.getByRole('button', { name: 'Siguiente', exact: true });
-    if (await understood.isVisible()) { await understood.click(); continue; }
-    if (await next.isVisible()) { await next.click(); continue; }
+    report.stage = 'finish session';
+    // Buttons stay disabled while a save is in flight; never block on a disabled control that may detach.
+    if (await page.getByText('Guardando respuesta…').isVisible()) { await delay(250); continue; }
+    if (await understood.isVisible()) { await understood.click({ timeout: 5000 }).catch(() => {}); continue; }
+    if (await next.isVisible()) { await next.click({ timeout: 5000 }).catch(() => {}); continue; }
     if (await page.getByRole('radio').count()) {
       await page.getByRole('radio').first().click();
       await page.getByRole('button', { name: 'Creo que sí', exact: true }).click();
