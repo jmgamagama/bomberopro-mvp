@@ -75,7 +75,7 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
 
     // Entra a la aplicación en modo demo
     expect(await screen.findByRole('region', { name: /aviso de modo demostración/i })).toBeInTheDocument();
-    expect(screen.getByText(/modo demostración \(solo lectura\)/i)).toBeInTheDocument();
+    expect(screen.getByRole('region', { name: /aviso de modo demostración/i })).toHaveTextContent(/modo demostración.*no se guarda nada/i);
 
     // Ve el Dashboard inicial sin intentos previos
     expect(screen.getByRole('button', { name: /entrenar ahora/i })).toBeInTheDocument();
@@ -94,7 +94,6 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     const confAlta = document.querySelector<HTMLButtonElement>('#conf-btn-alta');
     if (confAlta) await user.click(confAlta);
 
-    await user.click(screen.getByRole('button', { name: /confirmar respuesta/i }));
 
     // Muestra feedback cognitivo
     expect(await screen.findByText(/buen dominio literal/i)).toBeInTheDocument();
@@ -127,7 +126,7 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     expect(screen.queryByText(/buen dominio literal/i)).not.toBeInTheDocument();
 
     // El botón vuelve a estar en estado inicial "Selecciona una respuesta"
-    expect(screen.getByRole('button', { name: /selecciona una respuesta/i })).toBeDisabled();
+    expect(document.querySelector('#conf-btn-media')).toBeDisabled();
 
     // Sin escrituras persistentes ni llamadas remotas en ningún momento
     expect(saveAttempt).not.toHaveBeenCalled();

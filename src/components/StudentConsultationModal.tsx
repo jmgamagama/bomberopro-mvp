@@ -126,7 +126,7 @@ export function StudentConsultationModal({
             <div className="p-2.5 bg-indigo-600 text-white rounded-xl shadow-xs">
               <LifeBuoy className="w-5 h-5" aria-hidden="true" />
             </div>
-            <div>
+            <div className="min-w-0 break-words">
               <h3 id="consultation-dialog-title" className="text-lg font-bold text-slate-900">
                 Consulta pedagógica y de estudio
               </h3>
@@ -292,18 +292,18 @@ export default function StudentConsultation({
           className={`p-5 bg-gradient-to-r from-slate-50 via-indigo-50/20 to-slate-50 border border-slate-200/80 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-2xs ${className}`}
           id="student-consultation-card"
         >
-          <div className="flex items-center gap-3.5">
+          <div className="flex items-center gap-3.5 min-w-0 max-w-full">
             <div className="p-2.5 bg-white text-indigo-600 rounded-xl shadow-xs border border-indigo-100 shrink-0">
               <LifeBuoy className="w-5 h-5" aria-hidden="true" />
             </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <h5 className="font-bold text-sm text-slate-800">¿Dudas en tu preparación?</h5>
-                <span className="text-[10px] font-bold uppercase tracking-wider bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full">
+            <div className="min-w-0">
+              <div className="flex flex-wrap items-center gap-2">
+                <h5 className="font-bold text-base text-slate-800 min-w-0 break-words hyphens-auto">¿Dudas en tu preparación?</h5>
+                <span className="text-xs font-bold uppercase tracking-wider bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded-full">
                   Ayuda al alumno
                 </span>
               </div>
-              <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
+              <p className="text-sm text-slate-600 mt-0.5 leading-relaxed">
                 El equipo revisa consultas sobre temario, simulacros, curva de repaso y pruebas físicas.
               </p>
             </div>
@@ -312,7 +312,7 @@ export default function StudentConsultation({
             ref={triggerRef}
             type="button"
             onClick={() => setIsOpen(true)}
-            className="w-full sm:w-auto shrink-0 px-4 py-2.5 text-xs font-bold text-indigo-600 hover:text-indigo-700 bg-white hover:bg-indigo-50/80 border border-indigo-200 hover:border-indigo-300 rounded-xl shadow-2xs transition flex items-center justify-center gap-1.5 cursor-pointer"
+            className="w-full sm:w-auto shrink-0 min-h-11 px-4 py-2.5 text-sm font-bold text-indigo-700 hover:text-indigo-800 bg-white hover:bg-indigo-50/80 border border-indigo-600 rounded-xl shadow-2xs transition flex items-center justify-center gap-1.5 cursor-pointer"
           >
             <Mail className="w-3.5 h-3.5" aria-hidden="true" />
             <span>Consultar al equipo</span>
@@ -325,7 +325,7 @@ export default function StudentConsultation({
           ref={triggerRef}
           type="button"
           onClick={() => setIsOpen(true)}
-          className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-indigo-600 bg-white hover:bg-indigo-50/60 border border-slate-200 hover:border-indigo-200 rounded-xl shadow-2xs transition cursor-pointer ${className}`}
+          className={`inline-flex min-h-11 items-center gap-1.5 px-3 py-1.5 text-sm font-semibold text-slate-700 hover:text-indigo-700 bg-white hover:bg-indigo-50/60 border border-slate-500 hover:border-indigo-600 rounded-xl shadow-2xs transition cursor-pointer ${className}`}
           title="Abrir consulta con el equipo"
         >
           <LifeBuoy className="w-3.5 h-3.5 text-indigo-500" aria-hidden="true" />

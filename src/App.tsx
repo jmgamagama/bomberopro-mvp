@@ -40,6 +40,7 @@ import SaveStatus from './components/SaveStatus';
 import { useRemoteConceptProgress } from './lib/useRemoteConceptProgress';
 import { useAttemptSync } from './lib/useAttemptSync';
 import { shuffleAllOptions } from './utils/shuffleOptions';
+import { newStudySessionId, startStudySession, finishStudySession } from './lib/studySession';
 
 // Normalize only the in-memory view; preserve the original local history for recovery.
 const getSafeMemoryStates = (): Record<string, MemoryState> => {
@@ -59,7 +60,7 @@ const SCREEN_TITLES = {
   my_reports: 'Mis reportes',
 } as const;
 
-  const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds, modo: 'adaptativo' | 'simulacro' = 'adaptativo', nivel: unknown = 1) => {
+  const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds, modo: 'adaptativo' | 'simulacro' = 'adaptativo', nivel: unknown = 1, sessionId: string | null = null) => {
       if (!supabase || !userId) return;
       const numericQuestionId = Number(questionId);
       if (!Number.isFinite(numericQuestionId)) return;
@@ -71,7 +72,7 @@ const SCREEN_TITLES = {
             p_respuesta: answer,
             p_tiempo_ms: Math.round(responseTimeSeconds * 1000),
             p_modo: modo,
-            p_session_id: null,
+            p_session_id: sessionId,
             p_nivel: toLevelInt(nivel),
             p_confidence: confidence
       });
@@ -114,6 +115,11 @@ export default function App() {
   const answeredQuestionIds = useRef<Set<string>>(new Set());
   // true cuando la sesión cargada ya se ha usado (se ha respondido algo): la siguiente sesión se pide de nuevo.
   const sessionCompletedRef = useRef(false);
+  // Sesión de entrenamiento en el servidor: el id se crea al empezar, pero la sesión solo se abre
+  // con la primera respuesta (abrir la pantalla sin responder no cuenta como sesión).
+  const trainingSessionId = useRef<string>(newStudySessionId());
+  const trainingSessionOpened = useRef(false);
+  const trainingSessionFinished = useRef(false);
 
   useEffect(() => {
     document.title = `${SCREEN_TITLES[currentScreen]} | BomberoPro`;
@@ -264,6 +270,17 @@ export default function App() {
 
   const serverMode = Boolean(session?.user?.id) && !isDemoMode;
 
+  // Auditoría UX móvil (11-oct-2026): al cambiar de pantalla o de pregunta se conservaba el
+  // desplazamiento anterior y el test se abría con el enunciado fuera de la pantalla.
+  useEffect(() => {
+    if (typeof window === 'undefined' || typeof window.scrollTo !== 'function') return;
+    try {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    } catch {
+      /* entornos sin desplazamiento (pruebas) */
+    }
+  }, [currentScreen, activeQuestion?.id]);
+
   const startTrainingSession = async (targetId: string | null) => {
     const request = ++trainingRequest.current;
     const owner = authUserId.current;
@@ -289,6 +306,9 @@ export default function App() {
       questions.findIndex(candidate => candidate.id === question.id) === index
     );
     answeredQuestionIds.current = new Set();
+    trainingSessionId.current = newStudySessionId();
+    trainingSessionOpened.current = false;
+    trainingSessionFinished.current = false;
     setSessionQuestionPool(pool);
     setSessionAnsweredCount(0);
     setSessionCompleted(false);
@@ -315,6 +335,10 @@ export default function App() {
       if (pool.length > 0) {
         setSessionCompleted(true);
         sessionCompletedRef.current = true;
+        if (trainingSessionOpened.current && !trainingSessionFinished.current) {
+          trainingSessionFinished.current = true;
+          void finishStudySession(trainingSessionId.current, 'adaptativo');
+        }
       }
     }
   };
@@ -374,7 +398,11 @@ export default function App() {
       saveAttempt(newAttempt);
       sessionCompletedRef.current = true;
       const answeredQuestion = sessionQuestionPool.find(q => q.id === questionId) ?? dbQuestions.find(q => q.id === questionId);
-      syncAttemptToSupabase(session?.user?.id, questionId, isCorrect, answer, confidence, responseTime, 'adaptativo', answeredQuestion?.level);
+      if (session?.user?.id && !trainingSessionOpened.current) {
+        trainingSessionOpened.current = true;
+        void startStudySession(trainingSessionId.current, 'adaptativo', null, sessionQuestionPool.length || null);
+      }
+      syncAttemptToSupabase(session?.user?.id, questionId, isCorrect, answer, confidence, responseTime, 'adaptativo', answeredQuestion?.level, trainingSessionId.current);
 
       // Reload state in memory
       const updatedStates = getSafeMemoryStates();
@@ -410,10 +438,17 @@ export default function App() {
       confidence: ConfidenceLevel;
       responseTime: number;
       answerChanges: number;
-    }[]
+    }[],
+    totalQuestions?: number
   ) => {
     const now = getCurrentDate();
     const currentStates = getSafeMemoryStates();
+    const examSessionId = newStudySessionId();
+    const plannedQuestions = totalQuestions ?? results.length;
+    const recordExamSession = Boolean(session?.user?.id) && plannedQuestions > 0;
+    if (recordExamSession) {
+      void startStudySession(examSessionId, 'simulacro', null, plannedQuestions);
+    }
 
     // Iterate and update states sequentially for all exam attempts
     results.forEach(res => {
@@ -435,8 +470,11 @@ export default function App() {
         created_at: now.toISOString()
       };
       saveAttempt(attemptRecord);
-            syncAttemptToSupabase(session?.user?.id, res.questionId, res.correct, res.answer, res.confidence, res.responseTime, 'simulacro', 1);
+            syncAttemptToSupabase(session?.user?.id, res.questionId, res.correct, res.answer, res.confidence, res.responseTime, 'simulacro', 1, examSessionId);
     });
+    if (recordExamSession) {
+      void finishStudySession(examSessionId, 'simulacro');
+    }
 
     // Sync memory state
     setMemoryStates(getSafeMemoryStates());
@@ -544,20 +582,22 @@ export default function App() {
         <div
           role="region"
           aria-label="Aviso de modo demostración"
-          className="bg-amber-400 text-slate-950 px-4 py-2 text-xs font-semibold shadow-xs"
+          className="bg-amber-400 text-slate-950 px-3 sm:px-4 py-1.5 text-sm font-semibold shadow-xs"
         >
-          <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-            <div className="flex items-center gap-2 text-center sm:text-left">
-              <span className="w-2 h-2 rounded-full bg-amber-900 animate-pulse shrink-0" aria-hidden="true" />
+          <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
+            <div className="flex items-center gap-2 text-left">
+              <span className="hidden sm:block w-2 h-2 rounded-full bg-amber-900 animate-pulse shrink-0" aria-hidden="true" />
               <span>
-                <strong>Modo demostración (Solo lectura)</strong>: Explorando una primera sesión de estudio sin cuenta ni persistencia de datos.
+                <strong><span className="sm:hidden">Demo</span><span className="hidden sm:inline">Modo demostración</span></strong>
+                <span className="sm:hidden">: no se guarda nada.</span>
+                <span className="hidden sm:inline"> (Solo lectura): Explorando una primera sesión de estudio sin cuenta ni persistencia de datos.</span>
               </span>
             </div>
             <button
               type="button"
               id="btn-exit-demo"
               onClick={handleExitDemo}
-              className="px-2.5 py-1 bg-slate-950 hover:bg-slate-800 text-white rounded-lg text-xs font-bold transition shrink-0 cursor-pointer"
+              className="min-h-11 px-2.5 py-1 bg-slate-950 hover:bg-slate-800 text-white rounded-lg text-sm font-bold transition shrink-0 cursor-pointer"
             >
               Salir de la demo
             </button>
@@ -575,12 +615,13 @@ export default function App() {
       </p>
 
       {/* Top Main Navigation Bar */}
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm" id="mira-header">
-        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      {/* En el móvil la cabecera no es fija: ya hay barra inferior fija y cada píxel cuenta. */}
+      <header className="relative md:sticky md:top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm" id="mira-header">
+        <div className="max-w-6xl mx-auto px-4 min-h-14 py-1.5 md:py-0 md:h-16 flex flex-wrap items-center justify-between gap-2">
           <button
             type="button"
             aria-label="Ir al dashboard"
-            className="flex items-center gap-2.5 cursor-pointer text-left"
+            className="flex min-h-11 min-w-0 items-center gap-2.5 cursor-pointer text-left"
             onClick={() => handleNavigate('dashboard')}
             id="brand-logo"
           >
@@ -588,10 +629,10 @@ export default function App() {
               <GraduationCap className="w-5 h-5" aria-hidden="true" />
             </div>
             <div>
-              <span className="text-base font-black tracking-tight text-slate-950 uppercase flex items-center gap-1.5">
-                MIRA <span className="text-[10px] bg-indigo-50 border border-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded font-bold tracking-wider">BOMBEROPRO</span>
+              <span className="text-base font-black tracking-tight text-slate-950 uppercase flex flex-wrap items-center gap-1.5">
+                MIRA <span className="text-xs bg-indigo-50 border border-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded font-bold tracking-wider">BOMBEROPRO</span>
               </span>
-              <p className="text-[10px] text-slate-600 font-medium tracking-wide">Aprendizaje Adaptativo de Oposición</p>
+              <p className="hidden sm:block text-xs text-slate-600 font-medium tracking-wide">Aprendizaje Adaptativo de Oposición</p>
             </div>
           </button>
 
@@ -673,7 +714,7 @@ export default function App() {
               <button
                 id="btn-quick-train"
                 onClick={() => handleNavigate(conceptOwner ? 'concept_t40' : 'train')}
-                className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold transition flex items-center gap-1 shadow"
+                className="min-h-11 px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-bold transition flex items-center gap-1 shadow"
               >
                 Repasar ({pendingCount})
               </button>
@@ -681,7 +722,7 @@ export default function App() {
             <button
               onClick={handleLogout}
               aria-label="Cerrar sesión"
-              className="px-2.5 py-1.5 text-slate-500 hover:text-red-600 hover:bg-red-50 rounded-lg text-xs font-semibold transition flex items-center gap-1"
+              className="min-h-11 min-w-11 px-2.5 py-1.5 text-slate-600 hover:text-red-600 hover:bg-red-50 rounded-lg text-xs font-semibold transition flex items-center justify-center gap-1"
               title="Cerrar sesión"
             >
               <LogOut className="w-4 h-4" aria-hidden="true" />
@@ -853,18 +894,18 @@ export default function App() {
             type="button"
             aria-current={currentScreen === 'dashboard' ? 'page' : undefined}
             onClick={() => handleNavigate('dashboard')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
               currentScreen === 'dashboard' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
             }`}
           >
             <LayoutDashboard className="h-5 w-5" aria-hidden="true" />
-            Dashboard
+            Inicio
           </button>
           <button
             type="button"
             aria-current={currentScreen === 'today_training' ? 'page' : undefined}
             onClick={() => handleNavigate('today_training')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
               currentScreen === 'today_training' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
             }`}
           >
@@ -875,7 +916,7 @@ export default function App() {
             type="button"
             aria-current={currentScreen === 'errors' ? 'page' : undefined}
             onClick={() => handleNavigate('errors')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
               currentScreen === 'errors' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
             }`}
           >
@@ -886,7 +927,7 @@ export default function App() {
             type="button"
             aria-current={currentScreen === 'forgetting_curve' ? 'page' : undefined}
             onClick={() => handleNavigate('forgetting_curve')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
               currentScreen === 'forgetting_curve' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
             }`}
           >
@@ -897,7 +938,7 @@ export default function App() {
             type="button"
             aria-current={currentScreen === 'mock_exam' ? 'page' : undefined}
             onClick={() => handleNavigate('mock_exam')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
               currentScreen === 'mock_exam' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
             }`}
           >
@@ -908,7 +949,7 @@ export default function App() {
             type="button"
             aria-current={currentScreen === 'study_by_topic' ? 'page' : undefined}
             onClick={() => handleNavigate('study_by_topic')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
               currentScreen === 'study_by_topic' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
             }`}
             >
@@ -923,10 +964,10 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
             <p className="font-semibold text-slate-600">MIRA — Método de Aprendizaje Adaptativo para Oposiciones</p>
-            <p className="text-[10px] text-slate-500 mt-0.5">Basado en Microconceptos, Interrogación activa, Repetición espaciada y Aseguramiento del dominio real.</p>
+            <p className="text-xs text-slate-600 mt-0.5">Basado en Microconceptos, Interrogación activa, Repetición espaciada y Aseguramiento del dominio real.</p>
           </div>
           <div className="flex items-center gap-4">
-            <span className="font-mono text-[10px]">v1.0 (PROTOTIPO SEGURO LOCAL)</span>
+            <span className="font-mono text-xs">v1.0 (PROTOTIPO SEGURO LOCAL)</span>
           </div>
         </div>
       </footer>

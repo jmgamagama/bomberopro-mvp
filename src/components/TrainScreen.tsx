@@ -134,8 +134,11 @@ export default function TrainScreen({
   const displayedSeconds = isAnswered ? timeTaken : elapsedSeconds;
   const isWithinTarget = displayedSeconds < 15;
 
-  const handleSubmit = () => {
-    if (!selectedAnswer || !selectedConfidence) return;
+  // Auditoría UX móvil (11-oct-2026): responder costaba 3 toques (opción, confianza, confirmar) y
+  // «Confirmar» quedaba fuera de la pantalla. Ahora tocar el nivel de seguridad corrige la respuesta.
+  const handleSubmit = (confidenceChoice: ConfidenceLevel | null = selectedConfidence) => {
+    if (!selectedAnswer || !confidenceChoice || isAnswered) return;
+    setSelectedConfidence(confidenceChoice);
 
     const elapsed = Math.round((Date.now() - startTime) / 1000);
     setTimeTaken(elapsed);
@@ -145,7 +148,7 @@ export default function TrainScreen({
       question.id,
       question.microconcept_id,
       selectedAnswer,
-      selectedConfidence,
+      confidenceChoice,
       elapsed,
       answerChanges
     );
@@ -203,7 +206,7 @@ export default function TrainScreen({
         <button
           id="btn-back-to-dash"
           onClick={onNavigateHome}
-          className="flex items-center gap-1 text-xs font-semibold text-slate-500 hover:text-slate-800 transition"
+          className="min-h-11 -ml-1 px-1 flex items-center gap-1 text-sm font-semibold text-slate-600 hover:text-slate-900 transition"
         >
           <ArrowLeft className="w-4 h-4" />
           Volver al Dashboard
@@ -227,7 +230,7 @@ export default function TrainScreen({
       {/* Session progress counter */}
       {sessionTotal > 0 && (
         <div className="space-y-1.5" id="train-session-progress">
-          <div className="flex items-center justify-between text-xs text-slate-500 font-mono">
+          <div className="flex items-center justify-between text-sm text-slate-600 font-mono">
             <span>Pregunta {sessionCurrent} de {sessionTotal}</span>
             <span>Sesión de hoy</span>
           </div>
@@ -245,7 +248,7 @@ export default function TrainScreen({
         <div className="lg:col-span-2 space-y-6">
           <div className="p-4 sm:p-6 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-4">
             {/* Question metadata */}
-            <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between text-xs text-slate-400 font-mono">
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between text-xs text-slate-600 font-mono">
               <span>Nivel: {question.level} — {question.type.replace('_', ' ')}</span>
               {currentState && (
                 <span>Dominio previo: {currentState.mastery_score}%</span>
@@ -253,7 +256,7 @@ export default function TrainScreen({
             </div>
 
             {/* Enunciado */}
-            <h3 className="text-base font-bold text-slate-800 leading-snug">
+            <h3 className="text-lg font-bold text-slate-900 leading-snug">
               {question.question}
             </h3>
 
@@ -263,17 +266,18 @@ export default function TrainScreen({
                 const isSelected = selectedAnswer === option;
                 const isCorrect = option === question.correct_answer;
 
-                let optionStyle = 'border-slate-200 bg-white hover:bg-slate-50 text-slate-700';
+                // Bordes ≥3:1 con el fondo (slate-500 = 4,8:1); el estado no depende solo del color.
+                let optionStyle = 'border-slate-500 bg-white hover:bg-slate-50 text-slate-800';
                 if (isAnswered) {
                   if (isCorrect) {
-                    optionStyle = 'border-emerald-300 bg-emerald-50 text-emerald-800 font-semibold';
+                    optionStyle = 'border-emerald-600 bg-emerald-50 text-emerald-900 font-semibold';
                   } else if (isSelected) {
-                    optionStyle = 'border-rose-300 bg-rose-50 text-rose-800 font-semibold';
+                    optionStyle = 'border-rose-600 bg-rose-50 text-rose-900 font-semibold';
                   } else {
-                    optionStyle = 'border-slate-100 bg-white text-slate-400 opacity-60';
+                    optionStyle = 'border-slate-300 bg-white text-slate-600';
                   }
                 } else if (isSelected) {
-                  optionStyle = 'border-indigo-600 bg-indigo-50/50 text-indigo-800 font-semibold shadow-sm';
+                  optionStyle = 'border-indigo-600 border-2 bg-indigo-50 text-indigo-900 font-semibold shadow-sm';
                 }
 
                 return (
@@ -285,12 +289,20 @@ export default function TrainScreen({
                     onClick={() => {
                       setAnswerChanges(current => current + countAnswerChange(selectedAnswer, option));
                       setSelectedAnswer(option);
+                      // En móvil la fila de seguridad queda bajo el pliegue: la traemos a la vista
+                      // para que el segundo toque (que corrige) esté al alcance del pulgar.
+                      if (typeof window !== 'undefined' && typeof window.requestAnimationFrame === 'function') {
+                        window.requestAnimationFrame(() => {
+                          document.getElementById('confidence-selector')?.scrollIntoView?.({ block: 'nearest', behavior: 'smooth' });
+                        });
+                      }
                     }}
-                    className={`w-full text-left p-3 sm:p-4 text-xs rounded-xl border transition flex items-center justify-between leading-normal ${optionStyle}`}
+                    className={`w-full min-h-12 text-left px-4 py-3 text-base rounded-xl border transition flex items-center justify-between gap-2 leading-snug ${optionStyle}`}
                   >
                     <span>{option}</span>
-                    {isAnswered && isCorrect && <CheckCircle2 className="w-5 h-5 text-emerald-500 flex-shrink-0" />}
-                    {isAnswered && isSelected && !isCorrect && <XCircle className="w-5 h-5 text-rose-500 flex-shrink-0" />}
+                    {!isAnswered && isSelected && <CheckCircle2 className="w-5 h-5 text-indigo-600 flex-shrink-0" aria-hidden="true" />}
+                    {isAnswered && isCorrect && <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" aria-label="Correcta" />}
+                    {isAnswered && isSelected && !isCorrect && <XCircle className="w-5 h-5 text-rose-600 flex-shrink-0" aria-label="Tu respuesta, incorrecta" />}
                   </button>
                 );
               })}
@@ -298,73 +310,34 @@ export default function TrainScreen({
 
             {/* Confidence Selection Widget - MANDATORY BEFORE ANSWERING */}
             {!isAnswered && (
-              <div className="pt-4 border-t border-slate-100 space-y-3" id="confidence-selector">
-                <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">
-                  1. Elige tu nivel de seguridad/confianza antes de responder:
-                </span>
+              <div className="pt-3 border-t border-slate-200 space-y-2 scroll-mb-28 md:scroll-mb-4" id="confidence-selector">
+                <p id="confidence-label" className="text-sm font-semibold text-slate-700">
+                  {selectedAnswer
+                    ? '¿Cómo de seguro estás? Al tocar, se corrige.'
+                    : 'Elige una respuesta y después tu seguridad.'}
+                </p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
-                  <button
-                    id="conf-btn-baja"
-                    aria-pressed={selectedConfidence === 'baja'}
-                    onClick={() => setSelectedConfidence('baja')}
-                    className={`p-3 text-xs font-semibold rounded-xl border transition flex flex-col items-center justify-center gap-1 ${
-                      selectedConfidence === 'baja'
-                        ? 'border-amber-500 bg-amber-50 text-amber-700'
-                        : 'border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-600'
-                    }`}
-                  >
-                    <span>Baja</span>
-                    <span className="text-[9px] font-normal text-slate-400">Dudo bastante / Descarte</span>
-                  </button>
-                  <button
-                    id="conf-btn-media"
-                    aria-pressed={selectedConfidence === 'media'}
-                    onClick={() => setSelectedConfidence('media')}
-                    className={`p-3 text-xs font-semibold rounded-xl border transition flex flex-col items-center justify-center gap-1 ${
-                      selectedConfidence === 'media'
-                        ? 'border-indigo-500 bg-indigo-50 text-indigo-700'
-                        : 'border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-600'
-                    }`}
-                  >
-                    <span>Media</span>
-                    <span className="text-[9px] font-normal text-slate-400">Creo recordarlo</span>
-                  </button>
-                  <button
-                    id="conf-btn-alta"
-                    aria-pressed={selectedConfidence === 'alta'}
-                    onClick={() => setSelectedConfidence('alta')}
-                    className={`p-3 text-xs font-semibold rounded-xl border transition flex flex-col items-center justify-center gap-1 ${
-                      selectedConfidence === 'alta'
-                        ? 'border-emerald-500 bg-emerald-50 text-emerald-700'
-                        : 'border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-600'
-                    }`}
-                  >
-                    <span>Alta</span>
-                    <span className="text-[9px] font-normal text-slate-400">Totalmente seguro</span>
-                  </button>
+                <div className="grid grid-cols-3 gap-2" role="group" aria-labelledby="confidence-label">
+                  {([
+                    { level: 'baja', label: 'Baja', hint: 'Dudo bastante' },
+                    { level: 'media', label: 'Media', hint: 'Creo recordarlo' },
+                    { level: 'alta', label: 'Alta', hint: 'Totalmente seguro' },
+                  ] as const).map(({ level, label, hint }) => (
+                    <button
+                      key={level}
+                      type="button"
+                      id={`conf-btn-${level}`}
+                      disabled={!selectedAnswer}
+                      onClick={() => handleSubmit(level)}
+                      className="min-h-14 px-1 py-2 rounded-xl border border-slate-500 bg-white text-slate-800 hover:bg-slate-50 transition flex flex-col items-center justify-center gap-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      <span className="text-base font-bold">{label}</span>
+                      <span className="text-xs text-slate-600 leading-tight text-center">{hint}</span>
+                    </button>
+                  ))}
                 </div>
               </div>
             )}
-
-            {/* Submit / Proceed Controls */}
-            <div className="pt-2 flex items-center justify-between gap-3">
-              {!isAnswered ? (
-                <button
-                  id="btn-submit-answer"
-                  disabled={!selectedAnswer || !selectedConfidence}
-                  onClick={handleSubmit}
-                  className="w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-100 text-white disabled:text-slate-400 rounded-xl font-semibold text-xs transition shadow-sm text-center"
-                >
-                  {!selectedAnswer
-                    ? 'Selecciona una respuesta'
-                    : !selectedConfidence
-                    ? 'Selecciona tu confianza'
-                    : 'Confirmar respuesta'}
-                </button>
-              ) : null
-              }
-            </div>
           </div>
 
           {/* Active response feedback banner */}
@@ -380,14 +353,14 @@ export default function TrainScreen({
               <div className="flex items-start gap-2.5">
                 <div className="mt-0.5">{feedbackStyles.icon}</div>
                 <div>
-                  <h4 className="text-sm font-bold text-slate-800">{feedback.title}</h4>
-                  <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                  <h4 className="text-base font-bold text-slate-900">{feedback.title}</h4>
+                  <p className="text-base text-slate-700 mt-1 leading-relaxed">
                     {feedback.message}
                   </p>
                 </div>
               </div>
 
-              <div className="p-3 bg-white/70 rounded-xl border border-white text-xs text-slate-700 space-y-1">
+              <div className="p-3 bg-white/70 rounded-xl border border-white text-base text-slate-800 space-y-1">
                 <p className="font-semibold text-slate-800">Soporte y justificación legal:</p>
                 <p>{question.explanation}</p>
               </div>
@@ -410,13 +383,13 @@ export default function TrainScreen({
           {/* Concept Profile Card */}
           {relatedConcept && (
             <div className="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-4">
-              <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider font-mono">
+              <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wider font-mono">
                 Microconcepto Relacionado
               </h4>
 
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-bold font-mono px-2 py-0.5 bg-slate-100 text-slate-600 rounded">
+                  <span className="text-xs font-bold font-mono px-2 py-0.5 bg-slate-100 text-slate-600 rounded">
                     {relatedConcept.id}
                   </span>
                   <span className="text-xs font-semibold text-indigo-600">
@@ -431,17 +404,17 @@ export default function TrainScreen({
               {/* Memory metrics panel */}
               {feedback && feedback.updatedState && (
                 <div className="space-y-3 pt-3 border-t border-slate-100 animation-fade-in">
-                  <h5 className="text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono">
+                  <h5 className="text-xs font-bold text-slate-600 uppercase tracking-wider font-mono">
                     Impacto en Memoria Cognitiva
                   </h5>
 
                   <div className="grid grid-cols-2 gap-2 text-center">
                     <div className="p-2.5 bg-indigo-50/50 rounded-xl border border-indigo-500/10">
-                      <span className="text-[10px] text-slate-400 block font-mono">Dominio Real</span>
+                      <span className="text-xs text-slate-600 block font-mono">Dominio Real</span>
                       <span className="text-lg font-bold text-indigo-700">{feedback.updatedState.mastery_score}%</span>
                     </div>
                     <div className="p-2.5 bg-indigo-50/50 rounded-xl border border-indigo-500/10">
-                      <span className="text-[10px] text-slate-400 block font-mono">Estabilidad (S)</span>
+                      <span className="text-xs text-slate-600 block font-mono">Estabilidad (S)</span>
                       <span className="text-lg font-bold text-indigo-700">
                         {feedback.updatedState.memory_stability < 1
                           ? `${Math.round(feedback.updatedState.memory_stability * 24 * 60)} min`
@@ -475,7 +448,7 @@ export default function TrainScreen({
               Cronómetro de Automatización
             </h5>
 
-            <div className="flex items-center justify-between" id="automation-timer">
+            <div className="flex flex-wrap items-center justify-between gap-2" id="automation-timer">
               <span
                 className={`text-3xl font-black font-mono tabular-nums ${
                   !isAnswered && !isWithinTarget ? 'text-amber-300' : 'text-white'
@@ -484,7 +457,7 @@ export default function TrainScreen({
                 {formatElapsed(displayedSeconds)}
               </span>
               <span
-                className={`text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-full ${
+                className={`text-xs font-bold uppercase tracking-wider px-2 py-1 rounded-full ${
                   isWithinTarget ? 'bg-emerald-500/20 text-emerald-300' : 'bg-amber-500/20 text-amber-300'
                 }`}
               >

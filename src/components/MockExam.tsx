@@ -8,7 +8,7 @@ import { HelpCircle, Clock, CheckCircle2, XCircle, AlertTriangle, Play, RotateCc
 import { Question, ConfidenceLevel, Microconcept } from '../types';
 import { INITIAL_QUESTIONS } from '../data/initialData';
 import { supabase } from '../lib/supabase';
-import { calculateExamScore, EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS } from '../utils/examScoring';
+import { calculateExamScore, EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS, isExamPassed, scoreOutOfTen } from '../utils/examScoring';
 import { EXAM_DURATION_SECONDS, formatExamTime, getRemainingExamSeconds } from '../utils/examTimer';
 import StudentConsultation from './StudentConsultationModal';
 import { countAnswerChange } from '../utils/attempt';
@@ -25,7 +25,8 @@ interface MockExamProps {
       confidence: ConfidenceLevel;
       responseTime: number;
       answerChanges: number;
-    }[]
+    }[],
+    totalQuestions?: number
   ) => void;
   onNavigateHome: () => void;
   /**
@@ -202,8 +203,8 @@ export default function MockExam({
     
     let score = calculateExamScore({ correct: correctCount, incorrect: incorrectCount });
     score = Math.max(0, score); // minimum score 0
-    const passed = score >= 5.0; // passing grade
-    const maxScore = officialCount * EXAM_CORRECT_POINTS;
+    const maxScore = Math.round(officialCount * EXAM_CORRECT_POINTS * 1000) / 1000;
+    const passed = isExamPassed(score, maxScore);
     const pct = Math.round((correctCount / officialCount) * 100);
     const avgTime = officialCount > 0 ? Math.round(officialResults.reduce((acc, r) => acc + r.responseTime, 0) / officialCount) : 0;
 
@@ -244,7 +245,7 @@ export default function MockExam({
     setExamFinished(true);
     
     // Save attempts in the primary database (only for answered questions, including reserve if answered)
-    onFinishExam(submissionResults.filter(r => r.answered));
+    onFinishExam(submissionResults.filter(r => r.answered), submissionResults.length);
   };
 
   useEffect(() => {
@@ -287,11 +288,11 @@ export default function MockExam({
   return (
     <div className="space-y-6" id="mock-exam-root">
       {/* Navigation Header */}
-      <div className="flex items-center justify-between" id="mock-exam-nav">
+      <div className="flex flex-wrap items-center justify-between gap-2" id="mock-exam-nav">
         <button
           id="btn-back-home-mock"
           onClick={handleNavigateHome}
-          className="flex items-center gap-1 text-xs font-semibold text-slate-500 hover:text-slate-800 transition"
+          className="flex min-h-11 items-center gap-1 -ml-1 px-1 text-sm font-semibold text-slate-600 hover:text-slate-800 transition"
         >
           <ArrowLeft className="w-4 h-4" />
           Volver al Dashboard
@@ -312,12 +313,12 @@ export default function MockExam({
           
           <div className="space-y-2">
             <h2 className="text-2xl font-black text-slate-800">Simulador de Examen</h2>
-            <p className="text-sm text-slate-500 max-w-md mx-auto">
+            <p className="text-base text-slate-600 max-w-md mx-auto">
               Pon a prueba tu retención real en condiciones de examen ciego de oposición (Blueprint oficial).
             </p>
           </div>
 
-          <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-left text-xs text-slate-600 space-y-3 max-w-md mx-auto">
+          <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-left text-sm text-slate-700 space-y-3 max-w-md mx-auto">
             <p className="font-bold text-slate-800 flex items-center gap-1.5">
               <Clock className="w-4 h-4 text-indigo-500" />
               Reglas del Simulacro:
@@ -335,7 +336,7 @@ export default function MockExam({
             id="btn-start-exam"
             onClick={startNewExam}
             disabled={isLoading}
-            className="w-full max-w-md py-4 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-400 text-white font-bold rounded-2xl shadow-md hover:shadow-lg transition text-sm flex items-center justify-center gap-2"
+            className="w-full max-w-md py-4 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-400 text-white font-bold rounded-2xl shadow-md hover:shadow-lg transition text-base flex items-center justify-center gap-2"
           >
             {isLoading ? (
               <span className="flex items-center gap-2">
@@ -361,7 +362,7 @@ export default function MockExam({
       {examStarted && !examFinished && questions.length > 0 && (
         <div className="max-w-3xl mx-auto space-y-4" id="active-exam-container">
           {/* Progress bar and counter */}
-          <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between text-xs text-slate-500 font-mono">
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between text-sm text-slate-600 font-mono">
             <span>Pregunta {currentIdx + 1} de {questions.length}</span>
             <span
               role="timer"
@@ -388,7 +389,7 @@ export default function MockExam({
 
           {/* Question layout */}
           <div className="p-4 sm:p-6 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-6">
-            <h3 id="mock-question-text" className="text-base font-bold text-slate-800 leading-snug">
+            <h3 id="mock-question-text" className="text-lg font-bold text-slate-900 leading-snug">
               {questions[currentIdx].question}
             </h3>
 
@@ -402,10 +403,10 @@ export default function MockExam({
                     id={`mock-option-${idx}`}
                     onClick={() => handleSelectAnswer(option)}
                     aria-pressed={isSelected}
-                    className={`w-full text-left p-3 sm:p-4 text-xs rounded-xl border transition flex items-center justify-between leading-normal ${
+                    className={`w-full min-h-12 text-left px-4 py-3 text-base rounded-xl border transition flex items-center justify-between leading-snug ${
                       isSelected
-                        ? 'border-indigo-600 bg-indigo-50/50 text-indigo-800 font-semibold'
-                        : 'border-slate-200 bg-white hover:bg-slate-50 text-slate-700'
+                        ? 'border-indigo-600 border-2 bg-indigo-50 text-indigo-900 font-semibold'
+                        : 'border-slate-500 bg-white hover:bg-slate-50 text-slate-800'
                     }`}
                   >
                     <span>{option}</span>
@@ -416,14 +417,14 @@ export default function MockExam({
 
             {/* Confidence Widget */}
             <div className="pt-4 border-t border-slate-100 space-y-3">
-              <span id="mock-confidence-label" className="text-xs font-semibold text-slate-500 uppercase tracking-wider block">
-                Nivel de seguridad/confianza en esta respuesta:
+              <span id="mock-confidence-label" className="text-sm font-semibold text-slate-600 block">
+                ¿Cómo de seguro estás?
               </span>
               
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3" role="group" aria-labelledby="mock-confidence-label">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3" role="group" aria-labelledby="mock-confidence-label">
                 {['baja', 'media', 'alta'].map(lvl => {
                   const isSelected = confidences[questions[currentIdx].id] === lvl;
-                  let selectedStyle = 'border-slate-200 bg-slate-50 hover:bg-slate-100 text-slate-600';
+                  let selectedStyle = 'border-slate-500 bg-white hover:bg-slate-50 text-slate-700';
                   if (isSelected) {
                     if (lvl === 'baja') selectedStyle = 'border-amber-500 bg-amber-50 text-amber-700';
                     if (lvl === 'media') selectedStyle = 'border-indigo-500 bg-indigo-50 text-indigo-700';
@@ -437,7 +438,7 @@ export default function MockExam({
                       onClick={() => handleSelectConfidence(lvl as ConfidenceLevel)}
                       aria-pressed={isSelected}
                       aria-label={`Confianza ${lvl}`}
-                      className={`p-3 text-xs font-semibold rounded-xl border transition text-center capitalize ${selectedStyle}`}
+                      className={`min-h-12 p-3 text-base font-semibold rounded-xl border transition text-center capitalize ${selectedStyle}`}
                     >
                       {lvl}
                     </button>
@@ -451,7 +452,7 @@ export default function MockExam({
               id="btn-mock-next"
               disabled={!!answers[questions[currentIdx].id] && !confidences[questions[currentIdx].id]}
               onClick={handleNext}
-              className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-100 text-white disabled:text-slate-400 rounded-xl font-semibold text-xs transition shadow-sm text-center flex items-center justify-center gap-1"
+              className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-100 text-white disabled:text-slate-500 rounded-xl font-semibold text-base transition shadow-sm text-center flex items-center justify-center gap-1"
             >
               {currentIdx === questions.length - 1 ? 'Finalizar Examen' : 'Siguiente'}
               <ArrowRight className="w-4 h-4" />
@@ -477,7 +478,7 @@ export default function MockExam({
             <Award className="w-12 h-12 text-amber-400 mx-auto animate-bounce" aria-hidden="true" />
             <div>
               <h3 id="mock-result-title" className="text-xl font-bold text-slate-100">¡Simulacro Completado!</h3>
-              <p className="text-xs text-slate-400">Desglose de rendimiento cognitivo y plan de repaso recomendado</p>
+              <p className="text-sm text-slate-300">Desglose de rendimiento cognitivo y plan de repaso recomendado</p>
               <p id="mock-result-summary" className="sr-only">
                 Nota {testResults.score} de {testResults.maxScore}. Acierto {testResults.pct} por ciento. Tiempo medio {testResults.avgTime} segundos.
               </p>
@@ -485,27 +486,30 @@ export default function MockExam({
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-3 max-w-md mx-auto pt-4 border-t border-slate-800">
               <div>
-                <span className="block text-[10px] uppercase text-slate-500 font-mono">Nota</span>
+                <span className="block text-xs uppercase text-slate-300 font-mono">Nota</span>
                 <strong className={`text-2xl sm:text-3xl font-extrabold ${testResults.passed ? 'text-emerald-400' : 'text-rose-400'}`}>
                   {testResults.score.toFixed(3)}
                 </strong>
-                <span className="text-xs text-slate-500"> / {testResults.maxScore}</span>
-                <span className={`block text-[10px] uppercase font-bold mt-0.5 ${testResults.passed ? 'text-emerald-500' : 'text-rose-500'}`}>
-                  {testResults.passed ? 'Aprobado' : 'Suspenso'}
+                <span className="text-sm text-slate-300"> / {testResults.maxScore}</span>
+                {testResults.maxScore !== 10 && (
+                  <span className="block text-xs text-slate-300 mt-0.5">Equivale a {scoreOutOfTen(testResults.score, testResults.maxScore).toFixed(1)} sobre 10</span>
+                )}
+                <span className={`block text-sm uppercase font-bold mt-0.5 ${testResults.passed ? 'text-emerald-400' : 'text-rose-400'}`}>
+                  {testResults.passed ? '✓ Aprobado' : '✗ Suspenso'}
                 </span>
               </div>
               <div>
-                <span className="block text-[10px] uppercase text-slate-500 font-mono">Aciertos / Fallos / Blancos</span>
+                <span className="block text-xs uppercase text-slate-300 font-mono">Aciertos / Fallos / Blancos</span>
                 <div className="text-xl sm:text-2xl font-bold flex items-center justify-center gap-1.5 mt-1">
                   <span className="text-emerald-400" title="Aciertos">{testResults.correctCount}</span>
-                  <span className="text-slate-600 font-normal">/</span>
+                  <span className="text-slate-400 font-normal">/</span>
                   <span className="text-rose-400" title="Fallos">{testResults.incorrectCount}</span>
-                  <span className="text-slate-600 font-normal">/</span>
+                  <span className="text-slate-400 font-normal">/</span>
                   <span className="text-slate-400" title="En blanco">{testResults.blankCount}</span>
                 </div>
               </div>
               <div>
-                <span className="block text-[10px] uppercase text-slate-500 font-mono">Tiempo medio</span>
+                <span className="block text-xs uppercase text-slate-300 font-mono">Tiempo medio</span>
                 <strong className="text-2xl sm:text-3xl font-extrabold text-indigo-400">{testResults.avgTime}s</strong>
               </div>
             </div>
@@ -513,19 +517,19 @@ export default function MockExam({
             {/* Topic Breakdown */}
             <div className="grid grid-cols-2 gap-3 max-w-md mx-auto pt-4 border-t border-slate-800 text-xs text-slate-300">
               <div className="bg-slate-800/50 p-2 rounded-lg border border-slate-700/50">
-                <span className="block text-[9px] uppercase text-slate-500 font-mono mb-1">Temas 1-34 (Generales)</span>
+                <span className="block text-xs uppercase text-slate-300 font-mono mb-1">Temas 1-34 (Generales)</span>
                 <div className="flex justify-between items-center px-1">
                   <span className="text-emerald-400">{testResults.generalStats.correct} <CheckCircle2 className="w-3 h-3 inline" /></span>
                   <span className="text-rose-400">{testResults.generalStats.incorrect} <XCircle className="w-3 h-3 inline" /></span>
-                  <span className="text-slate-400">{testResults.generalStats.blank} <span className="inline-block w-3 h-3 text-center">-</span></span>
+                  <span className="text-slate-300">{testResults.generalStats.blank} <span className="inline-block w-3 h-3 text-center">-</span></span>
                 </div>
               </div>
               <div className="bg-slate-800/50 p-2 rounded-lg border border-slate-700/50">
-                <span className="block text-[9px] uppercase text-slate-500 font-mono mb-1">Temas 35-40 (Específicos)</span>
+                <span className="block text-xs uppercase text-slate-300 font-mono mb-1">Temas 35-40 (Específicos)</span>
                 <div className="flex justify-between items-center px-1">
                   <span className="text-emerald-400">{testResults.specificStats.correct} <CheckCircle2 className="w-3 h-3 inline" /></span>
                   <span className="text-rose-400">{testResults.specificStats.incorrect} <XCircle className="w-3 h-3 inline" /></span>
-                  <span className="text-slate-400">{testResults.specificStats.blank} <span className="inline-block w-3 h-3 text-center">-</span></span>
+                  <span className="text-slate-300">{testResults.specificStats.blank} <span className="inline-block w-3 h-3 text-center">-</span></span>
                 </div>
               </div>
             </div>
@@ -535,29 +539,29 @@ export default function MockExam({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6" id="diagnostics-columns">
             {/* Meta Data */}
             <div className="md:col-span-2 text-center">
-                <span className="inline-block px-3 py-1 bg-slate-100 border border-slate-200 rounded-full text-[10px] text-slate-500 font-mono tracking-wider">
+                <span className="inline-block px-3 py-1 bg-slate-100 border border-slate-200 rounded-full text-xs text-slate-700 font-mono tracking-wider">
                   SEMILLA RNG: {examSeed?.toFixed(8)}
                 </span>
             </div>
             
             {/* False Domains (Severe Risk) */}
             <div className="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-3">
-              <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider font-mono flex items-center gap-1.5">
+              <h4 className="text-sm font-bold text-slate-700 uppercase tracking-wide font-mono flex items-center gap-1.5">
                 <AlertTriangle className="w-4 h-4 text-rose-500 animate-pulse" />
                 Falsos Dominios Detectados ({testResults.falseDomains.length})
               </h4>
               
               {testResults.falseDomains.length === 0 ? (
-                <p className="text-xs text-slate-500 bg-emerald-50/50 p-3 rounded-xl border border-emerald-100/30">
+                <p className="text-sm text-slate-700 bg-emerald-50/50 p-3 rounded-xl border border-emerald-100/30">
                   ¡Excelente! No se detectó exceso de confianza sobre respuestas incorrectas. Tu autocalibración es alta.
                 </p>
               ) : (
                 <div className="space-y-2">
-                  <p className="text-[11px] text-slate-500 leading-relaxed">
+                  <p className="text-sm text-slate-600 leading-relaxed">
                     Cometiste fallos en preguntas que marcaste con alta confianza. Estos son los errores más peligrosos de la oposición:
                   </p>
                   {testResults.falseDomains.map(id => (
-                    <div key={id} className="p-2.5 bg-rose-50 rounded-lg text-[11px] text-rose-800 font-serif leading-relaxed border border-rose-100">
+                    <div key={id} className="p-2.5 bg-rose-50 rounded-lg text-sm text-rose-800 break-words font-serif leading-relaxed border border-rose-100">
                       <strong>{id}:</strong> "{getConceptText(id)}"
                     </div>
                   ))}
@@ -567,23 +571,23 @@ export default function MockExam({
 
             {/* Study Plan Recommendation */}
             <div className="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-3">
-              <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wider font-mono flex items-center gap-1.5">
+              <h4 className="text-sm font-bold text-slate-700 uppercase tracking-wide font-mono flex items-center gap-1.5">
                 <Brain className="w-4 h-4 text-indigo-500" />
                 Plan de Estudio Adaptativo
               </h4>
               
               {testResults.failedConcepts.length === 0 ? (
-                <p className="text-xs text-slate-500 bg-emerald-50/50 p-3 rounded-xl border border-emerald-100/30">
+                <p className="text-sm text-slate-700 bg-emerald-50/50 p-3 rounded-xl border border-emerald-100/30">
                   Dominio impecable del Artículo 1. Sigue entrenando para mantener tu estabilidad en la curva del olvido.
                 </p>
               ) : (
                 <div className="space-y-2 text-xs text-slate-600">
-                  <p className="text-[11px] text-slate-500">
+                  <p className="text-sm text-slate-600">
                     Se recomienda enfocar tus próximas 2 sesiones exclusivamente en el reentrenamiento de estos microconceptos fallados:
                   </p>
                   <ul className="space-y-1 pl-1">
                     {testResults.failedConcepts.map(id => (
-                      <li key={id} className="flex items-center gap-1.5 font-mono text-[10px] font-bold text-indigo-700 bg-indigo-50/50 px-2 py-1 rounded">
+                      <li key={id} className="flex items-center gap-1.5 font-mono text-xs font-bold text-indigo-700 break-all bg-indigo-50/50 px-2 py-1 rounded">
                         <span className="w-1.5 h-1.5 rounded-full bg-indigo-600"></span>
                         {id} (Art. {microconcepts.find(mc => mc.id === id)?.article})
                       </li>
@@ -595,11 +599,11 @@ export default function MockExam({
           </div>
 
           {/* Footer Navigation */}
-          <div className="flex justify-center gap-3 pt-2" id="exam-report-footer">
+          <div className="flex flex-wrap justify-center gap-3 pt-2" id="exam-report-footer">
             <button
               id="btn-re-test"
               onClick={startNewExam}
-              className="px-4 py-2.5 bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 rounded-xl font-semibold text-xs transition flex items-center gap-1.5"
+              className="min-h-11 px-4 py-2.5 bg-white hover:bg-slate-100 text-slate-700 border border-slate-500 rounded-xl font-semibold text-sm transition flex items-center gap-1.5"
             >
               <RotateCcw className="w-4 h-4" />
               Repetir Simulacro
@@ -607,7 +611,7 @@ export default function MockExam({
             <button
               id="btn-nav-home-mock-finish"
               onClick={onNavigateHome}
-              className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-semibold text-xs transition shadow"
+              className="min-h-11 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-semibold text-sm transition shadow"
             >
               Volver al Dashboard
             </button>
