@@ -636,7 +636,7 @@ export default function App() {
       {/* Top Main Navigation Bar */}
       {/* En el móvil la cabecera no es fija: ya hay barra inferior fija y cada píxel cuenta. */}
       <header className="relative md:sticky md:top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm" id="mira-header">
-        <div className="max-w-6xl mx-auto px-4 min-h-14 py-1.5 md:py-0 md:h-16 flex flex-wrap items-center justify-between gap-2">
+        <div className="max-w-6xl mx-auto px-4 min-h-14 py-1.5 md:min-h-16 flex flex-wrap items-center justify-between gap-2">
           <button
             type="button"
             aria-label="Ir al dashboard"
@@ -657,73 +657,73 @@ export default function App() {
 
           <nav
             aria-label="Navegación principal"
-            className="hidden md:flex items-center gap-1"
+            className="hidden md:order-last md:flex md:w-full md:flex-wrap md:justify-center md:pb-1.5 items-center gap-1"
             id="mira-nav-items"
           >
             <button
               id="nav-btn-dashboard"
               onClick={() => handleNavigate('dashboard')}
               aria-current={currentScreen === 'dashboard' ? 'page' : undefined}
-              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
                 currentScreen === 'dashboard' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
               }`}
             >
-              <LayoutDashboard className="w-4 h-4" aria-hidden="true" />
+              <LayoutDashboard className="hidden lg:block w-4 h-4" aria-hidden="true" />
               Dashboard
             </button>
             <button
               id="nav-btn-study"
               onClick={() => handleNavigate('today_training')}
               aria-current={currentScreen === 'today_training' ? 'page' : undefined}
-              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
                 currentScreen === 'today_training' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
               }`}
             >
-              <Target className="w-4 h-4" aria-hidden="true" />
+              <Target className="hidden lg:block w-4 h-4" aria-hidden="true" />
               Entrenamiento de Hoy
             </button>
             <button
               id="nav-btn-errors"
               onClick={() => handleNavigate('errors')}
               aria-current={currentScreen === 'errors' ? 'page' : undefined}
-              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
                 currentScreen === 'errors' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
               }`}
             >
-              <AlertTriangle className="w-4 h-4" aria-hidden="true" />
+              <AlertTriangle className="hidden lg:block w-4 h-4" aria-hidden="true" />
               Errores Críticos
             </button>
             <button
               id="nav-btn-forgetting"
               onClick={() => handleNavigate('forgetting_curve')}
               aria-current={currentScreen === 'forgetting_curve' ? 'page' : undefined}
-              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
                 currentScreen === 'forgetting_curve' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
               }`}
             >
-              <BarChart2 className="w-4 h-4" aria-hidden="true" />
+              <BarChart2 className="hidden lg:block w-4 h-4" aria-hidden="true" />
               Curva de Olvido
             </button>
             <button
               id="nav-btn-exam"
               onClick={() => handleNavigate('mock_exam')}
               aria-current={currentScreen === 'mock_exam' ? 'page' : undefined}
-              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
                 currentScreen === 'mock_exam' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
               }`}
             >
-              <HelpCircle className="w-4 h-4" aria-hidden="true" />
+              <HelpCircle className="hidden lg:block w-4 h-4" aria-hidden="true" />
               Simulacro
             </button>
             <button
               id="nav-btn-study-topic"
               onClick={() => handleNavigate('study_by_topic')}
               aria-current={currentScreen === 'study_by_topic' ? 'page' : undefined}
-              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
                 currentScreen === 'study_by_topic' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
               }`}
               >
-            <BookOpen className="w-4 h-4" aria-hidden="true" />
+            <BookOpen className="hidden lg:block w-4 h-4" aria-hidden="true" />
             Por Temas
             </button>
 
@@ -731,22 +731,22 @@ export default function App() {
               id="nav-btn-recuerdo"
               onClick={() => handleNavigate('recuerdo')}
               aria-current={currentScreen === 'recuerdo' ? 'page' : undefined}
-              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
                 currentScreen === 'recuerdo' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
               }`}
             >
-              <Layers className="w-4 h-4" aria-hidden="true" />
+              <Layers className="hidden lg:block w-4 h-4" aria-hidden="true" />
               Recuerdo
             </button>
             <button
               id="nav-btn-sesion-diaria"
               onClick={() => handleNavigate('sesion_diaria')}
               aria-current={currentScreen === 'sesion_diaria' || currentScreen === 'ordena_pasos' ? 'page' : undefined}
-              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
                 currentScreen === 'sesion_diaria' || currentScreen === 'ordena_pasos' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
               }`}
             >
-              <Flame className="w-4 h-4" aria-hidden="true" />
+              <Flame className="hidden lg:block w-4 h-4" aria-hidden="true" />
               Sesión diaria
             </button>
             {planesEnabled && (
@@ -754,11 +754,11 @@ export default function App() {
                 id="nav-btn-planes"
                 onClick={() => handleNavigate('planes')}
                 aria-current={currentScreen === 'planes' ? 'page' : undefined}
-                className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+                className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
                   currentScreen === 'planes' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
                 }`}
               >
-                <Sparkles className="w-4 h-4" aria-hidden="true" />
+                <Sparkles className="hidden lg:block w-4 h-4" aria-hidden="true" />
                 Planes
               </button>
             )}
