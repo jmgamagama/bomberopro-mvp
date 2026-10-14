@@ -43,7 +43,7 @@ describe('bienvenida en App', () => {
     await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-sesion-diaria')!);
     const select = await screen.findByLabelText('Tema prioritario');
     await user.selectOptions(select, 'tema35');
-    expect(window.localStorage.getItem('mira_tema_preferido_v1')).toBe('tema35');
+    expect(window.localStorage.getItem('mira_tema_preferido_v1:demo')).toBe('tema35');
     expect(screen.getByText(/La sesión prioriza el tema 35/)).toBeInTheDocument();
   });
 });

@@ -65,7 +65,7 @@ describe('selectores de tema agrupados por bloque', () => {
       expect([...comun.querySelectorAll('option')].map((o) => o.value)).toEqual(COMUN.map((t) => t.id));
     }
     await user.selectOptions(select, 'tema16');
-    expect(window.localStorage.getItem('mira_tema_preferido_v1')).toBe('tema16');
+    expect(window.localStorage.getItem('mira_tema_preferido_v1:demo')).toBe('tema16');
   });
 
   it('con la bandera de planes, el tema 16 es Pro', async () => {

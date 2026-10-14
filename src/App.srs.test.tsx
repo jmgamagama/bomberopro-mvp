@@ -7,7 +7,7 @@ import './test/setup';
 vi.mock('./lib/supabase', () => ({ supabase: null }));
 import App from './App';
 import { RECALL_TOPICS } from './data/recallRegistry';
-import { SRS_STORAGE_KEY, loadSrs } from './utils/recallSrs';
+import { srsStorageKey, loadSrs } from './utils/recallSrs';
 import { TEMA40_RECALL_CARDS } from './data/tema40Recall';
 
 // Estos tests cubren el catálogo COMPLETO (vista de propietario/admin de revisión).
@@ -22,7 +22,7 @@ async function openDaily(user: ReturnType<typeof userEvent.setup>) {
 }
 
 describe('autoevaluación y repaso espaciado', () => {
-  beforeEach(() => window.localStorage.removeItem(SRS_STORAGE_KEY));
+  beforeEach(() => window.localStorage.removeItem(srsStorageKey()));
   afterEach(() => vi.unstubAllEnvs());
 
   it('Sesión diaria: tras ver la respuesta, «La sabía» guarda el estado y pasa a la siguiente', async () => {
@@ -67,7 +67,7 @@ describe('autoevaluación y repaso espaciado', () => {
 
   it('las fichas autoevaluadas vuelven a la Sesión diaria cuando vencen (falladas antes que nuevas)', async () => {
     const card = TEMA40_RECALL_CARDS[5];
-    window.localStorage.setItem(SRS_STORAGE_KEY, JSON.stringify({ v: 1, d: { tema40: { [card.id]: [1, 230, 0, 0, 0, 1, 0, 0] } } }));
+    window.localStorage.setItem(srsStorageKey(), JSON.stringify({ v: 1, d: { tema40: { [card.id]: [1, 230, 0, 0, 0, 1, 0, 0] } } }));
     const user = userEvent.setup();
     render(<App />);
     await openDaily(user);
@@ -84,7 +84,7 @@ describe('estadísticas de progreso', () => {
     vi.stubEnv('VITE_FEATURE_PLANES', '');
     const c = TEMA40_RECALL_CARDS;
     window.localStorage.setItem(
-      SRS_STORAGE_KEY,
+      srsStorageKey(),
       JSON.stringify({ v: 1, d: { tema40: { [c[0].id]: [8, 250, 999999, 3, 3, 0, 2, 0], [c[1].id]: [1, 230, 0, 0, 1, 1, 0, 0] } } }),
     );
     const user = userEvent.setup();

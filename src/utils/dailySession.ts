@@ -5,10 +5,13 @@
 
 import type { RecallCard } from '../data/recallCards';
 import { dayNumberFromKey, toLocalDateKey } from './localDate';
+import { ownedKey, readOwned, writeOwned } from './localOwner';
 import { classifyCard, getCardSrs, type RecallCardStatus, type SrsStore } from './recallSrs';
 
 export const DAILY_SESSION_SIZE = 30;
+/** Clave base; se guarda por cuenta/demo (./localOwner). */
 export const STREAK_STORAGE_KEY = 'mira_sesion_diaria_racha_v1';
+export const streakStorageKey = (): string => ownedKey(STREAK_STORAGE_KEY);
 
 export interface DailyStreak {
   lastCompletedDate: string | null;
@@ -229,7 +232,7 @@ export function loadDailyStreak(): DailyStreak {
   const storage = readStorage();
   if (!storage) return { lastCompletedDate: null, streakCount: 0 };
   try {
-    const raw = storage.getItem(STREAK_STORAGE_KEY);
+    const raw = readOwned(STREAK_STORAGE_KEY);
     if (!raw) return { lastCompletedDate: null, streakCount: 0 };
     const parsed = JSON.parse(raw) as Partial<DailyStreak>;
     return {
@@ -244,7 +247,7 @@ export function loadDailyStreak(): DailyStreak {
 export function saveDailyStreak(streak: DailyStreak): void {
   const storage = readStorage();
   if (!storage) return;
-  storage.setItem(STREAK_STORAGE_KEY, JSON.stringify(streak));
+  writeOwned(STREAK_STORAGE_KEY, JSON.stringify(streak));
 }
 
 function yesterdayKey(dateKey: string): string {

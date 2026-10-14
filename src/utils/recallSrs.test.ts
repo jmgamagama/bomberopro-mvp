@@ -7,7 +7,7 @@ import {
   INITIAL_EASE,
   MAX_INTERVAL_DAYS,
   MIN_EASE,
-  SRS_STORAGE_KEY,
+  srsStorageKey,
   classifyCard,
   computeDeckProgress,
   isMastered,
@@ -93,7 +93,7 @@ describe('persistencia en localStorage (mira_recall_srs_v1)', () => {
     const date = new Date(2026, 9, 6, 10);
     recordRecallGrade('tema40', 'CPEI-T40-PT03-001', GRADE_GOOD, date);
     recordRecallGrade('tema36-lote02', 'CPEI-T36-S02-47FD12BD6E', GRADE_AGAIN, date);
-    const raw = JSON.parse(window.localStorage.getItem(SRS_STORAGE_KEY)!);
+    const raw = JSON.parse(window.localStorage.getItem(srsStorageKey())!);
     expect(raw.v).toBe(1);
     const today = localDayNumber(date);
     expect(raw.d.tema40['CPEI-T40-PT03-001']).toEqual([1, 250, today + 1, 1, 1, 0, 2, today]);
@@ -102,16 +102,16 @@ describe('persistencia en localStorage (mira_recall_srs_v1)', () => {
     expect(store.tema40['CPEI-T40-PT03-001']).toMatchObject({ interval: 1, ease: 2.5, reps: 1, lastGrade: GRADE_GOOD });
     // Volver a guardar no altera el contenido.
     saveSrs(store);
-    expect(JSON.parse(window.localStorage.getItem(SRS_STORAGE_KEY)!)).toEqual(raw);
+    expect(JSON.parse(window.localStorage.getItem(srsStorageKey())!)).toEqual(raw);
   });
 
   it('ignora datos corruptos, de otra versión o entradas inválidas sin lanzar', () => {
-    window.localStorage.setItem(SRS_STORAGE_KEY, '{no json');
+    window.localStorage.setItem(srsStorageKey(), '{no json');
     expect(loadSrs()).toEqual({});
-    window.localStorage.setItem(SRS_STORAGE_KEY, JSON.stringify({ v: 2, d: { tema40: { x: [1, 250, 1, 1, 1, 0, 2, 1] } } }));
+    window.localStorage.setItem(srsStorageKey(), JSON.stringify({ v: 2, d: { tema40: { x: [1, 250, 1, 1, 1, 0, 2, 1] } } }));
     expect(loadSrs()).toEqual({});
     window.localStorage.setItem(
-      SRS_STORAGE_KEY,
+      srsStorageKey(),
       JSON.stringify({ v: 1, d: { tema40: { ok: [1, 250, 1, 1, 1, 0, 2, 1], bad: [1, 2], worse: 'x', grade: [1, 250, 1, 1, 1, 0, 7, 1] } } }),
     );
     expect(Object.keys(loadSrs().tema40)).toEqual(['ok']);

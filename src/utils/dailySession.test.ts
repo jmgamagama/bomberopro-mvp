@@ -5,7 +5,7 @@ import { loadRecallPool, type RecallCard } from '../data/recallCards';
 import { RECALL_DECKS, RECALL_TOPICS, RECALL_TOTAL_CARDS } from '../data/recallRegistry';
 import {
   DAILY_SESSION_SIZE,
-  STREAK_STORAGE_KEY,
+  streakStorageKey,
   completeDailySession,
   loadDailyStreak,
   pickDailyRecallSession,
@@ -67,7 +67,7 @@ describe('sesión diaria de recuerdo', () => {
     const continued = completeDailySession(today);
     expect(continued.streakCount).toBe(4);
     expect(continued.lastCompletedDate).toBe(toLocalDateKey(today));
-    expect(JSON.parse(window.localStorage.getItem(STREAK_STORAGE_KEY)!).streakCount).toBe(4);
+    expect(JSON.parse(window.localStorage.getItem(streakStorageKey())!).streakCount).toBe(4);
   });
 
   it('reinicia la racha si se saltó un día', () => {

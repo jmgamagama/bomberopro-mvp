@@ -6,7 +6,7 @@ import { beforeEach, describe, expect, it, vi, afterEach } from 'vitest';
 import Onboarding from './Onboarding';
 import { RECALL_TOPICS } from '../data/recallRegistry';
 import { ONBOARDING_STORAGE_KEY, hasCompletedOnboarding } from '../utils/onboarding';
-import { PREFERRED_DECK_STORAGE_KEY, getPreferredDeckId } from '../utils/studyPreferences';
+import { preferredDeckStorageKey, getPreferredDeckId } from '../utils/studyPreferences';
 
 // Estos tests cubren el catálogo COMPLETO (vista de propietario/admin de revisión).
 // La vista del alumno (solo mazos revisados) se prueba en src/data/recallReview.test.ts.
@@ -69,7 +69,7 @@ describe('Onboarding', () => {
     const user = userEvent.setup();
     render(<Onboarding onStart={vi.fn()} onSkip={vi.fn()} />);
     await user.click(screen.getByRole('button', { name: 'Empezar sesión diaria' }));
-    expect(window.localStorage.getItem(PREFERRED_DECK_STORAGE_KEY)).toBeNull();
+    expect(window.localStorage.getItem(preferredDeckStorageKey())).toBeNull();
   });
 
   it('«Saltar» marca la bienvenida como vista sin cambiar preferencias', async () => {

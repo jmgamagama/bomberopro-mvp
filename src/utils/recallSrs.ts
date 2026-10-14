@@ -2,7 +2,7 @@
  * Repaso espaciado de las fichas de recuerdo (variante SM-2 con 3 notas), 100 % local.
  *
  * - Notas: 0 «No la sabía», 1 «Dudosa», 2 «La sabía».
- * - Estado por ficha guardado en localStorage (`mira_recall_srs_v1`), agrupado por mazo
+ * - Estado por ficha guardado en localStorage (`mira_recall_srs_v1:<userId|demo>`), agrupado por mazo
  *   y empaquetado en tuplas para que ocupe poco:
  *     { v: 1, d: { [deckId]: { [cardId]: [intervalo, facilidad×100, próxima, racha, aciertos, fallos, última nota, último repaso] } } }
  *   (fechas como nº de día local; ver ./localDate).
@@ -12,13 +12,17 @@
  * Sin Supabase: no sale del dispositivo.
  */
 import { localDayNumber } from './localDate';
+import { ownedKey, readOwned, writeOwned } from './localOwner';
 
 export type RecallGrade = 0 | 1 | 2;
 export const GRADE_AGAIN: RecallGrade = 0;
 export const GRADE_HARD: RecallGrade = 1;
 export const GRADE_GOOD: RecallGrade = 2;
 
+/** Clave base; se guarda por cuenta/demo como `mira_recall_srs_v1:<userId|demo>` (./localOwner). */
 export const SRS_STORAGE_KEY = 'mira_recall_srs_v1';
+/** Clave efectiva del propietario actual. */
+export const srsStorageKey = (): string => ownedKey(SRS_STORAGE_KEY);
 export const INITIAL_EASE = 2.5;
 export const MIN_EASE = 1.3;
 export const MAX_INTERVAL_DAYS = 365;
@@ -70,7 +74,8 @@ function pack(s: CardSrs): Packed {
 
 /** Lee el estado guardado (entradas corruptas se ignoran; nunca lanza). */
 export function loadSrs(): SrsStore {
-  const raw = storage()?.getItem(SRS_STORAGE_KEY);
+  if (!storage()) return {};
+  const raw = readOwned(SRS_STORAGE_KEY);
   if (!raw) return {};
   try {
     const parsed = JSON.parse(raw) as { v?: number; d?: Record<string, Record<string, unknown>> };
@@ -97,7 +102,7 @@ export function saveSrs(store: SrsStore): void {
     for (const [cardId, state] of Object.entries(cards)) (d[deckId] ??= {})[cardId] = pack(state);
   }
   try {
-    s.setItem(SRS_STORAGE_KEY, JSON.stringify({ v: 1, d }));
+    writeOwned(SRS_STORAGE_KEY, JSON.stringify({ v: 1, d }));
   } catch {
     // Almacenamiento lleno o bloqueado: el repaso sigue funcionando en esta sesión.
   }

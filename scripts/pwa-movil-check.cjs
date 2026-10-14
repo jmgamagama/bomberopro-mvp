@@ -148,9 +148,9 @@ const tapTargetsOk = async (locator) => {
   await page.getByRole('button', { name: /Mostrar respuesta/ }).click();
   await page.getByRole('button', { name: /^No la sabía/ }).click();
   await page.getByText(/Recuerdo · 3 \/ 30/).waitFor();
-  const srs = await page.evaluate(() => JSON.parse(localStorage.getItem('mira_recall_srs_v1') || '{}'));
+  const srs = await page.evaluate(() => JSON.parse(localStorage.getItem('mira_recall_srs_v1:demo') || '{}'));
   const saved = Object.values(srs.d || {}).reduce((n, cards) => n + Object.keys(cards).length, 0);
-  check('autoevaluación guardada en mira_recall_srs_v1', srs.v === 1 && saved === 2, String(saved));
+  check('autoevaluación guardada en mira_recall_srs_v1:demo', srs.v === 1 && saved === 2, String(saved));
 
   // Estadísticas de progreso
   await page.getByRole('button', { name: 'Salir' }).click();

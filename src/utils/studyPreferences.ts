@@ -6,8 +6,11 @@
  * anteriores (`tema36-lote02`) se interpreta como su tema (`tema36`).
  */
 import { toTopicId } from '../data/recallRegistry';
+import { ownedKey, readOwned, writeOwned } from './localOwner';
 
+/** Clave base; se guarda por cuenta/demo (./localOwner). */
 export const PREFERRED_DECK_STORAGE_KEY = 'mira_tema_preferido_v1';
+export const preferredDeckStorageKey = (): string => ownedKey(PREFERRED_DECK_STORAGE_KEY);
 
 function storage(): Storage | null {
   try {
@@ -19,13 +22,13 @@ function storage(): Storage | null {
 
 /** Id del tema prioritario (p. ej. `tema40`, `tema36`) o `null` para «Todos los temas». */
 export function getPreferredDeckId(): string | null {
-  return toTopicId(storage()?.getItem(PREFERRED_DECK_STORAGE_KEY) ?? null);
+  if (!storage()) return null;
+  return toTopicId(readOwned(PREFERRED_DECK_STORAGE_KEY));
 }
 
 export function setPreferredDeckId(id: string | null): void {
   const s = storage();
   if (!s) return;
   const topicId = toTopicId(id);
-  if (topicId) s.setItem(PREFERRED_DECK_STORAGE_KEY, topicId);
-  else s.removeItem(PREFERRED_DECK_STORAGE_KEY);
+  writeOwned(PREFERRED_DECK_STORAGE_KEY, topicId);
 }

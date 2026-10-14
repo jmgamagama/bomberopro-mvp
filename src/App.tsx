@@ -41,6 +41,7 @@ import { isPlanesEnabled } from './config/features';
 import SaveStatus from './components/SaveStatus';
 import { useAttemptSync } from './lib/useAttemptSync';
 import { setRevisionViewer } from './utils/revisionAccess';
+import { setLocalDataOwner } from './utils/localOwner';
 import { shuffleAllOptions } from './utils/shuffleOptions';
 import { newStudySessionId, startStudySession, finishStudySession } from './lib/studySession';
 
@@ -189,6 +190,7 @@ export default function App() {
     trainingRequest.current += 1;
     setProgressOwner(userId);
     setRevisionViewer({ id: userId, email: session?.user?.email ?? null });
+    setLocalDataOwner(userId);
     setMemoryStates(getSafeMemoryStates());
     setAttempts(getAttempts());
     setShowLegacyImport(canImportLegacyProgress());

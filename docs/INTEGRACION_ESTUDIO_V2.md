@@ -59,3 +59,6 @@ Nuestra cadena traía 64543cb, que modificaba `supabase/migrations/06_revoke_ano
 - Sin `GRANT` a authenticated: el cliente no llama a esta RPC (el simulacro usa `get_blueprint_exam_questions`). La 64543cb sí lo concedía; aquí se omite por mínimo privilegio. Al revocar PUBLIC, authenticated también pierde el permiso heredado; la reversión está en la cabecera del SQL.
 - Test: `supabase/migrations16.test.ts` (vitest) comprueba la firma, el REVOKE de PUBLIC y anon, que no hay GRANT ni otras sentencias, la idempotencia y que la 06 es igual a origin/main (hash sha256 y, si hay git, `git show origin/main:`).
 - Aplicarla requiere aprobación expresa de JM, primero en staging.
+
+## Datos locales de estudio por cuenta (P1)
+`mira_recall_srs_v1`, `mira_sesion_diaria_racha_v1` y `mira_tema_preferido_v1` se guardan como `<clave>:<userId>` (con sesión) o `<clave>:demo` (sin sesión), igual que `progressOwner` en `src/utils/db.ts` (`src/utils/localOwner.ts`, fijado en `App.tsx` junto a `setProgressOwner`). La clave antigua se asigna una sola vez al propietario actual, con copia en `<clave>:respaldo_v0` y el destino en `<clave>:migrado_a`; antes de resolverse la sesión no se migra nada. La bandera de bienvenida (`mira_onboarding_v1`) sigue siendo por dispositivo.
