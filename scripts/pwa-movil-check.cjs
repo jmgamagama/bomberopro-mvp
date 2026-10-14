@@ -2,6 +2,8 @@
 // Uso: npm run build && npx vite preview --port 4173 &  luego
 //      npm i --no-save playwright && npx playwright install chromium
 //      BASE=http://127.0.0.1:4173 OUT=./pwa-capturas [T36_LOTES=8] node scripts/pwa-movil-check.cjs
+// Recorre el catálogo COMPLETO (temas 3, 16, 36…): ejecutar sobre un build con VITE_FEATURE_REVISION_ADMIN=true.
+// La vista del alumno (solo mazos revisados) la comprueba scripts/revision-alumno-check.cjs.
 const { chromium } = require('playwright');
 const BASE = process.env.BASE || 'http://127.0.0.1:4173';
 const OUT = process.env.OUT || 'pwa-capturas';
@@ -157,7 +159,8 @@ const tapTargetsOk = async (locator) => {
   await mobile.getByRole('button', { name: 'Diaria' }).click();
   await page.getByRole('heading', { name: 'Sesión diaria' }).waitFor();
   await page.locator('#daily-session-mix').waitFor();
-  check('sesión: la fallada vuelve hoy', /1 falladas/.test(await page.locator('#daily-session-mix').textContent()));
+  // Desde 8c26902 una fallada no vuelve antes de mañana (la tarjeta lo promete así).
+  check('sesión: la fallada no vuelve hoy', !/[1-9]\d* falladas/.test(await page.locator('#daily-session-mix').textContent()));
   await page.getByRole('button', { name: /^Tu progreso$/ }).click();
   const stats = page.getByRole('region', { name: 'Tu progreso' });
   await stats.waitFor();
