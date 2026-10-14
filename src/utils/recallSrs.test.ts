@@ -79,7 +79,10 @@ describe('algoritmo de repaso espaciado (SM-2, 3 notas)', () => {
     const s = scheduleReview(undefined, GRADE_GOOD, D);
     expect(classifyCard(s, D)).toBe('scheduled');
     expect(classifyCard(s, D + 1)).toBe('due');
-    expect(classifyCard(scheduleReview(s, GRADE_AGAIN, D + 1), D + 1)).toBe('failed');
+    const fallada = scheduleReview(s, GRADE_AGAIN, D + 1);
+    // Se le dijo «mañana»: el mismo día no vuelve como fallada.
+    expect(classifyCard(fallada, D + 1)).toBe('scheduled');
+    expect(classifyCard(fallada, D + 2)).toBe('failed');
   });
 });
 
@@ -119,7 +122,7 @@ describe('estadísticas de progreso', () => {
   it('calcula vistas, dominadas, pendientes hoy y % de acierto por mazo y suma por tema', () => {
     const mastered: CardSrs = { interval: 8, ease: 2.5, due: D + 5, reps: 3, correct: 3, wrong: 0, lastGrade: GRADE_GOOD, lastReview: D - 3 };
     const due: CardSrs = { interval: 3, ease: 2.5, due: D, reps: 2, correct: 2, wrong: 0, lastGrade: GRADE_GOOD, lastReview: D - 3 };
-    const failed: CardSrs = { interval: 1, ease: 2.3, due: D + 1, reps: 0, correct: 1, wrong: 1, lastGrade: GRADE_AGAIN, lastReview: D };
+    const failed: CardSrs = { interval: 1, ease: 2.3, due: D, reps: 0, correct: 1, wrong: 1, lastGrade: GRADE_AGAIN, lastReview: D - 1 };
     const store = { 'tema36-lote01': { a: mastered, b: due, c: failed }, 'tema36-lote02': { d: due } };
     const p1 = computeDeckProgress(store, { id: 'tema36-lote01', count: 78 }, D);
     expect(p1).toEqual({ deckId: 'tema36-lote01', total: 78, seen: 3, mastered: 1, dueToday: 2, correct: 6, wrong: 1, accuracy: 86 });

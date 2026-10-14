@@ -13,10 +13,18 @@ function storage(): Storage | null {
 }
 
 export function hasCompletedOnboarding(): boolean {
-  return storage()?.getItem(ONBOARDING_STORAGE_KEY) != null;
+  try {
+    return storage()?.getItem(ONBOARDING_STORAGE_KEY) != null;
+  } catch {
+    return false;
+  }
 }
 
 /** `outcome`: 'started' (empezó a estudiar) o 'skipped' (pulsó «Saltar»). */
 export function completeOnboarding(outcome: 'started' | 'skipped'): void {
-  storage()?.setItem(ONBOARDING_STORAGE_KEY, JSON.stringify({ outcome, at: new Date().toISOString() }));
+  try {
+    storage()?.setItem(ONBOARDING_STORAGE_KEY, JSON.stringify({ outcome, at: new Date().toISOString() }));
+  } catch {
+    // Almacenamiento lleno o bloqueado: la bienvenida no debe impedir empezar a estudiar.
+  }
 }

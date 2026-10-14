@@ -171,15 +171,16 @@ export function isMastered(s: CardSrs | undefined): boolean {
 export type RecallCardStatus = 'due' | 'failed' | 'new' | 'scheduled';
 
 /**
- * - `failed`: la última vez no la sabía (se repasa tras las vencidas);
+ * - `failed`: la última vez no la sabía y ya le toca (se repasa tras las vencidas);
  * - `due`: vence hoy o antes;
  * - `new`: nunca autoevaluada;
  * - `scheduled`: programada para más adelante.
  */
 export function classifyCard(s: CardSrs | undefined, today: number): RecallCardStatus {
   if (!s) return 'new';
-  if (s.lastGrade === GRADE_AGAIN) return 'failed';
-  return s.due <= today ? 'due' : 'scheduled';
+  // Una fallada no vuelve antes del día que se le prometió al alumno («mañana»).
+  if (s.due > today) return 'scheduled';
+  return s.lastGrade === GRADE_AGAIN ? 'failed' : 'due';
 }
 
 export interface DeckProgress {

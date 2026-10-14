@@ -57,7 +57,7 @@ describe('autoevaluación y repaso espaciado', () => {
     expect(document.querySelector('#recall-grade-saved')).toHaveTextContent('Guardado. Próximo repaso mañana.');
     expect(loadSrs().tema40[TEMA40_RECALL_CARDS[0].id]).toMatchObject({ wrong: 1, lastGrade: 0 });
     await user.click(screen.getByRole('button', { name: /Anterior/ }));
-    expect(document.querySelector('#recall-card-status')).toHaveTextContent('Fallada: repásala');
+    expect(document.querySelector('#recall-card-status')).toHaveTextContent('Próximo repaso mañana');
   });
 
   it('las fichas autoevaluadas vuelven a la Sesión diaria cuando vencen (falladas antes que nuevas)', async () => {

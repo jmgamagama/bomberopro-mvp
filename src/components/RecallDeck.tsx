@@ -54,6 +54,8 @@ function RecallDeckViewer({
   const [revealed, setRevealed] = useState(false);
   const [srs, setSrs] = useState<SrsStore>(() => loadSrs());
   const [lastSaved, setLastSaved] = useState<string | null>(null);
+  // Índice de la última ficha ya autoevaluada (evita contar dos veces un doble toque al final).
+  const [finalGraded, setFinalGraded] = useState<number | null>(null);
   const total = cards.length;
   const card = cards[index];
   const loteNumber = deck.lote ? deck.lote.replace(/^lote/i, '') : undefined;
@@ -73,9 +75,12 @@ function RecallDeckViewer({
     const clamped = Math.max(0, Math.min(total - 1, next));
     setIndex(clamped);
     setRevealed(false);
+    setFinalGraded(null);
   };
 
   const grade = (g: RecallGrade) => {
+    if (finalGraded === index) return;
+    if (index + 1 >= total) setFinalGraded(index);
     const next = recordRecallGrade(deck.id, card.id, g);
     setSrs(loadSrs());
     setLastSaved(
@@ -146,7 +151,7 @@ function RecallDeckViewer({
               <p className="text-xs font-semibold uppercase tracking-wide text-amber-900">Fuente</p>
               <p className="mt-1 break-words text-sm font-medium text-slate-900">{card.fuente}</p>
             </div>
-            <RecallGradeButtons state={cardState} today={today} onGrade={grade} />
+            {finalGraded === index ? null : <RecallGradeButtons state={cardState} today={today} onGrade={grade} />}
           </>
         ) : (
           <p className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-4 text-sm text-slate-600">
