@@ -40,6 +40,7 @@ import { hasCompletedOnboarding } from './utils/onboarding';
 import { isPlanesEnabled } from './config/features';
 import SaveStatus from './components/SaveStatus';
 import { useAttemptSync } from './lib/useAttemptSync';
+import { setRevisionViewer } from './utils/revisionAccess';
 import { shuffleAllOptions } from './utils/shuffleOptions';
 import { newStudySessionId, startStudySession, finishStudySession } from './lib/studySession';
 
@@ -187,6 +188,7 @@ export default function App() {
     const request = ++questionsRequest.current;
     trainingRequest.current += 1;
     setProgressOwner(userId);
+    setRevisionViewer({ id: userId, email: session?.user?.email ?? null });
     setMemoryStates(getSafeMemoryStates());
     setAttempts(getAttempts());
     setShowLegacyImport(canImportLegacyProgress());

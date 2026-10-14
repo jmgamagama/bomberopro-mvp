@@ -18,6 +18,10 @@
  */
 
 import { canAccessDeck, getPlan, type Plan } from '../utils/plan';
+import { getDeckRevision, type RecallRevision } from './recallReview';
+import { canSeePendingDecks } from '../utils/revisionAccess';
+
+export type { RecallRevision } from './recallReview';
 
 /** Ficha de recuerdo tal como viene de los JSON limpios de cada tema. */
 export interface RecallSourceCard {
@@ -62,6 +66,8 @@ export interface RecallDeck {
   /** Procedencia de los datos (uso interno; no se muestra al opositor). */
   source: string;
   count: number;
+  /** Revisión humana: solo los 'revisado' se publican al alumno (src/data/recallReview.ts). */
+  revision: RecallRevision;
 }
 
 /** Bloque del temario (BOP Badajoz n.º 135/2026, anexo I): temas 1-7 parte común, 8-40 parte específica. */
@@ -542,6 +548,7 @@ function defineDeck(meta: RecallDeckMeta): RecallDeck {
     name: meta.title.replace(/^Tema\s+\d+\s*·\s*/, ''),
     source: meta.source,
     count: meta.count,
+    revision: getDeckRevision(`tema${meta.tema}${meta.lote ? `-${meta.lote}` : ''}`),
   };
 }
 
@@ -562,10 +569,10 @@ export function bloqueDeTema(tema: number): RecallBloqueId {
   return tema <= 7 ? 'comun' : 'especifica';
 }
 
-/** Temas (agrupan los lotes de un mismo tema), ordenados por número de tema. */
-export const RECALL_TOPICS: readonly RecallTopic[] = (() => {
+/** Agrupa una lista de mazos por tema (los lotes de un mismo tema juntos). */
+function buildTopics(deckList: readonly RecallDeck[]): RecallTopic[] {
   const byTema = new Map<number, RecallDeck[]>();
-  for (const deck of RECALL_DECKS) {
+  for (const deck of deckList) {
     const list = byTema.get(deck.tema) ?? [];
     list.push(deck);
     byTema.set(deck.tema, list);
@@ -583,7 +590,10 @@ export const RECALL_TOPICS: readonly RecallTopic[] = (() => {
       decks,
     };
   });
-})();
+}
+
+/** Temas (agrupan los lotes de un mismo tema), ordenados por número de tema. TODOS los mazos. */
+export const RECALL_TOPICS: readonly RecallTopic[] = buildTopics(RECALL_DECKS);
 
 export interface RecallBloque {
   id: RecallBloqueId;
@@ -593,13 +603,57 @@ export interface RecallBloque {
   count: number;
 }
 
-/** Temas agrupados por bloque del temario (solo los bloques con algún tema cargado). */
-export const RECALL_BLOQUES: readonly RecallBloque[] = (['comun', 'especifica'] as const)
-  .map((id) => {
-    const topics = RECALL_TOPICS.filter((t) => t.bloque === id);
-    return { id, label: BLOQUE_LABELS[id], topics, count: topics.reduce((n, t) => n + t.count, 0) };
-  })
-  .filter((b) => b.topics.length > 0);
+function buildBloques(topics: readonly RecallTopic[]): RecallBloque[] {
+  return (['comun', 'especifica'] as const)
+    .map((id) => {
+      const list = topics.filter((t) => t.bloque === id);
+      return { id, label: BLOQUE_LABELS[id], topics: list, count: list.reduce((n, t) => n + t.count, 0) };
+    })
+    .filter((b) => b.topics.length > 0);
+}
+
+/** Temas agrupados por bloque del temario (solo los bloques con algún tema cargado). TODOS los mazos. */
+export const RECALL_BLOQUES: readonly RecallBloque[] = buildBloques(RECALL_TOPICS);
+
+// ---------------------------------------------------------------------------
+// Vista publicada (P1): el alumno solo ve los mazos con revisión completa.
+// El propietario / admin de revisión ve también los «pendientes de revisión».
+// ---------------------------------------------------------------------------
+
+/** Mazos con revisión humana completa. */
+export const REVIEWED_RECALL_DECKS: readonly RecallDeck[] = RECALL_DECKS.filter((d) => d.revision === 'revisado');
+const REVIEWED_TOPICS = buildTopics(REVIEWED_RECALL_DECKS);
+const REVIEWED_BLOQUES = buildBloques(REVIEWED_TOPICS);
+
+/** ¿Lo ve el usuario actual? Revisados siempre; pendientes solo propietario/admin. */
+export function isDeckVisible(deck: RecallDeck): boolean {
+  return deck.revision === 'revisado' || canSeePendingDecks();
+}
+
+/** Mazos que ve el usuario actual. */
+export function getVisibleDecks(): readonly RecallDeck[] {
+  return canSeePendingDecks() ? RECALL_DECKS : REVIEWED_RECALL_DECKS;
+}
+
+/** Temas que ve el usuario actual (un tema con lotes solo muestra sus lotes visibles). */
+export function getVisibleTopics(): readonly RecallTopic[] {
+  return canSeePendingDecks() ? RECALL_TOPICS : REVIEWED_TOPICS;
+}
+
+/** Bloques del temario que ve el usuario actual. */
+export function getVisibleBloques(): readonly RecallBloque[] {
+  return canSeePendingDecks() ? RECALL_BLOQUES : REVIEWED_BLOQUES;
+}
+
+/** Tema visible por id (`tema36`) o `undefined` si no existe o no se publica. */
+export function getVisibleTopic(id: string): RecallTopic | undefined {
+  return getVisibleTopics().find((t) => t.id === id);
+}
+
+/** Fichas visibles para el usuario actual. */
+export function getVisibleTotalCards(): number {
+  return getVisibleDecks().reduce((sum, d) => sum + d.count, 0);
+}
 
 export function getRecallDeck(id: string): RecallDeck {
   const deck = RECALL_DECKS.find((d) => d.id === id);
@@ -623,12 +677,12 @@ export const RECALL_TOTAL_CARDS = RECALL_DECKS.reduce((sum, d) => sum + d.count,
 
 /** Mazos accesibles para el plan dado (por defecto, el plan actual). */
 export function getAccessibleDecks(plan: Plan = getPlan()): readonly RecallDeck[] {
-  return RECALL_DECKS.filter((deck) => canAccessDeck(deck.id, plan));
+  return getVisibleDecks().filter((deck) => canAccessDeck(deck.id, plan));
 }
 
 /** Un tema es accesible si el plan incluye al menos uno de sus lotes. */
 export function canAccessTopic(topic: RecallTopic, plan: Plan = getPlan()): boolean {
-  return topic.decks.some((deck) => canAccessDeck(deck.id, plan));
+  return topic.decks.some((deck) => isDeckVisible(deck) && canAccessDeck(deck.id, plan));
 }
 
 const cardCache = new Map<string, readonly RecallSourceCard[]>();

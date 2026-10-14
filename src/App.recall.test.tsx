@@ -3,11 +3,16 @@
 // por mazo del registro central, y la Sesión diaria tirando de todos los temas.
 import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi, afterEach } from 'vitest';
 import './test/setup';
 vi.mock('./lib/supabase', () => ({ supabase: null }));
 import App from './App';
 import { RECALL_DECKS, RECALL_TOPICS } from './data/recallRegistry';
+
+// Estos tests cubren el catálogo COMPLETO (vista de propietario/admin de revisión).
+// La vista del alumno (solo mazos revisados) se prueba en src/data/recallReview.test.ts.
+beforeEach(() => vi.stubEnv('VITE_FEATURE_REVISION_ADMIN', 'true'));
+afterEach(() => vi.unstubAllEnvs());
 
 describe('navegación de recuerdo', () => {
   beforeEach(() => window.localStorage.clear());

@@ -1,5 +1,5 @@
 import { ArrowLeft, Lock } from 'lucide-react';
-import { RECALL_TOPICS, RECALL_TOTAL_CARDS, canAccessTopic } from '../data/recallRegistry';
+import { canAccessTopic, getVisibleTopics, getVisibleTotalCards } from '../data/recallRegistry';
 import { isPlanesEnabled } from '../config/features';
 import { canAccessDeck, canSeeStats, getPlan } from '../utils/plan';
 import { localDayNumber } from '../utils/localDate';
@@ -94,7 +94,8 @@ export default function RecallStats({ onBack, onOpenPlanes, date }: RecallStatsP
   const store = loadSrs();
   const today = localDayNumber(date);
   const streak = loadDailyStreak();
-  const topics = RECALL_TOPICS.map((topic) => {
+  const RECALL_TOTAL_CARDS = getVisibleTotalCards();
+  const topics = getVisibleTopics().map((topic) => {
     const decks = topic.decks.map((d) => computeDeckProgress(store, d, today));
     return { topic, decks, total: sumProgress(topic.id, decks) };
   });

@@ -12,7 +12,7 @@ import RecallStats from './RecallStats';
 import { localDayNumber } from '../utils/localDate';
 import { getCardSrs, loadSrs, recordRecallGrade, type RecallGrade, type SrsStore } from '../utils/recallSrs';
 import type { RecallCard } from '../data/recallCards';
-import { RECALL_BLOQUES, RECALL_TOPICS, canAccessTopic, getRecallTopic } from '../data/recallRegistry';
+import { canAccessTopic, getVisibleBloques, getVisibleTopic, getVisibleTopics } from '../data/recallRegistry';
 import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreferences';
 import { loadRecallPoolForPlan } from '../data/recallCards';
 import { canSeeStats, getDailySessionSize, getPlan } from '../utils/plan';
@@ -64,7 +64,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
   }, [plan]);
 
   // Un tema prioritario que el plan no incluye se ignora (reparto equilibrado).
-  const preferredTopicRaw = preferredDeckId ? getRecallTopic(preferredDeckId) : undefined;
+  const preferredTopicRaw = preferredDeckId ? getVisibleTopic(preferredDeckId) : undefined;
   const preferredTopic = preferredTopicRaw && canAccessTopic(preferredTopicRaw, plan) ? preferredTopicRaw : undefined;
   const effectivePreferred = preferredTopic?.id ?? null;
   const session = useMemo(
@@ -84,7 +84,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
   };
   const current: RecallCard | undefined = session[index];
   const sessionTopics = useMemo(
-    () => RECALL_TOPICS.filter((topic) => session.some((card) => card.topicId === topic.id)),
+    () => getVisibleTopics().filter((topic) => session.some((card) => card.topicId === topic.id)),
     [session],
   );
   const progressLabel = session.length === 0 ? '0 / 0' : `${index + 1} / ${session.length}`;
@@ -160,7 +160,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
                 className="mt-1 min-h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-800"
               >
                 <option value="todos">Todos los temas (reparto equilibrado)</option>
-                {RECALL_BLOQUES.map((b) => (
+                {getVisibleBloques().map((b) => (
                   <optgroup key={b.id} label={b.label}>
                     {b.topics.map((topic) => {
                       const isLocked = !canAccessTopic(topic, plan);

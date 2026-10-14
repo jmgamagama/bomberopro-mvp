@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { CalendarClock, Check, FileText, Flame, Lock, Play } from 'lucide-react';
 import { CONVOCATORIA_CPEI_2026 as C } from '../data/convocatoria';
-import { RECALL_BLOQUES, RECALL_TOTAL_CARDS, canAccessTopic, getRecallTopic, type RecallTopic } from '../data/recallRegistry';
+import { canAccessTopic, getVisibleBloques, getVisibleTopic, getVisibleTotalCards, type RecallTopic } from '../data/recallRegistry';
 import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreferences';
 import { completeOnboarding } from '../utils/onboarding';
 import { getPlan } from '../utils/plan';
@@ -22,7 +22,7 @@ const ALL = 'todos';
 export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
   const plan = getPlan();
   const [choice, setChoice] = useState<string>(() => {
-    const stored = getRecallTopic(getPreferredDeckId() ?? '');
+    const stored = getVisibleTopic(getPreferredDeckId() ?? '');
     return stored && canAccessTopic(stored, plan) ? stored.id : ALL;
   });
 
@@ -46,8 +46,8 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
   });
   // «Todos los temas» y, debajo, los temas agrupados por bloque (parte común / específica).
   const groups: { id: string; label: string | null; options: Option[] }[] = [
-    { id: ALL, label: null, options: [{ id: ALL, label: 'Todos los temas', detail: `${RECALL_TOTAL_CARDS} fichas`, locked: false }] },
-    ...RECALL_BLOQUES.map((b) => ({ id: b.id, label: `${b.label} · ${b.topics.length} ${b.topics.length === 1 ? 'tema' : 'temas'}`, options: b.topics.map(toOption) })),
+    { id: ALL, label: null, options: [{ id: ALL, label: 'Todos los temas', detail: `${getVisibleTotalCards()} fichas`, locked: false }] },
+    ...getVisibleBloques().map((b) => ({ id: b.id, label: `${b.label} · ${b.topics.length} ${b.topics.length === 1 ? 'tema' : 'temas'}`, options: b.topics.map(toOption) })),
   ];
 
   return (

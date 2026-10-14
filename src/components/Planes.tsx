@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { BellRing, Check, Lock } from 'lucide-react';
-import { describeRecallCoverage } from '../data/recallRegistry';
+import { describeRecallCoverage, getVisibleDecks } from '../data/recallRegistry';
 import { PLAN_LIMITS, getPlan, hasRegisteredPlanInterest, registerPlanInterest } from '../utils/plan';
 
 interface PlanesProps {
@@ -27,7 +27,7 @@ export default function Planes({ onNavigateHome }: PlanesProps) {
     'Funciona sin conexión',
   ];
   const pro = [
-    `Todos los temas: ${describeRecallCoverage()}`,
+    `Todos los temas: ${describeRecallCoverage(getVisibleDecks())}`,
     `Sesión diaria completa de ${PLAN_LIMITS.pro.dailySessionSize} fichas`,
     'Tema prioritario en la sesión diaria',
     'Estadísticas de progreso',

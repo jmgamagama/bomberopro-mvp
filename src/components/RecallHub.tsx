@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Lock } from 'lucide-react';
 import RecallDeck from './RecallDeck';
-import { RECALL_BLOQUES, RECALL_DECKS, RECALL_TOPICS, RECALL_TOTAL_CARDS, canAccessTopic, type RecallDeck as RecallDeckData } from '../data/recallRegistry';
+import { canAccessTopic, getVisibleBloques, getVisibleDecks, getVisibleTopics, getVisibleTotalCards, type RecallDeck as RecallDeckData } from '../data/recallRegistry';
 import { isPlanesEnabled } from '../config/features';
 import { canAccessDeck, getPlan } from '../utils/plan';
 
@@ -27,6 +27,11 @@ const tabClass = (selected: boolean) =>
 export default function RecallHub({ onNavigateHome, initialDeckId, onOpenPlanes }: RecallHubProps) {
   const plan = getPlan();
   const planesOn = isPlanesEnabled();
+  // Solo mazos publicados (revisados), salvo propietario/admin de revisión.
+  const RECALL_DECKS = getVisibleDecks();
+  const RECALL_TOPICS = getVisibleTopics();
+  const RECALL_BLOQUES = getVisibleBloques();
+  const RECALL_TOTAL_CARDS = getVisibleTotalCards();
   const firstAccessible = RECALL_DECKS.find((d) => canAccessDeck(d.id, plan)) ?? RECALL_DECKS[0];
   const [deckId, setDeckId] = useState(() => {
     const byDeck = RECALL_DECKS.find((d) => d.id === initialDeckId);

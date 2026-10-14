@@ -14,6 +14,11 @@ import {
 import { RECALL_DECKS, RECALL_TOTAL_CARDS, getAccessibleDecks } from '../data/recallRegistry';
 import { loadRecallPoolForPlan } from '../data/recallCards';
 
+// Estos tests cubren el catálogo COMPLETO (vista de propietario/admin de revisión).
+// La vista del alumno (solo mazos revisados) se prueba en src/data/recallReview.test.ts.
+beforeEach(() => vi.stubEnv('VITE_FEATURE_REVISION_ADMIN', 'true'));
+afterEach(() => vi.unstubAllEnvs());
+
 describe('plan: bandera VITE_FEATURE_PLANES desactivada (por defecto)', () => {
   beforeEach(() => vi.stubEnv('VITE_FEATURE_PLANES', ''));
   afterEach(() => vi.unstubAllEnvs());

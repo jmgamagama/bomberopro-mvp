@@ -2,11 +2,16 @@
 import '../test/setup';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi, afterEach } from 'vitest';
 import Onboarding from './Onboarding';
 import { RECALL_TOPICS } from '../data/recallRegistry';
 import { ONBOARDING_STORAGE_KEY, hasCompletedOnboarding } from '../utils/onboarding';
 import { PREFERRED_DECK_STORAGE_KEY, getPreferredDeckId } from '../utils/studyPreferences';
+
+// Estos tests cubren el catálogo COMPLETO (vista de propietario/admin de revisión).
+// La vista del alumno (solo mazos revisados) se prueba en src/data/recallReview.test.ts.
+beforeEach(() => vi.stubEnv('VITE_FEATURE_REVISION_ADMIN', 'true'));
+afterEach(() => vi.unstubAllEnvs());
 
 describe('Onboarding', () => {
   beforeEach(() => window.localStorage.clear());

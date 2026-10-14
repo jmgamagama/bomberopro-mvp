@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { beforeAll, beforeEach, describe, expect, it } from 'vitest';
+import { beforeAll, beforeEach, describe, expect, it, afterEach, vi } from 'vitest';
 import { loadRecallPool, type RecallCard } from '../data/recallCards';
 import { RECALL_DECKS, RECALL_TOPICS, RECALL_TOTAL_CARDS } from '../data/recallRegistry';
 import {
@@ -16,10 +16,15 @@ import {
 import { localDayNumber } from './localDate';
 import { GRADE_AGAIN, GRADE_GOOD, recordRecallGrade, type CardSrs, type SrsStore } from './recallSrs';
 
+// Estos tests cubren el catálogo COMPLETO (vista de propietario/admin de revisión).
+// La vista del alumno (solo mazos revisados) se prueba en src/data/recallReview.test.ts.
+beforeEach(() => vi.stubEnv('VITE_FEATURE_REVISION_ADMIN', 'true'));
+afterEach(() => vi.unstubAllEnvs());
+
 // Pool completo (en la app se carga bajo demanda, un módulo por mazo).
 let RECALL_CARDS: RecallCard[] = [];
 beforeAll(async () => {
-  RECALL_CARDS = await loadRecallPool();
+  RECALL_CARDS = await loadRecallPool(RECALL_DECKS);
 });
 
 describe('sesión diaria de recuerdo', () => {

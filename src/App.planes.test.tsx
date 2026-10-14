@@ -2,11 +2,16 @@
 // Página de planes detrás de VITE_FEATURE_PLANES: apagada no aparece nada nuevo.
 import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi, beforeEach } from 'vitest';
 import './test/setup';
 vi.mock('./lib/supabase', () => ({ supabase: null }));
 import App from './App';
 import { RECALL_TOPICS } from './data/recallRegistry';
+
+// Estos tests cubren el catálogo COMPLETO (vista de propietario/admin de revisión).
+// La vista del alumno (solo mazos revisados) se prueba en src/data/recallReview.test.ts.
+beforeEach(() => vi.stubEnv('VITE_FEATURE_REVISION_ADMIN', 'true'));
+afterEach(() => vi.unstubAllEnvs());
 
 async function openRecuerdo(user: ReturnType<typeof userEvent.setup>) {
   await screen.findByRole('button', { name: /Por Temas/ });

@@ -8,6 +8,11 @@ vi.mock('./lib/supabase', () => ({ supabase: null }));
 import App from './App';
 import { RECALL_BLOQUES, RECALL_TOPICS } from './data/recallRegistry';
 
+// Estos tests cubren el catálogo COMPLETO (vista de propietario/admin de revisión).
+// La vista del alumno (solo mazos revisados) se prueba en src/data/recallReview.test.ts.
+beforeEach(() => vi.stubEnv('VITE_FEATURE_REVISION_ADMIN', 'true'));
+afterEach(() => vi.unstubAllEnvs());
+
 const ESPECIFICA = RECALL_TOPICS.filter((t) => t.bloque === 'especifica');
 const COMUN = RECALL_TOPICS.filter((t) => t.bloque === 'comun');
 const temas = (n: number) => `${n} tema${n === 1 ? '' : 's'}`;

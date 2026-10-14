@@ -10,6 +10,11 @@ import { RECALL_TOPICS } from './data/recallRegistry';
 import { SRS_STORAGE_KEY, loadSrs } from './utils/recallSrs';
 import { TEMA40_RECALL_CARDS } from './data/tema40Recall';
 
+// Estos tests cubren el catálogo COMPLETO (vista de propietario/admin de revisión).
+// La vista del alumno (solo mazos revisados) se prueba en src/data/recallReview.test.ts.
+beforeEach(() => vi.stubEnv('VITE_FEATURE_REVISION_ADMIN', 'true'));
+afterEach(() => vi.unstubAllEnvs());
+
 async function openDaily(user: ReturnType<typeof userEvent.setup>) {
   await screen.findByRole('button', { name: /Por Temas/ });
   await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-sesion-diaria')!);

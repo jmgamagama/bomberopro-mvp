@@ -6,10 +6,11 @@
  */
 
 import {
-  RECALL_DECKS,
   getAccessibleDecks,
+  getVisibleDecks,
   loadRecallDeckCards,
   type RecallDeck,
+  type RecallRevision,
   type RecallSourceCard,
 } from './recallRegistry';
 import type { Plan } from '../utils/plan';
@@ -25,6 +26,8 @@ export interface RecallCard {
   topicId?: string;
   /** Etiqueta corta del mazo (`T40`, `T36·1`…). */
   deckLabel?: string;
+  /** Revisión humana del mazo de origen (solo 'revisado' se publica al alumno). */
+  revision?: RecallRevision;
 }
 
 export function toRecallCards(deck: RecallDeck, cards: readonly RecallSourceCard[]): RecallCard[] {
@@ -36,11 +39,12 @@ export function toRecallCards(deck: RecallDeck, cards: readonly RecallSourceCard
     deckId: deck.id,
     topicId: deck.topicId,
     deckLabel: deck.shortLabel,
+    revision: deck.revision,
   }));
 }
 
 /** Carga (bajo demanda) las fichas de los mazos indicados y las une en un pool. */
-export async function loadRecallPool(decks: readonly RecallDeck[] = RECALL_DECKS): Promise<RecallCard[]> {
+export async function loadRecallPool(decks: readonly RecallDeck[] = getVisibleDecks()): Promise<RecallCard[]> {
   const loaded = await Promise.all(decks.map((deck) => loadRecallDeckCards(deck.id)));
   return decks.flatMap((deck, i) => toRecallCards(deck, loaded[i]));
 }
