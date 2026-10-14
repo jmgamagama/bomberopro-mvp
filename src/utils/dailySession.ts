@@ -143,10 +143,12 @@ export function pickDailyRecallSession(
     key(a) - key(b) || prefRank(a) - prefRank(b) || rot(a) - rot(b);
   const st = (c: RecallCard) => getCardSrs(srs, c.deckId, c.id)!;
 
-  const picked: RecallCard[] = [
-    ...[...tiers.due].sort(by((c) => st(c).due)),
-    ...[...tiers.failed].sort(by((c) => st(c).lastReview)),
-  ].slice(0, total);
+  // Vencidas y fallidas: si no caben todas, el tema prioritario se queda con ≈60 % (como las nuevas).
+  const picked: RecallCard[] = takeWithPreferredShare(
+    [...[...tiers.due].sort(by((c) => st(c).due)), ...[...tiers.failed].sort(by((c) => st(c).lastReview))],
+    total,
+    preferred,
+  );
   if (picked.length < total) {
     picked.push(...pickRotation(tiers.new, total - picked.length, date, options));
   }
@@ -154,6 +156,22 @@ export function pickDailyRecallSession(
     picked.push(...[...tiers.scheduled].sort(by((c) => st(c).due)).slice(0, total - picked.length));
   }
   return picked;
+}
+
+/**
+ * Toma hasta `total` fichas de una lista ya ordenada por prioridad. Con tema prioritario y más
+ * fichas que plazas, reserva ≈PREFERRED_DECK_SHARE para ese tema y el resto para los demás
+ * (si un lado no llega, el otro completa). Conserva el orden de prioridad original.
+ */
+function takeWithPreferredShare(ordered: RecallCard[], total: number, preferred: string | null): RecallCard[] {
+  if (!preferred || ordered.length <= total) return ordered.slice(0, total);
+  const isPref = (c: RecallCard) => !!c.deckId && matchesPreferred(c.deckId, preferred);
+  const pref = ordered.filter(isPref);
+  const others = ordered.filter((c) => !isPref(c));
+  let prefQuota = Math.min(pref.length, Math.round(total * PREFERRED_DECK_SHARE));
+  prefQuota = Math.max(prefQuota, total - others.length);
+  const chosen = new Set([...pref.slice(0, prefQuota), ...others.slice(0, total - prefQuota)]);
+  return ordered.filter((c) => chosen.has(c));
 }
 
 /** Recuento por tipo (vencidas, fallidas, nuevas, adelantadas) de una sesión. */

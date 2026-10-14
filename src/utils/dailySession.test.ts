@@ -6,6 +6,7 @@ import { RECALL_DECKS, RECALL_TOPICS, RECALL_TOTAL_CARDS } from '../data/recallR
 import {
   DAILY_SESSION_SIZE,
   streakStorageKey,
+  PREFERRED_DECK_SHARE,
   completeDailySession,
   loadDailyStreak,
   pickDailyRecallSession,
@@ -184,6 +185,32 @@ describe('sesión diaria con repaso espaciado', () => {
     const pref40 = pickDailyRecallSession(RECALL_CARDS, 30, date, { srs, preferredDeckId: 'tema40' });
     expect(pref40[0].id).toBe(t40[0].id);
     expect(pref40.slice(2).filter((c) => c.topicId === 'tema40').length).toBe(Math.round(28 * 0.6));
+  });
+
+  it('con más vencidas que plazas, el tema prioritario se queda con ≈60 % de ellas', () => {
+    const t40 = RECALL_CARDS.filter((c) => c.deckId === 'tema40');
+    const t35 = RECALL_CARDS.filter((c) => c.deckId === 'tema35');
+    // 40 vencidas de cada tema (las del 35 más antiguas): sin preferencia ganarían las del 35.
+    const srs: SrsStore = {
+      tema40: Object.fromEntries(t40.slice(0, 40).map((c) => [c.id, st({ due: today - 1 })])),
+      tema35: Object.fromEntries(t35.slice(0, 40).map((c) => [c.id, st({ due: today - 9 })])),
+    };
+    const sinPref = pickDailyRecallSession(RECALL_CARDS, 30, date, { srs });
+    expect(sinPref.filter((c) => c.topicId === 'tema35')).toHaveLength(30);
+
+    const pref40 = pickDailyRecallSession(RECALL_CARDS, 30, date, { srs, preferredDeckId: 'tema40' });
+    expect(pref40).toHaveLength(30);
+    expect(summarizeSession(pref40, srs, date).due).toBe(30);
+    expect(pref40.filter((c) => c.topicId === 'tema40')).toHaveLength(Math.round(30 * PREFERRED_DECK_SHARE));
+    expect(pref40.filter((c) => c.topicId === 'tema35')).toHaveLength(30 - Math.round(30 * PREFERRED_DECK_SHARE));
+    // Se mantiene el orden de prioridad: primero las vencidas más antiguas.
+    expect(pref40[0].topicId).toBe('tema35');
+
+    // Si el tema prioritario no llega al 60 %, los demás completan la sesión.
+    const pocas: SrsStore = { ...srs, tema40: Object.fromEntries(t40.slice(0, 5).map((c) => [c.id, st({ due: today - 1 })])) };
+    const pref40b = pickDailyRecallSession(RECALL_CARDS, 30, date, { srs: pocas, preferredDeckId: 'tema40' });
+    expect(pref40b.filter((c) => c.topicId === 'tema40')).toHaveLength(5);
+    expect(pref40b).toHaveLength(30);
   });
 
   it('respeta el tope del plan aunque haya más vencidas', () => {
