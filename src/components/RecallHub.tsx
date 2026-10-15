@@ -53,6 +53,7 @@ export default function RecallHub({ onNavigateHome, initialDeckId, onOpenPlanes 
   return (
     <div className="space-y-2">
       <div className="mx-auto max-w-3xl pt-2 sm:px-4">
+        <p className="rounded-xl bg-indigo-50 px-3 py-2 text-sm text-slate-700">El progreso de estas fichas se guarda solo en este navegador; todavía no se sincroniza con tus otros dispositivos.</p>
         <p className="text-xs text-slate-500">
           Elige un tema · {RECALL_TOTAL_CARDS} fichas de repaso con su fuente oficial
         </p>
