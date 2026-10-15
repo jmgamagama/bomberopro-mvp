@@ -1,0 +1,520 @@
+{
+ "tema": 22,
+ "titulo": "Tema 22 · Trabajos temporales en altura: RD 1215/1997, anexo II.4",
+ "epigrafe_bop": "Técnicas de rescate en altura y espacios confinados: normativa y marco legal de trabajos en altura. Material de rescate en altura, dinámica de la progresión, instalación de Sistemas de Anclajes de Seguridad SAS, nudos. Conceptos físicos de las poleas: polea fija y polea móvil. Líneas de vida. El factor de caída. Mantenimiento y caducidad de materiales.",
+ "normas": [
+  {
+   "id": "BOE-A-1997-17824",
+   "norma": "Real Decreto 1215/1997, equipos de trabajo (anexo II.4, trabajos temporales en altura, añadido por RD 2177/2004)",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824",
+   "ultima_actualizacion": "18/12/2025",
+   "tipo": "texto consolidado del BOE"
+  }
+ ],
+ "estado": "cargado",
+ "propuestas": 34,
+ "entran_tras_filtro": 33,
+ "descartadas": [
+  {
+   "norma": "RD1215",
+   "bloque": "anii",
+   "apartado": "apdo. 4.1.1",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, en trabajos temporales en altura, ¿a qué medidas debe darse prioridad frente a las de protección individual?",
+   "respuesta": "Las medidas de protección colectiva",
+   "motivo": "respuesta dentro de la pregunta"
+  }
+ ],
+ "cobertura": {
+  "Normativa y marco legal de trabajos en altura (RD 1215/1997, anexo II.4)": "cubierto",
+  "Material, progresión, SAS, nudos, poleas, líneas de vida, factor de caída, mantenimiento y caducidad": "PENDIENTE: requiere NTP del INSST o normas UNE-EN (de pago); no abordado en esta fase"
+ },
+ "muestra_revisada": [
+  {
+   "id": "CPEI-T22-OF-B83055BA",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿qué debe hacerse con las escaleras con ruedas antes de acceder a ellas?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T22-OF-2B7F7E7D",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, en andamios con marcado CE, ¿qué puede sustituir al plan de montaje?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T22-OF-F9F56DF2",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿cómo se denomina la cuerda usada como medio de emergencia?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T22-OF-97507FD1",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿a partir de qué altura los trabajos desde escalera con movimientos peligrosos exigen EPI anticaídas u otras medidas?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T22-OF-4FA7A124",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿cómo se denomina la cuerda usada como medio de acceso, de descenso y de apoyo?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T22-OF-DC7251B3",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿cuánto deben sobresalir las escaleras de mano de acceso del plano de trabajo?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T22-OF-7C2C15DA",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿a qué criterios no podrá subordinarse la elección de los equipos para trabajos en altura?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T22-OF-CEF6F919",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿qué escaleras de madera se prohíbe utilizar?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T22-OF-C588A437",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿quién debe realizar el plan de montaje, utilización y desmontaje del andamio?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T22-OF-F4B5AAF1",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿cuándo pueden efectuarse los trabajos temporales en altura según la meteorología?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T22-OF-9BD5B123",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿cuándo deben inspeccionarse los andamios?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T22-OF-3B0BB4D1",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, en andamios sobre azoteas o tejados, ¿desde qué distancia al terreno es obligatorio el plan de montaje?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T22-OF-69284548",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿qué técnicas de salvamento deben incluirse en la formación para trabajos con cuerdas?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T22-OF-374586D1",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, si no es necesario plan de montaje, ¿qué experiencia certificada debe tener quien dirija el montaje del andamio?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T22-OF-4D964E5F",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿cuántas personas pueden usar simultáneamente una escalera de mano?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T22-OF-A95ADE53",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿qué tipo de escaleras de mano queda prohibido?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T22-OF-42EC8E9E",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿qué andamios se exceptúan del plan de montaje por altura en el supuesto de andamios prefabricados?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T22-OF-15F16268",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿qué debe facilitarse al trabajador que use técnicas de acceso mediante cuerdas según la duración y la ergonomía?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T22-OF-52616FB6",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿con arreglo a qué norma se señalizan las partes de un andamio no listas para su uso?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T22-OF-D0854F92",
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿en qué puntos pueden interrumpirse los dispositivos de protección colectiva contra caídas?",
+   "veredicto": "OK",
+   "nota": ""
+  }
+ ],
+ "errores_muestra": 0,
+ "pct_errores_muestra": 0.0,
+ "fichas": [
+  {
+   "id": "CPEI-T22-OF-7C2C15DA",
+   "orden": 10,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿a qué criterios no podrá subordinarse la elección de los equipos para trabajos en altura?",
+   "respuesta": "A criterios económicos",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.1.1. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.1.1",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-55AE6BAD",
+   "orden": 20,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿en función de qué se elige el medio de acceso a los puestos de trabajo temporal en altura?",
+   "respuesta": "En función de la frecuencia de circulación, la altura a la que se deba subir y la duración de la utilización",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.1.1. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.1.1",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-15F16268",
+   "orden": 30,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿qué debe facilitarse al trabajador que use técnicas de acceso mediante cuerdas según la duración y la ergonomía?",
+   "respuesta": "Un asiento provisto de los accesorios apropiados",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.1.3. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.1.3",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-D0854F92",
+   "orden": 40,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿en qué puntos pueden interrumpirse los dispositivos de protección colectiva contra caídas?",
+   "respuesta": "En los puntos de acceso a una escalera o a una escalera de mano",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.1.4. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.1.4",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-84AE18CF",
+   "orden": 50,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, si hay que retirar temporalmente una protección colectiva contra caídas, ¿dónde se especifican las medidas compensatorias?",
+   "respuesta": "En la planificación de la actividad preventiva",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.1.5. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.1.5",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-F4B5AAF1",
+   "orden": 60,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿cuándo pueden efectuarse los trabajos temporales en altura según la meteorología?",
+   "respuesta": "Cuando las condiciones meteorológicas no pongan en peligro la salud y la seguridad de los trabajadores",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.1.6. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.1.6",
+   "apartado": "Disposiciones generales",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-DC7251B3",
+   "orden": 70,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿cuánto deben sobresalir las escaleras de mano de acceso del plano de trabajo?",
+   "respuesta": "Al menos un metro",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.2.2. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.2.2",
+   "apartado": "Escaleras de mano",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-A7CAE785",
+   "orden": 80,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿qué ángulo con la horizontal deben formar, en lo posible, las escaleras de mano simples?",
+   "respuesta": "Un ángulo aproximado de 75 grados",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.2.2. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.2.2",
+   "apartado": "Escaleras de mano",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-B83055BA",
+   "orden": 90,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿qué debe hacerse con las escaleras con ruedas antes de acceder a ellas?",
+   "respuesta": "Deberán haberse inmovilizado",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.2.2. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.2.2",
+   "apartado": "Escaleras de mano",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-B2EB94C0",
+   "orden": 100,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿cómo se efectúan el ascenso, el descenso y los trabajos desde escaleras de mano?",
+   "respuesta": "De frente a éstas",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.2.3. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.2.3",
+   "apartado": "Escaleras de mano",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-97507FD1",
+   "orden": 110,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿a partir de qué altura los trabajos desde escalera con movimientos peligrosos exigen EPI anticaídas u otras medidas?",
+   "respuesta": "Más de 3,5 metros de altura",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.2.3. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.2.3",
+   "apartado": "Escaleras de mano",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-4D964E5F",
+   "orden": 120,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿cuántas personas pueden usar simultáneamente una escalera de mano?",
+   "respuesta": "No se utilizarán por dos o más personas simultáneamente",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.2.3. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.2.3",
+   "apartado": "Escaleras de mano",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-C3A1F638",
+   "orden": 130,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿de qué longitud son las escaleras de mano que no se emplearán, en particular, sin garantías de resistencia?",
+   "respuesta": "Escaleras de más de cinco metros de longitud",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.2.4. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.2.4",
+   "apartado": "Escaleras de mano",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-A95ADE53",
+   "orden": 140,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿qué tipo de escaleras de mano queda prohibido?",
+   "respuesta": "Escaleras de mano de construcción improvisada",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.2.4. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.2.4",
+   "apartado": "Escaleras de mano",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-CEF6F919",
+   "orden": 150,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿qué escaleras de madera se prohíbe utilizar?",
+   "respuesta": "Escaleras de madera pintadas",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.2.5. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.2.5",
+   "apartado": "Escaleras de mano",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-C588A437",
+   "orden": 160,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿quién debe realizar el plan de montaje, utilización y desmontaje del andamio?",
+   "respuesta": "Una persona con una formación universitaria que lo habilite para la realización de estas actividades",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.3.3. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.3.3",
+   "apartado": "Andamios",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-F9D30048",
+   "orden": 170,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿a partir de qué altura exige plan de montaje un andamio de elementos prefabricados?",
+   "respuesta": "Exceda de seis metros",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.3.3.b). BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.3.3.b)",
+   "apartado": "Andamios",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-A971B9E4",
+   "orden": 180,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿qué distancia entre apoyos de elementos horizontales exige plan de montaje en andamios prefabricados?",
+   "respuesta": "Más de ocho metros",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.3.3.b). BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.3.3.b)",
+   "apartado": "Andamios",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-42EC8E9E",
+   "orden": 190,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿qué andamios se exceptúan del plan de montaje por altura en el supuesto de andamios prefabricados?",
+   "respuesta": "Los andamios de caballetes o borriquetas",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.3.3.b). BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.3.3.b)",
+   "apartado": "Andamios",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-3B0BB4D1",
+   "orden": 200,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, en andamios sobre azoteas o tejados, ¿desde qué distancia al terreno es obligatorio el plan de montaje?",
+   "respuesta": "Exceda de 24 metros de altura",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.3.3.c). BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.3.3.c)",
+   "apartado": "Andamios",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-2B7F7E7D",
+   "orden": 210,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, en andamios con marcado CE, ¿qué puede sustituir al plan de montaje?",
+   "respuesta": "Las instrucciones específicas del fabricante, proveedor o suministrador",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.3.3. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.3.3",
+   "apartado": "Andamios",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-52616FB6",
+   "orden": 220,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿con arreglo a qué norma se señalizan las partes de un andamio no listas para su uso?",
+   "respuesta": "Real Decreto 485/1997, de 14 de abril",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.3.6. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.3.6",
+   "apartado": "Andamios",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-374586D1",
+   "orden": 230,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, si no es necesario plan de montaje, ¿qué experiencia certificada debe tener quien dirija el montaje del andamio?",
+   "respuesta": "Más de dos años",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.3.7. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.3.7",
+   "apartado": "Andamios",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-9BD5B123",
+   "orden": 240,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿cuándo deben inspeccionarse los andamios?",
+   "respuesta": "Antes de su puesta en servicio; a continuación, periódicamente; tras cualquier modificación, período de no utilización, exposición a la intemperie, sacudidas sísmicas, o cualquier otra circunstancia que hubiera podido afectar a su resistencia o a su estabilidad",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.3.8. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.3.8",
+   "apartado": "Andamios",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-9581E82C",
+   "orden": 250,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿de cuántas cuerdas consta como mínimo el sistema de acceso y posicionamiento mediante cuerdas?",
+   "respuesta": "Como mínimo de dos cuerdas con sujeción independiente",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.4.1.a). BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.4.1.a)",
+   "apartado": "Acceso y posicionamiento mediante cuerdas",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-F9F56DF2",
+   "orden": 260,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿cómo se denomina la cuerda usada como medio de emergencia?",
+   "respuesta": "Cuerda de seguridad",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.4.1.a). BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.4.1.a)",
+   "apartado": "Acceso y posicionamiento mediante cuerdas",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-4FA7A124",
+   "orden": 270,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿cómo se denomina la cuerda usada como medio de acceso, de descenso y de apoyo?",
+   "respuesta": "Cuerda de trabajo",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.4.1.a). BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.4.1.a)",
+   "apartado": "Acceso y posicionamiento mediante cuerdas",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-7A341662",
+   "orden": 280,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿a qué cuerda deben conectar los trabajadores sus arneses?",
+   "respuesta": "A la cuerda de seguridad",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.4.1.b). BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.4.1.b)",
+   "apartado": "Acceso y posicionamiento mediante cuerdas",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-DC25F4EE",
+   "orden": 290,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿con qué dispositivo estará equipada la cuerda de seguridad?",
+   "respuesta": "Un dispositivo móvil contra caídas que siga los desplazamientos del trabajador",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.4.1.c). BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.4.1.c)",
+   "apartado": "Acceso y posicionamiento mediante cuerdas",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-BD01E08B",
+   "orden": 300,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿de qué sistema dispondrá la cuerda de trabajo para impedir la caída si el usuario pierde el control?",
+   "respuesta": "Un sistema de bloqueo automático",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.4.1.c). BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.4.1.c)",
+   "apartado": "Acceso y posicionamiento mediante cuerdas",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-93868A71",
+   "orden": 310,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿dónde deben ir sujetas las herramientas del trabajador en trabajos con cuerdas?",
+   "respuesta": "Sujetos al arnés o al asiento del trabajador o sujetos por otros medios adecuados",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.4.1.d). BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.4.1.d)",
+   "apartado": "Acceso y posicionamiento mediante cuerdas",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-69284548",
+   "orden": 320,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿qué técnicas de salvamento deben incluirse en la formación para trabajos con cuerdas?",
+   "respuesta": "Las técnicas de salvamento de personas accidentadas en suspensión",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.4.1.f). BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.4.1.f)",
+   "apartado": "Acceso y posicionamiento mediante cuerdas",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  },
+  {
+   "id": "CPEI-T22-OF-7CD28AAE",
+   "orden": 330,
+   "concepto": "Según el anexo II.4 del RD 1215/1997, ¿cuándo puede admitirse la utilización de una sola cuerda?",
+   "respuesta": "En circunstancias excepcionales en las que, habida cuenta de la evaluación del riesgo, la utilización de una segunda cuerda haga más peligroso el trabajo",
+   "fuente": "RD 1215/1997, ANEXO II, apdo. 4.4.2. BOE-A-1997-17824, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+   "localizacion": "RD 1215/1997, ANEXO II, apdo. 4.4.2",
+   "apartado": "Acceso y posicionamiento mediante cuerdas",
+   "norma": "BOE-A-1997-17824",
+   "bloque_boe": "anii"
+  }
+ ]
+}

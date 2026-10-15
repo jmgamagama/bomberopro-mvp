@@ -1,0 +1,1051 @@
+{
+ "tema": 29,
+ "titulo": "Tema 29 · PLATERCAEX: objetivo, alcance, estructura y operatividad",
+ "epigrafe_bop": "Plan Territorial de Protección civil en la CAEX. PLATERCAEX: Objetivo del plan. Alcance del plan, Estructura del plan, Estructura operativa, Operatividad.",
+ "normas": [
+  {
+   "id": "Decreto 187/2019",
+   "norma": "Plan Territorial de Protección Civil de la Comunidad Autónoma de Extremadura (PLATERCAEX), aprobado por Decreto 187/2019 (DOE nº 247, 26/12/2019)",
+   "url": "https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf",
+   "ultima_actualizacion": "versión PDF de 31/01/2020",
+   "tipo": "texto íntegro oficial publicado en juntaex.es por remisión del DOE"
+  }
+ ],
+ "estado": "cargado",
+ "propuestas": 82,
+ "entran_tras_filtro": 81,
+ "descartadas": [
+  {
+   "norma": "PLAT",
+   "bloque": "p05",
+   "apartado": "Introducción",
+   "concepto": "Según el PLATERCAEX, ¿qué carácter tiene el Plan Territorial de Protección Civil de Extremadura?",
+   "respuesta": "Tiene el carácter de Plan Director",
+   "motivo": "respuesta dentro de la pregunta"
+  }
+ ],
+ "cobertura": {
+  "Objetivo del plan (I.1)": "cubierto",
+  "Alcance del plan (I.2)": "cubierto",
+  "Estructura del plan: dirección y coordinación (IV.1-IV.2.1)": "cubierto",
+  "Estructura operativa: PMA, CECOPAL, coordinación de medios, grupos de acción, voluntariado (IV.3)": "cubierto",
+  "Operatividad: fases, situaciones, interfases, notificaciones, procedimientos y medidas (V.1-V.5)": "cubierto (las guías de respuesta V.6 no)"
+ },
+ "muestra_revisada": [
+  {
+   "id": "CPEI-T29-OF-959DE3FD",
+   "concepto": "Según el PLATERCAEX, ¿con qué grupo colabora el Grupo de Logística para evacuar a las personas con discapacidad?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T29-OF-178D6017",
+   "concepto": "Según el PLATERCAEX, ¿qué emergencias corresponden a la situación 0?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T29-OF-75038A52",
+   "concepto": "Según el PLATERCAEX, ¿qué zonas delimita el PMA?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T29-OF-712FA954",
+   "concepto": "Según el PLATERCAEX, ¿quién dirige el Grupo de Intervención en el PMA?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T29-OF-68C1BCA9",
+   "concepto": "Según el PLATERCAEX, ¿de qué se encarga el Grupo Sanitario?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T29-OF-0094A705",
+   "concepto": "Según el PLATERCAEX, ¿a qué se destinan las medidas reparadoras?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T29-OF-86E3BF70",
+   "concepto": "Según el PLATERCAEX, ¿con el asesoramiento de qué comité da la Dirección del Plan por finalizada la emergencia?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T29-OF-4D5D5D7B",
+   "concepto": "Según el PLATERCAEX, ¿quién coordina el Comité Técnico Asesor?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T29-OF-61AAE751",
+   "concepto": "Según el PLATERCAEX, ¿de quién depende directamente el Gabinete de Información?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T29-OF-4E2A3E5B",
+   "concepto": "Según el PLATERCAEX, ¿cuándo funciona el CECOP como CECOPI?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T29-OF-93C348EE",
+   "concepto": "Según el PLATERCAEX, ¿qué transferencia de funciones prevé el plan si se declara el interés nacional?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T29-OF-3D2EC10D",
+   "concepto": "Según el PLATERCAEX, ¿cuáles son los dos entramados básicos de la estructura organizativa?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T29-OF-E5E02EE2",
+   "concepto": "Según el PLATERCAEX, ¿en qué consiste la asistencia sanitaria «in situ» del Grupo Sanitario?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T29-OF-7CC3CEEB",
+   "concepto": "Según el PLATERCAEX, ¿quién es el responsable del Grupo Sanitario en el Comité Técnico Asesor?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T29-OF-D0E61828",
+   "concepto": "Según el PLATERCAEX, ¿qué supone para los planes inferiores la activación del plan territorial en situación 1 o siguientes?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T29-OF-4A3E9FED",
+   "concepto": "Según el PLATERCAEX, ¿quién declara el final de la emergencia y desactiva el plan?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T29-OF-73974154",
+   "concepto": "Según el PLATERCAEX, ¿quién realiza la Coordinación de medios?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T29-OF-40142767",
+   "concepto": "Según el PLATERCAEX, ¿qué planes debe permitir integrar el plan territorial entre sus objetivos específicos?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T29-OF-8F56B041",
+   "concepto": "Según el PLATERCAEX, ¿qué riesgos quedan excluidos del alcance del plan?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T29-OF-50B3E64A",
+   "concepto": "Según el PLATERCAEX, ¿con qué autorización previa interviene el voluntariado de protección civil?",
+   "veredicto": "OK",
+   "nota": ""
+  }
+ ],
+ "errores_muestra": 0,
+ "pct_errores_muestra": 0.0,
+ "fichas": [
+  {
+   "id": "CPEI-T29-OF-9EF929B4",
+   "orden": 10,
+   "concepto": "Según el PLATERCAEX, ¿qué Norma Básica de Protección Civil desarrolla el plan?",
+   "respuesta": "La Norma Básica de Protección Civil aprobada por REAL DECRETO 407/1992, de 24 de abril",
+   "fuente": "PLATERCAEX, Introducción, pág. 5. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=5",
+   "localizacion": "PLATERCAEX, Introducción, pág. 5",
+   "apartado": "Objetivo y alcance",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p05"
+  },
+  {
+   "id": "CPEI-T29-OF-516C41E6",
+   "orden": 20,
+   "concepto": "Según el PLATERCAEX, ¿cuál es el objetivo general del plan?",
+   "respuesta": "Crear la estructura organizativa y los procedimientos operativos necesarios para dar respuesta a todas las emergencias que se presenten en el ámbito territorial de la CAEX",
+   "fuente": "PLATERCAEX, I.1, pág. 7. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=7",
+   "localizacion": "PLATERCAEX, I.1, pág. 7",
+   "apartado": "Objetivo y alcance",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p07"
+  },
+  {
+   "id": "CPEI-T29-OF-CF81C37B",
+   "orden": 30,
+   "concepto": "Según el PLATERCAEX, ¿a qué emergencias no se extiende el objetivo general del plan?",
+   "respuesta": "Las declaradas de interés nacional",
+   "fuente": "PLATERCAEX, I.1, pág. 7. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=7",
+   "localizacion": "PLATERCAEX, I.1, pág. 7",
+   "apartado": "Objetivo y alcance",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p07"
+  },
+  {
+   "id": "CPEI-T29-OF-40142767",
+   "orden": 40,
+   "concepto": "Según el PLATERCAEX, ¿qué planes debe permitir integrar el plan territorial entre sus objetivos específicos?",
+   "respuesta": "Permitir la integración de los Planes de ámbito inferior",
+   "fuente": "PLATERCAEX, I.1, pág. 7. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=7",
+   "localizacion": "PLATERCAEX, I.1, pág. 7",
+   "apartado": "Objetivo y alcance",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p07"
+  },
+  {
+   "id": "CPEI-T29-OF-93C348EE",
+   "orden": 50,
+   "concepto": "Según el PLATERCAEX, ¿qué transferencia de funciones prevé el plan si se declara el interés nacional?",
+   "respuesta": "La transferencia de funciones a la Administración Central",
+   "fuente": "PLATERCAEX, I.1, pág. 7. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=7",
+   "localizacion": "PLATERCAEX, I.1, pág. 7",
+   "apartado": "Objetivo y alcance",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p07"
+  },
+  {
+   "id": "CPEI-T29-OF-10603EEE",
+   "orden": 60,
+   "concepto": "Según el PLATERCAEX, ¿qué ámbito geográfico abarca el alcance del plan?",
+   "respuesta": "El Territorio de la Comunidad Autónoma de Extremadura",
+   "fuente": "PLATERCAEX, I.2, pág. 7. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=7",
+   "localizacion": "PLATERCAEX, I.2, pág. 7",
+   "apartado": "Objetivo y alcance",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p07"
+  },
+  {
+   "id": "CPEI-T29-OF-8F56B041",
+   "orden": 70,
+   "concepto": "Según el PLATERCAEX, ¿qué riesgos quedan excluidos del alcance del plan?",
+   "respuesta": "Los riesgos especiales que tienen su propia planificación",
+   "fuente": "PLATERCAEX, I.2, pág. 7. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=7",
+   "localizacion": "PLATERCAEX, I.2, pág. 7",
+   "apartado": "Objetivo y alcance",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p07"
+  },
+  {
+   "id": "CPEI-T29-OF-3D2EC10D",
+   "orden": 80,
+   "concepto": "Según el PLATERCAEX, ¿cuáles son los dos entramados básicos de la estructura organizativa?",
+   "respuesta": "Estructura de dirección y de coordinación - CECOP/CECOPI y estructura operativa",
+   "fuente": "PLATERCAEX, IV.1, pág. 28. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=28",
+   "localizacion": "PLATERCAEX, IV.1, pág. 28",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p28"
+  },
+  {
+   "id": "CPEI-T29-OF-3EEF6ACE",
+   "orden": 90,
+   "concepto": "Según el PLATERCAEX, ¿qué cuatro órganos engloba la estructura de Dirección y Coordinación?",
+   "respuesta": "La Dirección del Plan, el Comité de Dirección / Comité de Dirección Integrado, el Comité Técnico Asesor y el Gabinete de Información",
+   "fuente": "PLATERCAEX, IV.2, pág. 28. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=28",
+   "localizacion": "PLATERCAEX, IV.2, pág. 28",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p28"
+  },
+  {
+   "id": "CPEI-T29-OF-F7E492AD",
+   "orden": 100,
+   "concepto": "Según el PLATERCAEX, ¿en quién recae la Dirección del Plan?",
+   "respuesta": "En la persona Titular de la Consejería con competencias en materia de Protección Civil y Emergencias en Extremadura",
+   "fuente": "PLATERCAEX, IV.2, pág. 28. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=28",
+   "localizacion": "PLATERCAEX, IV.2, pág. 28",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p28"
+  },
+  {
+   "id": "CPEI-T29-OF-158E7FBF",
+   "orden": 110,
+   "concepto": "Según el PLATERCAEX, ¿en quién recae la Dirección del Plan en situación 3?",
+   "respuesta": "En titular del Ministerio del Interior",
+   "fuente": "PLATERCAEX, IV.2, pág. 28. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=28",
+   "localizacion": "PLATERCAEX, IV.2, pág. 28",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p28"
+  },
+  {
+   "id": "CPEI-T29-OF-8B7CFB61",
+   "orden": 120,
+   "concepto": "Según el PLATERCAEX, ¿en quién puede delegar la Dirección del Plan sus funciones?",
+   "respuesta": "En la persona que ostente la titularidad de la Dirección General correspondiente con funciones en Protección Civil",
+   "fuente": "PLATERCAEX, IV.2, pág. 28. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=28",
+   "localizacion": "PLATERCAEX, IV.2, pág. 28",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p28"
+  },
+  {
+   "id": "CPEI-T29-OF-847FB5E7",
+   "orden": 130,
+   "concepto": "Según el PLATERCAEX, ¿quién declara la activación del plan?",
+   "respuesta": "La Dirección del Plan",
+   "fuente": "PLATERCAEX, IV.2, pág. 29. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=29",
+   "localizacion": "PLATERCAEX, IV.2, pág. 29",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p29"
+  },
+  {
+   "id": "CPEI-T29-OF-4A3E9FED",
+   "orden": 140,
+   "concepto": "Según el PLATERCAEX, ¿quién declara el final de la emergencia y desactiva el plan?",
+   "respuesta": "La Dirección del Plan",
+   "fuente": "PLATERCAEX, IV.2, pág. 30. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=30",
+   "localizacion": "PLATERCAEX, IV.2, pág. 30",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p30"
+  },
+  {
+   "id": "CPEI-T29-OF-D03B2A9B",
+   "orden": 150,
+   "concepto": "Según el PLATERCAEX, ¿qué es el Comité de Dirección?",
+   "respuesta": "El órgano auxiliar de dirección y toma de decisiones del Plan",
+   "fuente": "PLATERCAEX, IV.2, pág. 30. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=30",
+   "localizacion": "PLATERCAEX, IV.2, pág. 30",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p30"
+  },
+  {
+   "id": "CPEI-T29-OF-6535FA08",
+   "orden": 160,
+   "concepto": "Según el PLATERCAEX, ¿por quién es dirigido el Comité de Dirección?",
+   "respuesta": "Por la persona que ostenta la titularidad de la Dirección General con competencias en materia de Protección Civil y Emergencias",
+   "fuente": "PLATERCAEX, IV.2, pág. 30. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=30",
+   "localizacion": "PLATERCAEX, IV.2, pág. 30",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p30"
+  },
+  {
+   "id": "CPEI-T29-OF-B925AE32",
+   "orden": 170,
+   "concepto": "Según el PLATERCAEX, ¿quién coordina el Comité de Dirección?",
+   "respuesta": "La persona titular de la dirección del Centro de Atención de Urgencias y Emergencias 112",
+   "fuente": "PLATERCAEX, IV.2, pág. 30. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=30",
+   "localizacion": "PLATERCAEX, IV.2, pág. 30",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p30"
+  },
+  {
+   "id": "CPEI-T29-OF-141FA136",
+   "orden": 180,
+   "concepto": "Según el PLATERCAEX, ¿dónde se establece el CECOP en el que se ubica el Comité de Dirección?",
+   "respuesta": "En las instalaciones del Centro de Atención de Urgencias y Emergencias 112 de Extremadura, en Mérida",
+   "fuente": "PLATERCAEX, IV.2, pág. 30. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=30",
+   "localizacion": "PLATERCAEX, IV.2, pág. 30",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p30"
+  },
+  {
+   "id": "CPEI-T29-OF-69292F8C",
+   "orden": 190,
+   "concepto": "Según el PLATERCAEX, ¿cuándo pasa el Comité de Dirección a ser un Comité de Dirección Integrado?",
+   "respuesta": "Tras la incorporación, de la persona titular de la Delegación del Gobierno",
+   "fuente": "PLATERCAEX, IV.2, pág. 31. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=31",
+   "localizacion": "PLATERCAEX, IV.2, pág. 31",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p31"
+  },
+  {
+   "id": "CPEI-T29-OF-C95419D0",
+   "orden": 200,
+   "concepto": "Según el PLATERCAEX, ¿cuál es la misión fundamental del Comité Técnico Asesor?",
+   "respuesta": "Asesorar a la Dirección del Plan en la ejecución de sus funciones",
+   "fuente": "PLATERCAEX, IV.2, pág. 31. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=31",
+   "localizacion": "PLATERCAEX, IV.2, pág. 31",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p31"
+  },
+  {
+   "id": "CPEI-T29-OF-0695B3DB",
+   "orden": 210,
+   "concepto": "Según el PLATERCAEX, ¿qué unidad militar tiene representante en el Comité Técnico Asesor?",
+   "respuesta": "Representante de la Unidad Militar de Emergencias (UME)",
+   "fuente": "PLATERCAEX, IV.2, pág. 32. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=32",
+   "localizacion": "PLATERCAEX, IV.2, pág. 32",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p32"
+  },
+  {
+   "id": "CPEI-T29-OF-4D5D5D7B",
+   "orden": 220,
+   "concepto": "Según el PLATERCAEX, ¿quién coordina el Comité Técnico Asesor?",
+   "respuesta": "La persona responsable del Servicio con competencia en materia de Protección Civil",
+   "fuente": "PLATERCAEX, IV.2, pág. 32. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=32",
+   "localizacion": "PLATERCAEX, IV.2, pág. 32",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p32"
+  },
+  {
+   "id": "CPEI-T29-OF-61AAE751",
+   "orden": 230,
+   "concepto": "Según el PLATERCAEX, ¿de quién depende directamente el Gabinete de Información?",
+   "respuesta": "Dependiendo directamente de la Dirección del Plan",
+   "fuente": "PLATERCAEX, IV.2, pág. 32. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=32",
+   "localizacion": "PLATERCAEX, IV.2, pág. 32",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p32"
+  },
+  {
+   "id": "CPEI-T29-OF-FC197413",
+   "orden": 240,
+   "concepto": "Según el PLATERCAEX, ¿a través de qué portavocía se realiza la información a la población?",
+   "respuesta": "A través de una única portavocía oficial",
+   "fuente": "PLATERCAEX, IV.2, pág. 32. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=32",
+   "localizacion": "PLATERCAEX, IV.2, pág. 32",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p32"
+  },
+  {
+   "id": "CPEI-T29-OF-02CD627D",
+   "orden": 250,
+   "concepto": "Según el PLATERCAEX, ¿quién es la persona responsable del Gabinete de Información?",
+   "respuesta": "Quien ostente la titularidad de la Secretaría General de Comunicación de la Junta de Extremadura",
+   "fuente": "PLATERCAEX, IV.2, pág. 32. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=32",
+   "localizacion": "PLATERCAEX, IV.2, pág. 32",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p32"
+  },
+  {
+   "id": "CPEI-T29-OF-E4B8DF8C",
+   "orden": 260,
+   "concepto": "Según el PLATERCAEX, ¿qué información se considera únicamente fidedigna y contrastada?",
+   "respuesta": "Aquella facilitada directamente por el Gabinete de Información",
+   "fuente": "PLATERCAEX, IV.2, pág. 32. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=32",
+   "localizacion": "PLATERCAEX, IV.2, pág. 32",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p32"
+  },
+  {
+   "id": "CPEI-T29-OF-AEE878D3",
+   "orden": 270,
+   "concepto": "Según el PLATERCAEX, ¿qué es el CECOP?",
+   "respuesta": "El órgano de coordinación, control y seguimiento de todas las operaciones de la emergencia",
+   "fuente": "PLATERCAEX, IV.2.1, pág. 33. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=33",
+   "localizacion": "PLATERCAEX, IV.2.1, pág. 33",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p33"
+  },
+  {
+   "id": "CPEI-T29-OF-4E2A3E5B",
+   "orden": 280,
+   "concepto": "Según el PLATERCAEX, ¿cuándo funciona el CECOP como CECOPI?",
+   "respuesta": "Cuando la situación de la emergencia requiera la integración en éste de mandos de otras administraciones",
+   "fuente": "PLATERCAEX, IV.2.1, pág. 33. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=33",
+   "localizacion": "PLATERCAEX, IV.2.1, pág. 33",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p33"
+  },
+  {
+   "id": "CPEI-T29-OF-FA9961D4",
+   "orden": 290,
+   "concepto": "Según el PLATERCAEX, ¿quién es la persona responsable del CECOP/I?",
+   "respuesta": "La persona que ostente la dirección del Centro de Atención de Urgencias y Emergencias 1.1.2. de Extremadura",
+   "fuente": "PLATERCAEX, IV.2.1, pág. 34. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=34",
+   "localizacion": "PLATERCAEX, IV.2.1, pág. 34",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p34"
+  },
+  {
+   "id": "CPEI-T29-OF-80675245",
+   "orden": 300,
+   "concepto": "Según el PLATERCAEX, ¿con qué incorporación se constituye el CECOPI a partir del CECOP?",
+   "respuesta": "Con la incorporación de la persona titular de la Delegación del Gobierno en la Comunidad Autónoma de Extremadura al Comité de Dirección",
+   "fuente": "PLATERCAEX, IV.2.1, pág. 35. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=35",
+   "localizacion": "PLATERCAEX, IV.2.1, pág. 35",
+   "apartado": "Estructura del plan (dirección y coordinación)",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p35"
+  },
+  {
+   "id": "CPEI-T29-OF-F1F9E0E9",
+   "orden": 310,
+   "concepto": "Según el PLATERCAEX, ¿dónde se establece el Puesto de Mando Avanzado (PMA)?",
+   "respuesta": "En las proximidades del lugar de la emergencia",
+   "fuente": "PLATERCAEX, IV.3.1, pág. 35. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=35",
+   "localizacion": "PLATERCAEX, IV.3.1, pág. 35",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p35"
+  },
+  {
+   "id": "CPEI-T29-OF-6DB7B2E3",
+   "orden": 320,
+   "concepto": "Según el PLATERCAEX, ¿quién es el máximo representante de la Dirección del Plan en el lugar de la emergencia?",
+   "respuesta": "La persona responsable de coordinar el PMA",
+   "fuente": "PLATERCAEX, IV.3.1, pág. 35. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=35",
+   "localizacion": "PLATERCAEX, IV.3.1, pág. 35",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p35"
+  },
+  {
+   "id": "CPEI-T29-OF-75038A52",
+   "orden": 330,
+   "concepto": "Según el PLATERCAEX, ¿qué zonas delimita el PMA?",
+   "respuesta": "Las Zonas de intervención, de alerta, de socorro y base",
+   "fuente": "PLATERCAEX, IV.3.1, pág. 36. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=36",
+   "localizacion": "PLATERCAEX, IV.3.1, pág. 36",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p36"
+  },
+  {
+   "id": "CPEI-T29-OF-094307BF",
+   "orden": 340,
+   "concepto": "Según el PLATERCAEX, ¿qué comité se reúne en el CECOPAL?",
+   "respuesta": "El Comité de Emergencias Municipal",
+   "fuente": "PLATERCAEX, IV.3.2, pág. 36. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=36",
+   "localizacion": "PLATERCAEX, IV.3.2, pág. 36",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p36"
+  },
+  {
+   "id": "CPEI-T29-OF-C3ED26BB",
+   "orden": 350,
+   "concepto": "Según el PLATERCAEX, ¿bajo la dirección de quién se reúne el Comité de Emergencias Municipal en el CECOPAL?",
+   "respuesta": "Bajo la dirección de quien ostente la Alcaldía",
+   "fuente": "PLATERCAEX, IV.3.2, pág. 36. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=36",
+   "localizacion": "PLATERCAEX, IV.3.2, pág. 36",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p36"
+  },
+  {
+   "id": "CPEI-T29-OF-73974154",
+   "orden": 360,
+   "concepto": "Según el PLATERCAEX, ¿quién realiza la Coordinación de medios?",
+   "respuesta": "Quien ejerza la Jefatura de Sala del Centro Coordinador de Emergencias 1.1.2. de Extremadura",
+   "fuente": "PLATERCAEX, IV.3.3, pág. 36. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=36",
+   "localizacion": "PLATERCAEX, IV.3.3, pág. 36",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p36"
+  },
+  {
+   "id": "CPEI-T29-OF-244261C4",
+   "orden": 370,
+   "concepto": "Según el PLATERCAEX, ¿cuántos grupos de acción ejecutan las actuaciones del plan?",
+   "respuesta": "Seis grupos de acción",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 37. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=37",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 37",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p37"
+  },
+  {
+   "id": "CPEI-T29-OF-D47792F3",
+   "orden": 380,
+   "concepto": "Según el PLATERCAEX, ¿cuáles son los grupos de acción?",
+   "respuesta": "Grupo de Intervención, Grupo de Apoyo Técnico, Grupo Sanitario, Grupo de Seguridad, Grupo de Logística y Grupo Psicosocial",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 37. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=37",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 37",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p37"
+  },
+  {
+   "id": "CPEI-T29-OF-4BCF8C5A",
+   "orden": 390,
+   "concepto": "Según el PLATERCAEX, ¿bajo cuántas jefaturas actúa cada grupo de acción?",
+   "respuesta": "Bajo la coordinación de una sola jefatura",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 37. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=37",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 37",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p37"
+  },
+  {
+   "id": "CPEI-T29-OF-C3689AA6",
+   "orden": 400,
+   "concepto": "Según el PLATERCAEX, ¿qué medidas ejecuta el Grupo de Intervención?",
+   "respuesta": "Las medidas de intervención que tienen por objeto eliminar, reducir o controlar directamente los efectos de la emergencia",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 38. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=38",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 38",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p38"
+  },
+  {
+   "id": "CPEI-T29-OF-FD391767",
+   "orden": 410,
+   "concepto": "Según el PLATERCAEX, ¿por quiénes está integrado el Grupo de Intervención?",
+   "respuesta": "Servicios de Extinción de Incendios y Salvamento y personal técnico y profesionales especialistas en función de la emergencia",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 38. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=38",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 38",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p38"
+  },
+  {
+   "id": "CPEI-T29-OF-712FA954",
+   "orden": 420,
+   "concepto": "Según el PLATERCAEX, ¿quién dirige el Grupo de Intervención en el PMA?",
+   "respuesta": "El Mando del Servicio de Extinción de Incendios y Salvamento que está en la zona de la emergencia",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 38. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=38",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 38",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p38"
+  },
+  {
+   "id": "CPEI-T29-OF-02A15CB9",
+   "orden": 430,
+   "concepto": "Según el PLATERCAEX, ¿qué función de búsqueda tiene el Grupo de Intervención?",
+   "respuesta": "Búsqueda, rescate y salvamento de personas heridas, sepultadas o aisladas",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 38. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=38",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 38",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p38"
+  },
+  {
+   "id": "CPEI-T29-OF-B347DCEF",
+   "orden": 440,
+   "concepto": "Según el PLATERCAEX, ¿hasta dónde colabora el Grupo de Intervención en el traslado de afectados?",
+   "respuesta": "Hasta al Puesto de Asistencia Médica Avanzada desplazado a la zona",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 39. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=39",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 39",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p39"
+  },
+  {
+   "id": "CPEI-T29-OF-A22BDC73",
+   "orden": 450,
+   "concepto": "Según el PLATERCAEX, ¿qué misión tiene el Grupo de Apoyo Técnico?",
+   "respuesta": "Proponer las medidas para controlar la causa que desencadena la situación de emergencia así como evaluar las consecuencias producidas",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 39. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=39",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 39",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p39"
+  },
+  {
+   "id": "CPEI-T29-OF-FA57DEF6",
+   "orden": 460,
+   "concepto": "Según el PLATERCAEX, ¿qué seguridad evalúa el Grupo de Apoyo Técnico?",
+   "respuesta": "La seguridad de las edificaciones e infraestructuras afectadas por el suceso catastrófico",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 40. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=40",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 40",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p40"
+  },
+  {
+   "id": "CPEI-T29-OF-68C1BCA9",
+   "orden": 470,
+   "concepto": "Según el PLATERCAEX, ¿de qué se encarga el Grupo Sanitario?",
+   "respuesta": "De gestionar los recursos sanitarios necesarios, prestar asistencia sanitaria \"in situ\", coordinar la evacuación de pacientes y personas heridas",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 40. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=40",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 40",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p40"
+  },
+  {
+   "id": "CPEI-T29-OF-7CC3CEEB",
+   "orden": 480,
+   "concepto": "Según el PLATERCAEX, ¿quién es el responsable del Grupo Sanitario en el Comité Técnico Asesor?",
+   "respuesta": "La titular de la Dirección Gerencia del SES o la persona en quien delegue",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 41. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=41",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 41",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p41"
+  },
+  {
+   "id": "CPEI-T29-OF-20832B34",
+   "orden": 490,
+   "concepto": "Según el PLATERCAEX, ¿qué puesto establece el Grupo Sanitario en la zona?",
+   "respuesta": "El puesto de Asistencia Médica Avanzada (PAMA)",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 41. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=41",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 41",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p41"
+  },
+  {
+   "id": "CPEI-T29-OF-E5E02EE2",
+   "orden": 500,
+   "concepto": "Según el PLATERCAEX, ¿en qué consiste la asistencia sanitaria «in situ» del Grupo Sanitario?",
+   "respuesta": "Triage, Estabilización, Alta, Traslado",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 41. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=41",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 41",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p41"
+  },
+  {
+   "id": "CPEI-T29-OF-AC343F9D",
+   "orden": 510,
+   "concepto": "Según el PLATERCAEX, ¿qué prioridad tiene el Grupo de Seguridad?",
+   "respuesta": "La salvaguarda de las personas implicadas en la emergencia y de los demás grupos de acción",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 42. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=42",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 42",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p42"
+  },
+  {
+   "id": "CPEI-T29-OF-AC483BEF",
+   "orden": 520,
+   "concepto": "Según el PLATERCAEX, ¿por quiénes está integrado el Grupo de Seguridad?",
+   "respuesta": "Cuerpos y Fuerzas de Seguridad del Estado y Policías Locales de las poblaciones afectadas",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 42. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=42",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 42",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p42"
+  },
+  {
+   "id": "CPEI-T29-OF-36FC8C6E",
+   "orden": 530,
+   "concepto": "Según el PLATERCAEX, ¿qué garantiza en primer lugar el Grupo de Seguridad?",
+   "respuesta": "Garantizar el orden público y la seguridad ciudadana",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 43. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=43",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 43",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p43"
+  },
+  {
+   "id": "CPEI-T29-OF-469C5604",
+   "orden": 540,
+   "concepto": "Según el PLATERCAEX, ¿qué misión tiene el Grupo de Logística?",
+   "respuesta": "La provisión de todos los equipamientos y suministros necesarios para las actividades de los demás grupos de acción",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 43. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=43",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 43",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p43"
+  },
+  {
+   "id": "CPEI-T29-OF-959DE3FD",
+   "orden": 550,
+   "concepto": "Según el PLATERCAEX, ¿con qué grupo colabora el Grupo de Logística para evacuar a las personas con discapacidad?",
+   "respuesta": "En colaboración con el Grupo Sanitario",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 44. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=44",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 44",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p44"
+  },
+  {
+   "id": "CPEI-T29-OF-CAB1A759",
+   "orden": 560,
+   "concepto": "Según el PLATERCAEX, ¿qué suministro de equipos aporta el Grupo de Logística para los trabajos nocturnos?",
+   "respuesta": "Suministro de equipos para la iluminación en los trabajos nocturnos",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 44. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=44",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 44",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p44"
+  },
+  {
+   "id": "CPEI-T29-OF-91FD5053",
+   "orden": 570,
+   "concepto": "Según el PLATERCAEX, ¿qué objetivo tiene el Grupo Psicosocial?",
+   "respuesta": "La atención psicológica y social de las personas afectadas por la emergencia y sus familiares",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 45. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=45",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 45",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p45"
+  },
+  {
+   "id": "CPEI-T29-OF-4EB51C47",
+   "orden": 580,
+   "concepto": "Según el PLATERCAEX, ¿qué equipos de Cruz Roja integran el Grupo Psicosocial?",
+   "respuesta": "Equipos de Respuesta Inmediata en Emergencias (ERIE) de Cruz Roja Española",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 45. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=45",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 45",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p45"
+  },
+  {
+   "id": "CPEI-T29-OF-2B5C1AE0",
+   "orden": 590,
+   "concepto": "Según el PLATERCAEX, ¿quién dirige el Grupo Psicosocial en el PMA?",
+   "respuesta": "La misma persona que ostente la Jefatura del Grupo de Logística",
+   "fuente": "PLATERCAEX, IV.3.4, pág. 45. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=45",
+   "localizacion": "PLATERCAEX, IV.3.4, pág. 45",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p45"
+  },
+  {
+   "id": "CPEI-T29-OF-50B3E64A",
+   "orden": 600,
+   "concepto": "Según el PLATERCAEX, ¿con qué autorización previa interviene el voluntariado de protección civil?",
+   "respuesta": "Previa autorización de la persona responsable del Puesto de Mando Avanzado (PMA)",
+   "fuente": "PLATERCAEX, IV.3.5, pág. 46. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=46",
+   "localizacion": "PLATERCAEX, IV.3.5, pág. 46",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p46"
+  },
+  {
+   "id": "CPEI-T29-OF-6E06E941",
+   "orden": 610,
+   "concepto": "Según el PLATERCAEX, ¿quién determina la adscripción del voluntariado a los grupos de acción?",
+   "respuesta": "La persona responsable del grupo de logística",
+   "fuente": "PLATERCAEX, IV.3.5, pág. 46. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=46",
+   "localizacion": "PLATERCAEX, IV.3.5, pág. 46",
+   "apartado": "Estructura operativa",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p46"
+  },
+  {
+   "id": "CPEI-T29-OF-3BE744E8",
+   "orden": 620,
+   "concepto": "Según el PLATERCAEX, ¿a qué responde la fase de alerta?",
+   "respuesta": "A previsiones de potenciales emergencias no manifestadas",
+   "fuente": "PLATERCAEX, V.2, pág. 48. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=48",
+   "localizacion": "PLATERCAEX, V.2, pág. 48",
+   "apartado": "Operatividad",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p48"
+  },
+  {
+   "id": "CPEI-T29-OF-508EF385",
+   "orden": 630,
+   "concepto": "Según el PLATERCAEX, ¿cuántas situaciones se establecen en la fase de emergencia?",
+   "respuesta": "Cuatro situaciones",
+   "fuente": "PLATERCAEX, V.2, pág. 48. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=48",
+   "localizacion": "PLATERCAEX, V.2, pág. 48",
+   "apartado": "Operatividad",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p48"
+  },
+  {
+   "id": "CPEI-T29-OF-178D6017",
+   "orden": 640,
+   "concepto": "Según el PLATERCAEX, ¿qué emergencias corresponden a la situación 0?",
+   "respuesta": "Emergencias de ámbito municipal controladas mediante respuesta local",
+   "fuente": "PLATERCAEX, V.2, pág. 48. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=48",
+   "localizacion": "PLATERCAEX, V.2, pág. 48",
+   "apartado": "Operatividad",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p48"
+  },
+  {
+   "id": "CPEI-T29-OF-85505D5F",
+   "orden": 650,
+   "concepto": "Según el PLATERCAEX, ¿se activa el PLATERCAEX en situación 0?",
+   "respuesta": "En esta situación no se activa el PLATERCAEX",
+   "fuente": "PLATERCAEX, V.2, pág. 48. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=48",
+   "localizacion": "PLATERCAEX, V.2, pág. 48",
+   "apartado": "Operatividad",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p48"
+  },
+  {
+   "id": "CPEI-T29-OF-4B774E08",
+   "orden": 660,
+   "concepto": "Según el PLATERCAEX, ¿a quién corresponde la Dirección del Plan de Emergencia aplicado en situación 0?",
+   "respuesta": "A la autoridad local",
+   "fuente": "PLATERCAEX, V.2, pág. 49. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=49",
+   "localizacion": "PLATERCAEX, V.2, pág. 49",
+   "apartado": "Operatividad",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p49"
+  },
+  {
+   "id": "CPEI-T29-OF-A6942241",
+   "orden": 670,
+   "concepto": "Según el PLATERCAEX, ¿a quién corresponde la declaración de la situación 1?",
+   "respuesta": "A la Dirección del PLATERCAEX",
+   "fuente": "PLATERCAEX, V.2, pág. 49. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=49",
+   "localizacion": "PLATERCAEX, V.2, pág. 49",
+   "apartado": "Operatividad",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p49"
+  },
+  {
+   "id": "CPEI-T29-OF-410F9BAB",
+   "orden": 680,
+   "concepto": "Según el PLATERCAEX, ¿qué medios puede ser necesario solicitar en situación 2?",
+   "respuesta": "Los medios y recursos de las Fuerzas Armadas",
+   "fuente": "PLATERCAEX, V.2, pág. 50. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=50",
+   "localizacion": "PLATERCAEX, V.2, pág. 50",
+   "apartado": "Operatividad",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p50"
+  },
+  {
+   "id": "CPEI-T29-OF-CA2C370E",
+   "orden": 690,
+   "concepto": "Según el PLATERCAEX, ¿quién declara la situación 3 o emergencia de interés nacional?",
+   "respuesta": "El titular del Ministerio del Interior",
+   "fuente": "PLATERCAEX, V.2, pág. 50. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=50",
+   "localizacion": "PLATERCAEX, V.2, pág. 50",
+   "apartado": "Operatividad",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p50"
+  },
+  {
+   "id": "CPEI-T29-OF-F2F081B0",
+   "orden": 700,
+   "concepto": "Según el PLATERCAEX, ¿cuándo queda implícitamente activada la fase de recuperación?",
+   "respuesta": "En el momento en el que se desactiva la fase de emergencia en cualquiera de sus situaciones",
+   "fuente": "PLATERCAEX, V.2, pág. 50. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=50",
+   "localizacion": "PLATERCAEX, V.2, pág. 50",
+   "apartado": "Operatividad",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p50"
+  },
+  {
+   "id": "CPEI-T29-OF-143535BE",
+   "orden": 710,
+   "concepto": "Según el PLATERCAEX, ¿qué se entiende por interfase?",
+   "respuesta": "El conjunto de procedimientos operativos comunes que, entre ambos planes, aseguren la integración y la perfecta coordinación y traspaso de mando de uno y otro plan",
+   "fuente": "PLATERCAEX, V.2.1, pág. 51. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=51",
+   "localizacion": "PLATERCAEX, V.2.1, pág. 51",
+   "apartado": "Operatividad",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p51"
+  },
+  {
+   "id": "CPEI-T29-OF-5596D636",
+   "orden": 720,
+   "concepto": "Según el PLATERCAEX, ¿a través de qué centro comunica la dirección de un plan municipal su activación a la Dirección del PLATERCAEX?",
+   "respuesta": "A través del Centro de Atención de Urgencias y Emergencias 1.1.2. de Extremadura",
+   "fuente": "PLATERCAEX, V.2.1, pág. 51. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=51",
+   "localizacion": "PLATERCAEX, V.2.1, pág. 51",
+   "apartado": "Operatividad",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p51"
+  },
+  {
+   "id": "CPEI-T29-OF-D0E61828",
+   "orden": 730,
+   "concepto": "Según el PLATERCAEX, ¿qué supone para los planes inferiores la activación del plan territorial en situación 1 o siguientes?",
+   "respuesta": "La integración de los planes inferiores que resulten afectados, y su activación automática caso de que no lo estuviesen",
+   "fuente": "PLATERCAEX, V.2.1, pág. 51. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=51",
+   "localizacion": "PLATERCAEX, V.2.1, pág. 51",
+   "apartado": "Operatividad",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p51"
+  },
+  {
+   "id": "CPEI-T29-OF-AC93F335",
+   "orden": 740,
+   "concepto": "Según el PLATERCAEX, ¿cuál es el único canal obligatorio de aviso inmediato ante una emergencia?",
+   "respuesta": "El Centro de Urgencias y Emergencias 112 de Extremadura",
+   "fuente": "PLATERCAEX, V.3, pág. 52. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=52",
+   "localizacion": "PLATERCAEX, V.3, pág. 52",
+   "apartado": "Operatividad",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p52"
+  },
+  {
+   "id": "CPEI-T29-OF-B975FD08",
+   "orden": 750,
+   "concepto": "Según el PLATERCAEX, ¿a quiénes se notifica una situación 1 en adelante?",
+   "respuesta": "A la Dirección del Plan, Presidencia de la CAEX, Delegación del Gobierno en Extremadura y al resto de Autoridades y responsables que puedan proporcionar medios humanos y/o materiales al Plan",
+   "fuente": "PLATERCAEX, V.3, pág. 52. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=52",
+   "localizacion": "PLATERCAEX, V.3, pág. 52",
+   "apartado": "Operatividad",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p52"
+  },
+  {
+   "id": "CPEI-T29-OF-85BE2E43",
+   "orden": 760,
+   "concepto": "Según el PLATERCAEX, ¿qué se convoca inmediatamente tras notificar la aplicación del plan?",
+   "respuesta": "Inmediatamente se convoca el Comité de Dirección",
+   "fuente": "PLATERCAEX, V.4.1, pág. 53. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=53",
+   "localizacion": "PLATERCAEX, V.4.1, pág. 53",
+   "apartado": "Operatividad",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p53"
+  },
+  {
+   "id": "CPEI-T29-OF-550EDAF6",
+   "orden": 770,
+   "concepto": "Según el PLATERCAEX, ¿cómo se activa el plan territorial en una emergencia en situación 2?",
+   "respuesta": "Se activa en su totalidad",
+   "fuente": "PLATERCAEX, V.4.1, pág. 53. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=53",
+   "localizacion": "PLATERCAEX, V.4.1, pág. 53",
+   "apartado": "Operatividad",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p53"
+  },
+  {
+   "id": "CPEI-T29-OF-86E3BF70",
+   "orden": 780,
+   "concepto": "Según el PLATERCAEX, ¿con el asesoramiento de qué comité da la Dirección del Plan por finalizada la emergencia?",
+   "respuesta": "Con el asesoramiento del Comité Técnico Asesor",
+   "fuente": "PLATERCAEX, V.4.3, pág. 55. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=55",
+   "localizacion": "PLATERCAEX, V.4.3, pág. 55",
+   "apartado": "Operatividad",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p55"
+  },
+  {
+   "id": "CPEI-T29-OF-5A67E509",
+   "orden": 790,
+   "concepto": "Según el PLATERCAEX, ¿hasta cuándo se prolonga la fase de recuperación?",
+   "respuesta": "Hasta el establecimiento de las condiciones previas a la que dio lugar a la emergencia y vuelta a la normalidad en la zona afectada",
+   "fuente": "PLATERCAEX, V.4.4, pág. 55. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=55",
+   "localizacion": "PLATERCAEX, V.4.4, pág. 55",
+   "apartado": "Operatividad",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p55"
+  },
+  {
+   "id": "CPEI-T29-OF-61BBDB65",
+   "orden": 800,
+   "concepto": "Según el PLATERCAEX, ¿a qué bienes se presta especial atención en las medidas de protección a los bienes?",
+   "respuesta": "A los bienes declarados de interés cultural",
+   "fuente": "PLATERCAEX, V.5, pág. 56. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=56",
+   "localizacion": "PLATERCAEX, V.5, pág. 56",
+   "apartado": "Operatividad",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p56"
+  },
+  {
+   "id": "CPEI-T29-OF-0094A705",
+   "orden": 810,
+   "concepto": "Según el PLATERCAEX, ¿a qué se destinan las medidas reparadoras?",
+   "respuesta": "A la rehabilitación de los servicios públicos esenciales",
+   "fuente": "PLATERCAEX, V.5, pág. 57. Decreto 187/2019, de 15 de octubre, por el que se actualiza el PLATERCAEX (DOE nº 247, de 26/12/2019; art. único.2: texto íntegro en la web de la D.G. de Protección Civil y Emergencias); texto íntegro oficial (versión PDF de 31/01/2020): https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf#page=57",
+   "localizacion": "PLATERCAEX, V.5, pág. 57",
+   "apartado": "Operatividad",
+   "norma": "Decreto 187/2019",
+   "bloque_boe": "p57"
+  }
+ ]
+}

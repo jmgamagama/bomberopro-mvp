@@ -11,3 +11,4 @@ coverage/
 # Contenido de temario (privado: no se publica en el repositorio)
 content/
 supabase/migrations/*_datos_*.sql
+pwa-capturas/

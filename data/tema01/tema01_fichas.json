@@ -1,0 +1,1588 @@
+{
+ "tema": 1,
+ "titulo": "Tema 1 · La Constitución Española de 1978: Título Preliminar y Título I",
+ "epigrafe_bop": "La Constitución Española de 1978: Título Preliminar. De los derechos y deberes fundamentales: de los españoles y los extranjeros; derechos y libertades. De los principios rectores de la política social y económica. De las garantías de las libertades y derechos fundamentales. De la suspensión de los derechos y libertades.",
+ "normas": [
+  {
+   "id": "BOE-A-1978-31229",
+   "norma": "Constitución Española de 1978 (Título Preliminar y Título I, arts. 1-55)",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229",
+   "ultima_actualizacion": "20/05/2026"
+  }
+ ],
+ "estado": "cargado",
+ "propuestas": 131,
+ "entran_tras_filtro": 129,
+ "descartadas": [
+  {
+   "norma": "CE",
+   "bloque": "a9",
+   "apartado": "apdo. 3",
+   "concepto": "Según el art. 9.3 CE, ¿qué interdicción de los poderes públicos garantiza la Constitución?",
+   "respuesta": "La interdicción de la arbitrariedad de los poderes públicos",
+   "motivo": "respuesta dentro de la pregunta"
+  },
+  {
+   "norma": "CE",
+   "bloque": "a16",
+   "apartado": "apdo. 3",
+   "concepto": "Según el art. 16.3 CE, ¿qué confesión tendrá carácter estatal?",
+   "respuesta": "Ninguna confesión tendrá carácter estatal",
+   "motivo": "respuesta dentro de la pregunta"
+  }
+ ],
+ "cobertura": {
+  "Título Preliminar (arts. 1-9)": "cubierto",
+  "Título I, art. 10": "cubierto",
+  "Cap. I · españoles y extranjeros (arts. 11-13)": "cubierto",
+  "Cap. II · derechos y libertades (arts. 14-38)": "cubierto (todos los artículos con al menos una ficha)",
+  "Cap. III · principios rectores (arts. 39-52)": "cubierto",
+  "Cap. IV · garantías (arts. 53-54)": "cubierto",
+  "Cap. V · suspensión (art. 55)": "cubierto"
+ },
+ "muestra_revisada": [
+  {
+   "id": "CPEI-T01-OF-2744E012",
+   "concepto": "Según el art. 3.3 CE, ¿qué es la riqueza de las distintas modalidades lingüísticas de España?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T01-OF-48F7C8D6",
+   "concepto": "Según el art. 31.1 CE, ¿en qué principios se inspira el sistema tributario?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T01-OF-7A9C0627",
+   "concepto": "Según el art. 25.3 CE, ¿qué sanciones no podrá imponer la Administración civil?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T01-OF-DFCEE84D",
+   "concepto": "Según el art. 8.1 CE, ¿qué misión tienen las Fuerzas Armadas?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T01-OF-24771DE7",
+   "concepto": "Según el art. 6 CE, ¿qué expresan los partidos políticos?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T01-OF-B3418551",
+   "concepto": "Según el art. 27.10 CE, ¿qué se reconoce a las Universidades?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T01-OF-84BC7349",
+   "concepto": "Según el art. 39.1 CE, ¿qué protección de la familia aseguran los poderes públicos?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T01-OF-EDD2D079",
+   "concepto": "Según el art. 30.1 CE, ¿qué derecho y deber tienen los españoles respecto de España?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T01-OF-FCE84623",
+   "concepto": "Según el art. 9.1 CE, ¿a qué están sujetos los ciudadanos y los poderes públicos?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T01-OF-1F2C1EBF",
+   "concepto": "Según el art. 51.1 CE, ¿de quiénes garantizarán la defensa los poderes públicos mediante procedimientos eficaces?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T01-OF-D588E233",
+   "concepto": "Según el art. 22.5 CE, ¿qué asociaciones se prohíben?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T01-OF-639A080B",
+   "concepto": "Según el art. 53.1 CE, ¿qué debe respetar en todo caso la ley que regule el ejercicio de los derechos y libertades del Capítulo segundo?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T01-OF-4FF018FB",
+   "concepto": "Según el art. 43.3 CE, ¿qué fomentarán los poderes públicos además de la educación sanitaria?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T01-OF-9423F2C1",
+   "concepto": "Según el art. 23.1 CE, ¿cómo pueden participar los ciudadanos en los asuntos públicos?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T01-OF-B536CD44",
+   "concepto": "Según el art. 25.2 CE, ¿en qué no podrán consistir las penas privativas de libertad?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T01-OF-B79C0146",
+   "concepto": "Según el art. 55.1 CE, ¿en qué estados pueden suspenderse los derechos enumerados en dicho apartado?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T01-OF-FC27858F",
+   "concepto": "Según el art. 15 CE, ¿qué pena queda abolida?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T01-OF-F20B80E0",
+   "concepto": "Según el art. 31.1 CE, ¿qué alcance no tendrá en ningún caso el sistema tributario?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T01-OF-854BD578",
+   "concepto": "Según el art. 18.2 CE, ¿en qué casos puede hacerse una entrada o registro en el domicilio?",
+   "veredicto": "ERROR",
+   "nota": "redacción ambigua («Con consentimiento…, salvo flagrante delito» podía leerse al revés); corregida tras la revisión con el texto literal del art. 18.2"
+  },
+  {
+   "id": "CPEI-T01-OF-312BA79B",
+   "concepto": "Según el art. 41 CE, ¿qué régimen mantendrán los poderes públicos para todos los ciudadanos?",
+   "veredicto": "OK",
+   "nota": ""
+  }
+ ],
+ "errores_muestra": 1,
+ "pct_errores_muestra": 5.0,
+ "fichas": [
+  {
+   "id": "CPEI-T01-OF-D1865AE9",
+   "orden": 10,
+   "concepto": "Según el art. 1.1 CE, ¿cómo se constituye España?",
+   "respuesta": "En un Estado social y democrático de Derecho",
+   "fuente": "Constitución Española, Artículo 1, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a1",
+   "localizacion": "Constitución Española, Artículo 1, apdo. 1",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a1"
+  },
+  {
+   "id": "CPEI-T01-OF-D866E838",
+   "orden": 20,
+   "concepto": "Según el art. 1.1 CE, ¿cuáles son los valores superiores del ordenamiento jurídico?",
+   "respuesta": "La libertad, la justicia, la igualdad y el pluralismo político",
+   "fuente": "Constitución Española, Artículo 1, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a1",
+   "localizacion": "Constitución Española, Artículo 1, apdo. 1",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a1"
+  },
+  {
+   "id": "CPEI-T01-OF-3D8D1F41",
+   "orden": 30,
+   "concepto": "Según el art. 1.2 CE, ¿en quién reside la soberanía nacional?",
+   "respuesta": "En el pueblo español, del que emanan los poderes del Estado",
+   "fuente": "Constitución Española, Artículo 1, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a1",
+   "localizacion": "Constitución Española, Artículo 1, apdo. 2",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a1"
+  },
+  {
+   "id": "CPEI-T01-OF-2025DD13",
+   "orden": 40,
+   "concepto": "Según el art. 1.3 CE, ¿cuál es la forma política del Estado español?",
+   "respuesta": "La Monarquía parlamentaria",
+   "fuente": "Constitución Española, Artículo 1, apdo. 3. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a1",
+   "localizacion": "Constitución Española, Artículo 1, apdo. 3",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a1"
+  },
+  {
+   "id": "CPEI-T01-OF-5DFEAC16",
+   "orden": 50,
+   "concepto": "Según el art. 2 CE, ¿en qué se fundamenta la Constitución?",
+   "respuesta": "En la indisoluble unidad de la Nación española, patria común e indivisible de todos los españoles",
+   "fuente": "Constitución Española, Artículo 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a2",
+   "localizacion": "Constitución Española, Artículo 2",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a2"
+  },
+  {
+   "id": "CPEI-T01-OF-2CD08339",
+   "orden": 60,
+   "concepto": "Según el art. 2 CE, ¿qué derecho reconoce y garantiza la Constitución a las nacionalidades y regiones?",
+   "respuesta": "El derecho a la autonomía de las nacionalidades y regiones que la integran y la solidaridad entre todas ellas",
+   "fuente": "Constitución Española, Artículo 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a2",
+   "localizacion": "Constitución Española, Artículo 2",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a2"
+  },
+  {
+   "id": "CPEI-T01-OF-EC2307F7",
+   "orden": 70,
+   "concepto": "Según el art. 3.1 CE, ¿cuál es la lengua española oficial del Estado?",
+   "respuesta": "El castellano",
+   "fuente": "Constitución Española, Artículo 3, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a3",
+   "localizacion": "Constitución Española, Artículo 3, apdo. 1",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a3"
+  },
+  {
+   "id": "CPEI-T01-OF-F171CDF6",
+   "orden": 80,
+   "concepto": "Según el art. 3.1 CE, ¿qué deber y qué derecho tienen todos los españoles respecto del castellano?",
+   "respuesta": "El deber de conocerla y el derecho a usarla",
+   "fuente": "Constitución Española, Artículo 3, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a3",
+   "localizacion": "Constitución Española, Artículo 3, apdo. 1",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a3"
+  },
+  {
+   "id": "CPEI-T01-OF-4350AC67",
+   "orden": 90,
+   "concepto": "Según el art. 3.2 CE, ¿dónde son también oficiales las demás lenguas españolas?",
+   "respuesta": "En las respectivas Comunidades Autónomas de acuerdo con sus Estatutos",
+   "fuente": "Constitución Española, Artículo 3, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a3",
+   "localizacion": "Constitución Española, Artículo 3, apdo. 2",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a3"
+  },
+  {
+   "id": "CPEI-T01-OF-2744E012",
+   "orden": 100,
+   "concepto": "Según el art. 3.3 CE, ¿qué es la riqueza de las distintas modalidades lingüísticas de España?",
+   "respuesta": "Un patrimonio cultural que será objeto de especial respeto y protección",
+   "fuente": "Constitución Española, Artículo 3, apdo. 3. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a3",
+   "localizacion": "Constitución Española, Artículo 3, apdo. 3",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a3"
+  },
+  {
+   "id": "CPEI-T01-OF-DCE21D85",
+   "orden": 110,
+   "concepto": "Según el art. 4.1 CE, ¿cómo está formada la bandera de España?",
+   "respuesta": "Por tres franjas horizontales, roja, amarilla y roja, siendo la amarilla de doble anchura que cada una de las rojas",
+   "fuente": "Constitución Española, Artículo 4, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a4",
+   "localizacion": "Constitución Española, Artículo 4, apdo. 1",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a4"
+  },
+  {
+   "id": "CPEI-T01-OF-CDD57431",
+   "orden": 120,
+   "concepto": "Según el art. 4.2 CE, ¿dónde se utilizan las banderas propias de las Comunidades Autónomas junto a la de España?",
+   "respuesta": "En sus edificios públicos y en sus actos oficiales",
+   "fuente": "Constitución Española, Artículo 4, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a4",
+   "localizacion": "Constitución Española, Artículo 4, apdo. 2",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a4"
+  },
+  {
+   "id": "CPEI-T01-OF-40F38AC7",
+   "orden": 130,
+   "concepto": "Según el art. 5 CE, ¿cuál es la capital del Estado?",
+   "respuesta": "La villa de Madrid",
+   "fuente": "Constitución Española, Artículo 5. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a5",
+   "localizacion": "Constitución Española, Artículo 5",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a5"
+  },
+  {
+   "id": "CPEI-T01-OF-24771DE7",
+   "orden": 140,
+   "concepto": "Según el art. 6 CE, ¿qué expresan los partidos políticos?",
+   "respuesta": "El pluralismo político",
+   "fuente": "Constitución Española, Artículo 6. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a6",
+   "localizacion": "Constitución Española, Artículo 6",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a6"
+  },
+  {
+   "id": "CPEI-T01-OF-24FE88F6",
+   "orden": 150,
+   "concepto": "Según el art. 6 CE, ¿cómo deben ser la estructura interna y el funcionamiento de los partidos políticos?",
+   "respuesta": "Democráticos",
+   "fuente": "Constitución Española, Artículo 6. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a6",
+   "localizacion": "Constitución Española, Artículo 6",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a6"
+  },
+  {
+   "id": "CPEI-T01-OF-86303A18",
+   "orden": 160,
+   "concepto": "Según el art. 7 CE, ¿qué contribuyen a defender los sindicatos de trabajadores y las asociaciones empresariales?",
+   "respuesta": "La defensa y promoción de los intereses económicos y sociales que les son propios",
+   "fuente": "Constitución Española, Artículo 7. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a7",
+   "localizacion": "Constitución Española, Artículo 7",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a7"
+  },
+  {
+   "id": "CPEI-T01-OF-17761FB7",
+   "orden": 170,
+   "concepto": "Según el art. 8.1 CE, ¿por qué ejércitos están constituidas las Fuerzas Armadas?",
+   "respuesta": "Por el Ejército de Tierra, la Armada y el Ejército del Aire",
+   "fuente": "Constitución Española, Artículo 8, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a8",
+   "localizacion": "Constitución Española, Artículo 8, apdo. 1",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a8"
+  },
+  {
+   "id": "CPEI-T01-OF-DFCEE84D",
+   "orden": 180,
+   "concepto": "Según el art. 8.1 CE, ¿qué misión tienen las Fuerzas Armadas?",
+   "respuesta": "Garantizar la soberanía e independencia de España, defender su integridad territorial y el ordenamiento constitucional",
+   "fuente": "Constitución Española, Artículo 8, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a8",
+   "localizacion": "Constitución Española, Artículo 8, apdo. 1",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a8"
+  },
+  {
+   "id": "CPEI-T01-OF-041EBD3F",
+   "orden": 190,
+   "concepto": "Según el art. 8.2 CE, ¿qué tipo de ley regulará las bases de la organización militar?",
+   "respuesta": "Una ley orgánica",
+   "fuente": "Constitución Española, Artículo 8, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a8",
+   "localizacion": "Constitución Española, Artículo 8, apdo. 2",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a8"
+  },
+  {
+   "id": "CPEI-T01-OF-FCE84623",
+   "orden": 200,
+   "concepto": "Según el art. 9.1 CE, ¿a qué están sujetos los ciudadanos y los poderes públicos?",
+   "respuesta": "A la Constitución y al resto del ordenamiento jurídico",
+   "fuente": "Constitución Española, Artículo 9, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a9",
+   "localizacion": "Constitución Española, Artículo 9, apdo. 1",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a9"
+  },
+  {
+   "id": "CPEI-T01-OF-2EF724E5",
+   "orden": 210,
+   "concepto": "Según el art. 9.2 CE, ¿qué corresponde a los poderes públicos respecto de la libertad y la igualdad del individuo y de los grupos?",
+   "respuesta": "Promover las condiciones para que la libertad y la igualdad del individuo y de los grupos en que se integra sean reales y efectivas",
+   "fuente": "Constitución Española, Artículo 9, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a9",
+   "localizacion": "Constitución Española, Artículo 9, apdo. 2",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a9"
+  },
+  {
+   "id": "CPEI-T01-OF-C467995F",
+   "orden": 220,
+   "concepto": "Según el art. 9.3 CE, ¿qué irretroactividad garantiza la Constitución?",
+   "respuesta": "La irretroactividad de las disposiciones sancionadoras no favorables o restrictivas de derechos individuales",
+   "fuente": "Constitución Española, Artículo 9, apdo. 3. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a9",
+   "localizacion": "Constitución Española, Artículo 9, apdo. 3",
+   "apartado": "Título Preliminar",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a9"
+  },
+  {
+   "id": "CPEI-T01-OF-63FF3C1B",
+   "orden": 230,
+   "concepto": "Según el art. 10.1 CE, ¿qué es fundamento del orden político y de la paz social?",
+   "respuesta": "La dignidad de la persona, los derechos inviolables que le son inherentes, el libre desarrollo de la personalidad, el respeto a la ley y a los derechos de los demás",
+   "fuente": "Constitución Española, Artículo 10, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a10",
+   "localizacion": "Constitución Española, Artículo 10, apdo. 1",
+   "apartado": "Título I",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a10"
+  },
+  {
+   "id": "CPEI-T01-OF-A74B7588",
+   "orden": 240,
+   "concepto": "Según el art. 10.2 CE, ¿de conformidad con qué se interpretan las normas sobre derechos fundamentales?",
+   "respuesta": "De conformidad con la Declaración Universal de Derechos Humanos y los tratados y acuerdos internacionales sobre las mismas materias ratificados por España",
+   "fuente": "Constitución Española, Artículo 10, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a10",
+   "localizacion": "Constitución Española, Artículo 10, apdo. 2",
+   "apartado": "Título I",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a10"
+  },
+  {
+   "id": "CPEI-T01-OF-16E4346B",
+   "orden": 250,
+   "concepto": "Según el art. 11.2 CE, ¿quién no podrá ser privado de su nacionalidad?",
+   "respuesta": "Ningún español de origen",
+   "fuente": "Constitución Española, Artículo 11, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a11",
+   "localizacion": "Constitución Española, Artículo 11, apdo. 2",
+   "apartado": "Españoles y extranjeros",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a11"
+  },
+  {
+   "id": "CPEI-T01-OF-0E6E6C1E",
+   "orden": 260,
+   "concepto": "Según el art. 11.3 CE, ¿con qué países puede el Estado concertar tratados de doble nacionalidad?",
+   "respuesta": "Con los países iberoamericanos o con aquellos que hayan tenido o tengan una particular vinculación con España",
+   "fuente": "Constitución Española, Artículo 11, apdo. 3. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a11",
+   "localizacion": "Constitución Española, Artículo 11, apdo. 3",
+   "apartado": "Españoles y extranjeros",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a11"
+  },
+  {
+   "id": "CPEI-T01-OF-C2A1DC8C",
+   "orden": 270,
+   "concepto": "Según el art. 12 CE, ¿a qué edad son mayores de edad los españoles?",
+   "respuesta": "A los dieciocho años",
+   "fuente": "Constitución Española, Artículo 12. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a12",
+   "localizacion": "Constitución Española, Artículo 12",
+   "apartado": "Españoles y extranjeros",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a12"
+  },
+  {
+   "id": "CPEI-T01-OF-F037DCC6",
+   "orden": 280,
+   "concepto": "Según el art. 13.1 CE, ¿en qué términos gozan los extranjeros en España de las libertades públicas del Título I?",
+   "respuesta": "En los términos que establezcan los tratados y la ley",
+   "fuente": "Constitución Española, Artículo 13, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a13",
+   "localizacion": "Constitución Española, Artículo 13, apdo. 1",
+   "apartado": "Españoles y extranjeros",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a13"
+  },
+  {
+   "id": "CPEI-T01-OF-C3308316",
+   "orden": 290,
+   "concepto": "Según el art. 13.2 CE, ¿para qué elecciones puede reconocerse a extranjeros el sufragio activo y pasivo por reciprocidad?",
+   "respuesta": "En las elecciones municipales",
+   "fuente": "Constitución Española, Artículo 13, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a13",
+   "localizacion": "Constitución Española, Artículo 13, apdo. 2",
+   "apartado": "Españoles y extranjeros",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a13"
+  },
+  {
+   "id": "CPEI-T01-OF-5B9F299C",
+   "orden": 300,
+   "concepto": "Según el art. 13.3 CE, ¿qué delitos quedan excluidos de la extradición?",
+   "respuesta": "Los delitos políticos, no considerándose como tales los actos de terrorismo",
+   "fuente": "Constitución Española, Artículo 13, apdo. 3. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a13",
+   "localizacion": "Constitución Española, Artículo 13, apdo. 3",
+   "apartado": "Españoles y extranjeros",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a13"
+  },
+  {
+   "id": "CPEI-T01-OF-CF7CFEDC",
+   "orden": 310,
+   "concepto": "Según el art. 13.4 CE, ¿qué derecho podrán gozar en España los ciudadanos de otros países y los apátridas en los términos de la ley?",
+   "respuesta": "El derecho de asilo",
+   "fuente": "Constitución Española, Artículo 13, apdo. 4. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a13",
+   "localizacion": "Constitución Española, Artículo 13, apdo. 4",
+   "apartado": "Españoles y extranjeros",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a13"
+  },
+  {
+   "id": "CPEI-T01-OF-0CB8DC43",
+   "orden": 320,
+   "concepto": "Según el art. 14 CE, ¿por qué razones no puede prevalecer discriminación alguna?",
+   "respuesta": "Por razón de nacimiento, raza, sexo, religión, opinión o cualquier otra condición o circunstancia personal o social",
+   "fuente": "Constitución Española, Artículo 14. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a14",
+   "localizacion": "Constitución Española, Artículo 14",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a14"
+  },
+  {
+   "id": "CPEI-T01-OF-FC27858F",
+   "orden": 330,
+   "concepto": "Según el art. 15 CE, ¿qué pena queda abolida?",
+   "respuesta": "La pena de muerte, salvo lo que puedan disponer las leyes penales militares para tiempos de guerra",
+   "fuente": "Constitución Española, Artículo 15. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a15",
+   "localizacion": "Constitución Española, Artículo 15",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a15"
+  },
+  {
+   "id": "CPEI-T01-OF-107FAC5B",
+   "orden": 340,
+   "concepto": "Según el art. 15 CE, ¿a qué tienen derecho todos, sin que puedan ser sometidos a tortura?",
+   "respuesta": "A la vida y a la integridad física y moral",
+   "fuente": "Constitución Española, Artículo 15. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a15",
+   "localizacion": "Constitución Española, Artículo 15",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a15"
+  },
+  {
+   "id": "CPEI-T01-OF-C5C1358C",
+   "orden": 350,
+   "concepto": "Según el art. 16.1 CE, ¿qué única limitación tiene en sus manifestaciones la libertad ideológica, religiosa y de culto?",
+   "respuesta": "La necesaria para el mantenimiento del orden público protegido por la ley",
+   "fuente": "Constitución Española, Artículo 16, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a16",
+   "localizacion": "Constitución Española, Artículo 16, apdo. 1",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a16"
+  },
+  {
+   "id": "CPEI-T01-OF-5A77ACDA",
+   "orden": 360,
+   "concepto": "Según el art. 16.2 CE, ¿sobre qué nadie podrá ser obligado a declarar?",
+   "respuesta": "Sobre su ideología, religión o creencias",
+   "fuente": "Constitución Española, Artículo 16, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a16",
+   "localizacion": "Constitución Española, Artículo 16, apdo. 2",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a16"
+  },
+  {
+   "id": "CPEI-T01-OF-B765741A",
+   "orden": 370,
+   "concepto": "Según el art. 17.2 CE, ¿cuál es el plazo máximo de la detención preventiva?",
+   "respuesta": "Setenta y dos horas",
+   "fuente": "Constitución Española, Artículo 17, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a17",
+   "localizacion": "Constitución Española, Artículo 17, apdo. 2",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a17"
+  },
+  {
+   "id": "CPEI-T01-OF-76D5349A",
+   "orden": 380,
+   "concepto": "Según el art. 17.3 CE, ¿de qué debe ser informada de forma inmediata toda persona detenida?",
+   "respuesta": "De sus derechos y de las razones de su detención",
+   "fuente": "Constitución Española, Artículo 17, apdo. 3. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a17",
+   "localizacion": "Constitución Española, Artículo 17, apdo. 3",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a17"
+  },
+  {
+   "id": "CPEI-T01-OF-2E26D3AA",
+   "orden": 390,
+   "concepto": "Según el art. 17.3 CE, ¿qué asistencia se garantiza al detenido en las diligencias policiales y judiciales?",
+   "respuesta": "La asistencia de abogado",
+   "fuente": "Constitución Española, Artículo 17, apdo. 3. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a17",
+   "localizacion": "Constitución Española, Artículo 17, apdo. 3",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a17"
+  },
+  {
+   "id": "CPEI-T01-OF-B779EB89",
+   "orden": 400,
+   "concepto": "Según el art. 17.4 CE, ¿qué procedimiento regulará la ley para la inmediata puesta a disposición judicial de toda persona detenida ilegalmente?",
+   "respuesta": "Un procedimiento de «habeas corpus»",
+   "fuente": "Constitución Española, Artículo 17, apdo. 4. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a17",
+   "localizacion": "Constitución Española, Artículo 17, apdo. 4",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a17"
+  },
+  {
+   "id": "CPEI-T01-OF-4650FAC0",
+   "orden": 410,
+   "concepto": "Según el art. 18.1 CE, ¿qué tres derechos se garantizan junto al derecho al honor?",
+   "respuesta": "A la intimidad personal y familiar y a la propia imagen",
+   "fuente": "Constitución Española, Artículo 18, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a18",
+   "localizacion": "Constitución Española, Artículo 18, apdo. 1",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a18"
+  },
+  {
+   "id": "CPEI-T01-OF-854BD578",
+   "orden": 420,
+   "concepto": "Según el art. 18.2 CE, ¿en qué casos puede hacerse una entrada o registro en el domicilio?",
+   "respuesta": "Ninguna entrada o registro sin consentimiento del titular o resolución judicial, salvo en caso de flagrante delito",
+   "fuente": "Constitución Española, Artículo 18, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a18",
+   "localizacion": "Constitución Española, Artículo 18, apdo. 2",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a18"
+  },
+  {
+   "id": "CPEI-T01-OF-19F80008",
+   "orden": 430,
+   "concepto": "Según el art. 18.3 CE, ¿qué comunicaciones se citan en especial en la garantía del secreto de las comunicaciones?",
+   "respuesta": "Las postales, telegráficas y telefónicas",
+   "fuente": "Constitución Española, Artículo 18, apdo. 3. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a18",
+   "localizacion": "Constitución Española, Artículo 18, apdo. 3",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a18"
+  },
+  {
+   "id": "CPEI-T01-OF-1AD78D31",
+   "orden": 440,
+   "concepto": "Según el art. 18.4 CE, ¿qué uso limitará la ley para garantizar el honor y la intimidad?",
+   "respuesta": "El uso de la informática",
+   "fuente": "Constitución Española, Artículo 18, apdo. 4. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a18",
+   "localizacion": "Constitución Española, Artículo 18, apdo. 4",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a18"
+  },
+  {
+   "id": "CPEI-T01-OF-9EE28A4B",
+   "orden": 450,
+   "concepto": "Según el art. 19 CE, ¿por qué motivos no podrá limitarse el derecho a entrar y salir libremente de España?",
+   "respuesta": "Por motivos políticos o ideológicos",
+   "fuente": "Constitución Española, Artículo 19. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a19",
+   "localizacion": "Constitución Española, Artículo 19",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a19"
+  },
+  {
+   "id": "CPEI-T01-OF-06A6E710",
+   "orden": 460,
+   "concepto": "Según el art. 20.1 CE, ¿qué libertad del ámbito docente se reconoce y protege?",
+   "respuesta": "La libertad de cátedra",
+   "fuente": "Constitución Española, Artículo 20, apdo. 1.c. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a20",
+   "localizacion": "Constitución Española, Artículo 20, apdo. 1.c",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a20"
+  },
+  {
+   "id": "CPEI-T01-OF-BE0F5D0D",
+   "orden": 470,
+   "concepto": "Según el art. 20.1.d) CE, ¿qué información se tiene derecho a comunicar o recibir libremente?",
+   "respuesta": "Información veraz por cualquier medio de difusión",
+   "fuente": "Constitución Española, Artículo 20, apdo. 1.d. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a20",
+   "localizacion": "Constitución Española, Artículo 20, apdo. 1.d",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a20"
+  },
+  {
+   "id": "CPEI-T01-OF-348EA62F",
+   "orden": 480,
+   "concepto": "Según el art. 20.1.d) CE, ¿qué dos derechos de los informadores regulará la ley?",
+   "respuesta": "El derecho a la cláusula de conciencia y al secreto profesional",
+   "fuente": "Constitución Española, Artículo 20, apdo. 1.d. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a20",
+   "localizacion": "Constitución Española, Artículo 20, apdo. 1.d",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a20"
+  },
+  {
+   "id": "CPEI-T01-OF-E1FBE8B2",
+   "orden": 490,
+   "concepto": "Según el art. 20.2 CE, ¿mediante qué no puede restringirse el ejercicio de las libertades de expresión e información?",
+   "respuesta": "Mediante ningún tipo de censura previa",
+   "fuente": "Constitución Española, Artículo 20, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a20",
+   "localizacion": "Constitución Española, Artículo 20, apdo. 2",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a20"
+  },
+  {
+   "id": "CPEI-T01-OF-FAA9EED6",
+   "orden": 500,
+   "concepto": "Según el art. 20.5 CE, ¿en virtud de qué puede acordarse el secuestro de publicaciones y grabaciones?",
+   "respuesta": "En virtud de resolución judicial",
+   "fuente": "Constitución Española, Artículo 20, apdo. 5. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a20",
+   "localizacion": "Constitución Española, Artículo 20, apdo. 5",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a20"
+  },
+  {
+   "id": "CPEI-T01-OF-686731F6",
+   "orden": 510,
+   "concepto": "Según el art. 21.1 CE, ¿cómo debe ser la reunión para estar amparada por el derecho de reunión?",
+   "respuesta": "Pacífica y sin armas",
+   "fuente": "Constitución Española, Artículo 21, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a21",
+   "localizacion": "Constitución Española, Artículo 21, apdo. 1",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a21"
+  },
+  {
+   "id": "CPEI-T01-OF-960164A1",
+   "orden": 520,
+   "concepto": "Según el art. 21.1 CE, ¿necesita autorización previa el ejercicio del derecho de reunión?",
+   "respuesta": "No necesitará autorización previa",
+   "fuente": "Constitución Española, Artículo 21, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a21",
+   "localizacion": "Constitución Española, Artículo 21, apdo. 1",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a21"
+  },
+  {
+   "id": "CPEI-T01-OF-EA7F2BA7",
+   "orden": 530,
+   "concepto": "Según el art. 21.2 CE, ¿cuándo puede la autoridad prohibir una manifestación comunicada?",
+   "respuesta": "Cuando existan razones fundadas de alteración del orden público, con peligro para personas o bienes",
+   "fuente": "Constitución Española, Artículo 21, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a21",
+   "localizacion": "Constitución Española, Artículo 21, apdo. 2",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a21"
+  },
+  {
+   "id": "CPEI-T01-OF-29D89DB1",
+   "orden": 540,
+   "concepto": "Según el art. 22.2 CE, ¿qué asociaciones son ilegales?",
+   "respuesta": "Las asociaciones que persigan fines o utilicen medios tipificados como delito",
+   "fuente": "Constitución Española, Artículo 22, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a22",
+   "localizacion": "Constitución Española, Artículo 22, apdo. 2",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a22"
+  },
+  {
+   "id": "CPEI-T01-OF-5A198B5B",
+   "orden": 550,
+   "concepto": "Según el art. 22.3 CE, ¿a qué efectos deben inscribirse las asociaciones en un registro?",
+   "respuesta": "A los solos efectos de publicidad",
+   "fuente": "Constitución Española, Artículo 22, apdo. 3. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a22",
+   "localizacion": "Constitución Española, Artículo 22, apdo. 3",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a22"
+  },
+  {
+   "id": "CPEI-T01-OF-6F7F97B3",
+   "orden": 560,
+   "concepto": "Según el art. 22.4 CE, ¿cómo pueden ser disueltas o suspendidas las asociaciones?",
+   "respuesta": "En virtud de resolución judicial motivada",
+   "fuente": "Constitución Española, Artículo 22, apdo. 4. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a22",
+   "localizacion": "Constitución Española, Artículo 22, apdo. 4",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a22"
+  },
+  {
+   "id": "CPEI-T01-OF-D588E233",
+   "orden": 570,
+   "concepto": "Según el art. 22.5 CE, ¿qué asociaciones se prohíben?",
+   "respuesta": "Las asociaciones secretas y las de carácter paramilitar",
+   "fuente": "Constitución Española, Artículo 22, apdo. 5. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a22",
+   "localizacion": "Constitución Española, Artículo 22, apdo. 5",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a22"
+  },
+  {
+   "id": "CPEI-T01-OF-9423F2C1",
+   "orden": 580,
+   "concepto": "Según el art. 23.1 CE, ¿cómo pueden participar los ciudadanos en los asuntos públicos?",
+   "respuesta": "Directamente o por medio de representantes, libremente elegidos en elecciones periódicas por sufragio universal",
+   "fuente": "Constitución Española, Artículo 23, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a23",
+   "localizacion": "Constitución Española, Artículo 23, apdo. 1",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a23"
+  },
+  {
+   "id": "CPEI-T01-OF-F9A7D7C7",
+   "orden": 590,
+   "concepto": "Según el art. 23.2 CE, ¿en qué condiciones tienen derecho los ciudadanos a acceder a las funciones y cargos públicos?",
+   "respuesta": "En condiciones de igualdad",
+   "fuente": "Constitución Española, Artículo 23, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a23",
+   "localizacion": "Constitución Española, Artículo 23, apdo. 2",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a23"
+  },
+  {
+   "id": "CPEI-T01-OF-2B017D1C",
+   "orden": 600,
+   "concepto": "Según el art. 24.1 CE, ¿qué no puede producirse en ningún caso en la tutela judicial efectiva?",
+   "respuesta": "Indefensión",
+   "fuente": "Constitución Española, Artículo 24, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a24",
+   "localizacion": "Constitución Española, Artículo 24, apdo. 1",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a24"
+  },
+  {
+   "id": "CPEI-T01-OF-82B6311D",
+   "orden": 610,
+   "concepto": "Según el art. 24.2 CE, ¿a qué juez tienen derecho todos?",
+   "respuesta": "Al Juez ordinario predeterminado por la ley",
+   "fuente": "Constitución Española, Artículo 24, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a24",
+   "localizacion": "Constitución Española, Artículo 24, apdo. 2",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a24"
+  },
+  {
+   "id": "CPEI-T01-OF-2174D571",
+   "orden": 620,
+   "concepto": "Según el art. 24.2 CE, ¿por qué razones regulará la ley los casos en que no se está obligado a declarar sobre hechos presuntamente delictivos?",
+   "respuesta": "Por razón de parentesco o de secreto profesional",
+   "fuente": "Constitución Española, Artículo 24, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a24",
+   "localizacion": "Constitución Española, Artículo 24, apdo. 2",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a24"
+  },
+  {
+   "id": "CPEI-T01-OF-FB58E222",
+   "orden": 630,
+   "concepto": "Según el art. 25.2 CE, ¿hacia qué estarán orientadas las penas privativas de libertad?",
+   "respuesta": "Hacia la reeducación y reinserción social",
+   "fuente": "Constitución Española, Artículo 25, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a25",
+   "localizacion": "Constitución Española, Artículo 25, apdo. 2",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a25"
+  },
+  {
+   "id": "CPEI-T01-OF-B536CD44",
+   "orden": 640,
+   "concepto": "Según el art. 25.2 CE, ¿en qué no podrán consistir las penas privativas de libertad?",
+   "respuesta": "En trabajos forzados",
+   "fuente": "Constitución Española, Artículo 25, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a25",
+   "localizacion": "Constitución Española, Artículo 25, apdo. 2",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a25"
+  },
+  {
+   "id": "CPEI-T01-OF-7A9C0627",
+   "orden": 650,
+   "concepto": "Según el art. 25.3 CE, ¿qué sanciones no podrá imponer la Administración civil?",
+   "respuesta": "Sanciones que, directa o subsidiariamente, impliquen privación de libertad",
+   "fuente": "Constitución Española, Artículo 25, apdo. 3. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a25",
+   "localizacion": "Constitución Española, Artículo 25, apdo. 3",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a25"
+  },
+  {
+   "id": "CPEI-T01-OF-BE4A6A3E",
+   "orden": 660,
+   "concepto": "Según el art. 26 CE, ¿qué tribunales se prohíben en la Administración civil y las organizaciones profesionales?",
+   "respuesta": "Los Tribunales de Honor",
+   "fuente": "Constitución Española, Artículo 26. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a26",
+   "localizacion": "Constitución Española, Artículo 26",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a26"
+  },
+  {
+   "id": "CPEI-T01-OF-544B3D7B",
+   "orden": 670,
+   "concepto": "Según el art. 27.2 CE, ¿qué objeto tendrá la educación?",
+   "respuesta": "El pleno desarrollo de la personalidad humana en el respeto a los principios democráticos de convivencia y a los derechos y libertades fundamentales",
+   "fuente": "Constitución Española, Artículo 27, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a27",
+   "localizacion": "Constitución Española, Artículo 27, apdo. 2",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a27"
+  },
+  {
+   "id": "CPEI-T01-OF-D1101EB5",
+   "orden": 680,
+   "concepto": "Según el art. 27.4 CE, ¿cómo es la enseñanza básica?",
+   "respuesta": "Obligatoria y gratuita",
+   "fuente": "Constitución Española, Artículo 27, apdo. 4. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a27",
+   "localizacion": "Constitución Española, Artículo 27, apdo. 4",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a27"
+  },
+  {
+   "id": "CPEI-T01-OF-B3418551",
+   "orden": 690,
+   "concepto": "Según el art. 27.10 CE, ¿qué se reconoce a las Universidades?",
+   "respuesta": "La autonomía de las Universidades",
+   "fuente": "Constitución Española, Artículo 27, apdo. 10. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a27",
+   "localizacion": "Constitución Española, Artículo 27, apdo. 10",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a27"
+  },
+  {
+   "id": "CPEI-T01-OF-B02E3AC3",
+   "orden": 700,
+   "concepto": "Según el art. 28.1 CE, ¿a quiénes puede la ley limitar o exceptuar el derecho de sindicación?",
+   "respuesta": "A las Fuerzas o Institutos armados o a los demás Cuerpos sometidos a disciplina militar",
+   "fuente": "Constitución Española, Artículo 28, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a28",
+   "localizacion": "Constitución Española, Artículo 28, apdo. 1",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a28"
+  },
+  {
+   "id": "CPEI-T01-OF-783015F6",
+   "orden": 710,
+   "concepto": "Según el art. 28.1 CE, ¿puede alguien ser obligado a afiliarse a un sindicato?",
+   "respuesta": "Nadie podrá ser obligado a afiliarse a un sindicato",
+   "fuente": "Constitución Española, Artículo 28, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a28",
+   "localizacion": "Constitución Española, Artículo 28, apdo. 1",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a28"
+  },
+  {
+   "id": "CPEI-T01-OF-8ECFAFB2",
+   "orden": 720,
+   "concepto": "Según el art. 28.2 CE, ¿qué garantías establecerá la ley que regule el derecho a la huelga?",
+   "respuesta": "Las garantías precisas para asegurar el mantenimiento de los servicios esenciales de la comunidad",
+   "fuente": "Constitución Española, Artículo 28, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a28",
+   "localizacion": "Constitución Española, Artículo 28, apdo. 2",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a28"
+  },
+  {
+   "id": "CPEI-T01-OF-05D68FDB",
+   "orden": 730,
+   "concepto": "Según el art. 29.1 CE, ¿cómo se ejerce el derecho de petición de los españoles?",
+   "respuesta": "Individual y colectiva, por escrito",
+   "fuente": "Constitución Española, Artículo 29, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a29",
+   "localizacion": "Constitución Española, Artículo 29, apdo. 1",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a29"
+  },
+  {
+   "id": "CPEI-T01-OF-46D3C50E",
+   "orden": 740,
+   "concepto": "Según el art. 29.2 CE, ¿cómo pueden ejercer el derecho de petición los miembros de las Fuerzas o Institutos armados?",
+   "respuesta": "Sólo individualmente y con arreglo a lo dispuesto en su legislación específica",
+   "fuente": "Constitución Española, Artículo 29, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a29",
+   "localizacion": "Constitución Española, Artículo 29, apdo. 2",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a29"
+  },
+  {
+   "id": "CPEI-T01-OF-EDD2D079",
+   "orden": 750,
+   "concepto": "Según el art. 30.1 CE, ¿qué derecho y deber tienen los españoles respecto de España?",
+   "respuesta": "El derecho y el deber de defender a España",
+   "fuente": "Constitución Española, Artículo 30, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a30",
+   "localizacion": "Constitución Española, Artículo 30, apdo. 1",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a30"
+  },
+  {
+   "id": "CPEI-T01-OF-DD4C9417",
+   "orden": 760,
+   "concepto": "Según el art. 30.3 CE, ¿qué servicio podrá establecerse para fines de interés general?",
+   "respuesta": "Un servicio civil",
+   "fuente": "Constitución Española, Artículo 30, apdo. 3. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a30",
+   "localizacion": "Constitución Española, Artículo 30, apdo. 3",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a30"
+  },
+  {
+   "id": "CPEI-T01-OF-044A2EEB",
+   "orden": 770,
+   "concepto": "Según el art. 30.4 CE, ¿en qué casos podrán regularse mediante ley los deberes de los ciudadanos?",
+   "respuesta": "En los casos de grave riesgo, catástrofe o calamidad pública",
+   "fuente": "Constitución Española, Artículo 30, apdo. 4. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a30",
+   "localizacion": "Constitución Española, Artículo 30, apdo. 4",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a30"
+  },
+  {
+   "id": "CPEI-T01-OF-48F7C8D6",
+   "orden": 780,
+   "concepto": "Según el art. 31.1 CE, ¿en qué principios se inspira el sistema tributario?",
+   "respuesta": "En los principios de igualdad y progresividad",
+   "fuente": "Constitución Española, Artículo 31, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a31",
+   "localizacion": "Constitución Española, Artículo 31, apdo. 1",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a31"
+  },
+  {
+   "id": "CPEI-T01-OF-F20B80E0",
+   "orden": 790,
+   "concepto": "Según el art. 31.1 CE, ¿qué alcance no tendrá en ningún caso el sistema tributario?",
+   "respuesta": "Alcance confiscatorio",
+   "fuente": "Constitución Española, Artículo 31, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a31",
+   "localizacion": "Constitución Española, Artículo 31, apdo. 1",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a31"
+  },
+  {
+   "id": "CPEI-T01-OF-33082006",
+   "orden": 800,
+   "concepto": "Según el art. 31.2 CE, ¿a qué criterios responderán la programación y ejecución del gasto público?",
+   "respuesta": "A los criterios de eficiencia y economía",
+   "fuente": "Constitución Española, Artículo 31, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a31",
+   "localizacion": "Constitución Española, Artículo 31, apdo. 2",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a31"
+  },
+  {
+   "id": "CPEI-T01-OF-F267507A",
+   "orden": 810,
+   "concepto": "Según el art. 32.1 CE, ¿con qué igualdad tienen derecho el hombre y la mujer a contraer matrimonio?",
+   "respuesta": "Con plena igualdad jurídica",
+   "fuente": "Constitución Española, Artículo 32, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a32",
+   "localizacion": "Constitución Española, Artículo 32, apdo. 1",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a32"
+  },
+  {
+   "id": "CPEI-T01-OF-BE2FA6EF",
+   "orden": 820,
+   "concepto": "Según el art. 33.2 CE, ¿qué delimitará el contenido del derecho a la propiedad privada y a la herencia?",
+   "respuesta": "La función social de estos derechos",
+   "fuente": "Constitución Española, Artículo 33, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a33",
+   "localizacion": "Constitución Española, Artículo 33, apdo. 2",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a33"
+  },
+  {
+   "id": "CPEI-T01-OF-AAE58E2C",
+   "orden": 830,
+   "concepto": "Según el art. 33.3 CE, ¿por qué causa puede privarse a alguien de sus bienes y derechos?",
+   "respuesta": "Por causa justificada de utilidad pública o interés social, mediante la correspondiente indemnización",
+   "fuente": "Constitución Española, Artículo 33, apdo. 3. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a33",
+   "localizacion": "Constitución Española, Artículo 33, apdo. 3",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a33"
+  },
+  {
+   "id": "CPEI-T01-OF-8CCF2F14",
+   "orden": 840,
+   "concepto": "Según el art. 34.1 CE, ¿para qué fines se reconoce el derecho de fundación?",
+   "respuesta": "Para fines de interés general",
+   "fuente": "Constitución Española, Artículo 34, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a34",
+   "localizacion": "Constitución Española, Artículo 34, apdo. 1",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a34"
+  },
+  {
+   "id": "CPEI-T01-OF-A9F92804",
+   "orden": 850,
+   "concepto": "Según el art. 35.1 CE, ¿qué deber y qué derecho tienen todos los españoles en materia laboral?",
+   "respuesta": "El deber de trabajar y el derecho al trabajo",
+   "fuente": "Constitución Española, Artículo 35, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a35",
+   "localizacion": "Constitución Española, Artículo 35, apdo. 1",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a35"
+  },
+  {
+   "id": "CPEI-T01-OF-A0A4919C",
+   "orden": 860,
+   "concepto": "Según el art. 35.2 CE, ¿qué estatuto regulará la ley?",
+   "respuesta": "Un estatuto de los trabajadores",
+   "fuente": "Constitución Española, Artículo 35, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a35",
+   "localizacion": "Constitución Española, Artículo 35, apdo. 2",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a35"
+  },
+  {
+   "id": "CPEI-T01-OF-83352DFE",
+   "orden": 870,
+   "concepto": "Según el art. 36 CE, ¿cómo deben ser la estructura interna y el funcionamiento de los Colegios Profesionales?",
+   "respuesta": "Democráticos",
+   "fuente": "Constitución Española, Artículo 36. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a36",
+   "localizacion": "Constitución Española, Artículo 36",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a36"
+  },
+  {
+   "id": "CPEI-T01-OF-E15B58BB",
+   "orden": 880,
+   "concepto": "Según el art. 37.1 CE, ¿qué fuerza garantizará la ley a los convenios colectivos?",
+   "respuesta": "La fuerza vinculante de los convenios",
+   "fuente": "Constitución Española, Artículo 37, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a37",
+   "localizacion": "Constitución Española, Artículo 37, apdo. 1",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a37"
+  },
+  {
+   "id": "CPEI-T01-OF-43C72504",
+   "orden": 890,
+   "concepto": "Según el art. 37.2 CE, ¿qué medidas tienen derecho a adoptar trabajadores y empresarios?",
+   "respuesta": "Medidas de conflicto colectivo",
+   "fuente": "Constitución Española, Artículo 37, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a37",
+   "localizacion": "Constitución Española, Artículo 37, apdo. 2",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a37"
+  },
+  {
+   "id": "CPEI-T01-OF-420A5405",
+   "orden": 900,
+   "concepto": "Según el art. 38 CE, ¿en qué marco se reconoce la libertad de empresa?",
+   "respuesta": "En el marco de la economía de mercado",
+   "fuente": "Constitución Española, Artículo 38. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a38",
+   "localizacion": "Constitución Española, Artículo 38",
+   "apartado": "Derechos y libertades",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a38"
+  },
+  {
+   "id": "CPEI-T01-OF-84BC7349",
+   "orden": 910,
+   "concepto": "Según el art. 39.1 CE, ¿qué protección de la familia aseguran los poderes públicos?",
+   "respuesta": "La protección social, económica y jurídica de la familia",
+   "fuente": "Constitución Española, Artículo 39, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a39",
+   "localizacion": "Constitución Española, Artículo 39, apdo. 1",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a39"
+  },
+  {
+   "id": "CPEI-T01-OF-851833D3",
+   "orden": 920,
+   "concepto": "Según el art. 39.2 CE, ¿qué investigación posibilitará la ley?",
+   "respuesta": "La investigación de la paternidad",
+   "fuente": "Constitución Española, Artículo 39, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a39",
+   "localizacion": "Constitución Española, Artículo 39, apdo. 2",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a39"
+  },
+  {
+   "id": "CPEI-T01-OF-3F62B5C5",
+   "orden": 930,
+   "concepto": "Según el art. 39.4 CE, ¿qué protección gozarán los niños?",
+   "respuesta": "La protección prevista en los acuerdos internacionales que velan por sus derechos",
+   "fuente": "Constitución Española, Artículo 39, apdo. 4. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a39",
+   "localizacion": "Constitución Española, Artículo 39, apdo. 4",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a39"
+  },
+  {
+   "id": "CPEI-T01-OF-889ABB36",
+   "orden": 940,
+   "concepto": "Según el art. 40.1 CE, ¿hacia qué orientarán los poderes públicos, de manera especial, su política?",
+   "respuesta": "Una política orientada al pleno empleo",
+   "fuente": "Constitución Española, Artículo 40, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a40",
+   "localizacion": "Constitución Española, Artículo 40, apdo. 1",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a40"
+  },
+  {
+   "id": "CPEI-T01-OF-8C77E1D8",
+   "orden": 950,
+   "concepto": "Según el art. 40.2 CE, ¿por qué velarán los poderes públicos en el ámbito laboral?",
+   "respuesta": "Por la seguridad e higiene en el trabajo",
+   "fuente": "Constitución Española, Artículo 40, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a40",
+   "localizacion": "Constitución Española, Artículo 40, apdo. 2",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a40"
+  },
+  {
+   "id": "CPEI-T01-OF-24B86ADC",
+   "orden": 960,
+   "concepto": "Según el art. 40.2 CE, ¿mediante qué garantizarán los poderes públicos el descanso necesario?",
+   "respuesta": "Mediante la limitación de la jornada laboral, las vacaciones periódicas retribuidas y la promoción de centros adecuados",
+   "fuente": "Constitución Española, Artículo 40, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a40",
+   "localizacion": "Constitución Española, Artículo 40, apdo. 2",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a40"
+  },
+  {
+   "id": "CPEI-T01-OF-312BA79B",
+   "orden": 970,
+   "concepto": "Según el art. 41 CE, ¿qué régimen mantendrán los poderes públicos para todos los ciudadanos?",
+   "respuesta": "Un régimen público de Seguridad Social",
+   "fuente": "Constitución Española, Artículo 41. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a41",
+   "localizacion": "Constitución Española, Artículo 41",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a41"
+  },
+  {
+   "id": "CPEI-T01-OF-24DB8E58",
+   "orden": 980,
+   "concepto": "Según el art. 41 CE, ¿cómo son la asistencia y las prestaciones complementarias a la Seguridad Social?",
+   "respuesta": "Serán libres",
+   "fuente": "Constitución Española, Artículo 41. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a41",
+   "localizacion": "Constitución Española, Artículo 41",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a41"
+  },
+  {
+   "id": "CPEI-T01-OF-A7D62F77",
+   "orden": 990,
+   "concepto": "Según el art. 42 CE, ¿hacia qué orientará el Estado su política respecto de los trabajadores españoles en el extranjero?",
+   "respuesta": "Hacia su retorno",
+   "fuente": "Constitución Española, Artículo 42. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a42",
+   "localizacion": "Constitución Española, Artículo 42",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a42"
+  },
+  {
+   "id": "CPEI-T01-OF-0CB572CC",
+   "orden": 1000,
+   "concepto": "Según el art. 43.1 CE, ¿qué derecho se reconoce en materia sanitaria?",
+   "respuesta": "El derecho a la protección de la salud",
+   "fuente": "Constitución Española, Artículo 43, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a43",
+   "localizacion": "Constitución Española, Artículo 43, apdo. 1",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a43"
+  },
+  {
+   "id": "CPEI-T01-OF-4FF018FB",
+   "orden": 1010,
+   "concepto": "Según el art. 43.3 CE, ¿qué fomentarán los poderes públicos además de la educación sanitaria?",
+   "respuesta": "La educación física y el deporte",
+   "fuente": "Constitución Española, Artículo 43, apdo. 3. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a43",
+   "localizacion": "Constitución Española, Artículo 43, apdo. 3",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a43"
+  },
+  {
+   "id": "CPEI-T01-OF-3D5D858A",
+   "orden": 1020,
+   "concepto": "Según el art. 44.2 CE, ¿en beneficio de qué promoverán los poderes públicos la ciencia y la investigación?",
+   "respuesta": "En beneficio del interés general",
+   "fuente": "Constitución Española, Artículo 44, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a44",
+   "localizacion": "Constitución Española, Artículo 44, apdo. 2",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a44"
+  },
+  {
+   "id": "CPEI-T01-OF-95306430",
+   "orden": 1030,
+   "concepto": "Según el art. 45.1 CE, ¿qué derecho y deber tienen todos respecto del medio ambiente?",
+   "respuesta": "El derecho a disfrutar de un medio ambiente adecuado para el desarrollo de la persona, así como el deber de conservarlo",
+   "fuente": "Constitución Española, Artículo 45, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a45",
+   "localizacion": "Constitución Española, Artículo 45, apdo. 1",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a45"
+  },
+  {
+   "id": "CPEI-T01-OF-4A5CDBEB",
+   "orden": 1040,
+   "concepto": "Según el art. 45.2 CE, ¿en qué solidaridad se apoyan los poderes públicos para proteger el medio ambiente?",
+   "respuesta": "En la indispensable solidaridad colectiva",
+   "fuente": "Constitución Española, Artículo 45, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a45",
+   "localizacion": "Constitución Española, Artículo 45, apdo. 2",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a45"
+  },
+  {
+   "id": "CPEI-T01-OF-18D1B9D9",
+   "orden": 1050,
+   "concepto": "Según el art. 45.3 CE, ¿qué sanciones y obligación se establecerán para quienes violen la protección ambiental?",
+   "respuesta": "Sanciones penales o, en su caso, administrativas, así como la obligación de reparar el daño causado",
+   "fuente": "Constitución Española, Artículo 45, apdo. 3. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a45",
+   "localizacion": "Constitución Española, Artículo 45, apdo. 3",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a45"
+  },
+  {
+   "id": "CPEI-T01-OF-6F565D3B",
+   "orden": 1060,
+   "concepto": "Según el art. 46 CE, ¿qué ley sancionará los atentados contra el patrimonio histórico, cultural y artístico?",
+   "respuesta": "La ley penal",
+   "fuente": "Constitución Española, Artículo 46. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a46",
+   "localizacion": "Constitución Española, Artículo 46",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a46"
+  },
+  {
+   "id": "CPEI-T01-OF-AACDED81",
+   "orden": 1070,
+   "concepto": "Según el art. 47 CE, ¿a qué tienen derecho todos los españoles en materia de vivienda?",
+   "respuesta": "A disfrutar de una vivienda digna y adecuada",
+   "fuente": "Constitución Española, Artículo 47. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a47",
+   "localizacion": "Constitución Española, Artículo 47",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a47"
+  },
+  {
+   "id": "CPEI-T01-OF-4F4B4A98",
+   "orden": 1080,
+   "concepto": "Según el art. 47 CE, ¿en qué participará la comunidad respecto de la acción urbanística de los entes públicos?",
+   "respuesta": "En las plusvalías que genere la acción urbanística de los entes públicos",
+   "fuente": "Constitución Española, Artículo 47. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a47",
+   "localizacion": "Constitución Española, Artículo 47",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a47"
+  },
+  {
+   "id": "CPEI-T01-OF-DAAA1617",
+   "orden": 1090,
+   "concepto": "Según el art. 48 CE, ¿qué participación de la juventud promoverán los poderes públicos?",
+   "respuesta": "La participación libre y eficaz de la juventud en el desarrollo político, social, económico y cultural",
+   "fuente": "Constitución Española, Artículo 48. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a48",
+   "localizacion": "Constitución Española, Artículo 48",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a48"
+  },
+  {
+   "id": "CPEI-T01-OF-7A7F267D",
+   "orden": 1100,
+   "concepto": "Según el art. 49.1 CE, ¿en qué condiciones ejercen las personas con discapacidad los derechos del Título I?",
+   "respuesta": "En condiciones de libertad e igualdad reales y efectivas",
+   "fuente": "Constitución Española, Artículo 49, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a49",
+   "localizacion": "Constitución Española, Artículo 49, apdo. 1",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a49"
+  },
+  {
+   "id": "CPEI-T01-OF-C0EEB5F0",
+   "orden": 1110,
+   "concepto": "Según el art. 49.2 CE, ¿en qué entornos impulsarán los poderes públicos la inclusión social de las personas con discapacidad?",
+   "respuesta": "En entornos universalmente accesibles",
+   "fuente": "Constitución Española, Artículo 49, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a49",
+   "localizacion": "Constitución Española, Artículo 49, apdo. 2",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a49"
+  },
+  {
+   "id": "CPEI-T01-OF-76A5FE9E",
+   "orden": 1120,
+   "concepto": "Según el art. 49.2 CE, ¿qué necesidades específicas se atenderán particularmente en materia de discapacidad?",
+   "respuesta": "Las necesidades específicas de las mujeres y los menores con discapacidad",
+   "fuente": "Constitución Española, Artículo 49, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a49",
+   "localizacion": "Constitución Española, Artículo 49, apdo. 2",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a49"
+  },
+  {
+   "id": "CPEI-T01-OF-3154B7E3",
+   "orden": 1130,
+   "concepto": "Según el art. 50 CE, ¿mediante qué garantizarán los poderes públicos la suficiencia económica durante la tercera edad?",
+   "respuesta": "Mediante pensiones adecuadas y periódicamente actualizadas",
+   "fuente": "Constitución Española, Artículo 50. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a50",
+   "localizacion": "Constitución Española, Artículo 50",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a50"
+  },
+  {
+   "id": "CPEI-T01-OF-1F2C1EBF",
+   "orden": 1140,
+   "concepto": "Según el art. 51.1 CE, ¿de quiénes garantizarán la defensa los poderes públicos mediante procedimientos eficaces?",
+   "respuesta": "De los consumidores y usuarios",
+   "fuente": "Constitución Española, Artículo 51, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a51",
+   "localizacion": "Constitución Española, Artículo 51, apdo. 1",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a51"
+  },
+  {
+   "id": "CPEI-T01-OF-83B85754",
+   "orden": 1150,
+   "concepto": "Según el art. 52 CE, ¿cómo deben ser la estructura interna y el funcionamiento de las organizaciones profesionales?",
+   "respuesta": "Democráticos",
+   "fuente": "Constitución Española, Artículo 52. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a52",
+   "localizacion": "Constitución Española, Artículo 52",
+   "apartado": "Principios rectores",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a52"
+  },
+  {
+   "id": "CPEI-T01-OF-A14EEC59",
+   "orden": 1160,
+   "concepto": "Según el art. 53.1 CE, ¿a quién vinculan los derechos y libertades del Capítulo segundo del Título I?",
+   "respuesta": "A todos los poderes públicos",
+   "fuente": "Constitución Española, Artículo 53, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a53",
+   "localizacion": "Constitución Española, Artículo 53, apdo. 1",
+   "apartado": "Garantías",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a53"
+  },
+  {
+   "id": "CPEI-T01-OF-639A080B",
+   "orden": 1170,
+   "concepto": "Según el art. 53.1 CE, ¿qué debe respetar en todo caso la ley que regule el ejercicio de los derechos y libertades del Capítulo segundo?",
+   "respuesta": "Su contenido esencial",
+   "fuente": "Constitución Española, Artículo 53, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a53",
+   "localizacion": "Constitución Española, Artículo 53, apdo. 1",
+   "apartado": "Garantías",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a53"
+  },
+  {
+   "id": "CPEI-T01-OF-CEB27EAA",
+   "orden": 1180,
+   "concepto": "Según el art. 53.2 CE, ¿en qué principios se basa el procedimiento ante los Tribunales ordinarios para tutelar los derechos del art. 14 y la Sección primera?",
+   "respuesta": "En los principios de preferencia y sumariedad",
+   "fuente": "Constitución Española, Artículo 53, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a53",
+   "localizacion": "Constitución Española, Artículo 53, apdo. 2",
+   "apartado": "Garantías",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a53"
+  },
+  {
+   "id": "CPEI-T01-OF-5E3F4230",
+   "orden": 1190,
+   "concepto": "Según el art. 53.2 CE, ¿ante qué órgano se interpone el recurso de amparo?",
+   "respuesta": "Ante el Tribunal Constitucional",
+   "fuente": "Constitución Española, Artículo 53, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a53",
+   "localizacion": "Constitución Española, Artículo 53, apdo. 2",
+   "apartado": "Garantías",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a53"
+  },
+  {
+   "id": "CPEI-T01-OF-ADBFDDDF",
+   "orden": 1200,
+   "concepto": "Según el art. 53.2 CE, además del art. 14 y la Sección primera, ¿a qué derecho es aplicable el recurso de amparo?",
+   "respuesta": "A la objeción de conciencia reconocida en el artículo 30",
+   "fuente": "Constitución Española, Artículo 53, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a53",
+   "localizacion": "Constitución Española, Artículo 53, apdo. 2",
+   "apartado": "Garantías",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a53"
+  },
+  {
+   "id": "CPEI-T01-OF-4D0190DC",
+   "orden": 1210,
+   "concepto": "Según el art. 53.3 CE, ¿qué informarán los principios del Capítulo tercero del Título I?",
+   "respuesta": "La legislación positiva, la práctica judicial y la actuación de los poderes públicos",
+   "fuente": "Constitución Española, Artículo 53, apdo. 3. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a53",
+   "localizacion": "Constitución Española, Artículo 53, apdo. 3",
+   "apartado": "Garantías",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a53"
+  },
+  {
+   "id": "CPEI-T01-OF-9D652605",
+   "orden": 1220,
+   "concepto": "Según el art. 53.3 CE, ¿cómo pueden alegarse ante la Jurisdicción ordinaria los principios rectores?",
+   "respuesta": "Sólo de acuerdo con lo que dispongan las leyes que los desarrollen",
+   "fuente": "Constitución Española, Artículo 53, apdo. 3. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a53",
+   "localizacion": "Constitución Española, Artículo 53, apdo. 3",
+   "apartado": "Garantías",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a53"
+  },
+  {
+   "id": "CPEI-T01-OF-20294E9A",
+   "orden": 1230,
+   "concepto": "Según el art. 54 CE, ¿qué institución es alto comisionado de las Cortes Generales para la defensa de los derechos del Título I?",
+   "respuesta": "El Defensor del Pueblo",
+   "fuente": "Constitución Española, Artículo 54. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a54",
+   "localizacion": "Constitución Española, Artículo 54",
+   "apartado": "Garantías",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a54"
+  },
+  {
+   "id": "CPEI-T01-OF-9BC14186",
+   "orden": 1240,
+   "concepto": "Según el art. 54 CE, ¿qué tipo de ley regulará la institución del Defensor del Pueblo?",
+   "respuesta": "Una ley orgánica",
+   "fuente": "Constitución Española, Artículo 54. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a54",
+   "localizacion": "Constitución Española, Artículo 54",
+   "apartado": "Garantías",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a54"
+  },
+  {
+   "id": "CPEI-T01-OF-9FF21A5D",
+   "orden": 1250,
+   "concepto": "Según el art. 54 CE, ¿qué actividad podrá supervisar el Defensor del Pueblo?",
+   "respuesta": "La actividad de la Administración, dando cuenta a las Cortes Generales",
+   "fuente": "Constitución Española, Artículo 54. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a54",
+   "localizacion": "Constitución Española, Artículo 54",
+   "apartado": "Garantías",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a54"
+  },
+  {
+   "id": "CPEI-T01-OF-B79C0146",
+   "orden": 1260,
+   "concepto": "Según el art. 55.1 CE, ¿en qué estados pueden suspenderse los derechos enumerados en dicho apartado?",
+   "respuesta": "Cuando se acuerde la declaración del estado de excepción o de sitio",
+   "fuente": "Constitución Española, Artículo 55, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a55",
+   "localizacion": "Constitución Española, Artículo 55, apdo. 1",
+   "apartado": "Suspensión",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a55"
+  },
+  {
+   "id": "CPEI-T01-OF-0B19FF3D",
+   "orden": 1270,
+   "concepto": "Según el art. 55.1 CE, ¿qué apartado del art. 17 no puede suspenderse en el estado de excepción?",
+   "respuesta": "El apartado 3 del artículo 17",
+   "fuente": "Constitución Española, Artículo 55, apdo. 1. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a55",
+   "localizacion": "Constitución Española, Artículo 55, apdo. 1",
+   "apartado": "Suspensión",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a55"
+  },
+  {
+   "id": "CPEI-T01-OF-D6D35D25",
+   "orden": 1280,
+   "concepto": "Según el art. 55.2 CE, ¿en relación con qué investigaciones puede una ley orgánica prever la suspensión individual de derechos?",
+   "respuesta": "Investigaciones correspondientes a la actuación de bandas armadas o elementos terroristas",
+   "fuente": "Constitución Española, Artículo 55, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a55",
+   "localizacion": "Constitución Española, Artículo 55, apdo. 2",
+   "apartado": "Suspensión",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a55"
+  },
+  {
+   "id": "CPEI-T01-OF-7A49A41D",
+   "orden": 1290,
+   "concepto": "Según el art. 55.2 CE, ¿qué produce la utilización injustificada o abusiva de las facultades de suspensión individual de derechos?",
+   "respuesta": "Responsabilidad penal, como violación de los derechos y libertades reconocidos por las leyes",
+   "fuente": "Constitución Española, Artículo 55, apdo. 2. BOE-A-1978-31229, texto consolidado (últ. actualización 20/05/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229#a55",
+   "localizacion": "Constitución Española, Artículo 55, apdo. 2",
+   "apartado": "Suspensión",
+   "norma": "BOE-A-1978-31229",
+   "bloque_boe": "a55"
+  }
+ ]
+}
