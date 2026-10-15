@@ -839,7 +839,9 @@ export default function App() {
         )}
 
         {currentScreen === 'concept_t40' && session?.user?.id && !isDemoMode && (
-          <ConceptStudy userId={session.user.id} onExit={() => handleNavigate('dashboard')} />
+          <ConceptStudy userId={session.user.id} onExit={() => handleNavigate('dashboard')}
+            onOpenRecall={() => handleNavigate('recuerdo')}
+            onOpenTests={() => handleNavigate('study_by_topic')} />
         )}
 
         {currentScreen === 'today_training' && (

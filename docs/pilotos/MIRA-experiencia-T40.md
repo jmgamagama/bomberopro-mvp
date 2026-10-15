@@ -1,4 +1,4 @@
-# Piloto MIRA: experiencia sencilla en T40
+# Piloto MIRA: experiencia sencilla sin recortar el catálogo
 
 Estado: implementado detrás de bandera, pendiente de revisión y pruebas con alumnos.
 No hay evidencia todavía de mejora de aprendizaje ni de reducción de sobrecarga.
@@ -6,11 +6,13 @@ No hay evidencia todavía de mejora de aprendizaje ni de reducción de sobrecarg
 ## Alcance de esta entrega
 
 `VITE_FEATURE_MEMORY_PILOT=true` en una build de prueba activa la experiencia en
-ConceptStudy: T40 en las RPC de sesión y progreso, 10 minutos seleccionados por
+ConceptStudy: selección multitema en las RPC de sesión y progreso, 10 minutos seleccionados por
 defecto (orientativos), información ampliada bajo detalles, cierre sin afirmar
 dominio y «Terminar por hoy» como acción principal. Sin bandera se mantiene el
 flujo actual multitema. No cambia el planificador, esquema, contenido ni permisos.
 No activar esta build para todos: la bandera es de build, no asignación por alumno.
+La rama codex/feat-memory-pilot en Vercel preview activa la bandera automáticamente;
+producción, otras ramas y builds locales no reciben esa activación automática.
 
 La revisión de migraciones (09, 13) confirma que ya existe motor de estabilidad,
 dificultad y recuerdo estimado, y registro diferenciado ficha/recuerdo/test con
@@ -22,7 +24,7 @@ certifica el esquema desplegado ni la calibración de sus predicciones.
 1. Revisar este PR. Desplegar build separada de prueba con bandera y entorno de
    prueba. Comprobar allí migraciones y contratos RPC; no migrar producción.
 2. Elegir y revisar humanamente un apartado de T40: conceptos, fuentes vigentes,
-   preguntas y explicaciones. Esta entrega limita al tema, NO filtra un apartado.
+   preguntas y explicaciones. El motor sigue multitema; el apartado se delimita en la evaluación, no por esta interfaz.
 3. Preparar preguntas alternativas reservadas para la evaluación; excluirlas del
    entrenamiento de ambos grupos. Igualar contenido, tiempo y evaluación.
 4. El coordinador asigna códigos de participante y grupo en un registro de estudio
@@ -81,3 +83,19 @@ No hay compras de bancos ni afirmaciones de frecuencia histórica en este piloto
 
 Desactivar la bandera y reconstruir/republicar la build anterior. No se requiere
 revertir datos: se usan los mismos eventos y RPC. No fusionar automáticamente.
+
+## Auditoría del catálogo (15/10/2026)
+
+Registro del código verificado: 47 mazos, 34 temas, 2.881 fichas. De ellas,
+804 en 8 mazos tienen revisión completa marcada; 2.077 siguen pendientes.
+La vista alumno filtra esos pendientes en recallRegistry.ts/recallReview.ts;
+el propietario necesita VITE_REVISION_OWNERS o una configuración interna de revisión.
+No se ha cambiado esa regla ni se han declarado revisadas fichas automáticamente.
+Estas cifras describen archivos del repositorio, no un conteo de Supabase en vivo.
+
+Los tests por temas se cargan mediante get_topic_study_questions y las sesiones por
+concepto mediante get_concept_session: no son el mismo catálogo. No se han podido
+contar preguntas publicadas ni asociaciones en la base real en esta auditoría.
+El piloto ya no fuerza T40. Su inicio ofrece, bajo un detalle opcional, accesos a
+Recuerdo y Por Temas, con los filtros existentes. No se migran ni duplican fichas
+locales en concepts y no se inventan correspondencias entre preguntas y conceptos.

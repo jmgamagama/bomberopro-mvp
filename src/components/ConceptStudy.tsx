@@ -25,6 +25,8 @@ import ReportQuestionButton from './ReportQuestionButton';
 interface Props {
   userId: string;
   onExit: () => void;
+  onOpenRecall?: () => void;
+  onOpenTests?: () => void;
 }
 
 const MINUTES = [10, 20, 45, 60];
@@ -51,9 +53,9 @@ function ProgressBar({ p }: { p: ConceptProgress }) {
   );
 }
 
-export default function ConceptStudy({ userId, onExit }: Props) {
+export default function ConceptStudy({ userId, onExit, onOpenRecall, onOpenTests }: Props) {
   const pilot = isMemoryPilotEnabled();
-  const topicId = pilot ? 40 : ALL_TOPICS;
+  const topicId = ALL_TOPICS;
   const [phase, setPhase] = useState<'inicio' | 'cargando' | 'sesion' | 'fin'>('inicio');
   const [minutes, setMinutes] = useState(pilot ? 10 : 20);
   const [progress, setProgress] = useState<ConceptProgress | null>(null);
@@ -214,7 +216,7 @@ export default function ConceptStudy({ userId, onExit }: Props) {
       <div className="mx-auto max-w-2xl">
         {header}
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <p className="text-xs font-bold uppercase tracking-wider text-indigo-600">{pilot ? 'Estudiar hoy · Tema 40' : 'Estudiar hoy · Temas 35, 39 y 40'}</p>
+          <p className="text-xs font-bold uppercase tracking-wider text-indigo-600">{pilot ? 'Estudiar hoy · Repaso adaptativo' : 'Estudiar hoy · Temas 35, 39 y 40'}</p>
           <h1 className="mt-1 text-xl font-bold text-slate-900">{pilot ? 'Tu sesión de hoy' : 'Procedimientos de trabajo CPEI: conducción y amianto'}</h1>
           <p className="mt-2 text-sm text-slate-600">
             {pilot ? 'Practica a tu ritmo. Prepararemos una sesión con final para el tiempo que elijas; puedes parar cuando lo necesites.' : 'Estudias conceptos, no preguntas sueltas. BomberoPro decide qué toca hoy: primero lo que estás a punto de olvidar, después conceptos nuevos.'}
@@ -222,7 +224,7 @@ export default function ConceptStudy({ userId, onExit }: Props) {
           {pilot ? <details className="mt-5 text-sm text-slate-600">
             <summary className="cursor-pointer font-semibold">Cómo se prepara mi sesión</summary>
             <p className="mt-2">El sistema usa tus respuestas anteriores para seleccionar repasos y contenido nuevo. Ver una ficha no demuestra que la recuerdes: lo comprobaremos en próximas sesiones.</p>
-            <p className="mt-2">El tiempo es orientativo. No necesitas terminar todo hoy.</p>
+            <p className="mt-2">El tiempo es orientativo. No necesitas terminar todo hoy. Esta sesión incluye solo contenido conectado al motor adaptativo; no es todo tu material.</p>
           </details> : progress && <div className="mt-5"><ProgressBar p={progress} /></div>}
           <fieldset className="mt-6">
             <legend className="text-sm font-semibold text-slate-800">¿Cuánto tiempo tienes?</legend>
@@ -240,6 +242,14 @@ export default function ConceptStudy({ userId, onExit }: Props) {
             className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-base font-bold text-white hover:bg-indigo-700 disabled:opacity-60">
             {phase === 'cargando' ? <><Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" /> Preparando…</> : 'Empezar'}
           </button>
+          {pilot && (onOpenRecall || onOpenTests) && <details className="mt-5 border-t border-slate-100 pt-4 text-sm text-slate-600">
+            <summary className="cursor-pointer font-semibold">También puedo elegir mi material</summary>
+            <p className="mt-2">Las fichas y los test por temas siguen disponibles fuera de esta sesión. Las fichas pendientes de revisión no se publican al alumno.</p>
+            <div className="mt-3 flex flex-wrap gap-3">
+              {onOpenRecall && <button type="button" onClick={onOpenRecall} className="min-h-11 rounded-lg border border-slate-200 px-3 font-semibold">Fichas por temas</button>}
+              {onOpenTests && <button type="button" onClick={onOpenTests} className="min-h-11 rounded-lg border border-slate-200 px-3 font-semibold">Test por temas</button>}
+            </div>
+          </details>}
           {saveNote}
         </div>
       </div>

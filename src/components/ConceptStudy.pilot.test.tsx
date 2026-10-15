@@ -26,7 +26,7 @@ beforeEach(() => {
 afterEach(() => { vi.unstubAllEnvs(); vi.clearAllMocks(); });
 
 describe('piloto de sesión sencilla', () => {
-  it('limita la sesión y el progreso a T40, con diez minutos por defecto y sin dominio visible', async () => {
+  it('conserva sesión y progreso multitema, con diez minutos por defecto y sin dominio visible', async () => {
     const user = userEvent.setup();
     render(<ConceptStudy userId="alumno" onExit={vi.fn()} />);
     expect(screen.getByRole('button', { name: '10 min' })).toHaveAttribute('aria-pressed', 'true');
@@ -34,8 +34,8 @@ describe('piloto de sesión sencilla', () => {
     const details = screen.getByText('Cómo se prepara mi sesión').closest('details');
     expect(details).not.toHaveAttribute('open');
     await user.click(screen.getByRole('button', { name: 'Empezar' }));
-    expect(api.loadConceptSession).toHaveBeenCalledWith(40, 10, 'alumno');
-    expect(api.loadConceptProgress).toHaveBeenCalledWith(40, 'alumno');
+    expect(api.loadConceptSession).toHaveBeenCalledWith(null, 10, 'alumno');
+    expect(api.loadConceptProgress).toHaveBeenCalledWith(null, 'alumno');
   });
 
   it('conserva el tipo de evidencia y permite terminar sin afirmar dominio', async () => {
@@ -59,4 +59,16 @@ describe('piloto de sesión sencilla', () => {
     await user.click(screen.getByRole('button', { name: 'Empezar' }));
     expect(api.loadConceptSession).toHaveBeenCalledWith(null, 20, 'alumno');
   });
+});
+
+it('ofrece el material existente bajo detalle opcional sin cambiar el motor', async () => {
+  const user = userEvent.setup(); const onOpenRecall = vi.fn(); const onOpenTests = vi.fn();
+  render(<ConceptStudy userId="alumno" onExit={vi.fn()} onOpenRecall={onOpenRecall} onOpenTests={onOpenTests} />);
+  const details = screen.getByText('También puedo elegir mi material').closest('details');
+  expect(details).not.toHaveAttribute('open');
+  await user.click(screen.getByText('También puedo elegir mi material'));
+  await user.click(screen.getByRole('button', { name: 'Fichas por temas' }));
+  expect(onOpenRecall).toHaveBeenCalledOnce();
+  await user.click(screen.getByRole('button', { name: 'Test por temas' }));
+  expect(onOpenTests).toHaveBeenCalledOnce();
 });
