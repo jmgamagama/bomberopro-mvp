@@ -126,6 +126,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
 
   return (
     <div className="mx-auto mt-2 max-w-3xl space-y-6 sm:mt-8" id="daily-session-root">
+      <p className="rounded-xl bg-indigo-50 px-3 py-2 text-sm text-slate-700">El progreso de estas fichas se guarda solo en este navegador; todavía no se sincroniza con tus otros dispositivos.</p>
       {phase === 'intro' && (
         <section className="space-y-6 rounded-2xl border border-slate-100 bg-white p-6 text-center shadow-sm sm:rounded-3xl sm:p-8">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-50 text-orange-600 shadow-inner">
