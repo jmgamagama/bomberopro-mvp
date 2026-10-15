@@ -8,3 +8,8 @@
 export function isPlanesEnabled(): boolean {
   return String(import.meta.env.VITE_FEATURE_PLANES ?? '').toLowerCase() === 'true';
 }
+
+/** Piloto de experiencia por conceptos T40. Solo activar en una build de prueba. */
+export function isMemoryPilotEnabled(): boolean {
+  return String(import.meta.env.VITE_FEATURE_MEMORY_PILOT ?? '').toLowerCase() === 'true';
+}
