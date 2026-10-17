@@ -95,6 +95,35 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 21,
+      lote: 'lote02',
+      title: "Tema 21 · lote 2: técnicas de corte y vehículos eléctricos, híbridos y a gas (Manual básico de rescate, DGT)",
+      count: 73,
+      source: "Huecos CEP · Manual básico de rescate en accidentes de tráfico (DGT-APRAT, 2019), dgt.es",
+    },
+    load: () => import('./tema21Lote02Recall').then((m) => m.TEMA21_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 15,
+      title: "Tema 15 · Material de rescate: eslingas y accesorios de elevación, máquinas y herramientas portátiles, generadores (fuentes oficiales gratuitas: INSST, RD 1644/2008, RD 1215/1997 e ITC-BT-40)",
+      count: 92,
+      source: "Huecos CEP · INSST (NTP 221, 841 y 842; Guía técnica de equipos de trabajo), RD 1644/2008, RD 1215/1997 y REBT ITC-BT-40; boe.es e insst.es",
+    },
+    load: () => import('./tema15Recall').then((m) => m.TEMA15_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 13,
+      lote: 'lote02',
+      title: "Tema 13 · lote 2: protección respiratoria y equipos autónomos (INSST: NTP 787, fichas de selección y uso y Guía técnica de EPI)",
+      count: 47,
+      source: "Huecos CEP · INSST (NTP 787, FSU Filtros, FSU Equipos respiratorios aislantes y Guía técnica de EPI), insst.es",
+    },
+    load: () => import('./tema13Lote02Recall').then((m) => m.TEMA13_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 10,
       lote: 'lote02',
       title: "Tema 10 · lote 2: abastecimiento de agua y uso de BIE (NTP 420 y NTP 1035 del INSST)",

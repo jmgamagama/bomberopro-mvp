@@ -23,12 +23,15 @@ Problemas detectados: **0**.
 | tema12 | pendiente | 21 | 100 % | 0 | `7ef9bc6244b177a0` |  |
 | tema12-lote02 | pendiente | 23 | 100 % | 0 | `dee29796b90e5874` |  |
 | tema13 | pendiente | 25 | 100 % | 0 | `1a00973aa68f0f00` |  |
+| tema13-lote02 | pendiente | 47 | 100 % | 0 | `fb997e1f468503d0` |  |
 | tema14 | pendiente | 24 | 100 % | 0 | `eddcc0cb7906176f` |  |
+| tema15 | pendiente | 92 | 100 % | 0 | `49d4b07ff339ed47` |  |
 | tema16 | revisado | 48 | 0 % | 0 | `74010679e9276413` | sin enlace público |
 | tema16-lote02 | pendiente | 21 | 100 % | 0 | `dc82c612be1668e9` |  |
 | tema17 | revisado | 14 | 100 % | 0 | `412a879010d41acc` |  |
 | tema20 | pendiente | 24 | 100 % | 0 | `0b4c4913afacc656` |  |
 | tema21 | pendiente | 42 | 100 % | 0 | `0d98869be8aec3c7` |  |
+| tema21-lote02 | pendiente | 73 | 100 % | 0 | `14c772aff03c5482` |  |
 | tema22 | pendiente | 33 | 100 % | 0 | `5e2e70abd6843bc0` |  |
 | tema22-lote02 | pendiente | 27 | 100 % | 0 | `5c1bd829625cfc84` |  |
 | tema23 | pendiente | 21 | 100 % | 0 | `9942d77c7ee61310` |  |

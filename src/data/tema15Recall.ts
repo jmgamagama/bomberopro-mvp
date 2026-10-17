@@ -1,0 +1,849 @@
+/** Tema 15 recall cards — fase 2: generadas SOLO desde el texto oficial consolidado (INSST-NTP221, INSST-NTP841, INSST-NTP842, INSST-GT-EQUIPOS-TRABAJO, BOE-A-2008-16387, BOE-A-2002-18099, BOE-A-1997-17824). Calidad: data/tema15/tema15_calidad.md. */
+
+export type Tema15RecallCard = {
+  id: string;
+  orden: number;
+  concepto: string;
+  respuesta: string;
+  fuente: string;
+  localizacion: string;
+  apartado: string;
+};
+
+export const TEMA15_RECALL_META = {
+  "tema": 15,
+  "title": "Tema 15 · Material de rescate: eslingas y accesorios de elevación, máquinas y herramientas portátiles, generadores (fuentes oficiales gratuitas: INSST, RD 1644/2008, RD 1215/1997 e ITC-BT-40)",
+  "count": 92,
+  "source": "Huecos CEP · INSST (NTP 221, 841 y 842; Guía técnica de equipos de trabajo), RD 1644/2008, RD 1215/1997 y REBT ITC-BT-40; boe.es e insst.es"
+} as const;
+
+export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
+  {
+    "id": "CPEI-T15-OF-0B0F107B",
+    "orden": 10,
+    "concepto": "Según la NTP 221 del INSST, ¿cómo se llaman los medios auxiliares que se interponen entre la carga y el aparato de elevación para embragarla?",
+    "respuesta": "Eslingas",
+    "fuente": "NTP 221 (INSST), Introducción, pág. 1. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=1",
+    "localizacion": "NTP 221 (INSST), Introducción, pág. 1",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-73BB14B7",
+    "orden": 20,
+    "concepto": "Según la NTP 221 del INSST, ¿qué dos características fundamentales se tienen en cuenta al seleccionar cables para eslingas?",
+    "respuesta": "La flexibilidad para que pueda adaptarse a la carga a elevar y la resistencia tanto a la carga por tracción como al aplastamiento",
+    "fuente": "NTP 221 (INSST), Introducción, pág. 1. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=1",
+    "localizacion": "NTP 221 (INSST), Introducción, pág. 1",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-902D93F4",
+    "orden": 30,
+    "concepto": "Según la NTP 221 del INSST, según su material, ¿de qué pueden ser las eslingas?",
+    "respuesta": "De cables de acero, de cadenas, de fibras, etc.",
+    "fuente": "NTP 221 (INSST), Introducción, pág. 1. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=1",
+    "localizacion": "NTP 221 (INSST), Introducción, pág. 1",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-CC79B8EE",
+    "orden": 40,
+    "concepto": "Según la NTP 221 del INSST, ¿cómo se llaman los dobleces que se forman si el desbobinado del cable se hace mal?",
+    "respuesta": "Cocas",
+    "fuente": "NTP 221 (INSST), Fabricación, pág. 1. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=1",
+    "localizacion": "NTP 221 (INSST), Fabricación, pág. 1",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-71A155FE",
+    "orden": 50,
+    "concepto": "Según la NTP 221 del INSST, ¿qué hay que hacer antes de cortar un cable para que no se descablee?",
+    "respuesta": "Efectuar ligadas a ambos lados del punto de corte",
+    "fuente": "NTP 221 (INSST), Ligadas, pág. 2. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=2",
+    "localizacion": "NTP 221 (INSST), Ligadas, pág. 2",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-0737B0B5",
+    "orden": 60,
+    "concepto": "Según la NTP 221 del INSST, ¿de qué deben ir provistos los ajustes de los ojales?",
+    "respuesta": "De guardacabos resistentes para evitar una doblez excesiva",
+    "fuente": "NTP 221 (INSST), Terminales, pág. 2. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=2",
+    "localizacion": "NTP 221 (INSST), Terminales, pág. 2",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-23B6C874",
+    "orden": 70,
+    "concepto": "Según la NTP 221 del INSST, ¿con qué deben estar equipados los ganchos de elevación o tracción?",
+    "respuesta": "Con pestillo u otro dispositivo de seguridad para evitar que la carga pueda desprenderse",
+    "fuente": "NTP 221 (INSST), Elementos de unión, pág. 3. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=3",
+    "localizacion": "NTP 221 (INSST), Elementos de unión, pág. 3",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-6C587402",
+    "orden": 80,
+    "concepto": "Según la NTP 221 del INSST, ¿qué coeficiente de seguridad se considera para eslingas con un solo ramal?",
+    "respuesta": "K= 9",
+    "fuente": "NTP 221 (INSST), Capacidad de carga, pág. 4. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=4",
+    "localizacion": "NTP 221 (INSST), Capacidad de carga, pág. 4",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-2B9FDAF8",
+    "orden": 90,
+    "concepto": "Según la NTP 221 del INSST, ¿qué coeficiente de seguridad se considera para eslingas con más de tres ramales?",
+    "respuesta": "K= 6",
+    "fuente": "NTP 221 (INSST), Capacidad de carga, pág. 4. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=4",
+    "localizacion": "NTP 221 (INSST), Capacidad de carga, pág. 4",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-CD91EFB5",
+    "orden": 100,
+    "concepto": "Según la NTP 221 del INSST, ¿qué resistencia supone el terminal respecto a la carga de rotura del cable?",
+    "respuesta": "De un 75% a un 100% de la carga de rotura del cable",
+    "fuente": "NTP 221 (INSST), Capacidad de carga, pág. 4. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=4",
+    "localizacion": "NTP 221 (INSST), Capacidad de carga, pág. 4",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-3479E342",
+    "orden": 110,
+    "concepto": "Según la NTP 221 del INSST, ¿por qué elemento viene determinada la capacidad de carga de una eslinga?",
+    "respuesta": "Por la de su elemento más débil",
+    "fuente": "NTP 221 (INSST), Capacidad de carga, pág. 5. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=5",
+    "localizacion": "NTP 221 (INSST), Capacidad de carga, pág. 5",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-92BB32EF",
+    "orden": 120,
+    "concepto": "Según la NTP 221 del INSST, ¿dónde debe estar marcada la capacidad de carga máxima?",
+    "respuesta": "En la eslinga, en lugar bien visible",
+    "fuente": "NTP 221 (INSST), Capacidad de carga, pág. 5. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=5",
+    "localizacion": "NTP 221 (INSST), Capacidad de carga, pág. 5",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-E5726FB4",
+    "orden": 130,
+    "concepto": "Según la NTP 221 del INSST, ¿qué le ocurre a la carga de cada ramal con un ángulo de 120º entre ramales?",
+    "respuesta": "La carga se ha doblado",
+    "fuente": "NTP 221 (INSST), Capacidad de carga, pág. 6. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=6",
+    "localizacion": "NTP 221 (INSST), Capacidad de carga, pág. 6",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-4994AFC7",
+    "orden": 140,
+    "concepto": "Según la NTP 221 del INSST, ¿qué valores no debe superar el ángulo entre los ramales de una eslinga?",
+    "respuesta": "No sobrepase los 90º y en ningún caso deberá sobrepasar los 120º",
+    "fuente": "NTP 221 (INSST), Utilización, pág. 6. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=6",
+    "localizacion": "NTP 221 (INSST), Utilización, pág. 6",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-E8751982",
+    "orden": 150,
+    "concepto": "Según la NTP 221 del INSST, si se desconoce el peso de una carga, ¿cómo se puede calcular?",
+    "respuesta": "Multiplicando su volumen por la densidad del material de que está compuesta",
+    "fuente": "NTP 221 (INSST), Utilización, pág. 6. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=6",
+    "localizacion": "NTP 221 (INSST), Utilización, pág. 6",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-F143D76B",
+    "orden": 160,
+    "concepto": "Según la NTP 221 del INSST, en caso de duda, ¿cómo se estima el peso de la carga?",
+    "respuesta": "Por exceso",
+    "fuente": "NTP 221 (INSST), Utilización, pág. 6. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=6",
+    "localizacion": "NTP 221 (INSST), Utilización, pág. 6",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-0D9851B4",
+    "orden": 170,
+    "concepto": "Según la NTP 221 del INSST, con una eslinga de cuatro ramales y carga rígida, ¿cuántos ramales se supone que sustentan el peso total?",
+    "respuesta": "Dos ramales",
+    "fuente": "NTP 221 (INSST), Utilización, pág. 6. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=6",
+    "localizacion": "NTP 221 (INSST), Utilización, pág. 6",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-42DCD540",
+    "orden": 180,
+    "concepto": "Según la NTP 221 del INSST, ¿qué se intercala para que las eslingas no se apoyen sobre aristas vivas?",
+    "respuesta": "Cantoneras o escuadras de protección",
+    "fuente": "NTP 221 (INSST), Utilización, pág. 7. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=7",
+    "localizacion": "NTP 221 (INSST), Utilización, pág. 7",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-B0304748",
+    "orden": 190,
+    "concepto": "Según la NTP 221 del INSST, antes de la elevación completa, ¿cuánto se eleva la carga para verificar su amarre y equilibrio?",
+    "respuesta": "No más de 10 cm",
+    "fuente": "NTP 221 (INSST), Utilización, pág. 7. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=7",
+    "localizacion": "NTP 221 (INSST), Utilización, pág. 7",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-850BE2CE",
+    "orden": 200,
+    "concepto": "Según la NTP 221 del INSST, ¿qué temperatura no debe superar una eslinga?",
+    "respuesta": "60 ºC",
+    "fuente": "NTP 221 (INSST), Utilización, pág. 7. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=7",
+    "localizacion": "NTP 221 (INSST), Utilización, pág. 7",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-8569E86B",
+    "orden": 210,
+    "concepto": "Según la NTP 221 del INSST, como norma general, ¿con qué frecuencia se inspeccionan las eslingas?",
+    "respuesta": "Diariamente por el personal que las utilicen y trimestralmente como máximo por personal especializado",
+    "fuente": "NTP 221 (INSST), Mantenimiento, pág. 8. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=8",
+    "localizacion": "NTP 221 (INSST), Mantenimiento, pág. 8",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-5F9A705D",
+    "orden": 220,
+    "concepto": "Según la NTP 221 del INSST, ¿qué número de alambres rotos indica que un cable está agotado?",
+    "respuesta": "Más del 10% de los mismos contados a lo largo de dos tramos del cableado, separados entre sí por una distancia inferior a ocho veces su diámetro",
+    "fuente": "NTP 221 (INSST), Sustitución, pág. 8. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=8",
+    "localizacion": "NTP 221 (INSST), Sustitución, pág. 8",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-E5961FE2",
+    "orden": 230,
+    "concepto": "Según la NTP 221 del INSST, ¿en qué lugar se almacenan las eslingas?",
+    "respuesta": "En lugar seco, bien ventilado y libre de atmósferas corrosivas o polvorientas",
+    "fuente": "NTP 221 (INSST), Almacenamiento, pág. 8. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=8",
+    "localizacion": "NTP 221 (INSST), Almacenamiento, pág. 8",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-4C777475",
+    "orden": 240,
+    "concepto": "Según la NTP 841 del INSST, ¿en qué consiste el eslingado?",
+    "respuesta": "En realizar la unión entre una carga y un equipo de elevación",
+    "fuente": "NTP 841 (INSST), Introducción, pág. 1. INSST, NTP 841: Eslingas textiles (I) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/841+web.pdf#page=1",
+    "localizacion": "NTP 841 (INSST), Introducción, pág. 1",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-2555EADF",
+    "orden": 250,
+    "concepto": "Según la NTP 841 del INSST, ¿con qué fibras químicas se fabrican las eslingas textiles que trata?",
+    "respuesta": "Poliamida, poliéster y polipropileno",
+    "fuente": "NTP 841 (INSST), Objetivos, pág. 1. INSST, NTP 841: Eslingas textiles (I) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/841+web.pdf#page=1",
+    "localizacion": "NTP 841 (INSST), Objetivos, pág. 1",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-F4933D12",
+    "orden": 260,
+    "concepto": "Según la NTP 841 del INSST, ¿qué es la Carga Máxima de Utilización (CMU)?",
+    "respuesta": "Masa o carga máxima para la que está diseñada la eslinga para la elevación directa",
+    "fuente": "NTP 841 (INSST), Términos y definiciones, pág. 2. INSST, NTP 841: Eslingas textiles (I) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/841+web.pdf#page=2",
+    "localizacion": "NTP 841 (INSST), Términos y definiciones, pág. 2",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-35B8860D",
+    "orden": 270,
+    "concepto": "Según la NTP 841 del INSST, ¿qué es el coeficiente de utilización (o de seguridad)?",
+    "respuesta": "Relación aritmética entre la carga mínima de rotura garantizada por el fabricante y la carga máxima de utilización marcada sobre la eslinga",
+    "fuente": "NTP 841 (INSST), Términos y definiciones, pág. 2. INSST, NTP 841: Eslingas textiles (I) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/841+web.pdf#page=2",
+    "localizacion": "NTP 841 (INSST), Términos y definiciones, pág. 2",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-4D5A07C5",
+    "orden": 280,
+    "concepto": "Según la NTP 841 del INSST, ¿qué coeficiente de utilización deben tener como mínimo las eslingas reutilizables?",
+    "respuesta": "Como mínimo 7",
+    "fuente": "NTP 841 (INSST), Requisitos de seguridad, pág. 2. INSST, NTP 841: Eslingas textiles (I) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/841+web.pdf#page=2",
+    "localizacion": "NTP 841 (INSST), Requisitos de seguridad, pág. 2",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-814AA91A",
+    "orden": 290,
+    "concepto": "Según la NTP 841 del INSST, ¿cuál es el principal riesgo asociado al empleo de eslingas?",
+    "respuesta": "La caída de la carga sobre personas y/u objetos",
+    "fuente": "NTP 841 (INSST), Riesgos, pág. 2. INSST, NTP 841: Eslingas textiles (I) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/841+web.pdf#page=2",
+    "localizacion": "NTP 841 (INSST), Riesgos, pág. 2",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-AEB0A262",
+    "orden": 300,
+    "concepto": "Según la NTP 841 del INSST, ¿para qué no se debe utilizar nunca una eslinga textil?",
+    "respuesta": "Como elemento de trincaje",
+    "fuente": "NTP 841 (INSST), Selección, pág. 3. INSST, NTP 841: Eslingas textiles (I) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/841+web.pdf#page=3",
+    "localizacion": "NTP 841 (INSST), Selección, pág. 3",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-5EA945B5",
+    "orden": 310,
+    "concepto": "Según la NTP 841 del INSST, ¿qué material indica una etiqueta de color azul?",
+    "respuesta": "Poliéster",
+    "fuente": "NTP 841 (INSST), Selección, pág. 3. INSST, NTP 841: Eslingas textiles (I) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/841+web.pdf#page=3",
+    "localizacion": "NTP 841 (INSST), Selección, pág. 3",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-BB658607",
+    "orden": 320,
+    "concepto": "Según la NTP 841 del INSST, ¿qué material indica una etiqueta de color verde?",
+    "respuesta": "Poliamida",
+    "fuente": "NTP 841 (INSST), Selección, pág. 3. INSST, NTP 841: Eslingas textiles (I) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/841+web.pdf#page=3",
+    "localizacion": "NTP 841 (INSST), Selección, pág. 3",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-AE21858E",
+    "orden": 330,
+    "concepto": "Según la NTP 841 del INSST, ¿dónde debe estar el gancho que sostiene las eslingas durante la elevación?",
+    "respuesta": "En la vertical del centro de gravedad (c.d.g.) de la carga",
+    "fuente": "NTP 841 (INSST), Normas de utilización, pág. 4. INSST, NTP 841: Eslingas textiles (I) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/841+web.pdf#page=4",
+    "localizacion": "NTP 841 (INSST), Normas de utilización, pág. 4",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-C075A8BF",
+    "orden": 340,
+    "concepto": "Según la NTP 841 del INSST, ¿dónde deben estar los puntos de sujeción de las eslingas con la carga para evitar su vuelco?",
+    "respuesta": "Por encima del c.d.g. de la carga",
+    "fuente": "NTP 841 (INSST), Normas de utilización, pág. 4. INSST, NTP 841: Eslingas textiles (I) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/841+web.pdf#page=4",
+    "localizacion": "NTP 841 (INSST), Normas de utilización, pág. 4",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-4C4948A9",
+    "orden": 350,
+    "concepto": "Según la NTP 841 del INSST, ¿para qué cargas no se debe usar el eslingado en cesto?",
+    "respuesta": "Para cargas difíciles de equilibrar",
+    "fuente": "NTP 841 (INSST), Formas de eslingar, pág. 5. INSST, NTP 841: Eslingas textiles (I) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/841+web.pdf#page=5",
+    "localizacion": "NTP 841 (INSST), Formas de eslingar, pág. 5",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-485694A5",
+    "orden": 360,
+    "concepto": "Según la NTP 841 del INSST, en un pulpo de cuatro patas, ¿cómo se debería hacer el cálculo de las eslingas?",
+    "respuesta": "De forma que tres ramales puedan soportar la totalidad de la carga",
+    "fuente": "NTP 841 (INSST), Formas de eslingar, pág. 5. INSST, NTP 841: Eslingas textiles (I) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/841+web.pdf#page=5",
+    "localizacion": "NTP 841 (INSST), Formas de eslingar, pág. 5",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-017F0163",
+    "orden": 370,
+    "concepto": "Según la NTP 841 del INSST, ¿en qué rango de temperaturas son adecuadas las eslingas de poliéster y poliamida?",
+    "respuesta": "De –40°C a 100°C",
+    "fuente": "NTP 841 (INSST), Temperatura, pág. 5. INSST, NTP 841: Eslingas textiles (I) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/841+web.pdf#page=5",
+    "localizacion": "NTP 841 (INSST), Temperatura, pág. 5",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-2DD8F503",
+    "orden": 380,
+    "concepto": "Según la NTP 841 del INSST, ¿qué se hace con una eslinga sin etiqueta o con etiqueta ilegible?",
+    "respuesta": "No debe ser utilizada para elevación de cargas y la eslinga debe ser retirada del uso",
+    "fuente": "NTP 841 (INSST), Identificación, pág. 5. INSST, NTP 841: Eslingas textiles (I) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/841+web.pdf#page=5",
+    "localizacion": "NTP 841 (INSST), Identificación, pág. 5",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-AF5886EC",
+    "orden": 390,
+    "concepto": "Según la NTP 841 del INSST, ¿qué se hace con las eslingas contaminadas por productos químicos?",
+    "respuesta": "Deben retirarse inmediatamente del servicio",
+    "fuente": "NTP 841 (INSST), Productos químicos, pág. 5. INSST, NTP 841: Eslingas textiles (I) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/841+web.pdf#page=5",
+    "localizacion": "NTP 841 (INSST), Productos químicos, pág. 5",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-F4298760",
+    "orden": 400,
+    "concepto": "Según la NTP 842 del INSST, ¿cómo se determina la C.M.U. de una eslinga para un modo de eslingado?",
+    "respuesta": "Multiplicando la C.M.U. de la eslinga en elevación directa por el factor de forma (M)",
+    "fuente": "NTP 842 (INSST), Carga máxima de utilización, pág. 1. INSST, NTP 842: Eslingas textiles (II) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/842+web.pdf#page=1",
+    "localizacion": "NTP 842 (INSST), Carga máxima de utilización, pág. 1",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-DD456697",
+    "orden": 410,
+    "concepto": "Según la NTP 842 del INSST, ¿qué factor de forma corresponde a la elevación estrangulada en eslingas reutilizables?",
+    "respuesta": "M=0,8",
+    "fuente": "NTP 842 (INSST), Carga máxima de utilización, pág. 1. INSST, NTP 842: Eslingas textiles (II) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/842+web.pdf#page=1",
+    "localizacion": "NTP 842 (INSST), Carga máxima de utilización, pág. 1",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-E125DC96",
+    "orden": 420,
+    "concepto": "Según la NTP 842 del INSST, ¿qué C.M.U. tiene una eslinga de 4 ramales?",
+    "respuesta": "La misma que para una eslinga de 3 ramales",
+    "fuente": "NTP 842 (INSST), Carga máxima de utilización, pág. 2. INSST, NTP 842: Eslingas textiles (II) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/842+web.pdf#page=2",
+    "localizacion": "NTP 842 (INSST), Carga máxima de utilización, pág. 2",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-6702FD46",
+    "orden": 430,
+    "concepto": "Según la NTP 842 del INSST, ¿qué temperatura ambiente no debería superarse donde se almacenan las eslingas?",
+    "respuesta": "60º C",
+    "fuente": "NTP 842 (INSST), Almacenamiento, pág. 2. INSST, NTP 842: Eslingas textiles (II) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/842+web.pdf#page=2",
+    "localizacion": "NTP 842 (INSST), Almacenamiento, pág. 2",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-2FC65666",
+    "orden": 440,
+    "concepto": "Según la NTP 842 del INSST, ¿qué no se debe hacer si la eslinga está atrapada bajo la carga?",
+    "respuesta": "No tirar de la eslinga",
+    "fuente": "NTP 842 (INSST), Utilización, pág. 3. INSST, NTP 842: Eslingas textiles (II) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/842+web.pdf#page=3",
+    "localizacion": "NTP 842 (INSST), Utilización, pág. 3",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-E6919B19",
+    "orden": 450,
+    "concepto": "Según la NTP 842 del INSST, ¿qué apariencia da a la eslinga el deterioro por calentamiento o fricción?",
+    "respuesta": "Una apariencia lustrosa",
+    "fuente": "NTP 842 (INSST), Inspecciones, pág. 3. INSST, NTP 842: Eslingas textiles (II) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/842+web.pdf#page=3",
+    "localizacion": "NTP 842 (INSST), Inspecciones, pág. 3",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-A928C762",
+    "orden": 460,
+    "concepto": "Según la Guía técnica de equipos de trabajo del INSST, ¿cuándo deben retirarse los ganchos?",
+    "respuesta": "Cuando la apertura de la boca se deforme más de un 10%, el gancho está erosionado más de un 5% o si presenta grietas",
+    "fuente": "Guía técnica de equipos de trabajo (INSST), Apéndice 8, accesorios de elevación, pág. 179. INSST, Guía técnica para la evaluación y prevención de los riesgos relativos a la utilización de los equipos de trabajo (RD 1215/1997); texto íntegro oficial (2021): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+evaluaci%C3%B3n+y+prevenci%C3%B3n+de+los+riesgos+relativos+a+la+utilizaci%C3%B3n+de+los+equipos+de+trabajo.pdf#page=179",
+    "localizacion": "Guía técnica de equipos de trabajo (INSST), Apéndice 8, accesorios de elevación, pág. 179",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-10286E21",
+    "orden": 470,
+    "concepto": "Según la Guía técnica de equipos de trabajo del INSST, ¿qué incremento de la longitud del eslabón obliga a retirar una eslinga de cadena?",
+    "respuesta": "Incremento en un 5% de la longitud del eslabón",
+    "fuente": "Guía técnica de equipos de trabajo (INSST), Apéndice 8, eslingas de cadena, pág. 180. INSST, Guía técnica para la evaluación y prevención de los riesgos relativos a la utilización de los equipos de trabajo (RD 1215/1997); texto íntegro oficial (2021): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+evaluaci%C3%B3n+y+prevenci%C3%B3n+de+los+riesgos+relativos+a+la+utilizaci%C3%B3n+de+los+equipos+de+trabajo.pdf#page=180",
+    "localizacion": "Guía técnica de equipos de trabajo (INSST), Apéndice 8, eslingas de cadena, pág. 180",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-55D7FA6E",
+    "orden": 480,
+    "concepto": "Según la Guía técnica de equipos de trabajo del INSST, ¿en qué términos se expresa generalmente la carga nominal de un accesorio de elevación?",
+    "respuesta": "En términos de carga máxima de utilización (CMU o WLL)",
+    "fuente": "Guía técnica de equipos de trabajo (INSST), Apéndice 9, selección de accesorios de elevación, pág. 181. INSST, Guía técnica para la evaluación y prevención de los riesgos relativos a la utilización de los equipos de trabajo (RD 1215/1997); texto íntegro oficial (2021): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+evaluaci%C3%B3n+y+prevenci%C3%B3n+de+los+riesgos+relativos+a+la+utilizaci%C3%B3n+de+los+equipos+de+trabajo.pdf#page=181",
+    "localizacion": "Guía técnica de equipos de trabajo (INSST), Apéndice 9, selección de accesorios de elevación, pág. 181",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-030BA7A7",
+    "orden": 490,
+    "concepto": "Según la Guía técnica de equipos de trabajo del INSST, ¿cuándo será estable la carga a elevar?",
+    "respuesta": "Si su centro de gravedad se encuentra en la vertical de elevación, si está por debajo del (de los) punto(s) de prensión y si la carga está correctamente eslingada",
+    "fuente": "Guía técnica de equipos de trabajo (INSST), Apéndice 9, centro de gravedad, pág. 182. INSST, Guía técnica para la evaluación y prevención de los riesgos relativos a la utilización de los equipos de trabajo (RD 1215/1997); texto íntegro oficial (2021): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+evaluaci%C3%B3n+y+prevenci%C3%B3n+de+los+riesgos+relativos+a+la+utilizaci%C3%B3n+de+los+equipos+de+trabajo.pdf#page=182",
+    "localizacion": "Guía técnica de equipos de trabajo (INSST), Apéndice 9, centro de gravedad, pág. 182",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-5B76FCFA",
+    "orden": 500,
+    "concepto": "Según la Guía técnica de equipos de trabajo del INSST, ¿qué accesorio de elevación se usa si la carga tiene aristas vivas?",
+    "respuesta": "Eslingas de cadena",
+    "fuente": "Guía técnica de equipos de trabajo (INSST), Apéndice 9, características de la carga, pág. 183. INSST, Guía técnica para la evaluación y prevención de los riesgos relativos a la utilización de los equipos de trabajo (RD 1215/1997); texto íntegro oficial (2021): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+evaluaci%C3%B3n+y+prevenci%C3%B3n+de+los+riesgos+relativos+a+la+utilizaci%C3%B3n+de+los+equipos+de+trabajo.pdf#page=183",
+    "localizacion": "Guía técnica de equipos de trabajo (INSST), Apéndice 9, características de la carga, pág. 183",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-D00F2860",
+    "orden": 510,
+    "concepto": "Según la Guía técnica de equipos de trabajo del INSST, en una eslinga de dos ramales con una carga simétrica de 1 t y 45° respecto a la vertical, ¿qué tensión soporta cada ramal?",
+    "respuesta": "0,7 t en cada ramal",
+    "fuente": "Guía técnica de equipos de trabajo (INSST), Apéndice 9, configuración del amarre, pág. 185. INSST, Guía técnica para la evaluación y prevención de los riesgos relativos a la utilización de los equipos de trabajo (RD 1215/1997); texto íntegro oficial (2021): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+evaluaci%C3%B3n+y+prevenci%C3%B3n+de+los+riesgos+relativos+a+la+utilizaci%C3%B3n+de+los+equipos+de+trabajo.pdf#page=185",
+    "localizacion": "Guía técnica de equipos de trabajo (INSST), Apéndice 9, configuración del amarre, pág. 185",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-2420D310",
+    "orden": 520,
+    "concepto": "Según la Guía técnica de equipos de trabajo del INSST, con eslingas de tres o cuatro ramales y carga rígida y simétrica, ¿sobre cuántos ramales se reparte en general la carga?",
+    "respuesta": "Sobre dos ramales, aproximadamente a partes iguales",
+    "fuente": "Guía técnica de equipos de trabajo (INSST), Apéndice 9, configuración del amarre, pág. 185. INSST, Guía técnica para la evaluación y prevención de los riesgos relativos a la utilización de los equipos de trabajo (RD 1215/1997); texto íntegro oficial (2021): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+evaluaci%C3%B3n+y+prevenci%C3%B3n+de+los+riesgos+relativos+a+la+utilizaci%C3%B3n+de+los+equipos+de+trabajo.pdf#page=185",
+    "localizacion": "Guía técnica de equipos de trabajo (INSST), Apéndice 9, configuración del amarre, pág. 185",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-DC43B6B7",
+    "orden": 530,
+    "concepto": "Según la Guía técnica de equipos de trabajo del INSST, si no se usan todos los ramales de una eslinga, ¿qué hay que hacer con los ramales que quedan libres?",
+    "respuesta": "Deberán estar trincados o recogidos",
+    "fuente": "Guía técnica de equipos de trabajo (INSST), Apéndice 9, configuración del amarre, pág. 186. INSST, Guía técnica para la evaluación y prevención de los riesgos relativos a la utilización de los equipos de trabajo (RD 1215/1997); texto íntegro oficial (2021): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+evaluaci%C3%B3n+y+prevenci%C3%B3n+de+los+riesgos+relativos+a+la+utilizaci%C3%B3n+de+los+equipos+de+trabajo.pdf#page=186",
+    "localizacion": "Guía técnica de equipos de trabajo (INSST), Apéndice 9, configuración del amarre, pág. 186",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-A65305FF",
+    "orden": 540,
+    "concepto": "Según la Guía técnica de equipos de trabajo del INSST, ¿para qué condiciones no son apropiadas las eslingas de cable de acero?",
+    "respuesta": "Para condiciones ácidas",
+    "fuente": "Guía técnica de equipos de trabajo (INSST), Apéndice 9, condiciones ambientales, pág. 186. INSST, Guía técnica para la evaluación y prevención de los riesgos relativos a la utilización de los equipos de trabajo (RD 1215/1997); texto íntegro oficial (2021): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+evaluaci%C3%B3n+y+prevenci%C3%B3n+de+los+riesgos+relativos+a+la+utilizaci%C3%B3n+de+los+equipos+de+trabajo.pdf#page=186",
+    "localizacion": "Guía técnica de equipos de trabajo (INSST), Apéndice 9, condiciones ambientales, pág. 186",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-9F7281C1",
+    "orden": 550,
+    "concepto": "Según la Guía técnica de equipos de trabajo del INSST, ¿cómo se denomina normalmente a la persona responsable de enganchar y desenganchar una carga?",
+    "respuesta": "Estrobador",
+    "fuente": "Guía técnica de equipos de trabajo (INSST), Apéndice 9, estado del accesorio, pág. 186. INSST, Guía técnica para la evaluación y prevención de los riesgos relativos a la utilización de los equipos de trabajo (RD 1215/1997); texto íntegro oficial (2021): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+evaluaci%C3%B3n+y+prevenci%C3%B3n+de+los+riesgos+relativos+a+la+utilizaci%C3%B3n+de+los+equipos+de+trabajo.pdf#page=186",
+    "localizacion": "Guía técnica de equipos de trabajo (INSST), Apéndice 9, estado del accesorio, pág. 186",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-A1B0534A",
+    "orden": 560,
+    "concepto": "Según la Guía técnica de equipos de trabajo del INSST, ¿desde qué fecha los accesorios de elevación comercializados por separado deben tener Declaración CE de Conformidad, manual de instrucciones y marcado CE?",
+    "respuesta": "A partir del 29 de diciembre de 2009",
+    "fuente": "Guía técnica de equipos de trabajo (INSST), Apéndice 9, estado del accesorio, pág. 186. INSST, Guía técnica para la evaluación y prevención de los riesgos relativos a la utilización de los equipos de trabajo (RD 1215/1997); texto íntegro oficial (2021): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+evaluaci%C3%B3n+y+prevenci%C3%B3n+de+los+riesgos+relativos+a+la+utilizaci%C3%B3n+de+los+equipos+de+trabajo.pdf#page=186",
+    "localizacion": "Guía técnica de equipos de trabajo (INSST), Apéndice 9, estado del accesorio, pág. 186",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-AF4C8CBB",
+    "orden": 570,
+    "concepto": "Según la Guía técnica de equipos de trabajo del INSST, ¿a qué herramientas se refieren los requisitos sobre herramientas manuales?",
+    "respuesta": "A las herramientas que se utilizan generalmente de forma individual y que únicamente requieren la aplicación directa de la fuerza humana",
+    "fuente": "Guía técnica de equipos de trabajo (INSST), Anexo I, apartado 1.17 (herramientas manuales), pág. 42. INSST, Guía técnica para la evaluación y prevención de los riesgos relativos a la utilización de los equipos de trabajo (RD 1215/1997); texto íntegro oficial (2021): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+evaluaci%C3%B3n+y+prevenci%C3%B3n+de+los+riesgos+relativos+a+la+utilizaci%C3%B3n+de+los+equipos+de+trabajo.pdf#page=42",
+    "localizacion": "Guía técnica de equipos de trabajo (INSST), Anexo I, apartado 1.17 (herramientas manuales), pág. 42",
+    "apartado": "Máquinas y herramientas portátiles"
+  },
+  {
+    "id": "CPEI-T15-OF-8629D9D7",
+    "orden": 580,
+    "concepto": "Según la Guía técnica de equipos de trabajo del INSST, ¿qué herramientas portátiles cita como ejemplo de las que merecen especial atención por sus peligros?",
+    "respuesta": "Las pistolas clavadoras",
+    "fuente": "Guía técnica de equipos de trabajo (INSST), Anexo I, apartado 1.17 (herramientas manuales), pág. 42. INSST, Guía técnica para la evaluación y prevención de los riesgos relativos a la utilización de los equipos de trabajo (RD 1215/1997); texto íntegro oficial (2021): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+evaluaci%C3%B3n+y+prevenci%C3%B3n+de+los+riesgos+relativos+a+la+utilizaci%C3%B3n+de+los+equipos+de+trabajo.pdf#page=42",
+    "localizacion": "Guía técnica de equipos de trabajo (INSST), Anexo I, apartado 1.17 (herramientas manuales), pág. 42",
+    "apartado": "Máquinas y herramientas portátiles"
+  },
+  {
+    "id": "CPEI-T15-OF-0522F2AB",
+    "orden": 590,
+    "concepto": "Según la Guía técnica de equipos de trabajo del INSST, ¿qué órgano de mando se aplica, por ejemplo, a las herramientas portátiles a motor?",
+    "respuesta": "Un órgano de mando sensitivo",
+    "fuente": "Guía técnica de equipos de trabajo (INSST), Apéndice 3, puesta en marcha, pág. 137. INSST, Guía técnica para la evaluación y prevención de los riesgos relativos a la utilización de los equipos de trabajo (RD 1215/1997); texto íntegro oficial (2021): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+evaluaci%C3%B3n+y+prevenci%C3%B3n+de+los+riesgos+relativos+a+la+utilizaci%C3%B3n+de+los+equipos+de+trabajo.pdf#page=137",
+    "localizacion": "Guía técnica de equipos de trabajo (INSST), Apéndice 3, puesta en marcha, pág. 137",
+    "apartado": "Máquinas y herramientas portátiles"
+  },
+  {
+    "id": "CPEI-T15-OF-3B08563F",
+    "orden": 600,
+    "concepto": "Según el RD 1644/2008, ¿qué es una «máquina»?",
+    "respuesta": "Conjunto de partes o componentes vinculados entre sí, de los cuales al menos uno es móvil, asociados para una aplicación determinada, provisto o destinado a estar provisto de un sistema de accionamiento distinto de la fuerza humana o animal, aplicada directamente",
+    "fuente": "RD 1644/2008, Artículo 2. Definiciones, art. 2.2.a. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#a2",
+    "localizacion": "RD 1644/2008, Artículo 2. Definiciones, art. 2.2.a",
+    "apartado": "Máquinas y herramientas portátiles"
+  },
+  {
+    "id": "CPEI-T15-OF-D2F1AA50",
+    "orden": 610,
+    "concepto": "Según el RD 1644/2008, ¿qué es una «cuasi máquina»?",
+    "respuesta": "Conjunto que constituye casi una máquina, pero que no puede realizar por sí solo una aplicación determinada",
+    "fuente": "RD 1644/2008, Artículo 2. Definiciones, art. 2.2.g. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#a2",
+    "localizacion": "RD 1644/2008, Artículo 2. Definiciones, art. 2.2.g",
+    "apartado": "Máquinas y herramientas portátiles"
+  },
+  {
+    "id": "CPEI-T15-OF-3AC3D004",
+    "orden": 620,
+    "concepto": "Según el RD 1644/2008, ¿qué es un «accesorio de elevación»?",
+    "respuesta": "Componente o equipo que no es parte integrante de la máquina de elevación, que permita la prensión de la carga",
+    "fuente": "RD 1644/2008, Artículo 2. Definiciones, art. 2.2.d. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#a2",
+    "localizacion": "RD 1644/2008, Artículo 2. Definiciones, art. 2.2.d",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-C8C8BD7F",
+    "orden": 630,
+    "concepto": "Según el RD 1644/2008, ¿qué elementos se consideran también accesorios de elevación?",
+    "respuesta": "Las eslingas y sus componentes",
+    "fuente": "RD 1644/2008, Artículo 2. Definiciones, art. 2.2.d. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#a2",
+    "localizacion": "RD 1644/2008, Artículo 2. Definiciones, art. 2.2.d",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-95FE950B",
+    "orden": 640,
+    "concepto": "Según el anexo IV del RD 1644/2008, ¿qué sierras para la madera figuran entre las máquinas con procedimiento especial de evaluación?",
+    "respuesta": "Sierras portátiles de cadena para trabajar la madera",
+    "fuente": "RD 1644/2008, anexo IV, punto 8. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#aniv",
+    "localizacion": "RD 1644/2008, anexo IV, punto 8",
+    "apartado": "Máquinas y herramientas portátiles"
+  },
+  {
+    "id": "CPEI-T15-OF-D1E5BD30",
+    "orden": 650,
+    "concepto": "Según el anexo III del RD 1644/2008, ¿qué dimensión vertical mínima deben tener los elementos del marcado CE?",
+    "respuesta": "No podrá ser inferior a 5 mm",
+    "fuente": "RD 1644/2008, anexo III. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#aniii",
+    "localizacion": "RD 1644/2008, anexo III",
+    "apartado": "Máquinas y herramientas portátiles"
+  },
+  {
+    "id": "CPEI-T15-OF-AD1717F5",
+    "orden": 660,
+    "concepto": "Según el anexo I del RD 1644/2008, ¿qué fecha debe marcarse en cada máquina?",
+    "respuesta": "El año en el que finaliza el proceso de fabricación",
+    "fuente": "RD 1644/2008, anexo I, 1.7.3. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "localizacion": "RD 1644/2008, anexo I, 1.7.3",
+    "apartado": "Máquinas y herramientas portátiles"
+  },
+  {
+    "id": "CPEI-T15-OF-6C278F90",
+    "orden": 670,
+    "concepto": "Según el anexo I del RD 1644/2008, ¿qué riesgos no deben presentar las máquinas portátiles al soltar los medios de prensión?",
+    "respuesta": "Riesgos de puesta en marcha intempestiva ni de seguir funcionando después de que el operador haya soltado los medios de prensión",
+    "fuente": "RD 1644/2008, anexo I, 2.2.1. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "localizacion": "RD 1644/2008, anexo I, 2.2.1",
+    "apartado": "Máquinas y herramientas portátiles"
+  },
+  {
+    "id": "CPEI-T15-OF-ADD0E6E3",
+    "orden": 680,
+    "concepto": "Según el anexo I del RD 1644/2008, ¿a partir de qué valor se indica en el manual el total de vibraciones mano-brazo de una máquina portátil?",
+    "respuesta": "Cuando excedan de 2,5 m/s2",
+    "fuente": "RD 1644/2008, anexo I, 2.2.1.1. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "localizacion": "RD 1644/2008, anexo I, 2.2.1.1",
+    "apartado": "Máquinas y herramientas portátiles"
+  },
+  {
+    "id": "CPEI-T15-OF-E3EFB95D",
+    "orden": 690,
+    "concepto": "Según el anexo I del RD 1644/2008, como regla general, ¿qué coeficiente de utilización tiene la combinación de cable y terminación?",
+    "respuesta": "Dicho coeficiente será igual a 5",
+    "fuente": "RD 1644/2008, anexo I, 4.1.2.5. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "localizacion": "RD 1644/2008, anexo I, 4.1.2.5",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-AEE721D0",
+    "orden": 700,
+    "concepto": "Según el anexo I del RD 1644/2008, ¿qué requisito de eslabón deben cumplir las cadenas soldadas de las máquinas de elevación?",
+    "respuesta": "Del tipo de eslabones cortos",
+    "fuente": "RD 1644/2008, anexo I, 4.1.2.5. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "localizacion": "RD 1644/2008, anexo I, 4.1.2.5",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-6F85EBEB",
+    "orden": 710,
+    "concepto": "Según el anexo I del RD 1644/2008, ¿qué coeficiente de utilización tienen como regla general los cables o abrazaderas de fibras textiles?",
+    "respuesta": "Será igual a 7 siempre y cuando los materiales empleados sean de excelente calidad comprobada",
+    "fuente": "RD 1644/2008, anexo I, 4.1.2.5. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "localizacion": "RD 1644/2008, anexo I, 4.1.2.5",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-6304DDC2",
+    "orden": 720,
+    "concepto": "Según el anexo I del RD 1644/2008, como regla general, ¿qué coeficiente de utilización tienen los elementos metálicos de una eslinga?",
+    "respuesta": "Dicho coeficiente será igual a 4",
+    "fuente": "RD 1644/2008, anexo I, 4.1.2.5. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "localizacion": "RD 1644/2008, anexo I, 4.1.2.5",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-4094FF94",
+    "orden": 730,
+    "concepto": "Según el anexo I del RD 1644/2008, si el marcado de un accesorio de elevación es físicamente imposible, ¿dónde deben figurar sus indicaciones?",
+    "respuesta": "En una placa u otro medio equivalente y estar firmemente fijadas al accesorio",
+    "fuente": "RD 1644/2008, anexo I, 4.3.2. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "localizacion": "RD 1644/2008, anexo I, 4.3.2",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-560C9B53",
+    "orden": 740,
+    "concepto": "Según el anexo I del RD 1644/2008, ¿qué coeficiente debe indicar el folleto de instrucciones de cada accesorio de elevación?",
+    "respuesta": "El coeficiente de prueba estática utilizado",
+    "fuente": "RD 1644/2008, anexo I, 4.4.1. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "localizacion": "RD 1644/2008, anexo I, 4.4.1",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-2105B2A5",
+    "orden": 750,
+    "concepto": "Según el anexo I del RD 1215/1997, ¿cómo deben estar marcados los accesorios de elevación?",
+    "respuesta": "De tal forma que se puedan identificar las características esenciales para un uso seguro",
+    "fuente": "RD 1215/1997, anexo I, 2.b. BOE-A-1997-17824, texto consolidado (últ. actualización 13/11/2004): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#ani",
+    "localizacion": "RD 1215/1997, anexo I, 2.b",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-95EAE040",
+    "orden": 760,
+    "concepto": "Según el anexo II del RD 1215/1997, ¿en función de qué se seleccionan los accesorios de elevación?",
+    "respuesta": "En función de las cargas que se manipulen, de los puntos de prensión, del dispositivo del enganche y de las condiciones atmosféricas",
+    "fuente": "RD 1215/1997, anexo II, 3.1.d. BOE-A-1997-17824, texto consolidado (últ. actualización 13/11/2004): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+    "localizacion": "RD 1215/1997, anexo II, 3.1.d",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-D785F0EF",
+    "orden": 770,
+    "concepto": "Según el anexo II del RD 1215/1997, ¿cómo deben almacenarse los accesorios de elevación?",
+    "respuesta": "De forma que no se estropeen o deterioren",
+    "fuente": "RD 1215/1997, anexo II, 3.1.e. BOE-A-1997-17824, texto consolidado (últ. actualización 13/11/2004): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+    "localizacion": "RD 1215/1997, anexo II, 3.1.e",
+    "apartado": "Eslingas y accesorios de elevación"
+  },
+  {
+    "id": "CPEI-T15-OF-3AD9607F",
+    "orden": 780,
+    "concepto": "Según el anexo II del RD 1215/1997, ¿a qué no deben someterse los equipos de trabajo?",
+    "respuesta": "Sobrecargas, sobrepresiones, velocidades o tensiones excesivas",
+    "fuente": "RD 1215/1997, anexo II, 1.8. BOE-A-1997-17824, texto consolidado (últ. actualización 13/11/2004): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+    "localizacion": "RD 1215/1997, anexo II, 1.8",
+    "apartado": "Máquinas y herramientas portátiles"
+  },
+  {
+    "id": "CPEI-T15-OF-7C351FE7",
+    "orden": 790,
+    "concepto": "Según el anexo II del RD 1215/1997, ¿qué debe respetarse al usar equipos llevados o guiados manualmente cuyo movimiento pueda suponer un peligro?",
+    "respuesta": "Una distancia de seguridad suficiente",
+    "fuente": "RD 1215/1997, anexo II, 1.10. BOE-A-1997-17824, texto consolidado (últ. actualización 13/11/2004): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+    "localizacion": "RD 1215/1997, anexo II, 1.10",
+    "apartado": "Máquinas y herramientas portátiles"
+  },
+  {
+    "id": "CPEI-T15-OF-D1BCE0BC",
+    "orden": 800,
+    "concepto": "Según el anexo II del RD 1215/1997, ¿cómo deben ser las herramientas manuales?",
+    "respuesta": "De características y tamaño adecuados a la operación a realizar",
+    "fuente": "RD 1215/1997, anexo II, 1.17. BOE-A-1997-17824, texto consolidado (últ. actualización 13/11/2004): https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824#anii",
+    "localizacion": "RD 1215/1997, anexo II, 1.17",
+    "apartado": "Máquinas y herramientas portátiles"
+  },
+  {
+    "id": "CPEI-T15-OF-3073440B",
+    "orden": 810,
+    "concepto": "Según la ITC-BT-40 del REBT, ¿qué se entiende por instalaciones generadoras?",
+    "respuesta": "Las destinadas a transformar cualquier tipo de energía no eléctrica en energía eléctrica",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 1. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 1",
+    "apartado": "Generadores eléctricos"
+  },
+  {
+    "id": "CPEI-T15-OF-6E217486",
+    "orden": 820,
+    "concepto": "Según la ITC-BT-40 del REBT, ¿qué son las instalaciones generadoras aisladas?",
+    "respuesta": "Aquellas en las que no puede existir conexión eléctrica alguna con la Red de Distribución Pública",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 2.a. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 2.a",
+    "apartado": "Generadores eléctricos"
+  },
+  {
+    "id": "CPEI-T15-OF-64E41A28",
+    "orden": 830,
+    "concepto": "Según la ITC-BT-40 del REBT, ¿qué son las instalaciones generadoras asistidas?",
+    "respuesta": "Aquellas en las que existe una conexión con la Red de Distribución Pública, pero sin que los generadores puedan estar trabajando en paralelo con ella",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 2.b. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 2.b",
+    "apartado": "Generadores eléctricos"
+  },
+  {
+    "id": "CPEI-T15-OF-AA6894F1",
+    "orden": 840,
+    "concepto": "Según la ITC-BT-40 del REBT, ¿qué son las instalaciones generadoras interconectadas?",
+    "respuesta": "Las que están trabajando normalmente en paralelo con la Red de Distribución Pública",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 2.c. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 2.c",
+    "apartado": "Generadores eléctricos"
+  },
+  {
+    "id": "CPEI-T15-OF-17905817",
+    "orden": 850,
+    "concepto": "Según la ITC-BT-40 del REBT, ¿cómo deben estar los locales donde están instalados los motores térmicos?",
+    "respuesta": "Suficientemente ventilados",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 3. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 3",
+    "apartado": "Generadores eléctricos"
+  },
+  {
+    "id": "CPEI-T15-OF-5CE69868",
+    "orden": 860,
+    "concepto": "Según la ITC-BT-40 del REBT, ¿de qué material serán los conductos de salida de los gases de combustión?",
+    "respuesta": "De material incombustible",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 3. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 3",
+    "apartado": "Generadores eléctricos"
+  },
+  {
+    "id": "CPEI-T15-OF-FF05DE16",
+    "orden": 870,
+    "concepto": "Según la ITC-BT-40 del REBT, ¿qué protecciones deben incorporar los generadores portátiles?",
+    "respuesta": "Las protecciones generales contra sobreintensidades y contactos directos e indirectos necesarios para la instalación que alimenten",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 4.1. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 4.1",
+    "apartado": "Generadores eléctricos"
+  },
+  {
+    "id": "CPEI-T15-OF-1E65E692",
+    "orden": 880,
+    "concepto": "Según la ITC-BT-40 del REBT, en las instalaciones asistidas, ¿qué debe impedir el sistema de conmutación?",
+    "respuesta": "El acoplamiento simultáneo a ambas fuentes de alimentación",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 4.2. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 4.2",
+    "apartado": "Generadores eléctricos"
+  },
+  {
+    "id": "CPEI-T15-OF-1B4EBEAA",
+    "orden": 890,
+    "concepto": "Según la ITC-BT-40 del REBT, ¿qué generadores pueden realizar maniobras de transferencia de carga sin corte?",
+    "respuesta": "Los generadores de potencia superior a 100 kVA",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 4.2. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 4.2",
+    "apartado": "Generadores eléctricos"
+  },
+  {
+    "id": "CPEI-T15-OF-2D6D2074",
+    "orden": 900,
+    "concepto": "Según la ITC-BT-40 del REBT, ¿para qué intensidad deben dimensionarse los cables de conexión?",
+    "respuesta": "Para una intensidad no inferior al 125% de la máxima intensidad del generador",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 5. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 5",
+    "apartado": "Generadores eléctricos"
+  },
+  {
+    "id": "CPEI-T15-OF-A659887D",
+    "orden": 910,
+    "concepto": "Según la ITC-BT-40 del REBT, si trabajan varios generadores en paralelo en una instalación aislada, ¿cómo se conecta a tierra la unión de sus neutros?",
+    "respuesta": "En un solo punto",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 8.2.1. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 8.2.1",
+    "apartado": "Generadores eléctricos"
+  },
+  {
+    "id": "CPEI-T15-OF-BEC236DD",
+    "orden": 920,
+    "concepto": "Según la ITC-BT-40 del REBT, ¿cuándo se consideran independientes dos redes de tierra?",
+    "respuesta": "Cuando el paso de la corriente máxima de defecto por una de ellas, no provoca en la otra diferencias de tensión, respecto a la tierra de referencia, superiores a 50 V",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 8.2.1. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 8.2.1",
+    "apartado": "Generadores eléctricos"
+  }
+];
