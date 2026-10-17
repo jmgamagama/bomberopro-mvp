@@ -11,6 +11,14 @@ Es el punto 4 del top 5 de ATLAS (`/workspace/analisis_atlas.md`). Todo funciona
   - Ejemplo del texto: «Faltan 10 días para tu fecha prevista (27/10/2026). Te quedan 95 fichas por consolidar: unas 10 al día.»
   - Hay mensajes propios para cuando no hay fecha, cuando es hoy, cuando ya ha pasado y cuando todo está consolidado.
 
+### Consejo cuando el ritmo es alto (`describePaceAdvice`)
+- Aparece cuando el ritmo necesario supera lo que cabe en el tiempo elegido (las fichas de la sesión con esos minutos) o, sin minutos elegidos, unas **40 fichas al día** (`HEAVY_PACE_CARDS`).
+- El mensaje es honesto pero motivador: «Es un ritmo alto… No hace falta llegar a todo para avanzar.» Siempre lleva una alternativa concreta:
+  1. Con tema prioritario: «Céntrate primero en el tema N: te quedan X fichas, unas Y al día».
+  2. Sin tema prioritario: los **temas 35 a 40**, citando el único dato oficial de peso que hay. Las bases (BOP n.º 135, 17/07/2026) dicen que son el 30 % de las preguntas del test (`convocatoria.pesoTemasLocales`). Solo se cuentan las fichas de esos temas que el alumno tiene disponibles. No se inventa el peso de ningún otro tema.
+  3. Si no hay nada de eso, «Elige un tema prioritario para avanzar por partes».
+  4. Además, con 10 o 20 min, se le propone subir a 30 min (con las fichas que cabrían).
+
 ## Sesión por minutos
 - **Opciones:** el alumno elige entre «30 fichas» (la sesión de siempre, por defecto), 10 min, 20 min y 30 min.
   - Clave: `mira_minutos_dia_v1:<cuenta>`.
@@ -36,5 +44,4 @@ Es el punto 4 del top 5 de ATLAS (`/workspace/analisis_atlas.md`). Todo funciona
 - **Aviso:** la Sesión diaria lo explica con un aviso: «Queda poco para tu fecha…».
 
 ## Pendiente
-- Las fichas sueltas de Recuerdo (`RecallDeck`) todavía no se cronometran; solo la Sesión diaria.
 - Si algún día se publica la fecha oficial, se puede ofrecer como sugerencia citando su fuente, pero nunca se debe sobrescribir la fecha del alumno sin que lo pida.

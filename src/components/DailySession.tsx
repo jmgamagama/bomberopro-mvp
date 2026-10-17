@@ -230,7 +230,16 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
                 defaultSize={planSessionSize}
                 sessionSize={sessionSize}
               />
-              <ExamDateField idPrefix="daily-session" value={examDate} onChange={changeExamDate} plan={plan} />
+              <ExamDateField
+                idPrefix="daily-session"
+                value={examDate}
+                onChange={changeExamDate}
+                plan={plan}
+                minutes={minutes}
+                sessionSize={sessionSize}
+                cardsAt30={resolveDailySessionSize(planSessionSize, 30, reviewLog, planesOn && plan === 'free')}
+                preferredTopicId={effectivePreferred}
+              />
               {finalStretch && (
                 <p className="rounded-xl bg-amber-50 px-3 py-2 text-left text-xs text-amber-900" id="daily-session-tramo-final">
                   Queda poco para tu fecha: la sesión da prioridad a repasar lo que ya has visto. Como mucho, una de cada cuatro

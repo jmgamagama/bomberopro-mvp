@@ -8,6 +8,7 @@
  */
 import { dayNumberFromKey, localDayNumber } from './localDate';
 import { ownedKey, readOwned, writeOwned } from './localOwner';
+import { CONVOCATORIA_CPEI_2026 } from '../data/convocatoria';
 
 export const EXAM_DATE_STORAGE_KEY = 'mira_fecha_examen_v1';
 export const examDateStorageKey = (): string => ownedKey(EXAM_DATE_STORAGE_KEY);
@@ -206,4 +207,66 @@ export function isFinalStretch(examDate: string | null, today: Date = new Date()
   if (!examDate || !isValidDateKey(examDate)) return false;
   const d = daysUntil(examDate, today);
   return d >= 0 && d <= FINAL_STRETCH_DAYS;
+}
+
+// ── Consejo cuando el ritmo es demasiado alto ───────────────────────────────────────────────
+
+/** Por encima de unas 40 fichas nuevas o pendientes al día, el ritmo cuesta mantenerlo. */
+export const HEAVY_PACE_CARDS = 40;
+
+export interface PaceAdviceInput {
+  pace: ExamPace;
+  /** Minutos al día elegidos (null = sesión de siempre). */
+  minutes: number | null;
+  /** Fichas de la sesión con los minutos elegidos (tras límites del plan). */
+  sessionSize: number;
+  /** Fichas que cabrían con 30 min (para sugerir subir el tiempo). */
+  cardsAt30: number;
+  /** Tema prioritario y sus fichas por consolidar, si lo hay. */
+  preferred?: { label: string; remaining: number } | null;
+  /**
+   * Fichas por consolidar de los temas con peso oficial (temas 35 a 40: el 30 % del test según las
+   * bases, src/data/convocatoria.ts). Solo se usa si no hay tema prioritario.
+   */
+  weighted?: { remaining: number } | null;
+}
+
+/** Límite a partir del cual el ritmo se considera excesivo. */
+export function paceLimit(minutes: number | null, sessionSize: number): number {
+  return minutes !== null ? sessionSize : HEAVY_PACE_CARDS;
+}
+
+/**
+ * Mensaje honesto y motivador cuando el ritmo necesario supera lo que cabe al día, con una
+ * alternativa concreta. null si el ritmo es asumible o no hay fecha en curso.
+ * No inventa pesos de temas: solo cita el dato oficial de las bases (temas 35 a 40) o, si hay,
+ * el tema prioritario del alumno.
+ */
+export function describePaceAdvice(input: PaceAdviceInput): string | null {
+  const { pace, minutes, sessionSize, cardsAt30 } = input;
+  if (pace.status !== 'en-curso' || pace.remaining === 0) return null;
+  const limit = paceLimit(minutes, sessionSize);
+  if (pace.perDay <= limit) return null;
+  const perDay = (n: number) => Math.ceil(n / pace.daysLeft);
+  const parts: string[] = [
+    minutes !== null
+      ? `Es un ritmo alto: con ${minutes} min al día caben unas ${sessionSize} fichas. No hace falta llegar a todo para avanzar.`
+      : `Es un ritmo alto: más de ${HEAVY_PACE_CARDS} fichas al día cuesta mantenerlo. No hace falta llegar a todo para avanzar.`,
+  ];
+  const { preferred, weighted } = input;
+  const peso = CONVOCATORIA_CPEI_2026.pesoTemasLocales;
+  if (preferred && preferred.remaining > 0) {
+    parts.push(`Céntrate primero en ${preferred.label}: te quedan ${preferred.remaining} fichas, unas ${perDay(preferred.remaining)} al día.`);
+  } else if (weighted && weighted.remaining > 0 && weighted.remaining < pace.remaining) {
+    parts.push(
+      `Empieza por los temas ${peso.temaDesde} a ${peso.temaHasta}, que según las bases son el ${peso.porcentaje} % de las preguntas del test: te quedan ${weighted.remaining} fichas, unas ${perDay(weighted.remaining)} al día. Elige uno como tema prioritario.`,
+    );
+  } else {
+    parts.push('Elige un tema prioritario para avanzar por partes.');
+  }
+  if (minutes !== null && minutes < 30 && cardsAt30 > sessionSize) {
+    parts.push(`Si puedes, sube a 30 min al día (unas ${cardsAt30} fichas).`);
+  }
+  parts.push('Cada repaso cuenta.');
+  return parts.join(' ');
 }

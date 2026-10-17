@@ -66,3 +66,24 @@ describe('fecha prevista de examen', () => {
     expect(document.querySelector('#daily-session-ritmo')).toHaveTextContent(/aún no se ha publicado/);
   });
 });
+
+describe('consejo de ritmo en la interfaz', () => {
+  it('bienvenida: con todo por empezar y 10 días, propone el tema elegido y subir minutos', async () => {
+    const user = userEvent.setup();
+    render(<Onboarding onStart={vi.fn()} onSkip={vi.fn()} />);
+    fireEvent.change(screen.getByLabelText(/Fecha prevista de tu examen/), { target: { value: inDays(10) } });
+    expect(document.querySelector('#onboarding-ritmo-consejo')).toHaveTextContent(/Empieza por los temas 35 a 40, que según las bases son el 30 %/);
+    await user.click(screen.getByRole('radio', { name: /T40 ·/ }));
+    await user.click(screen.getByRole('radio', { name: '10 min' }));
+    expect(document.querySelector('#onboarding-ritmo-consejo')).toHaveTextContent(
+      'Es un ritmo alto: con 10 min al día caben unas 15 fichas. No hace falta llegar a todo para avanzar. Céntrate primero en el tema 40: te quedan 213 fichas, unas 22 al día. Si puedes, sube a 30 min al día (unas 45 fichas). Cada repaso cuenta.',
+    );
+  });
+
+  it('Sesión diaria: sin consejo cuando el ritmo es asumible', () => {
+    setExamDate(inDays(300));
+    render(<DailySession onNavigateHome={vi.fn()} onOpenOrdenaPasos={vi.fn()} />);
+    expect(document.querySelector('#daily-session-ritmo')).toHaveTextContent('Faltan 300 días');
+    expect(document.querySelector('#daily-session-ritmo-consejo')).toBeNull();
+  });
+});

@@ -1,14 +1,15 @@
 import { CalendarClock } from 'lucide-react';
-import { getAccessibleDecks } from '../data/recallRegistry';
+import { getAccessibleDecks, getVisibleTopic, type RecallDeck } from '../data/recallRegistry';
+import { CONVOCATORIA_CPEI_2026 } from '../data/convocatoria';
 import { toLocalDateKey } from '../utils/localDate';
 import { countLearningStates } from '../utils/recallLearning';
 import { loadSrs } from '../utils/recallSrs';
-import { computeExamPace, describeExamPace } from '../utils/studyPlan';
+import { computeExamPace, describeExamPace, describePaceAdvice } from '../utils/studyPlan';
 import type { Plan } from '../utils/plan';
 
 /** Fichas revisadas y accesibles que aún no están consolidadas (src/utils/recallLearning.ts). */
-export function remainingToConsolidate(plan?: Plan): number {
-  const decks = getAccessibleDecks(plan).filter((d) => d.revision === 'revisado');
+export function remainingToConsolidate(plan?: Plan, only: (deck: RecallDeck) => boolean = () => true): number {
+  const decks = getAccessibleDecks(plan).filter((d) => d.revision === 'revisado' && only(d));
   const counts = countLearningStates(loadSrs(), decks);
   const total = decks.reduce((n, d) => n + d.count, 0);
   return Math.max(0, total - counts.CONSOLIDADO);
@@ -21,11 +22,39 @@ interface ExamDateFieldProps {
   /** Prefijo de ids (para tener dos en la misma página sin choques). */
   idPrefix: string;
   today?: Date;
+  /** Para el consejo de ritmo: minutos elegidos, fichas de la sesión y con 30 min, tema prioritario. */
+  minutes?: number | null;
+  sessionSize?: number;
+  cardsAt30?: number;
+  preferredTopicId?: string | null;
 }
 
 /** Fecha de examen PREVISTA (la pone el alumno; la oficial no está publicada) con cuenta atrás y ritmo. */
-export default function ExamDateField({ value, onChange, plan, idPrefix, today = new Date() }: ExamDateFieldProps) {
+export default function ExamDateField({
+  value,
+  onChange,
+  plan,
+  idPrefix,
+  today = new Date(),
+  minutes = null,
+  sessionSize = 30,
+  cardsAt30 = 45,
+  preferredTopicId = null,
+}: ExamDateFieldProps) {
   const pace = computeExamPace(value, remainingToConsolidate(plan), today);
+  let advice: string | null = null;
+  if (pace.status === 'en-curso') {
+    const topic = preferredTopicId ? getVisibleTopic(preferredTopicId) : undefined;
+    const peso = CONVOCATORIA_CPEI_2026.pesoTemasLocales;
+    advice = describePaceAdvice({
+      pace,
+      minutes,
+      sessionSize,
+      cardsAt30,
+      preferred: topic ? { label: `el tema ${topic.tema}`, remaining: remainingToConsolidate(plan, (d) => d.topicId === topic.id) } : null,
+      weighted: { remaining: remainingToConsolidate(plan, (d) => d.tema >= peso.temaDesde && d.tema <= peso.temaHasta) },
+    });
+  }
   const inputId = `${idPrefix}-fecha-examen`;
   return (
     <div className="space-y-1.5 text-left" id={`${idPrefix}-plan-examen`}>
@@ -56,6 +85,11 @@ export default function ExamDateField({ value, onChange, plan, idPrefix, today =
       <p className="text-xs text-slate-700" id={`${idPrefix}-ritmo`}>
         {describeExamPace(pace)}
       </p>
+      {advice && (
+        <p className="rounded-xl bg-indigo-50 px-3 py-2 text-xs text-indigo-900" id={`${idPrefix}-ritmo-consejo`}>
+          {advice}
+        </p>
+      )}
     </div>
   );
 }

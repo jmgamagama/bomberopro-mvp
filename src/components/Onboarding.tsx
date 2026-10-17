@@ -175,7 +175,16 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
           defaultSize={planSize}
           sessionSize={sessionSize}
         />
-        <ExamDateField idPrefix="onboarding" value={examDate} onChange={setExamDateChoice} plan={plan} />
+        <ExamDateField
+          idPrefix="onboarding"
+          value={examDate}
+          onChange={setExamDateChoice}
+          plan={plan}
+          minutes={minutes}
+          sessionSize={sessionSize}
+          cardsAt30={resolveDailySessionSize(planSize, 30, reviewLog, isPlanesEnabled() && plan === 'free')}
+          preferredTopicId={choice === ALL ? null : choice}
+        />
       </div>
 
       <div className="sticky bottom-0 z-10 -mx-4 border-t border-slate-200 bg-slate-50/95 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur md:static md:mx-0 md:border-0 md:bg-transparent md:p-0">

@@ -40,6 +40,8 @@ const tapOk = async (locator) => {
   check('bienvenida: cuenta atrás y ritmo', /^Faltan 10 días para tu fecha prevista .* Te quedan 804 fichas por consolidar: unas 81 al día\.$/.test(ritmo), ritmo);
   await minutos.getByRole('radio', { name: '10 min' }).click();
   check('bienvenida: 10 min ≈ 15 fichas', /10 min ≈ 15 fichas/.test(await page.locator('#onboarding-minutos-detalle').textContent()));
+  const consejo = (await page.locator('#onboarding-ritmo-consejo').textContent()) || '';
+  check('bienvenida: consejo de ritmo con alternativa (temas 35-40 de las bases y subir minutos)', /Es un ritmo alto: con 10 min al día caben unas 15 fichas/.test(consejo) && /temas 35 a 40, que según las bases/.test(consejo) && /sube a 30 min/.test(consejo), consejo);
   check('bienvenida sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
   check('bienvenida: «Empezar» visible sin desplazar', (await page.getByRole('button', { name: 'Empezar sesión diaria' }).boundingBox()).y + 48 <= 740);
   await page.locator('#onboarding-plan-examen').scrollIntoViewIfNeeded();
