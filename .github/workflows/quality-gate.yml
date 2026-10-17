@@ -33,7 +33,7 @@ jobs:
         run: npm ci
 
       - name: Preview environment isolation
-        run: node --test scripts/check-preview-isolation.test.mjs
+        run: npx vitest run scripts/check-preview-isolation.test.mjs --configLoader runner
 
       - name: Lint
         run: npm run lint
