@@ -106,7 +106,14 @@ BEGIN
     FROM public.questions q
     JOIN public.concepts c ON c.id = q.concept_id
    WHERE q.id = p_question_id AND q.concept_id = p_concept_id
-     AND q.estado = 'publicada' AND c.estado = 'publicado';
+     AND q.estado = 'publicada' AND c.estado = 'publicado'
+     -- Mismo criterio que _concept_session: los reportes de contenido
+     -- retiran la pregunta para ESE alumno. «otro» es un comentario.
+     AND NOT EXISTS (
+       SELECT 1 FROM public.question_reports rr
+        WHERE rr.question_id = q.id AND rr.user_id = v_user
+          AND rr.categoria <> 'otro'
+     );
   IF NOT FOUND THEN
     RAISE EXCEPTION 'published_question_not_found' USING ERRCODE = 'P0002';
   END IF;
@@ -167,6 +174,11 @@ BEGIN
   IF auth.uid() IS NULL THEN RAISE EXCEPTION 'not_authenticated' USING ERRCODE = '42501'; END IF;
   IF p_kind = 'test' OR p_correct IS NOT NULL OR p_question_id IS NOT NULL THEN
     RAISE EXCEPTION 'test_requires_server_grading' USING ERRCODE = '42501';
+  END IF;
+  -- Impedir que el alumno altere estados MIRA de conceptos aún en revisión.
+  IF NOT EXISTS (SELECT 1 FROM public.concepts c
+                 WHERE c.id = p_concept_id AND c.estado = 'publicado') THEN
+    RAISE EXCEPTION 'published_concept_not_found' USING ERRCODE = 'P0002';
   END IF;
   RETURN public._record_concept_event(
     auth.uid(), p_client_event_id, p_concept_id, p_kind, NULL, NULL,
