@@ -1,7 +1,7 @@
-# Despliegue seguro del corrector MIRA por conceptos (PR de migración 17)
+# Despliegue seguro del corrector MIRA por conceptos (PR de migración 18)
 
 ## Por qué cambia
-El endpoint legado `get_concept_session` entregaba `correct_answer`, `explanation` y `concept_respuesta` en preguntas de test ANTES de contestar; y `record_concept_event` admitía `p_correct` calculado en el navegador. Esto permite extraer respuestas o falsear dominio. La migración 17 y el cliente propuesto cambian únicamente la vía **de test por conceptos**.
+El endpoint legado `get_concept_session` entregaba `correct_answer`, `explanation` y `concept_respuesta` en preguntas de test ANTES de contestar; y `record_concept_event` admitía `p_correct` calculado en el navegador. Esto permite extraer respuestas o falsear dominio. La migración **18** y el cliente propuesto cambian únicamente la vía **de test por conceptos**.
 
 ## Nuevo contrato
 - `get_concept_session_v2(p_topic,p_minutes)`: devuelve pregunta y opciones, sin `correct_answer`; para `formato='test'` oculta explicación y respuesta del concepto. Las fichas y recuerdo siguen mostrando su contenido.
@@ -11,7 +11,7 @@ El endpoint legado `get_concept_session` entregaba `correct_answer`, `explanatio
 - Se revoca EXECUTE sobre `get_concept_session` para `authenticated`, `anon` y `PUBLIC`.
 
 ## Advertencias de compatibilidad
-**No fusionar ni aplicar la migración 17 en producción unilateralmente.**
+**No fusionar ni aplicar la migración 18 en producción unilateralmente.**
 - Aplicar en **Supabase staging** con snapshot/backup, probar la UI correspondiente y los clientes antiguos. En cuanto se revoque el RPC anterior, una versión vieja del frontend no podrá iniciar sesiones de conceptos.
 - Coordinar publicación de migration + frontend nuevo en ventana controlada y disponer de rollback. Un rollback que reabra el RPC antiguo restaura una vulnerabilidad; preferir restaurar el release íntegro si resulta imprescindible.
 - PWA con caché antigua puede mantener JS viejo: comprobar service worker y política de actualización. Considerar bloquear app antigua con actualización obligatoria, no reabrir endpoint indefinidamente.
@@ -35,5 +35,12 @@ Esta fase **NO** resuelve por sí sola la exposición de respuestas en otras rut
 2. Validar migración en staging contra una copia anonimizada del esquema.
 3. Ejecutar tests SQL, RLS, contrataciones y smoke E2E desde móvil/PC.
 4. Corregir incidencias, aprobar un despliegue coordinado.
-5. Tomar snapshot previo, aplicar migración 17 en staging, activar frontend actualizado, observar errores y decidir una ventana de producción.
+5. Tomar snapshot previo, aplicar migración 18 en staging, activar frontend actualizado, observar errores y decidir una ventana de producción.
 6. Solo después, abordar unificación de fichas↔conceptos verificados y monetización.
+
+
+## Auditoría remota de 17/10/2026 (solo lectura)
+- Staging y producción tienen una migración `17_correccion_en_servidor` diferente y **ya aplicada**. Reescribe `record_attempt_v2` para calcular en servidor; no equivale a este PR. Esta PR debe usar **18** y respetar el nuevo estado.
+- El esquema de ambos entornos conserva `get_concept_session` con `correct_answer` y `record_concept_event` con `p_correct`. No existe todavía `get_concept_session_v2`, `submit_concept_answer` ni `concept_answer_receipts`.
+- Son necesarios test de carga real, inspección de grants y comprobar usuarios de pruebas de staging antes del despliegue coordinado. Las lecturas del entorno se han verificado, pero las funciones nuevas aún no se han aplicado.
+- El nombre de la nueva migración en GitHub es `supabase/migrations/18_conceptos_test_evaluacion_servidor.sql`. Ningún comando debe intentar aplicar un archivo denominado 17 de este PR.
