@@ -67,6 +67,7 @@ interface PendingEvent { userId: string; event: ConceptEvent; tries: number; cre
 const QUEUE_KEY = 'bomberopro:concept-events:v1';
 let sending: Promise<unknown> = Promise.resolve();
 const confirmations = new Map<string, string>();
+const feedbackCache = new Map<string, unknown>();
 const confirmationKey = (userId: string, id: string) => `${userId}:${id}`;
 let lockUnavailable = false;
 export function supportsCrossTabCoordination(): boolean {
@@ -181,8 +182,14 @@ async function flush(userId: string): Promise<number> {
         p.event.p_client_event_id === item.event.p_client_event_id &&
         JSON.stringify(p.event) === JSON.stringify(item.event);
       if (res.ok) {
-        confirmations.set(confirmationKey(userId, item.event.p_client_event_id), JSON.stringify(item.event));
-        if (confirmations.size > 1000) confirmations.delete(confirmations.keys().next().value!);
+        const key = confirmationKey(userId, item.event.p_client_event_id);
+        confirmations.set(key, JSON.stringify(item.event));
+        feedbackCache.set(key, res.data);
+        if (confirmations.size > 1000) {
+          const oldest = confirmations.keys().next().value!;
+          confirmations.delete(oldest);
+          feedbackCache.delete(oldest);
+        }
         // El recibo procede de RPC. Se escribe antes de retirar el evento, para recuperación tras cierre.
         if (rememberReceipt(userId, item.event, res.data)) writeQueue(current.filter(p => !matches(p)));
         return;
@@ -237,7 +244,9 @@ export async function recordConceptEvent(
     await flush(userId);
     const key = confirmationKey(userId, full.p_client_event_id);
     const saved = confirmations.get(key) === JSON.stringify(full) || receiptConfirms(userId, full);
+    const confirmedData = findReceipt(userId, full)?.data ?? feedbackCache.get(key);
     confirmations.delete(key);
+    feedbackCache.delete(key);
     if (!saved && !readQueue().some(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id)) {
       await mutateQueue(current => {
         if (!current.some(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id) && !receiptConfirms(userId, full)) {
@@ -248,7 +257,7 @@ export async function recordConceptEvent(
       const retained = readQueue().some(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id);
       return { saved: false, pending: Math.max(1, pendingConceptEvents(userId)), rejected: rejectedConceptEvents(userId), storageUnavailable: !retained };
     }
-    return { saved, data: findReceipt(userId, full)?.data, pending: pendingConceptEvents(userId), rejected: rejectedConceptEvents(userId) };
+    return { saved, data: confirmedData, pending: pendingConceptEvents(userId), rejected: rejectedConceptEvents(userId) };
   });
 }
 
