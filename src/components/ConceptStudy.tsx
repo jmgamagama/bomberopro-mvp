@@ -4,11 +4,13 @@ import {
   ALL_TOPICS,
   STATE_LABELS,
   flushConceptEvents,
+  pendingConceptEvents,
   isCorrectOption,
   loadConceptProgress,
   loadConceptSession,
   recordConceptEvent,
   rejectedConceptEvents,
+  supportsCrossTabCoordination,
   type Confidence,
   type ConceptProgress,
   type ConceptSessionItem,
@@ -55,6 +57,9 @@ export default function ConceptStudy({ userId, onExit }: Props) {
   const [items, setItems] = useState<ConceptSessionItem[]>([]);
   const [idx, setIdx] = useState(0);
   const [error, setError] = useState<string | null>(null);
+  const [staging, setStaging] = useState(false);
+  const ownerRef = useRef(userId);
+  ownerRef.current = userId;
   const [pendingSave, setPendingSave] = useState(0);
   const [rejectedSave, setRejectedSave] = useState(0);
   const [volatileSaveFailure, setVolatileSaveFailure] = useState(false);
@@ -69,11 +74,14 @@ export default function ConceptStudy({ userId, onExit }: Props) {
   const shownAt = useRef(Date.now());
 
   const refreshProgress = async () => {
-    try { setProgress(await loadConceptProgress(ALL_TOPICS)); } catch { /* se muestra sin progreso */ }
+    const owner = userId;
+    try { const data = await loadConceptProgress(ALL_TOPICS, userId); if (ownerRef.current === owner) setProgress(data); } catch { /* se muestra sin progreso */ }
   };
 
   useEffect(() => {
     let active = true;
+    setPhase('inicio'); setItems([]); setProgress(null); setStaging(false);
+    setStats({ tests: 0, aciertos: 0, nuevos: 0 });
     const retry = async () => {
       const pending = await flushConceptEvents(userId);
       if (!active) return;
@@ -82,9 +90,17 @@ export default function ConceptStudy({ userId, onExit }: Props) {
     };
     void retry();
     void refreshProgress();
+    const changed = (event: StorageEvent) => {
+      if (!active || !event.key?.startsWith('bomberopro:concept-events:v1')) return;
+      const pending = pendingConceptEvents(userId);
+      setPendingSave(pending);
+      setRejectedSave(rejectedConceptEvents(userId));
+      if (pending === 0) void refreshProgress();
+    };
+    window.addEventListener('storage', changed);
     window.addEventListener('online', retry);
     const timer = window.setInterval(() => { void retry(); }, 30_000);
-    return () => { active = false; window.clearInterval(timer); window.removeEventListener('online', retry); };
+    return () => { active = false; window.clearInterval(timer); window.removeEventListener('online', retry); window.removeEventListener('storage', changed); };
   }, [userId]);
 
   const item = items[idx];
@@ -97,7 +113,8 @@ export default function ConceptStudy({ userId, onExit }: Props) {
   const start = async () => {
     setPhase('cargando'); setError(null);
     try {
-      const data = await loadConceptSession(ALL_TOPICS, minutes);
+      const data = await loadConceptSession(ALL_TOPICS, minutes, userId);
+      if (ownerRef.current !== userId) return;
       if (data.length === 0) {
         setError('Hoy no tienes nada pendiente en este tema. Vuelve mañana.');
         setPhase('inicio');
@@ -107,17 +124,26 @@ export default function ConceptStudy({ userId, onExit }: Props) {
       setItems(data); setIdx(0); setStats({ tests: 0, aciertos: 0, nuevos: 0 }); resetItem();
       setPhase('sesion');
     } catch {
+      if (ownerRef.current !== userId) return;
       setError('No se ha podido preparar la sesión. Comprueba la conexión e inténtalo de nuevo.');
       setPhase('inicio');
     }
   };
 
-  const save = async (ev: Parameters<typeof recordConceptEvent>[1]) => {
-    const r = await recordConceptEvent(userId, { ...ev, p_session_id: sessionId.current, p_response_ms: Date.now() - shownAt.current });
-    setPendingSave(r.pending);
-    setRejectedSave(r.rejected);
-    if (r.storageUnavailable && !r.saved) setVolatileSaveFailure(true);
-    if (r.saved) void refreshProgress();
+  const save = async (ev: Parameters<typeof recordConceptEvent>[1]): Promise<boolean> => {
+    const owner = userId;
+    setStaging(true);
+    try {
+      const r = await recordConceptEvent(owner, { ...ev, p_session_id: sessionId.current, p_response_ms: Date.now() - shownAt.current });
+      if (ownerRef.current !== owner) return false;
+      setPendingSave(r.pending);
+      setRejectedSave(r.rejected);
+      if (r.storageUnavailable && !r.saved) setVolatileSaveFailure(true);
+      if (r.saved) void refreshProgress();
+      return r.saved || (!r.storageUnavailable && r.pending > 0);
+    } finally {
+      if (ownerRef.current === owner) setStaging(false);
+    }
   };
 
   const next = () => {
@@ -131,22 +157,24 @@ export default function ConceptStudy({ userId, onExit }: Props) {
   };
 
   const onFicha = async () => {
-    setStats(s => ({ ...s, nuevos: s.nuevos + 1 }));
-    void save({ p_concept_id: item.concept_id, p_kind: 'ficha' });
-    next();
+    if (staging) return;
+    if (await save({ p_concept_id: item.concept_id, p_kind: 'ficha' })) {
+      setStats(s => ({ ...s, nuevos: s.nuevos + 1 })); next();
+    }
   };
 
   const onRecall = async (g: SelfGrade) => {
-    void save({ p_concept_id: item.concept_id, p_kind: 'recuerdo', p_self_grade: g });
-    next();
+    if (staging) return;
+    if (await save({ p_concept_id: item.concept_id, p_kind: 'recuerdo', p_self_grade: g })) next();
   };
 
   const onConfirmTest = async () => {
-    if (!chosen || !confidence) return;
+    if (!chosen || !confidence || staging) return;
     const ok = isCorrectOption(item, chosen);
     setAnswered(true);
-    setStats(s => ({ ...s, tests: s.tests + 1, aciertos: s.aciertos + (ok ? 1 : 0) }));
-    void save({ p_concept_id: item.concept_id, p_kind: 'test', p_question_id: item.question_id, p_correct: ok, p_confidence: confidence });
+    if (await save({ p_concept_id: item.concept_id, p_kind: 'test', p_question_id: item.question_id, p_correct: ok, p_confidence: confidence })) {
+      setStats(s => ({ ...s, tests: s.tests + 1, aciertos: s.aciertos + (ok ? 1 : 0) }));
+    } else setAnswered(false);
   };
 
   const header = (
@@ -160,6 +188,10 @@ export default function ConceptStudy({ userId, onExit }: Props) {
 
   const saveNote = (
     <>
+      {staging && <p role="status" className="mt-3 text-sm text-slate-600">Guardando respuesta…</p>}
+      {!supportsCrossTabCoordination() && <p role="status" className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-900">
+        Usa una sola pestaña de estudio en este navegador para mantener tus respuestas sincronizadas.
+      </p>}
       {volatileSaveFailure && <p role="alert" className="mt-3 rounded-lg bg-red-50 px-3 py-2 text-xs text-red-900">
         No se pudo guardar una respuesta ni conservarla en este dispositivo. Comprueba el almacenamiento y la conexión antes de seguir.
       </p>}
@@ -243,7 +275,7 @@ export default function ConceptStudy({ userId, onExit }: Props) {
             <h2 className="mt-2 text-lg font-bold text-slate-900">{item.concept_pregunta}</h2>
             <p className="mt-3 text-base text-slate-800">{item.concept_respuesta}</p>
             {source}
-            <button type="button" onClick={onFicha} className="mt-6 w-full rounded-xl bg-indigo-600 py-3 font-bold text-white">Entendido</button>
+            <button type="button" onClick={onFicha} disabled={staging} className="mt-6 w-full rounded-xl bg-indigo-600 py-3 font-bold text-white">Entendido</button>
           </>
         )}
 
@@ -261,9 +293,9 @@ export default function ConceptStudy({ userId, onExit }: Props) {
                 {source}
                 <p className="mt-5 text-sm font-semibold text-slate-700">¿Lo sabías?</p>
                 <div className="mt-2 grid grid-cols-3 gap-2">
-                  <button type="button" onClick={() => onRecall('no')} className="rounded-xl border border-red-200 bg-red-50 py-2.5 text-sm font-semibold text-red-700">No lo sabía</button>
-                  <button type="button" onClick={() => onRecall('dude')} className="rounded-xl border border-amber-200 bg-amber-50 py-2.5 text-sm font-semibold text-amber-800">Dudé</button>
-                  <button type="button" onClick={() => onRecall('si')} className="rounded-xl border border-emerald-200 bg-emerald-50 py-2.5 text-sm font-semibold text-emerald-800">Lo sabía</button>
+                  <button type="button" disabled={staging} onClick={() => onRecall('no')} className="rounded-xl border border-red-200 bg-red-50 py-2.5 text-sm font-semibold text-red-700">No lo sabía</button>
+                  <button type="button" disabled={staging} onClick={() => onRecall('dude')} className="rounded-xl border border-amber-200 bg-amber-50 py-2.5 text-sm font-semibold text-amber-800">Dudé</button>
+                  <button type="button" disabled={staging} onClick={() => onRecall('si')} className="rounded-xl border border-emerald-200 bg-emerald-50 py-2.5 text-sm font-semibold text-emerald-800">Lo sabía</button>
                 </div>
               </>
             )}
@@ -324,7 +356,7 @@ export default function ConceptStudy({ userId, onExit }: Props) {
                 Confirmar respuesta
               </button>
             ) : (
-              <button type="button" onClick={next} className="mt-6 w-full rounded-xl bg-slate-900 py-3 font-bold text-white">Siguiente</button>
+              <button type="button" onClick={next} disabled={staging} className="mt-6 w-full rounded-xl bg-slate-900 py-3 font-bold text-white">Siguiente</button>
             )}
           </>
         )}
