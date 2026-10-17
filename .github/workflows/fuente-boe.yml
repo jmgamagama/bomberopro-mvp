@@ -1,0 +1,82 @@
+name: Fuentes oficiales BOE
+
+# Descarga el texto consolidado vigente de las normas que usa BomberoPro y lo guarda en
+# data/fuentes/<ID>/. Si el BOE ha publicado cambios (cambia texto.xml), los sube:
+#  - en una rama de trabajo (push): commit en esa misma rama;
+#  - en la ejecución semanal o manual desde main: rama bot/fuente-boe + PR para revisión.
+# Nunca escribe en main directamente.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 5 * * 1' # lunes 05:17 UTC
+  push:
+    branches:
+      - 'claude/piloto-constitucion'
+    paths:
+      - '.github/workflows/fuente-boe.yml'
+      - 'scripts/fuente_boe.py'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: fuente-boe-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  descargar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Descargar Constitución Española (BOE-A-1978-31229)
+        run: python3 scripts/fuente_boe.py BOE-A-1978-31229
+
+      - name: Regenerar material derivado del texto oficial
+        run: python3 scripts/generar_material.py
+
+      - name: Comprobar que las citas de los conceptos siguen siendo literales
+        run: |
+          for f in data/constitucion/titulo-*.json; do
+            python3 scripts/validar_conceptos.py "$f" || echo "::warning::$f tiene citas que ya no coinciden con el BOE vigente: revisar antes de fusionar."
+          done
+
+      - name: Comprobar si el texto oficial ha cambiado
+        id: diff
+        run: |
+          git add -N data/fuentes
+          if git diff --quiet -- data/fuentes/*/texto.xml; then
+            echo "cambios=no" >> "$GITHUB_OUTPUT"
+            echo "Sin cambios en el texto oficial."
+          else
+            echo "cambios=si" >> "$GITHUB_OUTPUT"
+            git diff --stat -- data/fuentes
+          fi
+
+      - name: Subir a la rama de trabajo
+        if: steps.diff.outputs.cambios == 'si' && github.event_name == 'push'
+        run: |
+          git config user.name "bomberopro-bot"
+          git config user.email "bot@bomberopro.invalid"
+          git add data/fuentes public/material
+          git commit -m "data(fuentes): texto consolidado BOE actualizado"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
+      - name: Abrir PR con la actualización
+        if: steps.diff.outputs.cambios == 'si' && github.event_name != 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "bomberopro-bot"
+          git config user.email "bot@bomberopro.invalid"
+          git switch -C bot/fuente-boe
+          git add data/fuentes public/material
+          git commit -m "data(fuentes): el BOE ha publicado una actualización"
+          git push -f origin bot/fuente-boe
+          gh pr create --base main --head bot/fuente-boe \
+            --title "Fuentes BOE: hay una actualización del texto oficial" \
+            --body "El BOE ha publicado cambios en una norma que usa BomberoPro. Revisar qué conceptos, tarjetas y preguntas citan los artículos afectados antes de fusionar." \
+            || echo "El PR ya existe; se ha actualizado la rama."
