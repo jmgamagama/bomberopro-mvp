@@ -24,8 +24,8 @@ Es el punto 4 del top 5 de ATLAS (`/workspace/analisis_atlas.md`). Todo funciona
   - Clave: `mira_minutos_dia_v1:<cuenta>`.
   - Sin elegir nada, la sesión se comporta exactamente como antes: 30 fichas, o 10 en el plan Gratis.
 - **Tiempo por ficha:** es la **mediana** de los últimos 100 repasos cronometrados del registro local (`mira_recall_registro_v1`, campo opcional `ms`).
-  - La Sesión diaria mide el tiempo desde que se muestra la ficha hasta que se autoevalúa.
-  - No cuentan los tiempos de menos de 3 s (toques sin leer) ni los de más de 5 min (pausas). El resultado se limita a entre 10 y 120 s.
+  - La Sesión diaria y las fichas sueltas de Recuerdo (`RecallDeck`) miden el tiempo desde que se muestra la ficha hasta que se autoevalúa.
+  - No cuentan los tiempos de menos de 3 s (toques sin leer) ni los de más de 5 min (pausas). Ya no se guardan al medir (`measuredElapsedMs`) y se vuelven a filtrar al estimar por si hay entradas antiguas. El resultado se limita a entre 10 y 120 s.
   - Hacen falta al menos 10 repasos cronometrados. Las entradas antiguas del registro, sin tiempo, se siguen leyendo.
 - **Valor inicial sin datos: 40 s por ficha.** Cubre leer la pregunta, intentar recordar, mostrar la respuesta, compararla con la fuente y autoevaluarse.
   - Es prudente a propósito: mejor acabar antes que pasarse del tiempo.

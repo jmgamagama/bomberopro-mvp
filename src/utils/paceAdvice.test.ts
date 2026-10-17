@@ -59,3 +59,14 @@ describe('consejo de ritmo', () => {
     );
   });
 });
+
+describe('filtro de medición del tiempo por ficha', () => {
+  it('measuredElapsedMs: solo entre 3 s y 5 min', async () => {
+    const { measuredElapsedMs, TIMED_MIN_MS, TIMED_MAX_MS } = await import('./recallReviewLog');
+    expect(measuredElapsedMs(0, TIMED_MIN_MS - 1)).toBeUndefined();
+    expect(measuredElapsedMs(0, TIMED_MIN_MS)).toBe(3_000);
+    expect(measuredElapsedMs(0, TIMED_MAX_MS)).toBe(300_000);
+    expect(measuredElapsedMs(0, TIMED_MAX_MS + 1)).toBeUndefined();
+    expect(measuredElapsedMs(10, 5)).toBeUndefined();
+  });
+});

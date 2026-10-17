@@ -26,7 +26,7 @@ import {
   setDailyMinutes,
   setExamDate,
 } from '../utils/studyPlan';
-import { loadReviewLog } from '../utils/recallReviewLog';
+import { loadReviewLog, measuredElapsedMs } from '../utils/recallReviewLog';
 import ExamDateField from './ExamDateField';
 import DailyMinutesField from './DailyMinutesField';
 
@@ -139,7 +139,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
 
   const handleGrade = (grade: RecallGrade) => {
     if (current?.deckId) {
-      recordRecallGrade(current.deckId, current.id, grade, new Date(), Date.now() - shownAt.current);
+      recordRecallGrade(current.deckId, current.id, grade, new Date(), measuredElapsedMs(shownAt.current));
       setLiveSrs(loadSrs());
     }
     setGrades((g) => {

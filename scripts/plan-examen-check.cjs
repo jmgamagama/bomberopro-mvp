@@ -51,13 +51,15 @@ const tapOk = async (locator) => {
   await page.getByRole('button', { name: 'Empezar sesión diaria' }).click();
   await page.getByText(/Recuerdo · 1 \/ 15/).waitFor();
   check('sesión: 10 min → 15 fichas', true);
-  for (let i = 0; i < 3; i++) {
+  // Ficha 1 y 3 con más de 3 s (cuentan); ficha 2 con un toque rápido (no cuenta).
+  for (const wait of [3300, 300, 3300]) {
     await page.getByRole('button', { name: /Mostrar respuesta/ }).click();
-    await page.waitForTimeout(300);
+    await page.waitForTimeout(wait);
     await page.getByRole('button', { name: /La sabía/ }).click();
   }
-  const log = await page.evaluate(() => JSON.parse(localStorage.getItem('mira_recall_registro_v1:demo') || '{"e":[]}').e);
-  check('sesión: el registro guarda el tiempo por ficha', log.length === 3 && log.every((e) => e.length === 7 && e[6] > 0), JSON.stringify(log.map((e) => e[6])));
+  const readLog = () => page.evaluate(() => JSON.parse(localStorage.getItem('mira_recall_registro_v1:demo') || '{"e":[]}').e);
+  const log = await readLog();
+  check('sesión: tiempo por ficha guardado solo si dura de 3 s a 5 min', log.length === 3 && log[0][6] >= 3000 && log[1].length === 6 && log[2][6] >= 3000, JSON.stringify(log.map((e) => e[6] ?? null)));
   check('sesión: fecha y minutos guardados por cuenta (demo)', await page.evaluate((d) => localStorage.getItem('mira_fecha_examen_v1:demo') === d && localStorage.getItem('mira_minutos_dia_v1:demo') === '10', inDays(10)));
   check('sesión: ficha sin scroll horizontal', (await scrollWidth(page)) <= 360);
 
@@ -82,6 +84,15 @@ const tapOk = async (locator) => {
   check('ajustes: «Quitar» borra la fecha', await page.evaluate(() => localStorage.getItem('mira_fecha_examen_v1:demo') === null));
   await dm.getByRole('radio', { name: '30 fichas' }).click();
   check('ajustes: vuelta a la sesión de siempre (30)', (await page.locator('#daily-session-count').textContent()) === '30');
+
+  // Fichas sueltas de Recuerdo: también miden el tiempo
+  await page.getByRole('navigation', { name: 'Navegación móvil' }).getByRole('button', { name: 'Recuerdo' }).click();
+  await page.getByRole('button', { name: /Mostrar respuesta/ }).first().waitFor();
+  await page.waitForTimeout(3300);
+  await page.getByRole('button', { name: /Mostrar respuesta/ }).first().click();
+  await page.getByRole('button', { name: /La sabía/ }).click();
+  const log2 = await readLog();
+  check('recuerdo: la ficha suelta también guarda su tiempo', log2.length === 4 && log2[3][6] >= 3000, String(log2.length && log2[log2.length - 1][6]));
 
   check('sin errores de página', errors.length === 0, errors.join(' | '));
   await browser.close();

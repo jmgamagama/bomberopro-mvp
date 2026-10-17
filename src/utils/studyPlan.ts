@@ -9,6 +9,7 @@
 import { dayNumberFromKey, localDayNumber } from './localDate';
 import { ownedKey, readOwned, writeOwned } from './localOwner';
 import { CONVOCATORIA_CPEI_2026 } from '../data/convocatoria';
+import { TIMED_MAX_MS, TIMED_MIN_MS } from './recallReviewLog';
 
 export const EXAM_DATE_STORAGE_KEY = 'mira_fecha_examen_v1';
 export const examDateStorageKey = (): string => ownedKey(EXAM_DATE_STORAGE_KEY);
@@ -129,8 +130,8 @@ export const MIN_TIMED_SAMPLES = 10;
 /** Se usan los últimos N repasos cronometrados (el ritmo cambia con la práctica). */
 export const TIMED_WINDOW = 100;
 /** Repasos de menos de 3 s (toque sin leer) o más de 5 min (pausa) no cuentan para la media. */
-export const MIN_SAMPLE_MS = 3_000;
-export const MAX_SAMPLE_MS = 300_000;
+export const MIN_SAMPLE_MS = TIMED_MIN_MS;
+export const MAX_SAMPLE_MS = TIMED_MAX_MS;
 /** Límites del tiempo por ficha estimado y del tamaño de la sesión por minutos. */
 export const MIN_SECONDS_PER_CARD = 10;
 export const MAX_SECONDS_PER_CARD = 120;

@@ -37,6 +37,19 @@ export interface ReviewLogEntry {
 type PackedEntry = [number, string, string, number, number, string] | [number, string, string, number, number, string, number];
 /** Tope del tiempo guardado (una ficha abierta más de 10 min es una pausa, no estudio). */
 export const MAX_LOGGED_MS = 600_000;
+/**
+ * Filtro de las mediciones: menos de 3 s es un toque sin leer y más de 5 min, una pausa.
+ * Se aplica al medir (Sesión diaria y fichas sueltas de Recuerdo) y otra vez al estimar
+ * (src/utils/studyPlan.ts, por si hay entradas antiguas).
+ */
+export const TIMED_MIN_MS = 3_000;
+export const TIMED_MAX_MS = 300_000;
+
+/** Tiempo desde `shownAt` hasta `now` si es una medición válida (3 s – 5 min); si no, undefined. */
+export function measuredElapsedMs(shownAt: number, now: number = Date.now()): number | undefined {
+  const ms = now - shownAt;
+  return Number.isFinite(ms) && ms >= TIMED_MIN_MS && ms <= TIMED_MAX_MS ? ms : undefined;
+}
 
 function hasStorage(): boolean {
   try {

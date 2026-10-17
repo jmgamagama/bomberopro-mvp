@@ -43,15 +43,19 @@ describe('sesión por minutos', () => {
     await waitFor(() => expect(fichasHoy()).toBe('30'));
   });
 
-  it('cronometra cada ficha y lo guarda en el registro local', async () => {
+  it('cronometra cada ficha (3 s – 5 min) y lo guarda en el registro local', async () => {
+    let now = 5_000_000;
+    vi.spyOn(Date, 'now').mockImplementation(() => now);
     setDailyMinutes(10);
     const user = userEvent.setup();
     render(<DailySession onNavigateHome={vi.fn()} onOpenOrdenaPasos={vi.fn()} autoStart />);
     await user.click(await screen.findByRole('button', { name: /Mostrar respuesta/ }));
+    now += 25_000;
     await user.click(screen.getByRole('button', { name: /La sabía/ }));
-    const log = loadReviewLog();
-    expect(log).toHaveLength(1);
-    expect(typeof log[0].ms).toBe('number');
+    await user.click(await screen.findByRole('button', { name: /Mostrar respuesta/ }));
+    now += 1_000; // toque rápido: no cuenta
+    await user.click(screen.getByRole('button', { name: /La sabía/ }));
+    expect(loadReviewLog().map((e) => e.ms)).toEqual([25_000, undefined]);
   });
 
   it('con la fecha a pocos días avisa del tramo final', async () => {
