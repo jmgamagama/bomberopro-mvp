@@ -35,6 +35,8 @@ Documentar resultados y limitaciones reales. Para documentación aislada, revisa
 - No cargar datos en Supabase de producción ni modificar el esquema sin comprobar el contrato real, usar entorno de prueba y preparar una recuperación.
 - No exponer la clave `service_role` en el frontend, commits, registros o artefactos. Mantenerla solo en ejecución de servidor segura.
 - Mantener los IDs externos de preguntas separados de los IDs numéricos internos usados por RPC e intentos, salvo migración revisada.
+- Fichas de recuerdo: `src/data/recallAudit.test.ts` exige fuente, localización, ids únicos y enlaces solo de dominios oficiales. Si cambias un mazo revisado, ejecuta `npm run auditar:fichas` y explica el cambio en el PR (la versión del mazo cambia en `docs/AUDITORIA_FICHAS.md`). No añadas dominios a `OFFICIAL_DOMAINS` sin comprobar que son oficiales.
+- Los datos de estudio locales (`mira_*:<userId|demo>`) no salen del dispositivo. Enviarlos al servidor o añadir analítica exige una migración nueva revisada, consentimiento y actualizar `docs/legal/` (borradores sin revisión legal).
 
 ## PR
 Título breve con alcance. Describir qué cambió, por qué, cómo se comprobó y los riesgos pendientes. No fusionar automáticamente cambios que afecten datos, evaluación, selección adaptativa o visibilidad del banco de preguntas.
