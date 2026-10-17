@@ -1,6 +1,6 @@
-# Constitución Española.
+# Constitución Española
 
-Texto consolidado del BOE (BOE-A-1978-31229). Última actualización publicada por el BOE: 20260520T074424Z.
+Texto consolidado del BOE (BOE-A-1978-31229). Última actualización publicada por el BOE: 20/05/2026.
 Fuente: https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229
 Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
 
@@ -135,7 +135,7 @@ Los españoles son mayores de edad a los dieciocho años.
 
 4. La ley establecerá los términos en que los ciudadanos de otros países y los apátridas podrán gozar del derecho de asilo en España.
 
-Se modifica el apartado 2 por el art. único de la Reforma de 27 de agosto de 1992. Ref. BOE-A-1992-20403
+_Nota del BOE: Se modifica el apartado 2 por el art. único de la Reforma de 27 de agosto de 1992. Ref. BOE-A-1992-20403_
 
 
 ## CAPÍTULO SEGUNDO
@@ -451,7 +451,7 @@ Los poderes públicos promoverán las condiciones para la participación libre y
 
 2. Los poderes públicos impulsarán las políticas que garanticen la plena autonomía personal y la inclusión social de las personas con discapacidad, en entornos universalmente accesibles. Asimismo, fomentarán la participación de sus organizaciones, en los términos que la ley establezca. Se atenderán particularmente las necesidades específicas de las mujeres y los menores con discapacidad.
 
-Se modifica por el art. único de la Reforma de 15 de febrero de 2024. Ref. BOE-A-2024-3099
+_Nota del BOE: Se modifica por el art. único de la Reforma de 15 de febrero de 2024. Ref. BOE-A-2024-3099_
 
 
 ### Artículo 50
@@ -674,7 +674,7 @@ La ley reconocerá y el Estado facilitará el ejercicio del derecho de sufragio 
 
 6. El Senado es elegido por cuatro años. El mandato de los Senadores termina cuatro años después de su elección o el día de la disolución de la Cámara.
 
-Se modifica el apartado 3 por el art. único de la Reforma de 19 de mayo de 2026. Ref. BOE-A-2026-10881 La eficacia de la creación de las circunscripciones electorales de Ibiza y Formentera quedará pospuesta hasta la convocatoria de las primeras elecciones al Senado que se celebren tras la entrada en vigor de la citada Reforma, según establece su disposición transitoria única.
+_Nota del BOE: Se modifica el apartado 3 por el art. único de la Reforma de 19 de mayo de 2026. Ref. BOE-A-2026-10881 La eficacia de la creación de las circunscripciones electorales de Ibiza y Formentera quedará pospuesta hasta la convocatoria de las primeras elecciones al Senado que se celebren tras la entrada en vigor de la citada Reforma, según establece su disposición transitoria única._
 
 
 ### Artículo 70
@@ -1278,7 +1278,7 @@ c) La responsabilidad de cada Administración Pública en caso de incumplimiento
 
 6. Las Comunidades Autónomas, de acuerdo con sus respectivos Estatutos y dentro de los límites a que se refiere este artículo, adoptarán las disposiciones que procedan para la aplicación efectiva del principio de estabilidad en sus normas y decisiones presupuestarias.
 
-Se modifica por el art. único de la Reforma de 27 de septiembre de 2011. Ref. BOE-A-2011-15210. Los límites de déficit estructural establecidos en el apartado 2 entran en vigor a partir de 2020, según establece la disposición adicional única.3.
+_Nota del BOE: Se modifica por el art. único de la Reforma de 27 de septiembre de 2011. Ref. BOE-A-2011-15210. Los límites de déficit estructural establecidos en el apartado 2 entran en vigor a partir de 2020, según establece la disposición adicional única.3._
 
 
 ### Artículo 136

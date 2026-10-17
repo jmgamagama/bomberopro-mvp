@@ -59,6 +59,8 @@ export interface ConceptEvent {
   p_self_grade?: SelfGrade | null;
   p_response_ms?: number | null;
   p_session_id?: string | null;
+  /** Texto de la opción elegida en un test: con él, el servidor decide el acierto (migración 18). */
+  p_respuesta?: string | null;
 }
 
 interface PendingEvent { userId: string; event: ConceptEvent; tries: number; createdAt: string; rejected?: boolean }
@@ -127,6 +129,11 @@ export function pendingConceptEvents(userId: string): number {
   return readQueue().filter(p => p.userId === userId).length;
 }
 
+/** La función (o esa combinación de parámetros) no existe en el servidor: migración sin aplicar. */
+export function isMissingFunction(code: string | undefined): boolean {
+  return code === 'PGRST202' || code === '42883';
+}
+
 /** Errores que no se arreglan reintentando: datos inválidos o reglas del servidor. */
 export function isPermanentError(code: string | undefined): boolean {
   return !!code && (/^2[23]/.test(code) || code === 'P0002');
@@ -142,8 +149,14 @@ async function send(userId: string, event: ConceptEvent): Promise<{ ok: boolean;
     const { data: auth, error: authError } = await supabase.auth.getSession();
     if (authError || auth.session?.user?.id !== userId || !auth.session.access_token) return { ok: false };
     // Fijar el token de la cuenta comprobada para que un cambio A→B no cambie el dueño de esta petición.
-    const { data, error } = await supabase.rpc('record_concept_event', event)
-      .setHeader('Authorization', `Bearer ${auth.session.access_token}`);
+    const call = (args: ConceptEvent | Omit<ConceptEvent, 'p_respuesta'>) => supabase!.rpc('record_concept_event', args)
+      .setHeader('Authorization', `Bearer ${auth.session!.access_token}`);
+    let { data, error } = await call(event);
+    // Servidor sin la migración 18 (no conoce p_respuesta): se reenvía sin ella, con la misma clave.
+    if (error && event.p_respuesta !== undefined && isMissingFunction((error as any).code)) {
+      const { p_respuesta: _omit, ...legacy } = event;
+      ({ data, error } = await call(legacy));
+    }
     if (error) return { ok: false, permanent: isPermanentError((error as any).code) };
     const status = (data as any)?.status;
     return { ok: status === 'saved' || status === 'duplicate', data };
@@ -253,6 +266,66 @@ export async function loadConceptProgress(topicId: number | null, userId?: strin
   const { data, error } = await ownedRpc('get_concept_progress', { p_topic: topicId }, userId);
   if (error) throw error;
   return data as ConceptProgress;
+}
+
+/** Pregunta de la escalera: tras un fallo, otra del mismo concepto un nivel más fácil (migración 18). */
+export interface StepQuestion {
+  question_id: number;
+  question: string;
+  options: string[];
+  correct_answer: string | null;
+  explanation: string | null;
+  nivel: number;
+}
+
+export async function loadStepQuestion(conceptId: string, excludeQuestionId: number | null, userId?: string): Promise<StepQuestion | null> {
+  if (!supabase) return null;
+  try {
+    const { data, error } = await ownedRpc('get_concept_step_question', { p_concept: conceptId, p_exclude: excludeQuestionId }, userId);
+    if (error) return null; // sin la migración 18 la sesión sigue igual, sin escalera inmediata
+    const row = Array.isArray(data) ? data[0] : null;
+    return row && row.question && Array.isArray(row.options) && row.options.length >= 2 ? (row as StepQuestion) : null;
+  } catch {
+    return null;
+  }
+}
+
+/** ¿Falla el alumno lo que dice saber? (migración 18). null si no hay datos o el servidor no lo ofrece. */
+export interface Calibration {
+  tarjeta_si_verificadas: number;
+  tarjeta_si_falladas: number;
+  seguro_tests: number;
+  seguro_fallados: number;
+}
+
+export async function loadCalibration(topicId: number | null, userId?: string): Promise<Calibration | null> {
+  if (!supabase) return null;
+  try {
+    const { data, error } = await ownedRpc('get_concept_calibration', { p_topic: topicId }, userId);
+    if (error || !data) return null;
+    return data as Calibration;
+  } catch {
+    return null;
+  }
+}
+
+/** Mensaje para el alumno sobre su calibración; null si aún no hay base suficiente (menos de 5 casos). */
+export function calibrationMessage(c: Calibration | null): string | null {
+  if (!c) return null;
+  const casos = Number(c.tarjeta_si_verificadas) + Number(c.seguro_tests);
+  if (casos < 5) return null;
+  const fallos = Number(c.tarjeta_si_falladas) + Number(c.seguro_fallados);
+  const pct = Math.round((fallos / casos) * 100);
+  if (pct <= 10) return `Tu seguridad es fiable: de lo que dices saber, fallas el ${pct} %.`;
+  return `Ojo con el exceso de confianza: de lo que dices saber, fallas el ${pct} %. Esos conceptos vuelven antes.`;
+}
+
+/** Id del tema de la convocatoria 1 con ese número (los ids difieren entre entornos). */
+export async function resolveTopicId(numero: number): Promise<number | null> {
+  if (!supabase) return null;
+  const { data, error } = await supabase.from('topics').select('id').eq('convocatoria_id', 1).eq('numero', numero).maybeSingle();
+  if (error || !data) return null;
+  return (data as { id: number }).id;
 }
 
 /** Calificación del test en el cliente, por TEXTO de la opción (el orden se baraja). */

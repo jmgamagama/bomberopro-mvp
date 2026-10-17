@@ -115,8 +115,9 @@ def main() -> None:
     (out / "texto.xml").write_bytes(raw)
     (out / "bloques.json").write_text(json.dumps(bloques, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
-    md = [f"# {titulo or norma}", "",
-          f"Texto consolidado del BOE ({norma}). Última actualización publicada por el BOE: {fecha_act or 'desconocida'}.",
+    fecha_txt = f"{fecha_act[6:8]}/{fecha_act[4:6]}/{fecha_act[0:4]}" if len(fecha_act) >= 8 else "desconocida"
+    md = [f"# {titulo.rstrip('.') or norma}", "",
+          f"Texto consolidado del BOE ({norma}). Última actualización publicada por el BOE: {fecha_txt}.",
           f"Fuente: https://www.boe.es/buscar/act.php?id={norma}",
           "Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.", ""]
     for b in bloques:
@@ -128,6 +129,8 @@ def main() -> None:
                 md += [f"**{p['texto']}**", ""]
             elif c == "articulo":
                 md += ["", f"### {p['texto']}", ""]
+            elif c == "":
+                md += [f"_Nota del BOE: {p['texto']}_", ""]
             else:
                 md += [p["texto"], ""]
     (out / "texto.md").write_text("\n".join(md).rstrip() + "\n", encoding="utf-8")

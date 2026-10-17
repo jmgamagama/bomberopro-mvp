@@ -1,19 +1,43 @@
 -- 18_escalera_conceptos.sql
 --
--- Escalera adaptativa por concepto (piloto Constitución, válido para cualquier tema).
---   * user_concept_state.nivel_escalera (1 fácil · 2 examen · 3 difícil). Concepto nuevo: 1.
---   * Tras cada evidencia de test (trigger en concept_events): acierto → nivel de la pregunta + 1
---     (máx. 3); fallo → nivel de la pregunta − 1 (mín. 1). Se apoya en el nivel de la pregunta
---     respondida, no en un contador, para que el estado sea siempre derivable del historial.
---   * _concept_session elige, para cada test, la pregunta del nivel del alumno (o la más cercana).
---   * get_concept_step_question: tras un fallo, el frontend pide otra pregunta del MISMO concepto
---     en el nivel ya rebajado, sin repetir la fallada, para preguntarla de nuevo en la sesión.
+-- Aprendizaje por concepto: escalera de niveles, calibración tarjeta↔test, vueltas que alternan
+-- formato y corrección en servidor de los tests de concepto. Válido para cualquier tema; piloto
+-- con la Constitución (tema 1).
+--
+--   Escalera  user_concept_state.nivel_escalera (1 fácil · 2 examen · 3 difícil). Concepto nuevo: 1.
+--             Tras un test: acierto → nivel de la pregunta + 1 (máx. 3); fallo → − 1 (mín. 1).
+--             _concept_session elige la pregunta de ese nivel (o la más cercana, mejor la fácil).
+--             get_concept_step_question: tras un fallo, otra pregunta del MISMO concepto en el nivel
+--             rebajado, sin repetir la fallada, para volver a preguntarla en la misma sesión.
+--   Calibración  Si en la tarjeta dice «Lo sabía», queda verificar_pendiente: a partir de 20 h el
+--             concepto entra en la sesión como TEST (motivo VERIFICAR) aunque FSRS no lo dé vencido.
+--             get_concept_calibration resume cuánto falla lo que dice saber (tarjeta «Lo sabía»
+--             seguida de test, y tests marcados «Lo sé»).
+--   Vueltas   En los repasos se alterna formato: tras un test, el siguiente repaso es tarjeta de
+--             recuerdo (si ya lleva ≥ 2 repasos); tras una tarjeta, test. Tras un fallo, siempre test.
+--   Opciones  Las preguntas con opciones referenciales («Ambas», «A y B»…) no se recortan a 3.
+--   Seguridad record_concept_event acepta p_respuesta (texto de la opción elegida) y, si llega,
+--             calcula el acierto en el servidor e ignora p_correct. Sin p_respuesta (eventos antiguos
+--             en cola) se mantiene el comportamiento anterior.
 -- El cálculo de memoria (FSRS) no cambia.
 -- Cómo se deshace: 18_escalera_conceptos_down.sql
+
+-- Opciones que se refieren a otras («Ambas», «Todas las anteriores», «A y B», «Más de una»…):
+-- una pregunta que las tenga NO se recorta a 3 opciones, porque al quitar una opción la referida
+-- puede quedar sin sentido o la «correcta» dejar de serlo. Falsos positivos (no recortar de más)
+-- son inocuos; falsos negativos no. También lo usa la migración 19 para el resto de RPC.
+CREATE OR REPLACE FUNCTION public._opciones_referenciales(p jsonb)
+RETURNS boolean LANGUAGE sql IMMUTABLE SET search_path TO 'public' AS $$
+  SELECT EXISTS (
+    SELECT 1 FROM jsonb_array_elements(coalesce(p, '[]'::jsonb)) e
+     WHERE (e->>'texto') ~* '(\mambas\M|\mtodas\M|anteriores|\m[a-d]\M\)?\s+(y|e|o)\s+\m[a-d]\M|más de una|las dos|ninguna de (las|ellas|estas)|\mson correctas\M)')
+$$;
 
 ALTER TABLE public.user_concept_state
   ADD COLUMN IF NOT EXISTS nivel_escalera smallint NOT NULL DEFAULT 1
   CHECK (nivel_escalera BETWEEN 1 AND 3);
+ALTER TABLE public.user_concept_state
+  ADD COLUMN IF NOT EXISTS verificar_pendiente boolean NOT NULL DEFAULT false;
 
 CREATE OR REPLACE FUNCTION public._concept_escalera_tras_evento()
 RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path TO 'public' AS $$
@@ -23,7 +47,12 @@ BEGIN
     SELECT coalesce(nivel, 1) INTO v_n FROM questions WHERE id = NEW.question_id;
     UPDATE user_concept_state
        SET nivel_escalera = CASE WHEN NEW.correct THEN LEAST(coalesce(v_n, 1) + 1, 3)
-                                 ELSE GREATEST(coalesce(v_n, 1) - 1, 1) END
+                                 ELSE GREATEST(coalesce(v_n, 1) - 1, 1) END,
+           verificar_pendiente = false
+     WHERE user_id = NEW.user_id AND concept_id = NEW.concept_id;
+  ELSIF NEW.kind = 'recuerdo' THEN
+    UPDATE user_concept_state
+       SET verificar_pendiente = (NEW.self_grade = 'si')
      WHERE user_id = NEW.user_id AND concept_id = NEW.concept_id;
   END IF;
   RETURN NULL;
@@ -44,27 +73,43 @@ DECLARE
   v_budget double precision := LEAST(GREATEST(coalesce(p_minutes, 20), 5), 180) * 60.0;
 BEGIN
   RETURN QUERY
-  WITH due AS (
-    -- Repasos vencidos y reaprendizaje (fallos recientes).
+  WITH due0 AS (
+    SELECT s.*, c.prioridad AS c_prioridad, c.apartado AS c_apartado,
+           EXISTS (SELECT 1 FROM questions q WHERE q.concept_id = s.concept_id AND q.estado = 'publicada' AND NOT EXISTS (SELECT 1 FROM question_reports rr WHERE rr.question_id = q.id AND rr.user_id = p_user AND rr.categoria <> 'otro')) AS has_q,
+           (SELECT ev.kind FROM concept_events ev WHERE ev.user_id = p_user AND ev.concept_id = s.concept_id
+             ORDER BY ev.created_at DESC, ev.id DESC LIMIT 1) AS last_kind,
+           (s.verificar_pendiente AND s.last_review_at <= p_now - interval '20 hours') AS verificar
+      FROM user_concept_state s
+      JOIN concepts c ON c.id = s.concept_id AND c.estado = 'publicado' AND (p_topic IS NULL OR c.topic_id = p_topic)
+     WHERE s.user_id = p_user
+       AND (s.due_at <= p_now OR (s.verificar_pendiente AND s.last_review_at <= p_now - interval '20 hours'))
+  ),
+  due AS (
+    -- Repasos vencidos, reaprendizaje (fallos recientes) y verificación de «Lo sabía» (18).
     SELECT s.concept_id,
-           CASE WHEN EXISTS (SELECT 1 FROM questions q WHERE q.concept_id = s.concept_id AND q.estado = 'publicada' AND NOT EXISTS (SELECT 1 FROM question_reports rr WHERE rr.question_id = q.id AND rr.user_id = p_user AND rr.categoria <> 'otro'))
-                THEN 'test' ELSE 'recuerdo' END AS formato,
+           -- Vueltas que alternan formato (18): fallo o verificación → test; tras un test (≥ 2 repasos)
+           -- → tarjeta de recuerdo; tras una tarjeta → test. Sin preguntas → siempre tarjeta.
+           CASE WHEN NOT s.has_q THEN 'recuerdo'
+                WHEN s.last_grade = 1 OR s.verificar THEN 'test'
+                WHEN s.last_kind = 'test' AND s.reps >= 2 THEN 'recuerdo'
+                ELSE 'test' END AS formato,
            CASE WHEN s.last_grade = 1 THEN 'ERROR_RECIENTE'
+                WHEN s.verificar THEN 'VERIFICAR'
                 WHEN s.stability IS NULL THEN 'PRIMERA_RECUPERACION'
                 ELSE 'REPASO_VENCIDO' END AS motivo,
-           -- Prioridad = nivel (errores 2, repasos 1, nuevos < 1) + riesgo de olvido × importancia.
-           (CASE WHEN s.last_grade = 1 OR s.stability IS NULL THEN 2.0 ELSE 1.0 END)
+           -- Prioridad = nivel (errores y verificación 2, repasos 1, nuevos < 1) + riesgo de olvido × importancia.
+           (CASE WHEN s.last_grade = 1 OR s.stability IS NULL OR s.verificar THEN 2.0 ELSE 1.0 END)
              + (1 - COALESCE(public.fsrs_r(extract(epoch FROM (p_now - s.last_review_at))/86400.0, s.stability), 0))
-             * CASE c.prioridad WHEN 1 THEN 1.0 WHEN 2 THEN 0.7 ELSE 0.4 END AS prioridad,
+             * CASE s.c_prioridad WHEN 1 THEN 1.0 WHEN 2 THEN 0.7 ELSE 0.4 END AS prioridad,
            CASE WHEN s.stability IS NULL THEN NULL
                 ELSE public.fsrs_r(extract(epoch FROM (p_now - s.last_review_at))/86400.0, s.stability) END AS r,
            extract(epoch FROM (p_now - s.due_at))/86400.0 AS overdue,
-           CASE WHEN EXISTS (SELECT 1 FROM questions q WHERE q.concept_id = s.concept_id AND q.estado = 'publicada' AND NOT EXISTS (SELECT 1 FROM question_reports rr WHERE rr.question_id = q.id AND rr.user_id = p_user AND rr.categoria <> 'otro'))
-                THEN 35.0 ELSE 25.0 END AS coste,
-           c.apartado
-      FROM user_concept_state s
-      JOIN concepts c ON c.id = s.concept_id AND c.estado = 'publicado' AND (p_topic IS NULL OR c.topic_id = p_topic)
-     WHERE s.user_id = p_user AND s.due_at <= p_now
+           CASE WHEN NOT s.has_q THEN 25.0
+                WHEN s.last_grade = 1 OR s.verificar THEN 35.0
+                WHEN s.last_kind = 'test' AND s.reps >= 2 THEN 25.0
+                ELSE 35.0 END AS coste,
+           s.c_apartado AS apartado
+      FROM due0 s
   ),
   due_acc AS (
     SELECT d.*, sum(d.coste) OVER (ORDER BY d.prioridad DESC, d.concept_id) AS acum FROM due d
@@ -134,7 +179,7 @@ BEGIN
   ),
   qserved AS (
     SELECT qp.*,
-      CASE WHEN jsonb_array_length(qp.opciones) <= 3 THEN qp.opciones
+      CASE WHEN jsonb_array_length(qp.opciones) <= 3 OR public._opciones_referenciales(qp.opciones) THEN qp.opciones
         ELSE (SELECT jsonb_agg(e.e ORDER BY e.e->>'letra')
                 FROM (SELECT x AS e, row_number() OVER (
                         ORDER BY (trim(lower(x->>'letra')) = trim(lower(qp.correcta::text))) DESC, random()) AS rn
@@ -185,7 +230,7 @@ BEGIN
      LIMIT 1
   ), served AS (
     SELECT p.*,
-      CASE WHEN jsonb_array_length(p.opciones) <= 3 THEN p.opciones
+      CASE WHEN jsonb_array_length(p.opciones) <= 3 OR public._opciones_referenciales(p.opciones) THEN p.opciones
         ELSE (SELECT jsonb_agg(e.e ORDER BY e.e->>'letra')
                 FROM (SELECT x AS e, row_number() OVER (
                         ORDER BY (trim(lower(x->>'letra')) = trim(lower(p.correcta::text))) DESC, random()) AS rn
@@ -202,3 +247,53 @@ BEGIN
 END $$;
 REVOKE ALL ON FUNCTION public.get_concept_step_question(text, bigint) FROM PUBLIC, anon;
 GRANT EXECUTE ON FUNCTION public.get_concept_step_question(text, bigint) TO authenticated;
+
+
+-- Tests de concepto corregidos en el servidor (18). Se sustituye la firma de 9 parámetros por
+-- una de 10 con p_respuesta opcional: los clientes que no la envían siguen funcionando igual.
+DROP FUNCTION IF EXISTS public.record_concept_event(uuid, text, text, bigint, boolean, text, text, integer, uuid);
+CREATE OR REPLACE FUNCTION public.record_concept_event(
+  p_client_event_id uuid, p_concept_id text, p_kind text,
+  p_question_id bigint DEFAULT NULL, p_correct boolean DEFAULT NULL, p_confidence text DEFAULT NULL,
+  p_self_grade text DEFAULT NULL, p_response_ms integer DEFAULT NULL, p_session_id uuid DEFAULT NULL,
+  p_respuesta text DEFAULT NULL)
+RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path TO 'public' AS $$
+DECLARE
+  v_correct boolean := p_correct;
+  v_ok text;
+BEGIN
+  IF auth.uid() IS NULL THEN RAISE EXCEPTION 'not_authenticated' USING ERRCODE = '42501'; END IF;
+  IF p_kind = 'test' AND p_question_id IS NOT NULL AND p_respuesta IS NOT NULL THEN
+    SELECT (SELECT e->>'texto' FROM jsonb_array_elements(q.opciones) AS e
+             WHERE trim(lower(e->>'letra')) = trim(lower(q.correcta::text)) LIMIT 1)
+      INTO v_ok FROM questions q WHERE q.id = p_question_id;
+    v_correct := v_ok IS NOT NULL AND trim(p_respuesta) <> '' AND trim(p_respuesta) = trim(v_ok);
+  END IF;
+  RETURN public._record_concept_event(auth.uid(), p_client_event_id, p_concept_id, p_kind, p_question_id,
+                                      v_correct, p_confidence, p_self_grade, p_response_ms, p_session_id, now())
+         || jsonb_build_object('correct', v_correct);
+END $$;
+REVOKE ALL ON FUNCTION public.record_concept_event(uuid, text, text, bigint, boolean, text, text, integer, uuid, text) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.record_concept_event(uuid, text, text, bigint, boolean, text, text, integer, uuid, text) TO authenticated;
+
+-- Calibración del alumno (18): ¿falla lo que dice saber? Solo lectura de sus propios eventos.
+--   tarjeta_si_*  tests de un concepto cuyo evento anterior fue una tarjeta «Lo sabía»
+--   seguro_*      tests en los que marcó «Lo sé»
+CREATE OR REPLACE FUNCTION public.get_concept_calibration(p_topic integer DEFAULT NULL)
+RETURNS jsonb LANGUAGE sql STABLE SECURITY DEFINER SET search_path TO 'public' AS $$
+  WITH ev AS (
+    SELECT e.kind, e.correct, e.confidence, e.self_grade,
+           lag(e.kind) OVER w AS prev_kind, lag(e.self_grade) OVER w AS prev_grade
+      FROM concept_events e JOIN concepts c ON c.id = e.concept_id
+     WHERE e.user_id = auth.uid() AND (p_topic IS NULL OR c.topic_id = p_topic)
+    WINDOW w AS (PARTITION BY e.concept_id ORDER BY e.created_at, e.id)
+  )
+  SELECT jsonb_build_object(
+    'tarjeta_si_verificadas', count(*) FILTER (WHERE kind = 'test' AND prev_kind = 'recuerdo' AND prev_grade = 'si'),
+    'tarjeta_si_falladas',    count(*) FILTER (WHERE kind = 'test' AND prev_kind = 'recuerdo' AND prev_grade = 'si' AND NOT correct),
+    'seguro_tests',           count(*) FILTER (WHERE kind = 'test' AND confidence = 'alta'),
+    'seguro_fallados',        count(*) FILTER (WHERE kind = 'test' AND confidence = 'alta' AND NOT correct))
+  FROM ev;
+$$;
+REVOKE ALL ON FUNCTION public.get_concept_calibration(integer) FROM PUBLIC, anon;
+GRANT EXECUTE ON FUNCTION public.get_concept_calibration(integer) TO authenticated;
