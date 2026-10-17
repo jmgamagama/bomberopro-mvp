@@ -87,3 +87,18 @@ Visibles para el alumno: **804** de 3167 fichas.
 
 Para publicar un mazo: revisar a mano todas sus fichas, dejarlo constar en su informe de calidad y
 añadirlo a `REVIEWED_DECKS` (el test `src/data/recallReview.test.ts` fija la lista y el total).
+
+## Supuestos prácticos
+
+Los supuestos (`src/data/supuestos/`) siguen la misma regla: cada id pasa por `getDeckRevision` y, mientras no
+figure en `REVIEWED_DECKS`, es **pendiente**. El alumno no los ve y la entrada «Supuestos» («Casos» en el móvil)
+no aparece en su menú. El contenido va en un chunk aparte que también viaja en el build: es un filtro de interfaz.
+
+| Supuesto | Preguntas | Estado | Motivo |
+|---|---:|---|---|
+| `supuesto-t21-ve-01` | 7 | pendiente | caso original nuevo, sin revisión humana (manual DGT) |
+| `supuesto-t32-vivienda-01` | 9 | pendiente | caso original nuevo, sin revisión humana (CTE DB SI 5, INSST) |
+| `supuesto-t33-agua-01` | 8 | pendiente | caso original nuevo, sin revisión humana (RIPCI); 3 cálculos |
+
+Para publicar un supuesto: revisar a mano cada pregunta contra su fuente y añadir su id a `REVIEWED_DECKS`.
+

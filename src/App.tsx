@@ -4,7 +4,8 @@
  */
 
 import React, { useState, useEffect, useLayoutEffect, useRef, lazy, Suspense } from 'react';
-import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles } from 'lucide-react';
+import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles, ClipboardList } from 'lucide-react';
+import { getVisibleSupuestos } from './data/supuestos/supuestosRegistry';
 import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from './data/initialData';
 import { MemoryState, Question, ConfidenceLevel, Attempt } from './types';
 import {
@@ -56,6 +57,7 @@ const getSafeMemoryStates = (): Record<string, MemoryState> => {
 const RecallHub = lazy(() => import('./components/RecallHub'));
 const DailySession = lazy(() => import('./components/DailySession'));
 const OrdenaPasos = lazy(() => import('./components/OrdenaPasos'));
+const SupuestosPracticos = lazy(() => import('./components/SupuestosPracticos'));
 const Onboarding = lazy(() => import('./components/Onboarding'));
 const Planes = lazy(() => import('./components/Planes'));
 
@@ -74,6 +76,7 @@ const SCREEN_TITLES = {
   onboarding: 'Bienvenida',
   planes: 'Planes',
   ordena_pasos: 'Ordena los pasos',
+  supuestos: 'Supuestos prácticos',
 } as const;
 
   const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds, modo: 'adaptativo' | 'simulacro' = 'adaptativo', nivel: unknown = 1, sessionId: string | null = null) => {
@@ -96,7 +99,7 @@ const SCREEN_TITLES = {
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
-    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'onboarding' | 'planes'
+    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes'
   >(() => (hasCompletedOnboarding() ? 'dashboard' : 'onboarding'));
   // Página de planes: solo con VITE_FEATURE_PLANES=true (por defecto no aparece nada).
   const planesEnabled = isPlanesEnabled();
@@ -274,7 +277,7 @@ export default function App() {
 
   // Handle switching screens
   const handleNavigate = (
-    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'onboarding' | 'planes'
+    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes'
   ) => {
     setDailyAutoStart(false);
     setCurrentScreen(screen);
@@ -293,6 +296,10 @@ export default function App() {
   };
 
   const serverMode = Boolean(session?.user?.id) && !isDemoMode;
+  // «Supuestos» solo aparece en el menú si hay alguno visible (los pendientes, solo propietario/admin).
+  const supuestosVisibles = getVisibleSupuestos().length > 0;
+  // Con 9 entradas en la barra móvil (360 px → ~39 px por botón) las etiquetas bajan a 10 px para no solaparse.
+  const mobileLabelSize = supuestosVisibles ? 'text-[10px]' : 'text-xs';
 
   // Auditoría UX móvil (11-oct-2026): al cambiar de pantalla o de pregunta se conservaba el
   // desplazamiento anterior y el test se abría con el enunciado fuera de la pantalla.
@@ -754,6 +761,19 @@ export default function App() {
               <Flame className="hidden lg:block w-4 h-4" aria-hidden="true" />
               Sesión diaria
             </button>
+            {supuestosVisibles && (
+              <button
+                id="nav-btn-supuestos"
+                onClick={() => handleNavigate('supuestos')}
+                aria-current={currentScreen === 'supuestos' ? 'page' : undefined}
+                className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
+                  currentScreen === 'supuestos' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
+                }`}
+              >
+                <ClipboardList className="hidden lg:block w-4 h-4" aria-hidden="true" />
+                Supuestos
+              </button>
+            )}
             {planesEnabled && (
               <button
                 id="nav-btn-planes"
@@ -958,6 +978,10 @@ export default function App() {
             />
           )}
 
+          {currentScreen === 'supuestos' && supuestosVisibles && (
+            <SupuestosPracticos onNavigateHome={() => handleNavigate('dashboard')} />
+          )}
+
           {currentScreen === 'ordena_pasos' && (
             <OrdenaPasos
               onNavigateHome={() => handleNavigate('dashboard')}
@@ -986,12 +1010,12 @@ export default function App() {
         aria-label="Navegación móvil"
         className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_18px_rgba(15,23,42,0.08)] backdrop-blur-md md:hidden"
       >
-        <div className="mx-auto grid max-w-lg grid-cols-8 px-1">
+        <div className={`mx-auto grid max-w-lg px-1 ${supuestosVisibles ? 'grid-cols-9' : 'grid-cols-8'}`}>
           <button
             type="button"
             aria-current={currentScreen === 'dashboard' ? 'page' : undefined}
             onClick={() => handleNavigate('dashboard')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 ${mobileLabelSize} font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
               currentScreen === 'dashboard' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
             }`}
           >
@@ -1002,7 +1026,7 @@ export default function App() {
             type="button"
             aria-current={currentScreen === 'today_training' ? 'page' : undefined}
             onClick={() => handleNavigate('today_training')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 ${mobileLabelSize} font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
               currentScreen === 'today_training' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
             }`}
           >
@@ -1013,7 +1037,7 @@ export default function App() {
             type="button"
             aria-current={currentScreen === 'errors' ? 'page' : undefined}
             onClick={() => handleNavigate('errors')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 ${mobileLabelSize} font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
               currentScreen === 'errors' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
             }`}
           >
@@ -1024,7 +1048,7 @@ export default function App() {
             type="button"
             aria-current={currentScreen === 'forgetting_curve' ? 'page' : undefined}
             onClick={() => handleNavigate('forgetting_curve')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 ${mobileLabelSize} font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
               currentScreen === 'forgetting_curve' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
             }`}
           >
@@ -1035,7 +1059,7 @@ export default function App() {
             type="button"
             aria-current={currentScreen === 'mock_exam' ? 'page' : undefined}
             onClick={() => handleNavigate('mock_exam')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 ${mobileLabelSize} font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
               currentScreen === 'mock_exam' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
             }`}
           >
@@ -1046,7 +1070,7 @@ export default function App() {
             type="button"
             aria-current={currentScreen === 'study_by_topic' ? 'page' : undefined}
             onClick={() => handleNavigate('study_by_topic')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 ${mobileLabelSize} font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
               currentScreen === 'study_by_topic' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
             }`}
             >
@@ -1058,7 +1082,7 @@ export default function App() {
             type="button"
             aria-current={currentScreen === 'recuerdo' ? 'page' : undefined}
             onClick={() => handleNavigate('recuerdo')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-[10px] font-semibold whitespace-nowrap ${
               currentScreen === 'recuerdo' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
             }`}
           >
@@ -1070,13 +1094,27 @@ export default function App() {
             type="button"
             aria-current={currentScreen === 'sesion_diaria' || currentScreen === 'ordena_pasos' ? 'page' : undefined}
             onClick={() => handleNavigate('sesion_diaria')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-1 py-2 text-[10px] font-semibold ${
+            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-[10px] font-semibold whitespace-nowrap ${
               currentScreen === 'sesion_diaria' || currentScreen === 'ordena_pasos' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
             }`}
           >
             <Flame className="h-5 w-5" aria-hidden="true" />
             Diaria
           </button>
+
+          {supuestosVisibles && (
+            <button
+              type="button"
+              aria-current={currentScreen === 'supuestos' ? 'page' : undefined}
+              onClick={() => handleNavigate('supuestos')}
+              className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-[10px] font-semibold whitespace-nowrap ${
+                currentScreen === 'supuestos' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
+              }`}
+            >
+              <ClipboardList className="h-5 w-5" aria-hidden="true" />
+              Casos
+            </button>
+          )}
         </div>
       </nav>
       )}

@@ -7,6 +7,9 @@ import { writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { RECALL_DECKS, loadRecallDeckCards } from '../src/data/recallRegistry';
 import { auditDeck, canonicalDeckContent, DECKS_SIN_ENLACE } from '../src/data/recallAudit';
+import { SUPUESTOS } from '../src/data/supuestos/supuestosData';
+import { getDeckRevision } from '../src/data/recallReview';
+import { auditSupuestos, canonicalSupuestoContent } from '../src/data/supuestos/supuestosAudit';
 
 const deckFingerprint = (content: string): string => createHash('sha256').update(content).digest('hex').slice(0, 16);
 
@@ -22,6 +25,12 @@ async function main() {
     const nota = DECKS_SIN_ENLACE[deck.id] ? 'sin enlace público' : '';
     rows.push(`| ${deck.id} | ${deck.revision} | ${cards.length} | ${link} | ${a.problems.length} | \`${deckFingerprint(canonicalDeckContent(cards))}\` | ${nota} |`);
   }
+  const supIssues = auditSupuestos(SUPUESTOS);
+  const supRows = SUPUESTOS.map((sp) => {
+    const n = supIssues.filter((i) => i.supuestoId === sp.id).length;
+    const calc = sp.preguntas.filter((p) => p.tipo === 'calculo').length;
+    return `| ${sp.id} | ${getDeckRevision(sp.id)} | ${sp.temas.map((t) => `T${t}`).join(', ')} | ${sp.preguntas.length} | ${calc} | ${n} | \`${deckFingerprint(canonicalSupuestoContent(sp))}\` |`;
+  });
   const md = `# Auditoría editorial automática de las fichas
 
 Generado con \`npm run auditar:fichas\` (scripts/auditar-fichas.ts). **No editar a mano.**
@@ -35,9 +44,19 @@ Problemas detectados: **${problems}**.
 | Mazo | Revisión | Fichas | Con enlace oficial | Problemas | Versión | Nota |
 |---|---|---:|---:|---:|---|---|
 ${rows.join('\n')}
+
+## Supuestos prácticos
+
+Reglas (src/data/supuestos/supuestosAudit.ts): enunciado, temas de la parte específica (8-40), autoría «original», y en cada pregunta explicación, localización y fuente con enlace oficial; test con 4 opciones distintas y una correcta; cálculo con fórmula y pasos cuya operación se recalcula y coincide con el resultado. Revisión por id en src/data/recallReview.ts (pendiente si no figura).
+
+Problemas detectados: **${supIssues.length}**.
+
+| Supuesto | Revisión | Temas | Preguntas | De cálculo | Problemas | Versión |
+|---|---|---|---:|---:|---:|---|
+${supRows.join('\n')}
 `;
   writeFileSync(resolve(__dirname, '../docs/AUDITORIA_FICHAS.md'), md);
-  console.log(`docs/AUDITORIA_FICHAS.md: ${RECALL_DECKS.length} mazos, ${problems} problemas`);
+  console.log(`docs/AUDITORIA_FICHAS.md: ${RECALL_DECKS.length} mazos, ${problems} problemas; ${SUPUESTOS.length} supuestos, ${supIssues.length} problemas`);
 }
 
 main();
