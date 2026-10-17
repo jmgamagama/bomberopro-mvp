@@ -95,6 +95,16 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 28,
+      lote: 'lote02',
+      title: "Tema 28 · lote 2: alumbrado público, puesta a tierra, contactos, alta tensión y efectos de la corriente (REBT, RD 337/2014, RD 614/2001 y NTP 400)",
+      count: 74,
+      source: "Huecos CEP 38 · REBT (ITC-BT-09, 18 y 24), RD 337/2014 (ITC-RAT 01, 14 y 15), RD 614/2001 y NTP 400 (INSST); boe.es e insst.es",
+    },
+    load: () => import('./tema28Lote02Recall').then((m) => m.TEMA28_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 21,
       lote: 'lote02',
       title: "Tema 21 · lote 2: técnicas de corte y vehículos eléctricos, híbridos y a gas (Manual básico de rescate, DGT)",

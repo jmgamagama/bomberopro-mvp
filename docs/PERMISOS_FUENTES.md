@@ -8,7 +8,7 @@ Fecha: 11/10/2026. Rama `feat/temas-fase2-oficial`.
 | --- | --- | --- |
 | 15 | Material específico de rescate | Manuales excluidos. Desde el 17/10/2026 hay un mazo `tema15` (pendiente de revisión) hecho solo con fuentes oficiales gratuitas; ver abajo |
 | 18 | Incendios estructurales | Excluido: sin fichas |
-| 19 | Incendios industriales | Excluido: sin fichas |
+| 19 | Incendios industriales | Excluido: sin fichas. El CEP 38 (instalaciones urbanas eléctricas), que se había marcado como T19, no corresponde a este epígrafe; se cargó en el tema 28 (ver abajo) |
 
 ## Motivo
 
@@ -78,6 +78,22 @@ sin ánimo de lucro citando la fuente». Las fichas son extractos breves con cit
 lotes 02 de los temas 10 y 12, pero si la app tiene plan de pago (plan Pro) el «sin ánimo de lucro» no está
 garantizado: conviene confirmar con el INSST que este uso es aceptable antes de publicar estos mazos. Los tres mazos
 están en `pendiente` y el alumno no los ve.
+
+## CEP 38 y 39: electricidad y gas (18/10/2026)
+
+Rama `feat/temas-cep-electricidad-gas`. El índice del vol. III del manual CEP (temas 29-39) se usó solo como mapa;
+no se ha copiado nada de él.
+
+- **CEP 38 (instalaciones urbanas eléctricas)** se había marcado a mano como T19, pero según el anexo I del BOP
+  n.º 135 (`data/temario/cpei-badajoz-2026-anexo1.md`) el tema 19 es «Incendios industriales». La red eléctrica, la
+  alta tensión, los centros de transformación, la puesta a tierra y el riesgo eléctrico son del **tema 28
+  (Electricidad)**. Por eso no se ha creado un mazo `tema19`: se ha añadido `tema28-lote02` (74 fichas, pendiente)
+  con fuentes oficiales gratuitas: REBT ITC-BT-09, 18 y 24 y RD 337/2014 (ITC-RAT 01, 14 y 15), en boe.es, más el
+  RD 614/2001 (puntos que no estaban en el lote 1) y la NTP 400 del INSST (mismo aviso «sin ánimo de lucro» que el
+  resto de NTP). El tema 19 sigue excluido: no hay fuente oficial gratuita localizada para su epígrafe.
+- **CEP 39 (instalaciones urbanas de gas natural y GLP)** no tiene tema propio en el anexo I del BOP 135. Lo más
+  cercano son el tema 25 (mercancías peligrosas, BLEVE) y el tema 21 (vehículos a gas, ya cubierto en
+  `tema21-lote02`). No se han creado fichas del RD 919/2006 ni de sus ITC-ICG porque el temario oficial no lo incluye.
 
 ## Qué hacer cuando haya permiso
 
