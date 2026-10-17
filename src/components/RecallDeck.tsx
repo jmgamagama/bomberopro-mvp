@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ArrowLeft, ChevronLeft, ChevronRight, Eye, EyeOff } from 'lucide-react';
 import type { RecallDeck as RecallDeckData, RecallSourceCard } from '../data/recallRegistry';
 import { useRecallDeckCards } from '../hooks/useRecallDeckCards';
 import RecallGradeButtons, { formatInterval } from './RecallGradeButtons';
 import { localDayNumber } from '../utils/localDate';
 import { classifyCard, loadSrs, recordRecallGrade, type RecallGrade, type SrsStore } from '../utils/recallSrs';
+import { measuredElapsedMs } from '../utils/recallReviewLog';
 
 interface RecallDeckProps {
   deck: RecallDeckData;
@@ -56,6 +57,11 @@ function RecallDeckViewer({
   const [lastSaved, setLastSaved] = useState<string | null>(null);
   // Índice de la última ficha ya autoevaluada (evita contar dos veces un doble toque al final).
   const [finalGraded, setFinalGraded] = useState<number | null>(null);
+  // Momento en que se mostró la ficha actual: tiempo por ficha para la sesión por minutos.
+  const shownAt = useRef<number>(Date.now());
+  useEffect(() => {
+    shownAt.current = Date.now();
+  }, [index]);
   const total = cards.length;
   const card = cards[index];
   const loteNumber = deck.lote ? deck.lote.replace(/^lote/i, '') : undefined;
@@ -81,7 +87,7 @@ function RecallDeckViewer({
   const grade = (g: RecallGrade) => {
     if (finalGraded === index) return;
     if (index + 1 >= total) setFinalGraded(index);
-    const next = recordRecallGrade(deck.id, card.id, g);
+    const next = recordRecallGrade(deck.id, card.id, g, new Date(), measuredElapsedMs(shownAt.current));
     setSrs(loadSrs());
     setLastSaved(
       index + 1 >= total

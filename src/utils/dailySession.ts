@@ -7,6 +7,7 @@ import type { RecallCard } from '../data/recallCards';
 import { dayNumberFromKey, toLocalDateKey } from './localDate';
 import { ownedKey, readOwned, writeOwned } from './localOwner';
 import { classifyCard, getCardSrs, type RecallCardStatus, type SrsStore } from './recallSrs';
+import { learningState } from './recallLearning';
 
 export const DAILY_SESSION_SIZE = 30;
 /** Clave base; se guarda por cuenta/demo (./localOwner). */
@@ -108,7 +109,16 @@ export interface DailySessionOptions {
    * si aún sobra sitio, 4) las programadas más próximas.
    */
   srs?: SrsStore;
+  /**
+   * Tramo final antes del examen (src/utils/studyPlan.ts, ≤ FINAL_STRETCH_DAYS): tras vencidas y
+   * fallidas, las nuevas se limitan a FINAL_STRETCH_NEW_SHARE de la sesión y el hueco se llena con
+   * repaso adelantado de lo ya visto (primero lo no consolidado). Si aun así sobra sitio, más nuevas.
+   */
+  finalStretch?: boolean;
 }
+
+/** En el tramo final, como mucho 1 de cada 4 fichas de la sesión es nueva (si hay repaso que hacer). */
+export const FINAL_STRETCH_NEW_SHARE = 0.25;
 
 function matchesPreferred(deckKey: string, preferred: string): boolean {
   return deckKey === preferred || deckKey.startsWith(`${preferred}-`);
@@ -149,6 +159,22 @@ export function pickDailyRecallSession(
     total,
     preferred,
   );
+  if (options.finalStretch) {
+    // Tramo final: pocas nuevas; el resto, repaso adelantado de lo visto (no consolidado primero).
+    const maxNew = Math.min(total - picked.length, Math.round(total * FINAL_STRETCH_NEW_SHARE));
+    const firstNew = pickRotation(tiers.new, maxNew, date, options);
+    picked.push(...firstNew);
+    const ahead = [...tiers.scheduled].sort(
+      by((c) => (learningState(st(c)) === 'CONSOLIDADO' ? 1_000_000 : 0) + st(c).due),
+    );
+    picked.push(...takeWithPreferredShare(ahead, total - picked.length, preferred));
+    if (picked.length < total) {
+      const used = new Set(firstNew);
+      const restNew = tiers.new.filter((c) => !used.has(c));
+      picked.push(...pickRotation(restNew, total - picked.length, date, options));
+    }
+    return picked;
+  }
   if (picked.length < total) {
     picked.push(...pickRotation(tiers.new, total - picked.length, date, options));
   }

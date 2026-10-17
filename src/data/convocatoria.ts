@@ -23,5 +23,9 @@ export const CONVOCATORIA_CPEI_2026 = {
   pesoTemasLocales: {
     texto: 'El 30 % de las preguntas del test versa sobre los temas 35 a 40.',
     fuente: 'Bases, primera prueba (BOP nº 135, 17/07/2026)',
+    /** Mismos datos en forma numérica (para el consejo de ritmo; ver src/utils/studyPlan.ts). */
+    temaDesde: 35,
+    temaHasta: 40,
+    porcentaje: 30,
   },
 } as const;
