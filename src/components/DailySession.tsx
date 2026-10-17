@@ -17,6 +17,8 @@ import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreference
 import { loadRecallPoolForPlan } from '../data/recallCards';
 import { canSeeStats, getDailySessionSize, getPlan } from '../utils/plan';
 import { isPlanesEnabled } from '../config/features';
+import { getExamDate, setExamDate } from '../utils/studyPlan';
+import ExamDateField from './ExamDateField';
 
 interface DailySessionProps {
   onNavigateHome: () => void;
@@ -35,6 +37,11 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
   const sessionSize = getDailySessionSize(plan);
   const [phase, setPhase] = useState<Phase>(autoStart ? 'study' : 'intro');
   const [preferredDeckId, setPreferred] = useState<string | null>(() => getPreferredDeckId());
+  const [examDate, setExamDateState] = useState<string | null>(() => getExamDate());
+  const changeExamDate = (value: string | null) => {
+    setExamDate(value);
+    setExamDateState(getExamDate());
+  };
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [streak, setStreak] = useState<DailyStreak>(() => loadDailyStreak());
@@ -183,6 +190,9 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
                   {preferredTopic.decks.length > 1 ? ' (todos sus lotes)' : ''} y mezcla fichas del resto de temas.
                 </p>
               )}
+            </div>
+            <div className="mx-auto max-w-sm pt-2">
+              <ExamDateField idPrefix="daily-session" value={examDate} onChange={changeExamDate} plan={plan} />
             </div>
             {loading && (
               <p role="status" className="mx-auto max-w-md text-xs text-slate-500" id="daily-session-loading">

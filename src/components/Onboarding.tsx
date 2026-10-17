@@ -4,6 +4,8 @@ import { CONVOCATORIA_CPEI_2026 as C } from '../data/convocatoria';
 import { canAccessTopic, getVisibleBloques, getVisibleTopic, getVisibleTotalCards, type RecallTopic } from '../data/recallRegistry';
 import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreferences';
 import { completeOnboarding } from '../utils/onboarding';
+import { getExamDate, setExamDate } from '../utils/studyPlan';
+import ExamDateField from './ExamDateField';
 import { getPlan } from '../utils/plan';
 
 interface OnboardingProps {
@@ -26,8 +28,11 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
     return stored && canAccessTopic(stored, plan) ? stored.id : ALL;
   });
 
+  const [examDate, setExamDateChoice] = useState<string | null>(() => getExamDate());
+
   const start = () => {
     setPreferredDeckId(choice === ALL ? null : choice);
+    setExamDate(examDate);
     completeOnboarding('started');
     onStart();
   };
@@ -146,6 +151,10 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
         </div>
       </fieldset>
 
+      <div className="rounded-2xl border border-slate-200 bg-white p-3.5 sm:p-4">
+        <ExamDateField idPrefix="onboarding" value={examDate} onChange={setExamDateChoice} plan={plan} />
+      </div>
+
       <div className="sticky bottom-0 z-10 -mx-4 border-t border-slate-200 bg-slate-50/95 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur md:static md:mx-0 md:border-0 md:bg-transparent md:p-0">
         <button
           type="button"
@@ -156,7 +165,7 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
           <Play className="h-5 w-5 fill-current" aria-hidden="true" />
           Empezar sesión diaria
         </button>
-        <p className="mt-1.5 text-center text-xs text-slate-500">Puedes cambiar el tema más tarde desde la Sesión diaria.</p>
+        <p className="mt-1.5 text-center text-xs text-slate-500">Puedes cambiar el tema y la fecha más tarde desde la Sesión diaria.</p>
       </div>
     </section>
   );
