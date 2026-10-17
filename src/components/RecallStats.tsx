@@ -5,6 +5,8 @@ import { canAccessDeck, canSeeStats, getPlan } from '../utils/plan';
 import { localDayNumber } from '../utils/localDate';
 import { loadDailyStreak } from '../utils/dailySession';
 import { computeDeckProgress, loadSrs, sumProgress, type DeckProgress } from '../utils/recallSrs';
+import { loadReviewLog } from '../utils/recallReviewLog';
+import { LEARNING_STATES, LEARNING_STATE_LABELS, countLearningStates, delayedRecall, type DelayedRecall } from '../utils/recallLearning';
 
 interface RecallStatsProps {
   onBack: () => void;
@@ -100,6 +102,12 @@ export default function RecallStats({ onBack, onOpenPlanes, date }: RecallStatsP
     return { topic, decks, total: sumProgress(topic.id, decks) };
   });
   const all = sumProgress('todos', topics.map((t) => t.total));
+  const visibleDecks = topics.flatMap((t) => t.topic.decks);
+  const states = countLearningStates(store, visibleDecks);
+  const log = loadReviewLog();
+  const visibleIds = new Set(visibleDecks.map((d) => d.id));
+  const delayed = [delayedRecall(log, 1, visibleIds), delayedRecall(log, 7, visibleIds)];
+  const delayedText = (d: DelayedRecall) => (d.pct === null ? '—' : `${d.pct} %`);
 
   const tiles = [
     { label: 'Fichas vistas', value: `${all.seen}`, detail: `de ${RECALL_TOTAL_CARDS}` },
@@ -128,6 +136,25 @@ export default function RecallStats({ onBack, onOpenPlanes, date }: RecallStatsP
           </div>
         ))}
       </dl>
+
+      <div className="space-y-2 rounded-xl border border-slate-100 p-3" id="recall-stats-aprendizaje">
+        <h3 className="text-sm font-bold text-slate-800">Cómo lo recuerdas con el tiempo</h3>
+        <ul className="flex flex-wrap gap-1.5" aria-label="Estados de aprendizaje">
+          {LEARNING_STATES.map((st) => (
+            <li key={st} data-estado={st} className="rounded-full bg-slate-100 px-2.5 py-1 text-xs text-slate-700">
+              {LEARNING_STATE_LABELS[st]} <strong className="text-slate-900">{states[st]}</strong>
+            </li>
+          ))}
+        </ul>
+        <p className="text-xs text-slate-600" id="recall-stats-diferido">
+          Recuerdo a 1 día o más: <strong>{delayedText(delayed[0])}</strong> ({delayed[0].reviews} repasos) · a 7 días o más:{' '}
+          <strong>{delayedText(delayed[1])}</strong> ({delayed[1].reviews} repasos)
+        </p>
+        <p className="text-[11px] text-slate-500">
+          Solo cuentan los repasos hechos días después del anterior; repetir una ficha el mismo día no suma. «Consolidada»: la
+          recordaste en dos días distintos seguidos.
+        </p>
+      </div>
 
       <div className="space-y-4" id="recall-stats-topics">
         {topics.map(({ topic, decks, total }) => (
