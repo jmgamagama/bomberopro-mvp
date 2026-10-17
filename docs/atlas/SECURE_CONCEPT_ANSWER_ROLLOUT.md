@@ -57,3 +57,5 @@ Esta fase **NO** resuelve por sí sola la exposición de respuestas en otras rut
 
 ### Próxima prueba obligatoria
 Aislar la variable Supabase de Preview mediante configuración de entorno **exclusiva de prueba**, comprobar el identificador remoto sin revelar claves y ejecutar E2E con cuenta ficticia. No utilizar usuarios de producción ni copiar credenciales por chat.
+
+- ✅ Consulta de la sesión v2 en staging bajo contexto de usuario de prueba: **12 elementos**, ningún campo `correct_answer` en el JSON y **0 explicaciones o respuestas de concepto expuestas** en los elementos de tipo test. La transacción se revirtió, sin cambios persistentes.
