@@ -49,6 +49,7 @@ import { useRemoteConceptProgress } from './lib/useRemoteConceptProgress';
 import { useAttemptSync } from './lib/useAttemptSync';
 import { setRevisionViewer } from './utils/revisionAccess';
 import { setLocalDataOwner } from './utils/localOwner';
+import { cargarSupuestosCuenta } from './lib/privateSupuestos';
 import { shuffleAllOptions } from './utils/shuffleOptions';
 import { newStudySessionId, startStudySession, finishStudySession } from './lib/studySession';
 
@@ -202,6 +203,8 @@ export default function App() {
     setProgressOwner(userId);
     setRevisionViewer({ id: userId, email: session?.user?.email ?? null });
     setLocalDataOwner(userId);
+    // Supuestos privados de la cuenta en Supabase (solo su dueño; si falla, en silencio).
+    void cargarSupuestosCuenta(userId);
     setMemoryStates(getSafeMemoryStates());
     setAttempts(getAttempts());
     setShowLegacyImport(canImportLegacyProgress());

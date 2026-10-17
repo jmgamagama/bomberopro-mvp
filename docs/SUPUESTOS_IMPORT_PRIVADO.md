@@ -70,3 +70,8 @@ Toma los casos aptos para autocorrección y los que tienen solución (salvo las 
 limpia pasa a preguntas de cálculo (tolerancia: media unidad de la última cifra; ±2 % si la base pone «≈»); el
 resto, a una pregunta de desarrollo. El texto viene de OCR: se limpia lo evidente y cada enunciado avisa de que
 hay que cotejarlo con el PDF. Las soluciones «pendiente de recálculo» lo indican en la explicación.
+
+## Alternativa: en la cuenta, sin importar
+
+Para que los supuestos aparezcan en la cuenta de un usuario sin importarlos en cada dispositivo, ver
+`docs/SUPUESTOS_PRIVADOS_SERVIDOR.md` (tabla `private_supuestos` con RLS y script de carga con la service role).
