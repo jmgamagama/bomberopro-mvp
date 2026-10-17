@@ -76,6 +76,8 @@ export default function ConceptStudy({ userId, onExit }: Props) {
   } | null>(null);
   const [pendingTestChoice, setPendingTestChoice] = useState<string | null>(null);
   const testEventId = useRef(newAttemptKey());
+  const testResponseMs = useRef<number | null>(null);
+  const testConfidence = useRef<Confidence | null>(null);
   const shownAt = useRef(Date.now());
 
   const refreshProgress = async () => {
@@ -114,6 +116,7 @@ export default function ConceptStudy({ userId, onExit }: Props) {
   const resetItem = () => {
     setRevealed(false); setChosen(null); setConfidence(null); setAnswered(false);
     setTestFeedback(null); setPendingTestChoice(null); testEventId.current = newAttemptKey();
+    testResponseMs.current = null; testConfidence.current = null;
     shownAt.current = Date.now();
   };
 
@@ -179,7 +182,9 @@ export default function ConceptStudy({ userId, onExit }: Props) {
     if (!chosen || !confidence || staging || item.question_id == null) return;
     const owner = userId;
     const selectedOption = pendingTestChoice ?? chosen;
-    // El mismo ID y la misma opción en todos los reintentos: el servidor califica UNA vez.
+    if (testResponseMs.current == null) testResponseMs.current = Date.now() - shownAt.current;
+    if (testConfidence.current == null) testConfidence.current = confidence;
+    // El mismo ID, opción, confianza y duración en todos los reintentos: el servidor califica UNA vez.
     setPendingTestChoice(selectedOption);
     setStaging(true);
     try {
@@ -189,9 +194,9 @@ export default function ConceptStudy({ userId, onExit }: Props) {
         p_kind: 'test',
         p_question_id: item.question_id,
         p_selected_option: selectedOption,
-        p_confidence: confidence,
+        p_confidence: testConfidence.current,
         p_session_id: sessionId.current,
-        p_response_ms: Date.now() - shownAt.current,
+        p_response_ms: testResponseMs.current,
       });
       if (ownerRef.current !== owner) return;
       setPendingSave(r.pending);
@@ -363,7 +368,7 @@ export default function ConceptStudy({ userId, onExit }: Props) {
                 <p className="text-sm font-semibold text-slate-700">¿Cómo de seguro estás?</p>
                 <div className="mt-2 grid grid-cols-3 gap-2">
                   {([['alta', 'Lo sé'], ['media', 'Creo que sí'], ['baja', 'Me la juego']] as const).map(([v, l]) => (
-                    <button key={v} type="button" aria-pressed={confidence === v} onClick={() => setConfidence(v)}
+                    <button key={v} type="button" aria-pressed={confidence === v} disabled={!!pendingTestChoice} onClick={() => setConfidence(v)}
                       className={`rounded-xl border py-2 text-sm font-semibold ${confidence === v ? 'border-indigo-600 bg-indigo-50 text-indigo-700' : 'border-slate-200 text-slate-600'}`}>
                       {l}
                     </button>
