@@ -3,6 +3,9 @@
 //      npx vite preview --outDir /tmp/dist-admin --port 4174 &   (build de administrador: ve los pendientes)
 //      npx vite preview --port 4173 &                            (build normal: vista del alumno, opcional)
 //      BASE=http://127.0.0.1:4174 [BASE_ALUMNO=http://127.0.0.1:4173] OUT=./pwa-capturas node scripts/supuestos-check.cjs
+// Importación privada: con BASE_ALUMNO se prueba «Mis supuestos (privado)» con docs/ejemplos/supuestos-privados-EJEMPLO.json
+// (datos ficticios). Opcional: PRIVADO_REAL=/ruta/fuera/del/repo.json importa además un archivo real SOLO en este
+// navegador de prueba (no se guarda nada fuera de él).
 const { chromium } = require('playwright');
 const BASE = process.env.BASE || 'http://127.0.0.1:4174';
 const BASE_ALUMNO = process.env.BASE_ALUMNO || '';
@@ -39,6 +42,18 @@ const mobileLabelsOverlap = (page) => page.evaluate(() => {
 const skipOnboarding = (ctx) => ctx.addInitScript(() => {
   if (!localStorage.getItem('mira_onboarding_v1')) localStorage.setItem('mira_onboarding_v1', JSON.stringify({ outcome: 'skipped', at: new Date().toISOString() }));
 });
+const EJEMPLO_PATH = require('node:path').join(__dirname, '../docs/ejemplos/supuestos-privados-EJEMPLO.json');
+const PRIVADO_REAL = process.env.PRIVADO_REAL || '';
+// Peticiones que no sean GET al mismo origen (nada debería salir del dispositivo al importar).
+const vigilarRed = (page, origin) => {
+  const salientes = [];
+  page.on('request', (r) => {
+    const u = new URL(r.url());
+    if (u.protocol === 'data:' || u.protocol === 'blob:') return;
+    if (r.method() !== 'GET' || u.origin !== origin) salientes.push(`${r.method()} ${r.url()}`);
+  });
+  return salientes;
+};
 const CALCULOS = { 't33-agua-01-p1': '25', 't33-agua-01-p5': '19.200', 't33-agua-01-p8': '30000' };
 
 (async () => {
@@ -120,9 +135,9 @@ const CALCULOS = { 't33-agua-01-p1': '25', 't33-agua-01-p5': '19.200', 't33-agua
   check('sin errores de página (admin)', errors.length === 0, errors.join(' | '));
   await ctx.close();
 
-  // --- Build normal (alumno): sin entrada en el menú ----------------------------------
+  // --- Build normal (alumno): sin entrada en el menú; importación privada ---------------
   if (BASE_ALUMNO) {
-    const ctx2 = await browser.newContext({ viewport: { width: 360, height: 740 }, isMobile: true, hasTouch: true, locale: 'es-ES' });
+    const ctx2 = await browser.newContext({ viewport: { width: 360, height: 740 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true, locale: 'es-ES' });
     await skipOnboarding(ctx2);
     const p2 = await ctx2.newPage();
     const err2 = [];
@@ -135,10 +150,88 @@ const CALCULOS = { 't33-agua-01-p1': '25', 't33-agua-01-p5': '19.200', 't33-agua
     check('alumno: etiquetas de la barra móvil sin solaparse', malas2.length === 0, malas2.join(', '));
     await p2.setViewportSize({ width: 1280, height: 800 });
     check('alumno: sin «Supuestos» en escritorio', (await p2.locator('#nav-btn-supuestos').count()) === 0);
+    await p2.setViewportSize({ width: 360, height: 740 });
+
+    // Enlace directo para la primera importación.
+    await p2.goto(`${BASE_ALUMNO}/#supuestos`);
+    await p2.getByRole('heading', { name: 'Mis supuestos (privado)' }).waitFor({ timeout: 15000 });
+    const salientes = vigilarRed(p2, new URL(BASE_ALUMNO).origin);
+    check('privado: /#supuestos abre la pantalla sin supuestos publicados', await p2.getByText('Todavía no hay supuestos publicados.').isVisible());
+    check('privado: aviso de material personal visible', await p2.locator('#aviso-privado').isVisible() && /no se comparte/i.test(await p2.locator('#aviso-privado').textContent()));
+    check('privado: botón «Importar archivo JSON» ≥44 px', await tapTargetsOk(p2.locator('label[for="supuestos-import-input"]')));
+    check('privado: pantalla sin scroll horizontal', (await scrollWidth(p2)) <= 360, String(await scrollWidth(p2)));
+    await p2.screenshot({ path: `${OUT}/supuestos-privado-vacio-360.png`, fullPage: true });
+
+    const input = p2.locator('#supuestos-import-input');
+    await input.setInputFiles({ name: 'roto.json', mimeType: 'application/json', buffer: Buffer.from('{"formato":"bomberopro-supuestos","version":1,"supuestos":[{"id":"x","titulo":"t","enunciado":"e","preguntas":[{"id":"q","tipo":"test","enunciado":"?","opciones":["a","b"],"correcta":5}]}]}') });
+    await p2.locator('#import-errores').waitFor();
+    const errTxt = await p2.locator('#import-errores').textContent();
+    check('privado: JSON inválido → error claro con la ruta del campo', /No se ha importado nada/.test(errTxt) && /supuestos\[0\]\.preguntas\[0\]\.correcta/.test(errTxt), errTxt.slice(0, 120));
+    await input.setInputFiles({ name: 'texto.json', mimeType: 'application/json', buffer: Buffer.from('esto no es json') });
+    await p2.getByText(/El archivo no es un JSON válido/).waitFor();
+    check('privado: archivo que no es JSON → aviso', true);
+    check('privado: sin «Casos» tras importaciones fallidas', (await m2.getByRole('button', { name: 'Casos' }).count()) === 0);
+
+    await input.setInputFiles(EJEMPLO_PATH);
+    await p2.locator('#import-ok').waitFor();
+    check('privado: ejemplo importado', /Importados 1 supuestos/.test(await p2.locator('#import-ok').textContent()));
+    await m2.getByRole('button', { name: 'Casos' }).waitFor({ timeout: 5000 });
+    check('privado: aparece «Casos» en la barra móvil (9 botones ≥44 px)', (await m2.getByRole('button').count()) === 9 && await tapTargetsOk(m2.getByRole('button')));
+    const malas3 = await mobileLabelsOverlap(p2);
+    check('privado: etiquetas en una línea y sin solaparse', malas3.length === 0, malas3.join(', '));
+    const listaPriv = p2.getByRole('list', { name: 'Mis supuestos privados' }).getByRole('button');
+    check('privado: botones de la lista (abrir y borrar) ≥44 px', await tapTargetsOk(listaPriv));
+    await p2.screenshot({ path: `${OUT}/supuestos-privado-lista-360.png`, fullPage: true });
+
+    await p2.locator('[data-privado-id="EJEMPLO-01"]').click();
+    await p2.getByText('Mi supuesto (privado) · Tema 9').waitFor();
+    const q = (id) => p2.locator(`[data-pregunta-id="${id}"]`);
+    await q('EJEMPLO-01-p1').locator('label:has(input[type=radio])').nth(1).click();
+    await q('EJEMPLO-01-p2').locator('input[type=text]').fill('2.000');
+    await q('EJEMPLO-01-p3').locator('input[type=text]').fill('20 min');
+    await q('EJEMPLO-01-p4').locator('textarea').fill('Comprobaría el nivel y la aspiración.');
+    check('privado: casilla de desarrollo sin scroll horizontal', (await scrollWidth(p2)) <= 360, String(await scrollWidth(p2)));
+    await p2.getByRole('button', { name: /Corregir \(4\/4 respondidas\)/ }).click();
+    await p2.locator('#supuesto-resultado').waitFor();
+    check('privado: resultado 3/4 antes de autoevaluar', (await p2.locator('#supuesto-resultado').textContent()).includes('3/4'));
+    check('privado: botones de autoevaluación ≥44 px', await tapTargetsOk(p2.getByRole('button', { name: /La tenía (bien|mal)/ })));
+    await p2.getByRole('button', { name: 'La tenía bien' }).click();
+    check('privado: autoevaluación suma → 4/4', (await p2.locator('#supuesto-resultado').textContent()).includes('4/4'));
+    check('privado: resultado sin scroll horizontal', (await scrollWidth(p2)) <= 360, String(await scrollWidth(p2)));
+    await p2.screenshot({ path: `${OUT}/supuestos-privado-resultado-360.png`, fullPage: true });
+
+    // Persiste en el dispositivo tras recargar.
+    await p2.goto(BASE_ALUMNO);
+    await m2.waitFor({ timeout: 15000 });
+    check('privado: tras recargar sigue «Casos» en el menú', (await m2.getByRole('button', { name: 'Casos' }).count()) === 1);
+    await m2.getByRole('button', { name: 'Casos' }).click();
+    await p2.locator('[data-privado-id="EJEMPLO-01"]').waitFor();
+    check('privado: guarda el último resultado', await p2.getByText(/último: 4\/4/).isVisible());
+
+    if (PRIVADO_REAL) {
+      await p2.locator('#supuestos-import-input').setInputFiles(PRIVADO_REAL);
+      await p2.locator('#import-ok, #import-errores').first().waitFor();
+      const okReal = await p2.locator('#import-ok').count();
+      check('privado: archivo real importado sin errores (solo en este navegador de prueba)', okReal === 1, okReal ? await p2.locator('#import-ok').textContent() : await p2.locator('#import-errores').textContent());
+      check('privado: lista con el archivo real sin scroll horizontal', (await scrollWidth(p2)) <= 360, String(await scrollWidth(p2)));
+      await p2.locator('[data-privado-id]').nth(1).click();
+      await p2.locator('[data-pregunta-id]').first().waitFor();
+      check('privado: supuesto real abierto sin scroll horizontal', (await scrollWidth(p2)) <= 360, String(await scrollWidth(p2)));
+      await p2.getByRole('button', { name: 'Otros supuestos' }).click();
+    }
+
+    // Borrar todo → la entrada desaparece.
+    await p2.getByRole('button', { name: /Borrar todos mis supuestos privados/ }).click();
+    await p2.getByRole('button', { name: 'Sí, borrar todos' }).click();
+    await p2.waitForFunction(() => !document.querySelector('[data-privado-id]'));
+    check('privado: «Borrar todos» vacía la lista', (await p2.locator('[data-privado-id]').count()) === 0);
+    check('privado: sin supuestos, desaparece «Casos»', (await m2.getByRole('button', { name: 'Casos' }).count()) === 0);
+    check('privado: localStorage sin supuestos privados', await p2.evaluate(() => !Object.keys(localStorage).some((k) => k.startsWith('mira_supuestos_privados_v1'))));
+    check('privado: nada sale del dispositivo (ni POST ni otros orígenes)', salientes.length === 0, salientes.slice(0, 3).join(' | '));
     check('sin errores de página (alumno)', err2.length === 0, err2.join(' | '));
     await ctx2.close();
   } else {
-    console.log('(sin BASE_ALUMNO: se omite la vista del alumno)');
+    console.log('(sin BASE_ALUMNO: se omite la vista del alumno y la importación privada)');
   }
 
   await browser.close();

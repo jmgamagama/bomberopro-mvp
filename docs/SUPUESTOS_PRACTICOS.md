@@ -42,3 +42,10 @@ avisa de que la proporción de aciertos **no es la nota oficial**.
 - Casos escritos por nosotros. Nada de texto, cifras de enunciados ni preguntas del CEP ni del material del CPEI.
 - Cada dato y cada respuesta, de una fuente oficial gratuita ya usada en las fichas.
 - Cálculos solo si la fórmula sale de la fuente oficial. Sin fuente: ni consumo de aire del ERA ni regla del 9.
+
+## Mis supuestos (privado)
+
+Material propio (p. ej. los casos de formación interna del CPEI) que el usuario importa en su dispositivo desde un
+JSON. Se guarda solo en el navegador, por cuenta, y no viaja al repo, al build ni a ningún servidor. La entrada del
+menú aparece también si hay supuestos privados; la primera vez se llega con `/#supuestos`. Esquema, ejemplo
+ficticio y conversor local de la base del Drive: `docs/SUPUESTOS_IMPORT_PRIVADO.md`.

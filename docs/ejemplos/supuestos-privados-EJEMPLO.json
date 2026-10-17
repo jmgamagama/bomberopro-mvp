@@ -1,0 +1,58 @@
+{
+  "formato": "bomberopro-supuestos",
+  "version": 1,
+  "supuestos": [
+    {
+      "id": "EJEMPLO-01",
+      "titulo": "EJEMPLO · Supuesto ficticio para probar la importación",
+      "temas": [9],
+      "enunciado": "EJEMPLO CON DATOS INVENTADOS (no estudiar). Un depósito ficticio de 2 m de largo, 1 m de ancho y 1 m de alto está lleno de agua. Se vacía con una bomba que saca 100 litros por minuto.",
+      "fuentes": ["EJEMPLO: datos inventados para mostrar el formato"],
+      "preguntas": [
+        {
+          "id": "EJEMPLO-01-p1",
+          "tipo": "test",
+          "enunciado": "EJEMPLO · ¿Cuántas opciones puede tener una pregunta tipo test importada?",
+          "opciones": ["Solo 1", "De 2 a 6", "Exactamente 10", "Ninguna"],
+          "correcta": 1,
+          "explicacion": "EJEMPLO: «correcta» es la posición de la opción buena empezando en 0 (aquí, la segunda).",
+          "fuente": "EJEMPLO: docs/SUPUESTOS_IMPORT_PRIVADO.md",
+          "localizacion": "EJEMPLO"
+        },
+        {
+          "id": "EJEMPLO-01-p2",
+          "tipo": "calculo",
+          "enunciado": "EJEMPLO · ¿Cuántos litros caben en el depósito ficticio?",
+          "formula": "Volumen = largo × ancho × alto (1 m³ = 1000 l)",
+          "pasos": [
+            { "descripcion": "Volumen en m³", "operacion": "2 × 1 × 1", "resultado": 2, "unidad": "m³" },
+            { "descripcion": "Paso a litros", "operacion": "2 × 1000", "resultado": 2000, "unidad": "l" }
+          ],
+          "resultado": 2000,
+          "unidad": "l",
+          "tolerancia": 0,
+          "explicacion": "EJEMPLO: «resultado» es un número sin comillas; «tolerancia» es el margen admitido.",
+          "fuente": "EJEMPLO",
+          "localizacion": "EJEMPLO"
+        },
+        {
+          "id": "EJEMPLO-01-p3",
+          "tipo": "calculo",
+          "enunciado": "EJEMPLO · ¿Cuántos minutos tarda la bomba ficticia en vaciarlo?",
+          "resultado": 20,
+          "unidad": "min",
+          "tolerancia": 0.5,
+          "explicacion": "EJEMPLO: 2000 l ÷ 100 l/min = 20 min. Los campos «formula» y «pasos» son opcionales.",
+          "fuente": "EJEMPLO"
+        },
+        {
+          "id": "EJEMPLO-01-p4",
+          "tipo": "desarrollo",
+          "enunciado": "EJEMPLO · Explica con tus palabras qué comprobarías antes de empezar a bombear.",
+          "respuestaModelo": "EJEMPLO: respuesta modelo de prueba. Al corregir, el alumno la compara con la suya y marca «La tenía bien» o «La tenía mal».",
+          "fuente": "EJEMPLO"
+        }
+      ]
+    }
+  ]
+}

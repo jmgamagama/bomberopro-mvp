@@ -22,7 +22,12 @@ export function parseNumeroUsuario(texto: string): number | null {
   return Number.isFinite(n) ? n : null;
 }
 
-export function esCorrecta(pregunta: PreguntaSupuesto, respuesta: RespuestaSupuesto): boolean {
+/**
+ * ¿Respuesta correcta? En las preguntas de desarrollo decide la autoevaluación del alumno
+ * (`autoevaluacion`: true = «la tenía bien»); sin autoevaluar cuenta como no acertada.
+ */
+export function esCorrecta(pregunta: PreguntaSupuesto, respuesta: RespuestaSupuesto, autoevaluacion?: boolean): boolean {
+  if (pregunta.tipo === 'desarrollo') return autoevaluacion === true;
   if (respuesta === undefined || respuesta === '') return false;
   if (pregunta.tipo === 'test') return respuesta === pregunta.correcta;
   if (typeof respuesta !== 'string') return false;
@@ -41,11 +46,12 @@ export interface ResultadoSupuesto {
 export function corregirSupuesto(
   supuesto: Supuesto,
   respuestas: Readonly<Record<string, RespuestaSupuesto>>,
+  autoevaluaciones: Readonly<Record<string, boolean>> = {},
 ): ResultadoSupuesto {
   const porPregunta: Record<string, boolean> = {};
   let aciertos = 0;
   for (const p of supuesto.preguntas) {
-    const ok = esCorrecta(p, respuestas[p.id]);
+    const ok = esCorrecta(p, respuestas[p.id], autoevaluaciones[p.id]);
     porPregunta[p.id] = ok;
     if (ok) aciertos++;
   }
@@ -58,6 +64,7 @@ export function corregirSupuesto(
 // ---------------------------------------------------------------------------
 
 export const SUPUESTOS_STORAGE_KEY = 'mira_supuestos_v1';
+// Nota: esta clave guarda solo aciertos/total/fecha por id (sin contenido), también de los privados.
 
 export interface UltimoResultado {
   aciertos: number;
