@@ -33,7 +33,7 @@ Ahora, cuando `VERCEL_ENV=preview`, exige el origen exacto
 La ejecución de build pasa explícitamente el contexto Vercel a esa validación.
 `vercel.json` ya utiliza `npm run build:deploy`.
 
-Se añadieron cinco pruebas Node de aceptación de staging, rechazo de producción y
+Se añadieron cinco pruebas Vitest de aceptación de staging, rechazo de producción y
 otros destinos, compatibilidad de Production, rechazo de claves de servidor y
 mensajes sin secretos. Quality Gate las ejecuta tras instalar dependencias.
 Esto protege **nuevas compilaciones Preview**. No verifica retroactivamente
@@ -76,3 +76,10 @@ proyecto correcto; eso requiere comprobar solicitudes reales y autenticación.
 4. Usar exclusivamente una cuenta ficticia de staging y registrar IDs de prueba sin
    tokens/contraseñas. Completar la matriz y conciliar los contadores de staging.
 5. Mantener PR en draft y producción intacta hasta cerrar todos los bloqueantes.
+
+## Registro de CI
+- Ejecución 39051340271: aislamiento 5/5, lint y build correctos, 517 tests
+  existentes correctos. El job falló porque el archivo nuevo usaba node:test y
+  también fue recogido por Vitest (sin suite registrada).
+- Corregida la integración: suite y paso específico usan Vitest, igual que el
+  resto del proyecto. Los tests SQL del job fallido fueron omitidos, no superados.
