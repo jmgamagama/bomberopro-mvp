@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { ArrowLeft, Lock } from 'lucide-react';
+import LocalDataPanel from './LocalDataPanel';
 import { canAccessTopic, getVisibleTopics, getVisibleTotalCards } from '../data/recallRegistry';
 import { isPlanesEnabled } from '../config/features';
 import { canAccessDeck, canSeeStats, getPlan } from '../utils/plan';
@@ -54,6 +56,9 @@ function ProgressRow({ title, subtitle, p, locked }: { title: string; subtitle?:
  * por tema y lote, fichas vistas/total, dominadas, pendientes hoy, % de acierto y racha.
  */
 export default function RecallStats({ onBack, onOpenPlanes, date }: RecallStatsProps) {
+  // Al borrar los datos locales se vuelve a pintar con el estado vacío.
+  const [, setRefresh] = useState(0);
+  const refresh = () => setRefresh((n) => n + 1);
   const planesOn = isPlanesEnabled();
   const plan = getPlan();
   const backButton = (
@@ -89,6 +94,7 @@ export default function RecallStats({ onBack, onOpenPlanes, date }: RecallStatsP
             Ver planes
           </button>
         )}
+        <LocalDataPanel onDeleted={refresh} />
       </section>
     );
   }
@@ -180,6 +186,7 @@ export default function RecallStats({ onBack, onOpenPlanes, date }: RecallStatsP
       <p className="text-[11px] text-slate-500">
         Barra: vistas (claro) y dominadas (verde). «Dominada»: la recordaste en repasos espaciados hasta un intervalo de 7 días o más.
       </p>
+      <LocalDataPanel onDeleted={refresh} />
     </section>
   );
 }
