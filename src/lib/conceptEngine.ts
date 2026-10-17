@@ -29,10 +29,10 @@ export interface ConceptSessionItem {
   question_id: number | null;
   question: string | null;
   options: string[] | null;
-  correct_answer: string | null;
+  /** La solución jamás viaja en el payload de test antes de responder. */
   explanation: string | null;
   concept_pregunta: string;
-  concept_respuesta: string;
+  concept_respuesta: string | null;
   fuente: string;
   pagina: number | null;
   apartado: string | null;
@@ -54,7 +54,8 @@ export interface ConceptEvent {
   p_concept_id: string;
   p_kind: ConceptFormat;
   p_question_id?: number | null;
-  p_correct?: boolean | null;
+  /** En test se envía la opción seleccionada, NUNCA un booleano calculado en cliente. */
+  p_selected_option?: string | null;
   p_confidence?: Confidence | null;
   p_self_grade?: SelfGrade | null;
   p_response_ms?: number | null;
@@ -66,6 +67,7 @@ interface PendingEvent { userId: string; event: ConceptEvent; tries: number; cre
 const QUEUE_KEY = 'bomberopro:concept-events:v1';
 let sending: Promise<unknown> = Promise.resolve();
 const confirmations = new Map<string, string>();
+const feedbackCache = new Map<string, unknown>();
 const confirmationKey = (userId: string, id: string) => `${userId}:${id}`;
 let lockUnavailable = false;
 export function supportsCrossTabCoordination(): boolean {
@@ -84,19 +86,22 @@ function mutateQueue<T>(work: (queue: PendingEvent[]) => T): Promise<T> {
   // La cola contiene varias cuentas: el bloqueo de escritura debe abarcar todo el documento.
   return browserLock(QUEUE_KEY + ':storage', () => work(readQueue()));
 }
-interface Receipt { userId: string; event: ConceptEvent; confirmedAt: number }
+interface Receipt { userId: string; event: ConceptEvent; confirmedAt: number; data?: any }
 const RECEIPTS_KEY = QUEUE_KEY + ':receipts';
 function readReceipts(): Receipt[] {
   try { const data = JSON.parse(localStorage.getItem(RECEIPTS_KEY) || '[]'); return Array.isArray(data) ? data : []; } catch { return []; }
 }
-function receiptConfirms(userId: string, event: ConceptEvent): boolean {
-  return readReceipts().some(r => r.userId === userId && JSON.stringify(r.event) === JSON.stringify(event));
+function findReceipt(userId: string, event: ConceptEvent): Receipt | undefined {
+  return readReceipts().find(r => r.userId === userId && JSON.stringify(r.event) === JSON.stringify(event));
 }
-function rememberReceipt(userId: string, event: ConceptEvent): boolean {
+function receiptConfirms(userId: string, event: ConceptEvent): boolean {
+  return !!findReceipt(userId, event);
+}
+function rememberReceipt(userId: string, event: ConceptEvent, data?: any): boolean {
   try {
     const entries = readReceipts().filter(r => r.confirmedAt > Date.now() - 7 * 86400000 &&
       !(r.userId === userId && r.event.p_client_event_id === event.p_client_event_id));
-    entries.push({ userId, event, confirmedAt: Date.now() });
+    entries.push({ userId, event, confirmedAt: Date.now(), data });
     localStorage.setItem(RECEIPTS_KEY, JSON.stringify(entries.slice(-1000)));
     return true;
   } catch { return false; }
@@ -129,7 +134,7 @@ export function pendingConceptEvents(userId: string): number {
 
 /** Errores que no se arreglan reintentando: datos inválidos o reglas del servidor. */
 export function isPermanentError(code: string | undefined): boolean {
-  return !!code && (/^2[23]/.test(code) || code === 'P0002');
+  return !!code && (/^2[23]/.test(code) || code === 'P0002' || code === '42501');
 }
 
 export function rejectedConceptEvents(userId: string): number {
@@ -142,7 +147,22 @@ async function send(userId: string, event: ConceptEvent): Promise<{ ok: boolean;
     const { data: auth, error: authError } = await supabase.auth.getSession();
     if (authError || auth.session?.user?.id !== userId || !auth.session.access_token) return { ok: false };
     // Fijar el token de la cuenta comprobada para que un cambio A→B no cambie el dueño de esta petición.
-    const { data, error } = await supabase.rpc('record_concept_event', event)
+    // Test: el RPC calcula la corrección. No aceptar p_correct del navegador.
+    if (event.p_kind === 'test' && !event.p_selected_option) return { ok: false, permanent: true };
+    const { p_selected_option, ...base } = event;
+    const rpcName = event.p_kind === 'test' ? 'submit_concept_answer' : 'record_concept_event';
+    const args = event.p_kind === 'test'
+      ? {
+          p_client_event_id: event.p_client_event_id,
+          p_concept_id: event.p_concept_id,
+          p_question_id: event.p_question_id,
+          p_selected_option,
+          p_confidence: event.p_confidence,
+          p_response_ms: event.p_response_ms,
+          p_session_id: event.p_session_id,
+        }
+      : base;
+    const { data, error } = await supabase.rpc(rpcName, args)
       .setHeader('Authorization', `Bearer ${auth.session.access_token}`);
     if (error) return { ok: false, permanent: isPermanentError((error as any).code) };
     const status = (data as any)?.status;
@@ -162,10 +182,16 @@ async function flush(userId: string): Promise<number> {
         p.event.p_client_event_id === item.event.p_client_event_id &&
         JSON.stringify(p.event) === JSON.stringify(item.event);
       if (res.ok) {
-        confirmations.set(confirmationKey(userId, item.event.p_client_event_id), JSON.stringify(item.event));
-        if (confirmations.size > 1000) confirmations.delete(confirmations.keys().next().value!);
+        const key = confirmationKey(userId, item.event.p_client_event_id);
+        confirmations.set(key, JSON.stringify(item.event));
+        feedbackCache.set(key, res.data);
+        if (confirmations.size > 1000) {
+          const oldest = confirmations.keys().next().value!;
+          confirmations.delete(oldest);
+          feedbackCache.delete(oldest);
+        }
         // El recibo procede de RPC. Se escribe antes de retirar el evento, para recuperación tras cierre.
-        if (rememberReceipt(userId, item.event)) writeQueue(current.filter(p => !matches(p)));
+        if (rememberReceipt(userId, item.event, res.data)) writeQueue(current.filter(p => !matches(p)));
         return;
       }
       const queued = current.find(matches);
@@ -201,7 +227,7 @@ export async function recordConceptEvent(
     return false;
   });
   if (conflict) return { saved: false, pending: pendingConceptEvents(userId), rejected: rejectedConceptEvents(userId) };
-  if (receiptConfirms(userId, full)) return { saved: true, pending: pendingConceptEvents(userId), rejected: rejectedConceptEvents(userId) };
+  if (receiptConfirms(userId, full)) return { saved: true, data: findReceipt(userId, full)?.data, pending: pendingConceptEvents(userId), rejected: rejectedConceptEvents(userId) };
   // No prometer guardado si el almacenamiento impidió encolar el evento.
   const retained = readQueue().some(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id);
   if (!retained) {
@@ -211,14 +237,16 @@ export async function recordConceptEvent(
         return { saved: false, pending: pendingConceptEvents(userId) + 1, rejected: rejectedConceptEvents(userId), storageUnavailable: true };
       }
       const res = await send(userId, full);
-      return { saved: res.ok, pending: res.ok ? 0 : 1, rejected: rejectedConceptEvents(userId), storageUnavailable: true };
+      return { saved: res.ok, data: res.data, pending: res.ok ? 0 : 1, rejected: rejectedConceptEvents(userId), storageUnavailable: true };
     });
   }
   return serial(userId, async () => {
     await flush(userId);
     const key = confirmationKey(userId, full.p_client_event_id);
     const saved = confirmations.get(key) === JSON.stringify(full) || receiptConfirms(userId, full);
+    const confirmedData = findReceipt(userId, full)?.data ?? feedbackCache.get(key);
     confirmations.delete(key);
+    feedbackCache.delete(key);
     if (!saved && !readQueue().some(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id)) {
       await mutateQueue(current => {
         if (!current.some(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id) && !receiptConfirms(userId, full)) {
@@ -229,7 +257,7 @@ export async function recordConceptEvent(
       const retained = readQueue().some(p => p.userId === userId && p.event.p_client_event_id === full.p_client_event_id);
       return { saved: false, pending: Math.max(1, pendingConceptEvents(userId)), rejected: rejectedConceptEvents(userId), storageUnavailable: !retained };
     }
-    return { saved, pending: pendingConceptEvents(userId), rejected: rejectedConceptEvents(userId) };
+    return { saved, data: confirmedData, pending: pendingConceptEvents(userId), rejected: rejectedConceptEvents(userId) };
   });
 }
 
@@ -243,7 +271,7 @@ async function ownedRpc(name: string, args: Record<string, unknown>, userId?: st
 
 export async function loadConceptSession(topicId: number | null, minutes: number, userId?: string): Promise<ConceptSessionItem[]> {
   if (!supabase) return [];
-  const { data, error } = await ownedRpc('get_concept_session', { p_topic: topicId, p_minutes: minutes }, userId);
+  const { data, error } = await ownedRpc('get_concept_session_v2', { p_topic: topicId, p_minutes: minutes }, userId);
   if (error) throw error;
   return (data ?? []) as ConceptSessionItem[];
 }
@@ -255,9 +283,16 @@ export async function loadConceptProgress(topicId: number | null, userId?: strin
   return data as ConceptProgress;
 }
 
-/** Calificación del test en el cliente, por TEXTO de la opción (el orden se baraja). */
-export function isCorrectOption(item: Pick<ConceptSessionItem, 'correct_answer'>, chosen: string): boolean {
-  return !!item.correct_answer && chosen === item.correct_answer;
+/** Validación estructural del resultado que devuelve el servidor DESPUÉS de guardar la respuesta. */
+export function isConceptAnswerFeedback(data: unknown): data is {
+  correct: boolean;
+  correct_answer: string;
+  explanation: string | null;
+  concept_respuesta: string | null;
+} {
+  if (!data || typeof data !== 'object') return false;
+  const x = data as Record<string, unknown>;
+  return typeof x.correct === 'boolean' && typeof x.correct_answer === 'string';
 }
 
 export const STATE_LABELS: Record<VisibleState, { label: string; color: string }> = {
