@@ -1,5 +1,5 @@
-// Pruebas de la migración 18 (escalera, calibración, vueltas alternas, corrección en servidor)
-// en Postgres en memoria (PGlite), sobre el motor de la 09.
+// Pruebas de la migración 19 (escalera, calibración, vueltas alternas) en Postgres en memoria
+// (PGlite), sobre el motor de la 09 y la corrección segura de la 18 (submit_concept_answer).
 //
 //   npm i --no-save @electric-sql/pglite
 //   node supabase/tests/escalera.pglite.mjs
@@ -43,7 +43,8 @@ await db.exec(`
   insert into users_app values ('${U}');
 `);
 await db.exec(read('09_motor_conceptos_v1.sql'));
-await db.exec(read('18_escalera_conceptos.sql'));
+await db.exec(read('18_conceptos_test_evaluacion_servidor.sql'));
+await db.exec(read('19_escalera_conceptos.sql'));
 await db.query(`select set_config('request.jwt.claim.sub', $1, false)`, [U]);
 
 // Dos conceptos con 3 niveles (A: 2 preguntas de nivel 2) y uno sin preguntas.
@@ -87,7 +88,8 @@ await test('fallo en examen → baja a fácil; la pregunta de escalera es fácil
   assert.equal(r.length, 1);
   assert.equal(Number(r[0].question_id), 11);
   assert.equal(Number(r[0].nivel), 1);
-  assert.equal(r[0].correct_answer, 'si');
+  assert.equal('correct_answer' in r[0], false, 'la escalera no envía la solución');
+  assert.equal('explanation' in r[0], false);
 });
 
 await test('fallo en difícil → la escalera ofrece una de examen distinta de la fallada', async () => {
@@ -149,30 +151,37 @@ await test('«No lo sabía» en la tarjeta no deja verificación pendiente', asy
   assert.equal((await state('C')).verificar_pendiente, false);
 });
 
-await test('servidor: con p_respuesta, el acierto lo decide el servidor aunque el cliente mienta', async () => {
-  const r1 = (await one(`select public.record_concept_event($1,'A','test',12,true,'media',null,5000,null,'x') r`, [key()])).r;
-  assert.equal(r1.correct, false);
-  const r2 = (await one(`select public.record_concept_event($1,'A','test',12,false,'media',null,5000,null,'ok') r`, [key()])).r;
+const submit = (q, opcion, kk = key(), conf = 'media') =>
+  one(`select public.submit_concept_answer($1, (select concept_id from questions where id=$2), $2, $3, $4, 5000, null) r`, [kk, q, opcion, conf]).then(x => x.r);
+
+await test('submit_concept_answer (18) mueve la escalera: el trigger ve sus eventos', async () => {
+  const antes = Number((await state('A')).nivel_escalera);
+  const r = await submit(14, 'y');           // nivel 2, falla
+  assert.equal(r.correct, false);
+  assert.equal(Number((await state('A')).nivel_escalera), 1);
+  const r2 = await submit(11, 'si');         // nivel 1, acierta → 2
   assert.equal(r2.correct, true);
-  const last = await one(`select correct from concept_events where user_id=$1 order by id desc limit 1`, [U]);
-  assert.equal(last.correct, true);
+  assert.equal(Number((await state('A')).nivel_escalera), 2);
+  assert.ok(antes >= 1);
 });
 
-await test('compatibilidad: sin p_respuesta (eventos antiguos en cola) se acepta como antes', async () => {
-  const r = (await one(`select public.record_concept_event(p_client_event_id => $1, p_concept_id => 'A', p_kind => 'test', p_question_id => 11, p_correct => true, p_confidence => 'media') r`, [key()])).r;
-  assert.equal(r.status, 'saved');
-  assert.equal(r.correct, true);
-});
-
-await test('reenvío idempotente con p_respuesta: mismo evento → duplicate', async () => {
+await test('reenvío idempotente: misma clave y opción → duplicate, sin mover la escalera', async () => {
   const kk = key();
-  await one(`select public.record_concept_event($1,'A','test',13,null,'media',null,5000,null,'buena') r`, [kk]);
-  const r = (await one(`select public.record_concept_event($1,'A','test',13,null,'media',null,5000,null,'buena') r`, [kk])).r;
+  await submit(13, 'buena', kk);
+  const n = Number((await state('A')).nivel_escalera);
+  const r = await submit(13, 'buena', kk);
   assert.equal(r.status, 'duplicate');
+  assert.equal(Number((await state('A')).nivel_escalera), n);
 });
 
-await test('marcha atrás: la 18_down se aplica y deja la firma antigua de record_concept_event', async () => {
-  await db.exec(read('18_escalera_conceptos_down.sql'));
+await test('record_concept_event sigue sin aceptar tests (seguridad de la 18 intacta)', async () => {
+  let code = null;
+  try { await one(`select public.record_concept_event($1,'A','test',11,true,'media') r`, [key()]); } catch (e) { code = e.code; }
+  assert.equal(code, '42501');
+});
+
+await test('marcha atrás: la 19_down se aplica y deja intacto el record_concept_event seguro de la 18', async () => {
+  await db.exec(read('19_escalera_conceptos_down.sql'));
   const f = await rows(`select pg_get_function_identity_arguments(p.oid) a from pg_proc p where p.proname = 'record_concept_event'`);
   assert.equal(f.length, 1);
   assert.ok(!f[0].a.includes('p_respuesta'));

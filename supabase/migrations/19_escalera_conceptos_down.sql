@@ -1,5 +1,5 @@
--- 18_escalera_conceptos_down.sql
--- Deshace 18: quita la escalera de niveles y restaura _concept_session tal como estaba en
+-- 19_escalera_conceptos_down.sql
+-- Deshace 19: quita la escalera de niveles y restaura _concept_session tal como estaba en
 -- producción (md5 de pg_get_functiondef 5e47d37fbd890b380275f52db097b400). No borra datos de
 -- alumnos salvo la columna nivel_escalera, que es derivable de concept_events.
 
@@ -8,20 +8,6 @@ DROP FUNCTION IF EXISTS public._concept_escalera_tras_evento();
 DROP FUNCTION IF EXISTS public.get_concept_step_question(text, bigint);
 DROP FUNCTION IF EXISTS public.get_concept_calibration(integer);
 
--- record_concept_event: vuelve la firma de 9 parámetros (acierto enviado por el cliente).
-DROP FUNCTION IF EXISTS public.record_concept_event(uuid, text, text, bigint, boolean, text, text, integer, uuid, text);
-CREATE OR REPLACE FUNCTION public.record_concept_event(
-  p_client_event_id uuid, p_concept_id text, p_kind text,
-  p_question_id bigint DEFAULT NULL, p_correct boolean DEFAULT NULL, p_confidence text DEFAULT NULL,
-  p_self_grade text DEFAULT NULL, p_response_ms integer DEFAULT NULL, p_session_id uuid DEFAULT NULL)
-RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path TO 'public' AS $$
-BEGIN
-  IF auth.uid() IS NULL THEN RAISE EXCEPTION 'not_authenticated' USING ERRCODE = '42501'; END IF;
-  RETURN public._record_concept_event(auth.uid(), p_client_event_id, p_concept_id, p_kind, p_question_id,
-                                      p_correct, p_confidence, p_self_grade, p_response_ms, p_session_id, now());
-END $$;
-REVOKE ALL ON FUNCTION public.record_concept_event(uuid, text, text, bigint, boolean, text, text, integer, uuid) FROM PUBLIC, anon;
-GRANT EXECUTE ON FUNCTION public.record_concept_event(uuid, text, text, bigint, boolean, text, text, integer, uuid) TO authenticated;
 
 CREATE OR REPLACE FUNCTION public._concept_session(p_user uuid, p_topic integer, p_minutes integer, p_now timestamp with time zone)
  RETURNS TABLE(pos integer, concept_id text, formato text, motivo text, prioridad double precision, recuerdo_estimado double precision, dias_vencido double precision, question_id bigint, question text, options text[], correct_answer text, explanation text, concept_pregunta text, concept_respuesta text, fuente text, pagina integer, apartado text)

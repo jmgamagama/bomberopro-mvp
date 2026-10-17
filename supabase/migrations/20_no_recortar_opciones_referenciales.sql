@@ -1,4 +1,4 @@
--- 19_no_recortar_opciones_referenciales.sql
+-- 20_no_recortar_opciones_referenciales.sql
 --
 -- Problema (en producción, 17/10/2026): 4.833 preguntas publicadas tienen 4 opciones y las RPC de
 -- sesión y simulacro las recortan a 3 al azar (se queda la correcta + 2). En 2.154 hay opciones que
@@ -14,7 +14,7 @@
 -- Funciones: get_study_session, get_topic_study_questions, get_preparer_session_questions,
 -- get_blueprint_exam_questions y, si ya existen sin corregir, _concept_session y
 -- get_concept_step_question (la 18 ya las crea corregidas).
--- Cómo se deshace: 19_no_recortar_opciones_referenciales_down.sql
+-- Cómo se deshace: 20_no_recortar_opciones_referenciales_down.sql
 
 CREATE OR REPLACE FUNCTION public._opciones_referenciales(p jsonb)
 RETURNS boolean LANGUAGE sql IMMUTABLE SET search_path TO 'public' AS $$

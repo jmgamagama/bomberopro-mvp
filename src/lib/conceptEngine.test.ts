@@ -7,7 +7,7 @@ vi.mock('./supabase', () => ({ supabase: {
   auth: { getSession },
 } }));
 
-import { flushConceptEvents, isCorrectOption, isPermanentError, pendingConceptEvents, recordConceptEvent } from './conceptEngine';
+import { flushConceptEvents, isConceptAnswerFeedback, isPermanentError, pendingConceptEvents, recordConceptEvent } from './conceptEngine';
 
 const U = 'user-1';
 
@@ -24,7 +24,7 @@ describe('motor por conceptos (cliente)', () => {
 
   it('sin conexión queda pendiente y se reenvía con la MISMA clave', async () => {
     rpc.mockRejectedValueOnce(new TypeError('Failed to fetch'));
-    const r = await recordConceptEvent(U, { p_concept_id: 'C1', p_kind: 'test', p_question_id: 5, p_correct: true });
+    const r = await recordConceptEvent(U, { p_concept_id: 'C1', p_kind: 'test', p_question_id: 5, p_selected_option: 'opcion A' });
     expect(r.saved).toBe(false);
     expect(pendingConceptEvents(U)).toBe(1);
     const key1 = rpc.mock.calls[0][1].p_client_event_id;
@@ -35,7 +35,7 @@ describe('motor por conceptos (cliente)', () => {
 
   it('un error de datos se conserva para revisión y no bloquea las siguientes', async () => {
     rpc.mockResolvedValueOnce({ data: null, error: { code: '22023' } });
-    await recordConceptEvent(U, { p_concept_id: 'C1', p_kind: 'test', p_question_id: 9, p_correct: true });
+    await recordConceptEvent(U, { p_concept_id: 'C1', p_kind: 'test', p_question_id: 9, p_selected_option: 'opcion A' });
     expect(pendingConceptEvents(U)).toBe(1);
     expect(isPermanentError('23505')).toBe(true);
     expect(isPermanentError('PGRST301')).toBe(false);
@@ -136,8 +136,43 @@ describe('motor por conceptos (cliente)', () => {
     expect(other.rejected).toBe(1);
   });
 
-  it('corrige por el texto de la opción', () => {
-    expect(isCorrectOption({ correct_answer: 'Jefe de Parque' }, 'Jefe de Parque')).toBe(true);
-    expect(isCorrectOption({ correct_answer: 'Jefe de Parque' }, 'Jefe de Guardia')).toBe(false);
+  it('jamás corrige en cliente: exige feedback calificado por servidor', () => {
+    expect(isConceptAnswerFeedback({ correct: true, correct_answer: 'Jefe de Parque' })).toBe(true);
+    expect(isConceptAnswerFeedback({ correct: false, correct_answer: 'Jefe de Parque' })).toBe(true);
+    expect(isConceptAnswerFeedback({ correct_answer: 'Jefe de Parque' })).toBe(false);
+  });
+
+  it('envía solo la opción seleccionada a submit_concept_answer, no p_correct', async () => {
+    rpc.mockResolvedValue({
+      data: { status: 'saved', correct: false, correct_answer: 'A', explanation: 'Fuente', concept_respuesta: 'Resumen' },
+      error: null,
+    });
+    const input = {
+      p_client_event_id: 'c1',
+      p_concept_id: 'C1',
+      p_kind: 'test' as const,
+      p_question_id: 17,
+      p_selected_option: 'B',
+      p_confidence: 'media' as const,
+    };
+    const result = await recordConceptEvent(U, input);
+    expect(result.saved).toBe(true);
+    expect(result.data?.correct).toBe(false);
+    expect(rpc).toHaveBeenCalledWith('submit_concept_answer', expect.objectContaining({
+      p_client_event_id: 'c1', p_question_id: 17, p_selected_option: 'B',
+    }));
+    expect(rpc.mock.calls[0][1]).not.toHaveProperty('p_correct');
+    rpc.mockClear();
+    const replay = await recordConceptEvent(U, input);
+    expect(replay.saved).toBe(true);
+    expect(replay.data?.correct_answer).toBe('A');
+    expect(rpc).not.toHaveBeenCalled();
+  });
+
+  it('un test sin respuesta seleccionada no se remite al servidor', async () => {
+    const x = await recordConceptEvent(U, { p_concept_id: 'C1', p_kind: 'test', p_question_id: 17 });
+    expect(x.saved).toBe(false);
+    expect(x.rejected).toBe(1);
+    expect(rpc).not.toHaveBeenCalled();
   });
 });

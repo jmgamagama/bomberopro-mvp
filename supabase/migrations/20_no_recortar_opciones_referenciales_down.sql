@@ -1,4 +1,4 @@
--- 19_no_recortar_opciones_referenciales_down.sql
+-- 20_no_recortar_opciones_referenciales_down.sql
 -- Deshace 19 en las RPC que no son de la 18: vuelve a recortar siempre a 3 opciones.
 -- (_concept_session y get_concept_step_question se restauran con la 18_down.)
 -- No borra public._opciones_referenciales porque la 18 la usa.

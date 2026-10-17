@@ -25,4 +25,4 @@ Fecha: 17/10/2026. Autor del contenido: Claude. Estado: **borrador, pendiente de
 ## Hallazgos fuera del tramo (pendientes de decisión)
 - ~467 preguntas publicadas del tema 1 citan arts. 56–169, fuera del epígrafe oficial de Badajoz (arts. 1–55).
 - La pregunta 802 (art. 49) empieza por una nota interna «AVISO DE FUENTE…» visible para el alumno.
-- 4.833 preguntas de 4 opciones se recortan a 3 al azar; en 2.154 hay opciones referenciales («Ambas», «A y B»…) y en 510 la correcta es una de ellas. Lo arregla la migración 19.
+- 4.833 preguntas de 4 opciones se recortan a 3 al azar; en 2.154 hay opciones referenciales («Ambas», «A y B»…) y en 510 la correcta es una de ellas. Lo arregla la migración 20.

@@ -37,7 +37,8 @@ await db.exec(`
   insert into users_app values ('${U}');
 `);
 await db.exec(read('09_motor_conceptos_v1.sql'));
-await db.exec(read('18_escalera_conceptos.sql'));
+await db.exec(read('18_conceptos_test_evaluacion_servidor.sql'));
+await db.exec(read('19_escalera_conceptos.sql'));
 
 await test('primera carga: 24 conceptos y 72 preguntas en el tema 1 creado por número', async () => {
   await db.exec(sql);

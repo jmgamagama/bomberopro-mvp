@@ -7,35 +7,18 @@ vi.mock('./supabase', () => ({ supabase: {
   auth: { getSession },
 } }));
 
-import { calibrationMessage, loadCalibration, loadStepQuestion, pendingConceptEvents, recordConceptEvent } from './conceptEngine';
+import { calibrationMessage, loadCalibration, loadStepQuestion } from './conceptEngine';
 
 const U = 'user-1';
 
-describe('motor por conceptos · escalera, calibración y corrección en servidor (migración 18)', () => {
+describe('motor por conceptos · escalera y calibración (migración 19)', () => {
   beforeEach(() => {
     localStorage.clear(); rpc.mockReset(); getSession.mockReset();
     getSession.mockResolvedValue({ data: { session: { user: { id: U }, access_token: 't' } }, error: null });
   });
 
-  it('envía p_respuesta para que el servidor decida el acierto', async () => {
-    rpc.mockResolvedValue({ data: { status: 'saved', correct: false }, error: null });
-    await recordConceptEvent(U, { p_concept_id: 'C1', p_kind: 'test', p_question_id: 5, p_correct: true, p_respuesta: 'opción elegida' });
-    expect(rpc).toHaveBeenCalledWith('record_concept_event', expect.objectContaining({ p_respuesta: 'opción elegida' }));
-  });
-
-  it('si el servidor aún no tiene la migración 18, reenvía sin p_respuesta con la misma clave y no se atasca', async () => {
-    rpc.mockResolvedValueOnce({ data: null, error: { code: 'PGRST202' } });
-    rpc.mockResolvedValueOnce({ data: { status: 'saved' }, error: null });
-    const r = await recordConceptEvent(U, { p_concept_id: 'C1', p_kind: 'test', p_question_id: 5, p_correct: true, p_respuesta: 'x' });
-    expect(r.saved).toBe(true);
-    expect(pendingConceptEvents(U)).toBe(0);
-    const [first, second] = rpc.mock.calls.map(c => c[1]);
-    expect(second.p_client_event_id).toBe(first.p_client_event_id);
-    expect('p_respuesta' in second).toBe(false);
-  });
-
   it('pregunta de escalera: devuelve la del servidor, o null si no hay o falla', async () => {
-    rpc.mockResolvedValueOnce({ data: [{ question_id: 11, question: 'Fácil', options: ['sí', 'no'], correct_answer: 'sí', explanation: 'E', nivel: 1 }], error: null });
+    rpc.mockResolvedValueOnce({ data: [{ question_id: 11, question: 'Fácil', options: ['sí', 'no'], nivel: 1 }], error: null });
     expect((await loadStepQuestion('C1', 12, U))?.question_id).toBe(11);
     expect(rpc).toHaveBeenLastCalledWith('get_concept_step_question', { p_concept: 'C1', p_exclude: 12 });
     rpc.mockResolvedValueOnce({ data: [], error: null });

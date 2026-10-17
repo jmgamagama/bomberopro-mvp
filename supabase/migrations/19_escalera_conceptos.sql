@@ -1,4 +1,4 @@
--- 18_escalera_conceptos.sql
+-- 19_escalera_conceptos.sql
 --
 -- Aprendizaje por concepto: escalera de niveles, calibración tarjeta↔test, vueltas que alternan
 -- formato y corrección en servidor de los tests de concepto. Válido para cualquier tema; piloto
@@ -16,16 +16,17 @@
 --   Vueltas   En los repasos se alterna formato: tras un test, el siguiente repaso es tarjeta de
 --             recuerdo (si ya lleva ≥ 2 repasos); tras una tarjeta, test. Tras un fallo, siempre test.
 --   Opciones  Las preguntas con opciones referenciales («Ambas», «A y B»…) no se recortan a 3.
---   Seguridad record_concept_event acepta p_respuesta (texto de la opción elegida) y, si llega,
---             calcula el acierto en el servidor e ignora p_correct. Sin p_respuesta (eventos antiguos
---             en cola) se mantiene el comportamiento anterior.
+--   Seguridad Va DESPUÉS de la 18 (Codex, PR #110): los tests se corrigen solo con
+--             submit_concept_answer y la sesión v2 no envía la solución. Esta migración no toca
+--             record_concept_event ni submit_concept_answer; la escalera se alimenta del trigger sobre
+--             concept_events, que ambos usan. get_concept_step_question tampoco envía la solución.
 -- El cálculo de memoria (FSRS) no cambia.
--- Cómo se deshace: 18_escalera_conceptos_down.sql
+-- Cómo se deshace: 19_escalera_conceptos_down.sql
 
 -- Opciones que se refieren a otras («Ambas», «Todas las anteriores», «A y B», «Más de una»…):
 -- una pregunta que las tenga NO se recorta a 3 opciones, porque al quitar una opción la referida
 -- puede quedar sin sentido o la «correcta» dejar de serlo. Falsos positivos (no recortar de más)
--- son inocuos; falsos negativos no. También lo usa la migración 19 para el resto de RPC.
+-- son inocuos; falsos negativos no. También lo usa la migración 20 para el resto de RPC.
 CREATE OR REPLACE FUNCTION public._opciones_referenciales(p jsonb)
 RETURNS boolean LANGUAGE sql IMMUTABLE SET search_path TO 'public' AS $$
   SELECT EXISTS (
@@ -85,9 +86,9 @@ BEGIN
        AND (s.due_at <= p_now OR (s.verificar_pendiente AND s.last_review_at <= p_now - interval '20 hours'))
   ),
   due AS (
-    -- Repasos vencidos, reaprendizaje (fallos recientes) y verificación de «Lo sabía» (18).
+    -- Repasos vencidos, reaprendizaje (fallos recientes) y verificación de «Lo sabía» (19).
     SELECT s.concept_id,
-           -- Vueltas que alternan formato (18): fallo o verificación → test; tras un test (≥ 2 repasos)
+           -- Vueltas que alternan formato (19): fallo o verificación → test; tras un test (≥ 2 repasos)
            -- → tarjeta de recuerdo; tras una tarjeta → test. Sin preguntas → siempre tarjeta.
            CASE WHEN NOT s.has_q THEN 'recuerdo'
                 WHEN s.last_grade = 1 OR s.verificar THEN 'test'
@@ -158,7 +159,7 @@ BEGIN
   ordered AS (
     SELECT e.*, row_number() OVER (ORDER BY e.slot, e.concept_id)::int AS p FROM expanded e
   ),
-  -- Pregunta para cada test: la del nivel de escalera del alumno en ese concepto (18) y,
+  -- Pregunta para cada test: la del nivel de escalera del alumno en ese concepto (19) y,
   -- dentro del nivel, la menos usada recientemente (rotar evita memorizar una redacción).
   -- Si el concepto no tiene preguntas de ese nivel, la del nivel más cercano, prefiriendo
   -- la más fácil. Concepto nuevo (sin estado): nivel 1.
@@ -204,8 +205,10 @@ END $function$;
 
 -- Tras un fallo: otra pregunta del mismo concepto en el nivel actual del alumno (ya rebajado
 -- por el trigger), distinta de la fallada y no reportada por él. Mismo formato que la sesión.
-CREATE OR REPLACE FUNCTION public.get_concept_step_question(p_concept text, p_exclude bigint DEFAULT NULL)
-RETURNS TABLE(question_id bigint, question text, options text[], correct_answer text, explanation text, nivel integer)
+-- Igual que get_concept_session_v2: sin solución ni explicación; se corrige con submit_concept_answer.
+DROP FUNCTION IF EXISTS public.get_concept_step_question(text, bigint);
+CREATE FUNCTION public.get_concept_step_question(p_concept text, p_exclude bigint DEFAULT NULL)
+RETURNS TABLE(question_id bigint, question text, options text[], nivel integer)
 LANGUAGE plpgsql SECURITY DEFINER SET search_path TO 'public' AS $$
 DECLARE
   v_uid uuid := auth.uid();
@@ -219,7 +222,7 @@ BEGIN
   v_target := coalesce(v_target, 1);
   RETURN QUERY
   WITH pick AS (
-    SELECT q.id, q.enunciado, q.opciones, q.correcta, q.explicacion, coalesce(q.nivel, 1) AS nv
+    SELECT q.id, q.enunciado, q.opciones, q.correcta, coalesce(q.nivel, 1) AS nv
       FROM questions q
      WHERE q.concept_id = p_concept AND q.estado = 'publicada'
        AND q.id IS DISTINCT FROM p_exclude
@@ -240,43 +243,14 @@ BEGIN
   )
   SELECT s.id, s.enunciado,
          ARRAY(SELECT x->>'texto' FROM jsonb_array_elements(s.ops3) x ORDER BY x->>'letra'),
-         (SELECT x->>'texto' FROM jsonb_array_elements(s.ops3) x
-           WHERE trim(lower(x->>'letra')) = trim(lower(s.correcta::text)) LIMIT 1),
-         s.explicacion, s.nv
+         s.nv
     FROM served s;
 END $$;
 REVOKE ALL ON FUNCTION public.get_concept_step_question(text, bigint) FROM PUBLIC, anon;
 GRANT EXECUTE ON FUNCTION public.get_concept_step_question(text, bigint) TO authenticated;
 
 
--- Tests de concepto corregidos en el servidor (18). Se sustituye la firma de 9 parámetros por
--- una de 10 con p_respuesta opcional: los clientes que no la envían siguen funcionando igual.
-DROP FUNCTION IF EXISTS public.record_concept_event(uuid, text, text, bigint, boolean, text, text, integer, uuid);
-CREATE OR REPLACE FUNCTION public.record_concept_event(
-  p_client_event_id uuid, p_concept_id text, p_kind text,
-  p_question_id bigint DEFAULT NULL, p_correct boolean DEFAULT NULL, p_confidence text DEFAULT NULL,
-  p_self_grade text DEFAULT NULL, p_response_ms integer DEFAULT NULL, p_session_id uuid DEFAULT NULL,
-  p_respuesta text DEFAULT NULL)
-RETURNS jsonb LANGUAGE plpgsql SECURITY DEFINER SET search_path TO 'public' AS $$
-DECLARE
-  v_correct boolean := p_correct;
-  v_ok text;
-BEGIN
-  IF auth.uid() IS NULL THEN RAISE EXCEPTION 'not_authenticated' USING ERRCODE = '42501'; END IF;
-  IF p_kind = 'test' AND p_question_id IS NOT NULL AND p_respuesta IS NOT NULL THEN
-    SELECT (SELECT e->>'texto' FROM jsonb_array_elements(q.opciones) AS e
-             WHERE trim(lower(e->>'letra')) = trim(lower(q.correcta::text)) LIMIT 1)
-      INTO v_ok FROM questions q WHERE q.id = p_question_id;
-    v_correct := v_ok IS NOT NULL AND trim(p_respuesta) <> '' AND trim(p_respuesta) = trim(v_ok);
-  END IF;
-  RETURN public._record_concept_event(auth.uid(), p_client_event_id, p_concept_id, p_kind, p_question_id,
-                                      v_correct, p_confidence, p_self_grade, p_response_ms, p_session_id, now())
-         || jsonb_build_object('correct', v_correct);
-END $$;
-REVOKE ALL ON FUNCTION public.record_concept_event(uuid, text, text, bigint, boolean, text, text, integer, uuid, text) FROM PUBLIC, anon;
-GRANT EXECUTE ON FUNCTION public.record_concept_event(uuid, text, text, bigint, boolean, text, text, integer, uuid, text) TO authenticated;
-
--- Calibración del alumno (18): ¿falla lo que dice saber? Solo lectura de sus propios eventos.
+-- Calibración del alumno (19): ¿falla lo que dice saber? Solo lectura de sus propios eventos.
 --   tarjeta_si_*  tests de un concepto cuyo evento anterior fue una tarjeta «Lo sabía»
 --   seguro_*      tests en los que marcó «Lo sé»
 CREATE OR REPLACE FUNCTION public.get_concept_calibration(p_topic integer DEFAULT NULL)
