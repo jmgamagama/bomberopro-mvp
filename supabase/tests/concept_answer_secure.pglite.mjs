@@ -6,7 +6,7 @@ import { strict as assert } from 'node:assert';
 
 const db = new PGlite();
 const migration09 = readFileSync(new URL('../migrations/09_motor_conceptos_v1.sql', import.meta.url), 'utf8');
-const migration17 = readFileSync(new URL('../migrations/17_conceptos_test_evaluacion_servidor.sql', import.meta.url), 'utf8');
+const migration18 = readFileSync(new URL('../migrations/18_conceptos_test_evaluacion_servidor.sql', import.meta.url), 'utf8');
 const U = '00000000-0000-0000-0000-0000000000aa';
 const V = '00000000-0000-0000-0000-0000000000bb';
 const one = async (q, params = []) => (await db.query(q, params)).rows[0];
@@ -44,7 +44,7 @@ await db.exec(`
        '[{"letra":"a","texto":"Bien"},{"letra":"b","texto":"Mal"}]',
        'a','No debe ser visible','revision','C02');
 `);
-await db.exec(migration17);
+await db.exec(migration18);
 await useUser(U);
 
 const tests = [];
