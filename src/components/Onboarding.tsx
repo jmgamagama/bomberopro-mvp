@@ -4,9 +4,19 @@ import { CONVOCATORIA_CPEI_2026 as C } from '../data/convocatoria';
 import { canAccessTopic, getVisibleBloques, getVisibleTopic, getVisibleTotalCards, type RecallTopic } from '../data/recallRegistry';
 import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreferences';
 import { completeOnboarding } from '../utils/onboarding';
-import { getExamDate, setExamDate } from '../utils/studyPlan';
+import {
+  estimateSecondsPerCard,
+  getDailyMinutes,
+  getExamDate,
+  resolveDailySessionSize,
+  setDailyMinutes,
+  setExamDate,
+} from '../utils/studyPlan';
+import { loadReviewLog } from '../utils/recallReviewLog';
+import { isPlanesEnabled } from '../config/features';
 import ExamDateField from './ExamDateField';
-import { getPlan } from '../utils/plan';
+import DailyMinutesField from './DailyMinutesField';
+import { getDailySessionSize, getPlan } from '../utils/plan';
 
 interface OnboardingProps {
   /** El opositor pulsó «Empezar sesión diaria»: abrir la sesión ya en la primera ficha. */
@@ -29,10 +39,15 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
   });
 
   const [examDate, setExamDateChoice] = useState<string | null>(() => getExamDate());
+  const [minutes, setMinutesChoice] = useState<number | null>(() => getDailyMinutes());
+  const [reviewLog] = useState(() => loadReviewLog());
+  const planSize = getDailySessionSize(plan);
+  const sessionSize = resolveDailySessionSize(planSize, minutes, reviewLog, isPlanesEnabled() && plan === 'free');
 
   const start = () => {
     setPreferredDeckId(choice === ALL ? null : choice);
     setExamDate(examDate);
+    setDailyMinutes(minutes);
     completeOnboarding('started');
     onStart();
   };
@@ -151,7 +166,15 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
         </div>
       </fieldset>
 
-      <div className="rounded-2xl border border-slate-200 bg-white p-3.5 sm:p-4">
+      <div className="space-y-4 rounded-2xl border border-slate-200 bg-white p-3.5 sm:p-4">
+        <DailyMinutesField
+          idPrefix="onboarding"
+          value={minutes}
+          onChange={setMinutesChoice}
+          estimate={estimateSecondsPerCard(reviewLog)}
+          defaultSize={planSize}
+          sessionSize={sessionSize}
+        />
         <ExamDateField idPrefix="onboarding" value={examDate} onChange={setExamDateChoice} plan={plan} />
       </div>
 
@@ -165,7 +188,7 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
           <Play className="h-5 w-5 fill-current" aria-hidden="true" />
           Empezar sesión diaria
         </button>
-        <p className="mt-1.5 text-center text-xs text-slate-500">Puedes cambiar el tema y la fecha más tarde desde la Sesión diaria.</p>
+        <p className="mt-1.5 text-center text-xs text-slate-500">Puedes cambiar el tema, el tiempo y la fecha más tarde desde la Sesión diaria.</p>
       </div>
     </section>
   );

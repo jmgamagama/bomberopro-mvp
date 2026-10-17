@@ -108,3 +108,102 @@ export function describeExamPace(p: ExamPace): string {
     }
   }
 }
+
+// ── Sesión por minutos ──────────────────────────────────────────────────────────────────────
+
+export const DAILY_MINUTES_STORAGE_KEY = 'mira_minutos_dia_v1';
+export const dailyMinutesStorageKey = (): string => ownedKey(DAILY_MINUTES_STORAGE_KEY);
+export const DAILY_MINUTES_OPTIONS = [10, 20, 30] as const;
+export type DailyMinutes = (typeof DAILY_MINUTES_OPTIONS)[number];
+
+/**
+ * Segundos por ficha cuando aún no hay datos propios: 40 s (leer la pregunta, intentar recordar,
+ * mostrar la respuesta, compararla con la fuente y autoevaluarse). Es una estimación prudente:
+ * mejor acabar antes que pasarse del tiempo elegido. Con 40 s: 10 min ≈ 15 fichas,
+ * 20 min ≈ 30 (la sesión de siempre) y 30 min ≈ 45.
+ */
+export const DEFAULT_SECONDS_PER_CARD = 40;
+/** Repasos cronometrados necesarios para usar el tiempo propio del alumno. */
+export const MIN_TIMED_SAMPLES = 10;
+/** Se usan los últimos N repasos cronometrados (el ritmo cambia con la práctica). */
+export const TIMED_WINDOW = 100;
+/** Repasos de menos de 3 s (toque sin leer) o más de 5 min (pausa) no cuentan para la media. */
+export const MIN_SAMPLE_MS = 3_000;
+export const MAX_SAMPLE_MS = 300_000;
+/** Límites del tiempo por ficha estimado y del tamaño de la sesión por minutos. */
+export const MIN_SECONDS_PER_CARD = 10;
+export const MAX_SECONDS_PER_CARD = 120;
+export const MIN_SESSION_CARDS = 5;
+export const MAX_SESSION_CARDS = 90;
+
+export function getDailyMinutes(): DailyMinutes | null {
+  if (!hasStorage()) return null;
+  const n = Number(readOwned(DAILY_MINUTES_STORAGE_KEY));
+  return (DAILY_MINUTES_OPTIONS as readonly number[]).includes(n) ? (n as DailyMinutes) : null;
+}
+
+/** Guarda los minutos al día (null = sesión de siempre, por número de fichas). */
+export function setDailyMinutes(value: number | null): void {
+  if (!hasStorage()) return;
+  const ok = value !== null && (DAILY_MINUTES_OPTIONS as readonly number[]).includes(value);
+  try {
+    writeOwned(DAILY_MINUTES_STORAGE_KEY, ok ? String(value) : null);
+  } catch {
+    // Almacenamiento lleno o bloqueado.
+  }
+}
+
+export interface PaceEstimate {
+  secondsPerCard: number;
+  /** 'registro' = mediana de tus repasos; 'inicial' = DEFAULT_SECONDS_PER_CARD. */
+  source: 'registro' | 'inicial';
+  samples: number;
+}
+
+/** Tiempo por ficha: mediana de los últimos repasos cronometrados del registro local. */
+export function estimateSecondsPerCard(log: readonly { ms?: number }[]): PaceEstimate {
+  const samples = log
+    .filter((e) => typeof e.ms === 'number' && e.ms >= MIN_SAMPLE_MS && e.ms <= MAX_SAMPLE_MS)
+    .slice(-TIMED_WINDOW)
+    .map((e) => e.ms as number)
+    .sort((a, b) => a - b);
+  if (samples.length < MIN_TIMED_SAMPLES) {
+    return { secondsPerCard: DEFAULT_SECONDS_PER_CARD, source: 'inicial', samples: samples.length };
+  }
+  const mid = Math.floor(samples.length / 2);
+  const median = samples.length % 2 ? samples[mid] : (samples[mid - 1] + samples[mid]) / 2;
+  const secs = Math.round(median / 1000);
+  return {
+    secondsPerCard: Math.min(MAX_SECONDS_PER_CARD, Math.max(MIN_SECONDS_PER_CARD, secs)),
+    source: 'registro',
+    samples: samples.length,
+  };
+}
+
+/** Fichas que caben en `minutes` minutos a `secondsPerCard` segundos por ficha. */
+export function cardsForMinutes(minutes: number, secondsPerCard: number): number {
+  const n = Math.floor((minutes * 60) / Math.max(1, secondsPerCard));
+  return Math.min(MAX_SESSION_CARDS, Math.max(MIN_SESSION_CARDS, n));
+}
+
+/**
+ * Tamaño de la sesión diaria. Sin minutos elegidos: el del plan (30, o 10 en Gratis), como siempre.
+ * Con minutos: las fichas que caben según tu ritmo; en el plan Gratis nunca supera su límite.
+ */
+export function resolveDailySessionSize(
+  planSize: number,
+  minutes: number | null,
+  log: readonly { ms?: number }[],
+  isFreePlan: boolean,
+): number {
+  if (minutes === null) return planSize;
+  const n = cardsForMinutes(minutes, estimateSecondsPerCard(log).secondsPerCard);
+  return isFreePlan ? Math.min(planSize, n) : n;
+}
+
+/** ¿Toca el tramo final (repasar antes que fichas nuevas)? Incluye el propio día del examen. */
+export function isFinalStretch(examDate: string | null, today: Date = new Date()): boolean {
+  if (!examDate || !isValidDateKey(examDate)) return false;
+  const d = daysUntil(examDate, today);
+  return d >= 0 && d <= FINAL_STRETCH_DAYS;
+}

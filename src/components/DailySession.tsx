@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Flame, Play, Eye, EyeOff, CheckCircle2, ListOrdered, BarChart3, Lock } from 'lucide-react';
 import {
   pickDailyRecallSession,
@@ -17,8 +17,18 @@ import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreference
 import { loadRecallPoolForPlan } from '../data/recallCards';
 import { canSeeStats, getDailySessionSize, getPlan } from '../utils/plan';
 import { isPlanesEnabled } from '../config/features';
-import { getExamDate, setExamDate } from '../utils/studyPlan';
+import {
+  estimateSecondsPerCard,
+  getDailyMinutes,
+  getExamDate,
+  isFinalStretch,
+  resolveDailySessionSize,
+  setDailyMinutes,
+  setExamDate,
+} from '../utils/studyPlan';
+import { loadReviewLog } from '../utils/recallReviewLog';
 import ExamDateField from './ExamDateField';
+import DailyMinutesField from './DailyMinutesField';
 
 interface DailySessionProps {
   onNavigateHome: () => void;
@@ -34,7 +44,16 @@ type Phase = 'intro' | 'study' | 'done' | 'stats';
 export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false, onOpenPlanes }: DailySessionProps) {
   const plan = getPlan();
   const planesOn = isPlanesEnabled();
-  const sessionSize = getDailySessionSize(plan);
+  const planSessionSize = getDailySessionSize(plan);
+  // Ritmo propio (registro local) leído al abrir: la sesión de hoy no cambia mientras se estudia.
+  const [reviewLog] = useState(() => loadReviewLog());
+  const paceEstimate = useMemo(() => estimateSecondsPerCard(reviewLog), [reviewLog]);
+  const [minutes, setMinutesState] = useState<number | null>(() => getDailyMinutes());
+  const changeMinutes = (value: number | null) => {
+    setDailyMinutes(value);
+    setMinutesState(getDailyMinutes());
+  };
+  const sessionSize = resolveDailySessionSize(planSessionSize, minutes, reviewLog, planesOn && plan === 'free');
   const [phase, setPhase] = useState<Phase>(autoStart ? 'study' : 'intro');
   const [preferredDeckId, setPreferred] = useState<string | null>(() => getPreferredDeckId());
   const [examDate, setExamDateState] = useState<string | null>(() => getExamDate());
@@ -42,6 +61,9 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
     setExamDate(value);
     setExamDateState(getExamDate());
   };
+  const finalStretch = isFinalStretch(examDate);
+  // Momento en que se mostró la ficha actual (para estimar el tiempo por ficha).
+  const shownAt = useRef<number>(Date.now());
   const [index, setIndex] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [streak, setStreak] = useState<DailyStreak>(() => loadDailyStreak());
@@ -77,9 +99,13 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
   const session = useMemo(
     () =>
       pool
-        ? pickDailyRecallSession(pool, sessionSize, undefined, { preferredDeckId: effectivePreferred, srs: srsSnapshot })
+        ? pickDailyRecallSession(pool, sessionSize, undefined, {
+            preferredDeckId: effectivePreferred,
+            srs: srsSnapshot,
+            finalStretch,
+          })
         : [],
-    [effectivePreferred, pool, sessionSize, srsSnapshot],
+    [effectivePreferred, finalStretch, pool, sessionSize, srsSnapshot],
   );
   const mix = useMemo(() => summarizeSession(session, srsSnapshot), [session, srsSnapshot]);
   const loading = pool === null;
@@ -107,9 +133,13 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
     setPhase('stats');
   };
 
+  useEffect(() => {
+    shownAt.current = Date.now();
+  }, [phase, index]);
+
   const handleGrade = (grade: RecallGrade) => {
     if (current?.deckId) {
-      recordRecallGrade(current.deckId, current.id, grade);
+      recordRecallGrade(current.deckId, current.id, grade, new Date(), Date.now() - shownAt.current);
       setLiveSrs(loadSrs());
     }
     setGrades((g) => {
@@ -146,7 +176,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
             </p>
             {planesOn && plan === 'free' && (
               <p className="mx-auto max-w-md rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-900" id="daily-session-plan">
-                Plan Gratis: {sessionSize} fichas al día del tema 40. Con Pro, sesión completa de 30 fichas de todos los temas.
+                Plan Gratis: {planSessionSize} fichas al día del tema 40. Con Pro, sesión completa de 30 fichas de todos los temas.
                 {onOpenPlanes && (
                   <>
                     {' '}
@@ -191,8 +221,22 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
                 </p>
               )}
             </div>
-            <div className="mx-auto max-w-sm pt-2">
+            <div className="mx-auto max-w-sm space-y-4 pt-2">
+              <DailyMinutesField
+                idPrefix="daily-session"
+                value={minutes}
+                onChange={changeMinutes}
+                estimate={paceEstimate}
+                defaultSize={planSessionSize}
+                sessionSize={sessionSize}
+              />
               <ExamDateField idPrefix="daily-session" value={examDate} onChange={changeExamDate} plan={plan} />
+              {finalStretch && (
+                <p className="rounded-xl bg-amber-50 px-3 py-2 text-left text-xs text-amber-900" id="daily-session-tramo-final">
+                  Queda poco para tu fecha: la sesión da prioridad a repasar lo que ya has visto. Como mucho, una de cada cuatro
+                  fichas será nueva.
+                </p>
+              )}
             </div>
             {loading && (
               <p role="status" className="mx-auto max-w-md text-xs text-slate-500" id="daily-session-loading">
@@ -226,7 +270,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
           <div className="mx-auto my-6 grid max-w-sm grid-cols-2 gap-4">
             <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
               <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-slate-400">Fichas hoy</span>
-              <span className="text-3xl font-extrabold text-indigo-600">{session.length}</span>
+              <span className="text-3xl font-extrabold text-indigo-600" id="daily-session-count">{session.length}</span>
             </div>
             <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
               <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-slate-400">Racha</span>

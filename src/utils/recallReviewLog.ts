@@ -7,8 +7,10 @@
  * planificador (p. ej. FSRS) con datos reales en vez de suposiciones.
  *
  * Clave: `mira_recall_registro_v1:<userId|demo>` (./localOwner).
- * Formato compacto: { v: 1, e: [[día, mazo, ficha, nota, hueco, versión], ...] }
+ * Formato compacto: { v: 1, e: [[día, mazo, ficha, nota, hueco, versión, ms?], ...] }
  * - hueco = días desde el repaso anterior de la ficha; -1 si es la primera vez.
+ * - ms (opcional) = milisegundos desde que se mostró la ficha hasta la autoevaluación (Sesión
+ *   diaria); sirve para estimar cuántas fichas caben en los minutos que elige el alumno.
  * - Un reintento el mismo día tiene hueco 0, así que nunca cuenta como evidencia espaciada.
  * - Se guardan como máximo MAX_LOG_ENTRIES (se descartan los más antiguos).
  */
@@ -28,9 +30,13 @@ export interface ReviewLogEntry {
   /** Días desde el repaso anterior de la ficha; -1 si es el primero. */
   gap: number;
   planner: string;
+  /** Tiempo hasta autoevaluar, si se midió. */
+  ms?: number;
 }
 
-type PackedEntry = [number, string, string, number, number, string];
+type PackedEntry = [number, string, string, number, number, string] | [number, string, string, number, number, string, number];
+/** Tope del tiempo guardado (una ficha abierta más de 10 min es una pausa, no estudio). */
+export const MAX_LOGGED_MS = 600_000;
 
 function hasStorage(): boolean {
   try {
@@ -43,12 +49,17 @@ function hasStorage(): boolean {
 const isInt = (n: unknown): n is number => typeof n === 'number' && Number.isInteger(n);
 
 function unpack(p: unknown): ReviewLogEntry | null {
-  if (!Array.isArray(p) || p.length !== 6) return null;
-  const [day, deckId, cardId, grade, gap, planner] = p as PackedEntry;
+  if (!Array.isArray(p) || (p.length !== 6 && p.length !== 7)) return null;
+  const [day, deckId, cardId, grade, gap, planner, ms] = p as [number, string, string, number, number, string, number?];
   if (!isInt(day) || !isInt(gap) || gap < -1) return null;
   if (typeof deckId !== 'string' || typeof cardId !== 'string' || typeof planner !== 'string') return null;
   if (grade !== 0 && grade !== 1 && grade !== 2) return null;
-  return { day, deckId, cardId, grade, gap, planner };
+  const entry: ReviewLogEntry = { day, deckId, cardId, grade, gap, planner };
+  if (p.length === 7) {
+    if (!isInt(ms) || ms < 0) return null;
+    entry.ms = ms;
+  }
+  return entry;
 }
 
 /** Lee el registro (entradas corruptas se ignoran; nunca lanza). */
@@ -72,13 +83,20 @@ export function appendReviewLog(
   grade: 0 | 1 | 2,
   day: number,
   prevLastReview: number | undefined,
+  elapsedMs?: number,
 ): void {
   if (!hasStorage()) return;
   const entries = loadReviewLog();
   const gap = prevLastReview === undefined ? -1 : Math.max(0, day - prevLastReview);
-  entries.push({ day, deckId, cardId, grade, gap, planner: PLANNER_VERSION });
+  const entry: ReviewLogEntry = { day, deckId, cardId, grade, gap, planner: PLANNER_VERSION };
+  if (typeof elapsedMs === 'number' && Number.isFinite(elapsedMs) && elapsedMs > 0) {
+    entry.ms = Math.min(MAX_LOGGED_MS, Math.round(elapsedMs));
+  }
+  entries.push(entry);
   const kept = entries.slice(-MAX_LOG_ENTRIES);
-  const e: PackedEntry[] = kept.map((x) => [x.day, x.deckId, x.cardId, x.grade, x.gap, x.planner]);
+  const e: PackedEntry[] = kept.map((x) =>
+    x.ms === undefined ? [x.day, x.deckId, x.cardId, x.grade, x.gap, x.planner] : [x.day, x.deckId, x.cardId, x.grade, x.gap, x.planner, x.ms],
+  );
   try {
     writeOwned(REVIEW_LOG_STORAGE_KEY, JSON.stringify({ v: 1, e }));
   } catch {

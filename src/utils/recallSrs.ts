@@ -161,8 +161,17 @@ export function previewInterval(prev: CardSrs | undefined, grade: RecallGrade, t
   return scheduleReview(prev, grade, today).due - today;
 }
 
-/** Guarda la autoevaluación de una ficha y devuelve su nuevo estado. */
-export function recordRecallGrade(deckId: string, cardId: string, grade: RecallGrade, date: Date = new Date()): CardSrs {
+/**
+ * Guarda la autoevaluación de una ficha y devuelve su nuevo estado.
+ * `elapsedMs` (opcional): tiempo desde que se mostró la ficha; solo va al registro local.
+ */
+export function recordRecallGrade(
+  deckId: string,
+  cardId: string,
+  grade: RecallGrade,
+  date: Date = new Date(),
+  elapsedMs?: number,
+): CardSrs {
   const store = loadSrs();
   const today = localDayNumber(date);
   const prev = store[deckId]?.[cardId];
@@ -170,7 +179,7 @@ export function recordRecallGrade(deckId: string, cardId: string, grade: RecallG
   (store[deckId] ??= {})[cardId] = next;
   saveSrs(store);
   // Registro local para medir el recuerdo diferido (./recallReviewLog); no altera la programación.
-  appendReviewLog(deckId, cardId, grade, today, prev?.lastReview);
+  appendReviewLog(deckId, cardId, grade, today, prev?.lastReview, elapsedMs);
   return next;
 }
 
