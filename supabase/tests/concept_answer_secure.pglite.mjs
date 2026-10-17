@@ -21,6 +21,9 @@ await db.exec(`
     $$ select nullif(current_setting('request.jwt.claim.sub', true), '')::uuid $$;
   create table public.topics (id int primary key, convocatoria_id int);
   create table public.users_app (id uuid primary key);
+  create table public.question_reports (
+    id bigint primary key, question_id bigint, user_id uuid, categoria text
+  );
   create table public.questions (
     id bigint primary key, topic_id int references topics(id),
     enunciado text, opciones jsonb, correcta char(1), explicacion text,
@@ -42,7 +45,10 @@ await db.exec(`
        'a','Explicación solo tras responder','publicada','C01'),
     (1002,40,'Pregunta no aprobada',
        '[{"letra":"a","texto":"Bien"},{"letra":"b","texto":"Mal"}]',
-       'a','No debe ser visible','revision','C02');
+       'a','No debe ser visible','revision','C02'),
+    (1003,40,'Pregunta reportable',
+       '[{"letra":"a","texto":"Primera"},{"letra":"b","texto":"Segunda"},{"letra":"c","texto":"Tercera"}]',
+       'a','Solo tras confirmar','publicada','C03');
 `);
 await db.exec(migration18);
 await useUser(U);
@@ -112,6 +118,26 @@ test('respuesta no incluida o pregunta sin revisión no se evalúan', async () =
   assert.equal(await code(() => one(
     "select public.submit_concept_answer($1,'C02',1002,'Bien','media',1000,null)",
     ['77777777-7777-7777-7777-777777777774'])), 'P0002');
+});
+
+test('pregunta reportada por contenido no se admite para el mismo alumno', async () => {
+  await db.query("insert into question_reports(id,question_id,user_id,categoria) values (1,1003,$1,'erronea')", [U]);
+  assert.equal(await code(() => one(
+    "select public.submit_concept_answer($1,'C03',1003,'Primera','media',1500,null)",
+    ['77777777-7777-7777-7777-777777777775'])), 'P0002');
+  // Reporte «otro» solo comentario: no bloquea el aprendizaje.
+  await db.query("insert into question_reports(id,question_id,user_id,categoria) values (2,1001,$1,'otro')", [U]);
+  const a = await one("select public.submit_concept_answer($1,'C01',1001,'Sí','media',1500,null) r",
+    ['77777777-7777-7777-7777-777777777776']);
+  assert.equal(a.r.correct, true);
+});
+
+test('una ficha borrador no puede alterar la memoria del alumno', async () => {
+  await db.query("update concepts set estado='borrador' where id='C04'");
+  assert.equal(await code(() => one(
+    "select public.record_concept_event($1,'C04','ficha',null,null,null,null,1000,null) r",
+    ['77777777-7777-7777-7777-777777777777'])), 'P0002');
+  assert.equal(Number((await one("select count(*) n from concept_events where concept_id='C04'")).n), 0);
 });
 
 test('las respuestas entre usuarios son independientes', async () => {
