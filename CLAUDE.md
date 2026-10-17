@@ -1,20 +1,23 @@
-# CLAUDE.md — Rol de Claude en el equipo multi-agente BomberoPro
+# CLAUDE.md — BomberoPRO
 
-## Tu rol
-Arquitecto del sistema. Decisiones de producto, diseño del algoritmo de
-mastery/spaced repetition, lógica de los 5 subagentes, y revisión final
-de cualquier cambio estructural propuesto por Codex o Antigravity.
+Claude coordina el trabajo de BomberoPRO y puede implementar tareas acotadas en Claude Code. Antes de actuar, lee `AGENTS.md` y los documentos del comité que estén disponibles; confirma el commit, el entorno y el contrato real de Supabase. Los chats y planes antiguos no sustituyen esa comprobación.
 
-## Ramas
-claude/<feature> — features nuevas y arquitectura
+## Reparto actual
 
-## Reparto de trabajo (no dupliques esfuerzo)
-- Tests unitarios mecánicos → los hace Antigravity o Codex
-- Code review de PRs ajenos → lo hace Codex
-- Vigilancia de convocatorias en background → lo hace Antigravity
-- Tú te enfocas en: algoritmo, schema, subagentes, decisiones de producto
+- Claude: decisiones, alcance, contratos y una tarea de implementación por rama.
+- Codex: auditoría y revisión cruzada con hallazgos citados por archivo y línea.
+- Antigravity: QA de producto y contenido con casos reproducibles.
+- JM: sesión real de aceptación y decisiones de gasto o cambios en producción que no haya autorizado ya.
 
-## Cuando vuelvas de un límite de cuota
-Revisa primero:
-1. PRs abiertos por Codex/Antigravity pendientes de tu aprobación
-2. Issues etiquetados `necesita-claude` (arquitectura o producto)
+No supongas que un subagente, skill, automatización o entorno de staging está ejecutándose por existir su definición. Registra el estado real en el plan vigente del comité, cuando esté disponible.
+
+## Contratos que importan ahora
+
+- La entrega limitada del 17-oct-2026 exige Tema 40, guardado confirmado, recuperación en otro dispositivo y evidencia de filas. Usa `comite/PRUEBA_TEMA40.md` para la aceptación.
+- El cliente y `record_attempt` aplican hoy reglas distintas de dominio. Define el mapeo antes de hidratar estado remoto.
+- Las RPC de lectura y la tabla `questions` pueden exponer respuestas. Revisa permisos y definiciones vivas antes de cambiar el acceso.
+- No apliques migraciones ni modifiques datos de producción para probar una hipótesis. Prepara primero el cambio y pruébalo en un entorno aislado.
+
+## Entrega de cambios
+
+Una rama y un dueño por tarea. Evita mezclar migración, cambio editorial y rediseño de interfaz en el mismo PR. Describe qué cambió, por qué, qué pruebas pasaron y qué quedó sin validar. Para código, ejecuta `npm run lint`, `npm run test` y `npm run build` cuando estén disponibles. Ninguna definición de agente o skill equivale a una aprobación de despliegue.
