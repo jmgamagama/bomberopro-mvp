@@ -8,6 +8,8 @@ import {
   type DailyStreak,
 } from '../utils/dailySession';
 import RecallGradeButtons from './RecallGradeButtons';
+import { isAtlasMiraFiniteRecallPilotEnabled } from '../config/atlasMiraPilot';
+import { MIRA_FINITE_MINUTES, pickFiniteRecallSession, type MiraFiniteMinutes } from '../utils/finiteRecallSession';
 import RecallStats from './RecallStats';
 import { localDayNumber } from '../utils/localDate';
 import { getCardSrs, loadSrs, recordRecallGrade, type RecallGrade, type SrsStore } from '../utils/recallSrs';
@@ -32,6 +34,8 @@ type Phase = 'intro' | 'study' | 'done' | 'stats';
 export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false, onOpenPlanes }: DailySessionProps) {
   const plan = getPlan();
   const planesOn = isPlanesEnabled();
+  const finiteRecallPilot = isAtlasMiraFiniteRecallPilotEnabled();
+  const [sessionMinutes, setSessionMinutes] = useState<MiraFiniteMinutes>(10);
   const sessionSize = getDailySessionSize(plan);
   const [phase, setPhase] = useState<Phase>(autoStart ? 'study' : 'intro');
   const [preferredDeckId, setPreferred] = useState<string | null>(() => getPreferredDeckId());
@@ -67,13 +71,12 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
   const preferredTopicRaw = preferredDeckId ? getVisibleTopic(preferredDeckId) : undefined;
   const preferredTopic = preferredTopicRaw && canAccessTopic(preferredTopicRaw, plan) ? preferredTopicRaw : undefined;
   const effectivePreferred = preferredTopic?.id ?? null;
-  const session = useMemo(
-    () =>
-      pool
-        ? pickDailyRecallSession(pool, sessionSize, undefined, { preferredDeckId: effectivePreferred, srs: srsSnapshot })
-        : [],
-    [effectivePreferred, pool, sessionSize, srsSnapshot],
-  );
+  const session = useMemo(() => {
+    if (!pool) return [];
+    const options = { preferredDeckId: effectivePreferred, srs: srsSnapshot };
+    if (!finiteRecallPilot) return pickDailyRecallSession(pool, sessionSize, undefined, options);
+    return pickFiniteRecallSession(pool, sessionSize, sessionMinutes, new Date(), options).cards;
+  }, [effectivePreferred, finiteRecallPilot, pool, sessionMinutes, sessionSize, srsSnapshot]);
   const mix = useMemo(() => summarizeSession(session, srsSnapshot), [session, srsSnapshot]);
   const loading = pool === null;
 
@@ -135,7 +138,9 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
           <div className="space-y-2">
             <h2 className="text-2xl font-black tracking-tight text-slate-800">Sesión diaria</h2>
             <p className="mx-auto max-w-md text-sm leading-relaxed text-slate-500">
-              Hasta {sessionSize} fichas de repaso de todos los temas disponibles. Sin opciones de examen: intenta recordar y revela la respuesta.
+              {finiteRecallPilot
+                ? 'Una sesión de recuerdo breve y con final. Repasamos primero lo pendiente y limitamos las fichas nuevas para evitar sobrecarga.'
+                : `Hasta ${sessionSize} fichas de repaso de todos los temas disponibles. Sin opciones de examen: intenta recordar y revela la respuesta.`}
             </p>
             {planesOn && plan === 'free' && (
               <p className="mx-auto max-w-md rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-900" id="daily-session-plan">
@@ -184,6 +189,28 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
                 </p>
               )}
             </div>
+            {finiteRecallPilot && (
+              <fieldset className="mx-auto max-w-sm rounded-xl border border-indigo-100 bg-indigo-50 p-3 text-left" id="atlas-mira-finite-session">
+                <legend className="px-1 text-sm font-semibold text-slate-800">¿Cuánto tiempo tienes hoy?</legend>
+                <div className="grid grid-cols-4 gap-2">
+                  {MIRA_FINITE_MINUTES.map((value) => (
+                    <button
+                      key={value}
+                      type="button"
+                      aria-pressed={sessionMinutes === value}
+                      onClick={() => setSessionMinutes(value)}
+                      className={`min-h-11 rounded-lg border px-2 text-sm font-semibold ${sessionMinutes === value ? 'border-indigo-600 bg-indigo-600 text-white' : 'border-slate-200 bg-white text-slate-700'}`}
+                    >
+                      {value} min
+                    </button>
+                  ))}
+                </div>
+                <p className="mt-2 text-xs text-slate-600">
+                  Duración orientativa, no cronometrada. Máximo 6 fichas nuevas; los repasos pendientes tienen prioridad.
+                  El progreso de fichas sigue siendo local a este navegador.
+                </p>
+              </fieldset>
+            )}
             {loading && (
               <p role="status" className="mx-auto max-w-md text-xs text-slate-500" id="daily-session-loading">
                 Preparando tu sesión…
