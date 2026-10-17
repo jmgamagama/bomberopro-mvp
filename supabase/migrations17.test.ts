@@ -52,5 +52,8 @@ describe('migración 17: el acierto lo decide el servidor', () => {
     expect(body(down)).not.toMatch(/v_acierto/);
     expect(down).toContain("GRANT INSERT, UPDATE, DELETE, TRUNCATE ON public.%I TO anon, authenticated");
     expect(down).toMatch(/GRANT EXECUTE ON FUNCTION public\.record_attempt\(/);
+    // La marcha atrás restaura el ACL de la migración 06, sin reabrir la RPC a PUBLIC ni anon.
+    expect(down).toMatch(/GRANT EXECUTE ON FUNCTION public\.record_attempt\([^)]*\)\s*TO authenticated;/);
+    expect(down).not.toMatch(/record_attempt\([^)]*\)\s*TO[^;]*\b(anon|public)\b/i);
   });
 });
