@@ -19,11 +19,14 @@ import {
 } from '../lib/conceptEngine';
 import { newAttemptKey } from '../lib/saveAttemptToServer';
 import { shuffleArray } from '../utils/shuffleOptions';
+import { isMemoryPilotEnabled } from '../config/features';
 import ReportQuestionButton from './ReportQuestionButton';
 
 interface Props {
   userId: string;
   onExit: () => void;
+  onOpenRecall?: () => void;
+  onOpenTests?: () => void;
 }
 
 const MINUTES = [10, 20, 45, 60];
@@ -50,9 +53,11 @@ function ProgressBar({ p }: { p: ConceptProgress }) {
   );
 }
 
-export default function ConceptStudy({ userId, onExit }: Props) {
+export default function ConceptStudy({ userId, onExit, onOpenRecall, onOpenTests }: Props) {
+  const pilot = isMemoryPilotEnabled();
+  const topicId = ALL_TOPICS;
   const [phase, setPhase] = useState<'inicio' | 'cargando' | 'sesion' | 'fin'>('inicio');
-  const [minutes, setMinutes] = useState(20);
+  const [minutes, setMinutes] = useState(pilot ? 10 : 20);
   const [progress, setProgress] = useState<ConceptProgress | null>(null);
   const [items, setItems] = useState<ConceptSessionItem[]>([]);
   const [idx, setIdx] = useState(0);
@@ -63,7 +68,7 @@ export default function ConceptStudy({ userId, onExit }: Props) {
   const [pendingSave, setPendingSave] = useState(0);
   const [rejectedSave, setRejectedSave] = useState(0);
   const [volatileSaveFailure, setVolatileSaveFailure] = useState(false);
-  const [stats, setStats] = useState({ tests: 0, aciertos: 0, nuevos: 0 });
+  const [stats, setStats] = useState({ tests: 0, aciertos: 0, nuevos: 0, recuerdos: 0 });
   const sessionId = useRef<string>(newAttemptKey());
 
   // Por ítem
@@ -75,13 +80,13 @@ export default function ConceptStudy({ userId, onExit }: Props) {
 
   const refreshProgress = async () => {
     const owner = userId;
-    try { const data = await loadConceptProgress(ALL_TOPICS, userId); if (ownerRef.current === owner) setProgress(data); } catch { /* se muestra sin progreso */ }
+    try { const data = await loadConceptProgress(topicId, userId); if (ownerRef.current === owner) setProgress(data); } catch { /* se muestra sin progreso */ }
   };
 
   useEffect(() => {
     let active = true;
     setPhase('inicio'); setItems([]); setProgress(null); setStaging(false);
-    setStats({ tests: 0, aciertos: 0, nuevos: 0 });
+    setStats({ tests: 0, aciertos: 0, nuevos: 0, recuerdos: 0 });
     const retry = async () => {
       const pending = await flushConceptEvents(userId);
       if (!active) return;
@@ -113,15 +118,15 @@ export default function ConceptStudy({ userId, onExit }: Props) {
   const start = async () => {
     setPhase('cargando'); setError(null);
     try {
-      const data = await loadConceptSession(ALL_TOPICS, minutes, userId);
+      const data = await loadConceptSession(topicId, minutes, userId);
       if (ownerRef.current !== userId) return;
       if (data.length === 0) {
-        setError('Hoy no tienes nada pendiente en este tema. Vuelve mañana.');
+        setError('No hay contenido disponible para esta sesión. Puedes volver al inicio y elegir otro estudio.');
         setPhase('inicio');
         return;
       }
       sessionId.current = newAttemptKey();
-      setItems(data); setIdx(0); setStats({ tests: 0, aciertos: 0, nuevos: 0 }); resetItem();
+      setItems(data); setIdx(0); setStats({ tests: 0, aciertos: 0, nuevos: 0, recuerdos: 0 }); resetItem();
       setPhase('sesion');
     } catch {
       if (ownerRef.current !== userId) return;
@@ -165,7 +170,9 @@ export default function ConceptStudy({ userId, onExit }: Props) {
 
   const onRecall = async (g: SelfGrade) => {
     if (staging) return;
-    if (await save({ p_concept_id: item.concept_id, p_kind: 'recuerdo', p_self_grade: g })) next();
+    if (await save({ p_concept_id: item.concept_id, p_kind: 'recuerdo', p_self_grade: g })) {
+      setStats(s => ({ ...s, recuerdos: s.recuerdos + 1 })); next();
+    }
   };
 
   const onConfirmTest = async () => {
@@ -209,12 +216,16 @@ export default function ConceptStudy({ userId, onExit }: Props) {
       <div className="mx-auto max-w-2xl">
         {header}
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-          <p className="text-xs font-bold uppercase tracking-wider text-indigo-600">Estudiar hoy · Temas 35, 39 y 40</p>
-          <h1 className="mt-1 text-xl font-bold text-slate-900">Procedimientos de trabajo CPEI: conducción y amianto</h1>
+          <p className="text-xs font-bold uppercase tracking-wider text-indigo-600">{pilot ? 'Estudiar hoy · Repaso adaptativo' : 'Estudiar hoy · Temas 35, 39 y 40'}</p>
+          <h1 className="mt-1 text-xl font-bold text-slate-900">{pilot ? 'Tu sesión de hoy' : 'Procedimientos de trabajo CPEI: conducción y amianto'}</h1>
           <p className="mt-2 text-sm text-slate-600">
-            Estudias conceptos, no preguntas sueltas. BomberoPro decide qué toca hoy: primero lo que estás a punto de olvidar, después conceptos nuevos.
+            {pilot ? 'Practica a tu ritmo. Prepararemos una sesión con final para el tiempo que elijas; puedes parar cuando lo necesites.' : 'Estudias conceptos, no preguntas sueltas. BomberoPro decide qué toca hoy: primero lo que estás a punto de olvidar, después conceptos nuevos.'}
           </p>
-          {progress && <div className="mt-5"><ProgressBar p={progress} /></div>}
+          {pilot ? <details className="mt-5 text-sm text-slate-600">
+            <summary className="cursor-pointer font-semibold">Cómo se prepara mi sesión</summary>
+            <p className="mt-2">El sistema usa tus respuestas anteriores para seleccionar repasos y contenido nuevo. Ver una ficha no demuestra que la recuerdes: lo comprobaremos en próximas sesiones.</p>
+            <p className="mt-2">El tiempo es orientativo. No necesitas terminar todo hoy. Esta sesión incluye solo contenido conectado al motor adaptativo; no es todo tu material.</p>
+          </details> : progress && <div className="mt-5"><ProgressBar p={progress} /></div>}
           <fieldset className="mt-6">
             <legend className="text-sm font-semibold text-slate-800">¿Cuánto tiempo tienes?</legend>
             <div className="mt-2 grid grid-cols-4 gap-2">
@@ -231,6 +242,14 @@ export default function ConceptStudy({ userId, onExit }: Props) {
             className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 text-base font-bold text-white hover:bg-indigo-700 disabled:opacity-60">
             {phase === 'cargando' ? <><Loader2 className="h-5 w-5 animate-spin" aria-hidden="true" /> Preparando…</> : 'Empezar'}
           </button>
+          {pilot && (onOpenRecall || onOpenTests) && <details className="mt-5 border-t border-slate-100 pt-4 text-sm text-slate-600">
+            <summary className="cursor-pointer font-semibold">También puedo elegir mi material</summary>
+            <p className="mt-2">Las fichas y los test por temas siguen disponibles fuera de esta sesión. Las fichas pendientes de revisión no se publican al alumno.</p>
+            <div className="mt-3 flex flex-wrap gap-3">
+              {onOpenRecall && <button type="button" onClick={onOpenRecall} className="min-h-11 rounded-lg border border-slate-200 px-3 font-semibold">Fichas por temas</button>}
+              {onOpenTests && <button type="button" onClick={onOpenTests} className="min-h-11 rounded-lg border border-slate-200 px-3 font-semibold">Test por temas</button>}
+            </div>
+          </details>}
           {saveNote}
         </div>
       </div>
@@ -244,13 +263,22 @@ export default function ConceptStudy({ userId, onExit }: Props) {
         <div className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
           <h1 className="text-xl font-bold text-slate-900">Sesión terminada</h1>
           <p className="mt-2 text-sm text-slate-600">
-            {stats.nuevos} conceptos nuevos · {stats.aciertos} de {stats.tests} preguntas bien.
+            {pilot ? `${stats.nuevos + stats.recuerdos + stats.tests} actividades completadas. Puedes dejarlo aquí por hoy.` : `${stats.nuevos} conceptos nuevos · ${stats.aciertos} de ${stats.tests} preguntas bien.`}
           </p>
-          <p className="mt-1 text-sm text-slate-600">Lo que has fallado volverá pronto; lo que sabes, más adelante.</p>
-          {progress && <div className="mt-5 text-left"><ProgressBar p={progress} /></div>}
+          <p className="mt-1 text-sm text-slate-600">{pilot ? 'Esta sesión es una práctica. Comprobarlo de nuevo otro día nos ayudará a saber qué recuerdas.' : 'Lo que has fallado volverá pronto; lo que sabes, más adelante.'}</p>
+          {pilot ? <details className="mt-5 text-left text-sm text-slate-600">
+            <summary className="cursor-pointer font-semibold">Ver el detalle de esta sesión</summary>
+            <p className="mt-2">{stats.nuevos} fichas vistas · {stats.recuerdos} recuerdos autoevaluados · {stats.aciertos} aciertos de {stats.tests} tests.</p>
+            <p className="mt-2">Los aciertos corresponden a esta práctica, no a un porcentaje de dominio del tema. Las fichas vistas y el recuerdo autoevaluado son evidencias diferentes de un test.</p>
+          </details> : progress && <div className="mt-5 text-left"><ProgressBar p={progress} /></div>}
           <div className="mt-6 flex gap-2">
-            <button type="button" onClick={() => setPhase('inicio')} className="flex-1 rounded-xl bg-indigo-600 py-3 font-bold text-white">Otra sesión</button>
-            <button type="button" onClick={onExit} className="flex-1 rounded-xl bg-slate-100 py-3 font-bold text-slate-700">Volver al inicio</button>
+            {pilot ? <>
+              <button type="button" onClick={onExit} className="flex-1 rounded-xl bg-indigo-600 py-3 font-bold text-white">Terminar por hoy</button>
+              <button type="button" onClick={() => setPhase('inicio')} className="flex-1 rounded-xl bg-slate-100 py-3 font-bold text-slate-700">Quiero seguir</button>
+            </> : <>
+              <button type="button" onClick={() => setPhase('inicio')} className="flex-1 rounded-xl bg-indigo-600 py-3 font-bold text-white">Otra sesión</button>
+              <button type="button" onClick={onExit} className="flex-1 rounded-xl bg-slate-100 py-3 font-bold text-slate-700">Volver al inicio</button>
+            </>}
           </div>
           {saveNote}
         </div>
