@@ -11,7 +11,10 @@ const code21 = sql21.replace(/--.*$/gm, '');
 const codeDown = down21.replace(/--.*$/gm, '');
 
 describe('migración 21: private_supuestos', () => {
-  it('es la siguiente libre: la 17 es la última de main y no hay otra 21', () => {
+  // Antes de fusionar (#124) esta prueba exigía que origin/main acabara antes de la 21. Ya está en main,
+  // así que lo que importa ahora es que la 21 sea solo esta (la unicidad general la vigila
+  // scripts/check-migrations.mjs en CI).
+  it('la 21 es única: solo 21_private_supuestos (y su _down), aquí y en origin/main', () => {
     const files = readdirSync(dir).filter((f) => /^\d+_.*\.sql$/.test(f));
     expect(files.filter((f) => f.startsWith('21_')).sort()).toEqual(['21_private_supuestos.sql', '21_private_supuestos_down.sql']);
     let main: string | null = null;
@@ -19,8 +22,9 @@ describe('migración 21: private_supuestos', () => {
       main = execSync('git ls-tree --name-only origin/main supabase/migrations/', { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
     } catch { /* sin git u origin/main */ }
     if (main !== null) {
-      const nums = main.split('\n').map((l) => Number(l.match(/\/(\d+)_/)?.[1])).filter(Number.isFinite);
-      expect(Math.max(...nums)).toBeLessThan(21);
+      const main21 = main.split('\n').map((l) => l.split('/').pop() ?? '').filter((f) => /^21[a-z]?_/.test(f)).sort();
+      // Vacío si se ejecuta en una rama anterior a la fusión de la 21.
+      if (main21.length > 0) expect(main21).toEqual(['21_private_supuestos.sql', '21_private_supuestos_down.sql']);
     }
   });
 
