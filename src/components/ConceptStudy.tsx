@@ -5,7 +5,7 @@ import {
   STATE_LABELS,
   flushConceptEvents,
   pendingConceptEvents,
-  isCorrectOption,
+  isConceptAnswerFeedback,
   loadConceptProgress,
   loadConceptSession,
   recordConceptEvent,
@@ -71,6 +71,13 @@ export default function ConceptStudy({ userId, onExit }: Props) {
   const [chosen, setChosen] = useState<string | null>(null);
   const [confidence, setConfidence] = useState<Confidence | null>(null);
   const [answered, setAnswered] = useState(false);
+  const [testFeedback, setTestFeedback] = useState<{
+    correct: boolean; correct_answer: string; explanation: string | null; concept_respuesta: string | null;
+  } | null>(null);
+  const [pendingTestChoice, setPendingTestChoice] = useState<string | null>(null);
+  const testEventId = useRef(newAttemptKey());
+  const testResponseMs = useRef<number | null>(null);
+  const testConfidence = useRef<Confidence | null>(null);
   const shownAt = useRef(Date.now());
 
   const refreshProgress = async () => {
@@ -107,7 +114,10 @@ export default function ConceptStudy({ userId, onExit }: Props) {
   const options = useMemo(() => (item?.options ? shuffleArray(item.options) : []), [item?.pos, items]);
 
   const resetItem = () => {
-    setRevealed(false); setChosen(null); setConfidence(null); setAnswered(false); shownAt.current = Date.now();
+    setRevealed(false); setChosen(null); setConfidence(null); setAnswered(false);
+    setTestFeedback(null); setPendingTestChoice(null); testEventId.current = newAttemptKey();
+    testResponseMs.current = null; testConfidence.current = null;
+    shownAt.current = Date.now();
   };
 
   const start = async () => {
@@ -169,12 +179,40 @@ export default function ConceptStudy({ userId, onExit }: Props) {
   };
 
   const onConfirmTest = async () => {
-    if (!chosen || !confidence || staging) return;
-    const ok = isCorrectOption(item, chosen);
-    setAnswered(true);
-    if (await save({ p_concept_id: item.concept_id, p_kind: 'test', p_question_id: item.question_id, p_correct: ok, p_confidence: confidence })) {
-      setStats(s => ({ ...s, tests: s.tests + 1, aciertos: s.aciertos + (ok ? 1 : 0) }));
-    } else setAnswered(false);
+    if (!chosen || !confidence || staging || item.question_id == null) return;
+    const owner = userId;
+    const selectedOption = pendingTestChoice ?? chosen;
+    if (testResponseMs.current == null) testResponseMs.current = Date.now() - shownAt.current;
+    if (testConfidence.current == null) testConfidence.current = confidence;
+    // El mismo ID, opción, confianza y duración en todos los reintentos: el servidor califica UNA vez.
+    setPendingTestChoice(selectedOption);
+    setStaging(true);
+    try {
+      const r = await recordConceptEvent(owner, {
+        p_client_event_id: testEventId.current,
+        p_concept_id: item.concept_id,
+        p_kind: 'test',
+        p_question_id: item.question_id,
+        p_selected_option: selectedOption,
+        p_confidence: testConfidence.current,
+        p_session_id: sessionId.current,
+        p_response_ms: testResponseMs.current,
+      });
+      if (ownerRef.current !== owner) return;
+      setPendingSave(r.pending);
+      setRejectedSave(r.rejected);
+      if (r.storageUnavailable && !r.saved) setVolatileSaveFailure(true);
+      if (r.saved && isConceptAnswerFeedback(r.data)) {
+        setTestFeedback(r.data);
+        setAnswered(true);
+        setStats(s => ({ ...s, tests: s.tests + 1, aciertos: s.aciertos + (r.data.correct ? 1 : 0) }));
+        void refreshProgress();
+      }
+      // Una respuesta sin confirmación/feedback no se presenta como corregida.
+      // Permanece fija para reintentar con la misma clave cuando regrese la red.
+    } finally {
+      if (ownerRef.current === owner) setStaging(false);
+    }
   };
 
   const header = (
@@ -312,13 +350,13 @@ export default function ConceptStudy({ userId, onExit }: Props) {
             <div className="mt-4 flex flex-col gap-2" role="radiogroup" aria-label="Opciones">
               {options.map(opt => {
                 const isSel = chosen === opt;
-                const isOk = opt === item.correct_answer;
+                const isOk = answered && opt === testFeedback?.correct_answer;
                 let cls = 'border-slate-200 bg-white';
                 if (answered && isOk) cls = 'border-emerald-500 bg-emerald-50';
                 else if (answered && isSel) cls = 'border-red-500 bg-red-50';
                 else if (isSel) cls = 'border-indigo-600 bg-indigo-50';
                 return (
-                  <button key={opt} type="button" role="radio" aria-checked={isSel} disabled={answered}
+                  <button key={opt} type="button" role="radio" aria-checked={isSel} disabled={answered || !!pendingTestChoice}
                     onClick={() => setChosen(opt)} className={`rounded-xl border p-3 text-left text-sm ${cls}`}>
                     {opt}
                   </button>
@@ -330,7 +368,7 @@ export default function ConceptStudy({ userId, onExit }: Props) {
                 <p className="text-sm font-semibold text-slate-700">¿Cómo de seguro estás?</p>
                 <div className="mt-2 grid grid-cols-3 gap-2">
                   {([['alta', 'Lo sé'], ['media', 'Creo que sí'], ['baja', 'Me la juego']] as const).map(([v, l]) => (
-                    <button key={v} type="button" aria-pressed={confidence === v} onClick={() => setConfidence(v)}
+                    <button key={v} type="button" aria-pressed={confidence === v} disabled={!!pendingTestChoice} onClick={() => setConfidence(v)}
                       className={`rounded-xl border py-2 text-sm font-semibold ${confidence === v ? 'border-indigo-600 bg-indigo-50 text-indigo-700' : 'border-slate-200 text-slate-600'}`}>
                       {l}
                     </button>
@@ -341,20 +379,25 @@ export default function ConceptStudy({ userId, onExit }: Props) {
             {answered && (
               <div className="mt-4 rounded-xl bg-slate-50 p-4 text-sm text-slate-800">
                 <p className="flex items-center gap-2 font-bold">
-                  {chosen && isCorrectOption(item, chosen)
+                  {testFeedback?.correct
                     ? <><CheckCircle2 className="h-5 w-5 text-emerald-600" aria-hidden="true" /> Correcto</>
                     : <><XCircle className="h-5 w-5 text-red-600" aria-hidden="true" /> No es correcto</>}
                 </p>
-                <p className="mt-2"><strong>Concepto:</strong> {item.concept_respuesta}</p>
-                {item.explanation && <p className="mt-2 text-slate-600">{item.explanation}</p>}
+                <p className="mt-2"><strong>Concepto:</strong> {testFeedback?.concept_respuesta}</p>
+                {testFeedback?.explanation && <p className="mt-2 text-slate-600">{testFeedback.explanation}</p>}
                 {source}
               </div>
             )}
             {!answered ? (
-              <button type="button" onClick={onConfirmTest} disabled={!chosen || !confidence}
-                className="mt-6 w-full rounded-xl bg-indigo-600 py-3 font-bold text-white disabled:opacity-50">
-                Confirmar respuesta
-              </button>
+              <>
+                {pendingTestChoice && <p role="status" className="mt-3 text-sm text-amber-800">
+                  Respuesta pendiente de confirmación. Reintenta cuando tengas conexión; no se cambiará tu elección.
+                </p>}
+                <button type="button" onClick={onConfirmTest} disabled={!chosen || !confidence || staging}
+                  className="mt-6 w-full rounded-xl bg-indigo-600 py-3 font-bold text-white disabled:opacity-50">
+                  {pendingTestChoice ? 'Reintentar comprobación' : 'Confirmar respuesta'}
+                </button>
+              </>
             ) : (
               <button type="button" onClick={next} disabled={staging} className="mt-6 w-full rounded-xl bg-slate-900 py-3 font-bold text-white">Siguiente</button>
             )}

@@ -32,6 +32,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Preview environment isolation
+        run: npx vitest run scripts/check-preview-isolation.test.mjs --configLoader runner
+
       - name: Lint
         run: npm run lint
 
@@ -45,3 +48,4 @@ jobs:
         run: |
           npm i --no-save @electric-sql/pglite
           node supabase/tests/concept_engine.pglite.mjs
+          node supabase/tests/concept_answer_secure.pglite.mjs
