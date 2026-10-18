@@ -51,13 +51,13 @@ describe('StudyByTopic registra la sesión', () => {
       p_session_id: 'sess-0001', p_modo: 'estudio_por_temas', p_topic_ids: [18], p_preguntas_planificadas: 1,
     });
 
+    // Un solo toque responde (sin paso de confianza); un segundo toque rápido no guarda dos veces.
     fireEvent.click(screen.getByText('Correcta'));
-    fireEvent.click(screen.getByRole('radio', { name: 'Lo sé' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Confirmar respuesta' }));
+    fireEvent.click(screen.getByText('Falsa 1'));
     await waitFor(() => expect(saveAttemptToServer).toHaveBeenCalledTimes(1));
-    expect(saveAttemptToServer.mock.calls[0][0]).toMatchObject({ p_session_id: 'sess-0001', p_modo: 'estudio_por_temas' });
+    expect(saveAttemptToServer.mock.calls[0][0]).toMatchObject({ p_session_id: 'sess-0001', p_modo: 'estudio_por_temas', p_respuesta: 'Correcta', p_acierto: true, p_confidence: null });
 
-    fireEvent.click(await screen.findByRole('button', { name: /Siguiente/ }));
+    fireEvent.click(await screen.findByRole('button', { name: /Ver resultado|Siguiente/ }));
     await screen.findByText('Sesión completada');
     await waitFor(() =>
       expect(rpc.mock.calls.filter(c => c[0] === 'finish_study_session')).toEqual([

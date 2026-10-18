@@ -32,13 +32,13 @@ export default function StudyByTopic({ session, onNavigateHome }: StudyByTopicPr
   const [loadingQuestions, setLoadingQuestions] = useState(false);
   const [idx, setIdx] = useState(0);
   const [answer, setAnswer] = useState('');
-  const [confidence, setConfidence] = useState('');
   const [answered, setAnswered] = useState(false);
   const [startTime, setStartTime] = useState(0);
   const [correctCount, setCorrectCount] = useState(0);
   // Sesión de estudio en curso (para medir sesiones terminadas). null si no hay cuenta.
   const sessionIdRef = useRef<string | null>(null);
   const finishedRef = useRef(false);
+  const answeringRef = useRef(false);
 
 useEffect(() => {
   const loadTopics = async () => {
@@ -64,11 +64,12 @@ const startStudy = async () => {
   const { data, error } = await supabase.rpc('get_topic_study_questions', {
     p_user_id: session?.user?.id,
     p_topic_ids: selected,
-    p_limit: 20
+    p_limit: 10
   });
   if (!error && data) {
     setQuestions(shuffleAllOptions(data as Question[]));
     finishedRef.current = false;
+    answeringRef.current = false;
     sessionIdRef.current = session?.user?.id ? newStudySessionId() : null;
     if (sessionIdRef.current) {
       void startStudySession(sessionIdRef.current, 'estudio_por_temas', selected, (data as Question[]).length);
@@ -91,9 +92,12 @@ useEffect(() => {
   }
 }, [started, idx, questions.length]);
 
-const confirmAnswer = async () => {
-  if (!currentQuestion || !answer) return;
-  const isCorrect = answer === currentQuestion.correct_answer;
+const confirmAnswer = async (chosen: string) => {
+  // Un toque responde. El ref evita guardar dos veces si se pulsa rápido dos opciones.
+  if (!currentQuestion || !chosen || answered || answeringRef.current) return;
+  answeringRef.current = true;
+  setAnswer(chosen);
+  const isCorrect = chosen === currentQuestion.correct_answer;
   if (isCorrect) setCorrectCount(c => c + 1);
   setAnswered(true);
   const responseTimeMs = Date.now() - startTime;
@@ -102,19 +106,19 @@ const confirmAnswer = async () => {
       p_user_id: session.user.id,
       p_question_id: Number(currentQuestion.id),
       p_acierto: isCorrect,
-      p_respuesta: answer,
+      p_respuesta: chosen,
       p_tiempo_ms: responseTimeMs,
       p_modo: 'estudio_por_temas',
       p_session_id: sessionIdRef.current,
       p_nivel: toLevelInt(currentQuestion.level),
-      p_confidence: confidence || null
+      p_confidence: null
     });
   }
 };
 
 const nextQuestion = () => {
+  answeringRef.current = false;
   setAnswer('');
-  setConfidence('');
   setAnswered(false);
   setStartTime(Date.now());
   setIdx(i => i + 1);
@@ -224,7 +228,7 @@ return h('div', { className: 'min-h-screen bg-slate-50 p-4' },
                  }
                  return h('button', {
                    key: i,
-                   onClick: () => { if (!answered) setAnswer(opt); },
+                   onClick: () => { void confirmAnswer(opt); },
                    disabled: answered,
                    className: 'text-left p-3 rounded-lg border ' + cls
                  }, opt);
@@ -239,33 +243,12 @@ return h('div', { className: 'min-h-screen bg-slate-50 p-4' },
                  )
              : null
              ),
-           !answered && answer
-           ? h('div', { className: 'bg-white rounded-xl p-4 shadow mb-4' },
-               h('p', { className: 'text-sm font-semibold text-slate-700 mb-2' }, '¿Cómo de seguro estás?'),
-               h('div', { className: 'grid grid-cols-3 gap-2', role: 'radiogroup', 'aria-label': 'Seguridad de tu respuesta' },
-                 [['alta', 'Lo sé'], ['media', 'Creo que sí'], ['baja', 'Me la juego']].map(([value, label]) =>
-                   h('button', {
-                     key: value,
-                     type: 'button',
-                     role: 'radio',
-                     'aria-checked': confidence === value,
-                     onClick: () => setConfidence(value as any),
-                     className: 'py-2 rounded-lg border text-sm font-semibold ' +
-                       (confidence === value ? 'border-orange-500 bg-orange-50 text-orange-700' : 'border-slate-200 text-slate-600')
-                   }, label))
-               )
-             )
-           : null,
-           !answered
+           answered
            ? h('button', {
-             onClick: confirmAnswer,
-             disabled: !answer || !confidence,
-             className: 'w-full bg-orange-500 text-white py-3 rounded-lg font-semibold disabled:opacity-50'
-           }, 'Confirmar respuesta')
-           : h('button', {
              onClick: nextQuestion,
              className: 'w-full bg-slate-900 text-white py-3 rounded-lg font-semibold'
-           }, 'Siguiente')
+           }, idx + 1 >= questions.length ? 'Ver resultado' : 'Siguiente')
+           : null
            )
          );
 }
