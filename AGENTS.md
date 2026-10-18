@@ -40,3 +40,9 @@ Documentar resultados y limitaciones reales. Para documentación aislada, revisa
 
 ## PR
 Título breve con alcance. Describir qué cambió, por qué, cómo se comprobó y los riesgos pendientes. No fusionar automáticamente cambios que afecten datos, evaluación, selección adaptativa o visibilidad del banco de preguntas.
+
+## Migraciones y bases de datos (regla común, desde 18/10/2026)
+- Antes de crear una migración, mirar `supabase/migrations` en `main` y usar el **siguiente número libre**. La comprobación `scripts/check-migrations.mjs` (CI) rechaza números repetidos.
+- Si dos PR abiertos usan el mismo número, renumera el que se fusione después y avisa en ambos PR.
+- **Staging solo recibe SQL que está en un PR**; producción solo SQL ya fusionado en `main` y con aprobación escrita de JM.
+- Toda migración lleva su `_down.sql`. Los cambios de datos registran el valor anterior en `qa_changes_20260923`; nunca se borran preguntas, se despublican.

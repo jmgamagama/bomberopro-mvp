@@ -35,6 +35,9 @@ jobs:
       - name: Preview environment isolation
         run: npx vitest run scripts/check-preview-isolation.test.mjs --configLoader runner
 
+      - name: Migraciones sin números repetidos
+        run: node scripts/check-migrations.mjs
+
       - name: Lint
         run: npm run lint
 
