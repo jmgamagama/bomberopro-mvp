@@ -60,6 +60,7 @@ const EXPECTED_DECKS: Array<[string, string, number]> = [
   ['tema25-lote02', 'T25·2', 68],
   ['tema26', 'T26', 60],
   ['tema27', 'T27', 22],
+  ['tema27-lote02', 'T27·2', 30],
   ['tema28', 'T28', 29],
   ['tema28-lote02', 'T28·2', 74],
   ['tema29', 'T29', 81],
@@ -85,8 +86,8 @@ const EXPECTED_DECKS: Array<[string, string, number]> = [
 ];
 const EXPECTED_TOPICS = ["tema1", "tema2", "tema3", "tema4", "tema5", "tema6", "tema7", "tema8", "tema9", "tema10", "tema12", "tema13", "tema14", "tema15", "tema16", "tema17", "tema20", "tema21", "tema22", "tema23", "tema24", "tema25", "tema26", "tema27", "tema28", "tema29", "tema30", "tema31", "tema32", "tema33", "tema34", "tema35", "tema36", "tema38", "tema39", "tema40"];
 const EXPECTED_BLOQUES = [["comun", "Parte común"], ["especifica", "Parte específica"]];
-const EXPECTED_TOTAL = 3319;
-const EXPECTED_COVERAGE = '1, 2, 3, 4, 5, 6, 7, 8, 9, 10 (lote 02), 12 (lote 02), 13 (lote 02), 14, 15, 16 (lote 02), 17, 20, 21 (lote 02), 22 (lote 02), 23, 24, 25 (lote 02), 26, 27, 28 (lote 02), 29, 30, 31, 32, 33, 34 (lotes 01 a 03), 35, 36 (lotes 01 a 08), 38, 39 y 40';
+const EXPECTED_TOTAL = 3349;
+const EXPECTED_COVERAGE = '1, 2, 3, 4, 5, 6, 7, 8, 9, 10 (lote 02), 12 (lote 02), 13 (lote 02), 14, 15, 16 (lote 02), 17, 20, 21 (lote 02), 22 (lote 02), 23, 24, 25 (lote 02), 26, 27 (lote 02), 28 (lote 02), 29, 30, 31, 32, 33, 34 (lotes 01 a 03), 35, 36 (lotes 01 a 08), 38, 39 y 40';
 // </generado:fase2>
 
 describe('registro central de recuerdo', () => {
