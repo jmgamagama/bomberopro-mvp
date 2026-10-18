@@ -29,7 +29,7 @@ Es un filtro de interfaz, no un control de acceso: las fichas pendientes siguen 
 
 ## Estado por mazo
 
-Visibles para el alumno: **804** de 2965 fichas.
+Visibles para el alumno: **804** de 3251 fichas.
 
 | Mazo | Fichas | Estado | Visibles alumno | Motivo | Informe |
 |---|---:|---|---:|---|---|
@@ -47,12 +47,15 @@ Visibles para el alumno: **804** de 2965 fichas.
 | `tema12` | 21 | pendiente | 0 | muestra de 20 de 21 revisada a mano | `/workspace/tema12_calidad.md` |
 | `tema12-lote02` | 23 | pendiente | 0 | muestra de 20 de 23 revisada a mano | `/workspace/tema12_lote02_calidad.md` |
 | `tema13` | 25 | pendiente | 0 | muestra de 20 de 25 revisada a mano | `/workspace/tema13_calidad.md` |
+| `tema13-lote02` | 47 | pendiente | 0 | muestra de 20 de 47 revisada a mano, 0 errores (huecos CEP, INSST) | `/workspace/tema13_lote02_calidad.md` |
 | `tema14` | 24 | pendiente | 0 | muestra de 20 de 24 revisada a mano | `/workspace/tema14_calidad.md` |
+| `tema15` | 92 | pendiente | 0 | muestra de 20 de 92 revisada a mano, 0 errores (huecos CEP: INSST, RD 1644/2008, RD 1215/1997, ITC-BT-40) | `/workspace/tema15_calidad.md` |
 | `tema16` | 48 | revisado | 48 | 48/48 revisadas ficha a ficha | `/workspace/tema16_calidad.md` |
 | `tema16-lote02` | 21 | pendiente | 0 | muestra de 20 de 21 revisada a mano | `/workspace/tema16_lote02_calidad.md` |
 | `tema17` | 14 | revisado | 14 | 14/14 revisadas a mano | `/workspace/tema17_calidad.md` |
 | `tema20` | 24 | pendiente | 0 | muestra de 20 de 24 revisada a mano | `/workspace/tema20_calidad.md` |
 | `tema21` | 42 | pendiente | 0 | muestra de 20 de 42 revisada a mano | `/workspace/tema21_calidad.md` |
+| `tema21-lote02` | 73 | pendiente | 0 | muestra de 20 de 73 revisada a mano, 0 errores (huecos CEP, manual DGT) | `/workspace/tema21_lote02_calidad.md` |
 | `tema22` | 33 | pendiente | 0 | muestra de 20 de 33 revisada a mano | `/workspace/tema22_calidad.md` |
 | `tema22-lote02` | 27 | pendiente | 0 | muestra de 20 de 27 revisada a mano | `/workspace/tema22_lote02_calidad.md` |
 | `tema23` | 21 | pendiente | 0 | muestra de 20 de 21 revisada a mano | `/workspace/tema23_calidad.md` |
@@ -61,6 +64,7 @@ Visibles para el alumno: **804** de 2965 fichas.
 | `tema26` | 60 | pendiente | 0 | muestra de 20 de 60 revisada a mano | `/workspace/tema26_calidad.md` |
 | `tema27` | 22 | pendiente | 0 | muestra de 20 de 22 revisada a mano | `/workspace/tema27_calidad.md` |
 | `tema28` | 29 | pendiente | 0 | muestra de 20 de 29 revisada a mano | `/workspace/tema28_calidad.md` |
+| `tema28-lote02` | 74 | pendiente | 0 | muestra de 20 de 74 revisada a mano, 0 errores (huecos CEP 38: REBT, RD 337/2014, RD 614/2001, NTP 400) | `/workspace/tema28_lote02_calidad.md` |
 | `tema29` | 81 | pendiente | 0 | muestra de 20 de 81 revisada a mano | `/workspace/tema29_calidad.md` |
 | `tema30` | 87 | pendiente | 0 | muestra de 20 de 87 revisada a mano | `/workspace/tema30_calidad.md` |
 | `tema31` | 83 | pendiente | 0 | muestra de 20 de 83 revisada a mano | `/workspace/tema31_calidad.md` |

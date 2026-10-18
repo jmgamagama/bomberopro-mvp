@@ -43,12 +43,15 @@ const EXPECTED_DECKS: Array<[string, string, number]> = [
   ['tema12', 'T12', 21],
   ['tema12-lote02', 'T12·2', 23],
   ['tema13', 'T13', 25],
+  ['tema13-lote02', 'T13·2', 47],
   ['tema14', 'T14', 24],
+  ['tema15', 'T15', 92],
   ['tema16', 'T16', 48],
   ['tema16-lote02', 'T16·2', 21],
   ['tema17', 'T17', 14],
   ['tema20', 'T20', 24],
   ['tema21', 'T21', 42],
+  ['tema21-lote02', 'T21·2', 73],
   ['tema22', 'T22', 33],
   ['tema22-lote02', 'T22·2', 27],
   ['tema23', 'T23', 21],
@@ -57,6 +60,7 @@ const EXPECTED_DECKS: Array<[string, string, number]> = [
   ['tema26', 'T26', 60],
   ['tema27', 'T27', 22],
   ['tema28', 'T28', 29],
+  ['tema28-lote02', 'T28·2', 74],
   ['tema29', 'T29', 81],
   ['tema30', 'T30', 87],
   ['tema31', 'T31', 83],
@@ -78,10 +82,10 @@ const EXPECTED_DECKS: Array<[string, string, number]> = [
   ['tema39', 'T39', 149],
   ['tema40', 'T40', 213],
 ];
-const EXPECTED_TOPICS = ["tema1", "tema2", "tema3", "tema4", "tema5", "tema6", "tema7", "tema8", "tema9", "tema10", "tema12", "tema13", "tema14", "tema16", "tema17", "tema20", "tema21", "tema22", "tema23", "tema24", "tema25", "tema26", "tema27", "tema28", "tema29", "tema30", "tema31", "tema32", "tema33", "tema34", "tema35", "tema36", "tema38", "tema39", "tema40"];
+const EXPECTED_TOPICS = ["tema1", "tema2", "tema3", "tema4", "tema5", "tema6", "tema7", "tema8", "tema9", "tema10", "tema12", "tema13", "tema14", "tema15", "tema16", "tema17", "tema20", "tema21", "tema22", "tema23", "tema24", "tema25", "tema26", "tema27", "tema28", "tema29", "tema30", "tema31", "tema32", "tema33", "tema34", "tema35", "tema36", "tema38", "tema39", "tema40"];
 const EXPECTED_BLOQUES = [["comun", "Parte común"], ["especifica", "Parte específica"]];
-const EXPECTED_TOTAL = 2965;
-const EXPECTED_COVERAGE = '1, 2, 3, 4, 5, 6, 7, 8, 9, 10 (lote 02), 12 (lote 02), 13, 14, 16 (lote 02), 17, 20, 21, 22 (lote 02), 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34 (lotes 01 a 03), 35, 36 (lotes 01 a 08), 38, 39 y 40';
+const EXPECTED_TOTAL = 3251;
+const EXPECTED_COVERAGE = '1, 2, 3, 4, 5, 6, 7, 8, 9, 10 (lote 02), 12 (lote 02), 13 (lote 02), 14, 15, 16 (lote 02), 17, 20, 21 (lote 02), 22 (lote 02), 23, 24, 25, 26, 27, 28 (lote 02), 29, 30, 31, 32, 33, 34 (lotes 01 a 03), 35, 36 (lotes 01 a 08), 38, 39 y 40';
 // </generado:fase2>
 
 describe('registro central de recuerdo', () => {
@@ -90,7 +94,8 @@ describe('registro central de recuerdo', () => {
     expect(RECALL_DECKS.map((d) => d.shortLabel)).toEqual(EXPECTED_DECKS.map(([, label]) => label));
     expect(RECALL_DECKS.some((d) => d.tema === 37)).toBe(false);
     // Temas sin permiso de uso de su fuente (docs/PERMISOS_FUENTES.md): no se cargan.
-    expect(RECALL_DECKS.some((d) => [15, 18, 19].includes(d.tema))).toBe(false);
+    // El tema 15 solo se carga desde fuentes oficiales gratuitas (INSST, BOE), nunca desde manuales.
+    expect(RECALL_DECKS.some((d) => [18, 19].includes(d.tema))).toBe(false);
   });
 
   it('agrupa los lotes del tema 36 en un único tema', () => {

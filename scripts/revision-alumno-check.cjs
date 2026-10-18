@@ -16,7 +16,7 @@ const check = (name, ok, detail = '') => { results.push(ok); console.log(`${ok ?
   page.on('pageerror', (e) => errors.push(e.message));
   await page.goto(BASE);
   await page.getByRole('heading', { name: /Prepara tu oposición/ }).waitFor();
-  const radios = await page.getByRole('radio').allTextContents();
+  const radios = await page.getByRole('radiogroup', { name: 'Tema para la sesión diaria' }).getByRole('radio').allTextContents();
   check('bienvenida: «Todos los temas» con 804 fichas', radios.some((t) => /Todos los temas/.test(t) && /804 fichas/.test(t)));
   check('bienvenida: 8 temas + «Todos»', radios.length === 9, String(radios.length));
   check('bienvenida: sin tema 36 ni tema 1', !radios.some((t) => /Tema 36|^T1 ·/.test(t)));
