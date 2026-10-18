@@ -171,6 +171,15 @@ const DECK_SOURCES: readonly DeckSource[] = [
   },
   {
     meta: {
+      tema: 9,
+      title: "Tema 9 · Hidráulica: fluidos, Bernoulli, descarga, pérdidas de carga y bombas centrífugas (BOE, INSST, IDAE/MITECO, CTE, UE)",
+      count: 84,
+      source: "Fase 2 · fuentes oficiales: RD 2032/2009, RD 709/2015 y RIPCI (BOE), NTP 362 (INSST), guía técnica de bombas del IDAE (documento reconocido del RITE, miteco.gob.es), CTE DB HS 4 (codigotecnico.org) y Reglamento (UE) 547/2012 (EUR-Lex)",
+    },
+    load: () => import('./tema9Recall').then((m) => m.TEMA9_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 14,
       title: "Tema 14 · Vehículos prioritarios y de servicios auxiliares: RGC, RGV y RD 159/2021",
       count: 24,

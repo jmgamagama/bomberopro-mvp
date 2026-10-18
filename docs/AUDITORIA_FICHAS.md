@@ -18,6 +18,7 @@ Problemas detectados: **0**.
 | tema6 | pendiente | 94 | 100 % | 0 | `4fd29b1f6e6f146b` |  |
 | tema7 | pendiente | 64 | 100 % | 0 | `2bd953ad56a2fdc3` |  |
 | tema8 | pendiente | 25 | 100 % | 0 | `5c8331e250016463` |  |
+| tema9 | pendiente | 84 | 100 % | 0 | `eb372a5e7f210965` |  |
 | tema10 | pendiente | 34 | 100 % | 0 | `735c9bacebb0513f` |  |
 | tema10-lote02 | revisado | 13 | 100 % | 0 | `4dbd481541494ac3` |  |
 | tema12 | pendiente | 21 | 100 % | 0 | `7ef9bc6244b177a0` |  |
