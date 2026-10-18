@@ -25,6 +25,14 @@ const RAW_INDEX: readonly Omit<SupuestoIndexEntry, 'revision'>[] = [
   { id: 'supuesto-t21-ve-01', titulo: 'Colisión de un turismo eléctrico en una travesía', temas: [21], numPreguntas: 7 },
   { id: 'supuesto-t32-vivienda-01', titulo: 'Humo en la escalera de un edificio de viviendas', temas: [32, 13], numPreguntas: 9 },
   { id: 'supuesto-t33-agua-01', titulo: 'BIE e hidrante de una nave en un polígono urbano', temas: [33], numPreguntas: 8 },
+  // Lote 2 (supuestosLote2.ts): cálculo hidráulico y física aplicada; pendientes de revisión.
+  { id: 'supuesto-t9-hidrostatica-01', titulo: 'Aljibe enterrado de una finca y tubo en U del aula del parque', temas: [9], numPreguntas: 6 },
+  { id: 'supuesto-t9-pascal-arquimedes-01', titulo: 'Gato hidráulico en una excarcelación y bidón hundido en una balsa de riego', temas: [9], numPreguntas: 6 },
+  { id: 'supuesto-t9-caudal-01', titulo: 'Cisterna nodriza en un incendio de pastos', temas: [9], numPreguntas: 5 },
+  { id: 'supuesto-t9-bernoulli-perdidas-01', titulo: 'Red de agua de un edificio de oficinas: estrechamiento, subida y pérdidas', temas: [9], numPreguntas: 7 },
+  { id: 'supuesto-t9-descarga-chorro-01', titulo: 'Fuga en una cuba de riego y prueba de alcance vertical de una lanza', temas: [9], numPreguntas: 5 },
+  { id: 'supuesto-t9-bombeo-01', titulo: 'Llenado del depósito elevado de un parque y grupo de bombeo', temas: [9], numPreguntas: 6 },
+  { id: 'supuesto-t22-poleas-01', titulo: 'Izado de material a una terraza con poleas', temas: [22], numPreguntas: 6 },
 ];
 
 export const SUPUESTOS_INDEX: readonly SupuestoIndexEntry[] = RAW_INDEX.map((s) => ({

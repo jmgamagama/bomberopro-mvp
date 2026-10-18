@@ -7,6 +7,7 @@
  * entra en el chunk principal.
  */
 import type { Supuesto } from './supuestosTypes';
+import { SUPUESTOS_LOTE2 } from './supuestosLote2';
 
 // ---------------------------------------------------------------------------
 // Fuentes (idénticas a las de las fichas de recuerdo)
@@ -57,7 +58,8 @@ function ripci(apartado: string) {
 // Supuestos
 // ---------------------------------------------------------------------------
 
-export const SUPUESTOS: readonly Supuesto[] = [
+/** Lote 1: casos sobre normativa (DGT, CTE DB SI, RIPCI), con fuentes ya usadas en las fichas. */
+export const SUPUESTOS_LOTE1: readonly Supuesto[] = [
   {
     id: 'supuesto-t21-ve-01',
     titulo: 'Colisión de un turismo eléctrico en una travesía',
@@ -438,3 +440,6 @@ export const SUPUESTOS: readonly Supuesto[] = [
     ],
   },
 ];
+
+/** Todos los supuestos de la app: lote 1 (normativa) y lote 2 (cálculo hidráulico y física, supuestosLote2.ts). */
+export const SUPUESTOS: readonly Supuesto[] = [...SUPUESTOS_LOTE1, ...SUPUESTOS_LOTE2];

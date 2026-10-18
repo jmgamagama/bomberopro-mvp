@@ -64,7 +64,7 @@ Problemas detectados: **0**.
 
 ## Supuestos prácticos
 
-Reglas (src/data/supuestos/supuestosAudit.ts): enunciado, temas de la parte específica (8-40), autoría «original», y en cada pregunta explicación, localización y fuente con enlace oficial; test con 4 opciones distintas y una correcta; cálculo con fórmula y pasos cuya operación se recalcula y coincide con el resultado. Revisión por id en src/data/recallReview.ts (pendiente si no figura).
+Reglas (src/data/supuestos/supuestosAudit.ts): enunciado, temas de la parte específica (8-40), autoría «original», y en cada pregunta explicación, localización y fuente con enlace oficial (o educativo público admitido solo para fórmulas de física e hidráulica general sin fuente oficial: openstax.org, riunet.upv.es, recursos.edu.xunta.gal); test con 4 opciones distintas y una correcta; cálculo con fórmula y pasos cuya operación se recalcula y coincide con el resultado. Revisión por id en src/data/recallReview.ts (pendiente si no figura).
 
 Problemas detectados: **0**.
 
@@ -73,3 +73,10 @@ Problemas detectados: **0**.
 | supuesto-t21-ve-01 | pendiente | T21 | 7 | 0 | 0 | `d6516d8552cfbf56` |
 | supuesto-t32-vivienda-01 | pendiente | T32, T13 | 9 | 0 | 0 | `d858068759739993` |
 | supuesto-t33-agua-01 | pendiente | T33 | 8 | 3 | 0 | `2000548d3cdf08ae` |
+| supuesto-t9-hidrostatica-01 | pendiente | T9 | 6 | 4 | 0 | `cf29689716aedba2` |
+| supuesto-t9-pascal-arquimedes-01 | pendiente | T9 | 6 | 4 | 0 | `e1700a96fc902da1` |
+| supuesto-t9-caudal-01 | pendiente | T9 | 5 | 3 | 0 | `0cf5fb6a1621d64e` |
+| supuesto-t9-bernoulli-perdidas-01 | pendiente | T9 | 7 | 4 | 0 | `10ba8497ef3a7f9d` |
+| supuesto-t9-descarga-chorro-01 | pendiente | T9 | 5 | 3 | 0 | `ca2589ef1cd6b264` |
+| supuesto-t9-bombeo-01 | pendiente | T9 | 6 | 3 | 0 | `7581b50bfa58e1f4` |
+| supuesto-t22-poleas-01 | pendiente | T22 | 6 | 3 | 0 | `c56a7365926a0214` |

@@ -4,7 +4,8 @@ import '../../test/setup';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { SUPUESTOS } from './supuestosData';
+import { SUPUESTOS, SUPUESTOS_LOTE1 } from './supuestosData';
+import { SUPUESTOS_LOTE2 } from './supuestosLote2';
 import { SUPUESTOS_INDEX, getVisibleSupuestos, loadSupuestos } from './supuestosRegistry';
 import { auditSupuesto, auditSupuestos, evaluarOperacion } from './supuestosAudit';
 import {
@@ -31,15 +32,18 @@ describe('contenido de los supuestos', () => {
     expect(auditSupuestos(SUPUESTOS)).toEqual([]);
   });
 
-  it('son 3 casos originales, con al menos un cálculo con fórmula oficial', () => {
-    expect(SUPUESTOS).toHaveLength(3);
+  it('son 10 casos originales (3 de normativa y 7 de cálculo), con cálculos', () => {
+    expect(SUPUESTOS_LOTE1).toHaveLength(3);
+    expect(SUPUESTOS).toEqual([...SUPUESTOS_LOTE1, ...SUPUESTOS_LOTE2]);
+    expect(SUPUESTOS).toHaveLength(10);
     expect(SUPUESTOS.every((s) => s.autoria === 'original')).toBe(true);
     expect(SUPUESTOS.flatMap((s) => s.preguntas).some((p) => p.tipo === 'calculo')).toBe(true);
   });
 
-  it('cada enlace citado ya se usa en las fichas de recuerdo (fuentes conocidas)', () => {
+  it('lote 1: cada enlace citado ya se usa en las fichas de recuerdo (fuentes conocidas)', () => {
+    // El lote 2 cita fuentes nuevas verificadas con curl (FUENTES_LOTE2_VERIFICADAS, supuestosLote2.test.ts).
     const corpus = jsonFiles(join(process.cwd(), 'data')).map((f) => readFileSync(f, 'utf8')).join('\n');
-    for (const s of SUPUESTOS)
+    for (const s of SUPUESTOS_LOTE1)
       for (const p of s.preguntas) {
         const url = p.fuente.match(/https?:\/\/\S+/)![0];
         expect(corpus.includes(url), `${p.id}: ${url}`).toBe(true);
@@ -130,7 +134,7 @@ describe('revisión por mazo', () => {
   });
   afterEach(() => vi.unstubAllEnvs());
 
-  it('los 3 supuestos están pendientes y el alumno no ve ninguno', () => {
+  it('los 10 supuestos están pendientes y el alumno no ve ninguno', () => {
     for (const s of SUPUESTOS_INDEX) {
       expect(s.revision).toBe('pendiente');
       expect(REVIEWED_DECKS[s.id]).toBeUndefined();
@@ -140,7 +144,7 @@ describe('revisión por mazo', () => {
 
   it('el build de administrador de revisión los ve todos', () => {
     vi.stubEnv('VITE_FEATURE_REVISION_ADMIN', 'true');
-    expect(getVisibleSupuestos()).toHaveLength(3);
+    expect(getVisibleSupuestos()).toHaveLength(10);
   });
 });
 
