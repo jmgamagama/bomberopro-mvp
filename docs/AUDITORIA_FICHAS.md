@@ -61,3 +61,15 @@ Problemas detectados: **0**.
 | tema38 | revisado | 198 | 0 % | 0 | `b6cea1fdfc24ec97` | sin enlace público |
 | tema39 | revisado | 149 | 0 % | 0 | `968a1cd93a6f265f` | sin enlace público |
 | tema40 | revisado | 213 | 0 % | 0 | `d1d2b93c30b34dce` | sin enlace público |
+
+## Supuestos prácticos
+
+Reglas (src/data/supuestos/supuestosAudit.ts): enunciado, temas de la parte específica (8-40), autoría «original», y en cada pregunta explicación, localización y fuente con enlace oficial; test con 4 opciones distintas y una correcta; cálculo con fórmula y pasos cuya operación se recalcula y coincide con el resultado. Revisión por id en src/data/recallReview.ts (pendiente si no figura).
+
+Problemas detectados: **0**.
+
+| Supuesto | Revisión | Temas | Preguntas | De cálculo | Problemas | Versión |
+|---|---|---|---:|---:|---:|---|
+| supuesto-t21-ve-01 | pendiente | T21 | 7 | 0 | 0 | `d6516d8552cfbf56` |
+| supuesto-t32-vivienda-01 | pendiente | T32, T13 | 9 | 0 | 0 | `d858068759739993` |
+| supuesto-t33-agua-01 | pendiente | T33 | 8 | 3 | 0 | `2000548d3cdf08ae` |

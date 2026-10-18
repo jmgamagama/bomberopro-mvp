@@ -95,6 +95,23 @@ no se ha copiado nada de él.
   cercano son el tema 25 (mercancías peligrosas, BLEVE) y el tema 21 (vehículos a gas, ya cubierto en
   `tema21-lote02`). No se han creado fichas del RD 919/2006 ni de sus ITC-ICG porque el temario oficial no lo incluye.
 
+## Supuestos prácticos (18/10/2026)
+
+Rama `feat/supuestos-practicos`. Los 3 supuestos iniciales son **originales**: cada dato y cada respuesta sale de
+fuentes oficiales gratuitas ya usadas en las fichas (manual DGT-APRAT de rescate, CTE DB SI, RIPCI en boe.es, Guía
+técnica de EPI y NTP 787 del INSST). El test de `src/data/supuestos/supuestos.test.ts` comprueba que cada enlace
+citado ya figura en `data/`.
+
+- El formato de ejemplo del CEP (libro con copyright) y el material de formación interna del CPEI que hay en el Drive
+  de José se usaron **solo como mapa** de tipos de caso. No hay en el repo ni en el bundle ningún texto, cifra de
+  enunciado ni pregunta suyos. Inventario privado: `/workspace/inventario_supuestos.md` (fuera del repo).
+- Los derechos del material interno son de la Diputación de Badajoz / CPEI; los supuestos de la academia «Bomberos
+  Integral & Emergencias» son de esa academia. Ambos necesitan permiso expreso.
+- **Cálculos no incluidos por falta de fuente oficial gratuita**: autonomía o consumo de aire del ERA (solo en normas
+  UNE de pago o manuales sin permiso) y regla del 9 de superficie quemada (no está en ninguna fuente usada en las
+  fichas). Solo hay cálculo cuando la fórmula sale del texto oficial (radio de acción de BIE, reserva de agua de la
+  red de BIE y capacidad del depósito de un hidrante, RIPCI).
+
 ## Qué hacer cuando haya permiso
 
 1. Guardar la autorización (o la confirmación de la licencia) junto a este documento.
