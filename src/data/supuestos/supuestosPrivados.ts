@@ -6,10 +6,15 @@
  * - No se envían a ningún servidor, no se sincronizan y no entran en el repo ni en el build.
  * - Módulo ligero (sin contenido): App.tsx lo usa para saber si mostrar la entrada del menú.
  *
+ * Además, los supuestos «de tu cuenta» que el propietario tenga cargados en Supabase
+ * (tabla private_supuestos, src/lib/privateSupuestos.ts) se guardan aquí SOLO EN MEMORIA, asociados
+ * a la cuenta que los pidió: no se escriben en localStorage y desaparecen al cerrar sesión o recargar
+ * hasta que se vuelvan a pedir.
+ *
  * Esquema del archivo y ejemplo: docs/SUPUESTOS_IMPORT_PRIVADO.md y
  * docs/ejemplos/supuestos-privados-EJEMPLO.json. Validación: ./supuestosImport.ts.
  */
-import { ownedKey } from '../../utils/localOwner';
+import { getLocalDataOwner, ownedKey } from '../../utils/localOwner';
 import type { Supuesto } from './supuestosTypes';
 
 export const SUPUESTOS_PRIVADOS_BASE_KEY = 'mira_supuestos_privados_v1';
@@ -44,8 +49,33 @@ export function leerSupuestosPrivados(): Supuesto[] {
   }
 }
 
+// ---------------------------------------------------------------------------
+// Supuestos de la cuenta (servidor), solo en memoria
+// ---------------------------------------------------------------------------
+
+let cuenta: { owner: string; supuestos: Supuesto[] } | null = null;
+
+/** Fija los supuestos de servidor de `owner` (los de otra cuenta se descartan). */
+export function setSupuestosCuenta(owner: string, supuestos: readonly Supuesto[]): void {
+  const antes = getSupuestosCuenta().length;
+  cuenta = { owner, supuestos: supuestos.map((s) => ({ ...s, autoria: 'privado' as const })) };
+  if (antes !== 0 || supuestos.length !== 0) avisarCambio();
+}
+
+/** Supuestos de servidor de la cuenta actual (vacío si son de otra cuenta o no hay). */
+export function getSupuestosCuenta(): Supuesto[] {
+  return cuenta && cuenta.owner === getLocalDataOwner() ? cuenta.supuestos : [];
+}
+
+export function limpiarSupuestosCuenta(): void {
+  const habia = getSupuestosCuenta().length > 0;
+  cuenta = null;
+  if (habia) avisarCambio();
+}
+
+/** Importados en local + los de la cuenta en el servidor (para mostrar la entrada del menú). */
 export function contarSupuestosPrivados(): number {
-  return leerSupuestosPrivados().length;
+  return leerSupuestosPrivados().length + getSupuestosCuenta().length;
 }
 
 export class AlmacenamientoLlenoError extends Error {

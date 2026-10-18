@@ -13,6 +13,7 @@ import {
   SUPUESTOS_PRIVADOS_EVENT,
   borrarSupuestoPrivado,
   borrarTodosSupuestosPrivados,
+  getSupuestosCuenta,
   guardarSupuestosPrivados,
   leerSupuestosPrivados,
 } from '../data/supuestos/supuestosPrivados';
@@ -32,7 +33,7 @@ function formatNumero(n: number): string {
   return n.toLocaleString('es-ES', { maximumFractionDigits: 3 });
 }
 
-type Activo = { origen: 'app' | 'privado'; id: string };
+type Activo = { origen: 'app' | 'privado' | 'cuenta'; id: string };
 type ImportEstado = { tipo: 'ok'; texto: string } | { tipo: 'error'; errores: string[] } | null;
 
 export default function SupuestosPracticos({ onNavigateHome }: SupuestosPracticosProps) {
@@ -40,6 +41,8 @@ export default function SupuestosPracticos({ onNavigateHome }: SupuestosPractico
   const [contenido, setContenido] = useState<readonly Supuesto[] | null>(visibles.length ? null : []);
   const [error, setError] = useState(false);
   const [privados, setPrivados] = useState<Supuesto[]>(() => leerSupuestosPrivados());
+  // Supuestos de la cuenta en el servidor (private_supuestos): solo lectura, solo en memoria.
+  const [cuenta, setCuenta] = useState<Supuesto[]>(() => getSupuestosCuenta());
   const [activo, setActivo] = useState<Activo | null>(null);
   const [respuestas, setRespuestas] = useState<Record<string, RespuestaSupuesto>>({});
   const [autoeval, setAutoeval] = useState<Record<string, boolean>>({});
@@ -61,7 +64,10 @@ export default function SupuestosPracticos({ onNavigateHome }: SupuestosPractico
   }, [visibles.length]);
 
   useEffect(() => {
-    const refrescar = () => setPrivados(leerSupuestosPrivados());
+    const refrescar = () => {
+      setPrivados(leerSupuestosPrivados());
+      setCuenta(getSupuestosCuenta());
+    };
     window.addEventListener(SUPUESTOS_PRIVADOS_EVENT, refrescar);
     window.addEventListener('storage', refrescar);
     return () => {
@@ -74,10 +80,12 @@ export default function SupuestosPracticos({ onNavigateHome }: SupuestosPractico
     ? null
     : activo.origen === 'privado'
       ? privados.find((s) => s.id === activo.id) ?? null
+      : activo.origen === 'cuenta'
+        ? cuenta.find((s) => s.id === activo.id) ?? null
       : contenido?.find((s) => s.id === activo.id && visibles.some((v) => v.id === s.id)) ?? null;
 
   const resultado = supuesto && corregido ? corregirSupuesto(supuesto, respuestas, autoeval) : null;
-  const claveResultado = (a: Activo) => (a.origen === 'privado' ? `privado:${a.id}` : a.id);
+  const claveResultado = (a: Activo) => (a.origen === 'app' ? a.id : `${a.origen}:${a.id}`);
 
   // Guarda el último resultado (también al cambiar la autoevaluación de una pregunta de desarrollo).
   useEffect(() => {
@@ -261,6 +269,39 @@ export default function SupuestosPracticos({ onNavigateHome }: SupuestosPractico
             </div>
           )}
 
+          {cuenta.length > 0 && (
+            <div className="space-y-2">
+              <p className="text-xs leading-relaxed text-slate-600" id="aviso-cuenta">
+                Los marcados «En tu cuenta» están guardados para tu usuario: solo los puede leer tu cuenta, no se
+                pueden borrar desde aquí y no se guardan en el dispositivo.
+              </p>
+              <ul className="space-y-3" aria-label="Supuestos de mi cuenta">
+                {cuenta.map((s) => {
+                  const ultimo = ultimos[`cuenta:${s.id}`];
+                  return (
+                    <li key={s.id}>
+                      <button
+                        type="button"
+                        onClick={() => abrir({ origen: 'cuenta', id: s.id })}
+                        data-cuenta-id={s.id}
+                        className="min-h-11 w-full rounded-xl border border-indigo-100 bg-indigo-50/40 px-4 py-3 text-left"
+                      >
+                        <span className="block text-sm font-semibold text-slate-800 break-words">{s.titulo}</span>
+                        <span className="mt-1 block text-xs text-slate-500">
+                          {s.temas.length ? `${s.temas.map((t) => `T${t}`).join(' · ')} · ` : ''}
+                          {s.preguntas.length} preguntas{ultimo ? ` · último: ${ultimo.aciertos}/${ultimo.total}` : ''}
+                        </span>
+                        <span className="mt-2 inline-block rounded-full bg-indigo-100 px-2 py-0.5 text-[11px] font-semibold text-indigo-800">
+                          En tu cuenta · solo tú
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
+
           {privados.length > 0 && (
             <>
               <ul className="space-y-3" aria-label="Mis supuestos privados">
@@ -355,7 +396,12 @@ export default function SupuestosPracticos({ onNavigateHome }: SupuestosPractico
         <h2 className="text-lg font-bold text-slate-800 break-words">{supuesto.titulo}</h2>
         <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700 break-words">{supuesto.enunciado}</p>
         <p className="text-[11px] text-slate-500 break-words">
-          {esPrivado ? 'Material personal importado en este dispositivo (no se comparte).' : 'Caso original.'} Fuentes:{' '}
+          {activo?.origen === 'cuenta'
+            ? 'Material personal de tu cuenta (no se comparte).'
+            : esPrivado
+              ? 'Material personal importado en este dispositivo (no se comparte).'
+              : 'Caso original.'}{' '}
+          Fuentes:{' '}
           {supuesto.fuentes.join('; ')}.
         </p>
       </section>
