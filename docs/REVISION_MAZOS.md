@@ -29,7 +29,7 @@ Es un filtro de interfaz, no un control de acceso: las fichas pendientes siguen 
 
 ## Estado por mazo
 
-Visibles para el alumno: **804** de 3251 fichas.
+Visibles para el alumno: **804** de 3281 fichas.
 
 | Mazo | Fichas | Estado | Visibles alumno | Motivo | Informe |
 |---|---:|---|---:|---|---|
@@ -63,6 +63,7 @@ Visibles para el alumno: **804** de 3251 fichas.
 | `tema25` | 47 | pendiente | 0 | muestra de 20 de 47 revisada a mano | `/workspace/tema25_calidad.md` |
 | `tema26` | 60 | pendiente | 0 | muestra de 20 de 60 revisada a mano | `/workspace/tema26_calidad.md` |
 | `tema27` | 22 | pendiente | 0 | muestra de 20 de 22 revisada a mano | `/workspace/tema27_calidad.md` |
+| `tema27-lote02` | 30 | pendiente | 0 | 30 de 30 cotejadas con el texto oficial en dos pasadas, 0 errores; falta la revisión del propietario (respuesta al fuego: DB SI y RD 842/2013) | `data/tema27/tema27_lote02_calidad.md` |
 | `tema28` | 29 | pendiente | 0 | muestra de 20 de 29 revisada a mano | `/workspace/tema28_calidad.md` |
 | `tema28-lote02` | 74 | pendiente | 0 | muestra de 20 de 74 revisada a mano, 0 errores (huecos CEP 38: REBT, RD 337/2014, RD 614/2001, NTP 400) | `/workspace/tema28_lote02_calidad.md` |
 | `tema29` | 81 | pendiente | 0 | muestra de 20 de 81 revisada a mano | `/workspace/tema29_calidad.md` |

@@ -95,6 +95,16 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 27,
+      lote: 'lote02',
+      title: "Tema 27 · lote 2: respuesta de los elementos constructivos al fuego (CTE DB SI: SI 6, SI 1 y anejo A; RD 842/2013)",
+      count: 30,
+      source: "Hueco «respuesta de los elementos constructivos al fuego» · CTE DB SI (codigotecnico.org, consolidado hasta RD 164/2025) y RD 842/2013 (BOE-A-2013-12323)",
+    },
+    load: () => import('./tema27Lote02Recall').then((m) => m.TEMA27_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 28,
       lote: 'lote02',
       title: "Tema 28 · lote 2: alumbrado público, puesta a tierra, contactos, alta tensión y efectos de la corriente (REBT, RD 337/2014, RD 614/2001 y NTP 400)",
