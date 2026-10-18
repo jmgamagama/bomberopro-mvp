@@ -13,6 +13,7 @@
  */
 import { localDayNumber } from './localDate';
 import { ownedKey, readOwned, writeOwned } from './localOwner';
+import { appendReviewLog } from './recallReviewLog';
 
 export type RecallGrade = 0 | 1 | 2;
 export const GRADE_AGAIN: RecallGrade = 0;
@@ -163,9 +164,13 @@ export function previewInterval(prev: CardSrs | undefined, grade: RecallGrade, t
 /** Guarda la autoevaluación de una ficha y devuelve su nuevo estado. */
 export function recordRecallGrade(deckId: string, cardId: string, grade: RecallGrade, date: Date = new Date()): CardSrs {
   const store = loadSrs();
-  const next = scheduleReview(store[deckId]?.[cardId], grade, localDayNumber(date));
+  const today = localDayNumber(date);
+  const prev = store[deckId]?.[cardId];
+  const next = scheduleReview(prev, grade, today);
   (store[deckId] ??= {})[cardId] = next;
   saveSrs(store);
+  // Registro local para medir el recuerdo diferido (./recallReviewLog); no altera la programación.
+  appendReviewLog(deckId, cardId, grade, today, prev?.lastReview);
   return next;
 }
 

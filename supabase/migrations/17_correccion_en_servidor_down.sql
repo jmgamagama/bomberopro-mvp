@@ -125,5 +125,6 @@ BEGIN
   END LOOP;
 END $$;
 
+-- Estado previo a la 17 (migración 06): solo `authenticated` podía ejecutarla; PUBLIC y anon no.
 GRANT EXECUTE ON FUNCTION public.record_attempt(uuid, bigint, boolean, text, integer, text, uuid, integer, text)
-  TO anon, authenticated, public;
+  TO authenticated;
