@@ -6,7 +6,7 @@ Fecha: 11/10/2026. Rama `feat/temas-fase2-oficial`.
 
 | Tema (BOP Badajoz nº 135, 17/07/2026) | Epígrafe | Estado |
 | --- | --- | --- |
-| 15 | Material específico de rescate | Excluido: sin fichas |
+| 15 | Material específico de rescate | Manuales excluidos. Desde el 17/10/2026 hay un mazo `tema15` (pendiente de revisión) hecho solo con fuentes oficiales gratuitas; ver abajo |
 | 18 | Incendios estructurales | Excluido: sin fichas |
 | 19 | Incendios industriales | Excluido: sin fichas |
 
@@ -57,8 +57,30 @@ Datos consultados en la web el 11/10/2026. No se ha enviado ninguna solicitud.
 - Colección impresa: a través de la APTB (marketing@aptb.org), según la web del CEIS.
 - No hemos verificado un teléfono ni una dirección postal en las páginas consultadas, así que no se incluyen.
 
+## Tema 15 y lotes nuevos de los temas 13 y 21 desde fuentes oficiales gratuitas (17/10/2026)
+
+Rama `feat/temas-cep-huecos`. Se usó el índice del manual CEP solo como mapa de huecos: no se ha copiado nada de él,
+ni del manual del CPEI, ni de los libros de CCOO, ni de los manuales del CEIS, ni de normas UNE de pago.
+
+- `tema15` (92 fichas): NTP 221, 841 y 842 y Guía técnica de equipos de trabajo (INSST); RD 1644/2008, RD 1215/1997
+  (solo puntos que no estaban en el tema 31) e ITC-BT-40 del REBT (boe.es). Las escaleras no se duplican: ya están en
+  los temas 22 y 31. Siguen sin fichas el cabrestante/tráctel, los detectores, la cámara térmica, los cojines y el
+  resto del material que solo está en manuales o normas UNE.
+- `tema13-lote02` (47 fichas): NTP 787, fichas de selección y uso de filtros y de equipos respiratorios aislantes y
+  Guía técnica de EPI (INSST). El ERA de bomberos (autonomía, presiones, procedimientos) no se cubre: solo está en
+  normas UNE de pago o en manuales sin permiso.
+- `tema21-lote02` (73 fichas): Manual básico de rescate en accidentes de tráfico (DGT-APRAT, 2019; NIPO
+  128-19-003-4), descarga pública y gratuita en dgt.es (comprobado con curl el 17/10/2026: HTTP 200, PDF sin
+  registro). No se ha encontrado aviso de derechos en el texto. Los vehículos de hidrógeno apenas se tratan en él (1 ficha).
+
+**Aviso de licencia del INSST.** Las NTP llevan la nota «Reservados todos los derechos. Se autoriza su reproducción
+sin ánimo de lucro citando la fuente». Las fichas son extractos breves con cita de fuente y localización, como en los
+lotes 02 de los temas 10 y 12, pero si la app tiene plan de pago (plan Pro) el «sin ánimo de lucro» no está
+garantizado: conviene confirmar con el INSST que este uso es aceptable antes de publicar estos mazos. Los tres mazos
+están en `pendiente` y el alumno no los ve.
+
 ## Qué hacer cuando haya permiso
 
 1. Guardar la autorización (o la confirmación de la licencia) junto a este documento.
-2. Reconstruir los temas 15, 18 y 19 con el mismo proceso de la fase 2: fichas solo del texto autorizado,
+2. Reconstruir los temas 18 y 19 (y completar el 15) con el mismo proceso de la fase 2: fichas solo del texto autorizado,
    comprobación automática contra el apartado citado y revisión a mano de al menos 20 fichas (máximo 5 % de errores).
