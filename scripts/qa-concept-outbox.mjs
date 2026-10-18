@@ -1,18 +1,15 @@
+import { validateDeploymentEnv } from './check-deploy-env.mjs';
 import { chromium } from 'playwright';
 import { randomBytes } from 'node:crypto';
 import { spawn, spawnSync } from 'node:child_process';
 import { writeFile } from 'node:fs/promises';
 
-const production = 'https://bomberopro-mvp.vercel.app';
-const html = await (await fetch(production)).text();
-const asset = html.match(/src="([^"]+\.js)"/)?.[1];
-if (!asset) throw new Error('Production asset missing');
-const bundle = await (await fetch(new URL(asset, production))).text();
-const backend = bundle.match(/https:\/\/[a-z0-9]+\.supabase\.co/)?.[0];
-const key = bundle.match(/eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/)?.[0];
-if (backend !== 'https://yndoaprnpkjqiggeyefz.supabase.co' || !key) throw new Error('Unexpected backend');
+// Fail before any network request unless explicit staging configuration is supplied.
+validateDeploymentEnv(process.env, { VERCEL_ENV: 'preview' });
+const backend = new URL(process.env.VITE_SUPABASE_URL.trim()).origin;
+const key = process.env.VITE_SUPABASE_ANON_KEY.trim();
 const build = spawnSync('npm', ['run', 'build:deploy'], {
-  stdio: 'inherit', env: { ...process.env, VITE_SUPABASE_URL: backend, VITE_SUPABASE_ANON_KEY: key },
+  stdio: 'inherit', env: { ...process.env, VERCEL_ENV: 'preview', VITE_SUPABASE_URL: backend, VITE_SUPABASE_ANON_KEY: key },
 });
 if (build.status !== 0) throw new Error('Build failed');
 const server = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', '4173'], { stdio: 'inherit' });
@@ -20,7 +17,7 @@ const local = 'http://127.0.0.1:4173';
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 const call = async (path, body, token) => {
   const response = await fetch(backend + path, {
-    method: body ? 'POST' : 'GET',
+    method: body ? 'POST' : 'GET', redirect: 'error',
     headers: { apikey: key, 'Content-Type': 'application/json', ...(token ? { Authorization: 'Bearer ' + token } : {}) },
     ...(body ? { body: JSON.stringify(body) } : {}), signal: AbortSignal.timeout(30000),
   });
@@ -29,7 +26,7 @@ const call = async (path, body, token) => {
   return data;
 };
 let browser, debugPage;
-const report = { date: new Date().toISOString(), scope: 'PR build + production backend, same-context racing tabs and isolated mobile context', checks: [] };
+const report = { date: new Date().toISOString(), scope: 'PR build + staging backend, same-context racing tabs and isolated mobile context', checks: [] };
 try {
   for (let i = 0; i < 60; i++) { try { if ((await fetch(local)).ok) break; } catch {} await delay(500); }
   const email = 'qa-outbox-' + Date.now() + '@bomberopro.invalid';
@@ -38,7 +35,12 @@ try {
   if (!auth.access_token) throw new Error('QA session unavailable');
   report.qaUserId = auth.user.id;
   browser = await chromium.launch({ headless: true });
-  const context = await browser.newContext();
+  const context = await browser.newContext({ serviceWorkers: 'block' });
+  const isolate = async ctx => ctx.route('**/*', route => {
+    const url = new URL(route.request().url());
+    return [backend, local].includes(url.origin) ? route.continue() : route.abort();
+  });
+  await isolate(context);
   const page = await context.newPage();
   debugPage = page;
   page.setDefaultTimeout(30000);
@@ -162,7 +164,8 @@ try {
   report.events = events.length;
   report.checks.push('Finite session complete and unique persisted events');
   const before = await call('/rest/v1/rpc/get_concept_progress', { p_topic: null }, auth.access_token);
-  const second = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true });
+  const second = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, serviceWorkers: 'block' });
+  await isolate(second);
   const page2 = await second.newPage();
   await login(page2);
   await page2.getByRole('button', { name: /Estudiar hoy/i }).click();
