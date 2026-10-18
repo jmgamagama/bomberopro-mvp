@@ -39,8 +39,10 @@ Problemas detectados: **0**.
 | tema23-lote02 | pendiente | 23 | 100 % | 0 | `179b5ef08b1938d1` |  |
 | tema24 | revisado | 19 | 100 % | 0 | `f51fe2a06a029c0d` |  |
 | tema25 | pendiente | 47 | 100 % | 0 | `274647248a13635e` |  |
+| tema25-lote02 | pendiente | 68 | 100 % | 0 | `807859d0d52d307a` |  |
 | tema26 | pendiente | 60 | 100 % | 0 | `3b47c30a9a7bd1e3` |  |
 | tema27 | pendiente | 22 | 100 % | 0 | `9c69d2a21da029c6` |  |
+| tema27-lote02 | pendiente | 30 | 100 % | 0 | `bae9f0f2535c226d` |  |
 | tema28 | pendiente | 29 | 100 % | 0 | `e98b803ecbc6ed49` |  |
 | tema28-lote02 | pendiente | 74 | 100 % | 0 | `307cf0309ca112a2` |  |
 | tema29 | pendiente | 81 | 100 % | 0 | `f6e9a173591edc29` |  |
@@ -48,6 +50,7 @@ Problemas detectados: **0**.
 | tema31 | pendiente | 83 | 100 % | 0 | `8ec0f4305c1c067e` |  |
 | tema32 | pendiente | 91 | 100 % | 0 | `9987144bd4168be1` |  |
 | tema33 | pendiente | 67 | 100 % | 0 | `a2cb9f71d99bcdfd` |  |
+| tema33-lote02 | pendiente | 30 | 100 % | 0 | `0418d3d7fbefab3d` |  |
 | tema34-lote01 | pendiente | 58 | 100 % | 0 | `a7894a36cab2ce83` |  |
 | tema34-lote02 | pendiente | 39 | 100 % | 0 | `b16be4d6e3a6d0d7` |  |
 | tema34-lote03 | pendiente | 35 | 100 % | 0 | `e6043c354402ca67` |  |

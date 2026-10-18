@@ -29,7 +29,7 @@ Es un filtro de interfaz, no un control de acceso: las fichas pendientes siguen 
 
 ## Estado por mazo
 
-Visibles para el alumno: **804** de 3274 fichas.
+Visibles para el alumno: **804** de 3402 fichas.
 
 | Mazo | Fichas | Estado | Visibles alumno | Motivo | Informe |
 |---|---:|---|---:|---|---|
@@ -62,8 +62,10 @@ Visibles para el alumno: **804** de 3274 fichas.
 | `tema23-lote02` | 23 | pendiente | 0 | 23 de 23 cotejadas con el texto oficial en dos pasadas, 0 errores; falta la revisión del propietario (áreas inundables: RDPH, RD 903/2010 y Directriz 2026) | `data/tema23/tema23_lote02_calidad.md` |
 | `tema24` | 19 | revisado | 19 | 19/19 revisadas a mano | `/workspace/tema24_calidad.md` |
 | `tema25` | 47 | pendiente | 0 | muestra de 20 de 47 revisada a mano | `/workspace/tema25_calidad.md` |
+| `tema25-lote02` | 68 | pendiente | 0 | 68 de 68 cotejadas con la imagen de la página del BOE por el agente, 0 errores; falta la revisión del propietario (clasificación ADR, caps. 2.1 y 2.2) | `data/tema25/tema25_lote02_calidad.md` |
 | `tema26` | 60 | pendiente | 0 | muestra de 20 de 60 revisada a mano | `/workspace/tema26_calidad.md` |
 | `tema27` | 22 | pendiente | 0 | muestra de 20 de 22 revisada a mano | `/workspace/tema27_calidad.md` |
+| `tema27-lote02` | 30 | pendiente | 0 | 30 de 30 cotejadas con el texto oficial en dos pasadas, 0 errores; falta la revisión del propietario (respuesta al fuego: DB SI y RD 842/2013) | `data/tema27/tema27_lote02_calidad.md` |
 | `tema28` | 29 | pendiente | 0 | muestra de 20 de 29 revisada a mano | `/workspace/tema28_calidad.md` |
 | `tema28-lote02` | 74 | pendiente | 0 | muestra de 20 de 74 revisada a mano, 0 errores (huecos CEP 38: REBT, RD 337/2014, RD 614/2001, NTP 400) | `/workspace/tema28_lote02_calidad.md` |
 | `tema29` | 81 | pendiente | 0 | muestra de 20 de 81 revisada a mano | `/workspace/tema29_calidad.md` |
@@ -71,6 +73,7 @@ Visibles para el alumno: **804** de 3274 fichas.
 | `tema31` | 83 | pendiente | 0 | muestra de 20 de 83 revisada a mano | `/workspace/tema31_calidad.md` |
 | `tema32` | 91 | pendiente | 0 | muestra de 20 de 91 revisada a mano | `/workspace/tema32_calidad.md` |
 | `tema33` | 67 | pendiente | 0 | muestra de 20 de 67 revisada a mano | `/workspace/tema33_calidad.md` |
+| `tema33-lote02` | 30 | pendiente | 0 | 30 de 30 cotejadas con el texto oficial en dos pasadas, 0 errores; falta la revisión del propietario (mantenimiento PCI: RIPCI anexo II y RD 809/2021) | `data/tema33/tema33_lote02_calidad.md` |
 | `tema34-lote01` | 58 | pendiente | 0 | muestra de 20 de 58 revisada a mano | `/workspace/tema34_lote01_calidad.md` |
 | `tema34-lote02` | 39 | pendiente | 0 | muestra de 20 de 39 revisada a mano | `/workspace/tema34_lote02_calidad.md` |
 | `tema34-lote03` | 35 | pendiente | 0 | muestra de 20 de 35 revisada a mano | `/workspace/tema34_lote03_calidad.md` |

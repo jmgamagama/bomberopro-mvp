@@ -105,6 +105,36 @@ const DECK_SOURCES: readonly DeckSource[] = [
   },
   {
     meta: {
+      tema: 33,
+      lote: 'lote02',
+      title: "Tema 33 · lote 2: mantenimiento e inspección de las instalaciones de protección contra incendios (RIPCI, arts. 21-22 y anexo II; RD 809/2021)",
+      count: 30,
+      source: "Hueco «mantenimiento» · RIPCI (BOE-A-2017-6606, consolidado a 03/09/2025) y Reglamento de equipos a presión RD 809/2021 (BOE-A-2021-16407)",
+    },
+    load: () => import('./tema33Lote02Recall').then((m) => m.TEMA33_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 27,
+      lote: 'lote02',
+      title: "Tema 27 · lote 2: respuesta de los elementos constructivos al fuego (CTE DB SI: SI 6, SI 1 y anejo A; RD 842/2013)",
+      count: 30,
+      source: "Hueco «respuesta de los elementos constructivos al fuego» · CTE DB SI (codigotecnico.org, consolidado hasta RD 164/2025) y RD 842/2013 (BOE-A-2013-12323)",
+    },
+    load: () => import('./tema27Lote02Recall').then((m) => m.TEMA27_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
+      tema: 25,
+      lote: 'lote02',
+      title: "Tema 25 · lote 2: clasificación ADR 2025 (clases 1 a 9, divisiones, subdivisiones y criterios de cada clase)",
+      count: 68,
+      source: "Huecos de clasificación · ADR 2025, Anejo A, caps. 2.1 y 2.2 (BOE-A-2025-77, BOE nº 3 de 03/01/2025); páginas publicadas como imagen, leídas una a una",
+    },
+    load: () => import('./tema25Lote02Recall').then((m) => m.TEMA25_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 28,
       lote: 'lote02',
       title: "Tema 28 · lote 2: alumbrado público, puesta a tierra, contactos, alta tensión y efectos de la corriente (REBT, RD 337/2014, RD 614/2001 y NTP 400)",
