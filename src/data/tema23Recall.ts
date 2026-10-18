@@ -39,10 +39,10 @@ export const TEMA23_RECALL_CARDS: Tema23RecallCard[] = [
   {
     "id": "CPEI-T23-OF-DBB24F6A",
     "orden": 30,
-    "concepto": "Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿cuándo se aprobó la Directriz Básica de Protección Civil ante el Riesgo de Inundaciones?",
-    "respuesta": "Por Acuerdo del Consejo de Ministros, de 9 de diciembre de 1994",
-    "fuente": "Plan Estatal de Inundaciones, 1. Objeto y ámbito, apdo. 1.2. BOE-A-2011-14277, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A1",
-    "localizacion": "Plan Estatal de Inundaciones, 1. Objeto y ámbito, apdo. 1.2",
+    "concepto": "¿Qué Acuerdo del Consejo de Ministros aprobó la Directriz Básica de Planificación de Protección Civil ante el riesgo de inundaciones vigente, que sustituye a la de 1994 citada en el apdo. 1.2 del Plan Estatal de Inundaciones?",
+    "respuesta": "El Acuerdo del Consejo de Ministros de 21 de abril de 2026 (publicado por Resolución de 23 de abril de 2026; efectos desde el 28 de abril de 2026)",
+    "fuente": "Directriz Básica de Planificación de Protección Civil ante el riesgo de inundaciones, título y acuerdo cuarto (derogación del Acuerdo de 9/12/1994). BOE-A-2026-9160: https://www.boe.es/buscar/doc.php?id=BOE-A-2026-9160 · Sustituye a la Directriz citada en el Plan Estatal de Inundaciones, apdo. 1.2 (BOE-A-2011-14277): https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277#A1",
+    "localizacion": "Directriz Básica de inundaciones 2026 (BOE-A-2026-9160), acuerdo cuarto; Plan Estatal de Inundaciones, apdo. 1.2",
     "apartado": "Tipos de inundación y marco"
   },
   {
