@@ -132,6 +132,11 @@ export function pendingConceptEvents(userId: string): number {
   return readQueue().filter(p => p.userId === userId).length;
 }
 
+/** La función (o esa combinación de parámetros) no existe en el servidor: migración sin aplicar. */
+export function isMissingFunction(code: string | undefined): boolean {
+  return code === 'PGRST202' || code === '42883';
+}
+
 /** Errores que no se arreglan reintentando: datos inválidos o reglas del servidor. */
 export function isPermanentError(code: string | undefined): boolean {
   return !!code && (/^2[23]/.test(code) || code === 'P0002' || code === '42501');
@@ -281,6 +286,65 @@ export async function loadConceptProgress(topicId: number | null, userId?: strin
   const { data, error } = await ownedRpc('get_concept_progress', { p_topic: topicId }, userId);
   if (error) throw error;
   return data as ConceptProgress;
+}
+
+/** Pregunta de la escalera: tras un fallo, otra del mismo concepto un nivel más fácil (migración 19).
+ *  Como en la sesión v2, la solución no viaja: la corrige submit_concept_answer. */
+export interface StepQuestion {
+  question_id: number;
+  question: string;
+  options: string[];
+  nivel: number;
+}
+
+export async function loadStepQuestion(conceptId: string, excludeQuestionId: number | null, userId?: string): Promise<StepQuestion | null> {
+  if (!supabase) return null;
+  try {
+    const { data, error } = await ownedRpc('get_concept_step_question', { p_concept: conceptId, p_exclude: excludeQuestionId }, userId);
+    if (error) return null; // sin la migración 19 la sesión sigue igual, sin escalera inmediata
+    const row = Array.isArray(data) ? data[0] : null;
+    return row && row.question && Array.isArray(row.options) && row.options.length >= 2 ? (row as StepQuestion) : null;
+  } catch {
+    return null;
+  }
+}
+
+/** ¿Falla el alumno lo que dice saber? (migración 19). null si no hay datos o el servidor no lo ofrece. */
+export interface Calibration {
+  tarjeta_si_verificadas: number;
+  tarjeta_si_falladas: number;
+  seguro_tests: number;
+  seguro_fallados: number;
+}
+
+export async function loadCalibration(topicId: number | null, userId?: string): Promise<Calibration | null> {
+  if (!supabase) return null;
+  try {
+    const { data, error } = await ownedRpc('get_concept_calibration', { p_topic: topicId }, userId);
+    if (error || !data) return null;
+    return data as Calibration;
+  } catch {
+    return null;
+  }
+}
+
+/** Mensaje para el alumno sobre su calibración; null si aún no hay base suficiente (menos de 5 casos). */
+export function calibrationMessage(c: Calibration | null): string | null {
+  if (!c) return null;
+  const casos = Number(c.tarjeta_si_verificadas) + Number(c.seguro_tests);
+  if (casos < 5) return null;
+  const fallos = Number(c.tarjeta_si_falladas) + Number(c.seguro_fallados);
+  const pct = Math.round((fallos / casos) * 100);
+  if (pct <= 10) return `Tu seguridad es fiable: de lo que dices saber, fallas el ${pct} %.`;
+  return `Ojo con el exceso de confianza: de lo que dices saber, fallas el ${pct} %. Esos conceptos vuelven antes.`;
+}
+
+/** Id del tema de la convocatoria 1 con ese número (los ids difieren entre entornos). */
+export async function resolveTopicId(numero: number): Promise<number | null> {
+  if (!supabase) return null;
+  const { data, error } = await supabase.from('topics').select('id').eq('convocatoria_id', 1).eq('numero', numero).maybeSingle();
+  if (error || !data) return null;
+  return (data as { id: number }).id;
 }
 
 /** Validación estructural del resultado que devuelve el servidor DESPUÉS de guardar la respuesta. */

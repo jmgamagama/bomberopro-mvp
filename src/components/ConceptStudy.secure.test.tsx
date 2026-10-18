@@ -27,6 +27,10 @@ vi.mock('../lib/conceptEngine', () => ({
   supportsCrossTabCoordination: () => true,
   isConceptAnswerFeedback: (data: any) =>
     typeof data?.correct === 'boolean' && typeof data.correct_answer === 'string',
+  // Escalera y calibración (migración 19): sin datos en estas pruebas.
+  loadStepQuestion: async () => null,
+  loadCalibration: async () => null,
+  calibrationMessage: () => null,
 }));
 vi.mock('./ReportQuestionButton', () => ({ default: () => null }));
 import ConceptStudy from './ConceptStudy';
