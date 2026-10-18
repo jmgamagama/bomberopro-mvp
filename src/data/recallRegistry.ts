@@ -95,6 +95,16 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 25,
+      lote: 'lote02',
+      title: "Tema 25 · lote 2: clasificación ADR 2025 (clases 1 a 9, divisiones, subdivisiones y criterios de cada clase)",
+      count: 68,
+      source: "Huecos de clasificación · ADR 2025, Anejo A, caps. 2.1 y 2.2 (BOE-A-2025-77, BOE nº 3 de 03/01/2025); páginas publicadas como imagen, leídas una a una",
+    },
+    load: () => import('./tema25Lote02Recall').then((m) => m.TEMA25_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 28,
       lote: 'lote02',
       title: "Tema 28 · lote 2: alumbrado público, puesta a tierra, contactos, alta tensión y efectos de la corriente (REBT, RD 337/2014, RD 614/2001 y NTP 400)",
