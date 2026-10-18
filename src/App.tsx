@@ -227,13 +227,13 @@ export default function App() {
   // tema según el peso en el examen. El orden que devuelve se respeta tal cual.
   const loadServerSession = async (): Promise<Question[]> => {
     if (!supabase) return [];
-    const res = await supabase.rpc('get_study_session', { p_limit: 20 });
+    const res = await supabase.rpc('get_study_session', { p_limit: 10 });
     if (!res.error) return shuffleAllOptions((res.data ?? []) as Question[]);
     // Compatibilidad: si la función nueva no existiera, se usa la anterior.
     console.error('get_study_session error, se usa la selección anterior:', res.error);
     const old = await supabase.rpc('get_preparer_session_questions', { p_limit: 100 });
     if (old.error) throw old.error;
-    return shuffleAllOptions(getAdaptiveDailySession(old.data ?? [], getSafeMemoryStates(), 20));
+    return shuffleAllOptions(getAdaptiveDailySession(old.data ?? [], getSafeMemoryStates(), 10));
   };
 
   const fetchQuestions = async (request: number) => {
