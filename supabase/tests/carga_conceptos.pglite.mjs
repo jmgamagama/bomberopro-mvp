@@ -76,4 +76,18 @@ await test('la sesión del tema 1 sirve primero la pregunta fácil de 2 opciones
   assert.ok(rec.correct_answer && rec.options.includes(rec.correct_answer));
 });
 
+await test('Título I: se carga en el mismo tema 1 (116 conceptos, 348 preguntas) y es idempotente', async () => {
+  const sql2 = execFileSync('python3', ['scripts/cargar_conceptos.py', 'data/constitucion/titulo-i.json',
+    '--estado', 'publicado'], { encoding: 'utf8' });
+  await db.exec(sql2);
+  await db.exec(sql2);
+  const t = await one(`select id from topics where convocatoria_id=1 and numero=1`);
+  assert.equal(Number((await one(`select count(*) n from concepts where topic_id=$1 and estado='publicado'`, [t.id])).n), 24 + 116);
+  assert.equal(Number((await one(`select count(*) n from questions where topic_id=$1 and estado='publicada'`, [t.id])).n), 72 + 348);
+  const ap = await one(`select apartado from concepts where id='CE-a12-mayoria-edad'`);
+  assert.equal(ap.apartado, 'Título I · Art. 12');
+  const s = await db.query(`select * from public._concept_session($1, $2, 180, now())`, [U, t.id]);
+  assert.ok(s.rows.some(x => x.concept_id.startsWith('CE-a1')), 'la sesión mezcla bloques del tema');
+});
+
 console.log(`\n${passed} pruebas superadas`);

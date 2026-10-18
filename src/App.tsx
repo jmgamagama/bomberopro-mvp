@@ -77,7 +77,7 @@ const SCREEN_TITLES = {
   today_training: 'Entrenamiento de hoy',
   study_by_topic: 'Estudio por Temas',
   concept_t40: 'Estudiar hoy',
-  constitucion: 'Constitución · Título Preliminar',
+  constitucion: 'Constitución · Tema 1',
   my_reports: 'Mis reportes',
   recuerdo: 'Recuerdo',
   sesion_diaria: 'Sesión diaria',
@@ -870,8 +870,8 @@ export default function App() {
               className="mb-6 flex w-full items-center justify-between gap-4 rounded-2xl border border-indigo-200 bg-white p-5 text-left shadow-sm hover:bg-indigo-50"
             >
               <span>
-                <span className="block text-xs font-bold uppercase tracking-wider text-indigo-600">Tema 1 · Piloto</span>
-                <span className="mt-1 block text-lg font-bold text-slate-900">Constitución · Título Preliminar</span>
+                <span className="block text-xs font-bold uppercase tracking-wider text-indigo-600">Tema 1</span>
+                <span className="mt-1 block text-lg font-bold text-slate-900">Constitución · Arts. 1–55</span>
                 <span className="mt-0.5 block text-sm text-slate-600">Esquema, desarrollo y texto oficial, con preguntas que se adaptan a tu nivel.</span>
               </span>
               <span className="shrink-0 rounded-xl bg-indigo-600 px-4 py-2 text-sm font-bold text-white">Abrir</span>

@@ -7,6 +7,9 @@ Uso:
 
   --estado publicado   conceptos 'publicado' y preguntas 'publicada' (staging, o producción tras revisión)
   --estado borrador    conceptos 'borrador' y preguntas 'borrador' (producción antes de la revisión de JM)
+  --compacto N         en lugar de una sentencia por fila, emite bloques de N conceptos con los datos en JSON
+                       (jsonb_to_recordset), separados por la línea «-- BLOQUE». Mismo resultado, ~3 veces
+                       menos texto: útil cuando el SQL se ejecuta por partes desde una herramienta.
   --crear-tema         crea el tema 1 de la convocatoria 1 si no existe (solo staging: sus datos de prueba
                        no tienen el tema 1)
 
@@ -43,6 +46,7 @@ def main() -> int:
     if estado not in ("borrador", "publicado"):
         raise SystemExit("--estado debe ser borrador o publicado")
     crear_tema = "--crear-tema" in args
+    compacto = int(args[args.index("--compacto") + 1]) if "--compacto" in args else 0
 
     v = subprocess.run([sys.executable, "scripts/validar_conceptos.py", str(path)], capture_output=True, text=True)
     if v.returncode != 0:
@@ -67,6 +71,54 @@ def main() -> int:
                f"WHERE convocatoria_id = 1 AND numero = {tema};")
     out.append("DO $$ BEGIN IF (SELECT count(*) FROM _tema) <> 1 THEN "
                f"RAISE EXCEPTION 'tema {tema} de la convocatoria 1 no encontrado o duplicado'; END IF; END $$;")
+
+    if compacto:
+        filas_c, filas_q = [], []
+        for c in d["conceptos"]:
+            art = c["bloque"][1:]
+            ref = f"{art}.{c['apartado']}" if c["apartado"] else art
+            filas_c.append({"id": c["id"], "apartado": f"{d['bloque_temario'].split(' (')[0]} · Art. {ref}",
+                            "orden": c["orden"], "pregunta": c["tarjeta"]["pregunta"],
+                            "respuesta": c["tarjeta"]["respuesta"],
+                            "fuente": f"Constitución Española, art. {ref} ({FUENTE_ID}, texto consolidado, act. {fecha_txt})",
+                            "cita": c["cita"], "tipo": c["tipo"], "prioridad": c["prioridad"],
+                            "conf": c.get("confundible_con", [])})
+            for p in c["preguntas"]:
+                hd = f"CE:{c['id']}:N{p['nivel']}"
+                orden = sorted(range(len(p["opciones"])), key=lambda i: hashlib.sha256(f"{hd}:{i}".encode()).hexdigest())
+                letras = "abcd"
+                filas_q.append({"c": c["id"], "n": p["nivel"], "e": p["enunciado"],
+                                "o": [{"letra": letras[j], "texto": p["opciones"][i]} for j, i in enumerate(orden)],
+                                "k": letras[orden.index(p["correcta"])], "x": p["explicacion"],
+                                "f": f"Art. {ref} CE (texto consolidado BOE, act. {fecha_txt})", "h": hd})
+        bloques = []
+        for i in range(0, len(filas_c), compacto):
+            ids = {x["id"] for x in filas_c[i:i + compacto]}
+            jc = json.dumps(filas_c[i:i + compacto], ensure_ascii=False).replace("'", "''")
+            jq = json.dumps([x for x in filas_q if x["c"] in ids], ensure_ascii=False).replace("'", "''")
+            pre = out if not bloques else ["BEGIN;"] + out[-2:]
+            bloques.append("\n".join(pre + [
+                "WITH cc AS (SELECT * FROM jsonb_to_recordset('" + jc + "'::jsonb) AS x(id text, apartado text, orden int, "
+                "pregunta text, respuesta text, fuente text, cita text, tipo text, prioridad smallint, conf text[])) "
+                "INSERT INTO public.concepts (id, topic_id, documento, apartado, orden, pregunta, respuesta, fuente, cita, tipo, "
+                f"prioridad, confundible_con, estado) SELECT cc.id, t.id, 'CE', cc.apartado, cc.orden, cc.pregunta, cc.respuesta, "
+                f"cc.fuente, cc.cita, cc.tipo, cc.prioridad, coalesce(cc.conf, '{{}}'), {q(est_c)} FROM cc, _tema t "
+                "ON CONFLICT (id) DO UPDATE SET topic_id = EXCLUDED.topic_id, documento = EXCLUDED.documento, "
+                "apartado = EXCLUDED.apartado, orden = EXCLUDED.orden, pregunta = EXCLUDED.pregunta, "
+                "respuesta = EXCLUDED.respuesta, fuente = EXCLUDED.fuente, cita = EXCLUDED.cita, tipo = EXCLUDED.tipo, "
+                "prioridad = EXCLUDED.prioridad, confundible_con = EXCLUDED.confundible_con, estado = EXCLUDED.estado;",
+                "CREATE TEMP TABLE _qq ON COMMIT DROP AS SELECT * FROM jsonb_to_recordset('" + jq + "'::jsonb) AS x(c text, n int, "
+                "e text, o jsonb, k text, x text, f text, h text);",
+                f"UPDATE public.questions q SET enunciado = qq.e, opciones = qq.o, correcta = qq.k, explicacion = qq.x, "
+                f"fuente_normativa = qq.f, nivel = qq.n, concept_id = qq.c, estado = {q(est_q)}, topic_id = (SELECT id FROM _tema) "
+                "FROM _qq qq WHERE q.hash_dedupe = qq.h;",
+                "INSERT INTO public.questions (topic_id, enunciado, opciones, correcta, explicacion, fuente_normativa, estado, nivel, "
+                f"origen_tipo, origen_archivo, concept_id, hash_dedupe) SELECT (SELECT id FROM _tema), qq.e, qq.o, qq.k, qq.x, qq.f, "
+                f"{q(est_q)}, qq.n, 'propio', {q(str(path))}, qq.c, qq.h FROM _qq qq "
+                "WHERE NOT EXISTS (SELECT 1 FROM public.questions q WHERE q.hash_dedupe = qq.h);",
+                "COMMIT;"]))
+        print("\n-- BLOQUE\n".join(bloques))
+        return 0
 
     n_q = 0
     for c in d["conceptos"]:

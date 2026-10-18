@@ -26,6 +26,17 @@ describe('renderMarkdown (material propio)', () => {
     expect(c.textContent).toContain('<img src=x onerror=alert(1)>');
   });
 
+  it('las tres capas del Título I se renderizan y nombran los arts. 10 a 55', () => {
+    for (const f of ['titulo-i-1-esquema.md', 'titulo-i-2-desarrollo.md', 'titulo-i-3-completo.md']) {
+      const c = html(readFileSync(`public/material/constitucion/${f}`, 'utf8'));
+      expect(c.querySelectorAll('h3').length, `${f}: sin apartados`).toBeGreaterThan(5);
+      const texto = c.textContent ?? '';
+      for (const n of [10, 17, 24, 30, 39, 53, 55]) expect(texto.includes(String(n)), `${f}: no menciona el art. ${n}`).toBe(true);
+    }
+    const completo = readFileSync('public/material/constitucion/titulo-i-3-completo.md', 'utf8');
+    for (let n = 10; n <= 55; n++) expect(completo.includes(`## Artículo ${n}\n`), `completo: falta el art. ${n}`).toBe(true);
+  });
+
   it('las tres capas del Título Preliminar se renderizan y nombran los 9 artículos', () => {
     for (const f of ['titulo-preliminar-1-esquema.md', 'titulo-preliminar-2-desarrollo.md', 'titulo-preliminar-3-completo.md']) {
       const c = html(readFileSync(`public/material/constitucion/${f}`, 'utf8'));
