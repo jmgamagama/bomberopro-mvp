@@ -38,6 +38,7 @@ Problemas detectados: **0**.
 | tema23 | pendiente | 21 | 100 % | 0 | `9942d77c7ee61310` |  |
 | tema24 | revisado | 19 | 100 % | 0 | `f51fe2a06a029c0d` |  |
 | tema25 | pendiente | 47 | 100 % | 0 | `274647248a13635e` |  |
+| tema25-lote02 | pendiente | 68 | 100 % | 0 | `807859d0d52d307a` |  |
 | tema26 | pendiente | 60 | 100 % | 0 | `3b47c30a9a7bd1e3` |  |
 | tema27 | pendiente | 22 | 100 % | 0 | `9c69d2a21da029c6` |  |
 | tema27-lote02 | pendiente | 30 | 100 % | 0 | `bae9f0f2535c226d` |  |
