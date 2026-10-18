@@ -1,0 +1,1210 @@
+{
+ "norma": "BOE-A-1978-31229",
+ "tema": 1,
+ "bloque_temario": "Título Preliminar (arts. 1-9)",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "CE-a1-1-estado",
+   "bloque": "a1",
+   "apartado": "1",
+   "orden": 10,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿En qué tipo de Estado se constituye España según el art. 1.1 CE?",
+    "respuesta": "En un Estado social y democrático de Derecho."
+   },
+   "cita": "España se constituye en un Estado social y democrático de Derecho",
+   "confundible_con": [
+    "CE-a1-3-forma"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1.1 CE, España se constituye en un Estado…",
+     "opciones": [
+      "social y democrático de Derecho",
+      "federal y democrático"
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 1.1 CE dice que España se constituye en un Estado social y democrático de Derecho."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el artículo 1.1 de la Constitución, España se constituye en un Estado:",
+     "opciones": [
+      "Social y democrático de Derecho.",
+      "Democrático, autonómico y de Derecho.",
+      "Social, liberal y de Derecho."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.1 CE: «Estado social y democrático de Derecho». La autonomía aparece en el art. 2, no en la definición del Estado."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué afirmación reproduce con exactitud el art. 1.1 CE?",
+     "opciones": [
+      "España se constituye en un Estado social y democrático de Derecho, que propugna como valores superiores de su ordenamiento jurídico la libertad, la justicia, la igualdad y el pluralismo político.",
+      "España se constituye en un Estado social y democrático de Derecho, que propugna como valores superiores de su ordenamiento jurídico la libertad, la justicia, la igualdad y la seguridad jurídica.",
+      "España se constituye en una Monarquía parlamentaria, social y democrática de Derecho, que propugna como valores superiores la libertad, la justicia, la igualdad y el pluralismo político."
+     ],
+     "correcta": 0,
+     "explicacion": "La seguridad jurídica es un principio del art. 9.3, no un valor superior; y la Monarquía parlamentaria es la forma política (art. 1.3), no el tipo de Estado."
+    }
+   ]
+  },
+  {
+   "id": "CE-a1-1-valores",
+   "bloque": "a1",
+   "apartado": "1",
+   "orden": 20,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Cuáles son los valores superiores del ordenamiento jurídico (art. 1.1 CE)?",
+    "respuesta": "La libertad, la justicia, la igualdad y el pluralismo político (son cuatro)."
+   },
+   "cita": "que propugna como valores superiores de su ordenamiento jurídico la libertad, la justicia, la igualdad y el pluralismo político",
+   "confundible_con": [
+    "CE-a9-3-principios"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "¿Es el pluralismo político uno de los valores superiores del ordenamiento jurídico según el art. 1.1 CE?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.1 CE: los valores superiores son la libertad, la justicia, la igualdad y el pluralismo político."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1.1 CE, son valores superiores del ordenamiento jurídico:",
+     "opciones": [
+      "La libertad, la justicia, la igualdad y el pluralismo político.",
+      "La libertad, la igualdad, la solidaridad y el pluralismo político.",
+      "La libertad, la justicia, la dignidad y la igualdad."
+     ],
+     "correcta": 0,
+     "explicacion": "Son cuatro y solo estos cuatro: libertad, justicia, igualdad y pluralismo político (art. 1.1 CE)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de los siguientes NO figura entre los valores superiores del ordenamiento jurídico del art. 1.1 CE?",
+     "opciones": [
+      "La seguridad jurídica.",
+      "El pluralismo político.",
+      "La justicia."
+     ],
+     "correcta": 0,
+     "explicacion": "La seguridad jurídica es uno de los principios que garantiza el art. 9.3 CE, no un valor superior del art. 1.1."
+    }
+   ]
+  },
+  {
+   "id": "CE-a1-2-soberania",
+   "bloque": "a1",
+   "apartado": "2",
+   "orden": 30,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿En quién reside la soberanía nacional y de quién emanan los poderes del Estado (art. 1.2 CE)?",
+    "respuesta": "La soberanía nacional reside en el pueblo español, del que emanan los poderes del Estado."
+   },
+   "cita": "La soberanía nacional reside en el pueblo español, del que emanan los poderes del Estado.",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1.2 CE, la soberanía nacional reside en…",
+     "opciones": [
+      "el pueblo español",
+      "las Cortes Generales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.2 CE: la soberanía nacional reside en el pueblo español."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el artículo 1.2 de la Constitución, la soberanía nacional reside en:",
+     "opciones": [
+      "El pueblo español, del que emanan los poderes del Estado.",
+      "Las Cortes Generales, que representan al pueblo español.",
+      "El Rey, como Jefe del Estado."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.2 CE. Las Cortes representan al pueblo español (art. 66), pero la soberanía reside en el pueblo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Conforme al art. 1.2 CE, ¿de quién emanan los poderes del Estado?",
+     "opciones": [
+      "Del pueblo español, en quien reside la soberanía nacional.",
+      "De la Constitución, en la que reside la soberanía nacional.",
+      "De la Nación española, patria común e indivisible."
+     ],
+     "correcta": 0,
+     "explicacion": "Los poderes del Estado emanan del pueblo español (art. 1.2). «Patria común e indivisible» es una expresión del art. 2, referida a la Nación."
+    }
+   ]
+  },
+  {
+   "id": "CE-a1-3-forma",
+   "bloque": "a1",
+   "apartado": "3",
+   "orden": 40,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Cuál es la forma política del Estado español (art. 1.3 CE)?",
+    "respuesta": "La Monarquía parlamentaria."
+   },
+   "cita": "La forma política del Estado español es la Monarquía parlamentaria.",
+   "confundible_con": [
+    "CE-a1-1-estado"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "La forma política del Estado español es…",
+     "opciones": [
+      "la Monarquía parlamentaria",
+      "la República parlamentaria"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.3 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1.3 CE, la forma política del Estado español es:",
+     "opciones": [
+      "La Monarquía parlamentaria.",
+      "La Monarquía constitucional.",
+      "El Estado social y democrático de Derecho."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.3 CE: Monarquía parlamentaria. «Estado social y democrático de Derecho» es el tipo de Estado del art. 1.1."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Un opositor afirma: «El art. 1 CE define a España como Monarquía parlamentaria en su apartado 1 y como Estado social y democrático de Derecho en su apartado 3». ¿Es correcto?",
+     "opciones": [
+      "No: el apartado 1 recoge el Estado social y democrático de Derecho y el apartado 3, la Monarquía parlamentaria.",
+      "Sí: ambos conceptos aparecen en esos apartados y en ese orden.",
+      "No: la Monarquía parlamentaria no aparece en el art. 1, sino en el Título II, De la Corona."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.1: Estado social y democrático de Derecho; art. 1.3: forma política, Monarquía parlamentaria."
+    }
+   ]
+  },
+  {
+   "id": "CE-a2-unidad",
+   "bloque": "a2",
+   "apartado": "",
+   "orden": 50,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿En qué se fundamenta la Constitución según el art. 2 CE?",
+    "respuesta": "En la indisoluble unidad de la Nación española, patria común e indivisible de todos los españoles."
+   },
+   "cita": "La Constitución se fundamenta en la indisoluble unidad de la Nación española, patria común e indivisible de todos los españoles",
+   "confundible_con": [
+    "CE-a2-autonomia"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2 CE, la Constitución se fundamenta en…",
+     "opciones": [
+      "la indisoluble unidad de la Nación española",
+      "la soberanía de las Comunidades Autónomas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "El art. 2 CE establece que la Constitución se fundamenta en:",
+     "opciones": [
+      "La indisoluble unidad de la Nación española, patria común e indivisible de todos los españoles.",
+      "La soberanía nacional, que reside en el pueblo español, del que emanan todos los poderes del Estado.",
+      "La dignidad de la persona, los derechos inviolables que le son inherentes y el libre desarrollo de la personalidad."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2 CE. La soberanía es el art. 1.2 y la dignidad de la persona, el art. 10.1."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué calificativos aplica el art. 2 CE a la Nación española?",
+     "opciones": [
+      "Patria común e indivisible de todos los españoles, cuya unidad es indisoluble.",
+      "Patria única e indivisible, cuya unidad es inquebrantable.",
+      "Nación soberana e indivisible, integrada por nacionalidades y regiones autónomas."
+     ],
+     "correcta": 0,
+     "explicacion": "Literal del art. 2: «indisoluble unidad de la Nación española, patria común e indivisible de todos los españoles»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a2-autonomia",
+   "bloque": "a2",
+   "apartado": "",
+   "orden": 60,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué reconoce y garantiza el art. 2 CE, además de fundamentarse en la unidad de la Nación?",
+    "respuesta": "El derecho a la autonomía de las nacionalidades y regiones que la integran y la solidaridad entre todas ellas."
+   },
+   "cita": "reconoce y garantiza el derecho a la autonomía de las nacionalidades y regiones que la integran y la solidaridad entre todas ellas",
+   "confundible_con": [
+    "CE-a2-unidad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "¿Qué derecho reconoce y garantiza el art. 2 CE a las nacionalidades y regiones?",
+     "opciones": [
+      "El derecho a la autonomía",
+      "El derecho a la autodeterminación"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2 CE: derecho a la autonomía de las nacionalidades y regiones."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2 CE, la Constitución reconoce y garantiza:",
+     "opciones": [
+      "El derecho a la autonomía de las nacionalidades y regiones que la integran y la solidaridad entre todas ellas.",
+      "La soberanía de las nacionalidades y regiones que integran la Nación y el derecho de cada una a decidir su estatuto.",
+      "La igualdad de competencias de todas las Comunidades Autónomas y la cooperación entre ellas y con el Estado."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "En el art. 2 CE, ¿a quién se reconoce el derecho a la autonomía y qué principio se garantiza entre ellas?",
+     "opciones": [
+      "A las nacionalidades y regiones; la solidaridad entre todas ellas.",
+      "A las Comunidades Autónomas; la igualdad entre todas ellas.",
+      "A las nacionalidades, regiones y provincias; la cooperación entre todas ellas."
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 2 habla de «nacionalidades y regiones» (no de Comunidades Autónomas ni provincias) y de «solidaridad entre todas ellas»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a3-1-castellano",
+   "bloque": "a3",
+   "apartado": "1",
+   "orden": 70,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué dice el art. 3.1 CE sobre el castellano?",
+    "respuesta": "Es la lengua española oficial del Estado; todos los españoles tienen el deber de conocerla y el derecho a usarla."
+   },
+   "cita": "El castellano es la lengua española oficial del Estado. Todos los españoles tienen el deber de conocerla y el derecho a usarla.",
+   "confundible_con": [
+    "CE-a3-2-cooficiales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.1 CE, conocer el castellano es para todos los españoles…",
+     "opciones": [
+      "un deber",
+      "una recomendación"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.1 CE: todos los españoles tienen el deber de conocerla y el derecho a usarla."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.1 CE, respecto del castellano todos los españoles tienen:",
+     "opciones": [
+      "El deber de conocerlo y el derecho a usarlo.",
+      "El derecho a conocerlo y el deber de usarlo.",
+      "El derecho a conocerlo y a usarlo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.1 CE: deber de conocerla y derecho a usarla."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 3.1 CE es correcta?",
+     "opciones": [
+      "El castellano es la lengua española oficial del Estado, y los españoles tienen el deber de conocerla y el derecho a usarla.",
+      "El castellano es la única lengua oficial en todo el territorio, y los españoles tienen el deber de conocerla y de usarla.",
+      "El castellano es la lengua oficial de España, y solo los españoles residentes en España tienen el deber de conocerla."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.1: es la lengua española oficial del Estado; el art. 3.2 hace cooficiales otras lenguas en sus Comunidades; el deber es de «todos los españoles»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a3-2-cooficiales",
+   "bloque": "a3",
+   "apartado": "2",
+   "orden": 80,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Qué dice el art. 3.2 CE sobre las demás lenguas españolas?",
+    "respuesta": "Serán también oficiales en las respectivas Comunidades Autónomas de acuerdo con sus Estatutos."
+   },
+   "cita": "Las demás lenguas españolas serán también oficiales en las respectivas Comunidades Autónomas de acuerdo con sus Estatutos.",
+   "confundible_con": [
+    "CE-a3-1-castellano",
+    "CE-a3-3-modalidades"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.2 CE, las demás lenguas españolas serán oficiales en sus Comunidades Autónomas de acuerdo con…",
+     "opciones": [
+      "sus Estatutos",
+      "una ley orgánica estatal"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.2 CE: de acuerdo con sus Estatutos."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.2 CE, las demás lenguas españolas:",
+     "opciones": [
+      "Serán también oficiales en las respectivas Comunidades Autónomas de acuerdo con sus Estatutos.",
+      "Serán oficiales en todo el territorio del Estado junto al castellano, en los términos que fije la ley.",
+      "Serán objeto de especial respeto y protección como patrimonio cultural de todos los españoles."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.2 CE. La «especial respeto y protección» se refiere a las modalidades lingüísticas (art. 3.3)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué norma determina, según el art. 3.2 CE, la oficialidad de las lenguas españolas distintas del castellano?",
+     "opciones": [
+      "El Estatuto de cada Comunidad Autónoma.",
+      "La ley de cada Comunidad Autónoma aprobada por su Asamblea.",
+      "Una ley orgánica de las Cortes Generales."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.2 CE: son oficiales «de acuerdo con sus Estatutos»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a3-3-modalidades",
+   "bloque": "a3",
+   "apartado": "3",
+   "orden": 90,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "¿Cómo califica el art. 3.3 CE la riqueza de las modalidades lingüísticas de España?",
+    "respuesta": "Como un patrimonio cultural que será objeto de especial respeto y protección."
+   },
+   "cita": "La riqueza de las distintas modalidades lingüísticas de España es un patrimonio cultural que será objeto de especial respeto y protección.",
+   "confundible_con": [
+    "CE-a3-2-cooficiales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.3 CE, la riqueza de las modalidades lingüísticas de España es…",
+     "opciones": [
+      "un patrimonio cultural",
+      "un derecho fundamental"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.3 CE: es un patrimonio cultural."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.3 CE, la riqueza de las distintas modalidades lingüísticas de España es un patrimonio cultural que será objeto de:",
+     "opciones": [
+      "Especial respeto y protección.",
+      "Fomento y difusión.",
+      "Conservación y enriquecimiento."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.3 CE: «especial respeto y protección»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "La expresión «especial respeto y protección» aparece en el art. 3 CE referida a:",
+     "opciones": [
+      "La riqueza de las distintas modalidades lingüísticas de España.",
+      "Las lenguas españolas cooficiales en las Comunidades Autónomas.",
+      "El castellano como lengua española oficial del Estado."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.3 CE."
+    }
+   ]
+  },
+  {
+   "id": "CE-a4-1-bandera",
+   "bloque": "a4",
+   "apartado": "1",
+   "orden": 100,
+   "tipo": "dato",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Cómo está formada la bandera de España (art. 4.1 CE)?",
+    "respuesta": "Por tres franjas horizontales, roja, amarilla y roja, siendo la amarilla de doble anchura que cada una de las rojas."
+   },
+   "cita": "La bandera de España está formada por tres franjas horizontales, roja, amarilla y roja, siendo la amarilla de doble anchura que cada una de las rojas.",
+   "confundible_con": [
+    "CE-a4-2-banderas-ccaa"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.1 CE, las franjas de la bandera de España son…",
+     "opciones": [
+      "horizontales",
+      "verticales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.1 CE: tres franjas horizontales."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.1 CE, la bandera de España está formada por tres franjas horizontales, roja, amarilla y roja, siendo la amarilla:",
+     "opciones": [
+      "De doble anchura que cada una de las rojas.",
+      "De triple anchura que cada una de las rojas.",
+      "De igual anchura que cada una de las rojas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.1 CE: la amarilla es de doble anchura que cada una de las rojas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué recoge el art. 4.1 CE sobre la bandera de España?",
+     "opciones": [
+      "Sus colores, la disposición horizontal de las franjas y la anchura relativa de la amarilla.",
+      "Sus colores, la disposición de las franjas y el escudo que figura en ella.",
+      "Sus colores y que debe ondear en todos los edificios públicos junto a las banderas autonómicas."
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 4.1 no regula el escudo. El uso junto a las banderas autonómicas está en el art. 4.2 y se refiere a los edificios públicos y actos oficiales de las Comunidades."
+    }
+   ]
+  },
+  {
+   "id": "CE-a4-2-banderas-ccaa",
+   "bloque": "a4",
+   "apartado": "2",
+   "orden": 110,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Qué permite el art. 4.2 CE respecto a las banderas autonómicas y cómo se usan?",
+    "respuesta": "Los Estatutos podrán reconocer banderas y enseñas propias de las Comunidades Autónomas, que se utilizarán junto a la bandera de España en sus edificios públicos y en sus actos oficiales."
+   },
+   "cita": "Los Estatutos podrán reconocer banderas y enseñas propias de las Comunidades Autónomas. Estas se utilizarán junto a la bandera de España en sus edificios públicos y en sus actos oficiales.",
+   "confundible_con": [
+    "CE-a4-1-bandera"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.2 CE, ¿quién puede reconocer banderas y enseñas propias de las Comunidades Autónomas?",
+     "opciones": [
+      "Los Estatutos",
+      "El Gobierno de la Nación"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.2 CE: los Estatutos podrán reconocerlas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.2 CE, las banderas y enseñas propias de las Comunidades Autónomas se utilizarán:",
+     "opciones": [
+      "Junto a la bandera de España en sus edificios públicos y en sus actos oficiales.",
+      "En lugar de la bandera de España en los edificios públicos situados en su territorio.",
+      "Únicamente en los actos oficiales que organice el Gobierno de la Comunidad Autónoma."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.2 CE: junto a la bandera de España, en sus edificios públicos y en sus actos oficiales."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones se ajusta al art. 4.2 CE?",
+     "opciones": [
+      "Los Estatutos «podrán» reconocer banderas y enseñas propias de las Comunidades Autónomas.",
+      "Los Estatutos «deberán» reconocer una bandera propia de cada Comunidad Autónoma.",
+      "Las Comunidades Autónomas «podrán» reconocer por ley sus banderas, que se usarán en lugar de la de España en sus actos oficiales."
+     ],
+     "correcta": 0,
+     "explicacion": "Es una posibilidad («podrán») y corresponde a los Estatutos; se usan junto a la de España, nunca en su lugar."
+    }
+   ]
+  },
+  {
+   "id": "CE-a5-capital",
+   "bloque": "a5",
+   "apartado": "",
+   "orden": 120,
+   "tipo": "dato",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Cuál es la capital del Estado según el art. 5 CE?",
+    "respuesta": "La villa de Madrid."
+   },
+   "cita": "La capital del Estado es la villa de Madrid.",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 5 CE, la capital del Estado es…",
+     "opciones": [
+      "la villa de Madrid",
+      "la ciudad de Toledo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "El art. 5 CE establece que la capital del Estado es:",
+     "opciones": [
+      "La villa de Madrid.",
+      "La ciudad de Madrid.",
+      "La Comunidad de Madrid."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5 CE: «la villa de Madrid»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿En qué artículo de la Constitución se establece la capital del Estado y con qué término exacto?",
+     "opciones": [
+      "En el art. 5, que dice «la villa de Madrid».",
+      "En el art. 4, junto a la bandera, que dice «la ciudad de Madrid».",
+      "En el art. 5, que dice «la ciudad y villa de Madrid»."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5 CE: «La capital del Estado es la villa de Madrid»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a6-partidos-funciones",
+   "bloque": "a6",
+   "apartado": "",
+   "orden": 130,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué funciones atribuye el art. 6 CE a los partidos políticos?",
+    "respuesta": "Expresan el pluralismo político, concurren a la formación y manifestación de la voluntad popular y son instrumento fundamental para la participación política."
+   },
+   "cita": "Los partidos políticos expresan el pluralismo político, concurren a la formación y manifestación de la voluntad popular y son instrumento fundamental para la participación política.",
+   "confundible_con": [
+    "CE-a7-sindicatos-funciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 6 CE, los partidos políticos expresan…",
+     "opciones": [
+      "el pluralismo político",
+      "los intereses económicos y sociales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6 CE. La defensa de intereses económicos y sociales corresponde a sindicatos y asociaciones empresariales (art. 7)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 6 CE, los partidos políticos son:",
+     "opciones": [
+      "Instrumento fundamental para la participación política.",
+      "Instrumento único para la participación política.",
+      "Órganos del Estado para la formación de la voluntad popular."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6 CE: «instrumento fundamental» (no único) para la participación política."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de las siguientes NO es una de las funciones que el art. 6 CE atribuye a los partidos políticos?",
+     "opciones": [
+      "Contribuir a la defensa y promoción de los intereses económicos y sociales que les son propios.",
+      "Concurrir a la formación y manifestación de la voluntad popular, según el propio art. 6.",
+      "Expresar el pluralismo político y ser instrumento fundamental para la participación política."
+     ],
+     "correcta": 0,
+     "explicacion": "Esa función es la de los sindicatos y asociaciones empresariales (art. 7 CE)."
+    }
+   ]
+  },
+  {
+   "id": "CE-a6-partidos-regimen",
+   "bloque": "a6",
+   "apartado": "",
+   "orden": 140,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Qué dice el art. 6 CE sobre la creación, la actividad y la estructura de los partidos políticos?",
+    "respuesta": "Su creación y el ejercicio de su actividad son libres dentro del respeto a la Constitución y a la ley; su estructura interna y funcionamiento deberán ser democráticos."
+   },
+   "cita": "Su creación y el ejercicio de su actividad son libres dentro del respeto a la Constitución y a la ley. Su estructura interna y funcionamiento deberán ser democráticos.",
+   "confundible_con": [
+    "CE-a7-sindicatos-regimen"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 6 CE, la estructura interna y el funcionamiento de los partidos políticos deberán ser…",
+     "opciones": [
+      "democráticos",
+      "aprobados por el Gobierno"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 6 CE, la creación de los partidos políticos y el ejercicio de su actividad son:",
+     "opciones": [
+      "Libres dentro del respeto a la Constitución y a la ley.",
+      "Libres, previa inscripción en el registro del Ministerio del Interior.",
+      "Libres dentro del respeto a la ley orgánica que los regule."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6 CE: libres dentro del respeto a la Constitución y a la ley. La Constitución no menciona ningún registro."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "La frase «su estructura interna y funcionamiento deberán ser democráticos» aparece en la Constitución referida a:",
+     "opciones": [
+      "Los partidos políticos y también a los sindicatos de trabajadores y asociaciones empresariales.",
+      "Únicamente a los partidos políticos, como instrumento fundamental de la participación política.",
+      "Únicamente a los sindicatos de trabajadores, por su función de defensa de intereses propios."
+     ],
+     "correcta": 0,
+     "explicacion": "La misma frase cierra los arts. 6 (partidos) y 7 (sindicatos y asociaciones empresariales)."
+    }
+   ]
+  },
+  {
+   "id": "CE-a7-sindicatos-funciones",
+   "bloque": "a7",
+   "apartado": "",
+   "orden": 150,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿A qué contribuyen los sindicatos de trabajadores y las asociaciones empresariales según el art. 7 CE?",
+    "respuesta": "A la defensa y promoción de los intereses económicos y sociales que les son propios."
+   },
+   "cita": "Los sindicatos de trabajadores y las asociaciones empresariales contribuyen a la defensa y promoción de los intereses económicos y sociales que les son propios.",
+   "confundible_con": [
+    "CE-a6-partidos-funciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 7 CE, los sindicatos y las asociaciones empresariales contribuyen a la defensa de los intereses…",
+     "opciones": [
+      "económicos y sociales que les son propios",
+      "políticos de los ciudadanos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 7 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "¿Qué artículo de la Constitución se refiere a los sindicatos de trabajadores y a las asociaciones empresariales?",
+     "opciones": [
+      "El art. 7.",
+      "El art. 6.",
+      "El art. 9."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 7 CE (el art. 6 trata de los partidos políticos)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 7 CE, ¿quiénes contribuyen a la defensa y promoción de los intereses económicos y sociales que les son propios?",
+     "opciones": [
+      "Los sindicatos de trabajadores y las asociaciones empresariales.",
+      "Los sindicatos de trabajadores y los colegios profesionales.",
+      "Los sindicatos de trabajadores, las asociaciones empresariales y los partidos políticos."
+     ],
+     "correcta": 0,
+     "explicacion": "Solo sindicatos de trabajadores y asociaciones empresariales (art. 7). Los colegios profesionales están en el art. 36."
+    }
+   ]
+  },
+  {
+   "id": "CE-a7-sindicatos-regimen",
+   "bloque": "a7",
+   "apartado": "",
+   "orden": 160,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "¿Qué dice el art. 7 CE sobre la creación, actividad y estructura de sindicatos y asociaciones empresariales?",
+    "respuesta": "Su creación y el ejercicio de su actividad son libres dentro del respeto a la Constitución y a la ley; su estructura interna y funcionamiento deberán ser democráticos."
+   },
+   "cita": "Su creación y el ejercicio de su actividad son libres dentro del respeto a la Constitución y a la ley. Su estructura interna y funcionamiento deberán ser democráticos.",
+   "confundible_con": [
+    "CE-a6-partidos-regimen"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 7 CE, la estructura interna y el funcionamiento de los sindicatos deberán ser…",
+     "opciones": [
+      "democráticos",
+      "jerárquicos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 7 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 7 CE, la creación de sindicatos de trabajadores y asociaciones empresariales y el ejercicio de su actividad son:",
+     "opciones": [
+      "Libres dentro del respeto a la Constitución y a la ley.",
+      "Libres, salvo para los miembros de las Fuerzas Armadas.",
+      "Libres, previa autorización administrativa."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 7 CE. Las limitaciones a la sindicación de las Fuerzas Armadas están en el art. 28.1, no en el art. 7."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué tienen en común los arts. 6 y 7 CE?",
+     "opciones": [
+      "Ambos declaran que la creación y la actividad son libres dentro del respeto a la Constitución y a la ley, y exigen estructura interna y funcionamiento democráticos.",
+      "Ambos atribuyen a sus organizaciones la función de expresar el pluralismo político y de concurrir a la formación de la voluntad popular.",
+      "Ambos remiten a una ley orgánica la regulación de su estructura interna y exigen la inscripción previa en un registro público."
+     ],
+     "correcta": 0,
+     "explicacion": "Las dos últimas frases de los arts. 6 y 7 son idénticas. El pluralismo político solo se atribuye a los partidos (art. 6) y ninguno remite a una ley orgánica."
+    }
+   ]
+  },
+  {
+   "id": "CE-a8-1-composicion",
+   "bloque": "a8",
+   "apartado": "1",
+   "orden": 170,
+   "tipo": "lista",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Por quiénes están constituidas las Fuerzas Armadas según el art. 8.1 CE?",
+    "respuesta": "Por el Ejército de Tierra, la Armada y el Ejército del Aire."
+   },
+   "cita": "Las Fuerzas Armadas, constituidas por el Ejército de Tierra, la Armada y el Ejército del Aire",
+   "confundible_con": [
+    "CE-a8-1-mision"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "¿Forma parte la Guardia Civil de las Fuerzas Armadas según la enumeración del art. 8.1 CE?",
+     "opciones": [
+      "No",
+      "Sí"
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 8.1 CE solo enumera el Ejército de Tierra, la Armada y el Ejército del Aire."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 8.1 CE, las Fuerzas Armadas están constituidas por:",
+     "opciones": [
+      "El Ejército de Tierra, la Armada y el Ejército del Aire.",
+      "El Ejército de Tierra, la Armada, el Ejército del Aire y la Guardia Civil.",
+      "El Ejército de Tierra, el Ejército del Aire y la Guardia Real."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.1 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Con qué denominación exacta nombra el art. 8.1 CE a la rama aérea de las Fuerzas Armadas?",
+     "opciones": [
+      "Ejército del Aire.",
+      "Ejército del Aire y del Espacio.",
+      "Fuerza Aérea."
+     ],
+     "correcta": 0,
+     "explicacion": "El texto vigente de la Constitución dice «Ejército del Aire». La denominación «Ejército del Aire y del Espacio» procede de una norma posterior, no de la Constitución."
+    }
+   ]
+  },
+  {
+   "id": "CE-a8-1-mision",
+   "bloque": "a8",
+   "apartado": "1",
+   "orden": 180,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Cuál es la misión de las Fuerzas Armadas según el art. 8.1 CE?",
+    "respuesta": "Garantizar la soberanía e independencia de España, defender su integridad territorial y el ordenamiento constitucional."
+   },
+   "cita": "tienen como misión garantizar la soberanía e independencia de España, defender su integridad territorial y el ordenamiento constitucional",
+   "confundible_con": [
+    "CE-a8-1-composicion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "¿Es misión de las Fuerzas Armadas, según el art. 8.1 CE, defender el ordenamiento constitucional?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.1 CE: defender su integridad territorial y el ordenamiento constitucional."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 8.1 CE, las Fuerzas Armadas tienen como misión:",
+     "opciones": [
+      "Garantizar la soberanía e independencia de España, defender su integridad territorial y el ordenamiento constitucional.",
+      "Proteger el libre ejercicio de los derechos y libertades de todos los ciudadanos y garantizar la seguridad ciudadana.",
+      "Garantizar la soberanía de España, defender la seguridad ciudadana y auxiliar a la población en caso de catástrofe."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.1 CE. Proteger los derechos y libertades y la seguridad ciudadana es misión de las Fuerzas y Cuerpos de seguridad (art. 104), no de las Fuerzas Armadas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de las siguientes NO figura en el art. 8.1 CE como misión de las Fuerzas Armadas?",
+     "opciones": [
+      "Garantizar la seguridad ciudadana.",
+      "Defender la integridad territorial de España.",
+      "Garantizar la independencia de España."
+     ],
+     "correcta": 0,
+     "explicacion": "La seguridad ciudadana corresponde a las Fuerzas y Cuerpos de seguridad (art. 104 CE)."
+    }
+   ]
+  },
+  {
+   "id": "CE-a8-2-ley-organica",
+   "bloque": "a8",
+   "apartado": "2",
+   "orden": 190,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "¿Qué tipo de norma regulará las bases de la organización militar (art. 8.2 CE)?",
+    "respuesta": "Una ley orgánica, conforme a los principios de la presente Constitución."
+   },
+   "cita": "Una ley orgánica regulará las bases de la organización militar conforme a los principios de la presente Constitución.",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 8.2 CE, las bases de la organización militar se regularán por…",
+     "opciones": [
+      "una ley orgánica",
+      "un real decreto"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.2 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 8.2 CE, ¿qué regulará una ley orgánica?",
+     "opciones": [
+      "Las bases de la organización militar.",
+      "La composición de las Fuerzas Armadas.",
+      "La misión de las Fuerzas Armadas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.2 CE: «las bases de la organización militar». Composición y misión las fija directamente el art. 8.1."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 8.2 CE, la ley que regule las bases de la organización militar deberá ser:",
+     "opciones": [
+      "Orgánica y conforme a los principios de la presente Constitución.",
+      "Ordinaria y aprobada a propuesta del Ministerio de Defensa.",
+      "Orgánica y aprobada por mayoría de tres quintos de ambas Cámaras."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.2 CE. La Constitución no exige aquí una mayoría de tres quintos."
+    }
+   ]
+  },
+  {
+   "id": "CE-a9-1-sujecion",
+   "bloque": "a9",
+   "apartado": "1",
+   "orden": 200,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Quiénes están sujetos a la Constitución y al resto del ordenamiento jurídico (art. 9.1 CE)?",
+    "respuesta": "Los ciudadanos y los poderes públicos."
+   },
+   "cita": "Los ciudadanos y los poderes públicos están sujetos a la Constitución y al resto del ordenamiento jurídico.",
+   "confundible_con": [
+    "CE-a9-2-igualdad-real"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 9.1 CE, ¿están los poderes públicos sujetos a la Constitución?",
+     "opciones": [
+      "Sí, igual que los ciudadanos",
+      "No, solo los ciudadanos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.1 CE: los ciudadanos y los poderes públicos están sujetos a la Constitución."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 9.1 CE, los ciudadanos y los poderes públicos están sujetos:",
+     "opciones": [
+      "A la Constitución y al resto del ordenamiento jurídico.",
+      "A la Constitución y a las leyes orgánicas.",
+      "A la Constitución, a los tratados internacionales y a la ley."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.1 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué afirmación es correcta según el art. 9.1 CE?",
+     "opciones": [
+      "Ciudadanos y poderes públicos están sujetos a la Constitución y al resto del ordenamiento jurídico.",
+      "Los poderes públicos están sujetos a la Constitución, y los ciudadanos, solo al resto del ordenamiento jurídico.",
+      "Los ciudadanos están sujetos a la Constitución, y los poderes públicos, además, a la ley y al Derecho."
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 9.1 sujeta a ambos por igual. La fórmula «a la ley y al Derecho» es del art. 103.1, sobre la Administración."
+    }
+   ]
+  },
+  {
+   "id": "CE-a9-2-igualdad-real",
+   "bloque": "a9",
+   "apartado": "2",
+   "orden": 210,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué corresponde a los poderes públicos según el art. 9.2 CE?",
+    "respuesta": "Promover las condiciones para que la libertad y la igualdad del individuo y de los grupos sean reales y efectivas; remover los obstáculos que impidan o dificulten su plenitud y facilitar la participación de todos los ciudadanos en la vida política, económica, cultural y social."
+   },
+   "cita": "Corresponde a los poderes públicos promover las condiciones para que la libertad y la igualdad del individuo y de los grupos en que se integra sean reales y efectivas; remover los obstáculos que impidan o dificulten su plenitud y facilitar la participación de todos los ciudadanos en la vida política, económica, cultural y social.",
+   "confundible_con": [
+    "CE-a9-1-sujecion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 9.2 CE, los poderes públicos deben promover que la libertad y la igualdad sean…",
+     "opciones": [
+      "reales y efectivas",
+      "formales y abstractas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.2 CE: reales y efectivas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 9.2 CE, corresponde a los poderes públicos facilitar la participación de todos los ciudadanos en la vida:",
+     "opciones": [
+      "Política, económica, cultural y social.",
+      "Política, económica y social.",
+      "Política, cultural, social y laboral."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.2 CE: cuatro ámbitos, en este orden: política, económica, cultural y social."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 9.2 CE, ¿de quiénes deben ser reales y efectivas la libertad y la igualdad?",
+     "opciones": [
+      "Del individuo y de los grupos en que se integra.",
+      "De los españoles y de los extranjeros residentes.",
+      "De los ciudadanos y de los poderes públicos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.2 CE: «del individuo y de los grupos en que se integra»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a9-3-principios",
+   "bloque": "a9",
+   "apartado": "3",
+   "orden": 220,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué principios garantiza la Constitución en el art. 9.3?",
+    "respuesta": "Legalidad, jerarquía normativa, publicidad de las normas, irretroactividad de las disposiciones sancionadoras no favorables o restrictivas de derechos individuales, seguridad jurídica, responsabilidad e interdicción de la arbitrariedad de los poderes públicos (siete)."
+   },
+   "cita": "La Constitución garantiza el principio de legalidad, la jerarquía normativa, la publicidad de las normas, la irretroactividad de las disposiciones sancionadoras no favorables o restrictivas de derechos individuales, la seguridad jurídica, la responsabilidad y la interdicción de la arbitrariedad de los poderes públicos.",
+   "confundible_con": [
+    "CE-a1-1-valores",
+    "CE-a9-3-irretroactividad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "¿Garantiza el art. 9.3 CE el principio de jerarquía normativa?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.3 CE: la Constitución garantiza la jerarquía normativa."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "¿Cuál de los siguientes principios garantiza la Constitución en su art. 9.3?",
+     "opciones": [
+      "La publicidad de las normas.",
+      "El pluralismo político.",
+      "La justicia."
+     ],
+     "correcta": 0,
+     "explicacion": "La publicidad de las normas está en el art. 9.3. El pluralismo político y la justicia son valores superiores del art. 1.1."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de los siguientes NO figura entre los principios que garantiza el art. 9.3 CE?",
+     "opciones": [
+      "La igualdad.",
+      "La responsabilidad de los poderes públicos.",
+      "La interdicción de la arbitrariedad de los poderes públicos."
+     ],
+     "correcta": 0,
+     "explicacion": "La igualdad es un valor superior (art. 1.1) y un derecho (art. 14), pero no está en la lista del art. 9.3."
+    }
+   ]
+  },
+  {
+   "id": "CE-a9-3-irretroactividad",
+   "bloque": "a9",
+   "apartado": "3",
+   "orden": 230,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 9.3 CE, ¿qué disposiciones son irretroactivas?",
+    "respuesta": "Las disposiciones sancionadoras no favorables o restrictivas de derechos individuales."
+   },
+   "cita": "la irretroactividad de las disposiciones sancionadoras no favorables o restrictivas de derechos individuales",
+   "confundible_con": [
+    "CE-a9-3-principios"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 9.3 CE, la irretroactividad se garantiza para las disposiciones sancionadoras…",
+     "opciones": [
+      "no favorables",
+      "favorables"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.3 CE: disposiciones sancionadoras no favorables o restrictivas de derechos individuales."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "El art. 9.3 CE garantiza la irretroactividad de:",
+     "opciones": [
+      "Las disposiciones sancionadoras no favorables o restrictivas de derechos individuales.",
+      "Todas las disposiciones sancionadoras, sean o no favorables para el ciudadano.",
+      "Todas las leyes, salvo que ellas mismas dispongan expresamente lo contrario."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.3 CE. No es una irretroactividad general: solo de las sancionadoras no favorables o restrictivas de derechos individuales."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Una ley sancionadora posterior a los hechos es MÁS FAVORABLE para el infractor. A la luz de la irretroactividad que garantiza el art. 9.3 CE:",
+     "opciones": [
+      "El art. 9.3 no impide su aplicación, porque solo garantiza la irretroactividad de las disposiciones sancionadoras no favorables.",
+      "No puede aplicarse, porque el art. 9.3 prohíbe de forma absoluta la retroactividad de toda disposición sancionadora.",
+      "Solo puede aplicarse si así lo autoriza expresamente una ley orgánica posterior aprobada por las Cortes Generales."
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 9.3 CE limita la irretroactividad a las disposiciones sancionadoras no favorables o restrictivas de derechos individuales."
+    }
+   ]
+  },
+  {
+   "id": "CE-a9-3-arbitrariedad",
+   "bloque": "a9",
+   "apartado": "3",
+   "orden": 240,
+   "tipo": "dato",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "¿Qué prohíbe expresamente el último principio del art. 9.3 CE?",
+    "respuesta": "La arbitrariedad de los poderes públicos (la Constitución garantiza su interdicción)."
+   },
+   "cita": "la interdicción de la arbitrariedad de los poderes públicos",
+   "confundible_con": [
+    "CE-a9-3-principios"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 9.3 CE, la interdicción (prohibición) de la arbitrariedad se refiere a…",
+     "opciones": [
+      "los poderes públicos",
+      "los ciudadanos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.3 CE: interdicción de la arbitrariedad de los poderes públicos."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "La interdicción de la arbitrariedad de los poderes públicos está garantizada en la Constitución en el:",
+     "opciones": [
+      "Art. 9.3.",
+      "Art. 1.1.",
+      "Art. 103.1."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.3 CE, como último de los principios que enumera."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "En el art. 9.3 CE, ¿qué principio aparece inmediatamente antes de la interdicción de la arbitrariedad de los poderes públicos?",
+     "opciones": [
+      "La responsabilidad.",
+      "La seguridad jurídica.",
+      "La jerarquía normativa."
+     ],
+     "correcta": 0,
+     "explicacion": "El orden literal termina así: «…la seguridad jurídica, la responsabilidad y la interdicción de la arbitrariedad de los poderes públicos»."
+    }
+   ]
+  }
+ ]
+}

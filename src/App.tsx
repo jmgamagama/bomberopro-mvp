@@ -36,6 +36,7 @@ import { saveAttemptToServer, toLevelInt } from './lib/saveAttemptToServer';
 import UpdateBanner from './components/UpdateBanner';
 import MyReports from './components/MyReports';
 import ConceptStudy from './components/ConceptStudy';
+import MaterialConstitucion from './components/MaterialConstitucion';
 import SaveFailureBanner from './components/SaveFailureBanner';
 import { hasCompletedOnboarding } from './utils/onboarding';
 import { isPlanesEnabled } from './config/features';
@@ -70,6 +71,7 @@ const SCREEN_TITLES = {
   today_training: 'Entrenamiento de hoy',
   study_by_topic: 'Estudio por Temas',
   concept_t40: 'Estudiar hoy',
+  constitucion: 'Constitución · Título Preliminar',
   my_reports: 'Mis reportes',
   recuerdo: 'Recuerdo',
   sesion_diaria: 'Sesión diaria',
@@ -99,7 +101,7 @@ const SCREEN_TITLES = {
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
-    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes'
+    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes'
   >(() => (hasCompletedOnboarding() ? 'dashboard' : 'onboarding'));
   // Página de planes: solo con VITE_FEATURE_PLANES=true (por defecto no aparece nada).
   const planesEnabled = isPlanesEnabled();
@@ -277,7 +279,7 @@ export default function App() {
 
   // Handle switching screens
   const handleNavigate = (
-    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes'
+    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes'
   ) => {
     setDailyAutoStart(false);
     setCurrentScreen(screen);
@@ -828,11 +830,26 @@ export default function App() {
               className="mb-6 flex w-full items-center justify-between gap-4 rounded-2xl bg-indigo-600 p-5 text-left text-white shadow-md hover:bg-indigo-700"
             >
               <span>
-                <span className="block text-xs font-bold uppercase tracking-wider text-indigo-200">Temas 35, 39 y 40</span>
+                <span className="block text-xs font-bold uppercase tracking-wider text-indigo-200">Todos tus temas preparados</span>
                 <span className="mt-1 block text-lg font-bold">Estudiar hoy</span>
                 <span className="mt-0.5 block text-sm text-indigo-100">BomberoPro mezcla los temas y decide qué repasar hoy para que no se te olvide.</span>
               </span>
               <span className="shrink-0 rounded-xl bg-white px-4 py-2 text-sm font-bold text-indigo-700">Empezar</span>
+            </button>
+          )}
+          {!isDemoMode && session?.user?.id && supabase && (
+            <button
+              type="button"
+              id="btn-constitucion"
+              onClick={() => handleNavigate('constitucion')}
+              className="mb-6 flex w-full items-center justify-between gap-4 rounded-2xl border border-indigo-200 bg-white p-5 text-left shadow-sm hover:bg-indigo-50"
+            >
+              <span>
+                <span className="block text-xs font-bold uppercase tracking-wider text-indigo-600">Tema 1 · Piloto</span>
+                <span className="mt-1 block text-lg font-bold text-slate-900">Constitución · Título Preliminar</span>
+                <span className="mt-0.5 block text-sm text-slate-600">Esquema, desarrollo y texto oficial, con preguntas que se adaptan a tu nivel.</span>
+              </span>
+              <span className="shrink-0 rounded-xl bg-indigo-600 px-4 py-2 text-sm font-bold text-white">Abrir</span>
             </button>
           )}
           {!isDemoMode && session?.user?.id && supabase && (
@@ -856,6 +873,10 @@ export default function App() {
 
         {currentScreen === 'my_reports' && session?.user?.id && !isDemoMode && (
           <MyReports onExit={() => handleNavigate('dashboard')} />
+        )}
+
+        {currentScreen === 'constitucion' && session?.user?.id && !isDemoMode && (
+          <MaterialConstitucion userId={session.user.id} onExit={() => handleNavigate('dashboard')} />
         )}
 
         {currentScreen === 'concept_t40' && session?.user?.id && !isDemoMode && (
