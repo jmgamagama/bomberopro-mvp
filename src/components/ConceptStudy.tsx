@@ -23,6 +23,7 @@ import {
 import { newAttemptKey } from '../lib/saveAttemptToServer';
 import { shuffleArray } from '../utils/shuffleOptions';
 import ReportQuestionButton from './ReportQuestionButton';
+import { startStudySession, finishStudySession } from '../lib/studySession';
 
 interface Props {
   userId: string;
@@ -77,6 +78,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
   const [stats, setStats] = useState({ tests: 0, aciertos: 0, nuevos: 0 });
   const [calibracion, setCalibracion] = useState<string | null>(null);
   const sessionId = useRef<string>(newAttemptKey());
+  const sessionFinished = useRef(false);
 
   // Por ítem
   const [revealed, setRevealed] = useState(false);
@@ -145,6 +147,9 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
         return;
       }
       sessionId.current = newAttemptKey();
+      sessionFinished.current = false;
+      // Registro de la sesión para medir cuántas se terminan (mejor esfuerzo, nunca bloquea).
+      void startStudySession(sessionId.current, 'conceptos', topicId == null ? null : [topicId], data.length);
       setItems(data); setIdx(0); setStats({ tests: 0, aciertos: 0, nuevos: 0 }); resetItem();
       setPhase('sesion');
     } catch {
@@ -173,6 +178,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
   const next = () => {
     if (idx + 1 >= items.length) {
       setPhase('fin');
+      if (!sessionFinished.current) { sessionFinished.current = true; void finishStudySession(sessionId.current, 'conceptos'); }
       void refreshProgress();
       const owner = userId;
       void loadCalibration(topicId, userId).then(c => { if (ownerRef.current === owner) setCalibracion(calibrationMessage(c)); });

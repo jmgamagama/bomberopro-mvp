@@ -10,7 +10,7 @@
 import { supabase } from './supabase';
 import { newAttemptKey } from './saveAttemptToServer';
 
-export type StudySessionMode = 'estudio_por_temas' | 'adaptativo' | 'simulacro';
+export type StudySessionMode = 'estudio_por_temas' | 'adaptativo' | 'simulacro' | 'conceptos';
 
 export function newStudySessionId(): string {
   return newAttemptKey();
