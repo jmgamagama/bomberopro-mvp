@@ -49,7 +49,7 @@ describe('estado de revisión por mazo', () => {
     expect(getDeckRevision('tema16-lote02')).toBe('pendiente'); // muestra de 20 de 21
     expect(getDeckRevision('tema10')).toBe('pendiente'); // muestra de 20 de 34
     // Mazos de los huecos del temario CEP (fuentes oficiales gratuitas): pendientes hasta revisión manual.
-    for (const id of ['tema15', 'tema13-lote02', 'tema21-lote02', 'tema28-lote02', 'tema27-lote02', 'tema25-lote02', 'tema33-lote02']) {
+    for (const id of ['tema15', 'tema13-lote02', 'tema21-lote02', 'tema28-lote02', 'tema27-lote02', 'tema25-lote02', 'tema33-lote02', 'tema23-lote02']) {
       expect(getDeckRevision(id)).toBe('pendiente');
       expect(RECALL_DECKS.find((d) => d.id === id)?.revision).toBe('pendiente');
     }

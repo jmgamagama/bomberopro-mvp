@@ -95,6 +95,16 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 23,
+      lote: 'lote02',
+      title: "Tema 23 · lote 2: áreas inundables (RDPH, RD 903/2010 y Directriz Básica de inundaciones 2026)",
+      count: 23,
+      source: "Hueco «áreas inundables» · RDPH (BOE-A-1986-10638, consolidado a 03/06/2026), RD 903/2010 (BOE-A-2010-11184) y Directriz Básica de inundaciones 2026 (BOE-A-2026-9160)",
+    },
+    load: () => import('./tema23Lote02Recall').then((m) => m.TEMA23_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 33,
       lote: 'lote02',
       title: "Tema 33 · lote 2: mantenimiento e inspección de las instalaciones de protección contra incendios (RIPCI, arts. 21-22 y anexo II; RD 809/2021)",
