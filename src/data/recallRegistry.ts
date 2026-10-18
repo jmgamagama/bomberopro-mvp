@@ -95,6 +95,16 @@ const TOPIC_NAMES: Record<number, string> = {
 const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
+      tema: 33,
+      lote: 'lote02',
+      title: "Tema 33 · lote 2: mantenimiento e inspección de las instalaciones de protección contra incendios (RIPCI, arts. 21-22 y anexo II; RD 809/2021)",
+      count: 30,
+      source: "Hueco «mantenimiento» · RIPCI (BOE-A-2017-6606, consolidado a 03/09/2025) y Reglamento de equipos a presión RD 809/2021 (BOE-A-2021-16407)",
+    },
+    load: () => import('./tema33Lote02Recall').then((m) => m.TEMA33_LOTE02_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 27,
       lote: 'lote02',
       title: "Tema 27 · lote 2: respuesta de los elementos constructivos al fuego (CTE DB SI: SI 6, SI 1 y anejo A; RD 842/2013)",
