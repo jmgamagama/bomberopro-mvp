@@ -80,9 +80,9 @@ const CALCULOS = { 't33-agua-01-p1': '25', 't33-agua-01-p5': '19.200', 't33-agua
   check('título de la pantalla', (await page.title()) === 'Supuestos prácticos | BomberoPro', await page.title());
   const lista = page.getByRole('list', { name: 'Lista de supuestos' }).getByRole('button');
   await page.waitForFunction(() => [...document.querySelectorAll('[data-supuesto-id]')].every((b) => !b.disabled));
-  check('lista: 3 supuestos', (await lista.count()) === 3, String(await lista.count()));
+  check('lista: 10 supuestos', (await lista.count()) === 10, String(await lista.count()));
   check('lista: botones ≥44 px y dentro de 360 px', await tapTargetsOk(lista));
-  check('lista: aviso «Pendiente de revisión»', (await page.getByText('Pendiente de revisión').count()) === 3);
+  check('lista: aviso «Pendiente de revisión»', (await page.getByText('Pendiente de revisión').count()) === 10);
   check('lista sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
   await page.screenshot({ path: `${OUT}/supuestos-lista-360.png`, fullPage: true });
 
@@ -126,6 +126,36 @@ const CALCULOS = { 't33-agua-01-p1': '25', 't33-agua-01-p5': '19.200', 't33-agua
     await page.getByRole('button', { name: /Corregir/ }).click();
     await page.locator('#supuesto-resultado').waitFor();
     check(`${id}: sin responder → 0/${n}`, (await page.locator('#supuesto-resultado').textContent()).includes(`0/${n}`));
+    await page.getByRole('button', { name: 'Otros supuestos' }).click();
+  }
+
+  // --- Lote 2 (cálculo hidráulico y física): todos caben en 360 px ----------------------
+  const LOTE2 = [
+    ['supuesto-t9-hidrostatica-01', 6], ['supuesto-t9-pascal-arquimedes-01', 6], ['supuesto-t9-caudal-01', 5],
+    ['supuesto-t9-bernoulli-perdidas-01', 7], ['supuesto-t9-descarga-chorro-01', 5], ['supuesto-t9-bombeo-01', 6],
+    ['supuesto-t22-poleas-01', 6],
+  ];
+  for (const [id, n] of LOTE2) {
+    await page.locator(`[data-supuesto-id="${id}"]`).click();
+    await page.locator('[data-pregunta-id]').first().waitFor();
+    check(`${id}: ${n} preguntas`, (await page.locator('[data-pregunta-id]').count()) === n);
+    check(`${id} sin scroll horizontal`, (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
+    if (id === 'supuesto-t9-caudal-01') {
+      // Resolverlo entero con las respuestas correctas: debe dar 5/5 y enlazar fuentes educativas.
+      const q = (pid) => page.locator(`[data-pregunta-id="${pid}"]`);
+      await q('t9-caudal-01-p1').getByRole('textbox').fill('252');
+      await q('t9-caudal-01-p2').locator('label:has(input[type=radio])').nth(1).click();
+      await q('t9-caudal-01-p3').getByRole('textbox').fill('30');
+      await q('t9-caudal-01-p4').getByRole('textbox').fill('14');
+      await q('t9-caudal-01-p5').locator('label:has(input[type=radio])').nth(2).click();
+      await page.getByRole('button', { name: /Corregir/ }).click();
+      await page.locator('#supuesto-resultado').waitFor();
+      check('caudal: todo correcto → 5/5', (await page.locator('#supuesto-resultado').textContent()).includes('5/5'));
+      check('caudal: 5 enlaces «Fuente educativa» y ninguno «Fuente oficial»',
+        (await page.getByRole('link', { name: /Fuente educativa/ }).count()) === 5 && (await page.getByRole('link', { name: /Fuente oficial/ }).count()) === 0);
+      check('caudal resultado sin scroll horizontal', (await scrollWidth(page)) <= 360, String(await scrollWidth(page)));
+      await page.screenshot({ path: `${OUT}/supuestos-lote2-caudal-360.png`, fullPage: true });
+    }
     await page.getByRole('button', { name: 'Otros supuestos' }).click();
   }
 

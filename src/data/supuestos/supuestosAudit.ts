@@ -62,13 +62,43 @@ function urlsDe(texto: string): string[] {
   return texto.match(/https?:\/\/[^\s)]+/g) ?? [];
 }
 
-function esOficial(url: string): boolean {
+/**
+ * Dominios oficiales que solo usan los supuestos (además de OFFICIAL_DOMAINS de las fichas).
+ * miteco.gob.es: guías técnicas del IDAE/RITE del Ministerio para la Transición Ecológica.
+ */
+export const SUPUESTOS_DOMINIOS_OFICIALES_EXTRA = ['miteco.gob.es'] as const;
+
+/**
+ * Fuentes EDUCATIVAS públicas y gratuitas, admitidas solo para fórmulas de física e hidráulica
+ * general cuando no hay fuente oficial (CTE, RIPCI, INSST/NTP, BOE) que la recoja:
+ * - openstax.org: Física universitaria (Rice University, CC BY 4.0, edición en español).
+ * - riunet.upv.es: repositorio institucional de la Universitat Politècnica de València.
+ * - recursos.edu.xunta.gal: recursos educativos de la Consellería de Educación de la Xunta de Galicia.
+ * Cada URL concreta debe estar además en la lista verificada del lote (ver supuestosLote2.ts).
+ */
+export const SUPUESTOS_DOMINIOS_EDUCATIVOS = ['openstax.org', 'riunet.upv.es', 'recursos.edu.xunta.gal'] as const;
+
+function hostDe(url: string): string | null {
   try {
-    const host = new URL(url).hostname;
-    return OFFICIAL_DOMAINS.some((d) => host === d || host.endsWith(`.${d}`));
+    return new URL(url).hostname;
   } catch {
-    return false;
+    return null;
   }
+}
+
+const enDominio = (host: string, dominios: readonly string[]) => dominios.some((d) => host === d || host.endsWith(`.${d}`));
+
+/** 'oficial' | 'educativa' | 'otra', para validar y para la etiqueta del enlace en pantalla. */
+export function tipoFuente(url: string): 'oficial' | 'educativa' | 'otra' {
+  const host = hostDe(url);
+  if (!host) return 'otra';
+  if (enDominio(host, OFFICIAL_DOMAINS) || enDominio(host, SUPUESTOS_DOMINIOS_OFICIALES_EXTRA)) return 'oficial';
+  if (enDominio(host, SUPUESTOS_DOMINIOS_EDUCATIVOS)) return 'educativa';
+  return 'otra';
+}
+
+function esOficial(url: string): boolean {
+  return tipoFuente(url) !== 'otra';
 }
 
 export function auditSupuesto(s: Supuesto): SupuestoIssue[] {
@@ -94,7 +124,8 @@ export function auditSupuesto(s: Supuesto): SupuestoIssue[] {
     if (!p.fuente.startsWith(p.localizacion)) add('la fuente no empieza por la localización', p.id);
     const urls = urlsDe(p.fuente);
     if (urls.length === 0) add('fuente sin enlace', p.id);
-    for (const u of urls) if (!esOficial(u)) add(`enlace no oficial: ${u}`, p.id);
+    for (const u of urls) if (!esOficial(u)) add(`enlace no oficial ni educativo admitido: ${u}`, p.id);
+    for (const u of urls) if (/[.,;:]$/.test(u)) add(`enlace pegado a un signo de puntuación: ${u}`, p.id);
 
     if (p.tipo === 'test') {
       if (p.opciones.length !== 4) add('no tiene 4 opciones', p.id);
@@ -140,4 +171,79 @@ export function auditSupuestos(lista: readonly Supuesto[]): SupuestoIssue[] {
 /** Contenido canónico de un supuesto para su huella de versión en docs/AUDITORIA_FICHAS.md. */
 export function canonicalSupuestoContent(s: Supuesto): string {
   return JSON.stringify(s);
+}
+
+// ---------------------------------------------------------------------------
+// Anti-copia: los casos originales no pueden reutilizar texto ni cifras de material privado
+// ---------------------------------------------------------------------------
+
+/** Quita las notas de procedencia que añade el conversor privado (no son enunciado). */
+export function limpiarEnunciadoPrivado(texto: string): string {
+  return texto
+    .replace(/\(Texto extraído por OCR[^)]*\)/g, ' ')
+    .replace(/Los datos del enunciado están en el PDF original:.*$/s, ' ');
+}
+
+/** Palabras normalizadas: minúsculas, sin tildes ni signos. */
+export function palabrasNormalizadas(texto: string): string[] {
+  return texto
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9ñ]+/g, ' ')
+    .split(' ')
+    .filter(Boolean);
+}
+
+/**
+ * Cifras de un texto, normalizadas («0,8» → «0.8»). No cuenta los dígitos pegados a letras
+ * (exponentes como m3 o cm2, o errores de OCR como «6mbolo»).
+ */
+export function cifrasDe(texto: string): Set<string> {
+  const out = new Set<string>();
+  for (const m of texto.matchAll(/(?<![\p{L}\d.,])\d+(?:[.,]\d+)?(?![\p{L}\d])/gu)) {
+    out.add(String(Number(m[0].replace(',', '.'))));
+  }
+  return out;
+}
+
+export interface CopiaDetectada {
+  nuevo: string;
+  original: string;
+  motivo: string;
+}
+
+/**
+ * Compara textos nuevos con los originales privados: falla si comparten un n-grama de `n` o más
+ * palabras o si TODAS las cifras de un original (con al menos una) aparecen en el texto nuevo.
+ */
+export function detectarCopias(
+  nuevos: readonly { id: string; texto: string }[],
+  originales: readonly { id: string; texto: string }[],
+  n = 8,
+): CopiaDetectada[] {
+  const out: CopiaDetectada[] = [];
+  const ngramas = (pal: string[]) => {
+    const set = new Set<string>();
+    for (let i = 0; i + n <= pal.length; i++) set.add(pal.slice(i, i + n).join(' '));
+    return set;
+  };
+  const orig = originales.map((o) => ({ id: o.id, ng: ngramas(palabrasNormalizadas(o.texto)), cifras: cifrasDe(o.texto) }));
+  for (const nu of nuevos) {
+    const ngNuevo = ngramas(palabrasNormalizadas(nu.texto));
+    const cifrasNuevo = cifrasDe(nu.texto);
+    for (const o of orig) {
+      const comun = [...ngNuevo].find((g) => o.ng.has(g));
+      if (comun) out.push({ nuevo: nu.id, original: o.id, motivo: `n-grama de ${n} palabras en común: «${comun}»` });
+      if (o.cifras.size > 0 && [...o.cifras].every((c) => cifrasNuevo.has(c))) {
+        out.push({ nuevo: nu.id, original: o.id, motivo: `coinciden todas las cifras del original (${[...o.cifras].join(', ')})` });
+      }
+    }
+  }
+  return out;
+}
+
+/** Texto de un supuesto que se compara: enunciado del caso y enunciados de sus preguntas. */
+export function textoComparable(s: Supuesto): string {
+  return [s.titulo, s.enunciado, ...s.preguntas.map((p) => p.enunciado)].join('\n');
 }

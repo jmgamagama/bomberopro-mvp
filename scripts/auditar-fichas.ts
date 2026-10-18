@@ -47,7 +47,7 @@ ${rows.join('\n')}
 
 ## Supuestos prácticos
 
-Reglas (src/data/supuestos/supuestosAudit.ts): enunciado, temas de la parte específica (8-40), autoría «original», y en cada pregunta explicación, localización y fuente con enlace oficial; test con 4 opciones distintas y una correcta; cálculo con fórmula y pasos cuya operación se recalcula y coincide con el resultado. Revisión por id en src/data/recallReview.ts (pendiente si no figura).
+Reglas (src/data/supuestos/supuestosAudit.ts): enunciado, temas de la parte específica (8-40), autoría «original», y en cada pregunta explicación, localización y fuente con enlace oficial (o educativo público admitido solo para fórmulas de física e hidráulica general sin fuente oficial: openstax.org, riunet.upv.es, recursos.edu.xunta.gal); test con 4 opciones distintas y una correcta; cálculo con fórmula y pasos cuya operación se recalcula y coincide con el resultado. Revisión por id en src/data/recallReview.ts (pendiente si no figura).
 
 Problemas detectados: **${supIssues.length}**.
 

@@ -43,6 +43,27 @@ avisa de que la proporción de aciertos **no es la nota oficial**.
 - Cada dato y cada respuesta, de una fuente oficial gratuita ya usada en las fichas.
 - Cálculos solo si la fórmula sale de la fuente oficial. Sin fuente: ni consumo de aire del ERA ni regla del 9.
 
+## Lote 2: cálculo hidráulico y física (`src/data/supuestos/supuestosLote2.ts`)
+
+7 casos y 41 preguntas (temas 9 y 22), todos **pendientes de revisión**. Redactados desde cero: del material privado
+de un usuario solo se tomó la lista de tipos de ejercicio (presión hidrostática, tubo en U, Pascal, Arquímedes,
+caudal y continuidad, Bernoulli ideal y real, pérdidas de carga, descarga por orificio, chorro vertical, reacción,
+energía y potencia de bombeo, bombas en serie y paralelo, poleas).
+
+- Fuentes: oficiales cuando existen (BOE, RD 2032/2009 para 1 bar = 10⁵ Pa; guía del IDAE/MITECO para la potencia y el
+  acoplamiento de bombas); para la física general sin fuente oficial, material educativo público y gratuito
+  (OpenStax *Física universitaria*, CC BY; artículo docente de la UPV; recurso de la Xunta de Galicia), con URL
+  comprobadas con curl (`FUENTES_LOTE2_VERIFICADAS`) y etiqueta «Fuente educativa» en pantalla.
+- Sin `√` en los pasos (la auditoría solo evalúa + − × /): se pregunta, por ejemplo, la altura a partir de la velocidad.
+- Doble cálculo: la auditoría recalcula cada paso y `supuestosLote2.test.ts` recalcula cada resultado desde los datos
+  físicos con una implementación independiente; también comprueba que en los test numéricos y de proporciones solo
+  una opción cumple la fórmula.
+- Anti-copia: `supuestosAntiCopia.test.ts` compara con el archivo privado si está fuera del repo
+  (`/workspace/privado/supuestos_jose.json` o `SUPUESTOS_PRIVADOS_ORIGINALES`); falla con 8 palabras seguidas en común
+  o si se repiten todas las cifras de un original. Si el archivo no está, esa parte se salta.
+- No incluidos: cálculo numérico de pérdidas en mangueras con tablas o coeficientes de fabricante o de normas UNE
+  (solo proporciones de Darcy-Weisbach con f constante), curvas de bombas concretas y velocidades con raíz cuadrada.
+
 ## Mis supuestos (privado)
 
 Material propio (p. ej. los casos de formación interna del CPEI) que el usuario importa en su dispositivo desde un

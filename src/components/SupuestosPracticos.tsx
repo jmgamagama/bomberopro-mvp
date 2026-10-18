@@ -18,6 +18,7 @@ import {
   leerSupuestosPrivados,
 } from '../data/supuestos/supuestosPrivados';
 import { MAX_BYTES_IMPORT, validarArchivoSupuestos } from '../data/supuestos/supuestosImport';
+import { tipoFuente } from '../data/supuestos/supuestosAudit';
 
 interface SupuestosPracticosProps {
   onNavigateHome: () => void;
@@ -27,6 +28,12 @@ const LETRAS = ['A', 'B', 'C', 'D', 'E', 'F'] as const;
 
 function enlace(fuente: string): string | null {
   return fuente.match(/https?:\/\/[^\s)]+/)?.[0] ?? null;
+}
+
+/** Etiqueta del enlace: solo «Fuente oficial» si el dominio es oficial (los educativos se marcan como tales). */
+function etiquetaFuente(url: string): string {
+  const tipo = tipoFuente(url);
+  return tipo === 'oficial' ? 'Fuente oficial' : tipo === 'educativa' ? 'Fuente educativa' : 'Fuente';
 }
 
 function formatNumero(n: number): string {
@@ -642,7 +649,7 @@ function PreguntaView({ numero, pregunta: p, respuesta, corregida, acierto, auto
                   rel="noopener noreferrer"
                   className="inline-flex min-h-11 items-center gap-1 font-semibold text-indigo-600 underline"
                 >
-                  {privado ? 'Fuente' : 'Fuente oficial'}{' '}
+                  {privado ? 'Fuente' : etiquetaFuente(url)}{' '}
                   <ExternalLink className="h-3 w-3" aria-hidden="true" />
                 </a>
               </>
