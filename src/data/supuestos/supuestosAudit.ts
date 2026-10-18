@@ -101,6 +101,8 @@ export function auditSupuesto(s: Supuesto): SupuestoIssue[] {
       if (new Set(p.opciones.map((o) => o.trim().toLowerCase())).size !== p.opciones.length) add('opciones repetidas', p.id);
       if (p.opciones.some((o) => !o.trim())) add('opción vacía', p.id);
       if (!(p.correcta >= 0 && p.correcta < p.opciones.length)) add('índice de opción correcta fuera de rango', p.id);
+    } else if (p.tipo === 'desarrollo') {
+      if (!p.respuestaModelo.trim()) add('desarrollo sin respuesta modelo', p.id);
     } else {
       if (!p.formula.trim()) add('cálculo sin fórmula', p.id);
       if (p.pasos.length === 0) add('cálculo sin pasos', p.id);

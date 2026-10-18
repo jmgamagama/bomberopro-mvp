@@ -4,6 +4,8 @@ import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import '../test/setup';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
 vi.mock('../lib/supabase', () => ({ supabase: null }));
 import App from '../App';
 import SupuestosPracticos from './SupuestosPracticos';
@@ -28,7 +30,7 @@ describe('SupuestosPracticos', () => {
     for (const p of s.preguntas) {
       const li = document.querySelector<HTMLElement>(`[data-pregunta-id="${p.id}"]`)!;
       if (p.tipo === 'test') await user.click(within(li).getAllByRole('radio')[p.correcta]);
-      else await user.type(within(li).getByRole('textbox'), p.id.endsWith('p5') ? '19.200' : String(p.resultado));
+      else if (p.tipo === 'calculo') await user.type(within(li).getByRole('textbox'), p.id.endsWith('p5') ? '19.200' : String(p.resultado));
     }
     // Una errónea a propósito: cambia la última de test.
     const p7 = s.preguntas.find((p) => p.id === 't33-agua-01-p7')!;
@@ -80,5 +82,72 @@ describe('entrada en el menú', () => {
     await user.click(within(movil).getByRole('button', { name: 'Casos' }));
     expect(await screen.findByRole('heading', { name: 'Supuestos prácticos' })).toBeInTheDocument();
     expect(document.title).toBe('Supuestos prácticos | BomberoPro');
+  });
+});
+
+describe('Mis supuestos (privado)', () => {
+  const EJEMPLO = readFileSync(join(process.cwd(), 'docs/ejemplos/supuestos-privados-EJEMPLO.json'), 'utf8');
+  const archivo = (texto: string, nombre = 'mis-casos.json') => new File([texto], nombre, { type: 'application/json' });
+
+  afterEach(() => {
+    window.location.hash = '';
+  });
+
+  it('el alumno llega por /#supuestos, importa, ve la entrada del menú, resuelve y borra', async () => {
+    completeOnboarding('skipped');
+    window.location.hash = '#supuestos';
+    const user = userEvent.setup();
+    render(<App />);
+    expect(await screen.findByRole('heading', { name: 'Mis supuestos (privado)' })).toBeInTheDocument();
+    expect(screen.getByText(/Material personal que no se comparte/)).toBeInTheDocument();
+    expect(screen.getByText('Todavía no hay supuestos publicados.')).toBeInTheDocument();
+    const movil = screen.getByRole('navigation', { name: 'Navegación móvil' });
+    expect(within(movil).queryByRole('button', { name: 'Casos' })).toBeNull();
+
+    // Archivo con errores: no se importa nada y se explica por qué.
+    await user.upload(screen.getByLabelText('Importar archivo JSON'), archivo('{"formato":"bomberopro-supuestos","version":1,"supuestos":[{"id":"x"}]}'));
+    const alerta = await screen.findByRole('alert');
+    expect(alerta).toHaveTextContent('No se ha importado nada');
+    expect(alerta).toHaveTextContent('supuestos[0].titulo: es obligatorio (texto)');
+
+    await user.upload(screen.getByLabelText('Importar archivo JSON'), archivo(EJEMPLO));
+    expect(await screen.findByText(/Importados 1 supuestos de «mis-casos.json» \(1 nuevos\)/)).toBeInTheDocument();
+    expect(within(movil).getByRole('button', { name: 'Casos' })).toBeInTheDocument();
+    expect(document.querySelector('#nav-btn-supuestos')).not.toBeNull();
+
+    await user.click(screen.getByRole('button', { name: /^EJEMPLO · Supuesto ficticio/ }));
+    expect(screen.getByText('Mi supuesto (privado) · Tema 9')).toBeInTheDocument();
+    const p = (id: string) => document.querySelector<HTMLElement>(`[data-pregunta-id="${id}"]`)!;
+    await user.click(within(p('EJEMPLO-01-p1')).getAllByRole('radio')[1]);
+    await user.type(within(p('EJEMPLO-01-p2')).getByRole('textbox'), '2.000');
+    await user.type(within(p('EJEMPLO-01-p3')).getByRole('textbox'), '25');
+    await user.type(within(p('EJEMPLO-01-p4')).getByRole('textbox'), 'Mi respuesta');
+    await user.click(screen.getByRole('button', { name: /Corregir \(4\/4 respondidas\)/ }));
+    expect(document.querySelector('#supuesto-resultado')).toHaveTextContent('2/4');
+    expect(document.querySelector('#supuesto-resultado')).toHaveTextContent('Te quedan 1 preguntas de desarrollo por autoevaluar');
+    expect(within(p('EJEMPLO-01-p4')).getByText(/respuesta modelo de prueba/)).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'La tenía bien' }));
+    expect(document.querySelector('#supuesto-resultado')).toHaveTextContent('3/4');
+
+    await user.click(screen.getByRole('button', { name: 'Otros supuestos' }));
+    expect(await screen.findByText(/último: 3\/4/)).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /Borrar «EJEMPLO/ }));
+    await user.click(screen.getByRole('button', { name: 'Sí, borrar' }));
+    expect(screen.queryByRole('list', { name: 'Mis supuestos privados' })).toBeNull();
+    await waitFor(() => expect(within(movil).queryByRole('button', { name: 'Casos' })).toBeNull());
+    expect(window.localStorage.getItem('mira_supuestos_privados_v1:demo')).toBeNull();
+  });
+
+  it('«Borrar todos» pide confirmación', async () => {
+    const user = userEvent.setup();
+    render(<SupuestosPracticos onNavigateHome={() => {}} />);
+    await user.upload(screen.getByLabelText('Importar archivo JSON'), archivo(EJEMPLO));
+    await screen.findByRole('list', { name: 'Mis supuestos privados' });
+    await user.click(screen.getByRole('button', { name: /Borrar todos mis supuestos privados/ }));
+    await user.click(screen.getByRole('button', { name: 'Cancelar' }));
+    expect(screen.getByRole('list', { name: 'Mis supuestos privados' })).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /Borrar todos mis supuestos privados/ }));
+    await user.click(screen.getByRole('button', { name: 'Sí, borrar todos' }));
+    expect(screen.queryByRole('list', { name: 'Mis supuestos privados' })).toBeNull();
   });
 });

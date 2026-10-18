@@ -106,7 +106,7 @@ describe('corrección local', () => {
   it('corrige test y cálculo y da el resultado', () => {
     const s = SUPUESTOS[2];
     const respuestas: Record<string, number | string> = {};
-    for (const p of s.preguntas) respuestas[p.id] = p.tipo === 'test' ? p.correcta : String(p.resultado);
+    for (const p of s.preguntas) respuestas[p.id] = p.tipo === 'test' ? p.correcta : p.tipo === 'calculo' ? String(p.resultado) : '';
     expect(corregirSupuesto(s, respuestas)).toMatchObject({ aciertos: s.preguntas.length, total: s.preguntas.length, proporcion: 1 });
     const primera = s.preguntas[0];
     expect(esCorrecta(primera, '26')).toBe(false);

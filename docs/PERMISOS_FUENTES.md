@@ -112,6 +112,11 @@ citado ya figura en `data/`.
   fichas). Solo hay cálculo cuando la fórmula sale del texto oficial (radio de acción de BIE, reserva de agua de la
   red de BIE y capacidad del depósito de un hidrante, RIPCI).
 
+- **Importación privada (rama `feat/supuestos-import-privado`)**: José puede estudiar su material en su
+  dispositivo importando un JSON propio («Mis supuestos (privado)», `docs/SUPUESTOS_IMPORT_PRIVADO.md`). El
+  contenido se queda en el `localStorage` de su navegador y cuenta; en el repo solo hay el código, un ejemplo
+  ficticio y el conversor `scripts/convertir-base-casos.ts` (sin datos, escribe fuera del repo).
+
 ## Qué hacer cuando haya permiso
 
 1. Guardar la autorización (o la confirmación de la licencia) junto a este documento.

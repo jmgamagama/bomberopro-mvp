@@ -28,10 +28,10 @@ interface PreguntaBase extends FuenteCitada {
 
 export interface PreguntaTest extends PreguntaBase {
   tipo: 'test';
-  /** Exactamente 4 opciones. */
-  opciones: readonly [string, string, string, string];
-  /** Índice (0-3) de la opción correcta. */
-  correcta: 0 | 1 | 2 | 3;
+  /** 4 opciones en los supuestos de la app (la auditoría lo exige); de 2 a 6 en los privados. */
+  opciones: readonly string[];
+  /** Índice de la opción correcta. */
+  correcta: number;
 }
 
 export interface PasoCalculo {
@@ -54,7 +54,16 @@ export interface PreguntaCalculo extends PreguntaBase {
   tolerancia: number;
 }
 
-export type PreguntaSupuesto = PreguntaTest | PreguntaCalculo;
+/**
+ * Pregunta de desarrollo: el alumno escribe su respuesta y, al corregir, la compara con la
+ * respuesta modelo y se autoevalúa. Pensada para los supuestos privados importados.
+ */
+export interface PreguntaDesarrollo extends PreguntaBase {
+  tipo: 'desarrollo';
+  respuestaModelo: string;
+}
+
+export type PreguntaSupuesto = PreguntaTest | PreguntaCalculo | PreguntaDesarrollo;
 
 export interface Supuesto {
   /** Id estable; es también la clave de revisión en src/data/recallReview.ts. */
@@ -65,7 +74,10 @@ export interface Supuesto {
   enunciado: string;
   /** Fuentes oficiales del caso (resumen; el detalle va en cada pregunta). */
   fuentes: readonly string[];
-  /** Autoría del caso: siempre «original» (escrito para BomberoPro). */
-  autoria: 'original';
+  /**
+   * «original»: escrito para BomberoPro (los del repo). «privado»: importado por el usuario en
+   * su dispositivo (src/data/supuestos/supuestosPrivados.ts); nunca entra en el repo ni en el build.
+   */
+  autoria: 'original' | 'privado';
   preguntas: readonly PreguntaSupuesto[];
 }

@@ -6,6 +6,11 @@
 import React, { useState, useEffect, useLayoutEffect, useRef, lazy, Suspense } from 'react';
 import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles, ClipboardList } from 'lucide-react';
 import { getVisibleSupuestos } from './data/supuestos/supuestosRegistry';
+import { SUPUESTOS_PRIVADOS_EVENT, contarSupuestosPrivados } from './data/supuestos/supuestosPrivados';
+
+/** Enlace directo a la pantalla de supuestos (p. ej. para importar los privados la primera vez). */
+const SUPUESTOS_HASH = '#supuestos';
+const isSupuestosHash = () => typeof window !== 'undefined' && window.location.hash === SUPUESTOS_HASH;
 import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from './data/initialData';
 import { MemoryState, Question, ConfidenceLevel, Attempt } from './types';
 import {
@@ -102,7 +107,7 @@ const SCREEN_TITLES = {
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
     'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes'
-  >(() => (hasCompletedOnboarding() ? 'dashboard' : 'onboarding'));
+  >(() => (hasCompletedOnboarding() ? (isSupuestosHash() ? 'supuestos' : 'dashboard') : 'onboarding'));
   // Página de planes: solo con VITE_FEATURE_PLANES=true (por defecto no aparece nada).
   const planesEnabled = isPlanesEnabled();
   const openPlanes = planesEnabled ? () => handleNavigate('planes') : undefined;
@@ -298,8 +303,25 @@ export default function App() {
   };
 
   const serverMode = Boolean(session?.user?.id) && !isDemoMode;
-  // «Supuestos» solo aparece en el menú si hay alguno visible (los pendientes, solo propietario/admin).
-  const supuestosVisibles = getVisibleSupuestos().length > 0;
+  // Re-render al importar/borrar supuestos privados (también desde otra pestaña) y enlace #supuestos.
+  const [, setSupuestosPrivadosVersion] = useState(0);
+  useEffect(() => {
+    const refrescar = () => setSupuestosPrivadosVersion((v) => v + 1);
+    const onHash = () => {
+      if (isSupuestosHash() && hasCompletedOnboarding()) setCurrentScreen('supuestos');
+    };
+    window.addEventListener(SUPUESTOS_PRIVADOS_EVENT, refrescar);
+    window.addEventListener('storage', refrescar);
+    window.addEventListener('hashchange', onHash);
+    return () => {
+      window.removeEventListener(SUPUESTOS_PRIVADOS_EVENT, refrescar);
+      window.removeEventListener('storage', refrescar);
+      window.removeEventListener('hashchange', onHash);
+    };
+  }, []);
+  // «Supuestos» solo aparece en el menú si hay alguno visible (los pendientes, solo propietario/admin)
+  // o si el usuario ha importado supuestos privados en este dispositivo (cuenta actual).
+  const supuestosVisibles = getVisibleSupuestos().length > 0 || contarSupuestosPrivados() > 0;
   // Con 9 entradas en la barra móvil (360 px → ~39 px por botón) las etiquetas bajan a 10 px para no solaparse.
   const mobileLabelSize = supuestosVisibles ? 'text-[10px]' : 'text-xs';
 
@@ -999,7 +1021,7 @@ export default function App() {
             />
           )}
 
-          {currentScreen === 'supuestos' && supuestosVisibles && (
+          {currentScreen === 'supuestos' && (
             <SupuestosPracticos onNavigateHome={() => handleNavigate('dashboard')} />
           )}
 
