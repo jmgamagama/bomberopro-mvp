@@ -1,0 +1,1517 @@
+{
+  "tema": 9,
+  "titulo": "Tema 9 · Hidráulica: fluidos, Bernoulli, descarga, pérdidas de carga y bombas centrífugas (BOE, INSST, IDAE/MITECO, CTE, UE)",
+  "epigrafe_bop": "Hidraulica: concepto de fluido, densidad, caudal, presion estatica y presion dinamica. Hidrostatica. Hidrodinamica. Ecuacion de continuidad. Ecuacion de Bernoulli. Ecuacion de descarga. Instalaciones hidraulicas de extincion con agua. Perdidas de carga. Caracteristicas de las bombas centrifugas. Curva caracteristica de una bomba. Punto de funcionamiento de una instalacion. Acoplamiento de bombas. Instalaciones y sus caracteristicas.",
+  "normas": [
+    {
+      "id": "IDAE-GUIA-BOMBAS",
+      "norma": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (junio 2012), documento reconocido del RITE publicado en la web del MITECO",
+      "url": "https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf",
+      "ultima_actualizacion": "edición de junio de 2012",
+      "tipo": "guía técnica oficial (IDAE/MITECO)"
+    },
+    {
+      "id": "INSST-NTP362",
+      "norma": "INSST, NTP 362: Fugas en recipientes y conducciones: emisión en fase líquida (serie NTP 331 a 365, 1995)",
+      "url": "https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+      "ultima_actualizacion": "versión web del INSST, serie 1995",
+      "tipo": "nota técnica de prevención (INSST)"
+    },
+    {
+      "id": "BOE-A-2010-927",
+      "norma": "Real Decreto 2032/2009, de 30 de diciembre, por el que se establecen las unidades legales de medida",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2010-927",
+      "ultima_actualizacion": "texto consolidado (últ. actualización 29/04/2020)",
+      "tipo": "texto consolidado del BOE"
+    },
+    {
+      "id": "BOE-A-2015-9527",
+      "norma": "Real Decreto 709/2015, de 24 de julio, requisitos esenciales de seguridad para la comercialización de los equipos a presión",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2015-9527",
+      "ultima_actualizacion": "texto consolidado (últ. actualización 10/04/2026)",
+      "tipo": "texto consolidado del BOE"
+    },
+    {
+      "id": "BOE-A-2017-6606",
+      "norma": "Real Decreto 513/2017, de 22 de mayo, Reglamento de instalaciones de protección contra incendios (RIPCI)",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606",
+      "ultima_actualizacion": "texto consolidado (últ. actualización 03/09/2025)",
+      "tipo": "texto consolidado del BOE"
+    },
+    {
+      "id": "CTE-DB-HS4",
+      "norma": "Código Técnico de la Edificación, Documento Básico HS Salubridad, sección HS 4 Suministro de agua",
+      "url": "https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf",
+      "ultima_actualizacion": "DB HS consolidado (14 de junio de 2022)",
+      "tipo": "documento básico del CTE (codigotecnico.org)"
+    },
+    {
+      "id": "UE-REG-547-2012",
+      "norma": "Reglamento (UE) n.º 547/2012 de la Comisión, de 25 de junio de 2012, requisitos de diseño ecológico para las bombas hidráulicas",
+      "url": "https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:02012R0547-20170109",
+      "ultima_actualizacion": "versión consolidada de 09/01/2017 (EUR-Lex)",
+      "tipo": "reglamento de la UE (EUR-Lex)"
+    }
+  ],
+  "estado": "cargado",
+  "propuestas": 101,
+  "entran_tras_filtro": 84,
+  "descartadas": [
+    {
+      "motivo": "recorte de 101 a 84 por redundancia o bajo interés para el temario (16 fichas: unidades de caudal, presión dinámica de la tabla 3.2, coeficiente de velocidad, rugosidad por corrosión, Re muy alto, circuito más desfavorable, rendimiento del grupo, presión de vapor a 100 °C, curva plana, rango adecuado, parábolas de semejanza, presión de arranque CTE, PL/OL del Reglamento 547/2012, aproximación de Hm, ruido de cavitación, término «altura»)"
+    },
+    {
+      "motivo": "retirada en revisión: recorte del rodete un 20 % (ejemplo 4.7 de la guía IDAE): aplica semejanza geométrica completa (Q∝D³), que no coincide con las leyes de recorte de rodete habituales; se retira para no inducir a error"
+    }
+  ],
+  "cobertura": {
+    "Concepto de fluido, densidad (unidades SI, agua a 20 °C)": "cubierto (RD 709/2015, RD 2032/2009, IDAE)",
+    "Caudal": "cubierto (NTP 362: Qv=v·A, Qm=ρ·v·A)",
+    "Presión estática y presión dinámica": "cubierto (IDAE parte II; RD 709/2015 presión manométrica)",
+    "Hidrostática": "parcial: variación de presión con la altura (ρ·g·h, ejemplo IDAE) y altura en m c.a.; principios de Pascal y Arquímedes sin fuente oficial localizada",
+    "Hidrodinámica / ecuación de Bernoulli": "cubierto (NTP 362, IDAE: flujo ideal y real)",
+    "Ecuación de continuidad": "PARCIAL: solo Q=v·A; ninguna fuente oficial localizada enuncia A1·v1=A2·v2, no se crea ficha",
+    "Ecuación de descarga": "cubierto (NTP 362: Torricelli, Cd=Cv·Cc, valores típicos, alcance del chorro)",
+    "Pérdidas de carga": "cubierto (IDAE: Darcy, Blasius, Colebrook, accesorios; NTP 362: laminar/turbulento; CTE HS 4)",
+    "Características de las bombas centrífugas": "cubierto (IDAE; Reglamento UE 547/2012)",
+    "Cavitación y NPSH": "cubierto (IDAE)",
+    "Curva característica / punto de funcionamiento": "cubierto (IDAE)",
+    "Acoplamiento de bombas": "cubierto (IDAE serie/paralelo; CTE HS 4 grupos de presión)",
+    "Instalaciones hidráulicas de extinción con agua": "parcial (RIPCI: abastecimiento, hidrantes, BIE); detalle en los mazos de los temas 10 y 33; sin fuente oficial libre sobre bombas de autobomba ni tendidos de mangueras",
+    "Instalaciones y sus características": "parcial (CTE HS 4: presiones, velocidades, grupos de presión)"
+  },
+  "muestra_revisada": [
+    {
+      "id": "CPEI-T09-OF-96E138CB",
+      "concepto": "Según el RD 709/2015 de equipos a presión, ¿qué se entiende por «fluidos»?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-0E62FDF1",
+      "concepto": "Según el RD 709/2015 de equipos a presión, ¿respecto a qué se mide la «presión» y cómo se expresa el vacío?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-6E9C710E",
+      "concepto": "Según el RD 2032/2009, ¿cuál es la unidad SI de la densidad (masa en volumen)?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-7FF3307F",
+      "concepto": "Según el RD 2032/2009, ¿cuál es la unidad SI de presión y a qué equivale en otras unidades SI?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-B70EA739",
+      "concepto": "Según el RD 2032/2009, ¿qué unidad SI corresponde a la viscosidad dinámica?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-30C5C610",
+      "concepto": "Según el RD 2032/2009, ¿a cuánto equivale 1 bar en unidades SI?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-48B860EC",
+      "concepto": "Según el RD 2032/2009, ¿a cuánto equivale la atmósfera normal en bar y en pascales?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-3909180C",
+      "concepto": "Según el RD 2032/2009, ¿a cuánto equivale un litro y qué símbolo se recomienda para evitar confusiones?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-B76CA198",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué densidad y qué viscosidad dinámica se toman para el agua a 20 °C?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-E8EFF948",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿en qué tres modos se presenta la energía mecánica del flujo en un punto?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-BDF2E465",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se expresa en metros de columna de agua la «altura» de un punto del flujo?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-546D4545",
+      "concepto": "Según el ejemplo 2.2 de la guía técnica de bombas del IDAE, ¿qué diferencia de presión corresponde a 10 m de columna de agua?",
+      "veredicto": "OK",
+      "nota": "98.100 = 202.600 − 104.500 Pa = 1.000·9,81·10; comprobado en test"
+    },
+    {
+      "id": "CPEI-T09-OF-3D462C54",
+      "concepto": "Según la guía técnica del IDAE, ¿cómo se calcula la presión dinámica de un fluido que circula a velocidad v?",
+      "veredicto": "OK",
+      "nota": "Parte II de la guía (ventiladores), relación general válida para cualquier fluido"
+    },
+    {
+      "id": "CPEI-T09-OF-E4B6B464",
+      "concepto": "Según la guía técnica del IDAE, ¿qué es la presión total de un flujo en un conducto?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-BDE1EE3C",
+      "concepto": "Según la guía técnica del IDAE, en flujo ideal, ¿qué le ocurre a la presión estática cuando aumenta la velocidad del fluido?",
+      "veredicto": "OK",
+      "nota": "se usa solo la conclusión general; el ejemplo numérico de la guía tiene una incoherencia de diámetros"
+    },
+    {
+      "id": "CPEI-T09-OF-303FA8EC",
+      "concepto": "Según la NTP 362 del INSST, ¿cómo se define el caudal volumétrico?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-598D0A9D",
+      "concepto": "Según la NTP 362 del INSST, ¿cómo se define el caudal másico?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-54865783",
+      "concepto": "Según la NTP 362 del INSST, ¿qué expresión tiene la ecuación de Bernoulli y para qué tipo de flujo es válida?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-23AA9AFC",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿en qué consiste la hipótesis de flujo ideal?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-5963394C",
+      "concepto": "Según la guía técnica de bombas del IDAE, en flujo ideal por un tubo, ¿qué le pasa a la energía mecánica del fluido entre dos puntos?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-BB7EEB96",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se aplica la ecuación de Bernoulli al flujo real de una instalación?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-0F2FD506",
+      "concepto": "Según la NTP 362 del INSST, en un recipiente abierto a la atmósfera, ¿qué velocidad teórica de salida tiene un líquido por un orificio situado a una altura h bajo el nivel libre?",
+      "veredicto": "OK",
+      "nota": "v=(2gh)^½ con ph=pa a partir de la expresión general de la NTP"
+    },
+    {
+      "id": "CPEI-T09-OF-D493D3E9",
+      "concepto": "Según la NTP 362 del INSST, ¿qué expresión da el caudal másico que sale por un orificio de un recipiente a presión atmosférica?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-377EBBDC",
+      "concepto": "Según la NTP 362 del INSST, ¿qué es el coeficiente de descarga Cd de un orificio?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-76FBE0B0",
+      "concepto": "Según la NTP 362 del INSST, ¿qué coeficiente de descarga aproximado tiene un orificio de borde afilado y cuál una boquilla de borde redondeado?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-0B46FCC3",
+      "concepto": "Según la NTP 362 del INSST, ¿qué coeficiente de descarga aproximado tiene un tramo muy corto de tubería o una boquilla externa conectados a un recipiente?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-B4A1C5E5",
+      "concepto": "Según la NTP 362 del INSST, ¿qué distancia horizontal x alcanza un chorro que sale horizontalmente con velocidad v desde una altura y sobre el suelo?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-DC6F3830",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿con qué expresión se calculan las pérdidas de carga en tuberías (pérdidas primarias)?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-6B77B7C6",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué ecuación puede emplearse para el factor de fricción en tuberías lisas?",
+      "veredicto": "OK",
+      "nota": "la ecuación está en las págs. 12-13 impresas; en el texto extraído de la pág. 12 aparece maquetada"
+    },
+    {
+      "id": "CPEI-T09-OF-FD184979",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué ecuación se emplea habitualmente para el factor de fricción en tuberías rugosas?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-33B3CFC6",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se calcula el número de Reynolds del flujo en un tubo?",
+      "veredicto": "OK",
+      "nota": "Re=ρvD/μ coincide con el número de Reynolds del RD 2032/2009 (Re=ρvl/η)"
+    },
+    {
+      "id": "CPEI-T09-OF-0725F93D",
+      "concepto": "Según la NTP 362 del INSST, ¿para qué valores del número de Reynolds el flujo en tubería es generalmente laminar y para cuáles turbulento?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-3869B3CE",
+      "concepto": "Según la NTP 362 del INSST, ¿cuánto vale el factor de fricción en régimen laminar?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-F2E0ACDA",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se calculan las pérdidas de carga en accesorios como codos, tes o reducciones?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-42B59AF3",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué significa expresar las pérdidas de un accesorio como «longitud equivalente»?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-0890DF9A",
+      "concepto": "Según la guía técnica de bombas del IDAE, en un circuito cerrado, ¿a qué se destina la energía que suministra la bomba?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-75A2DDEF",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo varía la pérdida de carga de una instalación con el caudal?",
+      "veredicto": "OK",
+      "nota": "HL ∝ Q²: con 2Q, 4HL (comprobado en test)"
+    },
+    {
+      "id": "CPEI-T09-OF-90325772",
+      "concepto": "Según el CTE DB HS 4, ¿cómo pueden estimarse las pérdidas de carga localizadas de un tramo?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-41460F53",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué dos partes principales tienen las bombas rotodinámicas o turbomáquinas?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-B0BD161B",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué es la voluta de una bomba centrífuga y cuál es su misión?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-A83C1878",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué tipos de bombas se citan con aplicación en equipos contra incendios?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-B1A1B860",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se define la altura manométrica Hm que suministra una bomba?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-E07CE23D",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué potencia útil recibe el fluido impulsado por una bomba?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-1F1511D5",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿de qué tres rendimientos es producto el rendimiento total de una bomba?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-023CCFB9",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué rendimiento tiene una bomba centrífuga que trabaja a caudal nulo?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-AAA67B45",
+      "concepto": "Según el Reglamento (UE) 547/2012, ¿qué es el punto de máximo rendimiento (BEP) de una bomba?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-F56CDA32",
+      "concepto": "¿Se aplica el Reglamento (UE) 547/2012 de diseño ecológico a las bombas destinadas únicamente a la lucha contra incendios?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-85B835F0",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué es la cavitación?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-26003FD5",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué problemas produce la cavitación en una bomba?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-72891238",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿en qué zona de la bomba se presenta la cavitación y de qué depende?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-76DD3666",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué condición de presión evita la cavitación dentro de la bomba?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-2A9527A7",
+      "concepto": "Según la tabla 3.1 de la guía técnica de bombas del IDAE, ¿qué presión de vapor tiene el agua a 20 °C?",
+      "veredicto": "OK",
+      "nota": "2.344,2 Pa / (1.000·9,81) = 0,239 m c.a. (comprobado en test)"
+    },
+    {
+      "id": "CPEI-T09-OF-22662AE4",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se define la altura neta positiva de aspiración (NPSH)?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-978A7EB5",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué condición entre NPSH disponible y NPSH requerido evita la cavitación?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-EAD133E1",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo varía el NPSH requerido de una bomba con el caudal y quién lo facilita?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-F6E7F596",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿de qué depende el NPSH disponible?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-BB087623",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué muestran las curvas características de una bomba centrífuga y cómo se obtienen?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-31998641",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué cuatro curvas características suele tener una bomba y en qué condiciones se ensayan?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-559221D2",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se determina el punto de funcionamiento de una instalación de bombeo?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-A899A5EA",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cuál es el rango admisible de caudal de una bomba respecto a su caudal nominal?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-2EF15657",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cuál es el rango óptimo de caudal de una bomba respecto a su caudal nominal?",
+      "veredicto": "OK",
+      "nota": "la figura 5.4 de la guía rotula por errata «0,5Q*B»; el texto da 85 %-105 %"
+    },
+    {
+      "id": "CPEI-T09-OF-84801374",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué problema principal aparece si una bomba trabaja con muy poca resistencia hidráulica y caudal muy alto (más de 1,5 veces el nominal)?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-1114F79B",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿por qué es preferible seleccionar la bomba para un caudal algo inferior al nominal?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-73336BCB",
+      "concepto": "Según la guía técnica de bombas del IDAE, si por una instalación circula un 15 % más de caudal, ¿cuánto aumenta la potencia consumida por la bomba?",
+      "veredicto": "OK",
+      "nota": "1,15³ = 1,52 ≈ +50 % (comprobado en test)"
+    },
+    {
+      "id": "CPEI-T09-OF-CD08AC5B",
+      "concepto": "Según la guía técnica de bombas del IDAE, si se reduce a la mitad la velocidad de giro de una bomba, ¿qué ocurre con el caudal, la altura y la potencia?",
+      "veredicto": "OK",
+      "nota": "(1/2), (1/2)², (1/2)³ (comprobado en test)"
+    },
+    {
+      "id": "CPEI-T09-OF-748FB16E",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cuándo se emplea principalmente el acoplamiento de bombas en serie?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-F43FF55D",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se obtiene la curva característica de dos bombas acopladas en serie?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-FA0F7876",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cuándo se acoplan bombas en paralelo?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-74DB3340",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se obtiene la curva característica de dos bombas acopladas en paralelo?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-3C1C8831",
+      "concepto": "Según la guía técnica de bombas del IDAE, al unir en paralelo dos bombas idénticas, ¿cuál es el punto nominal del conjunto?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-96375034",
+      "concepto": "Según el CTE DB HS 4, ¿qué elementos tiene un grupo de presión convencional?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-25E9FCD4",
+      "concepto": "Según el CTE DB HS 4, ¿cómo funciona un grupo de presión de accionamiento regulable o de caudal variable?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-22150C8C",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo actúa la regulación por estrangulamiento con una válvula en serie y es eficiente?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-CAD9AB49",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿por qué no se debe estrangular la tubería de aspiración de una bomba?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-6D9E1818",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué inconveniente tiene la regulación con válvula en by-pass?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-A6682280",
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué ventajas y límites tiene regular una bomba variando su velocidad de giro?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-20C37F4A",
+      "concepto": "Según el RIPCI, ¿de qué está formado un sistema de abastecimiento de agua contra incendios y qué debe asegurar?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-A520E5DF",
+      "concepto": "Según el RIPCI, ¿para qué se exige una presión mínima de 500 kPa en la boca de salida de los hidrantes no destinados solo al llenado de camiones?",
+      "veredicto": "OK",
+      "nota": "solapa con el mazo del tema 10; enfoque hidráulico (pérdida de carga)"
+    },
+    {
+      "id": "CPEI-T09-OF-87E4530F",
+      "concepto": "Según el RIPCI, ¿en qué unidades de presión y de caudal se expresa el coeficiente de flujo Kv de los hidrantes?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-25A494F2",
+      "concepto": "Según el RIPCI, ¿qué presión máxima puede haber a la entrada de una BIE de manguera semirrígida o plana y por qué se limita?",
+      "veredicto": "OK",
+      "nota": "solapa parcialmente con temas 10/33; se mantiene por ser dato de presión de instalación"
+    },
+    {
+      "id": "CPEI-T09-OF-B378FA6E",
+      "concepto": "Según el RIPCI, ¿qué presión dinámica mínima debe proporcionar la red en el orificio de salida de una BIE de alta presión?",
+      "veredicto": "OK",
+      "nota": "solapa parcialmente con temas 10/33"
+    },
+    {
+      "id": "CPEI-T09-OF-B1BF79D7",
+      "concepto": "Según el CTE DB HS 4, ¿qué presión mínima debe haber en los puntos de consumo?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-52A4DCD7",
+      "concepto": "Según el CTE DB HS 4, ¿qué presión no debe superarse en ningún punto de consumo?",
+      "veredicto": "OK",
+      "nota": ""
+    },
+    {
+      "id": "CPEI-T09-OF-D374F81F",
+      "concepto": "Según el CTE DB HS 4, ¿entre qué velocidades de cálculo se dimensionan las tuberías de suministro de agua?",
+      "veredicto": "OK",
+      "nota": ""
+    }
+  ],
+  "errores_muestra": 0,
+  "pct_errores_muestra": 0.0,
+  "fichas": [
+    {
+      "id": "CPEI-T09-OF-96E138CB",
+      "orden": 10,
+      "concepto": "Según el RD 709/2015 de equipos a presión, ¿qué se entiende por «fluidos»?",
+      "respuesta": "Los gases, los líquidos y los vapores en fase pura o en mezclas; un fluido puede contener una suspensión de sólidos",
+      "fuente": "RD 709/2015 (equipos a presión), artículo 2.12. BOE-A-2015-9527, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2015-9527#a2",
+      "localizacion": "RD 709/2015 (equipos a presión), artículo 2.12",
+      "apartado": "Concepto de fluido, densidad y unidades",
+      "norma": "BOE-A-2015-9527",
+      "bloque_boe": "a2"
+    },
+    {
+      "id": "CPEI-T09-OF-0E62FDF1",
+      "orden": 20,
+      "concepto": "Según el RD 709/2015 de equipos a presión, ¿respecto a qué se mide la «presión» y cómo se expresa el vacío?",
+      "respuesta": "Respecto a la presión atmosférica (presión relativa o manométrica); el vacío se expresa con un valor negativo",
+      "fuente": "RD 709/2015 (equipos a presión), artículo 2.7. BOE-A-2015-9527, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2015-9527#a2",
+      "localizacion": "RD 709/2015 (equipos a presión), artículo 2.7",
+      "apartado": "Concepto de fluido, densidad y unidades",
+      "norma": "BOE-A-2015-9527",
+      "bloque_boe": "a2"
+    },
+    {
+      "id": "CPEI-T09-OF-6E9C710E",
+      "orden": 30,
+      "concepto": "Según el RD 2032/2009, ¿cuál es la unidad SI de la densidad (masa en volumen)?",
+      "respuesta": "El kilogramo por metro cúbico (kg/m3)",
+      "fuente": "RD 2032/2009 (unidades legales de medida), anexo, capítulo II, tabla 2. BOE-A-2010-927, texto consolidado (últ. actualización 29/04/2020): https://www.boe.es/buscar/act.php?id=BOE-A-2010-927#cii",
+      "localizacion": "RD 2032/2009 (unidades legales de medida), anexo, capítulo II, tabla 2",
+      "apartado": "Concepto de fluido, densidad y unidades",
+      "norma": "BOE-A-2010-927",
+      "bloque_boe": "cii"
+    },
+    {
+      "id": "CPEI-T09-OF-7FF3307F",
+      "orden": 40,
+      "concepto": "Según el RD 2032/2009, ¿cuál es la unidad SI de presión y a qué equivale en otras unidades SI?",
+      "respuesta": "El pascal (Pa), que equivale a un newton por metro cuadrado (N/m2)",
+      "fuente": "RD 2032/2009 (unidades legales de medida), anexo, capítulo II, tabla 3. BOE-A-2010-927, texto consolidado (últ. actualización 29/04/2020): https://www.boe.es/buscar/act.php?id=BOE-A-2010-927#cii",
+      "localizacion": "RD 2032/2009 (unidades legales de medida), anexo, capítulo II, tabla 3",
+      "apartado": "Concepto de fluido, densidad y unidades",
+      "norma": "BOE-A-2010-927",
+      "bloque_boe": "cii"
+    },
+    {
+      "id": "CPEI-T09-OF-B70EA739",
+      "orden": 50,
+      "concepto": "Según el RD 2032/2009, ¿qué unidad SI corresponde a la viscosidad dinámica?",
+      "respuesta": "El pascal segundo (Pa s)",
+      "fuente": "RD 2032/2009 (unidades legales de medida), anexo, capítulo II, tabla 4. BOE-A-2010-927, texto consolidado (últ. actualización 29/04/2020): https://www.boe.es/buscar/act.php?id=BOE-A-2010-927#cii",
+      "localizacion": "RD 2032/2009 (unidades legales de medida), anexo, capítulo II, tabla 4",
+      "apartado": "Concepto de fluido, densidad y unidades",
+      "norma": "BOE-A-2010-927",
+      "bloque_boe": "cii"
+    },
+    {
+      "id": "CPEI-T09-OF-30C5C610",
+      "orden": 60,
+      "concepto": "Según el RD 2032/2009, ¿a cuánto equivale 1 bar en unidades SI?",
+      "respuesta": "1 bar = 0,1 MPa = 100 kPa = 100 000 Pa (10^5 Pa)",
+      "fuente": "RD 2032/2009 (unidades legales de medida), anexo, capítulo IV, tabla 8. BOE-A-2010-927, texto consolidado (últ. actualización 29/04/2020): https://www.boe.es/buscar/act.php?id=BOE-A-2010-927#civ",
+      "localizacion": "RD 2032/2009 (unidades legales de medida), anexo, capítulo IV, tabla 8",
+      "apartado": "Concepto de fluido, densidad y unidades",
+      "norma": "BOE-A-2010-927",
+      "bloque_boe": "civ"
+    },
+    {
+      "id": "CPEI-T09-OF-48B860EC",
+      "orden": 70,
+      "concepto": "Según el RD 2032/2009, ¿a cuánto equivale la atmósfera normal en bar y en pascales?",
+      "respuesta": "A 1,013 25 bar, es decir, 101 325 Pa",
+      "fuente": "RD 2032/2009 (unidades legales de medida), anexo, capítulo IV, tabla 8, nota (a). BOE-A-2010-927, texto consolidado (últ. actualización 29/04/2020): https://www.boe.es/buscar/act.php?id=BOE-A-2010-927#civ",
+      "localizacion": "RD 2032/2009 (unidades legales de medida), anexo, capítulo IV, tabla 8, nota (a)",
+      "apartado": "Concepto de fluido, densidad y unidades",
+      "norma": "BOE-A-2010-927",
+      "bloque_boe": "civ"
+    },
+    {
+      "id": "CPEI-T09-OF-3909180C",
+      "orden": 80,
+      "concepto": "Según el RD 2032/2009, ¿a cuánto equivale un litro y qué símbolo se recomienda para evitar confusiones?",
+      "respuesta": "1 L = 1 dm3 = 10^-3 m3; se recomienda la «L» mayúscula para no confundir la letra l con la cifra 1",
+      "fuente": "RD 2032/2009 (unidades legales de medida), anexo, capítulo IV, tabla 6. BOE-A-2010-927, texto consolidado (últ. actualización 29/04/2020): https://www.boe.es/buscar/act.php?id=BOE-A-2010-927#civ",
+      "localizacion": "RD 2032/2009 (unidades legales de medida), anexo, capítulo IV, tabla 6",
+      "apartado": "Concepto de fluido, densidad y unidades",
+      "norma": "BOE-A-2010-927",
+      "bloque_boe": "civ"
+    },
+    {
+      "id": "CPEI-T09-OF-B76CA198",
+      "orden": 90,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué densidad y qué viscosidad dinámica se toman para el agua a 20 °C?",
+      "respuesta": "Densidad ρ = 1.000 kg/m3 y viscosidad dinámica μ = 0,001 Pa·s",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), apéndice I «Nomenclatura parte bombas», pág. 101. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=103",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), apéndice I «Nomenclatura parte bombas», pág. 101",
+      "apartado": "Concepto de fluido, densidad y unidades",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=103"
+    },
+    {
+      "id": "CPEI-T09-OF-E8EFF948",
+      "orden": 100,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿en qué tres modos se presenta la energía mecánica del flujo en un punto?",
+      "respuesta": "Energía de presión (p/ρ), energía potencial (g·z) y energía cinética (v²/2)",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Ecuación de Bernoulli generalizada», pág. 11. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=13",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Ecuación de Bernoulli generalizada», pág. 11",
+      "apartado": "Presión estática, presión dinámica e hidrostática",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=13"
+    },
+    {
+      "id": "CPEI-T09-OF-BDF2E465",
+      "orden": 110,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se expresa en metros de columna de agua la «altura» de un punto del flujo?",
+      "respuesta": "H = p/(ρ·g) + z + v²/(2·g), en m c.a.",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Ecuación de Bernoulli generalizada», pág. 11. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=13",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Ecuación de Bernoulli generalizada», pág. 11",
+      "apartado": "Presión estática, presión dinámica e hidrostática",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=13"
+    },
+    {
+      "id": "CPEI-T09-OF-546D4545",
+      "orden": 120,
+      "concepto": "Según el ejemplo 2.2 de la guía técnica de bombas del IDAE, ¿qué diferencia de presión corresponde a 10 m de columna de agua?",
+      "respuesta": "Unos 98.100 Pa (ρ·g·h = 1.000 · 9,81 · 10): de 202.600 Pa en el punto bajo a 104.500 Pa diez metros más arriba",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1, ejemplo 2.2, pág. 12. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=14",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1, ejemplo 2.2, pág. 12",
+      "apartado": "Presión estática, presión dinámica e hidrostática",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=14"
+    },
+    {
+      "id": "CPEI-T09-OF-3D462C54",
+      "orden": 130,
+      "concepto": "Según la guía técnica del IDAE, ¿cómo se calcula la presión dinámica de un fluido que circula a velocidad v?",
+      "respuesta": "pD = ½·ρ·v², en pascales: es la energía cinética del flujo expresada como presión",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte II, apdo. 2.1 «Ecuación de Bernoulli generalizada», pág. 65. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=67",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte II, apdo. 2.1 «Ecuación de Bernoulli generalizada», pág. 65",
+      "apartado": "Presión estática, presión dinámica e hidrostática",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=67"
+    },
+    {
+      "id": "CPEI-T09-OF-E4B6B464",
+      "orden": 140,
+      "concepto": "Según la guía técnica del IDAE, ¿qué es la presión total de un flujo en un conducto?",
+      "respuesta": "La suma de la presión estática y la presión dinámica: pT = pE + pD",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte II, apdo. 2.1 «Ecuación de Bernoulli generalizada», pág. 65. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=67",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte II, apdo. 2.1 «Ecuación de Bernoulli generalizada», pág. 65",
+      "apartado": "Presión estática, presión dinámica e hidrostática",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=67"
+    },
+    {
+      "id": "CPEI-T09-OF-BDE1EE3C",
+      "orden": 150,
+      "concepto": "Según la guía técnica del IDAE, en flujo ideal, ¿qué le ocurre a la presión estática cuando aumenta la velocidad del fluido?",
+      "respuesta": "Disminuye, porque la presión total (estática + dinámica) se mantiene constante y la dinámica aumenta",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte II, apdo. 2.2 «Flujo en conductos», ejemplo 2.2, pág. 67. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=69",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte II, apdo. 2.2 «Flujo en conductos», ejemplo 2.2, pág. 67",
+      "apartado": "Presión estática, presión dinámica e hidrostática",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=69"
+    },
+    {
+      "id": "CPEI-T09-OF-303FA8EC",
+      "orden": 160,
+      "concepto": "Según la NTP 362 del INSST, ¿cómo se define el caudal volumétrico?",
+      "respuesta": "Como el producto de la velocidad del fluido por el área de la sección transversal del flujo: Qv = v·A",
+      "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Emisión de líquidos». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+      "localizacion": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Emisión de líquidos»",
+      "apartado": "Hidrodinámica: caudal y ecuación de Bernoulli",
+      "norma": "INSST-NTP362",
+      "bloque_boe": "texto completo"
+    },
+    {
+      "id": "CPEI-T09-OF-598D0A9D",
+      "orden": 170,
+      "concepto": "Según la NTP 362 del INSST, ¿cómo se define el caudal másico?",
+      "respuesta": "Como el producto de la velocidad, el área de la sección transversal y la densidad del fluido: Qm = ρ·v·A",
+      "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Emisión de líquidos». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+      "localizacion": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Emisión de líquidos»",
+      "apartado": "Hidrodinámica: caudal y ecuación de Bernoulli",
+      "norma": "INSST-NTP362",
+      "bloque_boe": "texto completo"
+    },
+    {
+      "id": "CPEI-T09-OF-54865783",
+      "orden": 180,
+      "concepto": "Según la NTP 362 del INSST, ¿qué expresión tiene la ecuación de Bernoulli y para qué tipo de flujo es válida?",
+      "respuesta": "p + ρ·g·h + ρ·v²/2 = constante; válida para flujo estacionario, no viscoso e incompresible, entre dos puntos de una línea de corriente",
+      "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+      "localizacion": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente»",
+      "apartado": "Hidrodinámica: caudal y ecuación de Bernoulli",
+      "norma": "INSST-NTP362",
+      "bloque_boe": "texto completo"
+    },
+    {
+      "id": "CPEI-T09-OF-23AA9AFC",
+      "orden": 190,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿en qué consiste la hipótesis de flujo ideal?",
+      "respuesta": "En despreciar la influencia de la viscosidad: no hay rozamiento ni transformación de energía mecánica en energía térmica",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Flujo ideal en una instalación», pág. 12. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=14",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Flujo ideal en una instalación», pág. 12",
+      "apartado": "Hidrodinámica: caudal y ecuación de Bernoulli",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=14"
+    },
+    {
+      "id": "CPEI-T09-OF-5963394C",
+      "orden": 200,
+      "concepto": "Según la guía técnica de bombas del IDAE, en flujo ideal por un tubo, ¿qué le pasa a la energía mecánica del fluido entre dos puntos?",
+      "respuesta": "Se conserva: p1/(ρg) + z1 + v1²/(2g) = p2/(ρg) + z2 + v2²/(2g); solo cambia de una forma a otra",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Flujo ideal en una instalación», pág. 12. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=14",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Flujo ideal en una instalación», pág. 12",
+      "apartado": "Hidrodinámica: caudal y ecuación de Bernoulli",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=14"
+    },
+    {
+      "id": "CPEI-T09-OF-BB7EEB96",
+      "orden": 210,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se aplica la ecuación de Bernoulli al flujo real de una instalación?",
+      "respuesta": "Añadiendo un término de pérdidas: H1 = H2 + HL, siendo HL la suma de las pérdidas en tuberías y en accesorios",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Flujo real en una instalación», pág. 12. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=14",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Flujo real en una instalación», pág. 12",
+      "apartado": "Hidrodinámica: caudal y ecuación de Bernoulli",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=14"
+    },
+    {
+      "id": "CPEI-T09-OF-0F2FD506",
+      "orden": 220,
+      "concepto": "Según la NTP 362 del INSST, en un recipiente abierto a la atmósfera, ¿qué velocidad teórica de salida tiene un líquido por un orificio situado a una altura h bajo el nivel libre?",
+      "respuesta": "v = (2·g·h)^1/2 (la expresión general v = [2(ph − pa)/ρ + 2·g·h]^1/2 con ph = pa)",
+      "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+      "localizacion": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente»",
+      "apartado": "Ecuación de descarga",
+      "norma": "INSST-NTP362",
+      "bloque_boe": "texto completo"
+    },
+    {
+      "id": "CPEI-T09-OF-D493D3E9",
+      "orden": 230,
+      "concepto": "Según la NTP 362 del INSST, ¿qué expresión da el caudal másico que sale por un orificio de un recipiente a presión atmosférica?",
+      "respuesta": "Qm = Cd · A · ρ · (2·g·h)^1/2 (Cd: coeficiente de descarga; A: área del orificio; h: altura de líquido sobre el orificio)",
+      "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+      "localizacion": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente»",
+      "apartado": "Ecuación de descarga",
+      "norma": "INSST-NTP362",
+      "bloque_boe": "texto completo"
+    },
+    {
+      "id": "CPEI-T09-OF-377EBBDC",
+      "orden": 240,
+      "concepto": "Según la NTP 362 del INSST, ¿qué es el coeficiente de descarga Cd de un orificio?",
+      "respuesta": "La relación entre el caudal real que sale por el orificio y el teórico; Cd = Cv × Cc (coeficiente de velocidad por coeficiente de contracción)",
+      "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+      "localizacion": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente»",
+      "apartado": "Ecuación de descarga",
+      "norma": "INSST-NTP362",
+      "bloque_boe": "texto completo"
+    },
+    {
+      "id": "CPEI-T09-OF-76FBE0B0",
+      "orden": 250,
+      "concepto": "Según la NTP 362 del INSST, ¿qué coeficiente de descarga aproximado tiene un orificio de borde afilado y cuál una boquilla de borde redondeado?",
+      "respuesta": "Unos 0,62 el orificio de borde afilado y aproximadamente la unidad (1) la boquilla de borde redondeado",
+      "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+      "localizacion": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente»",
+      "apartado": "Ecuación de descarga",
+      "norma": "INSST-NTP362",
+      "bloque_boe": "texto completo"
+    },
+    {
+      "id": "CPEI-T09-OF-0B46FCC3",
+      "orden": 260,
+      "concepto": "Según la NTP 362 del INSST, ¿qué coeficiente de descarga aproximado tiene un tramo muy corto de tubería o una boquilla externa conectados a un recipiente?",
+      "respuesta": "Aproximadamente 0,81",
+      "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+      "localizacion": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente»",
+      "apartado": "Ecuación de descarga",
+      "norma": "INSST-NTP362",
+      "bloque_boe": "texto completo"
+    },
+    {
+      "id": "CPEI-T09-OF-B4A1C5E5",
+      "orden": 270,
+      "concepto": "Según la NTP 362 del INSST, ¿qué distancia horizontal x alcanza un chorro que sale horizontalmente con velocidad v desde una altura y sobre el suelo?",
+      "respuesta": "x = v · (2·y/g)^1/2 (de x = v·t e y = g·t²/2)",
+      "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en una tubería (alcance del chorro)». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+      "localizacion": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en una tubería (alcance del chorro)»",
+      "apartado": "Ecuación de descarga",
+      "norma": "INSST-NTP362",
+      "bloque_boe": "texto completo"
+    },
+    {
+      "id": "CPEI-T09-OF-DC6F3830",
+      "orden": 280,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿con qué expresión se calculan las pérdidas de carga en tuberías (pérdidas primarias)?",
+      "respuesta": "HL = f · (L/D) · v²/(2g), donde f es el factor de fricción de Darcy (adimensional), L la longitud y D el diámetro interior",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Pérdidas en tuberías», pág. 12. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=14",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Pérdidas en tuberías», pág. 12",
+      "apartado": "Pérdidas de carga",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=14"
+    },
+    {
+      "id": "CPEI-T09-OF-6B77B7C6",
+      "orden": 290,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué ecuación puede emplearse para el factor de fricción en tuberías lisas?",
+      "respuesta": "La ecuación de Blasius: f = 0,316 · Re^-0,25",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Pérdidas en tuberías», pág. 12. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=14",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Pérdidas en tuberías», pág. 12",
+      "apartado": "Pérdidas de carga",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=14"
+    },
+    {
+      "id": "CPEI-T09-OF-FD184979",
+      "orden": 300,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué ecuación se emplea habitualmente para el factor de fricción en tuberías rugosas?",
+      "respuesta": "La de White-Colebrook, que depende de la rugosidad relativa ε/D y del número de Reynolds",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Pérdidas en tuberías», pág. 13. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=15",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Pérdidas en tuberías», pág. 13",
+      "apartado": "Pérdidas de carga",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=15"
+    },
+    {
+      "id": "CPEI-T09-OF-33B3CFC6",
+      "orden": 310,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se calcula el número de Reynolds del flujo en un tubo?",
+      "respuesta": "Re = ρ·v·D/μ (densidad, velocidad, diámetro interior y viscosidad dinámica); es adimensional",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Pérdidas en tuberías», pág. 13. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=15",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Pérdidas en tuberías», pág. 13",
+      "apartado": "Pérdidas de carga",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=15"
+    },
+    {
+      "id": "CPEI-T09-OF-0725F93D",
+      "orden": 320,
+      "concepto": "Según la NTP 362 del INSST, ¿para qué valores del número de Reynolds el flujo en tubería es generalmente laminar y para cuáles turbulento?",
+      "respuesta": "Laminar por debajo de unos 2000 y turbulento por encima de 4000; entre 2000 y 4000 está en transición",
+      "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en una tubería». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+      "localizacion": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en una tubería»",
+      "apartado": "Pérdidas de carga",
+      "norma": "INSST-NTP362",
+      "bloque_boe": "texto completo"
+    },
+    {
+      "id": "CPEI-T09-OF-3869B3CE",
+      "orden": 330,
+      "concepto": "Según la NTP 362 del INSST, ¿cuánto vale el factor de fricción en régimen laminar?",
+      "respuesta": "f = 64/Re",
+      "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en una tubería». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+      "localizacion": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en una tubería»",
+      "apartado": "Pérdidas de carga",
+      "norma": "INSST-NTP362",
+      "bloque_boe": "texto completo"
+    },
+    {
+      "id": "CPEI-T09-OF-F2E0ACDA",
+      "orden": 340,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se calculan las pérdidas de carga en accesorios como codos, tes o reducciones?",
+      "respuesta": "Proporcionalmente a la energía cinética del flujo: HL = κ·v²/(2g), con κ tomado de ecuaciones, tablas o curvas",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Pérdidas en accesorios», pág. 13. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=15",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Pérdidas en accesorios», pág. 13",
+      "apartado": "Pérdidas de carga",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=15"
+    },
+    {
+      "id": "CPEI-T09-OF-42B59AF3",
+      "orden": 350,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué significa expresar las pérdidas de un accesorio como «longitud equivalente»?",
+      "respuesta": "Darlas como la longitud de tubo que produce la misma pérdida: HL = f·(Leq/D)·v²/(2g)",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Pérdidas en accesorios», pág. 13. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=15",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Pérdidas en accesorios», pág. 13",
+      "apartado": "Pérdidas de carga",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=15"
+    },
+    {
+      "id": "CPEI-T09-OF-0890DF9A",
+      "orden": 360,
+      "concepto": "Según la guía técnica de bombas del IDAE, en un circuito cerrado, ¿a qué se destina la energía que suministra la bomba?",
+      "respuesta": "Únicamente a vencer las pérdidas de presión (pérdidas de carga) del circuito",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1, nota al ejemplo 2.3, pág. 13. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=15",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1, nota al ejemplo 2.3, pág. 13",
+      "apartado": "Pérdidas de carga",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=15"
+    },
+    {
+      "id": "CPEI-T09-OF-75A2DDEF",
+      "orden": 370,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo varía la pérdida de carga de una instalación con el caudal?",
+      "respuesta": "Es proporcional al cuadrado del caudal (HL ∝ Q²): con el doble de caudal, cuatro veces más pérdida",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.1 «Curva característica de la instalación», pág. 32. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=34",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.1 «Curva característica de la instalación», pág. 32",
+      "apartado": "Pérdidas de carga",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=34"
+    },
+    {
+      "id": "CPEI-T09-OF-90325772",
+      "orden": 380,
+      "concepto": "Según el CTE DB HS 4, ¿cómo pueden estimarse las pérdidas de carga localizadas de un tramo?",
+      "respuesta": "En un 20 % a 30 % de la pérdida producida sobre la longitud real del tramo, o evaluándolas a partir de sus elementos",
+      "fuente": "CTE DB HS 4 (suministro de agua), apartado 4.2.2 «Comprobación de la presión», pág. 91. CTE-DB-HS4, DB HS consolidado (14 de junio de 2022): https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf#page=91",
+      "localizacion": "CTE DB HS 4 (suministro de agua), apartado 4.2.2 «Comprobación de la presión», pág. 91",
+      "apartado": "Pérdidas de carga",
+      "norma": "CTE-DB-HS4",
+      "bloque_boe": "page=91"
+    },
+    {
+      "id": "CPEI-T09-OF-41460F53",
+      "orden": 390,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué dos partes principales tienen las bombas rotodinámicas o turbomáquinas?",
+      "respuesta": "La parte móvil o rodete (impulsor) y la parte fija o estátor",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 1.2 «Elementos característicos de las bombas», pág. 6. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=8",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 1.2 «Elementos característicos de las bombas», pág. 6",
+      "apartado": "Características de las bombas centrífugas",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=8"
+    },
+    {
+      "id": "CPEI-T09-OF-B0BD161B",
+      "orden": 400,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué es la voluta de una bomba centrífuga y cuál es su misión?",
+      "respuesta": "Un canal de sección creciente que rodea al rodete y recoge el fluido; reduce su energía cinética para que pase a presión estática",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 1.2 «Elementos característicos de las bombas», pág. 7. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=9",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 1.2 «Elementos característicos de las bombas», pág. 7",
+      "apartado": "Características de las bombas centrífugas",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=9"
+    },
+    {
+      "id": "CPEI-T09-OF-A83C1878",
+      "orden": 410,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué tipos de bombas se citan con aplicación en equipos contra incendios?",
+      "respuesta": "Las bombas compactas o monobloc y las bombas de bancada u horizontales",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 1.4 «Tipos de bombas», pág. 8. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=10",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 1.4 «Tipos de bombas», pág. 8",
+      "apartado": "Características de las bombas centrífugas",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=10"
+    },
+    {
+      "id": "CPEI-T09-OF-B1A1B860",
+      "orden": 420,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se define la altura manométrica Hm que suministra una bomba?",
+      "respuesta": "Como el aumento de energía del fluido entre salida y entrada en metros: Hm = (ps − pe)/(ρg) + (zs − ze) + (vs² − ve²)/(2g)",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.2 «Balance de energía mecánica y rendimientos en bombas», pág. 13. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=15",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.2 «Balance de energía mecánica y rendimientos en bombas», pág. 13",
+      "apartado": "Características de las bombas centrífugas",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=15"
+    },
+    {
+      "id": "CPEI-T09-OF-E07CE23D",
+      "orden": 430,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué potencia útil recibe el fluido impulsado por una bomba?",
+      "respuesta": "Pf = ρ·g·Q·Hm (en W, con Q en m3/s y Hm en m)",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.2 «Balance de energía mecánica y rendimientos en bombas», pág. 14. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=16",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.2 «Balance de energía mecánica y rendimientos en bombas», pág. 14",
+      "apartado": "Características de las bombas centrífugas",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=16"
+    },
+    {
+      "id": "CPEI-T09-OF-1F1511D5",
+      "orden": 440,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿de qué tres rendimientos es producto el rendimiento total de una bomba?",
+      "respuesta": "Del hidráulico, el volumétrico y el orgánico (mecánico): ηT = ηh·ηv·ηo",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.2 «Balance de energía mecánica y rendimientos en bombas», pág. 14. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=16",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.2 «Balance de energía mecánica y rendimientos en bombas», pág. 14",
+      "apartado": "Características de las bombas centrífugas",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=16"
+    },
+    {
+      "id": "CPEI-T09-OF-023CCFB9",
+      "orden": 450,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué rendimiento tiene una bomba centrífuga que trabaja a caudal nulo?",
+      "respuesta": "Nulo: la potencia útil es 0 W (Q = 0), aunque la bomba sigue absorbiendo potencia en el eje (la mínima)",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.1, ejemplo 4.2, pág. 24. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=26",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.1, ejemplo 4.2, pág. 24",
+      "apartado": "Características de las bombas centrífugas",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=26"
+    },
+    {
+      "id": "CPEI-T09-OF-AAA67B45",
+      "orden": 460,
+      "concepto": "Según el Reglamento (UE) 547/2012, ¿qué es el punto de máximo rendimiento (BEP) de una bomba?",
+      "respuesta": "El punto de funcionamiento en el que la bomba consigue su eficiencia hidráulica máxima, medida con agua limpia fría",
+      "fuente": "Reglamento (UE) 547/2012 (bombas hidráulicas), anexo I, punto 3 (definiciones). UE-REG-547-2012, versión consolidada de 09/01/2017 (EUR-Lex): https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:02012R0547-20170109",
+      "localizacion": "Reglamento (UE) 547/2012 (bombas hidráulicas), anexo I, punto 3 (definiciones)",
+      "apartado": "Características de las bombas centrífugas",
+      "norma": "UE-REG-547-2012",
+      "bloque_boe": "texto completo"
+    },
+    {
+      "id": "CPEI-T09-OF-F56CDA32",
+      "orden": 470,
+      "concepto": "¿Se aplica el Reglamento (UE) 547/2012 de diseño ecológico a las bombas destinadas únicamente a la lucha contra incendios?",
+      "respuesta": "No: quedan excluidas de su ámbito de aplicación",
+      "fuente": "Reglamento (UE) 547/2012 (bombas hidráulicas), artículo 1.2.b). UE-REG-547-2012, versión consolidada de 09/01/2017 (EUR-Lex): https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:02012R0547-20170109",
+      "localizacion": "Reglamento (UE) 547/2012 (bombas hidráulicas), artículo 1.2.b)",
+      "apartado": "Características de las bombas centrífugas",
+      "norma": "UE-REG-547-2012",
+      "bloque_boe": "texto completo"
+    },
+    {
+      "id": "CPEI-T09-OF-85B835F0",
+      "orden": 480,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué es la cavitación?",
+      "respuesta": "La vaporización del líquido por la reducción local de la presión absoluta por debajo de su presión de vapor; las burbujas condensan bruscamente al llegar a zonas de alta presión",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3 «Cavitación», pág. 17. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=19",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3 «Cavitación», pág. 17",
+      "apartado": "Cavitación y NPSH",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=19"
+    },
+    {
+      "id": "CPEI-T09-OF-26003FD5",
+      "orden": 490,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué problemas produce la cavitación en una bomba?",
+      "respuesta": "Picado de los álabes del rotor (hasta su rotura), vibraciones que pueden deteriorar la bomba y disminución del incremento de presión y del rendimiento",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3 «Cavitación», pág. 17. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=19",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3 «Cavitación», pág. 17",
+      "apartado": "Cavitación y NPSH",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=19"
+    },
+    {
+      "id": "CPEI-T09-OF-72891238",
+      "orden": 500,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿en qué zona de la bomba se presenta la cavitación y de qué depende?",
+      "respuesta": "En la parte de baja presión, la cara cóncava de los álabes del rodete; depende de la máquina y también de la instalación",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.1 «Condición de cavitación», pág. 17. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=19",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.1 «Condición de cavitación», pág. 17",
+      "apartado": "Cavitación y NPSH",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=19"
+    },
+    {
+      "id": "CPEI-T09-OF-76DD3666",
+      "orden": 510,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué condición de presión evita la cavitación dentro de la bomba?",
+      "respuesta": "Que la presión mínima en el interior (px) esté por encima de la presión de vapor del líquido (pv): px > pv",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.1 «Condición de cavitación», pág. 17. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=19",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.1 «Condición de cavitación», pág. 17",
+      "apartado": "Cavitación y NPSH",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=19"
+    },
+    {
+      "id": "CPEI-T09-OF-2A9527A7",
+      "orden": 520,
+      "concepto": "Según la tabla 3.1 de la guía técnica de bombas del IDAE, ¿qué presión de vapor tiene el agua a 20 °C?",
+      "respuesta": "2.344,2 Pa, unos 0,24 m c.a.",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.1, tabla 3.1, pág. 18. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=20",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.1, tabla 3.1, pág. 18",
+      "apartado": "Cavitación y NPSH",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=20"
+    },
+    {
+      "id": "CPEI-T09-OF-22662AE4",
+      "orden": 530,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se define la altura neta positiva de aspiración (NPSH)?",
+      "respuesta": "NPSH = (pe − pv)/(ρ·g) + ve²/(2g): presión a la entrada menos presión de vapor, en metros, más la altura de velocidad a la entrada",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.3 «Altura neta positiva disponible y necesaria», pág. 19. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=21",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.3 «Altura neta positiva disponible y necesaria», pág. 19",
+      "apartado": "Cavitación y NPSH",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=21"
+    },
+    {
+      "id": "CPEI-T09-OF-978A7EB5",
+      "orden": 540,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué condición entre NPSH disponible y NPSH requerido evita la cavitación?",
+      "respuesta": "Que el NPSH disponible sea superior al requerido o necesario: NPSHD > NPSHr",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.3 «Altura neta positiva disponible y necesaria», pág. 20. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=22",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.3 «Altura neta positiva disponible y necesaria», pág. 20",
+      "apartado": "Cavitación y NPSH",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=22"
+    },
+    {
+      "id": "CPEI-T09-OF-EAD133E1",
+      "orden": 550,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo varía el NPSH requerido de una bomba con el caudal y quién lo facilita?",
+      "respuesta": "Aumenta con el caudal trasegado; lo dan los fabricantes en forma gráfica o tabulada",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.3 «Altura neta positiva disponible y necesaria», pág. 20. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=22",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.3 «Altura neta positiva disponible y necesaria», pág. 20",
+      "apartado": "Cavitación y NPSH",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=22"
+    },
+    {
+      "id": "CPEI-T09-OF-F6E7F596",
+      "orden": 560,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿de qué depende el NPSH disponible?",
+      "respuesta": "Únicamente de la instalación, no de la bomba",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.3 «Altura neta positiva disponible y necesaria», pág. 20. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=22",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.3 «Altura neta positiva disponible y necesaria», pág. 20",
+      "apartado": "Cavitación y NPSH",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=22"
+    },
+    {
+      "id": "CPEI-T09-OF-BB087623",
+      "orden": 570,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué muestran las curvas características de una bomba centrífuga y cómo se obtienen?",
+      "respuesta": "La dependencia de la altura manométrica, el rendimiento y la potencia absorbida con el caudal; las obtienen experimentalmente los fabricantes, generalmente según ISO 9906",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.1 «Curvas de funcionamiento de las bombas», pág. 23. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=25",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.1 «Curvas de funcionamiento de las bombas», pág. 23",
+      "apartado": "Curva característica y punto de funcionamiento",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=25"
+    },
+    {
+      "id": "CPEI-T09-OF-31998641",
+      "orden": 580,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué cuatro curvas características suele tener una bomba y en qué condiciones se ensayan?",
+      "respuesta": "Q-H, Q-NPSHr, Q-rendimiento y Q-potencia; se obtienen en banco de pruebas a velocidad de giro constante, variando el caudal con la estrangulación de la impulsión",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.1 «Curvas de funcionamiento de las bombas», pág. 23. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=25",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.1 «Curvas de funcionamiento de las bombas», pág. 23",
+      "apartado": "Curva característica y punto de funcionamiento",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=25"
+    },
+    {
+      "id": "CPEI-T09-OF-559221D2",
+      "orden": 590,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se determina el punto de funcionamiento de una instalación de bombeo?",
+      "respuesta": "Por la intersección de la curva característica de la bomba (descendente) con la curva de la instalación, gráficamente o igualando sus ecuaciones",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.2 «Punto de funcionamiento de la instalación», pág. 33. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=35",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.2 «Punto de funcionamiento de la instalación», pág. 33",
+      "apartado": "Curva característica y punto de funcionamiento",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=35"
+    },
+    {
+      "id": "CPEI-T09-OF-A899A5EA",
+      "orden": 600,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cuál es el rango admisible de caudal de una bomba respecto a su caudal nominal?",
+      "respuesta": "Entre el 20 % y el 150 % del caudal nominal",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.2, rangos de funcionamiento, pág. 34. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=36",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.2, rangos de funcionamiento, pág. 34",
+      "apartado": "Curva característica y punto de funcionamiento",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=36"
+    },
+    {
+      "id": "CPEI-T09-OF-2EF15657",
+      "orden": 610,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cuál es el rango óptimo de caudal de una bomba respecto a su caudal nominal?",
+      "respuesta": "Entre el 85 % y el 105 % del caudal nominal, con un rendimiento similar al máximo",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.2, rangos de funcionamiento, pág. 34. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=36",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.2, rangos de funcionamiento, pág. 34",
+      "apartado": "Curva característica y punto de funcionamiento",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=36"
+    },
+    {
+      "id": "CPEI-T09-OF-84801374",
+      "orden": 620,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué problema principal aparece si una bomba trabaja con muy poca resistencia hidráulica y caudal muy alto (más de 1,5 veces el nominal)?",
+      "respuesta": "La cavitación en el rodete (además de un rendimiento reducido)",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.2, rangos de funcionamiento, pág. 34. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=36",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.2, rangos de funcionamiento, pág. 34",
+      "apartado": "Curva característica y punto de funcionamiento",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=36"
+    },
+    {
+      "id": "CPEI-T09-OF-1114F79B",
+      "orden": 630,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿por qué es preferible seleccionar la bomba para un caudal algo inferior al nominal?",
+      "respuesta": "Porque lo habitual es sobreestimar las pérdidas de carga; así, ya instalada, la bomba trabajará cerca de su punto nominal",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.2 «Punto de funcionamiento de la instalación», pág. 34. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=36",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.2 «Punto de funcionamiento de la instalación», pág. 34",
+      "apartado": "Curva característica y punto de funcionamiento",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=36"
+    },
+    {
+      "id": "CPEI-T09-OF-73336BCB",
+      "orden": 640,
+      "concepto": "Según la guía técnica de bombas del IDAE, si por una instalación circula un 15 % más de caudal, ¿cuánto aumenta la potencia consumida por la bomba?",
+      "respuesta": "Un 50 %, porque las pérdidas crecen con Q² y la potencia con Q³ (1,15³ ≈ 1,52)",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.2 «Punto de funcionamiento de la instalación», pág. 35. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=37",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.2 «Punto de funcionamiento de la instalación», pág. 35",
+      "apartado": "Curva característica y punto de funcionamiento",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=37"
+    },
+    {
+      "id": "CPEI-T09-OF-CD08AC5B",
+      "orden": 650,
+      "concepto": "Según la guía técnica de bombas del IDAE, si se reduce a la mitad la velocidad de giro de una bomba, ¿qué ocurre con el caudal, la altura y la potencia?",
+      "respuesta": "El caudal se divide por 2, la altura por 4 y la potencia por 8 (Q ∝ n, H ∝ n², P ∝ n³)",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.3 «Comportamiento en otras condiciones de funcionamiento», pág. 27. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=29",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.3 «Comportamiento en otras condiciones de funcionamiento», pág. 27",
+      "apartado": "Curva característica y punto de funcionamiento",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=29"
+    },
+    {
+      "id": "CPEI-T09-OF-748FB16E",
+      "orden": 660,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cuándo se emplea principalmente el acoplamiento de bombas en serie?",
+      "respuesta": "Cuando una sola bomba no puede proporcionar la altura necesaria; el flujo pasa por la primera bomba y después por la segunda",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.2 «Acoplamientos serie y paralelo», pág. 24. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=26",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.2 «Acoplamientos serie y paralelo», pág. 24",
+      "apartado": "Acoplamiento de bombas",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=26"
+    },
+    {
+      "id": "CPEI-T09-OF-F43FF55D",
+      "orden": 670,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se obtiene la curva característica de dos bombas acopladas en serie?",
+      "respuesta": "Sumando las alturas manométricas de cada bomba para un mismo caudal: Qserie = Q1 = Q2 y Hserie = H1 + H2",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.2 «Acoplamientos serie y paralelo», pág. 24. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=26",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.2 «Acoplamientos serie y paralelo», pág. 24",
+      "apartado": "Acoplamiento de bombas",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=26"
+    },
+    {
+      "id": "CPEI-T09-OF-FA0F7876",
+      "orden": 680,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cuándo se acoplan bombas en paralelo?",
+      "respuesta": "Cuando se quieren caudales elevados en circuitos con poca pérdida de carga; también para ajustar el caudal en circuitos de caudal variable",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.2 «Acoplamientos serie y paralelo», pág. 24. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=26",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.2 «Acoplamientos serie y paralelo», pág. 24",
+      "apartado": "Acoplamiento de bombas",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=26"
+    },
+    {
+      "id": "CPEI-T09-OF-74DB3340",
+      "orden": 690,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se obtiene la curva característica de dos bombas acopladas en paralelo?",
+      "respuesta": "Sumando los caudales de cada bomba para una misma altura manométrica: Qparal = Q1 + Q2 y Hparal = H1 = H2",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.2 «Acoplamientos serie y paralelo», pág. 25. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=27",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.2 «Acoplamientos serie y paralelo», pág. 25",
+      "apartado": "Acoplamiento de bombas",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=27"
+    },
+    {
+      "id": "CPEI-T09-OF-3C1C8831",
+      "orden": 700,
+      "concepto": "Según la guía técnica de bombas del IDAE, al unir en paralelo dos bombas idénticas, ¿cuál es el punto nominal del conjunto?",
+      "respuesta": "El doble de caudal a la misma altura (2Q*, H*); la curva resultante es muy plana",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.2 «Acoplamientos serie y paralelo», pág. 25. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=27",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.2 «Acoplamientos serie y paralelo», pág. 25",
+      "apartado": "Acoplamiento de bombas",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=27"
+    },
+    {
+      "id": "CPEI-T09-OF-96375034",
+      "orden": 710,
+      "concepto": "Según el CTE DB HS 4, ¿qué elementos tiene un grupo de presión convencional?",
+      "respuesta": "Depósito auxiliar de alimentación, equipo de bombeo de al menos dos bombas iguales de funcionamiento alterno montadas en paralelo y depósitos de presión con membrana",
+      "fuente": "CTE DB HS 4 (suministro de agua), apartado 3.2.1.5.1 «Sistemas de sobreelevación: grupos de presión», pág. 86. CTE-DB-HS4, DB HS consolidado (14 de junio de 2022): https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf#page=86",
+      "localizacion": "CTE DB HS 4 (suministro de agua), apartado 3.2.1.5.1 «Sistemas de sobreelevación: grupos de presión», pág. 86",
+      "apartado": "Acoplamiento de bombas",
+      "norma": "CTE-DB-HS4",
+      "bloque_boe": "page=86"
+    },
+    {
+      "id": "CPEI-T09-OF-25E9FCD4",
+      "orden": 720,
+      "concepto": "Según el CTE DB HS 4, ¿cómo funciona un grupo de presión de accionamiento regulable o de caudal variable?",
+      "respuesta": "Con un variador de frecuencia que acciona las bombas manteniendo constante la presión de salida, sea cual sea el caudal; puede prescindir del depósito auxiliar",
+      "fuente": "CTE DB HS 4 (suministro de agua), apartado 3.2.1.5.1 «Sistemas de sobreelevación: grupos de presión», pág. 86. CTE-DB-HS4, DB HS consolidado (14 de junio de 2022): https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf#page=86",
+      "localizacion": "CTE DB HS 4 (suministro de agua), apartado 3.2.1.5.1 «Sistemas de sobreelevación: grupos de presión», pág. 86",
+      "apartado": "Acoplamiento de bombas",
+      "norma": "CTE-DB-HS4",
+      "bloque_boe": "page=86"
+    },
+    {
+      "id": "CPEI-T09-OF-22150C8C",
+      "orden": 730,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo actúa la regulación por estrangulamiento con una válvula en serie y es eficiente?",
+      "respuesta": "Introduce una pérdida localizada que cambia la curva de la instalación y reduce el caudal; es el método más empleado, pero no es energéticamente eficiente",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.3.1 «Regulación por estrangulamiento con válvula en serie», pág. 41. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=43",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.3.1 «Regulación por estrangulamiento con válvula en serie», pág. 41",
+      "apartado": "Regulación del punto de funcionamiento",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=43"
+    },
+    {
+      "id": "CPEI-T09-OF-CAD9AB49",
+      "orden": 740,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿por qué no se debe estrangular la tubería de aspiración de una bomba?",
+      "respuesta": "Porque podría provocar cavitación; la estrangulación se sitúa siempre en la zona de presión (impulsión)",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.3.1 «Regulación por estrangulamiento con válvula en serie», pág. 41. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=43",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.3.1 «Regulación por estrangulamiento con válvula en serie», pág. 41",
+      "apartado": "Regulación del punto de funcionamiento",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=43"
+    },
+    {
+      "id": "CPEI-T09-OF-6D9E1818",
+      "orden": 750,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué inconveniente tiene la regulación con válvula en by-pass?",
+      "respuesta": "Derrocha energía al bombear un caudal que luego se recircula: es el peor sistema de regulación desde el punto de vista energético",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.3.2 «Regulación por válvula en by-pass», pág. 42. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=44",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.3.2 «Regulación por válvula en by-pass», pág. 42",
+      "apartado": "Regulación del punto de funcionamiento",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=44"
+    },
+    {
+      "id": "CPEI-T09-OF-A6682280",
+      "orden": 760,
+      "concepto": "Según la guía técnica de bombas del IDAE, ¿qué ventajas y límites tiene regular una bomba variando su velocidad de giro?",
+      "respuesta": "Es muy eficiente porque no añade pérdidas; el variador consume aproximadamente un 10 % y no es recomendable bajar del 50 % de la velocidad nominal",
+      "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.3.3 «Regulación por variación del régimen de giro», pág. 42. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=44",
+      "localizacion": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.3.3 «Regulación por variación del régimen de giro», pág. 42",
+      "apartado": "Regulación del punto de funcionamiento",
+      "norma": "IDAE-GUIA-BOMBAS",
+      "bloque_boe": "page=44"
+    },
+    {
+      "id": "CPEI-T09-OF-20C37F4A",
+      "orden": 770,
+      "concepto": "Según el RIPCI, ¿de qué está formado un sistema de abastecimiento de agua contra incendios y qué debe asegurar?",
+      "respuesta": "De fuentes de agua, equipos de impulsión y una red general de incendios; debe asegurar el caudal y la presión necesarios durante el tiempo de autonomía requerido",
+      "fuente": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 2 «Sistemas de abastecimiento de agua contra incendios». BOE-A-2017-6606, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+      "localizacion": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 2 «Sistemas de abastecimiento de agua contra incendios»",
+      "apartado": "Instalaciones hidráulicas de extinción con agua",
+      "norma": "BOE-A-2017-6606",
+      "bloque_boe": "s1-2"
+    },
+    {
+      "id": "CPEI-T09-OF-A520E5DF",
+      "orden": 780,
+      "concepto": "Según el RIPCI, ¿para qué se exige una presión mínima de 500 kPa en la boca de salida de los hidrantes no destinados solo al llenado de camiones?",
+      "respuesta": "Para contrarrestar la pérdida de carga de las mangueras y lanzas durante la impulsión directa del agua sobre el incendio",
+      "fuente": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 3 «Sistemas de hidrantes contra incendios». BOE-A-2017-6606, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+      "localizacion": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 3 «Sistemas de hidrantes contra incendios»",
+      "apartado": "Instalaciones hidráulicas de extinción con agua",
+      "norma": "BOE-A-2017-6606",
+      "bloque_boe": "s1-2"
+    },
+    {
+      "id": "CPEI-T09-OF-87E4530F",
+      "orden": 790,
+      "concepto": "Según el RIPCI, ¿en qué unidades de presión y de caudal se expresa el coeficiente de flujo Kv de los hidrantes?",
+      "respuesta": "Presión en bar y caudal en m3/h",
+      "fuente": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 3 «Sistemas de hidrantes contra incendios». BOE-A-2017-6606, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+      "localizacion": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 3 «Sistemas de hidrantes contra incendios»",
+      "apartado": "Instalaciones hidráulicas de extinción con agua",
+      "norma": "BOE-A-2017-6606",
+      "bloque_boe": "s1-2"
+    },
+    {
+      "id": "CPEI-T09-OF-25A494F2",
+      "orden": 800,
+      "concepto": "Según el RIPCI, ¿qué presión máxima puede haber a la entrada de una BIE de manguera semirrígida o plana y por qué se limita?",
+      "respuesta": "9 bar (900 kPa), por la presión máxima de servicio del sistema y por la maniobrabilidad de las mangueras",
+      "fuente": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 4 «Sistemas de bocas de incendio equipadas». BOE-A-2017-6606, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+      "localizacion": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 4 «Sistemas de bocas de incendio equipadas»",
+      "apartado": "Instalaciones hidráulicas de extinción con agua",
+      "norma": "BOE-A-2017-6606",
+      "bloque_boe": "s1-2"
+    },
+    {
+      "id": "CPEI-T09-OF-B378FA6E",
+      "orden": 810,
+      "concepto": "Según el RIPCI, ¿qué presión dinámica mínima debe proporcionar la red en el orificio de salida de una BIE de alta presión?",
+      "respuesta": "3.450 kPa (35 kg/cm2), con las dos BIE hidráulicamente más desfavorables funcionando a la vez durante al menos una hora",
+      "fuente": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 4 «Sistemas de bocas de incendio equipadas». BOE-A-2017-6606, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+      "localizacion": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 4 «Sistemas de bocas de incendio equipadas»",
+      "apartado": "Instalaciones hidráulicas de extinción con agua",
+      "norma": "BOE-A-2017-6606",
+      "bloque_boe": "s1-2"
+    },
+    {
+      "id": "CPEI-T09-OF-B1BF79D7",
+      "orden": 820,
+      "concepto": "Según el CTE DB HS 4, ¿qué presión mínima debe haber en los puntos de consumo?",
+      "respuesta": "100 kPa en grifos comunes y 150 kPa en fluxores y calentadores",
+      "fuente": "CTE DB HS 4 (suministro de agua), apartado 2.1.3 «Condiciones mínimas de suministro», pág. 83. CTE-DB-HS4, DB HS consolidado (14 de junio de 2022): https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf#page=83",
+      "localizacion": "CTE DB HS 4 (suministro de agua), apartado 2.1.3 «Condiciones mínimas de suministro», pág. 83",
+      "apartado": "Instalaciones de suministro de agua y sus características",
+      "norma": "CTE-DB-HS4",
+      "bloque_boe": "page=83"
+    },
+    {
+      "id": "CPEI-T09-OF-52A4DCD7",
+      "orden": 830,
+      "concepto": "Según el CTE DB HS 4, ¿qué presión no debe superarse en ningún punto de consumo?",
+      "respuesta": "500 kPa",
+      "fuente": "CTE DB HS 4 (suministro de agua), apartado 2.1.3 «Condiciones mínimas de suministro», pág. 83. CTE-DB-HS4, DB HS consolidado (14 de junio de 2022): https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf#page=83",
+      "localizacion": "CTE DB HS 4 (suministro de agua), apartado 2.1.3 «Condiciones mínimas de suministro», pág. 83",
+      "apartado": "Instalaciones de suministro de agua y sus características",
+      "norma": "CTE-DB-HS4",
+      "bloque_boe": "page=83"
+    },
+    {
+      "id": "CPEI-T09-OF-D374F81F",
+      "orden": 840,
+      "concepto": "Según el CTE DB HS 4, ¿entre qué velocidades de cálculo se dimensionan las tuberías de suministro de agua?",
+      "respuesta": "Metálicas, entre 0,50 y 2,00 m/s; termoplásticas y multicapas, entre 0,50 y 3,50 m/s",
+      "fuente": "CTE DB HS 4 (suministro de agua), apartado 4.2.1 «Dimensionado de los tramos», pág. 91. CTE-DB-HS4, DB HS consolidado (14 de junio de 2022): https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf#page=91",
+      "localizacion": "CTE DB HS 4 (suministro de agua), apartado 4.2.1 «Dimensionado de los tramos», pág. 91",
+      "apartado": "Instalaciones de suministro de agua y sus características",
+      "norma": "CTE-DB-HS4",
+      "bloque_boe": "page=91"
+    }
+  ]
+}

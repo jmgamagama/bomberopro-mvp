@@ -24,6 +24,7 @@ export const OFFICIAL_DOMAINS = [
   'dip-badajoz.es',
   'itu.int',
   'europa.eu',
+  'miteco.gob.es',
 ] as const;
 
 /**
