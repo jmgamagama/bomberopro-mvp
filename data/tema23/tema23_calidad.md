@@ -5,6 +5,7 @@
 ## Fuente
 
 - Plan Estatal de Protección Civil ante el Riesgo de Inundaciones (Acuerdo del Consejo de Ministros de 29/07/2011) — BOE-A-2011-14277, texto consolidado del BOE, última actualización/versión 19/12/2025: https://www.boe.es/buscar/act.php?id=BOE-A-2011-14277 (copia en /workspace/fuentes_oficiales/tema23/)
+- Directriz Básica de Planificación de Protección Civil ante el riesgo de inundaciones (Acuerdo del Consejo de Ministros de 21/04/2026, deroga la de 9/12/1994) — BOE-A-2026-9160: https://www.boe.es/buscar/doc.php?id=BOE-A-2026-9160 (solo para la ficha CPEI-T23-OF-DBB24F6A, corregida el 18/10/2026)
 
 ## Resultado
 
@@ -32,7 +33,7 @@
 | # | Id | Pregunta | Veredicto | Nota |
 |---:|---|---|---|---|
 | 1 | CPEI-T23-OF-0C35FF39 | Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿a quién corresponde la declaración de interés nacional de una emergencia por inundaciones? | OK |  |
-| 2 | CPEI-T23-OF-DBB24F6A | Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿cuándo se aprobó la Directriz Básica de Protección Civil ante el Riesgo de Inundaciones? | OK |  |
+| 2 | CPEI-T23-OF-DBB24F6A | ¿Qué Acuerdo del Consejo de Ministros aprobó la Directriz Básica de Planificación de Protección Civil ante el riesgo de inundaciones vigente, que sustituye a la de 1994 citada en el apdo. 1.2 del Plan Estatal de Inundaciones? | OK | Corregida el 18/10/2026: la Directriz de 1994 (publicada en 1995) quedó derogada por el Acuerdo del Consejo de Ministros de 21/04/2026 (BOE-A-2026-9160); la ficha pregunta ahora por la vigente. |
 | 3 | CPEI-T23-OF-81BA774E | Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿a quién corresponde la Dirección Operativa de las emergencias declaradas de interés nacional? | OK |  |
 | 4 | CPEI-T23-OF-4C7053A2 | Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿hasta cuándo se prolonga la fase de normalización? | OK |  |
 | 5 | CPEI-T23-OF-B2D2D991 | Según el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, ¿qué define la situación 0 de la fase de emergencia? | OK |  |
