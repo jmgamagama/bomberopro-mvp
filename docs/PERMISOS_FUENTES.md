@@ -1,5 +1,15 @@
 # Permisos de uso de fuentes no normativas
 
+> **Decisión de JM (23/10/2026):** BomberoPro tiene permiso para usar como fuente los manuales y documentos de
+> estudio (manual del CPEI, libros de CCOO y manuales del CEIS Guadalajara). Los temas 15, 18 y 19 dejan de
+> estar excluidos y sus preguntas publicadas se mantienen. Reglas al usarlos:
+> - Redacción propia: no copiar párrafos ni imágenes; las preguntas y explicaciones se escriben de nuevo.
+> - Cita precisa en cada pregunta: manual, edición y página o apartado.
+> - Pendiente: guardar junto a este documento la autorización por escrito (o el correo que la confirme), sobre
+>   todo para los manuales del CEIS Guadalajara (CC BY-NC-SA, no comercial) si la app tiene plan de pago.
+>
+> Lo que sigue es el análisis anterior (11/10/2026), que se conserva como histórico.
+
 Fecha: 11/10/2026. Rama `feat/temas-fase2-oficial`.
 
 ## Temas excluidos
