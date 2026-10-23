@@ -39,7 +39,7 @@ describe('Dashboard', () => {
       screen.queryByRole('progressbar', { name: 'Dominio real global' }),
     ).not.toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole('button', { name: /entrenar ahora/i }));
+    fireEvent.click(screen.getByRole('button', { name: /empezar a estudiar/i }));
     fireEvent.click(screen.getByRole('button', { name: /hacer simulacro/i }));
 
     expect(onNavigate).toHaveBeenNthCalledWith(1, 'train');

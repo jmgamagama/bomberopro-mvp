@@ -30,7 +30,7 @@ describe('finite training session', () => {
   it('answers each question once and closes the chosen pool', async () => {
     const user = userEvent.setup();
     render(<App />);
-    await user.click(await screen.findByRole('button', { name: /entrenar ahora/i }));
+    await user.click(await screen.findByRole('button', { name: /empezar a estudiar/i }));
 
     for (const [index, question] of INITIAL_QUESTIONS.entries()) {
       expect(screen.getByRole('heading', { name: question.question })).toBeInTheDocument();
@@ -46,7 +46,7 @@ describe('finite training session', () => {
     expect(screen.queryByRole('button', { name: /siguiente pregunta/i })).not.toBeInTheDocument();
 
     await user.click(screen.getByRole('button', { name: /Volver al inicio/i }));
-    await user.click(screen.getByRole('button', { name: /entrenar ahora/i }));
+    await user.click(screen.getByRole('button', { name: /empezar a estudiar/i }));
     expect(screen.getByRole('heading', { name: INITIAL_QUESTIONS[0].question })).toBeInTheDocument();
     expect(screen.getByText('Pregunta 1 de 2')).toBeInTheDocument();
   });

@@ -78,10 +78,10 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     expect(screen.getByRole('region', { name: /aviso de modo demostración/i })).toHaveTextContent(/modo demostración.*no se guarda nada/i);
 
     // Ve el Dashboard inicial sin intentos previos
-    expect(screen.getByRole('button', { name: /entrenar ahora/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /empezar a estudiar/i })).toBeInTheDocument();
 
     // 3. Comenzar primera sesión de estudio
-    await user.click(screen.getByRole('button', { name: /entrenar ahora/i }));
+    await user.click(screen.getByRole('button', { name: /empezar a estudiar/i }));
 
     // Carga la primera pregunta de estudio (Art. 1.1)
     const questionText = await screen.findByText(/según el artículo 1\.1 de la constitución/i);
@@ -117,7 +117,7 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     expect(await screen.findByRole('region', { name: /aviso de modo demostración/i })).toBeInTheDocument();
 
     // Entrar de nuevo a Entrenar Ahora
-    await user.click(screen.getByRole('button', { name: /entrenar ahora/i }));
+    await user.click(screen.getByRole('button', { name: /empezar a estudiar/i }));
 
     // Se presenta una sesión fresca desde la primera pregunta
     expect(await screen.findByText(/según el artículo 1\.1 de la constitución/i)).toBeInTheDocument();
