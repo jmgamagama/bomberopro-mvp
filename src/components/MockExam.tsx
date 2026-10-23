@@ -295,7 +295,7 @@ export default function MockExam({
           className="flex min-h-11 items-center gap-1 -ml-1 px-1 text-sm font-semibold text-slate-600 hover:text-slate-800 transition"
         >
           <ArrowLeft className="w-4 h-4" />
-          Volver al Dashboard
+          Volver al inicio
         </button>
         <StudentConsultation
           variant="button"
@@ -613,7 +613,7 @@ export default function MockExam({
               onClick={onNavigateHome}
               className="min-h-11 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-semibold text-sm transition shadow"
             >
-              Volver al Dashboard
+              Volver al inicio
             </button>
           </div>
         </div>

@@ -66,12 +66,14 @@ describe('App navigation', () => {
     const mobileNavigation = screen.getByRole('navigation', {
       name: 'Navegación móvil',
     });
-    const mobileErrors = within(mobileNavigation).getByRole('button', {
-      name: 'Errores',
-    });
-    fireEvent.click(mobileErrors);
+    // Móvil: 5 pestañas; lo menos usado vive en «Más».
+    expect(within(mobileNavigation).getAllByRole('button')).toHaveLength(5);
+    const mobileMas = within(mobileNavigation).getByRole('button', { name: 'Más' });
+    fireEvent.click(mobileMas);
+    expect(mobileMas).toHaveAttribute('aria-current', 'page');
+    fireEvent.click(screen.getByRole('button', { name: /Errores críticos/ }));
 
-    expect(mobileErrors).toHaveAttribute('aria-current', 'page');
+    expect(mobileMas).toHaveAttribute('aria-current', 'page');
     expect(document.title).toBe('Errores críticos | BomberoPro');
   });
 });

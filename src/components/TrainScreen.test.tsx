@@ -22,7 +22,7 @@ const memoryState: MemoryState = {
 };
 
 describe('TrainScreen', () => {
-  it('muestra el estado vacío y permite volver al dashboard', async () => {
+  it('muestra el estado vacío y permite Volver al inicio', async () => {
     const user = userEvent.setup();
     const onNavigateHome = vi.fn();
     render(
@@ -39,7 +39,7 @@ describe('TrainScreen', () => {
       />,
     );
     expect(screen.getByRole('status')).toHaveAccessibleName(/sesión sin preguntas/i);
-    await user.click(screen.getByRole('button', { name: /volver al dashboard/i }));
+    await user.click(screen.getByRole('button', { name: /Volver al inicio/i }));
     expect(onNavigateHome).toHaveBeenCalledOnce();
   });
 

@@ -84,7 +84,7 @@ export default function OrdenaPasos({ onNavigateHome, onBackToDaily }: OrdenaPas
               </button>
             )}
             <button type="button" onClick={onNavigateHome} className="min-h-11 px-2 text-xs font-semibold text-slate-500 hover:text-slate-700">
-              Volver al Dashboard
+              Volver al inicio
             </button>
           </div>
         </section>

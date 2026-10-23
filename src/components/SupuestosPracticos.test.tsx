@@ -66,8 +66,9 @@ describe('entrada en el menú', () => {
     await screen.findByRole('button', { name: /Por Temas/ });
     expect(document.querySelector('#nav-btn-supuestos')).toBeNull();
     const movil = screen.getByRole('navigation', { name: 'Navegación móvil' });
-    expect(within(movil).queryByRole('button', { name: 'Casos' })).toBeNull();
-    expect(within(movil).getAllByRole('button')).toHaveLength(8);
+    expect(within(movil).getAllByRole('button')).toHaveLength(5);
+    await userEvent.setup().click(within(movil).getByRole('button', { name: 'Más' }));
+    expect(screen.queryByRole('button', { name: /Casos prácticos/ })).toBeNull();
   });
 
   it('el build de revisión muestra la entrada en escritorio y móvil y abre la pantalla', async () => {
@@ -78,8 +79,9 @@ describe('entrada en el menú', () => {
     await screen.findByRole('button', { name: /Por Temas/ });
     expect(document.querySelector('#nav-btn-supuestos')).not.toBeNull();
     const movil = screen.getByRole('navigation', { name: 'Navegación móvil' });
-    expect(within(movil).getAllByRole('button')).toHaveLength(9);
-    await user.click(within(movil).getByRole('button', { name: 'Casos' }));
+    expect(within(movil).getAllByRole('button')).toHaveLength(5);
+    await user.click(within(movil).getByRole('button', { name: 'Más' }));
+    await user.click(screen.getByRole('button', { name: /Casos prácticos/ }));
     expect(await screen.findByRole('heading', { name: 'Supuestos prácticos' })).toBeInTheDocument();
     expect(document.title).toBe('Supuestos prácticos | BomberoPro');
   });
@@ -101,8 +103,7 @@ describe('Mis supuestos (privado)', () => {
     expect(await screen.findByRole('heading', { name: 'Mis supuestos (privado)' })).toBeInTheDocument();
     expect(screen.getByText(/Material personal que no se comparte/)).toBeInTheDocument();
     expect(screen.getByText('Todavía no hay supuestos publicados.')).toBeInTheDocument();
-    const movil = screen.getByRole('navigation', { name: 'Navegación móvil' });
-    expect(within(movil).queryByRole('button', { name: 'Casos' })).toBeNull();
+    expect(document.querySelector('#nav-btn-supuestos')).toBeNull();
 
     // Archivo con errores: no se importa nada y se explica por qué.
     await user.upload(screen.getByLabelText('Importar archivo JSON'), archivo('{"formato":"bomberopro-supuestos","version":1,"supuestos":[{"id":"x"}]}'));
@@ -112,7 +113,6 @@ describe('Mis supuestos (privado)', () => {
 
     await user.upload(screen.getByLabelText('Importar archivo JSON'), archivo(EJEMPLO));
     expect(await screen.findByText(/Importados 1 supuestos de «mis-casos.json» \(1 nuevos\)/)).toBeInTheDocument();
-    expect(within(movil).getByRole('button', { name: 'Casos' })).toBeInTheDocument();
     expect(document.querySelector('#nav-btn-supuestos')).not.toBeNull();
 
     await user.click(screen.getByRole('button', { name: /^EJEMPLO · Supuesto ficticio/ }));
@@ -134,7 +134,7 @@ describe('Mis supuestos (privado)', () => {
     await user.click(screen.getByRole('button', { name: /Borrar «EJEMPLO/ }));
     await user.click(screen.getByRole('button', { name: 'Sí, borrar' }));
     expect(screen.queryByRole('list', { name: 'Mis supuestos privados' })).toBeNull();
-    await waitFor(() => expect(within(movil).queryByRole('button', { name: 'Casos' })).toBeNull());
+    await waitFor(() => expect(document.querySelector('#nav-btn-supuestos')).toBeNull());
     expect(window.localStorage.getItem('mira_supuestos_privados_v1:demo')).toBeNull();
   });
 
