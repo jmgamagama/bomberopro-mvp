@@ -149,7 +149,8 @@ describe('con la aplicación completa', () => {
     const user = userEvent.setup();
     render(<App />);
     const movil = await screen.findByRole('navigation', { name: 'Navegación móvil' });
-    await user.click(await within(movil).findByRole('button', { name: 'Casos' }));
+    await user.click(within(movil).getByRole('button', { name: 'Más' }));
+    await user.click(await screen.findByRole('button', { name: /Casos prácticos/ }));
     expect(await screen.findByRole('heading', { name: 'Mis supuestos (privado)' })).toBeInTheDocument();
     const deCuenta = screen.getByRole('list', { name: 'Supuestos de mi cuenta' });
     expect(within(deCuenta).getByRole('button', { name: /EJEMPLO · De mi cuenta/ })).toHaveTextContent('En tu cuenta · solo tú');
@@ -173,6 +174,7 @@ describe('con la aplicación completa', () => {
     render(<App />);
     const movil = await screen.findByRole('navigation', { name: 'Navegación móvil' });
     await waitFor(() => expect(llamadasTabla()).toBeGreaterThan(0));
-    expect(within(movil).queryByRole('button', { name: 'Casos' })).toBeNull();
+    expect(within(movil).getAllByRole('button')).toHaveLength(5);
+    expect(document.querySelector('#nav-btn-supuestos')).toBeNull();
   });
 });

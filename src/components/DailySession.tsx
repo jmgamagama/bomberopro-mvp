@@ -320,7 +320,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
           </button>
 
           <button type="button" onClick={onNavigateHome} className="mx-auto min-h-11 px-4 text-xs font-semibold text-slate-500 transition hover:text-slate-700">
-            Volver al Dashboard
+            Volver al inicio
           </button>
         </section>
       )}
@@ -335,7 +335,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
         <section role="status" className="space-y-3 rounded-2xl border border-slate-100 bg-white p-6 text-center text-sm text-slate-600 shadow-sm">
           <p>No hay fichas disponibles para la sesión de hoy.</p>
           <button type="button" onClick={onNavigateHome} className="min-h-11 rounded-xl border border-slate-200 px-4 py-2 font-semibold text-slate-700">
-            Volver al Dashboard
+            Volver al inicio
           </button>
         </section>
       )}
@@ -421,7 +421,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
               onClick={onNavigateHome}
               className="min-h-11 rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700"
             >
-              Volver al Dashboard
+              Volver al inicio
             </button>
           </div>
         </section>

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { supabase } from '../lib/supabase';
-import { Lock, Mail, Loader2, BookOpen } from 'lucide-react';
+import { Lock, Loader2, BookOpen, GraduationCap } from 'lucide-react';
 
 interface LoginProps {
   onStartDemo?: () => void;
@@ -75,13 +75,31 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100">
         <div className="bg-indigo-600 p-8 text-center text-white">
           <div className="mx-auto w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4 backdrop-blur-sm">
-            <Mail className="w-6 h-6 text-white" />
+            <GraduationCap className="w-6 h-6 text-white" aria-hidden="true" />
           </div>
-          <h1 className="text-2xl font-black tracking-tight uppercase">MIRA Bomberopro</h1>
-          <p className="text-indigo-50 mt-2 text-base font-medium">Acceso de Opositor</p>
+          <h1 className="text-2xl font-black tracking-tight">BomberoPro</h1>
+          <p className="text-indigo-50 mt-2 text-base font-medium">
+            Prepara el CPEI Badajoz con preguntas que se adaptan a ti.
+          </p>
         </div>
 
         <div className="p-8">
+          {onStartDemo && (
+            <div className="pb-6 mb-6 border-b border-slate-100 text-center space-y-2">
+              <button
+                type="button"
+                id="btn-login-demo"
+                onClick={onStartDemo}
+                className="w-full min-h-12 py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-base font-bold transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-200 cursor-pointer"
+              >
+                <BookOpen className="w-5 h-5" aria-hidden="true" />
+                <span>Empieza ya, sin registrarte</span>
+              </button>
+              <p className="text-sm text-slate-600">
+                Prueba preguntas reales del temario. No se guarda nada hasta que crees tu cuenta.
+              </p>
+            </div>
+          )}
           <div role="group" aria-label="Tipo de acceso" className="grid grid-cols-2 gap-1 p-1 mb-6 bg-slate-100 rounded-xl">
             {(['entrar', 'crear'] as const).map(m => (
               <button
@@ -110,7 +128,7 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
                 placeholder="tu@email.com"
                 autoComplete="email"
                 inputMode="email"
-                autoFocus
+                autoFocus={!onStartDemo}
                 required
                 aria-invalid={message?.type === 'error'}
                 aria-describedby={message ? 'login-message' : undefined}
@@ -184,22 +202,6 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
             </button>
           </form>
 
-          {onStartDemo && (
-            <div className="pt-6 mt-6 border-t border-slate-100 text-center space-y-2">
-              <p className="text-sm text-slate-600">
-                ¿Solo quieres echar un vistazo? (no se guarda nada)
-              </p>
-              <button
-                type="button"
-                id="btn-login-demo"
-                onClick={onStartDemo}
-                className="w-full min-h-12 py-2.5 px-4 bg-white hover:bg-slate-100 text-slate-700 hover:text-indigo-600 border border-slate-500 rounded-xl text-sm font-bold transition flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <BookOpen className="w-4 h-4 text-indigo-500" aria-hidden="true" />
-                <span>Probar sin cuenta</span>
-              </button>
-            </div>
-          )}
         </div>
       </div>
     </div>

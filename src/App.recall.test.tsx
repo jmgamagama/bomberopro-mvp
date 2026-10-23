@@ -23,7 +23,7 @@ describe('navegación de recuerdo', () => {
     // Entrada de escritorio (#nav-btn-recuerdo); la móvil tiene la misma etiqueta.
     await screen.findByRole('button', { name: /Por Temas/ });
     await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-recuerdo')!);
-    expect(screen.getAllByRole('button', { name: /^Recuerdo$/ })).toHaveLength(2);
+    expect(screen.getAllByRole('button', { name: /^Recuerdo$/ })).toHaveLength(1);
     const tablist = await screen.findByRole('tablist', { name: 'Temas de recuerdo' });
     const tabs = within(tablist).getAllByRole('tab');
     expect(tabs.map((t) => t.textContent)).toEqual(RECALL_TOPICS.map((t) => `${t.shortLabel}${t.count}`));

@@ -76,7 +76,7 @@ export default function TodayTraining({ questions, isLoading, error, onRetry, on
             onClick={onNavigateHome}
             className="text-xs font-semibold text-slate-400 hover:text-slate-600 transition"
           >
-            Volver al Dashboard
+            Volver al inicio
           </button>
           <span className="hidden sm:inline text-slate-300 text-xs" aria-hidden="true">•</span>
           <StudentConsultation

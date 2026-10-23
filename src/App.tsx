@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect, useLayoutEffect, useRef, lazy, Suspense } from 'react';
-import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles, ClipboardList } from 'lucide-react';
+import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles, ClipboardList, Menu } from 'lucide-react';
 import { getVisibleSupuestos } from './data/supuestos/supuestosRegistry';
 import { SUPUESTOS_PRIVADOS_EVENT, contarSupuestosPrivados } from './data/supuestos/supuestosPrivados';
 
@@ -85,6 +85,7 @@ const SCREEN_TITLES = {
   planes: 'Planes',
   ordena_pasos: 'Ordena los pasos',
   supuestos: 'Supuestos prácticos',
+  mas: 'Más',
 } as const;
 
   const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds, modo: 'adaptativo' | 'simulacro' = 'adaptativo', nivel: unknown = 1, sessionId: string | null = null) => {
@@ -107,7 +108,7 @@ const SCREEN_TITLES = {
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
-    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes'
+    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes' | 'mas'
   >(() => (hasCompletedOnboarding() ? (isSupuestosHash() ? 'supuestos' : 'dashboard') : 'onboarding'));
   // Página de planes: solo con VITE_FEATURE_PLANES=true (por defecto no aparece nada).
   const planesEnabled = isPlanesEnabled();
@@ -287,7 +288,7 @@ export default function App() {
 
   // Handle switching screens
   const handleNavigate = (
-    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes'
+    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes' | 'mas'
   ) => {
     setDailyAutoStart(false);
     setCurrentScreen(screen);
@@ -326,7 +327,6 @@ export default function App() {
   // o si el usuario ha importado supuestos privados en este dispositivo (cuenta actual).
   const supuestosVisibles = getVisibleSupuestos().length > 0 || contarSupuestosPrivados() > 0;
   // Con 9 entradas en la barra móvil (360 px → ~39 px por botón) las etiquetas bajan a 10 px para no solaparse.
-  const mobileLabelSize = supuestosVisibles ? 'text-[10px]' : 'text-xs';
 
   // Auditoría UX móvil (11-oct-2026): al cambiar de pantalla o de pregunta se conservaba el
   // desplazamiento anterior y el test se abría con el enunciado fuera de la pantalla.
@@ -610,6 +610,28 @@ export default function App() {
     );
   }
 
+  // Navegación móvil: 5 pestañas. Lo menos usado vive en «Más» para no abrumar al alumno.
+  type Screen = typeof currentScreen;
+  const estudiarScreen: Screen = conceptOwner ? 'concept_t40' : 'train';
+  const MAS_SCREENS: Screen[] = ['mas', 'errors', 'forgetting_curve', 'recuerdo', 'sesion_diaria', 'ordena_pasos', 'today_training', 'supuestos', 'my_reports', 'planes', 'constitucion'];
+  const mobileTabs: { key: string; label: string; Icon: typeof LayoutDashboard; target: Screen; active: Screen[] }[] = [
+    { key: 'inicio', label: 'Inicio', Icon: LayoutDashboard, target: 'dashboard', active: ['dashboard'] },
+    { key: 'estudiar', label: 'Estudiar', Icon: Target, target: estudiarScreen, active: ['concept_t40', 'train'] },
+    { key: 'temas', label: 'Temas', Icon: BookOpen, target: 'study_by_topic', active: ['study_by_topic'] },
+    { key: 'simulacro', label: 'Simulacro', Icon: HelpCircle, target: 'mock_exam', active: ['mock_exam'] },
+    { key: 'mas', label: 'Más', Icon: Menu, target: 'mas', active: MAS_SCREENS },
+  ];
+  const masItems: { key: string; label: string; detail: string; Icon: typeof LayoutDashboard; target: Screen }[] = [
+    { key: 'errors', label: 'Errores críticos', detail: 'Repasa lo que has fallado.', Icon: AlertTriangle, target: 'errors' },
+    { key: 'recuerdo', label: 'Recuerdo', detail: 'Tarjetas para memorizar datos clave.', Icon: Layers, target: 'recuerdo' },
+    { key: 'sesion_diaria', label: 'Sesión diaria', detail: 'Fichas con tiempo fijo al día.', Icon: Flame, target: 'sesion_diaria' },
+    { key: 'today_training', label: 'Entrenamiento de hoy', detail: 'Preguntas pendientes de repaso.', Icon: Target, target: 'today_training' },
+    { key: 'forgetting_curve', label: 'Curva de olvido', detail: 'Qué se te está olvidando.', Icon: BarChart2, target: 'forgetting_curve' },
+    ...(supuestosVisibles ? [{ key: 'supuestos', label: 'Casos prácticos', detail: 'Supuestos del segundo ejercicio.', Icon: ClipboardList, target: 'supuestos' as Screen }] : []),
+    ...(!isDemoMode && session?.user?.id ? [{ key: 'my_reports', label: 'Mis reportes', detail: 'Errores que has avisado en preguntas.', Icon: HelpCircle, target: 'my_reports' as Screen }] : []),
+    ...(planesEnabled ? [{ key: 'planes', label: 'Planes', detail: 'Opciones de acceso.', Icon: Sparkles, target: 'planes' as Screen }] : []),
+  ];
+
   if (!session && supabase && !isDemoMode) {
     return (
       <>
@@ -687,8 +709,8 @@ export default function App() {
               <GraduationCap className="w-5 h-5" aria-hidden="true" />
             </div>
             <div>
-              <span className="text-base font-black tracking-tight text-slate-950 uppercase flex flex-wrap items-center gap-1.5">
-                MIRA <span className="text-xs bg-indigo-50 border border-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded font-bold tracking-wider">BOMBEROPRO</span>
+              <span className="text-base font-black tracking-tight text-slate-950">
+                BomberoPro
               </span>
               <p className="hidden sm:block text-xs text-slate-600 font-medium tracking-wide">Aprendizaje Adaptativo de Oposición</p>
             </div>
@@ -934,7 +956,7 @@ export default function App() {
               onClick={() => handleNavigate('dashboard')}
               className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm"
             >
-              Volver al Dashboard
+              Volver al inicio
             </button>
           </section>
         )}
@@ -946,7 +968,7 @@ export default function App() {
               ? `No hay preguntas disponibles para el microconcepto ${activeConceptId} en esta sesión.`
               : 'No hay preguntas disponibles para esta sesión.'}</p>
             <button type="button" onClick={() => handleNavigate('dashboard')} className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm">
-              Volver al Dashboard
+              Volver al inicio
             </button>
           </section>
         )}
@@ -1049,6 +1071,29 @@ export default function App() {
           onNavigateHome={() => handleNavigate('dashboard')}
           />
         )}
+        {currentScreen === 'mas' && (
+          <section aria-labelledby="mas-title" className="mx-auto max-w-lg space-y-3">
+            <h2 id="mas-title" className="text-xl font-bold text-slate-900">Más herramientas</h2>
+            <ul className="space-y-2">
+              {masItems.map(({ key, label, detail, Icon, target }) => (
+                <li key={key}>
+                  <button
+                    type="button"
+                    id={`mas-${key}`}
+                    onClick={() => handleNavigate(target)}
+                    className="flex w-full min-h-14 items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 text-left hover:bg-slate-50"
+                  >
+                    <Icon className="h-5 w-5 shrink-0 text-indigo-600" aria-hidden="true" />
+                    <span>
+                      <span className="block font-semibold text-slate-900">{label}</span>
+                      <span className="block text-sm text-slate-600">{detail}</span>
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </main>
 
       {currentScreen !== 'onboarding' && (
@@ -1056,111 +1101,25 @@ export default function App() {
         aria-label="Navegación móvil"
         className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_18px_rgba(15,23,42,0.08)] backdrop-blur-md md:hidden"
       >
-        <div className={`mx-auto grid max-w-lg px-1 ${supuestosVisibles ? 'grid-cols-9' : 'grid-cols-8'}`}>
-          <button
-            type="button"
-            aria-current={currentScreen === 'dashboard' ? 'page' : undefined}
-            onClick={() => handleNavigate('dashboard')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 ${mobileLabelSize} font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
-              currentScreen === 'dashboard' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
-            }`}
-          >
-            <LayoutDashboard className="h-5 w-5" aria-hidden="true" />
-            Inicio
-          </button>
-          <button
-            type="button"
-            aria-current={currentScreen === 'today_training' ? 'page' : undefined}
-            onClick={() => handleNavigate('today_training')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 ${mobileLabelSize} font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
-              currentScreen === 'today_training' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
-            }`}
-          >
-            <Target className="h-5 w-5" aria-hidden="true" />
-            Hoy
-          </button>
-          <button
-            type="button"
-            aria-current={currentScreen === 'errors' ? 'page' : undefined}
-            onClick={() => handleNavigate('errors')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 ${mobileLabelSize} font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
-              currentScreen === 'errors' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
-            }`}
-          >
-            <AlertTriangle className="h-5 w-5" aria-hidden="true" />
-            Errores
-          </button>
-          <button
-            type="button"
-            aria-current={currentScreen === 'forgetting_curve' ? 'page' : undefined}
-            onClick={() => handleNavigate('forgetting_curve')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 ${mobileLabelSize} font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
-              currentScreen === 'forgetting_curve' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
-            }`}
-          >
-            <BarChart2 className="h-5 w-5" aria-hidden="true" />
-            Curva
-          </button>
-          <button
-            type="button"
-            aria-current={currentScreen === 'mock_exam' ? 'page' : undefined}
-            onClick={() => handleNavigate('mock_exam')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 ${mobileLabelSize} font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
-              currentScreen === 'mock_exam' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
-            }`}
-          >
-            <HelpCircle className="h-5 w-5" aria-hidden="true" />
-            Simulacro
-          </button>
-          <button
-            type="button"
-            aria-current={currentScreen === 'study_by_topic' ? 'page' : undefined}
-            onClick={() => handleNavigate('study_by_topic')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 ${mobileLabelSize} font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
-              currentScreen === 'study_by_topic' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
-            }`}
-            >
-          <BookOpen className="h-5 w-5" aria-hidden="true" />
-          Temas
-          </button>
-
-          <button
-            type="button"
-            aria-current={currentScreen === 'recuerdo' ? 'page' : undefined}
-            onClick={() => handleNavigate('recuerdo')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-[10px] font-semibold whitespace-nowrap ${
-              currentScreen === 'recuerdo' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
-            }`}
-          >
-            <Layers className="h-5 w-5" aria-hidden="true" />
-            Recuerdo
-          </button>
-
-          <button
-            type="button"
-            aria-current={currentScreen === 'sesion_diaria' || currentScreen === 'ordena_pasos' ? 'page' : undefined}
-            onClick={() => handleNavigate('sesion_diaria')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-[10px] font-semibold whitespace-nowrap ${
-              currentScreen === 'sesion_diaria' || currentScreen === 'ordena_pasos' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
-            }`}
-          >
-            <Flame className="h-5 w-5" aria-hidden="true" />
-            Diaria
-          </button>
-
-          {supuestosVisibles && (
-            <button
-              type="button"
-              aria-current={currentScreen === 'supuestos' ? 'page' : undefined}
-              onClick={() => handleNavigate('supuestos')}
-              className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-[10px] font-semibold whitespace-nowrap ${
-                currentScreen === 'supuestos' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
-              }`}
-            >
-              <ClipboardList className="h-5 w-5" aria-hidden="true" />
-              Casos
-            </button>
-          )}
+        <div className="mx-auto grid max-w-lg grid-cols-5 px-1">
+          {mobileTabs.map(({ key, label, Icon, target, active }) => {
+            const isActive = active.includes(currentScreen);
+            return (
+              <button
+                key={key}
+                type="button"
+                id={`mobile-tab-${key}`}
+                aria-current={isActive ? 'page' : undefined}
+                onClick={() => handleNavigate(target)}
+                className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap ${
+                  isActive ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
+                }`}
+              >
+                <Icon className="h-5 w-5" aria-hidden="true" />
+                {label}
+              </button>
+            );
+          })}
         </div>
       </nav>
       )}
@@ -1169,11 +1128,8 @@ export default function App() {
       <footer className="border-t border-slate-100 py-6 bg-white text-slate-600 text-xs mt-12" id="mira-footer">
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <p className="font-semibold text-slate-600">MIRA — Método de Aprendizaje Adaptativo para Oposiciones</p>
+            <p className="font-semibold text-slate-600">BomberoPro — Oposición CPEI Badajoz</p>
             <p className="text-xs text-slate-600 mt-0.5">Basado en Microconceptos, Interrogación activa, Repetición espaciada y Aseguramiento del dominio real.</p>
-          </div>
-          <div className="flex items-center gap-4">
-            <span className="font-mono text-xs">v1.0 (PROTOTIPO SEGURO LOCAL)</span>
           </div>
         </div>
       </footer>

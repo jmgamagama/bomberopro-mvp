@@ -50,7 +50,7 @@ describe('MockExam', () => {
     await user.click(screen.getByRole('button', { name: /^siguiente/i }));
     expect(screen.getByText(/pregunta 2 de/i)).toBeInTheDocument();
 
-    await user.click(screen.getByRole('button', { name: /volver al dashboard/i }));
+    await user.click(screen.getByRole('button', { name: /Volver al inicio/i }));
     expect(onNavigateHome).toHaveBeenCalledOnce();
   });
 

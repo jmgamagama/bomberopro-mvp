@@ -45,7 +45,7 @@ describe('finite training session', () => {
     expect(screen.getByText(/has respondido 2 de 2 preguntas/i)).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /siguiente pregunta/i })).not.toBeInTheDocument();
 
-    await user.click(screen.getByRole('button', { name: /volver al dashboard/i }));
+    await user.click(screen.getByRole('button', { name: /Volver al inicio/i }));
     await user.click(screen.getByRole('button', { name: /entrenar ahora/i }));
     expect(screen.getByRole('heading', { name: INITIAL_QUESTIONS[0].question })).toBeInTheDocument();
     expect(screen.getByText('Pregunta 1 de 2')).toBeInTheDocument();

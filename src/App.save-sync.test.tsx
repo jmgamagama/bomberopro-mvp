@@ -131,7 +131,7 @@ describe('guardado pendiente con la aplicación completa', () => {
 
     getSession.mockResolvedValue({ data: { session: next === 'B' ? account('B') : null }, error: null });
     await act(async () => authChanged?.(next === 'B' ? 'SIGNED_IN' : 'SIGNED_OUT', next === 'B' ? account('B') : null));
-    if (next === 'demo') fireEvent.click(await screen.findByRole('button', { name: /probar sin cuenta/i }));
+    if (next === 'demo') fireEvent.click(await screen.findByRole('button', { name: /empieza ya, sin registrarte/i }));
     const expectedCount = next === 'B' ? '1' : String(INITIAL_QUESTIONS.length);
 
     // Resolver antes de navegar: la invalidación debe venir de la cuenta/demo,
