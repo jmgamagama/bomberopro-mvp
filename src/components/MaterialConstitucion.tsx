@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArrowLeft, Download, Loader2 } from 'lucide-react';
 import ConceptStudy from './ConceptStudy';
 import { loadConceptProgress, resolveTopicId, type ConceptProgress } from '../lib/conceptEngine';
 import { renderMarkdown } from '../utils/miniMarkdown';
+import { descargarMaterial } from '../utils/descargaLegible';
 
 /**
  * Piloto Constitución · Título Preliminar (tema 1). Tres capas de material de menos a más
@@ -62,6 +63,11 @@ export default function MaterialConstitucion({ userId, onExit }: Props) {
   }
 
   const disponibles = progress?.total ?? 0;
+  // Descarga legible (HTML con formato y tildes correctas). Si algo falla, sigue el enlace normal.
+  const descargar = (e: React.MouseEvent, url: string, titulo: string) => {
+    e.preventDefault();
+    descargarMaterial(url, titulo).catch(() => { window.location.href = url; });
+  };
   return (
     <div className="mx-auto max-w-3xl">
       <button type="button" onClick={onExit} className="mb-4 flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-slate-900">
@@ -79,7 +85,7 @@ export default function MaterialConstitucion({ userId, onExit }: Props) {
             className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 font-bold text-white hover:bg-indigo-700 disabled:opacity-50">
             {topicId === undefined ? <><Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> Cargando…</> : 'Estudiar estos conceptos'}
           </button>
-          <a href={BASE + TEXTO_OFICIAL} download
+          <a href={BASE + TEXTO_OFICIAL} download onClick={e => descargar(e, BASE + TEXTO_OFICIAL, 'Constitución Española · Texto oficial (BOE)')}
             className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-slate-200 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50">
             <Download className="h-4 w-4" aria-hidden="true" /> Constitución completa (texto oficial BOE)
           </a>
@@ -103,7 +109,7 @@ export default function MaterialConstitucion({ userId, onExit }: Props) {
       <article className="mt-3 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm" role="tabpanel" aria-label={actual.label}>
         <div className="flex items-start justify-between gap-3">
           <p className="text-xs text-slate-500">{actual.nota}</p>
-          <a href={BASE + actual.file} download className="flex shrink-0 items-center gap-1 text-xs font-semibold text-indigo-700 underline">
+          <a href={BASE + actual.file} download onClick={e => descargar(e, BASE + actual.file, `Título Preliminar · ${actual.label.replace(/^\d · /, '')}`)} className="flex shrink-0 items-center gap-1 text-xs font-semibold text-indigo-700 underline">
             <Download className="h-3.5 w-3.5" aria-hidden="true" /> Descargar
           </a>
         </div>
