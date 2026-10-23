@@ -44,3 +44,10 @@ Aun así, en producción hay preguntas publicadas de esos temas con fuentes como
 3. Temas técnicos sin norma (8, 9, 13, 14, 15, 18, 19, 21, 22 y 25): resolver antes el bloqueo de licencias del punto 5.
 
 Consultas usadas: ver el historial de la sesión del 23/10/2026. Para reproducirlas, basta un `GROUP BY` por `topics.numero` y la heurística de arriba sobre `questions.fuente_normativa`.
+
+## 7. Corrección de una tarjeta con nota interna (23/10/2026)
+
+- Concepto `T40-PT01-001`. La respuesta explicaba al alumno una errata del documento. Valor anterior, por si hay que restaurarlo:
+  «El R.D. 1215/1997, de 18 de julio (en la introducción aparece impreso «R.D. 121/1997» por errata; en Referencias legislativas figura R.D. 1215/1997, de 18 julio).»
+- Valor nuevo: «El R.D. 1215/1997, de 18 de julio.»
+- Se buscaron notas parecidas («errata», «aviso de fuente», «omitiendo», «pendiente de»…) en todos los conceptos publicados y no hay más casos.
