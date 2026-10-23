@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { supabase } from '../lib/supabase';
+import { trackFunnel } from '../lib/funnel';
 import { Lock, Loader2, BookOpen, GraduationCap } from 'lucide-react';
 
 interface LoginProps {
@@ -23,6 +24,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
     setLoading(true);
     setMessage(null);
 
+    if (mode === 'crear') trackFunnel('signup_submit');
     try {
       const result = mode === 'crear'
         ? await supabase!.auth.signUp({ email: email.trim(), password })
