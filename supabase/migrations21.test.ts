@@ -66,11 +66,11 @@ describe('migración 21: private_supuestos', () => {
     expect(codeDown.trim()).toBe('DROP TABLE IF EXISTS public.private_supuestos;');
   });
 
-  it('esta rama no edita ninguna migración existente (diff desde la base común con origin/main)', () => {
+  it('esta rama no edita ni borra ninguna migración existente (las nuevas sí se permiten)', () => {
     let changed: string | null = null;
     try {
       const base = execSync('git merge-base HEAD origin/main', { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
-      changed = execSync(`git diff --name-only ${base} -- supabase/migrations/`, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+      changed = execSync(`git diff --name-only --diff-filter=MDR ${base} -- supabase/migrations/`, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
     } catch { /* sin git */ }
     if (changed !== null) {
       const editadas = changed.split('\n').filter(Boolean).filter((f) => !/\/21_private_supuestos(_down)?\.sql$/.test(f));
