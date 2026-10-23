@@ -214,7 +214,7 @@ export default function TrainScreen({
 
         <div className="flex items-center gap-2 flex-wrap">
           {/* Adaptive reason badge */}
-          <span className="px-3 py-1 bg-indigo-50 text-indigo-600 border border-indigo-100 text-xs font-semibold rounded-full flex items-center gap-1.5 shadow-sm font-mono">
+          <span className="px-3 py-1 bg-indigo-50 text-indigo-600 border border-indigo-100 text-xs font-semibold rounded-full flex items-center gap-1.5 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 animate-pulse text-indigo-500" />
             {selectionReason}
           </span>
@@ -230,7 +230,7 @@ export default function TrainScreen({
       {/* Session progress counter */}
       {sessionTotal > 0 && (
         <div className="space-y-1.5" id="train-session-progress">
-          <div className="flex items-center justify-between text-sm text-slate-600 font-mono">
+          <div className="flex items-center justify-between text-sm text-slate-600">
             <span>Pregunta {sessionCurrent} de {sessionTotal}</span>
             <span>Sesión de hoy</span>
           </div>
@@ -248,10 +248,10 @@ export default function TrainScreen({
         <div className="lg:col-span-2 space-y-6">
           <div className="p-4 sm:p-6 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-4">
             {/* Question metadata */}
-            <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between text-xs text-slate-600 font-mono">
-              <span>Nivel: {question.level} — {question.type.replace('_', ' ')}</span>
-              {currentState && (
-                <span>Dominio previo: {currentState.mastery_score}%</span>
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between text-xs text-slate-600">
+              <span>Dificultad {String(question.level).replace(/^N/, '')} de 3</span>
+              {currentState && currentState.mastery_score > 0 && (
+                <span>Lo dominabas al {currentState.mastery_score}%</span>
               )}
             </div>
 
@@ -383,13 +383,13 @@ export default function TrainScreen({
           {/* Concept Profile Card */}
           {relatedConcept && (
             <div className="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-4">
-              <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wider font-mono">
+              <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wider">
                 Microconcepto Relacionado
               </h4>
 
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold font-mono px-2 py-0.5 bg-slate-100 text-slate-600 rounded">
+                  <span className="text-xs font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">
                     {relatedConcept.id}
                   </span>
                   <span className="text-xs font-semibold text-indigo-600">
@@ -404,17 +404,17 @@ export default function TrainScreen({
               {/* Memory metrics panel */}
               {feedback && feedback.updatedState && (
                 <div className="space-y-3 pt-3 border-t border-slate-100 animation-fade-in">
-                  <h5 className="text-xs font-bold text-slate-600 uppercase tracking-wider font-mono">
+                  <h5 className="text-xs font-bold text-slate-600 uppercase tracking-wider">
                     Impacto en Memoria Cognitiva
                   </h5>
 
                   <div className="grid grid-cols-2 gap-2 text-center">
                     <div className="p-2.5 bg-indigo-50/50 rounded-xl border border-indigo-500/10">
-                      <span className="text-xs text-slate-600 block font-mono">Dominio Real</span>
+                      <span className="text-xs text-slate-600 block">Dominio Real</span>
                       <span className="text-lg font-bold text-indigo-700">{feedback.updatedState.mastery_score}%</span>
                     </div>
                     <div className="p-2.5 bg-indigo-50/50 rounded-xl border border-indigo-500/10">
-                      <span className="text-xs text-slate-600 block font-mono">Estabilidad (S)</span>
+                      <span className="text-xs text-slate-600 block">Estabilidad (S)</span>
                       <span className="text-lg font-bold text-indigo-700">
                         {feedback.updatedState.memory_stability < 1
                           ? `${Math.round(feedback.updatedState.memory_stability * 24 * 60)} min`
@@ -424,7 +424,7 @@ export default function TrainScreen({
                     </div>
                   </div>
 
-                  <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100 text-xs text-slate-500 flex justify-between items-center font-mono">
+                  <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100 text-xs text-slate-500 flex justify-between items-center">
                     <span>Próximo Repaso:</span>
                     <span className="font-semibold text-slate-700">
                       {feedback.updatedState.next_review ? new Date(feedback.updatedState.next_review).toLocaleString('es-ES', {
@@ -443,14 +443,14 @@ export default function TrainScreen({
 
           {/* Time Warning Box */}
           <div className="p-5 bg-indigo-900 text-indigo-100 rounded-2xl space-y-3 border border-indigo-950">
-            <h5 className="text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-1.5">
+            <h5 className="text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
               <Clock className={`w-4 h-4 ${!isAnswered ? 'animate-spin-slow' : ''}`} />
               Cronómetro de Automatización
             </h5>
 
             <div className="flex flex-wrap items-center justify-between gap-2" id="automation-timer">
               <span
-                className={`text-3xl font-black font-mono tabular-nums ${
+                className={`text-3xl font-black tabular-nums ${
                   !isAnswered && !isWithinTarget ? 'text-amber-300' : 'text-white'
                 }`}
               >

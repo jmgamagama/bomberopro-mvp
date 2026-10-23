@@ -89,7 +89,7 @@ describe('MockExam', () => {
 
     const summary = screen.getByRole('status');
     expect(summary).toHaveFocus();
-    expect(summary).toHaveAccessibleName(/simulacro completado/i);
+    expect(summary).toHaveAccessibleName(/simulacro terminado/i);
     expect(summary).toHaveAccessibleDescription(/nota .* acierto .* tiempo medio/i);
     expect(onFinishExam).toHaveBeenCalledOnce();
     expect(onFinishExam.mock.calls[0][0][0]).toMatchObject({ answerChanges: 2 });
