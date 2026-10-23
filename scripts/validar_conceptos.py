@@ -62,7 +62,9 @@ def main() -> int:
     hasta = args[args.index("--hasta") + 1] if "--hasta" in args else None
 
     data = json.loads(path.read_text(encoding="utf-8"))
-    boe = {b["id"]: b for b in json.loads(FUENTE.read_text(encoding="utf-8"))}
+    # La fuente es la norma del propio fichero (por defecto, la Constitución).
+    fuente = pathlib.Path(f"data/fuentes/{data['norma']}/bloques.json") if data.get("norma") else FUENTE
+    boe = {b["id"]: b for b in json.loads(fuente.read_text(encoding="utf-8"))}
     conceptos = data["conceptos"]
     errores: list[str] = []
     avisos: list[str] = []
@@ -92,7 +94,7 @@ def main() -> int:
         if low(t["respuesta"]) and low(t["respuesta"]) in low(t["pregunta"]):
             errores.append(f"{cid}: la respuesta de la tarjeta está dentro de su pregunta")
         for r in c.get("confundible_con", []):
-            if r not in idset and not r.startswith("CE-"):
+            if r not in idset and not r.startswith(("CE-", "LPRL-")):
                 errores.append(f"{cid}: confundible_con '{r}' no existe")
             elif r not in idset:
                 avisos.append(f"{cid}: confundible_con '{r}' es de otro fichero (comprobar al cargar)")
@@ -130,7 +132,9 @@ def main() -> int:
     else:
         usados = {c["bloque"] for c in conceptos}
         rango = [k for k in rango if k in usados]
-    sin = [f"{k[1:]}.{ap}" if ap else k[1:] for k in rango for ap in apartados(boe[k]) if (k, ap) not in cubiertos]
+    def vigente(texto: str) -> bool:  # «4. (Suprimido).» o «(Derogado)» no se pueden examinar
+        return not re.fullmatch(r"\(?(suprimido|derogado|sin contenido)\)?\.?", low(texto) or "", re.I) and low(texto) not in ("suprimido", "derogado")
+    sin = [f"{k[1:]}.{ap}" if ap else k[1:] for k in rango for ap, tx in apartados(boe[k]).items() if (k, ap) not in cubiertos and vigente(tx)]
     if sin:
         errores.append(f"apartados sin concepto: {', '.join(sin)}")
 

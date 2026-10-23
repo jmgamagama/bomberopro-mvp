@@ -11,6 +11,7 @@ import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
 import { shuffleAllOptions } from '../utils/shuffleOptions';
 import { newStudySessionId, startStudySession, finishStudySession } from '../lib/studySession';
+import ConceptOutline, { ConceptCountBadge, useConceptSummary } from './ConceptOutline';
 
 interface TopicOption {
   id: number;
@@ -27,6 +28,9 @@ export default function StudyByTopic({ session, onNavigateHome }: StudyByTopicPr
   const [topics, setTopics] = useState<TopicOption[]>([]);
   const [selected, setSelected] = useState<number[]>([]);
   const [loadingTopics, setLoadingTopics] = useState(true);
+  // Recuentos reales de conceptos por tema y mapa de conceptos desplegable (migración 23).
+  const conceptSummary = useConceptSummary();
+  const [outlineTema, setOutlineTema] = useState<number | null>(null);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [started, setStarted] = useState(false);
   const [loadingQuestions, setLoadingQuestions] = useState(false);
@@ -151,23 +155,36 @@ if (!started) {
              loadingTopics
              ? h('p', { className: 'text-slate-500' }, 'Cargando temas...')
              : h('div', { className: 'grid grid-cols-1 gap-2 mb-6' },
-                 topics.map(t => h('label', {
-                   key: t.id,
-                   className: 'flex items-center gap-3 p-3 rounded-lg border cursor-pointer ' + (selected.includes(t.id) ? 'border-orange-500 bg-orange-50' : 'border-slate-200 bg-white')
-                 },
-                                   h('input', {
-                                     type: 'checkbox',
-                                     checked: selected.includes(t.id),
-                                     onChange: () => toggleTopic(t.id),
-                                     className: 'w-4 h-4'
-                                   }),
-                                   h('span', { className: 'text-sm text-slate-800' }, 'Tema ' + t.numero + '. ' + t.nombre)
-                                   ))
+                 topics.map(t => h('div', { key: t.id, className: 'space-y-2' },
+                   h('div', {
+                     className: 'flex items-center gap-2 p-3 rounded-lg border ' + (selected.includes(t.id) ? 'border-indigo-600 bg-indigo-50' : 'border-slate-200 bg-white')
+                   },
+                     h('label', { className: 'flex flex-1 items-center gap-3 cursor-pointer' },
+                       h('input', {
+                         type: 'checkbox',
+                         checked: selected.includes(t.id),
+                         onChange: () => toggleTopic(t.id),
+                         className: 'w-4 h-4'
+                       }),
+                       h('span', { className: 'flex flex-col' },
+                         h('span', { className: 'text-sm text-slate-800' }, 'Tema ' + t.numero + '. ' + t.nombre),
+                         h(ConceptCountBadge, { tema: conceptSummary[t.numero] })
+                       )
+                     ),
+                     conceptSummary[t.numero] ? h('button', {
+                       type: 'button',
+                       'aria-expanded': outlineTema === t.numero,
+                       onClick: () => setOutlineTema(outlineTema === t.numero ? null : t.numero),
+                       className: 'shrink-0 min-h-11 px-3 text-xs font-semibold text-indigo-700 underline'
+                     }, outlineTema === t.numero ? 'Ocultar' : 'Ver conceptos') : null
+                   ),
+                   outlineTema === t.numero ? h(ConceptOutline, { tema: t.numero }) : null
+                 ))
                  ),
              h('button', {
                onClick: startStudy,
                disabled: selected.length === 0 || loadingQuestions,
-               className: 'w-full flex items-center justify-center gap-2 bg-orange-500 text-white py-3 rounded-lg font-semibold disabled:opacity-50'
+               className: 'w-full flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-semibold disabled:opacity-50'
              },
                h(Play, { size: 18 }), ' ' + (loadingQuestions ? 'Cargando...' : 'Empezar (' + selected.length + ' tema' + (selected.length === 1 ? '' : 's') + ')')
                )
@@ -179,7 +196,7 @@ if (started && questions.length === 0) {
   return h('div', { className: 'min-h-screen bg-slate-50 p-4 flex items-center justify-center' },
            h('div', { className: 'text-center' },
              h('p', { className: 'text-slate-600 mb-4' }, 'No hay preguntas disponibles para los temas seleccionados.'),
-             h('button', { onClick: restart, className: 'text-orange-600 font-semibold' }, 'Volver a elegir temas')
+             h('button', { onClick: restart, className: 'text-indigo-700 font-semibold' }, 'Volver a elegir temas')
              )
            );
 }
@@ -190,7 +207,7 @@ if (idx >= questions.length) {
              h('h2', { className: 'text-xl font-bold text-slate-900 mb-2' }, 'Sesión completada'),
              h('p', { className: 'text-slate-600 mb-4' }, 'Acertaste ' + correctCount + ' de ' + questions.length + ' preguntas.'),
              h('div', { className: 'flex gap-2' },
-               h('button', { onClick: restart, className: 'flex-1 bg-orange-500 text-white py-2 rounded-lg font-semibold' }, 'Elegir otros temas'),
+               h('button', { onClick: restart, className: 'flex-1 bg-indigo-600 text-white py-2 rounded-lg font-semibold' }, 'Elegir otros temas'),
                h('button', { onClick: onNavigateHome, className: 'flex-1 bg-slate-200 text-slate-800 py-2 rounded-lg font-semibold' }, 'Inicio')
                )
              )
@@ -224,7 +241,7 @@ return h('div', { className: 'min-h-screen bg-slate-50 p-4' },
                    if (isCorrectOpt) cls = 'border-green-500 bg-green-50';
                    else if (isSelected) cls = 'border-red-500 bg-red-50';
                  } else if (isSelected) {
-                   cls = 'border-orange-500 bg-orange-50';
+                   cls = 'border-indigo-600 bg-indigo-50';
                  }
                  return h('button', {
                    key: i,
