@@ -54,6 +54,7 @@ import { setLocalDataOwner } from './utils/localOwner';
 import { cargarSupuestosCuenta } from './lib/privateSupuestos';
 import { shuffleAllOptions } from './utils/shuffleOptions';
 import { newStudySessionId, startStudySession, finishStudySession } from './lib/studySession';
+import { TrainCelebration } from './components/SessionCelebration';
 
 // Normalize only the in-memory view; preserve the original local history for recovery.
 const getSafeMemoryStates = (): Record<string, MemoryState> => {
@@ -145,6 +146,8 @@ export default function App() {
   // Number of questions already answered in the current training session (resets each time a
   // fresh session is started), used to render the "Pregunta X de Y" progress indicator.
   const [sessionAnsweredCount, setSessionAnsweredCount] = useState(0);
+  // Aciertos de la sesión actual (para la pantalla de celebración final).
+  const [sessionCorrectCount, setSessionCorrectCount] = useState(0);
   const [sessionQuestionPool, setSessionQuestionPool] = useState<Question[]>([]);
   const [sessionCompleted, setSessionCompleted] = useState(false);
   const answeredQuestionIds = useRef<Set<string>>(new Set());
@@ -218,6 +221,7 @@ export default function App() {
     setActiveReason('');
     setSessionQuestionPool([]);
     setSessionAnsweredCount(0);
+    setSessionCorrectCount(0);
     setSessionCompleted(false);
     sessionCompletedRef.current = false;
     setDbQuestions(userId ? [] : INITIAL_QUESTIONS);
@@ -371,6 +375,7 @@ export default function App() {
     trainingSessionFinished.current = false;
     setSessionQuestionPool(pool);
     setSessionAnsweredCount(0);
+    setSessionCorrectCount(0);
     setSessionCompleted(false);
     prepareNextAdaptiveQuestion(pool, isDemoMode ? memoryStates : getSafeMemoryStates());
   };
@@ -457,6 +462,7 @@ export default function App() {
       }));
       setAttempts(prev => [newAttempt, ...prev]);
       setSessionAnsweredCount(prev => prev + 1);
+      if (isCorrect) setSessionCorrectCount(prev => prev + 1);
     } else {
       // Save to local database
       saveMemoryState(result.updatedState);
@@ -474,6 +480,7 @@ export default function App() {
       setMemoryStates(updatedStates);
       setAttempts(getAttempts());
       setSessionAnsweredCount(prev => prev + 1);
+      if (isCorrect) setSessionCorrectCount(prev => prev + 1);
     }
 
     return {
@@ -567,6 +574,7 @@ export default function App() {
     setAttempts([]);
     setMemoryStates({});
     setSessionAnsweredCount(0);
+    setSessionCorrectCount(0);
     setSessionQuestionPool([]);
     setSessionCompleted(false);
     answeredQuestionIds.current = new Set();
@@ -975,20 +983,15 @@ export default function App() {
         )}
 
         {currentScreen === 'train' && sessionCompleted && (
-          <section className="p-8 text-center bg-white border border-emerald-100 rounded-2xl shadow-sm space-y-4" role="status" aria-live="polite">
-            <h2 className="text-xl font-bold text-slate-800">Sesión completada</h2>
-            <p className="text-sm text-slate-600">Has respondido {sessionAnsweredCount} de {sessionTotal} preguntas {activeConceptId ? 'de este microconcepto' : 'de la sesión de hoy'}.</p>
-            <p className="text-sm text-slate-600">{isDemoMode
-              ? 'En la demostración este progreso no se guarda. Puedes volver al inicio o probar otra sesión.'
-              : 'Tus respuestas se han guardado en este dispositivo. Puedes volver mañana para iniciar una nueva sesión.'}</p>
-            <button
-              type="button"
-              onClick={() => handleNavigate('dashboard')}
-              className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm"
-            >
-              Volver al inicio
-            </button>
-          </section>
+          <TrainCelebration
+            answered={sessionAnsweredCount}
+            correct={sessionCorrectCount}
+            total={sessionTotal}
+            isDemoMode={isDemoMode}
+            loggedIn={!!session?.user?.id}
+            onSignup={handleDemoSignup}
+            onHome={() => handleNavigate('dashboard')}
+          />
         )}
 
         {currentScreen === 'train' && !sessionCompleted && sessionTotal === 0 && (

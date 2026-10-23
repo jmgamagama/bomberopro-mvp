@@ -24,6 +24,8 @@ import { newAttemptKey } from '../lib/saveAttemptToServer';
 import { shuffleArray } from '../utils/shuffleOptions';
 import ReportQuestionButton from './ReportQuestionButton';
 import { startStudySession, finishStudySession } from '../lib/studySession';
+import SessionCelebration from './SessionCelebration';
+import { useStudyStreak } from '../lib/streak';
 
 interface Props {
   userId: string;
@@ -64,6 +66,8 @@ function ProgressBar({ p }: { p: ConceptProgress }) {
 
 export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, etiqueta = 'Estudiar hoy · Todos tus temas preparados', titulo = 'Tu sesión de hoy' }: Props) {
   const [phase, setPhase] = useState<'inicio' | 'cargando' | 'sesion' | 'fin'>('inicio');
+  // Racha de la cuenta: se lee al terminar la sesión (migración 24).
+  const streak = useStudyStreak(phase === 'fin');
   const [minutes, setMinutes] = useState(20);
   const [progress, setProgress] = useState<ConceptProgress | null>(null);
   const [items, setItems] = useState<ConceptSessionItem[]>([]);
@@ -325,20 +329,23 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
     return (
       <div className="mx-auto max-w-2xl">
         {header}
-        <div className="rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-sm">
-          <h1 className="text-xl font-bold text-slate-900">Sesión terminada</h1>
-          <p className="mt-2 text-sm text-slate-600">
-            {stats.nuevos} conceptos nuevos · {stats.aciertos} de {stats.tests} preguntas bien.
-          </p>
-          <p className="mt-1 text-sm text-slate-600">Lo que has fallado volverá pronto; lo que sabes, más adelante.</p>
-          {calibracion && <p className="mt-3 rounded-lg bg-indigo-50 px-3 py-2 text-sm text-indigo-900" data-testid="calibracion">{calibracion}</p>}
-          {progress && <div className="mt-5 text-left"><ProgressBar p={progress} /></div>}
-          <div className="mt-6 flex gap-2">
-            <button type="button" onClick={() => setPhase('inicio')} className="flex-1 rounded-xl bg-indigo-600 py-3 font-bold text-white">Otra sesión</button>
-            <button type="button" onClick={onExit} className="flex-1 rounded-xl bg-slate-100 py-3 font-bold text-slate-700">Volver al inicio</button>
-          </div>
+        <SessionCelebration
+          titulo="¡Sesión terminada!"
+          mensaje={`${stats.tests > 0 && stats.aciertos / stats.tests >= 0.8 ? '¡Gran trabajo! ' : ''}Lo que has fallado volverá pronto; lo que sabes, más adelante.`}
+          stats={[
+            { label: 'Nuevos', value: String(stats.nuevos), tone: 'indigo' },
+            { label: 'Aciertos', value: `${stats.aciertos}/${stats.tests}`, tone: 'emerald' },
+            { label: 'Acierto', value: stats.tests > 0 ? `${Math.round((stats.aciertos / stats.tests) * 100)}%` : '—', tone: 'amber' },
+          ]}
+          streak={streak}
+          primary={{ label: 'Otra sesión', onClick: () => setPhase('inicio') }}
+          secondary={{ label: 'Volver al inicio', onClick: onExit }}
+        >
+          <p className="sr-only">{stats.nuevos} conceptos nuevos · {stats.aciertos} de {stats.tests} preguntas bien.</p>
+          {calibracion && <p className="rounded-lg bg-indigo-50 px-3 py-2 text-sm text-indigo-900" data-testid="calibracion">{calibracion}</p>}
+          {progress && <div className="text-left"><ProgressBar p={progress} /></div>}
           {saveNote}
-        </div>
+        </SessionCelebration>
       </div>
     );
   }
