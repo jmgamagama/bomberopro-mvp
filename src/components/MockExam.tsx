@@ -327,7 +327,7 @@ export default function MockExam({
               <li>Fórmula oficial: <strong>+{EXAM_CORRECT_POINTS.toFixed(3)}</strong> por acierto y <strong>{EXAM_INCORRECT_POINTS.toFixed(3)}</strong> por error.</li>
               <li>Consta de <strong>55 preguntas (50 + 5 reserva)</strong>.</li>
               <li>Proporción oficial: <strong>30% de preguntas de temas 35-40</strong> garantizado.</li>
-              <li>Orden aleatorio con <strong>semilla RNG registrada</strong>.</li>
+              <li>Preguntas en orden aleatorio, como en el examen.</li>
               <li>Al finalizar obtendrás un informe detallado con tu plan de estudio de sanea-errores.</li>
             </ul>
           </div>
@@ -362,7 +362,7 @@ export default function MockExam({
       {examStarted && !examFinished && questions.length > 0 && (
         <div className="max-w-3xl mx-auto space-y-4" id="active-exam-container">
           {/* Progress bar and counter */}
-          <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between text-sm text-slate-600 font-mono">
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between text-sm text-slate-600">
             <span>Pregunta {currentIdx + 1} de {questions.length}</span>
             <span
               role="timer"
@@ -467,7 +467,7 @@ export default function MockExam({
           {/* Congrats banner card */}
           <div
             ref={resultsSummaryRef}
-            className="p-5 sm:p-6 bg-slate-900 text-slate-100 rounded-2xl sm:rounded-3xl shadow-sm text-center space-y-4 border border-slate-800"
+            className="p-5 sm:p-6 bg-white text-slate-900 rounded-2xl sm:rounded-3xl shadow-sm text-center space-y-4 border border-slate-200"
             role="status"
             aria-live="polite"
             aria-atomic="true"
@@ -475,61 +475,61 @@ export default function MockExam({
             aria-describedby="mock-result-summary"
             tabIndex={-1}
           >
-            <Award className="w-12 h-12 text-amber-400 mx-auto animate-bounce" aria-hidden="true" />
+            <Award className="w-12 h-12 text-amber-500 mx-auto" aria-hidden="true" />
             <div>
-              <h3 id="mock-result-title" className="text-xl font-bold text-slate-100">¡Simulacro Completado!</h3>
-              <p className="text-sm text-slate-300">Desglose de rendimiento cognitivo y plan de repaso recomendado</p>
+              <h3 id="mock-result-title" className="text-xl font-bold text-slate-900">Simulacro terminado</h3>
+              <p className="text-sm text-slate-600">Tu resultado y qué repasar ahora.</p>
               <p id="mock-result-summary" className="sr-only">
                 Nota {testResults.score} de {testResults.maxScore}. Acierto {testResults.pct} por ciento. Tiempo medio {testResults.avgTime} segundos.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-3 max-w-md mx-auto pt-4 border-t border-slate-800">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-3 max-w-md mx-auto pt-4 border-t border-slate-200">
               <div>
-                <span className="block text-xs uppercase text-slate-300 font-mono">Nota</span>
-                <strong className={`text-2xl sm:text-3xl font-extrabold ${testResults.passed ? 'text-emerald-400' : 'text-rose-400'}`}>
+                <span className="block text-xs uppercase text-slate-600">Nota</span>
+                <strong className={`text-2xl sm:text-3xl font-extrabold ${testResults.passed ? 'text-emerald-600' : 'text-rose-600'}`}>
                   {testResults.score.toFixed(3)}
                 </strong>
-                <span className="text-sm text-slate-300"> / {testResults.maxScore}</span>
+                <span className="text-sm text-slate-600"> / {testResults.maxScore}</span>
                 {testResults.maxScore !== 10 && (
-                  <span className="block text-xs text-slate-300 mt-0.5">Equivale a {scoreOutOfTen(testResults.score, testResults.maxScore).toFixed(1)} sobre 10</span>
+                  <span className="block text-xs text-slate-600 mt-0.5">Equivale a {scoreOutOfTen(testResults.score, testResults.maxScore).toFixed(1)} sobre 10</span>
                 )}
-                <span className={`block text-sm uppercase font-bold mt-0.5 ${testResults.passed ? 'text-emerald-400' : 'text-rose-400'}`}>
+                <span className={`block text-sm uppercase font-bold mt-0.5 ${testResults.passed ? 'text-emerald-600' : 'text-rose-600'}`}>
                   {testResults.passed ? '✓ Aprobado' : '✗ Suspenso'}
                 </span>
               </div>
               <div>
-                <span className="block text-xs uppercase text-slate-300 font-mono">Aciertos / Fallos / Blancos</span>
+                <span className="block text-xs uppercase text-slate-600">Aciertos / Fallos / Blancos</span>
                 <div className="text-xl sm:text-2xl font-bold flex items-center justify-center gap-1.5 mt-1">
-                  <span className="text-emerald-400" title="Aciertos">{testResults.correctCount}</span>
-                  <span className="text-slate-400 font-normal">/</span>
-                  <span className="text-rose-400" title="Fallos">{testResults.incorrectCount}</span>
-                  <span className="text-slate-400 font-normal">/</span>
-                  <span className="text-slate-400" title="En blanco">{testResults.blankCount}</span>
+                  <span className="text-emerald-600" title="Aciertos">{testResults.correctCount}</span>
+                  <span className="text-slate-500 font-normal">/</span>
+                  <span className="text-rose-600" title="Fallos">{testResults.incorrectCount}</span>
+                  <span className="text-slate-500 font-normal">/</span>
+                  <span className="text-slate-500" title="En blanco">{testResults.blankCount}</span>
                 </div>
               </div>
               <div>
-                <span className="block text-xs uppercase text-slate-300 font-mono">Tiempo medio</span>
-                <strong className="text-2xl sm:text-3xl font-extrabold text-indigo-400">{testResults.avgTime}s</strong>
+                <span className="block text-xs uppercase text-slate-600">Tiempo medio</span>
+                <strong className="text-2xl sm:text-3xl font-extrabold text-indigo-600">{testResults.avgTime}s</strong>
               </div>
             </div>
             
             {/* Topic Breakdown */}
-            <div className="grid grid-cols-2 gap-3 max-w-md mx-auto pt-4 border-t border-slate-800 text-xs text-slate-300">
-              <div className="bg-slate-800/50 p-2 rounded-lg border border-slate-700/50">
-                <span className="block text-xs uppercase text-slate-300 font-mono mb-1">Temas 1-34 (Generales)</span>
+            <div className="grid grid-cols-2 gap-3 max-w-md mx-auto pt-4 border-t border-slate-200 text-xs text-slate-600">
+              <div className="bg-slate-50 p-2 rounded-lg border border-slate-200">
+                <span className="block text-xs uppercase text-slate-600 mb-1">Temas 1-34</span>
                 <div className="flex justify-between items-center px-1">
-                  <span className="text-emerald-400">{testResults.generalStats.correct} <CheckCircle2 className="w-3 h-3 inline" /></span>
-                  <span className="text-rose-400">{testResults.generalStats.incorrect} <XCircle className="w-3 h-3 inline" /></span>
-                  <span className="text-slate-300">{testResults.generalStats.blank} <span className="inline-block w-3 h-3 text-center">-</span></span>
+                  <span className="text-emerald-600">{testResults.generalStats.correct} <CheckCircle2 className="w-3 h-3 inline" /></span>
+                  <span className="text-rose-600">{testResults.generalStats.incorrect} <XCircle className="w-3 h-3 inline" /></span>
+                  <span className="text-slate-600">{testResults.generalStats.blank} <span className="inline-block w-3 h-3 text-center">-</span></span>
                 </div>
               </div>
-              <div className="bg-slate-800/50 p-2 rounded-lg border border-slate-700/50">
-                <span className="block text-xs uppercase text-slate-300 font-mono mb-1">Temas 35-40 (Específicos)</span>
+              <div className="bg-slate-50 p-2 rounded-lg border border-slate-200">
+                <span className="block text-xs uppercase text-slate-600 mb-1">Temas 35-40</span>
                 <div className="flex justify-between items-center px-1">
-                  <span className="text-emerald-400">{testResults.specificStats.correct} <CheckCircle2 className="w-3 h-3 inline" /></span>
-                  <span className="text-rose-400">{testResults.specificStats.incorrect} <XCircle className="w-3 h-3 inline" /></span>
-                  <span className="text-slate-300">{testResults.specificStats.blank} <span className="inline-block w-3 h-3 text-center">-</span></span>
+                  <span className="text-emerald-600">{testResults.specificStats.correct} <CheckCircle2 className="w-3 h-3 inline" /></span>
+                  <span className="text-rose-600">{testResults.specificStats.incorrect} <XCircle className="w-3 h-3 inline" /></span>
+                  <span className="text-slate-600">{testResults.specificStats.blank} <span className="inline-block w-3 h-3 text-center">-</span></span>
                 </div>
               </div>
             </div>
@@ -538,17 +538,13 @@ export default function MockExam({
           {/* Diagnostics Column */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6" id="diagnostics-columns">
             {/* Meta Data */}
-            <div className="md:col-span-2 text-center">
-                <span className="inline-block px-3 py-1 bg-slate-100 border border-slate-200 rounded-full text-xs text-slate-700 font-mono tracking-wider">
-                  SEMILLA RNG: {examSeed?.toFixed(8)}
-                </span>
-            </div>
+            {/* La semilla se conserva (examSeed) para reproducir el examen, pero no se muestra al alumno. */}
             
             {/* False Domains (Severe Risk) */}
             <div className="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-3">
-              <h4 className="text-sm font-bold text-slate-700 uppercase tracking-wide font-mono flex items-center gap-1.5">
-                <AlertTriangle className="w-4 h-4 text-rose-500 animate-pulse" />
-                Falsos Dominios Detectados ({testResults.falseDomains.length})
+              <h4 className="text-base font-bold text-slate-800 flex items-center gap-1.5">
+                <AlertTriangle className="w-4 h-4 text-rose-500" aria-hidden="true" />
+                Fallos con mucha seguridad ({testResults.falseDomains.length})
               </h4>
               
               {testResults.falseDomains.length === 0 ? (
@@ -571,23 +567,23 @@ export default function MockExam({
 
             {/* Study Plan Recommendation */}
             <div className="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-3">
-              <h4 className="text-sm font-bold text-slate-700 uppercase tracking-wide font-mono flex items-center gap-1.5">
+              <h4 className="text-base font-bold text-slate-800 flex items-center gap-1.5">
                 <Brain className="w-4 h-4 text-indigo-500" />
-                Plan de Estudio Adaptativo
+                Qué repasar ahora
               </h4>
               
               {testResults.failedConcepts.length === 0 ? (
                 <p className="text-sm text-slate-700 bg-emerald-50/50 p-3 rounded-xl border border-emerald-100/30">
-                  Dominio impecable del Artículo 1. Sigue entrenando para mantener tu estabilidad en la curva del olvido.
+                  No has fallado ningún concepto. Sigue entrenando para no olvidarlo.
                 </p>
               ) : (
                 <div className="space-y-2 text-xs text-slate-600">
                   <p className="text-sm text-slate-600">
-                    Se recomienda enfocar tus próximas 2 sesiones exclusivamente en el reentrenamiento de estos microconceptos fallados:
+                    Dedica tus próximas 2 sesiones a estos conceptos que has fallado:
                   </p>
                   <ul className="space-y-1 pl-1">
                     {testResults.failedConcepts.map(id => (
-                      <li key={id} className="flex items-center gap-1.5 font-mono text-xs font-bold text-indigo-700 break-all bg-indigo-50/50 px-2 py-1 rounded">
+                      <li key={id} className="flex items-center gap-1.5 text-xs font-bold text-indigo-700 break-all bg-indigo-50/50 px-2 py-1 rounded">
                         <span className="w-1.5 h-1.5 rounded-full bg-indigo-600"></span>
                         {id} (Art. {microconcepts.find(mc => mc.id === id)?.article})
                       </li>
