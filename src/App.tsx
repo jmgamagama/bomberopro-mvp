@@ -5,6 +5,7 @@
 
 import React, { useState, useEffect, useLayoutEffect, useRef, lazy, Suspense } from 'react';
 import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles, ClipboardList, Menu } from 'lucide-react';
+import { trackFunnel } from './lib/funnel';
 import { getVisibleSupuestos } from './data/supuestos/supuestosRegistry';
 import { SUPUESTOS_PRIVADOS_EVENT, contarSupuestosPrivados } from './data/supuestos/supuestosPrivados';
 
@@ -123,6 +124,7 @@ export default function App() {
   // Supabase Auth and Data state
   const [session, setSession] = useState<any>(null);
   const [isDemoMode, setIsDemoMode] = useState(false);
+  const demoFirstAnswerTracked = useRef(false);
   // Reenvía las respuestas pendientes al haber sesión y al recuperar la conexión.
   useAttemptSync(session?.user?.id);
   const conceptOwner = session?.user?.id && !isDemoMode ? session.user.id : null;
@@ -444,6 +446,11 @@ export default function App() {
 
     if (isDemoMode) {
       // In read-only demo mode: update only React state in memory without persistence or network calls
+      // (solo se anota, de forma anónima, que el visitante respondió su primera pregunta: migración 22).
+      if (!demoFirstAnswerTracked.current && !session) {
+        demoFirstAnswerTracked.current = true;
+        trackFunnel('demo_first_answer');
+      }
       setMemoryStates(prev => ({
         ...prev,
         [microconceptId]: result.updatedState
@@ -570,6 +577,8 @@ export default function App() {
 
   const handleStartDemo = () => {
     resetDemoState();
+    demoFirstAnswerTracked.current = false;
+    if (!session) trackFunnel('demo_start');
     setIsDemoMode(true);
     setDbQuestions(INITIAL_QUESTIONS);
     setCurrentScreen(hasCompletedOnboarding() ? 'dashboard' : 'onboarding');
@@ -579,6 +588,7 @@ export default function App() {
   const [loginMode, setLoginMode] = useState<'entrar' | 'crear'>('entrar');
 
   const handleDemoSignup = () => {
+    trackFunnel('demo_signup_click');
     setLoginMode('crear');
     handleExitDemo();
   };

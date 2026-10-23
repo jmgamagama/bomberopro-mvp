@@ -22,7 +22,7 @@ const {
   signInWithPassword: vi.fn(() => Promise.resolve({ data: { session: null }, error: null })),
   signUp: vi.fn(() => Promise.resolve({ data: { session: null }, error: null })),
   signOut: vi.fn(() => Promise.resolve({ error: null })),
-  rpcMock: vi.fn(() => Promise.resolve({ data: null, error: null })),
+  rpcMock: vi.fn((..._args: unknown[]) => Promise.resolve({ data: null, error: null })),
 }));
 
 vi.mock('./utils/db', async importOriginal => {
@@ -101,7 +101,8 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     // VERIFICACIÓN CLAVE: Sin persistencia a localStorage ni llamadas a Supabase RPC
     expect(saveAttempt).not.toHaveBeenCalled();
     expect(saveMemoryState).not.toHaveBeenCalled();
-    expect(rpcMock).not.toHaveBeenCalled();
+    // Solo se permite el evento anónimo del embudo (migración 22); nada de estudio va al servidor.
+    expect(rpcMock.mock.calls.filter(([fn]) => fn !== 'log_funnel_event')).toEqual([]);
 
     // 5. Salir de la demostración
     await user.click(screen.getByRole('button', { name: /salir de la demo/i }));
@@ -131,7 +132,8 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     // Sin escrituras persistentes ni llamadas remotas en ningún momento
     expect(saveAttempt).not.toHaveBeenCalled();
     expect(saveMemoryState).not.toHaveBeenCalled();
-    expect(rpcMock).not.toHaveBeenCalled();
+    // Solo se permite el evento anónimo del embudo (migración 22); nada de estudio va al servidor.
+    expect(rpcMock.mock.calls.filter(([fn]) => fn !== 'log_funnel_event')).toEqual([]);
   });
 
   it('desde la demo, «Crear cuenta gratis» abre el alta de cuenta', async () => {
@@ -140,6 +142,8 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     await user.click(await screen.findByRole('button', { name: /empieza ya, sin registrarte/i }));
     await user.click(await screen.findByRole('button', { name: 'Crear cuenta gratis' }));
     expect(await screen.findByRole('button', { name: 'Crear mi cuenta' })).toBeInTheDocument();
+    const eventos = rpcMock.mock.calls.filter(([fn]) => fn === 'log_funnel_event').map(([, args]) => (args as { p_event: string }).p_event);
+    expect(eventos).toEqual(['demo_start', 'demo_signup_click']);
     expect(screen.getByRole('button', { name: 'Crear cuenta gratis', pressed: true })).toBeInTheDocument();
     expect(saveAttempt).not.toHaveBeenCalled();
   });
