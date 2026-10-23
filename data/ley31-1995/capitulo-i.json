@@ -1,0 +1,823 @@
+{
+ "norma": "BOE-A-1995-24292",
+ "documento": "LPRL",
+ "nombre_norma": "Ley 31/1995 de Prevención de Riesgos Laborales",
+ "abreviatura": "LPRL",
+ "hash_prefijo": "LPRL",
+ "tema": 6,
+ "tema_nombre": "Ley 31/1995 PRL",
+ "bloque_temario": "Capítulo I (arts. 1-4): objeto, ámbito de aplicación y definiciones",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "LPRL-a1-normativa",
+   "bloque": "a1",
+   "apartado": "",
+   "orden": 10,
+   "tipo": "definicion",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 1 de la Ley 31/1995, ¿qué normas forman la normativa sobre prevención de riesgos laborales?",
+    "respuesta": "La propia Ley, sus disposiciones de desarrollo o complementarias y cuantas otras normas, legales o convencionales, contengan prescripciones sobre medidas preventivas en el ámbito laboral."
+   },
+   "cita": "está constituida por la presente Ley, sus disposiciones de desarrollo o complementarias y cuantas otras normas, legales o convencionales,",
+   "confundible_con": [
+    "LPRL-a2-2-caracter"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1 LPRL, ¿pueden formar parte de la normativa de prevención las normas convencionales (convenios)?",
+     "opciones": [
+      "Sí, junto a las legales",
+      "No, solo las normas legales"
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 1 incluye «cuantas otras normas, legales o convencionales» con prescripciones preventivas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1 de la Ley 31/1995, la normativa sobre prevención de riesgos laborales está constituida por:",
+     "opciones": [
+      "La Ley, sus disposiciones de desarrollo o complementarias y otras normas legales o convencionales con prescripciones preventivas.",
+      "Solo la Ley 31/1995 y los reglamentos de desarrollo que apruebe el Gobierno, sin incluir ninguna norma convencional.",
+      "La Ley 31/1995 y los acuerdos internos que adopte cada servicio de prevención ajeno con las empresas que lo contratan."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1 LPRL: la Ley, sus disposiciones de desarrollo o complementarias y cuantas otras normas, legales o convencionales, contengan prescripciones preventivas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 1 de la Ley 31/1995 es correcta?",
+     "opciones": [
+      "Excluye de la normativa preventiva a los convenios colectivos, que solo pueden regular salarios y jornada.",
+      "Incluye normas que contengan prescripciones susceptibles de producir medidas preventivas en el ámbito laboral.",
+      "Limita la normativa preventiva a las normas con rango de ley aprobadas por las Cortes Generales."
+     ],
+     "correcta": 1,
+     "explicacion": "El art. 1 incluye las normas que contengan prescripciones relativas a la adopción de medidas preventivas en el ámbito laboral «o susceptibles de producirlas en dicho ámbito», sean legales o convencionales."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a2-1-objeto",
+   "bloque": "a2",
+   "apartado": "1",
+   "orden": 20,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Cuál es el objeto de la Ley 31/1995 según su art. 2.1?",
+    "respuesta": "Promover la seguridad y la salud de los trabajadores mediante la aplicación de medidas y el desarrollo de las actividades necesarias para la prevención de riesgos derivados del trabajo."
+   },
+   "cita": "La presente Ley tiene por objeto promover la seguridad y la salud de los trabajadores",
+   "confundible_con": [
+    "LPRL-a4-prevencion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.1 LPRL, el objeto de la Ley es promover:",
+     "opciones": [
+      "la seguridad y la salud de los trabajadores",
+      "la productividad de las empresas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.1: «tiene por objeto promover la seguridad y la salud de los trabajadores»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.1 de la Ley 31/1995, la Ley tiene por objeto:",
+     "opciones": [
+      "Sancionar los incumplimientos empresariales en materia laboral.",
+      "Promover la seguridad y la salud de los trabajadores.",
+      "Regular las prestaciones por accidente de trabajo."
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 2.1 LPRL: promover la seguridad y la salud de los trabajadores mediante medidas y actividades de prevención."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Para cumplir sus fines, ¿qué actuaciones regula la Ley 31/1995 según su art. 2.1?",
+     "opciones": [
+      "Solo las actuaciones de los empresarios y de los trabajadores, sin intervención de las Administraciones.",
+      "Las de las Administraciones públicas, los empresarios, los trabajadores y sus organizaciones representativas.",
+      "Únicamente las de las mutuas colaboradoras y los servicios de prevención ajenos acreditados."
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 2.1: la Ley regula las actuaciones de las Administraciones públicas, así como de los empresarios, los trabajadores y sus respectivas organizaciones representativas."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a2-2-caracter",
+   "bloque": "a2",
+   "apartado": "2",
+   "orden": 30,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué carácter tienen las disposiciones laborales de la Ley 31/1995 y sus reglamentos (art. 2.2)?",
+    "respuesta": "Derecho necesario mínimo indisponible; pueden ser mejoradas y desarrolladas en los convenios colectivos."
+   },
+   "cita": "tendrán en todo caso el carácter de Derecho necesario mínimo indisponible, pudiendo ser mejoradas y desarrolladas en los convenios colectivos",
+   "confundible_con": [
+    "LPRL-a1-normativa"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.2 LPRL, ¿pueden los convenios colectivos mejorar las disposiciones laborales de la Ley?",
+     "opciones": [
+      "Sí, pueden mejorarlas y desarrollarlas",
+      "No, nunca pueden modificarlas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.2: son Derecho necesario mínimo indisponible, «pudiendo ser mejoradas y desarrolladas en los convenios colectivos»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.2 de la Ley 31/1995, sus disposiciones de carácter laboral tienen el carácter de:",
+     "opciones": [
+      "Derecho dispositivo, salvo pacto en contrario.",
+      "Derecho necesario mínimo indisponible.",
+      "Recomendaciones técnicas sin fuerza obligatoria."
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 2.2 LPRL: Derecho necesario mínimo indisponible, mejorable en convenio colectivo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Un convenio colectivo establece una medida preventiva menos protectora que la exigida por la Ley 31/1995. Según su art. 2.2:",
+     "opciones": [
+      "Es válida, porque en materia preventiva el convenio colectivo prevalece siempre sobre la Ley.",
+      "No es válida: la Ley es un mínimo indisponible que el convenio solo puede mejorar o desarrollar.",
+      "Es válida siempre que la apruebe expresamente la autoridad laboral de la comunidad autónoma."
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 2.2: las disposiciones laborales son Derecho necesario mínimo indisponible; los convenios pueden mejorarlas y desarrollarlas, no rebajarlas."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a3-1-ambito",
+   "bloque": "a3",
+   "apartado": "1",
+   "orden": 40,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿A qué relaciones se aplica la Ley 31/1995 según su art. 3.1?",
+    "respuesta": "A las relaciones laborales del Estatuto de los Trabajadores y a las de carácter administrativo o estatutario del personal al servicio de las Administraciones Públicas (con sus peculiaridades); también a cooperativas con socios que prestan trabajo personal."
+   },
+   "cita": "como en el de las relaciones de carácter administrativo o estatutario del personal al servicio de las Administraciones Públicas",
+   "confundible_con": [
+    "LPRL-a3-2-exclusiones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.1 LPRL, ¿se aplica la Ley al personal funcionario o estatutario de las Administraciones Públicas?",
+     "opciones": [
+      "Sí, con las peculiaridades previstas",
+      "No, solo a los trabajadores con contrato laboral"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.1: se aplica también a las relaciones de carácter administrativo o estatutario del personal al servicio de las Administraciones Públicas, con sus peculiaridades."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.1 de la Ley 31/1995, la Ley se aplica:",
+     "opciones": [
+      "Solo a las relaciones laborales reguladas en el Estatuto de los Trabajadores, nunca al personal público.",
+      "A las relaciones laborales y a las administrativas o estatutarias del personal de las Administraciones Públicas.",
+      "Solo a las empresas privadas con más de 50 trabajadores y a sus contratistas y subcontratistas."
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.1 LPRL: relaciones laborales del Estatuto de los Trabajadores y relaciones administrativas o estatutarias del personal de las AAPP."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 3.1 de la Ley 31/1995, cuando la Ley se refiere a «empresario», ¿qué se entiende también comprendido en ese término?",
+     "opciones": [
+      "La Administración pública para la que presta servicios el personal administrativo o estatutario.",
+      "Únicamente el titular persona física de la empresa, excluidas las Administraciones públicas.",
+      "El servicio de prevención ajeno que la empresa haya contratado para la actividad preventiva."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.1, párrafo segundo: en «empresarios» se entiende comprendida la Administración pública para la que presta servicios su personal, y las sociedades cooperativas."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a3-2-exclusiones",
+   "bloque": "a3",
+   "apartado": "2",
+   "orden": 50,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿En qué funciones públicas no se aplica la Ley 31/1995 cuando sus particularidades lo impidan (art. 3.2)?",
+    "respuesta": "Policía, seguridad y resguardo aduanero; servicios operativos de protección civil y peritaje forense en casos de grave riesgo, catástrofe y calamidad pública; Fuerzas Armadas y actividades militares de la Guardia Civil."
+   },
+   "cita": "Servicios operativos de protección civil y peritaje forense en los casos de grave riesgo, catástrofe y calamidad pública",
+   "confundible_con": [
+    "LPRL-a3-1-ambito",
+    "LPRL-a3-2-inspirara"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.2 LPRL, ¿pueden quedar fuera de la Ley los servicios operativos de protección civil en casos de grave riesgo, catástrofe y calamidad pública?",
+     "opciones": [
+      "Sí, cuando sus particularidades lo impidan",
+      "No, la Ley se aplica siempre a protección civil"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.2: la Ley no se aplica a esas actividades cuando sus particularidades lo impidan."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.2 de la Ley 31/1995, la Ley no será de aplicación, cuando sus particularidades lo impidan, en las funciones públicas de:",
+     "opciones": [
+      "Servicios operativos de protección civil en casos de grave riesgo, catástrofe y calamidad pública.",
+      "Servicios de extinción de incendios en cualquier intervención, sea o no de grave riesgo o catástrofe.",
+      "Personal sanitario de los hospitales públicos durante las guardias y las urgencias médicas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.2 LPRL cita: policía, seguridad y resguardo aduanero; servicios operativos de protección civil y peritaje forense en casos de grave riesgo, catástrofe y calamidad pública; Fuerzas Armadas y actividades militares de la Guardia Civil."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas actividades NO figura entre las exclusiones del art. 3.2 de la Ley 31/1995?",
+     "opciones": [
+      "Peritaje forense en casos de grave riesgo, catástrofe y calamidad pública.",
+      "Resguardo aduanero.",
+      "Trabajos en establecimientos penitenciarios."
+     ],
+     "correcta": 2,
+     "explicacion": "Los establecimientos penitenciarios no están en el art. 3.2: el art. 3.3 dice que se adaptarán a la Ley las actividades que lo justifiquen."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a3-2-inspirara",
+   "bloque": "a3",
+   "apartado": "2",
+   "orden": 55,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "En las actividades excluidas por el art. 3.2 de la Ley 31/1995, ¿qué papel tiene la Ley?",
+    "respuesta": "Inspirará la normativa específica que se dicte para proteger la seguridad y la salud de esos trabajadores."
+   },
+   "cita": "esta Ley inspirará la normativa específica que se dicte para regular la protección de la seguridad y la salud de los trabajadores",
+   "confundible_con": [
+    "LPRL-a3-2-exclusiones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.2 LPRL, en las actividades excluidas la Ley:",
+     "opciones": [
+      "inspirará la normativa específica que se dicte",
+      "no tiene ningún efecto"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.2: «No obstante, esta Ley inspirará la normativa específica que se dicte…»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Para las actividades excluidas del art. 3.2 de la Ley 31/1995, la Ley:",
+     "opciones": [
+      "Se aplica íntegramente y sin ninguna excepción, igual que en el resto de actividades.",
+      "Inspirará la normativa específica que regule la seguridad y salud de esos trabajadores.",
+      "Queda sustituida por los convenios colectivos que negocie cada uno de los cuerpos afectados."
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.2, último párrafo: la Ley inspirará la normativa específica para esos trabajadores."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Respecto a las actividades excluidas en el art. 3.2 de la Ley 31/1995, es correcto afirmar que:",
+     "opciones": [
+      "La exclusión opera en todo caso, aunque las particularidades de la actividad no lo impidan.",
+      "La exclusión solo opera cuando sus particularidades lo impidan, y la Ley inspira su normativa específica.",
+      "La exclusión solo afecta a las actividades militares, y en ellas la Ley no tiene ningún efecto."
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.2: no se aplica «en aquellas actividades cuyas particularidades lo impidan», y la Ley inspirará la normativa específica."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a3-3-militares-penitenciarios",
+   "bloque": "a3",
+   "apartado": "3",
+   "orden": 60,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "¿Qué dice el art. 3.3 de la Ley 31/1995 sobre centros militares y establecimientos penitenciarios?",
+    "respuesta": "En centros y establecimientos militares se aplica la Ley con las particularidades de su normativa específica; en establecimientos penitenciarios se adaptan a la Ley las actividades que justifiquen una regulación especial."
+   },
+   "cita": "En los centros y establecimientos militares será de aplicación lo dispuesto en la presente Ley, con las particularidades previstas en su normativa específica",
+   "confundible_con": [
+    "LPRL-a3-2-exclusiones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.3 LPRL, en los centros y establecimientos militares la Ley:",
+     "opciones": [
+      "se aplica, con las particularidades de su normativa específica",
+      "no se aplica nunca"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.3: en los centros y establecimientos militares será de aplicación la Ley con sus particularidades."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.3 de la Ley 31/1995, en los establecimientos penitenciarios:",
+     "opciones": [
+      "La Ley no se aplica en ningún caso a los establecimientos penitenciarios ni a su personal.",
+      "Se adaptarán a la Ley las actividades cuyas características justifiquen una regulación especial.",
+      "Solo se aplica a los internos que trabajen en talleres, nunca a los funcionarios de prisiones."
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.3, párrafo segundo: se adaptarán a la Ley las actividades que justifiquen una regulación especial, en los términos de la Ley 7/1990."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué ley cita el art. 3.3 de la Ley 31/1995 para adaptar sus normas a los establecimientos penitenciarios?",
+     "opciones": [
+      "La Ley 7/1990, sobre negociación colectiva y participación de los empleados públicos.",
+      "La Ley Orgánica 1/1979, General Penitenciaria, y su reglamento de desarrollo.",
+      "El texto refundido de la Ley del Estatuto de los Trabajadores y sus normas complementarias."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.3: «en los términos señalados en la Ley 7/1990, de 19 de julio, sobre negociación colectiva y participación…»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a4-prevencion",
+   "bloque": "a4",
+   "apartado": "",
+   "orden": 70,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué es «prevención» según el art. 4 de la Ley 31/1995?",
+    "respuesta": "El conjunto de actividades o medidas adoptadas o previstas en todas las fases de actividad de la empresa para evitar o disminuir los riesgos derivados del trabajo."
+   },
+   "cita": "el conjunto de actividades o medidas adoptadas o previstas en todas las fases de actividad de la empresa con el fin de evitar o disminuir los riesgos derivados del trabajo",
+   "confundible_con": [
+    "LPRL-a2-1-objeto",
+    "LPRL-a4-riesgo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4 LPRL, la prevención abarca actividades o medidas adoptadas o previstas:",
+     "opciones": [
+      "en todas las fases de actividad de la empresa",
+      "solo tras producirse un accidente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.1.º: «en todas las fases de actividad de la empresa»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4 de la Ley 31/1995, se entiende por «prevención»:",
+     "opciones": [
+      "Las actividades o medidas adoptadas o previstas en todas las fases de la empresa para evitar o disminuir riesgos.",
+      "La reparación económica y sanitaria de los daños que ya han sufrido los trabajadores por un accidente laboral.",
+      "El conjunto de sanciones que impone la Inspección de Trabajo por incumplir la normativa laboral vigente."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.1.º LPRL."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 4 de la Ley 31/1995, la finalidad de las actividades o medidas de prevención es:",
+     "opciones": [
+      "Eliminar por completo cualquier riesgo, sin admitir su reducción.",
+      "Evitar o disminuir los riesgos derivados del trabajo.",
+      "Indemnizar los daños derivados del trabajo."
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.1.º: «con el fin de evitar o disminuir los riesgos derivados del trabajo»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a4-riesgo",
+   "bloque": "a4",
+   "apartado": "",
+   "orden": 80,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué es «riesgo laboral» y cómo se califica su gravedad (art. 4 de la Ley 31/1995)?",
+    "respuesta": "La posibilidad de que un trabajador sufra un determinado daño derivado del trabajo; su gravedad se valora conjuntamente por la probabilidad de que se produzca el daño y su severidad."
+   },
+   "cita": "Para calificar un riesgo desde el punto de vista de su gravedad, se valorarán conjuntamente la probabilidad de que se produzca el daño y la severidad del mismo",
+   "confundible_con": [
+    "LPRL-a4-grave-inminente",
+    "LPRL-a4-danos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4 LPRL, para calificar la gravedad de un riesgo se valoran conjuntamente:",
+     "opciones": [
+      "la probabilidad del daño y su severidad",
+      "el número de trabajadores y el coste"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.2.º: probabilidad de que se produzca el daño y severidad del mismo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4 de la Ley 31/1995, «riesgo laboral» es:",
+     "opciones": [
+      "La posibilidad de que un trabajador sufra un determinado daño derivado del trabajo.",
+      "Todo accidente ocurrido en el centro de trabajo, haya o no causado un daño al trabajador.",
+      "La enfermedad profesional reconocida como tal por la Seguridad Social tras el expediente."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.2.º LPRL."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 4 de la Ley 31/1995, ¿qué factores se valoran conjuntamente para calificar un riesgo por su gravedad?",
+     "opciones": [
+      "La frecuencia de exposición y el tiempo de exposición.",
+      "La probabilidad de que se produzca el daño y la severidad del mismo.",
+      "La severidad del daño y el número de trabajadores expuestos."
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.2.º: «se valorarán conjuntamente la probabilidad de que se produzca el daño y la severidad del mismo»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a4-danos",
+   "bloque": "a4",
+   "apartado": "",
+   "orden": 90,
+   "tipo": "definicion",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Qué son «daños derivados del trabajo» según el art. 4 de la Ley 31/1995?",
+    "respuesta": "Las enfermedades, patologías o lesiones sufridas con motivo u ocasión del trabajo."
+   },
+   "cita": "las enfermedades, patologías o lesiones sufridas con motivo u ocasión del trabajo",
+   "confundible_con": [
+    "LPRL-a4-riesgo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4 LPRL, ¿son «daños derivados del trabajo» las patologías sufridas con motivo u ocasión del trabajo?",
+     "opciones": [
+      "Sí",
+      "No, solo las lesiones por accidente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.3.º: enfermedades, patologías o lesiones sufridas con motivo u ocasión del trabajo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4 de la Ley 31/1995, se consideran «daños derivados del trabajo»:",
+     "opciones": [
+      "Las enfermedades, patologías o lesiones sufridas con motivo u ocasión del trabajo.",
+      "Solo los accidentes con baja médica que comunique la mutua a la autoridad laboral.",
+      "Los daños materiales sufridos por los equipos, vehículos o instalaciones de la empresa."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.3.º LPRL."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según la definición del art. 4 de la Ley 31/1995, ¿cuál de estos NO encaja como «daño derivado del trabajo»?",
+     "opciones": [
+      "Una patología sufrida con ocasión del trabajo.",
+      "Una lesión sufrida con motivo del trabajo.",
+      "La avería de un vehículo de la empresa."
+     ],
+     "correcta": 2,
+     "explicacion": "El art. 4.3.º se refiere a enfermedades, patologías o lesiones de las personas, no a daños materiales."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a4-grave-inminente",
+   "bloque": "a4",
+   "apartado": "",
+   "orden": 100,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué es «riesgo laboral grave e inminente» según el art. 4 de la Ley 31/1995?",
+    "respuesta": "Aquel que resulte probable racionalmente que se materialice en un futuro inmediato y pueda suponer un daño grave para la salud de los trabajadores."
+   },
+   "cita": "aquel que resulte probable racionalmente que se materialice en un futuro inmediato y pueda suponer un daño grave para la salud de los trabajadores",
+   "confundible_con": [
+    "LPRL-a4-riesgo",
+    "LPRL-a4-grave-inminente-agentes"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4 LPRL, el riesgo grave e inminente es el que resulta probable racionalmente que se materialice:",
+     "opciones": [
+      "en un futuro inmediato",
+      "en algún momento de la vida laboral"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.4.º: «en un futuro inmediato»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4 de la Ley 31/1995, ¿qué es un «riesgo laboral grave e inminente»?",
+     "opciones": [
+      "El que ya se ha materializado y ha causado un daño grave para la salud de algún trabajador de la plantilla.",
+      "El que es racionalmente probable que se materialice en un futuro inmediato con posible daño grave para la salud.",
+      "El que afecta al menos a la mitad de la plantilla, aunque la probabilidad de que ocurra sea remota."
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.4.º LPRL."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 4 de la Ley 31/1995, ¿qué dos requisitos definen el riesgo laboral grave e inminente?",
+     "opciones": [
+      "Que sea racionalmente probable en un futuro inmediato y pueda causar un daño grave a la salud.",
+      "Que el daño sea seguro e inevitable y que afecte al menos a varios trabajadores a la vez.",
+      "Que lo declare la Inspección de Trabajo y que exista una denuncia previa de los trabajadores."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.4.º: probabilidad racional de materialización inmediata y posible daño grave para la salud."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a4-grave-inminente-agentes",
+   "bloque": "a4",
+   "apartado": "",
+   "orden": 105,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "En exposición a agentes que pueden causar daños graves, ¿cuándo hay riesgo grave e inminente (art. 4 de la Ley 31/1995)?",
+    "respuesta": "Cuando sea probable racionalmente que se materialice en un futuro inmediato una exposición de la que puedan derivarse daños graves, aunque esos daños no se manifiesten de forma inmediata."
+   },
+   "cita": "aun cuando éstos no se manifiesten de forma inmediata",
+   "confundible_con": [
+    "LPRL-a4-grave-inminente"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4 LPRL, en exposición a agentes peligrosos, ¿puede haber riesgo grave e inminente aunque los daños no se manifiesten de inmediato?",
+     "opciones": [
+      "Sí",
+      "No, el daño debe aparecer de inmediato"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.4.º: «aun cuando éstos no se manifiesten de forma inmediata»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4 de la Ley 31/1995, en la exposición a agentes susceptibles de causar daños graves, existe riesgo grave e inminente:",
+     "opciones": [
+      "Solo si el daño grave se manifiesta de forma inmediata tras la exposición al agente.",
+      "Cuando sea racionalmente probable una exposición inmediata con posibles daños graves, aunque tarden en aparecer.",
+      "Únicamente si se superan los valores límite durante más de una jornada completa de trabajo."
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.4.º, párrafo segundo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Un trabajador va a exponerse de forma inminente a un agente cuyo daño grave aparecería años después. Según el art. 4 de la Ley 31/1995:",
+     "opciones": [
+      "No es riesgo grave e inminente, porque el daño no se manifestaría de forma inmediata.",
+      "Sí puede ser riesgo grave e inminente, aunque el daño no se manifieste de forma inmediata.",
+      "Solo lo será si el trabajador ya presenta síntomas de la enfermedad en ese momento."
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.4.º: lo inminente es la exposición; basta que puedan derivarse daños graves «aun cuando éstos no se manifiesten de forma inmediata»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a4-potencialmente-peligrosos",
+   "bloque": "a4",
+   "apartado": "",
+   "orden": 110,
+   "tipo": "definicion",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "¿Qué son procesos, actividades, operaciones, equipos o productos «potencialmente peligrosos» (art. 4 de la Ley 31/1995)?",
+    "respuesta": "Los que, en ausencia de medidas preventivas específicas, originen riesgos para la seguridad y la salud de los trabajadores que los desarrollan o utilizan."
+   },
+   "cita": "aquellos que, en ausencia de medidas preventivas específicas, originen riesgos para la seguridad y la salud de los trabajadores que los desarrollan o utilizan",
+   "confundible_con": [
+    "LPRL-a4-equipo-trabajo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4 LPRL, un equipo es «potencialmente peligroso» si origina riesgos:",
+     "opciones": [
+      "en ausencia de medidas preventivas específicas",
+      "aunque se apliquen todas las medidas preventivas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.5.º: «en ausencia de medidas preventivas específicas»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4 de la Ley 31/1995, ¿qué procesos, actividades, operaciones, equipos o productos son «potencialmente peligrosos»?",
+     "opciones": [
+      "Los que, sin medidas preventivas específicas, originan riesgos para quienes los desarrollan o utilizan.",
+      "Los que figuran en un catálogo oficial de sustancias y equipos prohibidos, publicado por el Ministerio.",
+      "Los que han causado al menos un accidente con baja en la empresa durante el último año natural."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.5.º LPRL."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 4 de la Ley 31/1995, ¿qué hace que un producto sea «potencialmente peligroso»?",
+     "opciones": [
+      "Que su uso esté prohibido salvo autorización expresa de la autoridad laboral.",
+      "Que origine riesgos si no se aplican medidas preventivas específicas.",
+      "Que contenga sustancias inflamables, explosivas o tóxicas en cualquier cantidad."
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.5.º: lo decisivo es que origine riesgos en ausencia de medidas preventivas específicas."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a4-equipo-trabajo",
+   "bloque": "a4",
+   "apartado": "",
+   "orden": 120,
+   "tipo": "definicion",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Qué es «equipo de trabajo» según el art. 4 de la Ley 31/1995?",
+    "respuesta": "Cualquier máquina, aparato, instrumento o instalación utilizada en el trabajo."
+   },
+   "cita": "cualquier máquina, aparato, instrumento o instalación utilizada en el trabajo",
+   "confundible_con": [
+    "LPRL-a4-epi"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4 LPRL, ¿es «equipo de trabajo» una instalación utilizada en el trabajo?",
+     "opciones": [
+      "Sí",
+      "No, solo las máquinas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.6.º: cualquier máquina, aparato, instrumento o instalación utilizada en el trabajo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4 de la Ley 31/1995, se entiende como «equipo de trabajo»:",
+     "opciones": [
+      "Cualquier máquina, aparato, instrumento o instalación utilizada en el trabajo.",
+      "Únicamente las máquinas que lleven el marcado CE y su declaración de conformidad.",
+      "El conjunto de trabajadores asignados a una misma tarea, turno o dotación."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.6.º LPRL."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según las definiciones del art. 4 de la Ley 31/1995, una motosierra usada en una intervención es:",
+     "opciones": [
+      "Un equipo de protección individual.",
+      "Un equipo de trabajo.",
+      "Una condición de trabajo, pero no un equipo."
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.6.º: equipo de trabajo es cualquier máquina, aparato, instrumento o instalación utilizada en el trabajo; los EPI son los destinados a proteger al trabajador (art. 4.8.º)."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a4-condicion-trabajo",
+   "bloque": "a4",
+   "apartado": "",
+   "orden": 130,
+   "tipo": "definicion",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Qué es «condición de trabajo» según el art. 4 de la Ley 31/1995 y qué incluye?",
+    "respuesta": "Cualquier característica del trabajo que pueda influir significativamente en la generación de riesgos. Incluye: características de locales, instalaciones, equipos y productos; naturaleza e intensidad de los agentes físicos, químicos y biológicos; procedimientos de uso de esos agentes; y la organización y ordenación del trabajo."
+   },
+   "cita": "Todas aquellas otras características del trabajo, incluidas las relativas a su organización y ordenación, que influyan en la magnitud de los riesgos a que esté expuesto el trabajador",
+   "confundible_con": [
+    "LPRL-a4-equipo-trabajo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4 LPRL, ¿la organización y ordenación del trabajo pueden ser «condición de trabajo»?",
+     "opciones": [
+      "Sí, si influyen en la magnitud de los riesgos",
+      "No, solo los locales y equipos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.7.º d): incluidas las relativas a su organización y ordenación."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4 de la Ley 31/1995, «condición de trabajo» es:",
+     "opciones": [
+      "Cualquier característica del trabajo que pueda influir de forma significativa en la generación de riesgos.",
+      "El conjunto de cláusulas pactadas en el contrato de trabajo firmado por el trabajador y la empresa.",
+      "El horario, las vacaciones y el salario pactados en el convenio colectivo aplicable."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.7.º LPRL."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos elementos NO aparece expresamente entre las condiciones de trabajo del art. 4 de la Ley 31/1995?",
+     "opciones": [
+      "La naturaleza de los agentes físicos, químicos y biológicos y sus intensidades o concentraciones.",
+      "Las características generales de los locales, instalaciones, equipos y productos.",
+      "El salario y las retribuciones del trabajador."
+     ],
+     "correcta": 2,
+     "explicacion": "El art. 4.7.º enumera locales e instalaciones, agentes, procedimientos de uso y organización del trabajo; no las retribuciones."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a4-epi",
+   "bloque": "a4",
+   "apartado": "",
+   "orden": 140,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué es «equipo de protección individual» según el art. 4 de la Ley 31/1995?",
+    "respuesta": "Cualquier equipo destinado a ser llevado o sujetado por el trabajador para protegerle de uno o varios riesgos que puedan amenazar su seguridad o su salud, así como cualquier complemento o accesorio destinado a tal fin."
+   },
+   "cita": "cualquier equipo destinado a ser llevado o sujetado por el trabajador para que le proteja de uno o varios riesgos",
+   "confundible_con": [
+    "LPRL-a4-equipo-trabajo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4 LPRL, ¿incluye el concepto de EPI los complementos o accesorios destinados a proteger al trabajador?",
+     "opciones": [
+      "Sí",
+      "No, solo el equipo principal"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.8.º: «así como cualquier complemento o accesorio destinado a tal fin»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4 de la Ley 31/1995, «equipo de protección individual» es:",
+     "opciones": [
+      "Cualquier equipo destinado a ser llevado o sujetado por el trabajador para protegerle de uno o varios riesgos.",
+      "Cualquier máquina, aparato, instrumento o instalación utilizada en el trabajo por el trabajador.",
+      "Las barreras, resguardos y protecciones colectivas instaladas de forma fija en las máquinas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.8.º LPRL. Las máquinas e instalaciones son equipos de trabajo (art. 4.6.º)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 4 de la Ley 31/1995, ¿qué rasgo distingue a un equipo de protección individual?",
+     "opciones": [
+      "Que esté instalado de forma fija en el puesto de trabajo y no lo mueva el trabajador.",
+      "Que esté destinado a ser llevado o sujetado por el trabajador para protegerle.",
+      "Que proteja a la vez a todos los trabajadores que están en la misma zona de trabajo."
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.8.º: equipo «destinado a ser llevado o sujetado por el trabajador» para protegerle."
+    }
+   ]
+  }
+ ]
+}

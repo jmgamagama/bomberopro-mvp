@@ -50,7 +50,13 @@ def main() -> int:
         raise SystemExit("El validador ha fallado: no se genera SQL.")
 
     d = json.loads(path.read_text(encoding="utf-8"))
-    meta = json.loads(pathlib.Path(f"data/fuentes/{FUENTE_ID}/meta.json").read_text(encoding="utf-8"))
+    # Norma del fichero (por defecto, la Constitución: así los ficheros antiguos generan el mismo SQL).
+    fuente_id = d.get("norma", FUENTE_ID)
+    doc = d.get("documento", "CE")
+    nombre = d.get("nombre_norma", "Constitución Española")
+    abrev = d.get("abreviatura", "CE")
+    prefijo = d.get("hash_prefijo", "CE")
+    meta = json.loads(pathlib.Path(f"data/fuentes/{fuente_id}/meta.json").read_text(encoding="utf-8"))
     fecha = meta["fecha_actualizacion_boe"][:8]
     fecha_txt = f"{fecha[6:8]}/{fecha[4:6]}/{fecha[0:4]}"
     tema = int(d["tema"])
@@ -58,10 +64,10 @@ def main() -> int:
     est_q = "publicada" if estado == "publicado" else "borrador"
 
     out = [f"-- Generado por scripts/cargar_conceptos.py desde {path} (estado {estado}).",
-           f"-- Texto oficial: {FUENTE_ID}, actualización BOE {fecha_txt}, sha256 {meta['sha256_texto_xml'][:12]}…",
+           f"-- Texto oficial: {fuente_id}, actualización BOE {fecha_txt}, sha256 {meta['sha256_texto_xml'][:12]}…",
            "BEGIN;"]
     if crear_tema:
-        out.append(f"INSERT INTO public.topics (convocatoria_id, numero, nombre) SELECT 1, {tema}, 'Constitución Española' "
+        out.append(f"INSERT INTO public.topics (convocatoria_id, numero, nombre) SELECT 1, {tema}, " + q(d.get('tema_nombre', 'Constitución Española')) + " "
                    f"WHERE NOT EXISTS (SELECT 1 FROM public.topics WHERE convocatoria_id = 1 AND numero = {tema});")
     out.append("CREATE TEMP TABLE _tema ON COMMIT DROP AS SELECT id FROM public.topics "
                f"WHERE convocatoria_id = 1 AND numero = {tema};")
@@ -73,11 +79,11 @@ def main() -> int:
         art = c["bloque"][1:]
         ref = f"{art}.{c['apartado']}" if c["apartado"] else art
         apartado = f"{d['bloque_temario'].split(' (')[0]} · Art. {ref}"
-        fuente = f"Constitución Española, art. {ref} ({FUENTE_ID}, texto consolidado, act. {fecha_txt})"
+        fuente = f"{nombre}, art. {ref} ({fuente_id}, texto consolidado, act. {fecha_txt})"
         out.append(
             "INSERT INTO public.concepts (id, topic_id, documento, apartado, orden, pregunta, respuesta, fuente, "
             "cita, tipo, prioridad, confundible_con, estado) "
-            f"SELECT {q(c['id'])}, id, 'CE', {q(apartado)}, {c['orden']}, {q(c['tarjeta']['pregunta'])}, "
+            f"SELECT {q(c['id'])}, id, {q(doc)}, {q(apartado)}, {c['orden']}, {q(c['tarjeta']['pregunta'])}, "
             f"{q(c['tarjeta']['respuesta'])}, {q(fuente)}, {q(c['cita'])}, {q(c['tipo'])}, {c['prioridad']}, "
             f"{arr(c.get('confundible_con', []))}, {q(est_c)} FROM _tema "
             "ON CONFLICT (id) DO UPDATE SET topic_id = EXCLUDED.topic_id, documento = EXCLUDED.documento, "
@@ -86,13 +92,13 @@ def main() -> int:
             "prioridad = EXCLUDED.prioridad, confundible_con = EXCLUDED.confundible_con, estado = EXCLUDED.estado;")
         for p in c["preguntas"]:
             n_q += 1
-            hd = f"CE:{c['id']}:N{p['nivel']}"
+            hd = f"{prefijo}:{c['id']}:N{p['nivel']}"
             orden = sorted(range(len(p["opciones"])), key=lambda i: hashlib.sha256(f"{hd}:{i}".encode()).hexdigest())
             letras = "abcd"
             opciones = [{"letra": letras[j], "texto": p["opciones"][i]} for j, i in enumerate(orden)]
             correcta = letras[orden.index(p["correcta"])]
             ops = json.dumps(opciones, ensure_ascii=False)
-            fuente_n = f"Art. {ref} CE (texto consolidado BOE, act. {fecha_txt})"
+            fuente_n = f"Art. {ref} {abrev} (texto consolidado BOE {fuente_id}, act. {fecha_txt})" if abrev != "CE" else f"Art. {ref} CE (texto consolidado BOE, act. {fecha_txt})"
             out.append(
                 "UPDATE public.questions SET enunciado = " + q(p["enunciado"]) + ", opciones = " + q(ops) + "::jsonb, "
                 f"correcta = {q(correcta)}, explicacion = {q(p['explicacion'])}, fuente_normativa = {q(fuente_n)}, "

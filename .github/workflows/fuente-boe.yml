@@ -13,6 +13,7 @@ on:
   push:
     branches:
       - 'claude/piloto-constitucion'
+      - 'claude/tema*'
     paths:
       - '.github/workflows/fuente-boe.yml'
       - 'scripts/fuente_boe.py'
@@ -34,6 +35,9 @@ jobs:
 
       - name: Descargar Constitución Española (BOE-A-1978-31229)
         run: python3 scripts/fuente_boe.py BOE-A-1978-31229
+
+      - name: Descargar Ley 31/1995 de Prevención de Riesgos Laborales (BOE-A-1995-24292) — tema 6
+        run: python3 scripts/fuente_boe.py BOE-A-1995-24292
 
       - name: Regenerar material derivado del texto oficial
         run: python3 scripts/generar_material.py
