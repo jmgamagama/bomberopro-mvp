@@ -87,7 +87,19 @@ export interface RecallTopic {
 }
 
 /** Nombre de los temas que se cargan por lotes (bloque del temario, tema36_lotes.md). */
+// Nombre corto (del Anexo I de las bases, data/temario/cpei-badajoz-2026-anexo1.md) para los temas con varios lotes.
 const TOPIC_NAMES: Record<number, string> = {
+  10: 'El agua: abastecimiento, hidrantes, BIE, mangueras y lanzas',
+  12: 'Mecanismos de extinción, agentes extintores y extintores portátiles',
+  13: 'Equipos de protección individual para bomberos',
+  16: 'Material de comunicaciones y fundamentos de las comunicaciones',
+  21: 'Accidentes de tráfico y excarcelación',
+  22: 'Rescate en altura y espacios confinados',
+  23: 'Intervención en inundaciones, ríos y riadas',
+  25: 'Mercancías peligrosas (ADR)',
+  27: 'Edificios y construcciones: elementos estructurales y cargas',
+  28: 'Electricidad',
+  33: 'Reglamento de instalaciones de protección contra incendios (RD 513/2017)',
   34: 'Reglamento de seguridad contra incendios en los establecimientos industriales (RD 164/2025)',
   36: 'Territorio de la provincia de Badajoz: municipios, límites, orografía e hidrografía',
 };

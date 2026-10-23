@@ -104,7 +104,7 @@ export default function ForgettingCurve({
         <div className="p-4 bg-indigo-50 border border-indigo-100 rounded-xl text-xs text-indigo-950 flex gap-3 leading-relaxed">
           <Info className="w-5 h-5 text-indigo-600 flex-shrink-0 mt-0.5" />
           <div className="space-y-1">
-            <p className="font-bold">¿Cómo funciona la Curva del Olvido de MIRA?</p>
+            <p className="font-bold">¿Cómo funciona la curva del olvido?</p>
             <p>
               La recuperabilidad de memoria ($R$) decae de forma exponencial según la fórmula científica de Ebbinghaus:
               <span className="font-mono font-bold bg-white/70 px-1.5 py-0.5 rounded mx-1 text-indigo-800">R = e ^ (-t / S)</span>
@@ -349,7 +349,7 @@ export default function ForgettingCurve({
           </h4>
         </div>
         <p className="text-xs text-slate-400 leading-normal">
-          Para comprobar el poder predictivo del algoritmo MIRA, simula el paso de los días. Verás cómo disminuye la probabilidad de recordar cada microconcepto en base a tu historial previo.
+          Para comprobar el poder predictivo del algoritmo, simula el paso de los días. Verás cómo disminuye la probabilidad de recordar cada microconcepto en base a tu historial previo.
         </p>
 
         <div className="flex flex-wrap items-center gap-2" role="group" aria-labelledby="time-machine-title">

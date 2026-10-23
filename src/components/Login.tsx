@@ -4,14 +4,16 @@ import { Lock, Loader2, BookOpen, GraduationCap } from 'lucide-react';
 
 interface LoginProps {
   onStartDemo?: () => void;
+  /** Pestaña inicial: «crear» cuando el alumno viene de la demo pulsando «Crear cuenta gratis». */
+  initialMode?: 'entrar' | 'crear';
 }
 
-export default function Login({ onStartDemo }: LoginProps = {}) {
+export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProps = {}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
-  const [mode, setMode] = useState<'entrar' | 'crear'>('entrar');
+  const [mode, setMode] = useState<'entrar' | 'crear'>(initialMode);
   const emailInputRef = useRef<HTMLInputElement>(null);
 
   const focusEmail = () => emailInputRef.current?.focus();
@@ -128,7 +130,7 @@ export default function Login({ onStartDemo }: LoginProps = {}) {
                 placeholder="tu@email.com"
                 autoComplete="email"
                 inputMode="email"
-                autoFocus={!onStartDemo}
+                autoFocus={!onStartDemo || initialMode === 'crear'}
                 required
                 aria-invalid={message?.type === 'error'}
                 aria-describedby={message ? 'login-message' : undefined}

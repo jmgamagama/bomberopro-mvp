@@ -216,7 +216,7 @@ export default function TrainScreen({
           {/* Adaptive reason badge */}
           <span className="px-3 py-1 bg-indigo-50 text-indigo-600 border border-indigo-100 text-xs font-semibold rounded-full flex items-center gap-1.5 shadow-sm font-mono">
             <Sparkles className="w-3.5 h-3.5 animate-pulse text-indigo-500" />
-            MIRA: {selectionReason}
+            {selectionReason}
           </span>
           <StudentConsultation
             variant="button"
