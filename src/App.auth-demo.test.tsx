@@ -133,4 +133,14 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     expect(saveMemoryState).not.toHaveBeenCalled();
     expect(rpcMock).not.toHaveBeenCalled();
   });
+
+  it('desde la demo, «Crear cuenta gratis» abre el alta de cuenta', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+    await user.click(await screen.findByRole('button', { name: /empieza ya, sin registrarte/i }));
+    await user.click(await screen.findByRole('button', { name: 'Crear cuenta gratis' }));
+    expect(await screen.findByRole('button', { name: 'Crear mi cuenta' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Crear cuenta gratis', pressed: true })).toBeInTheDocument();
+    expect(saveAttempt).not.toHaveBeenCalled();
+  });
 });

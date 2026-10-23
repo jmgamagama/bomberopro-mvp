@@ -575,6 +575,14 @@ export default function App() {
     setCurrentScreen(hasCompletedOnboarding() ? 'dashboard' : 'onboarding');
   };
 
+  // Pantalla de acceso con la que se vuelve de la demo: «crear» si el alumno pulsa «Crear cuenta gratis».
+  const [loginMode, setLoginMode] = useState<'entrar' | 'crear'>('entrar');
+
+  const handleDemoSignup = () => {
+    setLoginMode('crear');
+    handleExitDemo();
+  };
+
   const handleExitDemo = () => {
     resetDemoState();
     // If an authenticated user exists, restore real data from storage
@@ -638,7 +646,7 @@ export default function App() {
         {/* Si la sesión caduca a mitad de estudio, aquí se avisa de lo que sigue pendiente. */}
         <UpdateBanner />
         <SaveFailureBanner showIfPending />
-        <Login onStartDemo={handleStartDemo} />
+        <Login initialMode={loginMode} onStartDemo={() => { setLoginMode('entrar'); handleStartDemo(); }} />
       </>
     );
   }
@@ -673,14 +681,26 @@ export default function App() {
                 <span className="hidden sm:inline"> (Solo lectura): Explorando una primera sesión de estudio sin cuenta ni persistencia de datos.</span>
               </span>
             </div>
-            <button
-              type="button"
-              id="btn-exit-demo"
-              onClick={handleExitDemo}
-              className="min-h-11 px-2.5 py-1 bg-slate-950 hover:bg-slate-800 text-white rounded-lg text-sm font-bold transition shrink-0 cursor-pointer"
-            >
-              Salir de la demo
-            </button>
+            <div className="flex items-center gap-2 shrink-0">
+              {supabase && !session && (
+                <button
+                  type="button"
+                  id="btn-demo-signup"
+                  onClick={handleDemoSignup}
+                  className="min-h-11 px-3 py-1 bg-indigo-700 hover:bg-indigo-800 text-white rounded-lg text-sm font-bold transition cursor-pointer"
+                >
+                  Crear cuenta gratis
+                </button>
+              )}
+              <button
+                type="button"
+                id="btn-exit-demo"
+                onClick={handleExitDemo}
+                className="min-h-11 px-2.5 py-1 bg-slate-950 hover:bg-slate-800 text-white rounded-lg text-sm font-bold transition cursor-pointer"
+              >
+                Salir de la demo
+              </button>
+            </div>
           </div>
         </div>
       )}
