@@ -695,8 +695,8 @@ export default function App() {
               <span className="hidden sm:block w-2 h-2 rounded-full bg-amber-900 animate-pulse shrink-0" aria-hidden="true" />
               <span>
                 <strong><span className="sm:hidden">Demo</span><span className="hidden sm:inline">Modo demostración</span></strong>
-                <span className="sm:hidden">: no se guarda nada.</span>
-                <span className="hidden sm:inline"> (Solo lectura): Explorando una primera sesión de estudio sin cuenta ni persistencia de datos.</span>
+                <span className="sm:hidden">: las fichas guardan el repaso aquí.</span>
+                <span className="hidden sm:inline">: el repaso de fichas se guarda solo en este dispositivo. El test de muestra no guarda intentos.</span>
               </span>
             </div>
             <div className="flex items-center gap-2 shrink-0">

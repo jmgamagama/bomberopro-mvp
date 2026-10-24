@@ -21,7 +21,7 @@ import {
   type VisibleState,
 } from '../lib/conceptEngine';
 import { newAttemptKey } from '../lib/saveAttemptToServer';
-import { shuffleArray } from '../utils/shuffleOptions';
+import { shuffleQuestionOptions } from '../utils/shuffleOptions';
 import ReportQuestionButton from './ReportQuestionButton';
 import { startStudySession, finishStudySession } from '../lib/studySession';
 import SessionCelebration from './SessionCelebration';
@@ -39,6 +39,7 @@ interface Props {
 
 /** Tras un fallo, la pregunta más fácil del mismo concepto se intercala a esta distancia (no justo después). */
 const ESCALERA_SEPARACION = 2;
+const ESCALERA_TIMEOUT_MS = 8_000;
 
 const MINUTES = [10, 20, 45, 60];
 const ORDER: VisibleState[] = ['consolidado', 'dominado', 'aprendiendo', 'debil', 'por_aprender'];
@@ -83,6 +84,9 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
   const [calibracion, setCalibracion] = useState<string | null>(null);
   const sessionId = useRef<string>(newAttemptKey());
   const sessionFinished = useRef(false);
+  const sessionEpoch = useRef(0);
+  const [recoveryPending, setRecoveryPending] = useState(false);
+  const [recoveryNote, setRecoveryNote] = useState<string | null>(null);
 
   // Por ítem
   const [revealed, setRevealed] = useState(false);
@@ -105,6 +109,8 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
 
   useEffect(() => {
     let active = true;
+    sessionEpoch.current += 1;
+    setRecoveryPending(false); setRecoveryNote(null);
     setPhase('inicio'); setItems([]); setProgress(null); setStaging(false);
     setStats({ tests: 0, aciertos: 0, nuevos: 0 });
     const retry = async () => {
@@ -125,16 +131,17 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
     window.addEventListener('storage', changed);
     window.addEventListener('online', retry);
     const timer = window.setInterval(() => { void retry(); }, 30_000);
-    return () => { active = false; window.clearInterval(timer); window.removeEventListener('online', retry); window.removeEventListener('storage', changed); };
+    return () => { active = false; sessionEpoch.current += 1; window.clearInterval(timer); window.removeEventListener('online', retry); window.removeEventListener('storage', changed); };
   }, [userId, topicId]);
 
   const item = items[idx];
   // Solo se baraja al cambiar de elemento: intercalar uno nuevo (escalera) no debe reordenar las opciones visibles.
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const options = useMemo(() => (item?.options ? shuffleArray(item.options) : []), [item?.pos, item?.question_id]);
+  const options = useMemo(() => (item?.options ? shuffleQuestionOptions({ options: item.options }).options : []), [item?.pos, item?.question_id]);
 
   const resetItem = () => {
     setRevealed(false); setChosen(null); setConfidence(null); setAnswered(false);
+    setRecoveryNote(null);
     setTestFeedback(null); setPendingTestChoice(null); testEventId.current = newAttemptKey();
     testResponseMs.current = null; testConfidence.current = null;
     shownAt.current = Date.now();
@@ -150,6 +157,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
         setPhase('inicio');
         return;
       }
+      sessionEpoch.current += 1;
       sessionId.current = newAttemptKey();
       sessionFinished.current = false;
       // Registro de la sesión para medir cuántas se terminan (mejor esfuerzo, nunca bloquea).
@@ -180,6 +188,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
   };
 
   const next = () => {
+    if (recoveryPending || staging) return;
     if (idx + 1 >= items.length) {
       setPhase('fin');
       if (!sessionFinished.current) { sessionFinished.current = true; void finishStudySession(sessionId.current, 'conceptos'); }
@@ -207,6 +216,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
   const onConfirmTest = async () => {
     if (!chosen || !confidence || staging || item.question_id == null) return;
     const owner = userId;
+    const epoch = sessionEpoch.current;
     const selectedOption = pendingTestChoice ?? chosen;
     if (testResponseMs.current == null) testResponseMs.current = Date.now() - shownAt.current;
     if (testConfidence.current == null) testConfidence.current = confidence;
@@ -224,7 +234,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
         p_session_id: sessionId.current,
         p_response_ms: testResponseMs.current,
       });
-      if (ownerRef.current !== owner) return;
+      if (ownerRef.current !== owner || sessionEpoch.current !== epoch) return;
       setPendingSave(r.pending);
       setRejectedSave(r.rejected);
       if (r.storageUnavailable && !r.saved) setVolatileSaveFailure(true);
@@ -233,41 +243,62 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
         setAnswered(true);
         setStats(s => ({ ...s, tests: s.tests + 1, aciertos: s.aciertos + (r.data.correct ? 1 : 0) }));
         void refreshProgress();
-        // Escalera: tras un fallo confirmado por el servidor, el concepto vuelve con una pregunta más fácil.
-        if (!r.data.correct) void intercalarEscalera(item);
+        // La recuperación debe resolverse antes de poder finalizar la sesión.
+        if (!r.data.correct) await intercalarEscalera(item, epoch);
       }
       // Una respuesta sin confirmación/feedback no se presenta como corregida.
       // Permanece fija para reintentar con la misma clave cuando regrese la red.
     } finally {
-      if (ownerRef.current === owner) setStaging(false);
+      if (ownerRef.current === owner && sessionEpoch.current === epoch) setStaging(false);
     }
   };
 
-  /** Escalera: tras un fallo, el mismo concepto vuelve dentro de esta sesión con una pregunta más fácil. */
-  const intercalarEscalera = async (fallado: ConceptSessionItem) => {
+  /** Otra pregunta del concepto, si existe; el servidor puede devolver igual dificultad. */
+  const intercalarEscalera = async (fallado: ConceptSessionItem, epoch: number) => {
     const owner = userId;
-    const step = await loadStepQuestion(fallado.concept_id, fallado.question_id, userId);
-    if (!step || ownerRef.current !== owner) return;
-    setItems(prev => {
-      if (prev.some(x => x.question_id === step.question_id && x.motivo === 'ESCALERA')) return prev;
-      const at = Math.min(prev.findIndex(x => x.pos === fallado.pos) + 1 + ESCALERA_SEPARACION, prev.length);
-      const extra: ConceptSessionItem = {
-        ...fallado,
-        pos: Math.max(...prev.map(x => x.pos)) + 1,
-        motivo: 'ESCALERA',
-        question_id: step.question_id,
-        question: step.question,
-        options: step.options,
-        explanation: null,
-        concept_respuesta: null,
-      };
-      return [...prev.slice(0, at), extra, ...prev.slice(at)];
-    });
+    setRecoveryPending(true);
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    try {
+      const step = await Promise.race([
+        loadStepQuestion(fallado.concept_id, fallado.question_id, userId),
+        new Promise<null>(resolve => { timer = setTimeout(() => resolve(null), ESCALERA_TIMEOUT_MS); }),
+      ]);
+      if (ownerRef.current !== owner || sessionEpoch.current !== epoch) return;
+      if (!step) {
+        setRecoveryNote('No se ha podido añadir otra pregunta de este concepto. Puedes continuar; tu respuesta ya está guardada.');
+        return;
+      }
+      setItems(prev => {
+        const failedAt = prev.findIndex(x => x.pos === fallado.pos);
+        if (failedAt < 0 || prev.some(x => x.question_id === step.question_id && x.motivo === 'ESCALERA')) return prev;
+        const at = Math.min(failedAt + 1 + ESCALERA_SEPARACION, prev.length);
+        const extra: ConceptSessionItem = {
+          ...fallado,
+          pos: Math.max(...prev.map(x => x.pos)) + 1,
+          motivo: 'ESCALERA',
+          question_id: step.question_id,
+          question: step.question,
+          options: step.options,
+          explanation: null,
+          concept_respuesta: null,
+        };
+        return [...prev.slice(0, at), extra, ...prev.slice(at)];
+      });
+    } catch {
+      if (ownerRef.current === owner && sessionEpoch.current === epoch) {
+        setRecoveryNote('No se ha podido añadir otra pregunta de este concepto. Puedes continuar; tu respuesta ya está guardada.');
+      }
+    } finally {
+      if (timer) clearTimeout(timer);
+      if (ownerRef.current === owner && sessionEpoch.current === epoch) setRecoveryPending(false);
+    }
   };
+
+  const exit = () => { sessionEpoch.current += 1; onExit(); };
 
   const header = (
     <div className="mb-4 flex items-center justify-between">
-      <button type="button" onClick={onExit} className="flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-slate-900">
+      <button type="button" onClick={exit} className="flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-slate-900">
         <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Volver al inicio
       </button>
       {phase === 'sesion' && <span className="text-sm text-slate-500">{idx + 1} de {items.length}</span>}
@@ -276,7 +307,8 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
 
   const saveNote = (
     <>
-      {staging && <p role="status" className="mt-3 text-sm text-slate-600">Guardando respuesta…</p>}
+      {staging && <p role="status" className="mt-3 text-sm text-slate-600">{recoveryPending ? 'Preparando otra pregunta…' : 'Guardando respuesta…'}</p>}
+      {recoveryNote && <p role="status" className="mt-3 text-sm text-slate-600">{recoveryNote}</p>}
       {!supportsCrossTabCoordination() && <p role="status" className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-900">
         Usa una sola pestaña de estudio en este navegador para mantener tus respuestas sincronizadas.
       </p>}
@@ -339,7 +371,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
           ]}
           streak={streak}
           primary={{ label: 'Otra sesión', onClick: () => setPhase('inicio') }}
-          secondary={{ label: 'Volver al inicio', onClick: onExit }}
+          secondary={{ label: 'Volver al inicio', onClick: exit }}
         >
           <p className="sr-only">{stats.nuevos} conceptos nuevos · {stats.aciertos} de {stats.tests} preguntas bien.</p>
           {calibracion && <p className="rounded-lg bg-indigo-50 px-3 py-2 text-sm text-indigo-900" data-testid="calibracion">{calibracion}</p>}
@@ -397,7 +429,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
         {item.formato === 'test' && (
           <>
             <p className="text-xs font-bold uppercase tracking-wider text-indigo-600">
-              {item.motivo === 'ESCALERA' ? 'Otra vez, un poco más fácil'
+              {item.motivo === 'ESCALERA' ? 'Vuelve a practicar este concepto'
                 : item.motivo === 'VERIFICAR' ? 'Dijiste que lo sabías: compruébalo'
                 : item.motivo === 'ERROR_RECIENTE' ? 'Lo fallaste hace poco'
                 : item.motivo === 'REPASO_VENCIDO' ? 'Repaso' : 'Comprueba lo aprendido'}

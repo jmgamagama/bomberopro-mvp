@@ -75,7 +75,7 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
 
     // Entra a la aplicación en modo demo
     expect(await screen.findByRole('region', { name: /aviso de modo demostración/i })).toBeInTheDocument();
-    expect(screen.getByRole('region', { name: /aviso de modo demostración/i })).toHaveTextContent(/modo demostración.*no se guarda nada/i);
+    expect(screen.getByRole('region', { name: /aviso de modo demostración/i })).toHaveTextContent(/modo demostración.*fichas.*repaso.*dispositivo/i);
 
     // Ve el Dashboard inicial sin intentos previos
     expect(screen.getByRole('button', { name: /empezar a estudiar/i })).toBeInTheDocument();

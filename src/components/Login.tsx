@@ -100,7 +100,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
                 <span>Empieza ya, sin registrarte</span>
               </button>
               <p className="text-sm text-slate-600">
-                Prueba preguntas reales del temario. No se guarda nada hasta que crees tu cuenta.
+                Prueba preguntas reales del temario. Las fichas guardan los repasos solo en este dispositivo; el test de muestra no guarda intentos.
               </p>
             </div>
           )}
