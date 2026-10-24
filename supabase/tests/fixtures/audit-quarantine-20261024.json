@@ -19,7 +19,8 @@
     ],
     "correcta": "c",
     "fuente_normativa": "Ley 7/1985, art. 21.1.m",
-    "target": "fuera_temario"
+    "target": "fuera_temario",
+    "explicacion": "El art. 21.1.m LBRL faculta al Alcalde para adoptar personalmente y bajo su responsabilidad las medidas necesarias ante catástrofes o grave riesgo de las mismas, informando de inmediato al Pleno."
   },
   {
     "id": 8202,
@@ -41,7 +42,8 @@
     ],
     "correcta": "c",
     "fuente_normativa": "Art. 16 CE",
-    "target": "borrador"
+    "target": "borrador",
+    "explicacion": "El artículo 16.1 CE garantiza la libertad ideológica, religiosa y de culto de individuos y comunidades (el 16.3 dice que ninguna confesión tendrá carácter \"estatal\", no \"oficial\", y el 16.2 dice que \"nadie\", no solo \"ningún español\", podrá ser obligado a declarar sobre su ideología, religión o creencias)."
   },
   {
     "id": 8351,
@@ -63,7 +65,8 @@
     ],
     "correcta": "a",
     "fuente_normativa": "Título IV CE",
-    "target": "fuera_temario"
+    "target": "fuera_temario",
+    "explicacion": "El Gobierno y la Administración se regulan en el Título IV de la Constitución."
   },
   {
     "id": 10305,
@@ -89,7 +92,8 @@
     ],
     "correcta": "b",
     "fuente_normativa": "RD 164/2025 RSCIEI",
-    "target": "borrador"
+    "target": "borrador",
+    "explicacion": "Los establecimientos en espacios abiertos son de tipo D-E."
   },
   {
     "id": 10340,
@@ -115,6 +119,7 @@
     ],
     "correcta": "d",
     "fuente_normativa": "CTE DB-SI",
-    "target": "borrador"
+    "target": "borrador",
+    "explicacion": "Es incorrecta: en uso hospitalario el umbral es superior a 100 camas, no 500, con comunicación directa con los bomberos."
   }
 ]
