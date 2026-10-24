@@ -2,8 +2,8 @@
 //
 // Con la aplicación completa: T40-04 (sesión caducada) y reenvío tras volver a iniciar sesión.
 
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { act, fireEvent, render, screen, waitFor, cleanup } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import './test/setup';
 
 const { getSession, onAuthStateChange, rpcMock } = vi.hoisted(() => ({
@@ -43,6 +43,8 @@ const pending = (user: string) => ({
   },
 });
 
+afterEach(cleanup);
+
 describe('guardado pendiente con la aplicación completa', () => {
   beforeEach(() => {
     window.localStorage.clear();
@@ -52,6 +54,21 @@ describe('guardado pendiente con la aplicación completa', () => {
     rpcMock.mockImplementation((fn: string) =>
       Promise.resolve(fn === 'record_attempt_v2' ? { data: { status: 'saved', attempt_id: 1 }, error: null } : { data: [], error: null })
     );
+  });
+
+  it('un error del selector no llama al exportador antiguo y permite reintentar', async () => {
+    getSession.mockResolvedValue({ data: { session: { user: { id: 'user-1' } } }, error: null });
+    let requests=0;
+    rpcMock.mockImplementation((fn: string) => Promise.resolve(fn === 'get_study_session'
+      ? ++requests === 1 ? {data: null,error:{message:'Fallo temporal del selector'}} : {data: INITIAL_QUESTIONS.slice(0,1),error:null}
+      : {data:[],error:null}));
+    render(<App />);
+    await waitFor(() => expect(requests).toBe(1));
+    fireEvent.click(document.querySelector('#nav-btn-study')!);
+    expect(await screen.findByText('No se pudo cargar la sesión')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: /reintentar/i }));
+    await waitFor(() => expect(requests).toBe(2));
+    expect(rpcMock.mock.calls.some(call=>call[0]==='get_preparer_session_questions')).toBe(false);
   });
 
   it('con la sesión caducada, la pantalla de acceso avisa de lo pendiente (el aviso no desaparece con la pantalla)', async () => {

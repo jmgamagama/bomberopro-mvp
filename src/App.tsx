@@ -236,11 +236,8 @@ export default function App() {
     if (!supabase) return [];
     const res = await supabase.rpc('get_study_session', { p_limit: 10 });
     if (!res.error) return shuffleAllOptions((res.data ?? []) as Question[]);
-    // Compatibilidad: si la función nueva no existiera, se usa la anterior.
-    console.error('get_study_session error, se usa la selección anterior:', res.error);
-    const old = await supabase.rpc('get_preparer_session_questions', { p_limit: 100 });
-    if (old.error) throw old.error;
-    return shuffleAllOptions(getAdaptiveDailySession(old.data ?? [], getSafeMemoryStates(), 10));
+    // Fail closed: nunca volver al exportador heredado cuando falla el motor seguro.
+    throw res.error;
   };
 
   const fetchQuestions = async (request: number) => {
