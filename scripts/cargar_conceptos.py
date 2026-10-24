@@ -76,7 +76,7 @@ def main() -> int:
 
     n_q = 0
     for c in d["conceptos"]:
-        art = c["bloque"][1:]
+        art = c["bloque"][1:].replace("bis", " bis")
         ref = f"{art}.{c['apartado']}" if c["apartado"] else art
         apartado = f"{d['bloque_temario'].split(' (')[0]} · Art. {ref}"
         fuente = f"{nombre}, art. {ref} ({fuente_id}, texto consolidado, act. {fecha_txt})"
