@@ -1,0 +1,51 @@
+name: Secure assessment regression
+on:
+  pull_request:
+    paths:
+      - 'supabase/migrations/27*'
+      - 'supabase/migrations/29*'
+      - 'supabase/tests/secure_*'
+      - 'supabase/tests/fixtures/secure_*'
+      - 'src/lib/secureAssessment*'
+      - '.github/workflows/secure-assessment.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  postgres17:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: audit_fixture_only
+          POSTGRES_DB: audit
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      PGHOST: localhost
+      PGPORT: 5432
+      PGUSER: postgres
+      PGPASSWORD: audit_fixture_only
+      PGDATABASE: audit
+    steps:
+      - uses: actions/checkout@v4
+      - name: Concurrent grading on PostgreSQL17
+        run: bash supabase/tests/secure_concurrency.sh
+  pglite:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --prefix "$RUNNER_TEMP/audit-runtime" --no-save --ignore-scripts @electric-sql/pglite@0.5.11
+      - run: NODE_PATH="$RUNNER_TEMP/audit-runtime/node_modules" node supabase/tests/secure_assessments.pglite.mjs
