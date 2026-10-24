@@ -1,0 +1,48 @@
+import { createRequire } from 'node:module';
+import { readFileSync } from 'node:fs';
+import { strict as assert } from 'node:assert';
+const { PGlite } = createRequire(import.meta.url)('@electric-sql/pglite');
+const up = readFileSync(new URL('../migrations/25_audit_content_quarantine.sql', import.meta.url), 'utf8');
+const down = readFileSync(new URL('../migrations/25_audit_content_quarantine_down.sql', import.meta.url), 'utf8');
+const fixtures = JSON.parse(readFileSync(new URL('./fixtures/audit-quarantine-20261024.json', import.meta.url), 'utf8'));
+const db = new PGlite();
+const scalar = async sql => (await db.query(sql)).rows[0].n;
+await db.exec(`
+ create table topics(id int primary key,numero int,convocatoria_id int);
+ create table questions(id bigint primary key,topic_id int,enunciado text,opciones jsonb,correcta char(1),fuente_normativa text,estado text,explicacion text);
+ create table qa_changes_20260923(id bigserial primary key,question_id bigint,campo text,valor_anterior text,motivo text);
+`);
+for (const f of fixtures) {
+ await db.query('insert into topics values($1,$1,1) on conflict do nothing',[f.tema]);
+ await db.query('insert into questions values($1,$2,$3,$4,$5,$6,\'publicada\',$7)',[f.id,f.tema,f.enunciado,JSON.stringify(f.opciones),f.correcta,f.fuente_normativa,f.explicacion]);
+}
+await db.exec("insert into questions values(99999,1,'No tocar','[]','a','CE','publicada',null)");
+const before = (await db.query('select id,enunciado,opciones,correcta,fuente_normativa from questions order by id')).rows;
+await db.exec(up);
+assert.equal(await scalar("select count(*)::int n from questions where estado='publicada'"),1);
+assert.equal(await scalar('select count(*)::int n from qa_changes_20260923'),5);
+assert.deepEqual((await db.query('select id,enunciado,opciones,correcta,fuente_normativa from questions order by id')).rows,before);
+await db.exec(up);
+assert.equal(await scalar('select count(*)::int n from qa_changes_20260923'),5,'idempotent log');
+await db.exec(down);
+assert.equal(await scalar("select count(*)::int n from questions where estado='publicada'"),6);
+await db.exec('begin');
+await db.query("update questions set fuente_normativa='nueva fuente revisada' where id=10340");
+await assert.rejects(db.exec(up),/audit_quarantine_source_changed/);
+await db.exec('rollback');
+assert.equal(await scalar("select count(*)::int n from questions where estado='publicada'"),6,'drift aborts all changes');
+await db.exec('begin');
+await db.exec('delete from questions where id=10340');
+await assert.rejects(db.exec(up),/audit_quarantine_missing_question/);
+await db.exec('rollback');
+await db.exec(up);
+await db.exec("update questions set explicacion='corregida por editor' where id=8202");
+await db.exec("update questions set topic_id=3 where id=8351");
+await db.exec("insert into qa_changes_20260923(question_id,campo,valor_anterior,motivo) values(10305,'estado','borrador','editor posterior')");
+await db.exec(down);
+assert.equal((await db.query('select estado from questions where id=8202')).rows[0].estado,'borrador','do not republish edited text');
+assert.equal((await db.query('select estado from questions where id=10305')).rows[0].estado,'borrador','do not overwrite newer editorial history');
+assert.equal((await db.query('select estado from questions where id=8351')).rows[0].estado,'fuera_temario','do not republish reclassified item');
+assert.equal((await db.query('select estado from questions where id=10340')).rows[0].estado,'publicada','unchanged rollback');
+await db.close();
+console.log('PASS quarantine: exactly five, log, text preservation, idempotency, drift/missing rejection, safe rollback');
