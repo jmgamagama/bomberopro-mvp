@@ -17,10 +17,10 @@ m as (
     (select count(*) from f where has_function_privilege('anon', oid, 'execute')
         and res ~* '(correct_answer|correcta|explanation|explicacion)') rpc_anon_devuelve_solucion,
     -- Medido 24/10: 5 (get_blueprint_exam_questions, get_concept_session_v2, get_preparer_session_questions,
-    -- get_study_session, get_topic_study_questions). Objetivo: solo las que topan p_limit en servidor.
+    -- get_study_session, get_topic_study_questions). Objetivo: solo las imprescindibles, con límites en servidor.
     (select count(*) from f where has_function_privilege('authenticated', oid, 'execute')
         and res ~* '(correct_answer|correcta|explanation|explicacion)') rpc_auth_devuelve_solucion,
-    -- Descarga masiva: la RPC sin tope de p_limit no debe ser ejecutable por alumnos.
+    -- RPC heredada señalada en la auditoría 24/10 (detalle en el anexo privado de seguridad). Objetivo: 0.
     (select count(*) from f where proname = 'get_preparer_session_questions'
         and has_function_privilege('authenticated', oid, 'execute')) preparer_ejecutable,
     (select count(*) from f where prosecdef and not coalesce(array_to_string(proconfig, ',') ~ 'search_path', false)) secdef_sin_search_path,
@@ -38,7 +38,7 @@ union all select 'escritura_alumno_en_questions_concepts', 'bloqueante', escritu
 union all select 'grants_directos_en_questions', 'bloqueante', grants_directos_questions, 0, grants_directos_questions = 0 from m
 union all select 'rpc_anon_devuelve_solucion', 'bloqueante', rpc_anon_devuelve_solucion, 0, rpc_anon_devuelve_solucion = 0 from m
 union all select 'secdef_sin_search_path', 'bloqueante', secdef_sin_search_path, 0, secdef_sin_search_path = 0 from m
-union all select 'preparer_sin_tope_ejecutable (objetivo 0)', 'trinquete', preparer_ejecutable, 1, preparer_ejecutable <= 1 from m
+union all select 'rpc_heredada_ejecutable (objetivo 0)', 'trinquete', preparer_ejecutable, 1, preparer_ejecutable <= 1 from m
 union all select 'rpc_auth_devuelve_solucion', 'trinquete', rpc_auth_devuelve_solucion, 5, rpc_auth_devuelve_solucion <= 5 from m
 union all select 'anon_con_update_delete (objetivo 0; hoy: leads)', 'trinquete', anon_con_update_delete, 1, anon_con_update_delete <= 1 from m
 union all select 'select_en_qa_o_backup (objetivo 0; hoy: qa_changes_20260923)', 'trinquete', select_en_qa_o_backup, 1, select_en_qa_o_backup <= 1 from m

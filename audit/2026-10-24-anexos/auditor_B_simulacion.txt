@@ -1,0 +1,29 @@
+(a) L123: fallos=51 sesiones=17 preguntas_distintas=101,102 repeticiones_consecutivas_misma_pregunta=16 S=0.100 D=10.00 lapses=50 nivel=1 due-ultima_rev=10min
+    primera sesión: ficha | NUEVO_RECUPERACION:q101(n1):KO | ESCALERA:q102(n2):KO | ESCALERA:q101(n1):KO
+    tras los 50 fallos, intervalos (días) con aciertos sucesivos: 1.0 → 1.0 → 1.0 → 2.0 → 4.0 → 7.0 → 13.0 → 23.0
+(a) UNO: fallos=50 sesiones=50 preguntas_distintas=201 repeticiones_consecutivas_misma_pregunta=49 S=0.100 D=10.00 lapses=49 nivel=1 due-ultima_rev=10min
+    primera sesión: ficha | NUEVO_RECUPERACION:q201(n1):KO
+    tras los 50 fallos, intervalos (días) con aciertos sucesivos: 1.0 → 1.0 → 1.0 → 2.0 → 4.0 → 7.0 → 13.0 → 23.0
+(a) SOLO2: fallos=50 sesiones=50 preguntas_distintas=301 repeticiones_consecutivas_misma_pregunta=49 S=0.100 D=10.00 lapses=49 nivel=1 due-ultima_rev=10min
+    primera sesión: ficha | NUEVO_RECUPERACION:q301(n2):KO
+    tras los 50 fallos, intervalos (días) con aciertos sucesivos: 1.0 → 1.0 → 1.0 → 2.0 → 4.0 → 7.0 → 13.0 → 23.0
+(a) N1N2: fallos=51 sesiones=17 preguntas_distintas=401,402 repeticiones_consecutivas_misma_pregunta=16 S=0.100 D=10.00 lapses=50 nivel=1 due-ultima_rev=10min
+    primera sesión: ficha | NUEVO_RECUPERACION:q401(n1):KO | ESCALERA:q402(n2):KO | ESCALERA:q401(n1):KO
+    tras los 50 fallos, intervalos (días) con aciertos sucesivos: 1.0 → 1.0 → 1.0 → 2.0 → 4.0 → 7.0 → 13.0 → 23.0
+(b) acierta todo conf=media: secuencia=ficha test:n1 test:n2 recuerdo test(V):n3 recuerdo test(V):n3 recuerdo test(V):n3 recuerdo test(V):n3 | intervalo tras cada sesión (d)=4.0 → 15.0 → 49.0 → 51.0 → 151.0 → 152.0 → 408.0 → 410.0 → 1012.0 → 1013.0 | nivel=3 S=1013.1
+(b) acierta todo conf=alta: secuencia=ficha test:n1 test:n2 recuerdo test(V):n3 recuerdo test(V):n3 recuerdo test(V):n3 recuerdo test(V):n3 | intervalo tras cada sesión (d)=14.0 → 127.0 → 424.0 → 429.0 → 1356.0 → 1361.0 → 4077.0 → 4081.0 → 11580.0 → 11585.0 | nivel=3 S=11584.6
+(c) UNO falla q201(n1) → nivel_escalera=1; escalera ofrece: NADA (no se intercala nada; vuelve en 10 min con la MISMA pregunta)
+(c) SOLO2 falla q301(n2) → nivel_escalera=1; escalera ofrece: NADA (no se intercala nada; vuelve en 10 min con la MISMA pregunta)
+(c) N1N2 falla q401(n1) → nivel_escalera=1; escalera ofrece: q402 nivel 2 (rotulada «Otra vez, un poco más fácil»)
+(c) N1N2 falla q402(n2) → nivel_escalera=1; escalera ofrece: q401 nivel 1 (rotulada «Otra vez, un poco más fácil»)
+(c) L123 falla q101(n1) → nivel_escalera=1; escalera ofrece: q102 nivel 2 (rotulada «Otra vez, un poco más fácil»)
+(c) L123 falla q103(n3) → nivel_escalera=2; escalera ofrece: q102 nivel 2 (rotulada «Otra vez, un poco más fácil»)
+(c') N1N2 falla todo en una sesión (dedupe del cliente): ficha | NUEVO_RECUPERACION:q401(n1):KO | ESCALERA:q402(n2):KO | ESCALERA:q401(n1):KO
+(d) repaso vencido tras 2 tests → formato=recuerdo
+    «Lo sabía»: S 9.57→34.02, due en 34.0 d, verificar_pendiente=true
+    a las 19 h: no entra; a las 21 h: VERIFICAR/test q103
+    falla la verificación: S=4.04 due +10 min, nivel=2, verificar=false, lapses=1
+(e) VACIO, «Lo sabía» siempre, 30 días: 36 tarjetas; horas: 0N,20V,40V,60V,80V,100V,120V,140V,160V,180V,200V,220V,240V,260V,280V,300V,320V,340V,360V,380V,400V,420V,440V,460V,480V,500V,520V,540V,560V,580V,600V,620V,640V,660V,680V,700V | S=71.4 d, due tras última=71.0 d
+    escalera en concepto sin preguntas: undefined
+(g) evento sobre concepto borrador: "ERROR concept_not_found" (record_attempt_v2 lo atrapa con EXCEPTION WHEN others → RAISE WARNING)
+    ¿aparece BORR en la sesión de conceptos? false

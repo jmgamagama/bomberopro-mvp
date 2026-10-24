@@ -29,7 +29,13 @@ m as (
     (select round( (count(*) filter (where (select o->>'letra' from jsonb_array_elements(opciones) o
                                            order by length(o->>'texto') desc limit 1) = lower(trim(correcta))))::numeric
                  / nullif(sum(1.0 / jsonb_array_length(opciones)), 0), 2)
-       from p where jsonb_array_length(opciones) >= 3) as ratio_correcta_mas_larga
+       from p where jsonb_array_length(opciones) >= 3) as ratio_correcta_mas_larga,
+    -- Normas derogadas que ya causaron errores críticos (7843: RD 1942/1993; 6556: Dir. 89/686).
+    -- Algunas menciones pueden ser legítimas ("¿qué norma derogó…?"): revisar cada id y bajar el umbral.
+    (select count(*) from p where (enunciado || coalesce(explicacion,'') || coalesce(fuente_normativa,'') || opciones::text)
+        ~* '(1942/1993|89/686|1407/1992|2177/1996|NBE[- ]CPI)') as menciona_norma_derogada,
+    -- Opciones coloquiales generadas por IA ("Ninguna me gusta", "Ninguna nos vale")
+    (select count(*) from p where opciones::text ~* 'ninguna (me gusta|nos vale|vale)') as opciones_coloquiales
 )
 select 'correcta_inexistente'       as "check", 'bloqueante' tipo, correcta_inexistente::numeric valor, 0::numeric umbral, correcta_inexistente = 0 ok from m
 union all select 'sin_fuente',        'bloqueante', sin_fuente, 0, sin_fuente = 0 from m
@@ -40,4 +46,6 @@ union all select 'menos_de_3_opciones', 'trinquete', menos_de_3_opciones, 24, me
 union all select 'enunciados_duplicados', 'trinquete', enunciados_duplicados, 179, enunciados_duplicados <= 179 from m
 union all select 'menciona_otra_convocatoria', 'trinquete', menciona_otra_convocatoria, 28, menciona_otra_convocatoria <= 28 from m
 union all select 'pct_fuente_precisa (mín.)', 'trinquete', pct_fuente_precisa, 26.8, pct_fuente_precisa >= 26.8 from m
-union all select 'ratio_correcta_mas_larga (objetivo ≤1.15)', 'trinquete', ratio_correcta_mas_larga, 1.47, ratio_correcta_mas_larga <= 1.47 from m;
+union all select 'ratio_correcta_mas_larga (objetivo ≤1.15)', 'trinquete', ratio_correcta_mas_larga, 1.47, ratio_correcta_mas_larga <= 1.47 from m
+union all select 'menciona_norma_derogada (revisar uno a uno)', 'trinquete', menciona_norma_derogada, 17, menciona_norma_derogada <= 17 from m
+union all select 'opciones_coloquiales (objetivo 0)', 'trinquete', opciones_coloquiales, 91, opciones_coloquiales <= 91 from m;
