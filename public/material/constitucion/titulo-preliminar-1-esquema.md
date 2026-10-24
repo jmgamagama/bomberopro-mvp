@@ -42,3 +42,8 @@ Lo que vas a aprender: **9 artículos, 24 conceptos**. Qué es España como Esta
 - **7 principios** (9.3): legalidad · jerarquía normativa · publicidad de las normas · irretroactividad de las sancionadoras no favorables o restrictivas de derechos individuales · seguridad jurídica · responsabilidad · interdicción de la arbitrariedad de los poderes públicos.
 
 > Truco: **4 valores** (art. 1) ≠ **7 principios** (art. 9.3). La seguridad jurídica es principio, no valor.
+
+## Para memorizar
+- **4 valores (art. 1.1)** → **L·J·I·P**: **L**ibertad, **J**usticia, **I**gualdad, **P**luralismo político. Frase: «**L**os **J**óvenes **I**ngresan en el **P**arque».
+- **7 principios (art. 9.3), en orden** → **L·J·P·I·S·R·I**: **L**egalidad, **J**erarquía normativa, **P**ublicidad de las normas, **I**rretroactividad (solo sancionadoras no favorables o restrictivas de derechos individuales), **S**eguridad jurídica, **R**esponsabilidad, **I**nterdicción de la arbitrariedad. Frase: «**L**os **J**ueces **P**ublican **I**nformes **S**in **R**etrasos **I**ndebidos».
+- Ojo: las dos listas empiezan por **L·J**. Si en una opción ves «seguridad jurídica» entre los valores, es falsa.

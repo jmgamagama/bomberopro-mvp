@@ -1,4 +1,31 @@
-import type { ReactNode } from 'react';
+import { Fragment, useState, type ReactNode } from 'react';
+
+export interface MarkdownOptions {
+  /** Las líneas «- **¿Pregunta?** Respuesta» se pintan con la respuesta oculta (autoevaluación). */
+  autoevaluacion?: boolean;
+  /** Fuerza a mostrar todas las respuestas (botón «Ver todas»). */
+  mostrarRespuestas?: boolean;
+}
+
+/** Concepto «**¿Pregunta?** Respuesta»: devuelve [pregunta, respuesta] o null. */
+export function partirConcepto(item: string): [string, string] | null {
+  const m = /^\*\*([^*]*\?)\*\*\s+(.+)$/.exec(item.trim());
+  return m && m[1].includes('¿') ? [m[1], m[2]] : null;
+}
+
+/** Tarjeta de autoevaluación: primero piensa la respuesta, luego compruébala. */
+function Autoevaluacion({ pregunta, respuesta, abierta }: { pregunta: string; respuesta: string; abierta: boolean }) {
+  const [vista, setVista] = useState(false);
+  const ver = abierta || vista;
+  return (
+    <li className="list-none rounded-lg border border-slate-200 bg-white p-3" data-autoevaluacion>
+      <p className="font-semibold text-slate-900">{pregunta}</p>
+      {ver
+        ? <p className="mt-1 rounded bg-emerald-50 px-2 py-1 text-slate-800">{inline(respuesta, 'r')}</p>
+        : <button type="button" onClick={() => setVista(true)} className="mt-2 min-h-11 rounded-lg border border-indigo-200 px-3 text-sm font-semibold text-indigo-700 hover:bg-indigo-50">Piénsalo y ver respuesta</button>}
+    </li>
+  );
+}
 
 /**
  * Renderizador mínimo de Markdown para el material propio (public/material/*.md).
@@ -24,7 +51,7 @@ function inline(text: string, keyBase: string): ReactNode[] {
 
 const cells = (row: string) => row.trim().replace(/^\||\|$/g, '').split('|').map(c => c.trim());
 
-export function renderMarkdown(md: string): ReactNode[] {
+export function renderMarkdown(md: string, opts: MarkdownOptions = {}): ReactNode[] {
   const lines = md.replace(/\r\n/g, '\n').split('\n');
   const blocks: ReactNode[] = [];
   let i = 0;
@@ -70,7 +97,13 @@ export function renderMarkdown(md: string): ReactNode[] {
       const ordered = /^\s*\d+\./.test(line);
       const items: string[] = [];
       while (i < lines.length && /^\s*(-|\d+\.)\s+/.test(lines[i])) items.push(lines[i++].replace(/^\s*(-|\d+\.)\s+/, ''));
-      const lis = items.map((t, j) => <li key={j}>{inline(t, `li${k}-${j}`)}</li>);
+      const lis = items.map((t, j) => {
+        const c = opts.autoevaluacion ? partirConcepto(t) : null;
+        if (c) return <Fragment key={j}><Autoevaluacion pregunta={c[0]} respuesta={c[1]} abierta={!!opts.mostrarRespuestas} /></Fragment>;
+        // «Trampa: …» se destaca: es el error típico de las preguntas de examen.
+        if (/^(Trampa|No confundir|Ojo)/.test(t)) return <li key={j} className="list-none -ml-5 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-amber-900" data-trampa>⚠️ {inline(t, `li${k}-${j}`)}</li>;
+        return <li key={j}>{inline(t, `li${k}-${j}`)}</li>;
+      });
       blocks.push(ordered
         ? <ol key={key()} className="mt-2 list-decimal space-y-1 pl-5 text-sm text-slate-700">{lis}</ol>
         : <ul key={key()} className="mt-2 list-disc space-y-1 pl-5 text-sm text-slate-700">{lis}</ul>);
