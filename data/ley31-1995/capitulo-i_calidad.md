@@ -19,6 +19,7 @@
 - Marcó 3 detalles de redacción que podían dar pistas (concordancia del enunciado con las opciones). Están corregidos y el validador se volvió a ejecutar.
 
 ## Estado
-- **Staging:** cargados 4 conceptos y 12 preguntas (arts. 1-3.1) para probar el cargador generalizado. El resto se carga con el mismo SQL.
-- **Producción:** sin cargar. Pendiente de la aprobación de JM; después se carga como `publicado`, o como `borrador` si se quiere revisar en la app.
+- **Producción (24/10/2026):** publicado por Claude con permiso de JM («sí, publica cada bloque cuando pase la revisión ciega sin errores»). Se cargó primero como `borrador`, se comprobó con md5 que los 64 registros (16 conceptos + 48 preguntas) coinciden carácter a carácter con el JSON y después se pasó a `publicado`/`publicada`.
+- **Staging:** 6 de los 16 conceptos (prueba del cargador). Se omitió completar staging porque la carga en borrador + verificación md5 en producción es más segura.
+- **Reversión:** `UPDATE concepts SET estado='borrador' WHERE id LIKE 'LPRL-%'; UPDATE questions SET estado='borrador' WHERE hash_dedupe LIKE 'LPRL:%';`
 - **Pendiente:** vincular las 176 preguntas antiguas del tema 6 (paso 3 del protocolo) y los capítulos II-IV (arts. 5-32 bis).
