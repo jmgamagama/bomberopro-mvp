@@ -59,6 +59,7 @@ export interface Microconcept {
 }
 
 export interface Question {
+  assessment?: { sessionId: string; itemId: string; ownerId:string; optionIds: Record<string,string> };
   id: string;
   microconcept_id: string;
   level: QuestionLevel;

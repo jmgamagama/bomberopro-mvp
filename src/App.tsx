@@ -38,10 +38,12 @@ import MockExam from './components/MockExam';
 import Login from './components/Login';
 import StudyByTopic from './components/StudyByTopic';
 import { supabase } from './lib/supabase';
+import { startAssessment, submitAssessment, makeAssessmentSubmission, secureAssessmentsEnabled, type AssessmentFeedback, type AssessmentSubmission } from './lib/secureAssessment';
 import { saveAttemptToServer, toLevelInt } from './lib/saveAttemptToServer';
 import UpdateBanner from './components/UpdateBanner';
 import MyReports from './components/MyReports';
 import ConceptStudy from './components/ConceptStudy';
+import AssessmentRecovery from './components/AssessmentRecovery';
 import MaterialConstitucion from './components/MaterialConstitucion';
 import SaveFailureBanner from './components/SaveFailureBanner';
 import { hasCompletedOnboarding } from './utils/onboarding';
@@ -234,6 +236,7 @@ export default function App() {
   // tema según el peso en el examen. El orden que devuelve se respeta tal cual.
   const loadServerSession = async (): Promise<Question[]> => {
     if (!supabase) return [];
+    if (secureAssessmentsEnabled()) return shuffleAllOptions(await startAssessment('adaptativo'));
     const res = await supabase.rpc('get_study_session', { p_limit: 10 });
     if (!res.error) return shuffleAllOptions((res.data ?? []) as Question[]);
     // Fail closed: nunca volver al exportador heredado cuando falla el motor seguro.
@@ -357,6 +360,9 @@ export default function App() {
       } catch (err) {
         if (!isCurrentRequest()) return;
         console.error('No se pudo pedir una sesión nueva:', err);
+        setDbQuestionsError(err instanceof Error?err.message:'No se pudo preparar la sesión.');
+        setSessionQuestionPool([]);setActiveQuestion(null);setSessionCompleted(false);
+        setCurrentScreen('today_training');return;
       }
     }
     if (!isCurrentRequest()) return;
@@ -367,7 +373,7 @@ export default function App() {
       questions.findIndex(candidate => candidate.id === question.id) === index
     );
     answeredQuestionIds.current = new Set();
-    trainingSessionId.current = newStudySessionId();
+    trainingSessionId.current = pool[0]?.assessment?.sessionId ?? newStudySessionId();
     trainingSessionOpened.current = false;
     trainingSessionFinished.current = false;
     setSessionQuestionPool(pool);
@@ -412,18 +418,21 @@ export default function App() {
     void startTrainingSession(conceptId);
   };
 
-  // Primary action when user submits an answer
-  const handleAnswerSubmission = (
+  const securePending = useRef(new Map<string, AssessmentSubmission>());
+
+  // Commit feedback only after server confirmation in secure mode.
+  const commitAnswerSubmission = (
     questionId: string,
     microconceptId: string,
     answer: string,
     confidence: ConfidenceLevel,
     responseTime: number,
-    answerChanges: number
+    answerChanges: number,
+    serverFeedback?: AssessmentFeedback
   ) => {
     const now = getCurrentDate();
     answeredQuestionIds.current.add(questionId);
-    const isCorrect = (sessionQuestionPool.find(q => q.id === questionId)
+    const isCorrect = serverFeedback ? serverFeedback.correct : (sessionQuestionPool.find(q => q.id === questionId)
       ?? dbQuestions.find(q => q.id === questionId))?.correct_answer === answer;
 
     // Load current memory state
@@ -466,11 +475,11 @@ export default function App() {
       saveAttempt(newAttempt);
       sessionCompletedRef.current = true;
       const answeredQuestion = sessionQuestionPool.find(q => q.id === questionId) ?? dbQuestions.find(q => q.id === questionId);
-      if (session?.user?.id && !trainingSessionOpened.current) {
+      if (!serverFeedback && session?.user?.id && !trainingSessionOpened.current) {
         trainingSessionOpened.current = true;
         void startStudySession(trainingSessionId.current, 'adaptativo', null, sessionQuestionPool.length || null);
       }
-      syncAttemptToSupabase(session?.user?.id, questionId, isCorrect, answer, confidence, responseTime, 'adaptativo', answeredQuestion?.level, trainingSessionId.current);
+      if (!serverFeedback) syncAttemptToSupabase(session?.user?.id, questionId, isCorrect, answer, confidence, responseTime, 'adaptativo', answeredQuestion?.level, trainingSessionId.current);
 
       // Reload state in memory
       const updatedStates = getSafeMemoryStates();
@@ -484,8 +493,23 @@ export default function App() {
       feedbackTitle: result.feedbackTitle,
       feedbackMessage: result.feedbackMessage,
       feedbackType: result.feedbackType,
-      updatedState: result.updatedState
+      updatedState: result.updatedState,
+      correct_answer: serverFeedback?.correct_answer,
+      explanation: serverFeedback?.explanation
     };
+  };
+
+  const handleAnswerSubmission = (questionId: string, conceptId: string, answer: string, confidence: ConfidenceLevel, seconds: number, changes: number) => {
+    if (!serverMode || !secureAssessmentsEnabled()) return commitAnswerSubmission(questionId,conceptId,answer,confidence,seconds,changes);
+    const q=sessionQuestionPool.find(x=>x.id===questionId);
+    if (!q?.assessment) return Promise.reject(new Error('La sesión no es válida. Vuelve a iniciar el entrenamiento.'));
+    const owner=authUserId.current; const request=trainingRequest.current;
+    const input=securePending.current.get(q.assessment.itemId) ?? makeAssessmentSubmission(q,answer,confidence,seconds*1000);
+    securePending.current.set(q.assessment.itemId,input);
+    return submitAssessment(input).then(feedback=>{
+      if (owner!==authUserId.current || request!==trainingRequest.current) throw new Error('La actividad ha cambiado; la respuesta quedó en su sesión original.');
+      return commitAnswerSubmission(questionId,conceptId,answer,input.confidence,input.ms/1000,changes,feedback);
+    });
   };
 
   const handleNextQuestion = () => {
@@ -508,13 +532,15 @@ export default function App() {
       responseTime: number;
       answerChanges: number;
     }[],
-    totalQuestions?: number
+    totalQuestions?: number,
+    serverRecorded = false
   ) => {
+    if (authUserId.current !== (session?.user?.id ?? null)) return;
     const now = getCurrentDate();
     const currentStates = getSafeMemoryStates();
     const examSessionId = newStudySessionId();
     const plannedQuestions = totalQuestions ?? results.length;
-    const recordExamSession = Boolean(session?.user?.id) && plannedQuestions > 0;
+    const recordExamSession = !serverRecorded && Boolean(session?.user?.id) && plannedQuestions > 0;
     if (recordExamSession) {
       void startStudySession(examSessionId, 'simulacro', null, plannedQuestions);
     }
@@ -539,7 +565,7 @@ export default function App() {
         created_at: now.toISOString()
       };
       saveAttempt(attemptRecord);
-            syncAttemptToSupabase(session?.user?.id, res.questionId, res.correct, res.answer, res.confidence, res.responseTime, 'simulacro', 1, examSessionId);
+            if (!serverRecorded) syncAttemptToSupabase(session?.user?.id, res.questionId, res.correct, res.answer, res.confidence, res.responseTime, 'simulacro', 1, examSessionId);
     });
     if (recordExamSession) {
       void finishStudySession(examSessionId, 'simulacro');
@@ -961,6 +987,8 @@ export default function App() {
           <MaterialConstitucion userId={session.user.id} onExit={() => handleNavigate('dashboard')} />
         )}
 
+        {secureAssessmentsEnabled() && serverMode && currentScreen === 'dashboard' && <AssessmentRecovery owner={session.user.id} />}
+
         {currentScreen === 'concept_t40' && session?.user?.id && !isDemoMode && (
           <ConceptStudy userId={session.user.id} onExit={() => handleNavigate('dashboard')} />
         )}
@@ -1040,12 +1068,12 @@ export default function App() {
         )}
 
         {currentScreen === 'mock_exam' && (
-          <MockExam
+          <React.Fragment key={session?.user?.id ?? "demo"}><MockExam
             microconcepts={INITIAL_MICROCONCEPTS}
             onFinishExam={handleFinishExam}
             onNavigateHome={() => handleNavigate('dashboard')}
             useServerQuestions={!!session && !isDemoMode}
-          />
+          /></React.Fragment>
         )}
 
         <Suspense fallback={<p role="status" className="p-6 text-sm text-slate-500">Cargando fichas…</p>}>
@@ -1096,10 +1124,10 @@ export default function App() {
           </section>
         )}
         {currentScreen === 'study_by_topic' && !isDemoMode && !!supabase && (
-        <StudyByTopic
+        <React.Fragment key={session?.user?.id ?? "demo"}><StudyByTopic
           session={session}
           onNavigateHome={() => handleNavigate('dashboard')}
-          />
+          /></React.Fragment>
         )}
         {currentScreen === 'mas' && (
           <section aria-labelledby="mas-title" className="mx-auto max-w-lg space-y-3">

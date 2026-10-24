@@ -8,6 +8,8 @@ import { HelpCircle, Clock, CheckCircle2, XCircle, AlertTriangle, Play, RotateCc
 import { Question, ConfidenceLevel, Microconcept } from '../types';
 import { INITIAL_QUESTIONS } from '../data/initialData';
 import { supabase } from '../lib/supabase';
+import { AssessmentError,startAssessment,finishAssessmentExam,makeAssessmentSubmission,secureAssessmentsEnabled,type AssessmentSubmission,type AssessmentFeedback } from '../lib/secureAssessment';
+import {newAttemptKey} from '../lib/saveAttemptToServer';
 import { calculateExamScore, EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS, isExamPassed, scoreOutOfTen } from '../utils/examScoring';
 import { EXAM_DURATION_SECONDS, formatExamTime, getRemainingExamSeconds } from '../utils/examTimer';
 import StudentConsultation from './StudentConsultationModal';
@@ -26,7 +28,8 @@ interface MockExamProps {
       responseTime: number;
       answerChanges: number;
     }[],
-    totalQuestions?: number
+    totalQuestions?: number,
+    serverRecorded?: boolean
   ) => void;
   onNavigateHome: () => void;
   /**
@@ -63,6 +66,10 @@ export default function MockExam({
   const [remainingTime, setRemainingTime] = useState(EXAM_DURATION_SECONDS);
   const hasExamInProgress = examStarted && !examFinished;
   const finishStartedRef = useRef(false);
+  const [examError,setExamError]=useState<string|null>(null);
+  const [mustRestart,setMustRestart]=useState(false);
+  const examEvent=useRef(newAttemptKey());
+  const examSubmission=useRef<AssessmentSubmission[]|null>(null);
   const answerChangesRef = useRef<Record<string, number>>({});
   const resultsSummaryRef = useRef<HTMLDivElement>(null);
 
@@ -84,7 +91,7 @@ export default function MockExam({
 
   // Generate 10 random mixed questions from the database
   const startNewExam = async () => {
-    setIsLoading(true);
+    setIsLoading(true);setExamError(null);setMustRestart(false);
     try {
       // Intentar obtener de Supabase
       let selected: Question[] = [];
@@ -92,11 +99,15 @@ export default function MockExam({
       setExamSeed(generatedSeed);
 
       if (supabase && useServerQuestions) {
+        if(secureAssessmentsEnabled()) selected=await startAssessment('simulacro',null,55,generatedSeed);
+        else {
         const { data, error } = await supabase.rpc('get_blueprint_exam_questions', { p_seed: generatedSeed });
         if (error) console.error('No se pudo obtener el simulacro del servidor; se usa la muestra local:', error);
         else if (data) selected = data;
+        }
       }
       
+      if(useServerQuestions && secureAssessmentsEnabled() && selected.length===0) throw new Error('No hay preguntas disponibles en esta sesión de simulacro.');
       // Fallback a las iniciales si falla o no hay datos suficientes
       if (!selected || selected.length === 0) {
         console.warn("Usando fallback de preguntas locales (fallback mode: solo 10 preguntas disponibles)");
@@ -113,7 +124,7 @@ export default function MockExam({
       setConfidences({});
       setResponseTimes({});
       answerChangesRef.current = {};
-      finishStartedRef.current = false;
+      finishStartedRef.current = false;examEvent.current=newAttemptKey();examSubmission.current=null;
       setExamStarted(true);
       setExamFinished(false);
       setTestResults(null);
@@ -121,6 +132,7 @@ export default function MockExam({
       setCurrentQuestionStart(Date.now());
       setRemainingTime(EXAM_DURATION_SECONDS);
     } catch (err) {
+      setExamError(err instanceof Error?err.message:"No se ha podido iniciar el simulacro.");
       console.error("Error iniciando el simulacro:", err);
     } finally {
       setIsLoading(false);
@@ -128,6 +140,7 @@ export default function MockExam({
   };
 
   const handleSelectAnswer = (option: string) => {
+    if(examSubmission.current)return;
     const questionId = questions[currentIdx].id;
     answerChangesRef.current[questionId] = (answerChangesRef.current[questionId] || 0)
       + countAnswerChange(answers[questionId] ?? null, option);
@@ -135,6 +148,7 @@ export default function MockExam({
   };
 
   const handleSelectConfidence = (conf: ConfidenceLevel) => {
+    if(examSubmission.current)return;
     setConfidences(prev => ({ ...prev, [questions[currentIdx].id]: conf }));
   };
 
@@ -165,12 +179,26 @@ export default function MockExam({
     }
   };
 
-  const finishAndEvaluate = () => {
+  const finishAndEvaluate = async () => {
     if (finishStartedRef.current) return;
     finishStartedRef.current = true;
 
-    // Evaluate results
-    const submissionResults = questions.map((q, index) => {
+    let evaluated=questions;
+    if(useServerQuestions && secureAssessmentsEnabled()){
+      setIsLoading(true);setExamError(null);setMustRestart(false);
+      try{
+        const sid=questions[0]?.assessment?.sessionId;
+        if(!sid)throw new Error('Sesión de simulacro no válida.');
+        examSubmission.current ??= questions.map(q=>makeAssessmentSubmission(q,answers[q.id]||null,confidences[q.id]||'media',(responseTimes[q.id] ?? Math.round((Date.now()-currentQuestionStart)/1000))*1000));
+        const results=await finishAssessmentExam(sid,examEvent.current,examSubmission.current);
+        const map=new Map(results.map(r=>[r.item_id,r]));
+        evaluated=questions.map(q=>({...q,correct_answer:map.get(q.assessment!.itemId)!.correct_answer,explanation:map.get(q.assessment!.itemId)!.explanation??''}));
+        setQuestions(evaluated);
+      }catch(error){setMustRestart(error instanceof AssessmentError && error.action!=='retry');setExamError(error instanceof Error?error.message:'Simulacro sin confirmar.');return;}
+      finally{setIsLoading(false);}
+    }
+    // Evaluate only confirmed server feedback, or the explicitly local demo.
+    const submissionResults = evaluated.map((q, index) => {
       const ans = answers[q.id] || '';
       const correct = ans !== '' && ans === q.correct_answer;
       // If blank, confidence doesn't really matter, but default to 'media' if absent to avoid type errors
@@ -245,7 +273,7 @@ export default function MockExam({
     setExamFinished(true);
     
     // Save attempts in the primary database (only for answered questions, including reserve if answered)
-    onFinishExam(submissionResults.filter(r => r.answered), submissionResults.length);
+    onFinishExam(submissionResults.filter(r => r.answered), submissionResults.length,Boolean(useServerQuestions&&secureAssessmentsEnabled()));
   };
 
   useEffect(() => {
@@ -287,6 +315,8 @@ export default function MockExam({
 
   return (
     <div className="space-y-6" id="mock-exam-root">
+      {isLoading && examStarted && <p role="status">Guardando y corrigiendo el simulacro…</p>}
+      {examError && <div role="alert">{examError}{examStarted && <button type="button" disabled={isLoading} onClick={()=>{if(mustRestart){onNavigateHome();return;}finishStartedRef.current=false;void finishAndEvaluate();}}>{mustRestart?'Volver al inicio':'Reintentar corrección'}</button>}</div>}
       {/* Navigation Header */}
       <div className="flex flex-wrap items-center justify-between gap-2" id="mock-exam-nav">
         <button

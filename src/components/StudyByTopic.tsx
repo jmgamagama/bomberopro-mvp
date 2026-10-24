@@ -6,6 +6,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, Play, CheckCircle2, XCircle } from 'lucide-react';
 import { Question } from '../types';
 import { supabase } from '../lib/supabase';
+import { AssessmentError,startAssessment,submitAssessment,makeAssessmentSubmission,secureAssessmentsEnabled,type AssessmentSubmission } from '../lib/secureAssessment';
 import { saveAttemptToServer, toLevelInt } from '../lib/saveAttemptToServer';
 import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
@@ -36,6 +37,9 @@ export default function StudyByTopic({ session, onNavigateHome }: StudyByTopicPr
   const [loadingQuestions, setLoadingQuestions] = useState(false);
   const [idx, setIdx] = useState(0);
   const [answer, setAnswer] = useState('');
+  const [submitError,setSubmitError]=useState<string|null>(null);
+  const [mustRestart,setMustRestart]=useState(false);
+  const pendingInput=useRef<AssessmentSubmission|null>(null);
   const [answered, setAnswered] = useState(false);
   const [startTime, setStartTime] = useState(0);
   const [correctCount, setCorrectCount] = useState(0);
@@ -43,6 +47,8 @@ export default function StudyByTopic({ session, onNavigateHome }: StudyByTopicPr
   const sessionIdRef = useRef<string | null>(null);
   const finishedRef = useRef(false);
   const answeringRef = useRef(false);
+  const ownerRef=useRef(session?.user?.id);ownerRef.current=session?.user?.id;
+  useEffect(()=>{setStarted(false);setQuestions([]);pendingInput.current=null;answeringRef.current=false;},[session?.user?.id]);
 
 useEffect(() => {
   const loadTopics = async () => {
@@ -64,17 +70,19 @@ const toggleTopic = (id: number) => {
 
 const startStudy = async () => {
   if (selected.length === 0) return;
+  const owner=session?.user?.id;
   setLoadingQuestions(true);
-  const { data, error } = await supabase.rpc('get_topic_study_questions', {
+  const { data, error } = secureAssessmentsEnabled() ? await startAssessment('temas',selected,10).then(data=>({data,error:null})).catch(error=>({data:null,error})) : await supabase.rpc('get_topic_study_questions', {
     p_user_id: session?.user?.id,
     p_topic_ids: selected,
     p_limit: 10
   });
+  if(owner!==ownerRef.current)return;
   if (!error && data) {
     setQuestions(shuffleAllOptions(data as Question[]));
     finishedRef.current = false;
     answeringRef.current = false;
-    sessionIdRef.current = session?.user?.id ? newStudySessionId() : null;
+    sessionIdRef.current = (data as Question[])[0]?.assessment?.sessionId ?? (session?.user?.id ? newStudySessionId() : null);
     if (sessionIdRef.current) {
       void startStudySession(sessionIdRef.current, 'estudio_por_temas', selected, (data as Question[]).length);
     }
@@ -83,6 +91,7 @@ const startStudy = async () => {
     setCorrectCount(0);
     setStartTime(Date.now());
   }
+  if(error)setSubmitError(error instanceof Error?error.message:'No se ha podido preparar la sesión.');
   setLoadingQuestions(false);
 };
 
@@ -99,13 +108,25 @@ useEffect(() => {
 const confirmAnswer = async (chosen: string) => {
   // Un toque responde. El ref evita guardar dos veces si se pulsa rápido dos opciones.
   if (!currentQuestion || !chosen || answered || answeringRef.current) return;
+  const owner=session?.user?.id;
   answeringRef.current = true;
   setAnswer(chosen);
-  const isCorrect = chosen === currentQuestion.correct_answer;
+  let isCorrect=chosen===currentQuestion.correct_answer;
+  setSubmitError(null);
+  if(secureAssessmentsEnabled()){
+    try{
+      const input=pendingInput.current ?? makeAssessmentSubmission(currentQuestion,chosen,'media',Date.now()-startTime);
+      pendingInput.current=input;
+      const feedback=await submitAssessment(input);
+      if(owner!==ownerRef.current)return;
+      isCorrect=feedback.correct;
+      setQuestions(prev=>prev.map(q=>q.id===currentQuestion.id?{...q,correct_answer:feedback.correct_answer,explanation:feedback.explanation??''}:q));
+    }catch(error){setMustRestart(error instanceof AssessmentError && error.action!=='retry');setSubmitError(error instanceof Error?error.message:'Corrección sin confirmar.');answeringRef.current=false;return;}
+  }
   if (isCorrect) setCorrectCount(c => c + 1);
   setAnswered(true);
   const responseTimeMs = Date.now() - startTime;
-  if (supabase && session?.user?.id) {
+  if (!secureAssessmentsEnabled() && supabase && session?.user?.id) {
     await saveAttemptToServer({
       p_user_id: session.user.id,
       p_question_id: Number(currentQuestion.id),
@@ -122,6 +143,7 @@ const confirmAnswer = async (chosen: string) => {
 
 const nextQuestion = () => {
   answeringRef.current = false;
+  pendingInput.current=null;setSubmitError(null);
   setAnswer('');
   setAnswered(false);
   setStartTime(Date.now());
@@ -150,6 +172,7 @@ if (!started) {
                  defaultReason: 'Temario y estudio',
                })
              ),
+             submitError ? h('p',{role:'alert'},submitError):null,
              h('h1', { className: 'text-2xl font-bold text-slate-900 mb-2' }, 'Estudio por Temas'),
              h('p', { className: 'text-slate-600 mb-6' }, 'Elige uno o varios temas para practicar preguntas centradas en ese contenido.'),
              loadingTopics
@@ -246,7 +269,7 @@ return h('div', { className: 'min-h-screen bg-slate-50 p-4' },
                  return h('button', {
                    key: i,
                    onClick: () => { void confirmAnswer(opt); },
-                   disabled: answered,
+                   disabled: answered || !!pendingInput.current,
                    className: 'text-left p-3 rounded-lg border ' + cls
                  }, opt);
                })
@@ -260,6 +283,7 @@ return h('div', { className: 'min-h-screen bg-slate-50 p-4' },
                  )
              : null
              ),
+           submitError ? h('div',{role:'alert'},submitError,h('button',{onClick:()=>mustRestart?onNavigateHome():void confirmAnswer(answer)},mustRestart?'Volver al inicio':'Reintentar corrección')):null,
            answered
            ? h('button', {
              onClick: nextQuestion,
