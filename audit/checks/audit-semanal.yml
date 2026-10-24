@@ -36,4 +36,4 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Checks de código (Vitest)
-        run: npx vitest run --configLoader runner audit/checks
+        run: npx vitest run --configLoader runner --config audit/checks/vitest.audit.config.ts
