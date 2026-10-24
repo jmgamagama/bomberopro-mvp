@@ -1,0 +1,102 @@
+[
+  {
+    "id": 449,
+    "tema": 18,
+    "enunciado": "Generará gran espacio tanto interior como exterior..",
+    "opciones": [
+      {
+        "letra": "a",
+        "texto": "Plan A: genera gran espacio exterior y pequeño espacio interior."
+      },
+      {
+        "letra": "b",
+        "texto": "Plan B: genera gran espacio interior y pequeño espacio exterior."
+      },
+      {
+        "letra": "c",
+        "texto": "Plan de Emergencia: busca la ejecución segura de la maniobra."
+      },
+      {
+        "letra": "d",
+        "texto": "Ninguna de las anteriores describe correctamente ese concepto."
+      }
+    ],
+    "correcta": "a",
+    "fuente_normativa": "Manual de táctica operativa en incendios estructurales",
+    "explicacion": "AVISO: pregunta basada en la distinción táctica entre Plan A (ataque que genera un gran espacio de trabajo exterior, con espacio interior reducido) y Plan B (genera un gran espacio interior, con espacio exterior reducido), reservándose el Plan de Emergencia para garantizar una ejecución segura de la maniobra en curso.",
+    "target": "borrador"
+  },
+  {
+    "id": 6418,
+    "tema": 7,
+    "enunciado": "La Ley 8/2011 de Extremadura, en su artículo dedicado a la igualdad de oportunidades en el acceso al empleo, establece un objetivo irrenunciable para la Administración autonómica respecto al acceso al trabajo por cuenta propia y ajena. ¿Cuál es el verbo que emplea la ley para definir la actuación de la Administración?",
+    "opciones": [
+      {
+        "letra": "a",
+        "texto": "Garantizar las condiciones para una real y efectiva igualdad de oportunidades"
+      },
+      {
+        "letra": "b",
+        "texto": "Promover las condiciones para una real y efectiva igualdad de oportunidades"
+      },
+      {
+        "letra": "c",
+        "texto": "Exigir las condiciones para una real y efectiva igualdad de oportunidades"
+      }
+    ],
+    "correcta": "b",
+    "fuente_normativa": "Ley 8/2011, art. 41.1",
+    "explicacion": "El art. 41.1 establece que la Administración de la Comunidad Autónoma \"establece como objetivo irrenunciable PROMOVER las condiciones para una real y efectiva igualdad de oportunidades de mujeres y hombres, en el acceso al trabajo tanto por cuenta propia como ajena\", no \"garantizar\".",
+    "target": "borrador"
+  },
+  {
+    "id": 7069,
+    "tema": 36,
+    "enunciado": "Según su clasificación por índice de riesgo, ¿qué parques del CPEI tienen la categoría de Parque Central?",
+    "opciones": [
+      {
+        "letra": "a",
+        "texto": "Badajoz, Mérida y Zafra"
+      },
+      {
+        "letra": "b",
+        "texto": "Castuera, Llerena y Jerez de los Caballeros"
+      },
+      {
+        "letra": "c",
+        "texto": "Mérida, Don Benito-Villanueva de la Serena y Almendralejo"
+      },
+      {
+        "letra": "d",
+        "texto": "Olivenza, Alburquerque y Puebla de la Calzada"
+      }
+    ],
+    "correcta": "c",
+    "fuente_normativa": "Reglamento de Régimen Interior del CPEI (Diputación de Badajoz, 2006)",
+    "explicacion": "El Reglamento del CPEI otorga la categoría de Parque Central, de mayor índice de riesgo, a los parques de Mérida, Don Benito-Villanueva de la Serena y Almendralejo.",
+    "target": "borrador"
+  },
+  {
+    "id": 10091,
+    "tema": 7,
+    "enunciado": "¿Quién elabora los protocolos de actuación relativos a los riesgos específicos para la madre, el feto o el lactante?",
+    "opciones": [
+      {
+        "letra": "b",
+        "texto": "La Junta de Extremadura exclusivamente"
+      },
+      {
+        "letra": "c",
+        "texto": "La Junta de Extremadura por medio de los servicios de prevención propios"
+      },
+      {
+        "letra": "d",
+        "texto": "La Junta de Extremadura por medio de los servicios de prevención propios o ajenos"
+      }
+    ],
+    "correcta": "c",
+    "fuente_normativa": "Ley 8/2011, art. 60",
+    "explicacion": "Los elabora la Junta de Extremadura por medio de sus servicios de prevención propios (art. 60).",
+    "target": "borrador"
+  }
+]
