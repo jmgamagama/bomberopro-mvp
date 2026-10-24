@@ -12,9 +12,9 @@ import { descargarMaterial } from '../utils/descargaLegible';
  */
 const BASE = '/material/constitucion/';
 export const CAPAS = [
-  { id: 'esquema', label: '1 · Esquema', file: 'titulo-preliminar-1-esquema.md', nota: '1–2 folios: lo esencial de un vistazo.' },
-  { id: 'desarrollo', label: '2 · Desarrollo', file: 'titulo-preliminar-2-desarrollo.md', nota: 'Cada idea con sus matices y las trampas del examen.' },
-  { id: 'completo', label: '3 · Texto completo', file: 'titulo-preliminar-3-completo.md', nota: 'Texto literal del BOE y los conceptos de cada artículo.' },
+  { id: 'esquema', label: 'Esquema', file: 'titulo-preliminar-1-esquema.md', nota: '1–2 folios: lo esencial de un vistazo.' },
+  { id: 'desarrollo', label: 'Desarrollo', file: 'titulo-preliminar-2-desarrollo.md', nota: 'Cada idea con sus matices y las trampas del examen.' },
+  { id: 'completo', label: 'Texto BOE', file: 'titulo-preliminar-3-completo.md', nota: 'Texto literal del BOE. Debajo de cada artículo, ponte a prueba con sus conceptos.' },
 ] as const;
 export const TEXTO_OFICIAL = 'constitucion-espanola-texto-oficial.md';
 const TEMA_CONSTITUCION = 1;
@@ -31,11 +31,12 @@ export default function MaterialConstitucion({ userId, onExit }: Props) {
   const [topicId, setTopicId] = useState<number | null | undefined>(undefined);
   const [progress, setProgress] = useState<ConceptProgress | null>(null);
   const [estudiando, setEstudiando] = useState(false);
+  const [todas, setTodas] = useState(false);
   const actual = CAPAS.find(c => c.id === capa)!;
 
   useEffect(() => {
     let active = true;
-    setTexto(null); setError(false);
+    setTexto(null); setError(false); setTodas(false);
     fetch(BASE + actual.file)
       .then(r => (r.ok ? r.text() : Promise.reject(new Error(String(r.status)))))
       .then(t => { if (active) setTexto(t); })
@@ -109,13 +110,18 @@ export default function MaterialConstitucion({ userId, onExit }: Props) {
       <article className="mt-3 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm" role="tabpanel" aria-label={actual.label}>
         <div className="flex items-start justify-between gap-3">
           <p className="text-xs text-slate-500">{actual.nota}</p>
-          <a href={BASE + actual.file} download onClick={e => descargar(e, BASE + actual.file, `Título Preliminar · ${actual.label.replace(/^\d · /, '')}`)} className="flex shrink-0 items-center gap-1 text-xs font-semibold text-indigo-700 underline">
+          <a href={BASE + actual.file} download onClick={e => descargar(e, BASE + actual.file, `Título Preliminar · ${actual.label}`)} className="flex shrink-0 items-center gap-1 text-xs font-semibold text-indigo-700 underline">
             <Download className="h-3.5 w-3.5" aria-hidden="true" /> Descargar
           </a>
         </div>
         {error && <p role="alert" className="mt-4 text-sm font-semibold text-red-700">No se ha podido cargar el material. Comprueba la conexión.</p>}
         {!error && texto === null && <p role="status" className="mt-4 text-sm text-slate-500">Cargando…</p>}
-        {texto !== null && <div className="mt-2">{renderMarkdown(texto)}</div>}
+        {texto !== null && capa === 'completo' && (
+          <button type="button" onClick={() => setTodas(v => !v)} className="mt-3 min-h-11 rounded-lg bg-slate-100 px-3 text-sm font-semibold text-slate-700 hover:bg-slate-200">
+            {todas ? 'Ocultar respuestas' : 'Ver todas las respuestas'}
+          </button>
+        )}
+        {texto !== null && <div className="mt-2">{renderMarkdown(texto, { autoevaluacion: capa === 'completo', mostrarRespuestas: todas })}</div>}
       </article>
     </div>
   );
