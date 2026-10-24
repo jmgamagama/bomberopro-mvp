@@ -126,7 +126,7 @@ def main() -> int:
 
     # Cobertura: todos los apartados del rango deben tener al menos un concepto.
     orden = list(boe)
-    rango = [k for k in orden if re.fullmatch(r"a\d+", k)]
+    rango = [k for k in orden if re.fullmatch(r"a\d+(bis)?", k)]
     if desde and hasta:
         rango = rango[rango.index(desde): rango.index(hasta) + 1]
     else:

@@ -1,0 +1,919 @@
+{
+ "norma": "BOE-A-1995-24292",
+ "documento": "LPRL",
+ "nombre_norma": "Ley 31/1995 de Prevención de Riesgos Laborales",
+ "abreviatura": "LPRL",
+ "hash_prefijo": "LPRL",
+ "tema": 6,
+ "tema_nombre": "Ley 31/1995 PRL",
+ "bloque_temario": "Capítulo IV (arts. 30-32 bis): servicios de prevención",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "LPRL-a30-1-modalidades",
+   "bloque": "a30",
+   "apartado": "1",
+   "orden": 1200,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 30.1 LPRL, ¿qué modalidades tiene el empresario para cumplir el deber de prevención de riesgos profesionales?",
+    "respuesta": "Designar uno o varios trabajadores, constituir un servicio de prevención o concertar ese servicio con una entidad especializada ajena a la empresa."
+   },
+   "cita": "designará uno o varios trabajadores para ocuparse de dicha actividad, constituirá un servicio de prevención o concertará dicho servicio con una entidad especializada ajena a la empresa",
+   "confundible_con": [
+    "LPRL-a31-1-propios-ajenos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 30.1 LPRL, una de las modalidades es designar uno o varios:",
+     "opciones": [
+      "Funcionarios de la Inspección de Trabajo",
+      "Trabajadores para ocuparse de la prevención"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 30.1: designar trabajadores, constituir servicio o concertarlo con entidad especializada ajena."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 30.1 de la Ley 31/1995, el empresario puede concertar el servicio de prevención con:",
+     "opciones": [
+      "Una mutua colaboradora con la Seguridad Social.",
+      "Los delegados de prevención de la empresa.",
+      "Una entidad especializada ajena a la empresa."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 30.1: la entidad especializada ajena a la empresa, no una mutua ni los delegados."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 30.1 LPRL es correcta?",
+     "opciones": [
+      "El empresario cumple su deber designando trabajadores, constituyendo un servicio de prevención o concertándolo con entidad ajena.",
+      "El empresario está obligado a constituir en todo caso un servicio de prevención propio con personal sanitario.",
+      "El empresario queda liberado de su deber en cuanto contrata a cualquier asesor externo, sin más exigencias."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 30.1: tres vías alternativas, ninguna obligatoria por sí sola."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a30-2-designados",
+   "bloque": "a30",
+   "apartado": "2",
+   "orden": 1210,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 30.2 LPRL, ¿qué requisitos deben cumplir los trabajadores designados para ocuparse de la prevención?",
+    "respuesta": "Tener la capacidad necesaria, disponer del tiempo y de los medios precisos y ser suficientes en número, según el tamaño de la empresa, los riesgos y su distribución."
+   },
+   "cita": "deberán tener la capacidad necesaria, disponer del tiempo y de los medios precisos y ser suficientes en número",
+   "confundible_con": [
+    "LPRL-a30-3-informacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 30.2 LPRL, los trabajadores designados deben tener la capacidad necesaria, el tiempo y los medios y ser:",
+     "opciones": [
+      "Suficientes en número",
+      "Mayores de cuarenta años"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 30.2: capacidad, tiempo, medios y número suficiente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 30.2 de la Ley 31/1995, el número de trabajadores designados se determina teniendo en cuenta el tamaño de la empresa y:",
+     "opciones": [
+      "La facturación anual y el número de centros comerciales.",
+      "La antigüedad media de la plantilla y su categoría.",
+      "Los riesgos a que están expuestos los trabajadores y su distribución."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 30.2: tamaño de la empresa, riesgos y su distribución."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué deben hacer entre sí los trabajadores designados según el art. 30.2 LPRL?",
+     "opciones": [
+      "Colaborar entre sí y, en su caso, con los servicios de prevención.",
+      "Actuar de forma independiente sin coordinación con el servicio de prevención.",
+      "Informar de sus actuaciones a la autoridad laboral cada mes."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 30.2 párr. 2: colaboran entre sí y con los servicios de prevención."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a30-3-informacion",
+   "bloque": "a30",
+   "apartado": "3",
+   "orden": 1220,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 30.3 LPRL, ¿a qué información debe dar acceso el empresario a los trabajadores designados?",
+    "respuesta": "A la información y documentación a que se refieren los artículos 18 y 23 de la Ley."
+   },
+   "cita": "el empresario deberá facilitar a los trabajadores designados el acceso a la información y documentación a que se refieren los artículos 18 y 23",
+   "confundible_con": [
+    "LPRL-a31-2-concepto"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 30.3 LPRL, el empresario facilita a los trabajadores designados el acceso a la información y documentación de los artículos 18 y:",
+     "opciones": [
+      "16",
+      "23"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 30.3: artículos 18 y 23."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 30.3 de la Ley 31/1995, ¿a quién facilita el empresario ese acceso para realizar la actividad de prevención?",
+     "opciones": [
+      "A los delegados sindicales.",
+      "A la mutua colaboradora.",
+      "A los trabajadores designados."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 30.3: acceso para los trabajadores designados."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué artículos de la Ley contienen la información y documentación del art. 30.3 LPRL?",
+     "opciones": [
+      "Los artículos 18 (información) y 23 (documentación).",
+      "Los artículos 14 (derechos) y 29 (obligaciones).",
+      "Los artículos 31 (servicios) y 32 bis (recursos preventivos)."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 30.3: el 18 es información y el 23, documentación."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a30-4-garantias",
+   "bloque": "a30",
+   "apartado": "4",
+   "orden": 1230,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 30.4 LPRL, ¿qué garantías tienen los trabajadores designados y qué deben guardar sobre la información de la empresa?",
+    "respuesta": "No pueden sufrir perjuicio por sus actividades de prevención y gozan de las garantías de los representantes de los trabajadores (art. 68 a, b y c y art. 56.4 ET); deben guardar sigilo profesional sobre la información de la empresa."
+   },
+   "cita": "Los trabajadores designados no podrán sufrir ningún perjuicio derivado de sus actividades de protección y prevención de los riesgos profesionales en la empresa",
+   "confundible_con": [
+    "LPRL-a30-1-modalidades"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 30.4 LPRL, los trabajadores designados deben guardar sobre la información de la empresa:",
+     "opciones": [
+      "Sigilo profesional",
+      "Total publicidad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 30.4 párr. 3: sigilo profesional."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 30.4 de la Ley 31/1995, los trabajadores designados gozan de las garantías que para los representantes de los trabajadores establece el artículo:",
+     "opciones": [
+      "45 del Estatuto de los Trabajadores, letras a), b) y c).",
+      "12 del Estatuto de los Trabajadores, letras a), b) y c).",
+      "68 del Estatuto de los Trabajadores, letras a), b) y c)."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 30.4 párr. 1: letras a), b) y c) del art. 68 y apartado 4 del art. 56 del ET."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿A quiénes alcanza también la garantía del art. 30.4 LPRL?",
+     "opciones": [
+      "A los trabajadores integrantes del servicio de prevención, cuando la empresa decida constituirlo.",
+      "A todos los trabajadores de la empresa que realicen tareas de vigilancia, sin distinción de funciones.",
+      "A los miembros de los servicios de prevención ajenos concertados con la empresa contratante."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 30.4 párr. 2: integrantes del servicio de prevención propio constituido."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a30-5-empresario",
+   "bloque": "a30",
+   "apartado": "5",
+   "orden": 1240,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 30.5 LPRL, ¿cuándo puede el empresario asumir personalmente las funciones de prevención?",
+    "respuesta": "En empresas de hasta diez trabajadores, o hasta 25 si hay un único centro de trabajo, siempre que desarrolle su actividad de forma habitual en el centro y tenga la capacidad necesaria."
+   },
+   "cita": "En las empresas de hasta diez trabajadores, el empresario podrá asumir personalmente las funciones señaladas en el apartado 1",
+   "confundible_con": [
+    "LPRL-a30-1-modalidades"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 30.5 LPRL, el empresario puede asumir personalmente la prevención en empresas de hasta:",
+     "opciones": [
+      "Cien trabajadores",
+      "Diez trabajadores"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 30.5: hasta diez trabajadores."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 30.5 de la Ley 31/1995, esa posibilidad se extiende hasta 25 trabajadores siempre que la empresa disponga de:",
+     "opciones": [
+      "Una plantilla exclusivamente fija.",
+      "Un comité de seguridad y salud.",
+      "Un único centro de trabajo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 30.5: hasta 25 trabajadores con un único centro de trabajo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué requisitos exige el art. 30.5 LPRL al empresario que asume personalmente la prevención?",
+     "opciones": [
+      "Desarrollar de forma habitual su actividad en el centro de trabajo y tener la capacidad necesaria.",
+      "Contar con la titulación de médico del trabajo y dedicarse en exclusiva a la prevención.",
+      "Haber sido designado expresamente para ello por los delegados de prevención de la empresa."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 30.5: actividad habitual en el centro y capacidad necesaria."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a30-6-auditoria",
+   "bloque": "a30",
+   "apartado": "6",
+   "orden": 1250,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 30.6 LPRL, ¿qué debe hacer el empresario que no haya concertado el servicio de prevención con una entidad ajena?",
+    "respuesta": "Someter su sistema de prevención al control de una auditoría o evaluación externa, en los términos que reglamentariamente se determinen."
+   },
+   "cita": "deberá someter su sistema de prevención al control de una auditoría o evaluación externa",
+   "confundible_con": [
+    "LPRL-a30-7-autorizacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 30.6 LPRL, el empresario sin servicio ajeno someterá su sistema de prevención a una auditoría o evaluación:",
+     "opciones": [
+      "Externa",
+      "Interna"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 30.6: auditoría o evaluación externa."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 30.6 de la Ley 31/1995, las condiciones de esa auditoría se fijan:",
+     "opciones": [
+      "Por convenio colectivo.",
+      "Por la propia empresa auditada.",
+      "Reglamentariamente."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 30.6: términos reglamentarios."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿A qué empresarios se aplica la obligación del art. 30.6 LPRL?",
+     "opciones": [
+      "A los que no hubieran concertado el servicio de prevención con una entidad especializada ajena.",
+      "A todos los empresarios cuya plantilla supere los diez trabajadores en un mismo centro.",
+      "A los que hubieran concertado el servicio de prevención con una entidad especializada ajena."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 30.6: quien no concierta servicio ajeno."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a30-7-autorizacion",
+   "bloque": "a30",
+   "apartado": "7",
+   "orden": 1260,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 30.7 LPRL, ¿qué autorización necesitan las entidades que pretendan auditar el sistema de prevención y qué valor tiene el silencio administrativo?",
+    "respuesta": "Una única autorización de la autoridad laboral, válida en todo el territorio español; el silencio se entiende desestimatorio."
+   },
+   "cita": "habrán de contar con una única autorización de la autoridad laboral, que tendrá validez en todo el territorio español",
+   "confundible_con": [
+    "LPRL-a31-5-acreditacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 30.7 LPRL, la autorización para auditar la concede la autoridad:",
+     "opciones": [
+      "Sanitaria",
+      "Laboral"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 30.7: autorización de la autoridad laboral."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 30.7 de la Ley 31/1995, la autorización de las entidades auditoras tiene validez:",
+     "opciones": [
+      "Solo en la comunidad autónoma que la concede.",
+      "Únicamente en la provincia de la sede.",
+      "En todo el territorio español."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 30.7: única y con validez en todo el territorio español."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué efecto tiene el vencimiento del plazo sin resolución expresa según el art. 30.7 LPRL?",
+     "opciones": [
+      "Se entiende desestimada la solicitud por silencio administrativo.",
+      "Se entiende estimada la solicitud por silencio administrativo.",
+      "Se archiva el procedimiento sin efectos para el interesado."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 30.7: silencio desestimatorio para garantizar la protección de los trabajadores."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a31-1-propios-ajenos",
+   "bloque": "a31",
+   "apartado": "1",
+   "orden": 1270,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 31.1 LPRL, ¿cuándo debe el empresario recurrir a servicios de prevención propios o ajenos?",
+    "respuesta": "Cuando la designación de uno o varios trabajadores sea insuficiente para realizar las actividades de prevención, según el tamaño de la empresa, los riesgos y la peligrosidad de las actividades."
+   },
+   "cita": "Si la designación de uno o varios trabajadores fuera insuficiente para la realización de las actividades de prevención",
+   "confundible_con": [
+    "LPRL-a30-1-modalidades"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 31.1 LPRL, se recurre a servicios de prevención si la designación de trabajadores resulta:",
+     "opciones": [
+      "Insuficiente",
+      "Más cara"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.1: designación insuficiente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 31.1 de la Ley 31/1995, los servicios de prevención, cuando sean varios, colaborarán:",
+     "opciones": [
+      "Solo si lo ordena la autoridad laboral.",
+      "Nunca, por su independencia.",
+      "Cuando sea necesario."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 31.1: colaboran cuando sea necesario."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué se tiene en cuenta para establecer servicios de prevención en las Administraciones públicas según el art. 31.1 LPRL?",
+     "opciones": [
+      "Su estructura organizativa y la existencia, en su caso, de ámbitos sectoriales y descentralizados.",
+      "Únicamente el número de empleados públicos adscritos a cada ministerio u organismo.",
+      "El presupuesto anual que cada Administración destine a gastos de personal y formación."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.1 párr. 2: estructura organizativa y ámbitos sectoriales y descentralizados."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a31-2-concepto",
+   "bloque": "a31",
+   "apartado": "2",
+   "orden": 1280,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 31.2 LPRL, ¿qué se entiende por servicio de prevención?",
+    "respuesta": "El conjunto de medios humanos y materiales necesarios para realizar las actividades preventivas, que asesora y asiste al empresario, a los trabajadores y a sus representantes y a los órganos de representación especializados."
+   },
+   "cita": "Se entenderá como servicio de prevención el conjunto de medios humanos y materiales necesarios para realizar las actividades preventivas",
+   "confundible_con": [
+    "LPRL-a31-3-asesoramiento"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 31.2 LPRL, el servicio de prevención es el conjunto de medios humanos y:",
+     "opciones": [
+      "Económicos necesarios para las sanciones",
+      "Materiales necesarios para las actividades preventivas"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 31.2: medios humanos y materiales."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 31.2 de la Ley 31/1995, el servicio de prevención asesora y asiste al empresario, a los trabajadores y a:",
+     "opciones": [
+      "La Inspección de Trabajo y a las autoridades sanitarias.",
+      "Las mutuas y a los servicios ajenos concertados.",
+      "Sus representantes y a los órganos de representación especializados."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 31.2: empresario, trabajadores, representantes y órganos de representación especializados."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué debe facilitar el empresario al servicio de prevención según el art. 31.2 LPRL?",
+     "opciones": [
+      "El acceso a la información y documentación a que se refiere el apartado 3 del artículo anterior.",
+      "El control de la planificación preventiva del resto de empresas presentes en el mismo centro.",
+      "La dirección efectiva de la política preventiva y de la organización de la empresa."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.2: información y documentación del art. 30.3."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a31-3-asesoramiento",
+   "bloque": "a31",
+   "apartado": "3",
+   "orden": 1290,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 31.3 LPRL, ¿en qué materias deben poder proporcionar asesoramiento y apoyo los servicios de prevención?",
+    "respuesta": "Plan de prevención, evaluación de riesgos, planificación de la actividad preventiva, información y formación de los trabajadores, primeros auxilios y planes de emergencia, y vigilancia de la salud."
+   },
+   "cita": "La prestación de los primeros auxilios y planes de emergencia",
+   "confundible_con": [
+    "LPRL-a31-2-concepto"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 31.3 LPRL, el servicio de prevención asesora entre otras materias sobre la vigilancia de la:",
+     "opciones": [
+      "Salud de los trabajadores",
+      "Producción de la empresa"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.3.f): vigilancia de la salud en relación con los riesgos del trabajo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 31.3.e) de la Ley 31/1995, el servicio de prevención asesora en la prestación de:",
+     "opciones": [
+      "La defensa jurídica en los procesos por accidente.",
+      "La selección de personal para puestos de riesgo.",
+      "Los primeros auxilios y planes de emergencia."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 31.3.e): primeros auxilios y planes de emergencia."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Si la empresa no lleva a cabo las actividades del art. 31.3 LPRL con recursos propios, ¿quién puede asumirlas?",
+     "opciones": [
+      "Solo un servicio de prevención ajeno.",
+      "Cualquier trabajador designado con formación básica.",
+      "El propio empresario sin necesidad de formación."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.3 párr. 2: sin recursos propios, solo un servicio de prevención ajeno."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a31-4-interdisciplinar",
+   "bloque": "a31",
+   "apartado": "4",
+   "orden": 1300,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 31.4 LPRL, ¿qué carácter tiene el servicio de prevención y de qué circunstancias depende la suficiencia de sus medios?",
+    "respuesta": "Interdisciplinario; de acuerdo con el tamaño de la empresa, los tipos de riesgo a los que se exponen los trabajadores y la distribución de riesgos en la empresa."
+   },
+   "cita": "El servicio de prevención tendrá carácter interdisciplinario, debiendo sus medios ser apropiados para cumplir sus funciones",
+   "confundible_con": [
+    "LPRL-a30-2-designados"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 31.4 LPRL, el servicio de prevención tendrá carácter:",
+     "opciones": [
+      "Unipersonal",
+      "Interdisciplinario"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 31.4: carácter interdisciplinario."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 31.4 de la Ley 31/1995, los medios del servicio deben ser suficientes en función del tamaño de la empresa, los tipos de riesgo y:",
+     "opciones": [
+      "La antigüedad del servicio de prevención.",
+      "El volumen de ventas de la empresa.",
+      "La distribución de riesgos en la empresa."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 31.4: tamaño de la empresa, tipos de riesgo y distribución de riesgos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué elementos del servicio de prevención deben ser suficientes y adecuados según el art. 31.4 LPRL?",
+     "opciones": [
+      "Formación, especialidad, capacitación, dedicación y número de componentes, así como recursos técnicos.",
+      "Solo el número de componentes del servicio y la antigüedad media de su personal en la empresa.",
+      "Únicamente los recursos económicos que la empresa asigne cada año a la actividad preventiva."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.4: formación, especialidad, capacitación, dedicación, número y recursos técnicos."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a31-5-acreditacion",
+   "bloque": "a31",
+   "apartado": "5",
+   "orden": 1310,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 31.5 LPRL, ¿qué necesitan las entidades especializadas para actuar como servicios de prevención?",
+    "respuesta": "Una acreditación única de la autoridad laboral, válida en todo el territorio español, previa aprobación de la autoridad sanitaria en lo sanitario; y suscribir una póliza de seguro que cubra su responsabilidad."
+   },
+   "cita": "las entidades especializadas deberán ser objeto de una acreditación por la autoridad laboral, que será única y con validez en todo el territorio español",
+   "confundible_con": [
+    "LPRL-a30-7-autorizacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 31.5 LPRL, las entidades especializadas deben ser objeto de una acreditación por la autoridad:",
+     "opciones": [
+      "Laboral",
+      "Judicial"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.5: acreditación por la autoridad laboral."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 31.5 de la Ley 31/1995, en los aspectos de carácter sanitario la acreditación requiere previa aprobación de:",
+     "opciones": [
+      "El Instituto Nacional de la Seguridad Social.",
+      "La Inspección de Trabajo.",
+      "La autoridad sanitaria."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 31.5: aprobación de la autoridad sanitaria en los aspectos sanitarios."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué póliza deben suscribir las entidades especializadas según el art. 31.5 LPRL?",
+     "opciones": [
+      "Un seguro que cubra su responsabilidad, sin que su cuantía constituya el límite de la responsabilidad del servicio.",
+      "Un seguro de vida y accidentes que proteja a cada uno de los trabajadores de las empresas clientes.",
+      "Un aval bancario cuya cuantía fije el límite máximo de la responsabilidad del servicio de prevención."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.5 párr. 2: póliza de seguro, cuantía reglamentaria, sin ser límite de responsabilidad."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a31-6-silencio",
+   "bloque": "a31",
+   "apartado": "6",
+   "orden": 1320,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 31.6 LPRL, ¿qué efecto tiene el vencimiento del plazo máximo del procedimiento de acreditación sin resolución expresa?",
+    "respuesta": "Se entiende desestimada la solicitud por silencio administrativo, para garantizar una adecuada protección de los trabajadores."
+   },
+   "cita": "El vencimiento del plazo máximo del procedimiento de acreditación sin haberse notificado resolución expresa al interesado permitirá entender desestimada la solicitud por silencio administrativo",
+   "confundible_con": [
+    "LPRL-a30-7-autorizacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 31.6 LPRL, sin resolución expresa en el plazo la solicitud de acreditación se entiende:",
+     "opciones": [
+      "Estimada",
+      "Desestimada"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 31.6: desestimada por silencio."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 31.6 de la Ley 31/1995, el silencio desestimatorio se establece con el objeto de garantizar:",
+     "opciones": [
+      "Una mayor rapidez en la contratación de servicios.",
+      "La competencia entre entidades especializadas.",
+      "Una adecuada protección de los trabajadores."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 31.6: finalidad de protección adecuada de los trabajadores."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 31.6 LPRL es correcta?",
+     "opciones": [
+      "Si vence el plazo sin notificar resolución expresa, el interesado puede entender desestimada su solicitud.",
+      "Si vence el plazo sin notificar resolución expresa, la acreditación se entiende concedida por silencio.",
+      "Si vence el plazo sin resolución, el expediente caduca y debe iniciarse de nuevo en todo caso."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.6: silencio desestimatorio, no estimatorio."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a32-mutuas",
+   "bloque": "a32",
+   "apartado": "",
+   "orden": 1330,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 LPRL, ¿qué no pueden hacer las Mutuas Colaboradoras con la Seguridad Social en materia de prevención?",
+    "respuesta": "Desarrollar las funciones de los servicios de prevención ajenos ni participar, con cargo a su patrimonio histórico, en el capital social de una sociedad mercantil cuyo objeto sea la actividad de prevención."
+   },
+   "cita": "no podrán desarrollar las funciones correspondientes a los servicios de prevención ajenos",
+   "confundible_con": [
+    "LPRL-a31-5-acreditacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 LPRL, las Mutuas Colaboradoras con la Seguridad Social no pueden desarrollar las funciones de los servicios de prevención:",
+     "opciones": [
+      "Ajenos",
+      "Propios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: servicios de prevención ajenos."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 de la Ley 31/1995, las Mutuas tampoco pueden participar en el capital social de una sociedad mercantil cuyo objeto sea:",
+     "opciones": [
+      "La gestión de prestaciones por incapacidad.",
+      "El aseguramiento de contingencias comunes.",
+      "La actividad de prevención."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 32: sociedad mercantil cuyo objeto sea la actividad de prevención."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Con cargo a qué patrimonio no pueden las Mutuas participar en sociedades mercantiles de prevención según el art. 32 LPRL?",
+     "opciones": [
+      "Con cargo a su patrimonio histórico.",
+      "Con cargo a las cuotas de los trabajadores autónomos.",
+      "Con cargo al fondo de reserva de contingencias profesionales."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: patrimonio histórico."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a32bis-1-casos",
+   "bloque": "a32bis",
+   "apartado": "1",
+   "orden": 1340,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 bis.1 LPRL, ¿en qué casos es necesaria la presencia de los recursos preventivos en el centro de trabajo?",
+    "respuesta": "Cuando los riesgos se agraven o modifiquen por la concurrencia de operaciones diversas; cuando se realicen actividades reglamentariamente consideradas peligrosas o de riesgos especiales; y cuando lo requiera la Inspección de Trabajo y Seguridad Social."
+   },
+   "cita": "será necesaria en los siguientes casos",
+   "confundible_con": [
+    "LPRL-a32bis-2-recursos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 bis.1 LPRL, la presencia de recursos preventivos es necesaria cuando la requiera:",
+     "opciones": [
+      "El Instituto Nacional de Estadística",
+      "La Inspección de Trabajo y Seguridad Social"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 32 bis.1.c): requerimiento de la Inspección de Trabajo y Seguridad Social."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 bis.1.a) de la Ley 31/1995, la presencia es necesaria cuando los riesgos puedan verse agravados o modificados por:",
+     "opciones": [
+      "El cambio de titularidad de la empresa que se haya producido durante el último año natural.",
+      "El incremento del número de trabajadores temporales contratados en el centro de trabajo.",
+      "La concurrencia de operaciones diversas que se desarrollan sucesiva o simultáneamente."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 32 bis.1.a): concurrencia de operaciones diversas sucesivas o simultáneas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué actividades dan lugar a la presencia según el art. 32 bis.1.b) LPRL?",
+     "opciones": [
+      "Las que reglamentariamente sean consideradas peligrosas o con riesgos especiales.",
+      "Todas las que se realicen en horario nocturno o en festivos.",
+      "Las que se desarrollen en empresas de menos de diez trabajadores."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32 bis.1.b): actividades peligrosas o con riesgos especiales por vía reglamentaria."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a32bis-2-recursos",
+   "bloque": "a32bis",
+   "apartado": "2",
+   "orden": 1350,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 bis.2 LPRL, ¿qué se consideran recursos preventivos a los que el empresario puede asignar la presencia?",
+    "respuesta": "Uno o varios trabajadores designados de la empresa; miembros del servicio de prevención propio; o miembros de los servicios de prevención ajenos concertados por la empresa."
+   },
+   "cita": "Se consideran recursos preventivos, a los que el empresario podrá asignar la presencia",
+   "confundible_con": [
+    "LPRL-a32bis-4-otros-trabajadores"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 bis.2 LPRL, es recurso preventivo uno o varios miembros del servicio de prevención:",
+     "opciones": [
+      "Propio de la empresa",
+      "De la Inspección de Trabajo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32 bis.2.b): miembros del servicio de prevención propio."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 bis.2 de la Ley 31/1995, cuando la presencia la realicen diferentes recursos preventivos estos deberán:",
+     "opciones": [
+      "Actuar por turnos sin comunicarse.",
+      "Quedar bajo la dirección de la autoridad laboral.",
+      "Colaborar entre sí."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 32 bis.2 párr. 2: deberán colaborar entre sí."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos NO es recurso preventivo según el art. 32 bis.2 LPRL?",
+     "opciones": [
+      "Un delegado de prevención por razón de su cargo.",
+      "Un trabajador designado de la empresa.",
+      "Un miembro de un servicio de prevención ajeno concertado."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32 bis.2: designados, servicio propio y servicios ajenos concertados; el delegado de prevención no figura."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a32bis-3-requisitos",
+   "bloque": "a32bis",
+   "apartado": "3",
+   "orden": 1360,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 bis.3 LPRL, ¿qué requisitos deben reunir los recursos preventivos y cuánto deben permanecer en el centro?",
+    "respuesta": "Tener capacidad suficiente, disponer de los medios necesarios y ser suficientes en número para vigilar el cumplimiento de las actividades preventivas; y permanecer en el centro mientras se mantenga la situación que determine su presencia."
+   },
+   "cita": "deberán tener la capacidad suficiente, disponer de los medios necesarios y ser suficientes en número para vigilar el cumplimiento de las actividades preventivas",
+   "confundible_con": [
+    "LPRL-a32bis-2-recursos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 bis.3 LPRL, los recursos preventivos permanecen en el centro mientras se mantenga la situación que determine su:",
+     "opciones": [
+      "Retribución",
+      "Presencia"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 32 bis.3: durante el tiempo que se mantenga la situación que determine su presencia."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 bis.3 de la Ley 31/1995, la función de los recursos preventivos es vigilar el cumplimiento de:",
+     "opciones": [
+      "Los horarios de la plantilla.",
+      "Los objetivos de producción.",
+      "Las actividades preventivas."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 32 bis.3: vigilar el cumplimiento de las actividades preventivas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 32 bis.3 LPRL es correcta?",
+     "opciones": [
+      "Los recursos deben tener capacidad suficiente, medios necesarios y número suficiente.",
+      "Los recursos pueden abandonar el centro una vez iniciada la actividad.",
+      "Los recursos solo necesitan estar localizables por teléfono."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32 bis.3: capacidad, medios y número suficientes, y permanencia en el centro."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a32bis-4-otros-trabajadores",
+   "bloque": "a32bis",
+   "apartado": "4",
+   "orden": 1370,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 bis.4 LPRL, ¿a qué otros trabajadores puede asignar el empresario la presencia y qué formación mínima deben tener?",
+    "respuesta": "A trabajadores que, sin ser del servicio de prevención propio ni designados, reúnan conocimientos, cualificación y experiencia necesarios y formación preventiva como mínimo del nivel básico; deben colaborar con los recursos preventivos."
+   },
+   "cita": "el empresario podrá asignar la presencia de forma expresa a uno o varios trabajadores de la empresa",
+   "confundible_con": [
+    "LPRL-a32bis-2-recursos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 bis.4 LPRL, la formación preventiva de estos trabajadores debe corresponder como mínimo al nivel:",
+     "opciones": [
+      "Básico",
+      "Superior"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32 bis.4: formación correspondiente, como mínimo, a las funciones del nivel básico."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 bis.4 de la Ley 31/1995, la asignación a estos trabajadores se hace de forma:",
+     "opciones": [
+      "Tácita.",
+      "Rotatoria.",
+      "Expresa."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 32 bis.4: asignación expresa por el empresario."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué deben mantener estos trabajadores según el art. 32 bis.4 LPRL?",
+     "opciones": [
+      "La necesaria colaboración con los recursos preventivos del empresario.",
+      "Su independencia total respecto de los recursos preventivos.",
+      "La comunicación solo con la Inspección de Trabajo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32 bis.4 párr. 2: colaboración con los recursos preventivos."
+    }
+   ]
+  }
+ ]
+}
