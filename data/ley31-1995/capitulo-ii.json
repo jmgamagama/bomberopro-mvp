@@ -1,0 +1,1732 @@
+{
+ "norma": "BOE-A-1995-24292",
+ "documento": "LPRL",
+ "nombre_norma": "Ley 31/1995 de Prevención de Riesgos Laborales",
+ "abreviatura": "LPRL",
+ "hash_prefijo": "LPRL",
+ "tema": 6,
+ "tema_nombre": "Ley 31/1995 PRL",
+ "bloque_temario": "Capítulo II (arts. 5-13): política en materia de prevención de riesgos para proteger la seguridad y la salud en el trabajo",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "LPRL-a5-1-objeto",
+   "bloque": "a5",
+   "apartado": "1",
+   "orden": 200,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 5.1 LPRL, ¿cuál es el objeto de la política en materia de prevención?",
+    "respuesta": "La promoción de la mejora de las condiciones de trabajo, dirigida a elevar el nivel de protección de la seguridad y la salud de los trabajadores en el trabajo."
+   },
+   "cita": "la promoción de la mejora de las condiciones de trabajo dirigida a elevar el nivel de protección de la seguridad y la salud de los trabajadores en el trabajo",
+   "confundible_con": [
+    "LPRL-a2-1-objeto",
+    "LPRL-a5-1-cooperacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 5.1 LPRL, la política de prevención tiene por objeto la mejora de las condiciones de trabajo. ¿Con qué finalidad?",
+     "opciones": [
+      "Reducir el coste de las cotizaciones sociales",
+      "Elevar el nivel de protección de la seguridad y la salud"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 5.1: objeto = «promoción de la mejora de las condiciones de trabajo dirigida a elevar el nivel de protección de la seguridad y la salud»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 5.1 de la Ley 31/1995, el objeto de la política en materia de prevención es:",
+     "opciones": [
+      "Sancionar los incumplimientos empresariales en materia de seguridad mediante el procedimiento del capítulo VII de la Ley.",
+      "Coordinar a los servicios de prevención ajenos para uniformar sus tarifas y sus modalidades de contratación en el mercado.",
+      "Promover la mejora de las condiciones de trabajo para elevar el nivel de protección de la seguridad y la salud de los trabajadores."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 5.1: la política preventiva promueve la mejora de las condiciones de trabajo para elevar el nivel de protección de seguridad y salud."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el objeto de la política preventiva (art. 5.1 LPRL) es correcta?",
+     "opciones": [
+      "Se orienta a la promoción de la mejora de las condiciones de trabajo para elevar la protección de la seguridad y la salud.",
+      "Se limita a vigilar el cumplimiento de la normativa por parte de las empresas de más de cincuenta trabajadores.",
+      "Persigue exclusivamente la reparación económica de los daños derivados del trabajo mediante prestaciones de la Seguridad Social."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.1: no es sancionar ni reparar, sino promover la mejora de condiciones para elevar el nivel de protección."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a5-1-cooperacion",
+   "bloque": "a5",
+   "apartado": "1",
+   "orden": 210,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 5.1 LPRL, ¿qué deben hacerse entre sí la Administración General del Estado, las Comunidades Autónomas y la Administración local, y quién participa en la elaboración de la política preventiva?",
+    "respuesta": "Se prestarán cooperación y asistencia para el eficaz ejercicio de sus competencias; y la política se elabora con la participación de empresarios y trabajadores a través de sus organizaciones empresariales y sindicales más representativas."
+   },
+   "cita": "se prestarán cooperación y asistencia para el eficaz ejercicio de sus respectivas competencias",
+   "confundible_con": [
+    "LPRL-a6-1-materias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 5.1 LPRL, ¿cómo se elabora la política preventiva en cuanto a la participación de empresarios y trabajadores?",
+     "opciones": [
+      "Con su participación, a través de sus organizaciones más representativas",
+      "Sin su participación: la elabora solo el Gobierno"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.1.b): «con la participación de los empresarios y de los trabajadores a través de sus organizaciones empresariales y sindicales más representativas»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 5.1 de la Ley 31/1995, la elaboración de la política preventiva se llevará a cabo con la participación de:",
+     "opciones": [
+      "Únicamente las organizaciones sindicales con presencia en los comités de empresa de las entidades de menos de cincuenta personas.",
+      "Los servicios de prevención ajenos acreditados y las mutuas colaboradoras con la Seguridad Social de cada territorio.",
+      "Los empresarios y los trabajadores, a través de sus organizaciones empresariales y sindicales más representativas."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 5.1.b): participan empresarios y trabajadores mediante sus organizaciones más representativas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué establece el art. 5.1 LPRL sobre las Administraciones General del Estado, autonómicas y local?",
+     "opciones": [
+      "Que se prestarán cooperación y asistencia para el eficaz ejercicio de sus respectivas competencias preventivas.",
+      "Que la Administración local ejercerá en exclusiva la vigilancia y el control de la normativa preventiva en su territorio.",
+      "Que las Comunidades Autónomas quedan sujetas a las instrucciones de la Administración General del Estado en la materia."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.1.a): las tres Administraciones «se prestarán cooperación y asistencia»; no hay subordinación ni exclusividad."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a5-2-educacion",
+   "bloque": "a5",
+   "apartado": "2",
+   "orden": 220,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 5.2 LPRL, ¿qué promoverán las Administraciones públicas en el ámbito educativo y entre qué Ministerios se establece una colaboración permanente en la AGE?",
+    "respuesta": "La mejora de la educación en materia preventiva en los distintos niveles de enseñanza (en especial en el sistema nacional de cualificaciones profesionales); y colaboración permanente entre el Ministerio de Trabajo y los Ministerios competentes, en particular Educación y Sanidad."
+   },
+   "cita": "las Administraciones públicas promoverán la mejora de la educación en materia preventiva en los diferentes niveles de enseñanza",
+   "confundible_con": [
+    "LPRL-a5-3-fomento"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 5.2 LPRL, ¿qué promoverán las Administraciones públicas en los distintos niveles de enseñanza?",
+     "opciones": [
+      "La creación de servicios de prevención propios",
+      "La mejora de la educación en materia preventiva"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 5.2: mejora de la educación preventiva «en los diferentes niveles de enseñanza», en especial en el sistema nacional de cualificaciones profesionales."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 5.2 de la Ley 31/1995, en la AGE se establecerá una colaboración permanente entre el Ministerio de Trabajo y:",
+     "opciones": [
+      "Únicamente el Ministerio de Industria, por su competencia sobre seguridad de productos e instalaciones.",
+      "El Ministerio de Hacienda y el de Interior, por su relación con la financiación y los servicios de emergencia.",
+      "Los Ministerios que correspondan, en particular los de Educación y de Sanidad."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 5.2 párr. 2: colaboración permanente entre Trabajo y los Ministerios que correspondan, en particular Educación y Ciencia y Sanidad y Consumo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Con qué fin se establece la colaboración permanente del art. 5.2 LPRL entre el Ministerio de Trabajo y otros Ministerios?",
+     "opciones": [
+      "Establecer los niveles formativos y especializaciones idóneas y revisar de forma permanente esas enseñanzas.",
+      "Unificar los modelos de evaluación de riesgos que deben utilizar todas las empresas del territorio nacional.",
+      "Decidir las sanciones aplicables a las empresas que incumplan sus obligaciones de formación de los trabajadores."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.2 párr. 2: la colaboración busca fijar niveles formativos y especializaciones idóneas y revisarlos permanentemente."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a5-3-fomento",
+   "bloque": "a5",
+   "apartado": "3",
+   "orden": 230,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 5.3 LPRL, ¿a quién se destinarán especialmente los incentivos de los programas específicos de mejora del ambiente de trabajo?",
+    "respuesta": "A las pequeñas y medianas empresas."
+   },
+   "cita": "que se destinarán especialmente a las pequeñas y medianas empresas",
+   "confundible_con": [
+    "LPRL-a5-5-integracion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 5.3 LPRL, los incentivos de los programas de mejora del ambiente de trabajo se destinarán especialmente a:",
+     "opciones": [
+      "Las pequeñas y medianas empresas",
+      "Las grandes empresas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.3: los incentivos «se destinarán especialmente a las pequeñas y medianas empresas»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 5.3 de la Ley 31/1995, los programas específicos para mejorar el ambiente de trabajo podrán instrumentarse mediante:",
+     "opciones": [
+      "La imposición de recargos en las cotizaciones de las empresas con mayor número de accidentes de trabajo.",
+      "La creación de un registro público de los trabajadores designados en cada empresa para la acción preventiva.",
+      "La concesión de los incentivos que reglamentariamente se determinen, destinados especialmente a las PYMES."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 5.3 párr. 2: los programas podrán instrumentarse a través de los incentivos que reglamentariamente se determinen, destinados especialmente a las PYMES."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué actividades fomentarán las Administraciones públicas según el art. 5.3 LPRL?",
+     "opciones": [
+      "Las que mejoren la seguridad y salud, reduzcan los riesgos, investiguen nuevas formas de protección y promuevan estructuras eficaces de prevención.",
+      "Solo las de formación reglada impartida por los centros educativos públicos en el sistema nacional de cualificaciones.",
+      "Las de vigilancia y control del cumplimiento de la normativa que realicen los servicios de prevención ajenos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.3 párr. 1: fomento de la mejora de condiciones, reducción de riesgos, investigación de nuevas formas de protección y estructuras eficaces de prevención."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a5-4-igualdad",
+   "bloque": "a5",
+   "apartado": "4",
+   "orden": 240,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 5.4 LPRL, ¿qué principio promoverán las Administraciones públicas y qué variable tendrán en cuenta en la recogida de datos y en la investigación preventiva?",
+    "respuesta": "El principio de igualdad entre mujeres y hombres, considerando las variables relacionadas con el sexo para detectar y prevenir daños derivados del trabajo vinculados al sexo de los trabajadores."
+   },
+   "cita": "las variables relacionadas con el sexo tanto en los sistemas de recogida y tratamiento de datos como en el estudio e investigación generales",
+   "confundible_con": [
+    "LPRL-a5-5-integracion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 5.4 LPRL, ¿qué variables se consideran en los sistemas de recogida de datos y en la investigación en prevención?",
+     "opciones": [
+      "Las relacionadas con la antigüedad",
+      "Las relacionadas con el sexo"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 5.4 (añadido por la LO 3/2007): principio de igualdad entre mujeres y hombres y variables relacionadas con el sexo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 5.4 de la Ley 31/1995, las Administraciones públicas promoverán la efectividad del principio de igualdad entre mujeres y hombres para:",
+     "opciones": [
+      "Garantizar una cuota mínima de mujeres en los órganos de representación especializada en prevención de cada empresa.",
+      "Fijar tablas de valoración distintas de los límites de exposición a agentes peligrosos según el sexo del trabajador.",
+      "Detectar y prevenir situaciones en que los daños derivados del trabajo puedan aparecer vinculados al sexo de los trabajadores."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 5.4: el objetivo es detectar y prevenir daños derivados del trabajo que puedan aparecer vinculados con el sexo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿En qué ámbitos debe considerarse la variable sexo según el art. 5.4 LPRL?",
+     "opciones": [
+      "En los sistemas de recogida y tratamiento de datos y en el estudio e investigación generales en materia de prevención.",
+      "Únicamente en las estadísticas de siniestralidad que elabora la Inspección de Trabajo y Seguridad Social cada año.",
+      "Solo en la evaluación de riesgos de las trabajadoras embarazadas o en periodo de lactancia natural."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.4: la variable sexo se considera «tanto en los sistemas de recogida y tratamiento de datos como en el estudio e investigación generales»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a5-5-integracion",
+   "bloque": "a5",
+   "apartado": "5",
+   "orden": 250,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 5.5 LPRL, ¿qué debe promover la política preventiva en relación con el sistema de gestión de la empresa y qué informe se incorpora al elaborar disposiciones generales?",
+    "respuesta": "La integración eficaz de la prevención en el sistema de gestión de la empresa; y un informe sobre su aplicación en las pequeñas y medianas empresas, con las medidas particulares que para ellas se contemplen."
+   },
+   "cita": "deberá promover la integración eficaz de la prevención de riesgos laborales en el sistema de gestión de la empresa",
+   "confundible_con": [
+    "LPRL-a5-3-fomento"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 5.5 LPRL, la política preventiva deberá promover la integración eficaz de la prevención en:",
+     "opciones": [
+      "El sistema de gestión de la empresa",
+      "El sistema de pensiones"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.5 (añadido por la Ley 25/2009): integración eficaz de la prevención «en el sistema de gestión de la empresa»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 5.5 de la Ley 31/1995, en el procedimiento de elaboración de las disposiciones generales en materia preventiva deberá incorporarse:",
+     "opciones": [
+      "Un dictamen vinculante de la Comisión Nacional de Seguridad y Salud en el Trabajo sobre su coste para el sector público.",
+      "Un informe de impacto de género elaborado por el Instituto Nacional de Seguridad e Higiene en el Trabajo.",
+      "Un informe sobre su aplicación en las pequeñas y medianas empresas, con las medidas particulares previstas para ellas."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 5.5 párr. 2: informe sobre la aplicación de la disposición en las PYMES, con las medidas particulares que se contemplen."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 5.5 LPRL es correcta?",
+     "opciones": [
+      "La política preventiva tendrá en cuenta las necesidades y dificultades específicas de las PYMES.",
+      "La política preventiva se aplicará solo a las empresas que superen el umbral que fije el Gobierno por reglamento.",
+      "La integración de la prevención se hará en un sistema paralelo e independiente del sistema de gestión de la empresa."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.5 párr. 2: la política «tendrá en cuenta las necesidades y dificultades específicas de las pequeñas y medianas empresas»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a6-1-materias",
+   "bloque": "a6",
+   "apartado": "1",
+   "orden": 260,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 6.1 LPRL, ¿quién regula mediante normas reglamentarias las materias del artículo y a quién consulta previamente?",
+    "respuesta": "El Gobierno, previa consulta a las organizaciones sindicales y empresariales más representativas."
+   },
+   "cita": "previa consulta a las organizaciones sindicales y empresariales más representativas",
+   "confundible_con": [
+    "LPRL-a6-2-ajuste",
+    "LPRL-a7-1-funciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 6.1 LPRL, ¿quién regula mediante normas reglamentarias las materias que enumera el artículo?",
+     "opciones": [
+      "Las Cortes Generales",
+      "El Gobierno"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 6.1: «El Gobierno, a través de las correspondientes normas reglamentarias y previa consulta a las organizaciones sindicales y empresariales más representativas»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 6.1 de la Ley 31/1995, el Gobierno regulará mediante normas reglamentarias las materias del artículo previa consulta a:",
+     "opciones": [
+      "Los servicios de prevención ajenos acreditados por la autoridad laboral de cada Comunidad Autónoma.",
+      "El Instituto Nacional de Seguridad e Higiene en el Trabajo y la Inspección de Trabajo y Seguridad Social.",
+      "Las organizaciones sindicales y empresariales más representativas."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 6.1: la consulta previa es a las organizaciones sindicales y empresariales más representativas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas materias figura entre las que el Gobierno regulará reglamentariamente según el art. 6.1 LPRL?",
+     "opciones": [
+      "El procedimiento de calificación de las enfermedades profesionales.",
+      "El régimen de infracciones y sanciones en materia de prevención.",
+      "La composición de los comités de seguridad y salud de cada empresa."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.1.g): procedimiento de calificación de las enfermedades profesionales. Las infracciones están en el cap. VII y los comités en el cap. V."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a6-1-limitaciones",
+   "bloque": "a6",
+   "apartado": "1",
+   "orden": 270,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 6.1.b) LPRL, ¿qué podrá establecerse respecto de operaciones, procesos y exposiciones a agentes que entrañen riesgos, y qué en el caso de agentes peligrosos?",
+    "respuesta": "Limitaciones o prohibiciones; específicamente, el sometimiento a trámites de control administrativo y, para agentes peligrosos, la prohibición de su empleo."
+   },
+   "cita": "en el caso de agentes peligrosos, la prohibición de su empleo",
+   "confundible_con": [
+    "LPRL-a6-1-materias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 6.1.b) LPRL, en el caso de agentes peligrosos podrá establecerse:",
+     "opciones": [
+      "La prohibición de su empleo",
+      "La obligación de su registro anual"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.1.b): limitaciones o prohibiciones; y para agentes peligrosos «la prohibición de su empleo»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 6.1.b) de la Ley 31/1995, respecto de las operaciones y procesos que entrañen riesgos podrá establecerse:",
+     "opciones": [
+      "La sustitución obligatoria por procesos automatizados.",
+      "La exigencia de un seguro de responsabilidad civil.",
+      "El sometimiento a trámites de control administrativo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 6.1.b): se puede establecer el «sometimiento de estos procesos u operaciones a trámites de control administrativo»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué condiciones o requisitos especiales cita el art. 6.1.c) LPRL como ejemplo?",
+     "opciones": [
+      "La exigencia de un adiestramiento o formación previa o la elaboración de un plan con las medidas preventivas a adoptar.",
+      "La obtención de una autorización previa del Instituto Nacional de Seguridad e Higiene en el Trabajo.",
+      "La realización de un reconocimiento médico semestral y el archivo de los resultados durante cuarenta años."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.1.c): ejemplos de requisitos especiales: adiestramiento o formación previa, o plan con medidas preventivas."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a6-1-servicios",
+   "bloque": "a6",
+   "apartado": "1",
+   "orden": 280,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 6.1.e) LPRL, ¿qué debe considerarse al regular la organización, funcionamiento y control de los servicios de prevención?",
+    "respuesta": "Las peculiaridades de las pequeñas empresas, para evitar obstáculos innecesarios para su creación y desarrollo; además de las capacidades y aptitudes de los servicios y de los trabajadores designados."
+   },
+   "cita": "considerando las peculiaridades de las pequeñas empresas con el fin de evitar obstáculos innecesarios para su creación y desarrollo",
+   "confundible_con": [
+    "LPRL-a6-1-materias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 6.1.e) LPRL, al regular los servicios de prevención se considerarán las peculiaridades de:",
+     "opciones": [
+      "Las grandes empresas",
+      "Las pequeñas empresas"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 6.1.e): peculiaridades de las pequeñas empresas «con el fin de evitar obstáculos innecesarios para su creación y desarrollo»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 6.1.e) de la Ley 31/1995, las normas reglamentarias sobre servicios de prevención regularán, además de su organización:",
+     "opciones": [
+      "Las tarifas máximas que podrán cobrar los servicios de prevención ajenos a las empresas que los contraten.",
+      "El número mínimo de delegados de prevención que deba integrar cada servicio de prevención propio.",
+      "Las capacidades y aptitudes que deban reunir los servicios y los trabajadores designados para la acción preventiva."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 6.1.e): también regula las «capacidades y aptitudes que deban reunir los mencionados servicios y los trabajadores designados»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Con qué fin se consideran las peculiaridades de las pequeñas empresas en el art. 6.1.e) LPRL?",
+     "opciones": [
+      "Evitar obstáculos innecesarios para la creación y desarrollo de los servicios de prevención.",
+      "Eximirlas de la obligación de evaluar los riesgos de sus puestos de trabajo.",
+      "Permitirles prescindir de la designación de trabajadores o de servicios que desarrollen la acción preventiva."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.1.e): el fin es evitar obstáculos a la creación y desarrollo de los servicios, no eximir de obligaciones."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a6-2-ajuste",
+   "bloque": "a6",
+   "apartado": "2",
+   "orden": 290,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 6.2 LPRL, ¿a qué deben ajustarse las normas reglamentarias y qué coordinación mantendrán?",
+    "respuesta": "Se ajustarán a los principios de política preventiva de la Ley, mantendrán coordinación con la normativa sanitaria y de seguridad industrial, y serán objeto de evaluación y, en su caso, revisión periódica."
+   },
+   "cita": "mantendrán la debida coordinación con la normativa sanitaria y de seguridad industrial",
+   "confundible_con": [
+    "LPRL-a6-1-materias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 6.2 LPRL, las normas reglamentarias serán objeto de:",
+     "opciones": [
+      "Evaluación y, en su caso, revisión periódica",
+      "Derogación automática a los cinco años"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.2: las normas «serán objeto de evaluación y, en su caso, de revisión periódica»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 6.2 de la Ley 31/1995, las normas reglamentarias de desarrollo mantendrán la debida coordinación con:",
+     "opciones": [
+      "La normativa urbanística y de ordenación del territorio.",
+      "La normativa fiscal y de Seguridad Social de las empresas.",
+      "La normativa sanitaria y de seguridad industrial."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 6.2: coordinación con «la normativa sanitaria y de seguridad industrial»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Con arreglo a qué criterios se revisarán las normas reglamentarias según el art. 6.2 LPRL?",
+     "opciones": [
+      "De acuerdo con la experiencia en su aplicación y el progreso de la técnica.",
+      "Según el informe anual de siniestralidad que apruebe la Comisión Nacional de Seguridad y Salud en el Trabajo.",
+      "Según las propuestas de modificación de las organizaciones sindicales más representativas en cada ejercicio."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.2: revisión «de acuerdo con la experiencia en su aplicación y el progreso de la técnica»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a7-1-funciones",
+   "bloque": "a7",
+   "apartado": "1",
+   "orden": 300,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 7.1 LPRL, ¿qué funciones desarrollan las Administraciones públicas competentes en materia laboral?",
+    "respuesta": "Promoción de la prevención, asesoramiento técnico, vigilancia y control del cumplimiento de la normativa, y sanción de las infracciones."
+   },
+   "cita": "desarrollarán funciones de promoción de la prevención, asesoramiento técnico, vigilancia y control del cumplimiento",
+   "confundible_con": [
+    "LPRL-a9-1-funciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 7.1 LPRL, ¿qué debe hacer la Administración laboral con el incumplimiento de la normativa preventiva?",
+     "opciones": [
+      "Tolerarlo durante el primer año",
+      "Sancionarlo, con arreglo al capítulo VII"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 7.1: promoción, asesoramiento técnico, vigilancia y control y sanción de las infracciones."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 7.1 de la Ley 31/1995, las Administraciones públicas competentes en materia laboral desarrollarán funciones de:",
+     "opciones": [
+      "Elaboración de las normas reglamentarias, nombramiento de los delegados de prevención y acreditación de los servicios ajenos.",
+      "Investigación científica, certificación de equipos de protección individual y gestión de las prestaciones por accidente.",
+      "Promoción de la prevención, asesoramiento técnico, vigilancia y control del cumplimiento de la normativa, y sanción de infracciones."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 7.1: funciones de promoción de la prevención, asesoramiento técnico, vigilancia y control, y sanción."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas actuaciones corresponde a la Administración laboral según el art. 7.1 LPRL?",
+     "opciones": [
+      "Desarrollar programas específicos dirigidos a lograr una mayor eficacia en el control del cumplimiento de la normativa.",
+      "Sustituir a los empresarios en la elaboración del plan de prevención de los centros de trabajo de las PYMES.",
+      "Calificar las contingencias de los accidentes de trabajo a efectos del reconocimiento de prestaciones económicas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 7.1.b): desarrollan «programas específicos dirigidos a lograr una mayor eficacia en el control»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a7-2-excepciones",
+   "bloque": "a7",
+   "apartado": "2",
+   "orden": 310,
+   "tipo": "dato",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 7.2 LPRL, ¿qué trabajos siguen sujetos a los órganos específicos de su normativa reguladora en lugar de a la Administración laboral general?",
+    "respuesta": "Los trabajos en minas, canteras y túneles que exijan técnica minera, los que impliquen fabricación, transporte, almacenamiento, manipulación y utilización de explosivos, y el empleo de energía nuclear."
+   },
+   "cita": "trabajos en minas, canteras y túneles que exijan la aplicación de técnica minera",
+   "confundible_con": [
+    "LPRL-a7-1-funciones",
+    "LPRL-a3-2-exclusiones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 7.2 LPRL, ¿qué trabajos se rigen por órganos específicos de su normativa reguladora?",
+     "opciones": [
+      "Los de minas, canteras y túneles que exijan técnica minera",
+      "Los de oficinas y despachos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 7.2: trabajos en minas, canteras y túneles que exijan técnica minera."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 7.2 de la Ley 31/1995, continuarán desarrollando las funciones del apartado 1 los órganos específicos de su normativa en los trabajos que impliquen:",
+     "opciones": [
+      "Manipulación de cargas con riesgo dorsolumbar o utilización de pantallas de visualización de datos de forma habitual.",
+      "Exposición a agentes biológicos en laboratorios o centros sanitarios de titularidad pública o privada.",
+      "Fabricación, transporte, almacenamiento, manipulación y utilización de explosivos, o el empleo de energía nuclear."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 7.2: explosivos (fabricación, transporte, almacenamiento, manipulación y utilización) y energía nuclear."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué aclara el art. 7.2 LPRL sobre las competencias de la Administración laboral respecto de la legislación específica?",
+     "opciones": [
+      "Se entienden sin perjuicio de lo establecido en la legislación específica sobre productos e instalaciones industriales.",
+      "Prevalecen sobre la legislación específica de productos e instalaciones industriales en todos los casos.",
+      "Se transfieren a los órganos de la legislación industrial cuando existan riesgos graves e inminentes."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 7.2 párr. 2: «sin perjuicio de lo establecido en la legislación específica sobre productos e instalaciones industriales»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a8-1-instituto",
+   "bloque": "a8",
+   "apartado": "1",
+   "orden": 320,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 8.1 LPRL, ¿qué es el Instituto Nacional de Seguridad e Higiene en el Trabajo y cuál es su misión?",
+    "respuesta": "El órgano científico técnico especializado de la Administración General del Estado, con la misión de analizar y estudiar las condiciones de seguridad y salud en el trabajo y promover y apoyar su mejora."
+   },
+   "cita": "órgano científico técnico especializado de la Administración General del Estado",
+   "confundible_con": [
+    "LPRL-a9-1-funciones",
+    "LPRL-a13-comision"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 8.1 LPRL, el Instituto Nacional de Seguridad e Higiene en el Trabajo es un órgano:",
+     "opciones": [
+      "De inspección y sanción de la Administración laboral",
+      "Científico técnico especializado de la Administración General del Estado"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 8.1: «órgano científico técnico especializado de la Administración General del Estado»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 8.1 de la Ley 31/1995, la misión del Instituto Nacional de Seguridad e Higiene en el Trabajo es:",
+     "opciones": [
+      "La vigilancia y control del cumplimiento de la normativa preventiva y la propuesta de sanciones a las empresas.",
+      "La participación institucional de empresarios y trabajadores en la formulación de las políticas públicas preventivas.",
+      "El análisis y estudio de las condiciones de seguridad y salud en el trabajo y la promoción y apoyo a su mejora."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 8.1: misión = análisis y estudio de las condiciones de seguridad y salud y promoción y apoyo a su mejora."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Con qué órganos establecerá la cooperación necesaria el Instituto según el art. 8.1 LPRL para cumplir su misión?",
+     "opciones": [
+      "Con los órganos de las Comunidades Autónomas con competencias en esta materia.",
+      "Con los servicios de prevención ajenos acreditados y las mutuas colaboradoras de la Seguridad Social.",
+      "Con los comités de seguridad y salud y los delegados de prevención de las empresas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.1: cooperación «con los órganos de las Comunidades Autónomas con competencias en esta materia»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a8-1-funciones",
+   "bloque": "a8",
+   "apartado": "1",
+   "orden": 330,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 8.1 LPRL, ¿qué funciones tiene el Instituto Nacional de Seguridad e Higiene en el Trabajo?",
+    "respuesta": "Asesoramiento técnico en normativa y normalización; formación, información, investigación y divulgación; apoyo técnico a la Inspección de Trabajo; colaboración internacional; y las que se le encomienden de acuerdo con la Comisión Nacional."
+   },
+   "cita": "Asesoramiento técnico en la elaboración de la normativa legal y en el desarrollo de la normalización",
+   "confundible_con": [
+    "LPRL-a9-1-funciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 8.1.a) LPRL, el Instituto presta asesoramiento técnico en la elaboración de la normativa y en el desarrollo de:",
+     "opciones": [
+      "La normalización, nacional e internacional",
+      "La negociación colectiva"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.1.a): asesoramiento técnico en normativa y en normalización, nacional e internacional."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 8.1.c) de la Ley 31/1995, el Instituto presta a la Inspección de Trabajo y Seguridad Social:",
+     "opciones": [
+      "Autorización previa para cada visita de comprobación a los centros de trabajo de las empresas privadas.",
+      "Sustitución en la imposición de sanciones por infracciones graves y muy graves en materia preventiva.",
+      "Apoyo técnico y colaboración en su función de vigilancia y control en el ámbito de las Administraciones públicas."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 8.1.c): apoyo técnico y colaboración con la Inspección de Trabajo y Seguridad Social, en el ámbito de las Administraciones públicas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas actividades NO figura entre las funciones del Instituto en el art. 8.1 LPRL?",
+     "opciones": [
+      "Imponer sanciones a las empresas que incumplan la normativa preventiva.",
+      "Colaborar con organismos internacionales y desarrollar programas de cooperación internacional.",
+      "Promover actividades de formación, información, investigación, estudio y divulgación preventiva."
+     ],
+     "correcta": 0,
+     "explicacion": "Sancionar corresponde a la Administración laboral (art. 7.1.c) y la Inspección propone la sanción (art. 9); no es función del Instituto."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a8-2-coordinacion",
+   "bloque": "a8",
+   "apartado": "2",
+   "orden": 340,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 8.2 LPRL, ¿qué apoyo técnico especializado presta el Instituto, de acuerdo con las Administraciones competentes?",
+    "respuesta": "En materia de certificación, ensayo y acreditación; además vela por la coordinación y apoya el intercambio de información y experiencias entre las Administraciones públicas."
+   },
+   "cita": "apoyo técnico especializado en materia de certificación, ensayo y acreditación",
+   "confundible_con": [
+    "LPRL-a8-3-ue"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 8.2 LPRL, el Instituto presta apoyo técnico especializado en materia de:",
+     "opciones": [
+      "Recaudación y gestión de cotizaciones",
+      "Certificación, ensayo y acreditación"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 8.2 párr. 2: apoyo técnico especializado «en materia de certificación, ensayo y acreditación»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 8.2 de la Ley 31/1995, el Instituto velará por la coordinación y apoyará el intercambio de información y experiencias entre:",
+     "opciones": [
+      "Los servicios de prevención ajenos y las empresas que los contratan.",
+      "Las organizaciones sindicales y las empresariales más representativas.",
+      "Las distintas Administraciones públicas."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 8.2: vela por la coordinación y apoya el intercambio de información y experiencias entre las distintas Administraciones públicas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué actividades de las Comunidades Autónomas fomenta y apoya especialmente el Instituto según el art. 8.2 LPRL?",
+     "opciones": [
+      "Las de promoción de la seguridad y de la salud.",
+      "Las de sanción de las infracciones graves en materia preventiva.",
+      "Las de acreditación de los servicios de prevención ajenos de su territorio."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.2: fomenta y presta apoyo a las actividades de promoción de la seguridad y de la salud por las Comunidades Autónomas."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a8-3-ue",
+   "bloque": "a8",
+   "apartado": "3",
+   "orden": 350,
+   "tipo": "dato",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 8.3 LPRL, ¿qué papel tiene el Instituto en relación con las Instituciones de la Unión Europea?",
+    "respuesta": "Actúa como centro de referencia nacional, garantizando la coordinación y transmisión de la información, en particular respecto a la Agencia Europea para la Seguridad y la Salud en el Trabajo y su Red."
+   },
+   "cita": "actuará como centro de referencia nacional",
+   "confundible_con": [
+    "LPRL-a8-2-coordinacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 8.3 LPRL, ante las Instituciones de la Unión Europea el Instituto actúa como:",
+     "opciones": [
+      "Centro de referencia nacional",
+      "Órgano sancionador europeo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.3: «actuará como centro de referencia nacional»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 8.3 de la Ley 31/1995, el Instituto garantiza la coordinación y transmisión de la información, en particular respecto a:",
+     "opciones": [
+      "La Comisión Europea y los ministerios de trabajo de los demás Estados miembros.",
+      "La Organización Internacional del Trabajo y la Organización Mundial de la Salud.",
+      "La Agencia Europea para la Seguridad y la Salud en el Trabajo y su Red."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 8.3: en particular respecto a la Agencia Europea para la Seguridad y la Salud en el Trabajo y su Red."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 8.3 LPRL es correcta?",
+     "opciones": [
+      "El Instituto actúa como centro de referencia nacional y garantiza la transmisión de la información que deba facilitarse a escala nacional.",
+      "El Instituto sustituye a las Comunidades Autónomas en todas sus relaciones con las Instituciones de la Unión Europea en esta materia.",
+      "El Instituto ejerce la representación de España en el Consejo de la Unión Europea cuando se traten asuntos de empleo y política social."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.3: centro de referencia nacional que garantiza la coordinación y transmisión de la información."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a8-4-secretaria",
+   "bloque": "a8",
+   "apartado": "4",
+   "orden": 360,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 8.4 LPRL, ¿qué función ejerce el Instituto respecto de la Comisión Nacional de Seguridad y Salud en el Trabajo?",
+    "respuesta": "Ejerce su Secretaría General, prestándole la asistencia técnica y científica necesaria para el desarrollo de sus competencias."
+   },
+   "cita": "ejercerá la Secretaría General de la Comisión Nacional de Seguridad y Salud en el Trabajo",
+   "confundible_con": [
+    "LPRL-a13-comision"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 8.4 LPRL, el Instituto ejerce, respecto de la Comisión Nacional de Seguridad y Salud en el Trabajo, la:",
+     "opciones": [
+      "Presidencia",
+      "Secretaría General"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 8.4: el Instituto «ejercerá la Secretaría General» de la Comisión Nacional."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 8.4 de la Ley 31/1995, el Instituto presta a la Comisión Nacional de Seguridad y Salud en el Trabajo:",
+     "opciones": [
+      "El control económico y la fiscalización de los fondos asignados para su funcionamiento.",
+      "La representación ante los órganos de la Unión Europea competentes en seguridad y salud.",
+      "La asistencia técnica y científica necesaria para el desarrollo de sus competencias."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 8.4: asistencia técnica y científica «necesaria para el desarrollo de sus competencias»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la relación entre el Instituto y la Comisión Nacional (art. 8.4 LPRL) es correcta?",
+     "opciones": [
+      "El Instituto ejerce la Secretaría General de la Comisión y le presta asistencia técnica y científica.",
+      "La Comisión ejerce la Secretaría General del Instituto y le presta asistencia técnica y científica.",
+      "El Instituto preside la Comisión Nacional y nombra a los representantes de las Comunidades Autónomas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.4: la Secretaría General la ejerce el Instituto, no al revés; la presidencia no se le atribuye."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a9-1-funciones",
+   "bloque": "a9",
+   "apartado": "1",
+   "orden": 400,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 9.1 LPRL, ¿a quién corresponde la función de vigilancia y control de la normativa de prevención de riesgos laborales y qué hace cuando comprueba una infracción?",
+    "respuesta": "A la Inspección de Trabajo y Seguridad Social; cuando comprueba una infracción propone a la autoridad laboral competente la sanción correspondiente (capítulo VII)."
+   },
+   "cita": "Corresponde a la Inspección de Trabajo y Seguridad Social la función de la vigilancia y control de la normativa sobre prevención de riesgos laborales",
+   "confundible_con": [
+    "LPRL-a7-1-funciones",
+    "LPRL-a8-1-instituto"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 9.1 LPRL, ¿qué órgano tiene encomendada la función de vigilancia y control de la normativa preventiva?",
+     "opciones": [
+      "La Inspección de Trabajo y Seguridad Social",
+      "El Instituto Nacional de Seguridad e Higiene en el Trabajo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.1: «Corresponde a la Inspección de Trabajo y Seguridad Social la función de la vigilancia y control»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 9.1.a) de la Ley 31/1995, cuando la Inspección comprueba una infracción a la normativa preventiva:",
+     "opciones": [
+      "Impone directamente la sanción y la notifica al empresario infractor en el mismo acto.",
+      "Remite el expediente al Instituto Nacional de Seguridad e Higiene en el Trabajo para su resolución.",
+      "Propone a la autoridad laboral competente la sanción correspondiente."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 9.1.a): la Inspección propone la sanción a la autoridad laboral competente (cap. VII); no la impone."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué normas vigila la Inspección de Trabajo según el art. 9.1.a) LPRL, además de la normativa preventiva?",
+     "opciones": [
+      "Las normas jurídico-técnicas que incidan en las condiciones de trabajo en materia de prevención, aunque no tengan la calificación directa de normativa laboral.",
+      "Únicamente las normas de naturaleza estrictamente laboral que aprueben las Comunidades Autónomas en su propio ámbito territorial.",
+      "Los convenios colectivos sectoriales que regulen exclusivamente la jornada, las retribuciones y las vacaciones de los trabajadores."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.1.a): vigila también las normas jurídico-técnicas con incidencia preventiva, «aunque no tuvieran la calificación directa de normativa laboral»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a9-1-paralizacion",
+   "bloque": "a9",
+   "apartado": "1",
+   "orden": 410,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 9.1.f) LPRL, ¿qué puede ordenar la Inspección de Trabajo cuando advierta riesgo grave e inminente para la seguridad o salud de los trabajadores?",
+    "respuesta": "La paralización inmediata de los trabajos, a juicio del inspector."
+   },
+   "cita": "Ordenar la paralización inmediata de trabajos cuando, a juicio del inspector, se advierta la existencia de riesgo grave e inminente",
+   "confundible_con": [
+    "LPRL-a4-grave-inminente"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 9.1.f) LPRL, ante un riesgo grave e inminente, el inspector puede ordenar:",
+     "opciones": [
+      "El cierre definitivo de la empresa",
+      "La paralización inmediata de los trabajos"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 9.1.f): «ordenar la paralización inmediata de trabajos» ante riesgo grave e inminente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 9.1.f) de la Ley 31/1995, la Inspección de Trabajo ordenará la paralización inmediata de trabajos cuando, a juicio del inspector:",
+     "opciones": [
+      "Se detecte cualquier infracción leve en materia de prevención de riesgos en el centro de trabajo.",
+      "El empresario no haya atendido un requerimiento previo para modificar el plan de prevención.",
+      "Se advierta la existencia de riesgo grave e inminente para la seguridad o salud de los trabajadores."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 9.1.f): el presupuesto es el riesgo grave e inminente apreciado por el inspector, no cualquier infracción."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la paralización de trabajos del art. 9.1.f) LPRL es correcta?",
+     "opciones": [
+      "Depende del juicio del inspector sobre la existencia de riesgo grave e inminente.",
+      "Exige la autorización previa de la autoridad laboral antes de que el inspector la ordene.",
+      "Solo puede acordarse a petición de los representantes de los trabajadores o del empresario."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.1.f): la decisión es «a juicio del inspector»; la Ley no exige autorización previa ni petición de parte."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a9-1-informes",
+   "bloque": "a9",
+   "apartado": "1",
+   "orden": 420,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 9.1.c) y d) LPRL, ¿qué informes elabora la Inspección de Trabajo y para quién?",
+    "respuesta": "Los informes que soliciten los Juzgados de lo Social en procesos de accidentes de trabajo y enfermedades profesionales; e informa a la autoridad laboral sobre los accidentes de trabajo mortales, muy graves o graves y las enfermedades profesionales con esas calificaciones."
+   },
+   "cita": "Informar a la autoridad laboral sobre los accidentes de trabajo mortales, muy graves o graves",
+   "confundible_con": [
+    "LPRL-a9-1-funciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 9.1.c) LPRL, la Inspección elabora los informes solicitados por:",
+     "opciones": [
+      "Los Juzgados de lo Social",
+      "Los Juzgados de lo Penal"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.1.c): informes para los Juzgados de lo Social en procedimientos de accidentes de trabajo y enfermedades profesionales."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 9.1.d) de la Ley 31/1995, la Inspección informa a la autoridad laboral sobre los accidentes de trabajo:",
+     "opciones": [
+      "Leves que causen baja médica de más de tres días y todos los que se produzcan en empresas de más de cincuenta trabajadores.",
+      "Que den lugar a una indemnización superior a la que fije el convenio colectivo aplicable a la empresa.",
+      "Mortales, muy graves o graves, y aquellos otros en que se considere necesario por sus características o por los sujetos afectados."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 9.1.d): accidentes mortales, muy graves o graves y los demás que se considere necesario informar por sus características o los sujetos afectados."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué otra función le atribuye el art. 9.1 LPRL a la Inspección de Trabajo en relación con los servicios de prevención?",
+     "opciones": [
+      "Comprobar y favorecer el cumplimiento de las obligaciones asumidas por los servicios de prevención.",
+      "Autorizar el funcionamiento de los servicios de prevención ajenos y fijar el importe de sus tarifas.",
+      "Designar a los trabajadores que desarrollarán la actividad preventiva en las empresas de menos de seis trabajadores."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.1.e): «comprobar y favorecer el cumplimiento de las obligaciones asumidas por los servicios de prevención»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a9-2-colaboracion",
+   "bloque": "a9",
+   "apartado": "2",
+   "orden": 430,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 9.2 LPRL, ¿quién presta la colaboración pericial y el asesoramiento técnico a la Inspección en el ámbito de la AGE, y qué elaboran y coordinan las Administraciones?",
+    "respuesta": "El Instituto Nacional de Seguridad e Higiene en el Trabajo; y planes de actuación para contribuir al desarrollo de las actuaciones preventivas, especialmente en empresas de mediano y pequeño tamaño y en sectores con mayor riesgo o siniestralidad."
+   },
+   "cita": "serán prestados por el Instituto Nacional de Seguridad e Higiene en el Trabajo",
+   "confundible_con": [
+    "LPRL-a9-3-informe",
+    "LPRL-a8-1-funciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 9.2 LPRL, en el ámbito de la AGE la colaboración pericial y el asesoramiento técnico a la Inspección los presta:",
+     "opciones": [
+      "La Comisión Nacional de Seguridad y Salud en el Trabajo",
+      "El Instituto Nacional de Seguridad e Higiene en el Trabajo"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 9.2: en la AGE la colaboración pericial y el asesoramiento los presta el Instituto Nacional de Seguridad e Higiene en el Trabajo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 9.2 de la Ley 31/1995, los planes de actuación de las Administraciones se dirigirán especialmente a:",
+     "opciones": [
+      "Las grandes empresas con más de quinientos trabajadores y servicios de prevención mancomunados propios.",
+      "Las empresas que hayan sido sancionadas por infracciones muy graves en los últimos cinco ejercicios.",
+      "Las empresas de mediano y pequeño tamaño y las de sectores de actividad con mayor nivel de riesgo o siniestralidad."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 9.2 párr. 2: planes de actuación para las empresas «especialmente las de mediano y pequeño tamaño y las de sectores de actividad con mayor nivel de riesgo o de siniestralidad»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué pueden desempeñar los funcionarios técnicos de las Administraciones públicas según el art. 9.2 LPRL?",
+     "opciones": [
+      "Funciones de asesoramiento, información y comprobatorias de las condiciones de seguridad y salud, con capacidad de requerimiento (art. 43).",
+      "Funciones de sanción directa de las infracciones leves y graves detectadas en las empresas y centros de trabajo.",
+      "Funciones de paralización de trabajos y de levantamiento de actas de infracción por sí mismos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.2 párr. 3: asesoramiento, información y comprobación, con capacidad de requerimiento del art. 43; el acta de infracción la levanta la Inspección (art. 9.3)."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a9-3-informe",
+   "bloque": "a9",
+   "apartado": "3",
+   "orden": 440,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 9.3 LPRL, ¿qué ocurre si de las actuaciones de comprobación de los funcionarios técnicos se deduce una infracción y ha mediado incumplimiento de previo requerimiento?",
+    "respuesta": "El funcionario remite un informe con los hechos comprobados a la Inspección de Trabajo y Seguridad Social, para que se levante el acta de infracción si procede; los hechos de condiciones materiales o técnicas gozan de presunción de certeza."
+   },
+   "cita": "el funcionario actuante remitirá informe a la Inspección de Trabajo y Seguridad Social",
+   "confundible_con": [
+    "LPRL-a9-2-colaboracion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 9.3 LPRL, el funcionario técnico remite su informe sobre la infracción a:",
+     "opciones": [
+      "La Inspección de Trabajo y Seguridad Social",
+      "El Instituto Nacional de Seguridad e Higiene en el Trabajo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.3: el funcionario actuante remite informe a la Inspección con los hechos comprobados, a efectos del acta de infracción si procede."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 9.3 de la Ley 31/1995, el informe del funcionario actuante se remite a la Inspección siempre que haya mediado:",
+     "opciones": [
+      "Denuncia de los representantes de los trabajadores.",
+      "Un accidente de trabajo grave o mortal en la empresa.",
+      "Incumplimiento de previo requerimiento."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 9.3: el presupuesto es el incumplimiento de previo requerimiento."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué valor tienen los hechos sobre condiciones materiales o técnicas de seguridad y salud recogidos en esos informes según el art. 9.3 LPRL?",
+     "opciones": [
+      "Gozan de la presunción de certeza de la disposición adicional cuarta, apartado 2, de la Ley 42/1997.",
+      "Carecen de valor probatorio hasta que los ratifique la autoridad laboral competente en la materia.",
+      "Solo sirven como orientación y no pueden fundamentar un acta de infracción en ningún caso."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.3 párr. 2: presunción de certeza (DA 4.ª.2 de la Ley 42/1997) para los hechos de comprobación de condiciones materiales o técnicas."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a9-4-plazos",
+   "bloque": "a9",
+   "apartado": "4",
+   "orden": 450,
+   "tipo": "dato",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 9.4 LPRL, ¿a qué plazos están sujetas las actuaciones de comprobación y de informe previstas en los apartados 2 y 3?",
+    "respuesta": "A los plazos establecidos en el artículo 14, apartado 2, de la Ley 42/1997, Ordenadora de la Inspección de Trabajo y Seguridad Social."
+   },
+   "cita": "estarán sujetas a los plazos establecidos en el artículo 14, apartado 2, de la Ley 42/1997",
+   "confundible_con": [
+    "LPRL-a9-3-informe"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 9.4 LPRL, las actuaciones de los apartados 2 y 3 están sujetas a los plazos de la Ley:",
+     "opciones": [
+      "14/1986, General de Sanidad",
+      "42/1997, Ordenadora de la Inspección de Trabajo y Seguridad Social"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 9.4: plazos del «artículo 14, apartado 2, de la Ley 42/1997»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 9.4 de la Ley 31/1995, las actuaciones de comprobación y de informe de los apartados anteriores están sujetas a los plazos:",
+     "opciones": [
+      "Del capítulo VII de la propia Ley 31/1995 sobre responsabilidades y sanciones.",
+      "Que fije el Instituto Nacional de Seguridad e Higiene en el Trabajo en cada actuación.",
+      "Del artículo 14, apartado 2, de la Ley Ordenadora de la Inspección de Trabajo y Seguridad Social."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 9.4: se remite al art. 14.2 de la Ley 42/1997 y no al cap. VII ni a un plazo fijado por el INSHT."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 9.4 LPRL es correcta?",
+     "opciones": [
+      "Remite los plazos de las actuaciones de los apartados 2 y 3 a la Ley Ordenadora de la Inspección de Trabajo y Seguridad Social.",
+      "Fija directamente un plazo de diez días hábiles para que el funcionario remita su informe a la Inspección.",
+      "Declara que las actuaciones de comprobación no están sujetas a plazo alguno de caducidad."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.4 no fija plazos propios: se remite a la Ley 42/1997."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a10-sanitaria",
+   "bloque": "a10",
+   "apartado": "",
+   "orden": 460,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 10 LPRL, ¿en qué norma se basan las actuaciones sanitarias en salud laboral y qué establecen las Administraciones sanitarias para los servicios de prevención?",
+    "respuesta": "En el capítulo IV del Título I de la Ley 14/1986 General de Sanidad; establecen medios para evaluar y controlar las actuaciones sanitarias de los servicios de prevención y las pautas y protocolos a los que deben someterse, oídas las sociedades científicas."
+   },
+   "cita": "las pautas y protocolos de actuación, oídas las sociedades científicas",
+   "confundible_con": [
+    "LPRL-a11-coordinacion",
+    "LPRL-a10-mapas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 10 LPRL, las actuaciones sanitarias en salud laboral se basan en el capítulo IV del Título I de la Ley:",
+     "opciones": [
+      "14/1986, General de Sanidad",
+      "42/1997, Ordenadora de la Inspección de Trabajo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 10 párr. 1: acciones del cap. IV del Título I de la Ley 14/1986, General de Sanidad."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 10.a) de la Ley 31/1995, las Administraciones sanitarias establecerán las pautas y protocolos de actuación de los servicios de prevención:",
+     "opciones": [
+      "Previo informe vinculante de la Inspección de Trabajo.",
+      "De acuerdo con los delegados de prevención de cada empresa.",
+      "Oídas las sociedades científicas."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 10.a): pautas y protocolos «oídas las sociedades científicas»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué le corresponde a las Administraciones sanitarias respecto de la formación según el art. 10.c) LPRL?",
+     "opciones": [
+      "Supervisar la formación en prevención y promoción de la salud laboral que deba recibir el personal sanitario de los servicios de prevención autorizados.",
+      "Impartir la formación en prevención de riesgos a todos los trabajadores de las empresas de su territorio.",
+      "Acreditar la formación de los trabajadores designados por el empresario para la acción preventiva en las empresas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 10.c): supervisión de la formación del personal sanitario de los servicios de prevención autorizados."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a10-mapas",
+   "bloque": "a10",
+   "apartado": "",
+   "orden": 470,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 10.b) LPRL, ¿qué sistemas deben implantar las Administraciones sanitarias junto con las autoridades laborales?",
+    "respuesta": "Sistemas de información adecuados que permitan elaborar mapas de riesgos laborales y realizar estudios epidemiológicos para identificar y prevenir patologías que afecten a la salud de los trabajadores, con rápido intercambio de información."
+   },
+   "cita": "elaboración, junto con las autoridades laborales competentes, de mapas de riesgos laborales",
+   "confundible_con": [
+    "LPRL-a10-sanitaria"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 10.b) LPRL, los sistemas de información permiten elaborar, junto con las autoridades laborales, los:",
+     "opciones": [
+      "Planes de emergencia",
+      "Mapas de riesgos laborales"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 10.b): mapas de riesgos laborales elaborados junto con las autoridades laborales competentes."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 10.b) de la Ley 31/1995, además de los mapas de riesgos, esos sistemas de información permiten:",
+     "opciones": [
+      "Calificar las enfermedades profesionales y fijar las prestaciones económicas que corresponda abonar a cada trabajador.",
+      "Acreditar a los servicios de prevención ajenos y supervisar el cobro de sus tarifas en cada Comunidad Autónoma.",
+      "Realizar estudios epidemiológicos para identificar y prevenir las patologías que puedan afectar a la salud de los trabajadores."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 10.b): también estudios epidemiológicos para la identificación y prevención de patologías."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué le corresponde a las Administraciones sanitarias según el art. 10.d) LPRL?",
+     "opciones": [
+      "La elaboración y divulgación de estudios, investigaciones y estadísticas relacionados con la salud de los trabajadores.",
+      "La vigilancia y el control del cumplimiento de la normativa de prevención en los centros de trabajo.",
+      "La propuesta de sanciones a las empresas que incumplan sus obligaciones en materia de vigilancia de la salud."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 10.d): elaboración y divulgación de estudios, investigaciones y estadísticas sobre la salud de los trabajadores."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a11-coordinacion",
+   "bloque": "a11",
+   "apartado": "",
+   "orden": 480,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 11 LPRL, ¿entre qué Administraciones es necesario coordinar las actuaciones y a quién debe comunicar la Administración laboral la información obtenida por la Inspección?",
+    "respuesta": "Entre las Administraciones competentes en materia laboral, sanitaria y de industria; la Administración laboral vela por que la información de la Inspección se ponga en conocimiento de la autoridad sanitaria y de la Administración competente en industria."
+   },
+   "cita": "coordinar las actuaciones de las Administraciones competentes en materia laboral, sanitaria y de industria",
+   "confundible_con": [
+    "LPRL-a10-sanitaria",
+    "LPRL-a13-3-funciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 11 LPRL, hay que coordinar las actuaciones de las Administraciones competentes en materia laboral, sanitaria y de:",
+     "opciones": [
+      "Industria",
+      "Hacienda"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11: coordinación de las Administraciones laboral, sanitaria y de industria."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 11 de la Ley 31/1995, la Administración laboral velará por que la información obtenida por la Inspección se ponga en conocimiento de:",
+     "opciones": [
+      "El Instituto Nacional de Seguridad e Higiene en el Trabajo y las organizaciones sindicales.",
+      "Los Juzgados de lo Social y la Comisión Nacional de Seguridad y Salud en el Trabajo.",
+      "La autoridad sanitaria competente y la Administración competente en materia de industria."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 11 párr. 2: la información de la Inspección se comunica a la autoridad sanitaria (art. 10 y art. 21 de la Ley General de Sanidad) y a la Administración de industria (Ley 21/1992)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué actividades determinan, según el art. 11 LPRL, la necesidad de coordinar las actuaciones administrativas?",
+     "opciones": [
+      "La elaboración de normas y el control de su cumplimiento, la promoción de la prevención, la investigación y la vigilancia epidemiológica.",
+      "La contratación de servicios de prevención ajenos y la acreditación de las entidades especializadas en la materia.",
+      "La negociación colectiva sectorial y la regulación de las condiciones de empleo en las empresas del sector."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11 párr. 1: normas y control, promoción, investigación y vigilancia epidemiológica determinan la necesidad de coordinar."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a12-participacion",
+   "bloque": "a12",
+   "apartado": "",
+   "orden": 490,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 12 LPRL, ¿qué es la participación de empresarios y trabajadores, a través de sus organizaciones más representativas, en la gestión de la mejora de las condiciones de trabajo?",
+    "respuesta": "Un principio básico de la política de prevención de riesgos laborales, a desarrollar por las Administraciones públicas competentes en los distintos niveles territoriales."
+   },
+   "cita": "es principio básico de la política de prevención de riesgos laborales",
+   "confundible_con": [
+    "LPRL-a5-1-cooperacion",
+    "LPRL-a13-2-composicion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 12 LPRL, la participación de empresarios y trabajadores es un principio básico de:",
+     "opciones": [
+      "La negociación colectiva sectorial",
+      "La política de prevención de riesgos laborales"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 12: participación = «principio básico de la política de prevención de riesgos laborales»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 12 de la Ley 31/1995, la participación de empresarios y trabajadores se produce en:",
+     "opciones": [
+      "La designación de los miembros del Tribunal que juzga los recursos contra las sanciones laborales.",
+      "La contratación de los servicios de prevención ajenos por las Administraciones públicas competentes.",
+      "La planificación, programación, organización y control de la gestión relacionada con la mejora de las condiciones de trabajo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 12: planificación, programación, organización y control de la gestión de la mejora de condiciones de trabajo y protección de la seguridad y salud."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 12 LPRL es correcta?",
+     "opciones": [
+      "Esa participación se hace a través de las organizaciones empresariales y sindicales más representativas.",
+      "Esa participación se hace a través de los comités de empresa de cada centro de trabajo sin distinción.",
+      "Esa participación solo se desarrolla en el nivel estatal, sin intervención de otros niveles territoriales."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 12: a través de las organizaciones empresariales y sindicales más representativas, en los distintos niveles territoriales."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a13-comision",
+   "bloque": "a13",
+   "apartado": "1",
+   "orden": 500,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 13.1 LPRL, ¿qué es la Comisión Nacional de Seguridad y Salud en el Trabajo?",
+    "respuesta": "Un órgano colegiado asesor de las Administraciones públicas en la formulación de las políticas de prevención y órgano de participación institucional en materia de seguridad y salud en el trabajo."
+   },
+   "cita": "órgano colegiado asesor de las Administraciones públicas en la formulación de las políticas de prevención",
+   "confundible_con": [
+    "LPRL-a8-1-instituto",
+    "LPRL-a13-2-composicion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 13.1 LPRL, la Comisión Nacional de Seguridad y Salud en el Trabajo es un órgano colegiado:",
+     "opciones": [
+      "Asesor de las Administraciones públicas",
+      "Sancionador de las Administraciones públicas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.1: «órgano colegiado asesor de las Administraciones públicas en la formulación de las políticas de prevención»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 13.1 de la Ley 31/1995, la Comisión Nacional de Seguridad y Salud en el Trabajo es además:",
+     "opciones": [
+      "Órgano de la Inspección de Trabajo con facultad de paralizar trabajos con riesgo grave e inminente.",
+      "Órgano científico técnico de la Administración General del Estado para el estudio de las condiciones de trabajo.",
+      "Órgano de participación institucional en materia de seguridad y salud en el trabajo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 13.1: además es «órgano de participación institucional en materia de seguridad y salud en el trabajo»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la Comisión Nacional (art. 13.1 LPRL) es correcta?",
+     "opciones": [
+      "Asesora a las Administraciones públicas en la formulación de las políticas de prevención.",
+      "Elabora y aprueba las normas reglamentarias de desarrollo de la Ley sin intervención del Gobierno.",
+      "Vigila el cumplimiento de la normativa y propone sanciones a la autoridad laboral competente."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.1: asesora en la formulación de políticas; no aprueba reglamentos (art. 6, Gobierno) ni vigila (art. 9, Inspección)."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a13-2-composicion",
+   "bloque": "a13",
+   "apartado": "2",
+   "orden": 510,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 13.2 LPRL, ¿cómo está integrada la Comisión Nacional de Seguridad y Salud en el Trabajo?",
+    "respuesta": "Por un representante de cada Comunidad Autónoma, igual número de miembros de la Administración General del Estado y, paritariamente con todos los anteriores, representantes de las organizaciones empresariales y sindicales más representativas."
+   },
+   "cita": "un representante de cada una de las Comunidades Autónomas y por igual número de miembros de la Administración General del Estado",
+   "confundible_con": [
+    "LPRL-a12-participacion",
+    "LPRL-a13-4-acuerdos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 13.2 LPRL, la Comisión cuenta con un representante de:",
+     "opciones": [
+      "Cada una de las provincias",
+      "Cada una de las Comunidades Autónomas"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 13.2: un representante por cada Comunidad Autónoma e igual número de miembros de la AGE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 13.2 de la Ley 31/1995, junto a los representantes de las Comunidades Autónomas y de la AGE, la Comisión se integra paritariamente por:",
+     "opciones": [
+      "Representantes de los servicios de prevención ajenos y de las mutuas colaboradoras.",
+      "Representantes de las sociedades científicas y de los colegios profesionales sanitarios.",
+      "Representantes de las organizaciones empresariales y sindicales más representativas."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 13.2: paritariamente con todos los anteriores, organizaciones empresariales y sindicales más representativas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas descripciones de la composición de la Comisión Nacional (art. 13.2 LPRL) es correcta?",
+     "opciones": [
+      "Un representante por Comunidad Autónoma, igual número de miembros de la AGE y, paritariamente, organizaciones empresariales y sindicales.",
+      "Un representante por Comunidad Autónoma, la mitad de miembros de la AGE y organizaciones solo sindicales.",
+      "Representantes de la AGE y de las organizaciones empresariales, sin participación de las Comunidades Autónomas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.2: CCAA + AGE (igual número) + organizaciones empresariales y sindicales (paritariamente)."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a13-3-funciones",
+   "bloque": "a13",
+   "apartado": "3",
+   "orden": 520,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 13.3 LPRL, ¿qué actuaciones conoce la Comisión Nacional y sobre qué materias puede informar y formular propuestas?",
+    "respuesta": "Conoce las actuaciones de las Administraciones públicas de promoción de la prevención, asesoramiento técnico y vigilancia y control (arts. 7, 8, 9 y 11); puede informar y proponer sobre criterios y programas generales, proyectos de disposiciones generales y coordinación de las Administraciones."
+   },
+   "cita": "podrá informar y formular propuestas en relación con dichas actuaciones",
+   "confundible_con": [
+    "LPRL-a13-comision",
+    "LPRL-a11-coordinacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 13.3 LPRL, la Comisión puede informar y formular propuestas sobre los proyectos de:",
+     "opciones": [
+      "Disposiciones de carácter general",
+      "Sentencias de los Juzgados de lo Social"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.3: proyectos de disposiciones de carácter general, además de criterios y programas generales y coordinación."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 13.3 de la Ley 31/1995, la Comisión conoce las actuaciones de las Administraciones públicas a las que se refieren los artículos:",
+     "opciones": [
+      "5, 6, 10 y 12.",
+      "9, 10, 11 y 14.",
+      "7, 8, 9 y 11."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 13.3: actuaciones «a que se refieren los artículos 7, 8, 9 y 11»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Sobre cuál de estas materias puede informar y formular propuestas la Comisión Nacional según el art. 13.3 LPRL?",
+     "opciones": [
+      "La coordinación entre las Administraciones públicas competentes en materia laboral, sanitaria y de industria.",
+      "La imposición de sanciones a las empresas que incumplan la normativa de prevención de riesgos laborales.",
+      "La acreditación de los servicios de prevención ajenos y la fijación de sus tarifas de contratación."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.3: coordinación entre las Administraciones competentes en materia laboral, sanitaria y de industria."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a13-4-acuerdos",
+   "bloque": "a13",
+   "apartado": "4",
+   "orden": 530,
+   "tipo": "dato",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 13.4 LPRL, ¿cómo adopta sus acuerdos la Comisión Nacional y cuántos votos tiene cada representante?",
+    "respuesta": "Por mayoría; cada representante de las Administraciones públicas tiene un voto y los de las organizaciones empresariales y sindicales dos."
+   },
+   "cita": "La Comisión adoptará sus acuerdos por mayoría",
+   "confundible_con": [
+    "LPRL-a13-2-composicion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 13.4 LPRL, la Comisión adopta sus acuerdos:",
+     "opciones": [
+      "Por unanimidad",
+      "Por mayoría"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 13.4: «La Comisión adoptará sus acuerdos por mayoría»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 13.4 de la Ley 31/1995, ¿cuántos votos tiene cada representante de las organizaciones empresariales y sindicales?",
+     "opciones": [
+      "Un voto.",
+      "Tres votos.",
+      "Dos votos."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 13.4: «dos los de las organizaciones empresariales y sindicales»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el voto en la Comisión Nacional (art. 13.4 LPRL) es correcta?",
+     "opciones": [
+      "Cada representante de las Administraciones tiene un voto y dos los de las organizaciones empresariales y sindicales.",
+      "Cada representante de las Administraciones tiene dos votos y uno los de las organizaciones empresariales y sindicales.",
+      "Todos los miembros de la Comisión tienen un voto y el Presidente un voto de calidad en caso de empate."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.4: Administraciones, un voto cada representante; organizaciones empresariales y sindicales, dos."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a13-5-presidencia",
+   "bloque": "a13",
+   "apartado": "5",
+   "orden": 540,
+   "tipo": "dato",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 13.5 LPRL, ¿cuántos Vicepresidentes tiene la Comisión Nacional, quién ostenta la Presidencia y quién la Vicepresidencia de la AGE?",
+    "respuesta": "Un Presidente y cuatro Vicepresidentes (uno por cada grupo); la Presidencia corresponde al Secretario general de Empleo y Relaciones Laborales y la Vicepresidencia de la AGE al Subsecretario de Sanidad y Consumo."
+   },
+   "cita": "contará con un Presidente y cuatro Vicepresidentes, uno por cada uno de los grupos que la integran",
+   "confundible_con": [
+    "LPRL-a13-6-secretaria"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 13.5 LPRL, la Comisión cuenta con un Presidente y:",
+     "opciones": [
+      "Cuatro Vicepresidentes, uno por cada grupo",
+      "Un Vicepresidente único"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.5: Presidente y cuatro Vicepresidentes, uno por cada grupo integrante."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 13.5 de la Ley 31/1995, la Presidencia de la Comisión corresponde al:",
+     "opciones": [
+      "Director del Instituto Nacional de Seguridad e Higiene en el Trabajo.",
+      "Subsecretario de Sanidad y Consumo.",
+      "Secretario general de Empleo y Relaciones Laborales."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 13.5: Presidencia = Secretario general de Empleo y Relaciones Laborales. El Subsecretario de Sanidad y Consumo es el Vicepresidente de la AGE y el Director del INSHT ejerce la Secretaría."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 13.5 LPRL, ¿en quién recae la Vicepresidencia atribuida a la Administración General del Estado?",
+     "opciones": [
+      "En el Subsecretario de Sanidad y Consumo.",
+      "En el Secretario general de Empleo y Relaciones Laborales.",
+      "En el Director del Instituto Nacional de Seguridad e Higiene en el Trabajo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.5: Vicepresidencia de la AGE = Subsecretario de Sanidad y Consumo."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a13-6-secretaria",
+   "bloque": "a13",
+   "apartado": "6",
+   "orden": 550,
+   "tipo": "dato",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 13.6 LPRL, ¿a quién corresponde la Secretaría de la Comisión Nacional y como qué órgano actúa?",
+    "respuesta": "A la Dirección del Instituto Nacional de Seguridad e Higiene en el Trabajo, como órgano de apoyo técnico y administrativo."
+   },
+   "cita": "La Secretaría de la Comisión, como órgano de apoyo técnico y administrativo, recaerá en la Dirección del Instituto Nacional de Seguridad e Higiene en el Trabajo",
+   "confundible_con": [
+    "LPRL-a8-4-secretaria",
+    "LPRL-a13-5-presidencia"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 13.6 LPRL, la Secretaría de la Comisión recae en la Dirección del:",
+     "opciones": [
+      "Servicio Público de Empleo Estatal",
+      "Instituto Nacional de Seguridad e Higiene en el Trabajo"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 13.6: la Secretaría recae en la Dirección del Instituto Nacional de Seguridad e Higiene en el Trabajo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 13.6 de la Ley 31/1995, la Secretaría de la Comisión actúa como órgano de:",
+     "opciones": [
+      "Control económico y presupuestario.",
+      "Representación institucional ante la Unión Europea.",
+      "Apoyo técnico y administrativo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 13.6: la Secretaría es «órgano de apoyo técnico y administrativo»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la Secretaría de la Comisión Nacional (art. 13.6 LPRL) es correcta?",
+     "opciones": [
+      "Recae en la Dirección del Instituto Nacional de Seguridad e Higiene en el Trabajo.",
+      "Recae en el Secretario general de Empleo y Relaciones Laborales.",
+      "Recae en un representante de las organizaciones sindicales y empresariales."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.6: Secretaría = Dirección del INSHT; la Presidencia es del Secretario general de Empleo y Relaciones Laborales."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a13-7-funcionamiento",
+   "bloque": "a13",
+   "apartado": "7",
+   "orden": 560,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 13.7 LPRL, ¿cómo funciona la Comisión Nacional y qué ley la rige en lo no previsto?",
+    "respuesta": "Funciona en Pleno, en Comisión Permanente o en Grupos de Trabajo, según su Reglamento interno; en lo no previsto se rige por la Ley 30/1992 de Régimen Jurídico de las Administraciones Públicas y del Procedimiento Administrativo Común."
+   },
+   "cita": "funcionará en Pleno, en Comisión Permanente o en Grupos de Trabajo",
+   "confundible_con": [
+    "LPRL-a13-comision"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 13.7 LPRL, la Comisión funciona en Pleno, en Comisión Permanente o en:",
+     "opciones": [
+      "Grupos de Trabajo",
+      "Delegaciones territoriales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.7: Pleno, Comisión Permanente o Grupos de Trabajo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 13.7 de la Ley 31/1995, el Reglamento interno de la Comisión Nacional lo elabora:",
+     "opciones": [
+      "El Gobierno mediante real decreto.",
+      "El Instituto Nacional de Seguridad e Higiene en el Trabajo.",
+      "La propia Comisión."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 13.7: «Reglamento interno que elaborará la propia Comisión»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué norma rige a la Comisión en lo no previsto en la Ley 31/1995 y en su Reglamento interno según el art. 13.7?",
+     "opciones": [
+      "La Ley 30/1992 de Régimen Jurídico de las Administraciones Públicas y del Procedimiento Administrativo Común.",
+      "La Ley 14/1986 General de Sanidad y sus disposiciones de desarrollo reglamentario.",
+      "La Ley 42/1997 Ordenadora de la Inspección de Trabajo y Seguridad Social y su normativa de desarrollo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.7 párr. 2: supletoriamente, la Ley 30/1992."
+    }
+   ]
+  }
+ ]
+}
