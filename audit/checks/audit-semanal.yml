@@ -1,0 +1,39 @@
+# Copiar a .github/workflows/audit-semanal.yml para activarlo (requiere aprobación de JM).
+# Ejecuta los checks de audit/checks cada lunes a las 06:17 (Madrid ≈ 04:17 UTC en invierno)
+# y falla si algún bloqueante no se cumple o algún trinquete empeora.
+name: Auditoría semanal
+
+on:
+  schedule:
+    - cron: "17 4 * * 1"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  checks-sql:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Instalar cliente de Postgres
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq postgresql-client
+      - name: Checks SQL contra producción (solo lectura)
+        env:
+          # Secreto del repo: cadena de conexión de un rol de solo lectura (ver audit/checks/README.md).
+          AUDIT_DATABASE_URL: ${{ secrets.AUDIT_DATABASE_URL }}
+        run: bash audit/checks/run.sh
+
+  checks-vitest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Checks de código (Vitest)
+        run: npx vitest run --configLoader runner audit/checks
