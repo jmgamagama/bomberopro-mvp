@@ -1,0 +1,223 @@
+{
+ "norma": "BOE-A-1995-24292",
+ "documento": "LPRL",
+ "nombre_norma": "Ley 31/1995 de Prevención de Riesgos Laborales",
+ "abreviatura": "LPRL",
+ "hash_prefijo": "LPRL",
+ "tema": 6,
+ "tema_nombre": "Ley 31/1995 PRL",
+ "bloque_temario": "Capítulo VI (art. 41): obligaciones de los fabricantes, importadores y suministradores",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "LPRL-a41-1-seguridad-maquinaria",
+   "bloque": "a41",
+   "apartado": "1",
+   "orden": 1750,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 41.1 LPRL, ¿qué deben asegurar los fabricantes, importadores y suministradores de maquinaria, equipos, productos y útiles de trabajo?",
+    "respuesta": "Que no constituyan una fuente de peligro para el trabajador, si se instalan y utilizan según lo recomendado por ellos."
+   },
+   "cita": "están obligados a asegurar que éstos no constituyan una fuente de peligro para el trabajador, siempre que sean instalados y utilizados en las condiciones, forma y para los fines recomendados por ellos",
+   "confundible_con": [
+    "LPRL-a41-1-quimicos",
+    "LPRL-a41-1-proteccion-info"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 41.1 LPRL, la maquinaria no debe constituir una fuente de peligro siempre que se utilice en las condiciones recomendadas por:",
+     "opciones": [
+      "Los fabricantes, importadores y suministradores",
+      "El empresario que la adquiere y utiliza"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 41.1 párr. 1: fabricantes, importadores y suministradores."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 41.1 de la Ley 31/1995, los fabricantes, importadores y suministradores de maquinaria deben asegurar que no constituyan una fuente de peligro para:",
+     "opciones": [
+      "El medio ambiente circundante.",
+      "La empresa contratista principal.",
+      "El trabajador que la utilice."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 41.1 párr. 1: «no constituyan una fuente de peligro para el trabajador»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 41.1 LPRL es correcta?",
+     "opciones": [
+      "La garantía opera si la maquinaria se instala y utiliza en la forma y fines recomendados.",
+      "La garantía opera con independencia de cómo se instale y utilice la maquinaria en la empresa.",
+      "La garantía recae únicamente en el empresario que usa la maquinaria en su centro."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 41.1 párr. 1: condición: instalación y uso «en las condiciones, forma y para los fines recomendados por ellos»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a41-1-quimicos",
+   "bloque": "a41",
+   "apartado": "1",
+   "orden": 1760,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 41.1 LPRL, ¿cómo deben envasar y etiquetar los productos y sustancias químicas de utilización en el trabajo sus fabricantes, importadores y suministradores?",
+    "respuesta": "De forma que permita su conservación y manipulación en condiciones de seguridad e identifique claramente su contenido y los riesgos de su almacenamiento o utilización."
+   },
+   "cita": "están obligados a envasar y etiquetar los mismos de forma que se permita su conservación y manipulación en condiciones de seguridad y se identifique claramente su contenido",
+   "confundible_con": [
+    "LPRL-a41-1-seguridad-maquinaria",
+    "LPRL-a41-1-proteccion-info"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 41.1 LPRL, los productos y sustancias químicas deben envasarse y etiquetarse de forma que se identifique claramente su:",
+     "opciones": [
+      "Precio y su fecha de fabricación",
+      "Contenido y los riesgos que comportan"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 41.1 párr. 2: envasar y etiquetar para conservación y manipulación seguras e identificar contenido y riesgos."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 41.1 de la Ley 31/1995, además del envasado y etiquetado, los sujetos obligados deben suministrar la información sobre la forma correcta de:",
+     "opciones": [
+      "Eliminación como residuo urbano.",
+      "Venta a los consumidores finales.",
+      "Utilización por los trabajadores."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 41.1 párr. 3: información sobre la forma correcta de utilización por los trabajadores."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la información que acompaña a estos productos según el art. 41.1 LPRL es correcta?",
+     "opciones": [
+      "Debe indicar los riesgos del uso normal y de la manipulación o empleo inadecuado.",
+      "Debe limitarse a los riesgos derivados de un uso inadecuado del producto.",
+      "Debe omitir los riesgos del uso normal si el producto ya está homologado."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 41.1 párr. 3: riesgos «tanto su uso normal, como su manipulación o empleo inadecuado»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a41-1-proteccion-info",
+   "bloque": "a41",
+   "apartado": "1",
+   "orden": 1770,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 41.1 LPRL, ¿qué información deben suministrar los fabricantes de elementos para la protección de los trabajadores?",
+    "respuesta": "El tipo de riesgo al que van dirigidos, el nivel de protección y la forma correcta de uso y mantenimiento."
+   },
+   "cita": "deberán suministrar la información que indique el tipo de riesgo al que van dirigidos, el nivel de protección frente al mismo y la forma correcta de su uso y mantenimiento",
+   "confundible_con": [
+    "LPRL-a41-1-seguridad-maquinaria",
+    "LPRL-a17-2-epi"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 41.1 LPRL, los elementos de protección deben informar del tipo de riesgo al que van dirigidos y del nivel de:",
+     "opciones": [
+      "Protección frente al mismo",
+      "Coste de su reposición"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 41.1 párr. 4: tipo de riesgo, nivel de protección y forma correcta de uso y mantenimiento."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 41.1 de la Ley 31/1995, los suministradores deben proporcionar a los empresarios, y éstos recabar de aquéllos, la información necesaria para:",
+     "opciones": [
+      "La negociación de los precios, la garantía y los plazos de entrega.",
+      "La tramitación de la homologación y certificación de los equipos.",
+      "Una utilización sin riesgos y para cumplir sus obligaciones de información."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 41.1 párr. 5: información que permita utilización sin riesgos y cumplir las obligaciones de información del empresario."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre los elementos de protección según el art. 41.1 LPRL es correcta?",
+     "opciones": [
+      "Se asegura su efectividad si se usan en la forma recomendada por el fabricante.",
+      "Se asegura su efectividad en cualquier circunstancia o forma de uso.",
+      "La efectividad es responsabilidad exclusiva del trabajador que los usa y los mantiene."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 41.1 párr. 4: efectividad «siempre que sean instalados y usados en las condiciones y de la forma recomendada por ellos»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a41-2-comprensible",
+   "bloque": "a41",
+   "apartado": "2",
+   "orden": 1780,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 41.2 LPRL, ¿qué debe garantizar el empresario respecto de las informaciones de los fabricantes, importadores y suministradores?",
+    "respuesta": "Que sean facilitadas a los trabajadores en términos comprensibles para ellos."
+   },
+   "cita": "El empresario deberá garantizar que las informaciones a que se refiere el apartado anterior sean facilitadas a los trabajadores en términos que resulten comprensibles para los mismos.",
+   "confundible_con": [
+    "LPRL-a41-1-seguridad-maquinaria",
+    "LPRL-a18-1-informacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 41.2 LPRL, el empresario garantiza que las informaciones se faciliten a los trabajadores en términos:",
+     "opciones": [
+      "Estrictamente técnicos",
+      "Comprensibles para los mismos"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 41.2: «términos que resulten comprensibles para los mismos»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 41.2 de la Ley 31/1995, la obligación de garantizar que la información llegue comprensible a los trabajadores corresponde al:",
+     "opciones": [
+      "Fabricante de la maquinaria.",
+      "Servicio de prevención ajeno.",
+      "Empresario."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 41.2: «El empresario deberá garantizar»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 41.2 LPRL es correcta?",
+     "opciones": [
+      "La información del fabricante debe trasladarse a los trabajadores de modo que la entiendan.",
+      "Basta con conservar la información del fabricante en el archivo documental de la empresa.",
+      "Basta con entregarla a los trabajadores en el idioma original del fabricante."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 41.2: las informaciones deben ser «facilitadas a los trabajadores», no solo archivadas."
+    }
+   ]
+  }
+ ]
+}
