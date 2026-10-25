@@ -1,0 +1,882 @@
+[
+{
+"question_id": 7071,
+"concept_id": "LPRL-a14-1-derecho",
+"motivo": "Coincide con a14-1-derecho"
+},
+{
+"question_id": 7072,
+"concept_id": "LPRL-a14-5-coste",
+"motivo": "Coincide con a14-5-coste"
+},
+{
+"question_id": 7073,
+"concept_id": "LPRL-a15-1-principios",
+"motivo": "Coincide con a15-1-principios"
+},
+{
+"question_id": 7074,
+"concept_id": "LPRL-a15-1-principios",
+"motivo": "Coincide con a15-1-principios"
+},
+{
+"question_id": 7075,
+"concept_id": "LPRL-a16-2a-evaluacion",
+"motivo": "Coincide con a16-2a-evaluacion"
+},
+{
+"question_id": 7076,
+"concept_id": "LPRL-a17-1-equipos",
+"motivo": "Coincide con a17-1-equipos"
+},
+{
+"question_id": 7077,
+"concept_id": "LPRL-a17-2-epi",
+"motivo": "Coincide con a17-2-epi"
+},
+{
+"question_id": 7078,
+"concept_id": "LPRL-a18-1-informacion",
+"motivo": "Coincide con a18-1-informacion"
+},
+{
+"question_id": 7079,
+"concept_id": "LPRL-a18-2-consulta",
+"motivo": "Coincide con a18-2-consulta"
+},
+{
+"question_id": 7080,
+"concept_id": "LPRL-a19-1-formacion",
+"motivo": "Coincide con a19-1-formacion"
+},
+{
+"question_id": 7081,
+"concept_id": "LPRL-a19-2-jornada",
+"motivo": "Coincide con a19-2-jornada"
+},
+{
+"question_id": 7082,
+"concept_id": "LPRL-a20-emergencias",
+"motivo": "Coincide con a20-emergencias"
+},
+{
+"question_id": 7083,
+"concept_id": "LPRL-a21-riesgo-grave",
+"motivo": "Coincide con a21-riesgo-grave"
+},
+{
+"question_id": 7084,
+"concept_id": "LPRL-a21-2-derecho",
+"motivo": "Coincide con a21-2-derecho"
+},
+{
+"question_id": 7085,
+"concept_id": "LPRL-a21-3-paralizacion",
+"motivo": "Coincide con a21-3-paralizacion"
+},
+{
+"question_id": 7086,
+"concept_id": "LPRL-a22-1-vigilancia",
+"motivo": "Coincide con a22-1-vigilancia"
+},
+{
+"question_id": 7087,
+"concept_id": "LPRL-a22-4-datos",
+"motivo": "Coincide con a22-4-datos"
+},
+{
+"question_id": 7088,
+"concept_id": "LPRL-a23-1-documentacion",
+"motivo": "Coincide con a23-1-documentacion"
+},
+{
+"question_id": 7089,
+"concept_id": "LPRL-a24-1-cooperacion",
+"motivo": "Coincide con a24-1-cooperacion"
+},
+{
+"question_id": 7090,
+"concept_id": "LPRL-a25-1-sensibles",
+"motivo": "Coincide con a25-1-sensibles"
+},
+{
+"question_id": 7091,
+"concept_id": null,
+"motivo": "Art. 33 en adelante: sin concepto"
+},
+{
+"question_id": 7092,
+"concept_id": null,
+"motivo": "Art. 33 en adelante: sin concepto"
+},
+{
+"question_id": 7093,
+"concept_id": null,
+"motivo": "Art. 33 en adelante: sin concepto"
+},
+{
+"question_id": 7094,
+"concept_id": null,
+"motivo": "Art. 33 en adelante: sin concepto"
+},
+{
+"question_id": 7095,
+"concept_id": null,
+"motivo": "Art. 33 en adelante: sin concepto"
+},
+{
+"question_id": 7096,
+"concept_id": null,
+"motivo": "Art. 33 en adelante: sin concepto"
+},
+{
+"question_id": 7097,
+"concept_id": null,
+"motivo": "Art. 33 en adelante: sin concepto"
+},
+{
+"question_id": 7098,
+"concept_id": null,
+"motivo": "Art. 33 en adelante: sin concepto"
+},
+{
+"question_id": 7099,
+"concept_id": null,
+"motivo": "Art. 33 en adelante: sin concepto"
+},
+{
+"question_id": 7100,
+"concept_id": null,
+"motivo": "Art. 33 en adelante: sin concepto"
+},
+{
+"question_id": 13415,
+"concept_id": null,
+"motivo": "Garantizar vigilancia salud: sin concepto exacto (22.1 trata consentimiento)"
+},
+{
+"question_id": 13416,
+"concept_id": "LPRL-a18-1-informacion",
+"motivo": "Coincide con a18-1-informacion"
+},
+{
+"question_id": 13417,
+"concept_id": "LPRL-a2-1-objeto",
+"motivo": "Coincide con a2-1-objeto"
+},
+{
+"question_id": 13418,
+"concept_id": "LPRL-a17-2-epi",
+"motivo": "Coincide con a17-2-epi"
+},
+{
+"question_id": 13419,
+"concept_id": "LPRL-a14-3-cumplimiento",
+"motivo": "Coincide con a14-3-cumplimiento"
+},
+{
+"question_id": 13420,
+"concept_id": null,
+"motivo": "Modificar actividades por controles: sin concepto"
+},
+{
+"question_id": 13421,
+"concept_id": null,
+"motivo": "Principios generales art 2: concepto solo objeto"
+},
+{
+"question_id": 13422,
+"concept_id": "LPRL-a19-2-jornada",
+"motivo": "Coincide con a19-2-jornada"
+},
+{
+"question_id": 13423,
+"concept_id": null,
+"motivo": "Criterio reconocimientos menos molestias: sin concepto"
+},
+{
+"question_id": 13424,
+"concept_id": "LPRL-a18-1-informacion",
+"motivo": "Coincide con a18-1-informacion"
+},
+{
+"question_id": 13425,
+"concept_id": "LPRL-a17-1-equipos",
+"motivo": "Coincide con a17-1-equipos"
+},
+{
+"question_id": 13426,
+"concept_id": "LPRL-a21-3-paralizacion",
+"motivo": "Coincide con a21-3-paralizacion"
+},
+{
+"question_id": 13427,
+"concept_id": "LPRL-a16-1-plan",
+"motivo": "Coincide con a16-1-plan"
+},
+{
+"question_id": 13428,
+"concept_id": "LPRL-a21-riesgo-grave",
+"motivo": "Coincide con a21-riesgo-grave"
+},
+{
+"question_id": 13429,
+"concept_id": "LPRL-a14-5-coste",
+"motivo": "Coincide con a14-5-coste"
+},
+{
+"question_id": 13430,
+"concept_id": "LPRL-a15-2-capacidades",
+"motivo": "Coincide con a15-2-capacidades"
+},
+{
+"question_id": 13431,
+"concept_id": "LPRL-a20-emergencias",
+"motivo": "Coincide con a20-emergencias"
+},
+{
+"question_id": 13432,
+"concept_id": "LPRL-a15-3-zonas-riesgo",
+"motivo": "Coincide con a15-3-zonas-riesgo"
+},
+{
+"question_id": 13433,
+"concept_id": "LPRL-a22-3-resultados",
+"motivo": "Coincide con a22-3-resultados"
+},
+{
+"question_id": 13434,
+"concept_id": "LPRL-a22-4-datos",
+"motivo": "Coincide con a22-4-datos"
+},
+{
+"question_id": 13435,
+"concept_id": "LPRL-a20-servicios-externos",
+"motivo": "Coincide con a20-servicios-externos"
+},
+{
+"question_id": 13436,
+"concept_id": null,
+"motivo": "Seguimiento continuo planificación: sin concepto"
+},
+{
+"question_id": 13437,
+"concept_id": "LPRL-a16-2b-planificacion",
+"motivo": "Coincide con a16-2b-planificacion"
+},
+{
+"question_id": 13438,
+"concept_id": null,
+"motivo": "Evaluación en otras ocasiones: sin concepto"
+},
+{
+"question_id": 13439,
+"concept_id": "LPRL-a21-riesgo-grave",
+"motivo": "Coincide con a21-riesgo-grave"
+},
+{
+"question_id": 13440,
+"concept_id": "LPRL-a15-4-imprudencias",
+"motivo": "Coincide con a15-4-imprudencias"
+},
+{
+"question_id": 13441,
+"concept_id": "LPRL-a22-5-prolongacion",
+"motivo": "Coincide con a22-5-prolongacion"
+},
+{
+"question_id": 13442,
+"concept_id": "LPRL-a18-1-informacion",
+"motivo": "Coincide con a18-1-informacion"
+},
+{
+"question_id": 13443,
+"concept_id": "LPRL-a20-emergencias",
+"motivo": "Coincide con a20-emergencias"
+},
+{
+"question_id": 13444,
+"concept_id": "LPRL-a22-4-datos",
+"motivo": "Coincide con a22-4-datos"
+},
+{
+"question_id": 13445,
+"concept_id": "LPRL-a18-2-consulta",
+"motivo": "Coincide con a18-2-consulta"
+},
+{
+"question_id": 13446,
+"concept_id": null,
+"motivo": "Instrucciones en equipos de trabajo: fuente dudosa"
+},
+{
+"question_id": 13447,
+"concept_id": "LPRL-a19-1-formacion",
+"motivo": "Coincide con a19-1-formacion"
+},
+{
+"question_id": 13448,
+"concept_id": "LPRL-a17-2-epi",
+"motivo": "Coincide con a17-2-epi"
+},
+{
+"question_id": 13449,
+"concept_id": "LPRL-a16-2a-evaluacion",
+"motivo": "Coincide con a16-2a-evaluacion"
+},
+{
+"question_id": 13450,
+"concept_id": "LPRL-a16-1-plan",
+"motivo": "Coincide con a16-1-plan"
+},
+{
+"question_id": 13451,
+"concept_id": null,
+"motivo": "Controles periódicos: sin concepto"
+},
+{
+"question_id": 13452,
+"concept_id": null,
+"motivo": "Equipos adecuados art 17.1: concepto no cubre"
+},
+{
+"question_id": 13453,
+"concept_id": null,
+"motivo": "Evaluación inicial contenido: sin concepto exacto"
+},
+{
+"question_id": 13454,
+"concept_id": "LPRL-a14-4-complemento",
+"motivo": "Coincide con a14-4-complemento"
+},
+{
+"question_id": 13455,
+"concept_id": "LPRL-a21-riesgo-grave",
+"motivo": "Coincide con a21-riesgo-grave"
+},
+{
+"question_id": 13456,
+"concept_id": "LPRL-a16-3-investigacion",
+"motivo": "Coincide con a16-3-investigacion"
+},
+{
+"question_id": 13457,
+"concept_id": "LPRL-a21-riesgo-grave",
+"motivo": "Coincide con a21-riesgo-grave"
+},
+{
+"question_id": 13458,
+"concept_id": "LPRL-a22-1-vigilancia",
+"motivo": "Coincide con a22-1-vigilancia"
+},
+{
+"question_id": 13459,
+"concept_id": "LPRL-a19-1-formacion",
+"motivo": "Coincide con a19-1-formacion"
+},
+{
+"question_id": 13460,
+"concept_id": "LPRL-a31-4-interdisciplinar",
+"motivo": "Coincide con a31-4-interdisciplinar"
+},
+{
+"question_id": 13461,
+"concept_id": null,
+"motivo": "Colaboración entre recursos preventivos: concepto no la cubre"
+},
+{
+"question_id": 13462,
+"concept_id": "LPRL-a4-potencialmente-peligrosos",
+"motivo": "Coincide con a4-potencialmente-peligrosos"
+},
+{
+"question_id": 13463,
+"concept_id": "LPRL-a6-1-limitaciones",
+"motivo": "Coincide con a6-1-limitaciones"
+},
+{
+"question_id": 13464,
+"concept_id": "LPRL-a5-1-objeto",
+"motivo": "Coincide con a5-1-objeto"
+},
+{
+"question_id": 13465,
+"concept_id": null,
+"motivo": "Art 6.1.f trabajos peligrosos: sin concepto"
+},
+{
+"question_id": 13466,
+"concept_id": "LPRL-a32bis-3-requisitos",
+"motivo": "Coincide con a32bis-3-requisitos"
+},
+{
+"question_id": 13467,
+"concept_id": "LPRL-a4-condicion-trabajo",
+"motivo": "Coincide con a4-condicion-trabajo"
+},
+{
+"question_id": 13468,
+"concept_id": "LPRL-a30-4-garantias",
+"motivo": "Coincide con a30-4-garantias"
+},
+{
+"question_id": 13469,
+"concept_id": "LPRL-a4-epi",
+"motivo": "Coincide con a4-epi"
+},
+{
+"question_id": 13470,
+"concept_id": null,
+"motivo": "Art 6.1.a requisitos mínimos: sin concepto"
+},
+{
+"question_id": 13471,
+"concept_id": "LPRL-a31-4-interdisciplinar",
+"motivo": "Coincide con a31-4-interdisciplinar"
+},
+{
+"question_id": 13472,
+"concept_id": "LPRL-a31-3-asesoramiento",
+"motivo": "Coincide con a31-3-asesoramiento"
+},
+{
+"question_id": 13473,
+"concept_id": "LPRL-a5-5-integracion",
+"motivo": "Coincide con a5-5-integracion"
+},
+{
+"question_id": 13474,
+"concept_id": "LPRL-a4-equipo-trabajo",
+"motivo": "Coincide con a4-equipo-trabajo"
+},
+{
+"question_id": 13475,
+"concept_id": "LPRL-a31-4-interdisciplinar",
+"motivo": "Coincide con a31-4-interdisciplinar"
+},
+{
+"question_id": 13476,
+"concept_id": "LPRL-a6-1-servicios",
+"motivo": "Coincide con a6-1-servicios"
+},
+{
+"question_id": 13477,
+"concept_id": "LPRL-a31-3-asesoramiento",
+"motivo": "Coincide con a31-3-asesoramiento"
+},
+{
+"question_id": 13478,
+"concept_id": "LPRL-a5-5-integracion",
+"motivo": "Coincide con a5-5-integracion"
+},
+{
+"question_id": 13479,
+"concept_id": "LPRL-a4-danos",
+"motivo": "Coincide con a4-danos"
+},
+{
+"question_id": 13480,
+"concept_id": "LPRL-a4-grave-inminente",
+"motivo": "Coincide con a4-grave-inminente"
+},
+{
+"question_id": 13481,
+"concept_id": "LPRL-a30-7-autorizacion",
+"motivo": "Coincide con a30-7-autorizacion"
+},
+{
+"question_id": 13482,
+"concept_id": "LPRL-a32bis-2-recursos",
+"motivo": "Coincide con a32bis-2-recursos"
+},
+{
+"question_id": 13483,
+"concept_id": null,
+"motivo": "Colaboración de asignados: concepto no la cubre"
+},
+{
+"question_id": 13484,
+"concept_id": "LPRL-a31-5-acreditacion",
+"motivo": "Coincide con a31-5-acreditacion"
+},
+{
+"question_id": 13485,
+"concept_id": "LPRL-a31-3-asesoramiento",
+"motivo": "Coincide con a31-3-asesoramiento"
+},
+{
+"question_id": 13486,
+"concept_id": null,
+"motivo": "Art 31 sin perjuicio: sin concepto"
+},
+{
+"question_id": 13487,
+"concept_id": null,
+"motivo": "Art 6.1.d evaluación salud: sin concepto"
+},
+{
+"question_id": 13488,
+"concept_id": null,
+"motivo": "Art 31.2 acceso información: sin concepto exacto"
+},
+{
+"question_id": 13489,
+"concept_id": "LPRL-a32bis-4-otros-trabajadores",
+"motivo": "Coincide con a32bis-4-otros-trabajadores"
+},
+{
+"question_id": 13490,
+"concept_id": "LPRL-a4-grave-inminente-agentes",
+"motivo": "Coincide con a4-grave-inminente-agentes"
+},
+{
+"question_id": 13491,
+"concept_id": null,
+"motivo": "Art 6.1.g enfermedades profesionales: sin concepto"
+},
+{
+"question_id": 13492,
+"concept_id": "LPRL-a30-5-empresario",
+"motivo": "Coincide con a30-5-empresario"
+},
+{
+"question_id": 13493,
+"concept_id": "LPRL-a4-riesgo",
+"motivo": "Coincide con a4-riesgo"
+},
+{
+"question_id": 13494,
+"concept_id": "LPRL-a31-5-acreditacion",
+"motivo": "Coincide con a31-5-acreditacion"
+},
+{
+"question_id": 13495,
+"concept_id": "LPRL-a32bis-2-recursos",
+"motivo": "Coincide con a32bis-2-recursos"
+},
+{
+"question_id": 13496,
+"concept_id": "LPRL-a5-1-cooperacion",
+"motivo": "Coincide con a5-1-cooperacion"
+},
+{
+"question_id": 13497,
+"concept_id": "LPRL-a31-6-silencio",
+"motivo": "Coincide con a31-6-silencio"
+},
+{
+"question_id": 13498,
+"concept_id": "LPRL-a31-2-concepto",
+"motivo": "Coincide con a31-2-concepto"
+},
+{
+"question_id": 13499,
+"concept_id": "LPRL-a32bis-2-recursos",
+"motivo": "Coincide con a32bis-2-recursos"
+},
+{
+"question_id": 13500,
+"concept_id": "LPRL-a30-4-garantias",
+"motivo": "Coincide con a30-4-garantias"
+},
+{
+"question_id": 13501,
+"concept_id": "LPRL-a4-prevencion",
+"motivo": "Coincide con a4-prevencion"
+},
+{
+"question_id": 13502,
+"concept_id": "LPRL-a30-6-auditoria",
+"motivo": "Coincide con a30-6-auditoria"
+},
+{
+"question_id": 13503,
+"concept_id": null,
+"motivo": "Art 7 sin perjuicio legislación industrial: sin concepto"
+},
+{
+"question_id": 13504,
+"concept_id": "LPRL-a31-1-propios-ajenos",
+"motivo": "Coincide con a31-1-propios-ajenos"
+},
+{
+"question_id": 13719,
+"concept_id": null,
+"motivo": "Art 10.d estudios sanitarios: sin concepto exacto"
+},
+{
+"question_id": 13728,
+"concept_id": "LPRL-a10-sanitaria",
+"motivo": "Coincide con a10-sanitaria"
+},
+{
+"question_id": 13737,
+"concept_id": "LPRL-a14-2-deber",
+"motivo": "Coincide con a14-2-deber"
+},
+{
+"question_id": 13738,
+"concept_id": "LPRL-a11-coordinacion",
+"motivo": "Coincide con a11-coordinacion"
+},
+{
+"question_id": 13744,
+"concept_id": "LPRL-a10-mapas",
+"motivo": "Coincide con a10-mapas"
+},
+{
+"question_id": 13758,
+"concept_id": null,
+"motivo": "Art 14.2 todos los aspectos: concepto distinto"
+},
+{
+"question_id": 13767,
+"concept_id": "LPRL-a9-1-paralizacion",
+"motivo": "Coincide con a9-1-paralizacion"
+},
+{
+"question_id": 13772,
+"concept_id": "LPRL-a8-3-ue",
+"motivo": "Coincide con a8-3-ue"
+},
+{
+"question_id": 13779,
+"concept_id": null,
+"motivo": "Art 9.1.b asesorar: concepto no cubre"
+},
+{
+"question_id": 13793,
+"concept_id": "LPRL-a9-3-informe",
+"motivo": "Coincide con a9-3-informe"
+},
+{
+"question_id": 13803,
+"concept_id": null,
+"motivo": "Art 9.1.e servicios prevención: sin concepto"
+},
+{
+"question_id": 13805,
+"concept_id": "LPRL-a25-1-sensibles",
+"motivo": "Coincide con a25-1-sensibles"
+},
+{
+"question_id": 13806,
+"concept_id": "LPRL-a23-4-sanitarias",
+"motivo": "Coincide con a23-4-sanitarias"
+},
+{
+"question_id": 13807,
+"concept_id": "LPRL-a25-1-sensibles",
+"motivo": "Coincide con a25-1-sensibles"
+},
+{
+"question_id": 13808,
+"concept_id": "LPRL-a24-3-principal",
+"motivo": "Coincide con a24-3-principal"
+},
+{
+"question_id": 13809,
+"concept_id": null,
+"motivo": "Art 26.2 puestos exentos: concepto distinto"
+},
+{
+"question_id": 13810,
+"concept_id": "LPRL-a26-1-maternidad",
+"motivo": "Coincide con a26-1-maternidad"
+},
+{
+"question_id": 13811,
+"concept_id": "LPRL-a28-1-temporales",
+"motivo": "Coincide con a28-1-temporales"
+},
+{
+"question_id": 13812,
+"concept_id": "LPRL-a24-1-cooperacion",
+"motivo": "Coincide con a24-1-cooperacion"
+},
+{
+"question_id": 13813,
+"concept_id": "LPRL-a23-2-cese",
+"motivo": "Coincide con a23-2-cese"
+},
+{
+"question_id": 13814,
+"concept_id": "LPRL-a24-6-desarrollo",
+"motivo": "Coincide con a24-6-desarrollo"
+},
+{
+"question_id": 13815,
+"concept_id": "LPRL-a28-5-ett",
+"motivo": "Coincide con a28-5-ett"
+},
+{
+"question_id": 13816,
+"concept_id": null,
+"motivo": "Art 28 info a representantes: sin concepto"
+},
+{
+"question_id": 13817,
+"concept_id": "LPRL-a23-1-documentacion",
+"motivo": "Coincide con a23-1-documentacion"
+},
+{
+"question_id": 13818,
+"concept_id": "LPRL-a25-2-procreacion",
+"motivo": "Coincide con a25-2-procreacion"
+},
+{
+"question_id": 13819,
+"concept_id": null,
+"motivo": "Formación temporales: sin concepto exacto"
+},
+{
+"question_id": 13820,
+"concept_id": null,
+"motivo": "Info usuaria a ETT: sin concepto exacto"
+},
+{
+"question_id": 13821,
+"concept_id": "LPRL-a22-6-personal",
+"motivo": "Coincide con a22-6-personal"
+},
+{
+"question_id": 13822,
+"concept_id": "LPRL-a30-3-informacion",
+"motivo": "Coincide con a30-3-informacion"
+},
+{
+"question_id": 13823,
+"concept_id": "LPRL-a28-1-temporales",
+"motivo": "Coincide con a28-1-temporales"
+},
+{
+"question_id": 13824,
+"concept_id": "LPRL-a29-2-particular",
+"motivo": "Coincide con a29-2-particular"
+},
+{
+"question_id": 13825,
+"concept_id": "LPRL-a29-2-particular",
+"motivo": "Coincide con a29-2-particular"
+},
+{
+"question_id": 13826,
+"concept_id": "LPRL-a29-2-particular",
+"motivo": "Coincide con a29-2-particular"
+},
+{
+"question_id": 13827,
+"concept_id": "LPRL-a24-5-autonomos",
+"motivo": "Coincide con a24-5-autonomos"
+},
+{
+"question_id": 13828,
+"concept_id": "LPRL-a28-4-incorporacion",
+"motivo": "Coincide con a28-4-incorporacion"
+},
+{
+"question_id": 13829,
+"concept_id": "LPRL-a27-2-limitaciones",
+"motivo": "Coincide con a27-2-limitaciones"
+},
+{
+"question_id": 13830,
+"concept_id": "LPRL-a23-1-documentacion",
+"motivo": "Coincide con a23-1-documentacion"
+},
+{
+"question_id": 13831,
+"concept_id": "LPRL-a29-3-incumplimiento",
+"motivo": "Coincide con a29-3-incumplimiento"
+},
+{
+"question_id": 13832,
+"concept_id": "LPRL-a30-1-modalidades",
+"motivo": "Coincide con a30-1-modalidades"
+},
+{
+"question_id": 13833,
+"concept_id": "LPRL-a23-3-notificacion",
+"motivo": "Coincide con a23-3-notificacion"
+},
+{
+"question_id": 13834,
+"concept_id": "LPRL-a27-1-menores",
+"motivo": "Coincide con a27-1-menores"
+},
+{
+"question_id": 13835,
+"concept_id": "LPRL-a26-2-cambio-puesto",
+"motivo": "Coincide con a26-2-cambio-puesto"
+},
+{
+"question_id": 13836,
+"concept_id": null,
+"motivo": "Art 3.1 sin perjuicio: concepto no cubre"
+},
+{
+"question_id": 13837,
+"concept_id": "LPRL-a28-2-informacion",
+"motivo": "Coincide con a28-2-informacion"
+},
+{
+"question_id": 13838,
+"concept_id": "LPRL-a28-5-ett",
+"motivo": "Coincide con a28-5-ett"
+},
+{
+"question_id": 13839,
+"concept_id": null,
+"motivo": "Designados colaboran entre sí: sin concepto"
+},
+{
+"question_id": 13840,
+"concept_id": "LPRL-a24-2-titular",
+"motivo": "Coincide con a24-2-titular"
+},
+{
+"question_id": 13841,
+"concept_id": "LPRL-a24-1-cooperacion",
+"motivo": "Coincide con a24-1-cooperacion"
+},
+{
+"question_id": 13842,
+"concept_id": "LPRL-a28-5-ett",
+"motivo": "Coincide con a28-5-ett"
+},
+{
+"question_id": 13843,
+"concept_id": null,
+"motivo": "Info a jóvenes y padres: sin concepto exacto"
+},
+{
+"question_id": 13844,
+"concept_id": "LPRL-a24-4-fuera-centro",
+"motivo": "Coincide con a24-4-fuera-centro"
+},
+{
+"question_id": 13845,
+"concept_id": "LPRL-a3-2-inspirara",
+"motivo": "Coincide con a3-2-inspirara"
+},
+{
+"question_id": 13846,
+"concept_id": "LPRL-a23-1-documentacion",
+"motivo": "Coincide con a23-1-documentacion"
+},
+{
+"question_id": 13847,
+"concept_id": "LPRL-a30-2-designados",
+"motivo": "Coincide con a30-2-designados"
+},
+{
+"question_id": 13848,
+"concept_id": "LPRL-a25-1-sensibles",
+"motivo": "Coincide con a25-1-sensibles"
+},
+{
+"question_id": 13849,
+"concept_id": "LPRL-a30-4-garantias",
+"motivo": "Coincide con a30-4-garantias"
+}
+]
