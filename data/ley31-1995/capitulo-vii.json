@@ -1,0 +1,323 @@
+{
+ "norma": "BOE-A-1995-24292",
+ "documento": "LPRL",
+ "nombre_norma": "Ley 31/1995 de Prevención de Riesgos Laborales",
+ "abreviatura": "LPRL",
+ "hash_prefijo": "LPRL",
+ "tema": 6,
+ "tema_nombre": "Ley 31/1995 PRL",
+ "bloque_temario": "Capítulo VII (arts. 42-43): responsabilidades y requerimientos de la Inspección",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "LPRL-a42-1-responsabilidades",
+   "bloque": "a42",
+   "apartado": "1",
+   "orden": 1790,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 42.1 LPRL, ¿a qué responsabilidades da lugar el incumplimiento por los empresarios de sus obligaciones preventivas?",
+    "respuesta": "A responsabilidades administrativas y, en su caso, a responsabilidades penales y a las civiles por los daños y perjuicios que puedan derivarse del incumplimiento."
+   },
+   "cita": "dará lugar a responsabilidades administrativas, así como, en su caso, a responsabilidades penales y a las civiles por los daños y perjuicios",
+   "confundible_con": [
+    "LPRL-a42-3-compatibilidad",
+    "LPRL-a43-1-requerimiento"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 42.1 LPRL, el incumplimiento preventivo del empresario da lugar siempre a responsabilidades:",
+     "opciones": [
+      "Administrativas",
+      "Penales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 42.1: «responsabilidades administrativas» como consecuencia general."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 42.1 de la Ley 31/1995, las responsabilidades penales y civiles se exigen:",
+     "opciones": [
+      "Siempre, sin necesidad de daño alguno.",
+      "Solo cuando no haya responsabilidad administrativa.",
+      "En su caso, además de las administrativas."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 42.1: penales y civiles «en su caso»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 42.1 LPRL es correcta?",
+     "opciones": [
+      "La responsabilidad administrativa puede acompañarse de la penal y de la civil por daños.",
+      "La responsabilidad administrativa excluye siempre la responsabilidad civil por daños y perjuicios.",
+      "La responsabilidad penal sustituye siempre a la administrativa y a la civil."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 42.1: las responsabilidades se acumulan; no se excluyen ni se sustituyen."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a42-3-compatibilidad",
+   "bloque": "a42",
+   "apartado": "3",
+   "orden": 1800,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 42.3 LPRL, ¿con qué son compatibles las responsabilidades administrativas derivadas del procedimiento sancionador?",
+    "respuesta": "Con las indemnizaciones por daños y perjuicios y con el recargo de prestaciones de la Seguridad Social."
+   },
+   "cita": "Las responsabilidades administrativas que se deriven del procedimiento sancionador serán compatibles con las indemnizaciones por los daños y perjuicios causados y de recargo de prestaciones económicas del sistema de la Seguridad Social",
+   "confundible_con": [
+    "LPRL-a42-1-responsabilidades"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 42.3 LPRL, las responsabilidades administrativas son compatibles con el recargo de prestaciones del sistema de:",
+     "opciones": [
+      "La Hacienda Pública",
+      "La Seguridad Social"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 42.3: indemnizaciones por daños y perjuicios y recargo de prestaciones."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 42.3 de la Ley 31/1995, el recargo de prestaciones económicas puede ser fijado por:",
+     "opciones": [
+      "El Comité de Seguridad y Salud de la propia empresa sancionada.",
+      "El Delegado de Prevención del centro de trabajo afectado.",
+      "El órgano competente según la normativa de Seguridad Social."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 42.3: fijados «por el órgano competente de conformidad con la normativa reguladora» de la Seguridad Social."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 42.3 LPRL es correcta?",
+     "opciones": [
+      "Sancionar administrativamente no impide fijar indemnizaciones ni recargo de prestaciones.",
+      "Imponer la sanción administrativa excluye el recargo de prestaciones económicas de la Seguridad Social.",
+      "La indemnización por daños y perjuicios sustituye a la sanción administrativa impuesta."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 42.3: las responsabilidades «serán compatibles»; no se excluyen."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a43-1-requerimiento",
+   "bloque": "a43",
+   "apartado": "1",
+   "orden": 1810,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 43.1 LPRL, ¿qué debe hacer el Inspector al comprobar una infracción en materia preventiva, salvo que proceda la paralización del art. 44?",
+    "respuesta": "Requerir al empresario para la subsanación de las deficiencias observadas, sin perjuicio de la propuesta de sanción correspondiente, en su caso."
+   },
+   "cita": "requerirá al empresario para la subsanación de las deficiencias observadas, salvo que por la gravedad e inminencia de los riesgos procediese acordar la paralización prevista en el artículo 44",
+   "confundible_con": [
+    "LPRL-a43-2-escrito"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 43.1 LPRL, ante una infracción el Inspector requiere al empresario para la subsanación de las:",
+     "opciones": [
+      "Deficiencias observadas",
+      "Sanciones impuestas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 43.1: requerir «para la subsanación de las deficiencias observadas»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 43.1 de la Ley 31/1995, no procede el requerimiento si por la gravedad e inminencia de los riesgos procede acordar:",
+     "opciones": [
+      "La suspensión del contrato prevista en el art. 26.",
+      "La cooperación prevista en el art. 24.",
+      "La paralización prevista en el art. 44."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 43.1: salvo gravedad e inminencia que lleven a la paralización del art. 44."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el requerimiento del art. 43.1 LPRL es correcta?",
+     "opciones": [
+      "El requerimiento se hace sin perjuicio de la propuesta de sanción que corresponda.",
+      "El requerimiento impide proponer sanción alguna al empresario.",
+      "El requerimiento sustituye a la paralización aun con riesgo grave e inminente."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 43.1: «sin perjuicio de la propuesta de sanción correspondiente, en su caso»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a43-2-escrito",
+   "bloque": "a43",
+   "apartado": "2",
+   "orden": 1820,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 43.2 LPRL, ¿cómo se formula el requerimiento del Inspector y a quién se pone en conocimiento además del empresario?",
+    "respuesta": "Por escrito, señalando las anomalías o deficiencias y el plazo para su subsanación; y se pone en conocimiento de los Delegados de Prevención."
+   },
+   "cita": "se hará saber por escrito al empresario presuntamente responsable señalando las anomalías o deficiencias apreciadas con indicación del plazo para su subsanación",
+   "confundible_con": [
+    "LPRL-a43-2-incumplimiento",
+    "LPRL-a40-3-informe"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 43.2 LPRL, el requerimiento se pone también en conocimiento de los:",
+     "opciones": [
+      "Delegados Sindicales",
+      "Delegados de Prevención"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 43.2 párr. 1: «por escrito» con indicación del plazo para su subsanación."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 43.2 de la Ley 31/1995, el requerimiento señala las anomalías o deficiencias apreciadas con indicación del:",
+     "opciones": [
+      "Importe de la sanción propuesta.",
+      "Nombre del trabajador afectado.",
+      "Plazo para su subsanación."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 43.2 párr. 1: también se pone en conocimiento de los Delegados de Prevención."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la forma del requerimiento según el art. 43.2 LPRL es correcta?",
+     "opciones": [
+      "Se hace saber por escrito al empresario presuntamente responsable.",
+      "Se comunica verbalmente al empresario durante la visita.",
+      "Se notifica solo al Comité de Seguridad y Salud."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 43.2 párr. 1: requerimiento escrito dirigido al empresario presuntamente responsable."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a43-2-incumplimiento",
+   "bloque": "a43",
+   "apartado": "2",
+   "orden": 1830,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 43.2 LPRL, ¿qué ocurre si se incumple el requerimiento y persisten los hechos infractores?",
+    "respuesta": "Que el Inspector, de no haberlo efectuado inicialmente, levantará la correspondiente acta de infracción por tales hechos."
+   },
+   "cita": "Si se incumpliera el requerimiento formulado, persistiendo los hechos infractores, el Inspector de Trabajo y Seguridad Social, de no haberlo efectuado inicialmente, levantará la correspondiente acta de infracción por tales hechos.",
+   "confundible_con": [
+    "LPRL-a43-2-escrito",
+    "LPRL-a43-1-requerimiento"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 43.2 LPRL, si se incumple el requerimiento y persisten los hechos, el Inspector levanta:",
+     "opciones": [
+      "Acta de infracción",
+      "Informe de archivo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 43.2 párr. 2: «levantará la correspondiente acta de infracción»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 43.2 de la Ley 31/1995, el acta de infracción se levanta si, incumplido el requerimiento, persisten:",
+     "opciones": [
+      "Las reuniones del Comité.",
+      "Las visitas de la Inspección.",
+      "Los hechos infractores."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 43.2 párr. 2: requisito: incumplimiento del requerimiento «persistiendo los hechos infractores»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el acta de infracción según el art. 43.2 LPRL es correcta?",
+     "opciones": [
+      "Puede levantarse al incumplirse el requerimiento si no se hizo antes.",
+      "Debe levantarse siempre antes de formular el requerimiento al empresario.",
+      "Solo puede levantarla la autoridad laboral provincial, nunca el Inspector."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 43.2 párr. 2: lo hará el Inspector, «de no haberlo efectuado inicialmente»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a43-3-funcionarios",
+   "bloque": "a43",
+   "apartado": "3",
+   "orden": 1840,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 43.3 LPRL, ¿qué requisitos y efectos tienen los requerimientos de los funcionarios públicos técnicos del art. 9.2 en apoyo de la Inspección?",
+    "respuesta": "Los establecidos para el requerimiento del apartado 2, pudiendo reflejarse en el Libro de Visitas en la forma que se determine reglamentariamente."
+   },
+   "cita": "se practicarán con los requisitos y efectos establecidos en el apartado anterior, pudiendo reflejarse en el Libro de Visitas de la Inspección de Trabajo y Seguridad Social",
+   "confundible_con": [
+    "LPRL-a43-2-escrito",
+    "LPRL-a9-1-paralizacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 43.3 LPRL, esos requerimientos pueden reflejarse en el:",
+     "opciones": [
+      "Registro de la autoridad sanitaria",
+      "Libro de Visitas de la Inspección"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 43.3: se reflejan «en el Libro de Visitas», en la forma que se determine reglamentariamente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 43.3 de la Ley 31/1995, los requerimientos de los funcionarios del art. 9.2 se practican con los requisitos y efectos del:",
+     "opciones": [
+      "Artículo 44 sobre paralización de trabajos.",
+      "Artículo 42 sobre responsabilidades.",
+      "Apartado anterior del propio artículo 43."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 43.3: «requisitos y efectos establecidos en el apartado anterior» (art. 43.2)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 43.3 LPRL es correcta?",
+     "opciones": [
+      "Los funcionarios actúan en apoyo y colaboración con la Inspección de Trabajo.",
+      "Los funcionarios actúan en sustitución de la Inspección de Trabajo y Seguridad Social.",
+      "Los funcionarios actúan solo a instancia del Comité de Seguridad y Salud de la empresa."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 43.3: «funciones de apoyo y colaboración con la Inspección de Trabajo y Seguridad Social»."
+    }
+   ]
+  }
+ ]
+}

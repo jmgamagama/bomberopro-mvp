@@ -1,0 +1,2195 @@
+{
+ "norma": "BOE-A-1995-24292",
+ "documento": "LPRL",
+ "nombre_norma": "Ley 31/1995 de Prevención de Riesgos Laborales",
+ "abreviatura": "LPRL",
+ "hash_prefijo": "LPRL",
+ "tema": 6,
+ "tema_nombre": "Ley 31/1995 PRL",
+ "bloque_temario": "Capítulo V (arts. 33-40): consulta y participación de los trabajadores",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "LPRL-a33-1-materias",
+   "bloque": "a33",
+   "apartado": "1",
+   "orden": 1400,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 33.1 LPRL, ¿cuándo debe consultar el empresario a los trabajadores las decisiones sobre planificación y organización del trabajo, nuevas tecnologías u otras acciones con efectos sobre la seguridad y la salud?",
+    "respuesta": "Con la debida antelación a la adopción de las decisiones."
+   },
+   "cita": "El empresario deberá consultar a los trabajadores, con la debida antelación, la adopción de las decisiones relativas a",
+   "confundible_con": [
+    "LPRL-a33-1-detalle",
+    "LPRL-a36-1-competencias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33.1 LPRL, el empresario consulta a los trabajadores las decisiones preventivas:",
+     "opciones": [
+      "Una vez adoptadas y ejecutadas",
+      "Con la debida antelación"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 33.1: consulta «con la debida antelación», es decir, antes de adoptar la decisión."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33.1 de la Ley 31/1995, la consulta sobre nuevas tecnologías se refiere a sus consecuencias para:",
+     "opciones": [
+      "La productividad y la rentabilidad de la empresa.",
+      "La retribución y la clasificación del personal.",
+      "La seguridad y la salud de los trabajadores."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 33.1.a): las nuevas tecnologías se consultan por sus consecuencias para la seguridad y la salud de los trabajadores."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas materias NO figura entre las de consulta obligatoria del art. 33.1 LPRL?",
+     "opciones": [
+      "La fijación del salario y la jornada de los trabajadores.",
+      "La designación de los encargados de las medidas de emergencia.",
+      "El proyecto y la organización de la formación preventiva."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.1.a) a f): planificación, organización preventiva, emergencias, documentación, formación y acciones sustanciales; no el salario ni la jornada."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a33-1-detalle",
+   "bloque": "a33",
+   "apartado": "1",
+   "orden": 1410,
+   "tipo": "lista",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 33.1.d) LPRL, ¿qué procedimientos de información y documentación debe consultar el empresario a los trabajadores?",
+    "respuesta": "Los procedimientos a que se refieren los artículos 18, apartado 1, y 23, apartado 1, de la Ley."
+   },
+   "cita": "Los procedimientos de información y documentación a que se refieren los artículos 18, apartado 1, y 23, apartado 1, de la presente Ley",
+   "confundible_con": [
+    "LPRL-a23-1-documentacion",
+    "LPRL-a33-1-materias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33.1.d) LPRL, se consultan los procedimientos de información y documentación de los arts. 18.1 y:",
+     "opciones": [
+      "Artículo 23, apartado 1",
+      "Artículo 22, apartado 4"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.1.d): remite a los artículos 18.1 (información) y 23.1 (documentación)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33.1.b) de la Ley 31/1995, la consulta sobre la organización de la prevención incluye la designación de los trabajadores encargados o el recurso a:",
+     "opciones": [
+      "Una auditoría externa de la Inspección de Trabajo.",
+      "Una mutua colaboradora con la Seguridad Social.",
+      "Un servicio de prevención externo a la empresa."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 33.1.b): organización de las actividades preventivas, incluida la designación de trabajadores o el recurso a un servicio de prevención externo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué cláusula de cierre contiene el art. 33.1.f) LPRL?",
+     "opciones": [
+      "Cualquier otra acción con efectos sustanciales sobre la seguridad y la salud de los trabajadores.",
+      "Cualquier otra decisión del empresario con repercusión en la organización general de la empresa.",
+      "Cualquier otra medida propuesta por el servicio de prevención ajeno a la empresa."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.1.f): «cualquier otra acción que pueda tener efectos sustanciales sobre la seguridad y la salud de los trabajadores»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a33-2-representantes",
+   "bloque": "a33",
+   "apartado": "2",
+   "orden": 1420,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 33.2 LPRL, ¿con quién se llevan a cabo las consultas en las empresas que cuenten con representación de los trabajadores?",
+    "respuesta": "Con dichos representantes de los trabajadores."
+   },
+   "cita": "las consultas a que se refiere el apartado anterior se llevarán a cabo con dichos representantes",
+   "confundible_con": [
+    "LPRL-a33-1-materias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33.2 LPRL, en las empresas que cuenten con representación de los trabajadores, las consultas se llevan a cabo con:",
+     "opciones": [
+      "Cada trabajador por separado",
+      "Los citados representantes"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 33.2: las consultas se llevan a cabo «con dichos representantes»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33.2 de la Ley 31/1995, ¿en qué supuesto las consultas se llevan a cabo con los representantes?",
+     "opciones": [
+      "Solo en las empresas de más de cincuenta trabajadores fijos.",
+      "Solo en las empresas que lo prevean en su convenio colectivo.",
+      "En las empresas que cuenten con representantes del personal."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 33.2: el supuesto es «las empresas que cuenten con representantes de los trabajadores»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 33.2 LPRL es correcta?",
+     "opciones": [
+      "Existiendo representantes, la consulta del apartado 1 se hace con ellos.",
+      "Existiendo representantes, la consulta del apartado 1 pasa a ser potestativa.",
+      "Existiendo representantes, la consulta del apartado 1 se realiza ante la autoridad laboral."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.2: la consulta del apartado 1 se canaliza por los representantes cuando existen."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a34-1-participacion",
+   "bloque": "a34",
+   "apartado": "1",
+   "orden": 1430,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 34.1 LPRL, ¿a partir de cuántos trabajadores se canaliza la participación a través de representantes y de la representación especializada?",
+    "respuesta": "En las empresas o centros de trabajo con seis o más trabajadores."
+   },
+   "cita": "En las empresas o centros de trabajo que cuenten con seis o más trabajadores",
+   "confundible_con": [
+    "LPRL-a35-2-escala"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 34.1 LPRL, la participación se canaliza a través de representantes en empresas o centros con:",
+     "opciones": [
+      "Seis o más trabajadores",
+      "Diez o más trabajadores"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.1 párr. 2: «seis o más trabajadores»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 34.1 de la Ley 31/1995, con seis o más trabajadores la participación se canaliza a través de sus representantes y de:",
+     "opciones": [
+      "Las asambleas generales convocadas por el empresario.",
+      "Los servicios de prevención ajenos acreditados.",
+      "La representación especializada que regula este capítulo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 34.1 párr. 2: representantes y «representación especializada que se regula en este capítulo» (Delegados de Prevención y Comité)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones NO es cierta según el art. 34.1 LPRL?",
+     "opciones": [
+      "La participación solo se canaliza por representantes con más de cincuenta trabajadores.",
+      "Los trabajadores tienen derecho a participar en las cuestiones relativas a la prevención.",
+      "Con seis o más trabajadores, la participación se canaliza a través de sus representantes."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.1: el umbral es seis trabajadores, no cincuenta (cifra del art. 35.2 para la escala de Delegados)."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a34-2-representantes",
+   "bloque": "a34",
+   "apartado": "2",
+   "orden": 1440,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 34.2 LPRL, ¿a quiénes corresponde la defensa de los intereses de los trabajadores en materia de prevención y qué competencias ejercen?",
+    "respuesta": "A los Comités de Empresa, Delegados de Personal y representantes sindicales; ejercen las competencias de información, consulta y negociación, vigilancia y control, y ejercicio de acciones ante las empresas y los órganos y tribunales competentes."
+   },
+   "cita": "la defensa de los intereses de los trabajadores en materia de prevención de riesgos en el trabajo",
+   "confundible_con": [
+    "LPRL-a35-1-definicion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 34.2 LPRL, la defensa de los intereses de los trabajadores en prevención corresponde a los Comités de Empresa, Delegados de Personal y:",
+     "opciones": [
+      "Los servicios de prevención",
+      "Los representantes sindicales"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 34.2: Comités de Empresa, Delegados de Personal y representantes sindicales."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 34.2 de la Ley 31/1995, entre las competencias de los representantes del personal figura el ejercicio de acciones ante:",
+     "opciones": [
+      "Únicamente la autoridad laboral y la Inspección de Trabajo.",
+      "Las mutuas y el Instituto Nacional de la Seguridad Social.",
+      "Las empresas y los órganos y tribunales competentes."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 34.2: acciones «ante las empresas y los órganos y tribunales competentes»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas competencias NO atribuye el art. 34.2 LPRL a los representantes del personal?",
+     "opciones": [
+      "La designación de los miembros del servicio de prevención.",
+      "La vigilancia y el control del cumplimiento de la normativa.",
+      "La información, la consulta y la negociación sobre prevención."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.2: las competencias son información, consulta y negociación, vigilancia y control y ejercicio de acciones; no designar el servicio de prevención."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a34-3-adaptacion",
+   "bloque": "a34",
+   "apartado": "3",
+   "orden": 1450,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 34.3 LPRL, ¿cómo se ejerce el derecho de participación en el ámbito de las Administraciones públicas?",
+    "respuesta": "Con las adaptaciones que procedan por la diversidad de actividades, la complejidad y dispersión de su estructura y sus peculiaridades de representación colectiva, en los términos de la Ley 7/1990; pueden establecerse ámbitos sectoriales y descentralizados."
+   },
+   "cita": "El derecho de participación que se regula en este capítulo se ejercerá en el ámbito de las Administraciones públicas con las adaptaciones que procedan",
+   "confundible_con": [
+    "LPRL-a34-3-comite"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 34.3 LPRL, en las Administraciones públicas el derecho de participación se ejerce:",
+     "opciones": [
+      "Con las adaptaciones que procedan",
+      "Sin adaptación a sus peculiaridades"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.3: adaptaciones atendiendo a la diversidad de actividades, complejidad y dispersión de la estructura y representación colectiva."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 34.3 de la Ley 31/1995, las adaptaciones en las Administraciones públicas se hacen en los términos de la:",
+     "opciones": [
+      "Ley 8/1980, de 10 de marzo.",
+      "Ley 14/1986, de 25 de abril.",
+      "Ley 7/1990, de 19 de julio."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 34.3: «en los términos previstos en la Ley 7/1990, de 19 de julio»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué permite el art. 34.3 LPRL en función del número de efectivos y centros?",
+     "opciones": [
+      "Establecer ámbitos sectoriales y descentralizados.",
+      "Excluir a los empleados públicos de la participación.",
+      "Suprimir los Comités de Seguridad y Salud sectoriales."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.3: «pudiéndose establecer ámbitos sectoriales y descentralizados en función del número de efectivos y centros»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a34-3-comite",
+   "bloque": "a34",
+   "apartado": "3",
+   "orden": 1460,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 34.3.d) LPRL, ¿cómo se configura con carácter general el Comité de Seguridad y Salud en la Administración General del Estado?",
+    "respuesta": "Un único Comité en el ámbito de los órganos de representación del personal, integrado por los Delegados de Prevención y por representantes de la Administración en número no superior al de Delegados."
+   },
+   "cita": "representantes de la Administración en número no superior al de Delegados",
+   "confundible_con": [
+    "LPRL-a34-3-adaptacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 34.3.d) LPRL, los representantes de la Administración en el Comité de Seguridad y Salud serán en número:",
+     "opciones": [
+      "Superior al de los Delegados",
+      "No superior al de Delegados"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 34.3.d): representantes de la Administración «en número no superior al de Delegados»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 34.3.d) de la Ley 31/1995, con carácter general se constituirá en ese ámbito:",
+     "opciones": [
+      "Un Comité de Seguridad y Salud por centro.",
+      "Un Comité por cada órgano de personal.",
+      "Un único Comité de Seguridad y Salud."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 34.3.d): «se constituirá un único Comité de Seguridad y Salud», salvo otros ámbitos que aconsejen la actividad y los riesgos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 34.3.a) LPRL es correcta?",
+     "opciones": [
+      "La adaptación nunca puede afectar a las competencias de los Delegados de Prevención.",
+      "La adaptación puede reducir las garantías de los Delegados si la estructura es dispersa.",
+      "La adaptación puede suprimir los Comités de Seguridad y Salud cuando convenga."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.3.a): la adaptación «en ningún caso» puede afectar a las competencias, facultades y garantías de Delegados y Comités."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a35-1-definicion",
+   "bloque": "a35",
+   "apartado": "1",
+   "orden": 1470,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35.1 LPRL, ¿qué son los Delegados de Prevención?",
+    "respuesta": "Los representantes de los trabajadores con funciones específicas en materia de prevención de riesgos en el trabajo."
+   },
+   "cita": "Los Delegados de Prevención son los representantes de los trabajadores con funciones específicas en materia de prevención de riesgos en el trabajo",
+   "confundible_con": [
+    "LPRL-a34-2-representantes"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35.1 LPRL, los Delegados de Prevención son representantes de los trabajadores con funciones:",
+     "opciones": [
+      "Específicas en prevención de riesgos",
+      "Generales en materia de negociación"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35.1: representantes de los trabajadores con funciones específicas en prevención."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35.1 de la Ley 31/1995, ¿en qué condición actúan los Delegados de Prevención?",
+     "opciones": [
+      "Como técnicos del servicio de prevención.",
+      "Como delegados de la autoridad laboral.",
+      "Como representantes de los trabajadores."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 35.1: actúan «como representantes de los trabajadores», no como técnicos ni como delegados de la autoridad."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones NO se corresponde con el art. 35.1 LPRL?",
+     "opciones": [
+      "Los Delegados de Prevención son técnicos de la empresa con funciones de asesoramiento.",
+      "Los Delegados de Prevención son representantes de los trabajadores en la empresa.",
+      "Los Delegados de Prevención tienen funciones específicas en prevención de riesgos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35.1: son representantes de los trabajadores, no técnicos de la empresa."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a35-2-designacion",
+   "bloque": "a35",
+   "apartado": "2",
+   "orden": 1480,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35.2 LPRL, ¿quién designa a los Delegados de Prevención?",
+    "respuesta": "Son designados por y entre los representantes del personal, en el ámbito de los órganos de representación previstos en las normas del artículo 34."
+   },
+   "cita": "serán designados por y entre los representantes del personal",
+   "confundible_con": [
+    "LPRL-a35-4-sistemas",
+    "LPRL-a35-2-escala"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35.2 LPRL, los Delegados de Prevención son designados:",
+     "opciones": [
+      "Por el empresario entre los trabajadores",
+      "Por y entre los representantes del personal"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35.2: «designados por y entre los representantes del personal»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35.2 de la Ley 31/1995, la designación se hace en el ámbito de los órganos de representación previstos en:",
+     "opciones": [
+      "El reglamento de régimen interno de la empresa.",
+      "La resolución de la autoridad laboral competente.",
+      "Las normas a que se refiere el artículo anterior."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 35.2: ámbito de los órganos de representación de las normas del artículo anterior (art. 34)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 35.2 LPRL es correcta?",
+     "opciones": [
+      "Los designan los propios representantes del personal, de entre ellos.",
+      "Los designa el empresario, previa consulta a los representantes.",
+      "Los designa la autoridad laboral, a propuesta de los sindicatos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35.2: la designación corresponde a los representantes del personal, no al empresario ni a la autoridad laboral."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a35-2-escala",
+   "bloque": "a35",
+   "apartado": "2",
+   "orden": 1490,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35.2 LPRL, ¿cuántos Delegados de Prevención corresponden a una empresa de 101 a 500 trabajadores y cuál es la escala completa?",
+    "respuesta": "Tres. Escala: 50-100: 2; 101-500: 3; 501-1.000: 4; 1.001-2.000: 5; 2.001-3.000: 6; 3.001-4.000: 7; de 4.001 en adelante: 8."
+   },
+   "cita": "De 101 a 500 trabajadores: 3 Delegados de Prevención.",
+   "confundible_con": [
+    "LPRL-a35-2-pequenas",
+    "LPRL-a34-1-participacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35.2 LPRL, una empresa de 101 a 500 trabajadores tiene:",
+     "opciones": [
+      "3 Delegados de Prevención",
+      "4 Delegados de Prevención"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35.2: «De 101 a 500 trabajadores: 3 Delegados de Prevención»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35.2 de la Ley 31/1995, una empresa de 1.001 a 2.000 trabajadores tiene:",
+     "opciones": [
+      "4 Delegados de Prevención.",
+      "6 Delegados de Prevención.",
+      "5 Delegados de Prevención."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 35.2: «De 1.001 a 2.000 trabajadores: 5 Delegados de Prevención»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35.2 LPRL, ¿a partir de cuántos trabajadores se alcanzan 8 Delegados de Prevención?",
+     "opciones": [
+      "De 4.001 trabajadores en adelante.",
+      "De 3.001 trabajadores en adelante.",
+      "De 5.001 trabajadores en adelante."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35.2: «De 4.001 en adelante: 8 Delegados de Prevención» (de 3.001 a 4.000, 7)."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a35-2-pequenas",
+   "bloque": "a35",
+   "apartado": "2",
+   "orden": 1500,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35.2 LPRL, ¿quién es el Delegado de Prevención en las empresas de hasta treinta trabajadores y en las de treinta y uno a cuarenta y nueve?",
+    "respuesta": "Hasta treinta trabajadores, el Delegado de Personal; de treinta y uno a cuarenta y nueve, un Delegado de Prevención elegido por y entre los Delegados de Personal."
+   },
+   "cita": "En las empresas de hasta treinta trabajadores el Delegado de Prevención será el Delegado de Personal",
+   "confundible_con": [
+    "LPRL-a35-2-escala"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35.2 LPRL, en las empresas de hasta treinta trabajadores el Delegado de Prevención es:",
+     "opciones": [
+      "El trabajador más antiguo de plantilla",
+      "El propio Delegado de Personal"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35.2: hasta treinta trabajadores, «el Delegado de Personal»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35.2 de la Ley 31/1995, en las empresas de treinta y uno a cuarenta y nueve trabajadores habrá:",
+     "opciones": [
+      "Dos Delegados de Prevención elegidos entre todos los Delegados de Personal.",
+      "Un Delegado de Prevención nombrado por el empresario entre los Delegados.",
+      "Un Delegado de Prevención elegido por y entre los Delegados de Personal."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 35.2: de 31 a 49 trabajadores, «un Delegado de Prevención que será elegido por y entre los Delegados de Personal»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre las empresas pequeñas del art. 35.2 LPRL es correcta?",
+     "opciones": [
+      "Con treinta trabajadores, el Delegado de Personal ejerce de Delegado de Prevención.",
+      "Con treinta trabajadores, hay un Delegado de Prevención elegido entre los de Personal.",
+      "Con treinta trabajadores, hay dos Delegados de Prevención elegidos por los trabajadores."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35.2: hasta treinta trabajadores no se elige otra figura: el Delegado de Personal asume la función."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a35-3-fijos",
+   "bloque": "a35",
+   "apartado": "3",
+   "orden": 1510,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35.3.a) LPRL, ¿cómo se computan, para determinar el número de Delegados, los trabajadores con contratos de duración determinada superior a un año?",
+    "respuesta": "Como trabajadores fijos de plantilla."
+   },
+   "cita": "Los trabajadores vinculados por contratos de duración determinada superior a un año se computarán como trabajadores fijos de plantilla",
+   "confundible_con": [
+    "LPRL-a35-3-temporales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35.3.a) LPRL, los contratados por duración determinada superior a un año se computan como:",
+     "opciones": [
+      "Trabajadores fijos de plantilla",
+      "Medio trabajador de plantilla"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35.3.a): contratos de duración determinada superior a un año, «como trabajadores fijos de plantilla»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35.3.a) de la Ley 31/1995, se computan como fijos los contratos de duración determinada superior a:",
+     "opciones": [
+      "Seis meses.",
+      "Dos años.",
+      "Un año."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 35.3.a): el umbral es «superior a un año»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el cómputo del art. 35.3.a) LPRL es correcta?",
+     "opciones": [
+      "Un contrato de dos años cuenta como un trabajador fijo de plantilla.",
+      "Un contrato de dos años se computa por los días trabajados en el año.",
+      "Un contrato de dos años queda excluido del cómputo de la escala."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35.3.a): un contrato de dos años supera el año y cuenta como fijo; el cómputo por días es del apartado b)."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a35-3-temporales",
+   "bloque": "a35",
+   "apartado": "3",
+   "orden": 1520,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35.3.b) LPRL, ¿cómo se computan los trabajadores contratados por término de hasta un año?",
+    "respuesta": "Según los días trabajados en el período de un año anterior a la designación; cada doscientos días trabajados o fracción se computan como un trabajador más."
+   },
+   "cita": "Cada doscientos días trabajados o fracción se computarán como un trabajador más",
+   "confundible_con": [
+    "LPRL-a35-3-fijos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35.3.b) LPRL, a los contratados hasta un año se les computa un trabajador más por cada:",
+     "opciones": [
+      "Trescientos días trabajados o fracción",
+      "Doscientos días trabajados o fracción"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35.3.b): «cada doscientos días trabajados o fracción se computarán como un trabajador más»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35.3.b) de la Ley 31/1995, los días trabajados de los contratados hasta un año se cuentan en el período de:",
+     "opciones": [
+      "Un año posterior a la designación.",
+      "Seis meses anteriores a la designación.",
+      "Un año anterior a la designación."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 35.3.b): «en el período de un año anterior a la designación»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Un trabajador contratado seis meses y con 130 días trabajados en el último año, según el art. 35.3.b) LPRL, se computa como:",
+     "opciones": [
+      "Un trabajador más, por la fracción de doscientos días.",
+      "Medio trabajador, por proporción de días trabajados.",
+      "Ningún trabajador, al no alcanzar doscientos días."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35.3.b): doscientos días «o fracción»: 130 días son una fracción y computan como un trabajador."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a35-4-sistemas",
+   "bloque": "a35",
+   "apartado": "4",
+   "orden": 1530,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35.4 LPRL, ¿qué condición deben cumplir otros sistemas de designación de Delegados de Prevención establecidos en convenio colectivo?",
+    "respuesta": "Que se garantice que la facultad de designación corresponde a los representantes del personal o a los propios trabajadores."
+   },
+   "cita": "siempre que se garantice que la facultad de designación corresponde a los representantes del personal o a los propios trabajadores",
+   "confundible_con": [
+    "LPRL-a35-2-designacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35.4 LPRL, otros sistemas de designación valen si la facultad corresponde a los representantes del personal o a:",
+     "opciones": [
+      "Los propios trabajadores",
+      "La dirección de la empresa"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35.4: la facultad debe corresponder a los representantes del personal o a los propios trabajadores."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35.4 de la Ley 31/1995, ¿dónde pueden establecerse otros sistemas de designación de los Delegados?",
+     "opciones": [
+      "En el reglamento interno de la empresa.",
+      "En el plan de prevención de la empresa.",
+      "En los convenios colectivos aplicables."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 35.4: «en los convenios colectivos podrán establecerse otros sistemas de designación»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas fórmulas de designación NO permite el art. 35.4 LPRL?",
+     "opciones": [
+      "La que atribuye la designación exclusivamente al empresario.",
+      "La que atribuye la designación a los representantes del personal.",
+      "La que atribuye la designación a los propios trabajadores."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35.4: se exige que la facultad corresponda a representantes o trabajadores; nunca solo al empresario."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a35-4-organos",
+   "bloque": "a35",
+   "apartado": "4",
+   "orden": 1540,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35.4 LPRL, ¿qué puede acordarse en la negociación colectiva o en los acuerdos del art. 83.3 ET sobre las competencias de los Delegados de Prevención?",
+    "respuesta": "Que sean ejercidas por órganos específicos creados en el propio convenio o acuerdo, que pueden asumir competencias generales sobre el conjunto de los centros incluidos en su ámbito."
+   },
+   "cita": "podrá acordarse que las competencias reconocidas en esta Ley a los Delegados de Prevención sean ejercidas por órganos específicos creados en el propio convenio o en los acuerdos citados",
+   "confundible_con": [
+    "LPRL-a35-4-sistemas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35.4 LPRL, las competencias de los Delegados pueden ser ejercidas por órganos:",
+     "opciones": [
+      "Designados por la autoridad laboral competente",
+      "Específicos creados en el propio convenio"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35.4 párr. 2: órganos específicos creados en el convenio o en los acuerdos del art. 83.3 ET."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35.4 de la Ley 31/1995, esos órganos específicos pueden asumir competencias generales respecto del:",
+     "opciones": [
+      "Conjunto de empresas del mismo sector en la provincia.",
+      "Sector productivo completo en todo el territorio nacional.",
+      "Conjunto de centros incluidos en el ámbito del convenio."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 35.4 párr. 2: competencias generales «respecto del conjunto de los centros de trabajo incluidos en el ámbito de aplicación»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre los órganos específicos del art. 35.4 LPRL es correcta?",
+     "opciones": [
+      "Asumen competencias en los términos y modalidades que se acuerden.",
+      "Asumen siempre las mismas competencias fijadas por el Gobierno.",
+      "Requieren autorización previa de la Inspección de Trabajo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35.4 párr. 2: «en los términos y conforme a las modalidades que se acuerden»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a36-1-competencias",
+   "bloque": "a36",
+   "apartado": "1",
+   "orden": 1550,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 36.1 LPRL, ¿cuáles son las competencias de los Delegados de Prevención?",
+    "respuesta": "Colaborar con la dirección en la mejora de la acción preventiva; promover la cooperación de los trabajadores; ser consultados con carácter previo a la ejecución de las decisiones del art. 33; y ejercer una labor de vigilancia y control del cumplimiento de la normativa."
+   },
+   "cita": "Ejercer una labor de vigilancia y control sobre el cumplimiento de la normativa de prevención de riesgos laborales",
+   "confundible_con": [
+    "LPRL-a33-1-materias",
+    "LPRL-a36-2-visitas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36.1.d) LPRL, los Delegados de Prevención ejercen una labor de:",
+     "opciones": [
+      "Vigilancia y control del cumplimiento de la normativa",
+      "Dirección y gestión de la actividad preventiva general"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.1.d): «vigilancia y control sobre el cumplimiento de la normativa de prevención de riesgos laborales»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36.1.c) de la Ley 31/1995, los Delegados son consultados por el empresario sobre las decisiones del art. 33:",
+     "opciones": [
+      "Tras su ejecución, solo a efectos informativos.",
+      "Solo cuando así lo disponga el convenio colectivo.",
+      "Con carácter previo a la ejecución de la decisión."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 36.1.c): ser consultados «con carácter previo a su ejecución» sobre las decisiones del art. 33."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas funciones NO figura entre las competencias del art. 36.1 LPRL?",
+     "opciones": [
+      "Sancionar a los trabajadores que incumplan la normativa preventiva.",
+      "Colaborar con la dirección en la mejora de la acción preventiva.",
+      "Promover la cooperación de los trabajadores en la normativa preventiva."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.1.a) a d): colaborar, promover la cooperación, ser consultados y vigilar; no sancionar."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a36-1-sin-comite",
+   "bloque": "a36",
+   "apartado": "1",
+   "orden": 1560,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 36.1 LPRL, ¿quién ejerce las competencias del Comité de Seguridad y Salud en las empresas que no cuentan con él por no alcanzar el número mínimo de trabajadores?",
+    "respuesta": "Los Delegados de Prevención."
+   },
+   "cita": "las competencias atribuidas a aquél en la presente Ley serán ejercidas por los Delegados de Prevención",
+   "confundible_con": [
+    "LPRL-a36-1-competencias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36.1 LPRL, si no hay Comité de Seguridad y Salud por no alcanzar el mínimo de trabajadores, sus competencias las ejercen:",
+     "opciones": [
+      "La autoridad laboral competente",
+      "Los Delegados de Prevención"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 36.1 último párr.: las competencias del Comité las ejercen los Delegados de Prevención."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36.1 de la Ley 31/1995, el número mínimo de trabajadores para tener Comité se establece en el:",
+     "opciones": [
+      "Artículo 35, apartado 2",
+      "Artículo 39, apartado 1",
+      "Artículo 38, apartado 2"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 36.1 último párr.: remite al «apartado 2 del artículo 38»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el último párrafo del art. 36.1 LPRL es correcta?",
+     "opciones": [
+      "Sin Comité por falta de trabajadores, los Delegados asumen sus competencias.",
+      "Sin Comité por falta de trabajadores, sus competencias quedan en suspenso.",
+      "Sin Comité por falta de trabajadores, las asume el servicio de prevención ajeno."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.1 último párr.: las competencias del Comité no quedan sin ejercer, las asumen los Delegados."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a36-2-visitas",
+   "bloque": "a36",
+   "apartado": "2",
+   "orden": 1570,
+   "tipo": "lista",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 36.2 LPRL, ¿qué facultades tienen los Delegados de Prevención para acompañar y visitar los lugares de trabajo?",
+    "respuesta": "Acompañar a los técnicos en las evaluaciones del medio ambiente de trabajo y a los Inspectores de Trabajo y Seguridad Social en sus visitas; y visitar los lugares de trabajo, accediendo a cualquier zona y comunicándose con los trabajadores durante la jornada sin alterar el proceso productivo."
+   },
+   "cita": "pudiendo, a tal fin, acceder a cualquier zona de los mismos y comunicarse durante la jornada con los trabajadores, de manera que no se altere el normal desarrollo del proceso productivo",
+   "confundible_con": [
+    "LPRL-a37-1-tiempo-efectivo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36.2.e) LPRL, al visitar los lugares de trabajo los Delegados pueden acceder a:",
+     "opciones": [
+      "Cualquier zona de los lugares de trabajo",
+      "Solo las zonas que el empresario autorice"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.2.e): acceso a «cualquier zona» de los lugares de trabajo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36.2.e) de la Ley 31/1995, la comunicación con los trabajadores durante la visita debe hacerse de manera que no se altere:",
+     "opciones": [
+      "El régimen general de turnos de la plantilla.",
+      "La confidencialidad de la producción industrial.",
+      "El normal desarrollo del proceso productivo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 36.2.e): sin alterar «el normal desarrollo del proceso productivo»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 36.2.a) LPRL es correcta?",
+     "opciones": [
+      "Pueden acompañar a los Inspectores de Trabajo y Seguridad Social en sus visitas.",
+      "Necesitan autorización del empresario para acompañar a los Inspectores en sus visitas.",
+      "Pueden sustituir a los Inspectores de Trabajo en las verificaciones de los centros."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.2.a): acompañan a los Inspectores en sus visitas y pueden formular observaciones, sin sustituirlos ni necesitar autorización del empresario."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a36-2-informacion",
+   "bloque": "a36",
+   "apartado": "2",
+   "orden": 1580,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 36.2 LPRL, ¿qué derechos de información tienen los Delegados de Prevención sobre los daños producidos en la salud de los trabajadores?",
+    "respuesta": "Ser informados por el empresario de los daños una vez que haya tenido conocimiento de ellos, pudiendo presentarse, aun fuera de su jornada laboral, en el lugar de los hechos para conocer las circunstancias."
+   },
+   "cita": "pudiendo presentarse, aún fuera de su jornada laboral, en el lugar de los hechos para conocer las circunstancias de los mismos",
+   "confundible_con": [
+    "LPRL-a23-3-notificacion",
+    "LPRL-a22-4-datos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36.2.c) LPRL, tras un daño a la salud de los trabajadores, el Delegado puede presentarse en el lugar de los hechos:",
+     "opciones": [
+      "Solo dentro de su jornada laboral",
+      "Aun fuera de su jornada laboral"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 36.2.c): pueden presentarse «aún fuera de su jornada laboral» en el lugar de los hechos."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36.2.b) de la Ley 31/1995, la información sujeta a las limitaciones del art. 22.4 solo puede suministrarse de manera que se garantice:",
+     "opciones": [
+      "La conservación íntegra del original.",
+      "La autorización previa del trabajador.",
+      "El respeto de la confidencialidad."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 36.2.b): la información con limitaciones (art. 22.4) se suministra «de manera que se garantice el respeto de la confidencialidad»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuándo debe informar el empresario a los Delegados sobre los daños producidos según el art. 36.2.c) LPRL?",
+     "opciones": [
+      "Una vez que aquél hubiese tenido conocimiento de ellos.",
+      "Al finalizar la investigación del accidente por la Inspección.",
+      "En la siguiente reunión ordinaria del Comité de Seguridad y Salud."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.2.c): la información se facilita «una vez que aquél hubiese tenido conocimiento de ellos»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a36-2-propuestas",
+   "bloque": "a36",
+   "apartado": "2",
+   "orden": 1590,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 36.2 LPRL, ¿qué pueden hacer los Delegados de Prevención para mejorar la protección y respecto de la paralización de actividades?",
+    "respuesta": "Recabar del empresario medidas preventivas, efectuando propuestas al empresario y al Comité de Seguridad y Salud; y proponer al órgano de representación de los trabajadores el acuerdo de paralización de actividades del art. 21.3."
+   },
+   "cita": "Proponer al órgano de representación de los trabajadores la adopción del acuerdo de paralización de actividades a que se refiere el apartado 3 del artículo 21",
+   "confundible_con": [
+    "LPRL-a21-3-paralizacion",
+    "LPRL-a36-4-motivacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36.2.g) LPRL, los Delegados de Prevención proponen la paralización de actividades al:",
+     "opciones": [
+      "Órgano de representación de los trabajadores",
+      "Empresario titular del centro de trabajo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.2.g): proponer «al órgano de representación de los trabajadores» el acuerdo del art. 21.3."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36.2.f) de la Ley 31/1995, además de al empresario, los Delegados pueden efectuar propuestas al:",
+     "opciones": [
+      "Servicio de prevención, para su valoración técnica.",
+      "Inspector de Trabajo, para su verificación.",
+      "Comité de Seguridad y Salud, para su discusión."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 36.2.f): propuestas «al empresario, así como al Comité de Seguridad y Salud para su discusión en el mismo»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas facultades del art. 36.2 LPRL NO corresponde a los Delegados de Prevención?",
+     "opciones": [
+      "Acordar por sí solos la paralización de la actividad de la empresa.",
+      "Proponer al órgano de representación la paralización de actividades.",
+      "Recabar del empresario la adopción de medidas de carácter preventivo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.2.g): el Delegado propone la paralización; no la acuerda por sí solo."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a36-3-plazo",
+   "bloque": "a36",
+   "apartado": "3",
+   "orden": 1600,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 36.3 LPRL, ¿en qué plazo deben elaborar los Delegados de Prevención los informes del art. 36.1.c) y qué ocurre si transcurre sin emitirse?",
+    "respuesta": "En quince días (o el tiempo imprescindible si se trata de medidas para prevenir riesgos inminentes); transcurrido el plazo sin informe, el empresario podrá poner en práctica su decisión."
+   },
+   "cita": "deberán elaborarse en un plazo de quince días",
+   "confundible_con": [
+    "LPRL-a36-1-competencias",
+    "LPRL-a36-4-motivacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36.3 LPRL, los informes de los Delegados de Prevención deben elaborarse en un plazo de:",
+     "opciones": [
+      "Veinte días",
+      "Quince días"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 36.3: «en un plazo de quince días»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36.3 de la Ley 31/1995, transcurrido el plazo sin haberse emitido el informe, el empresario:",
+     "opciones": [
+      "Deberá aguardar a que el Delegado emita el informe.",
+      "Deberá solicitar un informe a la Inspección de Trabajo.",
+      "Podrá poner en práctica la decisión adoptada."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 36.3: transcurrido el plazo «el empresario podrá poner en práctica su decisión»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Cuando se trate de adoptar medidas para prevenir riesgos inminentes, según el art. 36.3 LPRL, el informe se elabora en:",
+     "opciones": [
+      "El tiempo imprescindible en cada caso.",
+      "Un plazo máximo de cuarenta y ocho horas.",
+      "Un plazo improrrogable de cinco días."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.3: para riesgos inminentes, «en el tiempo imprescindible», sin plazo fijo."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a38-1-organo",
+   "bloque": "a38",
+   "apartado": "1",
+   "orden": 1600,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 38.1 LPRL, ¿qué es el Comité de Seguridad y Salud?",
+    "respuesta": "El órgano paritario y colegiado de participación destinado a la consulta regular y periódica de las actuaciones de la empresa en materia de prevención de riesgos."
+   },
+   "cita": "es el órgano paritario y colegiado de participación destinado a la consulta regular y periódica de las actuaciones de la empresa en materia de prevención de riesgos",
+   "confundible_con": [
+    "LPRL-a38-2-constitucion",
+    "LPRL-a39-3-reuniones-conjuntas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 38.1 LPRL, el Comité de Seguridad y Salud es un órgano:",
+     "opciones": [
+      "Unipersonal de inspección y control",
+      "Paritario y colegiado de participación"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 38.1: «órgano paritario y colegiado de participación»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 38.1 de la Ley 31/1995, el Comité de Seguridad y Salud se destina a la consulta:",
+     "opciones": [
+      "Ocasional de las decisiones económicas de la dirección.",
+      "Anual de los convenios colectivos aplicables a la plantilla.",
+      "Regular y periódica de las actuaciones preventivas de la empresa."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 38.1: destinado a la «consulta regular y periódica» de las actuaciones preventivas de la empresa."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la naturaleza del Comité según el art. 38.1 LPRL es correcta?",
+     "opciones": [
+      "Es un órgano paritario y colegiado, dedicado a consultar de forma periódica la actuación preventiva de la empresa.",
+      "Es un órgano de la Administración que vigila de oficio y sanciona el cumplimiento de la normativa.",
+      "Es un órgano exclusivo del empresario, sin participación de los trabajadores, que decide la política preventiva."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 38.1: no es un órgano administrativo ni unipersonal; es paritario y colegiado."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a36-4-motivacion",
+   "bloque": "a36",
+   "apartado": "4",
+   "orden": 1610,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 36.4 LPRL, ¿qué exigencia tiene la decisión negativa del empresario a adoptar las medidas propuestas por el Delegado de Prevención?",
+    "respuesta": "Debe ser motivada."
+   },
+   "cita": "La decisión negativa del empresario a la adopción de las medidas propuestas por el Delegado de Prevención",
+   "confundible_con": [
+    "LPRL-a36-2-propuestas",
+    "LPRL-a36-3-plazo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36.4 LPRL, la decisión negativa del empresario a las medidas propuestas por el Delegado debe ser:",
+     "opciones": [
+      "Motivada",
+      "Ratificada"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.4: la decisión negativa «deberá ser motivada»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36.4 de la Ley 31/1995, la exigencia de motivación se refiere a las medidas propuestas conforme a la letra:",
+     "opciones": [
+      "La e) del apartado 2 de ese artículo.",
+      "La c) del apartado 1 de ese artículo.",
+      "La f) del apartado 2 de ese artículo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 36.4: remite a la «letra f) del apartado 2» (recabar medidas preventivas)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 36.4 LPRL es correcta?",
+     "opciones": [
+      "El empresario que rechace las medidas propuestas debe explicar sus motivos.",
+      "El empresario que rechace las medidas propuestas debe obtener la autorización del Comité.",
+      "El empresario que rechace las medidas propuestas queda obligado a adoptarlas igualmente."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.4: el empresario puede rechazar, pero debe motivarlo; no necesita autorización del Comité ni queda obligado."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a38-2-constitucion",
+   "bloque": "a38",
+   "apartado": "2",
+   "orden": 1610,
+   "tipo": "cifra",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 38.2 LPRL, ¿a partir de qué número de trabajadores se constituye un Comité de Seguridad y Salud?",
+    "respuesta": "En las empresas o centros de trabajo que cuenten con 50 o más trabajadores."
+   },
+   "cita": "Se constituirá un Comité de Seguridad y Salud en todas las empresas o centros de trabajo que cuenten con 50 o más trabajadores",
+   "confundible_con": [
+    "LPRL-a38-2-composicion",
+    "LPRL-a24-1-cooperacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 38.2 LPRL, se constituye Comité de Seguridad y Salud en empresas o centros con:",
+     "opciones": [
+      "50 o más trabajadores",
+      "25 o más trabajadores"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 38.2 párr. 1: 50 o más trabajadores."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 38.2 de la Ley 31/1995, el Comité de Seguridad y Salud se constituye en todas las empresas o:",
+     "opciones": [
+      "Centros de trabajo con 100 o más trabajadores.",
+      "Provincias con 50 o más centros de trabajo.",
+      "Centros de trabajo con 50 o más trabajadores."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 38.2 párr. 1: el umbral se aplica a la empresa o al centro de trabajo, no a la provincia."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas empresas debe constituir Comité de Seguridad y Salud según el art. 38.2 LPRL?",
+     "opciones": [
+      "Una con un centro de trabajo de 50 trabajadores.",
+      "Una con un centro de trabajo de 49 trabajadores.",
+      "Una con seis centros de trabajo de 10 trabajadores cada uno."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 38.2: 50 o más; con 49 trabajadores no hay obligación de constituirlo."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a37-1-garantias",
+   "bloque": "a37",
+   "apartado": "1",
+   "orden": 1620,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 37.1 LPRL, ¿qué garantías se aplican a los Delegados de Prevención y cómo se considera el tiempo de sus funciones preventivas?",
+    "respuesta": "Las del art. 68 del Estatuto de los Trabajadores, como representantes; y el tiempo de sus funciones preventivas se considera ejercicio de funciones de representación a efectos del crédito de horas mensuales retribuidas."
+   },
+   "cita": "Lo previsto en el artículo 68 del Estatuto de los Trabajadores en materia de garantías será de aplicación a los Delegados de Prevención",
+   "confundible_con": [
+    "LPRL-a37-1-tiempo-efectivo",
+    "LPRL-a37-3-sigilo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37.1 LPRL, las garantías aplicables a los Delegados de Prevención son las del art. 68 de:",
+     "opciones": [
+      "La Ley General de Seguridad Social",
+      "El Estatuto de los Trabajadores"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 37.1 párr. 1: garantías del art. 68 ET «en su condición de representantes de los trabajadores»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37.1 de la Ley 31/1995, el tiempo de funciones preventivas se considera de representación a efectos del crédito de:",
+     "opciones": [
+      "Días anuales de libre disposición de la plantilla.",
+      "Horas semanales de formación del personal.",
+      "Horas mensuales retribuidas previsto en el ET."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 37.1 párr. 2: crédito de horas mensuales retribuidas de la letra e) del art. 68 ET."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 37.1, párrafo 2, LPRL es correcta?",
+     "opciones": [
+      "Ese tiempo se imputa, en general, al crédito de horas mensuales retribuidas.",
+      "Ese tiempo nunca se imputa al crédito de horas mensuales retribuidas.",
+      "Ese tiempo se imputa a las vacaciones anuales retribuidas del Delegado."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.1 párr. 2: como regla general, se imputa al crédito de horas; las excepciones están en el párrafo 3."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a38-2-composicion",
+   "bloque": "a38",
+   "apartado": "2",
+   "orden": 1620,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 38.2 LPRL, ¿cómo está formado el Comité de Seguridad y Salud?",
+    "respuesta": "Por los Delegados de Prevención, de una parte, y por el empresario y/o sus representantes en número igual al de los Delegados de Prevención, de la otra."
+   },
+   "cita": "El Comité estará formado por los Delegados de Prevención, de una parte, y por el empresario y/o sus representantes en número igual al de los Delegados de Prevención, de la otra.",
+   "confundible_con": [
+    "LPRL-a38-2-participantes",
+    "LPRL-a38-1-organo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 38.2 LPRL, la representación empresarial en el Comité tiene un número igual al de:",
+     "opciones": [
+      "Los trabajadores de la plantilla",
+      "Los Delegados de Prevención"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 38.2 párr. 2: Delegados de Prevención, de una parte."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 38.2 de la Ley 31/1995, la parte de los trabajadores en el Comité de Seguridad y Salud la forman:",
+     "opciones": [
+      "Los Delegados Sindicales.",
+      "Los miembros del comité de empresa.",
+      "Los Delegados de Prevención."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 38.2 párr. 2: empresario y/o sus representantes «en número igual al de los Delegados de Prevención»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la composición del Comité según el art. 38.2 LPRL es correcta?",
+     "opciones": [
+      "La parte empresarial tiene tantos miembros como Delegados de Prevención haya.",
+      "La parte empresarial tiene siempre un miembro más que los Delegados de Prevención.",
+      "La parte empresarial se limita a un único representante designado por el empresario."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 38.2 párr. 2: composición paritaria, sin miembro adicional ni representación única."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a37-1-tiempo-efectivo",
+   "bloque": "a37",
+   "apartado": "1",
+   "orden": 1630,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 37.1 LPRL, ¿qué tiempo se considera en todo caso tiempo de trabajo efectivo, sin imputación al crédito horario?",
+    "respuesta": "El de las reuniones del Comité de Seguridad y Salud y de cualesquiera otras convocadas por el empresario en materia de prevención, y el de las visitas de las letras a) y c) del art. 36.2."
+   },
+   "cita": "será considerado en todo caso como tiempo de trabajo efectivo, sin imputación al citado crédito horario",
+   "confundible_con": [
+    "LPRL-a37-1-garantias",
+    "LPRL-a36-2-visitas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37.1 LPRL, el tiempo de las reuniones del Comité de Seguridad y Salud es tiempo de trabajo efectivo:",
+     "opciones": [
+      "Sin imputación al crédito horario",
+      "Con imputación al crédito horario"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.1 párr. 3: tiempo efectivo «sin imputación al citado crédito horario»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37.1 de la Ley 31/1995, no se imputa al crédito horario el tiempo de las visitas de las letras del art. 36.2:",
+     "opciones": [
+      "a) y e)",
+      "c) y e)",
+      "a) y c)"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 37.1 párr. 3: visitas de las letras a) y c) del art. 36.2."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué tiempo NO queda exento de imputación al crédito horario según el art. 37.1 LPRL?",
+     "opciones": [
+      "El de las visitas a los lugares de trabajo del art. 36.2.e).",
+      "El de las reuniones ordinarias del Comité de Seguridad y Salud.",
+      "El de las reuniones convocadas por el empresario sobre prevención."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.1 párr. 3: solo exime las visitas a) y c); las visitas de la letra e) se imputan al crédito."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a38-2-participantes",
+   "bloque": "a38",
+   "apartado": "2",
+   "orden": 1630,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 38.2 LPRL, ¿cómo participan en las reuniones del Comité los Delegados Sindicales y los responsables técnicos de la prevención no incluidos en su composición?",
+    "respuesta": "Con voz pero sin voto; en las mismas condiciones pueden participar trabajadores con especial cualificación y técnicos ajenos si lo solicita alguna representación."
+   },
+   "cita": "participarán, con voz pero sin voto, los Delegados Sindicales y los responsables técnicos de la prevención en la empresa",
+   "confundible_con": [
+    "LPRL-a38-2-composicion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 38.2 LPRL, los Delegados Sindicales participan en las reuniones del Comité:",
+     "opciones": [
+      "Con voz pero sin voto",
+      "Con voz y con voto"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 38.2 párr. 3: «con voz pero sin voto»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 38.2 de la Ley 31/1995, los técnicos en prevención ajenos a la empresa pueden participar en las reuniones siempre que:",
+     "opciones": [
+      "Lo autorice la Inspección de Trabajo y Seguridad Social.",
+      "Lo decida por sí solo el presidente del Comité.",
+      "Lo solicite alguna de las representaciones en el Comité."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 38.2 párr. 3: técnicos ajenos, «siempre que así lo solicite alguna de las representaciones»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre los participantes sin voto, según el art. 38.2 LPRL, es correcta?",
+     "opciones": [
+      "Pueden asistir trabajadores con especial cualificación o información sobre cuestiones concretas que se debatan.",
+      "Pueden votar los responsables técnicos de la prevención y los Delegados Sindicales presentes.",
+      "Pueden asistir solo los Delegados Sindicales y los técnicos de la empresa, nunca otros trabajadores."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 38.2 párr. 3: también trabajadores con especial cualificación o información sobre cuestiones concretas."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a37-2-medios",
+   "bloque": "a37",
+   "apartado": "2",
+   "orden": 1640,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 37.2 LPRL, ¿qué debe proporcionar el empresario a los Delegados de Prevención y cómo debe facilitar la formación?",
+    "respuesta": "Los medios y la formación preventiva necesarios para sus funciones; la formación, por sus propios medios o mediante concierto con organismos o entidades especializadas, adaptada a la evolución de los riesgos y repetida periódicamente si fuera necesario."
+   },
+   "cita": "El empresario deberá proporcionar a los Delegados de Prevención los medios y la formación en materia preventiva que resulten necesarios para el ejercicio de sus funciones",
+   "confundible_con": [
+    "LPRL-a37-2-coste",
+    "LPRL-a33-1-detalle"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37.2 LPRL, la formación de los Delegados puede facilitarla el empresario por sus propios medios o mediante:",
+     "opciones": [
+      "Delegación en los propios Delegados de Prevención",
+      "Concierto con organismos o entidades especializadas"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 37.2 párr. 1: medios y formación en materia preventiva necesarios para el ejercicio de sus funciones."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37.2 de la Ley 31/1995, la formación debe adaptarse a la evolución de los riesgos y repetirse:",
+     "opciones": [
+      "Cada año, y sin excepción alguna.",
+      "Solo cuando se renueve el cargo de Delegado.",
+      "Periódicamente, si fuera necesario hacerlo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 37.2 párr. 2: formación «adaptada a la evolución de los riesgos», «repitiéndose periódicamente si fuera necesario»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 37.2, párrafo 2, LPRL es correcta?",
+     "opciones": [
+      "El empresario puede formar con medios propios o concertar con entidades especializadas.",
+      "El empresario debe concertar siempre la formación con la Inspección de Trabajo y la mutua.",
+      "El empresario solo puede formar mediante entidades designadas por el sindicato."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.2 párr. 2: «por sus propios medios o mediante concierto con organismos o entidades especializadas»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a38-3-reuniones",
+   "bloque": "a38",
+   "apartado": "3",
+   "orden": 1640,
+   "tipo": "cifra",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 38.3 LPRL, ¿con qué periodicidad se reúne el Comité de Seguridad y Salud?",
+    "respuesta": "Trimestralmente, y siempre que lo solicite alguna de las representaciones en el mismo."
+   },
+   "cita": "El Comité de Seguridad y Salud se reunirá trimestralmente y siempre que lo solicite alguna de las representaciones en el mismo.",
+   "confundible_con": [
+    "LPRL-a38-3-intercentros",
+    "LPRL-a39-3-reuniones-conjuntas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 38.3 LPRL, el Comité de Seguridad y Salud se reúne ordinariamente de forma:",
+     "opciones": [
+      "Semestral",
+      "Trimestral"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 38.3 párr. 1: «trimestralmente»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 38.3 de la Ley 31/1995, además de la reunión periódica, el Comité se reúne siempre que lo solicite:",
+     "opciones": [
+      "La mayoría absoluta de los trabajadores.",
+      "El Inspector de Trabajo y Seguridad Social.",
+      "Alguna de las representaciones en el mismo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 38.3 párr. 1: «siempre que lo solicite alguna de las representaciones»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el funcionamiento del Comité según el art. 38.3 LPRL es correcta?",
+     "opciones": [
+      "El Comité adopta sus propias normas de funcionamiento.",
+      "Las normas de funcionamiento las fija la autoridad laboral.",
+      "Las normas de funcionamiento las dicta el empresario."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 38.3 párr. 1: «El Comité adoptará sus propias normas de funcionamiento»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a37-2-coste",
+   "bloque": "a37",
+   "apartado": "2",
+   "orden": 1650,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 37.2 LPRL, ¿cómo se considera el tiempo dedicado a la formación y sobre quién no puede recaer su coste?",
+    "respuesta": "Es tiempo de trabajo a todos los efectos, y su coste no puede recaer en ningún caso sobre los Delegados de Prevención."
+   },
+   "cita": "su coste no podrá recaer en ningún caso sobre los Delegados de Prevención",
+   "confundible_con": [
+    "LPRL-a37-2-medios"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37.2 LPRL, el coste de la formación no podrá recaer en ningún caso sobre:",
+     "opciones": [
+      "Los propios Delegados de Prevención",
+      "El empresario o la entidad formadora"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.2 párr. 3: el coste «no podrá recaer en ningún caso sobre los Delegados de Prevención»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37.2 de la Ley 31/1995, el tiempo dedicado a la formación será considerado como tiempo de trabajo:",
+     "opciones": [
+      "Solo a efectos de cotización social.",
+      "Solo a efectos de retribución salarial.",
+      "A todos los efectos, sin excepción."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 37.2 párr. 3: tiempo de trabajo «a todos los efectos»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 37.2, párrafo 3, LPRL es correcta?",
+     "opciones": [
+      "El tiempo de formación cuenta como tiempo de trabajo y su coste no recae en el Delegado.",
+      "El tiempo de formación se recupera fuera de jornada y su coste lo comparte el Delegado.",
+      "El tiempo de formación se descuenta del crédito horario y su coste recae en el Delegado."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.2 párr. 3: tiempo de trabajo y coste ajeno al Delegado; no se descuenta del crédito ni se recupera."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a38-3-intercentros",
+   "bloque": "a38",
+   "apartado": "3",
+   "orden": 1650,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 38.3 LPRL, ¿qué pueden acordar las empresas con varios centros de trabajo dotados de Comité de Seguridad y Salud?",
+    "respuesta": "Con sus trabajadores, la creación de un Comité Intercentros, con las funciones que el acuerdo le atribuya."
+   },
+   "cita": "podrán acordar con sus trabajadores la creación de un Comité Intercentros, con las funciones que el acuerdo le atribuya",
+   "confundible_con": [
+    "LPRL-a38-3-reuniones",
+    "LPRL-a39-3-reuniones-conjuntas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 38.3 LPRL, las empresas con varios centros con Comité pueden acordar con sus trabajadores crear un Comité:",
+     "opciones": [
+      "Intercentros",
+      "Provincial"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 38.3 párr. 2: Comité Intercentros acordado con los trabajadores."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 38.3 de la Ley 31/1995, las funciones del Comité Intercentros son las que:",
+     "opciones": [
+      "Fije la autoridad laboral.",
+      "Establezca el convenio sectorial.",
+      "Atribuya el acuerdo de creación."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 38.3 párr. 2: «con las funciones que el acuerdo le atribuya»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el Comité Intercentros según el art. 38.3 LPRL es correcta?",
+     "opciones": [
+      "Su creación es facultativa y se acuerda con los trabajadores.",
+      "Su creación es obligatoria en toda empresa con más de un centro.",
+      "Su creación la impone la Inspección de Trabajo a la empresa."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 38.3 párr. 2: «podrán acordar», es decir, es facultativo."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a37-3-sigilo",
+   "bloque": "a37",
+   "apartado": "3",
+   "orden": 1660,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 37.3 LPRL, ¿qué deber tienen los Delegados de Prevención respecto de las informaciones a que accedan en la empresa y qué norma lo regula?",
+    "respuesta": "El sigilo profesional, conforme al apartado 2 del artículo 65 del Estatuto de los Trabajadores."
+   },
+   "cita": "A los Delegados de Prevención les será de aplicación lo dispuesto en el apartado 2 del artículo 65 del Estatuto de los Trabajadores en cuanto al sigilo profesional",
+   "confundible_con": [
+    "LPRL-a22-4-datos",
+    "LPRL-a37-1-garantias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37.3 LPRL, a los Delegados de Prevención les es de aplicación respecto de las informaciones a que accedan el deber de:",
+     "opciones": [
+      "Publicidad interna",
+      "Sigilo profesional"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 37.3: sigilo profesional del art. 65.2 ET."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37.3 de la Ley 31/1995, el sigilo profesional se regula por el apartado 2 del artículo:",
+     "opciones": [
+      "68 del Estatuto de los Trabajadores.",
+      "64 del Estatuto de los Trabajadores.",
+      "65 del Estatuto de los Trabajadores."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 37.3: remite al apartado 2 del artículo 65 ET (el art. 68 ET regula las garantías, art. 37.1)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 37.3 LPRL es correcta?",
+     "opciones": [
+      "El sigilo cubre las informaciones que conozcan por su actuación en la empresa.",
+      "El sigilo cubre solo la información médica personal de los trabajadores.",
+      "El sigilo cubre solo lo que el empresario califique expresamente de reservado."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.3: alcanza a «las informaciones a que tuviesen acceso como consecuencia de su actuación en la empresa»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a39-1-planes",
+   "bloque": "a39",
+   "apartado": "1",
+   "orden": 1660,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 39.1.a) LPRL, ¿en qué participa el Comité de Seguridad y Salud respecto de los planes y programas de prevención de la empresa?",
+    "respuesta": "En su elaboración, puesta en práctica y evaluación, debatiendo antes de su puesta en práctica la modalidad organizativa, los proyectos de nuevas tecnologías y la formación preventiva."
+   },
+   "cita": "Participar en la elaboración, puesta en práctica y evaluación de los planes y programas de prevención de riesgos de la empresa.",
+   "confundible_con": [
+    "LPRL-a39-1-iniciativas",
+    "LPRL-a16-1-plan"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 39.1.a) LPRL, el Comité participa en la elaboración, puesta en práctica y evaluación de los:",
+     "opciones": [
+      "Convenios colectivos de la empresa y sus anexos",
+      "Planes y programas de prevención de riesgos"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 39.1.a): elaboración, puesta en práctica y evaluación de planes y programas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 39.1.a) de la Ley 31/1995, en el seno del Comité se debate la elección de la modalidad organizativa de la empresa:",
+     "opciones": [
+      "Una vez transcurrido el primer año.",
+      "Solo si lo exige la Inspección de Trabajo.",
+      "Antes de su puesta en práctica."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 39.1.a): se debaten «antes de su puesta en práctica» la modalidad organizativa y los proyectos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos asuntos NO figura entre los que se debaten en el Comité según el art. 39.1.a) LPRL?",
+     "opciones": [
+      "La fijación de los salarios de los trabajadores.",
+      "La introducción de nuevas tecnologías.",
+      "El proyecto y organización de la formación preventiva."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 39.1.a): modalidad organizativa, planificación, nuevas tecnologías y formación; no salarios."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a37-4-aapp",
+   "bloque": "a37",
+   "apartado": "4",
+   "orden": 1670,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 37.4 LPRL, ¿a qué regulación se remiten las garantías y el sigilo profesional de los Delegados con relación administrativa o estatutaria en las Administraciones públicas?",
+    "respuesta": "A los artículos 10, párrafo segundo, y 11 de la Ley 9/1987, de 12 de junio, de Órganos de Representación del personal al servicio de las Administraciones Públicas."
+   },
+   "cita": "a la regulación contenida en los artículos 10, párrafo segundo, y 11 de la Ley 9/1987, de 12 de junio",
+   "confundible_con": [
+    "LPRL-a37-1-garantias",
+    "LPRL-a37-3-sigilo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37.4 LPRL, para el personal administrativo o estatutario de las Administraciones públicas, las garantías y el sigilo se rigen por la Ley:",
+     "opciones": [
+      "9/1987, de 12 de junio",
+      "7/1990, de 19 de julio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.4: Ley 9/1987, de 12 de junio, de Órganos de Representación."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37.4 de la Ley 31/1995, se aplican de la Ley 9/1987 los artículos:",
+     "opciones": [
+      "10, párrafo primero, y 12.",
+      "11, párrafo segundo, y 12.",
+      "10, párrafo segundo, y 11."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 37.4: artículos «10, párrafo segundo, y 11» de la Ley 9/1987."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 37.4 LPRL es correcta?",
+     "opciones": [
+      "Para el personal estatutario, la remisión de garantías y sigilo es a la Ley 9/1987.",
+      "Para el personal estatutario, la remisión de garantías y sigilo es a la Ley 7/1990.",
+      "Para el personal estatutario, la remisión de garantías y sigilo es a la Ley General de Sanidad."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.4: la remisión es a la Ley 9/1987 (no a la Ley 7/1990, que el art. 34.3 cita para la adaptación de la participación)."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a39-1-iniciativas",
+   "bloque": "a39",
+   "apartado": "1",
+   "orden": 1670,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 39.1.b) LPRL, ¿qué debe promover el Comité de Seguridad y Salud y qué propone a la empresa?",
+    "respuesta": "Iniciativas sobre métodos y procedimientos para la efectiva prevención de los riesgos, proponiendo la mejora de las condiciones o la corrección de las deficiencias existentes."
+   },
+   "cita": "Promover iniciativas sobre métodos y procedimientos para la efectiva prevención de los riesgos, proponiendo a la empresa la mejora de las condiciones o la corrección de las deficiencias existentes.",
+   "confundible_con": [
+    "LPRL-a39-1-planes",
+    "LPRL-a39-2-conocer"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 39.1.b) LPRL, el Comité promueve iniciativas sobre métodos y procedimientos para la efectiva:",
+     "opciones": [
+      "Prevención de los riesgos",
+      "Contratación de trabajadores"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 39.1.b): iniciativas sobre métodos y procedimientos para la efectiva prevención."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 39.1.b) de la Ley 31/1995, el Comité propone a la empresa la mejora de las condiciones o la corrección de las:",
+     "opciones": [
+      "Sanciones impuestas.",
+      "Vacantes pendientes.",
+      "Deficiencias existentes."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 39.1.b): «mejora de las condiciones o la corrección de las deficiencias existentes»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la competencia del art. 39.1.b) LPRL es correcta?",
+     "opciones": [
+      "El Comité propone a la empresa mejoras, pero no le impone su ejecución.",
+      "El Comité ordena a la empresa la paralización de los trabajos con riesgo.",
+      "El Comité sanciona a la empresa que no corrige las deficiencias."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 39.1.b): el Comité propone; no ordena ni sanciona."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a39-2-conocer",
+   "bloque": "a39",
+   "apartado": "2",
+   "orden": 1680,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 39.2.a) y b) LPRL, ¿para qué está facultado el Comité de Seguridad y Salud en cuanto a la situación y la documentación preventiva?",
+    "respuesta": "Conocer directamente la situación preventiva del centro, realizando las visitas que estime oportunas, y conocer los documentos e informes sobre condiciones de trabajo y del servicio de prevención."
+   },
+   "cita": "Conocer directamente la situación relativa a la prevención de riesgos en el centro de trabajo, realizando a tal efecto las visitas que estime oportunas.",
+   "confundible_con": [
+    "LPRL-a39-2-danos-memoria",
+    "LPRL-a40-2-visitas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 39.2.a) LPRL, el Comité conoce directamente la situación preventiva del centro realizando:",
+     "opciones": [
+      "Solo las visitas autorizadas por el empresario",
+      "Las visitas que estime oportunas"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 39.2.a): «las visitas que estime oportunas»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 39.2.b) de la Ley 31/1995, el Comité conoce los documentos e informes necesarios para sus funciones, así como los procedentes de:",
+     "opciones": [
+      "La Seguridad Social sobre las bajas médicas.",
+      "La Inspección de Trabajo sobre sanciones firmes.",
+      "La actividad del servicio de prevención, en su caso."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 39.2.b): documentos e informes de condiciones de trabajo y de la actividad del servicio de prevención."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre las facultades del art. 39.2.a) y b) LPRL es correcta?",
+     "opciones": [
+      "El Comité puede realizar visitas al centro por iniciativa propia, sin esperar autorización del empresario.",
+      "El Comité solo accede a los documentos que el empresario decida entregarle voluntariamente.",
+      "El Comité necesita autorización de la autoridad laboral para realizar cada visita al centro."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 39.2.a) y b): facultad propia, sin autorización previa, de conocer directamente situación y documentos."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a39-2-danos-memoria",
+   "bloque": "a39",
+   "apartado": "2",
+   "orden": 1690,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 39.2.c) y d) LPRL, ¿qué debe conocer el Comité respecto de los daños a la salud y de los servicios de prevención?",
+    "respuesta": "Conocer y analizar los daños producidos en la salud o integridad física de los trabajadores para proponer medidas preventivas, y conocer e informar la memoria y programación anual de servicios de prevención."
+   },
+   "cita": "Conocer y analizar los daños producidos en la salud o en la integridad física de los trabajadores, al objeto de valorar sus causas y proponer las medidas preventivas oportunas.",
+   "confundible_con": [
+    "LPRL-a39-2-conocer",
+    "LPRL-a23-3-notificacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 39.2.d) LPRL, el Comité conoce e informa la memoria y programación anual de los:",
+     "opciones": [
+      "Servicios de prevención",
+      "Planes de formación profesional"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 39.2.d): «conocer e informar la memoria y programación anual de servicios de prevención»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 39.2.c) de la Ley 31/1995, el Comité analiza los daños producidos en la salud de los trabajadores al objeto de valorar:",
+     "opciones": [
+      "Su coste y repercutirlo en las cuotas de la mutua.",
+      "Su gravedad y fijar la sanción aplicable a la empresa.",
+      "Sus causas y proponer las medidas preventivas oportunas."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 39.2.c): valorar las causas de los daños y proponer medidas preventivas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas tareas corresponde al Comité según el art. 39.2.c) y d) LPRL?",
+     "opciones": [
+      "Informar la programación anual de los servicios de prevención.",
+      "Elaborar la evaluación de riesgos de cada puesto de trabajo.",
+      "Aprobar la contratación del servicio de prevención ajeno."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 39.2.c) y d): el Comité conoce, analiza e informa; no elabora la evaluación ni contrata."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a39-3-reuniones-conjuntas",
+   "bloque": "a39",
+   "apartado": "3",
+   "orden": 1700,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 39.3 LPRL, ¿qué se puede acordar para la colaboración entre empresas que desarrollan simultáneamente actividades en un mismo centro de trabajo?",
+    "respuesta": "Reuniones conjuntas de los Comités de Seguridad y Salud o, en su defecto, de los Delegados de Prevención y empresarios, u otras medidas de actuación coordinada."
+   },
+   "cita": "se podrá acordar la realización de reuniones conjuntas de los Comités de Seguridad y Salud",
+   "confundible_con": [
+    "LPRL-a24-1-cooperacion",
+    "LPRL-a38-3-intercentros"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 39.3 LPRL, para la colaboración entre empresas en un mismo centro se pueden acordar reuniones conjuntas de los:",
+     "opciones": [
+      "Comités de empresa",
+      "Comités de Seguridad y Salud"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 39.3: «reuniones conjuntas de los Comités de Seguridad y Salud»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 39.3 de la Ley 31/1995, si las empresas carecen de Comités, las reuniones conjuntas se realizan entre:",
+     "opciones": [
+      "Delegados Sindicales y la Inspección.",
+      "Trabajadores designados y las mutuas.",
+      "Delegados de Prevención y empresarios."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 39.3: «en su defecto, de los Delegados de Prevención y empresarios de las empresas que carezcan de dichos Comités»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 39.3 LPRL es correcta?",
+     "opciones": [
+      "Cabe acordar reuniones conjuntas u otras medidas de actuación coordinada.",
+      "Las reuniones conjuntas son obligatorias cada trimestre en cualquier centro.",
+      "Solo cabe la coordinación mediante un Comité Intercentros."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 39.3: «se podrá acordar»; también otras medidas de actuación coordinada."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a40-1-recurso",
+   "bloque": "a40",
+   "apartado": "1",
+   "orden": 1710,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 40.1 LPRL, ¿cuándo pueden los trabajadores y sus representantes recurrir a la Inspección de Trabajo y Seguridad Social?",
+    "respuesta": "Si consideran que las medidas adoptadas y los medios utilizados por el empresario no son suficientes para garantizar la seguridad y la salud en el trabajo."
+   },
+   "cita": "Los trabajadores y sus representantes podrán recurrir a la Inspección de Trabajo y Seguridad Social si consideran que las medidas adoptadas y los medios utilizados por el empresario no son suficientes",
+   "confundible_con": [
+    "LPRL-a21-3-paralizacion",
+    "LPRL-a40-2-visitas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 40.1 LPRL, pueden recurrir a la Inspección de Trabajo los trabajadores y:",
+     "opciones": [
+      "Sus representantes",
+      "Solo los sindicatos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 40.1: «los trabajadores y sus representantes»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 40.1 de la Ley 31/1995, se recurre a la Inspección si las medidas y medios del empresario no son suficientes para garantizar:",
+     "opciones": [
+      "La productividad y la continuidad de la actividad.",
+      "La conciliación y la estabilidad en el empleo.",
+      "La seguridad y la salud en el trabajo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 40.1: medidas y medios insuficientes «para garantizar la seguridad y la salud en el trabajo»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 40.1 LPRL es correcta?",
+     "opciones": [
+      "Basta que los trabajadores consideren insuficientes las medidas del empresario para poder recurrir.",
+      "Es preciso agotar antes el procedimiento interno ante el Comité de Seguridad y Salud.",
+      "Solo cabe recurrir tras un accidente grave ocurrido en el centro de trabajo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 40.1: el requisito es que «consideren» insuficientes las medidas; no exige agotar vías previas."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a40-2-visitas",
+   "bloque": "a40",
+   "apartado": "2",
+   "orden": 1720,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 40.2 LPRL, ¿a quién comunica su presencia el Inspector en las visitas a los centros y para qué?",
+    "respuesta": "Al empresario o su representante, al Comité de Seguridad y Salud, al Delegado de Prevención o, en su ausencia, a los representantes legales, para que puedan acompañarle y formularle observaciones."
+   },
+   "cita": "el Inspector de Trabajo y Seguridad Social comunicará su presencia al empresario o a su representante o a la persona inspeccionada, al Comité de Seguridad y Salud, al Delegado de Prevención",
+   "confundible_con": [
+    "LPRL-a40-3-informe"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 40.2 LPRL, el Inspector comunica su presencia para que puedan acompañarle y formularle:",
+     "opciones": [
+      "Las denuncias que consideren necesarias",
+      "Las observaciones que estimen oportunas"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 40.2: acompañarle y formularle «las observaciones que estimen oportunas»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 40.2 de la Ley 31/1995, si no hay Delegado de Prevención, el Inspector comunica su presencia a:",
+     "opciones": [
+      "Los técnicos del servicio de prevención ajeno.",
+      "La autoridad laboral de la provincia.",
+      "Los representantes legales de los trabajadores."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 40.2: Delegado de Prevención «o, en su ausencia, a los representantes legales de los trabajadores»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿En qué caso puede el Inspector omitir las comunicaciones de su visita según el art. 40.2 LPRL?",
+     "opciones": [
+      "Cuando considere que dichas comunicaciones puedan perjudicar el éxito de sus funciones.",
+      "Cuando la empresa tenga menos de seis trabajadores en plantilla.",
+      "Cuando el empresario se oponga expresamente a la presencia de los representantes."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 40.2: excepción si la comunicación «pueda perjudicar el éxito de sus funciones»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a40-3-informe",
+   "bloque": "a40",
+   "apartado": "3",
+   "orden": 1730,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 40.3 LPRL, ¿a quién informa la Inspección sobre los resultados de las visitas y cómo informa al empresario?",
+    "respuesta": "A los Delegados de Prevención, sobre los resultados y las medidas adoptadas; y al empresario mediante diligencia en el Libro de Visitas que debe existir en cada centro de trabajo."
+   },
+   "cita": "mediante diligencia en el Libro de Visitas de la Inspección de Trabajo y Seguridad Social que debe existir en cada centro de trabajo",
+   "confundible_con": [
+    "LPRL-a40-2-visitas",
+    "LPRL-a43-3-funcionarios"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 40.3 LPRL, la Inspección informa al empresario mediante diligencia en el:",
+     "opciones": [
+      "Libro de Visitas del centro de trabajo",
+      "Registro Mercantil de la empresa"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 40.3: diligencia «en el Libro de Visitas»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 40.3 de la Ley 31/1995, la Inspección informa a los Delegados de Prevención sobre los resultados de las visitas y sobre:",
+     "opciones": [
+      "Las sanciones económicas impuestas a la empresa.",
+      "Los datos personales de los trabajadores denunciantes.",
+      "Las medidas adoptadas como consecuencia de las mismas."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 40.3: informa a los Delegados de Prevención de resultados y «medidas adoptadas»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el Libro de Visitas según el art. 40.3 LPRL es correcta?",
+     "opciones": [
+      "Debe existir en cada centro de trabajo.",
+      "Se lleva únicamente en la sede central de la empresa.",
+      "Solo se exige en centros con 50 o más trabajadores."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 40.3: el Libro de Visitas «debe existir en cada centro de trabajo»."
+    }
+   ]
+  },
+  {
+   "id": "LPRL-a40-4-consulta",
+   "bloque": "a40",
+   "apartado": "4",
+   "orden": 1740,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 40.4 LPRL, ¿quiénes son consultados antes de elaborar los planes de actuación de la Inspección en materia preventiva?",
+    "respuesta": "Las organizaciones sindicales y empresariales más representativas, en especial sobre los programas específicos para empresas de menos de seis trabajadores, y serán informadas del resultado."
+   },
+   "cita": "Las organizaciones sindicales y empresariales más representativas serán consultadas con carácter previo a la elaboración de los planes de actuación",
+   "confundible_con": [
+    "LPRL-a40-1-recurso"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 40.4 LPRL, los programas específicos de la Inspección se destacan para empresas de menos de:",
+     "opciones": [
+      "Cincuenta trabajadores",
+      "Seis trabajadores"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 40.4: organizaciones «más representativas», consultadas con carácter previo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 40.4 de la Ley 31/1995, las organizaciones sindicales y empresariales más representativas son consultadas:",
+     "opciones": [
+      "Una vez aprobados los planes, para su ratificación.",
+      "Solo cuando los planes afecten a más de una comunidad autónoma.",
+      "Con carácter previo a la elaboración de los planes de actuación."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 40.4: «especial» atención a los programas para empresas de menos de seis trabajadores."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué derecho tienen esas organizaciones respecto del resultado de los planes según el art. 40.4 LPRL?",
+     "opciones": [
+      "Ser informadas del resultado de dichos planes.",
+      "Aprobarlos mediante votación en la Inspección.",
+      "Dirigir su ejecución junto con los inspectores."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 40.4: serán «informadas del resultado de dichos planes»."
+    }
+   ]
+  }
+ ]
+}
