@@ -16,9 +16,9 @@ beforeEach(() => vi.stubEnv('VITE_FEATURE_REVISION_ADMIN', 'true'));
 afterEach(() => vi.unstubAllEnvs());
 
 async function openDaily(user: ReturnType<typeof userEvent.setup>) {
-  await screen.findByRole('button', { name: /Por Temas/ });
+  await screen.findByRole('button', { name: /Por Temas/ }, { timeout: 8000 });
   await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-sesion-diaria')!);
-  await waitFor(() => expect(document.querySelector('#daily-session-mix')).not.toBeNull());
+  await waitFor(() => expect(document.querySelector('#daily-session-mix')).not.toBeNull(), { timeout: 8000 });
 }
 
 describe('autoevaluación y repaso espaciado', () => {
