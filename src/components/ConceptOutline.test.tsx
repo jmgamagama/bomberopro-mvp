@@ -38,7 +38,7 @@ describe('ConceptOutline', () => {
 
     const art4 = screen.getByRole('button', { name: /Capítulo I · Art\. 4/ });
     expect(art4).toHaveAttribute('aria-expanded', 'false');
-    expect(art4).toHaveTextContent('1/2');
+    expect(art4).toHaveTextContent('1 de 2 dominados');
     await user.click(art4);
     const lista = art4.parentElement!.querySelector('ol')!;
     expect(within(lista).getAllByRole('listitem')).toHaveLength(2);

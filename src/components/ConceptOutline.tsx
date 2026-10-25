@@ -106,7 +106,7 @@ export default function ConceptOutline({ tema }: { tema: number }) {
                       {a.apartado || 'General'}
                     </span>
                     <span className="shrink-0 text-xs font-semibold text-slate-600">
-                      {a.dominados > 0 ? `${a.dominados}/${a.total}` : a.total} · {plural(a.preguntas, 'preg.', 'preg.')}
+                      {a.dominados > 0 ? `${a.dominados} de ${a.total} dominados` : plural(a.total, 'concepto', 'conceptos')} · {plural(a.preguntas, 'pregunta', 'preguntas')}
                     </span>
                   </button>
                   {abierto && (
