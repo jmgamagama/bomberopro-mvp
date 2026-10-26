@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { hasPositionalOptions, shuffleAllOptions, shuffleArray, shuffleQuestionOptions } from './shuffleOptions';
+import { hasPositionalOptions, optionLetter, shuffleAllOptions, shuffleArray, shuffleQuestionOptions } from './shuffleOptions';
 
 const q = (options: string[], correct = options[0]) => ({ id: '1', options, correct_answer: correct });
 
@@ -38,5 +38,12 @@ describe('shuffleOptions', () => {
 
   it('Fisher-Yates determinista con un generador fijo', () => {
     expect(shuffleArray([1, 2, 3], () => 0)).toEqual([2, 3, 1]);
+  });
+
+  it('muestra letras A, B, C… para que «A y B son correctas» tenga sentido en pantalla', () => {
+    expect([0, 1, 2, 3].map(optionLetter)).toEqual(['A', 'B', 'C', 'D']);
+    const ref = q(['Opción uno', 'Opción dos', 'A y B son correctas']);
+    // Las referenciales no se barajan: la letra en pantalla coincide con la que citan.
+    expect(shuffleQuestionOptions(ref, () => 0).options).toEqual(ref.options);
   });
 });

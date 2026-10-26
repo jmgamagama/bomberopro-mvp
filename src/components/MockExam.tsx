@@ -12,7 +12,7 @@ import { calculateExamScore, EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS, isExamP
 import { EXAM_DURATION_SECONDS, formatExamTime, getRemainingExamSeconds } from '../utils/examTimer';
 import StudentConsultation from './StudentConsultationModal';
 import { countAnswerChange } from '../utils/attempt';
-import { shuffleAllOptions } from '../utils/shuffleOptions';
+import { optionLetter, shuffleAllOptions } from '../utils/shuffleOptions';
 
 interface MockExamProps {
   microconcepts: Microconcept[];
@@ -409,7 +409,7 @@ export default function MockExam({
                         : 'border-slate-500 bg-white hover:bg-slate-50 text-slate-800'
                     }`}
                   >
-                    <span>{option}</span>
+                    <span><span className="font-bold mr-1" aria-hidden="true">{optionLetter(idx)})</span>{option}</span>
                   </button>
                 );
               })}

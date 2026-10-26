@@ -31,7 +31,7 @@ it('preserva el orden de opciones referenciales en ConceptStudy', async () => {
   render(<ConceptStudy userId="audit" onExit={() => {}} />);
   await user.click(screen.getByRole('button', { name: 'Empezar' }));
   const options = await screen.findAllByRole('radio');
-  expect(options.map(x => x.textContent)).toEqual(item.options);
+  expect(options.map(x => x.textContent)).toEqual(item.options.map((o: string, i: number) => `${'ABCDEF'[i]})${o}`));
 });
 it('espera la escalera pendiente antes de dar por terminada la sesión', async () => {
   let resolveStep!: (x: unknown) => void;
