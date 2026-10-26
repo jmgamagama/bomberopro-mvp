@@ -1,0 +1,64 @@
+{
+  "perfil": "p1_novato_movil",
+  "base": "http://localhost:4173",
+  "clicks": 2,
+  "pasos": [
+    "clic 1: Empezar sesión diaria",
+    "clic 2: Mostrar respuesta"
+  ],
+  "atascos": [
+    {
+      "desc": "La línea de fuente ocupa 193 caracteres en 360px y aparece pegada al número de tema («T39Fuente: Protocolo de movilización ant…»): ruido para el novato antes de pensar la respuesta.",
+      "captura": "p1_novato_movil_04_fuente_kilometrica.png"
+    }
+  ],
+  "consola": [],
+  "echaDeMenos": [],
+  "capturas": [
+    "p1_novato_movil_01_inicio_above_the_fold.png",
+    "p1_novato_movil_02_inicio_completo.png",
+    "p1_novato_movil_03_primera_pregunta.png",
+    "p1_novato_movil_04_fuente_kilometrica.png",
+    "p1_novato_movil_05_respuesta.png"
+  ],
+  "msPrimerPintadoUtil": 4262,
+  "layoutInicio": {
+    "scrollWidth": 360,
+    "innerWidth": 360,
+    "small": [],
+    "cut": []
+  },
+  "ctaVisibleSinScroll": true,
+  "ctaY": 642,
+  "clicksPrimeraPregunta": 1,
+  "msPrimeraPregunta": 5457,
+  "primeraPregunta": "¿Qué protocolo queda anulado a la entrada en vigor del vigente y desde cuándo rige?",
+  "layoutPregunta": {
+    "scrollWidth": 360,
+    "innerWidth": 360,
+    "small": [],
+    "cut": []
+  },
+  "fuentePrimera": "T39Fuente: Protocolo de movilización ante siniestros CPEI Badajoz (BOP Badajoz n.º 224, anuncio 4899/2025, 24/11/2025; 34 págs.; incluye protocolo de radiocomunicaciones y anexo SOS) · PDF p. 6",
+  "botonesTrasRespuesta": [
+    "Salir",
+    "No la sabíamañana",
+    "Dudosamañana",
+    "La sabíamañana"
+  ],
+  "layoutRespuesta": {
+    "scrollWidth": 360,
+    "innerWidth": 360,
+    "small": [],
+    "cut": []
+  },
+  "tactilesPequenos": [],
+  "desbordeHorizontal": false,
+  "navMovil": [
+    "Inicio",
+    "Estudiar",
+    "Temas",
+    "Simulacro",
+    "Más"
+  ]
+}
