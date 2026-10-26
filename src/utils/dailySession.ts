@@ -154,11 +154,13 @@ export function pickDailyRecallSession(
   const st = (c: RecallCard) => getCardSrs(srs, c.deckId, c.id)!;
 
   // Vencidas y fallidas: si no caben todas, el tema prioritario se queda con ≈60 % (como las nuevas).
-  const picked: RecallCard[] = takeWithPreferredShare(
-    [...[...tiers.due].sort(by((c) => st(c).due)), ...[...tiers.failed].sort(by((c) => st(c).lastReview))],
-    total,
-    preferred,
-  );
+  // Selección: las FALLIDAS reservan plaza primero (auditoría 26/10/2026, B-H4: tras una pausa larga,
+  // lo que el alumno no sabía esperaba detrás de toda la deuda de vencidas y reaparecía el día 20).
+  // Presentación: se mantiene el orden de siempre (vencidas más antiguas, luego fallidas).
+  const dueSorted = [...tiers.due].sort(by((c) => st(c).due));
+  const failedSorted = [...tiers.failed].sort(by((c) => st(c).lastReview));
+  const chosen = new Set(takeWithPreferredShare([...failedSorted, ...dueSorted], total, preferred));
+  const picked: RecallCard[] = [...dueSorted, ...failedSorted].filter((c) => chosen.has(c));
   if (options.finalStretch) {
     // Tramo final: pocas nuevas; el resto, repaso adelantado de lo visto (no consolidado primero).
     const maxNew = Math.min(total - picked.length, Math.round(total * FINAL_STRETCH_NEW_SHARE));
