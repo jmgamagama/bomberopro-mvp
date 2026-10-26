@@ -10,7 +10,7 @@ import { countAnswerChange } from '../utils/attempt';
 import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
 import { supabase } from '../lib/supabase';
-import { checkAnswer, type AnswerCheck } from '../lib/secureQuestions';
+import { checkAnswer, describeCheckError, type AnswerCheck } from '../lib/secureQuestions';
 
 interface TrainScreenProps {
   question: Question | null;
@@ -158,7 +158,7 @@ export default function TrainScreen({
       check = await checkAnswer(supabase, question, selectedAnswer);
     } catch (err) {
       console.error('No se pudo corregir la respuesta:', err);
-      setCheckError('No se pudo corregir la respuesta. Revisa la conexión y vuelve a intentarlo.');
+      setCheckError(describeCheckError(err));
       checkingRef.current = false;
       return;
     }

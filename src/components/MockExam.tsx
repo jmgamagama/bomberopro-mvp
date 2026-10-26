@@ -13,7 +13,7 @@ import { EXAM_DURATION_SECONDS, formatExamTime, getRemainingExamSeconds } from '
 import StudentConsultation from './StudentConsultationModal';
 import { countAnswerChange } from '../utils/attempt';
 import { shuffleAllOptions } from '../utils/shuffleOptions';
-import { fetchKeyless, gradeExam, withRevealedKey, type AnswerCheck } from '../lib/secureQuestions';
+import { describeCheckError, fetchKeyless, gradeExam, isAnswerLimitError, withRevealedKey, type AnswerCheck } from '../lib/secureQuestions';
 
 interface MockExamProps {
   microconcepts: Microconcept[];
@@ -181,7 +181,7 @@ export default function MockExam({
     } catch (err) {
       console.error('No se pudo corregir el simulacro:', err);
       finishStartedRef.current = false;
-      setGradeError('No se pudo corregir el simulacro. Revisa la conexión y vuelve a pulsar «Finalizar».');
+      setGradeError(isAnswerLimitError(err) ? describeCheckError(err) : 'No se pudo corregir el simulacro. Revisa la conexión y vuelve a pulsar «Finalizar».');
       return;
     }
     setGradeError(null);
