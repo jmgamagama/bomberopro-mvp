@@ -124,6 +124,9 @@ function matchesPreferred(deckKey: string, preferred: string): boolean {
   return deckKey === preferred || deckKey.startsWith(`${preferred}-`);
 }
 
+/** Parte de la sesión reservada a fichas nuevas cuando las fallidas por sí solas la llenan (B-H6). */
+export const STUCK_NEW_SHARE = 0.2;
+
 /** Parte de la sesión reservada al tema prioritario. */
 export const PREFERRED_DECK_SHARE = 0.6;
 
@@ -153,13 +156,20 @@ export function pickDailyRecallSession(
     key(a) - key(b) || prefRank(a) - prefRank(b) || rot(a) - rot(b);
   const st = (c: RecallCard) => getCardSrs(srs, c.deckId, c.id)!;
 
+  // Salida del callejón (auditoría 26/10/2026, B-H6): si las fallidas por sí solas llenan la sesión,
+  // quien lo falla todo veía siempre las mismas fichas y nunca entraba nada nuevo. En ese caso se
+  // reserva una parte para fichas nuevas (si las hay). Fuera de ese caso, nada cambia.
+  const stuckNew =
+    !options.finalStretch && tiers.failed.length >= total && tiers.new.length > 0
+      ? Math.min(tiers.new.length, Math.max(1, Math.round(total * STUCK_NEW_SHARE)))
+      : 0;
   // Vencidas y fallidas: si no caben todas, el tema prioritario se queda con ≈60 % (como las nuevas).
   // Selección: las FALLIDAS reservan plaza primero (auditoría 26/10/2026, B-H4: tras una pausa larga,
   // lo que el alumno no sabía esperaba detrás de toda la deuda de vencidas y reaparecía el día 20).
   // Presentación: se mantiene el orden de siempre (vencidas más antiguas, luego fallidas).
   const dueSorted = [...tiers.due].sort(by((c) => st(c).due));
   const failedSorted = [...tiers.failed].sort(by((c) => st(c).lastReview));
-  const chosen = new Set(takeWithPreferredShare([...failedSorted, ...dueSorted], total, preferred));
+  const chosen = new Set(takeWithPreferredShare([...failedSorted, ...dueSorted], total - stuckNew, preferred));
   const picked: RecallCard[] = [...dueSorted, ...failedSorted].filter((c) => chosen.has(c));
   if (options.finalStretch) {
     // Tramo final: pocas nuevas; el resto, repaso adelantado de lo visto (no consolidado primero).
