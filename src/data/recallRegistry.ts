@@ -17,9 +17,38 @@
  *   Los tests comprueban que los metadatos coinciden con los del módulo.
  */
 
-import { canAccessDeck, getPlan, type Plan } from '../utils/plan';
+import { canAccessDeck, getPlan, PLAN_LIMITS, type Plan } from '../utils/plan';
 import { getDeckRevision, type RecallRevision } from './recallReview';
 import { canSeePendingDecks } from '../utils/revisionAccess';
+
+/**
+ * C1, paso 2 (auditoría 2026-10-26; migración 34): con VITE_PRO_DECKS_FROM_SERVER=true el build
+ * SOLO empaqueta los mazos gratis (PLAN_LIMITS.free). Vite sustituye la bandera por una constante y
+ * Rollup elimina los `import()` de los mazos Pro: sus fichas se piden a `get_recall_deck_cards`,
+ * que comprueba el plan en el servidor. Desactivada por defecto hasta cargar las fichas en
+ * `recall_cards` (paso pendiente): sin ella todo sigue como antes.
+ */
+const PRO_DECKS_FROM_SERVER = import.meta.env.VITE_PRO_DECKS_FROM_SERVER === 'true';
+
+function serverOnlyDeck(): Promise<readonly RecallSourceCard[]> {
+  return Promise.reject(new Error('Mazo Pro: se sirve desde el servidor.'));
+}
+
+/** Fichas de un mazo Pro desde el servidor (el servidor decide si el plan da acceso). */
+export async function loadServerDeckCards(deckId: string): Promise<readonly RecallSourceCard[]> {
+  const { supabase } = await import('../lib/supabase');
+  if (!supabase) throw new Error('Sin conexión con el servidor: los mazos Pro no están disponibles sin conexión.');
+  const { data, error } = await supabase.rpc('get_recall_deck_cards', { p_deck_id: deckId });
+  if (error) throw error;
+  return (data ?? []) as RecallSourceCard[];
+}
+
+/** ¿Se empaqueta este mazo en el cliente? Con la bandera, solo los gratis. */
+export function isDeckBundled(deckId: string, fromServer: boolean = PRO_DECKS_FROM_SERVER): boolean {
+  if (!fromServer) return true;
+  const free = PLAN_LIMITS.free.deckIds;
+  return free !== 'all' && free.includes(deckId);
+}
 
 export type { RecallRevision } from './recallReview';
 
@@ -113,7 +142,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 23,
       source: "Hueco «áreas inundables» · RDPH (BOE-A-1986-10638, consolidado a 03/06/2026), RD 903/2010 (BOE-A-2010-11184) y Directriz Básica de inundaciones 2026 (BOE-A-2026-9160)",
     },
-    load: () => import('./tema23Lote02Recall').then((m) => m.TEMA23_LOTE02_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema23Lote02Recall').then((m) => m.TEMA23_LOTE02_RECALL_CARDS),
   },
   {
     meta: {
@@ -123,7 +152,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 30,
       source: "Hueco «mantenimiento» · RIPCI (BOE-A-2017-6606, consolidado a 03/09/2025) y Reglamento de equipos a presión RD 809/2021 (BOE-A-2021-16407)",
     },
-    load: () => import('./tema33Lote02Recall').then((m) => m.TEMA33_LOTE02_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema33Lote02Recall').then((m) => m.TEMA33_LOTE02_RECALL_CARDS),
   },
   {
     meta: {
@@ -133,7 +162,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 30,
       source: "Hueco «respuesta de los elementos constructivos al fuego» · CTE DB SI (codigotecnico.org, consolidado hasta RD 164/2025) y RD 842/2013 (BOE-A-2013-12323)",
     },
-    load: () => import('./tema27Lote02Recall').then((m) => m.TEMA27_LOTE02_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema27Lote02Recall').then((m) => m.TEMA27_LOTE02_RECALL_CARDS),
   },
   {
     meta: {
@@ -143,7 +172,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 68,
       source: "Huecos de clasificación · ADR 2025, Anejo A, caps. 2.1 y 2.2 (BOE-A-2025-77, BOE nº 3 de 03/01/2025); páginas publicadas como imagen, leídas una a una",
     },
-    load: () => import('./tema25Lote02Recall').then((m) => m.TEMA25_LOTE02_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema25Lote02Recall').then((m) => m.TEMA25_LOTE02_RECALL_CARDS),
   },
   {
     meta: {
@@ -153,7 +182,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 74,
       source: "Huecos CEP 38 · REBT (ITC-BT-09, 18 y 24), RD 337/2014 (ITC-RAT 01, 14 y 15), RD 614/2001 y NTP 400 (INSST); boe.es e insst.es",
     },
-    load: () => import('./tema28Lote02Recall').then((m) => m.TEMA28_LOTE02_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema28Lote02Recall').then((m) => m.TEMA28_LOTE02_RECALL_CARDS),
   },
   {
     meta: {
@@ -163,7 +192,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 73,
       source: "Huecos CEP · Manual básico de rescate en accidentes de tráfico (DGT-APRAT, 2019), dgt.es",
     },
-    load: () => import('./tema21Lote02Recall').then((m) => m.TEMA21_LOTE02_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema21Lote02Recall').then((m) => m.TEMA21_LOTE02_RECALL_CARDS),
   },
   {
     meta: {
@@ -172,7 +201,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 92,
       source: "Huecos CEP · INSST (NTP 221, 841 y 842; Guía técnica de equipos de trabajo), RD 1644/2008, RD 1215/1997 y REBT ITC-BT-40; boe.es e insst.es",
     },
-    load: () => import('./tema15Recall').then((m) => m.TEMA15_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema15Recall').then((m) => m.TEMA15_RECALL_CARDS),
   },
   {
     meta: {
@@ -182,7 +211,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 47,
       source: "Huecos CEP · INSST (NTP 787, FSU Filtros, FSU Equipos respiratorios aislantes y Guía técnica de EPI), insst.es",
     },
-    load: () => import('./tema13Lote02Recall').then((m) => m.TEMA13_LOTE02_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema13Lote02Recall').then((m) => m.TEMA13_LOTE02_RECALL_CARDS),
   },
   {
     meta: {
@@ -192,7 +221,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 13,
       source: "Fase 5 · INSST, NTP 420 (1996) y NTP 1035 (2015), insst.es",
     },
-    load: () => import('./tema10Lote02Recall').then((m) => m.TEMA10_LOTE02_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema10Lote02Recall').then((m) => m.TEMA10_LOTE02_RECALL_CARDS),
   },
   {
     meta: {
@@ -202,7 +231,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 23,
       source: "Fase 5 · INSST, NTP 99 (1984) y NTP 536 (1999), insst.es",
     },
-    load: () => import('./tema12Lote02Recall').then((m) => m.TEMA12_LOTE02_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema12Lote02Recall').then((m) => m.TEMA12_LOTE02_RECALL_CARDS),
   },
   {
     meta: {
@@ -212,7 +241,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 27,
       source: "Fase 5 · INSST, NTP 809 (2008), NTP 843 (2009), NTP 1170 (2022) y NTP 1218 (2025), insst.es",
     },
-    load: () => import('./tema22Lote02Recall').then((m) => m.TEMA22_LOTE02_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema22Lote02Recall').then((m) => m.TEMA22_LOTE02_RECALL_CARDS),
   },
   {
     meta: {
@@ -222,7 +251,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 35,
       source: "Fase 5 · texto consolidado BOE-A-2025-7190 (reglamento, anexos II, III apdos. 7-8 y IV; últ. act. 20/12/2025)",
     },
-    load: () => import('./tema34Lote03Recall').then((m) => m.TEMA34_LOTE03_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema34Lote03Recall').then((m) => m.TEMA34_LOTE03_RECALL_CARDS),
   },
   {
     meta: {
@@ -231,7 +260,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 29,
       source: "Fase 4 · RD 614/2001 (BOE-A-2001-11881) y REBT (BOE-A-2002-18099), últ. act. 18/12/2025; RD 223/2008 (BOE-A-2008-5269), últ. act. 19/12/2025",
     },
-    load: () => import('./tema28Recall').then((m) => m.TEMA28_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema28Recall').then((m) => m.TEMA28_RECALL_CARDS),
   },
   {
     meta: {
@@ -240,7 +269,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 21,
       source: "Fase 4 · RD 513/2017, RIPCI (BOE-A-2017-6606), últ. act. 19/12/2025; INSST, tema «El riesgo de incendio (I)» (v. abril 2025)",
     },
-    load: () => import('./tema12Recall').then((m) => m.TEMA12_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema12Recall').then((m) => m.TEMA12_RECALL_CARDS),
   },
   {
     meta: {
@@ -249,7 +278,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 34,
       source: "Fase 4 · RD 513/2017, RIPCI (BOE-A-2017-6606), últ. act. 19/12/2025, anexo I sección 1.ª",
     },
-    load: () => import('./tema10Recall').then((m) => m.TEMA10_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema10Recall').then((m) => m.TEMA10_RECALL_CARDS),
   },
   {
     meta: {
@@ -258,7 +287,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 25,
       source: "Fase 4 · INSST, temas oficiales del proceso selectivo: «El riesgo de incendio (I)» (v. abril 2025) y «Explosiones» (2026), insst.es",
     },
-    load: () => import('./tema8Recall').then((m) => m.TEMA8_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema8Recall').then((m) => m.TEMA8_RECALL_CARDS),
   },
   {
     meta: {
@@ -267,7 +296,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 84,
       source: "Fase 2 · fuentes oficiales: RD 2032/2009, RD 709/2015 y RIPCI (BOE), NTP 362 (INSST), guía técnica de bombas del IDAE (documento reconocido del RITE, miteco.gob.es), CTE DB HS 4 (codigotecnico.org) y Reglamento (UE) 547/2012 (EUR-Lex)",
     },
-    load: () => import('./tema9Recall').then((m) => m.TEMA9_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema9Recall').then((m) => m.TEMA9_RECALL_CARDS),
   },
   {
     meta: {
@@ -276,7 +305,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 24,
       source: "Fase 3 · RGC (BOE-A-2003-23514) y RGV (BOE-A-1999-1826), últ. act. 01/10/2026; RD 159/2021 (BOE-A-2021-4194), últ. act. 20/12/2025",
     },
-    load: () => import('./tema14Recall').then((m) => m.TEMA14_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema14Recall').then((m) => m.TEMA14_RECALL_CARDS),
   },
   {
     meta: {
@@ -286,7 +315,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 21,
       source: "Fase 3 · Reglamento de Radiocomunicaciones de la UIT, edición de 2024, vol. 1 (arts. 1 y 2), versión oficial en español",
     },
-    load: () => import('./tema16Lote02Recall').then((m) => m.TEMA16_LOTE02_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema16Lote02Recall').then((m) => m.TEMA16_LOTE02_RECALL_CARDS),
   },
   {
     meta: {
@@ -295,7 +324,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 22,
       source: "Fase 3 · CTE DB SE (RD 732/2019) y DB SE-AE (Orden VIV/984/2009), textos consolidados del Ministerio en codigotecnico.org",
     },
-    load: () => import('./tema27Recall').then((m) => m.TEMA27_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema27Recall').then((m) => m.TEMA27_RECALL_CARDS),
   },
   {
     meta: {
@@ -304,7 +333,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 21,
       source: "Fase 3 · texto consolidado BOE-A-2011-14277 (Plan Estatal de Inundaciones; últ. act. 19/12/2025)",
     },
-    load: () => import('./tema23Recall').then((m) => m.TEMA23_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema23Recall').then((m) => m.TEMA23_RECALL_CARDS),
   },
   {
     meta: {
@@ -313,7 +342,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 19,
       source: "Fase 3 · texto consolidado BOE-A-2013-8565 (RD 630/2013; últ. act. 19/12/2025)",
     },
-    load: () => import('./tema24Recall').then((m) => m.TEMA24_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema24Recall').then((m) => m.TEMA24_RECALL_CARDS),
   },
   {
     meta: {
@@ -322,7 +351,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 24,
       source: "Fase 3 · Plan INFOEX: artículos 6, 7, 10-13 y 16 del Decreto 132/2022 en la redacción del Decreto 136/2024 (DOE nº 215, 05/11/2024)",
     },
-    load: () => import('./tema20Recall').then((m) => m.TEMA20_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema20Recall').then((m) => m.TEMA20_RECALL_CARDS),
   },
   {
     meta: {
@@ -331,7 +360,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 28,
       source: "Fase 3 · Reglamento de Régimen Interno del CPEI, texto único vigente (BOP Badajoz nº 149, anuncio 5370/2012, 06/08/2012)",
     },
-    load: () => import('./tema5Recall').then((m) => m.TEMA5_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema5Recall').then((m) => m.TEMA5_RECALL_CARDS),
   },
   {
     meta: {
@@ -340,7 +369,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 28,
       source: "Fase 3 · acuerdo de reorganización de la estructura orgánica (BOP Badajoz nº 206, anuncio 4611/2025, 29/10/2025)",
     },
-    load: () => import('./tema4Recall').then((m) => m.TEMA4_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema4Recall').then((m) => m.TEMA4_RECALL_CARDS),
   },
   {
     meta: {
@@ -349,7 +378,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 25,
       source: "Fase 3 · RD 773/1997 (BOE-A-1997-12735, últ. act. 18/12/2025) y Reglamento (UE) 2016/425 (EUR-Lex)",
     },
-    load: () => import('./tema13Recall').then((m) => m.TEMA13_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema13Recall').then((m) => m.TEMA13_RECALL_CARDS),
   },
   {
     meta: {
@@ -358,7 +387,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 14,
       source: "Fase 3 · RD 365/2009 (BOE-A-2009-5490, texto original sin modificaciones)",
     },
-    load: () => import('./tema17Recall').then((m) => m.TEMA17_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema17Recall').then((m) => m.TEMA17_RECALL_CARDS),
   },
   {
     meta: {
@@ -367,7 +396,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 42,
       source: "Fase 3 · Manual básico de rescate en accidentes de tráfico (DGT-APRAT, 2019), PDF oficial en dgt.es",
     },
-    load: () => import('./tema21Recall').then((m) => m.TEMA21_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema21Recall').then((m) => m.TEMA21_RECALL_CARDS),
   },
   {
     meta: {
@@ -376,7 +405,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 33,
       source: "Fase 3 · texto consolidado BOE-A-1997-17824 (RD 1215/1997, anexo II.4; últ. act. 18/12/2025)",
     },
-    load: () => import('./tema22Recall').then((m) => m.TEMA22_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema22Recall').then((m) => m.TEMA22_RECALL_CARDS),
   },
   {
     meta: {
@@ -385,7 +414,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 47,
       source: "Fase 3 · ADR 2025, Anejos A y B (BOE-A-2025-77, BOE nº 3 de 03/01/2025)",
     },
-    load: () => import('./tema25Recall').then((m) => m.TEMA25_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema25Recall').then((m) => m.TEMA25_RECALL_CARDS),
   },
   {
     meta: {
@@ -394,7 +423,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 60,
       source: "Fase 3 · Guías INSARAG 2020, Vol. II, Manual B: Operaciones (ONU-OCHA, versión oficial en español)",
     },
-    load: () => import('./tema26Recall').then((m) => m.TEMA26_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema26Recall').then((m) => m.TEMA26_RECALL_CARDS),
   },
   {
     meta: {
@@ -404,7 +433,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 39,
       source: "Fase 3 · texto consolidado BOE-A-2025-7190 (reglamento, anexo III; últ. act. 20/12/2025)",
     },
-    load: () => import('./tema34Lote02Recall').then((m) => m.TEMA34_LOTE02_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema34Lote02Recall').then((m) => m.TEMA34_LOTE02_RECALL_CARDS),
   },
   {
     meta: {
@@ -414,7 +443,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 58,
       source: "Fase 3 · texto consolidado BOE-A-2025-7190 (reglamento, arts. 1-18 y anexo I; últ. act. 20/12/2025)",
     },
-    load: () => import('./tema34Lote01Recall').then((m) => m.TEMA34_LOTE01_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema34Lote01Recall').then((m) => m.TEMA34_LOTE01_RECALL_CARDS),
   },
   {
     meta: {
@@ -423,7 +452,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 91,
       source: "Fase 2-3 · CTE Parte I (BOE-A-2006-5515, últ. act. 15/06/2022) y DB SI / DB SUA consolidados del Ministerio (codigotecnico.org)",
     },
-    load: () => import('./tema32Recall').then((m) => m.TEMA32_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema32Recall').then((m) => m.TEMA32_RECALL_CARDS),
   },
   {
     meta: {
@@ -432,7 +461,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 87,
       source: "Fase 3 · textos íntegros oficiales en juntaex.es de INUNCAEX (Decreto 39/2025), TRANSCAEX (Decreto 189/2019), RADIOCAEX (Decreto 200/2019) y PLASISMEX (Decreto 127/2009)",
     },
-    load: () => import('./tema30Recall').then((m) => m.TEMA30_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema30Recall').then((m) => m.TEMA30_RECALL_CARDS),
   },
   {
     meta: {
@@ -441,7 +470,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 81,
       source: "Fase 3 · PLATERCAEX (Decreto 187/2019, DOE nº 247 de 26/12/2019), texto íntegro oficial en juntaex.es (PDF de 31/01/2020)",
     },
-    load: () => import('./tema29Recall').then((m) => m.TEMA29_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema29Recall').then((m) => m.TEMA29_RECALL_CARDS),
   },
   {
     meta: {
@@ -450,7 +479,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 121,
       source: "Fase 2 · texto consolidado BOE-A-2011-1638 (Estatuto, arts. 1-48; sin modificaciones registradas desde 29/01/2011)",
     },
-    load: () => import('./tema2Recall').then((m) => m.TEMA2_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema2Recall').then((m) => m.TEMA2_RECALL_CARDS),
   },
   {
     meta: {
@@ -459,7 +488,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 67,
       source: "Fase 2 · texto consolidado BOE-A-2017-6606 (arts. 1-2 y anexo I, apdos. 2, 3, 5 y 6; últ. act. 03/09/2025)",
     },
-    load: () => import('./tema33Recall').then((m) => m.TEMA33_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema33Recall').then((m) => m.TEMA33_RECALL_CARDS),
   },
   {
     meta: {
@@ -468,7 +497,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 64,
       source: "Fase 2 · texto consolidado BOE-A-2011-6651 (Tít. Preliminar, Tít. II y Tít. IV cap. II; sin modificaciones registradas desde 25/03/2011)",
     },
-    load: () => import('./tema7Recall').then((m) => m.TEMA7_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema7Recall').then((m) => m.TEMA7_RECALL_CARDS),
   },
   {
     meta: {
@@ -477,7 +506,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 129,
       source: "Fase 2 · texto consolidado BOE-A-1978-31229 (arts. 1-55; últ. act. 20/05/2026)",
     },
-    load: () => import('./tema1Recall').then((m) => m.TEMA1_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema1Recall').then((m) => m.TEMA1_RECALL_CARDS),
   },
   {
     meta: {
@@ -486,7 +515,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 94,
       source: "Fase 2 · texto consolidado BOE-A-1995-24292 (caps. I-IV, arts. 1-32 bis; últ. act. 09/04/2026)",
     },
-    load: () => import('./tema6Recall').then((m) => m.TEMA6_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema6Recall').then((m) => m.TEMA6_RECALL_CARDS),
   },
   {
     meta: {
@@ -495,7 +524,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 83,
       source: "Fase 2 · texto consolidado BOE-A-1997-17824 (arts. 1-6, disposiciones y anexos I-II; últ. act. 13/11/2004)",
     },
-    load: () => import('./tema31Recall').then((m) => m.TEMA31_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema31Recall').then((m) => m.TEMA31_RECALL_CARDS),
   },
   {
     meta: {
@@ -504,7 +533,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 66,
       source: "Fase 2 · texto consolidado BOE-A-1985-5392 (Título III, arts. 31-38; últ. act. 03/10/2026)",
     },
-    load: () => import('./tema3Recall').then((m) => m.TEMA3_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema3Recall').then((m) => m.TEMA3_RECALL_CARDS),
   },
   {
     meta: {
@@ -513,7 +542,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 48,
       source: 'BASE MIRA tema 16, subconjunto OACI/UIT revisado ficha a ficha (RR UIT 2024 ap. 14 y art. 32/53, Rec. UIT-R M.1172, OACI Anexo 10 vol. II)',
     },
-    load: () => import('./tema16Recall').then((m) => m.TEMA16_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema16Recall').then((m) => m.TEMA16_RECALL_CARDS),
   },
   {
     meta: {
@@ -522,7 +551,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 150,
       source: 'Decreto 98/2008 + Extremadura en Cifras (JSON limpio score 100%)',
     },
-    load: () => import('./tema35Recall').then((m) => m.TEMA35_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema35Recall').then((m) => m.TEMA35_RECALL_CARDS),
   },
   {
     meta: {
@@ -532,7 +561,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 78,
       source: 'tema36_fichas.json + tema36_lotes.json',
     },
-    load: () => import('./tema36Lote01Recall').then((m) => m.TEMA36_LOTE01_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema36Lote01Recall').then((m) => m.TEMA36_LOTE01_RECALL_CARDS),
   },
   {
     meta: {
@@ -542,7 +571,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 79,
       source: 'tema36_fichas.json + tema36_lotes.json',
     },
-    load: () => import('./tema36Lote02Recall').then((m) => m.TEMA36_LOTE02_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema36Lote02Recall').then((m) => m.TEMA36_LOTE02_RECALL_CARDS),
   },
   {
     meta: {
@@ -552,7 +581,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 78,
       source: 'tema36_fichas.json + tema36_lotes.json',
     },
-    load: () => import('./tema36Lote03Recall').then((m) => m.TEMA36_LOTE03_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema36Lote03Recall').then((m) => m.TEMA36_LOTE03_RECALL_CARDS),
   },
   {
     meta: {
@@ -562,7 +591,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 78,
       source: 'tema36_fichas.json + tema36_lotes.json',
     },
-    load: () => import('./tema36Lote04Recall').then((m) => m.TEMA36_LOTE04_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema36Lote04Recall').then((m) => m.TEMA36_LOTE04_RECALL_CARDS),
   },
   {
     meta: {
@@ -572,7 +601,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 50,
       source: 'tema36_fichas.json + tema36_lotes.json',
     },
-    load: () => import('./tema36Lote05Recall').then((m) => m.TEMA36_LOTE05_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema36Lote05Recall').then((m) => m.TEMA36_LOTE05_RECALL_CARDS),
   },
   {
     meta: {
@@ -582,7 +611,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 55,
       source: 'tema36_fichas.json + tema36_lotes.json',
     },
-    load: () => import('./tema36Lote06Recall').then((m) => m.TEMA36_LOTE06_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema36Lote06Recall').then((m) => m.TEMA36_LOTE06_RECALL_CARDS),
   },
   {
     meta: {
@@ -592,7 +621,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 55,
       source: 'tema36_fichas.json + tema36_lotes.json',
     },
-    load: () => import('./tema36Lote07Recall').then((m) => m.TEMA36_LOTE07_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema36Lote07Recall').then((m) => m.TEMA36_LOTE07_RECALL_CARDS),
   },
   {
     meta: {
@@ -602,7 +631,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 55,
       source: 'tema36_fichas.json + tema36_lotes.json',
     },
-    load: () => import('./tema36Lote08Recall').then((m) => m.TEMA36_LOTE08_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema36Lote08Recall').then((m) => m.TEMA36_LOTE08_RECALL_CARDS),
   },
   {
     meta: {
@@ -611,7 +640,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 198,
       source: 'ITF oficiales CPEI (Horario 2022, Vestuario/Limpieza/Gestión EPIs 2026) rebuild desde PDFs',
     },
-    load: () => import('./tema38Recall').then((m) => m.TEMA38_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema38Recall').then((m) => m.TEMA38_RECALL_CARDS),
   },
   {
     meta: {
@@ -620,7 +649,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 149,
       source: 'Protocolo movilización BOP 224/2025 + SOS operativo/personal (rebuild desde PDFs oficiales)',
     },
-    load: () => import('./tema39Recall').then((m) => m.TEMA39_RECALL_CARDS),
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema39Recall').then((m) => m.TEMA39_RECALL_CARDS),
   },
   {
     meta: {
@@ -658,7 +687,7 @@ const LOADERS = new Map<string, DeckSource['load']>();
 export const RECALL_DECKS: readonly RecallDeck[] = DECK_SOURCES.map((src) => {
   const deck = defineDeck(src.meta);
   if (LOADERS.has(deck.id)) throw new Error(`Mazo de recuerdo duplicado: ${deck.id}`);
-  LOADERS.set(deck.id, src.load);
+  LOADERS.set(deck.id, isDeckBundled(deck.id) ? src.load : () => loadServerDeckCards(deck.id));
   return deck;
 }).sort((a, b) => a.tema - b.tema || (a.lote ?? '').localeCompare(b.lote ?? ''));
 

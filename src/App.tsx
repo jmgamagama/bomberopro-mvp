@@ -40,6 +40,7 @@ import Login from './components/Login';
 import AccesoConfirmado from './components/AccesoConfirmado';
 import { retornoAuthInicial, limpiarUrlRetornoAuth } from './lib/authRetorno';
 import StudyByTopic from './components/StudyByTopic';
+import { fetchKeyless } from './lib/secureQuestions';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer, toLevelInt } from './lib/saveAttemptToServer';
 import UpdateBanner from './components/UpdateBanner';
@@ -245,10 +246,9 @@ export default function App() {
   // tema según el peso en el examen. El orden que devuelve se respeta tal cual.
   const loadServerSession = async (): Promise<Question[]> => {
     if (!supabase) return [];
-    const res = await supabase.rpc('get_study_session', { p_limit: 10 });
-    if (!res.error) return shuffleAllOptions((res.data ?? []) as Question[]);
+    // C2 (migración 34): la sesión llega SIN clave; TrainScreen corrige con check_answer.
     // Fail closed: nunca volver al exportador heredado cuando falla el motor seguro.
-    throw res.error;
+    return shuffleAllOptions(await fetchKeyless(supabase, 'get_study_session_v2', { p_limit: 10 }));
   };
 
   // Preguntas que el alumno tiene falladas ahora (conceptos y banco), mismo formato que la sesión.
@@ -462,12 +462,14 @@ export default function App() {
     answer: string,
     confidence: ConfidenceLevel,
     responseTime: number,
-    answerChanges: number
+    answerChanges: number,
+    serverCorrect?: boolean
   ) => {
     const now = getCurrentDate();
     answeredQuestionIds.current.add(questionId);
-    const isCorrect = (sessionQuestionPool.find(q => q.id === questionId)
-      ?? dbQuestions.find(q => q.id === questionId))?.correct_answer === answer;
+    // C2: si la pregunta llegó sin clave, el acierto lo decide el servidor (check_answer).
+    const isCorrect = serverCorrect ?? ((sessionQuestionPool.find(q => q.id === questionId)
+      ?? dbQuestions.find(q => q.id === questionId))?.correct_answer === answer);
 
     // Load current memory state
     const currentStates = isDemoMode ? memoryStates : getSafeMemoryStates();
