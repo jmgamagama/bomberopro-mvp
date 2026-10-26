@@ -53,5 +53,6 @@ jobs:
           node supabase/tests/concept_engine.pglite.mjs
           node supabase/tests/concept_answer_secure.pglite.mjs
           node supabase/tests/escalera.pglite.mjs
+          node supabase/tests/escalera_32.pglite.mjs
           node supabase/tests/carga_conceptos.pglite.mjs
           node supabase/tests/vinculos.pglite.mjs
