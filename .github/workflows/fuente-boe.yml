@@ -39,6 +39,24 @@ jobs:
       - name: Descargar Ley 31/1995 de Prevención de Riesgos Laborales (BOE-A-1995-24292) — tema 6
         run: python3 scripts/fuente_boe.py BOE-A-1995-24292
 
+      - name: Descargar Ley 7/1985 Reguladora de las Bases del Régimen Local — tema 3 (BOE-A-1985-5392)
+        run: python3 scripts/fuente_boe.py BOE-A-1985-5392
+
+      - name: Descargar Estatuto de Autonomía de Extremadura (LO 1/2011) — tema 2 (BOE-A-2011-1638)
+        run: python3 scripts/fuente_boe.py BOE-A-2011-1638
+
+      - name: Descargar Ley 8/2011 de Igualdad y contra la Violencia de Género en Extremadura — tema 7 (BOE-A-2011-6651)
+        run: python3 scripts/fuente_boe.py BOE-A-2011-6651
+
+      - name: Descargar RD 1215/1997 equipos de trabajo — tema 31 (BOE-A-1997-17824)
+        run: python3 scripts/fuente_boe.py BOE-A-1997-17824
+
+      - name: Descargar RD 513/2017 RIPCI — tema 33 (BOE-A-2017-6606)
+        run: python3 scripts/fuente_boe.py BOE-A-2017-6606
+
+      - name: Descargar RD 164/2025 RSCIEI — tema 34 (BOE-A-2025-7190)
+        run: python3 scripts/fuente_boe.py BOE-A-2025-7190
+
       - name: Regenerar material derivado del texto oficial
         run: python3 scripts/generar_material.py
 
