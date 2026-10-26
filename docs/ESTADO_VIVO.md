@@ -15,11 +15,11 @@
 
 ## Abierto (una línea cada uno: dueño → siguiente acción)
 1. JM → Supabase Auth: activar «Prevent use of leaked passwords» (puede requerir plan Pro).
-2. Claude → comprobar si las migraciones 31-33 (fusionadas) están aplicadas en producción (no constan en la lista).
+2. Hecho 26/10: migraciones 31 y 33 ya estaban aplicadas en producción; la 32 (escalera de niveles: no sube al fallar, un acierto no baja) faltaba y se aplicó en staging y producción, verificada. Falta probarla como alumno en la app.
 3. Claude → PR único de `claude/herramientas-bloques` + `*_calidad.md` con SQL de retirada.
 4. Claude → enlazar preguntas antiguas con conceptos nuevos (hoy 17,5 %).
 5. JM → pasar enlace Drive del Plan de Prevención CPEI (tema 37); temas 38-40 sin documento original.
-6. Claude → rellenar `convocatorias` (hoy `borrador`, `bases_url` NULL) con BOP nº 135.
+6. JM → pasar la URL del BOP nº 135; Claude rellena `convocatorias` (filas 1 y 3: `borrador`, `bases_url` NULL).
 7. JM → PR #176 (paleta Brasa y Noche, solo docs): revisar y fusionar.
 8. Decisión pendiente: reparto de opciones/relabel global (aplazado por la cola de respuestas offline).
 
