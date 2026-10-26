@@ -1,0 +1,869 @@
+{
+ "norma": "BOE-A-2011-1638",
+ "documento": "EAEXT",
+ "nombre_norma": "Estatuto de Autonomía de Extremadura",
+ "abreviatura": "EAEXT",
+ "hash_prefijo": "EAEXT",
+ "tema": 2,
+ "tema_nombre": "Estatuto de Autonomía de Extremadura",
+ "bloque_temario": "Título II, Cap. II (arts. 24-29): Presidente de Extremadura",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "EAEXT-a24-1-caracter",
+   "bloque": "a24",
+   "apartado": "1",
+   "orden": 550,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 24.1 EAEXT, ¿qué representación ostenta el Presidente y qué órgano preside?",
+    "respuesta": "La más alta representación de la Comunidad Autónoma y la representación ordinaria del Estado en ella; preside la Junta de Extremadura."
+   },
+   "cita": "ostenta la más alta representación de la Comunidad Autónoma, ejerce la representación ordinaria del Estado en la misma y preside la Junta de Extremadura",
+   "confundible_con": [
+    "EAEXT-a24-2-estatuto"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 24.1 EAEXT, el Presidente ejerce la representación ordinaria del:",
+     "opciones": [
+      "Estado en la Comunidad",
+      "Parlamento regional"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 24.1: representación ordinaria del Estado en la Comunidad."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 24.1 EAEXT, el Presidente de la Comunidad Autónoma preside:",
+     "opciones": [
+      "La Asamblea de Extremadura.",
+      "El Consejo Consultivo.",
+      "La Junta de Extremadura."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 24.1: preside la Junta de Extremadura."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas funciones corresponde al Presidente según el art. 24.1 EAEXT?",
+     "opciones": [
+      "La representación ordinaria del Estado en la Comunidad Autónoma.",
+      "La representación ordinaria de la Asamblea ante el Estado.",
+      "La dirección de la Delegación del Gobierno en Extremadura."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 24.1: la representación ordinaria es del Estado en la Comunidad."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a24-2-estatuto",
+   "bloque": "a24",
+   "apartado": "2",
+   "orden": 560,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 24.2 EAEXT, ¿qué se regulará por ley en relación con el Presidente?",
+    "respuesta": "Su estatuto, el régimen de ejercicio de sus funciones y sus relaciones, y las de la Junta, con la Asamblea."
+   },
+   "cita": "Por ley se regulará el estatuto del Presidente, el régimen de ejercicio de sus funciones y sus relaciones y las de la Junta de Extremadura con la Asamblea",
+   "confundible_con": [
+    "EAEXT-a24-1-caracter"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 24.2 EAEXT, el estatuto del Presidente se regula por:",
+     "opciones": [
+      "Decreto",
+      "Ley"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 24.2: por ley."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 24.2 EAEXT, la ley regula las relaciones con la Asamblea del Presidente y de:",
+     "opciones": [
+      "El Consejo Consultivo.",
+      "La Mesa de la Cámara.",
+      "La Junta de Extremadura."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 24.2: relaciones del Presidente y de la Junta con la Asamblea."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué se regulará por ley según el art. 24.2 EAEXT?",
+     "opciones": [
+      "El estatuto del Presidente y las relaciones con la Asamblea.",
+      "El estatuto de los diputados y sus relaciones con el Presidente.",
+      "El Reglamento de la Asamblea y sus relaciones con los Grupos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 24.2: estatuto del Presidente y régimen de sus funciones y relaciones."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a25-1-eleccion",
+   "bloque": "a25",
+   "apartado": "1",
+   "orden": 570,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 25.1 EAEXT, ¿quién elige y quién nombra al Presidente?",
+    "respuesta": "Lo elige la Asamblea de entre sus miembros y lo nombra el Rey."
+   },
+   "cita": "El Presidente será elegido por la Asamblea de Extremadura de entre sus miembros y nombrado por el Rey",
+   "confundible_con": [
+    "EAEXT-a25-2-candidato"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25.1 EAEXT, el Presidente de la Comunidad es nombrado por:",
+     "opciones": [
+      "El Rey",
+      "Las Cortes Generales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.1: nombrado por el Rey."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25.1 EAEXT, el Presidente es elegido por la Asamblea de entre:",
+     "opciones": [
+      "Los miembros de la Junta.",
+      "Los ciudadanos extremeños.",
+      "Sus propios miembros."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 25.1: elegido por la Asamblea de entre sus miembros."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Quién elige y quién nombra al Presidente de la Comunidad según el art. 25.1 EAEXT?",
+     "opciones": [
+      "Lo elige la Asamblea de entre sus miembros y lo nombra el Rey.",
+      "Lo elige el pueblo directamente y lo nombra el Rey.",
+      "Lo elige la Asamblea y lo nombra el Presidente del Gobierno."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.1: elección por la Asamblea y nombramiento por el Rey."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a25-2-candidato",
+   "bloque": "a25",
+   "apartado": "2",
+   "orden": 580,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 25.2 EAEXT, ¿quién propone el candidato a la Presidencia, en qué plazo y con qué apoyo mínimo?",
+    "respuesta": "El Presidente de la Asamblea, en quince días desde su constitución y previa consulta a los Grupos, entre los candidatos presentados al menos por la cuarta parte de los miembros de la Cámara."
+   },
+   "cita": "En el plazo de quince días desde su constitución, el Presidente de la Asamblea, previa consulta a los Grupos parlamentarios, propondrá un candidato a la Presidencia de entre los que le sean presentados, al menos, por la cuarta parte de los miembros de la Cámara",
+   "confundible_con": [
+    "EAEXT-a25-3-votacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25.2 EAEXT, el candidato a la Presidencia lo propone el:",
+     "opciones": [
+      "Presidente cesante",
+      "Presidente de la Asamblea"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 25.2: lo propone el Presidente de la Asamblea."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25.2 EAEXT, los candidatos deben ser presentados, al menos, por:",
+     "opciones": [
+      "La quinta parte de los miembros de la Cámara.",
+      "La mitad de los miembros de la Cámara.",
+      "La cuarta parte de los miembros de la Cámara."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 25.2: candidatos presentados al menos por la cuarta parte de la Cámara."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué debe hacer el Presidente de la Asamblea antes de proponer candidato según el art. 25.2 EAEXT?",
+     "opciones": [
+      "Consultar a los Grupos parlamentarios.",
+      "Consultar a la Junta de Extremadura.",
+      "Consultar al Consejo Consultivo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.2: previa consulta a los Grupos parlamentarios, en quince días desde la constitución."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a25-3-votacion",
+   "bloque": "a25",
+   "apartado": "3",
+   "orden": 590,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 25.3 EAEXT, ¿qué debe hacer el candidato propuesto y qué mayoría necesita en la votación de investidura?",
+    "respuesta": "Presentar su programa al Pleno dentro de los quince días siguientes a su designación y obtener mayoría absoluta para ser proclamado Presidente."
+   },
+   "cita": "deberá obtener mayoría absoluta para ser proclamado Presidente",
+   "confundible_con": [
+    "EAEXT-a25-4-segunda"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25.3 EAEXT, en la primera votación de investidura el candidato debe obtener mayoría:",
+     "opciones": [
+      "Absoluta",
+      "Simple"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.3: mayoría absoluta para ser proclamado Presidente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25.3 EAEXT, el candidato presenta su programa al Pleno dentro de los siguientes a su designación:",
+     "opciones": [
+      "Treinta días.",
+      "Diez días.",
+      "Quince días."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 25.3: quince días siguientes a su designación."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué trámites exige el art. 25.3 EAEXT al candidato propuesto?",
+     "opciones": [
+      "Presentar su programa al Pleno y alcanzar la mayoría absoluta en la votación.",
+      "Presentar su programa a la Junta y alcanzar la mayoría simple en la votación.",
+      "Presentar su programa al Rey y alcanzar la mayoría absoluta en la votación."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.3: programa ante el Pleno de la Asamblea y mayoría absoluta."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a25-4-segunda",
+   "bloque": "a25",
+   "apartado": "4",
+   "orden": 600,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 25.4 EAEXT, ¿qué ocurre si el candidato no obtiene mayoría absoluta y qué pasa si en dos meses nadie es elegido?",
+    "respuesta": "Se vota de nuevo a las cuarenta y ocho horas con mayoría simple; si en dos meses desde la primera votación nadie es elegido, la Asamblea queda disuelta y se convocan nuevas elecciones."
+   },
+   "cita": "Si en el plazo de dos meses a partir de la primera votación ninguno de los candidatos hubiera sido elegido, la Asamblea quedará disuelta",
+   "confundible_con": [
+    "EAEXT-a25-3-votacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25.4 EAEXT, la nueva votación se celebra tras la primera pasadas:",
+     "opciones": [
+      "Veinticuatro horas",
+      "Cuarenta y ocho horas"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 25.4: nueva votación cuarenta y ocho horas después."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25.4 EAEXT, si ninguno de los candidatos es elegido en dos meses desde la primera votación:",
+     "opciones": [
+      "El Rey designa Presidente al candidato con más votos.",
+      "Se prorroga el mandato del Presidente en funciones un año.",
+      "La Asamblea queda disuelta y se convocan nuevas elecciones."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 25.4: dos meses desde la primera votación; disolución y nuevas elecciones."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué mayoría se requiere en la segunda votación de investidura según el art. 25.4 EAEXT?",
+     "opciones": [
+      "Mayoría simple.",
+      "Mayoría absoluta.",
+      "Mayoría de tres quintos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.4: en la nueva votación basta la mayoría simple."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a25-5-vacante",
+   "bloque": "a25",
+   "apartado": "5",
+   "orden": 610,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 25.5 EAEXT, ¿qué procedimiento se sigue si la Presidencia queda vacante por cualquier otra causa?",
+    "respuesta": "El mismo procedimiento de investidura."
+   },
+   "cita": "El mismo procedimiento se seguirá en el caso de que la Presidencia quede vacante por cualquier otra causa",
+   "confundible_con": [
+    "EAEXT-a25-1-eleccion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25.5 EAEXT, si la Presidencia queda vacante por otra causa se sigue:",
+     "opciones": [
+      "El mismo procedimiento de investidura.",
+      "Un procedimiento simplificado."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.5: el mismo procedimiento de investidura."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25.5 EAEXT, ante la vacante de la Presidencia por otra causa, el nuevo Presidente se elige:",
+     "opciones": [
+      "Por designación del Vicepresidente en funciones.",
+      "Por la Junta de Extremadura en pleno.",
+      "Mediante el mismo procedimiento de investidura."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 25.5: se aplica el procedimiento del art. 25, no una designación directa."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 25.5 EAEXT es correcta?",
+     "opciones": [
+      "La vacante por cualquier causa se cubre por el procedimiento de investidura.",
+      "La vacante por fallecimiento se cubre sin intervención de la Asamblea.",
+      "La vacante por dimisión obliga siempre a disolver la Asamblea."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.5: cualquier vacante se cubre con el procedimiento de investidura."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a27-1-disolucion",
+   "bloque": "a27",
+   "apartado": "1",
+   "orden": 620,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 27.1 EAEXT, ¿quién puede disponer la disolución anticipada de la Asamblea y con qué requisitos?",
+    "respuesta": "El Presidente, previa deliberación de la Junta de Extremadura y bajo su exclusiva responsabilidad."
+   },
+   "cita": "previa deliberación de la Junta de Extremadura y bajo su exclusiva responsabilidad, podrá disponer la disolución anticipada de la Asamblea",
+   "confundible_con": [
+    "EAEXT-a27-2-limites"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 27.1 EAEXT, el Presidente puede disponer la disolución anticipada bajo su exclusiva:",
+     "opciones": [
+      "Autoridad",
+      "Responsabilidad"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 27.1: bajo su exclusiva responsabilidad."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 27.1 EAEXT, antes de disponer la disolución anticipada el Presidente requiere:",
+     "opciones": [
+      "La autorización de la Mesa de la Asamblea.",
+      "El informe del Consejo Consultivo.",
+      "La previa deliberación de la Junta."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 27.1: previa deliberación de la Junta de Extremadura."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Quién puede disponer la disolución anticipada de la Asamblea según el art. 27.1 EAEXT?",
+     "opciones": [
+      "El Presidente, previa deliberación de la Junta, bajo su responsabilidad.",
+      "La Junta de Extremadura por mayoría absoluta de sus miembros.",
+      "El Presidente de la Asamblea previa audiencia de los Grupos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.1: lo dispone el Presidente de la Comunidad, previa deliberación de la Junta."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a27-2-limites",
+   "bloque": "a27",
+   "apartado": "2",
+   "orden": 630,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 27.2 EAEXT, ¿cuándo no puede aprobarse el decreto de disolución?",
+    "respuesta": "Cuando esté en trámite una moción de censura ni antes de que transcurra un año desde la anterior disolución, salvo el supuesto del art. 25.4."
+   },
+   "cita": "no podrá aprobarse cuando esté en trámite una moción de censura ni antes de que transcurra un año desde la anterior disolución, salvo el supuesto regulado en el artículo 25.4",
+   "confundible_con": [
+    "EAEXT-a27-1-disolucion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 27.2 EAEXT, no puede aprobarse el decreto de disolución antes de que transcurra desde la anterior disolución:",
+     "opciones": [
+      "Un año",
+      "Seis meses"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.2: un año desde la anterior disolución."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 27.2 EAEXT, el decreto de disolución no podrá aprobarse cuando esté en trámite una:",
+     "opciones": [
+      "Cuestión de confianza.",
+      "Reforma del Estatuto.",
+      "Moción de censura."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 27.2: no con una moción de censura en trámite."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué excepción prevé el art. 27.2 EAEXT al plazo mínimo entre disoluciones?",
+     "opciones": [
+      "El supuesto del art. 25.4 sobre la investidura fallida.",
+      "El supuesto de aprobación de una moción de censura.",
+      "El supuesto de dimisión voluntaria del Presidente."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.2: la excepción es el art. 25.4, cuando fracasa la investidura."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a27-3-decreto",
+   "bloque": "a27",
+   "apartado": "3",
+   "orden": 640,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 27.3 EAEXT, ¿qué contiene el decreto de disolución?",
+    "respuesta": "La convocatoria de nuevas elecciones, con las determinaciones que exija la legislación electoral aplicable."
+   },
+   "cita": "En el decreto de disolución se convocarán nuevas elecciones, estableciéndose cuantas determinaciones exija la legislación electoral aplicable",
+   "confundible_con": [
+    "EAEXT-a27-1-disolucion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 27.3 EAEXT, en el decreto de disolución se convocan:",
+     "opciones": [
+      "Un referéndum",
+      "Nuevas elecciones"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 27.3: se convocan nuevas elecciones."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 27.3 EAEXT, el decreto de disolución establece las determinaciones que exija:",
+     "opciones": [
+      "El Reglamento de la Asamblea.",
+      "La ley de Gobierno regional.",
+      "La legislación electoral aplicable."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 27.3: determinaciones de la legislación electoral aplicable."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué contiene necesariamente el decreto de disolución según el art. 27.3 EAEXT?",
+     "opciones": [
+      "La convocatoria de nuevas elecciones.",
+      "La convocatoria de una cuestión de confianza.",
+      "El nombramiento de una gestora provisional."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.3: el decreto convoca nuevas elecciones."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a28-1-planteamiento",
+   "bloque": "a28",
+   "apartado": "1",
+   "orden": 650,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 28.1 EAEXT, ¿cuándo y sobre qué puede el Presidente plantear la cuestión de confianza?",
+    "respuesta": "Previa deliberación de la Junta y sin que esté en trámite una moción de censura, sobre una declaración política general en el marco de las competencias de la Comunidad."
+   },
+   "cita": "puede plantear a la Asamblea la cuestión de confianza sobre una declaración política general en el marco de las competencias de la Comunidad Autónoma",
+   "confundible_con": [
+    "EAEXT-a28-2-otorgamiento"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 28.1 EAEXT, el Presidente plantea la cuestión de confianza previa deliberación de la:",
+     "opciones": [
+      "Junta de Extremadura",
+      "Mesa de la Asamblea"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.1: previa deliberación de la Junta de Extremadura."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 28.1 EAEXT, la cuestión de confianza no puede plantearse mientras esté en trámite:",
+     "opciones": [
+      "Una ley de presupuestos.",
+      "Una comisión de investigación.",
+      "Una moción de censura."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 28.1: no puede plantearse con una moción de censura en trámite."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Sobre qué puede plantear el Presidente la cuestión de confianza según el art. 28.1 EAEXT?",
+     "opciones": [
+      "Sobre una declaración política general.",
+      "Sobre un proyecto de ley determinado.",
+      "Sobre la ley anual de Presupuestos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.1: sobre una declaración política general."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a28-2-otorgamiento",
+   "bloque": "a28",
+   "apartado": "2",
+   "orden": 660,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 28.2 EAEXT, ¿cuándo se entiende otorgada la confianza?",
+    "respuesta": "Cuando vote a favor la mayoría simple de los miembros de la Asamblea."
+   },
+   "cita": "La confianza se entenderá otorgada cuando vote a favor de la misma la mayoría simple de los miembros de la Asamblea",
+   "confundible_con": [
+    "EAEXT-a28-3-denegacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 28.2 EAEXT, la confianza se entiende otorgada por mayoría:",
+     "opciones": [
+      "De tres quintos",
+      "Simple"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 28.2: mayoría simple de los miembros."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 28.2 EAEXT, ¿qué se necesita para que la Asamblea otorgue su confianza?",
+     "opciones": [
+      "Que vote a favor la mayoría absoluta de sus miembros.",
+      "Que vote a favor la mayoría de dos tercios de sus miembros.",
+      "Que vote a favor la mayoría simple de sus miembros."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 28.2: basta la mayoría simple, no la absoluta ni los dos tercios."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué efecto tiene que vote a favor la mayoría simple de los miembros de la Asamblea según el art. 28.2 EAEXT?",
+     "opciones": [
+      "Se entiende otorgada la confianza al Presidente.",
+      "Se exige una segunda votación a las cuarenta y ocho horas.",
+      "Se entiende aprobada una moción de censura alternativa."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.2: con esa mayoría se entiende otorgada la confianza."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a28-3-denegacion",
+   "bloque": "a28",
+   "apartado": "3",
+   "orden": 670,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 28.3 EAEXT, ¿qué ocurre si la Asamblea niega su confianza al Presidente?",
+    "respuesta": "El Presidente presenta su dimisión ante la Cámara, cuyo Presidente convoca en máximo quince días sesión plenaria para elegir nuevo Presidente por el procedimiento de investidura."
+   },
+   "cita": "Si la Asamblea negara su confianza al Presidente, éste presentará su dimisión ante la Cámara, cuyo Presidente convocará, en el plazo máximo de quince días, sesión plenaria para la elección de nuevo Presidente",
+   "confundible_con": [
+    "EAEXT-a28-2-otorgamiento"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 28.3 EAEXT, si la Asamblea niega su confianza al Presidente, este debe:",
+     "opciones": [
+      "Presentar su dimisión ante la Cámara.",
+      "Disolver automáticamente la Asamblea."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.3: el Presidente presenta su dimisión ante la Cámara."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 28.3 EAEXT, el Presidente de la Cámara convoca la sesión plenaria para elegir nuevo Presidente en el plazo máximo de:",
+     "opciones": [
+      "Treinta días.",
+      "Cinco días.",
+      "Quince días."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 28.3: plazo máximo de quince días."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué procedimiento se sigue para elegir al nuevo Presidente tras negarse la confianza según el art. 28.3 EAEXT?",
+     "opciones": [
+      "El de investidura previsto en el Estatuto.",
+      "La designación directa por el Rey.",
+      "Elecciones anticipadas inmediatas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.3: se sigue el procedimiento de investidura."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a29-1-propuesta",
+   "bloque": "a29",
+   "apartado": "1",
+   "orden": 680,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 29.1 EAEXT, ¿con qué mayoría se adopta la moción de censura y quién debe proponerla?",
+    "respuesta": "Por mayoría absoluta; debe ser propuesta, al menos, por un quince por ciento de los miembros de la Cámara e incluir un candidato a Presidente que presentará su programa alternativo."
+   },
+   "cita": "mediante la adopción por mayoría absoluta de una moción de censura que habrá de ser propuesta, al menos, por un quince por ciento de los miembros de la Cámara e incluir un candidato a Presidente",
+   "confundible_con": [
+    "EAEXT-a29-2-plazos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 29.1 EAEXT, la moción de censura se adopta por mayoría:",
+     "opciones": [
+      "Simple",
+      "Absoluta"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 29.1: mayoría absoluta."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 29.1 EAEXT, la moción de censura debe ser propuesta, al menos, por:",
+     "opciones": [
+      "El diez por ciento de los miembros de la Cámara.",
+      "La cuarta parte de los miembros de la Cámara.",
+      "El quince por ciento de los miembros de la Cámara."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 29.1: al menos un quince por ciento de los miembros de la Cámara."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué debe incluir toda moción de censura según el art. 29.1 EAEXT?",
+     "opciones": [
+      "Un candidato a Presidente que presentará su programa alternativo.",
+      "Un candidato a Presidente que será designado por la Junta.",
+      "Un informe previo del Consejo Consultivo sobre su procedencia."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29.1: incluye un candidato con programa alternativo."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a29-2-plazos",
+   "bloque": "a29",
+   "apartado": "2",
+   "orden": 690,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 29.2 EAEXT, ¿cuándo puede votarse la moción de censura y cuándo pueden presentarse mociones alternativas?",
+    "respuesta": "No puede votarse hasta que transcurran cinco días desde su presentación; durante los dos primeros días pueden presentarse mociones alternativas."
+   },
+   "cita": "No podrá ser votada una moción de censura hasta que transcurran cinco días desde su presentación. En los dos primeros días de dicho plazo podrán presentarse mociones alternativas",
+   "confundible_con": [
+    "EAEXT-a29-1-propuesta"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 29.2 EAEXT, la moción de censura no puede votarse hasta que transcurran desde su presentación:",
+     "opciones": [
+      "Cinco días",
+      "Quince días"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29.2: cinco días desde la presentación."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 29.2 EAEXT, las mociones alternativas pueden presentarse en los primeros:",
+     "opciones": [
+      "Tres días del plazo.",
+      "Cinco días del plazo.",
+      "Dos días del plazo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 29.2: mociones alternativas en los dos primeros días del plazo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué puede hacerse durante los dos primeros días tras presentarse una moción de censura según el art. 29.2 EAEXT?",
+     "opciones": [
+      "Presentar mociones alternativas.",
+      "Plantear una cuestión de confianza.",
+      "Votar la moción en primera lectura."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29.2: en esos dos días se admiten mociones alternativas."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a29-3-aprobacion",
+   "bloque": "a29",
+   "apartado": "3",
+   "orden": 700,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 29.3 EAEXT, ¿qué efecto tiene la aprobación de una moción de censura?",
+    "respuesta": "El Presidente cesa automáticamente, el candidato propuesto se entiende investido de la confianza de la Cámara y se da cuenta al Rey para su nombramiento."
+   },
+   "cita": "el Presidente cesará automáticamente en sus funciones y el candidato propuesto en dicha moción se entenderá investido de la confianza de la Cámara, dándose cuenta al Rey para su nombramiento",
+   "confundible_con": [
+    "EAEXT-a29-1-propuesta"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 29.3 EAEXT, aprobada la moción de censura, el Presidente cesa:",
+     "opciones": [
+      "Tras nuevas elecciones",
+      "Automáticamente"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 29.3: el Presidente cesa automáticamente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 29.3 EAEXT, aprobada la moción, se da cuenta del candidato, para su nombramiento, a:",
+     "opciones": [
+      "El Presidente del Gobierno.",
+      "El Delegado del Gobierno.",
+      "Su Majestad el Rey."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 29.3: se da cuenta al Rey para el nombramiento."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué efecto tiene la aprobación de una moción de censura según el art. 29.3 EAEXT?",
+     "opciones": [
+      "El Presidente cesa y el candidato propuesto se entiende investido de la confianza.",
+      "El Presidente continúa en funciones y se convocan elecciones anticipadas.",
+      "El Presidente cesa y la Asamblea celebra una nueva votación de investidura."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29.3: el candidato queda investido sin nueva votación de investidura."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a29-4-limite",
+   "bloque": "a29",
+   "apartado": "4",
+   "orden": 710,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 29.4 EAEXT, ¿qué limitación afecta a los signatarios de una moción de censura rechazada?",
+    "respuesta": "No pueden impulsar otra en la misma legislatura hasta transcurrido un año desde la presentación de la rechazada."
+   },
+   "cita": "los signatarios de una moción de censura rechazada no podrán impulsar otra hasta transcurrido un año desde la presentación de aquella",
+   "confundible_con": [
+    "EAEXT-a29-1-propuesta"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 29.4 EAEXT, tras una moción rechazada no se puede impulsar otra hasta transcurrido desde su presentación:",
+     "opciones": [
+      "Un año",
+      "Seis meses"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29.4: un año desde la presentación de la rechazada."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 29.4 EAEXT, la limitación para impulsar otra moción de censura se aplica a:",
+     "opciones": [
+      "Todos los diputados de la Asamblea, en la misma legislatura.",
+      "Solo al candidato propuesto, durante dos legislaturas.",
+      "Los signatarios de la moción rechazada, en la misma legislatura."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 29.4: afecta a los signatarios, dentro de la misma legislatura."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuándo pueden los signatarios de una moción rechazada impulsar otra en la misma legislatura según el art. 29.4 EAEXT?",
+     "opciones": [
+      "Transcurrido un año desde la presentación de la rechazada.",
+      "Transcurridos seis meses desde la votación de la rechazada.",
+      "Solo si lo autoriza la mayoría absoluta de la Cámara."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29.4: plazo de un año desde la presentación."
+    }
+   ]
+  }
+ ]
+}

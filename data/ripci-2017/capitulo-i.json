@@ -1,0 +1,673 @@
+{
+ "norma": "BOE-A-2017-6606",
+ "documento": "RIPCI",
+ "nombre_norma": "Real Decreto 513/2017 Reglamento de instalaciones de protección contra incendios",
+ "abreviatura": "RIPCI",
+ "hash_prefijo": "RIPCI",
+ "tema": 33,
+ "tema_nombre": "RIPCI RD 513/2017",
+ "bloque_temario": "Capítulo I (arts. 1-3): objeto, ámbito de aplicación y definiciones",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "RIPCI-a1-1-objeto",
+   "bloque": "a1",
+   "apartado": "1",
+   "orden": 100,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 1.1 del RIPCI, ¿cuál es el objeto del Reglamento?",
+    "respuesta": "Determinar las condiciones y requisitos exigibles al diseño, instalación/aplicación, mantenimiento e inspección de los equipos, sistemas y componentes de protección activa contra incendios."
+   },
+   "cita": "la determinación de las condiciones y los requisitos exigibles al diseño, instalación/aplicación, mantenimiento e inspección de los equipos, sistemas y componentes que conforman las instalaciones de protección activa contra incendios",
+   "confundible_con": [
+    "RIPCI-a3-a-proteccion-activa"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1.1 RIPCI, el Reglamento determina las condiciones exigibles al diseño, instalación/aplicación, mantenimiento e:",
+     "opciones": [
+      "Homologación",
+      "Inspección"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 1.1: diseño, instalación/aplicación, mantenimiento e inspección."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1.1 del RIPCI, los equipos, sistemas y componentes que regula conforman las instalaciones de protección:",
+     "opciones": [
+      "Pasiva contra incendios.",
+      "Estructural frente al fuego.",
+      "Activa contra incendios."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 1.1: instalaciones de protección activa contra incendios."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas actividades NO está entre las que el art. 1.1 RIPCI somete a condiciones y requisitos?",
+     "opciones": [
+      "La financiación pública de las instalaciones.",
+      "El mantenimiento de los equipos y sistemas.",
+      "La inspección de los componentes instalados."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.1: diseño, instalación/aplicación, mantenimiento e inspección; la financiación no figura."
+    }
+   ]
+  },
+  {
+   "id": "RIPCI-a1-2-supletorio",
+   "bloque": "a1",
+   "apartado": "2",
+   "orden": 110,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 1.2 del RIPCI, ¿cuándo se aplica el Reglamento con carácter supletorio y qué excepción establece?",
+    "respuesta": "En los aspectos de protección activa no regulados en legislaciones específicas, con la excepción de los túneles de carreteras del Estado (Real Decreto 635/2006)."
+   },
+   "cita": "se aplicará con carácter supletorio en aquellos aspectos relacionados con las instalaciones de protección activa contra incendios no regulados en las legislaciones específicas, con la excepción de los túneles de carreteras del Estado",
+   "confundible_con": [
+    "RIPCI-a1-1-objeto"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1.2 RIPCI, el Reglamento se aplica con carácter supletorio en aspectos no regulados en las legislaciones:",
+     "opciones": [
+      "Específicas",
+      "Municipales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.2: aplicación supletoria en lo no regulado por legislaciones específicas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1.2 del RIPCI, quedan exceptuados de esa aplicación supletoria los túneles de:",
+     "opciones": [
+      "Líneas de metro.",
+      "Ferrocarril estatal.",
+      "Carreteras del Estado."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 1.2: excepción de los túneles de carreteras del Estado."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué norma rige la seguridad de los túneles excluidos por el art. 1.2 RIPCI?",
+     "opciones": [
+      "El Real Decreto 635/2006, de 26 de mayo.",
+      "El Real Decreto 2267/2004, de 3 de diciembre.",
+      "El Real Decreto 314/2006, de 17 de marzo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.2: Real Decreto 635/2006, de 26 de mayo, sobre seguridad en túneles de carreteras del Estado."
+    }
+   ]
+  },
+  {
+   "id": "RIPCI-a2-1-empresas",
+   "bloque": "a2",
+   "apartado": "1",
+   "orden": 120,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 2.1 del RIPCI, ¿quiénes están sujetos a las disposiciones del Reglamento?",
+    "respuesta": "Tanto las empresas instaladoras como las empresas mantenedoras de instalaciones de protección contra incendios."
+   },
+   "cita": "Estarán sujetos a las disposiciones de este Reglamento tanto las empresas instaladoras como las empresas mantenedoras de instalaciones de protección contra incendios",
+   "confundible_con": [
+    "RIPCI-a3-f-instaladora",
+    "RIPCI-a2-2-fabricantes"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.1 RIPCI, están sujetas al Reglamento las empresas instaladoras y las empresas:",
+     "opciones": [
+      "Proyectistas",
+      "Mantenedoras"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 2.1: empresas instaladoras y empresas mantenedoras."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.1 del RIPCI, el Reglamento sujeta a sus disposiciones a las empresas:",
+     "opciones": [
+      "Constructoras y promotoras de los edificios.",
+      "Aseguradoras de los inmuebles protegidos.",
+      "Instaladoras y mantenedoras de instalaciones."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 2.1: instaladoras y mantenedoras de instalaciones de protección contra incendios."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas empresas NO se menciona en el art. 2.1 RIPCI como sujeta al Reglamento?",
+     "opciones": [
+      "Las empresas constructoras de los edificios.",
+      "Las empresas instaladoras de estas instalaciones.",
+      "Las empresas mantenedoras de estas instalaciones."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.1: solo se nombran las empresas instaladoras y mantenedoras."
+    }
+   ]
+  },
+  {
+   "id": "RIPCI-a2-2-fabricantes",
+   "bloque": "a2",
+   "apartado": "2",
+   "orden": 130,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 2.2 del RIPCI, ¿a quiénes se aplican además las exigencias técnicas del Reglamento?",
+    "respuesta": "A los fabricantes, importadores, distribuidores u organismos que intervengan en la certificación o evaluación técnica de los productos, y a todos los que pudieran verse afectados."
+   },
+   "cita": "las exigencias técnicas de este Reglamento se aplicarán a los fabricantes, importadores, distribuidores u organismos que intervengan en la certificación o evaluación técnica de los productos",
+   "confundible_con": [
+    "RIPCI-a2-1-empresas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.2 RIPCI, las exigencias técnicas se aplican a fabricantes, importadores, distribuidores y organismos que intervengan en la certificación o evaluación técnica de los:",
+     "opciones": [
+      "Productos",
+      "Proyectos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.2: fabricantes, importadores, distribuidores y organismos de certificación o evaluación técnica."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.2 del RIPCI, entre los sujetos de las exigencias técnicas están los organismos que intervengan en la:",
+     "opciones": [
+      "Dirección facultativa de las obras de edificación.",
+      "Redacción de proyectos técnicos de edificación.",
+      "Certificación o evaluación técnica de productos."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 2.2: organismos que intervengan en la certificación o evaluación técnica de los productos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 2.2 RIPCI es correcta?",
+     "opciones": [
+      "Las exigencias técnicas alcanzan también a los fabricantes, importadores y distribuidores.",
+      "Las exigencias técnicas alcanzan solo a las empresas instaladoras y mantenedoras.",
+      "Las exigencias técnicas excluyen a los importadores y distribuidores de productos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.2: se suman a las empresas del art. 2.1 los fabricantes, importadores y distribuidores."
+    }
+   ]
+  },
+  {
+   "id": "RIPCI-a3-a-proteccion-activa",
+   "bloque": "a3",
+   "apartado": "",
+   "orden": 140,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.a) del RIPCI, ¿qué es la protección activa contra incendios?",
+    "respuesta": "El conjunto de medios, equipos y sistemas, manuales o automáticos, cuyas funciones específicas son la detección, control y/o extinción de un incendio."
+   },
+   "cita": "es el conjunto de medios, equipos y sistemas, ya sean manuales o automáticos, cuyas funciones específicas son la detección, control y/o extinción de un incendio",
+   "confundible_con": [
+    "RIPCI-a1-1-objeto"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.a) RIPCI, los medios de protección activa pueden ser manuales o:",
+     "opciones": [
+      "Pasivos",
+      "Automáticos"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.a): medios manuales o automáticos."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.a) del RIPCI, las funciones específicas de la protección activa son la detección, el control y/o:",
+     "opciones": [
+      "La compartimentación del local.",
+      "La ventilación del edificio.",
+      "La extinción de un incendio."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.a): detección, control y/o extinción de un incendio."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué persigue la protección activa contra incendios según el art. 3.a) RIPCI, además de facilitar la evacuación?",
+     "opciones": [
+      "Impedir que el incendio se propague, minimizando pérdidas personales y materiales.",
+      "Garantizar la resistencia estructural del edificio durante todo el incendio.",
+      "Evitar que el incendio llegue a iniciarse prohibiendo las fuentes de ignición."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.a): facilita la evacuación e impide la propagación, minimizando pérdidas personales y materiales."
+    }
+   ]
+  },
+  {
+   "id": "RIPCI-a3-b-productos",
+   "bloque": "a3",
+   "apartado": "",
+   "orden": 150,
+   "tipo": "definicion",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.b) del RIPCI, ¿qué son los productos de protección contra incendios?",
+    "respuesta": "Los equipos, sistemas y componentes que integran las instalaciones de protección activa contra incendios."
+   },
+   "cita": "equipos, sistemas y componentes que integran las instalaciones de protección activa contra incendios",
+   "confundible_con": [
+    "RIPCI-a3-c-marcado-ce"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.b) RIPCI, los productos de protección contra incendios son equipos, sistemas y:",
+     "opciones": [
+      "Componentes",
+      "Proyectos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.b): equipos, sistemas y componentes."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.b) del RIPCI, los productos de protección contra incendios integran las instalaciones de protección:",
+     "opciones": [
+      "Pasiva frente al fuego.",
+      "Civil de las edificaciones.",
+      "Activa contra incendios."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.b): integran las instalaciones de protección activa contra incendios."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 3.b) RIPCI es correcta?",
+     "opciones": [
+      "Los componentes de una instalación de protección activa son productos de protección contra incendios.",
+      "Solo los equipos completos, y no sus componentes, son productos de protección contra incendios.",
+      "Los productos de protección contra incendios son únicamente los sistemas de detección y alarma."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.b): incluye también los componentes, no solo los equipos completos."
+    }
+   ]
+  },
+  {
+   "id": "RIPCI-a3-c-marcado-ce",
+   "bloque": "a3",
+   "apartado": "",
+   "orden": 160,
+   "tipo": "definicion",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.c) del RIPCI, ¿qué es el marcado CE?",
+    "respuesta": "El marcado por el que el fabricante indica que el producto es conforme a todos los requisitos aplicables de la legislación comunitaria y armonización que prevé su colocación."
+   },
+   "cita": "marcado por el que el fabricante indica que el producto es conforme a todos los requisitos aplicables establecidos en la legislación comunitaria",
+   "confundible_con": [
+    "RIPCI-a3-d-evaluacion-tecnica"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.c) RIPCI, con el marcado CE el fabricante indica que el producto es conforme a la legislación:",
+     "opciones": [
+      "Municipal",
+      "Comunitaria"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.c): conformidad con la legislación comunitaria."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.c) del RIPCI, ¿quién indica con el marcado CE que el producto cumple los requisitos aplicables?",
+     "opciones": [
+      "El organismo de evaluación técnica.",
+      "La empresa instaladora del sistema.",
+      "El propio fabricante del producto."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.c): lo indica el fabricante."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué indica el marcado CE según el art. 3.c) RIPCI?",
+     "opciones": [
+      "Que el producto cumple todos los requisitos aplicables de la legislación comunitaria.",
+      "Que el producto ha superado la inspección periódica de una comunidad autónoma.",
+      "Que el producto está autorizado para su venta únicamente en territorio nacional."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.c): conformidad con todos los requisitos aplicables de la legislación comunitaria."
+    }
+   ]
+  },
+  {
+   "id": "RIPCI-a3-d-evaluacion-tecnica",
+   "bloque": "a3",
+   "apartado": "",
+   "orden": 170,
+   "tipo": "definicion",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.d) del RIPCI, ¿qué es la evaluación técnica?",
+    "respuesta": "La valoración de los requisitos básicos relacionados con el uso previsto y la evaluación y seguimiento del control de producción en fábrica de los productos."
+   },
+   "cita": "valoración de los requisitos básicos relacionados con el uso previsto y evaluación y seguimiento del control de producción en fábrica de productos",
+   "confundible_con": [
+    "RIPCI-a3-e-organismos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.d) RIPCI, la evaluación técnica valora los requisitos básicos relacionados con el uso:",
+     "opciones": [
+      "Previsto",
+      "Habitual"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.d): requisitos básicos relacionados con el uso previsto."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.d) del RIPCI, ¿sobre qué recae la valoración de la evaluación técnica?",
+     "opciones": [
+      "Los costes de fabricación y distribución del producto en el mercado.",
+      "Los requisitos de formación del personal de la empresa instaladora.",
+      "Los requisitos básicos relacionados con el uso previsto del producto."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.d): valoración de los requisitos básicos del uso previsto."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la evaluación técnica del art. 3.d) RIPCI es correcta?",
+     "opciones": [
+      "Comprende el seguimiento del control de producción en fábrica de los productos.",
+      "Se limita a comprobar el marcado CE en el momento de la instalación en obra.",
+      "Se realiza únicamente sobre las empresas mantenedoras de los equipos y sistemas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.d): incluye evaluación y seguimiento del control de producción en fábrica."
+    }
+   ]
+  },
+  {
+   "id": "RIPCI-a3-e-organismos",
+   "bloque": "a3",
+   "apartado": "",
+   "orden": 180,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.e) del RIPCI, ¿qué son los organismos habilitados para la evaluación técnica?",
+    "respuesta": "Los que desempeñan actividades de evaluación de los requisitos básicos del producto, de evaluación del control en fábrica y de seguimiento anual del control de producción en fábrica."
+   },
+   "cita": "aquellos que desempeñan actividades de evaluación de los requisitos básicos del producto relacionados con el uso previsto, de evaluación del control en fábrica y de seguimiento anual del control de producción en fábrica",
+   "confundible_con": [
+    "RIPCI-a3-d-evaluacion-tecnica",
+    "RIPCI-a3-e-criterios-actuacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.e) RIPCI, los organismos habilitados realizan el seguimiento del control de producción en fábrica con periodicidad:",
+     "opciones": [
+      "Bienal",
+      "Anual"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.e): seguimiento anual del control de producción en fábrica."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.e) del RIPCI, los organismos habilitados para la evaluación técnica desempeñan actividades de evaluación de:",
+     "opciones": [
+      "La solvencia económica de las empresas instaladoras.",
+      "La competencia profesional de los técnicos de mantenimiento.",
+      "Los requisitos básicos del producto y del control en fábrica."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.e): evaluación de los requisitos básicos del producto y del control en fábrica."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas funciones corresponde a los organismos habilitados según el art. 3.e) RIPCI?",
+     "opciones": [
+      "El seguimiento anual del control de producción en fábrica.",
+      "La concesión de la habilitación a las empresas instaladoras.",
+      "La inspección periódica de las instalaciones de los edificios."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.e): seguimiento anual del control de producción en fábrica."
+    }
+   ]
+  },
+  {
+   "id": "RIPCI-a3-e-criterios-actuacion",
+   "bloque": "a3",
+   "apartado": "",
+   "orden": 190,
+   "tipo": "lista",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.e).1.º y 2.º del RIPCI, ¿qué criterios de actuación y experiencia deben cumplir los organismos habilitados?",
+    "respuesta": "Actuar con imparcialidad, objetividad y transparencia, con organización adecuada y personal técnico competente, y tener experiencia contrastada en ensayos, inspecciones y/o evaluaciones avalada por sistemas de gestión de la calidad."
+   },
+   "cita": "Actuarán con imparcialidad, objetividad y transparencia, disponiendo de la organización adecuada y de personal técnico competente",
+   "confundible_con": [
+    "RIPCI-a3-e-organismos",
+    "RIPCI-a3-e-criterios-procedimientos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.e).1.º RIPCI, los organismos habilitados actuarán con imparcialidad, objetividad y:",
+     "opciones": [
+      "Transparencia",
+      "Confidencialidad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.e).1.º: imparcialidad, objetividad y transparencia."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.e).2.º del RIPCI, la experiencia contrastada en ensayos, inspecciones y/o evaluaciones se avala por la adecuada implantación de sistemas de:",
+     "opciones": [
+      "Gestión ambiental de sus instalaciones.",
+      "Prevención de riesgos de sus trabajadores.",
+      "Gestión de la calidad de sus actividades."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.e).2.º: experiencia avalada por sistemas de gestión de la calidad."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre los organismos habilitados del art. 3.e) RIPCI es correcta?",
+     "opciones": [
+      "Deben disponer de la organización adecuada y de personal técnico competente.",
+      "Deben ser siempre entidades de titularidad pública de la Administración.",
+      "Deben acreditar una antigüedad mínima de diez años en el mercado europeo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.e).1.º: organización adecuada y personal técnico competente."
+    }
+   ]
+  },
+  {
+   "id": "RIPCI-a3-e-criterios-procedimientos",
+   "bloque": "a3",
+   "apartado": "",
+   "orden": 200,
+   "tipo": "lista",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.e).3.º y 4.º del RIPCI, ¿qué procedimientos y qué información deben tener los organismos habilitados?",
+    "respuesta": "Procedimientos específicos validados expresamente por la Comunidad Autónoma donde presenten la declaración responsable, e información permanente al público sobre el alcance y la vigencia de las evaluaciones."
+   },
+   "cita": "procedimientos específicos, expresamente validados por la Comunidad Autónoma donde la entidad presente la declaración responsable",
+   "confundible_con": [
+    "RIPCI-a3-e-criterios-actuacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.e).3.º RIPCI, los procedimientos específicos de los organismos habilitados son validados por la:",
+     "opciones": [
+      "Administración local",
+      "Comunidad Autónoma"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.e).3.º: validación por la Comunidad Autónoma."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.e).3.º del RIPCI, la Comunidad Autónoma que valida los procedimientos es aquella donde la entidad:",
+     "opciones": [
+      "Tiene su domicilio social registrado.",
+      "Realiza la mayor parte de sus ensayos.",
+      "Presenta la declaración responsable."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.e).3.º: la Comunidad Autónoma donde se presenta la declaración responsable."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué información debe mantener permanentemente al público un organismo habilitado según el art. 3.e).4.º RIPCI?",
+     "opciones": [
+      "El alcance y la vigencia de las evaluaciones técnicas realizadas.",
+      "Los precios y tarifas de las evaluaciones técnicas que ofrece.",
+      "La identidad de los fabricantes que han solicitado evaluaciones."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.e).4.º: información permanente sobre alcance y vigencia de las evaluaciones técnicas."
+    }
+   ]
+  },
+  {
+   "id": "RIPCI-a3-f-instaladora",
+   "bloque": "a3",
+   "apartado": "",
+   "orden": 210,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.f) del RIPCI, ¿qué es una empresa instaladora?",
+    "respuesta": "La entidad que, según el proyecto o la documentación técnica y las condiciones del Reglamento, ubica o instala equipos y sistemas de protección activa o coloca señales, balizamientos y planos de evacuación luminiscentes."
+   },
+   "cita": "entidad que, siguiendo las indicaciones del proyecto o de la documentación técnica y cumpliendo las condiciones establecidas en este Reglamento, realiza una o varias de las siguientes actividades",
+   "confundible_con": [
+    "RIPCI-a3-g-mantenedora",
+    "RIPCI-a2-1-empresas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.f) RIPCI, la empresa instaladora sigue las indicaciones del proyecto o de la:",
+     "opciones": [
+      "Documentación técnica",
+      "Autoridad municipal"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.f): sigue el proyecto o la documentación técnica."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.f).2.º del RIPCI, la empresa instaladora también coloca las señales, balizamientos y/o planos de evacuación de los sistemas de señalización:",
+     "opciones": [
+      "Electromecánica.",
+      "Fotoeléctrica.",
+      "Luminiscente."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.f).2.º: señales, balizamientos y/o planos de evacuación de la señalización luminiscente."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas actividades corresponde a la empresa instaladora según el art. 3.f) RIPCI?",
+     "opciones": [
+      "Ubicar y/o instalar equipos y/o sistemas de protección activa contra incendios.",
+      "Realizar las operaciones de mantenimiento de los equipos y sistemas instalados.",
+      "Evaluar los requisitos básicos del producto relacionados con el uso previsto."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.f).1.º: ubica y/o instala equipos y/o sistemas de protección activa."
+    }
+   ]
+  },
+  {
+   "id": "RIPCI-a3-g-mantenedora",
+   "bloque": "a3",
+   "apartado": "",
+   "orden": 220,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.g) del RIPCI, ¿qué es una empresa mantenedora?",
+    "respuesta": "La entidad que, cumpliendo las condiciones del Reglamento, realiza las operaciones de mantenimiento de los equipos y/o sistemas de protección activa contra incendios."
+   },
+   "cita": "entidad que, cumpliendo las condiciones establecidas en este Reglamento, realiza las operaciones de mantenimiento de los equipos y/o sistemas de protección activa contra incendios",
+   "confundible_con": [
+    "RIPCI-a3-f-instaladora"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.g) RIPCI, la empresa mantenedora realiza las operaciones de:",
+     "opciones": [
+      "Fabricación",
+      "Mantenimiento"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.g): operaciones de mantenimiento."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.g) del RIPCI, la empresa mantenedora realiza las operaciones de mantenimiento de los equipos y/o sistemas de protección:",
+     "opciones": [
+      "Pasiva contra incendios.",
+      "Estructural de edificios.",
+      "Activa contra incendios."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.g): equipos y/o sistemas de protección activa contra incendios."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué distingue a la empresa mantenedora de la instaladora según el art. 3.f) y g) RIPCI?",
+     "opciones": [
+      "La mantenedora realiza el mantenimiento; la instaladora ubica o instala los equipos y sistemas.",
+      "La mantenedora ubica y coloca las señales; la instaladora realiza el mantenimiento de los equipos.",
+      "La mantenedora evalúa el control de producción; la instaladora realiza el seguimiento anual."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.f) y g): instaladora ubica o instala; mantenedora mantiene."
+    }
+   ]
+  }
+ ]
+}

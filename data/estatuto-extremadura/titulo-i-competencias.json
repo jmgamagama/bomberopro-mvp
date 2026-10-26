@@ -1,0 +1,467 @@
+{
+ "norma": "BOE-A-2011-1638",
+ "documento": "EAEXT",
+ "nombre_norma": "Estatuto de Autonomía de Extremadura",
+ "abreviatura": "EAEXT",
+ "hash_prefijo": "EAEXT",
+ "tema": 2,
+ "tema_nombre": "Estatuto de Autonomía de Extremadura",
+ "bloque_temario": "Título I (arts. 8, 12-14): competencias de la Comunidad Autónoma",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "EAEXT-a8-1-materias",
+   "bloque": "a8",
+   "apartado": "1",
+   "orden": 270,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 8.1 EAEXT, ¿qué asume la Comunidad Autónoma y qué comprenden esas competencias?",
+    "respuesta": "Competencias sobre las materias de los artículos siguientes, que comprenden las funciones que procedan, sin perjuicio de las del Estado por títulos propios previstos en la Constitución."
+   },
+   "cita": "Dichas competencias comprenderán las funciones que en cada caso procedan, sin perjuicio de las que pudieran corresponder al Estado en virtud de títulos competenciales propios previstos en la Constitución",
+   "confundible_con": [
+    "EAEXT-a8-2-delegadas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 8.1 EAEXT, las competencias asumidas se entienden sin perjuicio de las que correspondan al Estado en virtud de títulos previstos en:",
+     "opciones": [
+      "La Constitución.",
+      "El propio Estatuto."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.1: sin perjuicio de los títulos competenciales propios del Estado previstos en la Constitución."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 8.1 EAEXT, las competencias que asume la Comunidad Autónoma comprenden:",
+     "opciones": [
+      "Solo la función legislativa en cada materia.",
+      "Únicamente la función ejecutiva en cada materia.",
+      "Las funciones que en cada caso procedan."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 8.1: comprenden las funciones que en cada caso procedan."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué relación guardan las competencias autonómicas del art. 8.1 EAEXT con las del Estado?",
+     "opciones": [
+      "Se asumen sin perjuicio de las que tenga el Estado por títulos propios.",
+      "Excluyen toda competencia estatal sobre las mismas materias en Extremadura.",
+      "Prevalecen en todo caso sobre las estatales cuando afecten a la región."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.1: el Estado conserva las competencias que le correspondan por títulos propios."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a8-2-delegadas",
+   "bloque": "a8",
+   "apartado": "2",
+   "orden": 280,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 8.2 EAEXT, ¿qué otras competencias asume la Comunidad Autónoma?",
+    "respuesta": "Las que le sean atribuidas, delegadas o transferidas por el Estado, de conformidad con la Constitución, y las que le correspondan según el Estatuto y el ordenamiento jurídico."
+   },
+   "cita": "asume las competencias que le sean atribuidas, delegadas o transferidas por el Estado",
+   "confundible_con": [
+    "EAEXT-a8-1-materias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 8.2 EAEXT, la Comunidad Autónoma asume las competencias que le sean atribuidas, delegadas o:",
+     "opciones": [
+      "Cedidas por la Unión Europea",
+      "Transferidas por el Estado"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 8.2: competencias atribuidas, delegadas o transferidas por el Estado."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 8.2 EAEXT, las competencias atribuidas, delegadas o transferidas se asumen de conformidad con:",
+     "opciones": [
+      "Lo que decida cada Gobierno de la Nación.",
+      "Lo acordado en la Conferencia de Presidentes.",
+      "Lo previsto en la Constitución española."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 8.2: de conformidad con lo previsto en la Constitución."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 8.2 EAEXT es correcta?",
+     "opciones": [
+      "Extremadura asume también competencias delegadas o transferidas por el Estado.",
+      "Extremadura solo ejerce las competencias que enumera expresamente el Estatuto.",
+      "Extremadura no puede asumir competencias que no figuren en el Título I."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.2: además de las enumeradas, asume las atribuidas, delegadas o transferidas."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a8-3-politicas",
+   "bloque": "a8",
+   "apartado": "3",
+   "orden": 290,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 8.3 EAEXT, ¿qué puede establecer la Comunidad Autónoma en el ejercicio de sus competencias?",
+    "respuesta": "Políticas propias."
+   },
+   "cita": "En el ejercicio de sus competencias la Comunidad Autónoma podrá establecer políticas propias",
+   "confundible_con": [
+    "EAEXT-a8-1-materias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 8.3 EAEXT, en el ejercicio de sus competencias la Comunidad Autónoma podrá establecer políticas:",
+     "opciones": [
+      "Propias",
+      "Subsidiarias"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.3: políticas propias."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 8.3 EAEXT, ¿qué puede establecer la Comunidad Autónoma al ejercer sus competencias?",
+     "opciones": [
+      "Políticas dictadas siempre por el Estado.",
+      "Políticas sujetas a autorización estatal previa.",
+      "Políticas propias de la Comunidad Autónoma."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 8.3: la Comunidad puede establecer políticas propias, sin autorización previa."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué facultad se deduce del art. 8.3 EAEXT?",
+     "opciones": [
+      "La de definir políticas públicas propias en las materias de su competencia.",
+      "La de dictar políticas estatales en las materias de su competencia.",
+      "La de renunciar a sus competencias en favor del Estado sin límite."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.3: facultad de políticas propias en el ejercicio de sus competencias."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a12-1-ue",
+   "bloque": "a12",
+   "apartado": "1",
+   "orden": 300,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 12.1 EAEXT, ¿qué funciones tiene la Comunidad Autónoma respecto de la normativa de la Unión Europea?",
+    "respuesta": "El desarrollo y, en su caso, la ejecución de la normativa de la Unión Europea en los ámbitos materiales de competencia autonómica."
+   },
+   "cita": "el desarrollo y, en su caso, la ejecución de la normativa de la Unión Europea en los ámbitos materiales de competencia autonómica",
+   "confundible_con": [
+    "EAEXT-a12-2-tratados"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 12.1 EAEXT, es función de la Comunidad Autónoma el desarrollo y, en su caso, la ejecución de la normativa de la:",
+     "opciones": [
+      "Consejo de Europa",
+      "Unión Europea"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 12.1: normativa de la Unión Europea."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 12.1 EAEXT, la Comunidad Autónoma desarrolla y ejecuta la normativa de la Unión Europea en los ámbitos materiales de:",
+     "opciones": [
+      "Competencia exclusiva del Estado.",
+      "Competencia de los municipios.",
+      "Competencia autonómica propia."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 12.1: en los ámbitos materiales de competencia autonómica."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 12.1 EAEXT es correcta?",
+     "opciones": [
+      "La Comunidad desarrolla y, en su caso, ejecuta la normativa de la Unión en sus materias de competencia.",
+      "La Comunidad solo ejecuta la normativa de la Unión cuando se lo ordene el Estado.",
+      "La Comunidad desarrolla la normativa de la Unión sobre cualquier materia, sea o no suya."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 12.1: desarrollo y, en su caso, ejecución en sus propias materias de competencia."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a12-2-tratados",
+   "bloque": "a12",
+   "apartado": "2",
+   "orden": 310,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 12.2 EAEXT, ¿qué tratados y convenios internacionales ejecuta la Comunidad Autónoma?",
+    "respuesta": "Los ratificados por el Reino de España en lo que afecten a materias de su competencia."
+   },
+   "cita": "La Comunidad Autónoma ejecutará, asimismo, los tratados y convenios internacionales ratificados por el Reino de España en lo que afecten a materias de su competencia",
+   "confundible_con": [
+    "EAEXT-a12-1-ue"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 12.2 EAEXT, la Comunidad Autónoma ejecutará los tratados y convenios internacionales ratificados por:",
+     "opciones": [
+      "El Reino de España",
+      "La Unión Europea"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 12.2: tratados y convenios ratificados por el Reino de España."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 12.2 EAEXT, la Comunidad ejecuta los tratados internacionales ratificados por España en lo que afecten a materias de:",
+     "opciones": [
+      "Competencia exclusiva estatal.",
+      "Interés general del Estado.",
+      "Su competencia autonómica."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 12.2: en lo que afecten a materias de su competencia."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué ejecuta la Comunidad Autónoma en relación con los tratados internacionales según el art. 12.2 EAEXT?",
+     "opciones": [
+      "Los ratificados por España que afecten a materias de su competencia.",
+      "Todos los ratificados por España, afecten o no a sus competencias.",
+      "Solo los que se celebren por la propia Comunidad Autónoma."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 12.2: ejecuta los ratificados por España que incidan en sus competencias, no todos."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a13-1-funciones",
+   "bloque": "a13",
+   "apartado": "1",
+   "orden": 320,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 13.1 EAEXT, ¿qué funciones corresponden a la Comunidad Autónoma además de las expresamente contempladas en el ámbito de sus competencias?",
+    "respuesta": "Todas las inherentes a su pleno ejercicio, en particular la gestión del demanio especial afectado y la declaración de utilidad pública o interés social a efectos expropiatorios."
+   },
+   "cita": "corresponden a la Comunidad Autónoma todas aquellas funciones que resulten inherentes a su pleno ejercicio y, en particular, la gestión del demanio especial afectado y la declaración de utilidad pública o interés social a efectos expropiatorios",
+   "confundible_con": [
+    "EAEXT-a13-2-actividades"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 13.1 EAEXT, corresponde a la Comunidad Autónoma la declaración de utilidad pública o interés social a efectos:",
+     "opciones": [
+      "Tributarios",
+      "Expropiatorios"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 13.1: utilidad pública o interés social a efectos expropiatorios."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 13.1 EAEXT, corresponde también a la Comunidad Autónoma la gestión del demanio:",
+     "opciones": [
+      "Marítimo-terrestre.",
+      "Hidráulico estatal.",
+      "Especial afectado."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 13.1: la gestión del demanio especial afectado."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué corresponde a la Comunidad en materia de expropiación según el art. 13.1 EAEXT?",
+     "opciones": [
+      "Fijar los supuestos, los criterios de valoración y los órganos del justiprecio.",
+      "Tramitar expedientes, pues el justiprecio lo fija siempre un órgano estatal.",
+      "Declarar la utilidad pública, pero no regular los criterios de valoración."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.1: determina supuestos, criterios objetivos de valoración y órganos que fijen el justiprecio."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a13-2-actividades",
+   "bloque": "a13",
+   "apartado": "2",
+   "orden": 330,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 13.2 EAEXT, ¿qué actividades ejerce la Comunidad Autónoma en todas las materias de su competencia?",
+    "respuesta": "Las actividades de policía, de servicio público y de fomento, pudiendo regular la concesión y otorgar y controlar subvenciones con cargo a fondos propios y, en su caso, a los de otras instancias públicas."
+   },
+   "cita": "corresponde a la Comunidad Autónoma el ejercicio de las actividades de policía, de servicio público y de fomento, pudiendo regular la concesión y otorgar y controlar subvenciones con cargo a fondos propios",
+   "confundible_con": [
+    "EAEXT-a13-1-funciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 13.2 EAEXT, en sus materias la Comunidad ejerce las actividades de policía, de servicio público y de:",
+     "opciones": [
+      "Fomento",
+      "Sanción"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.2: policía, servicio público y fomento."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 13.2 EAEXT, las subvenciones pueden otorgarse con cargo a fondos propios y, en su caso, a los provenientes de:",
+     "opciones": [
+      "Entidades financieras privadas.",
+      "Fondos exclusivamente comunitarios.",
+      "Otras instancias públicas."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 13.2: fondos propios y, en su caso, de otras instancias públicas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué actividad corresponde a la Comunidad en todas las materias de su competencia según el art. 13.2 EAEXT?",
+     "opciones": [
+      "La de fomento, con posibilidad de otorgar y controlar subvenciones.",
+      "La de defensa, con posibilidad de dirigir fuerzas armadas.",
+      "La de justicia, con posibilidad de nombrar jueces."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.2: el fomento permite regular, otorgar y controlar subvenciones."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a13-3-participacion",
+   "bloque": "a13",
+   "apartado": "3",
+   "orden": 340,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 13.3 EAEXT, ¿en qué competencias estatales participará la Comunidad Autónoma?",
+    "respuesta": "En las que condicionen las competencias autonómicas o afecten a los recursos naturales o riquezas regionales."
+   },
+   "cita": "participará en el ejercicio de competencias estatales que condicionen las competencias autonómicas o afecten a los recursos naturales o riquezas regionales",
+   "confundible_con": [
+    "EAEXT-a13-1-funciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 13.3 EAEXT, la Comunidad participará en competencias estatales que afecten a los recursos naturales o riquezas:",
+     "opciones": [
+      "Internacionales",
+      "Regionales"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 13.3: competencias estatales que condicionen las autonómicas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 13.3 EAEXT, la Comunidad participa en competencias estatales que:",
+     "opciones": [
+      "Se ejerzan fuera del territorio de la Comunidad Autónoma.",
+      "Hayan sido transferidas a las entidades locales.",
+      "Condicionen las autonómicas o afecten a recursos regionales."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 13.3: también las que afecten a recursos naturales o riquezas regionales."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuándo participa la Comunidad en el ejercicio de competencias del Estado según el art. 13.3 EAEXT?",
+     "opciones": [
+      "Cuando condicionen sus competencias o afecten a sus recursos o riquezas.",
+      "Siempre que el Estado ejerza cualquier competencia en su territorio.",
+      "Solo cuando el Estado se lo solicite expresamente."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.3: la participación se limita a esos dos supuestos."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a14-homogeneidad",
+   "bloque": "a14",
+   "apartado": "",
+   "orden": 350,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 14 EAEXT, ¿qué deben velar las instituciones estatutarias y qué iniciativas pueden adoptar?",
+    "respuesta": "Que el elenco competencial se actualice en términos de homogeneidad respecto del conjunto de Comunidades Autónomas, reformando el Estatuto o solicitando al Estado la ampliación de competencias mediante las leyes pertinentes."
+   },
+   "cita": "adoptarán las iniciativas que procedan para reformar este Estatuto o para solicitar al Estado la ampliación de las competencias autonómicas mediante la adopción de las leyes pertinentes",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 14 EAEXT, las instituciones velarán por que el elenco competencial sea actualizado en términos de:",
+     "opciones": [
+      "Homogeneidad",
+      "Prevalencia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 14: homogeneidad respecto del conjunto de las Comunidades Autónomas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 14 EAEXT, las instituciones pueden reformar el Estatuto o solicitar al Estado:",
+     "opciones": [
+      "La disolución de las competencias compartidas.",
+      "La suspensión de la legislación básica estatal.",
+      "La ampliación de competencias mediante leyes."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 14: reformar el Estatuto o solicitar al Estado la ampliación de competencias."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Respecto de qué se mide la actualización del elenco competencial según el art. 14 EAEXT?",
+     "opciones": [
+      "Del conjunto de las Comunidades Autónomas.",
+      "De las comunidades autónomas limítrofes.",
+      "De la media de las regiones de la Unión Europea."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 14: la referencia es el conjunto de las Comunidades Autónomas."
+    }
+   ]
+  }
+ ]
+}

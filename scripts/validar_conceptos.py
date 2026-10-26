@@ -38,6 +38,14 @@ def low(s: str) -> str:
     return re.sub(r"[^\w ]+", "", s).strip()
 
 
+
+def etiqueta(bloque: dict, bid: str) -> str:
+    """Número de artículo legible desde el título del bloque («Artículo 32 bis» → «32 bis»).
+    Los ids de bloque no siempre coinciden con el número (p. ej. a2-3 es el art. 21)."""
+    t = (bloque or {}).get("titulo") or ""
+    m = re.match(r"^Art[íi]culo\s+(.+?)\.?$", t.strip(), re.I)
+    return m.group(1) if m else (t.strip().lower() or bid)
+
 def apartados(bloque: dict) -> dict[str, str]:
     """{'1': texto, '2': texto} o {'': texto} si el artículo no tiene apartados numerados."""
     body = [p["texto"] for p in bloque["parrafos"] if p["clase"] in ("parrafo", "parrafo_2")]
@@ -85,11 +93,11 @@ def main() -> int:
         aps = apartados(b)
         ap = c.get("apartado", "")
         if ap not in aps:
-            errores.append(f"{cid}: el art. {c['bloque']} no tiene apartado '{ap}' (tiene {list(aps)})")
+            errores.append(f"{cid}: el art. {etiqueta(b, c['bloque'])} no tiene apartado '{ap}' (tiene {list(aps)})")
             continue
         cubiertos.add((c["bloque"], ap))
         if norm(c["cita"]) not in norm(aps[ap]):
-            errores.append(f"{cid}: la cita no es literal del art. {c['bloque'][1:]}.{ap}")
+            errores.append(f"{cid}: la cita no es literal del art. {etiqueta(b, c['bloque'])}.{ap}")
         t = c["tarjeta"]
         if low(t["respuesta"]) and low(t["respuesta"]) in low(t["pregunta"]):
             errores.append(f"{cid}: la respuesta de la tarjeta está dentro de su pregunta")
@@ -126,7 +134,7 @@ def main() -> int:
 
     # Cobertura: todos los apartados del rango deben tener al menos un concepto.
     orden = list(boe)
-    rango = [k for k in orden if re.fullmatch(r"a\d+(bis)?", k)]
+    rango = [k for k in orden if boe[k].get("tipo") == "precepto"]
     if desde and hasta:
         rango = rango[rango.index(desde): rango.index(hasta) + 1]
     else:
@@ -134,7 +142,7 @@ def main() -> int:
         rango = [k for k in rango if k in usados]
     def vigente(texto: str) -> bool:  # «4. (Suprimido).» o «(Derogado)» no se pueden examinar
         return not re.fullmatch(r"\(?(suprimido|derogado|sin contenido)\)?\.?", low(texto) or "", re.I) and low(texto) not in ("suprimido", "derogado")
-    sin = [f"{k[1:]}.{ap}" if ap else k[1:] for k in rango for ap, tx in apartados(boe[k]).items() if (k, ap) not in cubiertos and vigente(tx)]
+    sin = [f"{etiqueta(boe[k], k)}.{ap}" if ap else etiqueta(boe[k], k) for k in rango for ap, tx in apartados(boe[k]).items() if (k, ap) not in cubiertos and vigente(tx)]
     if sin:
         errores.append(f"apartados sin concepto: {', '.join(sin)}")
 

@@ -1,0 +1,469 @@
+{
+ "norma": "BOE-A-2011-1638",
+ "documento": "EAEXT",
+ "nombre_norma": "Estatuto de Autonomía de Extremadura",
+ "abreviatura": "EAEXT",
+ "hash_prefijo": "EAEXT",
+ "tema": 2,
+ "tema_nombre": "Estatuto de Autonomía de Extremadura",
+ "bloque_temario": "Título II, Cap. III (arts. 31-34): Junta de Extremadura",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "EAEXT-a31-1-caracter",
+   "bloque": "a31",
+   "apartado": "1",
+   "orden": 720,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 31.1 EAEXT, ¿qué es la Junta de Extremadura?",
+    "respuesta": "El órgano colegiado que ejerce las funciones propias del Gobierno de la Comunidad Autónoma."
+   },
+   "cita": "es el órgano colegiado que ejerce las funciones propias del Gobierno de la Comunidad Autónoma",
+   "confundible_con": [
+    "EAEXT-a31-2-responsabilidad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 31.1 EAEXT, la Junta de Extremadura es un órgano:",
+     "opciones": [
+      "Unipersonal",
+      "Colegiado"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 31.1: órgano colegiado."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 31.1 EAEXT, la Junta de Extremadura ejerce las funciones propias del:",
+     "opciones": [
+      "Poder legislativo autonómico.",
+      "Poder judicial autonómico.",
+      "Gobierno de la Comunidad Autónoma."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 31.1: ejerce las funciones propias del Gobierno de la Comunidad Autónoma."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué naturaleza tiene la Junta de Extremadura según el art. 31.1 EAEXT?",
+     "opciones": [
+      "Es el órgano colegiado de gobierno de la Comunidad Autónoma.",
+      "Es el órgano unipersonal que dirige la Administración regional.",
+      "Es el órgano legislativo que aprueba los Presupuestos regionales."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.1: es órgano colegiado de gobierno, no legislativo ni unipersonal."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a31-2-responsabilidad",
+   "bloque": "a31",
+   "apartado": "2",
+   "orden": 730,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 31.2 EAEXT, ¿cómo responde políticamente la Junta ante la Asamblea?",
+    "respuesta": "De forma solidaria, sin perjuicio de la responsabilidad directa de cada uno de sus miembros por su gestión."
+   },
+   "cita": "responde políticamente ante la Asamblea de forma solidaria, sin perjuicio de la responsabilidad directa de cada uno de sus miembros por su gestión",
+   "confundible_con": [
+    "EAEXT-a31-1-caracter"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 31.2 EAEXT, la Junta responde políticamente ante la Asamblea de forma:",
+     "opciones": [
+      "Solidaria",
+      "Individual"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.2: responde de forma solidaria ante la Asamblea."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 31.2 EAEXT, la responsabilidad solidaria de la Junta es sin perjuicio de la responsabilidad directa de:",
+     "opciones": [
+      "El Presidente por los actos de los Consejeros.",
+      "Los altos cargos por los actos de la Junta.",
+      "Cada uno de sus miembros por su gestión."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 31.2: queda a salvo la responsabilidad directa de cada miembro por su gestión."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la responsabilidad política de la Junta es correcta según el art. 31.2 EAEXT?",
+     "opciones": [
+      "Es solidaria ante la Asamblea, sin perjuicio de la de cada miembro.",
+      "Recae solo en el Presidente, sin responsabilidad de los Consejeros.",
+      "Es individual de cada miembro, sin responsabilidad solidaria del conjunto."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.2: solidaria y, además, directa de cada miembro."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a33-1-decreto-ley",
+   "bloque": "a33",
+   "apartado": "1",
+   "orden": 740,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 33.1 EAEXT, ¿cuándo puede la Junta dictar Decretos-leyes?",
+    "respuesta": "En caso de extraordinaria y urgente necesidad, mediante disposiciones legislativas provisionales bajo la forma de Decreto-ley."
+   },
+   "cita": "En caso de extraordinaria y urgente necesidad, la Junta de Extremadura puede dictar disposiciones legislativas provisionales bajo la forma de Decreto-ley",
+   "confundible_con": [
+    "EAEXT-a33-2-limites"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33.1 EAEXT, la Junta puede dictar disposiciones legislativas provisionales bajo la forma de:",
+     "opciones": [
+      "Decreto legislativo",
+      "Decreto-ley"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 33.1: forma de Decreto-ley."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33.1 EAEXT, la Junta puede dictar Decretos-leyes en caso de:",
+     "opciones": [
+      "Grave alteración del orden público.",
+      "Disolución anticipada de la Asamblea.",
+      "Extraordinaria y urgente necesidad."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 33.1: extraordinaria y urgente necesidad."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué presupuesto habilita a la Junta para dictar un Decreto-ley según el art. 33.1 EAEXT?",
+     "opciones": [
+      "La extraordinaria y urgente necesidad.",
+      "La delegación previa del Pleno de la Asamblea.",
+      "La autorización de la Diputación Permanente."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.1: el presupuesto es la urgente necesidad, no una delegación ni autorización."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a33-2-limites",
+   "bloque": "a33",
+   "apartado": "2",
+   "orden": 750,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 33.2 EAEXT, ¿qué materias no pueden ser objeto de Decreto-ley?",
+    "respuesta": "La reforma del Estatuto, las leyes de presupuestos y las materias de leyes que requieran mayoría cualificada."
+   },
+   "cita": "No pueden ser objeto de Decreto-ley la reforma del Estatuto, las leyes de presupuestos o las materias objeto de leyes para las que se requiera una mayoría cualificada",
+   "confundible_con": [
+    "EAEXT-a33-1-decreto-ley"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33.2 EAEXT, no puede ser objeto de Decreto-ley:",
+     "opciones": [
+      "La reforma del Estatuto",
+      "La regulación de subvenciones"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.2: la reforma del Estatuto queda excluida."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33.2 EAEXT, ¿qué ley no puede ser objeto de Decreto-ley?",
+     "opciones": [
+      "La ley de medidas sanitarias urgentes.",
+      "La ley de creación de una Consejería.",
+      "La ley de presupuestos de la Comunidad."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 33.2: las leyes de presupuestos quedan excluidas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Sobre cuál de estas materias puede dictar la Junta un Decreto-ley según el art. 33.2 EAEXT?",
+     "opciones": [
+      "Una materia ordinaria, no presupuestaria ni de mayoría cualificada.",
+      "La reforma del Estatuto cuando exista urgencia justificada.",
+      "Los presupuestos de la Comunidad cuando la Asamblea esté disuelta."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.2: quedan excluidos Estatuto, presupuestos y materias de mayoría cualificada."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a33-3-convalidacion",
+   "bloque": "a33",
+   "apartado": "3",
+   "orden": 760,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 33.3 EAEXT, ¿en qué plazo debe convalidar la Asamblea un Decreto-ley y qué ocurre si no lo hace?",
+    "respuesta": "En el plazo improrrogable de un mes desde su publicación oficial, tras debate y en votación de totalidad; si no, el Decreto-ley queda derogado."
+   },
+   "cita": "quedan derogados si en el plazo improrrogable de un mes desde su publicación oficial no son convalidados por la Asamblea, tras su debate y en votación de totalidad",
+   "confundible_con": [
+    "EAEXT-a33-4-tramitacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33.3 EAEXT, el Decreto-ley debe convalidarse en el plazo improrrogable de:",
+     "opciones": [
+      "Tres meses",
+      "Un mes"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 33.3: plazo improrrogable de un mes desde su publicación."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33.3 EAEXT, un Decreto-ley que no se convalida dentro del plazo:",
+     "opciones": [
+      "Queda en suspenso.",
+      "Se prorroga un mes más.",
+      "Queda derogado."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 33.3: si no se convalida, quedan derogados."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cómo debe producirse la convalidación de un Decreto-ley según el art. 33.3 EAEXT?",
+     "opciones": [
+      "Por la Asamblea, tras su debate y en votación de totalidad.",
+      "Por la Diputación Permanente, sin debate y por mayoría simple.",
+      "Por el Presidente, tras su publicación y sin votación."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.3: convalidación por la Asamblea, tras debate y en votación de totalidad."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a33-4-tramitacion",
+   "bloque": "a33",
+   "apartado": "4",
+   "orden": 770,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 33.4 EAEXT, ¿qué puede hacer la Asamblea con los Decretos-leyes además de convalidarlos?",
+    "respuesta": "Tramitarlos como proyectos de ley por el procedimiento de urgencia, dentro del plazo de convalidación."
+   },
+   "cita": "La Asamblea puede tramitar los Decretos-leyes como proyectos de ley por el procedimiento de urgencia, dentro del plazo establecido en el apartado anterior",
+   "confundible_con": [
+    "EAEXT-a33-3-convalidacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33.4 EAEXT, la Asamblea puede tramitar los Decretos-leyes como proyectos de ley por el procedimiento de:",
+     "opciones": [
+      "Urgencia",
+      "Lectura única"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.4: procedimiento de urgencia."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33.4 EAEXT, la tramitación de un Decreto-ley como proyecto de ley debe hacerse:",
+     "opciones": [
+      "En el siguiente periodo de sesiones.",
+      "En el plazo de tres meses.",
+      "Dentro del plazo de la convalidación."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 33.4: dentro del plazo del apartado anterior (un mes)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué puede hacer la Asamblea con un Decreto-ley según el art. 33.4 EAEXT?",
+     "opciones": [
+      "Tramitarlo como proyecto de ley por el procedimiento de urgencia.",
+      "Modificarlo directamente sin necesidad de ningún trámite.",
+      "Devolverlo a la Junta para su nueva aprobación."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.4: se tramita como proyecto de ley por urgencia."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a34-1-composicion",
+   "bloque": "a34",
+   "apartado": "1",
+   "orden": 780,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 34.1 EAEXT, ¿por quiénes está compuesta la Junta de Extremadura?",
+    "respuesta": "Por el Presidente, los Vicepresidentes, de haberlos, y los Consejeros."
+   },
+   "cita": "está compuesta por el Presidente, los Vicepresidentes, de haberlos, y los Consejeros",
+   "confundible_con": [
+    "EAEXT-a34-2-nombramiento"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 34.1 EAEXT, la Junta se compone del Presidente, los Vicepresidentes, de haberlos, y los:",
+     "opciones": [
+      "Delegados",
+      "Consejeros"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 34.1: Presidente, Vicepresidentes y Consejeros."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 34.1 EAEXT, los Vicepresidentes en la Junta:",
+     "opciones": [
+      "Son miembros necesarios en todo caso.",
+      "No forman parte de ella.",
+      "Forman parte de ella solo si existen."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 34.1: Vicepresidentes, de haberlos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas composiciones de la Junta es correcta según el art. 34.1 EAEXT?",
+     "opciones": [
+      "Presidente, Vicepresidentes, de haberlos, y Consejeros.",
+      "Presidente, Vicepresidentes y Presidente de la Asamblea.",
+      "Presidente, Consejeros y Delegado del Gobierno."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.1: el Presidente de la Asamblea y el Delegado del Gobierno no integran la Junta."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a34-2-nombramiento",
+   "bloque": "a34",
+   "apartado": "2",
+   "orden": 790,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 34.2 EAEXT, ¿quién nombra y separa a los miembros de la Junta?",
+    "respuesta": "El Presidente, libremente, dando cuenta a la Asamblea; también establece las sustituciones entre ellos."
+   },
+   "cita": "El Presidente nombra y separa libremente a los miembros de la Junta, dando cuenta a la Asamblea de Extremadura",
+   "confundible_con": [
+    "EAEXT-a34-1-composicion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 34.2 EAEXT, el Presidente nombra y separa libremente a los miembros de la Junta, dando cuenta a:",
+     "opciones": [
+      "La Asamblea de Extremadura.",
+      "El Consejo Consultivo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.2: dando cuenta a la Asamblea de Extremadura."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 34.2 EAEXT, el Presidente establece también:",
+     "opciones": [
+      "Las incompatibilidades de los miembros de la Junta.",
+      "Las retribuciones de los miembros de la Junta.",
+      "Las sustituciones entre los miembros de la Junta."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 34.2: establece las sustituciones entre los miembros."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Quién nombra y separa a los miembros de la Junta según el art. 34.2 EAEXT?",
+     "opciones": [
+      "El Presidente, libremente, con información a la Asamblea.",
+      "La Asamblea, a propuesta del Presidente de la Junta.",
+      "El Rey, a propuesta de la Mesa de la Asamblea."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.2: nombramiento y cese libres por el Presidente, con información a la Asamblea."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a34-3-suplencia",
+   "bloque": "a34",
+   "apartado": "3",
+   "orden": 800,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 34.3 EAEXT, ¿quién suple al Presidente en caso de vacante, ausencia o enfermedad?",
+    "respuesta": "Los Vicepresidentes y, en su caso, los Consejeros, de acuerdo con las precedencias que disponga la ley."
+   },
+   "cita": "suplirán al Presidente en caso de vacante, ausencia o enfermedad, de acuerdo con las precedencias que disponga la ley",
+   "confundible_con": [
+    "EAEXT-a34-1-composicion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 34.3 EAEXT, los Vicepresidentes y Consejeros suplen al Presidente en caso de vacante, ausencia o:",
+     "opciones": [
+      "Cese",
+      "Enfermedad"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 34.3: vacante, ausencia o enfermedad."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 34.3 EAEXT, ¿quién suple al Presidente en caso de vacante, ausencia o enfermedad?",
+     "opciones": [
+      "El Presidente de la Asamblea y los Vicepresidentes.",
+      "El Delegado del Gobierno y los Vicepresidentes.",
+      "Los Vicepresidentes y, en su caso, los Consejeros."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 34.3: Vicepresidentes y, en su caso, Consejeros."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Con qué criterio se produce la suplencia del Presidente según el art. 34.3 EAEXT?",
+     "opciones": [
+      "Con las precedencias que disponga la ley.",
+      "Con el orden que fije en cada caso el Rey.",
+      "Con la antigüedad en el cargo en la Asamblea."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.3: las precedencias las dispone la ley."
+    }
+   ]
+  }
+ ]
+}

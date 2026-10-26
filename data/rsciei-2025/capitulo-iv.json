@@ -1,0 +1,369 @@
+{
+ "norma": "BOE-A-2025-7190",
+ "documento": "RSCIEI",
+ "nombre_norma": "Real Decreto 164/2025 Reglamento de seguridad contra incendios en establecimientos industriales",
+ "abreviatura": "RSCIEI",
+ "hash_prefijo": "RSCIEI",
+ "tema": 34,
+ "tema_nombre": "RSCIEI Real Decreto 164/2025 (industrial)",
+ "bloque_temario": "Capítulo IV (arts. 13-15): inspecciones",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "RSCIEI-a13-1-periodicas",
+   "bloque": "a1-5",
+   "apartado": "1",
+   "orden": 510,
+   "tipo": "cifra",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 13.1 del RSCIEI, ¿a quién deben solicitar los titulares la inspección periódica y con qué frecuencia mínima?",
+    "respuesta": "A un organismo de control habilitado, al menos cada 5 años."
+   },
+   "cita": "Dichas inspecciones se deberán realizar, al menos, cada 5 años",
+   "confundible_con": [
+    "RSCIEI-a13-3-acta"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 13.1 del RSCIEI, las inspecciones periódicas se realizan al menos cada:",
+     "opciones": [
+      "5 años",
+      "10 años"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.1: al menos cada 5 años."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 13.1 del RSCIEI, los titulares solicitan la inspección periódica a:",
+     "opciones": [
+      "El órgano competente de industria.",
+      "Una persona técnica titulada competente.",
+      "Un organismo de control habilitado."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 13.1: organismo de control habilitado conforme al RD 2200/1995."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 13.1 del RSCIEI es correcta?",
+     "opciones": [
+      "La inspección periódica es independiente de la función inspectora autonómica.",
+      "La inspección periódica sustituye a la función inspectora autonómica.",
+      "La inspección periódica se realiza al menos cada 10 años en todo caso."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.1: con independencia de la función inspectora del órgano competente."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a13-2-comprobaciones",
+   "bloque": "a1-5",
+   "apartado": "2",
+   "orden": 520,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 13.2 del RSCIEI, ¿qué se comprueba en las inspecciones periódicas?",
+    "respuesta": "Que no hay cambios de actividad disconformes, que se mantienen tipología, sectores, áreas y riesgo intrínseco, que las instalaciones siguen siendo las exigidas y funcionan correctamente, y las soluciones del proyecto."
+   },
+   "cita": "Que se sigue manteniendo la tipología del establecimiento, los sectores y áreas de incendio y su nivel de riesgo intrínseco",
+   "confundible_con": [
+    "RSCIEI-a13-1-periodicas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 13.2 del RSCIEI, se comprueba que se mantiene la tipología, los sectores y áreas de incendio y el nivel de riesgo:",
+     "opciones": [
+      "Extrínseco",
+      "Intrínseco"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 13.2.b): se mantiene el nivel de riesgo intrínseco."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 13.2 del RSCIEI, las inspecciones siguen los procedimientos de la norma UNE:",
+     "opciones": [
+      "23932",
+      "16730-1",
+      "192005-1"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 13.2: procedimientos de la norma UNE 192005-1 o equivalentes."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué se comprueba si se usó diseño prestacional según el art. 13.2.e) del RSCIEI?",
+     "opciones": [
+      "Que las condiciones de funcionamiento y uso previstas en el diseño siguen siendo conformes.",
+      "Que el titular ha sustituido el diseño por las prescripciones del reglamento.",
+      "Que el diseño ha sido aprobado por la Conferencia Sectorial de Industria."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.2.e): con diseño prestacional se comprueban también las condiciones de funcionamiento y uso."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a13-3-acta",
+   "bloque": "a1-5",
+   "apartado": "3",
+   "orden": 530,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 13.3 del RSCIEI, ¿quién firma el acta de las inspecciones periódicas y a disposición de quién queda?",
+    "respuesta": "La firman la persona inspectora del organismo de control y el titular; cada uno conserva una copia, a disposición del órgano competente en materia de industria."
+   },
+   "cita": "De dichas inspecciones se levantará un acta, firmada por la persona inspectora del organismo de control y por el titular de la instalación",
+   "confundible_con": [
+    "RSCIEI-a13-1-periodicas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 13.3 del RSCIEI, el acta de inspección la firma el titular y la persona inspectora del:",
+     "opciones": [
+      "Organismo de control",
+      "Órgano directivo estatal"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.3: firmada por la persona inspectora y el titular."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 13.3 del RSCIEI, una copia del acta queda a disposición del órgano competente en materia de:",
+     "opciones": [
+      "Prevención de riesgos laborales",
+      "Protección civil de la provincia",
+      "Industria de la comunidad autónoma"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 13.3: a disposición del órgano competente en materia de industria."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Quiénes conservan una copia del acta según el art. 13.3 del RSCIEI?",
+     "opciones": [
+      "La persona inspectora y el titular de la instalación.",
+      "Solo el titular de la instalación inspeccionada.",
+      "Solo el órgano competente de la comunidad autónoma."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.3: ambos firmantes conservan una copia."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a14-1-programas",
+   "bloque": "a1-6",
+   "apartado": "1",
+   "orden": 540,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 14.1 del RSCIEI, ¿quién puede promover programas especiales de inspección y previa consulta a qué órgano?",
+    "respuesta": "El órgano directivo competente en seguridad industrial del Ministerio de Industria y Turismo, previa consulta con el Consejo de Coordinación para la Seguridad Industrial."
+   },
+   "cita": "podrá promover, previa consulta con el Consejo de Coordinación para la Seguridad Industrial, programas especiales de inspección",
+   "confundible_con": [
+    "RSCIEI-a14-2-realizacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 14.1 del RSCIEI, los programas especiales los promueve el órgano directivo de seguridad industrial del Ministerio de:",
+     "opciones": [
+      "Interior",
+      "Industria y Turismo"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 14.1: Ministerio de Industria y Turismo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 14.1 del RSCIEI, la consulta previa se hace al Consejo de Coordinación para la:",
+     "opciones": [
+      "Protección Civil",
+      "Calidad Industrial",
+      "Seguridad Industrial"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 14.1: Consejo de Coordinación para la Seguridad Industrial."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Con qué finalidad se promueven los programas especiales de inspección según el art. 14.1 del RSCIEI?",
+     "opciones": [
+      "Contrastar el grado de aplicación y cumplimiento del reglamento.",
+      "Sustituir las inspecciones periódicas de los titulares.",
+      "Sancionar a los titulares que no hayan renovado su seguro."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 14.1: contrastar el grado de aplicación y cumplimiento del reglamento."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a14-2-realizacion",
+   "bloque": "a1-6",
+   "apartado": "2",
+   "orden": 550,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 14.2 del RSCIEI, ¿quién realiza las inspecciones de los programas especiales?",
+    "respuesta": "Los órganos competentes de las comunidades autónomas o ciudades de Ceuta y Melilla o, si estos lo establecen, organismos de control facultados."
+   },
+   "cita": "serán realizadas por los órganos competentes de las correspondientes comunidades autónomas",
+   "confundible_con": [
+    "RSCIEI-a14-1-programas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 14.2 del RSCIEI, estas inspecciones las realizan los órganos competentes de las:",
+     "opciones": [
+      "Comunidades autónomas o Ceuta y Melilla",
+      "Entidades locales o diputaciones provinciales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 14.2: órganos competentes de comunidades autónomas y ciudades de Ceuta y Melilla."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 14.2 del RSCIEI, pueden realizarlas organismos de control si así lo establecen:",
+     "opciones": [
+      "El Ministerio de Industria y Turismo.",
+      "La Conferencia Sectorial de Industria y PYME.",
+      "Las comunidades autónomas o Ceuta y Melilla."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 14.2: si estos así lo estableciesen."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 14.2 del RSCIEI es correcta?",
+     "opciones": [
+      "Los organismos de control actúan solo si la comunidad autónoma así lo establece.",
+      "Los organismos de control actúan siempre en lugar de la comunidad autónoma.",
+      "La inspección corresponde solo al Ministerio de Industria y Turismo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 14.2: los organismos de control actúan de forma subsidiaria a esa decisión."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a15-1-subsanacion",
+   "bloque": "a1-7",
+   "apartado": "1",
+   "orden": 560,
+   "tipo": "cifra",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 15.1 del RSCIEI, ¿qué plazo máximo se señala para subsanar las deficiencias significativas y qué ocurre si transcurre sin subsanarlas?",
+    "respuesta": "No superior a 6 meses; después, el organismo de control remite el certificado con calificación negativa al órgano competente de la comunidad autónoma."
+   },
+   "cita": "que no deberá ser superior a 6 meses",
+   "confundible_con": [
+    "RSCIEI-a15-2-riesgo-grave"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 15.1 del RSCIEI, el plazo máximo para demostrar las medidas correctoras no debe ser superior a:",
+     "opciones": [
+      "12 meses",
+      "6 meses"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 15.1: plazo no superior a 6 meses."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 15.1 del RSCIEI, transcurrido el plazo sin subsanar, el organismo de control remite el certificado con calificación negativa al órgano competente de:",
+     "opciones": [
+      "El Ministerio de Industria y Turismo.",
+      "La Conferencia Sectorial de Industria y PYME.",
+      "La comunidad autónoma o Ceuta y Melilla."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 15.1: certificado con calificación negativa al órgano competente de la comunidad autónoma."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué deficiencias deben subsanarse en el plazo del art. 15.1 del RSCIEI?",
+     "opciones": [
+      "Las deficiencias significativas detectadas en las inspecciones de los artículos 13 y 14.",
+      "Cualquier deficiencia formal que detecte el propio titular en su autocontrol.",
+      "Solo las deficiencias que hayan provocado un incendio con daños personales."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15.1: deficiencias significativas resultantes de las inspecciones de los artículos 13 y 14."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a15-2-riesgo-grave",
+   "bloque": "a1-7",
+   "apartado": "2",
+   "orden": 570,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 15.2 del RSCIEI, ¿qué hace el organismo de control si de las deficiencias se deriva un riesgo grave e inminente?",
+    "respuesta": "Emite un certificado de inspección con calificación negativa y lo remite al órgano competente de la comunidad autónoma para su conocimiento y efectos."
+   },
+   "cita": "el organismo de control emitirá un certificado de inspección con calificación negativa",
+   "confundible_con": [
+    "RSCIEI-a15-1-subsanacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 15.2 del RSCIEI, ante un riesgo grave e inminente el certificado de inspección tiene calificación:",
+     "opciones": [
+      "Negativa",
+      "Condicionada"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15.2: certificado con calificación negativa."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 15.2 del RSCIEI, ese certificado se remite al órgano competente de la comunidad autónoma para su conocimiento y:",
+     "opciones": [
+      "Archivo definitivo",
+      "Posterior subsanación",
+      "Efectos oportunos"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 15.2: remisión al órgano competente para su conocimiento y efectos oportunos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿A quién remite el organismo de control el certificado de calificación negativa según el art. 15.2 del RSCIEI?",
+     "opciones": [
+      "Al órgano competente de la comunidad autónoma, para su conocimiento y efectos.",
+      "Al Ministerio de Industria y Turismo, para su archivo y custodia.",
+      "A la Conferencia Sectorial de Industria y PYME, para su valoración."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15.2: el destinatario es el órgano competente de la comunidad autónoma o de Ceuta y Melilla."
+    }
+   ]
+  }
+ ]
+}

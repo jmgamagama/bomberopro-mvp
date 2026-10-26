@@ -1,0 +1,1433 @@
+{
+ "norma": "BOE-A-1985-5392",
+ "documento": "LBRL",
+ "nombre_norma": "Ley 7/1985 Reguladora de las Bases del Régimen Local",
+ "abreviatura": "LBRL",
+ "hash_prefijo": "LBRL",
+ "tema": 3,
+ "tema_nombre": "Ley 7/1985 Régimen Local",
+ "bloque_temario": "Título III, Capítulo I (arts. 32-35): organización provincial",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "LBRL-a32-reglas",
+   "bloque": "a32",
+   "apartado": "",
+   "orden": 130,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 LBRL, ¿cuántas reglas enumera sobre la organización provincial y de qué tratan?",
+    "respuesta": "Tres: los órganos necesarios de todas las Diputaciones, los órganos de estudio, informe y consulta, y los órganos complementarios."
+   },
+   "cita": "La organización provincial responde a las siguientes reglas",
+   "confundible_con": [
+    "LBRL-a32-1-necesarios",
+    "LBRL-a32-2-estudio",
+    "LBRL-a32-3-complementarios"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 LBRL, ¿cuántas reglas enumera sobre la organización provincial?",
+     "opciones": [
+      "Cinco",
+      "Tres"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 32: tres reglas, numeradas 1 a 3."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 LBRL, ¿en qué regla de la organización provincial se regulan los órganos de estudio, informe o consulta?",
+     "opciones": [
+      "En la regla 1.",
+      "En la regla 3.",
+      "En la regla 2."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 32.2: la segunda regla se refiere a los órganos de estudio, informe o consulta."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas materias NO regula el art. 32 LBRL dentro de las reglas de la organización provincial?",
+     "opciones": [
+      "Las competencias propias que ejerce cada Diputación.",
+      "Los órganos que existen en todas las Diputaciones.",
+      "Los órganos complementarios de los necesarios."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: las competencias provinciales no están aquí, sino en el art. 36."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a32-1-necesarios",
+   "bloque": "a32",
+   "apartado": "1",
+   "orden": 140,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 32.1 LBRL, ¿qué órganos existen en todas las Diputaciones?",
+    "respuesta": "El Presidente, los Vicepresidentes, la Junta de Gobierno y el Pleno."
+   },
+   "cita": "El Presidente, los Vicepresidentes, la Junta de Gobierno y el Pleno existen en todas las Diputaciones",
+   "confundible_con": [
+    "LBRL-a32-2-estudio",
+    "LBRL-a35-1-composicion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32.1 LBRL, ¿cuál de estos órganos existe en todas las Diputaciones?",
+     "opciones": [
+      "La Junta de Gobierno",
+      "La Comisión de Hacienda"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32.1: Presidente, Vicepresidentes, Junta de Gobierno y Pleno."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32.1 LBRL, además del Presidente, los Vicepresidentes y el Pleno, existe en todas las Diputaciones:",
+     "opciones": [
+      "El Consejo de Alcaldes.",
+      "La Comisión Permanente.",
+      "La Junta de Gobierno."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 32.1: la Junta de Gobierno existe en todas las Diputaciones."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre los órganos de las Diputaciones es correcta según el art. 32.1 LBRL?",
+     "opciones": [
+      "El Presidente, los Vicepresidentes, la Junta de Gobierno y el Pleno existen en todas ellas.",
+      "La Junta de Gobierno solo existe en las Diputaciones de más de veinte Diputados.",
+      "Los Vicepresidentes solo existen si lo prevé la legislación autonómica."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32.1: los cuatro órganos existen en todas las Diputaciones, sin condición."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a32-2-estudio",
+   "bloque": "a32",
+   "apartado": "2",
+   "orden": 150,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 32.2 LBRL, ¿qué otros órganos existirán en todas las Diputaciones y con qué objeto?",
+    "respuesta": "Órganos de estudio, informe o consulta de los asuntos que han de ser decididos por el Pleno, y de seguimiento de la gestión del Presidente, la Junta de Gobierno y los Diputados con delegaciones."
+   },
+   "cita": "existirán en todas las Diputaciones órganos que tengan por objeto el estudio, informe o consulta de los asuntos que han de ser sometidos a la decisión del Pleno",
+   "confundible_con": [
+    "LBRL-a32-1-necesarios",
+    "LBRL-a32-2-grupos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32.2 LBRL, estos órganos estudian, informan o consultan los asuntos que han de someterse a la decisión de:",
+     "opciones": [
+      "El Presidente",
+      "El Pleno"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 32.2: asuntos sometidos a la decisión del Pleno."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32.2 LBRL, estos órganos hacen también el seguimiento de la gestión de:",
+     "opciones": [
+      "El Secretario, el Interventor y el Tesorero de la Diputación.",
+      "Los Alcaldes de los Municipios de la Provincia y sus Concejales.",
+      "El Presidente, la Junta de Gobierno y los Diputados con delegaciones."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 32.2: seguimiento de la gestión del Presidente, la Junta de Gobierno y los Diputados con delegaciones."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué excepción prevé el art. 32.2 LBRL a la existencia de estos órganos en todas las Diputaciones?",
+     "opciones": [
+      "Que la legislación autonómica prevea otra forma organizativa en este ámbito.",
+      "Que la Diputación tenga menos de veinte Diputados en su Pleno y carezca de Junta.",
+      "Que el Pleno de la Diputación acuerde su supresión por mayoría absoluta de sus miembros."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32.2: salvo que la legislación autonómica prevea una forma organizativa distinta."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a32-2-grupos",
+   "bloque": "a32",
+   "apartado": "2",
+   "orden": 160,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 32.2 LBRL, ¿quién tiene derecho a participar en los órganos de estudio, informe y consulta y en qué proporción?",
+    "respuesta": "Todos los grupos políticos de la corporación, mediante Diputados suyos, en proporción al número de Diputados que tengan en el Pleno."
+   },
+   "cita": "Todos los grupos políticos integrantes de la corporación tendrán derecho a participar en dichos órganos, mediante la presencia de Diputados pertenecientes a los mismos, en proporción al número de Diputados que tengan en el Pleno",
+   "confundible_con": [
+    "LBRL-a32-2-estudio"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32.2 LBRL, los grupos políticos participan en esos órganos en proporción al número de Diputados que tengan en:",
+     "opciones": [
+      "El Pleno",
+      "La Junta"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32.2 párr. 2: proporción al número de Diputados en el Pleno."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32.2 LBRL, ¿qué grupos políticos tienen derecho a participar en esos órganos?",
+     "opciones": [
+      "Solo los que estén en la Junta de Gobierno.",
+      "Solo los que hayan votado a favor del Presidente.",
+      "Todos los integrantes de la corporación."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 32.2 párr. 2: todos los grupos políticos integrantes de la corporación."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas reglas sobre la composición de esos órganos es correcta según el art. 32.2 LBRL?",
+     "opciones": [
+      "Los grupos participan con Diputados, en proporción a los que tengan en el Pleno.",
+      "Cada grupo participa con un Diputado, con independencia de su peso en el Pleno.",
+      "Participa solo el grupo de gobierno, con la oposición como invitada."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32.2 párr. 2: presencia de Diputados de cada grupo, proporcional a su peso en el Pleno."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a32-3-complementarios",
+   "bloque": "a32",
+   "apartado": "3",
+   "orden": 170,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 32.3 LBRL, ¿quién establece y regula los órganos complementarios de los necesarios?",
+    "respuesta": "Las propias Diputaciones, aunque las leyes autonómicas sobre régimen local pueden establecer una organización provincial complementaria de la prevista en la LBRL."
+   },
+   "cita": "El resto de los órganos complementarios de los anteriores se establece y regula por las propias Diputaciones",
+   "confundible_con": [
+    "LBRL-a32-1-necesarios"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32.3 LBRL, el resto de los órganos complementarios se establece y regula por:",
+     "opciones": [
+      "El Gobierno de la Nación",
+      "Las propias Diputaciones"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 32.3: las propias Diputaciones."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32.3 LBRL, ¿qué pueden establecer las leyes de las comunidades autónomas sobre régimen local?",
+     "opciones": [
+      "Una organización provincial sustitutiva de la prevista en la LBRL.",
+      "Un régimen de Diputaciones sin Pleno ni Presidente propios.",
+      "Una organización provincial complementaria de la prevista en la LBRL."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 32.3: organización complementaria de la prevista en la LBRL, no sustitutiva."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre los órganos complementarios es correcta según el art. 32.3 LBRL?",
+     "opciones": [
+      "Los establecen y regulan las Diputaciones, sin perjuicio de la organización autonómica complementaria.",
+      "Los fija el Estado y las Diputaciones solo pueden proponerlos mediante acuerdo del Pleno.",
+      "Los crea cada Comunidad Autónoma y las Diputaciones no pueden regularlos en modo alguno."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32.3: Diputaciones, y además las leyes autonómicas pueden complementar la organización."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a32bis-personal-directivo",
+   "bloque": "a32bis",
+   "apartado": "",
+   "orden": 180,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 bis LBRL, ¿cómo se nombra el personal directivo de Diputaciones, Cabildos y Consejos Insulares?",
+    "respuesta": "Con criterios de competencia profesional y experiencia, entre funcionarios de carrera del subgrupo A1, salvo que el Reglamento Orgánico permita que el titular no tenga esa condición."
+   },
+   "cita": "deberá efectuarse de acuerdo a criterios de competencia profesional y experiencia, entre funcionarios de carrera del Estado, de las Comunidades Autónomas, de las Entidades Locales o con habilitación de carácter nacional que pertenezcan a cuerpos o escalas clasificados en el subgrupo A1",
+   "confundible_con": [
+    "LBRL-a32-1-necesarios"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 bis LBRL, el personal directivo se nombra entre funcionarios de carrera clasificados en el subgrupo:",
+     "opciones": [
+      "A1",
+      "A2"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32 bis: funcionarios de carrera del subgrupo A1."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 bis LBRL, el nombramiento del personal directivo debe efectuarse de acuerdo a criterios de:",
+     "opciones": [
+      "Antigüedad y confianza política.",
+      "Titulación jurídica y mayor edad.",
+      "Competencia profesional y experiencia."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 32 bis: competencia profesional y experiencia."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿En qué supuesto permite el art. 32 bis LBRL que el titular de un órgano directivo no sea funcionario de carrera?",
+     "opciones": [
+      "Si el Reglamento Orgánico lo permite por las características específicas de las funciones del órgano.",
+      "Si lo acuerda el Pleno de la Diputación por mayoría simple en cada nombramiento concreto.",
+      "Si el Presidente lo decide de forma motivada mediante decreto, dando cuenta al Pleno."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32 bis: excepción si el Reglamento Orgánico lo permite en atención a las funciones del órgano."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a33-1-pleno",
+   "bloque": "a33",
+   "apartado": "1",
+   "orden": 190,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 33.1 LBRL, ¿por quién está constituido el Pleno de la Diputación?",
+    "respuesta": "Por el Presidente y los Diputados."
+   },
+   "cita": "El Pleno de la Diputación está constituido por el Presidente y los Diputados",
+   "confundible_con": [
+    "LBRL-a35-1-composicion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33.1 LBRL, el Pleno de la Diputación está constituido por el Presidente y los:",
+     "opciones": [
+      "Vicepresidentes",
+      "Diputados"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 33.1: Presidente y Diputados."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33.1 LBRL, ¿quién forma parte del Pleno de la Diputación junto con el Presidente?",
+     "opciones": [
+      "Solo los Diputados integrantes de la Junta de Gobierno.",
+      "Los Alcaldes de todos los Municipios de la Provincia.",
+      "Todos los Diputados, no solo los de la Junta de Gobierno."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 33.1: todos los Diputados, junto al Presidente."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el Pleno de la Diputación es correcta según el art. 33.1 LBRL?",
+     "opciones": [
+      "Lo constituyen el Presidente de la Diputación y todos los Diputados.",
+      "Lo constituyen el Presidente, los Vicepresidentes y los Alcaldes.",
+      "Lo constituyen exclusivamente los miembros de la Junta de Gobierno."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.1: el Pleno son el Presidente y los Diputados."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a33-2-organizacion-ordenanzas",
+   "bloque": "a33",
+   "apartado": "2",
+   "orden": 200,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 33.2 LBRL, ¿qué corresponde en todo caso al Pleno en materia de organización, ordenanzas y planes?",
+    "respuesta": "La organización de la Diputación, la aprobación de las ordenanzas y la aprobación de los planes de carácter provincial."
+   },
+   "cita": "La aprobación de las ordenanzas",
+   "confundible_con": [
+    "LBRL-a33-2-presupuestos",
+    "LBRL-a34-1-servicios"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33.2 LBRL, corresponde en todo caso al Pleno la aprobación de:",
+     "opciones": [
+      "Las ordenanzas provinciales",
+      "Los decretos del Presidente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.2.b): aprobación de las ordenanzas (junto a la organización y los planes provinciales, letras a y d)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "¿Cuál de estas atribuciones corresponde en todo caso al Pleno según el art. 33.2 LBRL?",
+     "opciones": [
+      "La jefatura superior de todo el personal de la Corporación.",
+      "La convocatoria y presidencia de las sesiones de la Junta de Gobierno.",
+      "La organización de la Diputación y la aprobación de sus ordenanzas."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 33.2.a) y b): organización y ordenanzas son del Pleno; jefatura de personal y convocatoria, del Presidente."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas atribuciones NO corresponde al Pleno según el art. 33.2 LBRL?",
+     "opciones": [
+      "Dirigir, inspeccionar e impulsar los servicios y obras de la Diputación.",
+      "La aprobación de las ordenanzas y de los planes de carácter provincial.",
+      "La organización de la Diputación Provincial en su conjunto."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.1.d): dirigir, inspeccionar e impulsar servicios y obras es del Presidente, no del Pleno."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a33-2-presupuestos",
+   "bloque": "a33",
+   "apartado": "2",
+   "orden": 210,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 33.2.c) LBRL, ¿qué le corresponde al Pleno en materia presupuestaria?",
+    "respuesta": "La aprobación y modificación de los Presupuestos, la disposición de gastos dentro de los límites de su competencia y la aprobación provisional de las cuentas."
+   },
+   "cita": "La aprobación y modificación de los Presupuestos, la disposición de gastos dentro de los límites de su competencia y la aprobación provisional de las cuentas",
+   "confundible_con": [
+    "LBRL-a33-2-credito",
+    "LBRL-a34-1-gestion-economica"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33.2.c) LBRL, el Pleno aprueba de forma provisional las:",
+     "opciones": [
+      "Plantillas",
+      "Cuentas"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 33.2.c): aprobación provisional de las cuentas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33.2.c) LBRL, en materia presupuestaria el Pleno actúa de acuerdo con lo dispuesto en:",
+     "opciones": [
+      "La Ley General Presupuestaria del Estado.",
+      "La Ley de Contratos del Sector Público.",
+      "La Ley Reguladora de las Haciendas Locales."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 33.2.c): todo ello de acuerdo con la Ley Reguladora de las Haciendas Locales."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la competencia presupuestaria del Pleno es correcta según el art. 33.2.c) LBRL?",
+     "opciones": [
+      "Aprueba y modifica los Presupuestos y aprueba provisionalmente las cuentas.",
+      "Aprueba los Presupuestos, pero su modificación corresponde al Presidente.",
+      "Aprueba definitivamente las cuentas, sin que exista fase provisional alguna."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.2.c): aprobación y modificación de Presupuestos y aprobación provisional de cuentas."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a33-2-plantilla",
+   "bloque": "a33",
+   "apartado": "2",
+   "orden": 220,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 33.2.f) LBRL, ¿qué le corresponde al Pleno en materia de personal?",
+    "respuesta": "Aprobar la plantilla de personal, la relación de puestos de trabajo, la cuantía de las retribuciones complementarias fijas y periódicas de los funcionarios y el número y régimen del personal eventual."
+   },
+   "cita": "La aprobación de la plantilla de personal, la relación de puestos de trabajo, la fijación de la cuantía de las retribuciones complementarias fijas y periódicas de los funcionarios, y el número y régimen del personal eventual",
+   "confundible_con": [
+    "LBRL-a34-1-personal"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33.2.f) LBRL, el Pleno aprueba la plantilla de personal y la relación de:",
+     "opciones": [
+      "Puestos de trabajo",
+      "Funcionarios interinos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.2.f): plantilla y relación de puestos de trabajo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33.2.f) LBRL, el Pleno fija la cuantía de las retribuciones complementarias de los funcionarios que sean:",
+     "opciones": [
+      "Anuales y por objetivos.",
+      "Personales y de puesto.",
+      "Fijas y periódicas."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 33.2.f): retribuciones complementarias fijas y periódicas; las no fijas las distribuye el Presidente (art. 34.1.g)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según los arts. 33.2.f) y 34.1.g) LBRL, ¿qué corresponde al Pleno y no al Presidente?",
+     "opciones": [
+      "Aprobar la plantilla de personal y el número y régimen del personal eventual.",
+      "Aprobar la oferta de empleo público de acuerdo con el Presupuesto y la plantilla.",
+      "Aprobar las bases de las pruebas para la selección del personal."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.2.f) frente al art. 34.1.g): plantilla y personal eventual, del Pleno; oferta de empleo y bases, del Presidente."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a33-2-control-lesividad",
+   "bloque": "a33",
+   "apartado": "2",
+   "orden": 230,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 33.2 LBRL, ¿qué corresponde al Pleno en materia de control y de lesividad?",
+    "respuesta": "El control y la fiscalización de los órganos de gobierno y la declaración de lesividad de los actos de la Diputación."
+   },
+   "cita": "La declaración de lesividad de los actos de la Diputación",
+   "confundible_con": [
+    "LBRL-a34-1-acciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33.2.e) LBRL, el Pleno ejerce el control y la fiscalización de los:",
+     "opciones": [
+      "Órganos consultivos",
+      "Órganos de gobierno"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 33.2.e): control y fiscalización de los órganos de gobierno."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "¿Qué declaración, referida a los actos de la Diputación, corresponde al Pleno según el art. 33.2.j) LBRL?",
+     "opciones": [
+      "La declaración de caducidad.",
+      "La declaración de interés público.",
+      "La declaración de lesividad."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 33.2.j): declaración de lesividad de los actos de la Diputación."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según los arts. 33.2.j) y 34.1.j) LBRL, respecto de la declaración de lesividad:",
+     "opciones": [
+      "El Pleno la declara y el Presidente puede proponerla en su ámbito de competencia.",
+      "El Presidente la declara directamente y el Pleno solo la ratifica en la siguiente sesión.",
+      "La declara la Junta de Gobierno y el Pleno solo puede revisarla en un recurso."
+     ],
+     "correcta": 0,
+     "explicacion": "Arts. 33.2.j) y 34.1.j): el Pleno declara; el Presidente tiene la iniciativa para proponerla."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a33-2-bienes-conflictos",
+   "bloque": "a33",
+   "apartado": "2",
+   "orden": 240,
+   "tipo": "lista",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 33.2 LBRL, ¿qué corresponde al Pleno sobre bienes de dominio público, conflictos de competencias y acciones?",
+    "respuesta": "Alterar la calificación jurídica de los bienes de dominio público, plantear conflictos de competencias a otras Entidades locales y Administraciones, y ejercer acciones y defender a la Corporación en materias de competencia plenaria."
+   },
+   "cita": "El planteamiento de conflictos de competencias a otras Entidades locales y demás Administraciones públicas",
+   "confundible_con": [
+    "LBRL-a34-1-acciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33.2.g) LBRL, el Pleno altera la calificación jurídica de los bienes de:",
+     "opciones": [
+      "Dominio público",
+      "Patrimoniales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.2.g): calificación jurídica de bienes de dominio público."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33.2.i) LBRL, el Pleno ejerce las acciones judiciales y administrativas y defiende a la Corporación en las materias de competencia:",
+     "opciones": [
+      "Presidencial.",
+      "Delegada.",
+      "Plenaria."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 33.2.i): acciones y defensa en materias de competencia plenaria."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre las atribuciones del Pleno es correcta según el art. 33.2 LBRL?",
+     "opciones": [
+      "Altera la calificación jurídica de los bienes de dominio público.",
+      "Aprueba las bases de los concursos de provisión de puestos de trabajo.",
+      "Acuerda el despido del personal laboral de la Corporación."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.2.g): alteración de la calificación; las bases de concursos y el despido son del Presidente (art. 34.1.g y h)."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a33-2-credito",
+   "bloque": "a33",
+   "apartado": "2",
+   "orden": 250,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 33.2.k) LBRL, ¿qué operaciones de crédito concierta el Pleno?",
+    "respuesta": "Las de cuantía acumulada en el ejercicio superior al 10 % de los recursos ordinarios y, las de tesorería, cuando el importe acumulado de las operaciones vivas supere el 15 % de los ingresos corrientes liquidados en el ejercicio anterior."
+   },
+   "cita": "La concertación de las operaciones de crédito cuya cuantía acumulada en el ejercicio económico exceda del 10 por 100 de los recursos ordinarios",
+   "confundible_con": [
+    "LBRL-a34-1-gestion-economica",
+    "LBRL-a33-2-presupuestos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33.2.k) LBRL, el Pleno concierta las operaciones de crédito cuya cuantía acumulada exceda del 10 por 100 de los:",
+     "opciones": [
+      "Gastos corrientes",
+      "Recursos ordinarios"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 33.2.k): más del 10 por 100 de los recursos ordinarios."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33.2.k) LBRL, el Pleno concierta las operaciones de tesorería cuando las operaciones vivas acumuladas superen, sobre los ingresos corrientes liquidados en el ejercicio anterior, el:",
+     "opciones": [
+      "25 por 100",
+      "5 por 100",
+      "15 por 100"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 33.2.k): tesorería, cuando supere el 15 por 100 de los ingresos corrientes liquidados del ejercicio anterior."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Las operaciones de tesorería vivas suponen el 12 % de los ingresos corrientes liquidados en el ejercicio anterior. Según los arts. 33.2.k) y 34.1.f) LBRL, ¿a quién corresponde concertarlas?",
+     "opciones": [
+      "Al Presidente, porque no superan el 15 por 100.",
+      "Al Pleno, porque superan el 10 por 100.",
+      "A la Junta de Gobierno, por ser operaciones vivas."
+     ],
+     "correcta": 0,
+     "explicacion": "Arts. 33.2.k) y 34.1.f): hasta el 15 por 100 en tesorería es del Presidente; el 10 por 100 se aplica a las demás operaciones."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a33-2-residuales",
+   "bloque": "a33",
+   "apartado": "2",
+   "orden": 260,
+   "tipo": "lista",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 33.2.m), ñ) y o) LBRL, ¿qué otras atribuciones corresponden al Pleno?",
+    "respuesta": "Aprobar los proyectos de obra y de servicios que sea competente para contratar y que aún no estén previstos en los Presupuestos, las atribuciones que exijan mayoría especial y las que expresamente le atribuyan las leyes."
+   },
+   "cita": "Aquellas atribuciones que deban corresponder al Pleno por exigir su aprobación una mayoría especial",
+   "confundible_con": [
+    "LBRL-a34-1-acuerdos-residual"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33.2.ñ) LBRL, corresponden al Pleno las atribuciones cuya aprobación exija una mayoría:",
+     "opciones": [
+      "Especial",
+      "Simple"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.2.ñ): mayoría especial."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33.2.m) LBRL, el Pleno aprueba los proyectos de obra y de servicios cuando sea competente para su contratación o concesión y cuando aún:",
+     "opciones": [
+      "Estén previstos en los Presupuestos.",
+      "No hayan sido informados por la Intervención.",
+      "No estén previstos en los Presupuestos."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 33.2.m): proyectos de obra y servicios aún no previstos en los Presupuestos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según los arts. 33.2.m) y 34.1.l) LBRL, ¿quién aprueba los proyectos de obras cuya contratación corresponde a la Diputación y que sí están previstos en el Presupuesto?",
+     "opciones": [
+      "El Presidente de la Diputación.",
+      "El Pleno de la Diputación.",
+      "La Junta de Gobierno de la Diputación."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.1.l): si están previstos en el Presupuesto, los aprueba el Presidente; si no, el Pleno (art. 33.2.m)."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a33-3-mocion-censura",
+   "bloque": "a33",
+   "apartado": "3",
+   "orden": 270,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 33.3 LBRL, ¿qué votaciones corresponden igualmente al Pleno y cómo se realizan?",
+    "respuesta": "La de la moción de censura al Presidente y la de la cuestión de confianza planteada por él; son públicas, por llamamiento nominal en todo caso, y se rigen por la legislación electoral general."
+   },
+   "cita": "la votación sobre la moción de censura al Presidente y sobre la cuestión de confianza planteada por el mismo, que serán públicas y se realizarán mediante llamamiento nominal en todo caso",
+   "confundible_con": [
+    "LBRL-a33-4-delegacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33.3 LBRL, las votaciones de la moción de censura y de la cuestión de confianza serán:",
+     "opciones": [
+      "Secretas",
+      "Públicas"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 33.3: votaciones públicas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33.3 LBRL, la moción de censura y la cuestión de confianza se rigen por lo dispuesto en:",
+     "opciones": [
+      "El Reglamento Orgánico propio.",
+      "La Ley de Haciendas Locales.",
+      "La legislación electoral general."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 33.3: se rigen por la legislación electoral general."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la votación de la moción de censura es correcta según el art. 33.3 LBRL?",
+     "opciones": [
+      "Es pública y se realiza mediante llamamiento nominal en todo caso.",
+      "Puede ser secreta si lo solicita un quinto de los Diputados.",
+      "Se realiza a mano alzada, salvo que el Presidente decida otra forma."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.3: públicas y por llamamiento nominal en todo caso."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a33-4-delegacion",
+   "bloque": "a33",
+   "apartado": "4",
+   "orden": 280,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 33.4 LBRL, ¿puede el Pleno delegar sus atribuciones y cuáles no?",
+    "respuesta": "Sí, en el Presidente y en la Comisión de Gobierno, salvo las del apartado 2, letras a), b), c), d), e), f), h) y ñ), y las del apartado 3."
+   },
+   "cita": "El Pleno puede delegar el ejercicio de sus atribuciones en el Presidente y en la Comisión de Gobierno, salvo las enunciadas en el número 2, letras a), b), c), d), e), f), h) y ñ), y número 3 de este artículo",
+   "confundible_con": [
+    "LBRL-a34-2-delegacion",
+    "LBRL-a33-3-mocion-censura"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33.4 LBRL, el Pleno puede delegar el ejercicio de sus atribuciones en el Presidente y en:",
+     "opciones": [
+      "La Comisión de Gobierno",
+      "El Consejo de Alcaldes"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.4: delegación en el Presidente y en la Comisión de Gobierno."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33.4 LBRL, ¿cuál de estas atribuciones del Pleno no puede delegarse?",
+     "opciones": [
+      "La declaración de lesividad de los actos de la Diputación.",
+      "El ejercicio de acciones judiciales en materias de competencia plenaria.",
+      "La aprobación de la plantilla de personal y de la relación de puestos."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 33.4: la plantilla (letra f) es indelegable; lesividad (j) y acciones (i) pueden delegarse."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas atribuciones del Pleno SÍ puede delegarse según el art. 33.4 LBRL?",
+     "opciones": [
+      "La declaración de lesividad de los actos de la Diputación.",
+      "La aprobación y modificación de los Presupuestos.",
+      "El control y la fiscalización de los órganos de gobierno."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.4: la lesividad (letra j) no figura entre las indelegables; presupuestos (c) y control (e) sí."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a34-1-direccion-sesiones",
+   "bloque": "a34",
+   "apartado": "1",
+   "orden": 290,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 34.1 LBRL, ¿qué corresponde en todo caso al Presidente respecto de la dirección del gobierno, la representación y las sesiones?",
+    "respuesta": "Dirigir el gobierno y la administración de la provincia, representar a la Diputación, y convocar y presidir las sesiones del Pleno, de la Junta de Gobierno y de cualquier otro órgano, con voto de calidad en los empates."
+   },
+   "cita": "Convocar y presidir las sesiones del Pleno, salvo los supuestos previstos en la presente Ley y en la legislación electoral general, de la Junta de Gobierno y cualquier otro órgano de la Diputación, y decidir los empates con voto de calidad",
+   "confundible_con": [
+    "LBRL-a33-2-organizacion-ordenanzas",
+    "LBRL-a34-2-delegacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 34.1.c) LBRL, el Presidente decide los empates con:",
+     "opciones": [
+      "Voto ponderado",
+      "Voto de calidad"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 34.1.c): decide los empates con voto de calidad."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 34.1 LBRL, además de dirigir el gobierno y la administración de la provincia, ¿qué corresponde en todo caso al Presidente?",
+     "opciones": [
+      "Aprobar las ordenanzas y los planes de carácter provincial.",
+      "Aprobar la plantilla de personal y la relación de puestos.",
+      "Representar a la Diputación y convocar las sesiones del Pleno."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 34.1.a) y b): dirigir el gobierno y la administración, y representar a la Diputación; ordenanzas y plantilla son del Pleno."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre las sesiones es correcta según el art. 34.1.c) LBRL?",
+     "opciones": [
+      "El Presidente convoca y preside las del Pleno y de la Junta de Gobierno, y dirime empates con voto de calidad.",
+      "El Presidente convoca las del Pleno, pero las preside siempre el Vicepresidente primero, que decide los empates.",
+      "El Presidente preside las del Pleno, pero las de la Junta de Gobierno las convoca el Secretario."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.1.c): convoca y preside Pleno, Junta de Gobierno y otros órganos, con voto de calidad."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a34-1-servicios",
+   "bloque": "a34",
+   "apartado": "1",
+   "orden": 300,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 34.1.d) y e) LBRL, ¿qué corresponde al Presidente respecto de los servicios y obras?",
+    "respuesta": "Dirigir, inspeccionar e impulsar los servicios y obras de la Diputación, y asegurar la gestión de los servicios propios de la Comunidad Autónoma cuya gestión ordinaria esté encomendada a la Diputación."
+   },
+   "cita": "Dirigir, inspeccionar e impulsar los servicios y obras cuya titularidad o ejercicio corresponde a la Diputación Provincial",
+   "confundible_con": [
+    "LBRL-a33-2-organizacion-ordenanzas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 34.1.d) LBRL, el Presidente dirige, inspecciona e impulsa los servicios y obras cuya titularidad o ejercicio corresponde a:",
+     "opciones": [
+      "La Diputación Provincial",
+      "Los Municipios de la Provincia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.1.d): servicios y obras cuya titularidad o ejercicio corresponde a la Diputación."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 34.1.e) LBRL, el Presidente asegura la gestión de los servicios propios de la Comunidad Autónoma cuya gestión ordinaria esté:",
+     "opciones": [
+      "Delegada en los Municipios.",
+      "Reservada al Pleno provincial.",
+      "Encomendada a la Diputación."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 34.1.e): servicios propios de la Comunidad Autónoma encomendados a la Diputación."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas funciones NO corresponde al Presidente según el art. 34.1 LBRL?",
+     "opciones": [
+      "Aprobar las ordenanzas y los planes de carácter provincial.",
+      "Representar a la Diputación y dirigir su gobierno y administración.",
+      "Ordenar la publicación y ejecución de los acuerdos de la Diputación."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.2.b) y d): ordenanzas y planes son del Pleno; el Presidente ejerce las letras a), b) y n) del art. 34.1."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a34-1-gestion-economica",
+   "bloque": "a34",
+   "apartado": "1",
+   "orden": 310,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 34.1.f) LBRL, ¿qué le corresponde al Presidente en la gestión económica?",
+    "respuesta": "Desarrollar la gestión económica conforme al Presupuesto, disponer gastos dentro de su competencia, concertar operaciones de crédito previstas en el Presupuesto (hasta el 10 % de los recursos ordinarios), ordenar pagos y rendir cuentas."
+   },
+   "cita": "El desarrollo de la gestión económica de acuerdo con el Presupuesto aprobado, disponer gastos dentro de los límites de su competencia, concertar operaciones de crédito",
+   "confundible_con": [
+    "LBRL-a33-2-credito",
+    "LBRL-a33-2-presupuestos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 34.1.f) LBRL, el Presidente concierta operaciones de crédito cuyo importe acumulado en el ejercicio no supere, de los recursos ordinarios, el:",
+     "opciones": [
+      "20 por 100",
+      "10 por 100"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 34.1.f): hasta el 10 por 100 de los recursos ordinarios."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 34.1.f) LBRL, para que el Presidente concierte operaciones de crédito, estas deben estar:",
+     "opciones": [
+      "Autorizadas por la Junta.",
+      "Informadas por la Comunidad.",
+      "Previstas en el Presupuesto."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 34.1.f): operaciones previstas en el Presupuesto."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre las facultades económicas del Presidente es correcta según el art. 34.1.f) LBRL?",
+     "opciones": [
+      "Ordena pagos y rinde cuentas, de conformidad con la Ley Reguladora de las Haciendas Locales.",
+      "Aprueba y modifica el Presupuesto, correspondiendo al Pleno solo su ejecución.",
+      "Concierta cualquier operación de crédito, con independencia de su cuantía."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.1.f): ordenar pagos y rendir cuentas, conforme a la Ley Reguladora de las Haciendas Locales."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a34-1-personal",
+   "bloque": "a34",
+   "apartado": "1",
+   "orden": 320,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 34.1.g) y h) LBRL, ¿qué le corresponde al Presidente en materia de personal?",
+    "respuesta": "Aprobar la oferta de empleo público y las bases de selección y de provisión, distribuir las retribuciones complementarias no fijas ni periódicas, ejercer la jefatura superior del personal y acordar nombramientos y sanciones, dando cuenta al Pleno."
+   },
+   "cita": "Desempeñar la jefatura superior de todo el personal, y acordar su nombramiento y sanciones, incluida la separación del servicio de los funcionarios de la Corporación y el despido del personal laboral, dando cuenta al Pleno en la primera sesión que celebre",
+   "confundible_con": [
+    "LBRL-a33-2-plantilla"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 34.1.h) LBRL, el Presidente da cuenta al Pleno de los nombramientos y sanciones del personal en:",
+     "opciones": [
+      "La primera sesión que celebre",
+      "La sesión del mes siguiente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.1.h): dando cuenta al Pleno en la primera sesión que celebre."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 34.1.g) LBRL, el Presidente distribuye las retribuciones complementarias que no sean:",
+     "opciones": [
+      "Anuales ni mensuales.",
+      "Personales ni de puesto.",
+      "Fijas y periódicas."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 34.1.g): las retribuciones fijas y periódicas las fija el Pleno (art. 33.2.f)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 34.1.h) LBRL, ¿cuál de estas medidas puede acordar el Presidente respecto del personal?",
+     "opciones": [
+      "La separación del servicio de un funcionario de la Corporación.",
+      "La fijación de la cuantía de las retribuciones fijas y periódicas.",
+      "La aprobación de la plantilla y de la relación de puestos de trabajo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.1.h): separación del servicio y despido son del Presidente; retribuciones fijas y plantilla, del Pleno."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a34-1-acciones",
+   "bloque": "a34",
+   "apartado": "1",
+   "orden": 330,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 34.1.i) y j) LBRL, ¿qué corresponde al Presidente en acciones judiciales y administrativas y en lesividad?",
+    "respuesta": "Ejercer acciones y defender a la Diputación en las materias de su competencia (y, en caso de urgencia, en las del Pleno, dándole cuenta para su ratificación) y proponer al Pleno la declaración de lesividad en su ámbito."
+   },
+   "cita": "El ejercicio de las acciones judiciales y administrativas y la defensa de la Diputación en las materias de su competencia, incluso cuando las hubiere delegado en otro órgano, y, en caso de urgencia, en materias de la competencia del Pleno, en este último supuesto dando cuenta al mismo en la primera sesión que celebre para su ratificación",
+   "confundible_con": [
+    "LBRL-a33-2-control-lesividad",
+    "LBRL-a33-2-bienes-conflictos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 34.1.i) LBRL, en caso de urgencia el Presidente ejerce acciones en materias del Pleno dando cuenta a este en la primera sesión para su:",
+     "opciones": [
+      "Revocación",
+      "Ratificación"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 34.1.i): dar cuenta al Pleno en la primera sesión para su ratificación."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 34.1.j) LBRL, ¿qué iniciativa corresponde al Presidente respecto de la lesividad?",
+     "opciones": [
+      "Declarar por sí mismo la lesividad de los actos de la Diputación sin pasar por el Pleno.",
+      "Resolver el recurso de lesividad ante la jurisdicción contencioso-administrativa.",
+      "Proponer al Pleno la declaración de lesividad en materias de su competencia."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 34.1.j): iniciativa para proponer al Pleno la declaración de lesividad."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones es correcta según el art. 34.1.i) LBRL?",
+     "opciones": [
+      "En caso de urgencia puede ejercer acciones en materias del Pleno y debe dar cuenta a este para su ratificación.",
+      "Nunca puede ejercer acciones en materias de competencia del Pleno, ni siquiera en caso de urgencia.",
+      "En caso de urgencia ejerce acciones en materias del Pleno sin necesidad de dar cuenta a este."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.1.i): urgencia en materias del Pleno, con ratificación posterior."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a34-1-acuerdos-residual",
+   "bloque": "a34",
+   "apartado": "1",
+   "orden": 340,
+   "tipo": "lista",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 34.1.l), n), ñ) y o) LBRL, ¿qué otras atribuciones corresponden al Presidente?",
+    "respuesta": "Aprobar los proyectos de obras y de servicios previstos en el Presupuesto cuando sea competente para contratarlos; ordenar la publicación y ejecución de los acuerdos y hacerlos cumplir; y las demás que le atribuyan las leyes, estatales o autonómicas."
+   },
+   "cita": "Ordenar la publicación y ejecución y hacer cumplir los acuerdos de la Diputación",
+   "confundible_con": [
+    "LBRL-a33-2-residuales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 34.1.n) LBRL, el Presidente ordena la publicación y ejecución y hace cumplir los acuerdos de:",
+     "opciones": [
+      "La Diputación",
+      "Los Municipios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.1.n): publicación, ejecución y cumplimiento de los acuerdos."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 34.1.o) LBRL, ¿qué otras atribuciones ejerce el Presidente?",
+     "opciones": [
+      "Las que el Pleno decida reasumir temporalmente por acuerdo de mayoría absoluta de sus miembros.",
+      "Las que el Delegado del Gobierno le encomiende en cada ejercicio presupuestario.",
+      "Las que la legislación estatal o autonómica asigne a la Diputación sin atribuirlas a otro órgano."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 34.1.o): atribuciones que la legislación estatal o autonómica asigne a la Diputación y no se atribuyan a otros órganos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 34.1.l) LBRL es correcta?",
+     "opciones": [
+      "Aprueba los proyectos de obras y de servicios si puede contratarlos y están previstos en el Presupuesto.",
+      "Aprueba los proyectos de obras y de servicios aunque no estén previstos en el Presupuesto de la Diputación.",
+      "Aprueba los proyectos de obras y de servicios solo si el Pleno los ha informado previamente por mayoría."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.1.l): competente para contratar y previstos en el Presupuesto."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a34-2-delegacion",
+   "bloque": "a34",
+   "apartado": "2",
+   "orden": 350,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 34.2 LBRL, ¿qué atribuciones no puede delegar el Presidente?",
+    "respuesta": "Convocar y presidir las sesiones del Pleno y de la Junta de Gobierno, decidir empates con voto de calidad, concertar operaciones de crédito, la jefatura superior del personal, separar funcionarios y despedir personal laboral, y las de las letras a), i) y j) del apartado 1."
+   },
+   "cita": "El Presidente puede delegar el ejercicio de sus atribuciones, salvo la de convocar y presidir las sesiones del Pleno y de la Junta de Gobierno, decidir los empates con el voto de calidad, concertar operaciones de crédito, la jefatura superior de todo el personal, la separación del servicio de funcionarios y el despido del personal laboral, y las enunciadas en los párrafos a), i) y j) del número anterior",
+   "confundible_con": [
+    "LBRL-a33-4-delegacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 34.2 LBRL, el Presidente no puede delegar la atribución de convocar y presidir las sesiones del Pleno y de la:",
+     "opciones": [
+      "Comisión de Hacienda",
+      "Junta de Gobierno"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 34.2: convocar y presidir Pleno y Junta de Gobierno es indelegable."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 34.2 LBRL, ¿cuál de estas atribuciones del Presidente es indelegable?",
+     "opciones": [
+      "Aprobar la oferta de empleo público.",
+      "Ordenar pagos de la Diputación.",
+      "Concertar operaciones de crédito."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 34.2: concertar operaciones de crédito es indelegable; la oferta de empleo y ordenar pagos, no."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas atribuciones SÍ puede delegar el Presidente según el art. 34.2 LBRL?",
+     "opciones": [
+      "Dirigir, inspeccionar e impulsar los servicios y obras de la Diputación.",
+      "El ejercicio de las acciones judiciales y administrativas de su competencia.",
+      "La iniciativa para proponer al Pleno la declaración de lesividad."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.2: son indelegables las letras a), i) y j); la d) (servicios y obras) puede delegarse."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a34-3-vicepresidentes",
+   "bloque": "a34",
+   "apartado": "3",
+   "orden": 360,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 34.3 LBRL, ¿a quién corresponde el nombramiento de los Vicepresidentes?",
+    "respuesta": "Al Presidente de la Diputación."
+   },
+   "cita": "Corresponde, asimismo, al Presidente el nombramiento de los Vicepresidentes",
+   "confundible_con": [
+    "LBRL-a35-4-vicepresidentes"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 34.3 LBRL, el nombramiento de los Vicepresidentes corresponde al:",
+     "opciones": [
+      "Presidente",
+      "Pleno"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34.3: el nombramiento corresponde al Presidente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 34.3 LBRL, ¿quién nombra a los Vicepresidentes de la Diputación?",
+     "opciones": [
+      "El Pleno por mayoría absoluta.",
+      "La Junta a propuesta del Pleno.",
+      "El Presidente de la Diputación."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 34.3: lo nombra el Presidente, no el Pleno ni la Junta."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre los Vicepresidentes es correcta según los arts. 34.3 y 35.4 LBRL?",
+     "opciones": [
+      "Los nombra el Presidente, que los designa libremente entre los miembros de la Junta de Gobierno.",
+      "Los elige el Pleno entre los miembros de la Junta de Gobierno de la Diputación.",
+      "Los nombra el Presidente entre cualesquiera Diputados que integren el Pleno de la Diputación."
+     ],
+     "correcta": 0,
+     "explicacion": "Arts. 34.3 y 35.4: nombrados por el Presidente, libremente, entre los miembros de la Junta de Gobierno."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a35-1-composicion",
+   "bloque": "a35",
+   "apartado": "1",
+   "orden": 370,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35.1 LBRL, ¿cómo se integra la Junta de Gobierno?",
+    "respuesta": "Por el Presidente y un número de Diputados no superior al tercio del número legal de los mismos, nombrados y separados libremente por aquél, dando cuenta al Pleno."
+   },
+   "cita": "La Junta de Gobierno se integra por el Presidente y un número de Diputados no superior al tercio del número legal de los mismos, nombrados y separados libremente por aquél, dando cuenta al Pleno",
+   "confundible_con": [
+    "LBRL-a33-1-pleno",
+    "LBRL-a35-2-funciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35.1 LBRL, el número de Diputados de la Junta de Gobierno no puede ser superior a:",
+     "opciones": [
+      "Un cuarto del número legal de Diputados",
+      "Un tercio del número legal de Diputados"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35.1: no superior al tercio del número legal de Diputados."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35.1 LBRL, el Presidente nombra y separa libremente a los Diputados de la Junta de Gobierno, dando cuenta:",
+     "opciones": [
+      "A la Junta.",
+      "Al Secretario.",
+      "Al Pleno."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 35.1: nombramiento y separación libres, dando cuenta al Pleno."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la composición de la Junta de Gobierno es correcta según el art. 35.1 LBRL?",
+     "opciones": [
+      "La integran el Presidente y Diputados nombrados y separados libremente por este, hasta un tercio del total.",
+      "La integran el Presidente y Diputados elegidos por el Pleno, hasta un tercio del total.",
+      "La integran el Presidente y Diputados nombrados por este, hasta la mitad del total."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35.1: nombramiento libre por el Presidente, con el límite de un tercio."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a35-2-funciones",
+   "bloque": "a35",
+   "apartado": "2",
+   "orden": 380,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35.2 LBRL, ¿qué corresponde a la Junta de Gobierno?",
+    "respuesta": "La asistencia al Presidente en el ejercicio de sus atribuciones y las atribuciones que el Presidente le delegue o le atribuyan las leyes."
+   },
+   "cita": "La asistencia al Presidente en el ejercicio de sus atribuciones",
+   "confundible_con": [
+    "LBRL-a35-1-composicion",
+    "LBRL-a35-3-delegaciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35.2 LBRL, ¿a quién asiste la Junta de Gobierno en el ejercicio de sus atribuciones?",
+     "opciones": [
+      "Al Presidente",
+      "Al Pleno"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35.2.a): asistencia al Presidente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35.2.b) LBRL, la Junta de Gobierno ejerce las atribuciones que:",
+     "opciones": [
+      "El Pleno le encomiende por mayoría absoluta.",
+      "La Comunidad Autónoma le asigne por decreto.",
+      "El Presidente le delegue o le atribuyan las leyes."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 35.2.b): delegadas por el Presidente o atribuidas por las leyes."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la Junta de Gobierno es correcta según el art. 35.2 LBRL?",
+     "opciones": [
+      "Asiste al Presidente y ejerce las atribuciones que este le delegue o le atribuyan las leyes.",
+      "Sustituye al Pleno en el control y la fiscalización de la gestión del Presidente.",
+      "Aprueba el Presupuesto de la Diputación en lugar del Pleno de la Corporación."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35.2: asistencia al Presidente y atribuciones delegadas o legales; no sustituye al Pleno."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a35-3-delegaciones",
+   "bloque": "a35",
+   "apartado": "3",
+   "orden": 390,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35.3 LBRL, ¿en quién puede delegar el Presidente determinadas atribuciones y qué delegaciones especiales puede hacer?",
+    "respuesta": "En los miembros de la Junta de Gobierno; y puede hacer delegaciones especiales para cometidos específicos a favor de cualesquiera Diputados, aunque no pertenezcan a la Junta."
+   },
+   "cita": "El Presidente puede delegar el ejercicio de determinadas atribuciones en los miembros de la Junta de Gobierno, sin perjuicio de las delegaciones especiales que para cometidos específicos pueda realizar a favor de cualesquiera Diputados, aunque no perteneciera a la Junta de Gobierno",
+   "confundible_con": [
+    "LBRL-a35-2-funciones",
+    "LBRL-a34-2-delegacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35.3 LBRL, el Presidente puede delegar determinadas atribuciones en los miembros de la:",
+     "opciones": [
+      "Mesa del Pleno",
+      "Junta de Gobierno"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35.3: delegación en los miembros de la Junta de Gobierno."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35.3 LBRL, las delegaciones especiales para cometidos específicos pueden hacerse a favor de:",
+     "opciones": [
+      "Solo los Diputados que integren la Junta de Gobierno y los Vicepresidentes.",
+      "Los Vicepresidentes y el Secretario o el Interventor de la Diputación.",
+      "Cualesquiera Diputados, aunque no pertenezcan a la Junta de Gobierno."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 35.3: delegaciones especiales a cualesquiera Diputados."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35.3 LBRL, un Diputado que no pertenece a la Junta de Gobierno:",
+     "opciones": [
+      "Puede recibir delegaciones especiales del Presidente para cometidos específicos.",
+      "No puede recibir delegación alguna, pues estas solo benefician a la Junta de Gobierno.",
+      "Solo puede recibir delegaciones especiales previa autorización expresa del Pleno."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35.3: el Diputado ajeno a la Junta puede recibir delegaciones especiales para cometidos específicos."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a35-4-vicepresidentes",
+   "bloque": "a35",
+   "apartado": "4",
+   "orden": 400,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35.4 LBRL, ¿quién sustituye al Presidente y en qué casos?",
+    "respuesta": "Los Vicepresidentes, por el orden de su nombramiento, en los casos de vacante, ausencia o enfermedad."
+   },
+   "cita": "Los Vicepresidentes sustituyen, por el orden de su nombramiento y en los casos de vacante, ausencia o enfermedad, al Presidente, siendo libremente designados por éste entre los miembros de la Junta de Gobierno",
+   "confundible_con": [
+    "LBRL-a34-3-vicepresidentes"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35.4 LBRL, los Vicepresidentes sustituyen al Presidente por el orden de su:",
+     "opciones": [
+      "Nombramiento",
+      "Antigüedad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35.4: por el orden de su nombramiento."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35.4 LBRL, ¿entre quiénes designa libremente el Presidente a los Vicepresidentes?",
+     "opciones": [
+      "Entre los Diputados más votados de la lista.",
+      "Entre todos los miembros del Pleno de la Diputación.",
+      "Entre los miembros de la Junta de Gobierno."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 35.4: designados libremente por el Presidente entre los miembros de la Junta de Gobierno."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35.4 LBRL, ¿en cuál de estos casos sustituye un Vicepresidente al Presidente?",
+     "opciones": [
+      "En caso de vacante, ausencia o enfermedad del Presidente.",
+      "Cuando el Presidente cumpla dos años consecutivos en el cargo.",
+      "Cuando el Pleno apruebe una cuestión previa de sustitución."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35.4: vacante, ausencia o enfermedad."
+    }
+   ]
+  }
+ ]
+}

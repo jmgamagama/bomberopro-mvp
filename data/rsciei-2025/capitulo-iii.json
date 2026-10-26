@@ -1,0 +1,671 @@
+{
+ "norma": "BOE-A-2025-7190",
+ "documento": "RSCIEI",
+ "nombre_norma": "Real Decreto 164/2025 Reglamento de seguridad contra incendios en establecimientos industriales",
+ "abreviatura": "RSCIEI",
+ "hash_prefijo": "RSCIEI",
+ "tema": 34,
+ "tema_nombre": "RSCIEI Real Decreto 164/2025 (industrial)",
+ "bloque_temario": "Capítulo III (arts. 10-12): construcción, puesta en servicio, funcionamiento y mantenimiento",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "RSCIEI-a10-1-proyecto",
+   "bloque": "a1-2",
+   "apartado": "1",
+   "orden": 380,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 10.1 del RSCIEI, ¿qué establecimientos requieren la elaboración de un proyecto?",
+    "respuesta": "Los establecimientos industriales del artículo 2 y los que sufran modificaciones significativas; el proyecto forma parte del de la Ley de Ordenación de la Edificación o de la memoria para las licencias."
+   },
+   "cita": "requerirán la elaboración de un proyecto",
+   "confundible_con": [
+    "RSCIEI-a10-4-memoria"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 10.1 del RSCIEI, requieren proyecto los establecimientos del artículo 2 y los que sufran modificaciones:",
+     "opciones": [
+      "No significativas",
+      "Significativas"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 10.1: establecimientos del artículo 2 y modificaciones significativas del artículo 12.4."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 10.1 del RSCIEI, el proyecto forma parte del definido en el artículo 4 de la Ley:",
+     "opciones": [
+      "21/1992, de 16 de julio, de Industria",
+      "31/1995, de Prevención de Riesgos Laborales",
+      "38/1999, de Ordenación de la Edificación"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 10.1: artículo 4 de la Ley 38/1999, de Ordenación de la Edificación."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 10.1 del RSCIEI es correcta?",
+     "opciones": [
+      "El proyecto puede formar parte de la memoria exigida para licencias.",
+      "El proyecto es siempre un documento independiente de cualquier otro.",
+      "El proyecto solo lo exigen las modificaciones no significativas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 10.1: el proyecto forma parte, en su caso, del proyecto o de la memoria para licencias."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a10-2-redaccion",
+   "bloque": "a1-2",
+   "apartado": "2",
+   "orden": 390,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 10.2 del RSCIEI, ¿quién redacta y firma el proyecto y qué debe contener?",
+    "respuesta": "Una persona técnica titulada competente; contiene la justificación del cumplimiento del reglamento, la información del art. 9.4 y lo dispuesto en el art. 19.1 del Reglamento de instalaciones de protección contra incendios."
+   },
+   "cita": "El citado proyecto será redactado y firmado por una persona técnica titulada competente",
+   "confundible_con": [
+    "RSCIEI-a10-1-proyecto"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 10.2 del RSCIEI, el proyecto es redactado y firmado por:",
+     "opciones": [
+      "Una persona técnica titulada competente",
+      "Un organismo de control habilitado"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 10.2: persona técnica titulada competente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 10.2 del RSCIEI, el proyecto incluye lo dispuesto en el artículo 19.1 del:",
+     "opciones": [
+      "Reglamento de instalaciones eléctricas de baja tensión",
+      "Norma Básica de Autoprotección de los centros y establecimientos",
+      "Reglamento de instalaciones de protección contra incendios"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 10.2: artículo 19.1 del Reglamento de instalaciones de protección contra incendios."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué información del reglamento debe incluir el proyecto además de la justificación del cumplimiento, según el art. 10.2?",
+     "opciones": [
+      "La solicitada en el artículo 9.4.",
+      "La solicitada en el artículo 13.2.",
+      "La solicitada en el artículo 16."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 10.2: incluye la información del artículo 9.4."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a10-3-equivalentes",
+   "bloque": "a1-2",
+   "apartado": "3",
+   "orden": 400,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 10.3 del RSCIEI, ¿qué debe acompañar al proyecto cuando se usan técnicas de seguridad equivalente o diseño prestacional?",
+    "respuesta": "Un informe de tercera parte independiente, emitido por un organismo de control habilitado, que valide positivamente la eficacia y adecuación de las soluciones técnicas."
+   },
+   "cita": "Junto al proyecto deberá anexarse un informe de tercera parte independiente donde se valide positivamente la eficacia y adecuación de las soluciones técnicas",
+   "confundible_con": [
+    "RSCIEI-a10-4-memoria",
+    "RSCIEI-a10-2-redaccion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 10.3 del RSCIEI, el informe que valida las soluciones técnicas lo emite un organismo de control:",
+     "opciones": [
+      "Municipal",
+      "Habilitado"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 10.3: informe de tercera parte independiente emitido por un organismo de control habilitado."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 10.3 del RSCIEI, el diseño prestacional sigue la metodología de las normas UNE-ISO 23932 y:",
+     "opciones": [
+      "UNE-ISO 16730-1",
+      "UNE 192005-1",
+      "UNE-ISO 16733-1"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 10.3: metodología de las normas UNE-ISO 23932 y UNE-ISO 16733-1."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué norma, u otra equivalente, verifica los métodos de cálculo para predecir fenómenos del incendio según el art. 10.3?",
+     "opciones": [
+      "UNE-ISO 16730-1",
+      "UNE-ISO 23932",
+      "UNE 192005-1"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 10.3: los métodos de cálculo se verifican y validan conforme a la UNE-ISO 16730-1."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a10-4-memoria",
+   "bloque": "a1-2",
+   "apartado": "4",
+   "orden": 410,
+   "tipo": "cifra",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 10.4 del RSCIEI, ¿cuándo puede sustituirse el proyecto por una memoria técnica?",
+    "respuesta": "Si la superficie construida es inferior a 300 m2, todos los sectores y áreas son de riesgo intrínseco bajo y no se aplican los artículos 10.3 ni 5.3."
+   },
+   "cita": "Que su superficie construida sea inferior a 300 m2, que todos sus sectores de incendio y áreas de incendio sean de riesgo intrínseco bajo",
+   "confundible_con": [
+    "RSCIEI-a10-1-proyecto"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 10.4 del RSCIEI, la memoria técnica sustituye al proyecto si la superficie construida es inferior a:",
+     "opciones": [
+      "300 m2",
+      "120 m2"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 10.4: superficie construida inferior a 300 m2."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 10.4 del RSCIEI, todos los sectores y áreas de incendio deben ser de riesgo intrínseco:",
+     "opciones": [
+      "Medio",
+      "Alto",
+      "Bajo"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 10.4: sectores y áreas de riesgo intrínseco bajo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué artículos no deben ser de aplicación al establecimiento para sustituir el proyecto por memoria técnica según el art. 10.4?",
+     "opciones": [
+      "Los artículos 10.3 y 5.3.",
+      "Los artículos 5.2 y 12.4.",
+      "Los artículos 11.2 y 13.1."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 10.4: no debe aplicarse lo indicado en los artículos 10.3 ni 5.3."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a11-1-comunicacion",
+   "bloque": "a1-3",
+   "apartado": "1",
+   "orden": 420,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 11.1.a) y b) del RSCIEI, ¿qué se presenta ante el órgano competente en materia de industria para la puesta en servicio y qué debe constar en el certificado?",
+    "respuesta": "Una comunicación con el proyecto o memoria técnica y un certificado de persona técnica titulada competente, en el que figuren el número de sectores y áreas y el riesgo intrínseco de cada uno."
+   },
+   "cita": "se requiere la presentación por medio de una comunicación, ante el órgano competente en materia de industria de la correspondiente comunidad autónoma",
+   "confundible_con": [
+    "RSCIEI-a11-2-declaracion",
+    "RSCIEI-a11-1-acta-inspeccion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 11.1 del RSCIEI, la comunicación de puesta en servicio se presenta ante el órgano competente en materia de:",
+     "opciones": [
+      "Urbanismo",
+      "Industria"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 11.1: comunicación ante el órgano competente en materia de industria de la comunidad autónoma."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 11.1.b) del RSCIEI, el certificado de adecuación al proyecto lo emite:",
+     "opciones": [
+      "Un organismo de control habilitado.",
+      "El órgano competente en materia de industria.",
+      "Una persona técnica titulada competente."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 11.1.b): certificado emitido por una persona técnica titulada competente."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué debe figurar en el certificado del art. 11.1.b) del RSCIEI?",
+     "opciones": [
+      "El número de sectores y áreas de incendio y el riesgo intrínseco de cada uno.",
+      "El presupuesto de ejecución material de las instalaciones de protección.",
+      "La relación nominal de los trabajadores del establecimiento industrial."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11.1.b): número de sectores y áreas, riesgo intrínseco, comprobaciones del 9.4 y técnicas usadas."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a11-1-acta-inspeccion",
+   "bloque": "a1-3",
+   "apartado": "1",
+   "orden": 430,
+   "tipo": "cifra",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 11.1.c) y d) del RSCIEI, ¿cuándo se exige acta de inspección inicial de un organismo de control y qué otra documentación se incluye?",
+    "respuesta": "Cuando la superficie construida de sectores y áreas de riesgo medio y alto suma 1.000 m2 o más, o se aplican los arts. 10.3 o 5.3; además, la documentación del art. 20 del RIPCI."
+   },
+   "cita": "sume un total de 1.000 m2 o más",
+   "confundible_con": [
+    "RSCIEI-a11-1-comunicacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 11.1.c) del RSCIEI, el acta de inspección inicial se exige si los sectores de riesgo medio y alto suman:",
+     "opciones": [
+      "1.000 m2 o más",
+      "300 m2 o más"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11.1.c): superficie de riesgo medio y alto de 1.000 m2 o más."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 11.1.c) del RSCIEI, la superficie que se suma es la de sectores y áreas de nivel de riesgo intrínseco:",
+     "opciones": [
+      "Bajo y medio",
+      "Bajo y alto",
+      "Medio y alto"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 11.1.c): niveles de riesgo intrínseco medio y alto."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué documentación incluye además el art. 11.1.d) del RSCIEI?",
+     "opciones": [
+      "La indicada en el artículo 20 del Reglamento de instalaciones de protección contra incendios.",
+      "La indicada en el artículo 19.1 del Reglamento de instalaciones de protección contra incendios.",
+      "La indicada en el artículo 9.4 de este reglamento sobre los productos de construcción."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11.1.d): documentación del artículo 20 del RIPCI (RD 513/2017)."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a11-2-declaracion",
+   "bloque": "a1-3",
+   "apartado": "2",
+   "orden": 440,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 11.2 del RSCIEI, ¿cuándo puede sustituirse la comunicación por una declaración responsable y qué documentación basta?",
+    "respuesta": "Cuando así lo establezca el órgano competente en materia de industria de la comunidad autónoma; basta tener la documentación a disposición de la administración competente."
+   },
+   "cita": "la puesta en servicio se realizará mediante la presentación de una declaración responsable cuando así lo establezca el órgano competente en materia de industria",
+   "confundible_con": [
+    "RSCIEI-a11-1-comunicacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 11.2 del RSCIEI, la declaración responsable sustituye a la comunicación cuando así lo establezca el órgano competente en materia de:",
+     "opciones": [
+      "Urbanismo",
+      "Industria"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 11.2: órgano competente en materia de industria."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 11.2 del RSCIEI, con la declaración responsable basta tener la documentación:",
+     "opciones": [
+      "Depositada en el registro mercantil o de la propiedad.",
+      "Entregada al organismo de control habilitado.",
+      "A disposición de la administración competente."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 11.2: documentación a disposición de la administración competente."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 11.2 del RSCIEI es correcta?",
+     "opciones": [
+      "Con declaración responsable no es necesario presentar la documentación del apartado 1.",
+      "Con declaración responsable hay que presentar además toda la documentación del apartado 1.",
+      "La declaración responsable la exige siempre el titular de forma voluntaria."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11.2: no es necesario presentar la documentación mencionada."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a11-3-copia",
+   "bloque": "a1-3",
+   "apartado": "3",
+   "orden": 450,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 11.3 del RSCIEI, ¿qué debe conservar el titular y dónde se integra la documentación?",
+    "respuesta": "Una copia de la documentación de la puesta en servicio (y del justificante de la declaración responsable, en su caso), integrada en el Libro del Edificio."
+   },
+   "cita": "El titular deberá conservar una copia de la documentación citada en el apartado 1",
+   "confundible_con": [
+    "RSCIEI-a11-2-declaracion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 11.3 del RSCIEI, la documentación se integra, en su caso, en el:",
+     "opciones": [
+      "Libro del Edificio",
+      "Plan de autoprotección"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11.3: Libro del Edificio."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 11.3 del RSCIEI, conserva una copia de la documentación:",
+     "opciones": [
+      "El proyectista",
+      "El organismo de control",
+      "El titular"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 11.3: el titular conserva la copia."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué más debe conservar el titular, además de la documentación del apartado 1, según el art. 11.3 del RSCIEI?",
+     "opciones": [
+      "El justificante de la declaración responsable, en su caso.",
+      "El acta de la última inspección de la autoridad laboral.",
+      "El contrato de mantenimiento con la empresa instaladora."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11.3: también el justificante de la declaración responsable, en su caso."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a11-4-deficiencias",
+   "bloque": "a1-3",
+   "apartado": "4",
+   "orden": 460,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 11.4 del RSCIEI, ¿qué puede hacer el órgano competente si tras la puesta en servicio detecta que el establecimiento no cumple los requisitos exigibles?",
+    "respuesta": "Requerir la aplicación de las medidas adicionales oportunas para resolver las deficiencias encontradas."
+   },
+   "cita": "el órgano competente podrá requerir la aplicación de las medidas adicionales que sean oportunas para resolver las deficiencias encontradas",
+   "confundible_con": [
+    "RSCIEI-a11-2-declaracion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 11.4 del RSCIEI, ante un nivel de seguridad deficiente, el órgano competente puede requerir medidas:",
+     "opciones": [
+      "Voluntarias",
+      "Adicionales"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 11.4: medidas adicionales oportunas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 11.4 del RSCIEI, las comprobaciones posteriores a la puesta en servicio las realiza:",
+     "opciones": [
+      "El organismo de control habilitado.",
+      "La persona técnica titulada competente.",
+      "El órgano competente de la Administración."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 11.4: comprobaciones del órgano competente de la Administración."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos supuestos permite requerir medidas adicionales según el art. 11.4 del RSCIEI?",
+     "opciones": [
+      "Que las soluciones del art. 5.1.b) no estén correctamente justificadas.",
+      "Que el titular haya presentado la comunicación fuera del horario de registro.",
+      "Que el establecimiento tenga menos de cinco años de antigüedad."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11.4: soluciones del art. 5.1.b) mal documentadas o sin seguridad equivalente."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a12-1-responsable",
+   "bloque": "a1-4",
+   "apartado": "1",
+   "orden": 470,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 12.1 del RSCIEI, ¿quién es responsable de que los establecimientos industriales se utilicen y mantengan en condiciones adecuadas?",
+    "respuesta": "Los titulares de los establecimientos, para poder cumplir en todo momento las exigencias básicas de seguridad en caso de incendio para las que fueron diseñados."
+   },
+   "cita": "serán los responsables de asegurar que estos se utilizan y mantienen en las condiciones adecuadas",
+   "confundible_con": [
+    "RSCIEI-a12-2-mantenimiento"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 12.1 del RSCIEI, es responsable de la utilización y mantenimiento adecuados:",
+     "opciones": [
+      "El titular del establecimiento",
+      "El organismo de control habilitado"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 12.1: los titulares de los establecimientos."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 12.1 del RSCIEI, el mantenimiento adecuado persigue cumplir en todo momento las exigencias básicas:",
+     "opciones": [
+      "Que determine cada inspección periódica realizada.",
+      "Que acuerde la comunidad autónoma cada año.",
+      "Para las que fue diseñado el establecimiento."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 12.1: exigencias básicas para las que fueron diseñados."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 12.1 del RSCIEI es correcta?",
+     "opciones": [
+      "La responsabilidad recae en los titulares de los establecimientos.",
+      "La responsabilidad recae en el organismo de control que inspecciona.",
+      "La responsabilidad recae en la persona técnica que redacta el proyecto."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 12.1: la responsabilidad es de los titulares, no del organismo de control ni del proyectista."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a12-2-mantenimiento",
+   "bloque": "a1-4",
+   "apartado": "2",
+   "orden": 480,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 12.2 del RSCIEI, ¿a qué revisiones se someten los equipos, sistemas y componentes de las instalaciones de protección contra incendios?",
+    "respuesta": "A las revisiones de mantenimiento establecidas en el Reglamento de instalaciones de protección contra incendios."
+   },
+   "cita": "se someterán a las revisiones de mantenimiento establecidas en dicho reglamento",
+   "confundible_con": [
+    "RSCIEI-a12-1-responsable"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 12.2 del RSCIEI, las instalaciones de protección contra incendios se someten a las revisiones de:",
+     "opciones": [
+      "Homologación",
+      "Mantenimiento"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 12.2: revisiones de mantenimiento."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 12.2 del RSCIEI, las revisiones de mantenimiento están establecidas en:",
+     "opciones": [
+      "El Código Técnico de la Edificación y su documento básico SI.",
+      "La Norma Básica de Autoprotección de los establecimientos.",
+      "El Reglamento de instalaciones de protección contra incendios."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 12.2: las del Reglamento de instalaciones de protección contra incendios."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 12.2 del RSCIEI es correcta?",
+     "opciones": [
+      "El mantenimiento de las instalaciones sigue lo fijado en el RIPCI.",
+      "El mantenimiento de las instalaciones lo fija cada titular libremente.",
+      "El mantenimiento de las instalaciones se regula en el anexo II."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 12.2: remite al reglamento de instalaciones."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a12-3-ocupantes",
+   "bloque": "a1-4",
+   "apartado": "3",
+   "orden": 490,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 12.3 del RSCIEI, ¿qué deben conocer los ocupantes habituales de los establecimientos industriales y qué plan puede exigirse?",
+    "respuesta": "Las principales características del establecimiento y cómo actuar en caso de incendio; además, un plan de autoprotección cuando la normativa específica lo establezca (RD 393/2007)."
+   },
+   "cita": "deberán tener conocimiento de las principales características de estos",
+   "confundible_con": [
+    "RSCIEI-a12-1-responsable"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 12.3 del RSCIEI, los ocupantes habituales deben saber cómo actuar en caso de:",
+     "opciones": [
+      "Incendio",
+      "Corte de suministro"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 12.3: cómo actuar en caso de incendio."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 12.3 del RSCIEI, el plan de autoprotección atiende al Real Decreto:",
+     "opciones": [
+      "513/2017, de 22 de mayo",
+      "314/2006, de 17 de marzo",
+      "393/2007, de 23 de marzo"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 12.3: Real Decreto 393/2007, Norma Básica de Autoprotección."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuándo debe existir un plan de autoprotección según el art. 12.3 del RSCIEI?",
+     "opciones": [
+      "Cuando la normativa específica así lo establezca.",
+      "En todo establecimiento industrial sin excepción.",
+      "Solo en los de riesgo intrínseco medio o alto."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 12.3: plan de autoprotección cuando la normativa específica así lo establezca."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a12-4-modificaciones",
+   "bloque": "a1-4",
+   "apartado": "4",
+   "orden": 500,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 12.4 del RSCIEI, ¿qué documentos deben volver a presentarse si se realizan modificaciones significativas tras la puesta en servicio?",
+    "respuesta": "Los requeridos en los artículos 10 y 11 para la parte afectada; si no son significativas, basta que el titular lo documente y justifique."
+   },
+   "cita": "deberán volverse a presentar los documentos requeridos en los artículos 10 y 11 para la parte afectada",
+   "confundible_con": [
+    "RSCIEI-a10-1-proyecto"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 12.4 del RSCIEI, ante modificaciones significativas se vuelven a presentar los documentos de los artículos 10 y:",
+     "opciones": [
+      "13",
+      "11"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 12.4: artículos 10 y 11."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 12.4 del RSCIEI, los documentos se vuelven a presentar para:",
+     "opciones": [
+      "Todo el establecimiento.",
+      "Las zonas de uso mixto.",
+      "Solo la parte afectada."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 12.4: para la parte afectada."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué basta hacer si las modificaciones NO son significativas según el art. 12.4 del RSCIEI?",
+     "opciones": [
+      "Que el titular documente y justifique que no lo son.",
+      "Comunicarlo al órgano competente en 15 días hábiles.",
+      "Solicitar un acta de inspección a un organismo de control."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 12.4: el titular documenta y justifica, con la información a disposición de autoridades y organismos de control."
+    }
+   ]
+  }
+ ]
+}

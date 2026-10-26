@@ -1,0 +1,169 @@
+{
+ "norma": "BOE-A-2025-7190",
+ "documento": "RSCIEI",
+ "nombre_norma": "Real Decreto 164/2025 Reglamento de seguridad contra incendios en establecimientos industriales",
+ "abreviatura": "RSCIEI",
+ "hash_prefijo": "RSCIEI",
+ "tema": 34,
+ "tema_nombre": "RSCIEI Real Decreto 164/2025 (industrial)",
+ "bloque_temario": "Capítulos V y VI (arts. 16-18): actuación en caso de incendio y régimen sancionador",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "RSCIEI-a16-comunicacion",
+   "bloque": "a1-8",
+   "apartado": "",
+   "orden": 580,
+   "tipo": "cifra",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 16 del RSCIEI, ¿en qué plazo debe el titular comunicar un incendio y en qué circunstancias?",
+    "respuesta": "En 15 días hábiles al órgano competente en materia de industria, si hay daños personales con atención médica externa, paralización total, parcial superior a 14 días o daños materiales superiores a 30.000 euros."
+   },
+   "cita": "en el plazo máximo de 15 días hábiles",
+   "confundible_con": [
+    "RSCIEI-a17-investigacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 16 del RSCIEI, el titular comunica el incendio en el plazo máximo de:",
+     "opciones": [
+      "15 días naturales",
+      "15 días hábiles"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 16: plazo máximo de 15 días hábiles."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 16 del RSCIEI, debe comunicarse el incendio con paralización parcial de la actividad superior a:",
+     "opciones": [
+      "30 días",
+      "7 días",
+      "14 días"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 16.c): paralización parcial superior a 14 días."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿A partir de qué daños materiales debe comunicarse un incendio según el art. 16 del RSCIEI?",
+     "opciones": [
+      "Superiores a 30.000 euros.",
+      "Superiores a 3.000 euros.",
+      "Superiores a 300.000 euros."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.d): daños materiales superiores a 30.000 euros."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a17-investigacion",
+   "bloque": "a1-9",
+   "apartado": "",
+   "orden": 590,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 17 del RSCIEI, ¿qué hace el órgano competente en industria con los incendios que concurran en las circunstancias a), b) o c) del art. 16?",
+    "respuesta": "Recopila información detallada o investiga su origen y causas y da traslado a la Conferencia Sectorial de Industria y PYME para valorar posibles adaptaciones reglamentarias."
+   },
+   "cita": "recopilará información detallada del incendio, o en ausencia de ella, realizará una investigación para tratar de averiguar su origen y causas",
+   "confundible_con": [
+    "RSCIEI-a16-comunicacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17 del RSCIEI, el órgano competente traslada la información a la Conferencia Sectorial de:",
+     "opciones": [
+      "Industria y PYME",
+      "Medio Ambiente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17: Conferencia Sectorial de Industria y PYME."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17 del RSCIEI, el órgano competente puede requerir la ayuda de especialistas tales como los:",
+     "opciones": [
+      "Servicios de la Inspección de Trabajo y Seguridad Social",
+      "Servicios de las compañías aseguradoras del titular",
+      "Servicios de Extinción de Incendios y Salvamento"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 17: ayuda de especialistas como los Servicios de Extinción de Incendios y Salvamento."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Para qué se traslada la información del incendio a la Conferencia Sectorial según el art. 17 del RSCIEI?",
+     "opciones": [
+      "Para valorar posibles necesidades de adaptación reglamentaria.",
+      "Para fijar la sanción económica aplicable al titular afectado.",
+      "Para autorizar la reapertura del establecimiento siniestrado."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17: valoración conjunta de las posibles necesidades de adaptación reglamentaria."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a18-sanciones",
+   "bloque": "a1-10",
+   "apartado": "",
+   "orden": 600,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 18 del RSCIEI, ¿conforme a qué norma se clasifican y sancionan las infracciones al Reglamento?",
+    "respuesta": "Conforme al título V de la Ley 21/1992, de Industria, sin perjuicio de las sanciones por prevención de riesgos laborales según la Ley de infracciones y sanciones en el orden social."
+   },
+   "cita": "se clasificarán y sancionarán de acuerdo con lo dispuesto en el título V de la Ley 21/1992, de 16 de julio, de Industria",
+   "confundible_con": [
+    "RSCIEI-a17-investigacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 18 del RSCIEI, las infracciones se sancionan conforme al título V de la Ley de:",
+     "opciones": [
+      "Edificación",
+      "Industria"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 18: título V de la Ley 21/1992, de Industria."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 18 del RSCIEI, los incumplimientos con incidencia en prevención de riesgos laborales se sancionan conforme al texto refundido de la Ley sobre:",
+     "opciones": [
+      "Prevención de riesgos laborales y su desarrollo",
+      "Seguridad industrial y calidad de la edificación",
+      "Infracciones y sanciones en el orden social"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 18: sección 2.ª del capítulo II del texto refundido de la LISOS, RDL 5/2000."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 18 del RSCIEI es correcta?",
+     "opciones": [
+      "Se aplica el título V de la Ley 21/1992, sin perjuicio de otras responsabilidades laborales.",
+      "Se aplica solo el título V de la Ley 21/1992 con exclusión de otras responsabilidades.",
+      "Se aplica el título V de la Ley 31/1995 de Prevención de Riesgos Laborales y su reglamento."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18: sin perjuicio de las responsabilidades en materia de prevención de riesgos laborales."
+    }
+   ]
+  }
+ ]
+}

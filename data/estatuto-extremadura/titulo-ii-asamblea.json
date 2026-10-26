@@ -1,0 +1,969 @@
+{
+ "norma": "BOE-A-2011-1638",
+ "documento": "EAEXT",
+ "nombre_norma": "Estatuto de Autonomía de Extremadura",
+ "abreviatura": "EAEXT",
+ "hash_prefijo": "EAEXT",
+ "tema": 2,
+ "tema_nombre": "Estatuto de Autonomía de Extremadura",
+ "bloque_temario": "Título II, Cap. I (arts. 15-23): instituciones de autogobierno y Asamblea de Extremadura",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "EAEXT-a15-1-poderes",
+   "bloque": "a15",
+   "apartado": "1",
+   "orden": 360,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 15.1 EAEXT, ¿a través de qué instituciones ejerce sus poderes la Comunidad Autónoma?",
+    "respuesta": "A través de la Asamblea, del Presidente y de la Junta de Extremadura."
+   },
+   "cita": "ejercerá sus poderes a través de la Asamblea, del Presidente y de la Junta de Extremadura",
+   "confundible_con": [
+    "EAEXT-a15-2-estatutarias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 15.1 EAEXT, la Comunidad ejerce sus poderes a través de la Asamblea, del Presidente y de la:",
+     "opciones": [
+      "Delegación del Gobierno",
+      "Junta de Extremadura"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 15.1: Asamblea, Presidente y Junta de Extremadura."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 15.1 EAEXT, ¿a través de qué instituciones ejerce sus poderes la Comunidad Autónoma?",
+     "opciones": [
+      "Asamblea, Presidente y Consejo Consultivo.",
+      "Presidente, Junta y Consejo de Cuentas.",
+      "Asamblea, Presidente y Junta de Extremadura."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 15.1: las tres instituciones de autogobierno son Asamblea, Presidente y Junta."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones es correcta según el art. 15.1 EAEXT?",
+     "opciones": [
+      "El Presidente figura entre las instituciones a través de las que la Comunidad ejerce sus poderes.",
+      "El Consejo de Cuentas figura entre las instituciones a través de las que la Comunidad ejerce sus poderes.",
+      "El Personero del Común figura entre las instituciones a través de las que la Comunidad ejerce sus poderes."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15.1: el Consejo de Cuentas y el Personero del Común son instituciones estatutarias del art. 15.2."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a15-2-estatutarias",
+   "bloque": "a15",
+   "apartado": "2",
+   "orden": 370,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 15.2 EAEXT, ¿qué instituciones estatutarias, dotadas de autonomía orgánica, funcional y presupuestaria, existen además?",
+    "respuesta": "El Consejo Consultivo, el Consejo de Cuentas, el Consejo Económico y Social y el Personero del Común."
+   },
+   "cita": "son instituciones estatutarias, dotadas de autonomía orgánica, funcional y presupuestaria, el Consejo Consultivo, el Consejo de Cuentas, el Consejo Económico y Social y el Personero del Común",
+   "confundible_con": [
+    "EAEXT-a15-1-poderes"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 15.2 EAEXT, son instituciones estatutarias el Consejo Consultivo, el Consejo de Cuentas, el Consejo Económico y Social y el:",
+     "opciones": [
+      "Personero del Común",
+      "Defensor del Pueblo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15.2: Consejo Consultivo, Consejo de Cuentas, CES y Personero del Común."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 15.2 EAEXT, las instituciones estatutarias están dotadas de autonomía:",
+     "opciones": [
+      "Normativa, funcional y financiera.",
+      "Orgánica, legislativa y administrativa.",
+      "Orgánica, funcional y presupuestaria."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 15.2: autonomía orgánica, funcional y presupuestaria."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas instituciones es estatutaria según el art. 15.2 EAEXT?",
+     "opciones": [
+      "El Consejo Económico y Social.",
+      "El Tribunal Superior de Justicia.",
+      "La Delegación del Gobierno."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15.2: el Consejo Económico y Social es estatutario; el TSJ y la Delegación no figuran."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a15-3-principios",
+   "bloque": "a15",
+   "apartado": "3",
+   "orden": 380,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 15.3 EAEXT, ¿con qué sometimiento y principios ejercen sus funciones las instituciones de la Comunidad?",
+    "respuesta": "Con sometimiento a la ley y conforme a los principios de lealtad institucional, solidaridad, colaboración, coordinación, cooperación y mutua ayuda, entre sí y con todos los poderes públicos."
+   },
+   "cita": "con sometimiento a la ley y de conformidad con los principios de lealtad institucional, solidaridad, colaboración, coordinación, cooperación y mutua ayuda",
+   "confundible_con": [
+    "EAEXT-a15-2-estatutarias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 15.3 EAEXT, los principios son lealtad institucional, solidaridad, colaboración, coordinación, cooperación y:",
+     "opciones": [
+      "Subordinación",
+      "Mutua ayuda"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 15.3: incluye la mutua ayuda entre los principios."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 15.3 EAEXT, estos principios rigen las relaciones de las instituciones:",
+     "opciones": [
+      "Solo entre sí, no con otros poderes públicos.",
+      "Únicamente con las instituciones del Estado.",
+      "Entre sí y con todos los poderes públicos."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 15.3: entre sí y con todos los poderes públicos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos es un principio al que se someten las instituciones según el art. 15.3 EAEXT?",
+     "opciones": [
+      "La lealtad institucional entre los poderes públicos.",
+      "La subordinación jerárquica entre las instituciones.",
+      "La competitividad entre las instituciones regionales."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15.3: lealtad institucional, no jerarquía ni competitividad."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a16-1-caracter",
+   "bloque": "a16",
+   "apartado": "1",
+   "orden": 390,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 16.1 EAEXT, ¿qué carácter tiene la Asamblea de Extremadura?",
+    "respuesta": "Representa al pueblo extremeño, es elegida por cuatro años, es inviolable, no puede ser disuelta salvo en los supuestos estatutarios y goza de autonomía reglamentaria, presupuestaria, administrativa y disciplinaria."
+   },
+   "cita": "es elegida por cuatro años, es inviolable y no podrá ser disuelta salvo en los supuestos previstos en el presente Estatuto",
+   "confundible_con": [
+    "EAEXT-a16-2-normativa"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 16.1 EAEXT, la Asamblea es elegida por:",
+     "opciones": [
+      "Cuatro años",
+      "Seis años"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.1: es elegida por cuatro años."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 16.1 EAEXT, la Asamblea goza de autonomía:",
+     "opciones": [
+      "Reglamentaria, legislativa, administrativa y disciplinaria.",
+      "Presupuestaria, administrativa, ejecutiva y disciplinaria.",
+      "Reglamentaria, presupuestaria, administrativa y disciplinaria."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 16.1: autonomía reglamentaria, presupuestaria, administrativa y disciplinaria."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la Asamblea es correcta según el art. 16.1 EAEXT?",
+     "opciones": [
+      "Es inviolable y solo puede ser disuelta en los supuestos previstos en el Estatuto.",
+      "Puede ser disuelta libremente por el Presidente en cualquier momento.",
+      "Es elegida por cinco años y carece de autonomía presupuestaria propia."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.1: inviolable y disoluble solo en los supuestos del Estatuto."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a16-2-normativa",
+   "bloque": "a16",
+   "apartado": "2",
+   "orden": 400,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 16.2 EAEXT (letras a-e), ¿qué corresponde a la Asamblea en materia de reforma, legislación, presupuestos y organización propia?",
+    "respuesta": "Ejercer las iniciativas de reforma de la Constitución y del Estatuto, la potestad legislativa, aprobar los Presupuestos y autorizar el crédito público, elaborar su Reglamento por mayoría absoluta y aprobar el estatuto de su personal."
+   },
+   "cita": "Elaborar su Reglamento, cuya aprobación y modificación exigirá mayoría absoluta de la Cámara en una votación final sobre el conjunto del proyecto",
+   "confundible_con": [
+    "EAEXT-a16-2-control"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 16.2 EAEXT, el Reglamento de la Asamblea se aprueba y modifica por mayoría:",
+     "opciones": [
+      "Simple de los presentes.",
+      "Absoluta de la Cámara."
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 16.2.d: mayoría absoluta en votación final sobre el conjunto del proyecto."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 16.2 EAEXT, la Asamblea ejerce las iniciativas de reforma de la Constitución y de:",
+     "opciones": [
+      "Las leyes orgánicas.",
+      "El Reglamento del Congreso.",
+      "El presente Estatuto."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 16.2.a: iniciativas de reforma de la Constitución y del Estatuto."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas funciones corresponde a la Asamblea según el art. 16.2 EAEXT?",
+     "opciones": [
+      "Aprobar los Presupuestos y autorizar el recurso al crédito público.",
+      "Nombrar y separar libremente a los Consejeros de la Junta.",
+      "Dictar decretos legislativos sin delegación previa."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.2.c: aprobar los Presupuestos y autorizar el recurso al crédito público."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a16-2-control",
+   "bloque": "a16",
+   "apartado": "2",
+   "orden": 410,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 16.2 EAEXT (letras f-j), ¿qué funciones de control ejerce la Asamblea sobre la Junta, la Hacienda y los medios de comunicación?",
+    "respuesta": "Controla las delegaciones legislativas y convalida los Decretos-leyes de la Junta, controla la acción del Presidente y de la Junta y exige su responsabilidad política, controla la Hacienda regional y los medios de comunicación autonómicos."
+   },
+   "cita": "Controlar el ejercicio de las delegaciones legislativas conferidas a la Junta y convalidar sus Decretos-leyes",
+   "confundible_con": [
+    "EAEXT-a16-2-normativa"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 16.2 EAEXT, la Asamblea convalida los Decretos-leyes de la:",
+     "opciones": [
+      "Junta de Extremadura",
+      "Diputación Permanente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.2.f: convalidar los Decretos-leyes de la Junta."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 16.2 EAEXT, la Asamblea ejerce el control de los medios de comunicación social:",
+     "opciones": [
+      "Privados que emitan en la región.",
+      "Dependientes de la Administración del Estado.",
+      "Dependientes de la Comunidad Autónoma."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 16.2.j: controla los medios de comunicación social dependientes de la Comunidad."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas funciones corresponde a la Asamblea según el art. 16.2 EAEXT?",
+     "opciones": [
+      "Exigir responsabilidad política al Presidente y a la Junta.",
+      "Resolver recursos contra los actos de la Junta como tribunal.",
+      "Nombrar al Delegado del Gobierno en Extremadura."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.2.h: promueve y controla la acción del Presidente y de la Junta y exige su responsabilidad política."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a17-1-diputados",
+   "bloque": "a17",
+   "apartado": "1",
+   "orden": 420,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.1 EAEXT, ¿cuántos diputados tiene como máximo la Asamblea y cómo son elegidos?",
+    "respuesta": "Un máximo de 65, por sufragio universal, libre, igual, directo y secreto, con criterios de representación proporcional."
+   },
+   "cita": "en número máximo de 65, serán elegidos por sufragio universal, libre, igual, directo y secreto, de acuerdo con criterios de representación proporcional",
+   "confundible_con": [
+    "EAEXT-a17-4-ley-electoral"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.1 EAEXT, el número máximo de diputados de la Asamblea es de:",
+     "opciones": [
+      "55",
+      "65"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.1: máximo de 65 diputados."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.1 EAEXT, los diputados son elegidos de acuerdo con criterios de representación:",
+     "opciones": [
+      "Mayoritaria.",
+      "Mixta.",
+      "Proporcional."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 17.1: representación proporcional."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la elección de los diputados es correcta según el art. 17.1 EAEXT?",
+     "opciones": [
+      "El sufragio es universal, libre, igual, directo y secreto.",
+      "El sufragio es universal, libre, igual, indirecto y secreto.",
+      "El sufragio es universal, libre, igual, directo y público."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.1: sufragio universal, libre, igual, directo y secreto."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a17-2-convocatoria",
+   "bloque": "a17",
+   "apartado": "2",
+   "orden": 430,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.2 EAEXT, ¿quién convoca las elecciones a la Asamblea y quiénes son electores y elegibles?",
+    "respuesta": "Las convoca el Presidente de la Comunidad mediante decreto; son electores y elegibles los ciudadanos con condición política de extremeños en pleno uso de sus derechos."
+   },
+   "cita": "Las elecciones serán convocadas mediante decreto del Presidente de la Comunidad Autónoma",
+   "confundible_con": [
+    "EAEXT-a17-5-sesion-constitutiva"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.2 EAEXT, las elecciones a la Asamblea son convocadas mediante decreto del:",
+     "opciones": [
+      "Presidente de la Comunidad",
+      "Presidente de la Asamblea"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.2: decreto del Presidente de la Comunidad Autónoma."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.2 EAEXT, son electores y elegibles quienes, en pleno uso de sus derechos, tengan la condición política de:",
+     "opciones": [
+      "Residentes.",
+      "Contribuyentes.",
+      "Extremeños."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 17.2: condición política de extremeños y pleno uso de sus derechos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Mediante qué instrumento se convocan las elecciones a la Asamblea según el art. 17.2 EAEXT?",
+     "opciones": [
+      "Decreto del Presidente de la Comunidad Autónoma.",
+      "Acuerdo de la Mesa de la Asamblea.",
+      "Ley de la Asamblea aprobada por mayoría absoluta."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.2: se convocan por decreto del Presidente, no por acuerdo de la Mesa ni por ley."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a17-3-circunscripcion",
+   "bloque": "a17",
+   "apartado": "3",
+   "orden": 440,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.3 EAEXT, ¿cuál es la circunscripción electoral y cómo distribuye la ley los diputados?",
+    "respuesta": "La provincia; la ley asigna una representación mínima inicial a cada circunscripción y reparte los demás diputados en proporción a la población."
+   },
+   "cita": "La provincia será la circunscripción electoral",
+   "confundible_con": [
+    "EAEXT-a17-1-diputados"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.3 EAEXT, la circunscripción electoral es la:",
+     "opciones": [
+      "Comarca",
+      "Provincia"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.3: la provincia es la circunscripción electoral."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.3 EAEXT, la ley distribuye los demás diputados entre las circunscripciones en proporción a:",
+     "opciones": [
+      "La superficie de cada una.",
+      "El número de municipios.",
+      "La población de cada una."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 17.3: los demás diputados se reparten en proporción a la población."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cómo distribuye la ley los diputados entre las provincias según el art. 17.3 EAEXT?",
+     "opciones": [
+      "Con un mínimo inicial por circunscripción y el resto según la población.",
+      "Con el mismo número de diputados para cada circunscripción.",
+      "Exclusivamente en proporción a la superficie de cada provincia."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.3: representación mínima inicial y resto según población."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a17-4-ley-electoral",
+   "bloque": "a17",
+   "apartado": "4",
+   "orden": 450,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.4 EAEXT, ¿qué mayoría exige la ley electoral y qué criterio rige las candidaturas?",
+    "respuesta": "Mayoría de tres quintos de los diputados; las candidaturas se componen con criterios de igualdad de género."
+   },
+   "cita": "La ley electoral, cuya aprobación requerirá mayoría de tres quintos de los diputados de la Asamblea",
+   "confundible_con": [
+    "EAEXT-a17-1-diputados"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.4 EAEXT, la ley electoral requiere para su aprobación la mayoría de:",
+     "opciones": [
+      "Tres quintos de los diputados.",
+      "Dos tercios de los diputados."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.4: mayoría de tres quintos de los diputados."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.4 EAEXT, la ley electoral regula, entre otras materias, el sistema específico de:",
+     "opciones": [
+      "Revocación de los mandatos de los diputados.",
+      "Voto telemático obligatorio para los electores.",
+      "Inelegibilidad e incompatibilidad de los candidatos."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 17.4: la ley regula un sistema específico de inelegibilidad e incompatibilidad."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué criterio deben cumplir en todo caso las candidaturas según el art. 17.4 EAEXT?",
+     "opciones": [
+      "Criterios de igualdad de género.",
+      "Criterios de equilibrio territorial.",
+      "Criterios de edad y trayectoria."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.4: las candidaturas se componen con criterios de igualdad de género."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a17-5-sesion-constitutiva",
+   "bloque": "a17",
+   "apartado": "5",
+   "orden": 460,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.5 EAEXT, ¿quién convoca la sesión constitutiva de la Asamblea electa y en qué plazo?",
+    "respuesta": "El Presidente cesante, dentro de los quince días siguientes a la celebración de las elecciones."
+   },
+   "cita": "La sesión constitutiva de la Asamblea electa será convocada por el Presidente cesante dentro de los quince días siguientes a la celebración de las elecciones",
+   "confundible_con": [
+    "EAEXT-a17-2-convocatoria"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.5 EAEXT, la sesión constitutiva de la Asamblea electa la convoca el:",
+     "opciones": [
+      "Presidente electo",
+      "Presidente cesante"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.5: la convoca el Presidente cesante."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.5 EAEXT, la sesión constitutiva se convoca dentro de los siguientes a las elecciones:",
+     "opciones": [
+      "Treinta días.",
+      "Diez días.",
+      "Quince días."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 17.5: dentro de los quince días siguientes a las elecciones."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Quién convoca la sesión constitutiva de la Asamblea electa y en qué plazo según el art. 17.5 EAEXT?",
+     "opciones": [
+      "El Presidente cesante, en los quince días siguientes a las elecciones.",
+      "El Presidente cesante, en el mes siguiente a las elecciones.",
+      "El Presidente de la Asamblea saliente, en los quince días siguientes."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.5: Presidente cesante (de la Comunidad) y quince días."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a19-1-organos",
+   "bloque": "a19",
+   "apartado": "1",
+   "orden": 470,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.1 EAEXT, ¿qué órganos elige la Asamblea de entre sus miembros?",
+    "respuesta": "El Presidente, la Mesa y la Diputación Permanente, cuyos regímenes y procedimientos de elección se determinan en el Reglamento."
+   },
+   "cita": "La Asamblea elegirá de entre sus miembros el Presidente, la Mesa y la Diputación Permanente",
+   "confundible_con": [
+    "EAEXT-a19-3-mesa"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.1 EAEXT, la Asamblea elige de entre sus miembros el Presidente, la Mesa y la:",
+     "opciones": [
+      "Diputación Permanente",
+      "Junta de Portavoces"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.1: Presidente, Mesa y Diputación Permanente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.1 EAEXT, los regímenes jurídicos y procedimientos de elección de estos órganos se determinan en:",
+     "opciones": [
+      "El propio Estatuto de Autonomía.",
+      "La ley electoral de Extremadura.",
+      "El Reglamento de la Asamblea."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 19.1: se determinan en el Reglamento."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos órganos elige la Asamblea de entre sus miembros según el art. 19.1 EAEXT?",
+     "opciones": [
+      "La Mesa de la Asamblea.",
+      "La Junta de Extremadura.",
+      "El Consejo Consultivo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.1: la Mesa; la Junta y el Consejo Consultivo no los elige la Asamblea entre sus miembros."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a19-2-presidente",
+   "bloque": "a19",
+   "apartado": "2",
+   "orden": 480,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.2 EAEXT, ¿qué funciones tiene el Presidente de la Asamblea?",
+    "respuesta": "Representa a la Asamblea, dirige las sesiones, sostiene su competencia, ejecuta su sección presupuestaria dando cuenta a la Mesa y ejerce las facultades administrativas y de policía en su sede."
+   },
+   "cita": "está representada por su Presidente, que dirige las sesiones de la misma, sostiene su competencia, ejecuta su sección presupuestaria dando cuenta a la Mesa",
+   "confundible_con": [
+    "EAEXT-a19-3-mesa"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.2 EAEXT, la Asamblea está representada por su:",
+     "opciones": [
+      "Portavoz mayoritario",
+      "Presidente"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.2: la Asamblea está representada por su Presidente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.2 EAEXT, el Presidente de la Asamblea ejecuta su sección presupuestaria dando cuenta a:",
+     "opciones": [
+      "El Pleno de la Cámara.",
+      "La Junta de Extremadura.",
+      "La Mesa de la Cámara."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 19.2: da cuenta a la Mesa de la ejecución de su sección presupuestaria."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas funciones corresponde al Presidente de la Asamblea según el art. 19.2 EAEXT?",
+     "opciones": [
+      "Dirigir las sesiones y ejercer la policía en su sede.",
+      "Convocar las elecciones a la Asamblea mediante decreto.",
+      "Designar a los miembros de la Junta de Extremadura."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.2: dirige las sesiones y ejerce facultades administrativas y de policía en la sede."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a19-3-mesa",
+   "bloque": "a19",
+   "apartado": "3",
+   "orden": 490,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.3 EAEXT, ¿cómo se compone la Mesa de la Asamblea y qué es?",
+    "respuesta": "Se compone del Presidente y de los Vicepresidentes y Secretarios de la Cámara, en el número que establezca el Reglamento, y es el órgano de gobierno interior de la Asamblea."
+   },
+   "cita": "La Mesa de la Asamblea, que se compone del Presidente y de los Vicepresidentes y Secretarios de la Cámara",
+   "confundible_con": [
+    "EAEXT-a19-1-organos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.3 EAEXT, la Mesa es el órgano de gobierno de la Asamblea:",
+     "opciones": [
+      "Interior",
+      "Ejecutivo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.3: órgano de gobierno interior."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.3 EAEXT, la Mesa se compone del Presidente y de los Vicepresidentes y:",
+     "opciones": [
+      "Portavoces de los Grupos.",
+      "Presidentes de Comisiones.",
+      "Secretarios de la Cámara."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 19.3: Presidente, Vicepresidentes y Secretarios."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la Mesa es correcta según el art. 19.3 EAEXT?",
+     "opciones": [
+      "El número de Vicepresidentes y Secretarios lo establece el Reglamento.",
+      "El número de Vicepresidentes y Secretarios lo fija la ley electoral.",
+      "El número de Vicepresidentes y Secretarios lo decide la Junta."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.3: el número lo establece el Reglamento."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a19-4-diputacion",
+   "bloque": "a19",
+   "apartado": "4",
+   "orden": 500,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.4 EAEXT, ¿qué funciones asume la Diputación Permanente?",
+    "respuesta": "Sustituye al Pleno entre los períodos ordinarios de sesiones y asume todas las funciones de la Asamblea si esta fue disuelta anticipadamente o agotó la legislatura, hasta la constitución de la nueva Cámara."
+   },
+   "cita": "La Diputación Permanente sustituirá al Pleno entre los períodos ordinarios de sesiones y asumirá todas las funciones de la Asamblea cuando ésta hubiera sido disuelta anticipadamente o se hubiera agotado la legislatura",
+   "confundible_con": [
+    "EAEXT-a19-3-mesa"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.4 EAEXT, la Diputación Permanente sustituye al Pleno entre los períodos ordinarios de:",
+     "opciones": [
+      "Votaciones",
+      "Sesiones"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.4: sustituye al Pleno entre períodos ordinarios de sesiones."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.4 EAEXT, la Diputación Permanente asume todas las funciones de la Asamblea disuelta hasta:",
+     "opciones": [
+      "La convocatoria de las elecciones.",
+      "La proclamación del nuevo Presidente.",
+      "La constitución de la nueva Cámara."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 19.4: hasta la constitución de la nueva Cámara."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿En qué supuesto asume la Diputación Permanente todas las funciones de la Asamblea según el art. 19.4 EAEXT?",
+     "opciones": [
+      "Si la Asamblea fue disuelta anticipadamente o agotó la legislatura.",
+      "Si el Pleno lo solicita por mayoría simple en cualquier periodo.",
+      "Si la Junta de Extremadura lo decide mediante decreto."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.4: disolución anticipada o legislatura agotada."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a23-1-diputados",
+   "bloque": "a23",
+   "apartado": "1",
+   "orden": 510,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 23.1 EAEXT, ¿quiénes ostentan la iniciativa legislativa en la Asamblea y en qué términos?",
+    "respuesta": "Los diputados y los Grupos parlamentarios, en los términos que establezca el Reglamento de la Cámara."
+   },
+   "cita": "Los diputados y los Grupos parlamentarios de la Asamblea ostentan la iniciativa legislativa en los términos que establezca el Reglamento de la Cámara",
+   "confundible_con": [
+    "EAEXT-a23-2-junta"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.1 EAEXT, ostentan la iniciativa legislativa los diputados y los:",
+     "opciones": [
+      "Grupos parlamentarios",
+      "Consejos asesores"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.1: diputados y Grupos parlamentarios."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 23.1 EAEXT, los términos de la iniciativa legislativa de diputados y Grupos los establece:",
+     "opciones": [
+      "La ley electoral específica.",
+      "Un decreto del Presidente regional.",
+      "El Reglamento de la Cámara."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 23.1: los términos los fija el Reglamento de la Cámara."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Quién ostenta la iniciativa legislativa en los términos del Reglamento de la Cámara según el art. 23.1 EAEXT?",
+     "opciones": [
+      "Los diputados y los Grupos parlamentarios.",
+      "Los Consejeros y los Vicepresidentes.",
+      "Los miembros de la Mesa y los senadores."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.1: la ostentan diputados y Grupos, no los Consejeros ni los senadores."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a23-2-junta",
+   "bloque": "a23",
+   "apartado": "2",
+   "orden": 520,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 23.2 EAEXT, ¿qué iniciativa tiene la Junta y a qué iniciativas legislativas puede oponerse?",
+    "respuesta": "Dispone de iniciativa legislativa y puede oponerse a las que afecten a una delegación legislativa en vigor o supongan minoración de ingresos o aumento de gastos en el ejercicio presupuestario corriente."
+   },
+   "cita": "También dispone de esta iniciativa la Junta de Extremadura, que, además, podrá oponerse a la tramitación de iniciativas legislativas que afecten a una delegación legislativa en vigor o que supongan minoración de ingresos o aumento de gastos en el ejercicio presupuestario corriente",
+   "confundible_con": [
+    "EAEXT-a23-1-diputados"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.2 EAEXT, la Junta puede oponerse a iniciativas que supongan minoración de ingresos o aumento de gastos en el ejercicio presupuestario:",
+     "opciones": [
+      "Siguiente",
+      "Corriente"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 23.2: la Junta puede oponerse si supone minoración de ingresos o aumento de gastos del ejercicio corriente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 23.2 EAEXT, la Junta puede oponerse a iniciativas que afecten a una delegación legislativa:",
+     "opciones": [
+      "Que ya haya caducado.",
+      "Que esté pendiente de concesión.",
+      "Que se encuentre en vigor."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 23.2: delegación legislativa en vigor."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué iniciativa puede impedir la Junta oponiéndose a su tramitación según el art. 23.2 EAEXT?",
+     "opciones": [
+      "La que suponga aumento de gastos en el ejercicio corriente.",
+      "La que reforme la composición de la Mesa de la Asamblea.",
+      "La que afecte a la capitalidad y a los símbolos de Extremadura."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.2: solo en los dos supuestos de delegación en vigor y efecto presupuestario."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a23-3-locales",
+   "bloque": "a23",
+   "apartado": "3",
+   "orden": 530,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 23.3 EAEXT, ¿pueden las entidades locales presentar iniciativas legislativas y con qué condiciones?",
+    "respuesta": "Sí, en materias de competencia de la Comunidad, con las condiciones de número y población que se determinen en una ley aprobada por mayoría absoluta."
+   },
+   "cita": "con las condiciones de número y población que se determinen en una ley aprobada por mayoría absoluta, las entidades locales podrán, asimismo, presentar iniciativas legislativas a la Asamblea en materias de competencia de la Comunidad Autónoma",
+   "confundible_con": [
+    "EAEXT-a23-4-popular"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.3 EAEXT, las condiciones de número y población para las iniciativas locales se fijan en una ley aprobada por mayoría:",
+     "opciones": [
+      "Absoluta",
+      "Simple"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.3: ley aprobada por mayoría absoluta."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 23.3 EAEXT, las iniciativas legislativas de las entidades locales versan sobre materias de competencia de:",
+     "opciones": [
+      "La Administración del Estado.",
+      "Las propias entidades locales promotoras.",
+      "La Comunidad Autónoma."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 23.3: materias de competencia de la Comunidad Autónoma."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué exige el art. 23.3 EAEXT para que las entidades locales presenten iniciativas legislativas?",
+     "opciones": [
+      "Las condiciones de número y población que fije una ley de mayoría absoluta.",
+      "Contar con la autorización previa de la Junta de Extremadura en cada caso.",
+      "Reunir al menos 45.000 firmas acreditadas del censo de las elecciones."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.3: condiciones de número y población, no autorización de la Junta ni firmas."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a23-4-popular",
+   "bloque": "a23",
+   "apartado": "4",
+   "orden": 540,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 23.4 EAEXT, ¿qué se exige a las iniciativas legislativas populares?",
+    "respuesta": "Se ejercen en los términos que determine una ley de la Asamblea aprobada por mayoría absoluta y deben estar avaladas por al menos 45.000 firmas acreditadas del censo para las elecciones a la Asamblea."
+   },
+   "cita": "deberán estar avaladas por al menos 45.000 firmas acreditadas del censo para las elecciones a la Asamblea",
+   "confundible_con": [
+    "EAEXT-a23-3-locales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.4 EAEXT, las iniciativas legislativas populares deben estar avaladas por al menos:",
+     "opciones": [
+      "25.000 firmas",
+      "45.000 firmas"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 23.4: al menos 45.000 firmas acreditadas del censo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 23.4 EAEXT, la iniciativa legislativa popular se ejerce en los términos de una ley de la Asamblea aprobada por mayoría:",
+     "opciones": [
+      "Simple.",
+      "De dos tercios.",
+      "Absoluta."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 23.4: ley de la Asamblea aprobada por mayoría absoluta."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué requisito exige el art. 23.4 EAEXT a las iniciativas legislativas populares?",
+     "opciones": [
+      "Contar con al menos 45.000 firmas acreditadas del censo electoral.",
+      "Contar con el aval de al menos el diez por ciento del censo electoral.",
+      "Contar con el respaldo de al menos tres Grupos parlamentarios."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.4: el requisito es de 45.000 firmas, no un porcentaje del censo ni el respaldo de Grupos."
+    }
+   ]
+  }
+ ]
+}

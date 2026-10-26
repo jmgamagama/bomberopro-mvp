@@ -1,0 +1,470 @@
+{
+ "norma": "BOE-A-1997-17824",
+ "documento": "RD1215",
+ "nombre_norma": "Real Decreto 1215/1997 sobre equipos de trabajo",
+ "abreviatura": "RD 1215/1997",
+ "hash_prefijo": "RD1215",
+ "tema": 31,
+ "tema_nombre": "RD 1215/1997 Equipos de trabajo",
+ "bloque_temario": "Art. 3: obligaciones generales del empresario",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "RD1215-a3-1-adecuados",
+   "bloque": "a3",
+   "apartado": "1",
+   "orden": 170,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.1 del RD 1215/1997, ¿qué debe lograr el empresario respecto de los equipos de trabajo que ponga a disposición de los trabajadores?",
+    "respuesta": "Que sean adecuados al trabajo que deba realizarse y convenientemente adaptados al mismo, de forma que garanticen la seguridad y la salud de los trabajadores."
+   },
+   "cita": "sean adecuados al trabajo que deba realizarse y convenientemente adaptados al mismo, de forma que garanticen la seguridad y la salud de los trabajadores al utilizar dichos equipos de trabajo",
+   "confundible_con": [
+    "RD1215-a3-1-reducir-riesgos",
+    "RD1215-a3-1-requisitos-equipos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.1 del RD 1215/1997, los equipos deben ser adecuados al trabajo y convenientemente:",
+     "opciones": [
+      "Sustituidos cada año",
+      "Adaptados al mismo"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.1: adecuados al trabajo y convenientemente adaptados al mismo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.1 del RD 1215/1997, ¿a quién corresponde adoptar las medidas para que los equipos sean adecuados al trabajo que deba realizarse?",
+     "opciones": [
+      "Al fabricante que los pone en el mercado.",
+      "Al trabajador que los utiliza en su puesto.",
+      "Al empresario que los pone a disposición."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.1: el empresario adopta las medidas necesarias."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el primer párrafo del art. 3.1 es correcta?",
+     "opciones": [
+      "Los equipos deben ser adecuados al trabajo y adaptados a él para garantizar la seguridad y la salud.",
+      "Basta con que los equipos sean nuevos, aunque no estén adaptados al trabajo concreto que se realiza.",
+      "Los equipos deben adaptarse al trabajo solo si el trabajador lo solicita por escrito al empresario."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.1: adecuación y adaptación al trabajo para garantizar seguridad y salud."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a3-1-reducir-riesgos",
+   "bloque": "a3",
+   "apartado": "1",
+   "orden": 180,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.1 del RD 1215/1997, ¿qué debe hacer el empresario cuando no sea posible garantizar totalmente la seguridad y la salud durante la utilización de los equipos?",
+    "respuesta": "Tomar las medidas adecuadas para reducir tales riesgos al mínimo."
+   },
+   "cita": "el empresario tomará las medidas adecuadas para reducir tales riesgos al mínimo",
+   "confundible_con": [
+    "RD1215-a3-1-adecuados"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.1 del RD 1215/1997, si no puede garantizarse totalmente la seguridad, el empresario reducirá los riesgos:",
+     "opciones": [
+      "Al mínimo",
+      "Al nivel que fije la autoridad laboral"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.1 párr. 2: reducir tales riesgos al mínimo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.1 del RD 1215/1997, ¿en qué supuesto debe el empresario reducir los riesgos al mínimo?",
+     "opciones": [
+      "Cuando el trabajador lo solicite por escrito al servicio de prevención de la empresa.",
+      "Cuando el equipo tenga más de diez años de antigüedad en el centro de trabajo.",
+      "Cuando no sea posible garantizar totalmente la seguridad y la salud al utilizar el equipo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.1 párr. 2: cuando no sea posible garantizar totalmente la seguridad y salud."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas actuaciones es conforme al art. 3.1 si no se puede garantizar del todo la seguridad con un equipo?",
+     "opciones": [
+      "Adoptar medidas adecuadas que reduzcan los riesgos al mínimo.",
+      "Aceptar el riesgo residual sin adoptar ninguna medida adicional.",
+      "Trasladar el riesgo al trabajador mediante instrucciones verbales."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.1 párr. 2: el empresario debe tomar medidas adecuadas, no aceptar el riesgo."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a3-1-requisitos-equipos",
+   "bloque": "a3",
+   "apartado": "1",
+   "orden": 190,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.1 del RD 1215/1997, ¿qué requisitos deben satisfacer en cualquier caso los equipos que utilice el empresario?",
+    "respuesta": "Cualquier disposición legal o reglamentaria que les sea de aplicación y las condiciones generales previstas en el anexo I del Real Decreto."
+   },
+   "cita": "Cualquier disposición legal o reglamentaria que les sea de aplicación",
+   "confundible_con": [
+    "RD1215-a3-4-anexo-ii"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.1 del RD 1215/1997, el empresario utilizará únicamente equipos que satisfagan las condiciones generales del anexo:",
+     "opciones": [
+      "II",
+      "I"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.1 b): condiciones generales del anexo I."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.1 del RD 1215/1997, además de las condiciones del anexo I, los equipos deben satisfacer:",
+     "opciones": [
+      "Las normas técnicas voluntarias que fije el propio fabricante.",
+      "Los requisitos que establezca el convenio colectivo del sector.",
+      "Cualquier disposición legal o reglamentaria que les sea de aplicación."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.1 a): cualquier disposición legal o reglamentaria aplicable."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre los equipos que puede utilizar el empresario (art. 3.1) es correcta?",
+     "opciones": [
+      "Debe utilizar únicamente equipos que cumplan la normativa aplicable y el anexo I.",
+      "Puede utilizar equipos que no cumplan el anexo I si el trabajador acepta el riesgo.",
+      "Solo debe cumplir el anexo II, que regula las condiciones de utilización."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.1: normativa aplicable y anexo I; el anexo II se refiere a la utilización (art. 3.4)."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a3-2-eleccion",
+   "bloque": "a3",
+   "apartado": "2",
+   "orden": 200,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.2 del RD 1215/1997, ¿qué factores debe tener en cuenta el empresario para la elección de los equipos de trabajo?",
+    "respuesta": "Las condiciones y características específicas del trabajo, los riesgos existentes y los derivados de los propios equipos, y las adaptaciones necesarias para trabajadores discapacitados."
+   },
+   "cita": "Para la elección de los equipos de trabajo el empresario deberá tener en cuenta los siguientes factores",
+   "confundible_con": [
+    "RD1215-a3-3-ergonomia"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.2 del RD 1215/1997, entre los factores de elección de los equipos figura, en su caso, la adaptación para trabajadores:",
+     "opciones": [
+      "Discapacitados",
+      "Menores de edad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.2: condiciones del trabajo, riesgos y adaptaciones para discapacitados."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.2 del RD 1215/1997, además de las condiciones del trabajo y de los riesgos, el empresario debe considerar:",
+     "opciones": [
+      "El coste de adquisición y de mantenimiento de cada equipo de trabajo.",
+      "La antigüedad media de la plantilla que vaya a utilizar el equipo.",
+      "Las adaptaciones necesarias para trabajadores discapacitados, en su caso."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.2 c): adaptaciones necesarias, en su caso, para trabajadores discapacitados."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos factores NO figura entre los que el empresario debe tener en cuenta para elegir los equipos (art. 3.2)?",
+     "opciones": [
+      "El precio de adquisición más bajo disponible en el mercado.",
+      "Los riesgos que puedan agravarse por la presencia del equipo.",
+      "Las condiciones y características específicas del trabajo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.2: el precio no es un factor; sí lo son las condiciones del trabajo y los riesgos."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a3-3-ergonomia",
+   "bloque": "a3",
+   "apartado": "3",
+   "orden": 210,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.3 del RD 1215/1997, ¿qué principios debe tener en cuenta el empresario al aplicar las disposiciones mínimas del Real Decreto?",
+    "respuesta": "Los principios ergonómicos, especialmente en cuanto al diseño del puesto de trabajo y la posición de los trabajadores durante la utilización del equipo."
+   },
+   "cita": "el empresario tendrá en cuenta los principios ergonómicos, especialmente en cuanto al diseño del puesto de trabajo y la posición de los trabajadores durante la utilización del equipo de trabajo",
+   "confundible_con": [
+    "RD1215-a3-2-eleccion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.3 del RD 1215/1997, el empresario tendrá en cuenta los principios:",
+     "opciones": [
+      "Contables",
+      "Ergonómicos"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.3: principios ergonómicos."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.3 del RD 1215/1997, los principios ergonómicos se aplican especialmente al diseño del puesto de trabajo y a:",
+     "opciones": [
+      "La retribución de los trabajadores que usan el equipo.",
+      "La duración del contrato de los trabajadores que lo manejan.",
+      "La posición de los trabajadores durante la utilización del equipo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.3: diseño del puesto de trabajo y posición de los trabajadores durante la utilización."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 3.3 es correcta?",
+     "opciones": [
+      "La ergonomía debe tenerse en cuenta al aplicar las disposiciones mínimas, sobre todo en el puesto y la posición.",
+      "La ergonomía es solo una recomendación que el empresario puede obviar sin ninguna consecuencia legal.",
+      "Los principios ergonómicos afectan al diseño del propio equipo, pero no al puesto de trabajo ni a la posición."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.3: la ergonomía es una obligación y alcanza al puesto de trabajo."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a3-4-anexo-ii",
+   "bloque": "a3",
+   "apartado": "4",
+   "orden": 220,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.4 del RD 1215/1997, ¿qué condiciones debe cumplir la utilización de los equipos de trabajo?",
+    "respuesta": "Las condiciones generales establecidas en el anexo II del Real Decreto."
+   },
+   "cita": "La utilización de los equipos de trabajo deberá cumplir las condiciones generales establecidas en el anexo II del presente Real Decreto",
+   "confundible_con": [
+    "RD1215-a3-1-requisitos-equipos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.4 del RD 1215/1997, la utilización de los equipos debe cumplir las condiciones generales del anexo:",
+     "opciones": [
+      "II",
+      "I"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.4: condiciones generales del anexo II."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.4 del RD 1215/1997, ¿qué actividad debe cumplir las condiciones generales del anexo II?",
+     "opciones": [
+      "La fabricación de los equipos de trabajo.",
+      "La comercialización de los equipos de trabajo.",
+      "La utilización de los equipos de trabajo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.4: se refiere a la utilización, no a la fabricación ni a la comercialización."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre los anexos y los arts. 3.1 y 3.4 es correcta?",
+     "opciones": [
+      "Los equipos deben satisfacer el anexo I (art. 3.1) y su utilización, el anexo II (art. 3.4).",
+      "Los equipos deben satisfacer el anexo II (art. 3.1) y su utilización, el anexo I (art. 3.4).",
+      "Tanto los equipos como su utilización se rigen únicamente por el anexo I del Real Decreto."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.1: anexo I para los equipos; art. 3.4: anexo II para su utilización."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a3-4-reservada",
+   "bloque": "a3",
+   "apartado": "4",
+   "orden": 230,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.4 del RD 1215/1997, ¿cuándo debe el empresario reservar la utilización de un equipo a trabajadores designados para ello?",
+    "respuesta": "Cuando, para evitar o controlar un riesgo específico, el uso deba hacerse en condiciones o formas determinadas que requieran un particular conocimiento de los trabajadores."
+   },
+   "cita": "el empresario adoptará las medidas necesarias para que la utilización de dicho equipo quede reservada a los trabajadores designados para ello",
+   "confundible_con": [
+    "RD1215-a3-5-personal-capacitado"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.4 del RD 1215/1997, en esos casos la utilización del equipo queda reservada a los trabajadores:",
+     "opciones": [
+      "De mayor antigüedad",
+      "Designados para ello"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.4 párr. 2: reservada a los trabajadores designados para ello."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.4 del RD 1215/1997, la reserva a trabajadores designados procede para evitar o controlar un riesgo:",
+     "opciones": [
+      "Genérico para la seguridad o salud de la empresa",
+      "Residual para la seguridad o salud del entorno",
+      "Específico para la seguridad o salud de los trabajadores"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.4 párr. 2: riesgo específico que requiere particular conocimiento."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas situaciones obliga, según el art. 3.4, a reservar el uso del equipo a trabajadores designados?",
+     "opciones": [
+      "Un equipo cuyo uso exige particular conocimiento para controlar un riesgo específico.",
+      "Cualquier equipo de trabajo nuevo, con independencia del riesgo que entrañe su uso.",
+      "Un equipo que lleve más de un año sin utilizarse en el centro de trabajo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.4 párr. 2: no depende de la novedad del equipo ni del tiempo sin uso."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a3-5-mantenimiento",
+   "bloque": "a3",
+   "apartado": "5",
+   "orden": 240,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.5 del RD 1215/1997, ¿cómo debe asegurar el empresario la conservación de los equipos y qué debe tener en cuenta en el mantenimiento?",
+    "respuesta": "Con un mantenimiento adecuado durante todo el tiempo de utilización, atendiendo a las instrucciones del fabricante o, en su defecto, a las características del equipo, sus condiciones de uso y las circunstancias que influyan en su deterioro."
+   },
+   "cita": "mediante un mantenimiento adecuado, los equipos de trabajo se conserven durante todo el tiempo de utilización",
+   "confundible_con": [
+    "RD1215-a3-5-personal-capacitado"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.5 del RD 1215/1997, el mantenimiento se realizará teniendo en cuenta las instrucciones del:",
+     "opciones": [
+      "Fabricante",
+      "Importador"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.5: instrucciones del fabricante o, en su defecto, características del equipo y circunstancias de deterioro."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.5 del RD 1215/1997, mediante un mantenimiento adecuado, ¿durante cuánto tiempo deben conservarse los equipos en condiciones que satisfagan las disposiciones?",
+     "opciones": [
+      "Durante el período de garantía del fabricante.",
+      "Durante los primeros cinco años de servicio.",
+      "Durante todo el tiempo de utilización."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.5: conservación durante todo el tiempo de utilización."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿En qué debe basarse el mantenimiento de los equipos según el art. 3.5?",
+     "opciones": [
+      "En las instrucciones del fabricante y, en su defecto, en las características del equipo y su uso.",
+      "En el criterio del trabajador que lo usa y, en su defecto, en el del jefe de la sección.",
+      "En el calendario de la autoridad laboral y, en su defecto, en el del servicio de prevención."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.5: fabricante primero; en su defecto, características, condiciones de utilización y circunstancias de deterioro."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a3-5-personal-capacitado",
+   "bloque": "a3",
+   "apartado": "5",
+   "orden": 250,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.5 del RD 1215/1997, ¿a quién pueden encomendarse las operaciones de mantenimiento, reparación o transformación cuya realización suponga un riesgo específico para los trabajadores?",
+    "respuesta": "Solo al personal especialmente capacitado para ello."
+   },
+   "cita": "sólo podrán ser encomendadas al personal especialmente capacitado para ello",
+   "confundible_con": [
+    "RD1215-a3-4-reservada"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.5 del RD 1215/1997, esas operaciones solo podrán encomendarse al personal especialmente:",
+     "opciones": [
+      "Autorizado por la autoridad laboral",
+      "Capacitado para ello"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.5 párr. 2: solo personal especialmente capacitado para ello."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.5 del RD 1215/1997, ¿qué operaciones sobre los equipos, si suponen riesgo específico, solo pueden encomendarse a personal especialmente capacitado?",
+     "opciones": [
+      "Fabricación, diseño o homologación del equipo.",
+      "Compra, arrendamiento o venta del equipo.",
+      "Mantenimiento, reparación o transformación."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.5 párr. 2: mantenimiento, reparación o transformación con riesgo específico."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Una reparación de un equipo implica un riesgo específico para los trabajadores. ¿Quién puede realizarla según el art. 3.5?",
+     "opciones": [
+      "Solo el personal especialmente capacitado para esa reparación.",
+      "Cualquier trabajador de la plantilla con formación básica en prevención.",
+      "Cualquier trabajador al que el encargado designe en el momento."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.5 párr. 2: no basta una formación genérica ni la designación puntual."
+    }
+   ]
+  }
+ ]
+}

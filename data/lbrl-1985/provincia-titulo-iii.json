@@ -1,0 +1,170 @@
+{
+ "norma": "BOE-A-1985-5392",
+ "documento": "LBRL",
+ "nombre_norma": "Ley 7/1985 Reguladora de las Bases del Régimen Local",
+ "abreviatura": "LBRL",
+ "hash_prefijo": "LBRL",
+ "tema": 3,
+ "tema_nombre": "Ley 7/1985 Régimen Local",
+ "bloque_temario": "Título III (art. 31): la Provincia, concepto y fines",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "LBRL-a31-1-provincia",
+   "bloque": "a31",
+   "apartado": "1",
+   "orden": 100,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 31.1 LBRL, ¿qué es la Provincia?",
+    "respuesta": "Una entidad local determinada por la agrupación de Municipios, con personalidad jurídica propia y plena capacidad para el cumplimiento de sus fines."
+   },
+   "cita": "La Provincia es una entidad local determinada por la agrupación de Municipios, con personalidad jurídica propia y plena capacidad para el cumplimiento de sus fines",
+   "confundible_con": [
+    "LBRL-a31-2-fines",
+    "LBRL-a31-3-gobierno"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 31.1 LBRL, ¿qué entes agrupa la Provincia, que es una entidad local con personalidad jurídica propia?",
+     "opciones": [
+      "Las Comarcas",
+      "Los Municipios"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 31.1: la Provincia agrupa Municipios."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 31.1 LBRL, la Provincia tiene personalidad jurídica propia y:",
+     "opciones": [
+      "Capacidad limitada a los fines que le delegue el Estado.",
+      "Capacidad únicamente para gestionar servicios municipales.",
+      "Plena capacidad para el cumplimiento de sus fines."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 31.1: personalidad jurídica propia y plena capacidad para sus fines."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la Provincia es correcta según el art. 31.1 LBRL?",
+     "opciones": [
+      "Es una entidad local con personalidad jurídica propia, determinada por la agrupación de Municipios.",
+      "Es una entidad estatal cuya personalidad jurídica le delega la Comunidad Autónoma.",
+      "Es una entidad local formada por la agrupación de Comunidades Autónomas limítrofes."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.1: entidad local, con personalidad propia, agrupación de Municipios."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a31-2-fines",
+   "bloque": "a31",
+   "apartado": "2",
+   "orden": 110,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 31.2 LBRL, ¿cuáles son los fines propios y específicos de la Provincia?",
+    "respuesta": "Garantizar los principios de solidaridad y equilibrio intermunicipales, en el marco de la política económica y social, asegurando la prestación integral de los servicios municipales en todo el territorio y participando en la coordinación de la Administración local con la autonómica y la estatal."
+   },
+   "cita": "Son fines propios y específicos de la Provincia garantizar los principios de solidaridad y equilibrio intermunicipales, en el marco de la política económica y social",
+   "confundible_con": [
+    "LBRL-a31-1-provincia"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 31.2 LBRL, un fin propio de la Provincia es garantizar la solidaridad y el equilibrio entre:",
+     "opciones": [
+      "Los Municipios",
+      "Las Comunidades"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.2: solidaridad y equilibrio intermunicipales."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 31.2.a) LBRL, la Provincia debe asegurar la prestación integral y adecuada de los servicios de competencia municipal en:",
+     "opciones": [
+      "Los Municipios de menos de 20.000 habitantes.",
+      "Los Municipios con más de 20.000 habitantes.",
+      "La totalidad del territorio provincial."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 31.2.a): prestación integral y adecuada en la totalidad del territorio provincial."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos NO es un fin propio y específico de la Provincia según el art. 31.2 LBRL?",
+     "opciones": [
+      "Asumir la gestión ordinaria de los servicios sanitarios de todo el territorio provincial.",
+      "Participar en la coordinación de la Administración local con la autonómica y la estatal.",
+      "Asegurar la prestación integral y adecuada de los servicios municipales en la provincia."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.2: los fines son solidaridad, prestación integral y coordinación (letras a y b); la gestión sanitaria no figura."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a31-3-gobierno",
+   "bloque": "a31",
+   "apartado": "3",
+   "orden": 120,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 31.3 LBRL, ¿a quién corresponde el gobierno y la administración autónoma de la Provincia?",
+    "respuesta": "A la Diputación u otras Corporaciones de carácter representativo."
+   },
+   "cita": "El gobierno y la administración autónoma de la Provincia corresponden a la Diputación u otras Corporaciones de carácter representativo",
+   "confundible_con": [
+    "LBRL-a31-1-provincia"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 31.3 LBRL, ¿qué carácter tienen las Corporaciones, además de la Diputación, que gobiernan la Provincia?",
+     "opciones": [
+      "Consultivo",
+      "Representativo"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 31.3: Corporaciones de carácter representativo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 31.3 LBRL, además de la Diputación, el gobierno de la Provincia puede corresponder a:",
+     "opciones": [
+      "El Delegado del Gobierno en la Comunidad Autónoma.",
+      "Una asamblea de Alcaldes de la Provincia.",
+      "Otras Corporaciones de carácter representativo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 31.3: la Diputación u otras Corporaciones representativas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el gobierno de la Provincia es correcta según el art. 31.3 LBRL?",
+     "opciones": [
+      "Corresponde a la Diputación u otras Corporaciones de carácter representativo.",
+      "Corresponde al Estado a través de un órgano de designación gubernativa.",
+      "Corresponde a la Comunidad Autónoma mediante delegados provinciales."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.3: gobierno y administración autónoma de la Provincia: Diputación u otras Corporaciones representativas."
+    }
+   ]
+  }
+ ]
+}

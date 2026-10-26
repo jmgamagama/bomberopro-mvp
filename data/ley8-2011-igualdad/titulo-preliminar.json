@@ -1,0 +1,1673 @@
+{
+ "norma": "BOE-A-2011-6651",
+ "documento": "LIEXT",
+ "nombre_norma": "Ley 8/2011 de Igualdad y contra la Violencia de Género en Extremadura",
+ "abreviatura": "LIEXT",
+ "hash_prefijo": "LIEXT",
+ "tema": 7,
+ "tema_nombre": "Igualdad",
+ "bloque_temario": "Título preliminar (arts. 1-4): disposiciones generales",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "LIEXT-a1-objeto",
+   "bloque": "a1",
+   "apartado": "",
+   "orden": 100,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 1 de la Ley 8/2011, ¿cuál es el objeto de la ley?",
+    "respuesta": "Hacer efectivo el derecho de igualdad de trato y oportunidades entre mujeres y hombres en Extremadura y combatir de modo integral la violencia de género."
+   },
+   "cita": "tiene por objeto hacer efectivo el derecho de igualdad de trato y oportunidades entre mujeres y hombres en la Comunidad Autónoma de Extremadura, y combatir de modo integral la violencia de género",
+   "confundible_con": [
+    "LIEXT-a1-derechos-victimas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1 de la Ley 8/2011, la ley tiene por objeto hacer efectivo el derecho de igualdad de trato y oportunidades entre mujeres y hombres y combatir de modo integral:",
+     "opciones": [
+      "La discriminación laboral",
+      "La violencia de género"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 1: hacer efectivo el derecho de igualdad de trato y oportunidades y combatir de modo integral la violencia de género."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1 de la Ley 8/2011, el objeto de la ley es avanzar hacia una sociedad extremeña:",
+     "opciones": [
+      "Más próspera, moderna, justa y competitiva.",
+      "Más segura, igualitaria, libre y cohesionada.",
+      "Más libre, justa, democrática y solidaria."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 1: el fin es avanzar hacia una sociedad extremeña más libre, justa, democrática y solidaria."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas funciones NO se atribuye a la ley en su art. 1?",
+     "opciones": [
+      "Regular el régimen disciplinario y retributivo del personal al servicio de la Junta de Extremadura.",
+      "Establecer los principios generales de actuación de los poderes públicos en materia de igualdad.",
+      "Establecer medidas para la sensibilización, prevención y detección de la violencia de género."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1 a), b) y c): principios generales, medidas de igualdad y medidas integrales contra la violencia; no regula el régimen del personal."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a1-derechos-victimas",
+   "bloque": "a1",
+   "apartado": "",
+   "orden": 110,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 1 de la Ley 8/2011, ¿qué derechos se reconocen a las mujeres que sufren violencia de género y a su núcleo familiar?",
+    "respuesta": "Los derechos de atención, asistencia, protección y recuperación integral."
+   },
+   "cita": "También se reconocen a las mujeres que la sufren y a su núcleo familiar los derechos de atención, asistencia, protección y recuperación integral",
+   "confundible_con": [
+    "LIEXT-a1-objeto"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1 de la Ley 8/2011, además de a las mujeres que sufren violencia de género, los derechos de atención se reconocen a su:",
+     "opciones": [
+      "Núcleo familiar",
+      "Entorno laboral"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1 c): se reconocen a las mujeres y a su núcleo familiar los derechos de atención, asistencia, protección y recuperación integral."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1 de la Ley 8/2011, entre los derechos reconocidos a las mujeres que sufren violencia de género figura el de:",
+     "opciones": [
+      "Indemnización fija.",
+      "Reubicación laboral.",
+      "Recuperación integral."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 1 c): el derecho de recuperación integral figura entre ellos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos derechos NO se reconoce expresamente en el art. 1 a las mujeres que sufren violencia de género y a su núcleo familiar?",
+     "opciones": [
+      "El derecho a una renta fija.",
+      "El derecho de asistencia.",
+      "El derecho de protección."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1 c): atención, asistencia, protección y recuperación integral; no se cita ninguna pensión vitalicia."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a2-1-territorio",
+   "bloque": "a2",
+   "apartado": "1",
+   "orden": 120,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 2.1 de la Ley 8/2011, ¿cuál es el ámbito territorial de aplicación de la ley?",
+    "respuesta": "La Comunidad Autónoma de Extremadura."
+   },
+   "cita": "será de aplicación en el ámbito territorial de la Comunidad Autónoma de Extremadura",
+   "confundible_con": [
+    "LIEXT-a2-2-personas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.1 de la Ley 8/2011, la ley se aplica en el ámbito territorial:",
+     "opciones": [
+      "Del conjunto del Estado español y de Portugal",
+      "De la Comunidad Autónoma de Extremadura"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 2.1: ámbito territorial de la Comunidad Autónoma de Extremadura."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.1 de la Ley 8/2011, el ámbito de aplicación de la ley en este apartado es de tipo:",
+     "opciones": [
+      "Personal, referido solo a empleados públicos.",
+      "Funcional, referido solo al sector sanitario.",
+      "Territorial, referido a la Comunidad Autónoma."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 2.1: se trata del ámbito territorial de la Comunidad Autónoma."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 2.1 de la Ley 8/2011 es correcta?",
+     "opciones": [
+      "La ley rige en el territorio de la Comunidad Autónoma de Extremadura.",
+      "La ley rige solo en los municipios de más de veinte mil habitantes.",
+      "La ley rige en todo el territorio nacional si lo acuerda la Junta."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.1: la ley es de aplicación en el ámbito territorial de la Comunidad Autónoma de Extremadura."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a2-2-personas",
+   "bloque": "a2",
+   "apartado": "2",
+   "orden": 130,
+   "tipo": "dato",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 2.2 de la Ley 8/2011, ¿a qué personas es de aplicación la ley en particular?",
+    "respuesta": "A las personas físicas y jurídicas, en los términos establecidos en la ley."
+   },
+   "cita": "será de aplicación a las personas físicas y jurídicas, en los términos establecidos en la presente ley",
+   "confundible_con": [
+    "LIEXT-a2-1-territorio"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.2 de la Ley 8/2011, la ley es de aplicación a las personas físicas y:",
+     "opciones": [
+      "Jurídicas",
+      "Funcionarias"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.2: personas físicas y jurídicas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.2 de la Ley 8/2011, la ley se aplica a las personas físicas y jurídicas:",
+     "opciones": [
+      "Con carácter general y sin limitación alguna.",
+      "Solo si residen en una población de Extremadura.",
+      "En los términos establecidos en la propia ley."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 2.2: en los términos establecidos en la presente ley."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué sujetos incluye, en particular, el art. 2.2 de la Ley 8/2011?",
+     "opciones": [
+      "Las personas físicas y las jurídicas, en los términos de la ley.",
+      "Solo las personas jurídicas de naturaleza pública de Extremadura.",
+      "Únicamente las personas físicas empleadas por la Junta de Extremadura."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.2: personas físicas y jurídicas, no solo públicas ni solo empleadas de la Junta."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a2-3-entidades",
+   "bloque": "a2",
+   "apartado": "3",
+   "orden": 140,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 2.3 de la Ley 8/2011, ¿a qué entidades es de aplicación la ley, en los términos que ella establece?",
+    "respuesta": "A la Administración autonómica y su sector público, a la Administración Local y su sector público, a la Universidad de Extremadura, a las entidades educativas y de formación y a las entidades privadas contratistas, conveniadas o subvencionadas."
+   },
+   "cita": "A todas las entidades que realicen actividades educativas y de formación cualquiera que sea su tipo, nivel y grado",
+   "confundible_con": [
+    "LIEXT-a2-2-personas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.3 de la Ley 8/2011, la ley se aplica a todas las entidades que realicen actividades:",
+     "opciones": [
+      "Deportivas y de tiempo libre",
+      "Educativas y de formación"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 2.3 d): todas las entidades que realicen actividades educativas y de formación de cualquier tipo, nivel y grado."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.3 e) de la Ley 8/2011, la ley se aplica a las entidades privadas que:",
+     "opciones": [
+      "Empleen a más de doscientas cincuenta personas en la Comunidad Autónoma de Extremadura.",
+      "Hayan sido sancionadas por resolución firme por infracciones en materia de igualdad.",
+      "Suscriban convenios con las Administraciones Públicas de Extremadura o reciban sus ayudas."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 2.3 e): entidades privadas que suscriban contratos o convenios o sean beneficiarias de ayudas o subvenciones."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿A cuál de estos sujetos NO se refiere expresamente el art. 2.3 de la Ley 8/2011?",
+     "opciones": [
+      "A los partidos políticos con representación en la Asamblea de Extremadura.",
+      "A las entidades que integran la Administración Local y sus organismos autónomos.",
+      "A la Universidad de Extremadura y a las entidades educativas y formativas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.3: no se cita a los partidos políticos; sí a la Administración Local, la Universidad y las entidades educativas."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a3-principios",
+   "bloque": "a3",
+   "apartado": "",
+   "orden": 150,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 3 de la Ley 8/2011, ¿de quién son los principios generales de actuación que enumera?",
+    "respuesta": "De los poderes públicos de Extremadura, en el marco de sus competencias."
+   },
+   "cita": "los principios generales de actuación de los poderes públicos de Extremadura, en el marco de sus competencias",
+   "confundible_con": [
+    "LIEXT-a3-10-perspectiva"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3 de la Ley 8/2011, los principios generales de actuación que enumera lo son de:",
+     "opciones": [
+      "Los poderes públicos de Extremadura",
+      "Las entidades privadas extremeñas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3: son principios generales de actuación de los poderes públicos de Extremadura."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3 de la Ley 8/2011, los principios generales de actuación obligan a los poderes públicos de Extremadura:",
+     "opciones": [
+      "Con independencia de sus competencias.",
+      "Únicamente en el ámbito de la Junta.",
+      "En el marco de sus propias competencias."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3: rigen en el marco de las competencias de los poderes públicos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Para qué enumera el art. 3 de la Ley 8/2011 los principios generales de actuación?",
+     "opciones": [
+      "Para lograr los objetivos que persigue la propia ley.",
+      "Para determinar las sanciones aplicables a su incumplimiento.",
+      "Para repartir competencias con la Administración Local."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3: se enumeran para lograr los objetivos de la ley."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a3-1-igualdad-trato",
+   "bloque": "a3",
+   "apartado": "1",
+   "orden": 160,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.1 de la Ley 8/2011, ¿qué proscribe el principio de igualdad de trato entre mujeres y hombres?",
+    "respuesta": "Cualquier discriminación, directa o indirecta, por razón de sexo, en todos los ámbitos de la vida."
+   },
+   "cita": "proscribe cualquier discriminación, directa o indirecta, por razón de sexo, en todos los ámbitos de la vida",
+   "confundible_con": [
+    "LIEXT-a4-1-discriminacion-directa",
+    "LIEXT-a3-2-igualdad-oportunidades"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.1 de la Ley 8/2011, la igualdad de trato proscribe cualquier discriminación por razón de sexo, directa o:",
+     "opciones": [
+      "Intencional",
+      "Indirecta"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.1: proscribe cualquier discriminación, directa o indirecta, por razón de sexo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.1 de la Ley 8/2011, la igualdad de trato proscribe la discriminación por razón de sexo, singularmente en las esferas:",
+     "opciones": [
+      "Económica, social, laboral, sanitaria y deportiva.",
+      "Política, social, laboral, jurídica y educativa.",
+      "Económica, social, laboral, cultural y educativa."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.1: singularmente en las esferas económica, social, laboral, cultural y educativa."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué prohíbe el principio de igualdad de trato del art. 3.1 de la Ley 8/2011?",
+     "opciones": [
+      "Toda discriminación por razón de sexo, directa o indirecta, en cualquier ámbito.",
+      "Únicamente la discriminación directa por razón de sexo en el ámbito laboral.",
+      "Cualquier diferencia de trato, incluso la que sea una acción positiva."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.1: cualquier discriminación directa o indirecta en todos los ámbitos de la vida."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a3-2-igualdad-oportunidades",
+   "bloque": "a3",
+   "apartado": "2",
+   "orden": 170,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.2 de la Ley 8/2011, ¿qué obligación impone a los poderes públicos la igualdad de oportunidades?",
+    "respuesta": "Adoptar las medidas oportunas para garantizar el acceso y el ejercicio efectivo de los derechos y para eliminar la discriminación."
+   },
+   "cita": "la obligación de adoptar las medidas oportunas para garantizar el acceso y el ejercicio efectivo de los derechos políticos, civiles, económicos, sociales, laborales y culturales y para eliminar la discriminación",
+   "confundible_con": [
+    "LIEXT-a3-1-igualdad-trato",
+    "LIEXT-a3-8-accion-positiva"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.2 de la Ley 8/2011, las medidas oportunas se adoptan para garantizar el acceso y el ejercicio efectivo de los derechos y para:",
+     "opciones": [
+      "Eliminar la discriminación",
+      "Compensar los costes de la crianza"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.2: adoptar medidas oportunas para garantizar el acceso y ejercicio de los derechos y eliminar la discriminación."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.2 de la Ley 8/2011, las medidas garantizan el acceso y ejercicio efectivo de los derechos:",
+     "opciones": [
+      "Civiles, económicos, sociales, laborales, culturales y deportivos.",
+      "Políticos, civiles, mercantiles, sociales, laborales y culturales.",
+      "Políticos, civiles, económicos, sociales, laborales y culturales."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.2: derechos políticos, civiles, económicos, sociales, laborales y culturales."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué obligación impone a los poderes públicos de Extremadura el principio de igualdad de oportunidades del art. 3.2?",
+     "opciones": [
+      "Adoptar medidas que garanticen el acceso y el ejercicio efectivo de los derechos y eliminen la discriminación.",
+      "Limitarse a proclamar la igualdad formal ante la ley sin adoptar medidas concretas de ningún tipo.",
+      "Adoptar medidas únicamente cuando exista una reclamación individual previa de la persona afectada."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.2: obligación positiva de adoptar medidas, sin exigir reclamación previa."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a3-3-brecha-sociedad-informacion",
+   "bloque": "a3",
+   "apartado": "3",
+   "orden": 180,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.3 de la Ley 8/2011, ¿en qué ámbito se plantea la ruptura de la brecha de género como principio general?",
+    "respuesta": "En la Sociedad de la Información, el Conocimiento y la Imaginación."
+   },
+   "cita": "La ruptura de la brecha de género en la Sociedad de la Información, el Conocimiento y la Imaginación",
+   "confundible_con": [
+    "LIEXT-a3-10-perspectiva"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.3 de la Ley 8/2011, la ruptura de la brecha de género se plantea:",
+     "opciones": [
+      "En la Sociedad de la Información, la Innovación y la Cultura.",
+      "En la Sociedad de la Información, el Conocimiento y la Imaginación."
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.3: brecha de género en la Sociedad de la Información, el Conocimiento y la Imaginación."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.3 de la Ley 8/2011, los poderes públicos priorizan las implicaciones del género en la construcción de la Sociedad de la Información, el Conocimiento y la Imaginación como paradigma de desarrollo:",
+     "opciones": [
+      "Sostenible",
+      "Territorial",
+      "Estratégico"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.3: paradigma de desarrollo estratégico."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué persigue la priorización del art. 3.3 de la Ley 8/2011 respecto de las implicaciones de género?",
+     "opciones": [
+      "La supresión de cualquier tipo de discriminación y el fomento de la igualdad.",
+      "La reducción exclusiva de la brecha salarial en el sector tecnológico.",
+      "La creación de un registro de empresas del sector tecnológico."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.3: supresión de cualquier tipo de discriminación y fomento de la igualdad entre mujeres y hombres."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a3-4-diversidad",
+   "bloque": "a3",
+   "apartado": "4",
+   "orden": 190,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.4 de la Ley 8/2011, ¿qué implica el respeto a la diversidad y a la diferencia para los poderes públicos?",
+    "respuesta": "Facilitar los medios necesarios para que la igualdad entre mujeres y hombres se materialice, respetando las diferencias entre ellos y dentro de cada colectivo."
+   },
+   "cita": "con respeto tanto a la diversidad y a las diferencias existentes entre mujeres y hombres en cuanto a su biología, condiciones de vida, aspiraciones y necesidades",
+   "confundible_con": [
+    "LIEXT-a3-11-interseccionalidad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.4 de la Ley 8/2011, se respetan las diferencias entre mujeres y hombres y también:",
+     "opciones": [
+      "La diversidad y las diferencias existentes dentro de los colectivos de mujeres y de hombres",
+      "La uniformidad de necesidades y aspiraciones dentro de los colectivos de mujeres y de hombres"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.4: respeto a la diversidad y diferencias entre mujeres y hombres y dentro de sus colectivos."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.4 de la Ley 8/2011, las diferencias entre mujeres y hombres que se respetan se refieren a su biología, condiciones de vida, aspiraciones y:",
+     "opciones": [
+      "Capacidades",
+      "Ingresos",
+      "Necesidades"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.4: biología, condiciones de vida, aspiraciones y necesidades."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué implica el principio de respeto a la diversidad del art. 3.4 de la Ley 8/2011 para los poderes públicos?",
+     "opciones": [
+      "Facilitar los medios necesarios para que la igualdad entre mujeres y hombres se materialice.",
+      "Tratar de manera idéntica a todas las personas, sin atender a sus diferencias biológicas ni vitales.",
+      "Reservar los recursos solo a los colectivos con mayor riesgo de exclusión social y económica."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.4: los poderes públicos facilitan los medios para que la igualdad se materialice."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a3-5-roles-estereotipos",
+   "bloque": "a3",
+   "apartado": "5",
+   "orden": 200,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.5 de la Ley 8/2011, ¿qué promoverán los poderes públicos de Extremadura respecto de los roles y estereotipos?",
+    "respuesta": "La eliminación de los roles sociales y estereotipos en función del sexo."
+   },
+   "cita": "promoverán la eliminación de los roles sociales y estereotipos en función del sexo sobre los que se asienta la desigualdad entre mujeres y hombres",
+   "confundible_con": [
+    "LIEXT-a3-9-lenguaje"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.5 de la Ley 8/2011, se promueve la eliminación de los roles sociales y estereotipos en función del:",
+     "opciones": [
+      "Origen",
+      "Sexo"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.5: eliminación de roles sociales y estereotipos en función del sexo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.5 de la Ley 8/2011, los roles y estereotipos que se eliminan son aquellos sobre los que se asienta:",
+     "opciones": [
+      "La discriminación salarial del sector privado",
+      "La baja natalidad de la población rural",
+      "La desigualdad entre mujeres y hombres"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.5: son los que sustentan la desigualdad entre mujeres y hombres."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué deben hacer los poderes públicos con los roles sociales y estereotipos por razón de sexo, según el art. 3.5?",
+     "opciones": [
+      "Promover que desaparezcan de la sociedad.",
+      "Mantenerlos por su valor cultural y social.",
+      "Visibilizarlos sin buscar su eliminación."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.5: los poderes públicos promoverán su eliminación."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a3-6-maternidad",
+   "bloque": "a3",
+   "apartado": "6",
+   "orden": 210,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.6 de la Ley 8/2011, ¿cómo se reconoce la maternidad y cómo se considera la paternidad?",
+    "respuesta": "La maternidad como un valor social, evitando efectos negativos en los derechos de las mujeres; la paternidad, en un contexto familiar y social de corresponsabilidad."
+   },
+   "cita": "El reconocimiento de la maternidad como un valor social, evitando los efectos negativos en los derechos de las mujeres, y la consideración de la paternidad en un contexto familiar y social de corresponsabilidad",
+   "confundible_con": [
+    "LIEXT-a3-7-corresponsabilidad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.6 de la Ley 8/2011, la maternidad se reconoce como un valor:",
+     "opciones": [
+      "Social",
+      "Económico"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.6: la maternidad como valor social."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.6 de la Ley 8/2011, la paternidad se considera en un contexto familiar y social de:",
+     "opciones": [
+      "Subsidiariedad",
+      "Complementariedad",
+      "Corresponsabilidad"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.6: paternidad en un contexto de corresponsabilidad, de acuerdo con los nuevos modelos de familia."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué debe evitarse al reconocer la maternidad como valor social, según el art. 3.6 de la Ley 8/2011?",
+     "opciones": [
+      "Los efectos negativos en los derechos de las mujeres.",
+      "Los efectos negativos sobre el empleo de los hombres.",
+      "Los efectos negativos en la natalidad regional."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.6: se evitan los efectos negativos en los derechos de las mujeres."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a3-7-corresponsabilidad",
+   "bloque": "a3",
+   "apartado": "7",
+   "orden": 220,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.7 de la Ley 8/2011, ¿cómo se entiende la corresponsabilidad?",
+    "respuesta": "Como el reparto equilibrado entre mujeres y hombres de las responsabilidades familiares, las tareas domésticas y el cuidado de las personas en situación de dependencia."
+   },
+   "cita": "El fomento de la corresponsabilidad, entendida como reparto equilibrado entre mujeres y hombres de las responsabilidades familiares, las tareas domésticas y el cuidado de las personas en situación de dependencia",
+   "confundible_con": [
+    "LIEXT-a3-6-maternidad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.7 de la Ley 8/2011, la corresponsabilidad es el reparto equilibrado de las responsabilidades familiares, las tareas domésticas y:",
+     "opciones": [
+      "La administración económica de los bienes del hogar",
+      "El cuidado de las personas en situación de dependencia"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.7: reparto equilibrado de responsabilidades familiares, tareas domésticas y cuidado de personas dependientes."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.7 de la Ley 8/2011, los poderes públicos adoptarán las medidas necesarias para permitir la compatibilidad efectiva entre responsabilidades:",
+     "opciones": [
+      "Laborales, fiscales y personales.",
+      "Sociales, familiares y profesionales.",
+      "Laborales, familiares y personales."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.7: compatibilidad entre responsabilidades laborales, familiares y personales."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cómo define el art. 3.7 de la Ley 8/2011 el fomento de la corresponsabilidad?",
+     "opciones": [
+      "Como el reparto equilibrado entre mujeres y hombres de las responsabilidades familiares y de cuidado.",
+      "Como la asunción prioritaria por las mujeres de las responsabilidades familiares con apoyo económico público.",
+      "Como la obligación de las empresas de conceder permisos retribuidos a todas las familias con hijos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.7: reparto equilibrado entre mujeres y hombres, no asunción prioritaria por las mujeres."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a3-8-accion-positiva",
+   "bloque": "a3",
+   "apartado": "8",
+   "orden": 230,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.8 de la Ley 8/2011, ¿en qué consiste el principio de acción positiva?",
+    "respuesta": "En adoptar medidas específicas a favor de las mujeres para corregir situaciones patentes de desigualdad de hecho respecto de los hombres."
+   },
+   "cita": "los poderes públicos adoptarán medidas específicas a favor de las mujeres para corregir situaciones patentes de desigualdad de hecho respecto de los hombres",
+   "confundible_con": [
+    "LIEXT-a3-2-igualdad-oportunidades"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.8 de la Ley 8/2011, las medidas de acción positiva serán aplicables en tanto subsistan las situaciones de desigualdad de:",
+     "opciones": [
+      "Hecho",
+      "Derecho"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.8: se aplican en tanto subsistan situaciones de desigualdad de hecho."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.8 de la Ley 8/2011, las medidas de acción positiva habrán de ser, en relación con el objetivo perseguido en cada caso:",
+     "opciones": [
+      "Temporales y limitadas a cuatro años.",
+      "Uniformes en todos los ámbitos.",
+      "Razonables y proporcionadas."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.8: habrán de ser razonables y proporcionadas en relación con el objetivo perseguido."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿A favor de quién y para qué adoptan los poderes públicos las medidas de acción positiva del art. 3.8 de la Ley 8/2011?",
+     "opciones": [
+      "A favor de las mujeres, para corregir situaciones patentes de desigualdad de hecho.",
+      "A favor de ambos sexos por igual, para fomentar la conciliación en el empleo.",
+      "A favor de las mujeres, para sancionar a las empresas que incumplan la igualdad."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.8: medidas específicas a favor de las mujeres para corregir desigualdades patentes de hecho."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a3-9-lenguaje",
+   "bloque": "a3",
+   "apartado": "9",
+   "orden": 240,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.9 de la Ley 8/2011, ¿qué medidas se adoptarán respecto del lenguaje y la imagen de mujeres y hombres?",
+    "respuesta": "Las necesarias para suprimir el uso sexista del lenguaje y garantizar una imagen de mujeres y hombres fundamentada en la igualdad de sexos."
+   },
+   "cita": "la supresión del uso sexista del lenguaje y la promoción y garantía de la utilización de una imagen de las mujeres y los hombres, fundamentada en la igualdad de sexos",
+   "confundible_con": [
+    "LIEXT-a4-9-lenguaje-no-sexista"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.9 de la Ley 8/2011, se adoptan medidas para la supresión del uso sexista del:",
+     "opciones": [
+      "Espacio público",
+      "Lenguaje"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.9: supresión del uso sexista del lenguaje."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.9 de la Ley 8/2011, la imagen de mujeres y hombres debe fundamentarse en la igualdad de sexos en todos los ámbitos de la:",
+     "opciones": [
+      "Vida laboral y académica",
+      "Vida institucional y política",
+      "Vida pública y privada"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.9: igualdad de sexos en todos los ámbitos de la vida pública y privada."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué medidas ordena el art. 3.9 de la Ley 8/2011?",
+     "opciones": [
+      "Suprimir el uso sexista del lenguaje y garantizar una imagen basada en la igualdad de sexos.",
+      "Prohibir toda publicidad institucional en la que aparezcan imágenes de mujeres o de hombres.",
+      "Imponer a toda la ciudadanía un manual de lenguaje obligatorio elaborado por la Junta."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.9: supresión del lenguaje sexista y garantía de una imagen basada en la igualdad."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a3-10-perspectiva",
+   "bloque": "a3",
+   "apartado": "10",
+   "orden": 250,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.10 de la Ley 8/2011, ¿en qué fases y niveles se integra la perspectiva de género?",
+    "respuesta": "En todas las políticas y acciones, a todos los niveles y en todas sus fases de diagnóstico, planificación, ejecución y evaluación."
+   },
+   "cita": "todas las políticas y acciones, a todos los niveles y en todas sus fases de diagnóstico, planificación, ejecución y evaluación",
+   "confundible_con": [
+    "LIEXT-a3-11-interseccionalidad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.10 de la Ley 8/2011, la perspectiva de género se integra en todas las fases de diagnóstico, planificación, ejecución y:",
+     "opciones": [
+      "Evaluación",
+      "Fiscalización"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.10: diagnóstico, planificación, ejecución y evaluación."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.10 de la Ley 8/2011, la integración supone la consideración sistemática de las diferentes situaciones, condiciones, aspiraciones y:",
+     "opciones": [
+      "Capacidades de mujeres y hombres",
+      "Recursos de mujeres y hombres",
+      "Necesidades de mujeres y hombres"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.10: situaciones, condiciones, aspiraciones y necesidades de mujeres y hombres."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas fases NO figura entre las del art. 3.10 de la Ley 8/2011?",
+     "opciones": [
+      "Sanción de las desigualdades detectadas.",
+      "Diagnóstico de la situación de partida.",
+      "Planificación de las actuaciones."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.10: las fases son diagnóstico, planificación, ejecución y evaluación; no hay fase de sanción."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a3-11-interseccionalidad",
+   "bloque": "a3",
+   "apartado": "11",
+   "orden": 260,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.11 de la Ley 8/2011, ¿qué comprende el principio de interseccionalidad?",
+    "respuesta": "Las técnicas de análisis y planificación que tienen en cuenta la interacción entre el género y otros factores de discriminación."
+   },
+   "cita": "las técnicas de análisis y planificación que tienen en cuenta la interacción que se produce entre el género y otros factores de discriminación",
+   "confundible_con": [
+    "LIEXT-a3-4-diversidad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.11 de la Ley 8/2011, la interseccionalidad tiene en cuenta la interacción entre el género y otros factores de:",
+     "opciones": [
+      "Desarrollo",
+      "Discriminación"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.11: interacción entre el género y otros factores de discriminación."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.11 de la Ley 8/2011, la interseccionalidad busca atender a la diversidad de las mujeres mediante mecanismos antidiscriminación de acción:",
+     "opciones": [
+      "Sectorial",
+      "Subsidiaria",
+      "Integral"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.11: mecanismos antidiscriminación de acción integral."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué comprende el principio de interseccionalidad del art. 3.11 de la Ley 8/2011?",
+     "opciones": [
+      "Técnicas de análisis y planificación sobre la interacción del género con otros factores de discriminación.",
+      "Técnicas de selección de personal que otorgan prioridad a las mujeres con alguna discapacidad.",
+      "Técnicas de evaluación presupuestaria que cuantifican por separado el gasto público en igualdad."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.11: técnicas de análisis y planificación sobre la interacción de factores de discriminación."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a3-12-representacion-equilibrada",
+   "bloque": "a3",
+   "apartado": "12",
+   "orden": 270,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.12 de la Ley 8/2011, ¿qué medidas adoptarán los poderes públicos extremeños en materia de representación equilibrada?",
+    "respuesta": "Las necesarias para lograr una presencia equilibrada de mujeres y hombres en los ámbitos de toma de decisiones, órganos de representación y candidaturas a la Asamblea."
+   },
+   "cita": "lograr una presencia equilibrada de mujeres y hombres en los distintos ámbitos de toma de decisiones",
+   "confundible_con": [
+    "LIEXT-a4-4-representacion-equilibrada"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.12 de la Ley 8/2011, la representación equilibrada alcanza también a las candidaturas a las elecciones a:",
+     "opciones": [
+      "La Asamblea de Extremadura",
+      "El Congreso de los Diputados"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.12: presencia equilibrada en los distintos ámbitos de toma de decisiones."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.12 de la Ley 8/2011, los poderes públicos buscan una presencia equilibrada de mujeres y hombres en los distintos ámbitos de:",
+     "opciones": [
+      "Gestión presupuestaria",
+      "Negociación colectiva",
+      "Toma de decisiones"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.12: incluye las candidaturas a las elecciones a la Asamblea de Extremadura."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué órganos cita el art. 3.12 de la Ley 8/2011 para fomentar la participación o composición equilibrada?",
+     "opciones": [
+      "Los distintos órganos de representación y de toma de decisiones.",
+      "Exclusivamente los órganos de dirección de las empresas privadas.",
+      "Solo los tribunales de selección del empleo público."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.12: órganos de representación y de toma de decisiones."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a3-13-medio-rural",
+   "bloque": "a3",
+   "apartado": "13",
+   "orden": 280,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.13 de la Ley 8/2011, ¿qué se garantiza de forma especial a las mujeres que viven en el medio rural?",
+    "respuesta": "Sus derechos, favoreciendo su incorporación a la vida laboral, su acceso a la formación y su participación en el desarrollo sostenible de su entorno."
+   },
+   "cita": "La especial atención y garantía de los derechos de las mujeres que viven en el medio rural",
+   "confundible_con": [
+    "LIEXT-a3-16-empleo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.13 de la Ley 8/2011, se garantiza especialmente los derechos de las mujeres que viven en el medio:",
+     "opciones": [
+      "Urbano",
+      "Rural"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.13: especial atención y garantía de los derechos de las mujeres del medio rural."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.13 de la Ley 8/2011, la atención a las mujeres del medio rural favorece, en particular, su incorporación a la vida:",
+     "opciones": [
+      "Política",
+      "Asociativa",
+      "Laboral"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.13: favorecer, en particular, su incorporación a la vida laboral."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué busca garantizar el art. 3.13 de la Ley 8/2011 a las mujeres del medio rural, además de su incorporación a la vida laboral?",
+     "opciones": [
+      "Su acceso a la formación y su participación en el desarrollo sostenible de su entorno.",
+      "Su acceso a una renta mínima y a la titularidad exclusiva de las explotaciones agrarias.",
+      "Su prioridad en la adjudicación de viviendas protegidas y ayudas al transporte."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.13: acceso a la formación y participación en el desarrollo sostenible de su entorno."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a3-14-coordinacion",
+   "bloque": "a3",
+   "apartado": "14",
+   "orden": 290,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.14 de la Ley 8/2011, ¿qué obligación tienen los poderes públicos extremeños en materia de igualdad y violencia de género?",
+    "respuesta": "Colaborar y coordinar sus actuaciones en materia de igualdad entre mujeres y hombres y contra la violencia de género."
+   },
+   "cita": "tienen la obligación de colaborar y coordinar sus actuaciones en materia de igualdad entre mujeres y hombres y contra la violencia de género",
+   "confundible_con": [
+    "LIEXT-a3-18-proximidad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.14 de la Ley 8/2011, los poderes públicos tienen la obligación de colaborar y:",
+     "opciones": [
+      "Coordinar sus actuaciones",
+      "Delegar sus competencias"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.14: obligación de colaborar y coordinar sus actuaciones."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.14 de la Ley 8/2011, la coordinación y colaboración busca intervenciones más eficaces y acordes con una utilización racional de los:",
+     "opciones": [
+      "Plazos",
+      "Contratos",
+      "Recursos"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.14: para que las intervenciones sean más eficaces y acordes con una utilización racional de los recursos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿En qué materias obliga el art. 3.14 de la Ley 8/2011 a colaborar y coordinar las actuaciones?",
+     "opciones": [
+      "En igualdad entre mujeres y hombres y contra la violencia de género.",
+      "Solo en violencia de género y no en igualdad entre mujeres y hombres.",
+      "En igualdad y en seguridad ciudadana, sin incluir la violencia de género."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.14: materias de igualdad entre mujeres y hombres y contra la violencia de género."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a3-15-relaciones-particulares",
+   "bloque": "a3",
+   "apartado": "15",
+   "orden": 300,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.15 de la Ley 8/2011, ¿qué se impulsa en las relaciones entre particulares?",
+    "respuesta": "La efectividad del principio de igualdad."
+   },
+   "cita": "El impulso de la efectividad del principio de igualdad en las relaciones entre particulares",
+   "confundible_con": [
+    "LIEXT-a3-1-igualdad-trato"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.15 de la Ley 8/2011, se impulsa la efectividad del principio de igualdad en las relaciones entre:",
+     "opciones": [
+      "Administraciones",
+      "Particulares"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.15: impulso de la efectividad del principio de igualdad."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.15 de la Ley 8/2011, en las relaciones entre particulares se impulsa:",
+     "opciones": [
+      "La mediación en los conflictos laborales",
+      "La inspección de los contratos privados",
+      "La efectividad del principio de igualdad"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.15: en las relaciones entre particulares."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿En qué tipo de relaciones se centra el impulso de la efectividad del principio de igualdad del art. 3.15 de la Ley 8/2011?",
+     "opciones": [
+      "En las relaciones jurídicas entre particulares.",
+      "En las relaciones entre las Administraciones Públicas.",
+      "En las relaciones entre la Junta y la Asamblea."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.15: relaciones entre particulares, no entre Administraciones ni entre instituciones."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a3-16-empleo",
+   "bloque": "a3",
+   "apartado": "16",
+   "orden": 310,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.16 de la Ley 8/2011, ¿qué aspectos del ámbito laboral deben asegurar la igualdad entre hombres y mujeres?",
+    "respuesta": "El acceso al empleo, la formación, la promoción profesional, la igualdad salarial y las condiciones de trabajo."
+   },
+   "cita": "la igualdad entre hombres y mujeres en lo que se refiere al acceso al empleo, a la formación, promoción profesional, igualdad salarial y a las condiciones de trabajo",
+   "confundible_con": [
+    "LIEXT-a3-13-medio-rural"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.16 de la Ley 8/2011, se aseguran la igualdad en el acceso al empleo, la formación, la promoción profesional, la igualdad salarial y:",
+     "opciones": [
+      "Las condiciones de trabajo",
+      "El régimen de jubilación"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.16: acceso al empleo, formación, promoción profesional, igualdad salarial y condiciones de trabajo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.16 de la Ley 8/2011, entre los aspectos en que se asegura la igualdad figura:",
+     "opciones": [
+      "La movilidad geográfica",
+      "La libertad de afiliación",
+      "La igualdad salarial"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.16: la igualdad salarial figura expresamente."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos aspectos NO se menciona en el art. 3.16 de la Ley 8/2011?",
+     "opciones": [
+      "El acceso a la vivienda",
+      "La promoción profesional",
+      "El acceso al empleo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.16: no cita el acceso a la vivienda."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a3-17-instrumentos-violencia",
+   "bloque": "a3",
+   "apartado": "17",
+   "orden": 320,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.17 de la Ley 8/2011, ¿con qué fin se prevé dotar a los poderes públicos de Extremadura de instrumentos necesarios?",
+    "respuesta": "Erradicar la violencia de género en los ámbitos preventivo, educativo, formativo, de los medios de comunicación, laboral, social y de atención como servicio público."
+   },
+   "cita": "dotar a los poderes públicos de Extremadura de los instrumentos necesarios para erradicar la violencia de género en los ámbitos preventivo, educativo, formativo, de los medios de comunicación, laboral, social y atención como servicio público, todo ello bajo el principio de transversalidad",
+   "confundible_con": [
+    "LIEXT-a3-18-proximidad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.17 de la Ley 8/2011, los instrumentos contra la violencia de género se prevén bajo el principio de:",
+     "opciones": [
+      "Especialidad",
+      "Transversalidad"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.17: todo ello bajo el principio de transversalidad."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.17 de la Ley 8/2011, la previsión de dotar a los poderes públicos de instrumentos necesarios tiene por finalidad:",
+     "opciones": [
+      "Registrar y cuantificar los casos de violencia de género",
+      "Reparar económicamente los daños de la violencia de género",
+      "Erradicar la violencia de género en distintos ámbitos"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.17: instrumentos necesarios para erradicar la violencia de género."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos ámbitos NO se cita en el art. 3.17 de la Ley 8/2011 para erradicar la violencia de género?",
+     "opciones": [
+      "El ámbito judicial",
+      "El ámbito laboral",
+      "El ámbito formativo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.17: ámbitos preventivo, educativo, formativo, medios de comunicación, laboral, social y atención como servicio público; no el judicial."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a3-18-proximidad",
+   "bloque": "a3",
+   "apartado": "18",
+   "orden": 330,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.18 de la Ley 8/2011, ¿qué se garantiza respecto de las intervenciones en casos de violencia de género?",
+    "respuesta": "La proximidad y el equilibrio de las intervenciones en el territorio y la necesaria celeridad de la intervención."
+   },
+   "cita": "La garantía de la proximidad y el equilibrio de las intervenciones en casos de violencia de género en el territorio y la necesaria celeridad de esa intervención",
+   "confundible_con": [
+    "LIEXT-a3-14-coordinacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.18 de la Ley 8/2011, se garantiza la proximidad y el equilibrio de las intervenciones en el:",
+     "opciones": [
+      "Territorio",
+      "Presupuesto"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.18: proximidad y equilibrio de las intervenciones en el territorio."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.18 de la Ley 8/2011, la celeridad de la intervención posibilita una adecuada atención y evita el incremento de la:",
+     "opciones": [
+      "Reincidencia",
+      "Desprotección",
+      "Victimización"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.18: la celeridad evita el incremento de la victimización."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué garantiza el art. 3.18 de la Ley 8/2011 respecto de las intervenciones en casos de violencia de género?",
+     "opciones": [
+      "Proximidad, equilibrio territorial y celeridad.",
+      "Gratuidad, confidencialidad y obligatoriedad.",
+      "Centralización, uniformidad y reserva de datos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.18: proximidad, equilibrio en el territorio y celeridad."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a4-1-discriminacion-directa",
+   "bloque": "a4",
+   "apartado": "1",
+   "orden": 340,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.1 de la Ley 8/2011, ¿qué se entiende por discriminación directa?",
+    "respuesta": "La situación en que una persona, en atención a su sexo, sea, haya sido o pudiera ser tratada de manera menos favorable que otra en situación homóloga."
+   },
+   "cita": "la situación en que se encuentra una persona que, en atención a su sexo, sea, haya sido o pudiera ser tratada de manera menos favorable que otra en situación homóloga",
+   "confundible_con": [
+    "LIEXT-a4-2-discriminacion-indirecta",
+    "LIEXT-a4-3-embarazo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.1 de la Ley 8/2011, en la discriminación directa una persona, en atención a su sexo, es tratada de manera:",
+     "opciones": [
+      "Más rigurosa que otra en situación distinta",
+      "Menos favorable que otra en situación homóloga"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.1: trato menos favorable que otra persona en situación homóloga."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.1 de la Ley 8/2011, en la discriminación directa la persona es tratada de manera menos favorable que otra en situación:",
+     "opciones": [
+      "Subordinada",
+      "Sobrevenida",
+      "Homóloga"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.1: la comparación se hace con otra persona en situación homóloga."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas situaciones responde a la definición de discriminación directa del art. 4.1 de la Ley 8/2011?",
+     "opciones": [
+      "Que una persona pudiera ser tratada, en atención a su sexo, de manera menos favorable que otra en situación homóloga.",
+      "Que una disposición aparentemente neutra perjudique a las personas de un sexo, aun con finalidad legítima y medios adecuados.",
+      "Que una candidatura incumpla la proporción del cuarenta por ciento de personas de cada sexo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.1: incluye a quien sea, haya sido o pudiera ser tratada de manera menos favorable por su sexo."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a4-2-discriminacion-indirecta",
+   "bloque": "a4",
+   "apartado": "2",
+   "orden": 350,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.2 de la Ley 8/2011, ¿qué se entiende por discriminación indirecta?",
+    "respuesta": "La situación en que una disposición, criterio o práctica aparentemente neutros pone a las personas de un sexo en desventaja particular respecto de las del otro, salvo justificación objetiva."
+   },
+   "cita": "la aplicación de una disposición, criterio o práctica aparentemente neutros pone a las personas de un sexo en desventaja particular con respecto a las personas del otro",
+   "confundible_con": [
+    "LIEXT-a4-1-discriminacion-directa"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.2 de la Ley 8/2011, hay discriminación indirecta salvo que la disposición neutra se justifique objetivamente en atención a una finalidad:",
+     "opciones": [
+      "Legítima",
+      "Económica"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.2: disposición, criterio o práctica aparentemente neutros que ponen a un sexo en desventaja particular."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.2 de la Ley 8/2011, la disposición aparentemente neutra queda justificada si los medios para alcanzar la finalidad legítima son:",
+     "opciones": [
+      "Gratuitos y voluntarios",
+      "Temporales y excepcionales",
+      "Necesarios y adecuados"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.2: salvo justificación objetiva con finalidad legítima y medios necesarios y adecuados."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas situaciones NO constituye discriminación indirecta según el art. 4.2 de la Ley 8/2011?",
+     "opciones": [
+      "Una práctica aparentemente neutra justificada objetivamente por una finalidad legítima, con medios necesarios y adecuados.",
+      "Un criterio aparentemente neutro que sitúa a las mujeres en desventaja particular, sin justificación objetiva.",
+      "Una disposición aparentemente neutra que sitúa a los hombres en desventaja particular, sin justificación objetiva."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.2: la desventaja puede afectar a las personas de cualquier sexo; si hay justificación objetiva, no es discriminación indirecta."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a4-3-embarazo",
+   "bloque": "a4",
+   "apartado": "3",
+   "orden": 360,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.3 de la Ley 8/2011, ¿qué calificación tiene el trato desfavorable relacionado con el embarazo, la maternidad o la paternidad?",
+    "respuesta": "Constituye discriminación directa por razón de sexo."
+   },
+   "cita": "cualquier tipo de trato desfavorable relacionado con el embarazo, la maternidad o la paternidad constituye discriminación directa por razón de sexo",
+   "confundible_con": [
+    "LIEXT-a4-1-discriminacion-directa"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.3 de la Ley 8/2011, el trato desfavorable relacionado con el embarazo, la maternidad o la paternidad constituye discriminación:",
+     "opciones": [
+      "Indirecta por razón de sexo",
+      "Directa por razón de sexo"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.3: constituye discriminación directa por razón de sexo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.3 de la Ley 8/2011, constituye discriminación directa por razón de sexo el trato desfavorable relacionado con el embarazo, la maternidad o:",
+     "opciones": [
+      "La adopción",
+      "La lactancia",
+      "La paternidad"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.3: embarazo, maternidad o paternidad."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué calificación otorga el art. 4.3 de la Ley 8/2011 al trato desfavorable por paternidad?",
+     "opciones": [
+      "Discriminación directa por razón de sexo.",
+      "Discriminación indirecta por razón de sexo.",
+      "Acoso por razón de sexo en el trabajo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.3: el trato desfavorable por paternidad es discriminación directa, no indirecta ni acoso."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a4-4-representacion-equilibrada",
+   "bloque": "a4",
+   "apartado": "4",
+   "orden": 370,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.4 de la Ley 8/2011, ¿qué se entiende por representación equilibrada?",
+    "respuesta": "La situación en que, en el conjunto de personas de que se trate, cada sexo ni supere el sesenta por ciento ni sea menos del cuarenta por ciento."
+   },
+   "cita": "cada sexo ni supere el sesenta por ciento ni sea menos del cuarenta por ciento",
+   "confundible_con": [
+    "LIEXT-a3-12-representacion-equilibrada"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.4 de la Ley 8/2011, en la representación equilibrada cada sexo no puede superar el:",
+     "opciones": [
+      "Sesenta por ciento",
+      "Setenta por ciento"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.4: ningún sexo supera el sesenta por ciento."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.4 de la Ley 8/2011, hay representación equilibrada si cada sexo ni supere el sesenta por ciento ni sea menos del:",
+     "opciones": [
+      "Treinta por ciento",
+      "Cincuenta por ciento",
+      "Cuarenta por ciento"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.4: ningún sexo es menos del cuarenta por ciento."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "En un órgano de diez personas, ¿qué composición cumple el art. 4.4 de la Ley 8/2011?",
+     "opciones": [
+      "Cuatro mujeres y seis hombres.",
+      "Tres mujeres y siete hombres.",
+      "Dos mujeres y ocho hombres."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.4: cuatro y seis de diez son el cuarenta y el sesenta por ciento; tres y siete incumplen el mínimo."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a4-5-violencia-genero",
+   "bloque": "a4",
+   "apartado": "5",
+   "orden": 380,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.5 de la Ley 8/2011, ¿qué se entiende por violencia de género?",
+    "respuesta": "La que, como manifestación de la discriminación, la desigualdad y las relaciones de poder de los hombres sobre las mujeres, se ejerce sobre ellas por quienes sean o hayan sido sus cónyuges o parejas afectivas, aún sin convivencia."
+   },
+   "cita": "se entiende por violencia de género la que como manifestación de la discriminación, la situación de desigualdad y las relaciones de poder de los hombres sobre las mujeres, se ejerce sobre éstas por parte de quienes sean o hayan sido sus cónyuges",
+   "confundible_con": [
+    "LIEXT-a4-6-acoso-sexual"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.5 de la Ley 8/2011, la violencia de género alcanza a quienes estén o hayan estado ligados a las mujeres por relaciones similares de afectividad, aún:",
+     "opciones": [
+      "Con convivencia",
+      "Sin convivencia"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.5: incluye relaciones similares de afectividad, aún sin convivencia."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.5 de la Ley 8/2011, la definición de violencia de género se establece de conformidad con:",
+     "opciones": [
+      "La Ley Orgánica 3/2007, de 22 de marzo.",
+      "La Ley Orgánica 10/1995, de 23 de noviembre.",
+      "La Ley Orgánica 1/2004, de 28 de diciembre."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.5: de conformidad con la Ley Orgánica 1/2004, de 28 de diciembre."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Como manifestación de qué se ejerce la violencia de género según el art. 4.5 de la Ley 8/2011?",
+     "opciones": [
+      "De la discriminación, la desigualdad y las relaciones de poder de los hombres sobre las mujeres.",
+      "De los conflictos de pareja y de las dificultades de convivencia en el ámbito familiar.",
+      "De la desigualdad económica y de la dependencia laboral de las mujeres respecto de sus parejas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.5: manifestación de la discriminación, la desigualdad y las relaciones de poder de los hombres sobre las mujeres."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a4-6-acoso-sexual",
+   "bloque": "a4",
+   "apartado": "6",
+   "orden": 390,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.6 de la Ley 8/2011, ¿qué se entiende por acoso sexual?",
+    "respuesta": "Cualquier comportamiento verbal, no verbal o físico de índole sexual, con el propósito o el efecto de atentar contra la dignidad de una persona."
+   },
+   "cita": "cualquier comportamiento verbal, no verbal o físico de índole sexual, con el propósito o el efecto de atentar contra la dignidad de una persona",
+   "confundible_con": [
+    "LIEXT-a4-7-acoso-razon-sexo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.6 de la Ley 8/2011, el acoso sexual es cualquier comportamiento verbal, no verbal o físico de índole:",
+     "opciones": [
+      "Sexual",
+      "Laboral"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.6: comportamiento verbal, no verbal o físico de índole sexual."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.6 de la Ley 8/2011, el acoso sexual tiene el propósito o el efecto de atentar contra:",
+     "opciones": [
+      "La libertad de una persona",
+      "La intimidad de una persona",
+      "La dignidad de una persona"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.6: atentar contra la dignidad de una persona."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué tipo de entorno crea el acoso sexual según el art. 4.6 de la Ley 8/2011, en particular?",
+     "opciones": [
+      "Intimidatorio, hostil, degradante, humillante u ofensivo.",
+      "Competitivo, exigente, jerarquizado y disciplinado.",
+      "Tenso, conflictivo, reservado y confidencial."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.6: entorno intimidatorio, hostil, degradante, humillante u ofensivo."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a4-7-acoso-razon-sexo",
+   "bloque": "a4",
+   "apartado": "7",
+   "orden": 400,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.7 de la Ley 8/2011, ¿qué se entiende por acoso por razón de sexo?",
+    "respuesta": "La situación en que se produce un comportamiento relacionado con el sexo de una persona, con el propósito o el efecto de atentar contra su dignidad y crear un entorno intimidatorio, hostil, degradante, humillante u ofensivo."
+   },
+   "cita": "un comportamiento relacionado con el sexo de una persona, con el propósito o el efecto de atentar contra la dignidad de la persona y crear un entorno intimidatorio, hostil, degradante, humillante u ofensivo",
+   "confundible_con": [
+    "LIEXT-a4-6-acoso-sexual"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.7 de la Ley 8/2011, el acoso por razón de sexo es un comportamiento relacionado con el:",
+     "opciones": [
+      "Cargo de una persona",
+      "Sexo de una persona"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.7: comportamiento relacionado con el sexo de una persona."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.7 de la Ley 8/2011, a diferencia del acoso sexual, el acoso por razón de sexo consiste en un comportamiento:",
+     "opciones": [
+      "De índole exclusivamente física y reiterado",
+      "Dirigido únicamente a mujeres en el trabajo",
+      "Relacionado con el sexo de una persona"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.7: no exige índole sexual ni reiteración, basta que se relacione con el sexo de la persona."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 4.7 de la Ley 8/2011, además de atentar contra la dignidad, el comportamiento constitutivo de acoso por razón de sexo debe:",
+     "opciones": [
+      "Crear un entorno intimidatorio, hostil, degradante, humillante u ofensivo.",
+      "Provocar la baja laboral prolongada de la persona afectada por el acoso.",
+      "Producir un perjuicio económico acreditado para la persona afectada."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.7: atentar contra la dignidad y crear un entorno intimidatorio, hostil, degradante, humillante u ofensivo."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a4-8-condicionamiento-derecho",
+   "bloque": "a4",
+   "apartado": "8",
+   "orden": 410,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.8 de la Ley 8/2011, ¿cómo se considera el condicionamiento de un derecho a la aceptación de una situación de acoso sexual o por razón de sexo?",
+    "respuesta": "Como acto de discriminación por razón de sexo; la misma consideración tiene cualquier tipo de acoso."
+   },
+   "cita": "El condicionamiento de un derecho o de una expectativa de derecho a la aceptación de una situación constitutiva de acoso sexual o de acoso por razón de sexo se considerará acto de discriminación por razón de sexo",
+   "confundible_con": [
+    "LIEXT-a4-6-acoso-sexual",
+    "LIEXT-a4-7-acoso-razon-sexo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.8 de la Ley 8/2011, condicionar un derecho a la aceptación de un acoso sexual se considera acto de:",
+     "opciones": [
+      "Discriminación por razón de sexo",
+      "Conflicto laboral de carácter individual"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.8: se considerará acto de discriminación por razón de sexo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.8 de la Ley 8/2011, se considera acto de discriminación por razón de sexo condicionar a la aceptación de un acoso un derecho o:",
+     "opciones": [
+      "Una simple intención",
+      "Una obligación contractual",
+      "Una expectativa de derecho"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.8: derecho o expectativa de derecho."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué consideración tiene, según el art. 4.8 de la Ley 8/2011, cualquier tipo de acoso?",
+     "opciones": [
+      "La de acto de discriminación por razón de sexo.",
+      "La de falta administrativa sin relación con la igualdad.",
+      "La de conflicto interpersonal ajeno a la discriminación."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.8: cualquier tipo de acoso tiene la misma consideración de discriminación por razón de sexo."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a4-9-lenguaje-no-sexista",
+   "bloque": "a4",
+   "apartado": "9",
+   "orden": 420,
+   "tipo": "definicion",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.9 de la Ley 8/2011, ¿en qué consiste el uso no sexista del lenguaje?",
+    "respuesta": "En utilizar expresiones lingüísticamente correctas que sustituyan a otras que invisibilizan el femenino o lo sitúan en un plano secundario respecto al masculino."
+   },
+   "cita": "la utilización de expresiones lingüísticamente correctas sustitutivas de otras, correctas o no, que invisibilizan el femenino o lo sitúan en un plano secundario respecto al masculino",
+   "confundible_con": [
+    "LIEXT-a3-9-lenguaje"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.9 de la Ley 8/2011, el uso no sexista del lenguaje consiste en usar expresiones lingüísticamente:",
+     "opciones": [
+      "Coloquiales",
+      "Correctas"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.9: expresiones lingüísticamente correctas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.9 de la Ley 8/2011, las expresiones sustituidas invisibilizan el femenino o lo sitúan en un plano secundario respecto:",
+     "opciones": [
+      "Al neutro",
+      "A la lengua oficial",
+      "Al masculino"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.9: invisibilizan el femenino o lo sitúan en plano secundario respecto al masculino."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué sustituyen las expresiones del uso no sexista del lenguaje según el art. 4.9 de la Ley 8/2011?",
+     "opciones": [
+      "Otras expresiones, correctas o no, que invisibilizan el femenino.",
+      "Solo expresiones incorrectas gramaticalmente que invisibilizan el femenino.",
+      "Únicamente términos técnicos de la normativa administrativa autonómica."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.9: sustituyen a otras, correctas o no, que invisibilizan el femenino."
+    }
+   ]
+  }
+ ]
+}

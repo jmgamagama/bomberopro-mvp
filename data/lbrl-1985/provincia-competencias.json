@@ -1,0 +1,877 @@
+{
+ "norma": "BOE-A-1985-5392",
+ "documento": "LBRL",
+ "nombre_norma": "Ley 7/1985 Reguladora de las Bases del Régimen Local",
+ "abreviatura": "LBRL",
+ "hash_prefijo": "LBRL",
+ "tema": 3,
+ "tema_nombre": "Ley 7/1985 Régimen Local",
+ "bloque_temario": "Título III, Capítulo II (arts. 36-38): competencias de la Diputación",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "LBRL-a36-1-competencias-propias",
+   "bloque": "a36",
+   "apartado": "1",
+   "orden": 410,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 36.1 LBRL, ¿qué son competencias propias de la Diputación?",
+    "respuesta": "Las que le atribuyan en ese concepto las leyes del Estado y de las Comunidades Autónomas en los diferentes sectores de la acción pública y, en todo caso, las enumeradas en el propio art. 36.1."
+   },
+   "cita": "Son competencias propias de la Diputación o entidad equivalente las que le atribuyan en este concepto las leyes del Estado y de las Comunidades Autónomas en los diferentes sectores de la acción pública",
+   "confundible_con": [
+    "LBRL-a36-1-asistencia-municipios",
+    "LBRL-a37-1-delegacion-ccaa"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36.1 LBRL, son competencias propias de la Diputación las que le atribuyan las leyes del Estado y de las:",
+     "opciones": [
+      "Entidades locales menores",
+      "Comunidades Autónomas"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 36.1: leyes del Estado y de las Comunidades Autónomas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36.1.a) LBRL, ¿qué coordina la Diputación entre sí para garantizar la prestación integral y adecuada del art. 31.2.a)?",
+     "opciones": [
+      "Los servicios autonómicos.",
+      "Los servicios estatales.",
+      "Los servicios municipales."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 36.1.a): coordinación de los servicios municipales entre sí."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre las competencias propias de la Diputación es correcta según el art. 36.1 LBRL?",
+     "opciones": [
+      "Son las atribuidas por leyes estatales y autonómicas y, en todo caso, las enumeradas en el apartado.",
+      "Son solo las enumeradas en el apartado, sin que ninguna ley pueda atribuirle otras.",
+      "Son las que la Diputación asuma por acuerdo del Pleno sin necesidad de ley."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.1: atribuidas por leyes sectoriales y, en todo caso, las enumeradas."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a36-1-asistencia-municipios",
+   "bloque": "a36",
+   "apartado": "1",
+   "orden": 420,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 36.1.b) LBRL, ¿qué asistencia presta la Diputación a los Municipios y qué garantiza en los de menos de 1.000 habitantes?",
+    "respuesta": "Asistencia y cooperación jurídica, económica y técnica, especialmente a los de menor capacidad; y en los de menos de 1.000 habitantes garantiza los servicios de secretaría e intervención."
+   },
+   "cita": "La asistencia y cooperación jurídica, económica y técnica a los Municipios, especialmente los de menor capacidad económica y de gestión. En todo caso garantizará en los municipios de menos de 1.000 habitantes la prestación de los servicios de secretaría e intervención",
+   "confundible_con": [
+    "LBRL-a36-1-incendios-residuos",
+    "LBRL-a36-2-funciones-publicas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36.1.b) LBRL, la Diputación garantiza en los municipios de menos de 1.000 habitantes los servicios de secretaría e:",
+     "opciones": [
+      "Intervención",
+      "Tesorería"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.1.b): secretaría e intervención en los de menos de 1.000 habitantes."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36.1.b) LBRL, la Diputación garantiza la secretaría e intervención en los municipios de menos de:",
+     "opciones": [
+      "5.000 habitantes.",
+      "20.000 habitantes.",
+      "1.000 habitantes."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 36.1.b): el umbral es 1.000 habitantes (5.000 es residuos y 20.000 incendios, letra c)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas formas de asistencia a los Municipios es correcta según el art. 36.1.b) LBRL?",
+     "opciones": [
+      "Cooperación jurídica, económica y técnica, especialmente a los de menor capacidad económica y de gestión.",
+      "Cooperación exclusivamente económica, dirigida a los Municipios de mayor población.",
+      "Asistencia jurídica y técnica, sin cooperación económica, para todos los Municipios por igual."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.1.b): asistencia jurídica, económica y técnica, con especial atención a los de menor capacidad."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a36-1-supramunicipales",
+   "bloque": "a36",
+   "apartado": "1",
+   "orden": 430,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 36.1.c) LBRL, ¿qué corresponde a la Diputación respecto de los servicios supramunicipales?",
+    "respuesta": "La prestación de servicios públicos de carácter supramunicipal y, en su caso, supracomarcal, y el fomento o coordinación de la prestación unificada de servicios de los municipios de su ámbito territorial."
+   },
+   "cita": "La prestación de servicios públicos de carácter supramunicipal y, en su caso, supracomarcal y el fomento o, en su caso, coordinación de la prestación unificada de servicios de los municipios de su respectivo ámbito territorial",
+   "confundible_con": [
+    "LBRL-a36-1-incendios-residuos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36.1.c) LBRL, la Diputación presta servicios públicos de carácter supramunicipal y, en su caso:",
+     "opciones": [
+      "Supraautonómico",
+      "Supracomarcal"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 36.1.c): servicios supramunicipales y, en su caso, supracomarcales."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36.1.c) LBRL, la Diputación fomenta o coordina la prestación unificada de servicios de los municipios de su respectivo:",
+     "opciones": [
+      "Nivel presupuestario.",
+      "Tramo poblacional.",
+      "Ámbito territorial."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 36.1.c): ámbito territorial respectivo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones es correcta según el art. 36.1.c) LBRL?",
+     "opciones": [
+      "La Diputación puede coordinar la prestación unificada de servicios de los municipios de su ámbito.",
+      "La Diputación debe prestar todos los servicios municipales, sustituyendo a los Ayuntamientos.",
+      "La Diputación solo puede fomentar servicios autonómicos, sin coordinar los municipales."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.1.c): fomento o coordinación de la prestación unificada de servicios municipales."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a36-1-incendios-residuos",
+   "bloque": "a36",
+   "apartado": "1",
+   "orden": 440,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 36.1.c) LBRL, ¿qué servicios asume en particular la Diputación en los municipios pequeños cuando estos no los presten?",
+    "respuesta": "El tratamiento de residuos en los municipios de menos de 5.000 habitantes y la prevención y extinción de incendios en los de menos de 20.000 habitantes."
+   },
+   "cita": "En particular, asumirá la prestación de los servicios de tratamiento de residuos en los municipios de menos de 5.000 habitantes, y de prevención y extinción de incendios en los de menos de 20.000 habitantes, cuando éstos no procedan a su prestación",
+   "confundible_con": [
+    "LBRL-a36-1-supramunicipales",
+    "LBRL-a36-1-asistencia-municipios"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36.1.c) LBRL, la Diputación asume la prevención y extinción de incendios en los municipios de menos de:",
+     "opciones": [
+      "20.000 habitantes",
+      "5.000 habitantes"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.1.c): incendios en municipios de menos de 20.000 habitantes."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36.1.c) LBRL, la Diputación asume el tratamiento de residuos en los municipios de menos de:",
+     "opciones": [
+      "20.000 habitantes.",
+      "1.000 habitantes.",
+      "5.000 habitantes."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 36.1.c): residuos en municipios de menos de 5.000 habitantes."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Un municipio de 12.000 habitantes no presta el servicio de prevención y extinción de incendios ni el de tratamiento de residuos. Según el art. 36.1.c) LBRL, ¿qué debe asumir la Diputación?",
+     "opciones": [
+      "La prevención y extinción de incendios, pero no el tratamiento de residuos.",
+      "El tratamiento de residuos, pero no la prevención y extinción de incendios.",
+      "Ninguno de los dos, al superar el municipio los 5.000 habitantes."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.1.c): 12.000 habitantes: menos de 20.000 (incendios) pero más de 5.000 (residuos)."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a36-1-desarrollo-coordinacion",
+   "bloque": "a36",
+   "apartado": "1",
+   "orden": 450,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 36.1.d) y e) LBRL, ¿qué le corresponde a la Diputación en desarrollo económico y social y en coordinación?",
+    "respuesta": "La cooperación en el fomento del desarrollo económico y social y en la planificación en el territorio provincial, y las funciones de coordinación de los casos previstos en el art. 116 bis."
+   },
+   "cita": "La cooperación en el fomento del desarrollo económico y social y en la planificación en el territorio provincial, de acuerdo con las competencias de las demás Administraciones Públicas en este ámbito",
+   "confundible_con": [
+    "LBRL-a36-1-supramunicipales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36.1.e) LBRL, la Diputación ejerce funciones de coordinación en los casos previstos en el artículo:",
+     "opciones": [
+      "103 bis",
+      "116 bis"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 36.1.e): funciones de coordinación del art. 116 bis."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36.1.d) LBRL, la cooperación de la Diputación en el desarrollo económico y social se realiza de acuerdo con:",
+     "opciones": [
+      "La competencia exclusiva de los Ayuntamientos sobre el planeamiento.",
+      "Las instrucciones vinculantes del Delegado del Gobierno.",
+      "Las competencias de las demás Administraciones Públicas en este ámbito."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 36.1.d): de acuerdo con las competencias de las demás Administraciones."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones es correcta según el art. 36.1.d) LBRL?",
+     "opciones": [
+      "La Diputación coopera en el fomento del desarrollo económico y social y en la planificación.",
+      "La Diputación dirige en exclusiva la planificación económica y social de la provincia.",
+      "La Diputación sustituye a la Comunidad Autónoma en la planificación del territorio."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.1.d): cooperación en fomento y planificación, no dirección exclusiva."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a36-1-recaudacion-administracion-electronica",
+   "bloque": "a36",
+   "apartado": "1",
+   "orden": 460,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 36.1.f) y g) LBRL, ¿qué presta la Diputación en los municipios de menos de 20.000 habitantes?",
+    "respuesta": "Asistencia en la gestión de la recaudación tributaria (voluntaria y ejecutiva) y apoyo a la gestión financiera, y los servicios de administración electrónica y contratación centralizada."
+   },
+   "cita": "La prestación de los servicios de administración electrónica y la contratación centralizada en los municipios con población inferior a 20.000 habitantes",
+   "confundible_con": [
+    "LBRL-a36-1-incendios-residuos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36.1.g) LBRL, la Diputación presta la administración electrónica y la contratación centralizada en municipios con población inferior a:",
+     "opciones": [
+      "20.000 habitantes",
+      "5.000 habitantes"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.1.g): población inferior a 20.000 habitantes."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36.1.f) LBRL, la Diputación asiste en la gestión de la recaudación tributaria en periodo:",
+     "opciones": [
+      "Exclusivamente ejecutivo.",
+      "Exclusivamente voluntario.",
+      "Voluntario y ejecutivo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 36.1.f): recaudación en periodo voluntario y ejecutivo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos servicios corresponde a la Diputación en municipios con población inferior a 20.000 habitantes según el art. 36.1 LBRL?",
+     "opciones": [
+      "La contratación centralizada y la administración electrónica.",
+      "La policía local y la gestión del padrón de habitantes.",
+      "El abastecimiento de agua y el alcantarillado municipal."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.1.g): administración electrónica y contratación centralizada."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a36-1-costes-consultorios",
+   "bloque": "a36",
+   "apartado": "1",
+   "orden": 470,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 36.1.h) e i) LBRL, ¿qué le corresponde a la Diputación respecto de los costes efectivos y de los consultorios médicos?",
+    "respuesta": "Seguir los costes efectivos de los servicios municipales, ofreciendo colaboración si superan los de los servicios que ella presta, y coordinar por convenio con la Comunidad Autónoma el mantenimiento y limpieza de consultorios médicos en municipios de menos de 5000 habitantes."
+   },
+   "cita": "El seguimiento de los costes efectivos de los servicios prestados por los municipios de su provincia",
+   "confundible_con": [
+    "LBRL-a36-2-plan-costes"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36.1.i) LBRL, la Diputación coordina por convenio con la Comunidad Autónoma el mantenimiento y limpieza de los consultorios médicos en municipios de menos de:",
+     "opciones": [
+      "20.000 habitantes",
+      "5000 habitantes"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 36.1.i): consultorios médicos en municipios con población inferior a 5000 habitantes."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36.1.h) LBRL, si los costes efectivos de los servicios municipales superan a los de los servicios coordinados o prestados por la Diputación, esta:",
+     "opciones": [
+      "Asumirá directamente todos esos servicios sin consultar a los municipios.",
+      "Reclamará a los municipios la diferencia de coste mediante tasas.",
+      "Ofrecerá a los municipios su colaboración para una gestión coordinada más eficiente."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 36.1.h): ofrece colaboración para una gestión coordinada más eficiente."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones es correcta según el art. 36.1.h) e i) LBRL?",
+     "opciones": [
+      "La Diputación realiza el seguimiento de los costes efectivos de los servicios que prestan los municipios.",
+      "La Diputación presta directamente los servicios sanitarios de los consultorios médicos.",
+      "La Diputación coordina con el Estado la limpieza de consultorios en municipios de más de 5000 habitantes."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.1.h): seguimiento de costes; art. 36.1.i): convenio con la Comunidad Autónoma, no prestación directa."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a36-2-plan-provincial",
+   "bloque": "a36",
+   "apartado": "2",
+   "orden": 480,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 36.2.a) LBRL, ¿qué aprueba anualmente la Diputación y quién participa en su elaboración?",
+    "respuesta": "Un plan provincial de cooperación a las obras y servicios de competencia municipal, en cuya elaboración participan los Municipios de la Provincia."
+   },
+   "cita": "Aprueba anualmente un plan provincial de cooperación a las obras y servicios de competencia municipal, en cuya elaboración deben participar los Municipios de la Provincia",
+   "confundible_con": [
+    "LBRL-a36-2-plan-costes",
+    "LBRL-a36-2-coordinacion-planes"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36.2.a) LBRL, la Diputación aprueba cada año un plan provincial de cooperación a las obras y servicios de competencia:",
+     "opciones": [
+      "Municipal",
+      "Autonómica"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.2.a): plan anual de cooperación a obras y servicios de competencia municipal."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36.2.a) LBRL, el plan provincial puede financiarse con medios propios de la Diputación, aportaciones municipales y subvenciones de:",
+     "opciones": [
+      "La Unión Europea y el Banco de España.",
+      "Las Mancomunidades y las Comarcas.",
+      "La Comunidad Autónoma y el Estado."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 36.2.a): medios propios, aportaciones municipales y subvenciones de la Comunidad Autónoma y el Estado."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el plan provincial de cooperación es correcta según el art. 36.2.a) LBRL?",
+     "opciones": [
+      "Incluye una memoria con criterios de distribución de fondos objetivos y equitativos.",
+      "Se aprueba cada cuatro años, sin participación de los Municipios en su elaboración.",
+      "Sus criterios de reparto los fija discrecionalmente el Presidente de la Diputación."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.2.a): memoria justificativa con criterios objetivos y equitativos."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a36-2-plan-costes",
+   "bloque": "a36",
+   "apartado": "2",
+   "orden": 490,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 36.2.a) LBRL, ¿qué incluirá la Diputación en el plan provincial si detecta que los costes de los servicios municipales superan a los de los servicios prestados por ella?",
+    "respuesta": "Fórmulas de prestación unificada o supramunicipal para reducir sus costes efectivos."
+   },
+   "cita": "Cuando la Diputación detecte que los costes efectivos de los servicios prestados por los municipios son superiores a los de los servicios coordinados o prestados por ella, incluirá en el plan provincial fórmulas de prestación unificada o supramunicipal para reducir sus costes efectivos",
+   "confundible_con": [
+    "LBRL-a36-1-costes-consultorios",
+    "LBRL-a36-2-plan-provincial"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36.2.a) LBRL, el plan provincial incluirá, para reducir costes, fórmulas de prestación unificada o:",
+     "opciones": [
+      "Interprovincial",
+      "Supramunicipal"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 36.2.a) párr. 2: fórmulas de prestación unificada o supramunicipal."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36.2.a) LBRL, entre los criterios de distribución de fondos del plan provincial estará el análisis de:",
+     "opciones": [
+      "La renta per cápita de los habitantes de cada municipio.",
+      "La antigüedad de las corporaciones municipales beneficiarias.",
+      "Los costes efectivos de los servicios de los municipios."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 36.2.a): los criterios de distribución incluyen el análisis de costes efectivos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Si la Diputación detecta que los costes efectivos de los servicios municipales superan a los de los servicios que ella presta, ¿qué impone el art. 36.2.a) LBRL?",
+     "opciones": [
+      "Incluir en el plan provincial fórmulas de prestación unificada o supramunicipal.",
+      "Asumir la titularidad de los servicios y cobrar tasas a los municipios.",
+      "Suspender el plan provincial hasta que ambos costes se igualen."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.2.a) párr. 2: se incluyen fórmulas unificadas o supramunicipales en el plan."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a36-2-coordinacion-planes",
+   "bloque": "a36",
+   "apartado": "2",
+   "orden": 500,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 36.2.a) LBRL, ¿quién asegura en su territorio la coordinación de los diversos planes provinciales?",
+    "respuesta": "La Comunidad Autónoma, de acuerdo con lo previsto en el art. 59 de la Ley y sin perjuicio de las competencias reconocidas en los Estatutos de Autonomía."
+   },
+   "cita": "la Comunidad Autónoma asegura, en su territorio, la coordinación de los diversos planes provinciales",
+   "confundible_con": [
+    "LBRL-a36-2-plan-provincial"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36.2.a) LBRL, asegura la coordinación de los diversos planes provinciales en su territorio:",
+     "opciones": [
+      "La Comunidad Autónoma",
+      "Cada Diputación"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.2.a): la Comunidad Autónoma asegura la coordinación."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36.2.a) LBRL, la coordinación autonómica de los planes provinciales se realiza de acuerdo con lo previsto en el artículo:",
+     "opciones": [
+      "116 bis de la Ley.",
+      "27 de la Ley.",
+      "59 de la Ley."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 36.2.a): de acuerdo con el art. 59 de la Ley."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre los planes provinciales es correcta según el art. 36.2.a) LBRL?",
+     "opciones": [
+      "La Comunidad Autónoma asegura en su territorio la coordinación de los diversos planes provinciales.",
+      "Cada Diputación coordina libremente los planes de las demás provincias de su Comunidad.",
+      "El Estado coordina en exclusiva los planes provinciales, sin intervención autonómica."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.2.a): coordinación por la Comunidad Autónoma en su territorio."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a36-2-servicios-minimos",
+   "bloque": "a36",
+   "apartado": "2",
+   "orden": 510,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 36.2.b) LBRL, ¿qué asegura la Diputación y mediante qué instrumentos puede otorgar ayudas?",
+    "respuesta": "El acceso de la población de la Provincia a los servicios mínimos de competencia municipal y la mayor eficacia y economía en su prestación; puede otorgar subvenciones y ayudas con cargo a sus recursos propios mediante planes especiales u otros instrumentos específicos."
+   },
+   "cita": "Asegura el acceso de la población de la Provincia al conjunto de los servicios mínimos de competencia municipal y a la mayor eficacia y economía en la prestación de éstos mediante cualesquiera fórmulas de asistencia y cooperación municipal",
+   "confundible_con": [
+    "LBRL-a36-2-plan-provincial"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36.2.b) LBRL, la Diputación asegura el acceso de la población al conjunto de los servicios mínimos de competencia:",
+     "opciones": [
+      "Autonómica",
+      "Municipal"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 36.2.b): servicios mínimos de competencia municipal."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36.2.b) LBRL, las subvenciones y ayudas de la Diputación para obras y servicios municipales se instrumentan a través de:",
+     "opciones": [
+      "Convenios obligatorios con cada Ayuntamiento.",
+      "Un fondo único gestionado por la Comunidad Autónoma.",
+      "Planes especiales u otros instrumentos específicos."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 36.2.b): planes especiales u otros instrumentos específicos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 36.2.b) LBRL es correcta?",
+     "opciones": [
+      "Las ayudas se otorgan con cargo a los recursos propios de las Diputaciones.",
+      "Las ayudas se financian exclusivamente con fondos de la Comunidad Autónoma.",
+      "Las ayudas solo pueden destinarse a gastos corrientes de los Ayuntamientos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.2.b): subvenciones y ayudas con cargo a recursos propios de la Diputación."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a36-2-funciones-publicas",
+   "bloque": "a36",
+   "apartado": "2",
+   "orden": 520,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 36.2.c) LBRL, ¿qué garantiza la Diputación en los Ayuntamientos y en qué les presta apoyo?",
+    "respuesta": "El desempeño de las funciones públicas necesarias, y les presta apoyo en la selección y formación de su personal."
+   },
+   "cita": "Garantiza el desempeño de las funciones públicas necesarias en los Ayuntamientos y les presta apoyo en la selección y formación de su personal",
+   "confundible_con": [
+    "LBRL-a36-1-asistencia-municipios",
+    "LBRL-a36-2-soporte"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36.2.c) LBRL, la Diputación garantiza en los Ayuntamientos el desempeño de las funciones:",
+     "opciones": [
+      "Públicas necesarias",
+      "Políticas delegadas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.2.c): funciones públicas necesarias en los Ayuntamientos."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36.2.c) LBRL, el apoyo de la Diputación en la selección y formación del personal es sin perjuicio de la actividad desarrollada en estas materias por:",
+     "opciones": [
+      "Los sindicatos y las asociaciones de funcionarios.",
+      "El Tribunal de Cuentas y las Cortes Generales.",
+      "La Administración del Estado y la autonómica."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 36.2.c): sin perjuicio de la actividad del Estado y las Comunidades Autónomas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones es correcta según el art. 36.2.c) LBRL?",
+     "opciones": [
+      "La Diputación presta apoyo a los Ayuntamientos en la selección y formación de su personal.",
+      "La Diputación selecciona y forma al personal municipal con exclusión del Estado y de las Comunidades Autónomas.",
+      "La Diputación apoya a los Ayuntamientos solo en la formación, no en la selección."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.2.c): apoyo en selección y formación del personal."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a36-2-soporte",
+   "bloque": "a36",
+   "apartado": "2",
+   "orden": 530,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 36.2.d) LBRL, ¿qué soporte da la Diputación a los Ayuntamientos y cuándo asume esas actividades?",
+    "respuesta": "Soporte para la tramitación de procedimientos administrativos y la realización de actividades materiales y de gestión, asumiéndolas cuando los Ayuntamientos se las encomienden."
+   },
+   "cita": "Da soporte a los Ayuntamientos para la tramitación de procedimientos administrativos y realización de actividades materiales y de gestión, asumiéndolas cuando aquéllos se las encomienden",
+   "confundible_con": [
+    "LBRL-a36-2-funciones-publicas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36.2.d) LBRL, la Diputación asume las actividades materiales y de gestión cuando los Ayuntamientos se las:",
+     "opciones": [
+      "Impongan",
+      "Encomienden"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 36.2.d): las asume cuando los Ayuntamientos se las encomienden."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36.2.d) LBRL, la Diputación da soporte a los Ayuntamientos en la tramitación de:",
+     "opciones": [
+      "Procedimientos judiciales.",
+      "Procedimientos electorales.",
+      "Procedimientos administrativos."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 36.2.d): procedimientos administrativos y actividades materiales y de gestión."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿En qué supuesto asume la Diputación las actividades materiales y de gestión de un Ayuntamiento según el art. 36.2.d) LBRL?",
+     "opciones": [
+      "Cuando el propio Ayuntamiento se las encomienda.",
+      "Cuando lo acuerda unilateralmente el Pleno provincial.",
+      "Cuando la Comunidad Autónoma se lo ordena al Ayuntamiento."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.2.d): requiere encomienda del Ayuntamiento."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a37-1-delegacion-ccaa",
+   "bloque": "a37",
+   "apartado": "1",
+   "orden": 540,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 37.1 LBRL, ¿qué pueden hacer las Comunidades Autónomas respecto de las Diputaciones y con qué sujeción actúan estas en la gestión ordinaria de servicios propios?",
+    "respuesta": "Delegar competencias y encomendarles la gestión ordinaria de servicios propios; en este último caso las Diputaciones actúan con sujeción plena a las instrucciones generales y particulares de las Comunidades."
+   },
+   "cita": "Las Comunidades Autónomas podrán delegar competencias en las Diputaciones, así como encomendar a éstas la gestión ordinaria de servicios propios en los términos previstos en los Estatutos correspondientes",
+   "confundible_con": [
+    "LBRL-a37-2-delegacion-estado",
+    "LBRL-a36-1-competencias-propias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37.1 LBRL, las Comunidades Autónomas pueden delegar competencias en las Diputaciones y encomendarles la gestión ordinaria de:",
+     "opciones": [
+      "Servicios propios",
+      "Servicios estatales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.1: delegación de competencias y encomienda de la gestión ordinaria de servicios propios."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37.1 LBRL, las Diputaciones que gestionan servicios propios encomendados por la Comunidad Autónoma actúan con:",
+     "opciones": [
+      "Plena autonomía, sin sujeción a instrucciones de la Comunidad.",
+      "Sujeción solo a las instrucciones generales de la Comunidad.",
+      "Sujeción plena a las instrucciones generales y particulares de la Comunidad."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 37.1: sujeción plena a las instrucciones generales y particulares de las Comunidades."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 37.1 LBRL es correcta?",
+     "opciones": [
+      "La encomienda de servicios propios se hace en los términos de los Estatutos.",
+      "La encomienda solo puede hacerla el Estado, previa consulta a la Comunidad Autónoma.",
+      "La encomienda exige la aprobación del Pleno de todos los Ayuntamientos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.1: en los términos previstos en los Estatutos correspondientes."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a37-2-delegacion-estado",
+   "bloque": "a37",
+   "apartado": "2",
+   "orden": 550,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 37.2 LBRL, ¿qué competencias puede delegar el Estado en las Diputaciones y con qué trámite previo?",
+    "respuesta": "Competencias de mera ejecución, previa consulta e informe de la Comunidad Autónoma interesada, cuando el ámbito provincial sea el más idóneo para prestar los servicios."
+   },
+   "cita": "El Estado podrá, asimismo, previa consulta e informe de la Comunidad Autónoma interesada, delegar en las Diputaciones competencias de mera ejecución cuando el ámbito provincial sea el más idóneo para la prestación de los correspondientes servicios",
+   "confundible_con": [
+    "LBRL-a37-1-delegacion-ccaa"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37.2 LBRL, el Estado puede delegar en las Diputaciones competencias de mera:",
+     "opciones": [
+      "Planificación",
+      "Ejecución"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 37.2: competencias de mera ejecución."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37.2 LBRL, antes de delegar en las Diputaciones, el Estado debe realizar consulta e informe de:",
+     "opciones": [
+      "Los Ayuntamientos de la Provincia.",
+      "El Consejo de Estado en pleno.",
+      "La Comunidad Autónoma interesada."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 37.2: previa consulta e informe de la Comunidad Autónoma interesada."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿En qué circunstancia puede el Estado delegar en las Diputaciones competencias de mera ejecución según el art. 37.2 LBRL?",
+     "opciones": [
+      "Cuando el ámbito provincial sea el más idóneo para la prestación de los servicios.",
+      "Cuando la Comunidad Autónoma lo solicite expresamente al Gobierno.",
+      "Cuando los Ayuntamientos de la Provincia lo acuerden por unanimidad."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.2: cuando el ámbito provincial sea el más idóneo."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a37-3-ejercicio",
+   "bloque": "a37",
+   "apartado": "3",
+   "orden": 560,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 37.3 LBRL, ¿a qué se acomoda el ejercicio por las Diputaciones de las facultades delegadas?",
+    "respuesta": "A lo dispuesto en el artículo 27 de la Ley."
+   },
+   "cita": "El ejercicio por las Diputaciones de las facultades delegadas se acomodará a lo dispuesto en el artículo 27",
+   "confundible_con": [
+    "LBRL-a37-1-delegacion-ccaa",
+    "LBRL-a37-2-delegacion-estado"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37.3 LBRL, el ejercicio de las facultades delegadas en las Diputaciones se acomoda a lo dispuesto en el artículo:",
+     "opciones": [
+      "27",
+      "36"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.3: artículo 27."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37.3 LBRL, ¿qué se acomodará a lo dispuesto en el artículo 27?",
+     "opciones": [
+      "La aprobación del plan provincial de cooperación.",
+      "El nombramiento del personal directivo de la Diputación.",
+      "El ejercicio por las Diputaciones de las facultades delegadas."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 37.3: remite al art. 27 para el ejercicio de las facultades delegadas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 37.3 LBRL es correcta?",
+     "opciones": [
+      "Las facultades delegadas en las Diputaciones se ejercen conforme al artículo 27.",
+      "Las facultades delegadas se ejercen conforme al artículo 36 sobre competencias propias.",
+      "Las facultades delegadas se ejercen libremente, sin sujeción a regla alguna de la Ley."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.3: el ejercicio de lo delegado se rige por el art. 27."
+    }
+   ]
+  },
+  {
+   "id": "LBRL-a38-corporaciones-representativas",
+   "bloque": "a38",
+   "apartado": "",
+   "orden": 570,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 38 LBRL, ¿a quién se aplican también las previsiones establecidas para la Diputación?",
+    "respuesta": "A las otras Corporaciones de carácter representativo a las que corresponda el gobierno y la administración autónoma de la Provincia."
+   },
+   "cita": "Las previsiones establecidas para la Diputación en este Capítulo y en los restantes de la presente Ley serán de aplicación a aquellas otras Corporaciones de carácter representativo a las que corresponda el gobierno y la administración autónoma de la Provincia",
+   "confundible_con": [
+    "LBRL-a37-3-ejercicio"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 38 LBRL, las previsiones de la Diputación se aplican a otras Corporaciones de carácter representativo que gobiernan la:",
+     "opciones": [
+      "Comarca",
+      "Provincia"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 38: Corporaciones de carácter representativo que gobiernen la Provincia."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 38 LBRL, las previsiones para la Diputación contenidas en este Capítulo y en los restantes de la Ley se aplican:",
+     "opciones": [
+      "Únicamente a las Diputaciones de régimen común, no a otras Corporaciones.",
+      "Solo en defecto de lo que dispongan los Estatutos de Autonomía respectivos.",
+      "También a otras Corporaciones representativas que gobiernen la Provincia."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 38: se aplican también a esas otras Corporaciones, en este Capítulo y en los restantes."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones es correcta según el art. 38 LBRL?",
+     "opciones": [
+      "Lo previsto para la Diputación rige también para otras Corporaciones representativas del gobierno provincial.",
+      "Lo previsto para la Diputación no es extensible a ninguna otra Corporación provincial.",
+      "Lo previsto para la Diputación se extiende a todas las entidades locales de la Provincia."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 38: extensión a otras Corporaciones representativas, no a todas las entidades locales."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,621 @@
+{
+ "norma": "BOE-A-2011-6651",
+ "documento": "LIEXT",
+ "nombre_norma": "Ley 8/2011 de Igualdad y contra la Violencia de Género en Extremadura",
+ "abreviatura": "LIEXT",
+ "hash_prefijo": "LIEXT",
+ "tema": 7,
+ "tema_nombre": "Igualdad",
+ "bloque_temario": "Título II, capítulo I (arts. 21-23 y 25): integración de la perspectiva de género en las políticas públicas",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "LIEXT-a21-transversalidad",
+   "bloque": "a2-3",
+   "apartado": "",
+   "orden": 430,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 21 de la Ley 8/2011, ¿qué deben incorporar los poderes públicos extremeños en las disposiciones normativas, políticas y actividades?",
+    "respuesta": "La perspectiva de la igualdad de género, considerando sistemáticamente las prioridades y necesidades propias de mujeres y hombres."
+   },
+   "cita": "incorporarán la perspectiva de la igualdad de género en la elaboración, ejecución y seguimiento de las disposiciones normativas",
+   "confundible_con": [
+    "LIEXT-a22-1-interseccionalidad-politicas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 21 de la Ley 8/2011, los poderes públicos incorporan la perspectiva de igualdad de género en la elaboración, ejecución y:",
+     "opciones": [
+      "Derogación de las disposiciones normativas",
+      "Seguimiento de las disposiciones normativas"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 21: elaboración, ejecución y seguimiento de las disposiciones normativas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 21 de la Ley 8/2011, la transversalidad de género se aplica a las políticas y actividades en:",
+     "opciones": [
+      "Los ámbitos sociales exclusivamente",
+      "El ámbito de la Consejería de Igualdad",
+      "Todos los ámbitos de actuación"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 21: políticas y actividades en todos los ámbitos de actuación."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Con qué objeto se adaptan las políticas según el art. 21 de la Ley 8/2011?",
+     "opciones": [
+      "Eliminar los efectos discriminatorios y fomentar la igualdad.",
+      "Reducir el coste de tramitación de las disposiciones normativas.",
+      "Unificar las prioridades y necesidades de mujeres y hombres."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 21: adaptarlas para eliminar los efectos discriminatorios y fomentar la igualdad de género."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a22-1-interseccionalidad-politicas",
+   "bloque": "a2-4",
+   "apartado": "1",
+   "orden": 440,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 22.1 de la Ley 8/2011, ¿dónde deben integrar los poderes públicos el principio de interseccionalidad?",
+    "respuesta": "En el diseño, implementación, seguimiento y evaluación de las políticas públicas, especialmente de inclusión social."
+   },
+   "cita": "integrarán el principio de interseccionalidad en el diseño, implementación, seguimiento y evaluación de las políticas públicas, especialmente de inclusión social",
+   "confundible_con": [
+    "LIEXT-a22-2-investigacion",
+    "LIEXT-a22-3-acciones-positivas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 22.1 de la Ley 8/2011, los poderes públicos integrarán el principio de interseccionalidad en las políticas públicas, especialmente de:",
+     "opciones": [
+      "Inclusión social",
+      "Seguridad ciudadana"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.1: diseño, implementación, seguimiento y evaluación de las políticas públicas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 22.1 de la Ley 8/2011, la interseccionalidad se integra en el diseño, la implementación, el seguimiento y la:",
+     "opciones": [
+      "Fiscalización de las políticas públicas",
+      "Difusión de las políticas públicas",
+      "Evaluación de las políticas públicas"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 22.1: especialmente las políticas de inclusión social."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué deben atender y visibilizar los poderes públicos al integrar la interseccionalidad según el art. 22.1 de la Ley 8/2011?",
+     "opciones": [
+      "La pluralidad de los desarrollos identitarios de las mujeres.",
+      "La homogeneidad de los colectivos de mujeres de cada territorio.",
+      "La concentración de las ayudas en los núcleos urbanos principales."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.1: atendiendo y visibilizando la pluralidad de los desarrollos identitarios de las mujeres."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a22-2-investigacion",
+   "bloque": "a2-4",
+   "apartado": "2",
+   "orden": 450,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 22.2 de la Ley 8/2011, ¿qué promoverá la Junta de Extremadura respecto de la interseccionalidad?",
+    "respuesta": "La investigación y el desarrollo de conocimiento y herramientas que permitan una mejor integración del principio."
+   },
+   "cita": "promoverá la investigación y el desarrollo de conocimiento y herramientas que permitan una mejor integración de dicho principio",
+   "confundible_con": [
+    "LIEXT-a22-1-interseccionalidad-politicas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 22.2 de la Ley 8/2011, ¿quién promoverá la investigación y las herramientas para integrar mejor la interseccionalidad?",
+     "opciones": [
+      "La Asamblea de Extremadura",
+      "La Junta de Extremadura"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 22.2: la Junta de Extremadura promoverá la investigación y el desarrollo de herramientas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 22.2 de la Ley 8/2011, la Junta promoverá herramientas para integrar el principio de interseccionalidad al conjunto de las:",
+     "opciones": [
+      "Normas reglamentarias",
+      "Entidades privadas",
+      "Políticas públicas"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 22.2: para integrar el principio al conjunto de las políticas públicas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué función atribuye el art. 22.2 de la Ley 8/2011 a la Junta de Extremadura?",
+     "opciones": [
+      "Promover investigación y herramientas para mejorar la integración de la interseccionalidad.",
+      "Aprobar un registro público de los colectivos de mujeres con múltiples discriminaciones.",
+      "Crear un cuerpo especializado de inspección autonómica en materia de interseccionalidad."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.2: investigación, conocimiento y herramientas; no registro ni cuerpo de inspección."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a22-3-acciones-positivas",
+   "bloque": "a2-4",
+   "apartado": "3",
+   "orden": 460,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 22.3 de la Ley 8/2011, ¿qué podrán poner en marcha de forma prioritaria los poderes públicos para los colectivos en los que confluyan diversos factores de discriminación?",
+    "respuesta": "Acciones positivas."
+   },
+   "cita": "podrán poner en marcha de forma prioritaria acciones positivas para aquellos colectivos en los que confluyan diversos factores de discriminación",
+   "confundible_con": [
+    "LIEXT-a22-1-interseccionalidad-politicas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 22.3 de la Ley 8/2011, las acciones positivas prioritarias se dirigen a colectivos en los que confluyan diversos factores de:",
+     "opciones": [
+      "Discriminación",
+      "Aislamiento"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.3: acciones positivas prioritarias para colectivos con diversos factores de discriminación."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 22.3 de la Ley 8/2011, entre los factores que se atenderán fundamentalmente figura:",
+     "opciones": [
+      "El nivel de renta personal",
+      "La afiliación política",
+      "El hábitat de residencia"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 22.3: hábitat de residencia, orientación sexual, discapacidad, ciclo vital, etnia y raza, condición migratoria, salud mental, privación de libertad y drogodependencia."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos factores NO cita expresamente el art. 22.3 de la Ley 8/2011?",
+     "opciones": [
+      "El estado civil y familiar",
+      "La condición migratoria",
+      "La privación de libertad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.3: no figura el estado civil entre los factores."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a23-1-evaluacion-impacto",
+   "bloque": "a2-5",
+   "apartado": "1",
+   "orden": 470,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 23.1 de la Ley 8/2011, ¿qué incorporarán los poderes públicos de Extremadura en el desarrollo de sus competencias y con qué fin?",
+    "respuesta": "La evaluación del impacto de género, para garantizar la integración del principio de igualdad entre hombres y mujeres."
+   },
+   "cita": "incorporarán la evaluación del impacto de género en el desarrollo de sus competencias",
+   "confundible_con": [
+    "LIEXT-a23-4-evaluacion-previa"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.1 de la Ley 8/2011, los poderes públicos incorporarán la evaluación del impacto de:",
+     "opciones": [
+      "Presupuesto",
+      "Género"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 23.1: evaluación del impacto de género."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 23.1 de la Ley 8/2011, la evaluación del impacto de género se incorpora:",
+     "opciones": [
+      "Solo en la elaboración de los presupuestos",
+      "Solo en los procedimientos sancionadores",
+      "En el desarrollo de sus competencias"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 23.1: en el desarrollo de sus competencias."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué finalidad tiene la evaluación de impacto de género del art. 23.1 de la Ley 8/2011?",
+     "opciones": [
+      "Garantizar la integración del principio de igualdad entre hombres y mujeres.",
+      "Cuantificar el coste económico de las medidas de igualdad adoptadas.",
+      "Acreditar el cumplimiento de la cuota de representación equilibrada."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.1: para garantizar la integración del principio de igualdad entre hombres y mujeres."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a23-2-proyectos-ley",
+   "bloque": "a2-5",
+   "apartado": "2",
+   "orden": 480,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 23.2 de la Ley 8/2011, ¿qué deben incorporar todos los Proyectos de Ley que apruebe el Consejo de Gobierno?",
+    "respuesta": "Un informe sobre su impacto por razón de género."
+   },
+   "cita": "Todos los Proyectos de Ley que apruebe el Consejo de Gobierno deben incorporar un informe sobre su impacto por razón de género",
+   "confundible_con": [
+    "LIEXT-a23-3-reglamentos-planes"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.2 de la Ley 8/2011, todos los Proyectos de Ley que apruebe el Consejo de Gobierno deben incorporar un informe sobre su impacto por razón de:",
+     "opciones": [
+      "Género",
+      "Coste"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.2: informe sobre su impacto por razón de género, por quien reglamentariamente se determine."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 23.2 de la Ley 8/2011, si una Propuesta de Ley presentada en la Asamblea no lleva el informe, se remite a la Junta, que dictaminará en el plazo de:",
+     "opciones": [
+      "Dos meses",
+      "Quince días",
+      "Un mes"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 23.2: la Junta dictaminará en el plazo de un mes."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué ocurre con una Propuesta de Ley presentada en la Asamblea de Extremadura según el art. 23.2 de la Ley 8/2011?",
+     "opciones": [
+      "Se remite a la Junta antes de su discusión parlamentaria para que dictamine sobre el impacto de género.",
+      "Se debate directamente en la Asamblea sin que sea exigible informe alguno sobre impacto de género.",
+      "Se devuelve a la Junta, que dispone de seis meses para emitir el informe de impacto de género."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.2: la Asamblea requiere, antes de la discusión parlamentaria, su remisión a la Junta, que dictaminará en un mes."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a23-3-reglamentos-planes",
+   "bloque": "a2-5",
+   "apartado": "3",
+   "orden": 490,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 23.3 de la Ley 8/2011, ¿qué requieren los reglamentos y planes que elabore el Consejo de Gobierno antes de su aprobación?",
+    "respuesta": "La emisión de un informe de evaluación del impacto de género por parte de quien reglamentariamente se determine."
+   },
+   "cita": "Los reglamentos y los planes que elabore el Consejo de Gobierno requieren también, antes de su aprobación, la emisión de un informe de evaluación del impacto de género",
+   "confundible_con": [
+    "LIEXT-a23-2-proyectos-ley"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.3 de la Ley 8/2011, los reglamentos y planes del Consejo de Gobierno requieren, antes de su aprobación, un informe de:",
+     "opciones": [
+      "Evaluación del impacto económico",
+      "Evaluación del impacto de género"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 23.3: informe de evaluación del impacto de género antes de la aprobación."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 23.3 de la Ley 8/2011, el informe de evaluación del impacto de género se emite por parte de quien:",
+     "opciones": [
+      "Designe la Asamblea de Extremadura",
+      "Presida el Consejo de Gobierno",
+      "Reglamentariamente se determine"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 23.3: por parte de quien reglamentariamente se determine."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué instrumentos del Consejo de Gobierno requieren informe de evaluación de impacto de género según el art. 23.3 de la Ley 8/2011?",
+     "opciones": [
+      "Los reglamentos y los planes.",
+      "Solo los reglamentos, no los planes.",
+      "Los convenios de las Consejerías."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.3: reglamentos y planes que elabore el Consejo de Gobierno."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a23-4-evaluacion-previa",
+   "bloque": "a2-5",
+   "apartado": "4",
+   "orden": 500,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 23.4 de la Ley 8/2011, ¿qué ha de hacer el órgano administrativo antes de acometer la elaboración de una norma?",
+    "respuesta": "Evaluar el impacto potencial de la propuesta en la situación de las mujeres y en los hombres como colectivo."
+   },
+   "cita": "Antes de acometer la elaboración de una norma, el órgano administrativo que la promueva ha de evaluar el impacto potencial de la propuesta en la situación de las mujeres y en los hombres como colectivo",
+   "confundible_con": [
+    "LIEXT-a23-5-directrices"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.4 de la Ley 8/2011, el órgano administrativo evalúa el impacto potencial de la propuesta en mujeres y hombres:",
+     "opciones": [
+      "Antes de acometer la elaboración de la norma",
+      "Tras la tramitación y publicación de la norma"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.4: antes de acometer la elaboración de una norma."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 23.4 de la Ley 8/2011, la evaluación previa del impacto potencial la realiza:",
+     "opciones": [
+      "El Instituto de la Mujer de Extremadura en todo caso",
+      "La Comisión de Impacto de Género de la Asamblea",
+      "El órgano administrativo que promueva la norma"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 23.4: lo hace el órgano administrativo que la promueva."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué debe evaluarse según el art. 23.4 de la Ley 8/2011 antes de elaborar una norma?",
+     "opciones": [
+      "El impacto potencial de la propuesta en la situación de las mujeres y de los hombres como colectivo.",
+      "El coste presupuestario de la propuesta para cada una de las Consejerías de la Junta de Extremadura.",
+      "La opinión de las asociaciones de mujeres de Extremadura sobre el contenido de la propuesta normativa."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.4: el impacto potencial en la situación de las mujeres y de los hombres como colectivo."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a23-5-directrices",
+   "bloque": "a2-5",
+   "apartado": "5",
+   "orden": 510,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 23.5 de la Ley 8/2011, ¿quién elabora las pautas para la evaluación previa del impacto de género y a propuesta de quién?",
+    "respuesta": "La Junta de Extremadura, a propuesta del Instituto de la Mujer de Extremadura."
+   },
+   "cita": "a propuesta del Instituto de la Mujer de Extremadura, elaborará normas o directrices en las que se indiquen las pautas a seguir para la realización de la evaluación previa del impacto",
+   "confundible_con": [
+    "LIEXT-a23-4-evaluacion-previa"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.5 de la Ley 8/2011, ¿a propuesta de quién elabora la Junta las directrices para la evaluación previa del impacto de género?",
+     "opciones": [
+      "De la Consejería competente en materia de Hacienda",
+      "Del Instituto de la Mujer de Extremadura"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 23.5: a propuesta del Instituto de la Mujer de Extremadura."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 23.5 de la Ley 8/2011, ¿qué elabora la Junta de Extremadura?",
+     "opciones": [
+      "Un registro público de todos los informes de impacto de género emitidos",
+      "Un catálogo de las sanciones aplicables por incumplimiento de las directrices",
+      "Normas o directrices con las pautas para la evaluación previa del impacto"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 23.5: normas o directrices con las pautas de la evaluación previa del impacto."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué instrumento fija, según el art. 23.5 de la Ley 8/2011, las pautas de la evaluación previa de impacto en función del género?",
+     "opciones": [
+      "Normas o directrices de la Junta, a propuesta del Instituto de la Mujer.",
+      "Una ley específica aprobada anualmente por la Asamblea de Extremadura.",
+      "Instrucciones de cada órgano promotor, sin criterios comunes a todos ellos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.5: normas o directrices de la Junta, no ley anual ni instrucciones dispersas."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a23-6-indicadores",
+   "bloque": "a2-5",
+   "apartado": "6",
+   "orden": 520,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 23.6 de la Ley 8/2011, ¿con qué debe ir acompañado en todos los casos el informe de evaluación de impacto de género?",
+    "respuesta": "Con indicadores pertinentes en género y mecanismos y medidas para paliar y neutralizar los posibles impactos negativos."
+   },
+   "cita": "debe ir acompañado en todos los casos de indicadores pertinentes en género, mecanismos y medidas dirigidas a paliar y neutralizar los posibles impactos negativos",
+   "confundible_con": [
+    "LIEXT-a23-1-evaluacion-impacto"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.6 de la Ley 8/2011, el informe de evaluación de impacto de género debe ir acompañado en todos los casos de indicadores pertinentes en:",
+     "opciones": [
+      "Género",
+      "Presupuesto"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.6: indicadores pertinentes en género."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 23.6 de la Ley 8/2011, además de indicadores, el informe se acompaña de mecanismos y medidas dirigidas a:",
+     "opciones": [
+      "Premiar a las entidades con mejores resultados",
+      "Difundir los resultados entre la ciudadanía",
+      "Paliar y neutralizar los posibles impactos negativos"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 23.6: mecanismos y medidas para paliar y neutralizar los posibles impactos negativos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué debe hacer el informe del art. 23.6 de la Ley 8/2011 respecto de las diferencias halladas entre mujeres y hombres?",
+     "opciones": [
+      "Reducirlas o eliminarlas mediante medidas que promuevan la igualdad.",
+      "Registrarlas en un informe sin proponer ninguna medida correctora.",
+      "Trasladarlas a la Asamblea para su dictamen vinculante en cada caso."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.6: reducir o eliminar las diferencias encontradas promoviendo la igualdad entre los sexos."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a25-1-plan-estrategico",
+   "bloque": "a2-7",
+   "apartado": "1",
+   "orden": 530,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 25.1 de la Ley 8/2011, ¿cada cuánto aprueba la Junta de Extremadura el Plan Estratégico para la Igualdad entre Mujeres y Hombres?",
+    "respuesta": "Cada cuatro años."
+   },
+   "cita": "aprobará cada cuatro años el Plan Estratégico para la Igualdad entre Mujeres y Hombres",
+   "confundible_con": [
+    "LIEXT-a25-2-plan-diversidad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25.1 de la Ley 8/2011, la Junta aprobará el Plan Estratégico para la Igualdad entre Mujeres y Hombres cada:",
+     "opciones": [
+      "Dos años",
+      "Cuatro años"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 25.1: se aprueba cada cuatro años."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25.1 de la Ley 8/2011, el Plan se aprueba a propuesta de la Consejería competente en igualdad y con el dictamen del:",
+     "opciones": [
+      "Consejo Económico y Social de Extremadura",
+      "Consejo Asesor de la Consejería de Presidencia",
+      "Consejo Extremeño de Participación de las Mujeres"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 25.1: con el dictamen del Consejo Extremeño de Participación de las Mujeres."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué contendrá el Plan Estratégico según el art. 25.1 de la Ley 8/2011?",
+     "opciones": [
+      "Las líneas prioritarias y las medidas para alcanzar la plena igualdad y eliminar la discriminación por razón de sexo.",
+      "Únicamente la dotación presupuestaria anual de las Consejerías para las políticas de igualdad en cada ejercicio.",
+      "El calendario de pruebas selectivas del empleo público con reserva de plazas para mujeres en cada convocatoria."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.1: líneas prioritarias y medidas para alcanzar la plena igualdad y eliminar la discriminación por razón de sexo."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a25-2-plan-diversidad",
+   "bloque": "a2-7",
+   "apartado": "2",
+   "orden": 540,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 25.2 de la Ley 8/2011, ¿a qué atenderán las actuaciones recogidas en el Plan Estratégico?",
+    "respuesta": "A la diversidad de los colectivos de mujeres de Extremadura, integrando el principio de interseccionalidad del artículo 22."
+   },
+   "cita": "integrando para ello el principio de interseccionalidad recogido en el artículo 22 de la presente ley",
+   "confundible_con": [
+    "LIEXT-a25-1-plan-estrategico",
+    "LIEXT-a22-1-interseccionalidad-politicas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25.2 de la Ley 8/2011, las actuaciones del Plan atenderán a la diversidad de los colectivos de mujeres integrando el principio de:",
+     "opciones": [
+      "Interseccionalidad",
+      "Transversalidad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.2: integrando el principio de interseccionalidad."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25.2 de la Ley 8/2011, el principio de interseccionalidad que integra el Plan está recogido en el artículo:",
+     "opciones": [
+      "21",
+      "23",
+      "22"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 25.2: el principio está recogido en el artículo 22."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿A qué deben atender las actuaciones del Plan Estratégico según el art. 25.2 de la Ley 8/2011?",
+     "opciones": [
+      "A la diversidad de los colectivos de mujeres de Extremadura.",
+      "A la uniformidad de los servicios en todas las localidades.",
+      "A las prioridades de cada partido representado en la Asamblea."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.2: atenderán a la diversidad de los colectivos de mujeres de Extremadura."
+    }
+   ]
+  }
+ ]
+}

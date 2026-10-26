@@ -1,0 +1,662 @@
+{
+ "norma": "BOE-A-2025-7190",
+ "documento": "RSCIEI",
+ "nombre_norma": "Real Decreto 164/2025 Reglamento de seguridad contra incendios en establecimientos industriales",
+ "abreviatura": "RSCIEI",
+ "hash_prefijo": "RSCIEI",
+ "tema": 34,
+ "tema_nombre": "RSCIEI Real Decreto 164/2025 (industrial)",
+ "bloque_temario": "Capítulo I (arts. 1-4): disposiciones generales",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "RSCIEI-a1-1-objeto",
+   "bloque": "a1",
+   "apartado": "1",
+   "orden": 100,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 1.1 del RSCIEI, ¿cuál es el objeto del Reglamento de seguridad contra incendios en los establecimientos industriales?",
+    "respuesta": "Establecer los requisitos de seguridad en caso de incendio de los establecimientos industriales para prevenir incendios, responder a ellos, limitar su propagación y posibilitar su extinción, minimizando daños a personas, bienes y medioambiente."
+   },
+   "cita": "establecer los requisitos que deben cumplir los establecimientos industriales en lo relativo a su seguridad en caso de incendio",
+   "confundible_con": [
+    "RSCIEI-a1-2-prevalencia"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1.1 del RSCIEI, el objetivo es minimizar el riesgo de daños a personas, bienes y:",
+     "opciones": [
+      "Patrimonio histórico",
+      "Medioambiente"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 1.1: requisitos de seguridad contra incendios para prevenir, detectar, limitar y extinguir, protegiendo personas, bienes y medioambiente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1.1 del RSCIEI, las medidas buscan facilitar la rápida detección del incendio, limitar su propagación y posibilitar su:",
+     "opciones": [
+      "Peritación",
+      "Cobertura aseguradora",
+      "Extinción"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 1.1: el riesgo de daños se minimiza respecto de personas, bienes y medioambiente."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas finalidades NO figura en el art. 1.1 del RSCIEI?",
+     "opciones": [
+      "Garantizar la formación de los trabajadores en emergencias.",
+      "Prevenir la aparición de incendios en el establecimiento.",
+      "Limitar la propagación del incendio una vez producido."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.1: prevenir, detectar, limitar la propagación y extinguir; la formación de trabajadores no figura."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a1-2-prevalencia",
+   "bloque": "a1",
+   "apartado": "2",
+   "orden": 110,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 1.2 del RSCIEI, ¿qué ocurre cuando otras disposiciones vigentes sobre actividades o instalaciones industriales, sectoriales o específicas establecen medidas de protección contra incendios?",
+    "respuesta": "Prevalecen sobre las del reglamento, que solo se aplica con carácter complementario y para los aspectos no previstos en ellas."
+   },
+   "cita": "prevalecerán sobre las establecidas en este reglamento, el cual en estos casos solo se aplicará con carácter complementario y para aquellos aspectos no previstos en ellas",
+   "confundible_con": [
+    "RSCIEI-a1-1-objeto"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1.2 del RSCIEI, las medidas de la normativa sectorial específica respecto de las del reglamento:",
+     "opciones": [
+      "Prevalecen",
+      "Ceden"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.2: las medidas de las disposiciones específicas prevalecen sobre las del reglamento."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1.2 del RSCIEI, en esos casos el reglamento se aplica solo con carácter:",
+     "opciones": [
+      "Exclusivo y prevalente",
+      "Preferente y principal",
+      "Complementario"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 1.2: el reglamento se aplica solo con carácter complementario."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 1.2 del RSCIEI es correcta?",
+     "opciones": [
+      "El reglamento solo se aplica a los aspectos que la normativa específica no prevé.",
+      "El reglamento desplaza siempre a la normativa sectorial específica.",
+      "El reglamento y la normativa específica se aplican por igual y en su totalidad."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.2: aplicación solo a aspectos no previstos en la normativa específica."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a2-1-ambito",
+   "bloque": "a2",
+   "apartado": "1",
+   "orden": 120,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 2.1 del RSCIEI, ¿cuál es el ámbito de aplicación del Reglamento y qué se considera uso industrial?",
+    "respuesta": "Los establecimientos cuyo uso principal es industrial: actividades industriales, almacenes industriales, talleres de reparación de vehículos y servicios auxiliares o complementarios de ellos."
+   },
+   "cita": "entendiendo como tales a aquellos cuyo uso principal es industrial",
+   "confundible_con": [
+    "RSCIEI-a2-2-exclusiones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.1 del RSCIEI, se considera uso industrial el de los talleres de reparación de:",
+     "opciones": [
+      "Electrodomésticos",
+      "Vehículos"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 2.1: establecimientos de uso principal industrial; incluye actividades industriales, almacenes, talleres y servicios auxiliares."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.1 del RSCIEI, los almacenes industriales a efectos de uso industrial se definen en:",
+     "opciones": [
+      "El anexo I del propio reglamento.",
+      "El artículo 4 del propio reglamento.",
+      "El artículo 3 del propio reglamento."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 2.1.b): los almacenes industriales se definen en el artículo 3 del reglamento."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas actividades NO se considera uso industrial según el art. 2.1 del RSCIEI?",
+     "opciones": [
+      "Un comercio de venta al público.",
+      "Un taller de reparación de vehículos.",
+      "Un servicio auxiliar de la industria."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.1: el comercio de venta al público no figura entre los usos industriales."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a2-2-exclusiones",
+   "bloque": "a2",
+   "apartado": "2",
+   "orden": 130,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 2.2 del RSCIEI, ¿qué actividades quedan excluidas del ámbito de aplicación del Reglamento?",
+    "respuesta": "Las de establecimientos nucleares y radiactivos, extracción de minerales, actividades agrarias y ganaderas, instalaciones militares e instalaciones de servicio ferroviarias del art. 42.1 de la Ley 38/2015."
+   },
+   "cita": "b) las de extracción de minerales, c) las actividades agrarias y ganaderas, d) las instalaciones para usos militares",
+   "confundible_con": [
+    "RSCIEI-a2-1-ambito"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.2 del RSCIEI, queda excluida la actividad de extracción de:",
+     "opciones": [
+      "Minerales",
+      "Residuos industriales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.2.b): extracción de minerales."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.2 del RSCIEI, entre las exclusiones figuran las instalaciones para usos:",
+     "opciones": [
+      "Policiales",
+      "Penitenciarios",
+      "Militares"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 2.2.d): instalaciones para usos militares."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas actividades queda excluida del RSCIEI según el art. 2.2?",
+     "opciones": [
+      "Las actividades agrarias y ganaderas.",
+      "Los talleres de reparación de vehículos.",
+      "Los almacenes de actividades industriales."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.2.c): actividades agrarias y ganaderas; talleres y almacenes están dentro del ámbito (art. 2.1)."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a3-establecimiento",
+   "bloque": "a3",
+   "apartado": "",
+   "orden": 140,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.a) del RSCIEI, ¿qué es un establecimiento industrial?",
+    "respuesta": "El destinado a utilizarse bajo una titularidad diferenciada y un régimen no subsidiario, con uso principal industrial, formado por uno o varios edificios, partes de ellos y espacios abiertos."
+   },
+   "cita": "aquel destinado a ser utilizado bajo una titularidad diferenciada y bajo un régimen no subsidiario, y cuyo uso principal es industrial",
+   "confundible_con": [
+    "RSCIEI-a3-almacen"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.a) del RSCIEI, el establecimiento industrial se utiliza bajo una titularidad:",
+     "opciones": [
+      "Compartida",
+      "Diferenciada"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.a): titularidad diferenciada, régimen no subsidiario y uso principal industrial."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.a) del RSCIEI, un establecimiento industrial puede estar formado por:",
+     "opciones": [
+      "Un único edificio completo y sus anexos cubiertos.",
+      "Solo espacios abiertos sin ninguna edificación cubierta.",
+      "Uno o varios edificios, partes de ellos y espacios abiertos."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.a): conjunto de uno o varios edificios, partes de los mismos y espacios abiertos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué régimen de utilización caracteriza al establecimiento industrial según el art. 3.a) del RSCIEI?",
+     "opciones": [
+      "Un régimen no subsidiario.",
+      "Un régimen subsidiario.",
+      "Un régimen siempre público."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.a): régimen no subsidiario."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a3-almacen",
+   "bloque": "a3",
+   "apartado": "",
+   "orden": 150,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.b) del RSCIEI, ¿cuándo es almacén industrial el vinculado al transporte o un almacén logístico?",
+    "respuesta": "Cuando su carga de fuego total ponderada y corregida (QT) calculada según el anexo I sea igual o superior a tres millones de megajulios."
+   },
+   "cita": "su carga de fuego total ponderada y corregida (QT) calculada según el anexo I, en ambos casos, sea igual o superior a tres millones de megajulios",
+   "confundible_con": [
+    "RSCIEI-a3-establecimiento"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.b) del RSCIEI, el umbral de carga de fuego QT para esos almacenes es de:",
+     "opciones": [
+      "Tres millones de megajulios",
+      "Trescientos mil megajulios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.b): QT igual o superior a tres millones de megajulios."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.b) del RSCIEI, a los almacenes industriales solo deben poder acceder personas:",
+     "opciones": [
+      "Con formación específica en extinción de incendios.",
+      "Vinculadas laboralmente al titular del establecimiento.",
+      "Autorizadas y familiarizadas con las medidas de seguridad."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.b): solo acceden personas autorizadas y familiarizadas con las medidas generales de seguridad."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos almacenes NO se considera logístico a efectos del RSCIEI según el art. 3.b)?",
+     "opciones": [
+      "Un almacén de documentos, como un archivo o una biblioteca.",
+      "Un almacén de un establecimiento dedicado a la distribución.",
+      "Un almacén de un centro de clasificación y custodia."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.b): no son logísticos los almacenes de documentos, los de venta física ni los de herramientas de apoyo."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a3-pasiva-activa",
+   "bloque": "a3",
+   "apartado": "",
+   "orden": 160,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.c) y d) del RSCIEI, ¿qué es la protección pasiva y qué es la protección activa contra incendios?",
+    "respuesta": "La pasiva deriva de los requisitos constructivos; la activa es el conjunto de medios, equipos y sistemas, manuales o automáticos, que actúan directamente por detección, control o extinción."
+   },
+   "cita": "Se refiere a aquella protección derivada de los requisitos constructivos de los establecimientos",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.c) del RSCIEI, la protección pasiva deriva de los requisitos:",
+     "opciones": [
+      "Organizativos",
+      "Constructivos"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.c): la protección pasiva deriva de los requisitos constructivos."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.d) del RSCIEI, la protección activa actúa mediante detección, control o:",
+     "opciones": [
+      "Compartimentación",
+      "Señalización",
+      "Extinción"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.d): la protección activa actúa por detección, control o extinción."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones es correcta según el art. 3.c) y d) del RSCIEI?",
+     "opciones": [
+      "La protección activa incluye medios y sistemas manuales o automáticos.",
+      "La protección pasiva incluye los equipos de extinción automáticos.",
+      "La protección activa deriva solo de los requisitos constructivos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.c) y d): activa = medios y sistemas manuales o automáticos; pasiva = requisitos constructivos."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a3-equivalente-prestacional",
+   "bloque": "a3",
+   "apartado": "",
+   "orden": 170,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.e) y f) del RSCIEI, ¿qué son las técnicas de seguridad equivalente y el diseño prestacional?",
+    "respuesta": "Soluciones técnicas que difieren total o parcialmente de las prescripciones del reglamento y ofrecen igual o mayor seguridad; el diseño prestacional se diseña específicamente para un emplazamiento concreto."
+   },
+   "cita": "Se refiere a la adopción de soluciones técnicas que difieren total o parcialmente de las prescripciones técnicas indicadas en el presente reglamento, pero que ofrecen un nivel de seguridad igual o mayor que estas",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.e) del RSCIEI, las técnicas de seguridad equivalente ofrecen un nivel de seguridad igual o:",
+     "opciones": [
+      "Mayor",
+      "Menor"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.e): soluciones distintas de las prescripciones con seguridad igual o mayor."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.f) del RSCIEI, el diseño prestacional se diseña específicamente para:",
+     "opciones": [
+      "Un sector industrial concreto",
+      "Un tipo de maquinaria concreto",
+      "Un emplazamiento concreto"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.f): soluciones diseñadas para un emplazamiento concreto."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué rasgo distingue el diseño prestacional según el art. 3.f) del RSCIEI?",
+     "opciones": [
+      "Se diseña para un emplazamiento concreto considerando todos sus factores.",
+      "Se aplica de forma general a cualquier establecimiento del mismo sector.",
+      "Admite un nivel de seguridad inferior si se justifica su coste."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.f): el nivel de seguridad debe ser igual o mayor, nunca inferior."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a3-persona-tecnica",
+   "bloque": "a3",
+   "apartado": "",
+   "orden": 180,
+   "tipo": "definicion",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.g) del RSCIEI, ¿quién es la persona técnica titulada competente?",
+    "respuesta": "La persona técnica titulada universitaria con competencias específicas en la materia objeto del reglamento."
+   },
+   "cita": "La persona técnica titulada universitaria con competencias específicas en la materia objeto del presente reglamento",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.g) del RSCIEI, la persona técnica titulada competente tiene titulación:",
+     "opciones": [
+      "De formación profesional",
+      "Universitaria"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.g): titulación universitaria."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.g) del RSCIEI, la persona técnica titulada competente tiene competencias específicas en:",
+     "opciones": [
+      "La gestión de organismos de control.",
+      "La redacción de planes de emergencia.",
+      "La materia objeto del reglamento."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.g): competencias específicas en la materia del reglamento."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué requisito NO es exigido por el art. 3.g) del RSCIEI a la persona técnica titulada competente?",
+     "opciones": [
+      "Pertenecer a un organismo de control habilitado.",
+      "Poseer una titulación de carácter universitario.",
+      "Tener competencias específicas en la materia."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.g): solo titulación universitaria y competencia específica; no se exige pertenecer a un organismo de control."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a3-modificaciones",
+   "bloque": "a3",
+   "apartado": "",
+   "orden": 190,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.h) del RSCIEI, ¿qué son modificaciones significativas?",
+    "respuesta": "Ampliaciones o reformas que aumentan la superficie o el nivel de riesgo intrínseco de los sectores o áreas de incendio, o que comprometen las exigencias básicas o elevan los requisitos exigibles."
+   },
+   "cita": "ampliaciones o reformas de un establecimiento industrial que impliquen un aumento de la superficie o del nivel de riesgo intrínseco de sus sectores o áreas de incendio",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.h) del RSCIEI, es significativa la ampliación que aumente la superficie o el nivel de:",
+     "opciones": [
+      "Riesgo intrínseco",
+      "Ocupación"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.h): ampliaciones o reformas con aumento de superficie o de riesgo intrínseco."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.h) del RSCIEI, el nivel de riesgo intrínseco se mide con los niveles de la tabla 1.3.1 del anexo I, que son:",
+     "opciones": [
+      "Cinco",
+      "Tres",
+      "Ocho"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.h): ocho niveles de riesgo intrínseco (tabla 1.3.1 del anexo I)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas modificaciones se considera NO significativa según el art. 3.h) del RSCIEI?",
+     "opciones": [
+      "Un cambio en la distribución en planta sin aumentar el riesgo intrínseco.",
+      "Una ampliación que aumenta la superficie del establecimiento.",
+      "Una reforma que compromete el cumplimiento de la evacuación."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.h): los cambios en planta, maquinaria o estanterías sin aumento de riesgo no son significativos."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a4-1-usos-distinta-titularidad",
+   "bloque": "a4",
+   "apartado": "1",
+   "orden": 200,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.1 del RSCIEI, ¿qué requisitos cumplen los espacios de uso no industrial de distinta titularidad que coexisten en el mismo edificio?",
+    "respuesta": "Los exigidos por el DB-SI del Código Técnico de la Edificación (RD 314/2006) o por una normativa equivalente."
+   },
+   "cita": "los requisitos que deberán satisfacer los espacios de uso no industrial serán los exigidos por dicha normativa",
+   "confundible_con": [
+    "RSCIEI-a4-2-umbrales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.1 del RSCIEI, esos espacios cumplen los requisitos de:",
+     "opciones": [
+      "Este mismo reglamento industrial.",
+      "El DB-SI del CTE o normativa equivalente."
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.1: se aplican los requisitos del DB-SI del CTE o normativa equivalente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.1 del RSCIEI, el CTE está aprobado por el Real Decreto:",
+     "opciones": [
+      "393/2007, de 23 de marzo",
+      "513/2017, de 22 de mayo",
+      "314/2006, de 17 de marzo"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.1: Real Decreto 314/2006, de 17 de marzo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 4.1 del RSCIEI es correcta?",
+     "opciones": [
+      "Los espacios no industriales de otra titularidad siguen el DB-SI.",
+      "Todo el edificio se rige por el RSCIEI aunque haya otros usos.",
+      "Los espacios no industriales quedan exentos de requisitos de incendio."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.1: los espacios de uso no industrial siguen la normativa propia de su uso."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a4-2-umbrales",
+   "bloque": "a4",
+   "apartado": "2",
+   "orden": 210,
+   "tipo": "cifra",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.2 del RSCIEI, ¿a partir de qué superficie deben cumplir el DB-SI las zonas de usos subsidiarios dentro de un establecimiento industrial?",
+    "respuesta": "Más de 250 m2 construidos en uso administrativo, comercial, docente, pública concurrencia o alojamiento; más de 100 m2 en aparcamiento; siempre en residencial vivienda y residencial público."
+   },
+   "cita": "Aparcamiento: superficie construida superior a 100 m2",
+   "confundible_con": [
+    "RSCIEI-a4-2-sector",
+    "RSCIEI-a4-1-usos-distinta-titularidad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.2 del RSCIEI, un aparcamiento subsidiario cumple el DB-SI si su superficie construida supera:",
+     "opciones": [
+      "100 m2",
+      "250 m2"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.2.g): aparcamiento a partir de más de 100 m2."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.2 del RSCIEI, el uso residencial vivienda y residencial público cumple el DB-SI:",
+     "opciones": [
+      "Si supera 100 m2",
+      "Si supera 250 m2",
+      "Siempre"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.2.e): residencial vivienda y residencial público, siempre."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas zonas NO tiene que cumplir el DB-SI según el art. 4.2 del RSCIEI?",
+     "opciones": [
+      "Una zona administrativa de 200 m2 construidos.",
+      "Un aparcamiento de 120 m2 construidos.",
+      "Una zona de alojamiento de 300 m2 construidos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.2: administrativo hasta 250 m2 queda fuera; aparcamiento de 120 m2 y alojamiento de 300 m2 superan el umbral."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a4-2-sector",
+   "bloque": "a4",
+   "apartado": "2",
+   "orden": 220,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.2 del RSCIEI, ¿qué deben constituir los espacios de usos subsidiarios que superan las superficies indicadas y cómo se consideran?",
+    "respuesta": "Un sector de incendio independiente del de las zonas industriales, aunque se siguen considerando parte del establecimiento industrial."
+   },
+   "cita": "deberán constituir un sector de incendio independiente al de las zonas con uso industrial",
+   "confundible_con": [
+    "RSCIEI-a4-2-umbrales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.2 del RSCIEI, esos espacios deben constituir un sector de incendio:",
+     "opciones": [
+      "Común con el industrial",
+      "Independiente del industrial"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.2: sector de incendio independiente conforme al CTE DB-SI."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.2 del RSCIEI, aun así esas zonas se siguen considerando:",
+     "opciones": [
+      "Un establecimiento de uso distinto.",
+      "Un anexo exento de sectorización.",
+      "Parte del establecimiento industrial."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.2: dichas zonas se seguirán considerando parte del establecimiento industrial."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cómo se computan los vestuarios y zonas de descanso según el art. 4.2 del RSCIEI, salvo que sean adyacentes a las zonas a)-h) o de uso exclusivo de su personal?",
+     "opciones": [
+      "Como superficie de uso industrial.",
+      "Como superficie de uso administrativo.",
+      "Como superficie de pública concurrencia."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.2: los usos complementarios se computan como superficie industrial, salvo las excepciones indicadas."
+    }
+   ]
+  }
+ ]
+}

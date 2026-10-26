@@ -1,0 +1,370 @@
+{
+ "norma": "BOE-A-1997-17824",
+ "documento": "RD1215",
+ "nombre_norma": "Real Decreto 1215/1997 sobre equipos de trabajo",
+ "abreviatura": "RD 1215/1997",
+ "hash_prefijo": "RD1215",
+ "tema": 31,
+ "tema_nombre": "RD 1215/1997 Equipos de trabajo",
+ "bloque_temario": "Arts. 1-2: objeto y definiciones",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "RD1215-a1-1-objeto",
+   "bloque": "a1",
+   "apartado": "1",
+   "orden": 100,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 1.1 del RD 1215/1997, ¿qué establece este Real Decreto y en el marco de qué ley?",
+    "respuesta": "Las disposiciones mínimas de seguridad y salud para la utilización de los equipos de trabajo por los trabajadores, en el marco de la Ley 31/1995 de Prevención de Riesgos Laborales."
+   },
+   "cita": "para la utilización de los equipos de trabajo empleados por los trabajadores en el trabajo",
+   "confundible_con": [
+    "RD1215-a1-2-rd39"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1.1 del RD 1215/1997, ¿en el marco de qué ley se establecen las disposiciones mínimas sobre equipos de trabajo?",
+     "opciones": [
+      "El Estatuto de los Trabajadores",
+      "La Ley 31/1995 de Prevención de Riesgos Laborales"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 1.1: se enmarca en la Ley 31/1995, de Prevención de Riesgos Laborales."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1.1 del RD 1215/1997, ¿qué tipo de disposiciones establece y para qué actividad?",
+     "opciones": [
+      "Máximas de seguridad y salud, para la fabricación de los equipos de trabajo.",
+      "Mínimas de calidad industrial, para la venta de los equipos de trabajo.",
+      "Mínimas de seguridad y salud, para la utilización de los equipos de trabajo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 1.1: disposiciones mínimas de seguridad y salud para la utilización de los equipos de trabajo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el objeto del RD 1215/1997 (art. 1.1) es correcta?",
+     "opciones": [
+      "Fija disposiciones mínimas de seguridad y salud para el uso de los equipos de trabajo por los trabajadores.",
+      "Fija las condiciones de diseño y fabricación que deben cumplir los fabricantes de maquinaria.",
+      "Fija las indemnizaciones por accidentes ocurridos con equipos de trabajo en las empresas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.1: regula la utilización por los trabajadores, no el diseño ni las indemnizaciones."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a1-2-rd39",
+   "bloque": "a1",
+   "apartado": "2",
+   "orden": 110,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 1.2 del RD 1215/1997, ¿qué relación tiene con el Reglamento de los Servicios de Prevención (RD 39/1997)?",
+    "respuesta": "Las disposiciones del Reglamento se aplican plenamente al ámbito del art. 1.1, sin perjuicio de las disposiciones específicas del propio RD 1215/1997."
+   },
+   "cita": "se aplicarán plenamente al conjunto del ámbito contemplado en el apartado anterior, sin perjuicio de las disposiciones específicas contenidas en el presente Real Decreto",
+   "confundible_con": [
+    "RD1215-a1-1-objeto"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1.2 del RD 1215/1997, las disposiciones del Reglamento de los Servicios de Prevención se aplican a los equipos de trabajo:",
+     "opciones": [
+      "Plenamente",
+      "Solo de forma supletoria"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.2: aplicación plena del Reglamento al ámbito del apartado anterior."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1.2 del RD 1215/1997, ¿qué Real Decreto de 17 de enero aprueba el Reglamento de los Servicios de Prevención?",
+     "opciones": [
+      "El Real Decreto 485/1997.",
+      "El Real Decreto 487/1997.",
+      "El Real Decreto 39/1997."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 1.2: Real Decreto 39/1997, de 17 de enero."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué ocurre con las disposiciones específicas del RD 1215/1997 respecto al Reglamento de los Servicios de Prevención (art. 1.2)?",
+     "opciones": [
+      "Se mantienen: la aplicación plena del Reglamento se entiende sin perjuicio de ellas.",
+      "Quedan desplazadas por el Reglamento, que se aplica en su lugar en todo caso.",
+      "Quedan derogadas desde la entrada en vigor del Reglamento de los Servicios."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.2: la aplicación plena es sin perjuicio de las disposiciones específicas del RD 1215/1997."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a2-equipo-trabajo",
+   "bloque": "a2",
+   "apartado": "",
+   "orden": 120,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 2.a) del RD 1215/1997, ¿qué se entiende por equipo de trabajo?",
+    "respuesta": "Cualquier máquina, aparato, instrumento o instalación utilizado en el trabajo."
+   },
+   "cita": "cualquier máquina, aparato, instrumento o instalación utilizado en el trabajo",
+   "confundible_con": [
+    "RD1215-a2-utilizacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.a) del RD 1215/1997, equipo de trabajo es cualquier máquina, aparato, instrumento o:",
+     "opciones": [
+      "Vehículo de uso personal",
+      "Instalación utilizada en el trabajo"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 2.a): máquina, aparato, instrumento o instalación utilizado en el trabajo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.a) del RD 1215/1997, ¿cuál de estos elementos queda incluido en el concepto de equipo de trabajo?",
+     "opciones": [
+      "Solo las máquinas con motor eléctrico.",
+      "Exclusivamente los aparatos comprados nuevos.",
+      "Una instalación utilizada en el trabajo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 2.a): las instalaciones están incluidas; no se limita a máquinas con motor eléctrico."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el concepto de equipo de trabajo (art. 2.a)) es correcta?",
+     "opciones": [
+      "Comprende cualquier máquina, aparato, instrumento o instalación utilizado en el trabajo.",
+      "Se limita a las máquinas y excluye los instrumentos y las instalaciones fijas.",
+      "Comprende solo los aparatos y los instrumentos comprados por la propia empresa."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.a): el concepto es amplio y no excluye instrumentos ni instalaciones."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a2-utilizacion",
+   "bloque": "a2",
+   "apartado": "",
+   "orden": 130,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 2.b) del RD 1215/1997, ¿qué se entiende por utilización de un equipo de trabajo?",
+    "respuesta": "Cualquier actividad referida al equipo: puesta en marcha o detención, empleo, transporte, reparación, transformación, mantenimiento y conservación, incluida en particular la limpieza."
+   },
+   "cita": "cualquier actividad referida a un equipo de trabajo, tal como la puesta en marcha o la detención, el empleo, el transporte, la reparación, la transformación, el mantenimiento y la conservación, incluida, en particular, la limpieza",
+   "confundible_con": [
+    "RD1215-a2-equipo-trabajo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.b) del RD 1215/1997, ¿cómo se considera la limpieza de un equipo de trabajo?",
+     "opciones": [
+      "Incluida en particular en su utilización",
+      "Excluida de su utilización"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.b): la limpieza se incluye expresamente, en particular."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.b) del RD 1215/1997, además de la puesta en marcha, el empleo y el transporte, la utilización de un equipo incluye:",
+     "opciones": [
+      "La fabricación, el diseño y la homologación posterior del equipo.",
+      "La compra, el arrendamiento y la venta del equipo de trabajo nuevo.",
+      "La reparación, la transformación, el mantenimiento y la conservación."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 2.b): reparación, transformación, mantenimiento y conservación son utilización."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas actividades NO está incluida en la utilización de un equipo de trabajo según el art. 2.b)?",
+     "opciones": [
+      "La fabricación del equipo para su venta.",
+      "La detención del equipo al acabar la jornada.",
+      "El transporte del equipo entre dos centros."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.b): detención y transporte sí son utilización; la fabricación para la venta no figura."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a2-zona-peligrosa",
+   "bloque": "a2",
+   "apartado": "",
+   "orden": 140,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 2.c) del RD 1215/1997, ¿qué es una zona peligrosa?",
+    "respuesta": "Cualquier zona situada en el interior o alrededor de un equipo de trabajo en la que la presencia de un trabajador expuesto entrañe un riesgo para su seguridad o su salud."
+   },
+   "cita": "cualquier zona situada en el interior o alrededor de un equipo de trabajo en la que la presencia de un trabajador expuesto entrañe un riesgo para su seguridad o para su salud",
+   "confundible_con": [
+    "RD1215-a2-trabajador-expuesto"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.c) del RD 1215/1997, una zona peligrosa puede estar situada en el interior de un equipo de trabajo o:",
+     "opciones": [
+      "Fuera del centro de trabajo",
+      "Alrededor de él"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 2.c): zona en el interior o alrededor del equipo con riesgo para el trabajador expuesto."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.c) del RD 1215/1997, una zona es peligrosa cuando la presencia de un trabajador expuesto entraña riesgo para su:",
+     "opciones": [
+      "Retribución o para su carrera.",
+      "Formación o para su descanso.",
+      "Seguridad o para su salud."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 2.c): el riesgo es para la seguridad o la salud."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la zona peligrosa (art. 2.c)) es correcta?",
+     "opciones": [
+      "Puede estar alrededor del equipo, no solo en su interior.",
+      "Solo lo es el espacio interior del equipo, nunca el que lo rodea.",
+      "Solo lo es si en ella se ha registrado un accidente con anterioridad."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.c): incluye el interior y el alrededor del equipo."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a2-trabajador-expuesto",
+   "bloque": "a2",
+   "apartado": "",
+   "orden": 150,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 2.d) del RD 1215/1997, ¿qué es un trabajador expuesto?",
+    "respuesta": "Cualquier trabajador que se encuentre total o parcialmente en una zona peligrosa."
+   },
+   "cita": "cualquier trabajador que se encuentre total o parcialmente en una zona peligrosa",
+   "confundible_con": [
+    "RD1215-a2-zona-peligrosa",
+    "RD1215-a2-operador"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.d) del RD 1215/1997, es trabajador expuesto el que se encuentra en una zona peligrosa total o:",
+     "opciones": [
+      "Parcialmente",
+      "Habitualmente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.d): total o parcialmente en una zona peligrosa."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.d) del RD 1215/1997, ¿quién es trabajador expuesto?",
+     "opciones": [
+      "Quien ha sufrido un accidente con un equipo de trabajo.",
+      "Solo quien está encargado de la utilización del equipo.",
+      "Quien se encuentra total o parcialmente en una zona peligrosa."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 2.d): no se define por el accidente ni por ser el encargado del equipo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Un trabajador tiene solo una parte del cuerpo dentro de la zona peligrosa de un equipo. ¿Es trabajador expuesto según el art. 2.d)?",
+     "opciones": [
+      "Sí, porque basta con estar parcialmente en la zona peligrosa.",
+      "No, debe encontrarse totalmente dentro de la zona peligrosa.",
+      "No, solo lo es el operador del equipo de trabajo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.d): la presencia parcial en la zona peligrosa basta."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a2-operador",
+   "bloque": "a2",
+   "apartado": "",
+   "orden": 160,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 2.e) del RD 1215/1997, ¿qué es el operador del equipo?",
+    "respuesta": "El trabajador encargado de la utilización de un equipo de trabajo."
+   },
+   "cita": "el trabajador encargado de la utilización de un equipo de trabajo",
+   "confundible_con": [
+    "RD1215-a2-trabajador-expuesto"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.e) del RD 1215/1997, el operador del equipo es el trabajador encargado de:",
+     "opciones": [
+      "La fabricación de un equipo de trabajo",
+      "La utilización de un equipo de trabajo"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 2.e): trabajador encargado de la utilización de un equipo de trabajo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.e) del RD 1215/1997, ¿cómo se denomina al trabajador encargado de la utilización de un equipo de trabajo?",
+     "opciones": [
+      "Trabajador expuesto.",
+      "Recurso preventivo.",
+      "Operador del equipo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 2.e): se denomina operador del equipo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones distingue correctamente al operador del equipo y al trabajador expuesto (art. 2.d) y e))?",
+     "opciones": [
+      "El operador utiliza el equipo; el expuesto es quien está en una zona peligrosa.",
+      "El operador está en una zona peligrosa; el expuesto es quien utiliza el equipo.",
+      "Son sinónimos: ambos términos designan al trabajador que utiliza el equipo."
+     ],
+     "correcta": 0,
+     "explicacion": "Arts. 2.d) y 2.e): el operador usa el equipo; el expuesto se encuentra en una zona peligrosa."
+    }
+   ]
+  }
+ ]
+}

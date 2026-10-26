@@ -1,0 +1,867 @@
+{
+ "norma": "BOE-A-2011-1638",
+ "documento": "EAEXT",
+ "nombre_norma": "Estatuto de Autonomía de Extremadura",
+ "abreviatura": "EAEXT",
+ "hash_prefijo": "EAEXT",
+ "tema": 2,
+ "tema_nombre": "Estatuto de Autonomía de Extremadura",
+ "bloque_temario": "Título Preliminar (arts. 1-6): disposiciones generales, derechos, deberes",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "EAEXT-a1-1-constitucion",
+   "bloque": "a1",
+   "apartado": "1",
+   "orden": 100,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 1.1 EAEXT, ¿cómo se constituye Extremadura y qué naturaleza tiene el Estatuto?",
+    "respuesta": "Se constituye en Comunidad Autónoma, dentro de la unidad de la Nación española, de acuerdo con la Constitución y el Estatuto, que es su norma institucional básica."
+   },
+   "cita": "se constituye en Comunidad Autónoma, dentro de la unidad de la Nación española, de acuerdo con la Constitución y con el presente Estatuto, que es su norma institucional básica",
+   "confundible_con": [
+    "EAEXT-a1-2-autogobierno"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1.1 EAEXT, el Estatuto de Autonomía es la norma:",
+     "opciones": [
+      "Suprema del ordenamiento español",
+      "Institucional básica de Extremadura"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 1.1: el Estatuto es la norma institucional básica de la Comunidad Autónoma."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1.1 EAEXT, Extremadura se constituye en Comunidad Autónoma dentro de la unidad de:",
+     "opciones": [
+      "La Unión Europea.",
+      "La Península Ibérica.",
+      "La Nación española."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 1.1: Extremadura se constituye en Comunidad Autónoma dentro de la unidad de la Nación española."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 1.1 EAEXT es correcta?",
+     "opciones": [
+      "Extremadura se constituye en Comunidad Autónoma de acuerdo con la Constitución y con el Estatuto.",
+      "Extremadura se constituye en Comunidad Autónoma por decisión del Gobierno, al margen de la Constitución.",
+      "Extremadura se constituye en Comunidad Autónoma como nacionalidad con soberanía propia."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.1: se constituye de acuerdo con la Constitución y con el Estatuto, no al margen de ellos."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a1-2-autogobierno",
+   "bloque": "a1",
+   "apartado": "2",
+   "orden": 110,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 1.2 EAEXT, ¿qué asume la Comunidad Autónoma a través de sus instituciones?",
+    "respuesta": "El ejercicio de su autogobierno regional, la defensa de su propia identidad y de sus valores, y la mejora y promoción del bienestar de los extremeños."
+   },
+   "cita": "asume el ejercicio de su autogobierno regional, la defensa de su propia identidad y de sus valores, así como la mejora y promoción del bienestar de los extremeños",
+   "confundible_con": [
+    "EAEXT-a1-1-constitucion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1.2 EAEXT, la Comunidad Autónoma asume, a través de sus instituciones, el ejercicio de su autogobierno:",
+     "opciones": [
+      "Regional",
+      "Provincial"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.2: asume el ejercicio de su autogobierno regional."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1.2 EAEXT, además de la defensa de su identidad y de sus valores, la Comunidad Autónoma asume la mejora y promoción del:",
+     "opciones": [
+      "Desarrollo económico de la región.",
+      "Patrimonio cultural de Extremadura.",
+      "Bienestar de los extremeños."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 1.2: la mejora y promoción del bienestar de los extremeños."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas funciones NO se atribuye a la Comunidad Autónoma en el art. 1.2 EAEXT?",
+     "opciones": [
+      "La declaración de independencia política de la región.",
+      "La defensa de su propia identidad y de sus valores.",
+      "La mejora y promoción del bienestar de los extremeños."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.2: autogobierno, identidad, valores y bienestar; nada sobre independencia política."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a1-3-poderes",
+   "bloque": "a1",
+   "apartado": "3",
+   "orden": 120,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 1.3 EAEXT, ¿de dónde emanan los poderes de la Comunidad Autónoma de Extremadura?",
+    "respuesta": "Del pueblo, de la Constitución y del Estatuto."
+   },
+   "cita": "Los poderes de la Comunidad Autónoma de Extremadura emanan del pueblo, de la Constitución y del presente Estatuto",
+   "confundible_con": [
+    "EAEXT-a1-1-constitucion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1.3 EAEXT, los poderes de la Comunidad Autónoma emanan del pueblo, de la Constitución y:",
+     "opciones": [
+      "De las Cortes Generales",
+      "Del Estatuto de Autonomía"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 1.3: pueblo, Constitución y Estatuto."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1.3 EAEXT, ¿de cuál de estas fuentes emanan los poderes de la Comunidad Autónoma?",
+     "opciones": [
+      "Del Rey.",
+      "De la Asamblea.",
+      "Del pueblo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 1.3: los poderes emanan del pueblo, no del Rey ni de la Asamblea."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el origen de los poderes autonómicos es correcta según el art. 1.3 EAEXT?",
+     "opciones": [
+      "Emanan del pueblo, de la Constitución y del Estatuto de Autonomía.",
+      "Emanan únicamente del pueblo extremeño, con independencia de la Constitución.",
+      "Emanan del Estatuto y de la Asamblea, sin referencia alguna al pueblo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.3: las tres fuentes son pueblo, Constitución y Estatuto, de forma conjunta."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a1-4-elementos",
+   "bloque": "a1",
+   "apartado": "4",
+   "orden": 130,
+   "tipo": "dato",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 1.4 EAEXT, ¿qué elementos diferenciales de Extremadura han de orientar la actuación de los poderes públicos?",
+    "respuesta": "La vitalidad de su reciente identidad colectiva, la calidad de su medioambiente y su patrimonio cultural, el predominio del mundo rural, su proyección en Portugal e Iberoamérica, los condicionantes históricos de su desarrollo y la baja densidad de población y su dispersión."
+   },
+   "cita": "la calidad de su medioambiente y su patrimonio cultural, el predominio del mundo rural, su proyección en Portugal e Iberoamérica",
+   "confundible_con": [
+    "EAEXT-a1-4-medidas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1.4 EAEXT, un elemento diferencial de Extremadura es su proyección en Iberoamérica y en:",
+     "opciones": [
+      "Portugal",
+      "Marruecos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.4: proyección en Portugal e Iberoamérica."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1.4 EAEXT, ¿qué predomina en Extremadura como elemento diferencial?",
+     "opciones": [
+      "El sector industrial moderno.",
+      "La actividad minera histórica.",
+      "El mundo rural de la región."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 1.4: el predominio del mundo rural."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas circunstancias NO figura como elemento diferencial de Extremadura en el art. 1.4 EAEXT?",
+     "opciones": [
+      "Su elevada densidad de población y su salida al mar.",
+      "La baja densidad de su población y su dispersión.",
+      "La calidad de su medioambiente y su patrimonio cultural."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.4: se señala la baja densidad de población y su dispersión, no una alta densidad ni el litoral."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a1-4-medidas",
+   "bloque": "a1",
+   "apartado": "4",
+   "orden": 140,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 1.4 EAEXT, ¿qué deben hacer los poderes públicos ante los elementos diferenciales de Extremadura?",
+    "respuesta": "Adoptar las medidas necesarias para evitar que de tales diferencias se deriven desigualdades frente al conjunto del Estado y para corregir las existentes."
+   },
+   "cita": "Los poderes públicos adoptarán las medidas necesarias para evitar que de tales diferencias se deriven desigualdades frente al conjunto del Estado y para corregir las existentes",
+   "confundible_con": [
+    "EAEXT-a1-4-elementos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1.4 EAEXT, ante los elementos diferenciales los poderes públicos deben evitar que se deriven:",
+     "opciones": [
+      "Privilegios frente al Estado",
+      "Desigualdades frente al Estado"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 1.4: evitar desigualdades frente al conjunto del Estado."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1.4 EAEXT, además de evitar nuevas desigualdades, los poderes públicos deben:",
+     "opciones": [
+      "Compensarlas mediante transferencias estatales.",
+      "Respetarlas como rasgo de la identidad regional.",
+      "Corregir las desigualdades ya existentes."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 1.4: también corregir las desigualdades existentes."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál es el objetivo de las medidas previstas en el art. 1.4 EAEXT?",
+     "opciones": [
+      "Que los elementos diferenciales no generen desigualdades frente al conjunto del Estado.",
+      "Que Extremadura goce de un régimen de privilegio frente al resto de comunidades.",
+      "Que los elementos diferenciales sustituyan a las competencias del Estado."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.4: las medidas buscan evitar desigualdades, no crear privilegios ni sustituir competencias."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a2-1-territorio",
+   "bloque": "a2",
+   "apartado": "1",
+   "orden": 150,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 2.1 EAEXT, ¿cuál es el territorio de Extremadura?",
+    "respuesta": "El de los municipios comprendidos dentro de los actuales límites de las provincias de Badajoz y Cáceres."
+   },
+   "cita": "es el de los municipios comprendidos dentro de los actuales límites de las provincias de Badajoz y Cáceres",
+   "confundible_con": [
+    "EAEXT-a2-2-extraterritorial"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.1 EAEXT, el territorio de Extremadura es el de los municipios de las provincias de Badajoz y:",
+     "opciones": [
+      "Cáceres",
+      "Toledo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.1: Badajoz y Cáceres."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.1 EAEXT, el territorio de Extremadura es el de los municipios comprendidos dentro de los actuales límites de:",
+     "opciones": [
+      "Las comarcas de las Vegas Altas y La Serena.",
+      "Las cuencas del Tajo y del Guadiana.",
+      "Las provincias de Badajoz y Cáceres."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 2.1: el territorio se define por los municipios de las provincias de Badajoz y Cáceres."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el territorio de Extremadura es correcta según el art. 2.1 EAEXT?",
+     "opciones": [
+      "Es el de los municipios de las provincias de Badajoz y Cáceres.",
+      "Es el de las comarcas históricas de la Alta y la Baja Extremadura.",
+      "Es el que fijen las Cortes Generales en cada legislatura."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.1: el territorio son los municipios de las dos provincias actuales, no comarcas ni cuencas."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a2-2-extraterritorial",
+   "bloque": "a2",
+   "apartado": "2",
+   "orden": 160,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 2.2 EAEXT, ¿cuándo pueden las normas o actos de las instituciones extremeñas tener efectos extraterritoriales?",
+    "respuesta": "Cuando sea necesario para el pleno ejercicio de aquellas de sus competencias cuya naturaleza lo requiera."
+   },
+   "cita": "podrán tener efectos extraterritoriales cuando sea necesario para el pleno ejercicio de aquellas de sus competencias cuya naturaleza lo requiera",
+   "confundible_con": [
+    "EAEXT-a2-1-territorio"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.2 EAEXT, las normas de las instituciones extremeñas podrán tener efectos:",
+     "opciones": [
+      "Retroactivos",
+      "Extraterritoriales"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 2.2: efectos extraterritoriales de normas, disposiciones o actos."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.2 EAEXT, los efectos extraterritoriales se admiten cuando sea necesario para ejercer:",
+     "opciones": [
+      "Cualquier competencia, sin más limitación.",
+      "Las competencias delegadas por el Estado.",
+      "Las competencias cuya naturaleza lo requiera."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 2.2: solo para el pleno ejercicio de competencias cuya naturaleza lo requiera."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué condición exige el art. 2.2 EAEXT para que los actos de las instituciones extremeñas surtan efectos fuera del territorio?",
+     "opciones": [
+      "Que sea necesario para el pleno ejercicio de competencias que lo requieran.",
+      "Que lo autorice previamente el Gobierno de la Nación mediante real decreto.",
+      "Que afecte a extremeños residentes fuera del territorio de la Comunidad."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.2: la condición es la necesidad competencial, no una autorización estatal."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a3-1-condicion",
+   "bloque": "a3",
+   "apartado": "1",
+   "orden": 170,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.1 EAEXT, ¿quiénes ostentan la condición política de extremeños?",
+    "respuesta": "Los ciudadanos españoles que, de acuerdo con las leyes generales del Estado, tengan vecindad administrativa en cualquiera de los municipios de Extremadura."
+   },
+   "cita": "ostentan la condición política de extremeños los ciudadanos españoles que, de acuerdo con las leyes generales del Estado, tengan vecindad administrativa en cualquiera de los municipios de Extremadura",
+   "confundible_con": [
+    "EAEXT-a3-2-exterior"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.1 EAEXT, la condición política de extremeño se vincula a la vecindad:",
+     "opciones": [
+      "Administrativa",
+      "Civil"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.1: vecindad administrativa conforme a las leyes generales del Estado."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.1 EAEXT, la condición política de extremeño la tienen los ciudadanos españoles con vecindad administrativa, conforme a las leyes generales del Estado, en:",
+     "opciones": [
+      "Cualquiera de las capitales de provincia de Extremadura.",
+      "El municipio de Mérida, capital de la Comunidad.",
+      "Cualquiera de los municipios de Extremadura."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.1: basta la vecindad administrativa en cualquiera de los municipios de Extremadura."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas personas ostenta la condición política de extremeño según el art. 3.1 EAEXT?",
+     "opciones": [
+      "Un ciudadano español con vecindad administrativa en un municipio de Extremadura.",
+      "Un ciudadano extranjero con residencia legal en un municipio extremeño.",
+      "Un ciudadano español nacido en Extremadura con vecindad administrativa en otra región."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.1: exige ser ciudadano español con vecindad administrativa en Extremadura."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a3-2-exterior",
+   "bloque": "a3",
+   "apartado": "2",
+   "orden": 180,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.2 EAEXT, ¿qué españoles residentes en el extranjero son extremeños y qué ocurre con sus descendientes?",
+    "respuesta": "Los que hayan tenido la última vecindad administrativa en Extremadura y lo acrediten en la representación diplomática de España; sus descendientes inscritos como españoles gozan de esa condición si lo solicitan en la forma que determine una ley del Estado."
+   },
+   "cita": "son extremeños los españoles residentes en el extranjero que hayan tenido la última vecindad administrativa en Extremadura y acrediten esta condición en la correspondiente representación diplomática de España",
+   "confundible_con": [
+    "EAEXT-a3-1-condicion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.2 EAEXT, los españoles residentes en el extranjero acreditan su condición de extremeños ante la representación:",
+     "opciones": [
+      "Autonómica de Extremadura",
+      "Diplomática de España"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 3.2: se acredita ante la representación diplomática de España."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.2 EAEXT, los descendientes inscritos como españoles gozan de la condición de extremeños si lo solicitan en la forma que determine:",
+     "opciones": [
+      "Una ley de la Asamblea.",
+      "Un decreto de la Junta.",
+      "Una ley del Estado."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.2: los descendientes lo solicitan en la forma que determine una ley del Estado."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué requisito de vecindad debe cumplir el español residente en el extranjero para ser extremeño según el art. 3.2 EAEXT?",
+     "opciones": [
+      "Haber tenido la última vecindad administrativa en Extremadura.",
+      "Haber nacido en un municipio de Extremadura.",
+      "Tener vecindad civil extremeña durante al menos diez años."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.2: la clave es la última vecindad administrativa en Extremadura."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a3-3-comunidades",
+   "bloque": "a3",
+   "apartado": "3",
+   "orden": 190,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.3 EAEXT, ¿qué pueden solicitar las comunidades extremeñas asentadas fuera de Extremadura y qué no implica?",
+    "respuesta": "El reconocimiento de la identidad extremeña, entendida como el derecho a colaborar y compartir la vida social y cultural del pueblo extremeño, sin que implique en ningún caso derechos políticos."
+   },
+   "cita": "podrán solicitar el reconocimiento de la identidad extremeña, entendida como el derecho a colaborar y compartir la vida social y cultural del pueblo extremeño y sin que, en ningún caso, implique la concesión de derechos políticos",
+   "confundible_con": [
+    "EAEXT-a3-2-exterior"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.3 EAEXT, el reconocimiento de la identidad extremeña no implica en ningún caso la concesión de derechos:",
+     "opciones": [
+      "Políticos",
+      "Culturales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.3: no implica, en ningún caso, derechos políticos."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.3 EAEXT, la Comunidad Autónoma podrá solicitar del Estado la celebración de tratados o convenios internacionales con:",
+     "opciones": [
+      "Cualquier Estado de la Unión Europea.",
+      "Los Estados limítrofes con Extremadura.",
+      "Los Estados donde existan dichas comunidades."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 3.3: la Comunidad puede solicitar tratados o convenios con los Estados donde existan esas comunidades."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿En qué consiste la identidad extremeña reconocida a las comunidades asentadas fuera de Extremadura según el art. 3.3 EAEXT?",
+     "opciones": [
+      "En el derecho a colaborar y compartir la vida social y cultural extremeña.",
+      "En el derecho a votar en las elecciones a la Asamblea de Extremadura.",
+      "En la condición política de extremeño con plenitud de derechos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.3: es un derecho de colaboración social y cultural, sin derechos políticos."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a4-1-bandera",
+   "bloque": "a4",
+   "apartado": "1",
+   "orden": 200,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.1 EAEXT, ¿cómo es la bandera extremeña?",
+    "respuesta": "Tres franjas horizontales iguales: verde la superior, blanca la central y negra la inferior."
+   },
+   "cita": "tres franjas horizontales iguales, verde la superior, blanca la central y negra la inferior",
+   "confundible_con": [
+    "EAEXT-a4-2-escudo-himno"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.1 EAEXT, la franja superior de la bandera extremeña es de color:",
+     "opciones": [
+      "Negro",
+      "Verde"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.1: la franja superior es verde."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.1 EAEXT, ¿de qué color es la franja central de la bandera extremeña?",
+     "opciones": [
+      "Verde.",
+      "Negra.",
+      "Blanca."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.1: la franja central es blanca."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas descripciones corresponde a la bandera extremeña según el art. 4.1 EAEXT?",
+     "opciones": [
+      "Tres franjas horizontales iguales: verde, blanca y negra, de arriba abajo.",
+      "Tres franjas horizontales iguales: negra, blanca y verde, de arriba abajo.",
+      "Tres franjas verticales iguales: verde, blanca y negra, de izquierda a derecha."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.1: tres franjas horizontales iguales, de arriba abajo verde, blanca y negra."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a4-2-escudo-himno",
+   "bloque": "a4",
+   "apartado": "2",
+   "orden": 210,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.2 EAEXT, ¿cómo se regulan el escudo y el himno de Extremadura?",
+    "respuesta": "Por ley de la Asamblea aprobada por mayoría de dos tercios de los diputados."
+   },
+   "cita": "El escudo y el himno de Extremadura se regularán por ley de la Asamblea aprobada por mayoría de dos tercios de los diputados",
+   "confundible_con": [
+    "EAEXT-a4-1-bandera"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.2 EAEXT, el escudo y el himno de Extremadura se regulan por:",
+     "opciones": [
+      "Ley de la Asamblea",
+      "Decreto de la Junta"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.2: se regulan por ley de la Asamblea."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.2 EAEXT, la ley que regula el escudo y el himno requiere la mayoría de:",
+     "opciones": [
+      "Tres quintos de los diputados.",
+      "La mayoría absoluta de la Cámara.",
+      "Dos tercios de los diputados."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.2: mayoría de dos tercios de los diputados."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el escudo y el himno es correcta según el art. 4.2 EAEXT?",
+     "opciones": [
+      "Se regulan por ley de la Asamblea aprobada por dos tercios de los diputados.",
+      "Se regulan por decreto del Presidente previa deliberación de la Junta.",
+      "Se regulan por ley de la Asamblea aprobada por mayoría simple de la Cámara."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.2: ley de la Asamblea con dos tercios, no decreto ni mayoría simple."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a4-3-dia",
+   "bloque": "a4",
+   "apartado": "3",
+   "orden": 220,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.3 EAEXT, ¿qué día es el día de Extremadura?",
+    "respuesta": "El 8 de septiembre."
+   },
+   "cita": "El día de Extremadura es el 8 de septiembre",
+   "confundible_con": [
+    "EAEXT-a4-1-bandera"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.3 EAEXT, el día de Extremadura se celebra en el mes de:",
+     "opciones": [
+      "Marzo",
+      "Septiembre"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.3: el día de Extremadura es en septiembre."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.3 EAEXT, ¿en qué fecha se celebra el día de Extremadura?",
+     "opciones": [
+      "El 25 de febrero.",
+      "El 12 de octubre.",
+      "El 8 de septiembre."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.3: el 8 de septiembre."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 4.3 EAEXT es correcta?",
+     "opciones": [
+      "Fija directamente el 8 de septiembre como día de Extremadura.",
+      "Fija el 25 de febrero, aniversario del Estatuto, como día de Extremadura.",
+      "Remite la fecha del día de Extremadura a una ley de la Asamblea."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.3: la fecha la fija directamente el Estatuto: 8 de septiembre."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a4-4-proteccion",
+   "bloque": "a4",
+   "apartado": "4",
+   "orden": 230,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.4 EAEXT, ¿qué protección tienen los símbolos de Extremadura?",
+    "respuesta": "La que corresponde a los demás símbolos del Estado, de acuerdo con el ordenamiento jurídico."
+   },
+   "cita": "es la que corresponde a los demás símbolos del Estado, de acuerdo con el ordenamiento jurídico",
+   "confundible_con": [
+    "EAEXT-a4-2-escudo-himno"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.4 EAEXT, la protección de los símbolos de Extremadura es la que corresponde a los demás símbolos:",
+     "opciones": [
+      "Del Estado",
+      "Locales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.4: igual protección que los demás símbolos del Estado."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.4 EAEXT, la protección de los símbolos de Extremadura se rige por:",
+     "opciones": [
+      "Una ley especial aprobada por dos tercios de la Asamblea.",
+      "Las ordenanzas de los municipios de la región.",
+      "El mismo régimen que los demás símbolos del Estado."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.4: se equipara a los demás símbolos del Estado, conforme al ordenamiento jurídico."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué se deduce del art. 4.4 EAEXT sobre los símbolos extremeños?",
+     "opciones": [
+      "Gozan de la protección que corresponde a los demás símbolos del Estado.",
+      "Carecen de protección jurídica distinta de la de cualquier otro emblema.",
+      "Solo están protegidos en el territorio de la Comunidad Autónoma."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.4: no hay un régimen propio ni limitado al territorio autonómico."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a5-capital",
+   "bloque": "a5",
+   "apartado": "",
+   "orden": 240,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 5 EAEXT, ¿cuál es la capital de Extremadura y qué instituciones tienen allí su sede?",
+    "respuesta": "Mérida, sede de la Asamblea, de la Presidencia y de la Junta."
+   },
+   "cita": "La capital de Extremadura es la ciudad de Mérida, sede de la Asamblea, de la Presidencia y de la Junta",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 5 EAEXT, la capital de Extremadura es la ciudad de:",
+     "opciones": [
+      "Badajoz",
+      "Mérida"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 5: la capital es Mérida."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 5 EAEXT, ¿qué instituciones tienen su sede en la capital?",
+     "opciones": [
+      "Solo la Asamblea y la Presidencia.",
+      "La Asamblea y el Tribunal Superior de Justicia.",
+      "La Asamblea, la Presidencia y la Junta."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 5: Mérida es sede de la Asamblea, de la Presidencia y de la Junta."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre la capitalidad es correcta según el art. 5 EAEXT?",
+     "opciones": [
+      "Mérida es la capital y sede de la Asamblea, la Presidencia y la Junta.",
+      "Badajoz es la capital y Mérida solo es sede de la Asamblea regional.",
+      "Cáceres es la capital y sede de la Presidencia y de la Junta regional."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5: la capital es Mérida y en ella están las tres instituciones."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a6-1-derechos",
+   "bloque": "a6",
+   "apartado": "1",
+   "orden": 250,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 6.1 EAEXT, ¿cuáles son los derechos fundamentales de los extremeños y qué otros derechos pueden ejercer frente a los poderes públicos regionales?",
+    "respuesta": "Los establecidos en la Constitución; además, los contenidos en el Estatuto o en la legislación, especialmente participar en los asuntos públicos y el de petición."
+   },
+   "cita": "Los derechos fundamentales de los extremeños son los establecidos en la Constitución",
+   "confundible_con": [
+    "EAEXT-a6-2-deberes"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 6.1 EAEXT, los derechos fundamentales de los extremeños son los establecidos en:",
+     "opciones": [
+      "La Constitución",
+      "La Carta Social Europea"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.1: los derechos fundamentales son los de la Constitución."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 6.1 EAEXT, los extremeños pueden ejercer frente a los poderes públicos regionales, especialmente, el derecho de participar en los asuntos públicos y:",
+     "opciones": [
+      "El derecho de huelga.",
+      "El derecho a la vivienda.",
+      "El derecho de petición."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 6.1: especialmente participar en asuntos públicos y el derecho de petición."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué derechos pueden ejercer los extremeños frente a los poderes regionales, además de los fundamentales, según el art. 6.1 EAEXT?",
+     "opciones": [
+      "Los contenidos en el Estatuto o en la legislación.",
+      "Solo los reconocidos en leyes aprobadas por mayoría cualificada.",
+      "Los que determine libremente la Junta mediante decreto."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.1: además, los derechos contenidos en el Estatuto o en la legislación."
+    }
+   ]
+  },
+  {
+   "id": "EAEXT-a6-2-deberes",
+   "bloque": "a6",
+   "apartado": "2",
+   "orden": 260,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 6.2 EAEXT, ¿cuáles son los deberes de los extremeños?",
+    "respuesta": "Los previstos en la Constitución y en el resto del ordenamiento jurídico."
+   },
+   "cita": "son deberes de los extremeños los previstos en la Constitución y en el resto del ordenamiento jurídico",
+   "confundible_con": [
+    "EAEXT-a6-1-derechos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 6.2 EAEXT, los deberes de los extremeños son los previstos en la Constitución y en el resto del:",
+     "opciones": [
+      "Reglamento de la Asamblea",
+      "Ordenamiento jurídico"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 6.2: Constitución y resto del ordenamiento jurídico."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 6.2 EAEXT, los deberes de los extremeños se establecen para contribuir al:",
+     "opciones": [
+      "Desarrollo económico regional.",
+      "Orden público autonómico.",
+      "Bienestar colectivo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 6.2: los deberes contribuyen al bienestar colectivo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre los deberes de los extremeños es correcta según el art. 6.2 EAEXT?",
+     "opciones": [
+      "Son los previstos en la Constitución y en el resto del ordenamiento jurídico.",
+      "Son solo los previstos en el propio Estatuto de Autonomía de Extremadura.",
+      "Son los que fije una ley específica de la Asamblea de Extremadura."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.2: no hay catálogo propio; remite a la Constitución y al ordenamiento."
+    }
+   ]
+  }
+ ]
+}

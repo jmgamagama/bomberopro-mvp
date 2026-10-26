@@ -22,6 +22,7 @@ from __future__ import annotations
 import hashlib
 import json
 import pathlib
+import re
 import subprocess
 import sys
 
@@ -34,6 +35,13 @@ def q(s: str | None) -> str:
 
 def arr(xs: list[str]) -> str:
     return "ARRAY[" + ",".join(q(x) for x in xs) + "]::text[]" if xs else "'{}'::text[]"
+
+
+def etiqueta_bloque(bloque: dict | None, bid: str) -> str:
+    """«Artículo 32 bis» → «32 bis». Los ids de bloque no siempre coinciden con el número (a2-3 = art. 21)."""
+    t = ((bloque or {}).get("titulo") or "").strip()
+    m = re.match(r"^Art[íi]culo\s+(.+?)\.?$", t, re.I)
+    return m.group(1) if m else (t.lower() or bid)
 
 
 def main() -> int:
@@ -57,6 +65,7 @@ def main() -> int:
     abrev = d.get("abreviatura", "CE")
     prefijo = d.get("hash_prefijo", "CE")
     meta = json.loads(pathlib.Path(f"data/fuentes/{fuente_id}/meta.json").read_text(encoding="utf-8"))
+    bloques = {b["id"]: b for b in json.loads(pathlib.Path(f"data/fuentes/{fuente_id}/bloques.json").read_text(encoding="utf-8"))}
     fecha = meta["fecha_actualizacion_boe"][:8]
     fecha_txt = f"{fecha[6:8]}/{fecha[4:6]}/{fecha[0:4]}"
     tema = int(d["tema"])
@@ -76,7 +85,7 @@ def main() -> int:
 
     n_q = 0
     for c in d["conceptos"]:
-        art = c["bloque"][1:].replace("bis", " bis")
+        art = etiqueta_bloque(bloques.get(c["bloque"]), c["bloque"])
         ref = f"{art}.{c['apartado']}" if c["apartado"] else art
         apartado = f"{d['bloque_temario'].split(' (')[0]} · Art. {ref}"
         fuente = f"{nombre}, art. {ref} ({fuente_id}, texto consolidado, act. {fecha_txt})"

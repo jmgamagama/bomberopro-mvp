@@ -1,0 +1,670 @@
+{
+ "norma": "BOE-A-1997-17824",
+ "documento": "RD1215",
+ "nombre_norma": "Real Decreto 1215/1997 sobre equipos de trabajo",
+ "abreviatura": "RD 1215/1997",
+ "hash_prefijo": "RD1215",
+ "tema": 31,
+ "tema_nombre": "RD 1215/1997 Equipos de trabajo",
+ "bloque_temario": "Arts. 4-6: comprobación de los equipos, formación e información y consulta y participación",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "RD1215-a4-1-inicial",
+   "bloque": "a4",
+   "apartado": "1",
+   "orden": 260,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.1 del RD 1215/1997, ¿qué comprobaciones deben superar los equipos cuya seguridad depende de sus condiciones de instalación?",
+    "respuesta": "Una comprobación inicial, tras su instalación y antes de la primera puesta en marcha, y otra nueva después de cada montaje en un nuevo lugar o emplazamiento."
+   },
+   "cita": "se sometan a una comprobación inicial, tras su instalación y antes de la puesta en marcha por primera vez, y a una nueva comprobación después de cada montaje en un nuevo lugar o emplazamiento",
+   "confundible_con": [
+    "RD1215-a4-2-periodicas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.1 del RD 1215/1997, la comprobación inicial se hace tras la instalación y antes de:",
+     "opciones": [
+      "El primer mantenimiento anual",
+      "La puesta en marcha por primera vez"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.1: comprobación inicial, tras la instalación y antes de la puesta en marcha por primera vez."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.1 del RD 1215/1997, ¿cuándo debe repetirse la comprobación de un equipo cuya seguridad depende de su instalación?",
+     "opciones": [
+      "Cada año natural, con independencia de su ubicación en la empresa.",
+      "Cada vez que cambie el operador que utiliza el equipo en el turno.",
+      "Después de cada montaje en un nuevo lugar o emplazamiento."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.1: nueva comprobación después de cada montaje en un nuevo lugar o emplazamiento."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿A qué equipos se aplican las comprobaciones del art. 4.1 (inicial y tras cada nuevo montaje)?",
+     "opciones": [
+      "A aquellos cuya seguridad depende de sus condiciones de instalación.",
+      "A todos los equipos de trabajo, con independencia de su instalación.",
+      "A aquellos sometidos a influencias que puedan deteriorarlos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.1: equipos cuya seguridad depende de su instalación; los sometidos a deterioro son los del art. 4.2."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a4-2-periodicas",
+   "bloque": "a4",
+   "apartado": "2",
+   "orden": 270,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.2 del RD 1215/1997, ¿qué equipos deben estar sujetos a comprobaciones y pruebas periódicas y con qué objeto?",
+    "respuesta": "Los sometidos a influencias susceptibles de ocasionar deterioros que generen situaciones peligrosas, para asegurar el cumplimiento de las disposiciones y remediar a tiempo los deterioros."
+   },
+   "cita": "estén sujetos a comprobaciones y, en su caso, pruebas de carácter periódico",
+   "confundible_con": [
+    "RD1215-a4-1-inicial",
+    "RD1215-a4-2-adicionales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.2 del RD 1215/1997, esos equipos estarán sujetos a comprobaciones y pruebas de carácter:",
+     "opciones": [
+      "Periódico",
+      "Voluntario"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.2: comprobaciones y, en su caso, pruebas de carácter periódico."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.2 del RD 1215/1997, las comprobaciones periódicas buscan asegurar el cumplimiento de las disposiciones de seguridad y salud y:",
+     "opciones": [
+      "Renovar el equipo cada cierto tiempo.",
+      "Sancionar al operador negligente.",
+      "Remediar a tiempo los deterioros."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.2: asegurar el cumplimiento de las disposiciones y remediar a tiempo los deterioros."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos equipos debe someterse a comprobaciones periódicas según el art. 4.2?",
+     "opciones": [
+      "El sometido a influencias que puedan generar deterioros y situaciones peligrosas.",
+      "Cualquier equipo nuevo durante sus primeros cinco años de servicio en la empresa.",
+      "El que se utilice siempre en el interior de un edificio cerrado y climatizado."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.2: equipos sometidos a influencias susceptibles de ocasionar deterioros peligrosos."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a4-2-adicionales",
+   "bloque": "a4",
+   "apartado": "2",
+   "orden": 280,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.2 del RD 1215/1997, ¿cuándo deben realizarse comprobaciones adicionales de los equipos y qué ejemplos cita?",
+    "respuesta": "Cada vez que se produzcan acontecimientos excepcionales que puedan perjudicar la seguridad, como transformaciones, accidentes, fenómenos naturales o falta prolongada de uso."
+   },
+   "cita": "se deberán realizar comprobaciones adicionales de tales equipos cada vez que se produzcan acontecimientos excepcionales",
+   "confundible_con": [
+    "RD1215-a4-2-periodicas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.2 del RD 1215/1997, se realizan comprobaciones adicionales cuando se produzcan acontecimientos:",
+     "opciones": [
+      "Previsibles",
+      "Excepcionales"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.2 párr. 2: acontecimientos excepcionales."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.2 del RD 1215/1997, ¿cuál de estos es un acontecimiento excepcional que obliga a una comprobación adicional?",
+     "opciones": [
+      "El cambio de turno del operador del equipo.",
+      "La renovación del contrato del operador.",
+      "La falta prolongada de uso del equipo."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.2 párr. 2: transformaciones, accidentes, fenómenos naturales o falta prolongada de uso."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos NO es un ejemplo de acontecimiento excepcional del art. 4.2?",
+     "opciones": [
+      "El relevo ordinario del operador al terminar su turno.",
+      "Un accidente que afecte al equipo de trabajo.",
+      "Un fenómeno natural que pueda dañar el equipo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.2 párr. 2: el relevo ordinario no es un acontecimiento excepcional."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a4-3-competente",
+   "bloque": "a4",
+   "apartado": "3",
+   "orden": 290,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.3 del RD 1215/1997, ¿quién efectúa las comprobaciones de los equipos de trabajo?",
+    "respuesta": "Personal competente."
+   },
+   "cita": "Las comprobaciones serán efectuadas por personal competente",
+   "confundible_con": [
+    "RD1215-a4-5-normativa"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.3 del RD 1215/1997, las comprobaciones serán efectuadas por personal:",
+     "opciones": [
+      "Competente",
+      "Externo a la empresa"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.3: personal competente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.3 del RD 1215/1997, ¿por quién serán efectuadas las comprobaciones de los equipos de trabajo?",
+     "opciones": [
+      "Por la autoridad laboral.",
+      "Por el usuario del equipo.",
+      "Por personal competente."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.3: no las realiza la autoridad laboral ni el usuario por esa condición."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 4.3 es correcta?",
+     "opciones": [
+      "Las comprobaciones han de ser realizadas por personal competente.",
+      "Las comprobaciones pueden ser realizadas por cualquier trabajador de la plantilla.",
+      "Las comprobaciones deben ser realizadas siempre por la autoridad laboral."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.3: exige personal competente, no cualquier trabajador."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a4-4-documentar",
+   "bloque": "a4",
+   "apartado": "4",
+   "orden": 300,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.4 del RD 1215/1997, ¿qué debe hacerse con los resultados de las comprobaciones y durante cuánto tiempo?",
+    "respuesta": "Documentarlos, tenerlos a disposición de la autoridad laboral y conservarlos durante toda la vida útil de los equipos."
+   },
+   "cita": "Los resultados de las comprobaciones deberán documentarse y estar a disposición de la autoridad laboral. Dichos resultados deberán conservarse durante toda la vida útil de los equipos",
+   "confundible_con": [
+    "RD1215-a4-4-fuera-empresa"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.4 del RD 1215/1997, los resultados de las comprobaciones se conservarán durante:",
+     "opciones": [
+      "Cinco años desde la comprobación",
+      "Toda la vida útil de los equipos"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.4: conservación durante toda la vida útil de los equipos."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.4 del RD 1215/1997, los resultados de las comprobaciones deben estar a disposición de:",
+     "opciones": [
+      "La mutua colaboradora.",
+      "El fabricante del equipo.",
+      "La autoridad laboral."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.4: a disposición de la autoridad laboral."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre los resultados de las comprobaciones es correcta según el art. 4.4?",
+     "opciones": [
+      "Deben documentarse y conservarse durante toda la vida útil del equipo.",
+      "Se conservan solo hasta la siguiente comprobación periódica del equipo.",
+      "Se conservan diez años desde que se instaló el equipo de trabajo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.4: documentados y conservados durante toda la vida útil, sin plazo fijo."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a4-4-fuera-empresa",
+   "bloque": "a4",
+   "apartado": "4",
+   "orden": 310,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.4 del RD 1215/1997, ¿qué requisito se exige a los equipos de trabajo que se empleen fuera de la empresa?",
+    "respuesta": "Deben ir acompañados de una prueba material de la realización de la última comprobación."
+   },
+   "cita": "Cuando los equipos de trabajo se empleen fuera de la empresa, deberán ir acompañados de una prueba material de la realización de la última comprobación",
+   "confundible_con": [
+    "RD1215-a4-4-documentar"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.4 del RD 1215/1997, el equipo empleado fuera de la empresa irá acompañado de una prueba material de la última:",
+     "opciones": [
+      "Comprobación",
+      "Reparación"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.4 párr. 2: prueba material de la realización de la última comprobación."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.4 del RD 1215/1997, ¿en qué supuesto debe el equipo ir acompañado de una prueba material?",
+     "opciones": [
+      "Cuando se instale por primera vez.",
+      "Cuando esté almacenado seis meses.",
+      "Cuando se emplee fuera de la empresa."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.4 párr. 2: se exige cuando el equipo se emplea fuera de la empresa."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué debe acompañar a un equipo de trabajo que se emplea fuera de la empresa según el art. 4.4?",
+     "opciones": [
+      "Una prueba material de que se realizó la última comprobación.",
+      "Una copia de todos los resultados de las comprobaciones desde su instalación.",
+      "Un certificado del fabricante sobre su fecha de fabricación."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.4 párr. 2: basta la prueba de la última comprobación, no todo el historial."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a4-5-normativa",
+   "bloque": "a4",
+   "apartado": "5",
+   "orden": 320,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 4.5 del RD 1215/1997, ¿a qué se ajustan los requisitos y condiciones de las comprobaciones de los equipos de trabajo?",
+    "respuesta": "A lo dispuesto en la normativa específica que les sea de aplicación."
+   },
+   "cita": "se ajustarán a lo dispuesto en la normativa específica que les sea de aplicación",
+   "confundible_con": [
+    "RD1215-a4-3-competente"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4.5 del RD 1215/1997, los requisitos de las comprobaciones se ajustan a la normativa:",
+     "opciones": [
+      "Interna de cada empresa",
+      "Específica aplicable a cada equipo"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 4.5: normativa específica que les sea de aplicación."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4.5 del RD 1215/1997, ¿qué fija los requisitos y condiciones de las comprobaciones de los equipos?",
+     "opciones": [
+      "El criterio de cada empresario según su experiencia.",
+      "Las instrucciones de la mutua de accidentes.",
+      "La normativa específica que les sea de aplicación."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 4.5: no depende del criterio del empresario ni de la mutua."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 4.5 es correcta?",
+     "opciones": [
+      "Remite a la normativa específica aplicable para los requisitos y condiciones de las comprobaciones.",
+      "Fija en el propio Real Decreto un procedimiento único de comprobación para todos los equipos.",
+      "Deja los requisitos de comprobación a lo que acuerden las partes en cada contrato."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4.5: remisión a la normativa específica, sin procedimiento único."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a5-1-formacion-informacion",
+   "bloque": "a5",
+   "apartado": "1",
+   "orden": 330,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 5.1 del RD 1215/1997, ¿qué debe garantizar el empresario en materia de formación e información y de conformidad con qué artículos de la LPRL?",
+    "respuesta": "Que los trabajadores y sus representantes reciban formación e información adecuadas sobre los riesgos de los equipos y las medidas de prevención y protección, conforme a los artículos 18 y 19 de la Ley 31/1995."
+   },
+   "cita": "el empresario deberá garantizar que los trabajadores y los representantes de los trabajadores reciban una formación e información adecuadas sobre los riesgos derivados de la utilización de los equipos de trabajo",
+   "confundible_con": [
+    "RD1215-a5-2-contenido-minimo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 5.1 del RD 1215/1997, el empresario garantiza la formación e información adecuadas a los trabajadores y a:",
+     "opciones": [
+      "Sus representantes",
+      "Los clientes de la empresa"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.1: formación e información de los trabajadores y de sus representantes."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 5.1 del RD 1215/1997, ¿de conformidad con qué artículos de la LPRL debe garantizar el empresario la formación e información?",
+     "opciones": [
+      "Los artículos 14 y 15.",
+      "Los artículos 20 y 21.",
+      "Los artículos 18 y 19."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 5.1: de conformidad con los artículos 18 y 19 de la LPRL."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Sobre qué debe versar la formación e información que el empresario garantiza según el art. 5.1?",
+     "opciones": [
+      "Los riesgos de la utilización de los equipos y las medidas de prevención y protección aplicables.",
+      "Solo las instrucciones de funcionamiento que facilite el fabricante de cada equipo.",
+      "Los riesgos derivados de la fabricación de los equipos y de su garantía comercial."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.1: riesgos derivados de la utilización y medidas de prevención y protección."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a5-2-contenido-minimo",
+   "bloque": "a5",
+   "apartado": "2",
+   "orden": 340,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 5.2 del RD 1215/1997, ¿cómo se suministra preferentemente la información y qué contenido mínimo debe tener?",
+    "respuesta": "Preferentemente por escrito, con las condiciones y forma correcta de utilización, las conclusiones de la experiencia adquirida y otra información de utilidad preventiva."
+   },
+   "cita": "La información, suministrada preferentemente por escrito, deberá contener, como mínimo, las indicaciones relativas a",
+   "confundible_con": [
+    "RD1215-a5-2-comprensible"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 5.2 del RD 1215/1997, la información se suministrará preferentemente:",
+     "opciones": [
+      "De forma verbal",
+      "Por escrito"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 5.2: la información se suministra preferentemente por escrito."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 5.2 del RD 1215/1997, la información debe incluir las conclusiones que se puedan obtener de:",
+     "opciones": [
+      "Las inspecciones de la autoridad laboral en el sector.",
+      "Los estudios de mercado de los fabricantes de equipos.",
+      "La experiencia adquirida en la utilización de los equipos."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 5.2 b): conclusiones de la experiencia adquirida en la utilización de los equipos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos contenidos NO figura entre las indicaciones mínimas del art. 5.2?",
+     "opciones": [
+      "El precio de reposición y el de los recambios.",
+      "Las situaciones de utilización anormales y peligrosas.",
+      "Las condiciones y forma correcta de utilización."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.2: el precio no figura; sí las condiciones de utilización y las situaciones anormales previsibles."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a5-2-comprensible",
+   "bloque": "a5",
+   "apartado": "2",
+   "orden": 350,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 5.2 del RD 1215/1997, ¿qué características debe tener la información y cuándo debe presentarse en folletos?",
+    "respuesta": "Debe ser comprensible para sus destinatarios y presentarse en folletos cuando lo requiera su volumen, su complejidad o la utilización poco frecuente del equipo."
+   },
+   "cita": "La información deberá ser comprensible para los trabajadores a los que va dirigida e incluir o presentarse en forma de folletos informativos cuando sea necesario por su volumen o complejidad o por la utilización poco frecuente del equipo",
+   "confundible_con": [
+    "RD1215-a5-2-contenido-minimo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 5.2 del RD 1215/1997, la información debe ser comprensible para:",
+     "opciones": [
+      "Los trabajadores a los que va dirigida",
+      "Los técnicos de la autoridad laboral"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.2 último párrafo: comprensible para los trabajadores a los que va dirigida."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 5.2 del RD 1215/1997, ¿qué documentación está a disposición de los trabajadores?",
+     "opciones": [
+      "El informe de la última inspección.",
+      "El historial de accidentes de la empresa.",
+      "La facilitada por el fabricante."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 5.2 último párrafo: la documentación informativa del fabricante está a disposición de los trabajadores."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿En cuál de estos casos se presenta la información en folletos según el art. 5.2?",
+     "opciones": [
+      "Cuando lo requiera su volumen, su complejidad o el uso poco frecuente del equipo.",
+      "Siempre, con independencia de su volumen o de la frecuencia de uso del equipo.",
+      "Solo cuando lo pida por escrito el representante de los trabajadores del centro."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.2 último párrafo: folletos por volumen, complejidad o uso poco frecuente."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a5-3-entorno",
+   "bloque": "a5",
+   "apartado": "3",
+   "orden": 360,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 5.3 del RD 1215/1997, ¿sobre qué se informará además a los trabajadores, aunque no utilicen directamente los equipos?",
+    "respuesta": "Sobre la necesidad de prestar atención a los riesgos de los equipos presentes en su entorno de trabajo inmediato o de las modificaciones introducidas en ellos."
+   },
+   "cita": "se informará a los trabajadores sobre la necesidad de prestar atención a los riesgos derivados de los equipos de trabajo presentes en su entorno de trabajo inmediato",
+   "confundible_con": [
+    "RD1215-a5-4-formacion-especifica"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 5.3 del RD 1215/1997, se informa sobre los riesgos de los equipos del entorno inmediato aun cuando los trabajadores:",
+     "opciones": [
+      "No hayan recibido formación",
+      "No los utilicen directamente"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 5.3: aun cuando no los utilicen directamente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 5.3 del RD 1215/1997, además de los equipos del entorno inmediato, ¿sobre qué más se informa a los trabajadores?",
+     "opciones": [
+      "Las sanciones previstas por su uso incorrecto.",
+      "Los costes de reparación de cada equipo.",
+      "Las modificaciones introducidas en dichos equipos."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 5.3: modificaciones introducidas en los equipos del entorno de trabajo inmediato."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿A qué trabajadores alcanza la información del art. 5.3?",
+     "opciones": [
+      "También a quienes no usan los equipos pero los tienen en su entorno inmediato.",
+      "Solo a los operadores que utilizan directamente los equipos de trabajo del centro.",
+      "Solo a los trabajadores designados para el uso específico de un equipo concreto."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.3: la información alcanza a quienes tienen los equipos en su entorno, aunque no los usen."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a5-4-formacion-especifica",
+   "bloque": "a5",
+   "apartado": "4",
+   "orden": 370,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 5.4 del RD 1215/1997, ¿qué trabajadores deben recibir una formación específica adecuada?",
+    "respuesta": "Los de los apartados 4 y 5 del art. 3: los designados para usar equipos con riesgo específico y los encargados de su mantenimiento, reparación o transformación."
+   },
+   "cita": "deberán recibir una formación específica adecuada",
+   "confundible_con": [
+    "RD1215-a5-3-entorno"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 5.4 del RD 1215/1997, los trabajadores de los apartados 4 y 5 del art. 3 deben recibir una formación:",
+     "opciones": [
+      "Específica adecuada",
+      "Básica general"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.4: formación específica adecuada."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 5.4 del RD 1215/1997, ¿a qué apartados del art. 3 se refieren los trabajadores que deben recibir formación específica?",
+     "opciones": [
+      "A los apartados 1 y 2.",
+      "A los apartados 2 y 3.",
+      "A los apartados 4 y 5."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 5.4: trabajadores de los apartados 4 y 5 del art. 3."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos trabajadores debe recibir formación específica adecuada según el art. 5.4?",
+     "opciones": [
+      "El designado para usar un equipo cuyo riesgo específico exige particular conocimiento.",
+      "Cualquier trabajador con contrato temporal que se incorpore a la empresa este año.",
+      "El trabajador que solo pasa por el entorno inmediato de un equipo de trabajo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.4 con art. 3.4: el designado para usar el equipo con riesgo específico; el que solo está cerca recibe la información del art. 5.3."
+    }
+   ]
+  },
+  {
+   "id": "RD1215-a6-consulta-participacion",
+   "bloque": "a6",
+   "apartado": "",
+   "orden": 380,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 6 del RD 1215/1997, ¿de conformidad con qué precepto se realizan la consulta y participación de los trabajadores o sus representantes?",
+    "respuesta": "Con el apartado 2 del artículo 18 de la Ley de Prevención de Riesgos Laborales."
+   },
+   "cita": "se realizarán de conformidad con lo dispuesto en el apartado 2 del artículo 18 de la Ley de Prevención de Riesgos Laborales",
+   "confundible_con": [
+    "RD1215-a5-1-formacion-informacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 6 del RD 1215/1997, la consulta y participación se rigen por el artículo 18 de la:",
+     "opciones": [
+      "Ley del Estatuto de los Trabajadores",
+      "Ley de Prevención de Riesgos Laborales"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 6: consulta y participación conforme a la Ley 31/1995 de Prevención de Riesgos Laborales."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 6 del RD 1215/1997, ¿qué precepto de la LPRL regula la consulta y participación de los trabajadores en esta materia?",
+     "opciones": [
+      "El apartado 1 del artículo 18.",
+      "El apartado 2 del artículo 19.",
+      "El apartado 2 del artículo 18."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 6: apartado 2 del artículo 18 de la LPRL."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 6 del RD 1215/1997 es correcta?",
+     "opciones": [
+      "No regula un procedimiento propio: remite al art. 18.2 de la LPRL para la consulta y participación.",
+      "Crea un comité específico de equipos de trabajo para la consulta y participación.",
+      "Reserva la participación al empresario, que consulta únicamente a la autoridad laboral."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6: remisión al art. 18.2 de la LPRL; no crea comités propios."
+    }
+   ]
+  }
+ ]
+}

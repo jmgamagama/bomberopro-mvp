@@ -1,0 +1,922 @@
+{
+ "norma": "BOE-A-2011-6651",
+ "documento": "LIEXT",
+ "nombre_norma": "Ley 8/2011 de Igualdad y contra la Violencia de Género en Extremadura",
+ "abreviatura": "LIEXT",
+ "hash_prefijo": "LIEXT",
+ "tema": 7,
+ "tema_nombre": "Igualdad",
+ "bloque_temario": "Título IV, capítulo II (arts. 78-83): derechos de las mujeres en situaciones de violencia de género a la atención integral y efectiva",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "LIEXT-a78-1-atencion-efectiva",
+   "bloque": "a7-10",
+   "apartado": "1",
+   "orden": 550,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 78.1 de la Ley 8/2011, ¿qué atención prestará la Junta de Extremadura a las mujeres víctimas de violencia de género?",
+    "respuesta": "Una atención real y efectiva, en el ámbito de sus competencias, también a las mujeres en riesgo de padecerla."
+   },
+   "cita": "prestará una atención real y efectiva a las mujeres víctimas de violencia de género o en riesgo de padecerla",
+   "confundible_con": [
+    "LIEXT-a78-2-atencion-integral"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 78.1 de la Ley 8/2011, la Junta prestará una atención real y efectiva a las mujeres víctimas de violencia de género o en riesgo de:",
+     "opciones": [
+      "Denunciarla",
+      "Padecerla"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 78.1: atención real y efectiva a las víctimas o en riesgo de padecer violencia de género."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 78.1 de la Ley 8/2011, la atención real y efectiva se presta, en el ámbito de sus competencias, por:",
+     "opciones": [
+      "El Gobierno de España",
+      "Las Diputaciones Provinciales",
+      "La Junta de Extremadura"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 78.1: la presta la Junta de Extremadura en el ámbito de sus competencias."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿A quién se dirige la atención del art. 78.1 de la Ley 8/2011?",
+     "opciones": [
+      "A las mujeres víctimas de violencia de género o en riesgo de padecerla.",
+      "Solo a las mujeres que cuenten con una sentencia firme a su favor.",
+      "A las mujeres que hayan interpuesto denuncia durante el último año."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 78.1: incluye a las mujeres en riesgo de padecerla, sin exigir sentencia ni denuncia."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a78-2-atencion-integral",
+   "bloque": "a7-10",
+   "apartado": "2",
+   "orden": 560,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 78.2 de la Ley 8/2011, ¿qué comprende la atención integral que corresponde a la Junta de Extremadura?",
+    "respuesta": "La asistencia y asesoramiento jurídico, la asistencia sanitaria con atención psicológica especializada, medidas sociales y económicas y las derivadas de la legislación laboral."
+   },
+   "cita": "correspondiendo a la Junta de Extremadura la asistencia y asesoramiento jurídico, la asistencia sanitaria, incluyendo la atención psicológica especializada, medidas sociales y económicas",
+   "confundible_con": [
+    "LIEXT-a78-1-atencion-efectiva",
+    "LIEXT-a81-sanitaria"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 78.2 de la Ley 8/2011, la atención es integral en los términos de la Ley Orgánica:",
+     "opciones": [
+      "1/2004, de 28 de diciembre",
+      "10/1995, de 23 de noviembre"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 78.2: atención integral en los términos de la Ley Orgánica 1/2004, de 28 de diciembre."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 78.2 de la Ley 8/2011, la asistencia sanitaria que corresponde a la Junta incluye:",
+     "opciones": [
+      "La cobertura farmacéutica gratuita",
+      "El transporte sanitario urgente",
+      "La atención psicológica especializada"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 78.2: asistencia sanitaria, incluyendo la atención psicológica especializada."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas prestaciones NO se menciona en el art. 78.2 de la Ley 8/2011 entre las que corresponden a la Junta?",
+     "opciones": [
+      "La representación procesal permanente ante todos los tribunales.",
+      "La asistencia y el asesoramiento jurídico para las mujeres víctimas.",
+      "Las medidas sociales y económicas tendentes a su recuperación."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 78.2: no cita la representación procesal permanente."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a79-medios-prueba",
+   "bloque": "a7-11",
+   "apartado": "",
+   "orden": 570,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 79 de la Ley 8/2011, ¿cuáles son los medios de prueba calificados para identificar las situaciones de violencia de género?",
+    "respuesta": "El informe del Instituto de la Mujer de Extremadura, la sentencia de cualquier orden jurisdiccional aunque no sea firme y la orden de protección vigente."
+   },
+   "cita": "constituyen medios de prueba calificados para la identificación de las situaciones de violencia de género",
+   "confundible_con": [
+    "LIEXT-a78-1-atencion-efectiva"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 79 de la Ley 8/2011, constituye medio de prueba calificado la orden de protección:",
+     "opciones": [
+      "Archivada",
+      "Vigente"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 79 c): la orden de protección vigente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 79 de la Ley 8/2011, la sentencia de cualquier orden jurisdiccional constituye medio de prueba calificado:",
+     "opciones": [
+      "Solo si ha ganado firmeza",
+      "Solo si es del orden penal",
+      "Aunque no haya ganado firmeza"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 79 b): la sentencia de cualquier orden jurisdiccional, aunque no haya ganado firmeza."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos documentos es medio de prueba calificado según el art. 79 de la Ley 8/2011?",
+     "opciones": [
+      "El informe del Instituto de la Mujer de Extremadura según la información de la Red de Atención.",
+      "El informe del Servicio Extremeño de Salud sobre las lesiones de la mujer atendida.",
+      "El atestado de la Policía Local, aunque no haya habido denuncia ni procedimiento posterior."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 79 a): informe del Instituto de la Mujer de Extremadura según la información de los dispositivos de la Red."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a80-proteccion-fuerzas",
+   "bloque": "a8-2",
+   "apartado": "",
+   "orden": 580,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 80 de la Ley 8/2011, ¿quién debe prestar la atención específica de protección, incluyendo las situaciones de emergencia, y qué deben vigilar las administraciones competentes?",
+    "respuesta": "Las Fuerzas y Cuerpos de Seguridad del Estado y la Policía Local; y las administraciones vigilan el cumplimiento exacto de las medidas acordadas por los órganos judiciales."
+   },
+   "cita": "Que las Fuerzas y Cuerpos de Seguridad del Estado y la Policía Local presten la atención específica de protección",
+   "confundible_con": [
+    "LIEXT-a80-acogida"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 80 de la Ley 8/2011, las Administraciones de Extremadura impulsan la protección de las víctimas en colaboración con:",
+     "opciones": [
+      "La Administración General del Estado",
+      "La Administración de la Unión Europea"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 80: en colaboración con la Administración General del Estado."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 80 a) de la Ley 8/2011, prestan la atención específica de protección, incluyendo las situaciones de emergencia:",
+     "opciones": [
+      "Las Fuerzas y Cuerpos de Seguridad del Estado y la Policía Autonómica",
+      "La Policía Local y los Servicios Sociales de Base de cada zona",
+      "Las Fuerzas y Cuerpos de Seguridad del Estado y la Policía Local"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 80 a): Fuerzas y Cuerpos de Seguridad del Estado y Policía Local."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué deben vigilar y controlar las administraciones competentes según el art. 80 c) de la Ley 8/2011?",
+     "opciones": [
+      "El cumplimiento exacto de las medidas acordadas por los órganos judiciales.",
+      "El cumplimiento de los plazos de tramitación de las denuncias.",
+      "El cumplimiento de los protocolos sanitarios en los centros de salud."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 80 c): vigilar y controlar el cumplimiento exacto de las medidas acordadas por los órganos judiciales."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a80-acogida",
+   "bloque": "a8-2",
+   "apartado": "",
+   "orden": 590,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 80 b) de la Ley 8/2011, ¿a qué recurso deben poder acceder las mujeres y sus hijas/os que han de abandonar su domicilio?",
+    "respuesta": "A residencias o centros de acogida que ofrezcan un recurso especializado para situaciones de riesgo vital de urgencia u otras razones."
+   },
+   "cita": "Que puedan acceder a residencias o centros de acogida que ofrezcan un recurso especializado para atender situaciones de riesgo vital de urgencia",
+   "confundible_con": [
+    "LIEXT-a80-proteccion-fuerzas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 80 b) de la Ley 8/2011, se promueve que las mujeres puedan acceder a residencias o centros de:",
+     "opciones": [
+      "Reinserción",
+      "Acogida"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 80 b): residencias o centros de acogida."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 80 b) de la Ley 8/2011, el recurso especializado atiende a las mujeres que han de abandonar su domicilio y a sus:",
+     "opciones": [
+      "Padres",
+      "Hermanas",
+      "Hijas/os"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 80 b): mujeres y sus hijas/os víctimas de violencia de género."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué recurso del art. 80 b) de la Ley 8/2011 está destinado a mujeres y a sus hijas/os que han de abandonar su domicilio?",
+     "opciones": [
+      "Residencias o centros de acogida con recurso especializado.",
+      "Viviendas de protección oficial de adjudicación directa.",
+      "Centros de día de atención psicológica ambulatoria."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 80 b): residencias o centros de acogida que ofrezcan un recurso especializado."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a81-sanitaria",
+   "bloque": "a8-3",
+   "apartado": "",
+   "orden": 600,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 81 de la Ley 8/2011, ¿a qué atención tienen derecho las mujeres que sufren cualquier forma de violencia de género?",
+    "respuesta": "A una atención y una asistencia sanitarias especializadas."
+   },
+   "cita": "tienen derecho a una atención y una asistencia sanitarias especializadas",
+   "confundible_con": [
+    "LIEXT-a78-2-atencion-integral"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 81 de la Ley 8/2011, las mujeres que sufren cualquier forma de violencia de género tienen derecho a una atención y asistencia sanitarias:",
+     "opciones": [
+      "Especializadas",
+      "Gratuitas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 81: derecho a una atención y asistencia sanitarias especializadas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 81 a) de la Ley 8/2011, la atención del Servicio Extremeño de Salud se presta mediante:",
+     "opciones": [
+      "Un convenio con clínicas privadas",
+      "Una cartera de servicios opcional",
+      "Un protocolo de atención y asistencia"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 81 a): protocolo de atención y asistencia en todas las manifestaciones de la violencia de género."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 81 b) de la Ley 8/2011, los dispositivos terapéuticos de la Red prestan atención psicológica especializada a:",
+     "opciones": [
+      "Las mujeres víctimas, a sus hijos e hijas y a los menores víctimas de violencia de género.",
+      "Solo a las mujeres víctimas, y no a sus hijos e hijas ni a otros menores víctimas de violencia.",
+      "A las mujeres víctimas y a los agresores que hayan sido condenados por violencia de género."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 81 b): atención psicológica a las mujeres víctimas, a sus hijos e hijas y a menores víctimas."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a82-1-informacion",
+   "bloque": "a8-4",
+   "apartado": "1",
+   "orden": 610,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 82.1 de la Ley 8/2011, ¿sobre qué derechos deben velar los poderes públicos por que se dé suficiente información en los servicios de atención a víctimas?",
+    "respuesta": "Sobre los derechos de atención y asistencia jurídica de las víctimas, en especial el de asistencia y defensa gratuita de los Colegios de Abogados."
+   },
+   "cita": "se dé suficiente información sobre los derechos de atención y asistencia jurídica de las víctimas, y en especial al derecho de asistencia y defensa gratuita que prestan los Colegios de Abogados",
+   "confundible_con": [
+    "LIEXT-a82-3-asistencia-gratuita"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 82.1 de la Ley 8/2011, se informa en especial del derecho de asistencia y defensa gratuita que prestan los:",
+     "opciones": [
+      "Colegios de Procuradores",
+      "Colegios de Abogados"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 82.1: en especial, el derecho de asistencia y defensa gratuita que prestan los Colegios de Abogados."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 82.1 de la Ley 8/2011, la información debe darse en todos los servicios de atención a víctimas, incluidos los de:",
+     "opciones": [
+      "Cualquier empresa privada con más de cincuenta personas empleadas",
+      "Los medios de comunicación de titularidad privada de Extremadura",
+      "Las empresas o asociaciones financiadas por los poderes públicos"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 82.1: también en los servicios de las empresas o asociaciones financiadas por los poderes públicos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Sobre qué derechos debe darse suficiente información según el art. 82.1 de la Ley 8/2011?",
+     "opciones": [
+      "Los derechos de atención y asistencia jurídica de las víctimas.",
+      "Los derechos de atención sanitaria y psicológica de las víctimas.",
+      "Los derechos de conciliación laboral y familiar de las víctimas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 82.1: derechos de atención y asistencia jurídica."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a82-2-orientacion-juridica",
+   "bloque": "a8-4",
+   "apartado": "2",
+   "orden": 620,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 82.2 de la Ley 8/2011, ¿qué garantiza la Administración de la Comunidad Autónoma a todas las mujeres víctimas de violencia de género?",
+    "respuesta": "El derecho a la orientación jurídica, en la forma prevista en la legislación vigente."
+   },
+   "cita": "garantizará a todas las mujeres víctimas de violencia de género, el derecho a la orientación jurídica en la forma prevista en la legislación vigente",
+   "confundible_con": [
+    "LIEXT-a82-3-asistencia-gratuita"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 82.2 de la Ley 8/2011, la Administración garantiza a todas las mujeres víctimas el derecho a la orientación:",
+     "opciones": [
+      "Jurídica",
+      "Laboral"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 82.2: derecho a la orientación jurídica en la forma prevista en la legislación vigente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 82.2 de la Ley 8/2011, la orientación jurídica de Colegios de Abogados y entidades con fondos públicos será ofrecida por abogados:",
+     "opciones": [
+      "Con diez años de ejercicio profesional",
+      "Pertenecientes al turno de oficio penal",
+      "Debidamente formados en violencia de género"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 82.2: abogados debidamente formados en violencia de género."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué debe garantizar la Administración autonómica sobre los servicios de orientación jurídica de Colegios de Abogados, empresas o asociaciones con fondos públicos según el art. 82.2 de la Ley 8/2011?",
+     "opciones": [
+      "Que los ofrezcan abogados formados en violencia de género.",
+      "Que se presten exclusivamente por personal funcionario.",
+      "Que se limiten a la fase previa a la denuncia."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 82.2: los ofrecen abogados formados en violencia de género, no solo funcionarios."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a82-3-asistencia-gratuita",
+   "bloque": "a8-4",
+   "apartado": "3",
+   "orden": 630,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 82.3 de la Ley 8/2011, ¿a qué asistencia jurídica tienen derecho las mujeres que sufren o han sufrido violencia?",
+    "respuesta": "A la asistencia jurídica gratuita, en la forma establecida por la legislación vigente."
+   },
+   "cita": "tienen derecho a la asistencia jurídica gratuita en la forma establecida por la legislación vigente",
+   "confundible_con": [
+    "LIEXT-a82-2-orientacion-juridica"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 82.3 de la Ley 8/2011, las mujeres que sufren o han sufrido violencia tienen derecho a la asistencia jurídica:",
+     "opciones": [
+      "Bonificada",
+      "Gratuita"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 82.3: derecho a la asistencia jurídica gratuita."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 82.3 de la Ley 8/2011, la asistencia jurídica gratuita se presta en la forma establecida por:",
+     "opciones": [
+      "El convenio colectivo",
+      "El Plan de Igualdad",
+      "La legislación vigente"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 82.3: en la forma establecida por la legislación vigente."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Quiénes tienen derecho a la asistencia jurídica gratuita según el art. 82.3 de la Ley 8/2011?",
+     "opciones": [
+      "Las mujeres que sufren o han sufrido cualquier forma de violencia de la ley.",
+      "Solo las mujeres que sufran violencia en el momento de solicitar la asistencia.",
+      "Únicamente las mujeres con una orden de protección vigente en ese momento."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 82.3: mujeres que sufren o han sufrido cualquiera de las formas de violencia de la ley."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a82-4-red-extremena",
+   "bloque": "a8-4",
+   "apartado": "4",
+   "orden": 640,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 82.4 de la Ley 8/2011, ¿quién garantiza, a través de la Red Extremeña de Atención a Víctimas de Violencia de Género, la prestación de los servicios de asistencia jurídica?",
+    "respuesta": "El Instituto de la Mujer de Extremadura."
+   },
+   "cita": "El Instituto de la Mujer de Extremadura, a través de la Red Extremeña de Atención a Víctimas de Violencia de Género, garantizará la prestación de los servicios de asistencia jurídica",
+   "confundible_con": [
+    "LIEXT-a82-3-asistencia-gratuita"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 82.4 de la Ley 8/2011, la asistencia jurídica se garantiza a través de la Red Extremeña por el:",
+     "opciones": [
+      "Instituto de la Mujer de Extremadura",
+      "Instituto de Consumo de Extremadura"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 82.4: lo garantiza el Instituto de la Mujer de Extremadura."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 82.4 de la Ley 8/2011, la asistencia jurídica se asegura en todo el territorio a través de los servicios especializados de los Colegios de Abogados u:",
+     "opciones": [
+      "Otras Consejerías de la Junta",
+      "Los ayuntamientos de cada localidad",
+      "Otros organismos o instituciones"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 82.4: Colegios de Abogados u otros organismos o instituciones."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Mediante qué red garantiza el Instituto de la Mujer la asistencia jurídica según el art. 82.4 de la Ley 8/2011?",
+     "opciones": [
+      "La Red Extremeña de Atención a Víctimas de Violencia de Género.",
+      "La Red Extremeña de Servicios Sociales de Atención Básica.",
+      "La Red Extremeña de Oficinas de Atención al Ciudadano."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 82.4: a través de la Red Extremeña de Atención a Víctimas de Violencia de Género."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a82-5-menores",
+   "bloque": "a8-4",
+   "apartado": "5",
+   "orden": 650,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 82.5 de la Ley 8/2011, ¿qué derechos tienen los menores perjudicados por la muerte de la madre a consecuencia de violencia de género?",
+    "respuesta": "Los mismos que la madre en relación con la asistencia jurídica especializada."
+   },
+   "cita": "tendrán los mismos derechos que aquella con relación a la asistencia jurídica especializada",
+   "confundible_con": [
+    "LIEXT-a82-3-asistencia-gratuita"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 82.5 de la Ley 8/2011, los menores perjudicados por la muerte de la madre tienen, respecto a la asistencia jurídica especializada, los mismos derechos que:",
+     "opciones": [
+      "El tutor legal",
+      "La madre"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 82.5: los mismos derechos que la madre."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 82.5 de la Ley 8/2011, la equiparación alcanza también a los casos de otras circunstancias que:",
+     "opciones": [
+      "Dificulten a la madre acudir al juzgado de forma regular",
+      "Reduzcan los ingresos del hogar por debajo del mínimo",
+      "Impidan a la madre ejercer las potestades que le son propias"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 82.5: o por otras circunstancias que impidan a la madre ejercer las potestades que le son propias."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué derechos tienen los menores cuya madre fallece por violencia de género según el art. 82.5 de la Ley 8/2011?",
+     "opciones": [
+      "Los mismos que ella en relación con la asistencia jurídica especializada.",
+      "Solo el derecho a la asistencia jurídica gratuita no especializada.",
+      "Un derecho de preferencia en la adjudicación de viviendas públicas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 82.5: los mismos derechos que la madre respecto de la asistencia jurídica especializada."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a82-6-accion-popular",
+   "bloque": "a8-4",
+   "apartado": "6",
+   "orden": 660,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 82.6 de la Ley 8/2011, ¿qué podrá hacer la Junta de Extremadura en los delitos más graves que causen alarma social?",
+    "respuesta": "Personarse para ejercer la acción popular, a través de sus servicios jurídicos o de abogados contratados, especialmente mediante convenios con los Colegios de Abogados."
+   },
+   "cita": "la Junta de Extremadura podrá personarse para ejercer la acción popular",
+   "confundible_con": [
+    "LIEXT-a82-4-red-extremena"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 82.6 de la Ley 8/2011, en los delitos más graves la Junta podrá personarse para ejercer la acción:",
+     "opciones": [
+      "Popular",
+      "Civil"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 82.6: la Junta podrá personarse para ejercer la acción popular."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 82.6 de la Ley 8/2011, la Junta ejerce la acción popular por sus servicios jurídicos, por abogados contratados y especialmente mediante convenios con:",
+     "opciones": [
+      "Los Colegios de Procuradores",
+      "La Fiscalía Superior",
+      "Los Colegios de Abogados"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 82.6: especialmente mediante convenios con los Colegios de Abogados."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿En cuál de estos supuestos puede la Junta personarse para ejercer la acción popular según el art. 82.6 de la Ley 8/2011?",
+     "opciones": [
+      "En un delito grave cometido en Extremadura que cause alarma social, aunque se persone la víctima.",
+      "Solo cuando la propia víctima o sus herederos soliciten por escrito a la Junta que se persone.",
+      "Únicamente en delitos cometidos fuera de Extremadura contra una víctima de nacionalidad extranjera."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 82.6: con independencia de la personación de la propia víctima o sus herederos."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a83-1-atencion-social",
+   "bloque": "a8-5",
+   "apartado": "1",
+   "orden": 670,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 83.1 de la Ley 8/2011, ¿qué promoverán las Administraciones Públicas de Extremadura en favor de las mujeres víctimas en situación de vulnerabilidad?",
+    "respuesta": "Medidas para facilitar el normal desenvolvimiento de su vida, ante la vulnerabilidad económica, laboral o de otra dificultad social derivada de la violencia."
+   },
+   "cita": "promoverán medidas para facilitar el normal desenvolvimiento de la vida de las mujeres que sufren cualquier forma de violencia de género y se encuentren en situación de vulnerabilidad económica, laboral, o de cualquier otra dificultad social",
+   "confundible_con": [
+    "LIEXT-a83-2-vivienda-laboral"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 83.1 de la Ley 8/2011, las medidas atienden la vulnerabilidad económica, laboral o de otra dificultad:",
+     "opciones": [
+      "Judicial",
+      "Social"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 83.1: medidas para facilitar el normal desenvolvimiento de la vida."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 83.1 de la Ley 8/2011, las medidas para facilitar el normal desenvolvimiento de la vida las promueven:",
+     "opciones": [
+      "Solo la Administración de la Comunidad Autónoma",
+      "La Administración General del Estado exclusivamente",
+      "Las Administraciones Públicas de Extremadura"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 83.1: las promueven las Administraciones Públicas de Extremadura."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿A quién se dirigen las medidas del art. 83.1 de la Ley 8/2011?",
+     "opciones": [
+      "A mujeres que sufren violencia de género y están en situación de vulnerabilidad por padecerla.",
+      "A todas las mujeres de Extremadura con ingresos inferiores al salario mínimo interprofesional.",
+      "A las mujeres que hayan obtenido sentencia condenatoria firme contra su agresor actual."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 83.1: mujeres que sufren violencia y están en vulnerabilidad como consecuencia de ella."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a83-2-vivienda-laboral",
+   "bloque": "a8-5",
+   "apartado": "2",
+   "orden": 680,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 83.2 de la Ley 8/2011, ¿qué medidas deben promover o establecer las Administraciones en materia de vivienda y de ámbito laboral?",
+    "respuesta": "Facilitar el acceso a una vivienda en caso de precariedad económica o para recuperarse, y establecer mecanismos de protección laboral que favorezcan la normalización de su situación."
+   },
+   "cita": "Promover medidas para facilitar el acceso a una vivienda a las mujeres cuando se encuentren en situación de precariedad económica debido a la violencia de género",
+   "confundible_con": [
+    "LIEXT-a83-2-ayudas",
+    "LIEXT-a83-1-atencion-social"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 83.2 a) de la Ley 8/2011, se facilita el acceso a una vivienda cuando las mujeres se encuentren en situación de precariedad:",
+     "opciones": [
+      "Económica",
+      "Laboral"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 83.2 a): acceso a una vivienda en situación de precariedad económica debido a la violencia de género."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 83.2 b) de la Ley 8/2011, ¿qué deben establecer las Administraciones en el ámbito laboral?",
+     "opciones": [
+      "Mecanismos de sanción para las empresas que contraten a los agresores de las víctimas",
+      "Mecanismos de reserva de puestos de trabajo en toda la Administración autonómica",
+      "Mecanismos de protección que favorezcan la normalización de su situación"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 83.2 b): mecanismos de protección en el ámbito laboral que faciliten y favorezcan la normalización."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿En qué otro caso, además de la precariedad económica, se facilita el acceso a una vivienda según el art. 83.2 a) de la Ley 8/2011?",
+     "opciones": [
+      "Cuando sea necesario para recuperarse.",
+      "Cuando la mujer lo solicite expresamente por escrito.",
+      "Cuando haya sido dictada una sentencia firme."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 83.2 a): también cuando el acceso a una vivienda sea necesario para recuperarse."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a83-2-ayudas",
+   "bloque": "a8-5",
+   "apartado": "2",
+   "orden": 690,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 83.2 de la Ley 8/2011, ¿qué ayudas deben facilitar las Administraciones a las víctimas y a sus hijos e hijas?",
+    "respuesta": "El acceso a las ayudas y prestaciones económicas generales y específicas, y ayudas escolares a los hijos e hijas de las mujeres víctimas."
+   },
+   "cita": "Facilitar el acceso a las ayudas y prestaciones económicas generales y a aquellas otras que se prevean para las mujeres víctimas de violencia de género y las personas de ellas dependientes",
+   "confundible_con": [
+    "LIEXT-a83-2-vivienda-laboral",
+    "LIEXT-a83-4-ayudas-escolares"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 83.2 d) de la Ley 8/2011, se facilitan ayudas escolares a:",
+     "opciones": [
+      "Los hijos e hijas de los agresores condenados por violencia de género",
+      "Los hijos e hijas de las mujeres víctimas de violencia de género"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 83.2 d): ayudas escolares a los hijos e hijas de las mujeres víctimas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 83.2 c) de la Ley 8/2011, se facilita el acceso a las ayudas y prestaciones económicas generales y a las previstas para las víctimas y para:",
+     "opciones": [
+      "Las asociaciones que las apoyan",
+      "Los servicios que las atienden",
+      "Las personas de ellas dependientes"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 83.2 c): ayudas y prestaciones generales y específicas para las víctimas y las personas dependientes."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas obligaciones recoge en particular el art. 83.2 de la Ley 8/2011?",
+     "opciones": [
+      "Facilitar el acceso a las ayudas y prestaciones económicas generales y específicas.",
+      "Abonar una renta mensual fija durante un año a todas las víctimas de violencia de género.",
+      "Costear la totalidad del alquiler de la vivienda de las víctimas durante un año."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 83.2 c): facilitar el acceso a las ayudas, sin renta fija ni alquiler íntegro."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a83-3-escolarizacion",
+   "bloque": "a8-5",
+   "apartado": "3",
+   "orden": 700,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 83.3 de la Ley 8/2011, ¿qué alumnado tiene asegurada su escolarización inmediata?",
+    "respuesta": "El afectado por cambios de centro derivados de actos de violencia de género o acoso escolar."
+   },
+   "cita": "Tendrá asegurada su escolarización inmediata el alumnado que se vea afectado por cambios de centros derivados de actos de violencia de género o acoso escolar",
+   "confundible_con": [
+    "LIEXT-a83-4-ayudas-escolares"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 83.3 de la Ley 8/2011, tiene asegurada su escolarización inmediata el alumnado afectado por cambios de centro derivados de actos de violencia de género o de:",
+     "opciones": [
+      "Acoso escolar",
+      "Absentismo escolar"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 83.3: violencia de género o acoso escolar."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 83.3 de la Ley 8/2011, la escolarización del alumnado afectado por cambios de centro derivados de violencia de género será:",
+     "opciones": [
+      "Preferente",
+      "Gratuita",
+      "Inmediata"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 83.3: escolarización inmediata."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué alumnado tiene asegurada la escolarización inmediata según el art. 83.3 de la Ley 8/2011?",
+     "opciones": [
+      "El que cambie de centro por actos de violencia de género o acoso escolar.",
+      "El que cambie de centro por motivos laborales de sus progenitores.",
+      "El que cambie de localidad por traslado de la unidad familiar."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 83.3: cambios de centro derivados de violencia de género o acoso escolar."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a83-4-ayudas-escolares",
+   "bloque": "a8-5",
+   "apartado": "4",
+   "orden": 710,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 83.4 de la Ley 8/2011, ¿qué se valorará para conceder ayudas destinadas a paliar gastos escolares, de comedor, transporte escolar, actividades extraescolares y similares?",
+    "respuesta": "La situación de violencia en la que la madre o los y las menores se encuentren o se hayan encontrado, junto con los otros factores."
+   },
+   "cita": "se valorará la situación de violencia en la que la madre o los y las menores se encuentren o se hayan encontrado, junto con los otros factores",
+   "confundible_con": [
+    "LIEXT-a83-2-ayudas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 83.4 de la Ley 8/2011, para conceder esas ayudas se valorará la situación de violencia, junto con los otros:",
+     "opciones": [
+      "Requisitos",
+      "Factores"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 83.4: se valora la situación de violencia junto con los otros factores."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 83.4 de la Ley 8/2011, entre las ayudas en las que se valora la situación de violencia figuran las destinadas a paliar gastos de:",
+     "opciones": [
+      "Vivienda",
+      "Salud",
+      "Comedor"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 83.4: gastos escolares, de comedor, transporte escolar, actividades extraescolares y similares."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué situación se valora para conceder las ayudas escolares según el art. 83.4 de la Ley 8/2011?",
+     "opciones": [
+      "La de violencia en la que la madre o los menores se encuentren o se hayan encontrado.",
+      "La de desempleo prolongado de la madre durante más de un año seguido y sin prestaciones.",
+      "La de convivencia con el agresor en el mismo domicilio familiar durante el último año."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 83.4: la violencia en que la madre o los menores se encuentren o se hayan encontrado."
+    }
+   ]
+  },
+  {
+   "id": "LIEXT-a83-5-necesidad-economica",
+   "bloque": "a8-5",
+   "apartado": "5",
+   "orden": 720,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 83.5 de la Ley 8/2011, ¿qué rentas o ingresos se tienen en cuenta para determinar los requisitos de necesidad económica?",
+    "respuesta": "Sólo las rentas o ingresos personales de que disponga la mujer solicitante."
+   },
+   "cita": "sólo se tendrán en cuenta las rentas o ingresos personales de que disponga la mujer solicitante",
+   "confundible_con": [
+    "LIEXT-a83-4-ayudas-escolares"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 83.5 de la Ley 8/2011, para determinar la necesidad económica sólo se tienen en cuenta las rentas o ingresos personales de:",
+     "opciones": [
+      "La mujer solicitante",
+      "La unidad familiar"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 83.5: sólo las rentas o ingresos personales de la mujer solicitante."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 83.5 de la Ley 8/2011, ¿para qué se limita el cómputo a los ingresos personales de la mujer solicitante?",
+     "opciones": [
+      "Para fijar la cuantía de las pensiones alimenticias",
+      "Para calcular el importe de la asistencia jurídica gratuita",
+      "Para determinar los requisitos de necesidad económica"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 83.5: se aplica para determinar los requisitos de necesidad económica."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué ingresos NO se computan para valorar la necesidad económica según el art. 83.5 de la Ley 8/2011?",
+     "opciones": [
+      "Los de otros miembros de la unidad familiar distintos de la solicitante.",
+      "Los que la solicitante obtenga por su propio trabajo remunerado.",
+      "Los percibidos por la solicitante en concepto de prestaciones."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 83.5: no cuentan los ingresos de otros miembros de la unidad familiar."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,771 @@
+{
+ "norma": "BOE-A-2025-7190",
+ "documento": "RSCIEI",
+ "nombre_norma": "Real Decreto 164/2025 Reglamento de seguridad contra incendios en establecimientos industriales",
+ "abreviatura": "RSCIEI",
+ "hash_prefijo": "RSCIEI",
+ "tema": 34,
+ "tema_nombre": "RSCIEI Real Decreto 164/2025 (industrial)",
+ "bloque_temario": "Capítulo II (arts. 5-9): requisitos que deben satisfacer los establecimientos industriales",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "RSCIEI-a5-1-vias-minimo",
+   "bloque": "a5",
+   "apartado": "1",
+   "orden": 230,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 5.1 del RSCIEI, ¿qué condición tiene lo dispuesto en el Reglamento y por qué vías se consideran cumplidos esos mínimos?",
+    "respuesta": "Es el mínimo exigible; se cumple aplicando todas sus prescripciones o, en casos particulares, con técnicas de seguridad equivalente o diseño prestacional."
+   },
+   "cita": "Estos mínimos se considerarán cumplidos por alguna de las siguientes vías",
+   "confundible_con": [
+    "RSCIEI-a5-1-responsabilidad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 5.1 del RSCIEI, lo dispuesto en el reglamento tiene la condición de:",
+     "opciones": [
+      "Mínimo exigible",
+      "Recomendación técnica"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.1: el reglamento es el mínimo exigible conforme al art. 12.5 de la Ley 21/1992."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 5.1.a) del RSCIEI, los mínimos se consideran cumplidos si se cumplen las prescripciones del reglamento:",
+     "opciones": [
+      "En su mayor parte",
+      "Solo en lo constructivo",
+      "En su totalidad"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 5.1.a): cumplimiento de las prescripciones en su totalidad."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas NO es una vía para considerar cumplidos los mínimos según el art. 5.1 del RSCIEI?",
+     "opciones": [
+      "La conformidad verbal del titular sin justificación documental.",
+      "El cumplimiento íntegro de las prescripciones del reglamento.",
+      "Las técnicas de seguridad equivalente en casos particulares."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.1: las vías son el cumplimiento íntegro o las técnicas equivalentes o el diseño prestacional, siempre justificados."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a5-1-responsabilidad",
+   "bloque": "a5",
+   "apartado": "1",
+   "orden": 240,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 5.1.b) del RSCIEI, ¿bajo qué responsabilidad y con qué justificación se aplican técnicas de seguridad equivalente o diseño prestacional?",
+    "respuesta": "Bajo responsabilidad del proyectista y previa conformidad del titular, justificando documentalmente que se cumplen las exigencias básicas del art. 6.1 y que la seguridad es al menos equivalente."
+   },
+   "cita": "bajo responsabilidad del proyectista y previa conformidad del titular del establecimiento",
+   "confundible_con": [
+    "RSCIEI-a5-1-vias-minimo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 5.1.b) del RSCIEI, esa aplicación requiere la conformidad previa del:",
+     "opciones": [
+      "Organismo de control habilitado",
+      "Titular del establecimiento"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 5.1.b): responsabilidad del proyectista y conformidad previa del titular."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 5.1.b) del RSCIEI, debe justificarse que las soluciones cumplen las exigencias básicas del artículo:",
+     "opciones": [
+      "8.2",
+      "9.3",
+      "6.1"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 5.1.b): exigencias básicas del artículo 6.1."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué nivel de seguridad debe obtenerse con estas técnicas según el art. 5.1.b) del RSCIEI?",
+     "opciones": [
+      "Al menos equivalente al de las prescripciones de los artículos 7 y 8.",
+      "Superior en todo caso al de las prescripciones de los artículos 7 y 8.",
+      "Inferior, si se compensa con medidas organizativas adicionales."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.1.b): nivel al menos equivalente al de los artículos 7 y 8."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a5-2-exencion",
+   "bloque": "a5",
+   "apartado": "2",
+   "orden": 250,
+   "tipo": "cifra",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 5.2 del RSCIEI, ¿qué establecimientos quedan exceptuados de cumplir el reglamento y qué deben cumplir en su lugar?",
+    "respuesta": "Los de densidad de carga de fuego (Qs) no superior a 42 MJ/m2 y hasta 120 m2, en recinto propio; basta cumplir el art. 12 y extintores y alumbrado de emergencia del anexo III, con memoria técnica."
+   },
+   "cita": "no supere 42 MJ/m2, siempre que su superficie construida sea inferior o igual a 120 m2",
+   "confundible_con": [
+    "RSCIEI-a5-3-adaptaciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 5.2 del RSCIEI, la densidad de carga de fuego ponderada y corregida (Qs) de los establecimientos exceptuados no supera:",
+     "opciones": [
+      "42 MJ/m2",
+      "420 MJ/m2"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.2: Qs no superior a 42 MJ/m2."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 5.2 del RSCIEI, la superficie construida de los establecimientos exceptuados es inferior o igual a:",
+     "opciones": [
+      "250 m2",
+      "300 m2",
+      "120 m2"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 5.2: superficie construida inferior o igual a 120 m2."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué apartados del anexo III deben cumplir los establecimientos exceptuados según el art. 5.2 del RSCIEI?",
+     "opciones": [
+      "Solo los de extintores y alumbrado de emergencia.",
+      "Solo los de extintores y detección automática.",
+      "Solo los de hidrantes y alumbrado de emergencia."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.2: extintores y alumbrado de emergencia del anexo III, además del art. 12 y una memoria técnica."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a5-3-adaptaciones",
+   "bloque": "a5",
+   "apartado": "3",
+   "orden": 260,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 5.3 del RSCIEI, ¿cuándo pueden usarse adaptaciones razonables y qué informe requieren?",
+    "respuesta": "En naves ya construidas de polígonos con planeamiento anterior al reglamento o en edificios existentes que no puedan cumplirlo íntegramente, con informe previo favorable de un organismo de control habilitado."
+   },
+   "cita": "se podrán usar excepcionalmente adaptaciones razonables que difieran de lo indicado en los artículos 7 y 8",
+   "confundible_con": [
+    "RSCIEI-a5-1-responsabilidad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 5.3 del RSCIEI, las adaptaciones razonables se acompañan de un informe previo de:",
+     "opciones": [
+      "Los servicios de extinción de incendios",
+      "Un organismo de control habilitado"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 5.3: informe previo de un organismo de control habilitado."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 5.3 del RSCIEI, las adaptaciones razonables se presentan según lo indicado en los artículos:",
+     "opciones": [
+      "12 y 13",
+      "14 y 15",
+      "10 y 11"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 5.3: documentadas en el proyecto y presentadas según los artículos 10 y 11."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿En qué supuesto cabe acudir a adaptaciones razonables según el art. 5.3 del RSCIEI?",
+     "opciones": [
+      "En una reforma de nave ya construida que no pueda cumplir íntegramente el reglamento.",
+      "En cualquier establecimiento nuevo que desee reducir su coste de construcción.",
+      "En cualquier ampliación aunque pueda cumplirse íntegramente el reglamento."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5.3: solo si por las características de la nave o edificio no puede cumplirse íntegramente."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a6-1-exigencias-propagacion",
+   "bloque": "a6",
+   "apartado": "1",
+   "orden": 270,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 6.1.a), b) y c) del RSCIEI, ¿cuáles son las exigencias básicas de propagación interior, propagación exterior y evacuación de ocupantes?",
+    "respuesta": "Limitar la propagación del incendio por el interior, limitarla por el exterior (en el propio establecimiento y a otros establecimientos y edificios) y disponer de medios de evacuación adecuados para alcanzar un lugar seguro."
+   },
+   "cita": "Propagación interior: Se limitará el riesgo de propagación del incendio por el interior de los establecimientos",
+   "confundible_con": [
+    "RSCIEI-a6-1-exigencias-instalaciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 6.1.b) del RSCIEI, la propagación exterior se limita en el propio establecimiento y respecto de:",
+     "opciones": [
+      "Otros establecimientos y edificios",
+      "Las vías públicas colindantes"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.1.b): se limita la propagación a otros establecimientos y edificios."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 6.1.c) del RSCIEI, los medios de evacuación permiten abandonar el establecimiento o alcanzar:",
+     "opciones": [
+      "El exterior del recinto vallado",
+      "El punto de reunión de la parcela",
+      "Un lugar seguro dentro del mismo"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 6.1.c): abandonar el establecimiento o alcanzar un lugar seguro dentro del mismo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué riesgo se limita con la exigencia de propagación interior del art. 6.1.a) del RSCIEI?",
+     "opciones": [
+      "El de propagación del incendio por el interior de los establecimientos.",
+      "El de propagación del humo hacia el exterior de la parcela.",
+      "El de propagación del incendio a las edificaciones colindantes."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.1.a): propagación por el interior; la exterior es la del apartado b)."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a6-1-exigencias-instalaciones",
+   "bloque": "a6",
+   "apartado": "1",
+   "orden": 280,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 6.1.d), e) y f) del RSCIEI, ¿cuáles son las exigencias básicas de instalaciones de protección, intervención de los Servicios de Extinción y resistencia estructural?",
+    "respuesta": "Disponer de equipos para detección, control, extinción y alarma; facilitar la intervención de los equipos de rescate y extinción; y que la estructura portante mantenga su resistencia al fuego el tiempo necesario."
+   },
+   "cita": "Resistencia estructural al incendio: La estructura portante mantendrá su resistencia al fuego durante el tiempo necesario para que puedan cumplirse las anteriores exigencias básicas",
+   "confundible_con": [
+    "RSCIEI-a6-1-exigencias-propagacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 6.1.f) del RSCIEI, la exigencia de resistencia estructural se refiere a la estructura:",
+     "opciones": [
+      "De cerramiento",
+      "Portante"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 6.1.f): la estructura portante mantiene su resistencia al fuego."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 6.1.d) del RSCIEI, las instalaciones permiten detectar, controlar y extinguir el incendio y transmitir la alarma a los:",
+     "opciones": [
+      "Vecinos del entorno",
+      "Autoridades locales",
+      "Ocupantes"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 6.1.d): detección, control, extinción y transmisión de la alarma a los ocupantes."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué se facilita con la exigencia relativa a los Servicios de Extinción de Incendios y Salvamento según el art. 6.1.e) del RSCIEI?",
+     "opciones": [
+      "La intervención de los equipos de rescate y de extinción.",
+      "La evacuación de los ocupantes hasta el exterior.",
+      "La transmisión de la alarma a todos los ocupantes."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.1.e): intervención de los equipos de rescate y de extinción de incendios."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a6-2-desarrollo",
+   "bloque": "a6",
+   "apartado": "2",
+   "orden": 290,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 6.2 del RSCIEI, ¿cómo se desarrollan las exigencias básicas del art. 6.1?",
+    "respuesta": "Por medio de lo indicado en los siguientes artículos y anexos del reglamento."
+   },
+   "cita": "Estas exigencias se desarrollan por medio de lo indicado en los siguientes artículos y anexos",
+   "confundible_con": [
+    "RSCIEI-a6-1-exigencias-propagacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 6.2 del RSCIEI, las exigencias se desarrollan por medio de los siguientes artículos y:",
+     "opciones": [
+      "Anexos",
+      "Instrucciones técnicas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.2: artículos y anexos siguientes."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 6.2 del RSCIEI, ¿qué se desarrolla por medio de los siguientes artículos y anexos?",
+     "opciones": [
+      "Las definiciones del artículo 3.",
+      "Las excepciones del artículo 5.2.",
+      "Las exigencias básicas del apartado 1."
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 6.2: desarrolla las exigencias básicas del art. 6.1."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 6.2 del RSCIEI es correcta?",
+     "opciones": [
+      "Remite a los siguientes artículos y anexos para su desarrollo.",
+      "Remite a normas UNE de aplicación obligatoria para su desarrollo.",
+      "Remite al DB-SI del CTE para el desarrollo de las exigencias."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.2: el desarrollo está en los artículos y anexos del propio reglamento."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a7-caracterizacion",
+   "bloque": "a7",
+   "apartado": "",
+   "orden": 300,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 7 del RSCIEI, ¿de qué dependen los requisitos constructivos y de instalaciones y cómo se evalúan?",
+    "respuesta": "De la configuración de edificios y espacios abiertos, el nivel de riesgo intrínseco de sectores y áreas, sus superficies y el tipo de actividad; se evalúan caracterizando el establecimiento según el anexo I."
+   },
+   "cita": "Todo ello se evaluará realizando una caracterización de los establecimientos según se establece en el anexo I",
+   "confundible_con": [
+    "RSCIEI-a8-1-constructivos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 7 del RSCIEI, la caracterización de los establecimientos se establece en el anexo:",
+     "opciones": [
+      "II",
+      "I"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 7: caracterización según el anexo I."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 7 del RSCIEI, el tipo de actividad distingue entre fabricación y otros procesos similares, o:",
+     "opciones": [
+      "Distribución",
+      "Comercialización",
+      "Almacenamiento"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 7: fabricación y otros procesos similares, o almacenamiento."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué factor NO menciona el art. 7 del RSCIEI como determinante de los requisitos?",
+     "opciones": [
+      "El número de trabajadores del establecimiento.",
+      "El riesgo intrínseco de sectores y áreas de incendio.",
+      "La configuración de edificios y espacios abiertos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 7: configuración, riesgo intrínseco, superficies y tipo de actividad; no el número de trabajadores."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a8-1-constructivos",
+   "bloque": "a8",
+   "apartado": "1",
+   "orden": 310,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 8.1 del RSCIEI, ¿dónde se establecen los requisitos constructivos de los establecimientos industriales?",
+    "respuesta": "En el anexo II, de acuerdo con la caracterización que resulte del artículo 7."
+   },
+   "cita": "serán los establecidos en el anexo II, de acuerdo con la caracterización que resulte del artículo anterior",
+   "confundible_con": [
+    "RSCIEI-a8-2-instalaciones",
+    "RSCIEI-a7-caracterizacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 8.1 del RSCIEI, los requisitos constructivos figuran en el anexo:",
+     "opciones": [
+      "II",
+      "III"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.1: anexo II."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 8.1 del RSCIEI, los requisitos constructivos dependen de la caracterización resultante del artículo:",
+     "opciones": [
+      "5",
+      "9",
+      "7"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 8.1: caracterización del artículo anterior, el 7."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué determina qué requisitos constructivos del anexo II se aplican según el art. 8.1 del RSCIEI?",
+     "opciones": [
+      "La caracterización del establecimiento resultante del artículo 7.",
+      "La antigüedad de las instalaciones del establecimiento.",
+      "La plantilla del establecimiento en el último ejercicio."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.1: los requisitos del anexo II dependen de la caracterización del art. 7."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a8-2-instalaciones",
+   "bloque": "a8",
+   "apartado": "2",
+   "orden": 320,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 8.2 del RSCIEI, ¿dónde se establecen las dotaciones de instalaciones de protección activa contra incendios?",
+    "respuesta": "En el anexo III, de acuerdo con la caracterización que resulte del artículo 7."
+   },
+   "cita": "serán las establecidas en el anexo III",
+   "confundible_con": [
+    "RSCIEI-a8-1-constructivos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 8.2 del RSCIEI, ¿en qué anexo figuran las dotaciones de instalaciones de protección activa?",
+     "opciones": [
+      "El anexo II",
+      "El anexo III"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 8.2: anexo III."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 8.2 del RSCIEI, las dotaciones del anexo III son de instalaciones de protección:",
+     "opciones": [
+      "Pasiva contra incendios",
+      "Mixta contra incendios",
+      "Activa contra incendios"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 8.2: instalaciones de protección activa contra incendios."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 8.2 del RSCIEI es correcta?",
+     "opciones": [
+      "Las dotaciones del anexo III se fijan según la caracterización del artículo 7.",
+      "Las dotaciones del anexo III se fijan libremente por el titular.",
+      "Las dotaciones del anexo III se fijan solo por el tamaño de la plantilla."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.2: de acuerdo con la caracterización del artículo anterior."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a8-3-singulares",
+   "bloque": "a8",
+   "apartado": "3",
+   "orden": 330,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 8.3 del RSCIEI, ¿qué recoge el anexo IV?",
+    "respuesta": "Requisitos aplicables a casos singulares de zonas o partes de establecimientos que pueden diferir parcialmente de la caracterización del anexo I o de los anexos II y III, o necesitan consideraciones específicas."
+   },
+   "cita": "en el anexo IV se recogen requisitos aplicables para casos singulares de zonas o partes de establecimientos",
+   "confundible_con": [
+    "RSCIEI-a8-1-constructivos",
+    "RSCIEI-a8-2-instalaciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 8.3 del RSCIEI, los requisitos para casos singulares se recogen en el anexo:",
+     "opciones": [
+      "IV",
+      "I"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.3: el anexo IV recoge los casos singulares."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 8.3 del RSCIEI, los casos singulares pueden diferir parcialmente de la caracterización del anexo I o de los requisitos de los anexos:",
+     "opciones": [
+      "III y V",
+      "I y II",
+      "II y III"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 8.3: pueden diferir de la caracterización del anexo I o de los anexos II y III."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿A qué se refiere el anexo IV según el art. 8.3 del RSCIEI?",
+     "opciones": [
+      "A zonas o partes de establecimientos con necesidades específicas.",
+      "A establecimientos completos de riesgo intrínseco bajo.",
+      "A los productos de construcción que no tengan marcado CE."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8.3: zonas o partes con características que necesitan consideraciones específicas."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a9-1-marcado-ce",
+   "bloque": "a9",
+   "apartado": "1",
+   "orden": 340,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 9.1 del RSCIEI, ¿qué deben tener los productos de construcción que se incorporen a los establecimientos industriales?",
+    "respuesta": "Marcado CE conforme al Reglamento (UE) 2024/3110 o, en su caso, al Reglamento (UE) n.º 305/2011, y al resto de reglamentos y directivas europeas aplicables."
+   },
+   "cita": "deberán disponer de marcado CE conforme al Reglamento (UE) 2024/3110",
+   "confundible_con": [
+    "RSCIEI-a9-2-sin-marcado"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 9.1 del RSCIEI, los productos de construcción deben disponer de marcado:",
+     "opciones": [
+      "UNE",
+      "CE"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 9.1: marcado CE conforme al Reglamento (UE) 2024/3110."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 9.1 del RSCIEI, el Reglamento (UE) 2024/3110 deroga el Reglamento (UE):",
+     "opciones": [
+      "n.º 164/2025",
+      "n.º 393/2007",
+      "n.º 305/2011"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 9.1: el Reglamento (UE) 2024/3110 deroga el n.º 305/2011."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuándo vale el marcado CE conforme al Reglamento (UE) n.º 305/2011 según el art. 9.1 del RSCIEI?",
+     "opciones": [
+      "Cuando así se prevea en dicha reglamentación.",
+      "En cualquier caso, sin depender de la reglamentación.",
+      "Solo para productos fabricados antes de 2011."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.1: el Reglamento 305/2011 se aplica en su caso, cuando así se prevea."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a9-2-sin-marcado",
+   "bloque": "a9",
+   "apartado": "2",
+   "orden": 350,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 9.2 del RSCIEI, ¿qué deben cumplir los productos de construcción no cubiertos por marcado CE y qué debe proporcionar el operador económico?",
+    "respuesta": "Lo dispuesto en el reglamento y la reglamentación específica, con informes de ensayo o certificaciones si afectan a la seguridad; el operador y los distribuidores dan información sobre uso, características y prestaciones."
+   },
+   "cita": "Los productos de construcción no cubiertos por marcado CE deberán cumplir con lo que se disponga en el presente reglamento para cada caso",
+   "confundible_con": [
+    "RSCIEI-a9-1-marcado-ce"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 9.2 del RSCIEI, el operador económico y los distribuidores proporcionan al destinatario información sobre el uso previsto, las características y las:",
+     "opciones": [
+      "Prestaciones del producto",
+      "Condiciones de transporte"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.2: cumplir el reglamento y la reglamentación específica aplicable."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 9.2 del RSCIEI, si el producto sin marcado CE incide en la seguridad, debe disponer de informes de ensayo, certificaciones u otra:",
+     "opciones": [
+      "Autorización administrativa previa",
+      "Póliza de seguro específica",
+      "Documentación técnica necesaria"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 9.2: informes de ensayo, certificaciones u otra documentación técnica."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿A quiénes obliga el art. 9.2 del RSCIEI a proporcionar la información del producto al destinatario?",
+     "opciones": [
+      "Al operador económico responsable y a los distribuidores.",
+      "Al proyectista y al organismo de control habilitado.",
+      "Al titular del establecimiento y al instalador autorizado."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.2: el operador económico responsable y los distribuidores."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a9-3-ripci",
+   "bloque": "a9",
+   "apartado": "3",
+   "orden": 360,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 9.3 del RSCIEI, ¿qué reglamento deben cumplir los equipos, sistemas y componentes de las instalaciones de protección activa contra incendios?",
+    "respuesta": "El Reglamento de instalaciones de protección contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo."
+   },
+   "cita": "cumplirán con lo dispuesto en el Reglamento de instalaciones de protección contra incendios, aprobado por el Real Decreto 513/2017, de 22 de mayo",
+   "confundible_con": [
+    "RSCIEI-a9-1-marcado-ce"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 9.3 del RSCIEI, los equipos de protección activa cumplen el Reglamento de instalaciones de protección contra incendios, aprobado por el Real Decreto:",
+     "opciones": [
+      "393/2007",
+      "513/2017"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 9.3: Real Decreto 513/2017."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 9.3 del RSCIEI, ese Real Decreto es de fecha:",
+     "opciones": [
+      "17 de marzo",
+      "23 de marzo",
+      "22 de mayo"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 9.3: Real Decreto 513/2017, de 22 de mayo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿A qué instalaciones se refiere el art. 9.3 del RSCIEI?",
+     "opciones": [
+      "A las de protección activa contra incendios.",
+      "A las de protección pasiva contra incendios.",
+      "A las instalaciones eléctricas de baja tensión."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.3: equipos, sistemas y componentes de protección activa."
+    }
+   ]
+  },
+  {
+   "id": "RSCIEI-a9-4-comprobacion",
+   "bloque": "a9",
+   "apartado": "4",
+   "orden": 370,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 9.4 del RSCIEI, ¿cómo se comprueba que los productos con prestaciones mínimas cumplen lo exigido y dónde se hace constar?",
+    "respuesta": "La información va en el proyecto o memoria técnica; en construcción se comprueban características e instalación, y se hace constar en el certificado del art. 11.1.b)."
+   },
+   "cita": "En el certificado del artículo 11.1.b) se deberá hacer constar expresamente que se han realizado dichas comprobaciones",
+   "confundible_con": [
+    "RSCIEI-a9-1-marcado-ce"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 9.4 del RSCIEI, las características y prestaciones mínimas de los productos se incluyen en el proyecto o en la:",
+     "opciones": [
+      "Memoria técnica",
+      "Acta de inspección"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.4: proyecto o memoria técnica."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 9.4 del RSCIEI, las comprobaciones se hacen constar en el certificado del artículo:",
+     "opciones": [
+      "11.1.a)",
+      "11.1.c)",
+      "11.1.b)"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 9.4: certificado del artículo 11.1.b)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué se revisa antes de instalar un producto con marcado CE según el art. 9.4 del RSCIEI?",
+     "opciones": [
+      "La Declaración de Prestaciones y de Conformidad del fabricante.",
+      "El informe anual de la mutua de seguros del fabricante.",
+      "El acta de inspección del organismo de control habilitado."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9.4: se comprueba la Declaración de Prestaciones y de Conformidad del fabricante."
+    }
+   ]
+  }
+ ]
+}
