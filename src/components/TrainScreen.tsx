@@ -7,6 +7,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Brain, Sparkles, ChevronRight, CheckCircle2, XCircle, AlertTriangle, HelpCircle, RefreshCw, ArrowLeft, Clock } from 'lucide-react';
 import { Question, ConfidenceLevel, MemoryState, Microconcept } from '../types';
 import { countAnswerChange } from '../utils/attempt';
+import { optionLetter } from '../utils/shuffleOptions';
 import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
 
@@ -299,7 +300,7 @@ export default function TrainScreen({
                     }}
                     className={`w-full min-h-12 text-left px-4 py-3 text-base rounded-xl border transition flex items-center justify-between gap-2 leading-snug ${optionStyle}`}
                   >
-                    <span>{option}</span>
+                    <span><span className="font-bold mr-1" aria-hidden="true">{optionLetter(idx)})</span>{option}</span>
                     {!isAnswered && isSelected && <CheckCircle2 className="w-5 h-5 text-indigo-600 flex-shrink-0" aria-hidden="true" />}
                     {isAnswered && isCorrect && <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" aria-label="Correcta" />}
                     {isAnswered && isSelected && !isCorrect && <XCircle className="w-5 h-5 text-rose-600 flex-shrink-0" aria-label="Tu respuesta, incorrecta" />}

@@ -21,7 +21,7 @@ import {
   type VisibleState,
 } from '../lib/conceptEngine';
 import { newAttemptKey } from '../lib/saveAttemptToServer';
-import { shuffleQuestionOptions } from '../utils/shuffleOptions';
+import { optionLetter, shuffleQuestionOptions } from '../utils/shuffleOptions';
 import ReportQuestionButton from './ReportQuestionButton';
 import { startStudySession, finishStudySession } from '../lib/studySession';
 import SessionCelebration from './SessionCelebration';
@@ -437,7 +437,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
             <h2 className="mt-2 text-lg font-bold text-slate-900">{item.question}</h2>
             <div className="mt-2 flex justify-end"><ReportQuestionButton questionId={item.question_id} onReported={next} /></div>
             <div className="mt-4 flex flex-col gap-2" role="radiogroup" aria-label="Opciones">
-              {options.map(opt => {
+              {options.map((opt, idx) => {
                 const isSel = chosen === opt;
                 const isOk = answered && opt === testFeedback?.correct_answer;
                 let cls = 'border-slate-200 bg-white';
@@ -447,7 +447,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
                 return (
                   <button key={opt} type="button" role="radio" aria-checked={isSel} disabled={answered || !!pendingTestChoice}
                     onClick={() => setChosen(opt)} className={`rounded-xl border p-3 text-left text-sm ${cls}`}>
-                    {opt}
+                    <span className="font-bold mr-1" aria-hidden="true">{optionLetter(idx)})</span>{opt}
                   </button>
                 );
               })}
