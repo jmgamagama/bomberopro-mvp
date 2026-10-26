@@ -64,3 +64,22 @@ describe('C1: mazos empaquetados', () => {
     expect(isDeckBundled('tema36-lote01', true)).toBe(false);
   });
 });
+
+describe('límite de correcciones (migración 35)', () => {
+  it('traduce cada rechazo P0429 a un aviso claro', async () => {
+    const { describeCheckError, isAnswerLimitError } = await import('./secureQuestions');
+    expect(isAnswerLimitError({ code: 'P0429', message: 'rate_limited_hour' })).toBe(true);
+    expect(isAnswerLimitError({ message: 'daily_question_limit' })).toBe(true);
+    expect(isAnswerLimitError({ code: '08006', message: 'network' })).toBe(false);
+    expect(describeCheckError({ code: 'P0429', message: 'rate_limited_hour' })).toMatch(/300 correcciones por hora/);
+    expect(describeCheckError({ code: 'P0429', message: 'rate_limited_day' })).toMatch(/1500 correcciones en 24 horas/);
+    expect(describeCheckError({ code: 'P0429', message: 'daily_question_limit' })).toMatch(/plan gratis .*150 preguntas distintas/);
+    expect(describeCheckError(new Error('x'))).toMatch(/conexión/);
+  });
+
+  it('los límites del cliente coinciden con los de la migración 35', async () => {
+    const { ANSWER_CHECK_LIMITS } = await import('./secureQuestions');
+    const sql = readFileSync(new URL('../../supabase/migrations/35_limite_correcciones.sql', import.meta.url), 'utf8');
+    expect(sql).toContain(`'per_hour', ${ANSWER_CHECK_LIMITS.perHour}, 'per_day', ${ANSWER_CHECK_LIMITS.perDay}, 'free_distinct_per_day', ${ANSWER_CHECK_LIMITS.freeDistinctPerDay}`);
+  });
+});
