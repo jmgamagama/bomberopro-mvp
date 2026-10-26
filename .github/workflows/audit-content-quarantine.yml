@@ -4,6 +4,9 @@ on:
     paths:
       - 'supabase/migrations/25_audit_content_quarantine*.sql'
       - 'supabase/migrations/30_audit_critical_quarantine*.sql'
+      - 'supabase/migrations/35_todas_anteriores_incoherentes*.sql'
+      - 'supabase/migrations/36_endurecer_permisos_anon*.sql'
+      - 'supabase/tests/audit_35_36.pglite.mjs'
       - 'supabase/tests/audit_quarantine.pglite.mjs'
       - 'supabase/tests/audit_critical.pglite.mjs'
       - 'supabase/tests/fixtures/**'
@@ -26,5 +29,7 @@ jobs:
         run: NODE_PATH="$RUNNER_TEMP/audit-runtime/node_modules" node supabase/tests/audit_quarantine.pglite.mjs
       - name: Test critical-content migration 30 and rollback
         run: NODE_PATH="$RUNNER_TEMP/audit-runtime/node_modules" node supabase/tests/audit_critical.pglite.mjs
+      - name: Test migrations 35 and 36 and rollback
+        run: NODE_PATH="$RUNNER_TEMP/audit-runtime/node_modules" node supabase/tests/audit_35_36.pglite.mjs
       - name: Validate migration numbers
         run: node scripts/check-migrations.mjs
