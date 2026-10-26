@@ -1,0 +1,171 @@
+ tema | total | n1  | n2  | n3  | sin_nivel 
+------+-------+-----+-----+-----+-----------
+    1 |    72 |  24 |  24 |  24 |         0
+    6 |   549 | 183 | 183 | 183 |         0
+(2 rows)
+
+ tema | conceptos | sin_preguntas 
+------+-----------+---------------
+    1 |        24 |             0
+    6 |       183 |             0
+(2 rows)
+
+ sin_fuente_normativa | sin_cita_literal_del_concepto 
+----------------------+-------------------------------
+                    0 |                             0
+(1 row)
+
+ sin_concepto | total 
+--------------+-------
+            0 |   621
+(1 row)
+
+ sin_n1 | sin_3_niveles | total 
+--------+---------------+-------
+      0 |             0 |   207
+(1 row)
+
+ nivel | n_opciones | count 
+-------+------------+-------
+     1 |          2 |   207
+     2 |          3 |   207
+     3 |          3 |   207
+(3 rows)
+
+ tema | fichas | mazos |      revision      | sin_fuente | sin_localizacion 
+------+--------+-------+--------------------+------------+------------------
+    1 |    129 |     1 | pendiente          |          0 |                0
+    2 |    121 |     1 | pendiente          |          0 |                0
+    3 |     66 |     1 | pendiente          |          0 |                0
+    4 |     28 |     1 | pendiente          |          0 |                0
+    5 |     28 |     1 | pendiente          |          0 |                0
+    6 |     94 |     1 | pendiente          |          0 |                0
+    7 |     64 |     1 | pendiente          |          0 |                0
+    8 |     25 |     1 | pendiente          |          0 |                0
+    9 |     84 |     1 | pendiente          |          0 |                0
+   10 |     47 |     2 | pendiente,revisado |          0 |                0
+   12 |     44 |     2 | pendiente          |          0 |                0
+   13 |     72 |     2 | pendiente          |          0 |                0
+   14 |     24 |     1 | pendiente          |          0 |                0
+   15 |     92 |     1 | pendiente          |          0 |                0
+   16 |     69 |     2 | pendiente,revisado |          0 |                0
+   17 |     14 |     1 | revisado           |          0 |                0
+   20 |     24 |     1 | pendiente          |          0 |                0
+   21 |    115 |     2 | pendiente          |          0 |                0
+   22 |     60 |     2 | pendiente          |          0 |                0
+   23 |     44 |     2 | pendiente          |          0 |                0
+   24 |     19 |     1 | revisado           |          0 |                0
+   25 |    115 |     2 | pendiente          |          0 |                0
+   26 |     60 |     1 | pendiente          |          0 |                0
+   27 |     52 |     2 | pendiente          |          0 |                0
+   28 |    103 |     2 | pendiente          |          0 |                0
+   29 |     81 |     1 | pendiente          |          0 |                0
+   30 |     87 |     1 | pendiente          |          0 |                0
+   31 |     83 |     1 | pendiente          |          0 |                0
+   32 |     91 |     1 | pendiente          |          0 |                0
+   33 |     97 |     2 | pendiente          |          0 |                0
+   34 |    132 |     3 | pendiente          |          0 |                0
+   35 |    150 |     1 | revisado           |          0 |                0
+   36 |    528 |     8 | pendiente          |          0 |                0
+   38 |    198 |     1 | revisado           |          0 |                0
+   39 |    149 |     1 | revisado           |          0 |                0
+   40 |    213 |     1 | revisado           |          0 |                0
+(36 rows)
+
+ revision  | fichas | mazos 
+-----------+--------+-------
+ pendiente |   2598 |    48
+ revisado  |    804 |     8
+(2 rows)
+
+ tema | fichas | preguntas 
+------+--------+-----------
+    2 |    121 |         0
+    3 |     66 |         0
+    4 |     28 |         0
+    5 |     28 |         0
+    7 |     64 |         0
+    8 |     25 |         0
+    9 |     84 |         0
+   10 |     47 |         0
+   11 |      0 |         0
+   12 |     44 |         0
+   13 |     72 |         0
+   14 |     24 |         0
+   15 |     92 |         0
+   16 |     69 |         0
+   17 |     14 |         0
+   18 |      0 |         0
+   19 |      0 |         0
+   20 |     24 |         0
+   21 |    115 |         0
+   22 |     60 |         0
+   23 |     44 |         0
+   24 |     19 |         0
+   25 |    115 |         0
+   26 |     60 |         0
+   27 |     52 |         0
+   28 |    103 |         0
+   29 |     81 |         0
+   30 |     87 |         0
+   31 |     83 |         0
+   32 |     91 |         0
+   33 |     97 |         0
+   34 |    132 |         0
+   35 |    150 |         0
+   36 |    528 |         0
+   37 |      0 |         0
+   38 |    198 |         0
+   39 |    149 |         0
+   40 |    213 |         0
+(38 rows)
+
+                origen                | nivel | count 
+--------------------------------------+-------+-------
+ data/questions/questions.export.json | facil |     1
+ src/data/initialData.ts              | N1    |     5
+ src/data/initialData.ts              | N2    |     5
+ src/data/initialData.ts              | N3    |     5
+(4 rows)
+
+ id | count 
+----+-------
+(0 rows)
+
+ schemaname |     tablename      |          policyname          |  cmd   |      roles      |                  qual                   
+------------+--------------------+------------------------------+--------+-----------------+-----------------------------------------
+ public     | concept_events     | concept_events_own           | SELECT | {authenticated} | (user_id = ( SELECT auth.uid() AS uid))
+ public     | concepts           | concepts_read                | SELECT | {authenticated} | (estado = 'publicado'::text)
+ public     | private_supuestos  | private_supuestos_select_own | SELECT | {authenticated} | (owner_id = auth.uid())
+ public     | user_concept_state | ucs_own                      | SELECT | {authenticated} | (user_id = ( SELECT auth.uid() AS uid))
+(4 rows)
+
+         relname         | relrowsecurity 
+-------------------------+----------------
+ attempts                | f
+ concept_answer_receipts | t
+ concept_events          | t
+ concepts                | t
+ convocatorias           | f
+ funnel_events           | t
+ microconcepts           | f
+ private_supuestos       | t
+ qa_changes_20260923     | f
+ question_reports        | f
+ questions               | f
+ study_sessions          | f
+ topics                  | f
+ user_concept_state      | t
+ user_question_state     | f
+ users_app               | f
+(16 rows)
+
+ extensiones_vector 
+--------------------
+                  0
+(1 row)
+
+ table_name | column_name 
+------------+-------------
+(0 rows)
+
