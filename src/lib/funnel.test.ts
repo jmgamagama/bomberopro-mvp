@@ -27,3 +27,15 @@ describe('embudo de captación', () => {
     await Promise.resolve();
   });
 });
+
+describe('registro local del embudo (2026-10-26)', () => {
+  it('anota todos los eventos en local y solo envía al servidor los de la migración 22', async () => {
+    const { trackFunnel, readFunnelLog, funnelCounts } = await import('./funnel');
+    window.localStorage.removeItem('bomberopro:funnel-log:v1');
+    rpc.mockClear();
+    for (const e of ['landing_view', 'exam_start', 'exam_finish', 'signup_complete', 'planes_view', 'exam_start'] as const) trackFunnel(e);
+    expect(readFunnelLog().map(x => x.e)).toEqual(['landing_view', 'exam_start', 'exam_finish', 'signup_complete', 'planes_view', 'exam_start']);
+    expect(funnelCounts().exam_start).toBe(2);
+    expect(rpc).not.toHaveBeenCalled();
+  });
+});

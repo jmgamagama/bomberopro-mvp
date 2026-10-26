@@ -5,7 +5,47 @@
  */
 import { supabase } from './supabase';
 
-export type FunnelEvent = 'demo_start' | 'demo_first_answer' | 'demo_signup_click' | 'signup_submit';
+/** Eventos que acepta el servidor (CHECK de funnel_events, migración 22). */
+export type ServerFunnelEvent = 'demo_start' | 'demo_first_answer' | 'demo_signup_click' | 'signup_submit';
+/**
+ * Eventos nuevos del embudo (2026-10-26). funnel_events no los acepta (lista cerrada en la 22),
+ * así que solo se anotan en el registro local de este navegador; no hay servicio nuevo.
+ */
+export type LocalFunnelEvent = 'landing_view' | 'exam_start' | 'exam_finish' | 'signup_complete' | 'planes_view';
+export type FunnelEvent = ServerFunnelEvent | LocalFunnelEvent;
+
+const SERVER_EVENTS: readonly FunnelEvent[] = ['demo_start', 'demo_first_answer', 'demo_signup_click', 'signup_submit'];
+export const FUNNEL_LOG_KEY = 'bomberopro:funnel-log:v1';
+const FUNNEL_LOG_MAX = 200;
+
+export interface FunnelLogEntry { e: FunnelEvent; t: string }
+
+/** Registro local (máx. 200 entradas, las más recientes). Sin correo ni id de usuario. */
+export function readFunnelLog(): FunnelLogEntry[] {
+  try {
+    const raw = window.localStorage.getItem(FUNNEL_LOG_KEY);
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function appendLocal(event: FunnelEvent): void {
+  try {
+    const log = [...readFunnelLog(), { e: event, t: new Date().toISOString() }].slice(-FUNNEL_LOG_MAX);
+    window.localStorage.setItem(FUNNEL_LOG_KEY, JSON.stringify(log));
+  } catch {
+    /* sin almacenamiento, sin registro */
+  }
+}
+
+/** Recuento por evento del registro local (para revisar el embudo en este dispositivo). */
+export function funnelCounts(): Partial<Record<FunnelEvent, number>> {
+  const out: Partial<Record<FunnelEvent, number>> = {};
+  for (const { e } of readFunnelLog()) out[e] = (out[e] ?? 0) + 1;
+  return out;
+}
 
 const ANON_KEY = 'bomberopro_anon_id_v1';
 let memoryId: string | null = null;
@@ -32,7 +72,8 @@ export function getAnonId(): string {
 }
 
 export function trackFunnel(event: FunnelEvent): void {
-  if (!supabase) return;
+  appendLocal(event);
+  if (!supabase || !SERVER_EVENTS.includes(event)) return;
   try {
     void Promise.resolve(supabase.rpc('log_funnel_event', { p_event: event, p_anon_id: getAnonId() }))
       .then((res) => { if (res && 'error' in res && res.error) console.warn('log_funnel_event:', res.error.message); })
