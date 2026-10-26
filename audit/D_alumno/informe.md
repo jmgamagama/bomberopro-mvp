@@ -46,7 +46,7 @@ axe-core 4.x (WCAG 2.1 A/AA): pantallas de bienvenida, ficha, respuesta, dashboa
 - **Sin planes:** 30 fichas por sesión y todos los temas. Eligió T35 y **la primera ficha fue de T38**. De 30 fichas, 18 fueron de T35 y 12 de otros temas, sin aviso (`p3_gratis_sinplanes_03_tema_elegido_ignorado.png`).
 - **Con planes:** los 7 temas que no son T40 aparecen deshabilitados con la etiqueta «Pro»; al tocarlos no pasa nada y no se explica (`p3_gratis_planes_02_t35_bloqueado.png`). La sesión es de 10 fichas de T40. La página Planes dice que Pro está «Próximamente», sin precio, y solo ofrece «Avísame», que guarda el interés en local (`p3_gratis_planes_09_planes.png`).
 - **El límite gratis es decorativo:** después de las 10 fichas, el botón «Empezar a estudiar» de la portada abre otra sesión de 15 preguntas de Constitución, fuera de «solo tema 40». Además, la portada dice «5 preguntas» (`p3_gratis_planes_06_limite_gratis_decorativo.png`).
-- **Dónde choca con un muro:** en «Temas» (sin botón para registrarse) y en el simulacro completo («requiere una cuenta»), pero no existe ningún flujo para crearla en la demo (`*_muro_sin_registro.png`). «Salir» de la cabecera no hace nada visible (`*_tras_salir.png`).
+- **Dónde choca con un muro:** en «Temas» (sin botón para registrarse) y en el simulacro completo («requiere una cuenta»), pero no existe ningún flujo para crearla en la demo (`*_muro_sin_registro.png`). «Salir» de la cabecera no hace nada visible: la pantalla sigue igual (`p3_gratis_sinplanes_08_tras_salir.png`).
 - **Qué le haría irse:** que le pidan una cuenta que no puede crear, y temas en gris sin explicación ni precio.
 
 ## Los 5 peores atascos
