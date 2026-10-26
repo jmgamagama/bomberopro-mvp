@@ -56,7 +56,6 @@
    "opciones": [
     {"letra": "a", "texto": "Han pasado 12 meses de uso"},
     {"letra": "b", "texto": "No se han verificado en los últimos 6 meses por el fabricante o laboratorio autorizado"},
-    {"letra": "c", "texto": "Han pasado 6 meses de uso"},
     {"letra": "d", "texto": "No se han verificado en un periodo de 12 meses por el fabricante o laboratorio autorizado"}],
    "enunciado": "Los guantes de las clases 1-2-3-4 no deberán usarse si:",
    "explicacion": "Los guantes de clases 1 a 4 no deben usarse si no han sido verificados en un periodo de 12 meses por el fabricante o laboratorio autorizado.",
