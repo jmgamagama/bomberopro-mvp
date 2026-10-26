@@ -50,7 +50,17 @@ export function isRevisionAdminEnabled(): boolean {
   }
 }
 
+/**
+ * ¿Van los mazos pendientes en este bundle? En producción NO (C1, scripts/excluir-mazos-pendientes.ts),
+ * salvo una build interna con VITE_INCLUDE_PENDING_DECKS=true. En dev y tests, sí.
+ */
+export function pendingDecksBundled(): boolean {
+  if (!import.meta.env.PROD) return true;
+  return String(import.meta.env.VITE_INCLUDE_PENDING_DECKS ?? '').toLowerCase() === 'true';
+}
+
 /** ¿Puede ver los mazos pendientes de revisión? */
 export function canSeePendingDecks(): boolean {
+  if (!pendingDecksBundled()) return false;
   return isRevisionOwner() || isRevisionAdminEnabled();
 }
