@@ -1219,10 +1219,10 @@
      "opciones": [
       "Una con un centro de trabajo de 50 trabajadores.",
       "Una con un centro de trabajo de 49 trabajadores.",
-      "Una con seis centros de trabajo de 10 trabajadores cada uno."
+      "Una con cuatro centros de trabajo de 10 trabajadores cada uno."
      ],
      "correcta": 0,
-     "explicacion": "Art. 38.2: 50 o más; con 49 trabajadores no hay obligación de constituirlo."
+     "explicacion": "Art. 38.2: basta que la empresa o un centro alcance 50 trabajadores. La primera opción cumple el umbral; la segunda no lo alcanza y la tercera suma 40 trabajadores en toda la empresa, por lo que tampoco lo alcanza."
     }
    ]
   },
