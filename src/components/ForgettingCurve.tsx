@@ -210,7 +210,7 @@ export default function ForgettingCurve({
             <path
               d={refPathD}
               fill="none"
-              stroke="#6366f1"
+              stroke="#3A6494"
               strokeWidth="2.5"
               strokeLinecap="round"
               className="opacity-25"
@@ -220,7 +220,7 @@ export default function ForgettingCurve({
             {plottedPoints.map((pt) => {
               const isSelected = selectedPointId === pt.id;
               
-              let nodeColor = '#3b82f6'; // blue
+              let nodeColor = '#1E3A5F'; // azul marino
               if (pt.rPct >= 90) nodeColor = '#10b981'; // emerald
               else if (pt.rPct < 50) nodeColor = '#f43f5e'; // rose
               else if (pt.rPct < 75) nodeColor = '#f59e0b'; // amber

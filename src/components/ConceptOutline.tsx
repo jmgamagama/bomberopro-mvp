@@ -27,25 +27,32 @@ export const DOCUMENTOS: Record<string, string> = {
 
 const plural = (n: number, uno: string, varios: string) => `${n} ${n === 1 ? uno : varios}`;
 
-/** Resumen por tema (ligero). Devuelve un mapa nº de tema → recuentos. */
-export function useConceptSummary(): Record<number, OutlineTema> {
-  const [map, setMap] = useState<Record<number, OutlineTema>>({});
+/**
+ * Resumen por tema (ligero). `resumen` es el mapa nº de tema → recuentos; la base de datos solo
+ * devuelve los temas que tienen conceptos publicados. `listo` es true solo cuando la respuesta
+ * llegó bien: mientras carga (o si falla) no se puede afirmar que un tema no tenga conceptos.
+ */
+export function useConceptSummary(): { resumen: Record<number, OutlineTema>; listo: boolean } {
+  const [estado, setEstado] = useState<{ resumen: Record<number, OutlineTema>; listo: boolean }>({ resumen: {}, listo: false });
   useEffect(() => {
     let vivo = true;
     if (!supabase) return;
     Promise.resolve(supabase.rpc('get_concept_outline'))
       .then(({ data, error }) => {
         if (!vivo || error || !Array.isArray(data)) return;
-        setMap(Object.fromEntries((data as OutlineTema[]).map((t) => [t.tema, t])));
+        setEstado({ resumen: Object.fromEntries((data as OutlineTema[]).map((t) => [t.tema, t])), listo: true });
       })
       .catch(() => {});
     return () => { vivo = false; };
   }, []);
-  return map;
+  return estado;
 }
 
-export function ConceptCountBadge({ tema }: { tema?: OutlineTema }) {
-  if (!tema) return null;
+/** Con `listo` y sin recuento, el tema no tiene conceptos: solo se practica con tests. */
+export function ConceptCountBadge({ tema, listo = false }: { tema?: OutlineTema; listo?: boolean }) {
+  if (!tema) {
+    return listo ? <span className="text-xs font-semibold text-orange-700">Solo tests</span> : null;
+  }
   return (
     <span className="text-xs font-semibold text-indigo-700">
       {plural(tema.total, 'concepto', 'conceptos')} · {plural(tema.preguntas, 'pregunta', 'preguntas')}
