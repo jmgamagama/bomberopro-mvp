@@ -1,6 +1,6 @@
 # Tema 1 · Garantías y suspensión de los derechos (arts. 53–55) — informe de calidad
 
-Fecha: 28/10/2026. Autor del contenido: Claude. Estado: **borrador, pendiente de revisión de JM** antes de cargarse y publicarse en producción.
+Fecha: 28/10/2026. Autor del contenido: Claude. Estado: **publicado en producción el 28/10/2026** con el OK general de JM.
 
 ## Por qué este bloque va segundo
 En el banco publicado del tema 1, los arts. 53–55 acumulan 43 preguntas para solo 6 apartados (unas 7 por apartado), la mayor densidad del Título I. Además, el art. 53 es el «mapa» de protección de todo el título: estudiarlo pronto ordena el resto (arts. 10–52).
@@ -36,7 +36,10 @@ En el banco publicado del tema 1, los arts. 53–55 acumulan 43 preguntas para s
 - 8 preguntas publicadas del tema 1 tratan de los Títulos II, III, VI, VIII y IX (fuera del epígrafe de Badajoz, arts. 1–55); se marcan `fuera_temario`. También la 6811 (plazo del estado de excepción, LO 4/1981 y art. 116.3).
 - La app solo muestra el material del Título Preliminar (`src/components/MaterialConstitucion.tsx` tiene los ficheros fijos). Para ver el esquema y el desarrollo de este bloque hace falta un selector de bloques; se hará cuando JM apruebe el contenido.
 
-## Carga (cuando JM apruebe)
-1. Staging: `python3 scripts/cargar_conceptos.py data/constitucion/garantias-suspension.json --estado publicado`.
-2. Producción: `--estado borrador` y después `python3 scripts/aplicar_vinculos.py data/constitucion/vinculos-produccion-garantias-suspension.json`.
-3. Publicar conceptos y preguntas nuevas tras el OK de JM.
+## Carga (hecha el 28/10/2026)
+1. Staging: `cargar_conceptos.py … --estado publicado --compacto` y comprobación con un alumno simulado (las funciones de la app sirven los conceptos y sus preguntas).
+2. Producción: misma carga, comprobada con huella md5 contra la carga local (22 conceptos y 66 preguntas idénticos al fichero).
+3. Producción: `aplicar_vinculos.py` con registro en `qa_changes_20260923` (55 filas, huella idéntica al SQL generado): 22 preguntas vinculadas (3 de ellas corregidas: 883, 889, 967), 21 retiradas como duplicadas o erróneas y 9 como fuera de temario. Preguntas publicadas del tema 1: 465 → 501.
+4. Orden: el bloque se cargó primero con `orden` 10-220, que coincide con el del Título Preliminar, y la app los mostraba intercalados. Se corrigió a 5310-5520 (staging y producción) y el validador comprueba ahora que el orden de todos los ficheros de un tema sigue el de los artículos. Los bloques siguientes usarán `orden` = 100 × artículo + n.
+
+Marcha atrás: restaurar desde `qa_changes_20260923` las filas con motivo «revisión arts. 53-55 CE…» y poner en `borrador` los conceptos `CE-a53-*`, `CE-a54-*`, `CE-a55-*` y sus preguntas `CE:CE-a5[345]-*`.
