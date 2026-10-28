@@ -66,7 +66,6 @@ describe('Demo: las opciones se barajan al montar la sesión', () => {
     render(<App />);
 
     await user.click(await screen.findByRole('button', { name: /empieza ya, sin registrarte/i }));
-    await user.click(await screen.findByRole('button', { name: /empezar a estudiar/i }));
     await screen.findByText(/según el artículo 1\.1 de la constitución/i);
 
     const correct = screen.getByRole('button', { name: /estado social y democrático de derecho/i });

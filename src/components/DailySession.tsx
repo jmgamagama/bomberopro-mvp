@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import AvisoGuardadoFichas from './AvisoGuardadoFichas';
 import { Flame, Play, Eye, EyeOff, CheckCircle2, ListOrdered, BarChart3, Lock } from 'lucide-react';
 import {
   pickDailyRecallSession,
@@ -31,6 +32,8 @@ import ExamDateField from './ExamDateField';
 import DailyMinutesField from './DailyMinutesField';
 
 interface DailySessionProps {
+  /** Demo o sin cuenta: cambia el aviso de dónde se guarda el repaso. */
+  demo?: boolean;
   onNavigateHome: () => void;
   onOpenOrdenaPasos: () => void;
   /** Empieza directamente en la primera ficha (p. ej. al venir de la bienvenida). */
@@ -41,7 +44,7 @@ interface DailySessionProps {
 
 type Phase = 'intro' | 'study' | 'done' | 'stats';
 
-export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false, onOpenPlanes }: DailySessionProps) {
+export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false, onOpenPlanes, demo = true }: DailySessionProps) {
   const plan = getPlan();
   const planesOn = isPlanesEnabled();
   const planSessionSize = getDailySessionSize(plan);
@@ -163,7 +166,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
 
   return (
     <div className="mx-auto mt-2 max-w-3xl space-y-6 sm:mt-8" id="daily-session-root">
-      <p className="rounded-xl bg-indigo-50 px-3 py-2 text-sm text-slate-700">El progreso de estas fichas se guarda solo en este navegador; todavía no se sincroniza con tus otros dispositivos.</p>
+      <AvisoGuardadoFichas demo={demo} />
       {phase === 'intro' && (
         <section className="space-y-6 rounded-2xl border border-slate-100 bg-white p-6 text-center shadow-sm sm:rounded-3xl sm:p-8">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-50 text-orange-600 shadow-inner">

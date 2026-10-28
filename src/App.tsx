@@ -627,7 +627,10 @@ export default function App() {
     if (!session) trackFunnel('demo_start');
     setIsDemoMode(true);
     setDbQuestions(INITIAL_QUESTIONS);
-    setCurrentScreen(hasCompletedOnboarding() ? 'dashboard' : 'onboarding');
+    // La entrada promete «Prueba 15 preguntas»: la demo abre directamente esas preguntas.
+    setDailyAutoStart(false);
+    setCurrentScreen('train');
+    void startTrainingSession(null, INITIAL_QUESTIONS);
   };
 
   // Pantalla de acceso con la que se vuelve de la demo: «crear» si el alumno pulsa «Crear cuenta gratis».
@@ -733,8 +736,8 @@ export default function App() {
               <span className="hidden sm:block w-2 h-2 rounded-full bg-amber-900 animate-pulse shrink-0" aria-hidden="true" />
               <span>
                 <strong><span className="sm:hidden">Demo</span><span className="hidden sm:inline">Modo demostración</span></strong>
-                <span className="sm:hidden">: las fichas guardan el repaso aquí.</span>
-                <span className="hidden sm:inline">: el repaso de fichas se guarda solo en este dispositivo. El test de muestra no guarda intentos.</span>
+                <span className="sm:hidden">: no se guarda en tu cuenta.</span>
+                <span className="hidden sm:inline">: lo que hagas no se guarda en ninguna cuenta; el repaso de fichas queda solo en este dispositivo.</span>
               </span>
             </div>
             <div className="flex items-center gap-2 shrink-0">
@@ -1108,7 +1111,13 @@ export default function App() {
         <Suspense fallback={<p role="status" className="p-6 text-sm text-slate-500">Cargando fichas…</p>}>
           {currentScreen === 'onboarding' && (
             <Onboarding
+              cuenta={Boolean(conceptOwner)}
               onStart={() => {
+                // Con cuenta: Tema 1 piloto (revisado, guardado en la cuenta). Sin cuenta: sesión de fichas.
+                if (conceptOwner) {
+                  handleNavigate('constitucion');
+                  return;
+                }
                 handleNavigate('sesion_diaria');
                 setDailyAutoStart(true);
               }}
@@ -1121,11 +1130,12 @@ export default function App() {
           )}
 
           {currentScreen === 'recuerdo' && (
-            <RecallHub onNavigateHome={() => handleNavigate('dashboard')} onOpenPlanes={openPlanes} />
+            <RecallHub demo={isDemoMode || !session} onNavigateHome={() => handleNavigate('dashboard')} onOpenPlanes={openPlanes} />
           )}
 
           {currentScreen === 'sesion_diaria' && (
             <DailySession
+              demo={isDemoMode || !session}
               autoStart={dailyAutoStart}
               onOpenPlanes={openPlanes}
               onNavigateHome={() => handleNavigate('dashboard')}
