@@ -60,3 +60,21 @@ body {
 #mira-app-root {
   overflow-wrap: anywhere;
 }
+
+/* Compatibilidad móvil (28-oct-2026).
+   - El modo oscuro forzado de Chrome y Samsung Internet en Android invertía los colores de la
+     app (no tiene tema oscuro propio). «only light» le dice al navegador que no lo aplique.
+   - iPhone amplía la página al tocar un campo con letra de menos de 16 px y no la devuelve a su
+     tamaño. En pantallas táctiles todos los campos de texto usan al menos 16 px. Va fuera de
+     @layer para ganar a las clases text-xs/text-sm de Tailwind. */
+:root {
+  color-scheme: only light;
+}
+
+@media (pointer: coarse) {
+  input:not([type='checkbox']):not([type='radio']):not([type='range']):not([type='button']):not([type='submit']),
+  select,
+  textarea {
+    font-size: max(16px, 1em);
+  }
+}
