@@ -129,7 +129,9 @@ export default function App() {
   // Reenvía las respuestas pendientes al haber sesión y al recuperar la conexión.
   useAttemptSync(session?.user?.id);
   const conceptOwner = session?.user?.id && !isDemoMode ? session.user.id : null;
-  const remoteConcepts = useRemoteConceptProgress(conceptOwner, currentScreen === 'dashboard');
+  // El recuento de repasos se pide en todas las pantallas menos durante el estudio por conceptos:
+  // así, al salir del estudio, el botón «Repasar (N)» se recalcula con lo que ya se ha repasado.
+  const remoteConcepts = useRemoteConceptProgress(conceptOwner, currentScreen !== 'concept_t40');
   const [dbQuestions, setDbQuestions] = useState<Question[]>(INITIAL_QUESTIONS);
   const [dbQuestionsLoading, setDbQuestionsLoading] = useState(false);
   const [dbQuestionsError, setDbQuestionsError] = useState<string | null>(null);
@@ -878,7 +880,7 @@ export default function App() {
           </nav>
 
           <div className="flex items-center gap-2">
-            {pendingCount > 0 && currentScreen !== 'train' && currentScreen !== 'onboarding' && (
+            {pendingCount > 0 && currentScreen !== 'train' && currentScreen !== 'concept_t40' && currentScreen !== 'onboarding' && (
               <button
                 id="btn-quick-train"
                 onClick={() => handleNavigate(conceptOwner ? 'concept_t40' : 'train')}
