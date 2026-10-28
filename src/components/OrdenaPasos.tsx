@@ -68,7 +68,7 @@ export default function OrdenaPasos({ onNavigateHome, onBackToDaily }: OrdenaPas
                     className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-left transition hover:border-violet-200 hover:bg-violet-50"
                   >
                     <span className="block text-sm font-semibold text-slate-800">{card.titulo}</span>
-                    <span className="mt-1 block text-[11px] text-slate-400">
+                    <span className="mt-1 block text-[11px] text-slate-500">
                       {card.pasos.length} pasos · {card.fuente}
                     </span>
                   </button>
@@ -95,7 +95,7 @@ export default function OrdenaPasos({ onNavigateHome, onBackToDaily }: OrdenaPas
           <div>
             <p className="text-xs font-bold uppercase tracking-wider text-violet-600">Ordena los pasos</p>
             <h2 className="mt-1 text-lg font-bold text-slate-800">{active.titulo}</h2>
-            <p className="mt-1 text-[11px] text-slate-400">Fuente: {active.fuente}</p>
+            <p className="mt-1 text-[11px] text-slate-500">Fuente: {active.fuente}</p>
           </div>
 
           <ol className="space-y-2">

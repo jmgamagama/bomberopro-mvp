@@ -71,7 +71,7 @@ const Onboarding = lazy(() => import('./components/Onboarding'));
 const Planes = lazy(() => import('./components/Planes'));
 
 const SCREEN_TITLES = {
-  dashboard: 'Dashboard',
+  dashboard: 'Inicio',
   train: 'Entrenamiento',
   errors: 'Errores críticos',
   forgetting_curve: 'Curva de olvido',
@@ -637,7 +637,7 @@ export default function App() {
     );
   }
 
-  // Navegación móvil: 5 pestañas. Lo menos usado vive en «Más» para no abrumar al alumno.
+  // Navegación única (móvil, tableta y escritorio): 5 secciones. Lo menos usado vive en «Más» para no abrumar al alumno.
   type Screen = typeof currentScreen;
   const estudiarScreen: Screen = conceptOwner ? 'concept_t40' : 'train';
   const MAS_SCREENS: Screen[] = ['mas', 'errors', 'forgetting_curve', 'recuerdo', 'sesion_diaria', 'ordena_pasos', 'today_training', 'supuestos', 'my_reports', 'planes', 'constitucion'];
@@ -677,7 +677,7 @@ export default function App() {
       <SaveStatus />
       {session && !isDemoMode && showLegacyImport && (
         <div role="region" aria-label="Progreso antiguo" className="border-b border-indigo-200 bg-indigo-50 px-4 py-3 text-sm text-slate-800">
-          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
+          <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-between gap-3">
             <p>Hay progreso antiguo en este navegador sin cuenta identificada. Si es tuyo, puedes copiarlo a esta cuenta; no se borrará el original.</p>
             <button type="button" onClick={handleImportLegacyProgress} className="rounded-lg bg-indigo-700 px-3 py-2 font-semibold text-white">
               Importar mi progreso
@@ -691,7 +691,7 @@ export default function App() {
           aria-label="Aviso de modo demostración"
           className="bg-amber-400 text-slate-950 px-3 sm:px-4 py-1.5 text-sm font-semibold shadow-xs"
         >
-          <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
+          <div className="max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
             <div className="flex items-center gap-2 text-left">
               <span className="hidden sm:block w-2 h-2 rounded-full bg-amber-900 animate-pulse shrink-0" aria-hidden="true" />
               <span>
@@ -734,12 +734,12 @@ export default function App() {
       </p>
 
       {/* Top Main Navigation Bar */}
-      {/* En el móvil la cabecera no es fija: ya hay barra inferior fija y cada píxel cuenta. */}
-      <header className="relative md:sticky md:top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm" id="mira-header">
-        <div className="max-w-6xl mx-auto px-4 min-h-14 py-1.5 md:min-h-16 flex flex-wrap items-center justify-between gap-2">
+      {/* Hasta 1024 px (móvil y tableta) la cabecera no es fija: ya hay barra inferior fija y cada píxel cuenta. */}
+      <header className="relative lg:sticky lg:top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm" id="mira-header">
+        <div className="max-w-4xl mx-auto px-4 min-h-14 py-1.5 lg:min-h-16 flex flex-wrap items-center justify-between gap-2">
           <button
             type="button"
-            aria-label="Ir al dashboard"
+            aria-label="Ir al inicio"
             className="flex min-h-11 min-w-0 items-center gap-2.5 cursor-pointer text-left"
             onClick={() => handleNavigate('dashboard')}
             id="brand-logo"
@@ -751,130 +751,34 @@ export default function App() {
               <span className="text-base font-black tracking-tight text-slate-950">
                 BomberoPro
               </span>
-              <p className="hidden sm:block text-xs text-slate-600 font-medium tracking-wide">Aprendizaje Adaptativo de Oposición</p>
             </div>
           </button>
 
+          {/* Escritorio: las mismas 5 secciones que la barra inferior del móvil (mobileTabs), con los
+              mismos nombres y destinos. Lo demás vive en «Más» en todos los dispositivos. */}
           <nav
             aria-label="Navegación principal"
-            className="hidden md:order-last md:flex md:w-full md:flex-wrap md:justify-center md:pb-1.5 items-center gap-1"
+            className="hidden lg:flex items-center gap-1"
             id="mira-nav-items"
           >
-            <button
-              id="nav-btn-dashboard"
-              onClick={() => handleNavigate('dashboard')}
-              aria-current={currentScreen === 'dashboard' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'dashboard' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <LayoutDashboard className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Dashboard
-            </button>
-            <button
-              id="nav-btn-study"
-              onClick={() => handleNavigate('today_training')}
-              aria-current={currentScreen === 'today_training' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'today_training' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <Target className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Entrenamiento de Hoy
-            </button>
-            <button
-              id="nav-btn-errors"
-              onClick={() => handleNavigate('errors')}
-              aria-current={currentScreen === 'errors' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'errors' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <AlertTriangle className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Errores Críticos
-            </button>
-            <button
-              id="nav-btn-forgetting"
-              onClick={() => handleNavigate('forgetting_curve')}
-              aria-current={currentScreen === 'forgetting_curve' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'forgetting_curve' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <BarChart2 className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Curva de Olvido
-            </button>
-            <button
-              id="nav-btn-exam"
-              onClick={() => handleNavigate('mock_exam')}
-              aria-current={currentScreen === 'mock_exam' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'mock_exam' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <HelpCircle className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Simulacro
-            </button>
-            <button
-              id="nav-btn-study-topic"
-              onClick={() => handleNavigate('study_by_topic')}
-              aria-current={currentScreen === 'study_by_topic' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'study_by_topic' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-              >
-            <BookOpen className="hidden lg:block w-4 h-4" aria-hidden="true" />
-            Por Temas
-            </button>
-
-            <button
-              id="nav-btn-recuerdo"
-              onClick={() => handleNavigate('recuerdo')}
-              aria-current={currentScreen === 'recuerdo' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'recuerdo' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <Layers className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Recuerdo
-            </button>
-            <button
-              id="nav-btn-sesion-diaria"
-              onClick={() => handleNavigate('sesion_diaria')}
-              aria-current={currentScreen === 'sesion_diaria' || currentScreen === 'ordena_pasos' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'sesion_diaria' || currentScreen === 'ordena_pasos' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <Flame className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Sesión diaria
-            </button>
-            {supuestosVisibles && (
-              <button
-                id="nav-btn-supuestos"
-                onClick={() => handleNavigate('supuestos')}
-                aria-current={currentScreen === 'supuestos' ? 'page' : undefined}
-                className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                  currentScreen === 'supuestos' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-                }`}
-              >
-                <ClipboardList className="hidden lg:block w-4 h-4" aria-hidden="true" />
-                Supuestos
-              </button>
-            )}
-            {planesEnabled && (
-              <button
-                id="nav-btn-planes"
-                onClick={() => handleNavigate('planes')}
-                aria-current={currentScreen === 'planes' ? 'page' : undefined}
-                className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                  currentScreen === 'planes' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-                }`}
-              >
-                <Sparkles className="hidden lg:block w-4 h-4" aria-hidden="true" />
-                Planes
-              </button>
-            )}
+            {mobileTabs.map(({ key, label, Icon, target, active }) => {
+              const isActive = active.includes(currentScreen);
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  id={`nav-btn-${key}`}
+                  aria-current={isActive ? 'page' : undefined}
+                  onClick={() => handleNavigate(target)}
+                  className={`min-h-11 px-3 py-2 text-sm font-semibold rounded-lg transition flex items-center gap-2 ${
+                    isActive ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                  }`}
+                >
+                  <Icon className="w-4 h-4" aria-hidden="true" />
+                  {label}
+                </button>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-2">
@@ -904,7 +808,7 @@ export default function App() {
       <main
         id="main-content"
         tabIndex={-1}
-        className="flex-1 max-w-6xl w-full mx-auto px-4 pt-8 pb-24 md:py-8"
+        className="flex-1 max-w-4xl w-full mx-auto px-4 pt-8 pb-24 lg:py-8"
       >
         {currentScreen === 'dashboard' && (
           <>
@@ -936,11 +840,6 @@ export default function App() {
                 <span className="mt-0.5 block text-sm text-slate-600">Esquema, desarrollo y texto oficial, con preguntas que se adaptan a tu nivel.</span>
               </span>
               <span className="shrink-0 rounded-xl bg-indigo-600 px-4 py-2 text-sm font-bold text-white">Abrir</span>
-            </button>
-          )}
-          {!isDemoMode && session?.user?.id && supabase && (
-            <button type="button" id="btn-my-reports" onClick={() => handleNavigate('my_reports')} className="mb-4 text-sm font-semibold text-indigo-700 underline">
-              Mis reportes
             </button>
           )}
           <Dashboard
@@ -1133,7 +1032,7 @@ export default function App() {
       {currentScreen !== 'onboarding' && (
       <nav
         aria-label="Navegación móvil"
-        className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_18px_rgba(15,23,42,0.08)] backdrop-blur-md md:hidden"
+        className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_18px_rgba(15,23,42,0.08)] backdrop-blur-md lg:hidden"
       >
         <div className="mx-auto grid max-w-lg grid-cols-5 px-1">
           {mobileTabs.map(({ key, label, Icon, target, active }) => {
@@ -1160,7 +1059,7 @@ export default function App() {
 
       {/* Footer Branding Area */}
       <footer className="border-t border-slate-100 py-6 bg-white text-slate-600 text-xs mt-12" id="mira-footer">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
             <p className="font-semibold text-slate-600">BomberoPro — Oposición CPEI Badajoz</p>
             <p className="text-xs text-slate-600 mt-0.5">Basado en Microconceptos, Interrogación activa, Repetición espaciada y Aseguramiento del dominio real.</p>

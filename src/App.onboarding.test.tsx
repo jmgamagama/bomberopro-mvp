@@ -29,10 +29,10 @@ describe('bienvenida en App', () => {
     const user = userEvent.setup();
     const { unmount } = render(<App />);
     await user.click(await screen.findByRole('button', { name: 'Saltar' }));
-    expect(document.title).toBe('Dashboard | BomberoPro');
+    expect(document.title).toBe('Inicio | BomberoPro');
     unmount();
     render(<App />);
-    await screen.findByRole('button', { name: /Por Temas/ });
+    await screen.findAllByRole('button', { name: 'Temas' });
     expect(screen.queryByRole('heading', { name: /Prepara tu oposición/ })).toBeNull();
   });
 
@@ -40,7 +40,8 @@ describe('bienvenida en App', () => {
     const user = userEvent.setup();
     render(<App />);
     await user.click(await screen.findByRole('button', { name: 'Saltar' }));
-    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-sesion-diaria')!);
+    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-mas')!);
+    await user.click(document.querySelector<HTMLButtonElement>('#mas-sesion_diaria')!);
     const select = await screen.findByLabelText('Tema prioritario');
     await user.selectOptions(select, 'tema35');
     expect(window.localStorage.getItem('mira_tema_preferido_v1:demo')).toBe('tema35');

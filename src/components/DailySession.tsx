@@ -278,13 +278,13 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
 
           <div className="mx-auto my-6 grid max-w-sm grid-cols-2 gap-4">
             <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
-              <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-slate-400">Fichas hoy</span>
+              <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-slate-500">Fichas hoy</span>
               <span className="text-3xl font-extrabold text-indigo-600" id="daily-session-count">{session.length}</span>
             </div>
             <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
-              <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-slate-400">Racha</span>
+              <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-slate-500">Racha</span>
               <span className="text-3xl font-extrabold text-orange-600">{streak.streakCount}</span>
-              <span className="mt-1 block text-[10px] text-slate-400">días seguidos</span>
+              <span className="mt-1 block text-[10px] text-slate-500">días seguidos</span>
             </div>
           </div>
 

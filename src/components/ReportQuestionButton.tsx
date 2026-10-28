@@ -90,7 +90,7 @@ export default function ReportQuestionButton({ questionId, onReported, className
                 <p className="mt-0.5 text-xs text-slate-500">La revisa el equipo. A ti deja de salirte desde ya.</p>
               </div>
               <button ref={closeRef} type="button" onClick={() => setOpen(false)} aria-label="Cerrar"
-                className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-700">
+                className="rounded-lg p-1.5 text-slate-500 hover:bg-slate-100 hover:text-slate-700">
                 <X className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
