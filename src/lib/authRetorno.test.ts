@@ -1,5 +1,6 @@
-import { describe, expect, it } from 'vitest';
-import { leerRetornoAuth, urlRetornoAuth } from './authRetorno';
+// @vitest-environment jsdom
+import { beforeEach, describe, expect, it } from 'vitest';
+import { capturarRetornoAuth, leerRetornoAuth, limpiarUrlRetornoAuth, urlRetornoAuth } from './authRetorno';
 
 const base = 'https://bomberopro-mvp.vercel.app/';
 
@@ -37,5 +38,22 @@ describe('urlRetornoAuth', () => {
   it('vuelve al mismo dominio en el que está la app, nunca a localhost fijo', () => {
     expect(urlRetornoAuth('registro', 'https://bomberopro-mvp.vercel.app')).toBe('https://bomberopro-mvp.vercel.app/?acceso=registro');
     expect(urlRetornoAuth('enlace', 'https://bomberopro-abc-bombero-pro.vercel.app')).toBe('https://bomberopro-abc-bombero-pro.vercel.app/?acceso=enlace');
+  });
+});
+
+describe('capturarRetornoAuth', () => {
+  beforeEach(() => window.sessionStorage.clear());
+
+  it('mantiene el formulario de contraseña si el alumno recarga antes de guardarla', () => {
+    expect(capturarRetornoAuth(`${base}#access_token=abc&type=recovery`)).toEqual({ tipo: 'recuperar' });
+    // Recarga: supabase-js ya ha borrado el hash.
+    expect(capturarRetornoAuth(base)).toEqual({ tipo: 'recuperar' });
+    limpiarUrlRetornoAuth();
+    expect(capturarRetornoAuth(base)).toBeNull();
+  });
+
+  it('no recuerda la cuenta activada ni el enlace caducado', () => {
+    expect(capturarRetornoAuth(`${base}#access_token=abc&type=signup`)).toEqual({ tipo: 'registro' });
+    expect(capturarRetornoAuth(base)).toBeNull();
   });
 });

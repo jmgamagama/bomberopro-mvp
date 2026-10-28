@@ -58,12 +58,39 @@ export function urlRetornoAuth(tipo: 'registro' | 'enlace' | 'recuperar', origin
 /** Quita de la barra de direcciones los restos del enlace (?acceso=…, #error=…). */
 export function limpiarUrlRetornoAuth(): void {
   try {
+    window.sessionStorage.removeItem(CLAVE_PENDIENTE);
+  } catch {
+    // Almacenamiento bloqueado: nada que borrar.
+  }
+  try {
     window.history.replaceState(window.history.state, '', window.location.pathname);
   } catch {
     // Sin History API no pasa nada: solo es estética.
   }
 }
 
+/**
+ * Invitación y recuperar contraseña solo traen su tipo en el hash, que supabase-js borra. Si el
+ * alumno recarga antes de guardar la contraseña, el formulario debe seguir ahí: se recuerda en
+ * sessionStorage (esta pestaña) hasta que guarda o pulsa «Ahora no» (limpiarUrlRetornoAuth).
+ */
+const CLAVE_PENDIENTE = 'bp-acceso-pendiente';
+
+export function capturarRetornoAuth(href: string): RetornoAuth | null {
+  const retorno = leerRetornoAuth(href);
+  try {
+    if (retorno?.tipo === 'invitacion' || retorno?.tipo === 'recuperar') {
+      window.sessionStorage.setItem(CLAVE_PENDIENTE, retorno.tipo);
+      return retorno;
+    }
+    if (retorno) return retorno;
+    const pendiente = window.sessionStorage.getItem(CLAVE_PENDIENTE);
+    return pendiente === 'invitacion' || pendiente === 'recuperar' ? { tipo: pendiente } : null;
+  } catch {
+    return retorno;
+  }
+}
+
 /** Capturado una sola vez al cargar la app, antes de que supabase-js limpie el hash. */
 export const retornoAuthInicial: RetornoAuth | null =
-  typeof window === 'undefined' ? null : leerRetornoAuth(window.location.href);
+  typeof window === 'undefined' ? null : capturarRetornoAuth(window.location.href);
