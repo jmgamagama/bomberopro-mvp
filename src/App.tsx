@@ -361,11 +361,15 @@ export default function App() {
     }
     if (!isCurrentRequest()) return;
     sessionCompletedRef.current = false;
-    const pool = (targetId
+    // Las opciones se barajan al montar cada sesión, venga del servidor o de la demo: las 15
+    // preguntas de la demo tienen la correcta siempre en la primera posición y sin barajar el
+    // alumno veía la A correcta en todas. La corrección compara por texto, así que el orden no
+    // cambia qué respuesta es la buena.
+    const pool = shuffleAllOptions<Question>((targetId
       ? source.filter(q => q.microconcept_id === targetId)
       : source).filter((question, index, questions) =>
       questions.findIndex(candidate => candidate.id === question.id) === index
-    );
+    ));
     answeredQuestionIds.current = new Set();
     trainingSessionId.current = newStudySessionId();
     trainingSessionOpened.current = false;
