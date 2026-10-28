@@ -213,6 +213,21 @@ describe('Login', () => {
       expect(await screen.findByRole('status')).toHaveTextContent(/vuelto a enviar/i);
     });
 
+    it('si el reenvío falla, el botón de reenviar sigue para reintentar', async () => {
+      signUp.mockResolvedValue({ data: { session: null, user: { id: '1', identities: [{ id: 'i' }] } }, error: null });
+      resend.mockResolvedValueOnce({ data: {}, error: { status: 429, code: 'over_email_send_rate_limit', message: 'rate' } });
+      resend.mockRejectedValueOnce(new Error('offline'));
+      const user = userEvent.setup();
+      render(<Login />);
+      await user.click(screen.getByRole('button', { name: 'Activar invitación' }));
+      await fillAndSubmit(user);
+      await user.click(await screen.findByRole('button', { name: 'Reenviar el correo' }));
+      expect(await screen.findByRole('alert')).toHaveTextContent(/espera unos minutos/i);
+      await user.click(screen.getByRole('button', { name: 'Reenviar el correo' }));
+      expect(await screen.findByRole('alert')).toHaveTextContent(/comprueba tu internet/i);
+      expect(screen.getByRole('button', { name: 'Reenviar el correo' })).toBeEnabled();
+    });
+
     it('si falta confirmar el correo, lo explica y ofrece reenviarlo', async () => {
       signInWithPassword.mockResolvedValue({ data: { session: null }, error: { status: 400, code: 'email_not_confirmed', message: 'Email not confirmed' } });
       const user = userEvent.setup();

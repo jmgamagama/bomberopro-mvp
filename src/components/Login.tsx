@@ -133,11 +133,12 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
         email: correo(),
         options: { emailRedirectTo: retornoAuth('registro') },
       });
+      // El botón de reenviar se mantiene también tras un fallo (límite, sin conexión) para reintentar.
       setMessage(error
-        ? { type: 'error', ...mensajeErrorAcceso('crear', error, abierto) }
-        : { type: 'success', text: `Te hemos vuelto a enviar el correo a ${correo()}. Mira también en Spam o Promociones.` });
+        ? { type: 'error', ...mensajeErrorAcceso('crear', error, abierto), accion: 'reenviar' }
+        : { type: 'success', text: `Te hemos vuelto a enviar el correo a ${correo()}. Mira también en Spam o Promociones.`, accion: 'reenviar' });
     } catch {
-      setMessage({ type: 'error', text: SIN_CONEXION });
+      setMessage({ type: 'error', text: SIN_CONEXION, accion: 'reenviar' });
     } finally {
       setLoading(false);
     }
