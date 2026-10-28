@@ -716,8 +716,8 @@ export default function App() {
               <span className="hidden sm:block w-2 h-2 rounded-full bg-amber-900 animate-pulse shrink-0" aria-hidden="true" />
               <span>
                 <strong><span className="sm:hidden">Demo</span><span className="hidden sm:inline">Modo demostración</span></strong>
-                <span className="sm:hidden">: las fichas guardan el repaso aquí.</span>
-                <span className="hidden sm:inline">: el repaso de fichas se guarda solo en este dispositivo. El test de muestra no guarda intentos.</span>
+                <span className="sm:hidden">: tu progreso se guarda en este dispositivo.</span>
+                <span className="hidden sm:inline">: las fichas y el simulacro se guardan solo en este dispositivo. Crea una cuenta para conservarlos.</span>
               </span>
             </div>
             <div className="flex items-center gap-2 shrink-0">
