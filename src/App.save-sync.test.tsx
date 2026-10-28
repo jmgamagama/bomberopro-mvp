@@ -146,7 +146,7 @@ describe('guardado pendiente con la aplicación completa', () => {
     fireEvent.click(screen.getByRole('button', { name: questionA.correct_answer }));
     fireEvent.click(document.querySelector('#conf-btn-alta')!);
     fireEvent.click(document.querySelector('#nav-btn-inicio')!);
-    fireEvent.click(screen.getByRole('button', { name: /entrenar ahora/i }));
+    fireEvent.click(screen.getByRole('button', { name: /practicar preguntas/i }));
     await waitFor(() => expect(resolveSecond).toBeTypeOf('function'));
 
     getSession.mockResolvedValue({ data: { session: next === 'B' ? account('B') : null }, error: null });
