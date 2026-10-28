@@ -9,8 +9,8 @@
  */
 import type { VitePWAOptions } from 'vite-plugin-pwa';
 
-export const PWA_THEME_COLOR = '#4f46e5'; // indigo-600, color principal de la app
-export const PWA_BACKGROUND_COLOR = '#f8fafc'; // slate-50, fondo de la app
+export const PWA_THEME_COLOR = '#1E3A5F'; // azul marino (variante A), color principal de la app
+export const PWA_BACKGROUND_COLOR = '#FAF8F5'; // fondo cálido (variante A) de la app
 
 export const pwaManifest = {
   id: '/',

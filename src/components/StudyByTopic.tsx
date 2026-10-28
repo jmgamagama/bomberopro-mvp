@@ -29,7 +29,7 @@ export default function StudyByTopic({ session, onNavigateHome }: StudyByTopicPr
   const [selected, setSelected] = useState<number[]>([]);
   const [loadingTopics, setLoadingTopics] = useState(true);
   // Recuentos reales de conceptos por tema y mapa de conceptos desplegable (migración 23).
-  const conceptSummary = useConceptSummary();
+  const { resumen: conceptSummary, listo: conceptSummaryListo } = useConceptSummary();
   const [outlineTema, setOutlineTema] = useState<number | null>(null);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [started, setStarted] = useState(false);
@@ -168,7 +168,7 @@ if (!started) {
                        }),
                        h('span', { className: 'flex flex-col' },
                          h('span', { className: 'text-sm text-slate-800' }, 'Tema ' + t.numero + '. ' + t.nombre),
-                         h(ConceptCountBadge, { tema: conceptSummary[t.numero] })
+                         h(ConceptCountBadge, { tema: conceptSummary[t.numero], listo: conceptSummaryListo })
                        )
                      ),
                      conceptSummary[t.numero] ? h('button', {

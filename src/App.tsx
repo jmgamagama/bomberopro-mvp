@@ -622,7 +622,7 @@ export default function App() {
   if (loadingAuth) {
     return (
       <div
-        className="min-h-screen bg-slate-50 flex items-center justify-center font-sans"
+        className="min-h-screen bg-fondo flex items-center justify-center font-sans"
         role="status"
         aria-live="polite"
         aria-busy="true"
@@ -667,7 +667,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50/50 flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
+    <div className="min-h-screen bg-fondo flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
       <UpdateBanner />
       <SaveFailureBanner />
       <SaveStatus />
