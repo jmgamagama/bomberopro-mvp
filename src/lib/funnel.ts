@@ -5,16 +5,22 @@
  */
 import { supabase } from './supabase';
 
-/** Eventos que acepta el servidor (CHECK de funnel_events, migración 22). */
+/** Eventos de la migración 22. */
 export type ServerFunnelEvent = 'demo_start' | 'demo_first_answer' | 'demo_signup_click' | 'signup_submit';
-/**
- * Eventos nuevos del embudo (2026-10-26). funnel_events no los acepta (lista cerrada en la 22),
- * así que solo se anotan en el registro local de este navegador; no hay servicio nuevo.
- */
+/** Eventos añadidos al CHECK de funnel_events en la migración 37. */
 export type LocalFunnelEvent = 'landing_view' | 'exam_start' | 'exam_finish' | 'signup_complete' | 'planes_view';
 export type FunnelEvent = ServerFunnelEvent | LocalFunnelEvent;
 
-const SERVER_EVENTS: readonly FunnelEvent[] = ['demo_start', 'demo_first_answer', 'demo_signup_click', 'signup_submit'];
+/**
+ * Todos se envían al servidor (log_funnel_event) además de anotarse en local.
+ * Si la 37 aún no está aplicada, el servidor ignora los nuevos sin error (la función
+ * filtra la lista y nunca lanza), así que el cliente puede desplegarse antes o después.
+ * Solo viaja el nombre del evento y el id anónimo aleatorio: sin correo ni id de usuario.
+ */
+const SERVER_EVENTS: readonly FunnelEvent[] = [
+  'demo_start', 'demo_first_answer', 'demo_signup_click', 'signup_submit',
+  'landing_view', 'exam_start', 'exam_finish', 'signup_complete', 'planes_view',
+];
 export const FUNNEL_LOG_KEY = 'bomberopro:funnel-log:v1';
 const FUNNEL_LOG_MAX = 200;
 

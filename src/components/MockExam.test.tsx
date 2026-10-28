@@ -102,7 +102,8 @@ describe('MockExam', () => {
     render(<MockExam microconcepts={INITIAL_MICROCONCEPTS} onFinishExam={vi.fn()} onNavigateHome={vi.fn()} />);
     await user.click(screen.getByRole('button', { name: /comenzar simulacro/i }));
     expect(await screen.findByText(new RegExp(`pregunta 1 de ${INITIAL_QUESTIONS.length}`, "i"))).toBeInTheDocument();
-    expect(supabase.rpc).not.toHaveBeenCalled();
+    // Solo la medición anónima del embudo (migración 37); nunca el banco real.
+    expect((supabase.rpc as any).mock.calls.every((c: unknown[]) => c[0] === 'log_funnel_event')).toBe(true);
     expect(screen.getByRole('note').textContent).toMatch(/muestra/i);
   });
 

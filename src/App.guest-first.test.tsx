@@ -29,8 +29,10 @@ describe('primer uso sin cuenta', () => {
     expect(await screen.findByRole('region', { name: /modo demostración/i })).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /^entrar$/i })).not.toBeInTheDocument();
     expect(readFunnelLog().map(e => e.e)).toEqual(expect.arrayContaining(['landing_view', 'demo_start']));
-    // landing_view no se envía al servidor (funnel_events solo acepta los 4 eventos de la migración 22).
-    expect(rpcMock.mock.calls.some(c => (c[1] as any)?.p_event === 'landing_view')).toBe(false);
+    // landing_view se envía al servidor (migración 37) solo con el evento y el id anónimo.
+    const call = rpcMock.mock.calls.find(c => (c[1] as any)?.p_event === 'landing_view');
+    expect(call?.[0]).toBe('log_funnel_event');
+    expect(Object.keys(call?.[1] as object).sort()).toEqual(['p_anon_id', 'p_event']);
   });
 
   it('«Salir de la demo» lleva a la pantalla de acceso y lo recuerda', async () => {
