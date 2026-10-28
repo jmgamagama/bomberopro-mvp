@@ -7,11 +7,13 @@
 -- Qué hace: crea get_error_session(p_limit), que devuelve las preguntas que el alumno tiene
 -- falladas AHORA, con el mismo formato que get_study_session para usar la misma pantalla de test:
 --   A) Preguntas del banco cuya última respuesta fue un fallo (user_question_state: el último
---      fallo es posterior al último acierto). Cubre «Practicar preguntas» en los 40 temas.
+--      fallo es posterior al último acierto, y no se acertó después en «Estudiar»).
+--      Cubre «Practicar preguntas» en los 40 temas.
 --   B) Conceptos cuyo último repaso fue un fallo (user_concept_state.last_grade = 1): una pregunta
 --      publicada del concepto, la última que se le puso si sigue publicada; si no, la más fácil.
 --      Cubre «Estudiar». Los conceptos sin preguntas no entran (se repasan en «Estudiar»).
--- Orden: primero los falsos dominios (fallo con confianza alta), después el fallo más reciente.
+-- Orden: primero los falsos dominios (fallo con confianza alta, en cualquiera de las dos vías),
+-- después el fallo más reciente.
 -- Solo convocatoria 1 (CPEI Badajoz), preguntas publicadas y no reportadas por el alumno.
 -- Responder estas preguntas usa record_attempt_v2, que ya actualiza la pregunta y su concepto:
 -- al acertar dejan de ser error y desaparecen de la lista.
@@ -46,13 +48,21 @@ BEGIN
      WHERE u.user_id = v_uid
        AND u.ultimo_fallo_at IS NOT NULL
        AND (u.ultimo_acierto_at IS NULL OR u.ultimo_fallo_at > u.ultimo_acierto_at)
+       -- Acertada después en «Estudiar» (submit_concept_answer no toca user_question_state).
+       AND NOT EXISTS (SELECT 1 FROM concept_events ev
+                        WHERE ev.user_id = v_uid AND ev.question_id = u.question_id
+                          AND ev.correct AND ev.created_at > u.ultimo_fallo_at)
   ),
   fallos_concepto AS (
     SELECT (SELECT v.qid FROM visibles v
              WHERE v.concept_id = s.concept_id
              ORDER BY (v.qid = s.last_question_id) DESC, coalesce(v.nivel, 1), v.qid
              LIMIT 1) AS qid,
-           s.last_review_at AS cuando, false AS critica
+           s.last_review_at AS cuando,
+           -- Falso dominio: el último evento del concepto es un test fallado con confianza alta.
+           coalesce((SELECT (ev.correct IS FALSE AND ev.confidence = 'alta') FROM concept_events ev
+                      WHERE ev.user_id = v_uid AND ev.concept_id = s.concept_id
+                      ORDER BY ev.created_at DESC, ev.id DESC LIMIT 1), false) AS critica
       FROM user_concept_state s
       JOIN concepts c ON c.id = s.concept_id AND c.estado = 'publicado'
      WHERE s.user_id = v_uid AND s.last_grade = 1
