@@ -3,17 +3,23 @@
 // «Repasar errores» con cuenta: lee los fallos del servidor (get_error_session, migración 42),
 // no el progreso local del dispositivo, y lanza una sesión de test solo con esas preguntas.
 
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import './test/setup';
 
-const { getSession, rpcMock } = vi.hoisted(() => ({ getSession: vi.fn(), rpcMock: vi.fn() }));
+const { getSession, rpcMock, auth } = vi.hoisted(() => ({
+  getSession: vi.fn(), rpcMock: vi.fn(),
+  auth: { changed: undefined as undefined | ((event: string, session: unknown) => void) },
+}));
 
 vi.mock('./lib/supabase', () => ({
   supabase: {
     auth: {
       getSession,
-      onAuthStateChange: () => ({ data: { subscription: { unsubscribe: vi.fn() } } }),
+      onAuthStateChange: (callback: (event: string, session: unknown) => void) => {
+        auth.changed = callback;
+        return { data: { subscription: { unsubscribe: vi.fn() } } };
+      },
       signInWithPassword: vi.fn(), signUp: vi.fn(), signOut: vi.fn(),
     },
     rpc: rpcMock,
@@ -85,5 +91,20 @@ describe('Repasar errores con cuenta', () => {
     errores = [fallo('101', '¿Pregunta fallada del tema 1?', 1)];
     fireEvent.click(screen.getByRole('button', { name: /Reintentar/ }));
     await waitFor(() => expect(screen.getByRole('button', { name: /Repasar mis errores \(1\)/ })).toBeInTheDocument());
+  });
+
+  it('al cambiar de cuenta con la pantalla abierta no muestra los errores de la anterior', async () => {
+    errores = [fallo('101', '¿Error de la cuenta A?', 1)];
+    render(<App />);
+    fireEvent.click(await screen.findByRole('button', { name: /Repasar errores/ }));
+    expect(await screen.findByText('¿Error de la cuenta A?')).toBeInTheDocument();
+
+    errores = [fallo('202', '¿Error de la cuenta B?', 2)];
+    const cuentaB = { user: { id: 'user-2' }, access_token: 't2' };
+    getSession.mockResolvedValue({ data: { session: cuentaB }, error: null });
+    await act(async () => auth.changed?.('SIGNED_IN', cuentaB));
+
+    expect(await screen.findByText('¿Error de la cuenta B?')).toBeInTheDocument();
+    expect(screen.queryByText('¿Error de la cuenta A?')).not.toBeInTheDocument();
   });
 });

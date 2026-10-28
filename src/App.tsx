@@ -222,6 +222,9 @@ export default function App() {
     setMemoryStates(getSafeMemoryStates());
     setAttempts(getAttempts());
     setShowLegacyImport(canImportLegacyProgress());
+    // Los errores de la cuenta anterior no se muestran nunca a la siguiente.
+    accountErrorsRequest.current += 1;
+    setAccountErrors({ status: 'loading' });
     answeredQuestionIds.current = new Set();
     setActiveQuestion(null);
     setActiveReason('');
@@ -336,6 +339,11 @@ export default function App() {
   };
 
   const serverMode = Boolean(session?.user?.id) && !isDemoMode;
+  // Si la cuenta cambia con «Tus errores» abierto, se cargan los de la cuenta nueva.
+  useEffect(() => {
+    if (currentScreen === 'errors' && serverMode) void loadAccountErrors();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session?.user?.id]);
   // Re-render al importar/borrar supuestos privados (también desde otra pestaña) y enlace #supuestos.
   const [, setSupuestosPrivadosVersion] = useState(0);
   useEffect(() => {
