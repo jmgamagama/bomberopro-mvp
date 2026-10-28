@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CalendarClock, Check, FileText, Flame, Lock, Play } from 'lucide-react';
+import { BookOpenCheck, CalendarClock, Check, FileText, Flame, Lock, Play } from 'lucide-react';
 import { CONVOCATORIA_CPEI_2026 as C } from '../data/convocatoria';
 import { canAccessTopic, getVisibleBloques, getVisibleTopic, getVisibleTotalCards, type RecallTopic } from '../data/recallRegistry';
 import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreferences';
@@ -23,6 +23,11 @@ interface OnboardingProps {
   onStart: () => void;
   /** «Saltar»: ir al inicio sin cambiar preferencias. */
   onSkip: () => void;
+  /**
+   * Con cuenta, el primer paso es el Tema 1 piloto (material revisado y progreso guardado en la
+   * cuenta) en lugar de las fichas de repaso, que solo se guardan en el navegador.
+   */
+  cuenta?: boolean;
 }
 
 const ALL = 'todos';
@@ -31,7 +36,7 @@ const ALL = 'todos';
  * Bienvenida para usuario nuevo: convocatoria + elegir tema (o todos) + empezar.
  * Dos toques hasta la primera ficha: tema → «Empezar sesión diaria».
  */
-export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
+export default function Onboarding({ onStart, onSkip, cuenta = false }: OnboardingProps) {
   const plan = getPlan();
   const [choice, setChoice] = useState<string>(() => {
     const stored = getVisibleTopic(getPreferredDeckId() ?? '');
@@ -45,6 +50,11 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
   const sessionSize = resolveDailySessionSize(planSize, minutes, reviewLog, isPlanesEnabled() && plan === 'free');
 
   const start = () => {
+    if (cuenta) {
+      completeOnboarding('started');
+      onStart();
+      return;
+    }
     setPreferredDeckId(choice === ALL ? null : choice);
     setExamDate(examDate);
     setDailyMinutes(minutes);
@@ -118,6 +128,17 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
         </ul>
       </div>
 
+      {cuenta ? (
+        <div id="onboarding-tema1" className="space-y-1.5 rounded-2xl border border-indigo-200 bg-indigo-50 p-4">
+          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-indigo-700">
+            <BookOpenCheck className="h-4 w-4" aria-hidden="true" /> Tu primer paso
+          </p>
+          <p className="text-base font-bold text-slate-900">Tema 1 · Constitución, Título Preliminar</p>
+          <p className="text-sm text-slate-700">
+            Esquema, desarrollo y texto del BOE, con preguntas que se adaptan a tu nivel. Tu progreso se guarda en tu cuenta.
+          </p>
+        </div>
+      ) : (<>
       <fieldset className="space-y-2">
         <legend className="text-sm font-bold text-slate-800">¿Qué quieres repasar primero?</legend>
         <div className="space-y-3" role="radiogroup" aria-label="Tema para la sesión diaria">
@@ -186,6 +207,7 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
           preferredTopicId={choice === ALL ? null : choice}
         />
       </div>
+      </>)}
 
       <div className="sticky bottom-0 z-10 -mx-4 border-t border-slate-200 bg-slate-50/95 px-4 pb-[calc(0.75rem+env(safe-area-inset-bottom))] pt-3 backdrop-blur md:static md:mx-0 md:border-0 md:bg-transparent md:p-0">
         <button
@@ -195,9 +217,11 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
           className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 text-base font-bold text-white shadow-md hover:bg-indigo-700"
         >
           <Play className="h-5 w-5 fill-current" aria-hidden="true" />
-          Empezar sesión diaria
+          {cuenta ? 'Empezar por el Tema 1' : 'Empezar sesión diaria'}
         </button>
-        <p className="mt-1.5 text-center text-xs text-slate-500">Puedes cambiar el tema, el tiempo y la fecha más tarde desde la Sesión diaria.</p>
+        <p className="mt-1.5 text-center text-xs text-slate-500">{cuenta
+          ? 'Después tendrás todos los temas en «Estudiar».'
+          : 'Puedes cambiar el tema, el tiempo y la fecha más tarde desde la Sesión diaria.'}</p>
       </div>
     </section>
   );
