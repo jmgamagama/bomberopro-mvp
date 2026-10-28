@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect, useLayoutEffect, useRef, lazy, Suspense } from 'react';
-import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles, ClipboardList, Menu } from 'lucide-react';
+import { Brain, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles, ClipboardList, Menu } from 'lucide-react';
 import { trackFunnel } from './lib/funnel';
 import { getVisibleSupuestos } from './data/supuestos/supuestosRegistry';
 import { SUPUESTOS_PRIVADOS_EVENT, contarSupuestosPrivados } from './data/supuestos/supuestosPrivados';
@@ -48,7 +48,7 @@ import ConceptStudy from './components/ConceptStudy';
 import MaterialConstitucion from './components/MaterialConstitucion';
 import SaveFailureBanner from './components/SaveFailureBanner';
 import { hasCompletedOnboarding } from './utils/onboarding';
-import { isPlanesEnabled } from './config/features';
+import { isPlanesEnabled, textoAlta } from './config/features';
 import SaveStatus from './components/SaveStatus';
 import { useRemoteConceptProgress } from './lib/useRemoteConceptProgress';
 import { useAttemptSync } from './lib/useAttemptSync';
@@ -632,7 +632,7 @@ export default function App() {
     setCurrentScreen(hasCompletedOnboarding() ? 'dashboard' : 'onboarding');
   };
 
-  // Pantalla de acceso con la que se vuelve de la demo: «crear» si el alumno pulsa «Crear cuenta gratis».
+  // Pantalla de acceso con la que se vuelve de la demo: «crear» si el alumno pulsa el botón de alta (textoAlta()).
   const [loginMode, setLoginMode] = useState<'entrar' | 'crear'>('entrar');
   // Vuelta desde un enlace del correo (cuenta activada, invitación, contraseña o enlace caducado).
   // «Entrar con enlace» no necesita pantalla: el alumno pasa directo a la app.
@@ -766,7 +766,7 @@ export default function App() {
                   onClick={handleDemoSignup}
                   className="min-h-11 px-3 py-1 bg-indigo-700 hover:bg-indigo-800 text-white rounded-lg text-sm font-bold transition cursor-pointer"
                 >
-                  Crear cuenta gratis
+                  {textoAlta()}
                 </button>
               )}
               <button
@@ -802,8 +802,8 @@ export default function App() {
             onClick={() => handleNavigate('dashboard')}
             id="brand-logo"
           >
-            <div className="p-2 bg-indigo-600 text-white rounded-xl shadow-md shadow-indigo-100">
-              <GraduationCap className="w-5 h-5" aria-hidden="true" />
+            <div className="p-2 bg-orange-600 text-white rounded-xl shadow-md shadow-orange-100">
+              <Flame className="w-5 h-5" aria-hidden="true" />
             </div>
             <div>
               <span className="text-base font-black tracking-tight text-slate-950">

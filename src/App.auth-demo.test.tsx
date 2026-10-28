@@ -67,7 +67,7 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
 
     // 1. Pantalla de Login inicial
     expect(await screen.findByRole('heading', { name: /^bomberopro$/i })).toBeInTheDocument();
-    const demoButton = screen.getByRole('button', { name: /empieza ya, sin registrarte/i });
+    const demoButton = screen.getByRole('button', { name: /prueba 15 preguntas/i });
     expect(demoButton).toBeInTheDocument();
 
     // 2. Iniciar demostración
@@ -111,7 +111,7 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     expect(await screen.findByRole('heading', { name: /^bomberopro$/i })).toBeInTheDocument();
 
     // 6. Reingreso a la demo: comprobar que no quedan datos ni progreso arrastrado
-    const reEnterDemoBtn = screen.getByRole('button', { name: /empieza ya, sin registrarte/i });
+    const reEnterDemoBtn = screen.getByRole('button', { name: /prueba 15 preguntas/i });
     await user.click(reEnterDemoBtn);
 
     // Nuevamente en Dashboard demo
@@ -136,15 +136,15 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     expect(rpcMock.mock.calls.filter(([fn]) => fn !== 'log_funnel_event')).toEqual([]);
   });
 
-  it('desde la demo, «Crear cuenta gratis» abre el alta de cuenta', async () => {
+  it('desde la demo, «Activar invitación» abre el alta de cuenta', async () => {
     const user = userEvent.setup();
     render(<App />);
-    await user.click(await screen.findByRole('button', { name: /empieza ya, sin registrarte/i }));
-    await user.click(await screen.findByRole('button', { name: 'Crear cuenta gratis' }));
-    expect(await screen.findByRole('button', { name: 'Crear mi cuenta' })).toBeInTheDocument();
+    await user.click(await screen.findByRole('button', { name: /prueba 15 preguntas/i }));
+    await user.click(await screen.findByRole('button', { name: 'Activar invitación' }));
+    expect(await screen.findByRole('button', { name: 'Activar mi cuenta' })).toBeInTheDocument();
     const eventos = rpcMock.mock.calls.filter(([fn]) => fn === 'log_funnel_event').map(([, args]) => (args as { p_event: string }).p_event);
     expect(eventos).toEqual(['demo_start', 'demo_signup_click']);
-    expect(screen.getByRole('button', { name: 'Crear cuenta gratis', pressed: true })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Activar invitación', pressed: true })).toBeInTheDocument();
     expect(saveAttempt).not.toHaveBeenCalled();
   });
 });

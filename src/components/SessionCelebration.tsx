@@ -5,6 +5,7 @@
  */
 import React from 'react';
 import { Flame, Check } from 'lucide-react';
+import { isRegistroAbierto, textoAlta } from '../config/features';
 import { useStudyStreak, type StudyStreak } from '../lib/streak';
 
 export interface CelebrationStat { label: string; value: string; tone: 'indigo' | 'emerald' | 'amber' }
@@ -73,10 +74,12 @@ export default function SessionCelebration({ titulo, mensaje, stats, streak, dem
       ) : demo ? (
         <div className="rounded-xl border border-amber-200 bg-amber-50 p-4">
           <p className="flex items-center justify-center gap-2 font-bold text-amber-700"><Flame className="h-6 w-6" aria-hidden="true" /> Empieza hoy tu racha</p>
-          <p className="mt-1 text-sm text-slate-700">Crea tu cuenta gratis para guardar tu progreso y llevar la cuenta de los días que estudias.</p>
+          <p className="mt-1 text-sm text-slate-700">{isRegistroAbierto()
+            ? 'Crea tu cuenta gratis para guardar tu progreso y llevar la cuenta de los días que estudias.'
+            : 'Si tienes invitación al grupo piloto, actívala para guardar tu progreso y llevar la cuenta de los días que estudias.'}</p>
           {onSignup && (
             <button type="button" onClick={onSignup} id="btn-celebration-signup" className="mt-3 w-full min-h-11 rounded-xl bg-indigo-600 font-bold text-white hover:bg-indigo-700">
-              Crear cuenta gratis
+              {textoAlta()}
             </button>
           )}
         </div>
