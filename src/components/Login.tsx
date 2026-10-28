@@ -75,7 +75,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
   };
 
   return (
-    <div role="main" className="min-h-screen bg-slate-50 flex items-center justify-center p-4 font-sans text-slate-800">
+    <div role="main" className="min-h-screen bg-fondo flex items-center justify-center p-4 font-sans text-slate-800">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100">
         <div className="bg-indigo-600 p-8 text-center text-white">
           <div className="mx-auto w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-4 backdrop-blur-sm">

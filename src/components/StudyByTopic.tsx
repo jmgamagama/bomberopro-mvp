@@ -138,7 +138,7 @@ const restart = () => {
 const h = React.createElement;
 
 if (!started) {
-  return h('div', { className: 'min-h-screen bg-slate-50 p-4' },
+  return h('div', { className: 'min-h-screen bg-fondo p-4' },
            h('div', { className: 'max-w-2xl mx-auto' },
              h('div', { className: 'flex items-center justify-between mb-4' },
                h('button', { onClick: onNavigateHome, className: 'flex items-center gap-2 text-slate-600' },
@@ -193,7 +193,7 @@ if (!started) {
 }
 
 if (started && questions.length === 0) {
-  return h('div', { className: 'min-h-screen bg-slate-50 p-4 flex items-center justify-center' },
+  return h('div', { className: 'min-h-screen bg-fondo p-4 flex items-center justify-center' },
            h('div', { className: 'text-center' },
              h('p', { className: 'text-slate-600 mb-4' }, 'No hay preguntas disponibles para los temas seleccionados.'),
              h('button', { onClick: restart, className: 'text-indigo-700 font-semibold' }, 'Volver a elegir temas')
@@ -202,7 +202,7 @@ if (started && questions.length === 0) {
 }
 
 if (idx >= questions.length) {
-  return h('div', { className: 'min-h-screen bg-slate-50 p-4 flex items-center justify-center' },
+  return h('div', { className: 'min-h-screen bg-fondo p-4 flex items-center justify-center' },
            h('div', { className: 'max-w-md w-full text-center bg-white rounded-xl p-6 shadow' },
              h('h2', { className: 'text-xl font-bold text-slate-900 mb-2' }, 'Sesión completada'),
              h('p', { className: 'text-slate-600 mb-4' }, 'Acertaste ' + correctCount + ' de ' + questions.length + ' preguntas.'),
@@ -214,7 +214,7 @@ if (idx >= questions.length) {
            );
 }
 
-return h('div', { className: 'min-h-screen bg-slate-50 p-4' },
+return h('div', { className: 'min-h-screen bg-fondo p-4' },
          h('div', { className: 'max-w-2xl mx-auto' },
            h('div', { className: 'flex items-center justify-between mb-4' },
              h('button', { onClick: onNavigateHome, className: 'flex items-center gap-2 text-slate-600' },
