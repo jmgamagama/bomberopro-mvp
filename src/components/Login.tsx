@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import { trackFunnel } from '../lib/funnel';
 import { isRegistroAbierto, textoAlta } from '../config/features';
+import { urlRetornoAuth } from '../lib/authRetorno';
 import {
   leerEnlaceInvitacion, mensajeErrorAcceso, mensajeErrorEnlace, SIN_CONEXION,
   type MensajeAcceso, type ModoAcceso,
@@ -13,10 +14,6 @@ interface LoginProps {
   /** Pestaña inicial: «crear» cuando el alumno viene de la demo pulsando el botón de alta. */
   initialMode?: ModoAcceso;
 }
-
-// Vuelta desde el correo. Mismas URL que urlRetornoAuth() del hilo del enlace de confirmación:
-// con ?acceso= la app muestra «Cuenta activada» (o «enlace caducado») al volver.
-const retornoAuth = (tipo: 'registro' | 'enlace') => `${window.location.origin}/?acceso=${tipo}`;
 
 type Aviso = (MensajeAcceso & { type: 'success' | 'error' }) | null;
 
@@ -67,7 +64,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
         const result = await supabase!.auth.signUp({
           email: correo(),
           password,
-          options: { emailRedirectTo: retornoAuth('registro') },
+          options: { emailRedirectTo: urlRetornoAuth('registro') },
         });
         if (result.error) {
           setMessage({ type: 'error', ...mensajeErrorAcceso('crear', result.error, abierto) });
@@ -113,7 +110,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
     try {
       const { error } = await supabase!.auth.signInWithOtp({
         email: correo(),
-        options: { shouldCreateUser: false, emailRedirectTo: retornoAuth('enlace') },
+        options: { shouldCreateUser: false, emailRedirectTo: urlRetornoAuth('enlace') },
       });
       setMessage(error
         ? { type: 'error', ...mensajeErrorEnlace(error, abierto) }
@@ -131,7 +128,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
       const { error } = await supabase!.auth.resend({
         type: 'signup',
         email: correo(),
-        options: { emailRedirectTo: retornoAuth('registro') },
+        options: { emailRedirectTo: urlRetornoAuth('registro') },
       });
       // El botón de reenviar se mantiene también tras un fallo (límite, sin conexión) para reintentar.
       setMessage(error
