@@ -33,6 +33,7 @@ import Dashboard from './components/Dashboard';
 import TodayTraining from './components/TodayTraining';
 import TrainScreen from './components/TrainScreen';
 import ErrorPanel from './components/ErrorPanel';
+import AccountErrorPanel, { type AccountErrorsState } from './components/AccountErrorPanel';
 import ForgettingCurve from './components/ForgettingCurve';
 import MockExam from './components/MockExam';
 import Login from './components/Login';
@@ -119,6 +120,9 @@ export default function App() {
   const [dailyAutoStart, setDailyAutoStart] = useState(false);
 
   const [memoryStates, setMemoryStates] = useState<Record<string, MemoryState>>({});
+  // «Errores críticos» con cuenta: fallos guardados en el servidor (migración 42).
+  const [accountErrors, setAccountErrors] = useState<AccountErrorsState>({ status: 'loading' });
+  const accountErrorsRequest = useRef(0);
   const [attempts, setAttempts] = useState<Attempt[]>([]);
   const [activeConceptId, setActiveConceptId] = useState<string | null>(null);
   
@@ -129,7 +133,9 @@ export default function App() {
   // Reenvía las respuestas pendientes al haber sesión y al recuperar la conexión.
   useAttemptSync(session?.user?.id);
   const conceptOwner = session?.user?.id && !isDemoMode ? session.user.id : null;
-  const remoteConcepts = useRemoteConceptProgress(conceptOwner, currentScreen === 'dashboard');
+  // El recuento de repasos se pide en todas las pantallas menos durante el estudio por conceptos:
+  // así, al salir del estudio, el botón «Repasar (N)» se recalcula con lo que ya se ha repasado.
+  const remoteConcepts = useRemoteConceptProgress(conceptOwner, currentScreen !== 'concept_t40');
   const [dbQuestions, setDbQuestions] = useState<Question[]>(INITIAL_QUESTIONS);
   const [dbQuestionsLoading, setDbQuestionsLoading] = useState(false);
   const [dbQuestionsError, setDbQuestionsError] = useState<string | null>(null);
@@ -216,6 +222,9 @@ export default function App() {
     setMemoryStates(getSafeMemoryStates());
     setAttempts(getAttempts());
     setShowLegacyImport(canImportLegacyProgress());
+    // Los errores de la cuenta anterior no se muestran nunca a la siguiente.
+    accountErrorsRequest.current += 1;
+    setAccountErrors({ status: 'loading' });
     answeredQuestionIds.current = new Set();
     setActiveQuestion(null);
     setActiveReason('');
@@ -238,6 +247,24 @@ export default function App() {
     if (!res.error) return shuffleAllOptions((res.data ?? []) as Question[]);
     // Fail closed: nunca volver al exportador heredado cuando falla el motor seguro.
     throw res.error;
+  };
+
+  // Preguntas que el alumno tiene falladas ahora (conceptos y banco), mismo formato que la sesión.
+  const loadAccountErrors = async () => {
+    const request = ++accountErrorsRequest.current;
+    const owner = authUserId.current;
+    setAccountErrors({ status: 'loading' });
+    try {
+      if (!supabase) throw new Error('backend_not_configured');
+      const res = await supabase.rpc('get_error_session', { p_limit: 50 });
+      if (res.error) throw res.error;
+      if (request !== accountErrorsRequest.current || owner !== authUserId.current) return;
+      setAccountErrors({ status: 'ready', questions: (res.data ?? []) as Question[] });
+    } catch (err) {
+      if (request !== accountErrorsRequest.current || owner !== authUserId.current) return;
+      console.error('No se pudieron cargar los errores:', err);
+      setAccountErrors({ status: 'error' });
+    }
   };
 
   const fetchQuestions = async (request: number) => {
@@ -302,6 +329,8 @@ export default function App() {
       setActiveConceptId(null);
     }
 
+    if (screen === 'errors' && session?.user?.id && !isDemoMode) void loadAccountErrors();
+
     // If entering the general train screen, generate the first adaptive question
     if (screen === 'train') {
       setActiveConceptId(null);
@@ -310,6 +339,11 @@ export default function App() {
   };
 
   const serverMode = Boolean(session?.user?.id) && !isDemoMode;
+  // Si la cuenta cambia con «Tus errores» abierto, se cargan los de la cuenta nueva.
+  useEffect(() => {
+    if (currentScreen === 'errors' && serverMode) void loadAccountErrors();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session?.user?.id]);
   // Re-render al importar/borrar supuestos privados (también desde otra pestaña) y enlace #supuestos.
   const [, setSupuestosPrivadosVersion] = useState(0);
   useEffect(() => {
@@ -342,14 +376,16 @@ export default function App() {
     }
   }, [currentScreen, activeQuestion?.id]);
 
-  const startTrainingSession = async (targetId: string | null) => {
+  const startTrainingSession = async (targetId: string | null, fixedPool?: Question[]) => {
     const request = ++trainingRequest.current;
     const owner = authUserId.current;
     const isCurrentRequest = () => request === trainingRequest.current && owner === authUserId.current;
     let source = dbQuestions;
     // Cada sesión nueva pide una sesión nueva al servidor, para no repetir las mismas 20
     // y para incluir los repasos que hayan vencido desde la última vez.
-    if (serverMode && !targetId && sessionCompletedRef.current) {
+    if (fixedPool) {
+      source = fixedPool;
+    } else if (serverMode && !targetId && sessionCompletedRef.current) {
       try {
         source = await loadServerSession();
         if (!isCurrentRequest()) return;
@@ -361,11 +397,15 @@ export default function App() {
     }
     if (!isCurrentRequest()) return;
     sessionCompletedRef.current = false;
-    const pool = (targetId
+    // Las opciones se barajan al montar cada sesión, venga del servidor o de la demo: las 15
+    // preguntas de la demo tienen la correcta siempre en la primera posición y sin barajar el
+    // alumno veía la A correcta en todas. La corrección compara por texto, así que el orden no
+    // cambia qué respuesta es la buena.
+    const pool = shuffleAllOptions<Question>((targetId
       ? source.filter(q => q.microconcept_id === targetId)
       : source).filter((question, index, questions) =>
       questions.findIndex(candidate => candidate.id === question.id) === index
-    );
+    ));
     answeredQuestionIds.current = new Set();
     trainingSessionId.current = newStudySessionId();
     trainingSessionOpened.current = false;
@@ -385,7 +425,8 @@ export default function App() {
     // Con cuenta manda el orden del servidor; en la demo, el motor local.
     const selected = serverMode
       ? (candidateQuestions[0]
-          ? { question: candidateQuestions[0], reason: (candidateQuestions[0] as any).motivo === 'repaso' ? 'Repaso programado' : 'Pregunta nueva' }
+          ? { question: candidateQuestions[0], reason: (candidateQuestions[0] as any).motivo === 'repaso' ? 'Repaso programado'
+              : (candidateQuestions[0] as any).motivo === 'error' ? 'La fallaste: repásala' : 'Pregunta nueva' }
           : null)
       : getAdaptiveQuestion(candidateQuestions, states, now);
     if (selected) {
@@ -622,7 +663,7 @@ export default function App() {
   if (loadingAuth) {
     return (
       <div
-        className="min-h-screen bg-slate-50 flex items-center justify-center font-sans"
+        className="min-h-screen bg-fondo flex items-center justify-center font-sans"
         role="status"
         aria-live="polite"
         aria-busy="true"
@@ -667,7 +708,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50/50 flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
+    <div className="min-h-screen bg-fondo flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
       <UpdateBanner />
       <SaveFailureBanner />
       <SaveStatus />
@@ -874,7 +915,7 @@ export default function App() {
           </nav>
 
           <div className="flex items-center gap-2">
-            {pendingCount > 0 && currentScreen !== 'train' && currentScreen !== 'onboarding' && (
+            {pendingCount > 0 && currentScreen !== 'train' && currentScreen !== 'concept_t40' && currentScreen !== 'onboarding' && (
               <button
                 id="btn-quick-train"
                 onClick={() => handleNavigate(conceptOwner ? 'concept_t40' : 'train')}
@@ -1021,7 +1062,23 @@ export default function App() {
           />
         )}
 
-        {currentScreen === 'errors' && (
+        {currentScreen === 'errors' && serverMode && (
+          <AccountErrorPanel
+            state={accountErrors}
+            onRetry={() => { void loadAccountErrors(); }}
+            onStart={() => {
+              if (accountErrors.status !== 'ready' || accountErrors.questions.length === 0) return;
+              setDailyAutoStart(false);
+              setActiveConceptId(null);
+              setCurrentScreen('train');
+              void startTrainingSession(null, accountErrors.questions);
+            }}
+            onStudy={() => handleNavigate(estudiarScreen)}
+            onNavigateHome={() => handleNavigate('dashboard')}
+          />
+        )}
+
+        {currentScreen === 'errors' && !serverMode && (
           <ErrorPanel
             memoryStates={memoryStates}
             microconcepts={INITIAL_MICROCONCEPTS}
