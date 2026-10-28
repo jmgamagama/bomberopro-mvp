@@ -39,7 +39,7 @@ export default function SaveStatus() {
       role="status"
       aria-live="polite"
       id="mira-save-status"
-      className="pointer-events-none fixed bottom-4 right-4 z-50 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-700 shadow-sm"
+      className="pointer-events-none fixed bottom-[calc(5rem+env(safe-area-inset-bottom))] right-4 z-50 md:bottom-4 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-700 shadow-sm"
     >
       {visible === 'saving' ? 'Guardando…' : 'Respuesta guardada en tu cuenta'}
     </div>

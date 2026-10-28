@@ -24,7 +24,7 @@ describe('SessionCelebration', () => {
   it('en la demo invita a crear cuenta para empezar la racha', async () => {
     const onSignup = vi.fn();
     render(<SessionCelebration titulo="t" mensaje="m" demo onSignup={onSignup} stats={[]} primary={{ label: 'Volver al inicio', onClick: () => {} }} />);
-    await userEvent.click(screen.getByRole('button', { name: 'Crear cuenta gratis' }));
+    await userEvent.click(screen.getByRole('button', { name: 'Activar invitación' }));
     expect(onSignup).toHaveBeenCalled();
   });
 });

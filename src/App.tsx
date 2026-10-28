@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect, useLayoutEffect, useRef, lazy, Suspense } from 'react';
-import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles, ClipboardList, Menu } from 'lucide-react';
+import { Brain, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles, ClipboardList, Menu } from 'lucide-react';
 import { trackFunnel } from './lib/funnel';
 import { getVisibleSupuestos } from './data/supuestos/supuestosRegistry';
 import { SUPUESTOS_PRIVADOS_EVENT, contarSupuestosPrivados } from './data/supuestos/supuestosPrivados';
@@ -37,6 +37,8 @@ import AccountErrorPanel, { type AccountErrorsState } from './components/Account
 import ForgettingCurve from './components/ForgettingCurve';
 import MockExam from './components/MockExam';
 import Login from './components/Login';
+import AccesoConfirmado from './components/AccesoConfirmado';
+import { retornoAuthInicial, limpiarUrlRetornoAuth } from './lib/authRetorno';
 import StudyByTopic from './components/StudyByTopic';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer, toLevelInt } from './lib/saveAttemptToServer';
@@ -46,7 +48,7 @@ import ConceptStudy from './components/ConceptStudy';
 import MaterialConstitucion from './components/MaterialConstitucion';
 import SaveFailureBanner from './components/SaveFailureBanner';
 import { hasCompletedOnboarding } from './utils/onboarding';
-import { isPlanesEnabled } from './config/features';
+import { isPlanesEnabled, textoAlta } from './config/features';
 import SaveStatus from './components/SaveStatus';
 import { useRemoteConceptProgress } from './lib/useRemoteConceptProgress';
 import { useAttemptSync } from './lib/useAttemptSync';
@@ -633,8 +635,14 @@ export default function App() {
     void startTrainingSession(null, INITIAL_QUESTIONS);
   };
 
-  // Pantalla de acceso con la que se vuelve de la demo: «crear» si el alumno pulsa «Crear cuenta gratis».
+  // Pantalla de acceso con la que se vuelve de la demo: «crear» si el alumno pulsa el botón de alta (textoAlta()).
   const [loginMode, setLoginMode] = useState<'entrar' | 'crear'>('entrar');
+  // Vuelta desde un enlace del correo (cuenta activada, invitación, contraseña o enlace caducado).
+  // «Entrar con enlace» no necesita pantalla: el alumno pasa directo a la app.
+  const [retornoAuth, setRetornoAuth] = useState(() => (retornoAuthInicial?.tipo === 'enlace' ? null : retornoAuthInicial));
+  useEffect(() => {
+    if (!loadingAuth && retornoAuthInicial?.tipo === 'enlace') limpiarUrlRetornoAuth();
+  }, [loadingAuth]);
 
   const handleDemoSignup = () => {
     trackFunnel('demo_signup_click');
@@ -699,6 +707,19 @@ export default function App() {
     ...(planesEnabled ? [{ key: 'planes', label: 'Planes', detail: 'Opciones de acceso.', Icon: Sparkles, target: 'planes' as Screen }] : []),
   ];
 
+  if (retornoAuth && supabase && !isDemoMode) {
+    return (
+      <>
+        <UpdateBanner />
+        <AccesoConfirmado
+          retorno={retornoAuth}
+          conSesion={!!session?.user?.id}
+          onContinuar={() => { limpiarUrlRetornoAuth(); setLoginMode('entrar'); setRetornoAuth(null); }}
+        />
+      </>
+    );
+  }
+
   if (!session && supabase && !isDemoMode) {
     return (
       <>
@@ -748,7 +769,7 @@ export default function App() {
                   onClick={handleDemoSignup}
                   className="min-h-11 px-3 py-1 bg-indigo-700 hover:bg-indigo-800 text-white rounded-lg text-sm font-bold transition cursor-pointer"
                 >
-                  Crear cuenta gratis
+                  {textoAlta()}
                 </button>
               )}
               <button
@@ -784,8 +805,8 @@ export default function App() {
             onClick={() => handleNavigate('dashboard')}
             id="brand-logo"
           >
-            <div className="p-2 bg-indigo-600 text-white rounded-xl shadow-md shadow-indigo-100">
-              <GraduationCap className="w-5 h-5" aria-hidden="true" />
+            <div className="p-2 bg-orange-600 text-white rounded-xl shadow-md shadow-orange-100">
+              <Flame className="w-5 h-5" aria-hidden="true" />
             </div>
             <div>
               <span className="text-base font-black tracking-tight text-slate-950">
@@ -1222,7 +1243,8 @@ export default function App() {
       )}
 
       {/* Footer Branding Area */}
-      <footer className="border-t border-slate-100 py-6 bg-white text-slate-600 text-xs mt-12" id="mira-footer">
+      {/* En el móvil la barra inferior es fija: el pie deja su alto (4 rem + zona segura) para no quedar tapado. */}
+      <footer className="border-t border-slate-100 pt-6 pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-6 bg-white text-slate-600 text-xs mt-12" id="mira-footer">
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
             <p className="font-semibold text-slate-600">BomberoPro — Oposición CPEI Badajoz</p>

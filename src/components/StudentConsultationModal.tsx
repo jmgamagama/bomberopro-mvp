@@ -106,7 +106,7 @@ export function StudentConsultationModal({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs"
+      className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
@@ -118,7 +118,7 @@ export function StudentConsultationModal({
         aria-modal="true"
         aria-labelledby="consultation-dialog-title"
         aria-describedby="consultation-dialog-description"
-        className="relative w-full max-w-xl bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-100 overflow-hidden max-h-[90vh] flex flex-col animate-in fade-in zoom-in-95 duration-150"
+        className="relative w-full max-w-xl bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-100 overflow-hidden max-h-[90vh] supports-[height:100dvh]:max-h-[90dvh] flex flex-col animate-in fade-in zoom-in-95 duration-150"
       >
         {/* Header */}
         <div className="flex items-start justify-between p-5 sm:p-6 border-b border-slate-100 bg-slate-50/70">
