@@ -1,4 +1,4 @@
--- Deshace 35_limite_correcciones.sql: vuelve a check_answer/grade_exam de la 34 (sin límite) y borra el registro.
+-- Deshace 39_limite_correcciones.sql: vuelve a check_answer/grade_exam de la 38 (sin límite) y borra el registro.
 CREATE OR REPLACE FUNCTION public.check_answer(p_question_id bigint, p_respuesta text)
 RETURNS jsonb LANGUAGE plpgsql STABLE SECURITY DEFINER SET search_path TO 'public' AS $$
 DECLARE v_correcta text; v_expl text;

@@ -22,7 +22,7 @@ import { getDeckRevision, type RecallRevision } from './recallReview';
 import { canSeePendingDecks } from '../utils/revisionAccess';
 
 /**
- * C1, paso 2 (auditoría 2026-10-26; migración 34): con VITE_PRO_DECKS_FROM_SERVER=true el build
+ * C1, paso 2 (auditoría 2026-10-26; migración 38): con VITE_PRO_DECKS_FROM_SERVER=true el build
  * SOLO empaqueta los mazos gratis (PLAN_LIMITS.free). Vite sustituye la bandera por una constante y
  * Rollup elimina los `import()` de los mazos Pro: sus fichas se piden a `get_recall_deck_cards`,
  * que comprueba el plan en el servidor. Desactivada por defecto hasta cargar las fichas en

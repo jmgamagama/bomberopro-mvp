@@ -19,12 +19,12 @@ export interface PlanLimits {
   stats: boolean;
   /**
    * Preguntas de test DISTINTAS corregidas al día (null = sin tope propio del plan).
-   * Debe coincidir con `free_distinct_per_day` de la migración 35 (rama fix/c2-limite-consultas).
+   * Debe coincidir con `free_distinct_per_day` de la migración 39 (rama fix/c2-limite-consultas).
    */
   dailyDistinctQuestions: number | null;
 }
 
-/** Límites del servidor para todos los planes (migración 35, rama fix/c2-limite-consultas). */
+/** Límites del servidor para todos los planes (migración 39, rama fix/c2-limite-consultas). */
 export const ANSWER_CHECK_LIMITS = { perHour: 300, perDay: 1500 } as const;
 
 export const PLAN_LIMITS: Record<Plan, PlanLimits> = {

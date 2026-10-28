@@ -1,6 +1,6 @@
--- 35_limite_correcciones.sql
+-- 39_limite_correcciones.sql
 --
--- Auditoría 2026-10-26, C2 (riesgo residual de la 34): check_answer y grade_exam permitían sacar
+-- Auditoría 2026-10-26, C2 (riesgo residual de la 38): check_answer y grade_exam permitían sacar
 -- las claves pregunta a pregunta sin límite. Esta migración limita, por usuario:
 --   · 300 correcciones por hora (ventana móvil de 60 min),
 --   · 1.500 correcciones por día (ventana móvil de 24 h),
@@ -9,7 +9,7 @@
 -- Al superarlo: SQLSTATE 'P0429' y mensaje 'rate_limited_hour' | 'rate_limited_day' |
 -- 'daily_question_limit' (HINT con el límite). El cliente lo traduce a un aviso.
 -- Si se rechaza, no se cuenta nada (la transacción entera se deshace).
--- Idempotente. Cómo se deshace: 35_limite_correcciones_down.sql (vuelve a las versiones de la 34).
+-- Idempotente. Cómo se deshace: 39_limite_correcciones_down.sql (vuelve a las versiones de la 38).
 
 CREATE TABLE IF NOT EXISTS public.answer_check_log (
   id bigserial PRIMARY KEY,
@@ -67,7 +67,7 @@ BEGIN
   -- Sin respuesta no hay corrección: así no se puede pedir la clave sin contestar.
   IF p_question_id IS NULL OR p_respuesta IS NULL OR trim(p_respuesta) = '' THEN
     RAISE EXCEPTION 'invalid_arguments' USING ERRCODE = '22023'; END IF;
-  -- 35: límite de correcciones (después de validar, antes de revelar la clave).
+  -- 39: límite de correcciones (después de validar, antes de revelar la clave).
   PERFORM public._consume_answer_checks(ARRAY[p_question_id]);
   SELECT public._correct_option_text(q.id), q.explicacion INTO v_correcta, v_expl
     FROM questions q WHERE q.id = p_question_id AND q.estado = 'publicada';
@@ -89,7 +89,7 @@ BEGIN
   IF p_answers IS NULL OR jsonb_typeof(p_answers) <> 'array' OR jsonb_array_length(p_answers) = 0
      OR jsonb_array_length(p_answers) > 60 THEN
     RAISE EXCEPTION 'invalid_arguments' USING ERRCODE = '22023'; END IF;
-  -- 35: cada respuesta del simulacro cuenta como una corrección.
+  -- 39: cada respuesta del simulacro cuenta como una corrección.
   PERFORM public._consume_answer_checks(ARRAY(
     SELECT (e->>'question_id')::bigint FROM jsonb_array_elements(p_answers) e WHERE (e->>'question_id') ~ '^[0-9]+$'));
   SELECT coalesce(jsonb_agg(jsonb_build_object(

@@ -1,5 +1,5 @@
--- Test de la migración 34 (C2 y C1, paso 2) en el Postgres local de la auditoría:
---   psql -h localhost -p 55432 -U postgres -d bomberopro_audit -v ON_ERROR_STOP=1 -f supabase/tests/sql/34_correccion_servidor_y_fichas_pro.test.sql
+-- Test de la migración 38 (C2 y C1, paso 2) en el Postgres local de la auditoría:
+--   psql -h localhost -p 55432 -U postgres -d bomberopro_audit -v ON_ERROR_STOP=1 -f supabase/tests/sql/38_correccion_servidor_y_fichas_pro.test.sql
 -- Todo en BEGIN … ROLLBACK. Las RPC antiguas que no están en el repo (get_study_session de la 08 no
 -- aplica desde cero; get_topic_study_questions solo existe en producción) se simulan con la forma de la 08.
 \set ON_ERROR_STOP 1
@@ -14,8 +14,8 @@ INSERT INTO public.users_app (id, email, plan) VALUES
  ('00000000-0000-0000-0000-0000000000f1', 'free@test.invalid', 'free'),
  ('00000000-0000-0000-0000-0000000000f2', 'pro@test.invalid', 'pro');
 
-\ir ../../migrations/34_correccion_servidor_y_fichas_pro.sql
--- Fixtures de las RPC antiguas (usan _correct_option_text, que crea la 34).
+\ir ../../migrations/38_correccion_servidor_y_fichas_pro.sql
+-- Fixtures de las RPC antiguas (usan _correct_option_text, que crea la 38).
 DROP FUNCTION IF EXISTS public.get_blueprint_exam_questions(double precision);
 CREATE OR REPLACE FUNCTION public.get_blueprint_exam_questions(p_seed double precision)
 RETURNS TABLE(id text, question text, options text[], correct_answer text, explanation text, microconcept_id text, nivel integer, tema jsonb)
@@ -33,7 +33,7 @@ LANGUAGE sql SECURITY DEFINER SET search_path TO public AS $$
   SELECT b.id, b.question, b.options, b.correct_answer, b.explanation FROM public.get_blueprint_exam_questions(0) b
     JOIN questions q ON q.id::text = b.id WHERE q.topic_id = ANY(p_topic_ids) LIMIT p_limit $$;
 -- Idempotencia: segunda aplicación sin error.
-\ir ../../migrations/34_correccion_servidor_y_fichas_pro.sql
+\ir ../../migrations/38_correccion_servidor_y_fichas_pro.sql
 INSERT INTO public.recall_cards (deck_id, card_id, orden, concepto, respuesta, revisado) VALUES
  ('tema40', 'T40-1', 1, 'C gratis', 'R gratis', true),
  ('tema1', 'T1-1', 1, 'C pro', 'R pro', true),
@@ -138,13 +138,13 @@ END $$;
 RESET ROLE;
 
 -- 4. Down y re-aplicación.
-\ir ../../migrations/34_correccion_servidor_y_fichas_pro_down.sql
+\ir ../../migrations/38_correccion_servidor_y_fichas_pro_down.sql
 DO $$ BEGIN
   IF to_regprocedure('public.check_answer(bigint,text)') IS NOT NULL OR to_regclass('public.recall_cards') IS NOT NULL THEN
     RAISE EXCEPTION 'el down no limpió'; END IF;
   IF has_function_privilege('anon', 'public.get_blueprint_exam_questions(double precision)'::regprocedure, 'EXECUTE') THEN
     RAISE EXCEPTION 'el down no debe abrir anon'; END IF;
 END $$;
-\ir ../../migrations/34_correccion_servidor_y_fichas_pro.sql
-SELECT 'OK 34_correccion_servidor_y_fichas_pro' AS resultado;
+\ir ../../migrations/38_correccion_servidor_y_fichas_pro.sql
+SELECT 'OK 38_correccion_servidor_y_fichas_pro' AS resultado;
 ROLLBACK;

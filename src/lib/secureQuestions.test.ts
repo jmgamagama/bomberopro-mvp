@@ -65,7 +65,7 @@ describe('C1: mazos empaquetados', () => {
   });
 });
 
-describe('límite de correcciones (migración 35)', () => {
+describe('límite de correcciones (migración 39)', () => {
   it('traduce cada rechazo P0429 a un aviso claro', async () => {
     const { describeCheckError, isAnswerLimitError } = await import('./secureQuestions');
     expect(isAnswerLimitError({ code: 'P0429', message: 'rate_limited_hour' })).toBe(true);
@@ -77,9 +77,9 @@ describe('límite de correcciones (migración 35)', () => {
     expect(describeCheckError(new Error('x'))).toMatch(/conexión/);
   });
 
-  it('los límites del cliente coinciden con los de la migración 35', async () => {
+  it('los límites del cliente coinciden con los de la migración 39', async () => {
     const { ANSWER_CHECK_LIMITS } = await import('./secureQuestions');
-    const sql = readFileSync(new URL('../../supabase/migrations/35_limite_correcciones.sql', import.meta.url), 'utf8');
+    const sql = readFileSync(new URL('../../supabase/migrations/39_limite_correcciones.sql', import.meta.url), 'utf8');
     expect(sql).toContain(`'per_hour', ${ANSWER_CHECK_LIMITS.perHour}, 'per_day', ${ANSWER_CHECK_LIMITS.perDay}, 'free_distinct_per_day', ${ANSWER_CHECK_LIMITS.freeDistinctPerDay}`);
   });
 });

@@ -244,7 +244,7 @@ export default function App() {
   // tema según el peso en el examen. El orden que devuelve se respeta tal cual.
   const loadServerSession = async (): Promise<Question[]> => {
     if (!supabase) return [];
-    // C2 (migración 34): la sesión llega SIN clave; TrainScreen corrige con check_answer.
+    // C2 (migración 38): la sesión llega SIN clave; TrainScreen corrige con check_answer.
     // Fail closed: nunca volver al exportador heredado cuando falla el motor seguro.
     return shuffleAllOptions(await fetchKeyless(supabase, 'get_study_session_v2', { p_limit: 10 }));
   };

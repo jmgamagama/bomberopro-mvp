@@ -73,7 +73,7 @@ describe('sin pasarela de pago', () => {
 });
 
 describe('fuente única del plan gratis (embudo 2026-10-26)', () => {
-  it('gratis incluye 150 preguntas distintas al día, igual que la migración 35', async () => {
+  it('gratis incluye 150 preguntas distintas al día, igual que la migración 39', async () => {
     const { PLAN_LIMITS, PLAN_COPY, planFeatures } = await import('./plan');
     expect(PLAN_LIMITS.free.dailyDistinctQuestions).toBe(150);
     expect(PLAN_LIMITS.pro.dailyDistinctQuestions).toBeNull();

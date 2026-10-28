@@ -9,7 +9,10 @@ vi.mock('../lib/supabase', () => ({ supabase: { rpc, from } }));
 vi.mock('../lib/saveAttemptToServer', () => ({ saveAttemptToServer: vi.fn(), toLevelInt: () => 1, newAttemptKey: () => 'k' }));
 vi.mock('./StudentConsultationModal', () => ({ default: () => null }));
 vi.mock('./ReportQuestionButton', () => ({ default: () => null }));
-vi.mock('../utils/shuffleOptions', () => ({ shuffleAllOptions: (q: unknown) => q }));
+vi.mock('../utils/shuffleOptions', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../utils/shuffleOptions')>()),
+  shuffleAllOptions: (q: unknown) => q,
+}));
 
 import StudyByTopic from './StudyByTopic';
 import TrainScreen from './TrainScreen';

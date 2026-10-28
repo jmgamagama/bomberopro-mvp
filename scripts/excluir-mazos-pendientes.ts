@@ -18,7 +18,8 @@ import { getDeckRevision } from '../src/data/recallReview';
 /** Extrae de recallRegistry.ts el par (id de mazo → módulo) de cada entrada de DECK_SOURCES. */
 export function deckModulesFromRegistry(source: string): { deckId: string; module: string }[] {
   const out: { deckId: string; module: string }[] = [];
-  const re = /meta:\s*\{([\s\S]*?)\},\s*load:\s*\(\)\s*=>\s*import\('\.\/([\w-]+)'\)/g;
+  // `load` puede llevar delante la bandera de la migración 38 (PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : …).
+  const re = /meta:\s*\{([^{}]*?)\},\s*load:\s*\(\)\s*=>\s*(?:PRO_DECKS_FROM_SERVER\s*\?\s*serverOnlyDeck\(\)\s*:\s*)?import\('\.\/([\w-]+)'\)/g;
   for (const m of source.matchAll(re)) {
     const tema = /tema:\s*(\d+)/.exec(m[1])?.[1];
     const lote = /lote:\s*['"]([\w-]+)['"]/.exec(m[1])?.[1];
