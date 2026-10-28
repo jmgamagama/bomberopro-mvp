@@ -10,7 +10,7 @@ import { saveAttemptToServer, toLevelInt } from '../lib/saveAttemptToServer';
 import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
 import { shuffleAllOptions } from '../utils/shuffleOptions';
-import { checkAnswer, fetchKeyless, withRevealedKey } from '../lib/secureQuestions';
+import { checkAnswer, describeCheckError, fetchKeyless, withRevealedKey } from '../lib/secureQuestions';
 import { newStudySessionId, startStudySession, finishStudySession } from '../lib/studySession';
 import ConceptOutline, { ConceptCountBadge, useConceptSummary } from './ConceptOutline';
 
@@ -44,6 +44,7 @@ export default function StudyByTopic({ session, onNavigateHome }: StudyByTopicPr
   const sessionIdRef = useRef<string | null>(null);
   const finishedRef = useRef(false);
   const answeringRef = useRef(false);
+  const [checkError, setCheckError] = useState<string | null>(null);
 
 useEffect(() => {
   const loadTopics = async () => {
@@ -112,10 +113,12 @@ const confirmAnswer = async (chosen: string) => {
     setQuestions(prev => prev.map((q, i) => (i === answeredIdx ? withRevealedKey(q, check) : q)));
   } catch (err) {
     console.error('No se pudo corregir la respuesta:', err);
+    setCheckError(describeCheckError(err));
     setAnswer('');
     answeringRef.current = false;
     return;
   }
+  setCheckError(null);
   if (isCorrect) setCorrectCount(c => c + 1);
   setAnswered(true);
   const responseTimeMs = Date.now() - startTime;
@@ -244,6 +247,9 @@ return h('div', { className: 'min-h-screen bg-slate-50 p-4' },
                h(ReportQuestionButton, { questionId: currentQuestion.id, onReported: nextQuestion })
              )
            ),
+           checkError
+           ? h('p', { role: 'alert', id: 'topic-check-error', className: 'mb-3 p-3 rounded-lg border border-rose-300 bg-rose-50 text-rose-900 text-sm' }, checkError)
+           : null,
            h('div', { className: 'bg-white rounded-xl p-5 shadow mb-4' },
              h('p', { className: 'text-slate-900 font-medium mb-4' }, currentQuestion.question),
              h('div', { className: 'flex flex-col gap-2' },
