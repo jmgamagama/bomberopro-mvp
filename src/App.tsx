@@ -1159,7 +1159,8 @@ export default function App() {
       )}
 
       {/* Footer Branding Area */}
-      <footer className="border-t border-slate-100 py-6 bg-white text-slate-600 text-xs mt-12" id="mira-footer">
+      {/* En el móvil la barra inferior es fija: el pie deja su alto (4 rem + zona segura) para no quedar tapado. */}
+      <footer className="border-t border-slate-100 pt-6 pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-6 bg-white text-slate-600 text-xs mt-12" id="mira-footer">
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
             <p className="font-semibold text-slate-600">BomberoPro — Oposición CPEI Badajoz</p>

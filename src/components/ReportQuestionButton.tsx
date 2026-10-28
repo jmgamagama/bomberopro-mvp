@@ -80,10 +80,10 @@ export default function ReportQuestionButton({ questionId, onReported, className
       </button>
 
       {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 p-4" role="presentation"
+        <div className="fixed inset-0 z-[70] flex items-center justify-center bg-slate-900/60 p-4" role="presentation"
           onClick={e => { if (e.target === e.currentTarget) setOpen(false); }}>
           <div role="dialog" aria-modal="true" aria-labelledby="report-title"
-            className="w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-2xl">
+            className="w-full max-w-md max-h-[90vh] supports-[height:100dvh]:max-h-[90dvh] overflow-y-auto rounded-2xl bg-white shadow-2xl">
             <div className="flex items-start justify-between border-b border-slate-100 p-5">
               <div>
                 <h3 id="report-title" className="text-lg font-bold text-slate-900">Reportar pregunta</h3>
