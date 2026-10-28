@@ -32,7 +32,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
       if (result.error) {
         setMessage({ type: 'error', text: result.error.status === 429
           ? 'Demasiados intentos. Espera un momento antes de volver a intentarlo.'
-          : mode === 'crear' ? 'No hemos podido crear la cuenta. Revisa el correo y la contraseña.'
+          : mode === 'crear' ? 'No hemos podido crear la cuenta. El piloto es solo por invitación: usa el correo al que te invitamos y revisa la contraseña.'
           : 'No hemos podido entrar. Revisa tus datos o solicita un enlace al correo.' });
         focusEmail();
       } else if (mode === 'crear' && !result.data.session) {

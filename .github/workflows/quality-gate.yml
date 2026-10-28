@@ -56,3 +56,4 @@ jobs:
           node supabase/tests/escalera_32.pglite.mjs
           node supabase/tests/carga_conceptos.pglite.mjs
           node supabase/tests/vinculos.pglite.mjs
+          node supabase/tests/registro_41.pglite.mjs
