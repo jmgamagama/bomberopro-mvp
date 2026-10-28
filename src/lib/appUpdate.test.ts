@@ -17,14 +17,18 @@ function fakeRegistration(installTicks: number) {
   return reg;
 }
 
-function deps(reg: ReturnType<typeof fakeRegistration> | null, served: () => string | null) {
+function deps(
+  reg: ReturnType<typeof fakeRegistration> | null,
+  served: () => string | null,
+  live: () => Promise<string | null> = async () => NEW,
+) {
   const reload = vi.fn();
   return {
     reload,
     run: () => applyUpdate({
       getRegistration: async () => reg,
       servedBundle: async () => served(),
-      liveBundle: async () => NEW,
+      liveBundle: live,
       reload,
       sleep: async () => { reg?.tick(); },
       timeoutMs: 1000,
@@ -72,6 +76,24 @@ describe('applyUpdate (botón «Actualizar»)', () => {
     const d = deps(reg, () => NEW);
     await expect(d.run()).resolves.toBe('service-worker-al-dia');
     expect(d.reload).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('applyUpdate sin red', () => {
+  it('si no se puede consultar la versión publicada, conserva el service worker y no recarga', async () => {
+    const reg = fakeRegistration(0);
+    const d = deps(reg, () => OLD, async () => { throw new Error('offline'); });
+    await expect(d.run()).resolves.toBe('sin-conexion');
+    expect(reg.unregister).not.toHaveBeenCalled();
+    expect(d.reload).not.toHaveBeenCalled();
+  });
+
+  it('si la consulta se queda colgada (red atascada), no deja el botón bloqueado para siempre', async () => {
+    const reg = fakeRegistration(0);
+    const d = deps(reg, () => OLD, () => new Promise<string | null>(() => undefined));
+    await expect(d.run()).resolves.toBe('sin-conexion');
+    expect(reg.unregister).not.toHaveBeenCalled();
+    expect(d.reload).not.toHaveBeenCalled();
   });
 });
 

@@ -69,7 +69,10 @@ export default function UpdateBanner() {
         disabled={updating}
         onClick={() => {
           setUpdating(true);
-          void applyUpdateInBrowser();
+          void applyUpdateInBrowser().then(outcome => {
+            // Sin red no se recarga: se reactiva el botón para reintentar.
+            if (outcome === 'sin-conexion') setUpdating(false);
+          });
         }}
         className="shrink-0 rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-bold text-white hover:bg-indigo-700 disabled:opacity-70"
       >

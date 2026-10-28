@@ -12,6 +12,8 @@
  * 2. Comprueba que lo que se va a servir al recargar es ya la versión publicada.
  * 3. Si no lo es (instalación lenta o fallida), da de baja el service worker para que la recarga
  *    vaya a la red y traiga la versión nueva; al cargar, la app lo vuelve a registrar.
+ *    Si no hay red para consultar la versión publicada, no se toca nada (se sigue pudiendo
+ *    estudiar sin conexión) y el botón se puede volver a pulsar.
  * 4. Recarga.
  *
  * Las respuestas pendientes viven en localStorage (attemptOutbox), que nada de esto toca.
@@ -38,7 +40,17 @@ export interface ApplyUpdateDeps {
   pollMs?: number;
 }
 
-export type ApplyUpdateOutcome = 'sin-service-worker' | 'service-worker-al-dia' | 'service-worker-dado-de-baja';
+export type ApplyUpdateOutcome =
+  | 'sin-service-worker'
+  | 'service-worker-al-dia'
+  | 'service-worker-dado-de-baja'
+  /** No se pudo consultar la versión publicada (sin red): no se toca nada ni se recarga. */
+  | 'sin-conexion';
+
+/** Una consulta que no responde a tiempo cuenta como fallida (red móvil atascada). */
+function withTimeout<T>(promise: Promise<T>, ms: number, sleep: (ms: number) => Promise<void>): Promise<T | null> {
+  return Promise.race([promise.catch(() => null), sleep(ms).then(() => null)]);
+}
 
 const defaultSleep = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms));
 
@@ -76,10 +88,15 @@ export async function applyUpdate(deps: ApplyUpdateDeps): Promise<ApplyUpdateOut
       // El service worker nuevo reclama la página justo después de activarse: margen breve.
       if (installed) await sleep(pollMs);
       const [served, live] = await Promise.all([
-        deps.servedBundle().catch(() => null),
-        deps.liveBundle().catch(() => null),
+        withTimeout(deps.servedBundle(), timeoutMs, sleep),
+        withTimeout(deps.liveBundle(), timeoutMs, sleep),
       ]);
-      if (installed && served && live && served === live) {
+      if (!live) {
+        // Sin red: el service worker actual es lo que permite seguir estudiando sin conexión,
+        // así que no se da de baja ni se recarga. El alumno puede volver a pulsar luego.
+        return 'sin-conexion';
+      }
+      if (installed && served === live) {
         outcome = 'service-worker-al-dia';
       } else {
         await reg.unregister().catch(() => false);
