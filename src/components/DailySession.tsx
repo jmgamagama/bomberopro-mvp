@@ -397,7 +397,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
             La sabías: {grades[2]} · Dudosas: {grades[1]} · No la sabías: {grades[0]}
           </p>
           <div className="mx-auto max-w-xs rounded-2xl border border-orange-100 bg-orange-50 p-4">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-orange-500">Racha</p>
+            <p className="text-[10px] font-bold uppercase tracking-wider text-orange-700">Racha</p>
             <p className="text-4xl font-black text-orange-600">{streak.streakCount}</p>
             <p className="text-xs text-orange-700">días seguidos</p>
           </div>

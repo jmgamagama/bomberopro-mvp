@@ -26,6 +26,10 @@
   --color-orange-700: #9A340A;
 
   --color-fondo: var(--bp-fondo);
+
+  /* slate-500 de Tailwind (#62748e) da 4,49:1 sobre el fondo cálido: no llega al 4,5:1 de WCAG AA.
+     Se oscurece un punto para que los textos secundarios pasen sobre el fondo y las tarjetas tintadas. */
+  --color-slate-500: #5a6b82;
 }
 
 body {
