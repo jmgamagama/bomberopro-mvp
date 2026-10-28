@@ -3,7 +3,7 @@ import { ArrowLeft, Lock } from 'lucide-react';
 import LocalDataPanel from './LocalDataPanel';
 import { canAccessTopic, getVisibleTopics, getVisibleTotalCards } from '../data/recallRegistry';
 import { isPlanesEnabled } from '../config/features';
-import { canAccessDeck, canSeeStats, getPlan } from '../utils/plan';
+import { canAccessDeck, canSeeStats, getPlan, PLAN_COPY } from '../utils/plan';
 import { localDayNumber } from '../utils/localDate';
 import { loadDailyStreak } from '../utils/dailySession';
 import { computeDeckProgress, loadSrs, sumProgress, type DeckProgress } from '../utils/recallSrs';
@@ -82,7 +82,7 @@ export default function RecallStats({ onBack, onOpenPlanes, date }: RecallStatsP
           {backButton}
         </div>
         <p className="text-sm text-slate-700">
-          Las estadísticas por tema y lote (fichas vistas, dominadas, pendientes y % de acierto) están incluidas en Pro.
+          {PLAN_COPY.lockedStats}{" "}
           Tu repaso espaciado sigue funcionando igual en el plan Gratis.
         </p>
         {planesOn && onOpenPlanes && (

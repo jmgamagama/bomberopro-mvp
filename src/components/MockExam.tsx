@@ -11,6 +11,8 @@ import { supabase } from '../lib/supabase';
 import { calculateExamScore, EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS, isExamPassed, scoreOutOfTen } from '../utils/examScoring';
 import { EXAM_DURATION_SECONDS, formatExamTime, getRemainingExamSeconds } from '../utils/examTimer';
 import StudentConsultation from './StudentConsultationModal';
+import GuestSignupPrompt from './GuestSignupPrompt';
+import { trackFunnel } from '../lib/funnel';
 import { countAnswerChange } from '../utils/attempt';
 import { optionLetter, shuffleAllOptions } from '../utils/shuffleOptions';
 import { describeCheckError, fetchKeyless, gradeExam, isAnswerLimitError, withRevealedKey, type AnswerCheck } from '../lib/secureQuestions';
@@ -36,13 +38,16 @@ interface MockExamProps {
    * se sirven a usuarios anónimos (tarea 7).
    */
   useServerQuestions?: boolean;
+  /** Invitado sin cuenta: tras ver la nota, ofrecer guardar el progreso creando una cuenta. */
+  onGuestSignup?: () => void;
 }
 
 export default function MockExam({
   microconcepts,
   onFinishExam,
   onNavigateHome,
-  useServerQuestions = false
+  useServerQuestions = false,
+  onGuestSignup
 }: MockExamProps) {
   const [examStarted, setExamStarted] = useState(false);
   const [examFinished, setExamFinished] = useState(false);
@@ -104,15 +109,16 @@ export default function MockExam({
       
       // Fallback a las iniciales si falla o no hay datos suficientes
       if (!selected || selected.length === 0) {
-        console.warn("Usando fallback de preguntas locales (fallback mode: solo 10 preguntas disponibles)");
-        const shuffled = [...INITIAL_QUESTIONS].sort(() => 0.5 - Math.random());
-        selected = shuffled.slice(0, 10);
+        // Sin cuenta: TODAS las preguntas públicas locales (hoy 15; el banco real de 55 requiere cuenta).
+        console.warn(`Usando el banco público local (${INITIAL_QUESTIONS.length} preguntas)`);
+        selected = [...INITIAL_QUESTIONS].sort(() => 0.5 - Math.random());
         setSampleMode(true);
       } else {
         setSampleMode(false);
       }
 
       setQuestions(shuffleAllOptions(selected));
+      trackFunnel('exam_start');
       setCurrentIdx(0);
       setAnswers({});
       setConfidences({});
@@ -261,6 +267,7 @@ export default function MockExam({
     } as any);
 
     setExamFinished(true);
+    trackFunnel('exam_finish');
     
     // Save attempts in the primary database (only for answered questions, including reserve if answered)
     onFinishExam(submissionResults.filter(r => r.answered), submissionResults.length);
@@ -343,7 +350,7 @@ export default function MockExam({
             </p>
             <ul className="list-disc list-inside space-y-1.5 pl-1 leading-normal">
               <li>Fórmula oficial: <strong>+{EXAM_CORRECT_POINTS.toFixed(3)}</strong> por acierto y <strong>{EXAM_INCORRECT_POINTS.toFixed(3)}</strong> por error.</li>
-              <li>Consta de <strong>55 preguntas (50 + 5 reserva)</strong>.</li>
+              <li>Consta de <strong>55 preguntas (50 + 5 reserva)</strong>.{!useServerQuestions && <> Sin cuenta se usan las <strong>{INITIAL_QUESTIONS.length} preguntas públicas</strong> que hay hoy.</>}</li>
               <li>Proporción oficial: <strong>30% de preguntas de temas 35-40</strong> garantizado.</li>
               <li>Preguntas en orden aleatorio, como en el examen.</li>
               <li>Al finalizar obtendrás un informe detallado con tu plan de estudio de sanea-errores.</li>
@@ -379,7 +386,9 @@ export default function MockExam({
       )}
       {examStarted && !examFinished && questions.length > 0 && sampleMode && (
         <p role="note" className="mb-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900">
-          Simulacro de muestra con {questions.length} preguntas de ejemplo. El simulacro completo con el banco real requiere una cuenta.
+          {useServerQuestions
+            ? `Simulacro de muestra con las ${questions.length} preguntas públicas: no se pudo cargar el banco completo.`
+            : `Simulacro de muestra sin cuenta con las ${questions.length} preguntas públicas disponibles. El simulacro oficial de 55 preguntas con el banco completo requiere una cuenta.`}
         </p>
       )}
       {examStarted && !examFinished && questions.length > 0 && (
@@ -536,7 +545,9 @@ export default function MockExam({
                 <strong className="text-2xl sm:text-3xl font-extrabold text-indigo-600">{testResults.avgTime}s</strong>
               </div>
             </div>
-            
+
+            {onGuestSignup && <GuestSignupPrompt what="el simulacro" onSignup={onGuestSignup} />}
+
             {/* Topic Breakdown */}
             <div className="grid grid-cols-2 gap-3 max-w-md mx-auto pt-4 border-t border-slate-200 text-xs text-slate-600">
               <div className="bg-slate-50 p-2 rounded-lg border border-slate-200">

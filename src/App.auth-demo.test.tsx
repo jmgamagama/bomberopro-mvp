@@ -59,6 +59,9 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     saveAttempt.mockClear();
     saveMemoryState.mockClear();
     rpcMock.mockClear();
+    // Estos casos parten de la pantalla de acceso (alumno que ya la pidió). El primer uso sin
+    // cuenta entra directo como invitado: ver App.guest-first.test.tsx.
+    window.localStorage.setItem('bomberopro:prefer-login:v1', '1');
   });
 
   it('permite recorrer una primera sesión de estudio en demo, salir y reingresar sin arrastrar progreso en memoria ni persistir datos', async () => {
@@ -75,7 +78,7 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
 
     // Entra a la aplicación en modo demo
     expect(await screen.findByRole('region', { name: /aviso de modo demostración/i })).toBeInTheDocument();
-    expect(screen.getByRole('region', { name: /aviso de modo demostración/i })).toHaveTextContent(/modo demostración.*fichas.*repaso.*dispositivo/i);
+    expect(screen.getByRole('region', { name: /aviso de modo demostración/i })).toHaveTextContent(/modo demostración.*fichas.*simulacro.*dispositivo/i);
 
     // Ve el Dashboard inicial sin intentos previos
     expect(screen.getByRole('button', { name: /empezar a estudiar/i })).toBeInTheDocument();
