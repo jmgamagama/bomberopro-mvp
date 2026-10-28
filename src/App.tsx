@@ -37,6 +37,8 @@ import AccountErrorPanel, { type AccountErrorsState } from './components/Account
 import ForgettingCurve from './components/ForgettingCurve';
 import MockExam from './components/MockExam';
 import Login from './components/Login';
+import AccesoConfirmado from './components/AccesoConfirmado';
+import { retornoAuthInicial, limpiarUrlRetornoAuth } from './lib/authRetorno';
 import StudyByTopic from './components/StudyByTopic';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer, toLevelInt } from './lib/saveAttemptToServer';
@@ -632,6 +634,12 @@ export default function App() {
 
   // Pantalla de acceso con la que se vuelve de la demo: «crear» si el alumno pulsa «Crear cuenta gratis».
   const [loginMode, setLoginMode] = useState<'entrar' | 'crear'>('entrar');
+  // Vuelta desde un enlace del correo (cuenta activada, invitación, contraseña o enlace caducado).
+  // «Entrar con enlace» no necesita pantalla: el alumno pasa directo a la app.
+  const [retornoAuth, setRetornoAuth] = useState(() => (retornoAuthInicial?.tipo === 'enlace' ? null : retornoAuthInicial));
+  useEffect(() => {
+    if (!loadingAuth && retornoAuthInicial?.tipo === 'enlace') limpiarUrlRetornoAuth();
+  }, [loadingAuth]);
 
   const handleDemoSignup = () => {
     trackFunnel('demo_signup_click');
@@ -695,6 +703,19 @@ export default function App() {
     ...(!isDemoMode && session?.user?.id ? [{ key: 'my_reports', label: 'Mis reportes', detail: 'Errores que has avisado en preguntas.', Icon: HelpCircle, target: 'my_reports' as Screen }] : []),
     ...(planesEnabled ? [{ key: 'planes', label: 'Planes', detail: 'Opciones de acceso.', Icon: Sparkles, target: 'planes' as Screen }] : []),
   ];
+
+  if (retornoAuth && supabase && !isDemoMode) {
+    return (
+      <>
+        <UpdateBanner />
+        <AccesoConfirmado
+          retorno={retornoAuth}
+          conSesion={!!session?.user?.id}
+          onContinuar={() => { limpiarUrlRetornoAuth(); setLoginMode('entrar'); setRetornoAuth(null); }}
+        />
+      </>
+    );
+  }
 
   if (!session && supabase && !isDemoMode) {
     return (

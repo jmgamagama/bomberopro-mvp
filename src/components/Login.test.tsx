@@ -49,7 +49,11 @@ describe('Login', () => {
     await fillAndSubmit(user);
 
     expect(signInWithPassword).not.toHaveBeenCalled();
-    await waitFor(() => expect(signUp).toHaveBeenCalledWith({ email: 'ana@example.com', password: 'secreto123' }));
+    await waitFor(() => expect(signUp).toHaveBeenCalledWith({
+      email: 'ana@example.com',
+      password: 'secreto123',
+      options: { emailRedirectTo: 'http://localhost:3000/?acceso=registro' },
+    }));
   });
 
   it('si la cuenta ya existe pero la contraseña no coincide, avisa con un mensaje claro', async () => {

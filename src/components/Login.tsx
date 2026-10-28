@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { supabase } from '../lib/supabase';
 import { trackFunnel } from '../lib/funnel';
+import { urlRetornoAuth } from '../lib/authRetorno';
 import { Lock, Loader2, BookOpen, GraduationCap } from 'lucide-react';
 
 interface LoginProps {
@@ -27,7 +28,12 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
     if (mode === 'crear') trackFunnel('signup_submit');
     try {
       const result = mode === 'crear'
-        ? await supabase!.auth.signUp({ email: email.trim(), password })
+        ? await supabase!.auth.signUp({
+          email: email.trim(),
+          password,
+          // Sin esto, Supabase usa su «Site URL» (en staging era localhost:3000 y el enlace no abría).
+          options: { emailRedirectTo: urlRetornoAuth('registro') },
+        })
         : await supabase!.auth.signInWithPassword({ email: email.trim(), password });
       if (result.error) {
         setMessage({ type: 'error', text: result.error.status === 429
@@ -57,7 +63,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
     try {
       const { error } = await supabase!.auth.signInWithOtp({
         email: email.trim(),
-        options: { shouldCreateUser: false, emailRedirectTo: window.location.origin },
+        options: { shouldCreateUser: false, emailRedirectTo: urlRetornoAuth('enlace') },
       });
       setMessage(error
         ? { type: 'error', text: error.status === 429 ? 'Demasiados intentos. Espera un minuto.' : 'No hemos podido enviar el enlace. Revisa el correo escrito.' }
