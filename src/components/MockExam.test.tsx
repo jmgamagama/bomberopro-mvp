@@ -39,6 +39,9 @@ describe('MockExam', () => {
     });
 
     expect(container.querySelector('#exam-intro-card')).toHaveClass('p-5', 'sm:p-8');
+    expect(screen.getByText(/siguiendo la estructura indicada en las bases de CPEI Badajoz/i)).toBeInTheDocument();
+    expect(screen.getByText(/no son preguntas oficiales de exámenes anteriores/i)).toBeInTheDocument();
+    expect(screen.queryByText(/Blueprint oficial/i)).not.toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /comenzar simulacro/i }));
     
     // Esperar a que pase el loading state

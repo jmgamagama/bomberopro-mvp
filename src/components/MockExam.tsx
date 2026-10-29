@@ -314,7 +314,7 @@ export default function MockExam({
           <div className="space-y-2">
             <h2 className="text-2xl font-black text-slate-800">Simulador de Examen</h2>
             <p className="text-base text-slate-600 max-w-md mx-auto">
-              Pon a prueba tu retención real en condiciones de examen ciego de oposición (Blueprint oficial).
+              Practica con 55 preguntas siguiendo la estructura indicada en las bases de CPEI Badajoz. Las preguntas pertenecen al banco de BomberoPRO y no son preguntas oficiales de exámenes anteriores.
             </p>
           </div>
 
