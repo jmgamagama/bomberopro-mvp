@@ -20,10 +20,10 @@ describe('ReportQuestionButton', () => {
     await user.click(screen.getByRole('button', { name: /reportar pregunta/i }));
     const send = screen.getByRole('button', { name: /enviar reporte/i });
     expect(send).toBeDisabled();
-    await user.click(screen.getByLabelText(/no cae en el examen/i));
-    await user.type(screen.getByRole('textbox', { name: /nota \(opcional\)/i }), 'nunca lo preguntan');
+    await user.click(screen.getByLabelText(/confusa o mal redactada/i));
+    await user.type(screen.getByRole('textbox', { name: /nota \(opcional\)/i }), 'dos opciones valen');
     await user.click(send);
-    expect(rpc).toHaveBeenCalledWith('report_question', { p_question_id: 13050, p_categoria: 'no_cae_examen', p_nota: 'nunca lo preguntan' });
+    expect(rpc).toHaveBeenCalledWith('report_question', { p_question_id: 13050, p_categoria: 'mal_redactada', p_nota: 'dos opciones valen' });
     expect(await screen.findByText(/ya no te saldrá/i)).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /seguir estudiando/i }));
     expect(onReported).toHaveBeenCalledTimes(1);
@@ -39,6 +39,32 @@ describe('ReportQuestionButton', () => {
     await user.click(screen.getByRole('button', { name: /enviar reporte/i }));
     expect(await screen.findByRole('alert')).toHaveTextContent(/no se ha podido enviar/i);
     expect(onReported).not.toHaveBeenCalled();
+  });
+
+  it.each([
+    [/poco probable en el examen/i, 'poco_probable'],
+    [/nivel más fácil/i, 'nivel_facil'],
+    [/nivel más difícil/i, 'nivel_dificil'],
+  ])('la opinión %s se guarda aparte y no quita la pregunta', async (label, tipo) => {
+    rpc.mockResolvedValue({ data: { status: 'received', tipo }, error: null });
+    const onReported = vi.fn();
+    const user = userEvent.setup();
+    render(<ReportQuestionButton questionId={42} onReported={onReported} />);
+    await user.click(screen.getByRole('button', { name: /reportar pregunta/i }));
+    await user.click(screen.getByLabelText(label));
+    await user.click(screen.getByRole('button', { name: /enviar opinión/i }));
+    expect(rpc).toHaveBeenCalledWith('send_question_feedback', { p_question_id: 42, p_tipo: tipo, p_nota: null });
+    expect(rpc).not.toHaveBeenCalledWith('report_question', expect.anything());
+    expect(await screen.findByText(/te seguirá saliendo/i)).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /seguir estudiando/i }));
+    expect(onReported).not.toHaveBeenCalled();
+  });
+
+  it('ya no ofrece «No cae en el examen» (retiraba preguntas que sí pueden caer)', async () => {
+    const user = userEvent.setup();
+    render(<ReportQuestionButton questionId={42} />);
+    await user.click(screen.getByRole('button', { name: /reportar pregunta/i }));
+    expect(screen.queryByLabelText(/no cae en el examen/i)).toBeNull();
   });
 
   it('no aparece en preguntas de la demo (sin id numérico)', () => {

@@ -5,19 +5,33 @@ import { supabase } from '../lib/supabase';
 /**
  * Botón «Reportar pregunta».
  *
- * Al enviarlo, la pregunta deja de salirle a este alumno al momento (lo hace el servidor) y
- * queda en la cola de revisión (question_reports). Si 3 alumnos distintos la reportan, se
- * retira para todos hasta revisarla. No depende del correo del ordenador.
+ * Dos tipos de aviso en la misma ventana:
+ *  - Errores (respuesta mal, confusa, otro tema…): la pregunta deja de salirle a este alumno al
+ *    momento y queda en la cola de revisión (question_reports). Si 3 alumnos distintos la
+ *    reportan, se retira para todos hasta revisarla.
+ *  - Opiniones de probabilidad o nivel: se guardan en question_feedback para calibrar los
+ *    niveles (1: aprobar con 5-6, 2: de 5 a 8, 3: para 9-10). La pregunta NO se oculta ni se
+ *    retira: decide el equipo.
  */
 export const REPORT_REASONS = [
-  { value: 'no_cae_examen', label: 'No cae en el examen', help: 'Dato sin interés para la oposición (p. ej. un código o una cifra que nunca se pregunta).' },
   { value: 'respuesta_erronea', label: 'La respuesta es incorrecta', help: 'La opción marcada como buena no es la correcta según la fuente.' },
   { value: 'mal_redactada', label: 'Confusa o mal redactada', help: 'Falta contexto, es ambigua o hay dos opciones válidas.' },
   { value: 'fuera_temario', label: 'No es de este tema', help: 'No corresponde al temario de CPEI Badajoz o está en otro tema.' },
   { value: 'otro', label: 'Otro motivo', help: 'Cuéntanos qué pasa en la nota.' },
 ] as const;
 
+export const FEEDBACK_REASONS = [
+  { value: 'poco_probable', label: 'Poco probable en el examen', help: 'Casi nunca cae o es un dato que no suelen preguntar.' },
+  { value: 'nivel_facil', label: 'Es de un nivel más fácil', help: 'Es básica: la debería saber cualquiera que aspire a aprobar.' },
+  { value: 'nivel_dificil', label: 'Es de un nivel más difícil', help: 'Es un detalle que solo hace falta para sacar nota alta (9 o 10).' },
+] as const;
+
 export type ReportReason = (typeof REPORT_REASONS)[number]['value'];
+export type FeedbackReason = (typeof FEEDBACK_REASONS)[number]['value'];
+type Choice = ReportReason | FeedbackReason;
+
+const isFeedback = (c: Choice | null): c is FeedbackReason =>
+  FEEDBACK_REASONS.some(r => r.value === c);
 
 interface Props {
   questionId: string | number | null | undefined;
@@ -28,7 +42,7 @@ interface Props {
 
 export default function ReportQuestionButton({ questionId, onReported, className = '' }: Props) {
   const [open, setOpen] = useState(false);
-  const [reason, setReason] = useState<ReportReason | null>(null);
+  const [reason, setReason] = useState<Choice | null>(null);
   const [note, setNote] = useState('');
   const [state, setState] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -51,11 +65,10 @@ export default function ReportQuestionButton({ questionId, onReported, className
   const send = async () => {
     if (!reason) return;
     setState('sending');
-    const { data, error } = await supabase!.rpc('report_question', {
-      p_question_id: numericId,
-      p_categoria: reason,
-      p_nota: note.trim() || null,
-    });
+    const nota = note.trim() || null;
+    const { data, error } = isFeedback(reason)
+      ? await supabase!.rpc('send_question_feedback', { p_question_id: numericId, p_tipo: reason, p_nota: nota })
+      : await supabase!.rpc('report_question', { p_question_id: numericId, p_categoria: reason, p_nota: nota });
     if (error || (data as any)?.status !== 'received') {
       setState('error');
       return;
@@ -65,8 +78,21 @@ export default function ReportQuestionButton({ questionId, onReported, className
 
   const finish = () => {
     setOpen(false);
-    onReported?.();
+    // Una opinión no quita la pregunta: el alumno sigue donde estaba.
+    if (!isFeedback(reason)) onReported?.();
   };
+
+  const option = (r: { value: Choice; label: string; help: string }) => (
+    <label key={r.value}
+      className={`flex cursor-pointer gap-3 rounded-xl border p-3 ${reason === r.value ? 'border-indigo-600 bg-indigo-50' : 'border-slate-200 hover:bg-slate-50'}`}>
+      <input type="radio" name="report-reason" value={r.value} checked={reason === r.value}
+        onChange={() => setReason(r.value)} className="mt-1" />
+      <span>
+        <span className="block text-sm font-semibold text-slate-800">{r.label}</span>
+        <span className="block text-xs text-slate-500">{r.help}</span>
+      </span>
+    </label>
+  );
 
   return (
     <>
@@ -87,7 +113,7 @@ export default function ReportQuestionButton({ questionId, onReported, className
             <div className="flex items-start justify-between border-b border-slate-100 p-5">
               <div>
                 <h3 id="report-title" className="text-lg font-bold text-slate-900">Reportar pregunta</h3>
-                <p className="mt-0.5 text-xs text-slate-500">La revisa el equipo. A ti deja de salirte desde ya.</p>
+                <p className="mt-0.5 text-xs text-slate-500">Lo revisa el equipo. Gracias por ayudarnos a mejorar.</p>
               </div>
               <button ref={closeRef} type="button" onClick={() => setOpen(false)} aria-label="Cerrar"
                 className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-700">
@@ -99,7 +125,11 @@ export default function ReportQuestionButton({ questionId, onReported, className
               <div className="p-6 text-center">
                 <CheckCircle2 className="mx-auto h-10 w-10 text-emerald-600" aria-hidden="true" />
                 <p className="mt-3 font-bold text-slate-900">Gracias, recibido.</p>
-                <p className="mt-1 text-sm text-slate-600">Esta pregunta ya no te saldrá. La revisaremos y, si procede, la corregiremos o la quitaremos para todos.</p>
+                {isFeedback(reason) ? (
+                  <p className="mt-1 text-sm text-slate-600">Tu opinión nos ayuda a ajustar qué se estudia primero y a qué nivel. La pregunta te seguirá saliendo mientras la revisamos.</p>
+                ) : (
+                  <p className="mt-1 text-sm text-slate-600">Esta pregunta ya no te saldrá. La revisaremos y, si procede, la corregiremos o la quitaremos para todos.</p>
+                )}
                 <button type="button" onClick={finish} className="mt-5 w-full rounded-xl bg-indigo-600 py-3 font-bold text-white">
                   Seguir estudiando
                 </button>
@@ -107,31 +137,29 @@ export default function ReportQuestionButton({ questionId, onReported, className
             ) : (
               <div className="p-5">
                 <fieldset>
-                  <legend className="text-sm font-semibold text-slate-800">¿Qué le pasa?</legend>
-                  <div className="mt-2 space-y-2" role="radiogroup">
-                    {REPORT_REASONS.map(r => (
-                      <label key={r.value}
-                        className={`flex cursor-pointer gap-3 rounded-xl border p-3 ${reason === r.value ? 'border-indigo-600 bg-indigo-50' : 'border-slate-200 hover:bg-slate-50'}`}>
-                        <input type="radio" name="report-reason" value={r.value} checked={reason === r.value}
-                          onChange={() => setReason(r.value)} className="mt-1" />
-                        <span>
-                          <span className="block text-sm font-semibold text-slate-800">{r.label}</span>
-                          <span className="block text-xs text-slate-500">{r.help}</span>
-                        </span>
-                      </label>
-                    ))}
+                  <legend className="text-sm font-semibold text-slate-800">¿Hay algún error?</legend>
+                  <p className="text-xs text-slate-500">Dejará de salirte mientras la revisamos.</p>
+                  <div className="mt-2 space-y-2" role="radiogroup" aria-label="Errores">
+                    {REPORT_REASONS.map(option)}
+                  </div>
+                </fieldset>
+                <fieldset className="mt-4">
+                  <legend className="text-sm font-semibold text-slate-800">¿Probabilidad o nivel?</legend>
+                  <p className="text-xs text-slate-500">Te seguirá saliendo; nos sirve para ordenar el estudio.</p>
+                  <div className="mt-2 space-y-2" role="radiogroup" aria-label="Probabilidad o nivel">
+                    {FEEDBACK_REASONS.map(option)}
                   </div>
                 </fieldset>
                 <label htmlFor="report-note" className="mt-4 block text-sm font-semibold text-slate-800">Nota (opcional)</label>
                 <textarea id="report-note" rows={2} value={note} onChange={e => setNote(e.target.value)} maxLength={1000}
-                  placeholder="Ej.: en el examen nunca preguntan esto"
+                  placeholder={isFeedback(reason) ? 'Ej.: no ha caído en los últimos exámenes' : 'Ej.: la opción B también es válida'}
                   className="mt-1 w-full rounded-xl border border-slate-200 p-3 text-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
                 {state === 'error' && (
                   <p role="alert" className="mt-2 text-sm font-semibold text-red-700">No se ha podido enviar. Comprueba la conexión y vuelve a intentarlo.</p>
                 )}
                 <button type="button" onClick={send} disabled={!reason || state === 'sending'}
                   className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 font-bold text-white disabled:opacity-50">
-                  {state === 'sending' ? <><Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> Enviando…</> : 'Enviar reporte'}
+                  {state === 'sending' ? <><Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> Enviando…</> : (isFeedback(reason) ? 'Enviar opinión' : 'Enviar reporte')}
                 </button>
               </div>
             )}
