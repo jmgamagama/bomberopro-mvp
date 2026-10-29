@@ -1,0 +1,627 @@
+{
+  "descripcion": "Preguntas YA publicadas en producción (tema 1) sobre los arts. 39-52 CE, revisadas una a una contra el texto consolidado del BOE (act. 20/05/2026) el 29/10/2026. accion: vincular, corregir, retirar_duplicada (se despublica con registro; el motivo indica si además tenía un error).",
+  "motivo_registro": "revisión arts. 39-52 CE contra BOE act. 20/05/2026 (29/10/2026)",
+  "revisado_por": "Claude (revisión manual contra el BOE), con el OK general de JM del 28/10/2026",
+  "preguntas": [
+    {
+      "question_id": 801,
+      "accion": "corregir",
+      "concepto": "CE-a48-juventud",
+      "nivel": 2,
+      "motivo": "La opción c era la misma lista sin «político»: incompleta pero cierta, la hacía discutible.",
+      "cambios": {
+        "opcion": {
+          "letra": "c",
+          "texto": "En el desarrollo deportivo, educativo y cultural"
+        }
+      }
+    },
+    {
+      "question_id": 802,
+      "accion": "vincular",
+      "concepto": "CE-a49-2-politicas",
+      "nivel": 2,
+      "motivo": ""
+    },
+    {
+      "question_id": 805,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la 4768 (misma trampa «estado social»); además la opción a era la frase recortada, cierta pero incompleta."
+    },
+    {
+      "question_id": 812,
+      "accion": "corregir",
+      "concepto": "CE-a45-2-recursos",
+      "nivel": 3,
+      "motivo": "La opción a «solidaridad social» es casi sinónima de la correcta («solidaridad colectiva»).",
+      "cambios": {
+        "opcion": {
+          "letra": "a",
+          "texto": "En la indispensable cooperación internacional"
+        }
+      }
+    },
+    {
+      "question_id": 815,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la 4796; además tenía la opción referencial «Ninguna es correcta»."
+    },
+    {
+      "question_id": 818,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: la opción b es la misma frase sin «durante la tercera edad», también cierta. La cubren la 4793 y la 8245."
+    },
+    {
+      "question_id": 820,
+      "accion": "vincular",
+      "concepto": "CE-a39-4-ninos",
+      "nivel": 2,
+      "motivo": ""
+    },
+    {
+      "question_id": 821,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la 4764; además tenía la opción referencial «Ninguna es correcta»."
+    },
+    {
+      "question_id": 831,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: «Libres dentro de la ley» también es defendible. La cubre la pregunta nueva de nivel 3 del art. 41."
+    },
+    {
+      "question_id": 834,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: la opción a es la misma frase sin «especialmente en caso de desempleo», también cierta. La cubre la 8256."
+    },
+    {
+      "question_id": 837,
+      "accion": "vincular",
+      "concepto": "CE-a43-2-salud-publica",
+      "nivel": 3,
+      "motivo": ""
+    },
+    {
+      "question_id": 840,
+      "accion": "vincular",
+      "concepto": "CE-a43-3-deporte",
+      "nivel": 2,
+      "motivo": ""
+    },
+    {
+      "question_id": 845,
+      "accion": "corregir",
+      "concepto": "CE-a47-vivienda",
+      "nivel": 3,
+      "motivo": "La opción a («disfrutar de una vivienda digna») era la frase recortada, cierta pero incompleta, y la b («tener» en lugar de «disfrutar de») casi sinónima.",
+      "cambios": {
+        "opcion": [
+          {
+            "letra": "a",
+            "texto": "A disfrutar de una vivienda en propiedad"
+          },
+          {
+            "letra": "b",
+            "texto": "A disfrutar de una vivienda social de alquiler"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": 860,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la 4769."
+    },
+    {
+      "question_id": 862,
+      "accion": "corregir",
+      "concepto": "CE-a43-1-salud",
+      "nivel": 2,
+      "motivo": "Enunciado mal construido y opción referencial «Ninguna es correcta».",
+      "cambios": {
+        "enunciado": "Según el artículo 43.1 CE, se reconoce el derecho a la protección:",
+        "opcion": {
+          "letra": "c",
+          "texto": "Del ocio"
+        }
+      }
+    },
+    {
+      "question_id": 869,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "La correcta («régimen jurídico y titularidad») suma las opciones a y b, que por separado son ciertas pero incompletas. La cubre la 931."
+    },
+    {
+      "question_id": 898,
+      "accion": "corregir",
+      "concepto": "CE-a45-1-medio-ambiente",
+      "nivel": 2,
+      "motivo": "La opción b «mantenerlo» es casi sinónima de la correcta («conservarlo»).",
+      "cambios": {
+        "opcion": {
+          "letra": "b",
+          "texto": "El deber de restaurarlo"
+        }
+      }
+    },
+    {
+      "question_id": 907,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: las opciones a y c son la frase recortada, ciertas pero incompletas. La cubren las preguntas nuevas del art. 40.2."
+    },
+    {
+      "question_id": 911,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "La correcta parafrasea el texto («que la ley establezca» en lugar de «en que legalmente proceda»). La cubre la 4765."
+    },
+    {
+      "question_id": 914,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la 939; además la opción a era la lista recortada, cierta pero incompleta."
+    },
+    {
+      "question_id": 915,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: la opción a es la frase recortada, cierta pero incompleta. La cubren las preguntas nuevas del art. 40.2."
+    },
+    {
+      "question_id": 919,
+      "accion": "corregir",
+      "concepto": "CE-a39-2-hijos",
+      "nivel": 2,
+      "motivo": "El enunciado daba la respuesta («¿qué posibilitará la ley…?»).",
+      "cambios": {
+        "enunciado": "Según el artículo 39.2 CE, ¿quién posibilitará la investigación de la paternidad?",
+        "opcion": [
+          {
+            "letra": "a",
+            "texto": "La ley"
+          },
+          {
+            "letra": "b",
+            "texto": "Los tribunales, de oficio"
+          },
+          {
+            "letra": "c",
+            "texto": "La Constitución, directamente"
+          },
+          {
+            "letra": "d",
+            "texto": "El Ministerio Fiscal"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": 927,
+      "accion": "vincular",
+      "concepto": "CE-a51-2-informacion",
+      "nivel": 3,
+      "motivo": ""
+    },
+    {
+      "question_id": 931,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: la correcta repite palabra por palabra el enunciado. La cubren las preguntas nuevas del art. 46."
+    },
+    {
+      "question_id": 933,
+      "accion": "vincular",
+      "concepto": "CE-a44-1-cultura",
+      "nivel": 2,
+      "motivo": ""
+    },
+    {
+      "question_id": 934,
+      "accion": "corregir",
+      "concepto": "CE-a45-3-sanciones",
+      "nivel": 2,
+      "motivo": "Con pista: la correcta era la única sin «únicamente» o «sin».",
+      "cambios": {
+        "opcion": [
+          {
+            "letra": "b",
+            "texto": "Sanciones administrativas y, en los casos graves, la clausura de la actividad causante del daño"
+          },
+          {
+            "letra": "c",
+            "texto": "Sanciones penales y la obligación de indemnizar al Estado con el doble del daño causado"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": 939,
+      "accion": "corregir",
+      "concepto": "CE-a50-tercera-edad",
+      "nivel": 2,
+      "motivo": "La opción a («Salud, dinero y amor») no era seria.",
+      "cambios": {
+        "opcion": {
+          "letra": "a",
+          "texto": "Salud, empleo y transporte"
+        }
+      }
+    },
+    {
+      "question_id": 940,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: «interés público» es casi sinónimo de la correcta («interés general»); además tenía la opción referencial «Ninguna es correcta». La cubre la 8259."
+    },
+    {
+      "question_id": 941,
+      "accion": "vincular",
+      "concepto": "CE-a51-1-consumidores",
+      "nivel": 2,
+      "motivo": ""
+    },
+    {
+      "question_id": 943,
+      "accion": "corregir",
+      "concepto": "CE-a39-1-familia",
+      "nivel": 2,
+      "motivo": "La opción b era la lista recortada («social y jurídica»), cierta pero incompleta.",
+      "cambios": {
+        "opcion": {
+          "letra": "b",
+          "texto": "La protección social, sanitaria y educativa de la familia"
+        }
+      }
+    },
+    {
+      "question_id": 944,
+      "accion": "corregir",
+      "concepto": "CE-a47-vivienda",
+      "nivel": 3,
+      "motivo": "La opción c «proporcione» es casi sinónima de la correcta («genere»).",
+      "cambios": {
+        "opcion": {
+          "letra": "c",
+          "texto": "En las plusvalías que genere la venta de suelo de titularidad privada"
+        }
+      }
+    },
+    {
+      "question_id": 4761,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "ERROR: afirmaba que el art. 46 prevé sanción penal «y, en su caso, administrativa»; el art. 46 solo dice que «la ley penal sancionará los atentados contra este patrimonio» (lo administrativo es del art. 45.3)."
+    },
+    {
+      "question_id": 4764,
+      "accion": "vincular",
+      "concepto": "CE-a40-1-pleno-empleo",
+      "nivel": 3,
+      "motivo": ""
+    },
+    {
+      "question_id": 4765,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: la correcta es la única que reúne lo que tienen las demás por separado. La cubren las preguntas nuevas del art. 39.3."
+    },
+    {
+      "question_id": 4767,
+      "accion": "vincular",
+      "concepto": "CE-a47-vivienda",
+      "nivel": 3,
+      "motivo": ""
+    },
+    {
+      "question_id": 4768,
+      "accion": "vincular",
+      "concepto": "CE-a39-2-hijos",
+      "nivel": 2,
+      "motivo": ""
+    },
+    {
+      "question_id": 4769,
+      "accion": "vincular",
+      "concepto": "CE-a42-emigrantes",
+      "nivel": 3,
+      "motivo": ""
+    },
+    {
+      "question_id": 4773,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la 840."
+    },
+    {
+      "question_id": 4776,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "La correcta es la opción referencial «Ambas afirmaciones anteriores son correctas»."
+    },
+    {
+      "question_id": 4777,
+      "accion": "corregir",
+      "concepto": "CE-a49-2-politicas",
+      "nivel": 2,
+      "motivo": "La explicación citaba mal el texto («entornos, productos y servicios»).",
+      "cambios": {
+        "explicacion": "El art. 49.2 CE dice literalmente: «Los poderes públicos impulsarán las políticas que garanticen la plena autonomía personal y la inclusión social de las personas con discapacidad, en entornos universalmente accesibles»."
+      }
+    },
+    {
+      "question_id": 4779,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "La correcta es la opción referencial «Las tres anteriores son correctas»."
+    },
+    {
+      "question_id": 4782,
+      "accion": "vincular",
+      "concepto": "CE-a44-1-cultura",
+      "nivel": 3,
+      "motivo": ""
+    },
+    {
+      "question_id": 4785,
+      "accion": "vincular",
+      "concepto": "CE-a52-organizaciones",
+      "nivel": 2,
+      "motivo": ""
+    },
+    {
+      "question_id": 4789,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "La correcta es la opción referencial «Las tres anteriores son correctas»."
+    },
+    {
+      "question_id": 4790,
+      "accion": "vincular",
+      "concepto": "CE-a49-2-politicas",
+      "nivel": 2,
+      "motivo": ""
+    },
+    {
+      "question_id": 4793,
+      "accion": "corregir",
+      "concepto": "CE-a50-tercera-edad",
+      "nivel": 2,
+      "motivo": "Con pista: las opciones b y c eran absolutos claramente falsos.",
+      "cambios": {
+        "opcion": [
+          {
+            "letra": "b",
+            "texto": "Los poderes públicos promoverán, mediante pensiones adecuadas, la suficiencia económica de los ciudadanos con independencia de su edad"
+          },
+          {
+            "letra": "c",
+            "texto": "Los poderes públicos garantizarán, mediante pensiones mínimas fijadas cada cinco años, la suficiencia económica de los ciudadanos"
+          }
+        ]
+      }
+    },
+    {
+      "question_id": 4796,
+      "accion": "vincular",
+      "concepto": "CE-a44-2-ciencia",
+      "nivel": 3,
+      "motivo": ""
+    },
+    {
+      "question_id": 6181,
+      "accion": "vincular",
+      "concepto": "CE-a41-seguridad-social",
+      "nivel": 2,
+      "motivo": ""
+    },
+    {
+      "question_id": 8204,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "La correcta es la opción referencial «A y C son correctas»; además la opción c añade «de forma exclusiva», que el art. 46 no dice."
+    },
+    {
+      "question_id": 8207,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la 4764; la opción b solo cambia «promoverán» por «garantizarán», casi sinónimos."
+    },
+    {
+      "question_id": 8208,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: la opción c («Los padres y madres…») dice lo mismo que la correcta."
+    },
+    {
+      "question_id": 8210,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la 4767."
+    },
+    {
+      "question_id": 8211,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la 4768."
+    },
+    {
+      "question_id": 8212,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la 4769."
+    },
+    {
+      "question_id": 8216,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: la opción a («Se garantiza el derecho…») solo cambia «reconoce» por «garantiza». La cubren la 840 y la 862."
+    },
+    {
+      "question_id": 8220,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "La correcta es la opción referencial «Las dos anteriores son correctas»."
+    },
+    {
+      "question_id": 8221,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: la opción b es la frase sin «plena», cierta pero incompleta. La cubren la 802 y la 4777."
+    },
+    {
+      "question_id": 8228,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la 4782."
+    },
+    {
+      "question_id": 8233,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la 4785."
+    },
+    {
+      "question_id": 8239,
+      "accion": "corregir",
+      "concepto": "CE-a49-2-politicas",
+      "nivel": 3,
+      "motivo": "La opción c «Las dos anteriores son correctas» es referencial.",
+      "cambios": {
+        "opcion": {
+          "letra": "c",
+          "texto": "Se atenderán particularmente las necesidades específicas de las personas mayores con discapacidad"
+        }
+      }
+    },
+    {
+      "question_id": 8245,
+      "accion": "corregir",
+      "concepto": "CE-a50-tercera-edad",
+      "nivel": 3,
+      "motivo": "La opción c «Las dos anteriores son correctas» es referencial.",
+      "cambios": {
+        "opcion": {
+          "letra": "c",
+          "texto": "Los poderes públicos garantizarán la suficiencia económica durante la tercera edad mediante pensiones fijas e iguales para todos"
+        }
+      }
+    },
+    {
+      "question_id": 8248,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la 4796 (mismas opciones)."
+    },
+    {
+      "question_id": 8249,
+      "accion": "vincular",
+      "concepto": "CE-a39-4-ninos",
+      "nivel": 3,
+      "motivo": ""
+    },
+    {
+      "question_id": 8251,
+      "accion": "corregir",
+      "concepto": "CE-a39-1-familia",
+      "nivel": 3,
+      "motivo": "La opción b solo cambiaba «aseguran» por «garantizan», casi sinónimos.",
+      "cambios": {
+        "opcion": {
+          "letra": "b",
+          "texto": "Los poderes públicos aseguran la protección integral de la familia"
+        }
+      }
+    },
+    {
+      "question_id": 8253,
+      "accion": "corregir",
+      "concepto": "CE-a49-1-discapacidad",
+      "nivel": 2,
+      "motivo": "Las opciones b y c designan a las mismas personas: la pregunta debe preguntar por la expresión literal.",
+      "cambios": {
+        "enunciado": "¿Qué expresión emplea el artículo 49 CE vigente (reforma de 2024) para designar a quienes ejercen los derechos del Título I en condiciones de libertad e igualdad reales y efectivas?"
+      }
+    },
+    {
+      "question_id": 8254,
+      "accion": "vincular",
+      "concepto": "CE-a45-1-medio-ambiente",
+      "nivel": 3,
+      "motivo": ""
+    },
+    {
+      "question_id": 8255,
+      "accion": "vincular",
+      "concepto": "CE-a49-1-discapacidad",
+      "nivel": 2,
+      "motivo": ""
+    },
+    {
+      "question_id": 8256,
+      "accion": "vincular",
+      "concepto": "CE-a41-seguridad-social",
+      "nivel": 3,
+      "motivo": ""
+    },
+    {
+      "question_id": 8258,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la 801; además la opción d era la lista recortada, cierta pero incompleta."
+    },
+    {
+      "question_id": 8259,
+      "accion": "corregir",
+      "concepto": "CE-a47-vivienda",
+      "nivel": 3,
+      "motivo": "La opción d «interés social» es casi sinónima de la correcta («interés general»).",
+      "cambios": {
+        "opcion": {
+          "letra": "d",
+          "texto": "Los poderes públicos promoverán las condiciones necesarias y establecerán las normas pertinentes para hacer efectivo el derecho a la vivienda, regulando la utilización del suelo de acuerdo con el interés de los propietarios"
+        }
+      }
+    }
+  ]
+}

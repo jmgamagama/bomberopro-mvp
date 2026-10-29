@@ -22,6 +22,7 @@ OUT = pathlib.Path("public/material/constitucion")
 BLOQUES = [
     ("titulo-preliminar", "Título Preliminar (arts. 1–9)", range(1, 10)),
     ("derechos-fundamentales", "Igualdad y derechos fundamentales (arts. 14–29)", range(14, 30)),
+    ("principios-rectores", "Principios rectores de la política social y económica (arts. 39–52)", range(39, 53)),
     ("garantias-suspension", "Garantías y suspensión de los derechos (arts. 53–55)", range(53, 56)),
 ]
 
