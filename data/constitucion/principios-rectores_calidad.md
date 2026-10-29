@@ -32,6 +32,10 @@ Fichero `vinculos-produccion-principios-rectores.json`:
 - 1421 («Capítulo Primero del Título VIII») está publicada en el tema 1, pero el Título VIII no es del tema 1 (arts. 1–55). Queda para la revisión del banco.
 
 ## Carga
-Pendiente: staging con alumno simulado, producción con huella md5 contra la carga local y después la revisión de las 70 antiguas con registro en `qa_changes_20260923`.
+Publicado en producción el 29/10/2026.
+- Staging: carga completa y huella idéntica; un alumno simulado recibe el nivel 1 (art. 51.3) y, tras acertarlo, el nivel 2.
+- Producción: 26 conceptos (md5 `9d7ab4aa8414ac0af74f7f164b60dcb1`) y 78 preguntas (md5 `a9e01f990624fc626cf3457b250afbec`), iguales a staging. Comprobado que un alumno nuevo recibe primero el nivel 1.
+- 70 preguntas antiguas: 37 vinculadas (17 de ellas corregidas) y 33 retiradas como `duplicada`; 89 filas de registro en `qa_changes_20260923`.
+- Tema 1 publicado: 611 → 656 preguntas (611 + 78 − 33).
 
 Marcha atrás: restaurar desde `qa_changes_20260923` las filas con motivo «revisión arts. 39-52 CE…» y poner en `borrador` los conceptos `CE-a39-*` … `CE-a52-*` y sus preguntas `CE:CE-a(39..52)-*`.
