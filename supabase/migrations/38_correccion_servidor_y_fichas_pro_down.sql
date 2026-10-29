@@ -1,6 +1,7 @@
 -- Deshace 38_correccion_servidor_y_fichas_pro.sql (vuelve a dar EXECUTE a authenticated en las RPC
 -- antiguas, como dejaban las migraciones 08/16/33). Borra las tablas de fichas Pro y su contenido.
 DROP FUNCTION IF EXISTS public.get_recall_deck_cards(text);
+DROP FUNCTION IF EXISTS public._user_plan(uuid);
 DROP TABLE IF EXISTS public.recall_cards;
 DROP TABLE IF EXISTS public.recall_free_decks;
 DROP FUNCTION IF EXISTS public.grade_exam(jsonb);

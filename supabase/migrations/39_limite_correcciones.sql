@@ -5,6 +5,8 @@
 --   · 300 correcciones por hora (ventana móvil de 60 min),
 --   · 1.500 correcciones por día (ventana móvil de 24 h),
 --   · plan gratis (users_app.plan distinto de 'pro', o sin fila): 150 preguntas DISTINTAS por día.
+--     SOLO si existe un plan en el servidor (_user_plan, migración 38). En producción a 29/10/2026 no hay
+--     columna `plan`: este tope no se aplica y quedan los de hora y día. Se activará solo al crearse el plan.
 -- Una respuesta de grade_exam cuenta como una corrección (un simulacro de 55 = 55).
 -- Al superarlo: SQLSTATE 'P0429' y mensaje 'rate_limited_hour' | 'rate_limited_day' |
 -- 'daily_question_limit' (HINT con el límite). El cliente lo traduce a un aviso.
@@ -31,7 +33,7 @@ RETURNS void LANGUAGE plpgsql VOLATILE SECURITY DEFINER SET search_path TO 'publ
 DECLARE
   v_uid uuid := auth.uid(); l jsonb := public._answer_check_limits();
   v_n int := coalesce(array_length(p_question_ids, 1), 0);
-  v_hour int; v_day int; v_distinct int; v_pro boolean;
+  v_hour int; v_day int; v_distinct int; v_plan text;
 BEGIN
   IF v_uid IS NULL THEN RAISE EXCEPTION 'not_authenticated' USING ERRCODE = '42501'; END IF;
   IF v_n = 0 THEN RETURN; END IF;
@@ -45,8 +47,8 @@ BEGIN
     RAISE EXCEPTION 'rate_limited_hour' USING ERRCODE = 'P0429', HINT = format('Máximo %s correcciones por hora.', l->>'per_hour'); END IF;
   IF v_day + v_n > (l->>'per_day')::int THEN
     RAISE EXCEPTION 'rate_limited_day' USING ERRCODE = 'P0429', HINT = format('Máximo %s correcciones al día.', l->>'per_day'); END IF;
-  SELECT coalesce(lower(plan), '') = 'pro' INTO v_pro FROM users_app WHERE id = v_uid;
-  IF NOT coalesce(v_pro, false) THEN
+  v_plan := public._user_plan(v_uid);
+  IF v_plan IS NOT NULL AND v_plan <> 'pro' THEN
     SELECT count(DISTINCT q) INTO v_distinct FROM (
       SELECT question_id AS q FROM answer_check_log WHERE user_id = v_uid AND created_at > now() - interval '24 hours'
       UNION SELECT unnest(p_question_ids)) s;
