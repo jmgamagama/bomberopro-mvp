@@ -61,7 +61,9 @@ BEGIN
    WHERE user_id = v_uid AND updated_at > now() - interval '1 hour';
   IF v_recent >= 30 THEN RAISE EXCEPTION 'rate_limited' USING ERRCODE = 'P0001'; END IF;
 
-  -- «Más fácil» y «más difícil» a la vez no tiene sentido: vale la última.
+  -- «Más fácil» y «más difícil» a la vez no tiene sentido: vale la última. El candado (por alumno
+  -- y pregunta, hasta fin de transacción) evita que dos envíos simultáneos dejen las dos.
+  PERFORM pg_advisory_xact_lock(hashtextextended('question_feedback:' || v_uid::text || ':' || p_question_id::text, 0));
   IF p_tipo IN ('nivel_facil', 'nivel_dificil') THEN
     DELETE FROM question_feedback
      WHERE user_id = v_uid AND question_id = p_question_id

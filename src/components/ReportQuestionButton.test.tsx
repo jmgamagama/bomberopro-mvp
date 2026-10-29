@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import '../test/setup';
 import { describe, expect, it, vi, beforeEach } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 const { rpc } = vi.hoisted(() => ({ rpc: vi.fn() }));
@@ -56,6 +56,35 @@ describe('ReportQuestionButton', () => {
     expect(rpc).toHaveBeenCalledWith('send_question_feedback', { p_question_id: 42, p_tipo: tipo, p_nota: null });
     expect(rpc).not.toHaveBeenCalledWith('report_question', expect.anything());
     expect(await screen.findByText(/te seguirá saliendo/i)).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /seguir estudiando/i }));
+    expect(onReported).not.toHaveBeenCalled();
+  });
+
+  it('tras una opinión, al volver a abrir aparece el formulario limpio', async () => {
+    rpc.mockResolvedValue({ data: { status: 'received' }, error: null });
+    const user = userEvent.setup();
+    render(<ReportQuestionButton questionId={42} />);
+    await user.click(screen.getByRole('button', { name: /reportar pregunta/i }));
+    await user.click(screen.getByLabelText(/poco probable/i));
+    await user.click(screen.getByRole('button', { name: /enviar opinión/i }));
+    await user.click(await screen.findByRole('button', { name: /seguir estudiando/i }));
+    await user.click(screen.getByRole('button', { name: /reportar pregunta/i }));
+    expect(screen.getByLabelText(/respuesta es incorrecta/i)).not.toBeChecked();
+    expect(screen.getByRole('button', { name: /enviar reporte/i })).toBeDisabled();
+  });
+
+  it('mientras se envía no se puede cambiar el motivo, y vale el que se envió', async () => {
+    let resolve!: (v: unknown) => void;
+    rpc.mockReturnValue(new Promise(r => { resolve = r; }));
+    const onReported = vi.fn();
+    const user = userEvent.setup();
+    render(<ReportQuestionButton questionId={42} onReported={onReported} />);
+    await user.click(screen.getByRole('button', { name: /reportar pregunta/i }));
+    await user.click(screen.getByLabelText(/nivel más fácil/i));
+    await user.click(screen.getByRole('button', { name: /enviar opinión/i }));
+    expect(screen.getByLabelText(/respuesta es incorrecta/i)).toBeDisabled();
+    await act(async () => resolve({ data: { status: 'received' }, error: null }));
+    expect(await screen.findByText(/tu opinión nos ayuda/i)).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /seguir estudiando/i }));
     expect(onReported).not.toHaveBeenCalled();
   });

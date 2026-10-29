@@ -44,6 +44,8 @@ export default function ReportQuestionButton({ questionId, onReported, className
   const [open, setOpen] = useState(false);
   const [reason, setReason] = useState<Choice | null>(null);
   const [note, setNote] = useState('');
+  // Motivo que se envió de verdad: la confirmación y el «Seguir estudiando» dependen de él, no de la selección actual.
+  const [sent, setSent] = useState<Choice | null>(null);
   const [state, setState] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
   const closeRef = useRef<HTMLButtonElement>(null);
   const numericId = Number(questionId);
@@ -57,18 +59,21 @@ export default function ReportQuestionButton({ questionId, onReported, className
   }, [open]);
 
   // Cambia la pregunta → se reinicia el formulario.
-  useEffect(() => { setOpen(false); setReason(null); setNote(''); setState('idle'); }, [questionId]);
+  const reset = () => { setReason(null); setNote(''); setSent(null); setState('idle'); };
+  useEffect(() => { setOpen(false); reset(); }, [questionId]);
 
   // Solo preguntas reales del banco (las de la demo no tienen id numérico) y con servidor.
   if (!supabase || !Number.isFinite(numericId)) return null;
 
   const send = async () => {
-    if (!reason) return;
+    if (!reason || state === 'sending') return;
+    const choice = reason;
+    setSent(choice);
     setState('sending');
     const nota = note.trim() || null;
-    const { data, error } = isFeedback(reason)
-      ? await supabase!.rpc('send_question_feedback', { p_question_id: numericId, p_tipo: reason, p_nota: nota })
-      : await supabase!.rpc('report_question', { p_question_id: numericId, p_categoria: reason, p_nota: nota });
+    const { data, error } = isFeedback(choice)
+      ? await supabase!.rpc('send_question_feedback', { p_question_id: numericId, p_tipo: choice, p_nota: nota })
+      : await supabase!.rpc('report_question', { p_question_id: numericId, p_categoria: choice, p_nota: nota });
     if (error || (data as any)?.status !== 'received') {
       setState('error');
       return;
@@ -77,9 +82,12 @@ export default function ReportQuestionButton({ questionId, onReported, className
   };
 
   const finish = () => {
+    const wasFeedback = isFeedback(sent);
     setOpen(false);
+    // Se deja el formulario limpio por si vuelve a abrirlo en la misma pregunta.
+    reset();
     // Una opinión no quita la pregunta: el alumno sigue donde estaba.
-    if (!isFeedback(reason)) onReported?.();
+    if (!wasFeedback) onReported?.();
   };
 
   const option = (r: { value: Choice; label: string; help: string }) => (
@@ -125,7 +133,7 @@ export default function ReportQuestionButton({ questionId, onReported, className
               <div className="p-6 text-center">
                 <CheckCircle2 className="mx-auto h-10 w-10 text-emerald-600" aria-hidden="true" />
                 <p className="mt-3 font-bold text-slate-900">Gracias, recibido.</p>
-                {isFeedback(reason) ? (
+                {isFeedback(sent) ? (
                   <p className="mt-1 text-sm text-slate-600">Tu opinión nos ayuda a ajustar qué se estudia primero y a qué nivel. La pregunta te seguirá saliendo mientras la revisamos.</p>
                 ) : (
                   <p className="mt-1 text-sm text-slate-600">Esta pregunta ya no te saldrá. La revisaremos y, si procede, la corregiremos o la quitaremos para todos.</p>
@@ -136,14 +144,14 @@ export default function ReportQuestionButton({ questionId, onReported, className
               </div>
             ) : (
               <div className="p-5">
-                <fieldset>
+                <fieldset disabled={state === 'sending'}>
                   <legend className="text-sm font-semibold text-slate-800">¿Hay algún error?</legend>
                   <p className="text-xs text-slate-500">Dejará de salirte mientras la revisamos.</p>
                   <div className="mt-2 space-y-2" role="radiogroup" aria-label="Errores">
                     {REPORT_REASONS.map(option)}
                   </div>
                 </fieldset>
-                <fieldset className="mt-4">
+                <fieldset className="mt-4" disabled={state === 'sending'}>
                   <legend className="text-sm font-semibold text-slate-800">¿Probabilidad o nivel?</legend>
                   <p className="text-xs text-slate-500">Te seguirá saliendo; nos sirve para ordenar el estudio.</p>
                   <div className="mt-2 space-y-2" role="radiogroup" aria-label="Probabilidad o nivel">
