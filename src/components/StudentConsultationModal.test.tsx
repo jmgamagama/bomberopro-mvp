@@ -80,6 +80,20 @@ describe('StudentConsultationModal', () => {
     expect(href).toContain('Tengo dudas sobre los artículos 2 y 3.');
   });
 
+  it('mantiene abierto el borrador si el alumno pulsa el enlace de correo', async () => {
+    const user = userEvent.setup();
+    const onClose = vi.fn();
+    render(<StudentConsultationModal isOpen onClose={onClose} context="Tema 3" />);
+
+    const note = screen.getByPlaceholderText(/escribe brevemente tu duda/i);
+    await user.type(note, 'Necesito aclarar la cuestión 4.');
+    await user.click(screen.getByRole('link', { name: /abrir correo con asunto preparado/i }));
+
+    expect(onClose).not.toHaveBeenCalled();
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/escribe brevemente tu duda/i)).toHaveValue('Necesito aclarar la cuestión 4.');
+  });
+
   it('permite cerrar el diálogo mediante botón de cerrar, cancelar y tecla Escape', async () => {
     const user = userEvent.setup();
     const onClose = vi.fn();

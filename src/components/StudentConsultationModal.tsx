@@ -253,10 +253,6 @@ export function StudentConsultationModal({
           </button>
           <a
             href={mailtoUrl}
-            onClick={() => {
-              // Close after trigger so user returns smoothly
-              setTimeout(onClose, 200);
-            }}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl shadow-md hover:shadow-lg transition cursor-pointer"
           >
             <Mail className="w-4 h-4" aria-hidden="true" />
