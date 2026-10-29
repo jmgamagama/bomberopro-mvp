@@ -1,0 +1,262 @@
+{
+  "descripcion": "Preguntas YA publicadas en producción (tema 1) sobre los arts. 10-13 CE, revisadas una a una contra el texto consolidado del BOE el 29/10/2026. accion: vincular, corregir, retirar_duplicada (se despublica con registro; el motivo indica si además tenía un error), fuera_temario.",
+  "motivo_registro": "revisión arts. 10-13 CE contra BOE (29/10/2026)",
+  "revisado_por": "Claude (revisión manual contra el BOE), con el OK general de JM del 28/10/2026",
+  "preguntas": [
+    {
+      "question_id": 917,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: la correcta es la única con la enumeración completa y la más larga. La cubren las preguntas nuevas del art. 10.1."
+    },
+    {
+      "question_id": 4717,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la pregunta nueva de nivel 3 del art. 10.1."
+    },
+    {
+      "question_id": 872,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la pregunta nueva de nivel 1 del art. 10.1; además la opción a («del orden político y de la paz») era la frase recortada, cierta pero incompleta."
+    },
+    {
+      "question_id": 4729,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de las preguntas nuevas del art. 10.1; además la opción b incluye «el libre desarrollo de la personalidad», que sí es fundamento, y la hacía discutible."
+    },
+    {
+      "question_id": 6145,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: «el principio de legalidad» se confunde con «el respeto a la ley», que sí figura en el art. 10.1. La cubre la pregunta nueva de nivel 3."
+    },
+    {
+      "question_id": 861,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Pregunta vaga («¿de qué trata fundamentalmente…?») con la opción referencial «Ninguna es correcta». La cubren las preguntas del art. 10.1."
+    },
+    {
+      "question_id": 4747,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: la correcta es la única literal y la más larga. La cubren las preguntas nuevas del art. 10.2."
+    },
+    {
+      "question_id": 838,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: las opciones a y b son la frase recortada, ciertas pero incompletas. La cubren las preguntas nuevas del art. 10.2."
+    },
+    {
+      "question_id": 6146,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: la correcta es la única literal. La cubren las preguntas nuevas del art. 10.2."
+    },
+    {
+      "question_id": 867,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Discutible: «la Constitución y la ley» es defendible porque la propia Constitución fija reglas (art. 11.2). La cubren las preguntas nuevas del art. 11.1."
+    },
+    {
+      "question_id": 4742,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: pide la INCORRECTA y la opción a también lo es (habla del «país de su procedencia» y no limita la naturalización a los países del art. 11.3)."
+    },
+    {
+      "question_id": 6147,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: el enunciado pide una «garantía» y solo la correcta lo es; además repite «español de origen». La cubren las preguntas nuevas del art. 11.2."
+    },
+    {
+      "question_id": 4758,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: los distractores son absolutos («Únicamente», «sin restricción alguna»). La cubren las preguntas nuevas del art. 11.3."
+    },
+    {
+      "question_id": 817,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: la opción b es la frase recortada («hayan tenido»), cierta pero incompleta. La cubren las preguntas nuevas del art. 11.3."
+    },
+    {
+      "question_id": 895,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: la opción c es la frase recortada, cierta pero incompleta. La cubre la pregunta nueva de nivel 2 del art. 11.3."
+    },
+    {
+      "question_id": 6148,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de las preguntas nuevas del art. 11.3."
+    },
+    {
+      "question_id": 8189,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: la opción correcta dice «(expresión que no figura en el artículo)»."
+    },
+    {
+      "question_id": 6149,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la pregunta nueva de nivel 1 del art. 12."
+    },
+    {
+      "question_id": 938,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Opción referencial «Ninguna es totalmente correcta»; además «los españoles de origen» es cierta pero incompleta."
+    },
+    {
+      "question_id": 844,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Pregunta vaga («¿de qué trata…?»): las opciones a, b y c describen lo mismo con distintas palabras."
+    },
+    {
+      "question_id": 4760,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: la correcta suma los dos distractores («Únicamente los tratados», «Únicamente la ley»). La cubren las preguntas nuevas del art. 13.1."
+    },
+    {
+      "question_id": 851,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: la opción b («La ley») es cierta pero incompleta. La cubren las preguntas nuevas del art. 13.1."
+    },
+    {
+      "question_id": 8195,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "La correcta es la opción referencial «Las dos anteriores son correctas»."
+    },
+    {
+      "question_id": 803,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la pregunta nueva de nivel 2 del art. 13.2."
+    },
+    {
+      "question_id": 6150,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: la correcta es mucho más larga y la única con todos los matices. La cubren las preguntas nuevas del art. 13.2."
+    },
+    {
+      "question_id": 912,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: las opciones a («por tratado») y b («por ley») son ciertas pero incompletas. La cubren las preguntas nuevas del art. 13.2."
+    },
+    {
+      "question_id": 4725,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: la correcta es la única con la excepción completa. La cubren las preguntas nuevas del art. 13.2."
+    },
+    {
+      "question_id": 899,
+      "accion": "corregir",
+      "concepto": "CE-a13-3-extradicion",
+      "nivel": 2,
+      "motivo": "Opción referencial «Ninguna es correcta» y enunciado con «de una ley» (el art. 13.3 dice «de la ley»).",
+      "cambios": {
+        "enunciado": "Según el artículo 13.3 CE, ¿atendiendo a qué principio se concederá la extradición, solo en cumplimiento de un tratado o de la ley?",
+        "opcion": {
+          "letra": "c",
+          "texto": "Principio de territorialidad"
+        }
+      }
+    },
+    {
+      "question_id": 6151,
+      "accion": "corregir",
+      "concepto": "CE-a13-3-extradicion",
+      "nivel": 2,
+      "motivo": "El enunciado decía «criterios de reciprocidad»; el art. 13.3 dice «principio de reciprocidad».",
+      "cambios": {
+        "enunciado": "Según el artículo 13.3 CE, la extradición solo se concederá en cumplimiento de un tratado o de la ley, atendiendo al principio de reciprocidad. ¿Qué delitos quedan excluidos y qué excepción se establece expresamente?"
+      }
+    },
+    {
+      "question_id": 857,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Opciones referenciales «Más de una es correcta» y «Ninguna vale». La cubre la 6151."
+    },
+    {
+      "question_id": 4739,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: las opciones a («Un tratado») y b («Una ley») son ciertas pero incompletas. La cubren la 899 y las preguntas nuevas del art. 13.3."
+    },
+    {
+      "question_id": 4722,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la pregunta nueva de nivel 2 del art. 13.4."
+    },
+    {
+      "question_id": 819,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: las tres primeras opciones dicen lo mismo («asilo», «asilo en el Estado español», «asilo en España»)."
+    },
+    {
+      "question_id": 6152,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la pregunta nueva de nivel 2 del art. 13.4."
+    },
+    {
+      "question_id": 1421,
+      "accion": "fuera_temario",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Pregunta del Título VIII CE (arts. 137-139), que no está en el temario de CPEI Badajoz: el tema 1 son los arts. 1-55."
+    }
+  ]
+}

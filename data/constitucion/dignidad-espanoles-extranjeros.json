@@ -1,0 +1,515 @@
+{
+  "norma": "BOE-A-1978-31229",
+  "tema": 1,
+  "bloque_temario": "Título I: art. 10 y Capítulo I, de los españoles y los extranjeros (arts. 10-13)",
+  "estado": "borrador",
+  "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+  "niveles": {
+    "1": "fácil: 2 opciones, para aprender",
+    "2": "normal: 3 opciones, formato del examen",
+    "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+  },
+  "conceptos": [
+    {
+      "id": "CE-a10-1-fundamento",
+      "bloque": "a10",
+      "apartado": "1",
+      "orden": 300,
+      "tipo": "lista",
+      "prioridad": 1,
+      "tarjeta": {
+        "pregunta": "¿Qué cinco elementos son fundamento del orden político y de la paz social (art. 10.1 CE)?",
+        "respuesta": "La dignidad de la persona, los derechos inviolables que le son inherentes, el libre desarrollo de la personalidad, el respeto a la ley y el respeto a los derechos de los demás."
+      },
+      "cita": "La dignidad de la persona, los derechos inviolables que le son inherentes, el libre desarrollo de la personalidad, el respeto a la ley y a los derechos de los demás son fundamento del orden político y de la paz social.",
+      "confundible_con": [
+        "CE-a1-1-valores",
+        "CE-a2-unidad"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 10.1 CE, la dignidad de la persona es fundamento…",
+          "opciones": [
+            "del orden político y de la paz social",
+            "del Estado social y democrático de Derecho"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 10.1 CE: la dignidad de la persona y los demás elementos que cita «son fundamento del orden político y de la paz social»."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 10.1 CE, ¿cuál de los siguientes es fundamento del orden político y de la paz social?",
+          "opciones": [
+            "El libre desarrollo de la personalidad.",
+            "La indisoluble unidad de la Nación española.",
+            "El pluralismo político."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 10.1 CE. La unidad de la Nación es el fundamento de la Constitución (art. 2) y el pluralismo político es un valor superior (art. 1.1)."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "¿Cuál de los siguientes NO figura en el art. 10.1 CE como fundamento del orden político y de la paz social?",
+          "opciones": [
+            "La igualdad real y efectiva de los individuos.",
+            "El respeto a la ley y a los derechos de los demás.",
+            "Los derechos inviolables inherentes a la persona."
+          ],
+          "correcta": 0,
+          "explicacion": "La igualdad real y efectiva aparece en el art. 9.2 como tarea de los poderes públicos; el art. 10.1 cita la dignidad, los derechos inviolables, el libre desarrollo de la personalidad, el respeto a la ley y a los derechos de los demás."
+        }
+      ]
+    },
+    {
+      "id": "CE-a10-2-interpretacion",
+      "bloque": "a10",
+      "apartado": "2",
+      "orden": 310,
+      "tipo": "regla",
+      "prioridad": 1,
+      "tarjeta": {
+        "pregunta": "¿Conforme a qué se interpretan las normas sobre derechos fundamentales y libertades (art. 10.2 CE)?",
+        "respuesta": "De conformidad con la Declaración Universal de Derechos Humanos y los tratados y acuerdos internacionales sobre esas materias ratificados por España."
+      },
+      "cita": "se interpretarán de conformidad con la Declaración Universal de Derechos Humanos y los tratados y acuerdos internacionales sobre las mismas materias ratificados por España",
+      "confundible_con": [
+        "CE-a39-4-ninos"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 10.2 CE, las normas sobre derechos fundamentales se interpretan de conformidad, entre otros textos, con…",
+          "opciones": [
+            "la Declaración Universal de Derechos Humanos",
+            "la jurisprudencia del Tribunal Supremo"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 10.2 CE: de conformidad con la Declaración Universal de Derechos Humanos y los tratados y acuerdos internacionales ratificados por España."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 10.2 CE, las normas relativas a los derechos fundamentales y a las libertades se interpretarán de conformidad con:",
+          "opciones": [
+            "La Declaración Universal de Derechos Humanos y los tratados y acuerdos internacionales sobre las mismas materias ratificados por España.",
+            "La Carta de las Naciones Unidas y las resoluciones de la Asamblea General sobre derechos humanos aprobadas con el voto de España.",
+            "El Convenio Europeo de Derechos Humanos, con exclusión de cualquier otro tratado."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 10.2 CE. La Constitución no cita la Carta de la ONU ni nombra el Convenio Europeo: habla de la Declaración Universal y de los tratados ratificados por España."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 10.2 CE, ¿qué tratados internacionales sirven para interpretar las normas sobre derechos fundamentales?",
+          "opciones": [
+            "Los tratados y acuerdos sobre esas materias que hayan sido ratificados por España.",
+            "Todos los tratados sobre derechos humanos, aunque España no los haya ratificado.",
+            "Solo los tratados aprobados por ley orgánica de las Cortes Generales."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 10.2 CE: «tratados y acuerdos internacionales sobre las mismas materias ratificados por España»."
+        }
+      ]
+    },
+    {
+      "id": "CE-a11-1-nacionalidad-ley",
+      "bloque": "a11",
+      "apartado": "1",
+      "orden": 320,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Qué dice el art. 11.1 CE sobre la nacionalidad española?",
+        "respuesta": "Que se adquiere, se conserva y se pierde de acuerdo con lo establecido por la ley."
+      },
+      "cita": "La nacionalidad española se adquiere, se conserva y se pierde de acuerdo con lo establecido por la ley.",
+      "confundible_con": [
+        "CE-a11-2-origen"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 11.1 CE, la nacionalidad española se adquiere, se conserva y se pierde de acuerdo con…",
+          "opciones": [
+            "lo establecido por la ley",
+            "lo que decida el Gobierno"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 11.1 CE: de acuerdo con lo establecido por la ley."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "¿Qué apartado del art. 11 CE remite a la ley la adquisición, la conservación y la pérdida de la nacionalidad española?",
+          "opciones": [
+            "El 1.",
+            "El 2.",
+            "El 3."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 11.1 CE. El 11.2 protege a los españoles de origen frente a la privación de la nacionalidad y el 11.3 trata de la doble nacionalidad."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "¿Qué norma determina, según el art. 11.1 CE, cómo se adquiere, se conserva y se pierde la nacionalidad española?",
+          "opciones": [
+            "La ley.",
+            "Una ley orgánica.",
+            "El Código Civil por mandato expreso de la Constitución."
+          ],
+          "correcta": 0,
+          "explicacion": "El art. 11.1 CE se remite a «la ley», sin exigir ley orgánica ni nombrar el Código Civil."
+        }
+      ]
+    },
+    {
+      "id": "CE-a11-2-origen",
+      "bloque": "a11",
+      "apartado": "2",
+      "orden": 330,
+      "tipo": "regla",
+      "prioridad": 1,
+      "tarjeta": {
+        "pregunta": "¿Puede un español de origen ser privado de su nacionalidad (art. 11.2 CE)?",
+        "respuesta": "No: ningún español de origen podrá ser privado de su nacionalidad."
+      },
+      "cita": "Ningún español de origen podrá ser privado de su nacionalidad.",
+      "confundible_con": [
+        "CE-a11-1-nacionalidad-ley",
+        "CE-a11-3-doble-nacionalidad"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 11.2 CE, ¿puede un español de origen ser privado de su nacionalidad?",
+          "opciones": [
+            "No",
+            "Sí, por sentencia firme"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 11.2 CE: ningún español de origen podrá ser privado de su nacionalidad."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 11.2 CE, ¿quién no podrá ser privado de su nacionalidad?",
+          "opciones": [
+            "Ningún español de origen.",
+            "Ningún español mayor de edad.",
+            "Ningún español residente en España."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 11.2 CE: la garantía protege a los españoles de origen."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "¿Qué afirmación se ajusta al art. 11.2 CE?",
+          "opciones": [
+            "La prohibición de privar de la nacionalidad se refiere a los españoles de origen.",
+            "Ningún español, sea de origen o no, podrá ser privado de su nacionalidad.",
+            "Los españoles de origen solo pueden perder la nacionalidad por resolución judicial firme."
+          ],
+          "correcta": 0,
+          "explicacion": "El art. 11.2 habla solo de los españoles «de origen», y para ellos no admite privación alguna."
+        }
+      ]
+    },
+    {
+      "id": "CE-a11-3-doble-nacionalidad",
+      "bloque": "a11",
+      "apartado": "3",
+      "orden": 340,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Con qué países puede concertar el Estado tratados de doble nacionalidad (art. 11.3 CE)?",
+        "respuesta": "Con los países iberoamericanos o con aquellos que hayan tenido o tengan una particular vinculación con España."
+      },
+      "cita": "El Estado podrá concertar tratados de doble nacionalidad con los países iberoamericanos o con aquellos que hayan tenido o tengan una particular vinculación con España.",
+      "confundible_con": [
+        "CE-a11-2-origen"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 11.3 CE, ¿con qué países, entre otros, podrá el Estado concertar tratados de doble nacionalidad?",
+          "opciones": [
+            "Con los países iberoamericanos",
+            "Con los Estados miembros de la Unión Europea"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 11.3 CE: con los países iberoamericanos o con los que hayan tenido o tengan una particular vinculación con España."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 11.3 CE, en los países iberoamericanos o con particular vinculación con España, los españoles podrán naturalizarse sin perder su nacionalidad de origen:",
+          "opciones": [
+            "Aun cuando esos países no reconozcan a sus ciudadanos un derecho recíproco.",
+            "Solo si esos países reconocen a sus ciudadanos un derecho recíproco.",
+            "Solo si residen en ellos durante al menos diez años."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 11.3 CE: «aun cuando no reconozcan a sus ciudadanos un derecho recíproco»."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 11.3 CE, ¿con qué países puede el Estado concertar tratados de doble nacionalidad?",
+          "opciones": [
+            "Con los iberoamericanos o con los que hayan tenido o tengan una particular vinculación con España.",
+            "Solo con los países iberoamericanos y con aquellos con los que España comparta lengua oficial.",
+            "Con cualquier país, siempre que exista reciprocidad."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 11.3 CE. No exige reciprocidad ni se limita a los países con lengua común: habla de los países iberoamericanos o de los que hayan tenido o tengan una particular vinculación con España."
+        }
+      ]
+    },
+    {
+      "id": "CE-a12-mayoria-edad",
+      "bloque": "a12",
+      "apartado": "",
+      "orden": 350,
+      "tipo": "dato",
+      "prioridad": 1,
+      "tarjeta": {
+        "pregunta": "¿A qué edad son mayores de edad los españoles (art. 12 CE)?",
+        "respuesta": "A los dieciocho años."
+      },
+      "cita": "Los españoles son mayores de edad a los dieciocho años.",
+      "confundible_con": [],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 12 CE, los españoles son mayores de edad a los…",
+          "opciones": [
+            "dieciocho años",
+            "veintiún años"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 12 CE: a los dieciocho años."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "¿Qué artículo de la Constitución fija la mayoría de edad de los españoles?",
+          "opciones": [
+            "El art. 12.",
+            "El art. 11.",
+            "El art. 14."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 12 CE: «Los españoles son mayores de edad a los dieciocho años». El art. 11 trata de la nacionalidad y el 14, de la igualdad."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 12 CE, la mayoría de edad a los dieciocho años:",
+          "opciones": [
+            "La fija directamente la Constitución.",
+            "La fija el Código Civil, al que remite la Constitución.",
+            "Se aplica solo a efectos electorales."
+          ],
+          "correcta": 0,
+          "explicacion": "El art. 12 fija directamente los dieciocho años, sin remitirse a ninguna ley."
+        }
+      ]
+    },
+    {
+      "id": "CE-a13-1-extranjeros-libertades",
+      "bloque": "a13",
+      "apartado": "1",
+      "orden": 360,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿En qué términos gozan los extranjeros en España de las libertades públicas del Título I (art. 13.1 CE)?",
+        "respuesta": "En los términos que establezcan los tratados y la ley."
+      },
+      "cita": "Los extranjeros gozarán en España de las libertades públicas que garantiza el presente Título en los términos que establezcan los tratados y la ley.",
+      "confundible_con": [
+        "CE-a13-2-sufragio-municipal"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 13.1 CE, ¿de qué gozarán los extranjeros en España en los términos que establezcan los tratados y la ley?",
+          "opciones": [
+            "De las libertades públicas que garantiza el Título I",
+            "Del derecho de sufragio en las elecciones generales"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 13.1 CE. El sufragio queda reservado a los españoles (art. 13.2), salvo el municipal por reciprocidad."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 13.1 CE, los extranjeros gozarán en España de las libertades públicas que garantiza el Título I:",
+          "opciones": [
+            "En los términos que establezcan los tratados y la ley.",
+            "En los términos que fije el Gobierno por reglamento.",
+            "En los términos que fije su país de origen, por reciprocidad."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 13.1 CE: en los términos que establezcan los tratados y la ley. La reciprocidad se menciona en el art. 13.2 para el sufragio municipal."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "El art. 13.1 CE reconoce a los extranjeros en España:",
+          "opciones": [
+            "Las libertades públicas que garantiza el Título I.",
+            "Los derechos del art. 23, en igualdad con los españoles.",
+            "Los derechos que les reconozca su país de origen."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 13.1 CE: gozan de las libertades públicas del Título I en los términos de los tratados y la ley. Los derechos del art. 23 son solo de los españoles (art. 13.2), salvo el sufragio municipal por reciprocidad."
+        }
+      ]
+    },
+    {
+      "id": "CE-a13-2-sufragio-municipal",
+      "bloque": "a13",
+      "apartado": "2",
+      "orden": 370,
+      "tipo": "regla",
+      "prioridad": 1,
+      "tarjeta": {
+        "pregunta": "¿Qué derechos son solo de los españoles y qué excepción admite el art. 13.2 CE?",
+        "respuesta": "Los del art. 23; salvo que, atendiendo a criterios de reciprocidad, un tratado o ley establezca el sufragio activo y pasivo de extranjeros en las elecciones municipales."
+      },
+      "cita": "Solamente los españoles serán titulares de los derechos reconocidos en el artículo 23, salvo lo que, atendiendo a criterios de reciprocidad, pueda establecerse por tratado o ley para el derecho de sufragio activo y pasivo en las elecciones municipales.",
+      "confundible_con": [
+        "CE-a23-1-participacion",
+        "CE-a13-1-extranjeros-libertades"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 13.2 CE, los extranjeros pueden tener derecho de sufragio en las elecciones…",
+          "opciones": [
+            "municipales",
+            "generales"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 13.2 CE: la excepción es para el sufragio activo y pasivo en las elecciones municipales, con criterios de reciprocidad."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 13.2 CE, solamente los españoles serán titulares de los derechos reconocidos en el artículo:",
+          "opciones": [
+            "23",
+            "14",
+            "29"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 13.2 CE: derechos del art. 23 (participación en asuntos públicos y acceso a cargos públicos)."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 13.2 CE, para que un extranjero pueda votar y ser elegido en elecciones municipales es necesario:",
+          "opciones": [
+            "Que lo establezca un tratado o una ley, atendiendo a criterios de reciprocidad.",
+            "Que tenga residencia legal en España durante al menos cinco años.",
+            "Que lo autorice una ley orgánica aprobada por mayoría de tres quintos."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 13.2 CE: por tratado o ley, atendiendo a criterios de reciprocidad. La Constitución no fija años de residencia ni mayorías especiales. Este apartado se reformó en 1992 para añadir el sufragio pasivo."
+        }
+      ]
+    },
+    {
+      "id": "CE-a13-3-extradicion",
+      "bloque": "a13",
+      "apartado": "3",
+      "orden": 380,
+      "tipo": "regla",
+      "prioridad": 1,
+      "tarjeta": {
+        "pregunta": "¿Cuándo se concede la extradición y qué delitos quedan excluidos (art. 13.3 CE)?",
+        "respuesta": "Solo en cumplimiento de un tratado o de la ley, atendiendo al principio de reciprocidad; quedan excluidos los delitos políticos, sin que lo sean los actos de terrorismo."
+      },
+      "cita": "Quedan excluidos de la extradición los delitos políticos, no considerándose como tales los actos de terrorismo.",
+      "confundible_con": [
+        "CE-a13-4-asilo"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 13.3 CE, ¿se consideran delitos políticos, a efectos de extradición, los actos de terrorismo?",
+          "opciones": [
+            "No",
+            "Sí"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 13.3 CE: quedan excluidos de la extradición los delitos políticos, «no considerándose como tales los actos de terrorismo»."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 13.3 CE, la extradición sólo se concederá:",
+          "opciones": [
+            "En cumplimiento de un tratado o de la ley, atendiendo al principio de reciprocidad.",
+            "Por acuerdo del Consejo de Ministros, previo informe del Consejo de Estado.",
+            "Cuando lo solicite un Estado miembro de la Unión Europea."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 13.3 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "¿Qué afirmación sobre la extradición se ajusta al art. 13.3 CE?",
+          "opciones": [
+            "Se excluyen los delitos políticos, pero el terrorismo no se considera delito político.",
+            "Se excluyen los delitos políticos, incluidos los actos de terrorismo.",
+            "Se concede siempre que el delito tenga pena de prisión, sin atender a la reciprocidad."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 13.3 CE: se exige tratado o ley y reciprocidad; los delitos políticos se excluyen, pero el terrorismo no se considera tal."
+        }
+      ]
+    },
+    {
+      "id": "CE-a13-4-asilo",
+      "bloque": "a13",
+      "apartado": "4",
+      "orden": 390,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Quién establece en qué términos pueden gozar del derecho de asilo en España los ciudadanos de otros países y los apátridas (art. 13.4 CE)?",
+        "respuesta": "La ley."
+      },
+      "cita": "La ley establecerá los términos en que los ciudadanos de otros países y los apátridas podrán gozar del derecho de asilo en España.",
+      "confundible_con": [
+        "CE-a13-3-extradicion"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "¿Qué apartado del art. 13 CE regula el derecho de asilo?",
+          "opciones": [
+            "El 4",
+            "El 3"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 13.4 CE. El 13.3 regula la extradición."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 13.4 CE, los términos en que los ciudadanos de otros países y los apátridas podrán gozar del derecho de asilo en España los establecerá:",
+          "opciones": [
+            "La ley.",
+            "Un tratado internacional.",
+            "El Gobierno por real decreto."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 13.4 CE: «La ley establecerá los términos…»."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "El derecho de asilo del art. 13.4 CE se refiere a:",
+          "opciones": [
+            "Los ciudadanos de otros países y los apátridas.",
+            "Únicamente los perseguidos por delitos políticos.",
+            "Los extranjeros con residencia legal en España."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 13.4 CE: «los ciudadanos de otros países y los apátridas». No limita el asilo a perseguidos por delitos políticos ni a residentes."
+        }
+      ]
+    }
+  ]
+}
