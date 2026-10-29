@@ -61,17 +61,33 @@ BEGIN
     END IF;
   END LOOP;
 
-  -- Conceptos: valores anteriores escritos aquí.
-  UPDATE public.concepts SET estado = 'publicado'
-   WHERE id IN ('T35-D98-023', 'T35-D98-095', 'T35-D98-100') AND estado = 'borrador';
-
-  UPDATE public.concepts SET
-    respuesta = 'EX (por ejemplo, EX-100, EX-209, EX-300).',
-    cita = 'EX-100 | DE CÁCERES A BADAJOZ | BÁSICA; EX-209 | DE BADAJOZ A MÉRIDA POR MONTIJO | INTERCOMARCAL'
-   WHERE id = 'T35-D98-014' AND respuesta = 'EX (por ejemplo, EX-103, EX-209, EX-300).';
-
-  UPDATE public.concepts SET
-    pregunta = 'En el catálogo autonómico, ¿a qué categoría pertenecen las carreteras numeradas EX-1xx (EX-100 a EX-119)?',
-    cita = 'EX-100 ... BÁSICA ... EX-119 ... BÁSICA'
-   WHERE id = 'T35-D98-017' AND cita = 'EX-101 ... BÁSICA ... EX-119 ... BÁSICA';
+  -- Conceptos: solo los que la 43 cambió de verdad (registro en qa_concept_changes, aplicación sin
+  -- marcha atrás posterior) y que siguen tal como los dejó.
+  FOR r IN
+    SELECT c.concept_id,
+      max(c.valor_anterior) FILTER (WHERE c.campo = 'estado') AS estado,
+      max(c.valor_anterior) FILTER (WHERE c.campo = 'respuesta') AS respuesta,
+      max(c.valor_anterior) FILTER (WHERE c.campo = 'pregunta') AS pregunta,
+      max(c.valor_anterior) FILTER (WHERE c.campo = 'cita') AS cita
+    FROM public.qa_concept_changes c
+    WHERE c.motivo LIKE 'AUDIT-200-F1-43:%'
+      AND c.id > coalesce((SELECT max(rb.id) FROM public.qa_concept_changes rb
+                            WHERE rb.concept_id = c.concept_id AND rb.motivo = 'ROLLBACK-AUDIT-200-F1-43'), 0)
+    GROUP BY c.concept_id
+  LOOP
+    UPDATE public.concepts k SET
+      estado = coalesce(r.estado, k.estado),
+      respuesta = coalesce(r.respuesta, k.respuesta),
+      pregunta = coalesce(r.pregunta, k.pregunta),
+      cita = coalesce(r.cita, k.cita)
+     WHERE k.id = r.concept_id
+       AND ((r.estado IS NOT NULL AND k.estado = 'borrador')
+         OR (k.id = 'T35-D98-014' AND k.respuesta = 'EX (por ejemplo, EX-103, EX-209, EX-300).')
+         OR (k.id = 'T35-D98-017' AND k.cita = 'EX-101 ... BÁSICA ... EX-119 ... BÁSICA'));
+    GET DIAGNOSTICS v_n = ROW_COUNT;
+    IF v_n > 0 THEN
+      INSERT INTO public.qa_concept_changes(concept_id, campo, valor_anterior, motivo)
+        VALUES (r.concept_id, 'texto', 'version de la migracion 43', 'ROLLBACK-AUDIT-200-F1-43');
+    END IF;
+  END LOOP;
 END $f1d$;

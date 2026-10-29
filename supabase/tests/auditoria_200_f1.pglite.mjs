@@ -120,4 +120,33 @@ assert.equal((await q1(db, 'select estado from questions where id=10731')).estad
 assert.equal(await n(db, "select count(*)::int n from questions where estado='borrador'"), 17);
 await db.close();
 
-console.log('PASS migración 43: 18 retiradas, 3 corregidas con registro, idempotente, marcha atrás segura y guardias');
+// 6) Ciclo aplicar → deshacer → aplicar: la segunda aplicación vuelve a retirar y corregir.
+db = await nuevaBase();
+const up6 = await upPara(db);
+await db.exec(up6);
+await db.exec(DOWN);
+assert.equal(await n(db, "select count(*)::int n from questions where estado='borrador'"), 0);
+await db.exec(up6);
+assert.equal(await n(db, "select count(*)::int n from questions where estado='borrador'"), 18);
+assert.equal((await q1(db, 'select correcta from questions where id=5349')).correcta, 'b');
+assert.equal(await n(db, "select count(*)::int n from concepts where estado='borrador'"), 3);
+assert.match((await q1(db, "select respuesta from concepts where id='T35-D98-014'")).respuesta, /EX-103/);
+// Y se puede volver a deshacer.
+await db.exec(DOWN);
+assert.equal(await n(db, "select count(*)::int n from questions where estado='borrador'"), 0);
+assert.equal((await q1(db, 'select enunciado from questions where id=5349')).enunciado, 'enunciado 5349');
+await db.close();
+
+// 7) Un concepto que ya estaba en borrador antes de la 43 sigue en borrador tras la marcha atrás,
+//    y los cambios de conceptos quedan registrados.
+db = await nuevaBase();
+await db.query("update concepts set estado='borrador' where id='T35-D98-095'");
+await db.exec(await upPara(db));
+assert.equal(await n(db, "select count(*)::int n from qa_concept_changes where campo='estado'"), 2);
+assert.equal(await n(db, "select count(*)::int n from qa_concept_changes where concept_id in ('T35-D98-014','T35-D98-017')"), 4);
+await db.exec(DOWN);
+assert.equal((await q1(db, "select estado from concepts where id='T35-D98-095'")).estado, 'borrador');
+assert.equal((await q1(db, "select estado from concepts where id='T35-D98-023'")).estado, 'publicado');
+await db.close();
+
+console.log('PASS migración 43: 18 retiradas, 3 corregidas con registro, idempotente, marcha atrás segura, ciclo aplicar-deshacer-aplicar, conceptos registrados y guardias');
