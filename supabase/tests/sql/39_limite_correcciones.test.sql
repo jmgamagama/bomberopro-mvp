@@ -1,11 +1,11 @@
--- Test de la migración 35 (límite de correcciones) en el Postgres local de la auditoría:
---   psql -h localhost -p 55432 -U postgres -d bomberopro_audit -v ON_ERROR_STOP=1 -f supabase/tests/sql/35_limite_correcciones.test.sql
--- Todo en BEGIN … ROLLBACK. Aplica la 34 (requisito) y la 35 dos veces.
+-- Test de la migración 39 (límite de correcciones) en el Postgres local de la auditoría:
+--   psql -h localhost -p 55432 -U postgres -d bomberopro_audit -v ON_ERROR_STOP=1 -f supabase/tests/sql/39_limite_correcciones.test.sql
+-- Todo en BEGIN … ROLLBACK. Aplica la 38 (requisito) y la 39 dos veces.
 \set ON_ERROR_STOP 1
 BEGIN;
-\ir ../../migrations/34_correccion_servidor_y_fichas_pro.sql
-\ir ../../migrations/35_limite_correcciones.sql
-\ir ../../migrations/35_limite_correcciones.sql
+\ir ../../migrations/38_correccion_servidor_y_fichas_pro.sql
+\ir ../../migrations/39_limite_correcciones.sql
+\ir ../../migrations/39_limite_correcciones.sql
 INSERT INTO public.topics (id, convocatoria_id, numero, nombre) VALUES (9101, 1, 1, 'T prueba');
 INSERT INTO public.questions (id, topic_id, enunciado, opciones, correcta, explicacion, estado, nivel)
 SELECT 910000 + g, 9101, 'P' || g, '[{"letra":"a","texto":"Sí"},{"letra":"b","texto":"No"}]', 'a', 'E', 'publicada', 1
@@ -75,12 +75,12 @@ DO $$ BEGIN
     RAISE EXCEPTION 'el rechazo contó correcciones'; END IF;
 END $$;
 
-\ir ../../migrations/35_limite_correcciones_down.sql
+\ir ../../migrations/39_limite_correcciones_down.sql
 DO $$ BEGIN
   IF to_regclass('public.answer_check_log') IS NOT NULL OR to_regprocedure('public._consume_answer_checks(bigint[])') IS NOT NULL THEN
     RAISE EXCEPTION 'el down no limpió'; END IF;
   IF NOT has_function_privilege('authenticated', 'public.check_answer(bigint,text)', 'EXECUTE') THEN RAISE EXCEPTION 'down quitó check_answer'; END IF;
 END $$;
-\ir ../../migrations/35_limite_correcciones.sql
-SELECT 'OK 35_limite_correcciones' AS resultado;
+\ir ../../migrations/39_limite_correcciones.sql
+SELECT 'OK 39_limite_correcciones' AS resultado;
 ROLLBACK;

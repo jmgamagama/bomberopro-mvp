@@ -258,10 +258,10 @@ export default function App() {
     setAccountErrors({ status: 'loading' });
     try {
       if (!supabase) throw new Error('backend_not_configured');
-      const res = await supabase.rpc('get_error_session', { p_limit: 50 });
-      if (res.error) throw res.error;
+      // Migración 45: llegan SIN clave; TrainScreen corrige con check_answer.
+      const questions = await fetchKeyless(supabase, 'get_error_session_v2', { p_limit: 50 });
       if (request !== accountErrorsRequest.current || owner !== authUserId.current) return;
-      setAccountErrors({ status: 'ready', questions: (res.data ?? []) as Question[] });
+      setAccountErrors({ status: 'ready', questions });
     } catch (err) {
       if (request !== accountErrorsRequest.current || owner !== authUserId.current) return;
       console.error('No se pudieron cargar los errores:', err);

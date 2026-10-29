@@ -1,5 +1,5 @@
 /**
- * Preguntas sin clave y corrección en el servidor (auditoría 2026-10-26, C2 paso 2; migración 34).
+ * Preguntas sin clave y corrección en el servidor (auditoría 2026-10-26, C2 paso 2; migración 38).
  *
  * - Con cuenta: las preguntas llegan SIN `correct_answer` ni `explanation` y se corrigen con
  *   `check_answer` (una) o `grade_exam` (simulacro). La clave solo llega después de responder.
@@ -37,7 +37,7 @@ export function gradeLocally(q: Question, answer: string): AnswerCheck {
   };
 }
 
-export async function fetchKeyless(client: RpcClient, fn: 'get_exam_questions_v2' | 'get_study_session_v2' | 'get_topic_questions_v2', args: Record<string, unknown>): Promise<Question[]> {
+export async function fetchKeyless(client: RpcClient, fn: 'get_exam_questions_v2' | 'get_study_session_v2' | 'get_topic_questions_v2' | 'get_error_session_v2', args: Record<string, unknown>): Promise<Question[]> {
   const { data, error } = await client.rpc(fn, args);
   if (error) throw error;
   return ((data ?? []) as any[]).map(toKeylessQuestion);
@@ -82,7 +82,7 @@ export function withRevealedKey(q: Question, check: AnswerCheck): Question {
   return { ...q, correct_answer: check.correctAnswer ?? '', explanation: check.explanation ?? '' };
 }
 
-/** Límites de corrección del servidor (migración 35). Deben coincidir con _answer_check_limits(). */
+/** Límites de corrección del servidor (migración 39). Deben coincidir con _answer_check_limits(). */
 export const ANSWER_CHECK_LIMITS = { perHour: 300, perDay: 1500, freeDistinctPerDay: 150 } as const;
 
 /** ¿Es un rechazo por límite de correcciones (SQLSTATE P0429)? */

@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-// Migración 35: al superar el límite de correcciones, cada pantalla muestra un aviso y no corrige.
+// Migración 39: al superar el límite de correcciones, cada pantalla muestra un aviso y no corrige.
 import { fireEvent, render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import '../test/setup';
@@ -9,7 +9,7 @@ vi.mock('../lib/supabase', () => ({ supabase: { rpc, from } }));
 vi.mock('../lib/saveAttemptToServer', () => ({ saveAttemptToServer: vi.fn(), toLevelInt: () => 1, newAttemptKey: () => 'k' }));
 vi.mock('./StudentConsultationModal', () => ({ default: () => null }));
 vi.mock('./ReportQuestionButton', () => ({ default: () => null }));
-vi.mock('../utils/shuffleOptions', () => ({ shuffleAllOptions: (q: unknown) => q }));
+vi.mock('../utils/shuffleOptions', async (importOriginal) => ({ ...(await importOriginal<typeof import('../utils/shuffleOptions')>()), shuffleAllOptions: (q: unknown) => q }));
 
 import StudyByTopic from './StudyByTopic';
 import TrainScreen from './TrainScreen';

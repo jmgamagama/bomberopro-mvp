@@ -1,4 +1,4 @@
--- 34_correccion_servidor_y_fichas_pro.sql
+-- 38_correccion_servidor_y_fichas_pro.sql
 --
 -- Auditoría 2026-10-26, paso 2 de C2 y de C1. Idempotente: se puede aplicar varias veces.
 --
@@ -24,7 +24,7 @@
 --     de suscripciones en las migraciones. Si no hay fila o el plan no es 'pro' → error plan_required.
 --   - Esta migración NO carga fichas: la carga es un paso aparte (pendiente).
 --
--- Cómo se deshace: 34_correccion_servidor_y_fichas_pro_down.sql
+-- Cómo se deshace: 38_correccion_servidor_y_fichas_pro_down.sql
 
 -- C2 ─────────────────────────────────────────────────────────────────────────────────────────
 
