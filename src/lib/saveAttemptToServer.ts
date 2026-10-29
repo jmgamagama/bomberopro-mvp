@@ -1,4 +1,5 @@
 import { supabase } from './supabase';
+import {secureAssessmentsEnabled} from './secureAssessment';
 import {
   bumpTries,
   countAllPending,
@@ -20,7 +21,7 @@ export const SAVE_STATE_EVENT = 'bomberopro:save-state';
  * error    → red, servidor o respuesta sin confirmar. Se conserva y se reintenta.
  * rejected → el servidor la rechaza de forma definitiva (pregunta inexistente, argumentos inválidos). No se reenvía.
  */
-export type SaveFailureReason = 'session' | 'error' | 'rejected';
+export type SaveFailureReason = 'session' | 'error' | 'rejected' | 'contract';
 
 export interface SaveAttemptParams {
   /** Clave de idempotencia: una por respuesta, estable en todos los reintentos. */
@@ -122,6 +123,8 @@ export function normalizeParams(params: SaveAttemptParams): SaveAttemptParams {
 /** Envía UNA respuesta. Solo devuelve "confirmed" si el servidor responde expresamente saved/duplicate. */
 async function sendOne(entry: PendingAttempt): Promise<SendOutcome> {
   if (!supabase) return { kind: 'failed', reason: 'error', code: 'no_backend' };
+  // Preserve old evidence as rejected; never reinterpret a text-only legacy attempt as an issued v3 item.
+
   try {
     const res = (await supabase.rpc('record_attempt_v2', normalizeParams(entry.params))) as {
       data: unknown;
@@ -161,6 +164,8 @@ let chain: Promise<unknown> = Promise.resolve();
 
 async function runFlush(): Promise<FlushResult> {
   if (!supabase || countAllPending() === 0) return { sent: 0, pending: 0 };
+  // Pause the entire legacy queue without moving/removing any entries (including >50 and quota failures).
+  if(secureAssessmentsEnabled()){const pending=countAllPending();emitFailure('contract',pending);return {sent:0,pending,failure:'contract'};}
 
   const { userId, network } = await currentUserId();
   if (!userId) {

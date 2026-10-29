@@ -5,11 +5,14 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { Brain, Sparkles, ChevronRight, CheckCircle2, XCircle, AlertTriangle, HelpCircle, RefreshCw, ArrowLeft, Clock } from 'lucide-react';
+import {AssessmentError} from '../lib/secureAssessment';
 import { Question, ConfidenceLevel, MemoryState, Microconcept } from '../types';
 import { countAnswerChange } from '../utils/attempt';
 import { optionLetter } from '../utils/shuffleOptions';
 import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
+
+type TrainingFeedback = {feedbackTitle:string;feedbackMessage:string;feedbackType:'correct_strong'|'correct_insecure'|'incorrect_normal'|'incorrect_false_domain';updatedState:MemoryState;correct_answer?:string;explanation?:string|null};
 
 interface TrainScreenProps {
   question: Question | null;
@@ -25,12 +28,7 @@ interface TrainScreenProps {
     confidence: ConfidenceLevel,
     responseTime: number,
     answerChanges: number
-  ) => {
-    feedbackTitle: string;
-    feedbackMessage: string;
-    feedbackType: 'correct_strong' | 'correct_insecure' | 'incorrect_normal' | 'incorrect_false_domain';
-    updatedState: MemoryState;
-  };
+  ) => TrainingFeedback | Promise<TrainingFeedback>;
   onNextQuestion: () => void;
   onNavigateHome: () => void;
   /** Salta la pregunta actual sin contarla (tras reportarla). */
@@ -58,6 +56,11 @@ export default function TrainScreen({
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
   const [answerChanges, setAnswerChanges] = useState(0);
   const feedbackRef = useRef<HTMLDivElement>(null);
+  const questionRef = useRef(question?.id); questionRef.current=question?.id;
+  const [submitting,setSubmitting]=useState(false);
+  const [submissionError,setSubmissionError]=useState<string|null>(null);
+  const [mustRestart,setMustRestart]=useState(false);
+  const submitted=useRef<{answer:string;confidence:ConfidenceLevel;seconds:number;changes:number}|null>(null);
 
   // Feedback states
   const [feedback, setFeedback] = useState<{
@@ -65,11 +68,13 @@ export default function TrainScreen({
     message: string;
     type: 'correct_strong' | 'correct_insecure' | 'incorrect_normal' | 'incorrect_false_domain';
     updatedState: MemoryState | null;
+    correct_answer?: string; explanation?: string | null;
   } | null>(null);
 
   // Start timer on question load
   useEffect(() => {
     setStartTime(Date.now());
+    setSubmitting(false);setSubmissionError(null);setMustRestart(false);submitted.current=null;
     setSelectedConfidence(null);
     setSelectedAnswer(null);
     setIsAnswered(false);
@@ -137,29 +142,22 @@ export default function TrainScreen({
 
   // Auditoría UX móvil (11-oct-2026): responder costaba 3 toques (opción, confianza, confirmar) y
   // «Confirmar» quedaba fuera de la pantalla. Ahora tocar el nivel de seguridad corrige la respuesta.
-  const handleSubmit = (confidenceChoice: ConfidenceLevel | null = selectedConfidence) => {
-    if (!selectedAnswer || !confidenceChoice || isAnswered) return;
-    setSelectedConfidence(confidenceChoice);
-
-    const elapsed = Math.round((Date.now() - startTime) / 1000);
-    setTimeTaken(elapsed);
-    setIsAnswered(true);
-
-    const result = onAnswer(
-      question.id,
-      question.microconcept_id,
-      selectedAnswer,
-      confidenceChoice,
-      elapsed,
-      answerChanges
-    );
-
-    setFeedback({
-      title: result.feedbackTitle,
-      message: result.feedbackMessage,
-      type: result.feedbackType,
-      updatedState: result.updatedState
-    });
+  const handleSubmit = async (confidenceChoice: ConfidenceLevel | null = selectedConfidence) => {
+    if (!selectedAnswer || !confidenceChoice || isAnswered || submitting) return;
+    const input=submitted.current ?? {answer:selectedAnswer,confidence:confidenceChoice,seconds:Math.round((Date.now()-startTime)/1000),changes:answerChanges};
+    submitted.current=input;
+    const qid=question.id;
+    setSelectedConfidence(input.confidence);setTimeTaken(input.seconds);setSubmitting(true);setSubmissionError(null);
+    try {
+      const output=onAnswer(qid,question.microconcept_id,input.answer,input.confidence,input.seconds,input.changes);
+      const result=output instanceof Promise ? await output : output;
+      if(questionRef.current!==qid)return;
+      setIsAnswered(true);
+      setFeedback({title:result.feedbackTitle,message:result.feedbackMessage,type:result.feedbackType,updatedState:result.updatedState,
+        correct_answer:result.correct_answer,explanation:result.explanation});
+    } catch(error) {
+      if(questionRef.current===qid){setMustRestart(error instanceof AssessmentError && error.action!=='retry');setSubmissionError(error instanceof Error?error.message:'No se ha podido confirmar la respuesta.');}
+    } finally {if(questionRef.current===qid)setSubmitting(false);}
   };
 
   // UI state colors
@@ -202,6 +200,8 @@ export default function TrainScreen({
 
   return (
     <div className="space-y-4 sm:space-y-6" id="train-container">
+      {submitting && <p role="status">Comprobando respuesta…</p>}
+      {submissionError && <div role="alert">{submissionError}<button type="button" onClick={()=>mustRestart?onNavigateHome():void handleSubmit(submitted.current?.confidence)}>{mustRestart?'Volver al inicio':'Reintentar corrección'}</button></div>}
       {/* En el móvil todo cabe en una fila para que la pregunta y sus opciones se vean sin bajar. */}
       <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3" id="train-header-row">
         <button
@@ -266,7 +266,7 @@ export default function TrainScreen({
             <div className="space-y-2.5">
               {question.options?.map((option, idx) => {
                 const isSelected = selectedAnswer === option;
-                const isCorrect = option === question.correct_answer;
+                const isCorrect = option === (feedback?.correct_answer ?? question.correct_answer);
 
                 // Bordes ≥3:1 con el fondo (slate-500 = 4,8:1); el estado no depende solo del color.
                 let optionStyle = 'border-slate-500 bg-white hover:bg-slate-50 text-slate-800';
@@ -286,7 +286,7 @@ export default function TrainScreen({
                   <button
                     key={idx}
                     id={`train-option-${idx}`}
-                    disabled={isAnswered}
+                    disabled={isAnswered || submitting || !!submitted.current}
                     aria-pressed={isSelected}
                     onClick={() => {
                       setAnswerChanges(current => current + countAnswerChange(selectedAnswer, option));
@@ -329,7 +329,7 @@ export default function TrainScreen({
                       key={level}
                       type="button"
                       id={`conf-btn-${level}`}
-                      disabled={!selectedAnswer}
+                      disabled={!selectedAnswer || submitting || !!submitted.current}
                       onClick={() => handleSubmit(level)}
                       className="min-h-14 px-1 py-2 rounded-xl border border-slate-500 bg-white text-slate-800 hover:bg-slate-50 transition flex flex-col items-center justify-center gap-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
@@ -364,7 +364,7 @@ export default function TrainScreen({
 
               <div className="p-3 bg-white/70 rounded-xl border border-white text-base text-slate-800 space-y-1">
                 <p className="font-semibold text-slate-800">Soporte y justificación legal:</p>
-                <p>{question.explanation}</p>
+                <p>{feedback?.explanation ?? question.explanation}</p>
               </div>
               <button
                 type="button"

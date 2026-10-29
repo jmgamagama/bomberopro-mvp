@@ -18,7 +18,8 @@ afterEach(() => vi.unstubAllEnvs());
 async function openDaily(user: ReturnType<typeof userEvent.setup>) {
   await screen.findByRole('button', { name: /Por Temas/ }, { timeout: 8000 });
   await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-sesion-diaria')!);
-  await waitFor(() => expect(document.querySelector('#daily-session-mix')).not.toBeNull(), { timeout: 8000 });
+  // The daily-session chunk imports large decks lazily; do not confuse compilation latency with a missing screen.
+  await waitFor(() => expect(document.querySelector('#daily-session-mix')).not.toBeNull(), { timeout: 10_000 });
 }
 
 describe('autoevaluación y repaso espaciado', () => {
@@ -52,7 +53,7 @@ describe('autoevaluación y repaso espaciado', () => {
     render(<App />);
     await screen.findByRole('button', { name: /Por Temas/ });
     await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-recuerdo')!);
-    const tablist = await screen.findByRole('tablist', { name: 'Temas de recuerdo' });
+    const tablist = await screen.findByRole('tablist', { name: 'Temas de recuerdo' }, { timeout: 10_000 });
     await user.click(within(tablist).getByRole('tab', { name: /T40/ }));
     await screen.findByText(/Ficha 1 de 213/);
     expect(document.querySelector('#recall-card-status')).toHaveTextContent('Nueva');

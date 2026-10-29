@@ -20,7 +20,7 @@ const PREFIXES = ['mira_', 'bomberopro:'];
 const DEMO_KEYS = ['mira_demo_attempts_v2', 'mira_demo_memory_states_v2'];
 const CONCEPT_QUEUE_KEY = 'bomberopro:concept-events:v1';
 /** Se exportan pero no se borran (respuestas que el servidor aún no ha confirmado). */
-const KEEP_ON_DELETE = ['bomberopro:pending-attempts:'];
+const KEEP_ON_DELETE = ['bomberopro:pending-attempts:', 'bomberopro:assessment-pending:'];
 
 function storage(): Storage | null {
   try {
@@ -47,7 +47,7 @@ export function ownedLocalKeys(): string[] {
   return allKeys(s).filter(
     (k) =>
       PREFIXES.some((p) => k.startsWith(p)) &&
-      (k.endsWith(`:${owner}`) || (owner === DEMO_OWNER && DEMO_KEYS.includes(k))),
+      (k.endsWith(`:${owner}`) || k.startsWith(`bomberopro:assessment-pending:v1:${owner}:`) || (owner === DEMO_OWNER && DEMO_KEYS.includes(k))),
   );
 }
 

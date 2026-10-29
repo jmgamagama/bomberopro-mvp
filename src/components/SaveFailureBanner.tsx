@@ -5,9 +5,11 @@ import {
   flushPendingAttempts,
   type SaveFailureReason,
 } from '../lib/saveAttemptToServer';
+import {secureAssessmentsEnabled} from '../lib/secureAssessment';
 import { countAllPending } from '../lib/attemptOutbox';
 
 const MESSAGES: Record<SaveFailureReason, string> = {
+  contract: 'Hay respuestas del formato anterior conservadas en este dispositivo para revisión. No se borrarán ni se convertirán en respuestas del sistema nuevo.',
   session:
     'Tu sesión ha caducado y tu última respuesta no se ha guardado en tu cuenta. Inicia sesión de nuevo con la misma cuenta: las respuestas pendientes se conservan en este dispositivo y se enviarán solas.',
   error:
@@ -25,7 +27,7 @@ interface Props {
 export default function SaveFailureBanner({ showIfPending = false }: Props) {
   // `rejected` es una pérdida definitiva: solo la retira el usuario. session/error se retiran
   // cuando el servidor confirma que ya no queda NADA pendiente (de ninguna cuenta).
-  const [transient, setTransient] = useState<'session' | 'error' | null>(null);
+  const [transient, setTransient] = useState<'session' | 'error' | 'contract' | null>(null);
   const [rejected, setRejected] = useState(false);
   const [pending, setPending] = useState(0);
   const [retrying, setRetrying] = useState(false);
@@ -34,14 +36,14 @@ export default function SaveFailureBanner({ showIfPending = false }: Props) {
     if (showIfPending) {
       const n = countAllPending();
       if (n > 0) {
-        setTransient('session');
+        setTransient(secureAssessmentsEnabled()?'contract':'session');
         setPending(n);
       }
     }
     const onFail = (e: Event) => {
       const detail = (e as CustomEvent<{ reason?: SaveFailureReason; pending?: number }>).detail;
       if (detail?.reason === 'rejected') setRejected(true);
-      else setTransient(detail?.reason === 'session' ? 'session' : 'error');
+      else setTransient(detail?.reason==='contract'?'contract':detail?.reason === 'session' ? 'session' : 'error');
       setPending(typeof detail?.pending === 'number' ? detail.pending : 0);
     };
     const onState = (e: Event) => {
