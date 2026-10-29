@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect, useLayoutEffect, useRef, lazy, Suspense } from 'react';
-import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles, ClipboardList, Menu } from 'lucide-react';
+import { Brain, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles, ClipboardList, Menu } from 'lucide-react';
 import { trackFunnel } from './lib/funnel';
 import { getVisibleSupuestos } from './data/supuestos/supuestosRegistry';
 import { SUPUESTOS_PRIVADOS_EVENT, contarSupuestosPrivados } from './data/supuestos/supuestosPrivados';
@@ -48,7 +48,7 @@ import ConceptStudy from './components/ConceptStudy';
 import MaterialConstitucion from './components/MaterialConstitucion';
 import SaveFailureBanner from './components/SaveFailureBanner';
 import { hasCompletedOnboarding } from './utils/onboarding';
-import { isPlanesEnabled } from './config/features';
+import { isPlanesEnabled, textoAlta } from './config/features';
 import SaveStatus from './components/SaveStatus';
 import { useRemoteConceptProgress } from './lib/useRemoteConceptProgress';
 import { useAttemptSync } from './lib/useAttemptSync';
@@ -629,10 +629,13 @@ export default function App() {
     if (!session) trackFunnel('demo_start');
     setIsDemoMode(true);
     setDbQuestions(INITIAL_QUESTIONS);
-    setCurrentScreen(hasCompletedOnboarding() ? 'dashboard' : 'onboarding');
+    // La entrada promete «Prueba 15 preguntas»: la demo abre directamente esas preguntas.
+    setDailyAutoStart(false);
+    setCurrentScreen('train');
+    void startTrainingSession(null, INITIAL_QUESTIONS);
   };
 
-  // Pantalla de acceso con la que se vuelve de la demo: «crear» si el alumno pulsa «Crear cuenta gratis».
+  // Pantalla de acceso con la que se vuelve de la demo: «crear» si el alumno pulsa el botón de alta (textoAlta()).
   const [loginMode, setLoginMode] = useState<'entrar' | 'crear'>('entrar');
   // Vuelta desde un enlace del correo (cuenta activada, invitación, contraseña o enlace caducado).
   // «Entrar con enlace» no necesita pantalla: el alumno pasa directo a la app.
@@ -749,13 +752,14 @@ export default function App() {
           aria-label="Aviso de modo demostración"
           className="bg-amber-400 text-slate-950 px-3 sm:px-4 py-1.5 text-sm font-semibold shadow-xs"
         >
-          <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
-            <div className="flex items-center gap-2 text-left">
+          {/* En el móvil cabe en una sola fila: cada píxel de alto deja ver antes la pregunta. */}
+          <div className="max-w-6xl mx-auto flex items-center justify-between gap-2">
+            <div className="flex min-w-0 items-center gap-2 text-left">
               <span className="hidden sm:block w-2 h-2 rounded-full bg-amber-900 animate-pulse shrink-0" aria-hidden="true" />
-              <span>
+              <span className="text-xs leading-tight sm:text-sm">
                 <strong><span className="sm:hidden">Demo</span><span className="hidden sm:inline">Modo demostración</span></strong>
-                <span className="sm:hidden">: las fichas guardan el repaso aquí.</span>
-                <span className="hidden sm:inline">: el repaso de fichas se guarda solo en este dispositivo. El test de muestra no guarda intentos.</span>
+                <span className="sm:hidden">: no se guarda</span>
+                <span className="hidden sm:inline">: lo que hagas no se guarda en ninguna cuenta; el repaso de fichas queda solo en este dispositivo.</span>
               </span>
             </div>
             <div className="flex items-center gap-2 shrink-0">
@@ -766,16 +770,18 @@ export default function App() {
                   onClick={handleDemoSignup}
                   className="min-h-11 px-3 py-1 bg-indigo-700 hover:bg-indigo-800 text-white rounded-lg text-sm font-bold transition cursor-pointer"
                 >
-                  Crear cuenta gratis
+                  {textoAlta()}
                 </button>
               )}
               <button
                 type="button"
                 id="btn-exit-demo"
                 onClick={handleExitDemo}
+                aria-label="Salir de la demo"
                 className="min-h-11 px-2.5 py-1 bg-slate-950 hover:bg-slate-800 text-white rounded-lg text-sm font-bold transition cursor-pointer"
               >
-                Salir de la demo
+                <span className="sm:hidden">Salir</span>
+                <span className="hidden sm:inline">Salir de la demo</span>
               </button>
             </div>
           </div>
@@ -802,8 +808,8 @@ export default function App() {
             onClick={() => handleNavigate('dashboard')}
             id="brand-logo"
           >
-            <div className="p-2 bg-indigo-600 text-white rounded-xl shadow-md shadow-indigo-100">
-              <GraduationCap className="w-5 h-5" aria-hidden="true" />
+            <div className="p-2 bg-orange-600 text-white rounded-xl shadow-md shadow-orange-100">
+              <Flame className="w-5 h-5" aria-hidden="true" />
             </div>
             <div>
               <span className="text-base font-black tracking-tight text-slate-950">
@@ -945,6 +951,8 @@ export default function App() {
                 Repasar ({pendingCount})
               </button>
             )}
+            {/* En la demo ya está «Salir» en la franja amarilla: no lo repetimos aquí. */}
+            {!isDemoMode && (
             <button
               onClick={handleLogout}
               aria-label="Cerrar sesión"
@@ -954,6 +962,7 @@ export default function App() {
               <LogOut className="w-4 h-4" aria-hidden="true" />
               <span>Salir</span>
             </button>
+            )}
           </div>
         </div>
       </header>
@@ -962,7 +971,7 @@ export default function App() {
       <main
         id="main-content"
         tabIndex={-1}
-        className="flex-1 max-w-6xl w-full mx-auto px-4 pt-8 pb-24 md:py-8"
+        className="flex-1 max-w-6xl w-full mx-auto px-4 pt-4 pb-24 md:py-8"
       >
         {currentScreen === 'dashboard' && (
           <>
@@ -1129,7 +1138,13 @@ export default function App() {
         <Suspense fallback={<p role="status" className="p-6 text-sm text-slate-500">Cargando fichas…</p>}>
           {currentScreen === 'onboarding' && (
             <Onboarding
+              cuenta={Boolean(conceptOwner)}
               onStart={() => {
+                // Con cuenta: Tema 1 piloto (revisado, guardado en la cuenta). Sin cuenta: sesión de fichas.
+                if (conceptOwner) {
+                  handleNavigate('constitucion');
+                  return;
+                }
                 handleNavigate('sesion_diaria');
                 setDailyAutoStart(true);
               }}
@@ -1142,11 +1157,12 @@ export default function App() {
           )}
 
           {currentScreen === 'recuerdo' && (
-            <RecallHub onNavigateHome={() => handleNavigate('dashboard')} onOpenPlanes={openPlanes} />
+            <RecallHub demo={isDemoMode || !session} onNavigateHome={() => handleNavigate('dashboard')} onOpenPlanes={openPlanes} />
           )}
 
           {currentScreen === 'sesion_diaria' && (
             <DailySession
+              demo={isDemoMode || !session}
               autoStart={dailyAutoStart}
               onOpenPlanes={openPlanes}
               onNavigateHome={() => handleNavigate('dashboard')}

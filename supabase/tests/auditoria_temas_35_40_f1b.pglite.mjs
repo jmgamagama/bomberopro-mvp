@@ -1,4 +1,4 @@
-// Prueba de la migración 44 (fase 1 ampliada: duplicadas y hallazgos medios de la auditoría 35-40).
+// Prueba de la migración 45 (fase 1 ampliada: duplicadas y hallazgos medios de la auditoría 35-40).
 // Uso: NODE_PATH=<ruta con @electric-sql/pglite> node supabase/tests/auditoria_temas_35_40_f1b.pglite.mjs
 // Las preguntas son ficticias: el test sustituye en la migración el md5 auditado de cada una por el
 // de su fila ficticia, así comprueba la lógica sin copiar el banco real.
@@ -8,8 +8,8 @@ import { strict as assert } from 'node:assert';
 
 const { PGlite } = createRequire(import.meta.url)('@electric-sql/pglite');
 const read = (n) => readFileSync(new URL('../migrations/' + n, import.meta.url), 'utf8');
-const UP_SRC = read('44_auditoria_temas_35_40.sql');
-const DOWN = read('44_auditoria_temas_35_40_down.sql');
+const UP_SRC = read('45_auditoria_temas_35_40.sql');
+const DOWN = read('45_auditoria_temas_35_40_down.sql');
 
 const filas = [...UP_SRC.matchAll(/\((\d+)(?:::bigint)?, (\d+), '([0-9a-f]{32})', '(duplicada|retirar|corregir)', (\d+|NULL),/g)]
   .map((m) => ({ id: Number(m[1]), tema: Number(m[2]), hash: m[3], accion: m[4], gemela: m[5] === 'NULL' ? null : Number(m[5]) }));
@@ -70,7 +70,7 @@ await db.exec(up);
 await db.exec(up);
 assert.equal(await borradores(db), 106);
 assert.equal(await n(db, "select count(*)::int n from qa_changes_20260923 where campo='estado'"), 106);
-assert.equal(await n(db, "select count(*)::int n from qa_changes_20260923 where motivo like 'AUDIT-35-40-F1B-44: corregir;%'"), 33);
+assert.equal(await n(db, "select count(*)::int n from qa_changes_20260923 where motivo like 'AUDIT-35-40-F1B-45: corregir;%'"), 33);
 assert.equal(await n(db, "select count(*)::int n from qa_changes_20260923"), 139);
 assert.equal(await n(db, "select count(*)::int n from questions where trim(correcta)<>'a'"), 0, 'la respuesta correcta no cambia');
 let r = await q1(db, 'select opciones, explicacion, enunciado from questions where id=10928');
@@ -106,7 +106,7 @@ const up3 = await upPara(db);
 await db.query("update questions set estado='borrador' where id=10676");
 await db.exec(up3);
 for (const id of [10677, 11014]) assert.equal((await q1(db, `select estado from questions where id=${id}`)).estado, 'publicada');
-assert.equal(await borradores(db), 106 - 2 + 1, '104 retiradas por la 44 más la gemela que ya estaba en borrador');
+assert.equal(await borradores(db), 106 - 2 + 1, '104 retiradas por la 45 más la gemela que ya estaba en borrador');
 await db.close();
 
 // 4) Guardia de texto: si una pregunta cambió desde la auditoría, aborta sin cambiar nada.
@@ -155,4 +155,4 @@ assert.equal((await q1(db, `select estado from concepts where id='T39-RAD-002'`)
 assert.equal((await q1(db, `select estado from concepts where id='T39-RAD-001'`)).estado, 'publicado');
 await db.close();
 
-console.log('PASS migración 44: 96 duplicadas y 10 medios retirados, 11 corregidos sin cambiar la respuesta, gemelas protegidas, idempotente, marcha atrás segura y guardias');
+console.log('PASS migración 45: 96 duplicadas y 10 medios retirados, 11 corregidos sin cambiar la respuesta, gemelas protegidas, idempotente, marcha atrás segura y guardias');

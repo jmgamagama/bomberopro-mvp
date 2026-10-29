@@ -8,7 +8,7 @@ on:
       - 'supabase/migrations/36_endurecer_permisos_anon*.sql'
       - 'supabase/migrations/43_auditoria_200_fase1*.sql'
       - 'supabase/tests/auditoria_200_f1.pglite.mjs'
-      - 'supabase/migrations/44_auditoria_temas_35_40*.sql'
+      - 'supabase/migrations/45_auditoria_temas_35_40*.sql'
       - 'supabase/tests/auditoria_temas_35_40_f1b.pglite.mjs'
       - 'supabase/tests/audit_35_36.pglite.mjs'
       - 'supabase/tests/audit_quarantine.pglite.mjs'
@@ -37,7 +37,7 @@ jobs:
         run: NODE_PATH="$RUNNER_TEMP/audit-runtime/node_modules" node supabase/tests/audit_35_36.pglite.mjs
       - name: Test migration 43 (audit 200, phase 1) and rollback
         run: NODE_PATH="$RUNNER_TEMP/audit-runtime/node_modules" node supabase/tests/auditoria_200_f1.pglite.mjs
-      - name: Test migration 44 (audit topics 35-40, duplicates and medium findings) and rollback
+      - name: Test migration 45 (audit topics 35-40, duplicates and medium findings) and rollback
         run: NODE_PATH="$RUNNER_TEMP/audit-runtime/node_modules" node supabase/tests/auditoria_temas_35_40_f1b.pglite.mjs
       - name: Validate migration numbers
         run: node scripts/check-migrations.mjs
