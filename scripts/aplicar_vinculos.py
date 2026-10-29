@@ -7,7 +7,8 @@ El texto del registro sale de «motivo_registro» del fichero (por defecto, el d
 
 Por cada pregunta, según su «accion»:
   vincular           concept_id y nivel
-  corregir           concept_id, nivel y el cambio indicado (enunciado, una opción u opciones+correcta)
+  corregir           concept_id, nivel y el cambio indicado (enunciado, una o varias opciones —«opcion» admite
+                     una lista—, opciones+correcta, explicacion)
   retirar_duplicada  estado = 'duplicada'
   fuera_temario      estado = 'fuera_temario' (no es del temario de la convocatoria)
   reubicar           nada (se vinculará en otra fase)
@@ -60,15 +61,18 @@ def main() -> int:
             if "enunciado" in c:
                 out.append(log_and_update(qid, "enunciado", "enunciado", f"enunciado = {q(c['enunciado'])}", mot))
             if "opcion" in c:
-                o = c["opcion"]
-                new = (f"opciones = (SELECT jsonb_agg(CASE WHEN x->>'letra' = {q(o['letra'])} "
-                       f"THEN jsonb_build_object('letra', {q(o['letra'])}, 'texto', {q(o['texto'])}) ELSE x END "
+                lista = c["opcion"] if isinstance(c["opcion"], list) else [c["opcion"]]
+                casos = " ".join(f"WHEN x->>'letra' = {q(o['letra'])} THEN jsonb_build_object('letra', {q(o['letra'])}, "
+                                 f"'texto', {q(o['texto'])})" for o in lista)
+                new = (f"opciones = (SELECT jsonb_agg(CASE {casos} ELSE x END "
                        "ORDER BY x->>'letra') FROM jsonb_array_elements(opciones) x)")
                 out.append(log_and_update(qid, "opciones", "opciones", new, mot))
             if "opciones" in c:
                 ops = json.dumps(c["opciones"], ensure_ascii=False)
                 out.append(log_and_update(qid, "opciones", "opciones", f"opciones = {q(ops)}::jsonb", mot))
                 out.append(log_and_update(qid, "correcta", "correcta", f"correcta = {q(c['correcta'])}", mot))
+            if "explicacion" in c:
+                out.append(log_and_update(qid, "explicacion", "explicacion", f"explicacion = {q(c['explicacion'])}", mot))
         elif a == "retirar_duplicada":
             out.append(log_and_update(qid, "estado", "estado", "estado = 'duplicada'", mot))
             esperado["estado"] += 1

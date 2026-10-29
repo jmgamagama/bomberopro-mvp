@@ -21,6 +21,7 @@ OUT = pathlib.Path("public/material/constitucion")
 # (fichero de conceptos en data/constitucion, título del material, artículos en orden)
 BLOQUES = [
     ("titulo-preliminar", "Título Preliminar (arts. 1–9)", range(1, 10)),
+    ("derechos-fundamentales", "Igualdad y derechos fundamentales (arts. 14–29)", range(14, 30)),
     ("garantias-suspension", "Garantías y suspensión de los derechos (arts. 53–55)", range(53, 56)),
 ]
 
