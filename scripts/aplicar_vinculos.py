@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Genera el SQL que aplica en producción la revisión de preguntas existentes (vinculos-*.json).
 
-Uso:  python3 scripts/aplicar_vinculos.py data/constitucion/vinculos-produccion-titulo-preliminar.json > vinculos.sql
+Uso:  python3 scripts/aplicar_vinculos.py data/constitucion/vinculos-produccion-<bloque>.json > vinculos.sql
+
+El texto del registro sale de «motivo_registro» del fichero (por defecto, el del Título Preliminar).
 
 Por cada pregunta, según su «accion»:
   vincular           concept_id y nivel
@@ -39,6 +41,7 @@ def log_and_update(qid: int, campo: str, expr_anterior: str, set_sql: str, motiv
 
 def main() -> int:
     d = json.loads(pathlib.Path(sys.argv[1]).read_text(encoding="utf-8"))
+    motivo_base = d.get("motivo_registro", MOTIVO)  # cada fichero de vínculos puede traer el suyo
     out = [f"-- Generado por scripts/aplicar_vinculos.py desde {sys.argv[1]}", "BEGIN;"]
     conceptos = sorted({e["concepto"] for e in d["preguntas"] if e["concepto"]})
     out.append("DO $$ BEGIN IF (SELECT count(*) FROM public.concepts WHERE id IN ("
@@ -47,7 +50,7 @@ def main() -> int:
     esperado = {"vinculo": 0, "estado": 0}
     for e in d["preguntas"]:
         qid, a = e["question_id"], e["accion"]
-        mot = f"{MOTIVO}: {a}" + (f" — {e['motivo']}" if e.get("motivo") else "")
+        mot = f"{motivo_base}: {a}" + (f" — {e['motivo']}" if e.get("motivo") else "")
         if a in ("vincular", "corregir"):
             # El valor anterior guarda concept_id y nivel juntos; la marcha atrás los separa.
             out.append(log_and_update(qid, "concept_id|nivel", "coalesce(concept_id,'') || '|' || coalesce(nivel::text,'')",

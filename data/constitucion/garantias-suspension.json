@@ -1,0 +1,1122 @@
+{
+ "norma": "BOE-A-1978-31229",
+ "tema": 1,
+ "bloque_temario": "Título I, Capítulos IV y V: garantías y suspensión (arts. 53-55)",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "CE-a53-1-vinculacion",
+   "bloque": "a53",
+   "apartado": "1",
+   "orden": 5310,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 53.1 CE, ¿a quién vinculan los derechos y libertades del Capítulo segundo del Título I?",
+    "respuesta": "A todos los poderes públicos."
+   },
+   "cita": "Los derechos y libertades reconocidos en el Capítulo segundo del presente Título vinculan a todos los poderes públicos",
+   "confundible_con": [
+    "CE-a53-3-informaran"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 53.1 CE, los derechos y libertades del Capítulo segundo del Título I vinculan…",
+     "opciones": [
+      "a todos los poderes públicos",
+      "solo a la Administración del Estado"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 53.1 CE: los derechos y libertades del Capítulo segundo «vinculan a todos los poderes públicos», no solo a la Administración."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 53.1 CE, ¿qué derechos y libertades vinculan a todos los poderes públicos?",
+     "opciones": [
+      "Los reconocidos en el Capítulo segundo del Título I.",
+      "Los reconocidos en el Capítulo tercero del Título I.",
+      "Los reconocidos en el Capítulo cuarto del Título I."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 53.1 CE: los del Capítulo segundo. El Capítulo tercero contiene principios rectores, que solo «informarán» la actuación de los poderes públicos (art. 53.3); el Capítulo cuarto regula las garantías, no reconoce derechos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Sobre la eficacia de los capítulos del Título I, señala la afirmación correcta según el art. 53 CE:",
+     "opciones": [
+      "Los derechos del Capítulo segundo vinculan a todos los poderes públicos; los principios del Capítulo tercero informan su actuación.",
+      "Los derechos del Capítulo segundo y los principios del Capítulo tercero vinculan por igual a todos los poderes públicos.",
+      "Los principios del Capítulo tercero vinculan a todos los poderes públicos; los derechos del Capítulo segundo solo informan su actuación."
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 53.1 dice que los derechos del Capítulo segundo «vinculan a todos los poderes públicos»; el art. 53.3, que los principios del Capítulo tercero «informarán» la legislación, la práctica judicial y la actuación de los poderes públicos."
+    }
+   ]
+  },
+  {
+   "id": "CE-a53-1-contenido-esencial",
+   "bloque": "a53",
+   "apartado": "1",
+   "orden": 5320,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Cómo puede regularse el ejercicio de los derechos y libertades del Capítulo segundo según el art. 53.1 CE?",
+    "respuesta": "Solo por ley, que en todo caso deberá respetar su contenido esencial."
+   },
+   "cita": "Sólo por ley, que en todo caso deberá respetar su contenido esencial, podrá regularse el ejercicio de tales derechos y libertades",
+   "confundible_con": [
+    "CE-a53-1-art161"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 53.1 CE, el ejercicio de los derechos y libertades del Capítulo segundo solo podrá regularse por…",
+     "opciones": [
+      "ley, que deberá respetar su contenido esencial",
+      "reglamento del Gobierno, que deberá respetar su contenido esencial"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 53.1 CE: «Sólo por ley, que en todo caso deberá respetar su contenido esencial»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 53.1 CE, la ley que regule el ejercicio de los derechos y libertades del Capítulo segundo deberá respetar en todo caso:",
+     "opciones": [
+      "Su contenido esencial.",
+      "Su desarrollo reglamentario.",
+      "Su interpretación judicial."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 53.1 CE: la ley «en todo caso deberá respetar su contenido esencial»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Un real decreto del Gobierno, sin ley previa, regula el ejercicio del derecho de reunión (art. 21, Capítulo segundo). Según el art. 53.1 CE:",
+     "opciones": [
+      "No es válido: el ejercicio de esos derechos solo puede regularse por ley.",
+      "Es válido si respeta el contenido esencial del derecho de reunión.",
+      "Es válido si después lo convalida el Tribunal Constitucional."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 53.1 CE: «Sólo por ley» puede regularse el ejercicio de los derechos del Capítulo segundo. Respetar el contenido esencial es un límite para esa ley, no una vía para regularlos por reglamento."
+    }
+   ]
+  },
+  {
+   "id": "CE-a53-1-art161",
+   "bloque": "a53",
+   "apartado": "1",
+   "orden": 5330,
+   "tipo": "dato",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Conforme a qué precepto se tutelan los derechos y libertades del Capítulo segundo según el art. 53.1 CE?",
+    "respuesta": "Conforme al art. 161.1.a) CE, que regula el recurso de inconstitucionalidad contra leyes."
+   },
+   "cita": "se tutelarán de acuerdo con lo previsto en el artículo 161, 1, a)",
+   "confundible_con": [
+    "CE-a53-2-amparo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "El art. 53.1 CE dice que los derechos y libertades del Capítulo segundo se tutelarán de acuerdo con lo previsto en el artículo…",
+     "opciones": [
+      "161.1.a)",
+      "117.3"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 53.1 CE: «se tutelarán de acuerdo con lo previsto en el artículo 161, 1, a)»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 53.1 CE, los derechos y libertades del Capítulo segundo se tutelarán de acuerdo con lo previsto en el artículo:",
+     "opciones": [
+      "161.1.a)",
+      "161.1.b)",
+      "162.1.a)"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 53.1 CE: remite al art. 161.1.a). El 161.1.b) es el recurso de amparo, al que se refiere el art. 53.2; el 162.1.a) trata de quién puede interponer el recurso de inconstitucionalidad."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "El art. 53.1 CE remite la tutela de los derechos del Capítulo segundo al art. 161.1.a) CE. ¿Qué regula ese precepto?",
+     "opciones": [
+      "El recurso de inconstitucionalidad contra leyes y disposiciones con fuerza de ley.",
+      "El recurso de amparo por violación de los derechos del artículo 53.2.",
+      "Los conflictos de competencia entre el Estado y las Comunidades Autónomas."
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 161.1.a) CE atribuye al Tribunal Constitucional el recurso de inconstitucionalidad contra leyes y disposiciones normativas con fuerza de ley. El amparo es el 161.1.b) y los conflictos de competencia, el 161.1.c)."
+    }
+   ]
+  },
+  {
+   "id": "CE-a53-2-ambito",
+   "bloque": "a53",
+   "apartado": "2",
+   "orden": 5340,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué derechos pueden tutelarse por el procedimiento preferente y sumario y el recurso de amparo según el art. 53.2 CE?",
+    "respuesta": "Los del artículo 14 y los de la Sección primera del Capítulo segundo (arts. 15 a 29)."
+   },
+   "cita": "las libertades y derechos reconocidos en el artículo 14 y la Sección primera del Capítulo segundo",
+   "confundible_con": [
+    "CE-a53-2-objecion",
+    "CE-a53-1-vinculacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 53.2 CE, la tutela por un procedimiento preferente y sumario alcanza a los derechos del artículo 14 y a los de…",
+     "opciones": [
+      "la Sección primera del Capítulo segundo",
+      "el Capítulo tercero del Título I"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 53.2 CE: el artículo 14 y la Sección primera del Capítulo segundo. El Capítulo tercero son principios rectores (art. 53.3)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 53.2 CE, ¿qué derechos puede tutelar cualquier ciudadano ante los Tribunales ordinarios por un procedimiento basado en la preferencia y la sumariedad?",
+     "opciones": [
+      "Los del artículo 14 y la Sección primera del Capítulo segundo.",
+      "Los de la Sección primera y la Sección segunda del Capítulo segundo.",
+      "Los del Capítulo segundo y los principios del Capítulo tercero."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 53.2 CE: solo el artículo 14 y la Sección primera (arts. 15 a 29). La Sección segunda (arts. 30 a 38) no tiene esta vía, salvo la objeción de conciencia del art. 30 para el amparo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Una vecina considera vulnerado su derecho a la propiedad privada (art. 33, Sección segunda del Capítulo segundo). Según el art. 53.2 CE:",
+     "opciones": [
+      "No dispone del procedimiento preferente y sumario ni del amparo: el art. 33 no está en el art. 14 ni en la Sección primera.",
+      "Puede acudir al recurso de amparo, porque todos los derechos del Capítulo segundo tienen esa protección.",
+      "Puede acudir al procedimiento preferente y sumario, pero no al recurso de amparo ante el Tribunal Constitucional."
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 53.2 CE limita ambas vías al art. 14 y a la Sección primera (arts. 15 a 29). El art. 33 está en la Sección segunda: vincula a los poderes públicos (art. 53.1), pero no tiene esas vías especiales."
+    }
+   ]
+  },
+  {
+   "id": "CE-a53-2-preferencia-sumariedad",
+   "bloque": "a53",
+   "apartado": "2",
+   "orden": 5350,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿En qué principios se basa el procedimiento ante los Tribunales ordinarios del art. 53.2 CE?",
+    "respuesta": "En los principios de preferencia y sumariedad."
+   },
+   "cita": "ante los Tribunales ordinarios por un procedimiento basado en los principios de preferencia y sumariedad",
+   "confundible_con": [
+    "CE-a53-2-amparo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 53.2 CE, el procedimiento ante los Tribunales ordinarios para tutelar los derechos del art. 14 y de la Sección primera se basa en los principios de…",
+     "opciones": [
+      "preferencia y sumariedad",
+      "oralidad y gratuidad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 53.2 CE: «principios de preferencia y sumariedad»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 53.2 CE, ¿ante quién puede cualquier ciudadano recabar, por un procedimiento preferente y sumario, la tutela de los derechos del art. 14 y de la Sección primera?",
+     "opciones": [
+      "Ante los Tribunales ordinarios.",
+      "Ante el Defensor del Pueblo.",
+      "Ante el Consejo General del Poder Judicial."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 53.2 CE: «ante los Tribunales ordinarios por un procedimiento basado en los principios de preferencia y sumariedad»; después, en su caso, cabe el amparo ante el Tribunal Constitucional."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué afirmación se ajusta al texto del art. 53.2 CE?",
+     "opciones": [
+      "Cualquier ciudadano podrá recabar esa tutela ante los Tribunales ordinarios por un procedimiento basado en los principios de preferencia y sumariedad.",
+      "Cualquier ciudadano podrá recabar esa tutela ante el Tribunal Constitucional por un procedimiento basado en los principios de preferencia y sumariedad.",
+      "Cualquier ciudadano podrá recabar esa tutela ante los Tribunales ordinarios por un procedimiento basado en los principios de celeridad y gratuidad."
+     ],
+     "correcta": 0,
+     "explicacion": "El procedimiento preferente y sumario es ante los Tribunales ordinarios; ante el Tribunal Constitucional se acude, en su caso, por el recurso de amparo. Los principios son preferencia y sumariedad."
+    }
+   ]
+  },
+  {
+   "id": "CE-a53-2-amparo",
+   "bloque": "a53",
+   "apartado": "2",
+   "orden": 5360,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Ante qué órgano se interpone el recurso de amparo del art. 53.2 CE?",
+    "respuesta": "Ante el Tribunal Constitucional."
+   },
+   "cita": "a través del recurso de amparo ante el Tribunal Constitucional",
+   "confundible_con": [
+    "CE-a53-2-preferencia-sumariedad",
+    "CE-a53-1-art161"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 53.2 CE, el recurso de amparo se interpone ante…",
+     "opciones": [
+      "el Tribunal Constitucional",
+      "el Tribunal Supremo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 53.2 CE: «recurso de amparo ante el Tribunal Constitucional»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 53.2 CE, ¿qué órgano conoce del recurso de amparo?",
+     "opciones": [
+      "El Tribunal Constitucional.",
+      "El Tribunal Supremo.",
+      "El Tribunal Superior de Justicia de cada comunidad autónoma."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 53.2 CE: el recurso de amparo es «ante el Tribunal Constitucional»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 53.2 CE, ¿cuál de estos derechos puede protegerse mediante recurso de amparo ante el Tribunal Constitucional?",
+     "opciones": [
+      "La libertad de residencia y circulación (art. 19).",
+      "El derecho a la propiedad privada (art. 33).",
+      "El derecho a la protección de la salud (art. 43)."
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 19 está en la Sección primera del Capítulo segundo, protegida por el art. 53.2. El art. 33 es de la Sección segunda y el art. 43 es un principio rector del Capítulo tercero."
+    }
+   ]
+  },
+  {
+   "id": "CE-a53-2-objecion",
+   "bloque": "a53",
+   "apartado": "2",
+   "orden": 5370,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué derecho situado fuera del art. 14 y de la Sección primera tiene también recurso de amparo según el art. 53.2 CE?",
+    "respuesta": "La objeción de conciencia reconocida en el artículo 30."
+   },
+   "cita": "Este último recurso será aplicable a la objeción de conciencia reconocida en el artículo 30",
+   "confundible_con": [
+    "CE-a53-2-ambito"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 53.2 CE, el recurso de amparo es aplicable también a…",
+     "opciones": [
+      "la objeción de conciencia del art. 30",
+      "el derecho al trabajo del art. 35"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 53.2 CE: «Este último recurso será aplicable a la objeción de conciencia reconocida en el artículo 30»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 53.2 CE, además de los derechos del art. 14 y de la Sección primera, el recurso de amparo es aplicable a:",
+     "opciones": [
+      "La objeción de conciencia del artículo 30.",
+      "El derecho a la propiedad privada del artículo 33.",
+      "El derecho a contraer matrimonio del artículo 32."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 53.2 CE: el amparo se extiende a la objeción de conciencia del art. 30. Los arts. 32 y 33 están en la Sección segunda y no tienen amparo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué artículo de la Sección segunda del Capítulo segundo tiene acceso al recurso de amparo según el art. 53.2 CE?",
+     "opciones": [
+      "El artículo 30, en cuanto a la objeción de conciencia.",
+      "El artículo 31, en cuanto al sistema tributario justo.",
+      "El artículo 35, en cuanto al derecho al trabajo."
+     ],
+     "correcta": 0,
+     "explicacion": "La Sección segunda comprende los arts. 30 a 38. El art. 53.2 solo extiende el amparo a la objeción de conciencia del art. 30."
+    }
+   ]
+  },
+  {
+   "id": "CE-a53-3-informaran",
+   "bloque": "a53",
+   "apartado": "3",
+   "orden": 5380,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué informarán el reconocimiento, el respeto y la protección de los principios del Capítulo tercero según el art. 53.3 CE?",
+    "respuesta": "La legislación positiva, la práctica judicial y la actuación de los poderes públicos."
+   },
+   "cita": "informarán la legislación positiva, la práctica judicial y la actuación de los poderes públicos",
+   "confundible_con": [
+    "CE-a53-1-vinculacion",
+    "CE-a53-3-alegacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 53.3 CE, los principios del Capítulo tercero informarán la legislación positiva, la práctica judicial y…",
+     "opciones": [
+      "la actuación de los poderes públicos",
+      "la negociación colectiva laboral"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 53.3 CE: «informarán la legislación positiva, la práctica judicial y la actuación de los poderes públicos»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 53.3 CE, el reconocimiento, el respeto y la protección de los principios del Capítulo tercero informarán:",
+     "opciones": [
+      "La legislación positiva, la práctica judicial y la actuación de los poderes públicos.",
+      "La legislación positiva y la práctica judicial, pero no la actuación de la Administración.",
+      "Solo la actuación del Gobierno y de las Comunidades Autónomas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 53.3 CE: los tres ámbitos, incluida «la actuación de los poderes públicos»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué capítulo del Título I contiene los principios que, según el art. 53.3 CE, informarán la legislación positiva, la práctica judicial y la actuación de los poderes públicos?",
+     "opciones": [
+      "El Capítulo tercero.",
+      "El Capítulo segundo.",
+      "El Capítulo quinto."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 53.3 CE: se refiere a los principios del Capítulo tercero («De los principios rectores de la política social y económica»). Los derechos del Capítulo segundo, en cambio, vinculan a todos los poderes públicos (art. 53.1)."
+    }
+   ]
+  },
+  {
+   "id": "CE-a53-3-alegacion",
+   "bloque": "a53",
+   "apartado": "3",
+   "orden": 5390,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Cómo pueden alegarse ante los jueces los principios rectores del Capítulo tercero según el art. 53.3 CE?",
+    "respuesta": "Solo ante la Jurisdicción ordinaria y de acuerdo con lo que dispongan las leyes que los desarrollen."
+   },
+   "cita": "Sólo podrán ser alegados ante la Jurisdicción ordinaria de acuerdo con lo que dispongan las leyes que los desarrollen",
+   "confundible_con": [
+    "CE-a53-3-informaran",
+    "CE-a53-2-amparo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 53.3 CE, los principios del Capítulo tercero solo podrán alegarse ante la Jurisdicción ordinaria de acuerdo con lo que dispongan…",
+     "opciones": [
+      "las leyes que los desarrollen",
+      "los reglamentos del Gobierno"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 53.3 CE: «de acuerdo con lo que dispongan las leyes que los desarrollen»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 53.3 CE, los principios rectores de la política social y económica:",
+     "opciones": [
+      "Solo pueden alegarse ante la Jurisdicción ordinaria según lo que dispongan las leyes que los desarrollen.",
+      "Pueden alegarse directamente ante el Tribunal Constitucional mediante recurso de amparo.",
+      "Pueden alegarse ante cualquier juez sin necesidad de una ley que los desarrolle."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 53.3 CE: solo ante la Jurisdicción ordinaria y según sus leyes de desarrollo. El amparo es para el art. 14, la Sección primera y la objeción de conciencia (art. 53.2)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Un vecino quiere invocar ante un juzgado el derecho a una vivienda digna (art. 47 CE) sin apoyarse en ninguna ley que lo desarrolle. Según el art. 53.3 CE:",
+     "opciones": [
+      "Solo podrá alegarlo de acuerdo con lo que dispongan las leyes que lo desarrollen.",
+      "Podrá alegarlo directamente, porque vincula a todos los poderes públicos.",
+      "Podrá alegarlo mediante recurso de amparo ante el Tribunal Constitucional."
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 47 es un principio rector del Capítulo tercero. El art. 53.3 permite alegarlo ante la Jurisdicción ordinaria solo según las leyes que lo desarrollen; no tiene amparo ni vincula como los derechos del Capítulo segundo."
+    }
+   ]
+  },
+  {
+   "id": "CE-a54-ley-organica",
+   "bloque": "a54",
+   "apartado": "",
+   "orden": 5400,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué norma regula la institución del Defensor del Pueblo según el art. 54 CE?",
+    "respuesta": "Una ley orgánica."
+   },
+   "cita": "Una ley orgánica regulará la institución del Defensor del Pueblo",
+   "confundible_con": [
+    "CE-a55-2-garantias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 54 CE, la institución del Defensor del Pueblo se regulará por…",
+     "opciones": [
+      "una ley orgánica",
+      "un real decreto"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 54 CE: «Una ley orgánica regulará la institución del Defensor del Pueblo»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 54 CE, la institución del Defensor del Pueblo será regulada por:",
+     "opciones": [
+      "Una ley orgánica.",
+      "Una ley ordinaria.",
+      "Los Reglamentos de las Cámaras."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 54 CE: por ley orgánica."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué tienen en común el art. 54 CE (Defensor del Pueblo) y el art. 55.2 CE (suspensión individual de derechos)?",
+     "opciones": [
+      "Los dos remiten a una ley orgánica.",
+      "Los dos exigen control del Tribunal Constitucional.",
+      "Los dos remiten a un reglamento del Gobierno."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 54: «Una ley orgánica regulará la institución del Defensor del Pueblo». Art. 55.2: «Una ley orgánica podrá determinar la forma y los casos…» de la suspensión individual."
+    }
+   ]
+  },
+  {
+   "id": "CE-a54-alto-comisionado",
+   "bloque": "a54",
+   "apartado": "",
+   "orden": 5410,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Cómo define el art. 54 CE al Defensor del Pueblo?",
+    "respuesta": "Como alto comisionado de las Cortes Generales, designado por éstas para la defensa de los derechos del Título I."
+   },
+   "cita": "como alto comisionado de las Cortes Generales, designado por éstas para la defensa de los derechos comprendidos en este Título",
+   "confundible_con": [
+    "CE-a54-supervision"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 54 CE, el Defensor del Pueblo es alto comisionado de…",
+     "opciones": [
+      "las Cortes Generales",
+      "el Gobierno"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 54 CE: «alto comisionado de las Cortes Generales»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 54 CE, ¿quién designa al Defensor del Pueblo?",
+     "opciones": [
+      "Las Cortes Generales.",
+      "El Gobierno, mediante real decreto.",
+      "El Consejo General del Poder Judicial."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 54 CE: es alto comisionado de las Cortes Generales, «designado por éstas»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 54 CE, el Defensor del Pueblo es designado para la defensa de:",
+     "opciones": [
+      "Los derechos comprendidos en el Título I.",
+      "Solo los derechos de la Sección primera del Capítulo segundo.",
+      "Los intereses de la Administración ante los ciudadanos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 54 CE: «para la defensa de los derechos comprendidos en este Título», es decir, todo el Título I, no solo la Sección primera."
+    }
+   ]
+  },
+  {
+   "id": "CE-a54-supervision",
+   "bloque": "a54",
+   "apartado": "",
+   "orden": 5420,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué puede supervisar el Defensor del Pueblo y a quién da cuenta según el art. 54 CE?",
+    "respuesta": "La actividad de la Administración, dando cuenta a las Cortes Generales."
+   },
+   "cita": "podrá supervisar la actividad de la Administración, dando cuenta a las Cortes Generales",
+   "confundible_con": [
+    "CE-a54-alto-comisionado"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 54 CE, el Defensor del Pueblo podrá supervisar la actividad de…",
+     "opciones": [
+      "la Administración",
+      "los jueces y tribunales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 54 CE: «podrá supervisar la actividad de la Administración»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 54 CE, el Defensor del Pueblo da cuenta de su actuación:",
+     "opciones": [
+      "A las Cortes Generales.",
+      "Al Gobierno.",
+      "Solo al Congreso de los Diputados."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 54 CE: «dando cuenta a las Cortes Generales» (Congreso y Senado), no solo al Congreso."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Indica la afirmación correcta sobre el Defensor del Pueblo según el art. 54 CE:",
+     "opciones": [
+      "Puede supervisar la actividad de la Administración, dando cuenta a las Cortes Generales.",
+      "Puede supervisar la actividad de la Administración, dando cuenta al Gobierno.",
+      "Puede supervisar la actividad de los tribunales, dando cuenta a las Cortes Generales."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 54 CE: supervisa la actividad de la Administración y da cuenta a las Cortes Generales."
+    }
+   ]
+  },
+  {
+   "id": "CE-a55-1-estados",
+   "bloque": "a55",
+   "apartado": "1",
+   "orden": 5430,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿En qué estados pueden suspenderse los derechos enumerados en el art. 55.1 CE?",
+    "respuesta": "Cuando se declare el estado de excepción o el de sitio (no en el de alarma)."
+   },
+   "cita": "cuando se acuerde la declaración del estado de excepción o de sitio en los términos previstos en la Constitución",
+   "confundible_con": [
+    "CE-a55-2-terrorismo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 55.1 CE, los derechos que enumera pueden suspenderse cuando se declare el estado de…",
+     "opciones": [
+      "excepción o de sitio",
+      "alarma o de excepción"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.1 CE: «cuando se acuerde la declaración del estado de excepción o de sitio». El estado de alarma no aparece."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 55.1 CE, ¿cuál de estos estados NO permite suspender los derechos que enumera?",
+     "opciones": [
+      "El estado de alarma.",
+      "El estado de excepción.",
+      "El estado de sitio."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.1 CE: la suspensión solo cabe en los estados de excepción o de sitio."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Durante un estado de alarma por una catástrofe, el Gobierno pretende suspender el derecho de reunión (art. 21). Según el art. 55.1 CE:",
+     "opciones": [
+      "No cabe: el art. 55.1 solo permite suspenderlo en los estados de excepción o de sitio.",
+      "Cabe, porque el art. 21 figura entre los derechos suspendibles del art. 55.1.",
+      "Cabe, siempre que lo autorice el Congreso de los Diputados."
+     ],
+     "correcta": 0,
+     "explicacion": "Aunque el art. 21 está en la lista del art. 55.1, esa suspensión solo procede con la declaración del estado de excepción o de sitio, no del de alarma."
+    }
+   ]
+  },
+  {
+   "id": "CE-a55-1-lista-17-19",
+   "bloque": "a55",
+   "apartado": "1",
+   "orden": 5440,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué derechos de los arts. 17 a 19 pueden suspenderse en los estados de excepción o de sitio según el art. 55.1 CE?",
+    "respuesta": "El art. 17 (libertad y seguridad; en el estado de excepción, salvo su apartado 3), el 18.2 (domicilio), el 18.3 (comunicaciones) y el 19 (residencia y circulación)."
+   },
+   "cita": "Los derechos reconocidos en los artículos 17, 18, apartados 2 y 3, artículos 19",
+   "confundible_con": [
+    "CE-a55-2-derechos",
+    "CE-a55-1-excepcion-17-3"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 55.1 CE, ¿puede suspenderse la inviolabilidad del domicilio (art. 18.2) en un estado de sitio?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.1 CE: el art. 18, apartados 2 y 3, figura entre los derechos suspendibles en los estados de excepción o de sitio."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 55.1 CE, ¿cuál de estos derechos del art. 18 puede suspenderse en los estados de excepción o de sitio?",
+     "opciones": [
+      "El secreto de las comunicaciones (18.3).",
+      "El derecho al honor y a la propia imagen (18.1).",
+      "La limitación del uso de la informática (18.4)."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.1 CE: del art. 18 solo se suspenden los apartados 2 (domicilio) y 3 (secreto de las comunicaciones)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 55.1 CE, ¿qué apartados del art. 18 pueden suspenderse cuando se declara el estado de excepción o de sitio?",
+     "opciones": [
+      "Los apartados 2 y 3.",
+      "Los apartados 1 y 2.",
+      "Los apartados 3 y 4."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.1 CE: «18, apartados 2 y 3» (inviolabilidad del domicilio y secreto de las comunicaciones). El 18.1 (honor, intimidad, imagen) no se suspende."
+    }
+   ]
+  },
+  {
+   "id": "CE-a55-1-lista-20-21",
+   "bloque": "a55",
+   "apartado": "1",
+   "orden": 5450,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué derechos de los arts. 20 y 21 pueden suspenderse en los estados de excepción o de sitio según el art. 55.1 CE?",
+    "respuesta": "Los del art. 20.1 a) (expresión) y d) (información), el 20.5 (secuestro de publicaciones solo por resolución judicial) y el 21 (reunión)."
+   },
+   "cita": "20, apartados 1, a) y d), y 5, artículos 21",
+   "confundible_con": [
+    "CE-a55-1-no-suspendibles"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 55.1 CE, ¿puede suspenderse el derecho de reunión (art. 21) en un estado de excepción?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.1 CE: el art. 21 figura entre los derechos suspendibles en los estados de excepción o de sitio."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 55.1 CE, ¿cuál de estos derechos del art. 20.1 puede suspenderse en los estados de excepción o de sitio?",
+     "opciones": [
+      "Comunicar o recibir libremente información veraz (20.1 d).",
+      "La libertad de cátedra (20.1 c).",
+      "La producción y creación literaria y artística (20.1 b)."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.1 CE: del art. 20.1 solo se suspenden las letras a) (expresión) y d) (información veraz), además del apartado 5."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 55.1 CE, ¿qué partes del art. 20 pueden suspenderse en los estados de excepción o de sitio?",
+     "opciones": [
+      "Apartado 1 a) y d), y apartado 5.",
+      "Apartado 1 a) y b), y apartado 5.",
+      "Apartado 1 c) y d), y apartado 2."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.1 CE: «20, apartados 1, a) y d), y 5»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a55-1-lista-28-37",
+   "bloque": "a55",
+   "apartado": "1",
+   "orden": 5460,
+   "tipo": "lista",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Qué derechos laborales pueden suspenderse en los estados de excepción o de sitio según el art. 55.1 CE?",
+    "respuesta": "El derecho de huelga (art. 28.2) y el de adoptar medidas de conflicto colectivo (art. 37.2)."
+   },
+   "cita": "28, apartado 2, y artículo 37, apartado 2",
+   "confundible_con": [
+    "CE-a55-1-no-suspendibles"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 55.1 CE, del art. 28 puede suspenderse en los estados de excepción o de sitio…",
+     "opciones": [
+      "el derecho de huelga (28.2)",
+      "la libertad sindical (28.1)"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.1 CE: solo el art. 28, apartado 2 (huelga). La libertad sindical (28.1) no se suspende."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 55.1 CE, ¿cuál de estos derechos del art. 37 puede suspenderse en los estados de excepción o de sitio?",
+     "opciones": [
+      "Adoptar medidas de conflicto colectivo (37.2).",
+      "La negociación colectiva laboral (37.1).",
+      "La fuerza vinculante de los convenios (37.1)."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.1 CE: solo el art. 37, apartado 2 (medidas de conflicto colectivo)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "En un estado de sitio, ¿cuál de estas parejas de derechos puede suspenderse según el art. 55.1 CE?",
+     "opciones": [
+      "La huelga (28.2) y el conflicto colectivo (37.2).",
+      "La libertad sindical (28.1) y la negociación colectiva (37.1).",
+      "La huelga (28.2) y la libertad sindical (28.1)."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.1 CE: «28, apartado 2, y artículo 37, apartado 2». Los apartados 1 de ambos artículos no se suspenden."
+    }
+   ]
+  },
+  {
+   "id": "CE-a55-1-no-suspendibles",
+   "bloque": "a55",
+   "apartado": "1",
+   "orden": 5470,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Puede suspenderse el derecho de asociación (art. 22) en los estados de excepción o de sitio?",
+    "respuesta": "No: no figura en la lista cerrada del art. 55.1 CE (17, 18.2 y 3, 19, 20.1 a) y d) y 5, 21, 28.2 y 37.2)."
+   },
+   "cita": "Los derechos reconocidos en los artículos 17, 18, apartados 2 y 3, artículos 19, 20, apartados 1, a) y d), y 5, artículos 21, 28, apartado 2, y artículo 37, apartado 2, podrán ser suspendidos",
+   "confundible_con": [
+    "CE-a55-1-lista-20-21",
+    "CE-a55-1-lista-28-37"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 55.1 CE, ¿puede suspenderse el derecho de asociación (art. 22) en un estado de sitio?",
+     "opciones": [
+      "No",
+      "Sí"
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 22 no está en la lista del art. 55.1 CE, que es cerrada."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 55.1 CE, ¿cuál de estos derechos NO puede suspenderse ni en el estado de excepción ni en el de sitio?",
+     "opciones": [
+      "La libertad ideológica y religiosa (art. 16).",
+      "La libertad de circulación (art. 19).",
+      "El derecho de reunión (art. 21)."
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 16 no figura en la lista del art. 55.1 CE; los arts. 19 y 21 sí."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos derechos no figura entre los que el art. 55.1 CE permite suspender?",
+     "opciones": [
+      "El derecho a la vida y a la integridad física y moral (art. 15).",
+      "El derecho de huelga de los trabajadores (art. 28.2).",
+      "El plazo máximo de 72 horas de la detención preventiva (art. 17.2)."
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 15 no está en la lista del art. 55.1 CE. El 28.2 sí, y el art. 17 entero también (en el estado de excepción, salvo su apartado 3)."
+    }
+   ]
+  },
+  {
+   "id": "CE-a55-1-excepcion-17-3",
+   "bloque": "a55",
+   "apartado": "1",
+   "orden": 5480,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué parte del art. 17 no puede suspenderse en el estado de excepción según el art. 55.1 CE?",
+    "respuesta": "El apartado 3 (derechos del detenido: información inmediata, no declarar y asistencia de abogado). En el estado de sitio sí puede suspenderse."
+   },
+   "cita": "Se exceptúa de lo establecido anteriormente el apartado 3 del artículo 17 para el supuesto de declaración de estado de excepción",
+   "confundible_con": [
+    "CE-a55-1-lista-17-19",
+    "CE-a55-2-derechos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 55.1 CE, en el estado de excepción no puede suspenderse el apartado 3 del artículo…",
+     "opciones": [
+      "17",
+      "18"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.1 CE: «Se exceptúa… el apartado 3 del artículo 17 para el supuesto de declaración de estado de excepción»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 55.1 CE, ¿qué derecho del detenido NO puede suspenderse en el estado de excepción?",
+     "opciones": [
+      "La asistencia de abogado en las diligencias policiales y judiciales (17.3).",
+      "El plazo máximo de 72 horas de la detención preventiva (17.2).",
+      "El procedimiento de «habeas corpus» (17.4)."
+     ],
+     "correcta": 0,
+     "explicacion": "Solo el art. 17.3 queda excluido de la suspensión en el estado de excepción. Los apartados 2 y 4 del art. 17 sí pueden suspenderse."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 55.1 CE, la excepción que protege el art. 17.3 frente a la suspensión se aplica:",
+     "opciones": [
+      "Solo en el estado de excepción; en el de sitio el 17.3 sí puede suspenderse.",
+      "Tanto en el estado de excepción como en el de sitio.",
+      "Solo en el estado de sitio; en el de excepción el 17.3 sí puede suspenderse."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.1 CE: la excepción es «para el supuesto de declaración de estado de excepción». En el estado de sitio puede suspenderse todo el art. 17."
+    }
+   ]
+  },
+  {
+   "id": "CE-a55-2-terrorismo",
+   "bloque": "a55",
+   "apartado": "2",
+   "orden": 5490,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿En relación con qué investigaciones permite el art. 55.2 CE suspender derechos de forma individual?",
+    "respuesta": "Las correspondientes a la actuación de bandas armadas o elementos terroristas."
+   },
+   "cita": "en relación con las investigaciones correspondientes a la actuación de bandas armadas o elementos terroristas",
+   "confundible_con": [
+    "CE-a55-1-estados"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 55.2 CE, la suspensión individual de derechos está prevista para las investigaciones sobre…",
+     "opciones": [
+      "bandas armadas o elementos terroristas",
+      "delitos contra la Hacienda Pública"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.2 CE: «investigaciones correspondientes a la actuación de bandas armadas o elementos terroristas»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 55.2 CE, la suspensión de derechos que puede prever una ley orgánica afecta a:",
+     "opciones": [
+      "Personas determinadas, en investigaciones sobre bandas armadas o terroristas.",
+      "Toda la población de un territorio, mientras dure el estado de alarma.",
+      "Cualquier detenido, sea cual sea el delito investigado."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.2 CE: suspensión «para personas determinadas», en relación con investigaciones sobre bandas armadas o elementos terroristas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué diferencia la suspensión del art. 55.2 CE de la del art. 55.1 CE?",
+     "opciones": [
+      "La del 55.2 es individual, para investigaciones de terrorismo; la del 55.1 es general, en estado de excepción o de sitio.",
+      "La del 55.2 exige declarar el estado de sitio; la del 55.1 puede acordarse también durante el estado de alarma.",
+      "La del 55.2 alcanza a todo el art. 17; la del 55.1 solo al apartado 2 del art. 17, en estado de excepción."
+     ],
+     "correcta": 0,
+     "explicacion": "El 55.2 prevé una suspensión individual, para personas determinadas y en investigaciones sobre bandas armadas o elementos terroristas. El 55.1, una suspensión general, solo en los estados de excepción o de sitio."
+    }
+   ]
+  },
+  {
+   "id": "CE-a55-2-derechos",
+   "bloque": "a55",
+   "apartado": "2",
+   "orden": 5500,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué derechos pueden suspenderse de forma individual según el art. 55.2 CE?",
+    "respuesta": "Los de los arts. 17.2 (duración de la detención preventiva), 18.2 (inviolabilidad del domicilio) y 18.3 (secreto de las comunicaciones)."
+   },
+   "cita": "los derechos reconocidos en los artículos 17, apartado 2, y 18, apartados 2 y 3, pueden ser suspendidos para personas determinadas",
+   "confundible_con": [
+    "CE-a55-1-lista-17-19",
+    "CE-a55-1-excepcion-17-3"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 55.2 CE, para personas determinadas puede suspenderse, entre otros…",
+     "opciones": [
+      "el secreto de las comunicaciones (18.3)",
+      "el derecho de reunión (21)"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.2 CE: arts. 17.2, 18.2 y 18.3. El derecho de reunión solo se suspende con carácter general (art. 55.1)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 55.2 CE, los derechos que pueden suspenderse para personas determinadas son los de los artículos:",
+     "opciones": [
+      "17.2, 18.2 y 18.3.",
+      "17.3, 18.2 y 18.3.",
+      "17.2, 18.1 y 18.3."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.2 CE: «artículos 17, apartado 2, y 18, apartados 2 y 3»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué derecho puede suspenderse en un estado de excepción (art. 55.1) pero NO de forma individual por la vía del art. 55.2 CE?",
+     "opciones": [
+      "La libertad de residencia y circulación (art. 19).",
+      "La inviolabilidad del domicilio (art. 18.2).",
+      "El secreto de las comunicaciones (art. 18.3)."
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 19 está en la lista del 55.1 pero no en la del 55.2, que solo incluye los arts. 17.2, 18.2 y 18.3."
+    }
+   ]
+  },
+  {
+   "id": "CE-a55-2-garantias",
+   "bloque": "a55",
+   "apartado": "2",
+   "orden": 5510,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Con qué garantías puede aplicarse la suspensión de derechos del art. 55.2 CE?",
+    "respuesta": "De forma individual, con la necesaria intervención judicial y el adecuado control parlamentario."
+   },
+   "cita": "de forma individual y con la necesaria intervención judicial y el adecuado control parlamentario",
+   "confundible_con": [
+    "CE-a55-2-terrorismo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 55.2 CE, la suspensión individual de derechos exige la necesaria intervención judicial y…",
+     "opciones": [
+      "el adecuado control parlamentario",
+      "el consentimiento del afectado"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.2 CE: «con la necesaria intervención judicial y el adecuado control parlamentario»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 55.2 CE, la suspensión de derechos para personas determinadas requiere:",
+     "opciones": [
+      "La necesaria intervención judicial y el adecuado control parlamentario.",
+      "La autorización previa del Tribunal Constitucional y del Consejo de Ministros.",
+      "La declaración previa del estado de excepción por el Gobierno."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.2 CE: intervención judicial y control parlamentario. No exige declarar ningún estado excepcional."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas afirmaciones sobre el art. 55.2 CE es correcta?",
+     "opciones": [
+      "La suspensión exige la necesaria intervención judicial y el adecuado control parlamentario.",
+      "La suspensión puede acordarla el Gobierno sin intervención judicial si hay urgencia.",
+      "La suspensión puede afectar de forma colectiva a todos los vecinos de una zona."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.2 CE: la suspensión es individual, «con la necesaria intervención judicial y el adecuado control parlamentario»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a55-2-responsabilidad",
+   "bloque": "a55",
+   "apartado": "2",
+   "orden": 5520,
+   "tipo": "dato",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Qué produce la utilización injustificada o abusiva de las facultades de la ley orgánica del art. 55.2 CE?",
+    "respuesta": "Responsabilidad penal, como violación de los derechos y libertades reconocidos por las leyes."
+   },
+   "cita": "La utilización injustificada o abusiva de las facultades reconocidas en dicha ley orgánica producirá responsabilidad penal",
+   "confundible_con": [
+    "CE-a55-2-garantias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 55.2 CE, la utilización injustificada o abusiva de esas facultades producirá responsabilidad…",
+     "opciones": [
+      "penal",
+      "solo disciplinaria"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.2 CE: «producirá responsabilidad penal»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 55.2 CE, ¿qué tipo de responsabilidad produce la utilización injustificada o abusiva de las facultades de la ley orgánica de suspensión individual?",
+     "opciones": [
+      "Penal.",
+      "Civil.",
+      "Disciplinaria."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.2 CE: responsabilidad penal."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 55.2 CE, la utilización injustificada o abusiva de las facultades reconocidas en esa ley orgánica producirá:",
+     "opciones": [
+      "Responsabilidad penal, como violación de los derechos y libertades reconocidos por las leyes.",
+      "Responsabilidad patrimonial del Estado, como funcionamiento anormal de la Administración.",
+      "La nulidad de la ley orgánica, que declarará el Tribunal Constitucional."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 55.2 CE: «producirá responsabilidad penal, como violación de los derechos y libertades reconocidos por las leyes»."
+    }
+   ]
+  }
+ ]
+}
