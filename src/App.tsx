@@ -752,12 +752,13 @@ export default function App() {
           aria-label="Aviso de modo demostración"
           className="bg-amber-400 text-slate-950 px-3 sm:px-4 py-1.5 text-sm font-semibold shadow-xs"
         >
-          <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
-            <div className="flex items-center gap-2 text-left">
+          {/* En el móvil cabe en una sola fila: cada píxel de alto deja ver antes la pregunta. */}
+          <div className="max-w-6xl mx-auto flex items-center justify-between gap-2">
+            <div className="flex min-w-0 items-center gap-2 text-left">
               <span className="hidden sm:block w-2 h-2 rounded-full bg-amber-900 animate-pulse shrink-0" aria-hidden="true" />
-              <span>
+              <span className="text-xs leading-tight sm:text-sm">
                 <strong><span className="sm:hidden">Demo</span><span className="hidden sm:inline">Modo demostración</span></strong>
-                <span className="sm:hidden">: no se guarda en tu cuenta.</span>
+                <span className="sm:hidden">: no se guarda</span>
                 <span className="hidden sm:inline">: lo que hagas no se guarda en ninguna cuenta; el repaso de fichas queda solo en este dispositivo.</span>
               </span>
             </div>
@@ -776,9 +777,11 @@ export default function App() {
                 type="button"
                 id="btn-exit-demo"
                 onClick={handleExitDemo}
+                aria-label="Salir de la demo"
                 className="min-h-11 px-2.5 py-1 bg-slate-950 hover:bg-slate-800 text-white rounded-lg text-sm font-bold transition cursor-pointer"
               >
-                Salir de la demo
+                <span className="sm:hidden">Salir</span>
+                <span className="hidden sm:inline">Salir de la demo</span>
               </button>
             </div>
           </div>
@@ -948,6 +951,8 @@ export default function App() {
                 Repasar ({pendingCount})
               </button>
             )}
+            {/* En la demo ya está «Salir» en la franja amarilla: no lo repetimos aquí. */}
+            {!isDemoMode && (
             <button
               onClick={handleLogout}
               aria-label="Cerrar sesión"
@@ -957,6 +962,7 @@ export default function App() {
               <LogOut className="w-4 h-4" aria-hidden="true" />
               <span>Salir</span>
             </button>
+            )}
           </div>
         </div>
       </header>
@@ -965,7 +971,7 @@ export default function App() {
       <main
         id="main-content"
         tabIndex={-1}
-        className="flex-1 max-w-6xl w-full mx-auto px-4 pt-8 pb-24 md:py-8"
+        className="flex-1 max-w-6xl w-full mx-auto px-4 pt-4 pb-24 md:py-8"
       >
         {currentScreen === 'dashboard' && (
           <>
