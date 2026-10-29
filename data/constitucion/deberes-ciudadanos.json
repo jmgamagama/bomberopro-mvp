@@ -1,0 +1,1018 @@
+{
+  "norma": "BOE-A-1978-31229",
+  "tema": 1,
+  "bloque_temario": "Título I, Capítulo segundo, Sección 2.ª: de los derechos y deberes de los ciudadanos (arts. 30-38)",
+  "estado": "borrador",
+  "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+  "niveles": {
+    "1": "fácil: 2 opciones, para aprender",
+    "2": "normal: 3 opciones, formato del examen",
+    "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+  },
+  "conceptos": [
+    {
+      "id": "CE-a30-1-defender",
+      "bloque": "a30",
+      "apartado": "1",
+      "orden": 920,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Qué derecho y deber tienen los españoles según el art. 30.1 CE?",
+        "respuesta": "El derecho y el deber de defender a España."
+      },
+      "cita": "Los españoles tienen el derecho y el deber de defender a España.",
+      "confundible_con": [
+        "CE-a8-1-mision"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 30.1 CE, defender a España es para los españoles…",
+          "opciones": [
+            "un derecho y un deber",
+            "solo un deber"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 30.1 CE: «el derecho y el deber de defender a España»."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 30.1 CE, ¿quiénes tienen el derecho y el deber de defender a España?",
+          "opciones": [
+            "Los españoles.",
+            "Las Fuerzas Armadas, exclusivamente.",
+            "Los poderes públicos."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 30.1 CE. La defensa de la integridad territorial como misión corresponde a las Fuerzas Armadas (art. 8.1), pero el derecho-deber del art. 30.1 es de los españoles."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "El art. 30.1 CE se encuentra en:",
+          "opciones": [
+            "La Sección 2.ª del Capítulo segundo del Título I.",
+            "La Sección 1.ª del Capítulo segundo del Título I.",
+            "El Capítulo tercero del Título I."
+          ],
+          "correcta": 0,
+          "explicacion": "La Sección 2.ª («De los derechos y deberes de los ciudadanos») abarca los arts. 30 a 38."
+        }
+      ]
+    },
+    {
+      "id": "CE-a30-2-objecion",
+      "bloque": "a30",
+      "apartado": "2",
+      "orden": 930,
+      "tipo": "regla",
+      "prioridad": 1,
+      "tarjeta": {
+        "pregunta": "¿Qué regulará la ley según el art. 30.2 CE?",
+        "respuesta": "Las obligaciones militares de los españoles, la objeción de conciencia con las debidas garantías y las demás causas de exención del servicio militar obligatorio, pudiendo imponer una prestación social sustitutoria."
+      },
+      "cita": "regulará, con las debidas garantías, la objeción de conciencia",
+      "confundible_con": [
+        "CE-a53-2-amparo"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "¿Qué artículo de la Constitución menciona la objeción de conciencia al servicio militar?",
+          "opciones": [
+            "El art. 30.2",
+            "El art. 16.1"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 30.2 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 30.2 CE, la ley regulará las causas de exención del servicio militar obligatorio, pudiendo imponer, en su caso:",
+          "opciones": [
+            "Una prestación social sustitutoria.",
+            "Una sanción económica.",
+            "Un servicio militar de duración reducida."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 30.2 CE: «pudiendo imponer, en su caso, una prestación social sustitutoria»."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "La objeción de conciencia del art. 30 CE, según el art. 53.2 CE:",
+          "opciones": [
+            "Puede protegerse mediante recurso de amparo ante el Tribunal Constitucional.",
+            "Solo puede alegarse ante la jurisdicción ordinaria, según las leyes que la desarrollen.",
+            "No tiene protección jurisdiccional específica."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 53.2 CE: el recurso de amparo «será aplicable a la objeción de conciencia reconocida en el artículo 30»."
+        }
+      ]
+    },
+    {
+      "id": "CE-a30-3-servicio-civil",
+      "bloque": "a30",
+      "apartado": "3",
+      "orden": 940,
+      "tipo": "regla",
+      "prioridad": 3,
+      "tarjeta": {
+        "pregunta": "¿Qué puede establecerse según el art. 30.3 CE?",
+        "respuesta": "Un servicio civil para el cumplimiento de fines de interés general."
+      },
+      "cita": "Podrá establecerse un servicio civil para el cumplimiento de fines de interés general.",
+      "confundible_con": [
+        "CE-a30-4-catastrofe"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 30.3 CE, podrá establecerse un servicio civil para el cumplimiento de fines de…",
+          "opciones": [
+            "interés general",
+            "defensa nacional"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 30.3 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 30.3 CE, ¿qué podrá establecerse para el cumplimiento de fines de interés general?",
+          "opciones": [
+            "Un servicio civil.",
+            "Un servicio militar voluntario.",
+            "Una prestación patrimonial obligatoria."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 30.3 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 30.3 CE, el servicio civil:",
+          "opciones": [
+            "Podrá establecerse para el cumplimiento de fines de interés general.",
+            "Deberá establecerse para el cumplimiento de fines de interés general.",
+            "Deberá establecerse para el cumplimiento de fines de defensa nacional."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 30.3 CE: «Podrá establecerse»; es una posibilidad, no una obligación."
+        }
+      ]
+    },
+    {
+      "id": "CE-a30-4-catastrofe",
+      "bloque": "a30",
+      "apartado": "4",
+      "orden": 950,
+      "tipo": "regla",
+      "prioridad": 1,
+      "tarjeta": {
+        "pregunta": "¿Qué puede regularse mediante ley según el art. 30.4 CE?",
+        "respuesta": "Los deberes de los ciudadanos en los casos de grave riesgo, catástrofe o calamidad pública."
+      },
+      "cita": "Mediante ley podrán regularse los deberes de los ciudadanos en los casos de grave riesgo, catástrofe o calamidad pública.",
+      "confundible_con": [
+        "CE-a30-3-servicio-civil"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 30.4 CE, mediante ley podrán regularse los deberes de los ciudadanos en casos de grave riesgo, catástrofe o…",
+          "opciones": [
+            "calamidad pública",
+            "conflicto armado"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 30.4 CE: grave riesgo, catástrofe o calamidad pública."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "El fundamento constitucional de los deberes de los ciudadanos en protección civil ante una catástrofe se encuentra en el art.:",
+          "opciones": [
+            "30.4 CE.",
+            "15 CE.",
+            "43.2 CE."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 30.4 CE: deberes de los ciudadanos en casos de grave riesgo, catástrofe o calamidad pública."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 30.4 CE, los deberes de los ciudadanos en casos de grave riesgo, catástrofe o calamidad pública:",
+          "opciones": [
+            "Podrán regularse mediante ley.",
+            "Los fija directamente la Constitución.",
+            "Solo pueden imponerse durante el estado de alarma."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 30.4 CE: «Mediante ley podrán regularse…»."
+        }
+      ]
+    },
+    {
+      "id": "CE-a31-1-tributos",
+      "bloque": "a31",
+      "apartado": "1",
+      "orden": 960,
+      "tipo": "lista",
+      "prioridad": 1,
+      "tarjeta": {
+        "pregunta": "¿En qué principios se inspira el sistema tributario y qué alcance no puede tener (art. 31.1 CE)?",
+        "respuesta": "Es un sistema justo inspirado en los principios de igualdad y progresividad que, en ningún caso, tendrá alcance confiscatorio; todos contribuyen según su capacidad económica."
+      },
+      "cita": "mediante un sistema tributario justo inspirado en los principios de igualdad y progresividad que, en ningún caso, tendrá alcance confiscatorio",
+      "confundible_con": [
+        "CE-a31-2-gasto"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 31.1 CE, ¿puede el sistema tributario tener alcance confiscatorio?",
+          "opciones": [
+            "No, en ningún caso",
+            "Sí, en casos excepcionales"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 31.1 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 31.1 CE, el sistema tributario justo se inspira en los principios de:",
+          "opciones": [
+            "Igualdad y progresividad.",
+            "Eficiencia y economía.",
+            "Legalidad y seguridad jurídica."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 31.1 CE. Eficiencia y economía son criterios del gasto público (art. 31.2)."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 31.1 CE, todos contribuirán al sostenimiento de los gastos públicos de acuerdo con:",
+          "opciones": [
+            "Su capacidad económica.",
+            "Su renta y su patrimonio.",
+            "Lo que disponga cada Comunidad Autónoma."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 31.1 CE: «de acuerdo con su capacidad económica»."
+        }
+      ]
+    },
+    {
+      "id": "CE-a31-2-gasto",
+      "bloque": "a31",
+      "apartado": "2",
+      "orden": 970,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Qué criterios rigen el gasto público según el art. 31.2 CE?",
+        "respuesta": "Realizará una asignación equitativa de los recursos públicos, y su programación y ejecución responderán a los criterios de eficiencia y economía."
+      },
+      "cita": "su programación y ejecución responderán a los criterios de eficiencia y economía",
+      "confundible_con": [
+        "CE-a31-1-tributos"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 31.2 CE, el gasto público realizará una asignación de los recursos públicos…",
+          "opciones": [
+            "equitativa",
+            "proporcional a la población"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 31.2 CE: asignación equitativa."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 31.2 CE, la programación y ejecución del gasto público responderán a los criterios de:",
+          "opciones": [
+            "Eficiencia y economía.",
+            "Igualdad y progresividad.",
+            "Transparencia y estabilidad presupuestaria."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 31.2 CE. Igualdad y progresividad son principios del sistema tributario (art. 31.1)."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "En el art. 31 CE, «igualdad y progresividad» y «eficiencia y economía» se refieren, respectivamente, a:",
+          "opciones": [
+            "El sistema tributario y el gasto público.",
+            "El gasto público y el sistema tributario.",
+            "Las prestaciones personales y las patrimoniales."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 31.1: sistema tributario. Art. 31.2: gasto público."
+        }
+      ]
+    },
+    {
+      "id": "CE-a31-3-prestaciones",
+      "bloque": "a31",
+      "apartado": "3",
+      "orden": 980,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Cómo pueden establecerse prestaciones personales o patrimoniales de carácter público (art. 31.3 CE)?",
+        "respuesta": "Solo con arreglo a la ley."
+      },
+      "cita": "Sólo podrán establecerse prestaciones personales o patrimoniales de carácter público con arreglo a la ley.",
+      "confundible_con": [
+        "CE-a30-4-catastrofe"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 31.3 CE, las prestaciones personales o patrimoniales de carácter público solo pueden establecerse…",
+          "opciones": [
+            "con arreglo a la ley",
+            "por decreto del Gobierno"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 31.3 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 31.3 CE, sólo podrán establecerse con arreglo a la ley las prestaciones de carácter público:",
+          "opciones": [
+            "Personales o patrimoniales.",
+            "Patrimoniales, exclusivamente.",
+            "Tributarias, exclusivamente."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 31.3 CE: personales o patrimoniales."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "En el art. 31 CE, la reserva de ley para establecer prestaciones personales o patrimoniales de carácter público figura en el apartado:",
+          "opciones": [
+            "3.",
+            "1.",
+            "2."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 31.3 CE. El 31.1 trata del sistema tributario y el 31.2, del gasto público."
+        }
+      ]
+    },
+    {
+      "id": "CE-a32-1-matrimonio",
+      "bloque": "a32",
+      "apartado": "1",
+      "orden": 990,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Qué derecho reconoce el art. 32.1 CE?",
+        "respuesta": "El derecho del hombre y la mujer a contraer matrimonio con plena igualdad jurídica."
+      },
+      "cita": "El hombre y la mujer tienen derecho a contraer matrimonio con plena igualdad jurídica.",
+      "confundible_con": [
+        "CE-a32-2-ley"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 32.1 CE, el hombre y la mujer tienen derecho a contraer matrimonio con plena…",
+          "opciones": [
+            "igualdad jurídica",
+            "libertad religiosa"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 32.1 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "¿Qué artículo de la Constitución reconoce el derecho a contraer matrimonio?",
+          "opciones": [
+            "El 32.",
+            "El 39.",
+            "El 18."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 32 CE. El 39 trata de la protección de la familia."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "El art. 32.1 CE reconoce el derecho a contraer matrimonio:",
+          "opciones": [
+            "Con plena igualdad jurídica.",
+            "Desde los dieciséis años.",
+            "Solo en forma civil."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 32.1 CE. La edad y las formas del matrimonio las regula la ley (art. 32.2)."
+        }
+      ]
+    },
+    {
+      "id": "CE-a32-2-ley",
+      "bloque": "a32",
+      "apartado": "2",
+      "orden": 1000,
+      "tipo": "lista",
+      "prioridad": 3,
+      "tarjeta": {
+        "pregunta": "¿Qué aspectos del matrimonio regulará la ley según el art. 32.2 CE?",
+        "respuesta": "Las formas de matrimonio, la edad y capacidad para contraerlo, los derechos y deberes de los cónyuges, las causas de separación y disolución y sus efectos."
+      },
+      "cita": "La ley regulará las formas de matrimonio, la edad y capacidad para contraerlo, los derechos y deberes de los cónyuges, las causas de separación y disolución y sus efectos.",
+      "confundible_con": [
+        "CE-a32-1-matrimonio"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 32.2 CE, ¿quién regula la edad para contraer matrimonio?",
+          "opciones": [
+            "La ley",
+            "La propia Constitución"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 32.2 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 32.2 CE, la ley regulará, entre otros aspectos del matrimonio:",
+          "opciones": [
+            "Las causas de separación y disolución y sus efectos.",
+            "El régimen económico y los derechos de las parejas de hecho.",
+            "La adopción de menores y el acogimiento familiar."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 32.2 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "¿Cuál de estos aspectos NO menciona el art. 32.2 CE como materia que la ley regulará?",
+          "opciones": [
+            "La filiación de los hijos.",
+            "Las formas de matrimonio.",
+            "Los derechos y deberes de los cónyuges."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 32.2 CE: formas, edad y capacidad, derechos y deberes de los cónyuges, separación y disolución. La filiación aparece en el art. 39.2."
+        }
+      ]
+    },
+    {
+      "id": "CE-a33-1-propiedad",
+      "bloque": "a33",
+      "apartado": "1",
+      "orden": 1010,
+      "tipo": "lista",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Qué derechos reconoce el art. 33.1 CE?",
+        "respuesta": "El derecho a la propiedad privada y a la herencia."
+      },
+      "cita": "Se reconoce el derecho a la propiedad privada y a la herencia.",
+      "confundible_con": [
+        "CE-a33-2-funcion-social"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 33.1 CE, se reconoce el derecho a la propiedad privada y a…",
+          "opciones": [
+            "la herencia",
+            "la vivienda"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 33.1 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "¿Qué artículo de la Constitución reconoce el derecho a la propiedad privada y a la herencia?",
+          "opciones": [
+            "El 33.",
+            "El 38.",
+            "El 47."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 33.1 CE. El 38 trata de la libertad de empresa y el 47, de la vivienda."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "¿Puede protegerse el derecho a la propiedad privada (art. 33 CE) mediante recurso de amparo ante el Tribunal Constitucional?",
+          "opciones": [
+            "No, porque está en la Sección 2.ª del Capítulo segundo.",
+            "Sí, como todos los derechos del Capítulo segundo.",
+            "Sí, pero solo frente a las expropiaciones."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 53.2 CE: el amparo cubre el art. 14, la Sección 1.ª del Capítulo segundo y la objeción de conciencia del art. 30. La propiedad (art. 33) está en la Sección 2.ª."
+        }
+      ]
+    },
+    {
+      "id": "CE-a33-2-funcion-social",
+      "bloque": "a33",
+      "apartado": "2",
+      "orden": 1020,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Qué delimitará el contenido de los derechos de propiedad y herencia (art. 33.2 CE)?",
+        "respuesta": "Su función social, de acuerdo con las leyes."
+      },
+      "cita": "La función social de estos derechos delimitará su contenido, de acuerdo con las leyes.",
+      "confundible_con": [
+        "CE-a33-1-propiedad",
+        "CE-a33-3-expropiacion"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 33.2 CE, ¿qué delimitará el contenido del derecho de propiedad?",
+          "opciones": [
+            "Su función social",
+            "El valor de mercado"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 33.2 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 33.2 CE, la función social de la propiedad privada y la herencia delimitará su contenido de acuerdo con:",
+          "opciones": [
+            "Las leyes.",
+            "La Constitución y los tratados.",
+            "Los reglamentos de cada Comunidad Autónoma."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 33.2 CE: «de acuerdo con las leyes»."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "La «función social» aparece en el art. 33.2 CE como:",
+          "opciones": [
+            "El criterio que delimita el contenido de la propiedad y la herencia.",
+            "La causa que permite expropiar los bienes sin necesidad de indemnización.",
+            "Un principio rector de la política social y económica."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 33.2 CE. La expropiación (33.3) exige siempre indemnización."
+        }
+      ]
+    },
+    {
+      "id": "CE-a33-3-expropiacion",
+      "bloque": "a33",
+      "apartado": "3",
+      "orden": 1030,
+      "tipo": "lista",
+      "prioridad": 1,
+      "tarjeta": {
+        "pregunta": "¿Qué requisitos exige el art. 33.3 CE para privar a alguien de sus bienes y derechos?",
+        "respuesta": "Causa justificada de utilidad pública o interés social, la correspondiente indemnización y conformidad con lo dispuesto por las leyes."
+      },
+      "cita": "Nadie podrá ser privado de sus bienes y derechos sino por causa justificada de utilidad pública o interés social, mediante la correspondiente indemnización y de conformidad con lo dispuesto por las leyes.",
+      "confundible_con": [
+        "CE-a33-2-funcion-social"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 33.3 CE, ¿puede privarse a alguien de sus bienes sin indemnización?",
+          "opciones": [
+            "No",
+            "Sí, por interés social"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 33.3 CE: siempre mediante la correspondiente indemnización."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 33.3 CE, nadie podrá ser privado de sus bienes y derechos sino por causa justificada de:",
+          "opciones": [
+            "Utilidad pública o interés social.",
+            "Seguridad nacional u orden público.",
+            "Interés general o urgente necesidad."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 33.3 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "¿Cuál de estos requisitos NO exige el art. 33.3 CE para privar a alguien de sus bienes?",
+          "opciones": [
+            "Resolución judicial previa.",
+            "Causa justificada de utilidad pública o interés social.",
+            "La correspondiente indemnización."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 33.3 CE: causa justificada, indemnización y conformidad con las leyes. No exige resolución judicial."
+        }
+      ]
+    },
+    {
+      "id": "CE-a34-1-fundacion",
+      "bloque": "a34",
+      "apartado": "1",
+      "orden": 1040,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Para qué fines se reconoce el derecho de fundación (art. 34.1 CE)?",
+        "respuesta": "Para fines de interés general, con arreglo a la ley."
+      },
+      "cita": "Se reconoce el derecho de fundación para fines de interés general, con arreglo a la ley.",
+      "confundible_con": [
+        "CE-a22-1-asociacion"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 34.1 CE, el derecho de fundación se reconoce para fines de…",
+          "opciones": [
+            "interés general",
+            "interés social"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 34.1 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 34.1 CE, se reconoce el derecho de fundación:",
+          "opciones": [
+            "Para fines de interés general, con arreglo a la ley.",
+            "Para fines de interés social, con arreglo a la ley.",
+            "Para fines de interés general, con arreglo a sus estatutos."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 34.1 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "¿En qué artículo y sección de la Constitución se reconoce el derecho de fundación?",
+          "opciones": [
+            "Art. 34, Sección 2.ª del Capítulo segundo.",
+            "Art. 22, Sección 1.ª del Capítulo segundo.",
+            "Art. 34, Sección 1.ª del Capítulo segundo."
+          ],
+          "correcta": 0,
+          "explicacion": "El derecho de fundación (art. 34) está en la Sección 2.ª; el de asociación (art. 22), en la Sección 1.ª."
+        }
+      ]
+    },
+    {
+      "id": "CE-a34-2-remision",
+      "bloque": "a34",
+      "apartado": "2",
+      "orden": 1050,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Qué apartados del art. 22 se aplican también a las fundaciones (art. 34.2 CE)?",
+        "respuesta": "Los apartados 2 y 4: ilegalidad por fines o medios delictivos y disolución o suspensión solo por resolución judicial motivada."
+      },
+      "cita": "Regirá también para las fundaciones lo dispuesto en los apartados 2 y 4 del artículo 22.",
+      "confundible_con": [
+        "CE-a22-4-disolucion",
+        "CE-a22-2-ilegales"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 34.2 CE, a las fundaciones se les aplican apartados del artículo…",
+          "opciones": [
+            "22",
+            "21"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 34.2 CE: apartados 2 y 4 del art. 22."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 34.2 CE, regirá también para las fundaciones lo dispuesto en los apartados del artículo 22:",
+          "opciones": [
+            "2 y 4.",
+            "3 y 5.",
+            "1 y 3."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 34.2 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Por remisión del art. 34.2 CE, una fundación:",
+          "opciones": [
+            "Solo puede ser disuelta o suspendida por resolución judicial motivada.",
+            "Debe inscribirse en un registro a los solos efectos de publicidad.",
+            "Está prohibida si tiene carácter secreto."
+          ],
+          "correcta": 0,
+          "explicacion": "El art. 34.2 remite a los apartados 2 (ilegalidad) y 4 (disolución judicial) del art. 22, no al 3 (registro) ni al 5 (secretas y paramilitares)."
+        }
+      ]
+    },
+    {
+      "id": "CE-a35-1-trabajo",
+      "bloque": "a35",
+      "apartado": "1",
+      "orden": 1060,
+      "tipo": "lista",
+      "prioridad": 1,
+      "tarjeta": {
+        "pregunta": "¿Qué deber y qué derechos reconoce el art. 35.1 CE a los españoles?",
+        "respuesta": "El deber de trabajar y el derecho al trabajo, a la libre elección de profesión u oficio, a la promoción a través del trabajo y a una remuneración suficiente, sin discriminación por razón de sexo."
+      },
+      "cita": "Todos los españoles tienen el deber de trabajar y el derecho al trabajo",
+      "confundible_con": [
+        "CE-a40-1-pleno-empleo"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 35.1 CE, trabajar es para los españoles…",
+          "opciones": [
+            "un deber y un derecho",
+            "solo un derecho"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 35.1 CE: «el deber de trabajar y el derecho al trabajo»."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 35.1 CE, la remuneración del trabajador debe ser suficiente para satisfacer:",
+          "opciones": [
+            "Sus necesidades y las de su familia.",
+            "Sus necesidades básicas de vivienda y alimentación.",
+            "Sus necesidades personales y de formación profesional."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 35.1 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "¿Qué discriminación prohíbe expresamente el art. 35.1 CE, «en ningún caso», en materia de trabajo?",
+          "opciones": [
+            "Por razón de sexo.",
+            "Por razón de edad.",
+            "Por razón de nacionalidad."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 35.1 CE: «sin que en ningún caso pueda hacerse discriminación por razón de sexo»."
+        }
+      ]
+    },
+    {
+      "id": "CE-a35-2-estatuto",
+      "bloque": "a35",
+      "apartado": "2",
+      "orden": 1070,
+      "tipo": "dato",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Qué regulará la ley según el art. 35.2 CE?",
+        "respuesta": "Un estatuto de los trabajadores."
+      },
+      "cita": "La ley regulará un estatuto de los trabajadores.",
+      "confundible_con": [
+        "CE-a37-1-negociacion"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 35.2 CE, la ley regulará un estatuto de…",
+          "opciones": [
+            "los trabajadores",
+            "los funcionarios"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 35.2 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "¿Qué artículo de la Constitución dispone que la ley regulará un estatuto de los trabajadores?",
+          "opciones": [
+            "El 35.2.",
+            "El 37.1.",
+            "El 28.1."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 35.2 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "¿Qué prevén, respectivamente, el art. 35.2 CE y el art. 37.1 CE?",
+          "opciones": [
+            "Un estatuto de los trabajadores y la fuerza vinculante de los convenios.",
+            "La fuerza vinculante de los convenios y un estatuto de los trabajadores.",
+            "Un estatuto de los trabajadores y el derecho de huelga."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 35.2 CE: «La ley regulará un estatuto de los trabajadores». Art. 37.1 CE: negociación colectiva y fuerza vinculante de los convenios. La huelga está en el art. 28.2."
+        }
+      ]
+    },
+    {
+      "id": "CE-a36-colegios",
+      "bloque": "a36",
+      "apartado": "",
+      "orden": 1080,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Qué dice el art. 36 CE sobre los Colegios Profesionales?",
+        "respuesta": "La ley regulará su régimen jurídico y el ejercicio de las profesiones tituladas; su estructura interna y funcionamiento deberán ser democráticos."
+      },
+      "cita": "La estructura interna y el funcionamiento de los Colegios deberán ser democráticos.",
+      "confundible_con": [
+        "CE-a52-organizaciones",
+        "CE-a6-partidos-regimen"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 36 CE, la estructura interna y el funcionamiento de los Colegios Profesionales deberán ser…",
+          "opciones": [
+            "democráticos",
+            "jerárquicos"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 36 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 36 CE, la ley regulará las peculiaridades propias del régimen jurídico de los Colegios Profesionales y:",
+          "opciones": [
+            "El ejercicio de las profesiones tituladas.",
+            "La colegiación obligatoria de todos los trabajadores.",
+            "Los convenios colectivos de los profesionales."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 36 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "¿A cuál de estas entidades NO exige la Constitución expresamente estructura interna y funcionamiento democráticos?",
+          "opciones": [
+            "Las fundaciones.",
+            "Los Colegios Profesionales.",
+            "Las organizaciones profesionales del art. 52."
+          ],
+          "correcta": 0,
+          "explicacion": "La exigencia aparece para partidos (6), sindicatos y asociaciones empresariales (7), Colegios Profesionales (36) y organizaciones profesionales (52), pero no para las fundaciones (34)."
+        }
+      ]
+    },
+    {
+      "id": "CE-a37-1-negociacion",
+      "bloque": "a37",
+      "apartado": "1",
+      "orden": 1090,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Qué garantizará la ley según el art. 37.1 CE?",
+        "respuesta": "El derecho a la negociación colectiva laboral entre representantes de trabajadores y empresarios, así como la fuerza vinculante de los convenios."
+      },
+      "cita": "La ley garantizará el derecho a la negociación colectiva laboral entre los representantes de los trabajadores y empresarios, así como la fuerza vinculante de los convenios.",
+      "confundible_con": [
+        "CE-a37-2-conflicto"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 37.1 CE, la ley garantizará la fuerza vinculante de…",
+          "opciones": [
+            "los convenios",
+            "las huelgas"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 37.1 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 37.1 CE, la negociación colectiva laboral se produce entre:",
+          "opciones": [
+            "Los representantes de los trabajadores y empresarios.",
+            "Los sindicatos y el Gobierno.",
+            "Los trabajadores individualmente y su empresa."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 37.1 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 37.1 CE, ¿quién garantizará el derecho a la negociación colectiva laboral y la fuerza vinculante de los convenios?",
+          "opciones": [
+            "La ley.",
+            "Los representantes de los trabajadores y empresarios.",
+            "El Gobierno, mediante real decreto."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 37.1 CE: «La ley garantizará el derecho a la negociación colectiva laboral…, así como la fuerza vinculante de los convenios»."
+        }
+      ]
+    },
+    {
+      "id": "CE-a37-2-conflicto",
+      "bloque": "a37",
+      "apartado": "2",
+      "orden": 1100,
+      "tipo": "regla",
+      "prioridad": 1,
+      "tarjeta": {
+        "pregunta": "¿Qué derecho reconoce el art. 37.2 CE y a quién?",
+        "respuesta": "El de trabajadores y empresarios a adoptar medidas de conflicto colectivo, con garantías para el funcionamiento de los servicios esenciales de la comunidad."
+      },
+      "cita": "Se reconoce el derecho de los trabajadores y empresarios a adoptar medidas de conflicto colectivo.",
+      "confundible_con": [
+        "CE-a28-2-huelga",
+        "CE-a55-1-lista-28-37"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 37.2 CE, ¿tienen los empresarios derecho a adoptar medidas de conflicto colectivo?",
+          "opciones": [
+            "Sí",
+            "No, solo los trabajadores"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 37.2 CE: trabajadores y empresarios."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 37.2 CE, la ley que regule las medidas de conflicto colectivo incluirá las garantías precisas para asegurar:",
+          "opciones": [
+            "El funcionamiento de los servicios esenciales de la comunidad.",
+            "La continuidad de la producción y el abastecimiento de las empresas.",
+            "El cumplimiento de los convenios colectivos."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 37.2 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 55.1 CE, el derecho a adoptar medidas de conflicto colectivo del art. 37.2:",
+          "opciones": [
+            "Puede suspenderse en los estados de excepción o de sitio.",
+            "No puede suspenderse en ningún caso.",
+            "Solo puede suspenderse en el estado de alarma."
+          ],
+          "correcta": 0,
+          "explicacion": "El art. 55.1 incluye expresamente el art. 37.2 entre los derechos suspendibles en los estados de excepción o de sitio."
+        }
+      ]
+    },
+    {
+      "id": "CE-a38-empresa",
+      "bloque": "a38",
+      "apartado": "",
+      "orden": 1110,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Qué reconoce el art. 38 CE y en qué marco?",
+        "respuesta": "La libertad de empresa en el marco de la economía de mercado; los poderes públicos garantizan y protegen su ejercicio y la defensa de la productividad."
+      },
+      "cita": "Se reconoce la libertad de empresa en el marco de la economía de mercado.",
+      "confundible_con": [
+        "CE-a33-1-propiedad"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 38 CE, se reconoce la libertad de empresa en el marco de…",
+          "opciones": [
+            "la economía de mercado",
+            "la planificación central"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 38 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 38 CE, los poderes públicos garantizan y protegen el ejercicio de la libertad de empresa y la defensa de:",
+          "opciones": [
+            "La productividad.",
+            "El pleno empleo.",
+            "Los consumidores y usuarios."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 38 CE. El pleno empleo es del art. 40.1 y los consumidores, del art. 51."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 38 CE, la defensa de la productividad se hará de acuerdo con:",
+          "opciones": [
+            "Las exigencias de la economía general y, en su caso, de la planificación.",
+            "Las directrices de política económica de la Unión Europea.",
+            "Los convenios colectivos vigentes en cada sector de actividad."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 38 CE."
+        }
+      ]
+    }
+  ]
+}

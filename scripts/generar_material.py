@@ -23,6 +23,7 @@ BLOQUES = [
     ("titulo-preliminar", "Título Preliminar (arts. 1–9)", range(1, 10)),
     ("dignidad-espanoles-extranjeros", "Dignidad, españoles y extranjeros (arts. 10–13)", range(10, 14)),
     ("derechos-fundamentales", "Igualdad y derechos fundamentales (arts. 14–29)", range(14, 30)),
+    ("deberes-ciudadanos", "Derechos y deberes de los ciudadanos (arts. 30–38)", range(30, 39)),
     ("principios-rectores", "Principios rectores de la política social y económica (arts. 39–52)", range(39, 53)),
     ("garantias-suspension", "Garantías y suspensión de los derechos (arts. 53–55)", range(53, 56)),
 ]
