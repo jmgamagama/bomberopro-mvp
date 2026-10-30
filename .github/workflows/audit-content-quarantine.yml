@@ -37,7 +37,7 @@ jobs:
         run: NODE_PATH="$RUNNER_TEMP/audit-runtime/node_modules" node supabase/tests/audit_35_36.pglite.mjs
       - name: Test migration 43 (audit 200, phase 1) and rollback
         run: NODE_PATH="$RUNNER_TEMP/audit-runtime/node_modules" node supabase/tests/auditoria_200_f1.pglite.mjs
-      - name: Test migration 45 (audit topics 35-40, duplicates and medium findings) and rollback
+      - name: Test migration 46 (audit topics 35-40, duplicates and medium findings) and rollback
         run: NODE_PATH="$RUNNER_TEMP/audit-runtime/node_modules" node supabase/tests/auditoria_temas_35_40_f1b.pglite.mjs
       - name: Validate migration numbers
         run: node scripts/check-migrations.mjs
