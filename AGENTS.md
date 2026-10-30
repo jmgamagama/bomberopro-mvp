@@ -38,6 +38,13 @@ Documentar resultados y limitaciones reales. Para documentación aislada, revisa
 - Fichas de recuerdo: `src/data/recallAudit.test.ts` exige fuente, localización, ids únicos y enlaces solo de dominios oficiales. Si cambias un mazo revisado, ejecuta `npm run auditar:fichas` y explica el cambio en el PR (la versión del mazo cambia en `docs/AUDITORIA_FICHAS.md`). No añadas dominios a `OFFICIAL_DOMAINS` sin comprobar que son oficiales.
 - Los datos de estudio locales (`mira_*:<userId|demo>`) no salen del dispositivo. Enviarlos al servidor o añadir analítica exige una migración nueva revisada, consentimiento y actualizar `docs/legal/` (borradores sin revisión legal).
 
+## Skills compartidas
+Las skills del proyecto están en `.agents/skills/` (Codex, Antigravity) y en `.claude/skills/` (Claude Code), en las mismas versiones. `skills-lock.json` registra su origen; para actualizar las externas: `npx skills update -y`.
+- Toda pregunta nueva, importada o modificada pasa por `verificar-banco-preguntas` antes de la revisión humana. Esa skill nunca aprueba para el alumno.
+- Todo cambio de esquema, RLS, RPC o migración sigue `supabase-postgres-best-practices` y `supabase` (oficiales de Supabase).
+- El código React sigue `vercel-react-best-practices`; ignorar las reglas específicas de Next.js (el proyecto usa Vite).
+- No instalar skills de terceros sin revisar su contenido en un PR: se ejecutan con todos los permisos del agente.
+
 ## PR
 Título breve con alcance. Describir qué cambió, por qué, cómo se comprobó y los riesgos pendientes. No fusionar automáticamente cambios que afecten datos, evaluación, selección adaptativa o visibilidad del banco de preguntas.
 
