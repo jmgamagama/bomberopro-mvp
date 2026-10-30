@@ -57,6 +57,8 @@ export default function TrainScreen({
   const [selectedConfidence, setSelectedConfidence] = useState<ConfidenceLevel | null>(null);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
+  // Mientras el servidor corrige no se puede cambiar de opción: la corrección y lo que se ve irían a distinta respuesta.
+  const [isChecking, setIsChecking] = useState(false);
   const [startTime, setStartTime] = useState<number>(0);
   const [timeTaken, setTimeTaken] = useState<number>(0);
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
@@ -86,6 +88,7 @@ export default function TrainScreen({
     setElapsedSeconds(0);
     setRevealed(null);
     setCheckError(null);
+    setIsChecking(false);
     checkingRef.current = false;
   }, [question?.id]);
 
@@ -151,6 +154,7 @@ export default function TrainScreen({
   const handleSubmit = async (confidenceChoice: ConfidenceLevel | null = selectedConfidence) => {
     if (!selectedAnswer || !confidenceChoice || isAnswered || checkingRef.current) return;
     checkingRef.current = true;
+    setIsChecking(true);
     setSelectedConfidence(confidenceChoice);
 
     const elapsed = Math.round((Date.now() - startTime) / 1000);
@@ -161,9 +165,11 @@ export default function TrainScreen({
       console.error('No se pudo corregir la respuesta:', err);
       setCheckError(describeCheckError(err));
       checkingRef.current = false;
+      setIsChecking(false);
       return;
     }
     setCheckError(null);
+    setIsChecking(false);
     setRevealed(check);
     setTimeTaken(elapsed);
     setIsAnswered(true);
@@ -310,7 +316,7 @@ export default function TrainScreen({
                   <button
                     key={idx}
                     id={`train-option-${idx}`}
-                    disabled={isAnswered}
+                    disabled={isAnswered || isChecking}
                     aria-pressed={isSelected}
                     onClick={() => {
                       setAnswerChanges(current => current + countAnswerChange(selectedAnswer, option));
@@ -356,7 +362,7 @@ export default function TrainScreen({
                       key={level}
                       type="button"
                       id={`conf-btn-${level}`}
-                      disabled={!selectedAnswer}
+                      disabled={!selectedAnswer || isChecking}
                       onClick={() => { void handleSubmit(level); }}
                       className="min-h-14 px-1 py-2 rounded-xl border border-slate-500 bg-white text-slate-800 hover:bg-slate-50 transition flex flex-col items-center justify-center gap-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
