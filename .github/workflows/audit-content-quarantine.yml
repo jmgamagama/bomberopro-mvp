@@ -8,7 +8,7 @@ on:
       - 'supabase/migrations/36_endurecer_permisos_anon*.sql'
       - 'supabase/migrations/43_auditoria_200_fase1*.sql'
       - 'supabase/tests/auditoria_200_f1.pglite.mjs'
-      - 'supabase/migrations/45_auditoria_temas_35_40*.sql'
+      - 'supabase/migrations/46_auditoria_temas_35_40*.sql'
       - 'supabase/tests/auditoria_temas_35_40_f1b.pglite.mjs'
       - 'supabase/tests/audit_35_36.pglite.mjs'
       - 'supabase/tests/audit_quarantine.pglite.mjs'

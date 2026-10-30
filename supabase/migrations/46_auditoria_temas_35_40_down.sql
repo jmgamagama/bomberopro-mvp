@@ -1,8 +1,8 @@
--- Marcha atrás de 45_auditoria_temas_35_40.sql. Revisar antes de aplicar: vuelve a publicar
+-- Marcha atrás de 46_auditoria_temas_35_40.sql. Revisar antes de aplicar: vuelve a publicar
 -- duplicadas y preguntas con defectos conocidos.
--- Restaura desde qa_changes_20260923 y qa_concept_changes (motivo 'AUDIT-35-40-F1B-45: …') solo lo que
+-- Restaura desde qa_changes_20260923 y qa_concept_changes (motivo 'AUDIT-35-40-F1B-46: …') solo lo que
 -- sigue tal como lo dejó la 45: si un editor lo cambió después, no se toca. Deja constancia de cada
--- restauración con el motivo 'ROLLBACK-AUDIT-35-40-F1B-45'.
+-- restauración con el motivo 'ROLLBACK-AUDIT-35-40-F1B-46'.
 DO $f1bd$
 DECLARE
   r record;
@@ -13,35 +13,35 @@ BEGIN
   FOR r IN
     SELECT DISTINCT ON (c.question_id) c.question_id, c.valor_anterior
       FROM public.qa_changes_20260923 c
-     WHERE c.campo = 'estado' AND (c.motivo LIKE 'AUDIT-35-40-F1B-45: retirar;%' OR c.motivo LIKE 'AUDIT-35-40-F1B-45: duplicada;%')
+     WHERE c.campo = 'estado' AND (c.motivo LIKE 'AUDIT-35-40-F1B-46: retirar;%' OR c.motivo LIKE 'AUDIT-35-40-F1B-46: duplicada;%')
        AND c.id > coalesce((SELECT max(rb.id) FROM public.qa_changes_20260923 rb
-                             WHERE rb.question_id = c.question_id AND rb.motivo = 'ROLLBACK-AUDIT-35-40-F1B-45'), 0)
+                             WHERE rb.question_id = c.question_id AND rb.motivo = 'ROLLBACK-AUDIT-35-40-F1B-46'), 0)
      ORDER BY c.question_id, c.id DESC
   LOOP
     UPDATE public.questions SET estado = r.valor_anterior
      WHERE id = r.question_id AND estado = 'borrador'
        AND NOT EXISTS (SELECT 1 FROM public.qa_changes_20260923 n
                         WHERE n.question_id = r.question_id
-                          AND n.motivo NOT LIKE 'AUDIT-35-40-F1B-45:%'
+                          AND n.motivo NOT LIKE 'AUDIT-35-40-F1B-46:%'
                           AND n.id > (SELECT max(id) FROM public.qa_changes_20260923
-                                       WHERE question_id = r.question_id AND motivo LIKE 'AUDIT-35-40-F1B-45:%'));
+                                       WHERE question_id = r.question_id AND motivo LIKE 'AUDIT-35-40-F1B-46:%'));
     GET DIAGNOSTICS v_n = ROW_COUNT;
     IF v_n > 0 THEN
       INSERT INTO public.qa_changes_20260923(question_id, campo, valor_anterior, motivo)
-        VALUES (r.question_id, 'estado', 'borrador', 'ROLLBACK-AUDIT-35-40-F1B-45');
+        VALUES (r.question_id, 'estado', 'borrador', 'ROLLBACK-AUDIT-35-40-F1B-46');
     END IF;
   END LOOP;
 
-  -- Corregidas: volver al texto anterior si siguen con el texto de la 45 y nadie las tocó después.
+  -- Corregidas: volver al texto anterior si siguen con el texto de la 46 y nadie las tocó después.
   FOR r IN
     SELECT c.question_id AS id,
       (array_agg(c.valor_anterior ORDER BY c.id DESC) FILTER (WHERE c.campo = 'enunciado'))[1] AS enunciado,
       (array_agg(c.valor_anterior ORDER BY c.id DESC) FILTER (WHERE c.campo = 'opciones'))[1] AS opciones,
       (array_agg(c.valor_anterior ORDER BY c.id DESC) FILTER (WHERE c.campo = 'explicacion'))[1] AS explicacion
     FROM public.qa_changes_20260923 c
-    WHERE c.motivo LIKE 'AUDIT-35-40-F1B-45: corregir;%'
+    WHERE c.motivo LIKE 'AUDIT-35-40-F1B-46: corregir;%'
       AND c.id > coalesce((SELECT max(rb.id) FROM public.qa_changes_20260923 rb
-                            WHERE rb.question_id = c.question_id AND rb.motivo = 'ROLLBACK-AUDIT-35-40-F1B-45'), 0)
+                            WHERE rb.question_id = c.question_id AND rb.motivo = 'ROLLBACK-AUDIT-35-40-F1B-46'), 0)
     GROUP BY c.question_id
   LOOP
     UPDATE public.questions q SET
@@ -52,13 +52,13 @@ BEGIN
        AND q.explicacion = coalesce(v_nuevos -> r.id::text ->> 'explicacion', q.explicacion)
        AND NOT EXISTS (SELECT 1 FROM public.qa_changes_20260923 n
                         WHERE n.question_id = r.id
-                          AND n.motivo NOT LIKE 'AUDIT-35-40-F1B-45:%'
+                          AND n.motivo NOT LIKE 'AUDIT-35-40-F1B-46:%'
                           AND n.id > (SELECT max(id) FROM public.qa_changes_20260923
-                                       WHERE question_id = r.id AND motivo LIKE 'AUDIT-35-40-F1B-45:%'));
+                                       WHERE question_id = r.id AND motivo LIKE 'AUDIT-35-40-F1B-46:%'));
     GET DIAGNOSTICS v_n = ROW_COUNT;
     IF v_n > 0 THEN
       INSERT INTO public.qa_changes_20260923(question_id, campo, valor_anterior, motivo)
-        VALUES (r.id, 'texto', 'version corregida por la migracion 45', 'ROLLBACK-AUDIT-35-40-F1B-45');
+        VALUES (r.id, 'texto', 'version corregida por la migracion 46', 'ROLLBACK-AUDIT-35-40-F1B-46');
     END IF;
   END LOOP;
 
@@ -66,16 +66,16 @@ BEGIN
   FOR r IN
     SELECT c.concept_id, (array_agg(c.valor_anterior ORDER BY c.id DESC))[1] AS estado
     FROM public.qa_concept_changes c
-    WHERE c.motivo LIKE 'AUDIT-35-40-F1B-45:%' AND c.campo = 'estado'
+    WHERE c.motivo LIKE 'AUDIT-35-40-F1B-46:%' AND c.campo = 'estado'
       AND c.id > coalesce((SELECT max(rb.id) FROM public.qa_concept_changes rb
-                            WHERE rb.concept_id = c.concept_id AND rb.motivo = 'ROLLBACK-AUDIT-35-40-F1B-45'), 0)
+                            WHERE rb.concept_id = c.concept_id AND rb.motivo = 'ROLLBACK-AUDIT-35-40-F1B-46'), 0)
     GROUP BY c.concept_id
   LOOP
     UPDATE public.concepts k SET estado = r.estado WHERE k.id = r.concept_id AND k.estado = 'borrador';
     GET DIAGNOSTICS v_n = ROW_COUNT;
     IF v_n > 0 THEN
       INSERT INTO public.qa_concept_changes(concept_id, campo, valor_anterior, motivo)
-        VALUES (r.concept_id, 'estado', 'borrador', 'ROLLBACK-AUDIT-35-40-F1B-45');
+        VALUES (r.concept_id, 'estado', 'borrador', 'ROLLBACK-AUDIT-35-40-F1B-46');
     END IF;
   END LOOP;
 END $f1bd$;

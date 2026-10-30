@@ -13,12 +13,12 @@
 --     en el concepto de la pregunta o del documento de la auditoría.
 --  D) Pasa a borrador los conceptos T39-RAD-001 a 004 (protocolo de radio de 2017, no vigente).
 -- No se borra nada. Cada valor anterior queda en qa_changes_20260923 (preguntas) y qa_concept_changes
--- (conceptos, tabla creada por la 43) con el motivo 'AUDIT-35-40-F1B-45: …'.
+-- (conceptos, tabla creada por la 43) con el motivo 'AUDIT-35-40-F1B-46: …'.
 --
 -- Guardias: si falta una pregunta, o su texto ya no coincide con el auditado (md5 de enunciado,
 -- opciones, correcta, explicación y fuente), aborta y no cambia nada. Una pregunta que ya no está
 -- publicada se deja como está. Se puede aplicar dos veces sin efecto extra.
--- Marcha atrás: 45_auditoria_temas_35_40_down.sql.
+-- Marcha atrás: 46_auditoria_temas_35_40_down.sql.
 DO $f1b$
 DECLARE
   r record;
@@ -156,15 +156,15 @@ BEGIN
     IF cur.estado <> 'publicada' THEN CONTINUE; END IF;
     -- Ya aplicada y sin marcha atrás posterior: no se toca.
     IF EXISTS (SELECT 1 FROM public.qa_changes_20260923 c
-                WHERE c.question_id = r.id AND c.motivo LIKE 'AUDIT-35-40-F1B-45:%'
+                WHERE c.question_id = r.id AND c.motivo LIKE 'AUDIT-35-40-F1B-46:%'
                   AND c.id > coalesce((SELECT max(rb.id) FROM public.qa_changes_20260923 rb
-                                        WHERE rb.question_id = r.id AND rb.motivo = 'ROLLBACK-AUDIT-35-40-F1B-45'), 0))
+                                        WHERE rb.question_id = r.id AND rb.motivo = 'ROLLBACK-AUDIT-35-40-F1B-46'), 0))
     THEN CONTINUE; END IF;
     IF md5(concat_ws('|', cur.enunciado, cur.opciones::text, trim(cur.correcta), cur.explicacion, cur.fuente_normativa)) <> r.hash
        OR NOT EXISTS (SELECT 1 FROM public.topics t WHERE t.id = cur.topic_id AND t.numero = r.tema AND t.convocatoria_id = 1)
     THEN RAISE EXCEPTION 'auditoria_f1b_texto_cambiado: %; revisar a mano', r.id; END IF;
 
-    v_motivo := 'AUDIT-35-40-F1B-45: ' || r.accion || '; ' || r.razon;
+    v_motivo := 'AUDIT-35-40-F1B-46: ' || r.accion || '; ' || r.razon;
 
     IF r.accion IN ('duplicada', 'retirar') THEN
       -- Una duplicada solo se retira si su gemela sigue publicada.
@@ -199,6 +199,6 @@ BEGIN
     UPDATE public.concepts c SET estado = 'borrador' FROM prev WHERE c.id = prev.id RETURNING c.id
   )
   INSERT INTO public.qa_concept_changes(concept_id, campo, valor_anterior, motivo)
-  SELECT prev.id, 'estado', prev.estado, 'AUDIT-35-40-F1B-45: retirar; edición 2017 del protocolo de radio, no vigente; el tema se examina por el anexo VII del BOP 4899/2025'
+  SELECT prev.id, 'estado', prev.estado, 'AUDIT-35-40-F1B-46: retirar; edición 2017 del protocolo de radio, no vigente; el tema se examina por el anexo VII del BOP 4899/2025'
     FROM prev JOIN upd ON upd.id = prev.id;
 END $f1b$;
