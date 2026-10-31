@@ -7,7 +7,7 @@ vi.mock('./supabase', () => ({ supabase: {
   auth: { getSession },
 } }));
 
-import { flushConceptEvents, isConceptAnswerFeedback, isPermanentError, pendingConceptEvents, recordConceptEvent } from './conceptEngine';
+import { conceptLimitNotice, flushConceptEvents, isConceptAnswerFeedback, isPermanentError, pendingConceptEvents, recordConceptEvent } from './conceptEngine';
 
 const U = 'user-1';
 
@@ -39,6 +39,20 @@ describe('motor por conceptos (cliente)', () => {
     expect(pendingConceptEvents(U)).toBe(1);
     expect(isPermanentError('23505')).toBe(true);
     expect(isPermanentError('PGRST301')).toBe(false);
+  });
+
+  it('el límite de correcciones (P0429) deja la respuesta en cola con aviso y se corrige después', async () => {
+    rpc.mockResolvedValueOnce({ data: null, error: { code: 'P0429', message: 'rate_limited_hour' } });
+    const r = await recordConceptEvent(U, { p_concept_id: 'C1', p_kind: 'test', p_question_id: 7, p_selected_option: 'opcion A' });
+    expect(r.saved).toBe(false);
+    expect(r.rejected).toBe(0);
+    expect(pendingConceptEvents(U)).toBe(1);
+    expect(conceptLimitNotice(U)).toMatch(/300 correcciones por hora/);
+    const key1 = rpc.mock.calls[0][1].p_client_event_id;
+    rpc.mockResolvedValue({ data: { status: 'saved', correct: true }, error: null });
+    expect(await flushConceptEvents(U)).toBe(0);
+    expect(rpc.mock.calls[1][1].p_client_event_id).toBe(key1);
+    expect(conceptLimitNotice(U)).toBeNull();
   });
 
   it('las pendientes de otra cuenta no se envían con esta sesión', async () => {
