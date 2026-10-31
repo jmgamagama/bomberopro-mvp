@@ -30,7 +30,7 @@ Problemas detectados: **0**.
 | tema16 | revisado | 48 | 0 % | 0 | `6e058207cb7dd087` | sin enlace público |
 | tema16-lote02 | pendiente | 21 | 100 % | 0 | `dc82c612be1668e9` |  |
 | tema17 | revisado | 14 | 100 % | 0 | `412a879010d41acc` |  |
-| tema20 | pendiente | 24 | 100 % | 0 | `0b4c4913afacc656` |  |
+| tema20 | revisado | 24 | 100 % | 0 | `0b4c4913afacc656` |  |
 | tema21 | pendiente | 42 | 100 % | 0 | `0d98869be8aec3c7` |  |
 | tema21-lote02 | pendiente | 73 | 100 % | 0 | `14c772aff03c5482` |  |
 | tema22 | revisado | 33 | 100 % | 0 | `5e2e70abd6843bc0` |  |

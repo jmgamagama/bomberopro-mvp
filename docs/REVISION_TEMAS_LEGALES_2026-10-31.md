@@ -40,3 +40,4 @@
 | T23 | tema23 | Plan Estatal de Inundaciones BOE-A-2011-14277; Directriz Básica BOE-A-2026-9160 | 21 | 19 | 2 | — | 0 | enlace de 1 ficha corregido a BOE-A-2026-9160 |
 | T13 | tema13 | RD 773/1997 (BOE-A-1997-12735) y Reglamento (UE) 2016/425 (DOUE-L-2016-80531, boe.es) | 25 | 23 | 2 | — | 0 | 7 enlaces añadidos al texto del DOUE en boe.es |
 | T4 | tema4 | Acuerdo de reorganización, BOP Badajoz nº 206 (29/10/2025), anuncio 4611/2025 | 28 | 28 | 0 | — | 0 | áreas, servicios, OOAA y consorcios (epígrafe T4) |
+| T20 | tema20 | Plan INFOEX: Decreto 132/2022 (DOE 210/2022) mod. Decreto 136/2024 (DOE 215/2024) | 24 | 24 | 0 | — | 0 | arts. 6, 7, 10-13 y 16 |
