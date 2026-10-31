@@ -1,0 +1,25 @@
+name: conceptos-niveles
+on:
+  pull_request:
+    paths:
+      - 'supabase/migrations/47_conceptos_por_niveles*.sql'
+      - 'supabase/tests/conceptos_niveles_47.pglite.mjs'
+      - '.github/workflows/conceptos-niveles.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  postgres-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated Postgres runtime
+        run: npm install --prefix "$RUNNER_TEMP/pg-runtime" --no-save --ignore-scripts @electric-sql/pglite@0.5.11
+      - name: Test levels-by-block session, guard and rollback
+        run: NODE_PATH="$RUNNER_TEMP/pg-runtime/node_modules" node supabase/tests/conceptos_niveles_47.pglite.mjs
+      - name: Validate migration numbers
+        run: node scripts/check-migrations.mjs
