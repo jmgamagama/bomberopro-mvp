@@ -7,6 +7,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Brain, Sparkles, ChevronRight, CheckCircle2, XCircle, AlertTriangle, HelpCircle, RefreshCw, ArrowLeft, Clock } from 'lucide-react';
 import { Question, ConfidenceLevel, MemoryState, Microconcept } from '../types';
 import { countAnswerChange } from '../utils/attempt';
+import { describeTimer, validResponseSeconds, MAX_VALID_RESPONSE_SECONDS, TARGET_RESPONSE_SECONDS } from '../utils/activeTimer';
+import { useActiveTimer } from '../hooks/useActiveTimer';
 import { optionLetter } from '../utils/shuffleOptions';
 import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
@@ -25,7 +27,8 @@ interface TrainScreenProps {
     microconceptId: string,
     answer: string,
     confidence: ConfidenceLevel,
-    responseTime: number,
+    /** Segundos de tiempo ACTIVO de respuesta; null si no es una medición fiable (más de 2 min). */
+    responseTime: number | null,
     answerChanges: number,
     /** Acierto decidido por el servidor (check_answer) si la pregunta llegó sin clave. */
     serverCorrect?: boolean
@@ -59,9 +62,17 @@ export default function TrainScreen({
   const [isAnswered, setIsAnswered] = useState(false);
   // Mientras el servidor corrige no se puede cambiar de opción: la corrección y lo que se ve irían a distinta respuesta.
   const [isChecking, setIsChecking] = useState(false);
-  const [startTime, setStartTime] = useState<number>(0);
-  const [timeTaken, setTimeTaken] = useState<number>(0);
-  const [elapsedSeconds, setElapsedSeconds] = useState(0);
+  // Cronómetro de tiempo ACTIVO: se pausa con la pestaña oculta, mientras el servidor corrige y al responder.
+  const timer = useActiveTimer(question?.id, { running: !isAnswered && !isChecking, display: true });
+  const [timerVisible, setTimerVisible] = useState<boolean>(() => {
+    try { return window.localStorage.getItem('bomberopro_timer_visible') !== 'false'; } catch { return true; }
+  });
+  const toggleTimer = () => {
+    setTimerVisible(v => {
+      try { window.localStorage.setItem('bomberopro_timer_visible', String(!v)); } catch { /* sin almacenamiento */ }
+      return !v;
+    });
+  };
   const [answerChanges, setAnswerChanges] = useState(0);
   const feedbackRef = useRef<HTMLDivElement>(null);
   // C2: clave y explicación recibidas del servidor DESPUÉS de responder.
@@ -77,29 +88,18 @@ export default function TrainScreen({
     updatedState: MemoryState | null;
   } | null>(null);
 
-  // Start timer on question load
+  // Reinicio al cargar una pregunta
   useEffect(() => {
-    setStartTime(Date.now());
     setSelectedConfidence(null);
     setSelectedAnswer(null);
     setIsAnswered(false);
     setAnswerChanges(0);
     setFeedback(null);
-    setElapsedSeconds(0);
     setRevealed(null);
     setCheckError(null);
     setIsChecking(false);
     checkingRef.current = false;
   }, [question?.id]);
-
-  // Live-updating chronometer while the question is unanswered
-  useEffect(() => {
-    if (isAnswered || !startTime) return;
-    const interval = setInterval(() => {
-      setElapsedSeconds(Math.floor((Date.now() - startTime) / 1000));
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [startTime, isAnswered]);
 
   useEffect(() => {
     if (feedback) feedbackRef.current?.focus();
@@ -140,14 +140,7 @@ export default function TrainScreen({
   const relatedConcept = microconcepts.find(mc => mc.id === question.microconcept_id);
   const currentState = memoryStates[question.microconcept_id];
 
-  const formatElapsed = (totalSeconds: number) => {
-    const m = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
-    const s = (totalSeconds % 60).toString().padStart(2, '0');
-    return `${m}:${s}`;
-  };
-
-  const displayedSeconds = isAnswered ? timeTaken : elapsedSeconds;
-  const isWithinTarget = displayedSeconds < 15;
+  const timerView = describeTimer(timer.elapsedMs);
 
   // Auditoría UX móvil (11-oct-2026): responder costaba 3 toques (opción, confianza, confirmar) y
   // «Confirmar» quedaba fuera de la pantalla. Ahora tocar el nivel de seguridad corrige la respuesta.
@@ -157,7 +150,8 @@ export default function TrainScreen({
     setIsChecking(true);
     setSelectedConfidence(confidenceChoice);
 
-    const elapsed = Math.round((Date.now() - startTime) / 1000);
+    // Se mide antes de esperar al servidor: la red no cuenta como tiempo del alumno.
+    const elapsed = validResponseSeconds(timer.getElapsedMs());
     let check: AnswerCheck;
     try {
       check = await checkAnswer(supabase, question, selectedAnswer);
@@ -171,7 +165,6 @@ export default function TrainScreen({
     setCheckError(null);
     setIsChecking(false);
     setRevealed(check);
-    setTimeTaken(elapsed);
     setIsAnswered(true);
 
     const result = onAnswer(
@@ -476,32 +469,41 @@ export default function TrainScreen({
             </div>
           )}
 
-          {/* Time Warning Box */}
-          <div className="p-5 bg-indigo-900 text-indigo-100 rounded-2xl space-y-3 border border-indigo-950">
-            <h5 className="text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-              <Clock className={`w-4 h-4 ${!isAnswered ? 'animate-spin-slow' : ''}`} />
-              Cronómetro de Automatización
-            </h5>
-
-            <div className="flex flex-wrap items-center justify-between gap-2" id="automation-timer">
-              <span
-                className={`text-3xl font-black tabular-nums ${
-                  !isAnswered && !isWithinTarget ? 'text-amber-300' : 'text-white'
-                }`}
+          {/* Tiempo de respuesta: indicador pequeño y ocultable (solo cuenta el tiempo activo, hasta 2 min) */}
+          <div id="automation-timer" className="px-4 py-3 bg-white border border-slate-200 rounded-2xl space-y-2">
+            <div className="flex items-center justify-between gap-2">
+              <h5 className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1.5">
+                <Clock className="w-4 h-4" aria-hidden="true" />
+                Tiempo
+              </h5>
+              <button
+                type="button"
+                onClick={toggleTimer}
+                aria-pressed={timerVisible}
+                className="min-h-8 px-2 text-xs font-semibold text-indigo-700 hover:text-indigo-900 underline underline-offset-2"
               >
-                {formatElapsed(displayedSeconds)}
-              </span>
-              <span
-                className={`text-xs font-bold uppercase tracking-wider px-2 py-1 rounded-full ${
-                  isWithinTarget ? 'bg-emerald-500/20 text-emerald-300' : 'bg-amber-500/20 text-amber-300'
-                }`}
-              >
-                {isWithinTarget ? 'En objetivo' : 'Fuera de objetivo'}
-              </span>
+                {timerVisible ? 'Ocultar' : 'Mostrar'}
+              </button>
             </div>
-
-            <p className="text-xs text-indigo-200">
-              El tiempo de respuesta es una señal orientativa. Responder rápido no demuestra recuerdo a largo plazo: necesitamos comprobarlo en repasos separados en el tiempo.
+            {timerVisible && (
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span
+                  className={`text-xl font-black tabular-nums ${timerView.state === 'en-objetivo' ? 'text-slate-800' : 'text-amber-700'}`}
+                  aria-label={`Tiempo de respuesta: ${timerView.text}`}
+                >
+                  {timerView.text}
+                </span>
+                <span
+                  className={`text-xs font-bold px-2 py-1 rounded-full ${
+                    timerView.state === 'en-objetivo' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'
+                  }`}
+                >
+                  {timerView.state === 'en-objetivo' ? `En objetivo (${TARGET_RESPONSE_SECONDS} s)` : timerView.state === 'fuera-de-objetivo' ? 'Fuera de objetivo' : 'Sin medir'}
+                </span>
+              </div>
+            )}
+            <p className="text-xs text-slate-600">
+              Solo cuenta el tiempo con la pantalla activa y hasta {MAX_VALID_RESPONSE_SECONDS / 60} min; más allá no se mide. Responder rápido no demuestra recuerdo a largo plazo: lo comprobamos en repasos separados en el tiempo.
             </p>
           </div>
         </div>

@@ -87,6 +87,8 @@ export interface Attempt {
   correct: boolean;
   confidence: ConfidenceLevel;
   response_time_seconds: number;
+  /** false si el tiempo no fue una medición fiable (más de 2 min activos): no entra en medias. Ausente = válido. */
+  response_time_valid?: boolean;
   answer_changes: number;
   created_at: string; // ISO string
 }
