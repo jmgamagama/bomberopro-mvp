@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 //
-// «Repasar errores» con cuenta: lee los fallos del servidor (get_error_session, migración 42),
+// «Repasar errores» con cuenta: lee los fallos del servidor (get_error_session_v2, migración 45),
 // no el progreso local del dispositivo, y lanza una sesión de test solo con esas preguntas.
 
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
@@ -32,7 +32,7 @@ import { ONBOARDING_STORAGE_KEY } from './utils/onboarding';
 
 const fallo = (id: string, question: string, numero: number) => ({
   id, microconcept_id: `tema-${numero}`, level: 'N1', type: 'test_literal', question,
-  options: ['Correcta', 'Mala 1', 'Mala 2'], correct_answer: 'Correcta', explanation: 'Porque sí.',
+  options: ['Correcta', 'Mala 1', 'Mala 2'],
   fuente: 'BOE', tema: { numero, titulo: `Título ${numero}` }, motivo: 'error', fallado_at: '2026-10-28T20:00:00Z',
 });
 const progress = { total: 40, por_aprender: 40, aprendiendo: 0, debil: 0, dominado: 0, consolidado: 0, vencidos: 0, dominio_ponderado: 0 };
@@ -55,7 +55,7 @@ describe('Repasar errores con cuenta', () => {
     rpcMock.mockReset();
     rpcMock.mockImplementation((fn: string) => {
       if (fn === 'get_concept_progress') return reply(progress);
-      if (fn === 'get_error_session') return errores === 'fallo' ? reply(null, { message: 'caída' }) : reply(errores);
+      if (fn === 'get_error_session_v2') return errores === 'fallo' ? reply(null, { message: 'caída' }) : reply(errores);
       if (fn === 'record_attempt_v2') return reply({ status: 'saved', attempt_id: 1, acierto: true });
       return reply([]);
     });
@@ -68,7 +68,7 @@ describe('Repasar errores con cuenta', () => {
 
     expect(await screen.findByText('¿Pregunta fallada del tema 1?')).toBeInTheDocument();
     expect(screen.getByRole('region', { name: 'Tema 8. Título 8' })).toBeInTheDocument();
-    expect(rpcMock).toHaveBeenCalledWith('get_error_session', { p_limit: 50 });
+    expect(rpcMock).toHaveBeenCalledWith('get_error_session_v2', { p_limit: 50 });
 
     fireEvent.click(screen.getByRole('button', { name: /Repasar mis errores \(2\)/ }));
     expect(await screen.findByRole('heading', { name: '¿Pregunta fallada del tema 1?' })).toBeInTheDocument();

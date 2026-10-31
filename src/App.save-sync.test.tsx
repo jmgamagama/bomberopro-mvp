@@ -59,7 +59,7 @@ describe('guardado pendiente con la aplicación completa', () => {
   it('un error del selector no llama al exportador antiguo y permite reintentar', async () => {
     getSession.mockResolvedValue({ data: { session: { user: { id: 'user-1' } } }, error: null });
     let requests=0;
-    rpcMock.mockImplementation((fn: string) => Promise.resolve(fn === 'get_study_session'
+    rpcMock.mockImplementation((fn: string) => Promise.resolve(fn === 'get_study_session_v2'
       ? ++requests === 1 ? {data: null,error:{message:'Fallo temporal del selector'}} : {data: INITIAL_QUESTIONS.slice(0,1),error:null}
       : {data:[],error:null}));
     render(<App />);
@@ -99,7 +99,7 @@ describe('guardado pendiente con la aplicación completa', () => {
     const account = (id: string) => ({ user: { id } });
     getSession.mockResolvedValue({ data: { session: account('A') }, error: null });
     const resolvers: Array<(result: { data: typeof INITIAL_QUESTIONS; error: null }) => void> = [];
-    rpcMock.mockImplementation((fn: string) => fn === 'get_study_session'
+    rpcMock.mockImplementation((fn: string) => fn === 'get_study_session_v2'
       ? new Promise(resolve => resolvers.push(resolve))
       : Promise.resolve({ data: { status: 'saved', attempt_id: 1 }, error: null }));
 
@@ -128,7 +128,9 @@ describe('guardado pendiente con la aplicación completa', () => {
     let sessionCalls = 0;
     let resolveSecond!: (result: { data: typeof INITIAL_QUESTIONS; error: null }) => void;
     rpcMock.mockImplementation((fn: string) => {
-      if (fn !== 'get_study_session') return Promise.resolve({ data: { status: 'saved', attempt_id: 1 }, error: null });
+      // C2: la sesión llega sin clave y la respuesta se corrige en el servidor.
+      if (fn === 'check_answer') return Promise.resolve({ data: { acierto: true, correct_answer: questionA.correct_answer, explanation: '' }, error: null });
+      if (fn !== 'get_study_session_v2') return Promise.resolve({ data: { status: 'saved', attempt_id: 1 }, error: null });
       sessionCalls += 1;
       if (sessionCalls === 2) return new Promise(resolve => { resolveSecond = resolve; });
       return Promise.resolve({ data: [sessionCalls === 1 ? questionA : questionB], error: null });
@@ -142,6 +144,7 @@ describe('guardado pendiente con la aplicación completa', () => {
     expect(screen.getByRole('heading', { name: questionA.question })).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: questionA.correct_answer }));
     fireEvent.click(document.querySelector('#conf-btn-alta')!);
+    await screen.findByRole('button', { name: /siguiente pregunta/i });
     fireEvent.click(document.querySelector('#nav-btn-dashboard')!);
     fireEvent.click(screen.getByRole('button', { name: /practicar preguntas/i }));
     await waitFor(() => expect(resolveSecond).toBeTypeOf('function'));
@@ -170,14 +173,14 @@ describe('guardado pendiente con la aplicación completa', () => {
     const account = () => ({ user: { id: 'A' } });
     getSession.mockResolvedValue({ data: { session: account() }, error: null });
     let resolveQuestions!: (result: { data: typeof INITIAL_QUESTIONS; error: null }) => void;
-    rpcMock.mockImplementation((fn: string) => fn === 'get_study_session'
+    rpcMock.mockImplementation((fn: string) => fn === 'get_study_session_v2'
       ? new Promise(resolve => { resolveQuestions = resolve; })
       : Promise.resolve({ data: { status: 'saved', attempt_id: 1 }, error: null }));
 
     render(<App />);
     await waitFor(() => expect(resolveQuestions).toBeTypeOf('function'));
     await act(async () => authChanged?.('TOKEN_REFRESHED', account()));
-    expect(rpcMock.mock.calls.filter(call => call[0] === 'get_study_session')).toHaveLength(1);
+    expect(rpcMock.mock.calls.filter(call => call[0] === 'get_study_session_v2')).toHaveLength(1);
     await act(async () => resolveQuestions({ data: INITIAL_QUESTIONS.slice(0, 1), error: null }));
     fireEvent.click(document.querySelector('#nav-btn-study')!);
     expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe('1');
