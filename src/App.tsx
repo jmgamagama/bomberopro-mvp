@@ -761,7 +761,7 @@ export default function App() {
         <div className="max-w-6xl mx-auto px-4 min-h-14 py-1.5 md:min-h-16 flex flex-wrap items-center justify-between gap-2">
           <button
             type="button"
-            aria-label="Ir al dashboard"
+            aria-label="BomberoPro: ir al inicio"
             className="flex min-h-11 min-w-0 items-center gap-2.5 cursor-pointer text-left"
             onClick={() => handleNavigate('dashboard')}
             id="brand-logo"
@@ -911,9 +911,9 @@ export default function App() {
             )}
             <button
               onClick={handleLogout}
-              aria-label="Cerrar sesión"
+              aria-label={isDemoMode ? 'Salir de la demostración' : 'Salir (cerrar sesión)'}
               className="min-h-11 min-w-11 px-2.5 py-1.5 text-slate-600 hover:text-red-600 hover:bg-red-50 rounded-lg text-xs font-semibold transition flex items-center justify-center gap-1"
-              title="Cerrar sesión"
+              title={isDemoMode ? 'Salir de la demostración' : 'Cerrar sesión'}
             >
               <LogOut className="w-4 h-4" aria-hidden="true" />
               <span>Salir</span>

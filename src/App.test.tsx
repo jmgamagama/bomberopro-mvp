@@ -58,7 +58,7 @@ describe('App navigation', () => {
       'Pantalla actual: Entrenamiento de hoy',
     );
 
-    fireEvent.click(screen.getByRole('button', { name: 'Ir al dashboard' }));
+    fireEvent.click(screen.getByRole('button', { name: /ir al inicio/i }));
 
     expect(dashboard).toHaveAttribute('aria-current', 'page');
     expect(document.title).toBe('Dashboard | BomberoPro');

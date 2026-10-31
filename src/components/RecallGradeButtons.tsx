@@ -32,11 +32,11 @@ export default function RecallGradeButtons({ state, today, onGrade }: RecallGrad
               key={grade}
               type="button"
               id={`btn-grade-${grade}`}
-              aria-label={`${label} (próximo repaso ${hint})`}
               onClick={() => onGrade(grade)}
               className={`flex min-h-14 flex-col items-center justify-center rounded-xl border px-1 py-2 text-sm font-bold leading-tight transition ${className}`}
             >
               <span>{label}</span>
+              <span className="sr-only"> · próximo repaso:</span>
               <span className="mt-0.5 text-[11px] font-medium opacity-80">{hint}</span>
             </button>
           );

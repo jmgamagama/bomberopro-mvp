@@ -147,7 +147,7 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
                     <span className="min-w-0">
                       <span className="block font-semibold leading-snug break-words">
                         {o.locked && <Lock className="mr-1 inline h-3.5 w-3.5 align-[-2px]" aria-hidden="true" />}
-                        {o.label} <span className="font-normal text-slate-500">· {o.detail}{o.locked ? ' · Pro' : ''}</span>
+                        {o.label} <span className="font-normal text-slate-600">· {o.detail}{o.locked ? ' · Pro' : ''}</span>
                       </span>
                     </span>
                     <span
