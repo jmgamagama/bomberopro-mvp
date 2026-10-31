@@ -23,16 +23,20 @@ José acepta como fuentes oficiales la guía INSARAG (T26) y los Documentos Bás
 - **T26**: Guías INSARAG 2020, Vol. II, Manual B (ONU-OCHA, PDF en español de 22/05/2021, idéntico al de unocha.org). Es la edición vigente: las Guías 2026 (Vol. 3, Operaciones) se aprobaron en julio de 2026 y entran en vigor el 01/01/2027 (insarag.org). Además, el epígrafe del anexo I cita expresamente «Volumen II ... Manual B». 59 de 60 fichas son literales en la página citada y quedan **visibles**. Queda **oculta** CPEI-T26-OF-46354134 (apdo. 6.2, cuadro exterior del marcaje): su respuesta une dos viñetas con paréntesis añadidos y no es literal.
 - **T27**: 22 fichas de DB SE (ed. 20/12/2019) y DB SE-AE (abril 2009), y 22 de T27-lote02 del DB SI (ed. 04/03/2025, que recoge el RD 732/2019). Son los PDF que publica hoy codigotecnico.org; los de DB SE y SE-AE son idénticos byte a byte a la copia de trabajo. 44 de 44 coinciden con la página citada; se revisaron a mano las 7 del DB SI con texto en tablas, notas o listas (tablas 1.2 y 3.2, SI 1 puertas EI2 t-C5, SI 6 apdos. 1.1 y 6.1, anejo SI A, cubierta ligera). Las 44 quedan **visibles**; T27-lote02 pasa a 30 de 30.
 
+## Lotes 02 de T12, T13 y T22, y T33-lote02 (31/10/2026)
+
+- **T12-lote02** (23), **T13-lote02** (47) y **T22-lote02** (27): todas sus fichas citan solo documentos del INSST (NTP 99, 536, 787, 809, 843, 1170 y 1218; Guía técnica de EPI; fichas de selección y uso). No son norma ni están entre las fuentes aceptadas, así que siguen **ocultas** (misma decisión que T8 y T12). Se buscó cada respuesta en la norma vigente del tema: RIPCI (BOE-A-2017-6606) para T12; RD 773/1997 (BOE-A-1997-12735) y Reglamento (UE) 2016/425 para T13; RD 1215/1997 (BOE-A-1997-17824) para T22. Solo CPEI-T12-OF-E0DE0CE4 (extintor portátil, masa ≤ 20 kg) aparece literal en el RIPCI (anexo I, secc. 1.ª, 4), y esa ficha ya está publicada en el T12 principal. Por eso no se reescribe ninguna.
+- **T33-lote02** (30), frente al epígrafe del anexo I: «RD 513/2017: objeto y ámbito de aplicación. Sistemas de abastecimiento de agua contra incendios, hidrantes, BIE, columnas secas». Las tablas I y II del anexo II se cotejaron con su versión vigente desde el 10/05/2025 (RD 164/2025), columna por columna en el XML del BOE. Quedan **visibles 8** fichas sobre el mantenimiento de esos cuatro sistemas: 054DF2E1 y 377E891D (BIE), 095C32DA, 53471E78 y 70CB9197 (hidrantes), CE402A4F y DDAF8F61 (columnas secas) y 6CA2F0D2 (abastecimiento). En 054DF2E1 se corrigió la respuesta al texto literal: «no presentan muestras aparentes de daños». Quedan **ocultas 22** por estar fuera del epígrafe: arts. 21-22, apartados generales del anexo II, extintores, detección y alarma, sistemas fijos, señalización y RD 809/2021.
+
 ## Pendiente (31/10/2026, 3.ª tanda)
 
 - Sin fichas: T11, T18 (T19 excluido).
 - Solo INSST, ocultas (decisión del 31/10): 23 de T8, 5 de T12, 12 de T28-lote02 (NTP 400). Su contenido (fisiología de la corriente, mecanismos de extinción, teoría del fuego) no está en el RD 614/2001 ni en otra norma vigente; solo se reescribieron contra el RIPCI las clases de fuego C y D del T8.
 - T5: oculto. BOP nº 145 de 01/08/2022 (anuncio 3393/2022) publica solo la exposición pública de una modificación puntual del RRI, sin texto. Revisados los BOP del 02/08 al 31/12/2022: no hay aprobación definitiva ni texto publicado.
 - T21 y T21-lote02: Manual de la DGT, no BOE/DOE/BOP; ocultos.
-- T33-lote02: fuera del epígrafe.
 - Mayoría sin enlace a artículo: T9, T15, T32.
 - Sin texto consolidado en la API: T25 y T25-lote02 (BOE-A-2009-5490).
-- Sin cotejar: T37; lotes 02 de T12, T13 y T22.
+- Sin cotejar: T37.
 
 | T10 | tema10 | RIPCI, RD 513/2017, BOE-A-2017-6606 | 34 | 34 | 0 | — | 0 | abastecimiento, hidrantes, BIE, columna seca (epígrafe T10) |
 | T22 | tema22 | RD 1215/1997 anexo II.4, BOE-A-1997-17824 | 33 | 32 | 1 | — | 0 | normativa de trabajos en altura |
@@ -53,3 +57,4 @@ José acepta como fuentes oficiales la guía INSARAG (T26) y los Documentos Bás
 | T26 | tema26 | Guías INSARAG 2020, Vol. II, Manual B (ONU-OCHA; vigente hasta el 31/12/2026) | 60 | 59 | 0 | 1 a mano | 1 oculta (no literal) | Manual B: Operaciones |
 | T27 | tema27 | CTE DB SE (2019) y DB SE-AE (2009), codigotecnico.org | 22 | 22 | 0 | — | 0 | cargas, elementos estructurales |
 | T27 | tema27-lote02 | + CTE DB SI (04/03/2025), codigotecnico.org | 30 | 22 del DB SI cotejadas | — | 7 a mano | 0 | respuesta al fuego (las 22 del CTE ya visibles) |
+| T33 | tema33-lote02 | RIPCI anexo II, tablas I y II (vigentes desde 10/05/2025), BOE-A-2017-6606 | 30 | 8 | 0 | 8 a mano | 22 ocultas (fuera del epígrafe); 1 respuesta literalizada | BIE, hidrantes, columnas secas, abastecimiento |

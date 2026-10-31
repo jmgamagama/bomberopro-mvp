@@ -56,6 +56,7 @@ export const REVIEWED_DECKS: Readonly<Record<string, DeckReview>> = {
   tema26: revisado('59 de 60 fichas literales con las Guías INSARAG 2020, Vol. II, Manual B (ONU-OCHA, versión en español), edición vigente hasta el 31/12/2026 y aceptada como fuente oficial por el propietario (31/10/2026); 1 no literal queda oculta', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   tema27: revisado('22 de 22 fichas literales con el CTE DB SE (dic. 2019) y DB SE-AE (abr. 2009) de codigotecnico.org, versiones vigentes, aceptadas como fuente oficial por el propietario (31/10/2026)', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   'tema27-lote02': revisado('30 de 30 fichas cotejadas: 8 con RD 842/2013, BOE-A-2013-12323 vigente, y 22 con el CTE DB SI (ed. 4/3/2025, codigotecnico.org), aceptado como fuente oficial por el propietario (31/10/2026)', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
+  'tema33-lote02': revisado('8 de 30 fichas dentro del epígrafe (mantenimiento de BIE, hidrantes, columnas secas y abastecimiento de agua) cotejadas con el anexo II del RIPCI en su versión vigente desde el 10/05/2025 (RD 164/2025), BOE-A-2017-6606 (31/10/2026); las 22 restantes quedan ocultas por estar fuera del epígrafe', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   tema35: revisado('revisión completa por decisión del propietario', 'tema35_calidad.md'),
   tema38: revisado('revisión completa por decisión del propietario', 'tema38_cambios.md'),
   tema39: revisado('revisión completa por decisión del propietario', 'tema39_cambios.md'),
