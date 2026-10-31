@@ -10,6 +10,8 @@ import { countAnswerChange } from '../utils/attempt';
 import { optionLetter } from '../utils/shuffleOptions';
 import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
+import { supabase } from '../lib/supabase';
+import { checkAnswer, describeCheckError, type AnswerCheck } from '../lib/secureQuestions';
 
 interface TrainScreenProps {
   question: Question | null;
@@ -24,7 +26,9 @@ interface TrainScreenProps {
     answer: string,
     confidence: ConfidenceLevel,
     responseTime: number,
-    answerChanges: number
+    answerChanges: number,
+    /** Acierto decidido por el servidor (check_answer) si la pregunta llegó sin clave. */
+    serverCorrect?: boolean
   ) => {
     feedbackTitle: string;
     feedbackMessage: string;
@@ -53,11 +57,17 @@ export default function TrainScreen({
   const [selectedConfidence, setSelectedConfidence] = useState<ConfidenceLevel | null>(null);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
+  // Mientras el servidor corrige no se puede cambiar de opción: la corrección y lo que se ve irían a distinta respuesta.
+  const [isChecking, setIsChecking] = useState(false);
   const [startTime, setStartTime] = useState<number>(0);
   const [timeTaken, setTimeTaken] = useState<number>(0);
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
   const [answerChanges, setAnswerChanges] = useState(0);
   const feedbackRef = useRef<HTMLDivElement>(null);
+  // C2: clave y explicación recibidas del servidor DESPUÉS de responder.
+  const [revealed, setRevealed] = useState<AnswerCheck | null>(null);
+  const [checkError, setCheckError] = useState<string | null>(null);
+  const checkingRef = useRef(false);
 
   // Feedback states
   const [feedback, setFeedback] = useState<{
@@ -76,6 +86,10 @@ export default function TrainScreen({
     setAnswerChanges(0);
     setFeedback(null);
     setElapsedSeconds(0);
+    setRevealed(null);
+    setCheckError(null);
+    setIsChecking(false);
+    checkingRef.current = false;
   }, [question?.id]);
 
   // Live-updating chronometer while the question is unanswered
@@ -137,11 +151,26 @@ export default function TrainScreen({
 
   // Auditoría UX móvil (11-oct-2026): responder costaba 3 toques (opción, confianza, confirmar) y
   // «Confirmar» quedaba fuera de la pantalla. Ahora tocar el nivel de seguridad corrige la respuesta.
-  const handleSubmit = (confidenceChoice: ConfidenceLevel | null = selectedConfidence) => {
-    if (!selectedAnswer || !confidenceChoice || isAnswered) return;
+  const handleSubmit = async (confidenceChoice: ConfidenceLevel | null = selectedConfidence) => {
+    if (!selectedAnswer || !confidenceChoice || isAnswered || checkingRef.current) return;
+    checkingRef.current = true;
+    setIsChecking(true);
     setSelectedConfidence(confidenceChoice);
 
     const elapsed = Math.round((Date.now() - startTime) / 1000);
+    let check: AnswerCheck;
+    try {
+      check = await checkAnswer(supabase, question, selectedAnswer);
+    } catch (err) {
+      console.error('No se pudo corregir la respuesta:', err);
+      setCheckError(describeCheckError(err));
+      checkingRef.current = false;
+      setIsChecking(false);
+      return;
+    }
+    setCheckError(null);
+    setIsChecking(false);
+    setRevealed(check);
     setTimeTaken(elapsed);
     setIsAnswered(true);
 
@@ -151,7 +180,8 @@ export default function TrainScreen({
       selectedAnswer,
       confidenceChoice,
       elapsed,
-      answerChanges
+      answerChanges,
+      check.correct
     );
 
     setFeedback({
@@ -201,24 +231,21 @@ export default function TrainScreen({
   const feedbackStyles = getFeedbackStyles();
 
   return (
-    <div className="space-y-6" id="train-container">
-      {/* Train Header Navigation */}
-      <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between" id="train-header-row">
+    <div className="space-y-4 sm:space-y-6" id="train-container">
+      {/* En el móvil todo cabe en una fila para que la pregunta y sus opciones se vean sin bajar. */}
+      <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3" id="train-header-row">
         <button
           id="btn-back-to-dash"
           onClick={onNavigateHome}
+          aria-label="Volver al inicio"
           className="min-h-11 -ml-1 px-1 flex items-center gap-1 text-sm font-semibold text-slate-600 hover:text-slate-900 transition"
         >
-          <ArrowLeft className="w-4 h-4" />
-          Volver al inicio
+          <ArrowLeft className="w-4 h-4" aria-hidden="true" />
+          <span className="sm:hidden">Inicio</span>
+          <span className="hidden sm:inline">Volver al inicio</span>
         </button>
 
         <div className="flex items-center gap-2 flex-wrap">
-          {/* Adaptive reason badge */}
-          <span className="px-3 py-1 bg-indigo-50 text-indigo-600 border border-indigo-100 text-xs font-semibold rounded-full flex items-center gap-1.5 shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 animate-pulse text-indigo-500" />
-            {selectionReason}
-          </span>
           <StudentConsultation
             variant="button"
             context={`Entrenamiento: ${relatedConcept ? `Art. ${relatedConcept.article}` : 'Pregunta adaptativa'}`}
@@ -229,20 +256,24 @@ export default function TrainScreen({
       </div>
 
       {/* Session progress counter */}
-      {sessionTotal > 0 && (
-        <div className="space-y-1.5" id="train-session-progress">
-          <div className="flex items-center justify-between text-sm text-slate-600">
-            <span>Pregunta {sessionCurrent} de {sessionTotal}</span>
-            <span>Sesión de hoy</span>
-          </div>
+      <div className="space-y-1.5" id="train-session-progress">
+        <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 text-sm text-slate-600">
+          {sessionTotal > 0 ? <span className="shrink-0">Pregunta {sessionCurrent} de {sessionTotal}</span> : <span />}
+          {/* Por qué sale esta pregunta */}
+          <span className="px-2.5 py-0.5 bg-indigo-50 text-indigo-600 border border-indigo-100 text-xs font-semibold rounded-full flex items-center gap-1.5">
+            <Sparkles className="w-3.5 h-3.5 shrink-0 text-indigo-500" aria-hidden="true" />
+            <span>{selectionReason}</span>
+          </span>
+        </div>
+        {sessionTotal > 0 && (
           <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
             <div
               className="h-full bg-indigo-600 transition-all duration-300"
               style={{ width: `${Math.min((sessionCurrent / sessionTotal) * 100, 100)}%` }}
             />
           </div>
-        </div>
-      )}
+        )}
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6" id="train-split-layout">
         {/* Left main column: Question and interaction */}
@@ -265,7 +296,7 @@ export default function TrainScreen({
             <div className="space-y-2.5">
               {question.options?.map((option, idx) => {
                 const isSelected = selectedAnswer === option;
-                const isCorrect = option === question.correct_answer;
+                const isCorrect = option === (revealed?.correctAnswer ?? question.correct_answer);
 
                 // Bordes ≥3:1 con el fondo (slate-500 = 4,8:1); el estado no depende solo del color.
                 let optionStyle = 'border-slate-500 bg-white hover:bg-slate-50 text-slate-800';
@@ -285,7 +316,7 @@ export default function TrainScreen({
                   <button
                     key={idx}
                     id={`train-option-${idx}`}
-                    disabled={isAnswered}
+                    disabled={isAnswered || isChecking}
                     aria-pressed={isSelected}
                     onClick={() => {
                       setAnswerChanges(current => current + countAnswerChange(selectedAnswer, option));
@@ -310,6 +341,9 @@ export default function TrainScreen({
             </div>
 
             {/* Confidence Selection Widget - MANDATORY BEFORE ANSWERING */}
+            {checkError && !isAnswered && (
+              <p role="alert" id="train-check-error" className="text-sm text-rose-800 bg-rose-50 border border-rose-300 rounded-xl p-3">{checkError}</p>
+            )}
             {!isAnswered && (
               <div className="pt-3 border-t border-slate-200 space-y-2 scroll-mb-28 md:scroll-mb-4" id="confidence-selector">
                 <p id="confidence-label" className="text-sm font-semibold text-slate-700">
@@ -328,8 +362,8 @@ export default function TrainScreen({
                       key={level}
                       type="button"
                       id={`conf-btn-${level}`}
-                      disabled={!selectedAnswer}
-                      onClick={() => handleSubmit(level)}
+                      disabled={!selectedAnswer || isChecking}
+                      onClick={() => { void handleSubmit(level); }}
                       className="min-h-14 px-1 py-2 rounded-xl border border-slate-500 bg-white text-slate-800 hover:bg-slate-50 transition flex flex-col items-center justify-center gap-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <span className="text-base font-bold">{label}</span>
@@ -363,7 +397,7 @@ export default function TrainScreen({
 
               <div className="p-3 bg-white/70 rounded-xl border border-white text-base text-slate-800 space-y-1">
                 <p className="font-semibold text-slate-800">Soporte y justificación legal:</p>
-                <p>{question.explanation}</p>
+                <p>{revealed?.explanation ?? question.explanation}</p>
               </div>
               <button
                 type="button"

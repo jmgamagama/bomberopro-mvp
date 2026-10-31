@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import '../test/setup';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from '../data/initialData';
@@ -68,11 +68,12 @@ describe('TrainScreen', () => {
     );
 
     expect(container.querySelector('#train-sidebar')).not.toHaveTextContent(INITIAL_MICROCONCEPTS[0].text);
-    expect(container.querySelector('#train-header-row')).toHaveClass('flex-col', 'sm:flex-row');
+    expect(container.querySelector('#train-header-row')).toHaveClass('flex-wrap');
     await user.click(screen.getByRole('button', { name: question.options![0] }));
     await user.click(screen.getByRole('button', { name: question.options![1] }));
     expect(screen.getByRole('button', { name: question.options![1] })).toHaveAttribute('aria-pressed', 'true');
     await user.click(container.querySelector<HTMLButtonElement>('#conf-btn-alta')!);
+    await waitFor(() => expect(onAnswer).toHaveBeenCalled());
     expect(container.querySelector('#train-sidebar')).toHaveTextContent(INITIAL_MICROCONCEPTS[0].text);
 
     expect(onAnswer).toHaveBeenCalledWith(
@@ -82,8 +83,9 @@ describe('TrainScreen', () => {
       'alta',
       expect.any(Number),
       1,
+      question.options![1] === question.correct_answer,
     );
-    expect(screen.getByText('Respuesta registrada')).toBeInTheDocument();
+    expect(await screen.findByText('Respuesta registrada')).toBeInTheDocument();
     expect(container.querySelector('#train-feedback-box')).toHaveFocus();
     await user.tab();
     expect(screen.getByRole('button', { name: /siguiente pregunta/i })).toHaveFocus();
@@ -118,7 +120,8 @@ describe('TrainScreen', () => {
     await user.click(screen.getByRole('button', { name: question.options![0] }));
     expect(media).toBeEnabled();
     await user.click(media);
-    expect(onAnswer).toHaveBeenCalledOnce();
-    expect(onAnswer).toHaveBeenCalledWith(question.id, question.microconcept_id, question.options![0], 'media', expect.any(Number), 0);
+    await waitFor(() => expect(onAnswer).toHaveBeenCalledOnce());
+    expect(onAnswer).toHaveBeenCalledWith(question.id, question.microconcept_id, question.options![0], 'media', expect.any(Number), 0,
+      question.options![0] === question.correct_answer);
   });
 });

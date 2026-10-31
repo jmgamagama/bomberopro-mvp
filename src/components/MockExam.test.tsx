@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import '../test/setup';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from '../data/initialData';
@@ -66,10 +66,14 @@ describe('MockExam', () => {
     );
 
     // Mock the RPC call to return INITIAL_QUESTIONS
-    (supabase.rpc as any).mockResolvedValue({
-      data: INITIAL_QUESTIONS.slice(0, 10),
-      error: null
-    });
+    // C2: el servidor entrega las preguntas sin clave (get_exam_questions_v2) y corrige con grade_exam.
+    const served = INITIAL_QUESTIONS.slice(0, 10);
+    (supabase.rpc as any).mockImplementation((fn: string, args: any) => Promise.resolve(fn === 'grade_exam'
+      ? { data: { detalle: args.p_answers.map((a: any) => {
+          const q = served.find(x => x.id === a.question_id)!;
+          return { question_id: a.question_id, acierto: a.respuesta === q.correct_answer, correct_answer: q.correct_answer, explanation: q.explanation };
+        }) }, error: null }
+      : { data: served, error: null }));
 
     fireEvent.click(screen.getByRole('button', { name: /comenzar simulacro/i }));
 
@@ -87,8 +91,8 @@ describe('MockExam', () => {
       fireEvent.click(screen.getByRole('button', { name: index === 9 ? /finalizar examen/i : /^siguiente/i }));
     }
 
-    const summary = screen.getByRole('status');
-    expect(summary).toHaveFocus();
+    const summary = await screen.findByRole('status');
+    await waitFor(() => expect(summary).toHaveFocus());
     expect(summary).toHaveAccessibleName(/simulacro terminado/i);
     expect(summary).toHaveAccessibleDescription(/nota .* acierto .* tiempo medio/i);
     expect(onFinishExam).toHaveBeenCalledOnce();

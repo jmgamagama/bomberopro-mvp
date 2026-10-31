@@ -13,6 +13,7 @@ import { EXAM_DURATION_SECONDS, formatExamTime, getRemainingExamSeconds } from '
 import StudentConsultation from './StudentConsultationModal';
 import { countAnswerChange } from '../utils/attempt';
 import { optionLetter, shuffleAllOptions } from '../utils/shuffleOptions';
+import { describeCheckError, fetchKeyless, gradeExam, isAnswerLimitError, withRevealedKey, type AnswerCheck } from '../lib/secureQuestions';
 
 interface MockExamProps {
   microconcepts: Microconcept[];
@@ -47,6 +48,7 @@ export default function MockExam({
   const [examFinished, setExamFinished] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [questions, setQuestions] = useState<Question[]>([]);
+  const [gradeError, setGradeError] = useState<string | null>(null);
   const [sampleMode, setSampleMode] = useState(false);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [examSeed, setExamSeed] = useState<number | null>(null);
@@ -92,9 +94,12 @@ export default function MockExam({
       setExamSeed(generatedSeed);
 
       if (supabase && useServerQuestions) {
-        const { data, error } = await supabase.rpc('get_blueprint_exam_questions', { p_seed: generatedSeed });
-        if (error) console.error('No se pudo obtener el simulacro del servidor; se usa la muestra local:', error);
-        else if (data) selected = data;
+        // C2: el servidor entrega las preguntas SIN clave; se corrigen con grade_exam al terminar.
+        try {
+          selected = await fetchKeyless(supabase, 'get_exam_questions_v2', { p_seed: generatedSeed });
+        } catch (error) {
+          console.error('No se pudo obtener el simulacro del servidor; se usa la muestra local:', error);
+        }
       }
       
       // Fallback a las iniciales si falla o no hay datos suficientes
@@ -165,14 +170,27 @@ export default function MockExam({
     }
   };
 
-  const finishAndEvaluate = () => {
+  const finishAndEvaluate = async () => {
     if (finishStartedRef.current) return;
     finishStartedRef.current = true;
+
+    // C2: corrección en el servidor (grade_exam); la muestra local se corrige en el navegador.
+    let checks: Record<string, AnswerCheck>;
+    try {
+      checks = await gradeExam(supabase, questions, answers);
+    } catch (err) {
+      console.error('No se pudo corregir el simulacro:', err);
+      finishStartedRef.current = false;
+      setGradeError(isAnswerLimitError(err) ? describeCheckError(err) : 'No se pudo corregir el simulacro. Revisa la conexión y vuelve a pulsar «Finalizar».');
+      return;
+    }
+    setGradeError(null);
+    setQuestions(prev => prev.map(q => (checks[q.id] ? withRevealedKey(q, checks[q.id]) : q)));
 
     // Evaluate results
     const submissionResults = questions.map((q, index) => {
       const ans = answers[q.id] || '';
-      const correct = ans !== '' && ans === q.correct_answer;
+      const correct = ans !== '' && Boolean(checks[q.id]?.correct);
       // If blank, confidence doesn't really matter, but default to 'media' if absent to avoid type errors
       const confidence = confidences[q.id] || 'media';
       const rTime = responseTimes[q.id] || Math.round((Date.now() - currentQuestionStart) / 1000);
@@ -354,6 +372,11 @@ export default function MockExam({
       )}
 
       {/* ACTIVE EXAM RUNNING */}
+      {gradeError && !examFinished && (
+        <div role="alert" id="mock-exam-grade-error" className="p-3 rounded-xl border border-rose-300 bg-rose-50 text-rose-900 text-sm">
+          {gradeError}
+        </div>
+      )}
       {examStarted && !examFinished && questions.length > 0 && sampleMode && (
         <p role="note" className="mb-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900">
           Simulacro de muestra con {questions.length} preguntas de ejemplo. El simulacro completo con el banco real requiere una cuenta.
