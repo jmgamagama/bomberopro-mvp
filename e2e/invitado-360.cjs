@@ -48,6 +48,8 @@ const res = []; const check = (n, ok, d = '') => { res.push(ok); console.log(`${
   }
   await page.getByRole('heading', { name: 'Simulacro terminado' }).waitFor();
   check('nota visible', await page.getByText('Nota', { exact: true }).isVisible());
+  check('recomendación de qué estudiar con el intento', await page.getByRole('heading', { name: 'Qué estudiar ahora' }).isVisible() && /no acertaste \d+ de \d+|acertado todas/i.test(await page.locator('#mock-recomendacion').innerText()));
+  check('resultado por tema', (await page.locator('#mock-fallos-por-tema tbody tr').count()) > 0);
   const cta = page.getByRole('button', { name: /crear cuenta y guardar mi progreso/i });
   check('oferta de guardar progreso tras la nota', await cta.isVisible());
   check('resultado sin scroll horizontal', (await sw()) <= 360, String(await sw()));

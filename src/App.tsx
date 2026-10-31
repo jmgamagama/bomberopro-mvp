@@ -129,6 +129,7 @@ export default function App() {
   // La bienvenida abre la sesión diaria directamente en la primera ficha.
   const [dailyAutoStart, setDailyAutoStart] = useState(false);
   const [mockAutoStart, setMockAutoStart] = useState(false);
+  const [recallTarget, setRecallTarget] = useState<string | undefined>(undefined);
 
   const [memoryStates, setMemoryStates] = useState<Record<string, MemoryState>>({});
   // «Errores críticos» con cuenta: fallos guardados en el servidor (migración 42).
@@ -340,6 +341,7 @@ export default function App() {
     if (screen === 'planes') trackFunnel('planes_view');
     setDailyAutoStart(false);
     setMockAutoStart(false);
+    setRecallTarget(undefined);
     setCurrentScreen(screen);
     
     // Clear targeted concept constraints when returning to general study or exiting train screen
@@ -1075,6 +1077,7 @@ export default function App() {
             useServerQuestions={!!session && !isDemoMode}
             onGuestSignup={supabase && !session ? handleDemoSignup : undefined}
             autoStart={mockAutoStart}
+            onStudyTopic={(topicId) => { handleNavigate('recuerdo'); setRecallTarget(topicId); }}
           />
         )}
 
@@ -1104,7 +1107,7 @@ export default function App() {
           )}
 
           {currentScreen === 'recuerdo' && (
-            <RecallHub demo={isDemoMode || !session} onNavigateHome={() => handleNavigate('dashboard')} onOpenPlanes={openPlanes} />
+            <RecallHub key={recallTarget ?? 'recuerdo'} initialDeckId={recallTarget} demo={isDemoMode || !session} onNavigateHome={() => handleNavigate('dashboard')} onOpenPlanes={openPlanes} />
           )}
 
           {currentScreen === 'sesion_diaria' && (

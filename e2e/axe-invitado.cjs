@@ -32,6 +32,15 @@ const BASE = process.env.BASE_URL || 'http://127.0.0.1:4174';
   await scan('simulacro_reglas');
   await page.getByRole('button', { name: /comenzar simulacro/i }).click(); await page.getByRole('timer').waitFor();
   await scan('simulacro');
+  const total = Number((await page.getByText(/^Pregunta 1 de \d+$/).innerText()).match(/de (\d+)/)[1]);
+  for (let i = 0; i < total; i++) {
+    if (i % 3 !== 2) await page.locator('#mock-option-0').click();
+    if (i % 3 !== 2) await page.getByRole('button', { name: /confianza media/i }).click();
+    await page.getByRole('button', { name: i === total - 1 ? /finalizar examen/i : /^siguiente/i }).click();
+  }
+  await page.getByRole('heading', { name: 'Simulacro terminado' }).waitFor();
+  await scan('resultado');
+  await page.screenshot({ path: '/tmp/axe-resultado.png', fullPage: true });
   await nav.getByRole('button', { name: 'Más' }).click();
   await page.getByRole('button', { name: /^Recuerdo/ }).first().click();
   await page.getByRole('tablist', { name: 'Temas de recuerdo' }).waitFor();
@@ -39,10 +48,10 @@ const BASE = process.env.BASE_URL || 'http://127.0.0.1:4174';
   const planes = page.getByRole('button', { name: /^Planes/ }).first();
   await nav.getByRole('button', { name: 'Más' }).click();
   if (await planes.count()) { await planes.click(); await scan('planes'); }
-  const total = res;
-  const graves = Object.entries(total).flatMap(([k, vs]) => vs.map((v) => `${k}: ${v.id} (${v.n}) ${v.ej.join(' | ')}`));
+  const all = res;
+  const graves = Object.entries(all).flatMap(([k, vs]) => vs.map((v) => `${k}: ${v.id} (${v.n}) ${v.ej.join(' | ')}`));
   console.log(graves.length ? graves.join('\n') : 'sin violaciones serious/critical');
-  console.log(`VIOLACIONES=${graves.length} NODOS=${Object.values(total).flat().reduce((s, v) => s + v.n, 0)}`);
+  console.log(`VIOLACIONES=${graves.length} NODOS=${Object.values(all).flat().reduce((s, v) => s + v.n, 0)}`);
   await browser.close();
   process.exit(graves.length ? 1 : 0);
 })().catch((e) => { console.error(e.message); process.exit(1); });

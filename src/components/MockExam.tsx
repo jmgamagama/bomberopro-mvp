@@ -10,6 +10,8 @@ import { INITIAL_QUESTIONS } from '../data/initialData';
 import { supabase } from '../lib/supabase';
 import { calculateExamScore, EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS, isExamPassed, scoreOutOfTen } from '../utils/examScoring';
 import { arrangeBlueprint } from '../utils/examBlueprint';
+import { recommendTopic, summarizeByTopic, type TopicSummary } from '../utils/examReport';
+import { getVisibleTopic } from '../data/recallRegistry';
 import { EXAM_DURATION_SECONDS, formatExamTime, getRemainingExamSeconds } from '../utils/examTimer';
 import StudentConsultation from './StudentConsultationModal';
 import GuestSignupPrompt from './GuestSignupPrompt';
@@ -41,6 +43,8 @@ interface MockExamProps {
   useServerQuestions?: boolean;
   /** Invitado sin cuenta: tras ver la nota, ofrecer guardar el progreso creando una cuenta. */
   onGuestSignup?: () => void;
+  /** Abre el Recuerdo de un tema (`tema35`) desde la recomendación del resultado. */
+  onStudyTopic?: (topicId: string) => void;
   /** Empieza el simulacro al montar (atajo «Probar un simulacro de muestra» de la Bienvenida). */
   autoStart?: boolean;
 }
@@ -51,7 +55,8 @@ export default function MockExam({
   onNavigateHome,
   useServerQuestions = false,
   onGuestSignup,
-  autoStart = false
+  autoStart = false,
+  onStudyTopic
 }: MockExamProps) {
   const [examStarted, setExamStarted] = useState(false);
   const [examFinished, setExamFinished] = useState(false);
@@ -92,6 +97,7 @@ export default function MockExam({
     specificStats: { correct: number; incorrect: number; blank: number };
     failedConcepts: string[];
     falseDomains: string[];
+    byTopic: TopicSummary[];
   } | null>(null);
 
   // Generate 10 random mixed questions from the database
@@ -223,7 +229,8 @@ export default function MockExam({
         responseTime: rTime,
         answerChanges: answerChangesRef.current[q.id] || 0,
         isSpecific,
-        isReserve
+        isReserve,
+        tema: q.tema ?? null
       };
     });
 
@@ -273,7 +280,8 @@ export default function MockExam({
         blank: specificResults.filter(r => !r.answered).length
       },
       failedConcepts,
-      falseDomains
+      falseDomains,
+      byTopic: summarizeByTopic(officialResults)
     } as any);
 
     setExamFinished(true);
@@ -574,7 +582,53 @@ export default function MockExam({
               </div>
             </div>
 
+            {(() => {
+              const rec = recommendTopic(testResults.byTopic);
+              const recTopic = rec?.numero != null ? getVisibleTopic(`tema${rec.numero}`) : undefined;
+              return (
+                <section aria-labelledby="mock-recomendacion-title" id="mock-recomendacion" className="mx-auto max-w-md space-y-2 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-left">
+                  <h4 id="mock-recomendacion-title" className="text-base font-bold text-slate-900">Qué estudiar ahora</h4>
+                  {rec ? (
+                    <p className="text-sm text-slate-800">
+                      Empieza por {rec.numero != null ? <strong>el tema {rec.numero} ({rec.titulo})</strong> : <strong>{rec.titulo.toLowerCase()}</strong>}:
+                      {' '}no acertaste {rec.incorrect + rec.blank} de {rec.total} {rec.total === 1 ? 'pregunta' : 'preguntas'}
+                      {rec.incorrect > 0 && rec.blank > 0 ? ` (${rec.incorrect} ${rec.incorrect === 1 ? 'fallo' : 'fallos'} y ${rec.blank} en blanco)` : ''}.
+                    </p>
+                  ) : (
+                    <p className="text-sm text-slate-800">Has acertado todas las preguntas puntuables. Repite el simulacro en unos días para comprobar que lo recuerdas.</p>
+                  )}
+                  {rec && recTopic && onStudyTopic && (
+                    <button type="button" id="btn-mock-study-topic" onClick={() => onStudyTopic(recTopic.id)}
+                      className="min-h-11 w-full rounded-xl border border-amber-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-amber-100">
+                      Repasar las fichas del tema {rec.numero}
+                    </button>
+                  )}
+                </section>
+              );
+            })()}
+
             {onGuestSignup && <GuestSignupPrompt what="el simulacro" onSignup={onGuestSignup} />}
+
+            <details className="mx-auto max-w-md text-left" id="mock-fallos-por-tema" open>
+              <summary className="min-h-11 cursor-pointer py-2 text-sm font-semibold text-slate-800">Resultado por tema</summary>
+              <table className="w-full text-sm">
+                <caption className="sr-only">Aciertos, fallos y blancos por tema</caption>
+                <thead>
+                  <tr className="text-xs text-slate-600"><th scope="col" className="py-1 text-left font-semibold">Tema</th><th scope="col" className="w-10 font-semibold"><span aria-hidden="true">✓</span><span className="sr-only">Aciertos</span></th><th scope="col" className="w-10 font-semibold"><span aria-hidden="true">✗</span><span className="sr-only">Fallos</span></th><th scope="col" className="w-10 font-semibold"><span aria-hidden="true">—</span><span className="sr-only">En blanco</span></th></tr>
+                </thead>
+                <tbody>
+                  {testResults.byTopic.map((t) => (
+                    <tr key={t.numero ?? 'otras'} className="border-t border-slate-200">
+                      <th scope="row" className="py-1.5 pr-2 text-left font-normal text-slate-800">{t.numero != null ? `T${t.numero} · ${t.titulo}` : t.titulo}</th>
+                      <td className="text-center text-emerald-700">{t.correct}</td>
+                      <td className="text-center text-rose-700">{t.incorrect}</td>
+                      <td className="text-center text-slate-700">{t.blank}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </details>
+
 
             {/* Topic Breakdown */}
             <div className="grid grid-cols-2 gap-3 max-w-md mx-auto pt-4 border-t border-slate-200 text-xs text-slate-600">
@@ -630,8 +684,8 @@ export default function MockExam({
             {/* Study Plan Recommendation */}
             <div className="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-3">
               <h4 className="text-base font-bold text-slate-800 flex items-center gap-1.5">
-                <Brain className="w-4 h-4 text-indigo-500" />
-                Qué repasar ahora
+                <Brain className="w-4 h-4 text-indigo-500" aria-hidden="true" />
+                Conceptos fallados
               </h4>
               
               {testResults.failedConcepts.length === 0 ? (
