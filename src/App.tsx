@@ -940,7 +940,7 @@ export default function App() {
               className="mb-6 flex w-full items-center justify-between gap-4 rounded-2xl border border-indigo-200 bg-white p-5 text-left shadow-sm hover:bg-indigo-50"
             >
               <span>
-                <span className="block text-xs font-bold uppercase tracking-wider text-indigo-600">Material por tema · Temas {MATERIAL_TEMAS.map((m) => m.tema).join(', ')}</span>
+                <span className="block text-xs font-bold uppercase tracking-wider text-indigo-600">Material por tema · Temas {MATERIAL_TEMAS.map((m) => m.tema).sort((a, b) => a - b).join(', ')}</span>
                 <span className="mt-1 block text-lg font-bold text-slate-900">Esquema, texto oficial y fuentes</span>
                 <span className="mt-0.5 block text-sm text-slate-600">Elige un tema: verás qué material tiene, el enlace a su norma oficial y sus conceptos para estudiar.</span>
               </span>
@@ -975,7 +975,7 @@ export default function App() {
         )}
 
         {currentScreen === 'constitucion' && session?.user?.id && !isDemoMode && (
-          <MaterialConstitucion key={materialTema.tema} userId={session.user.id} tema={materialTema.tema} onExit={() => handleNavigate(materialTema.vuelta)} />
+          <MaterialConstitucion key={materialTema.tema} userId={session.user.id} tema={materialTema.tema} onExit={() => handleNavigate(materialTema.vuelta)} volverLabel={materialTema.vuelta === 'study_by_topic' ? 'Volver a Estudio por temas' : undefined} />
         )}
 
         {currentScreen === 'concept_t40' && session?.user?.id && !isDemoMode && (

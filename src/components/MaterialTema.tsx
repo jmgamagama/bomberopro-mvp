@@ -22,6 +22,8 @@ interface Props {
   userId: string;
   onExit: () => void;
   tema?: number;
+  /** Texto del botón de volver (por defecto, «Volver al inicio»). */
+  volverLabel?: string;
 }
 
 const TEMAS = Array.from({ length: 40 }, (_, i) => i + 1);
@@ -52,7 +54,7 @@ function Estado({ si, children }: { si: boolean; children: React.ReactNode }) {
   );
 }
 
-export default function MaterialTema({ userId, onExit, tema: temaInicial = 1 }: Props) {
+export default function MaterialTema({ userId, onExit, tema: temaInicial = 1, volverLabel = 'Volver al inicio' }: Props) {
   const [tema, setTema] = useState(temaInicial);
   const nombres = useNombresTemas();
   const { resumen, listo } = useConceptSummary();
@@ -92,7 +94,7 @@ export default function MaterialTema({ userId, onExit, tema: temaInicial = 1 }: 
   return (
     <div className="mx-auto max-w-3xl">
       <button type="button" onClick={onExit} className="mb-4 flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-slate-900">
-        <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Volver al inicio
+        <ArrowLeft className="h-4 w-4" aria-hidden="true" /> {volverLabel}
       </button>
 
       <label className="mb-4 block text-sm font-semibold text-slate-700">
@@ -165,7 +167,7 @@ export default function MaterialTema({ userId, onExit, tema: temaInicial = 1 }: 
           <p className="mt-6 rounded-2xl border border-orange-200 bg-orange-50 p-4 text-sm text-slate-800" role="status">
             Este tema aún no tiene esquema, desarrollo ni texto oficial en la app.
             {fuentes.length > 0 ? ' Puedes leer la norma en el BOE con el enlace de arriba.' : ''}
-            {' '}Temas con material: {MATERIAL_TEMAS.map((m) => m.tema).join(', ')}.
+            {' '}Temas con material: {MATERIAL_TEMAS.map((m) => m.tema).sort((a, b) => a - b).join(', ')}.
           </p>
         )}
     </div>
