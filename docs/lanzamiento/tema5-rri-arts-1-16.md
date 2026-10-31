@@ -9,6 +9,7 @@ Estado: **LISTO para aprobar**. Va como una fila de `docs/LANZAMIENTO.md`. Fecha
 - 51 preguntas que ya estaban publicadas se ligan a su concepto con nivel 2 (33 de los arts. 1-16 y 18 de los arts. 17-22). Antes del cambio, el valor anterior se guarda en `qa_changes_20260923`.
 - 3 preguntas duplicadas se despublican, con registro: 7002, 12293 y 12296.
 - No hay migraciones ni cambios de código: solo datos.
+- Requisito: fusionar antes la PR #212 (ficheros de los arts. 17-22).
 
 ## Pasos, en este orden (tema 5 resuelto por número, nunca por id)
 1. Carga de contenido ya publicado:
