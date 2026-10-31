@@ -55,7 +55,7 @@ Problemas detectados: **0**.
 | tema34-lote02 | pendiente | 39 | 100 % | 0 | `b16be4d6e3a6d0d7` |  |
 | tema34-lote03 | pendiente | 35 | 100 % | 0 | `e6043c354402ca67` |  |
 | tema35 | revisado | 150 | 0 % | 0 | `c617a5e07121a39c` | sin enlace público |
-| tema36-lote01 | pendiente | 78 | 0 % | 0 | `098d669a63b32c4f` | sin enlace público |
+| tema36-lote01 | pendiente | 78 | 0 % | 0 | `3f293f7cbe3198e7` | sin enlace público |
 | tema36-lote02 | pendiente | 79 | 0 % | 0 | `65599e0668094088` | sin enlace público |
 | tema36-lote03 | pendiente | 78 | 0 % | 0 | `94e284e4be58bdae` | sin enlace público |
 | tema36-lote04 | pendiente | 78 | 0 % | 0 | `038d23043505f314` | sin enlace público |

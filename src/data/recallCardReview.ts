@@ -107,6 +107,8 @@ export const REVIEWED_CARDS_IN_PENDING_DECKS: Readonly<Record<string, readonly s
     'CPEI-T36-S05-845FA7851C', 'CPEI-T36-S05-B5B0FB6E5E', 'CPEI-T36-S05-804BF77282', 'CPEI-T36-S05-BF1DFE6130',
     // Cumbres con reseña de vértice geodésico del IGN: Tentudía (89753), Buitrera (80621), San Cristóbal (89650), Peña Utrera (85349).
     'CPEI-T36-S04-CC867DE3D2', 'CPEI-T36-S04-7210607B16', 'CPEI-T36-S04-8917348693', 'CPEI-T36-S04-BFD6A68289',
+    // Sierra del Puerto del Centinela (Alburquerque), alineación montañosa del NGBE del IGN (ngbe_465735), sin altitud.
+    'CPEI-T36-S04-51C8483765',
   ],
 };
 

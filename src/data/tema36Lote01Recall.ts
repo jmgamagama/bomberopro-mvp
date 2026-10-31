@@ -490,11 +490,11 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
   {
     "id": "CPEI-T36-S04-51C8483765",
     "orden": 3380,
-    "concepto": "¿Dónde se ubica La Centinela y qué altitud de referencia tiene?",
-    "respuesta": "Sierra de San Pedro, sector de Alburquerque; aprox. 703 m.",
-    "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "SIN VERIFICAR (sin artículo ni página): MDT/toponimia oficial; verificar cota puntual",
-    "apartado": "La Centinela"
+    "concepto": "¿Qué es la Sierra del Puerto del Centinela y en qué municipio está?",
+    "respuesta": "una alineación montañosa; está en el término municipal de Alburquerque.",
+    "fuente": "IGN, Nomenclátor Geográfico Básico de España (NGBE), consultado con el geocodificador de CartoCiudad",
+    "localizacion": "NGBE ngbe_465735 «Sierra del Puerto del Centinela» (Alineación montañosa), 39,2145 N / 6,9953 O, municipio Alburquerque; el NGBE no da cota y no se indica altitud",
+    "apartado": "Sierra del Puerto del Centinela"
   },
   {
     "id": "CPEI-T36-S05-7B8FA3BC15",
