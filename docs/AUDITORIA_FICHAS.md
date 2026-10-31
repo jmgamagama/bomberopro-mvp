@@ -40,8 +40,8 @@ Problemas detectados: **0**.
 | tema24 | revisado | 19 | 100 % | 0 | `f51fe2a06a029c0d` |  |
 | tema25 | pendiente | 47 | 100 % | 0 | `274647248a13635e` |  |
 | tema25-lote02 | pendiente | 68 | 100 % | 0 | `807859d0d52d307a` |  |
-| tema26 | pendiente | 60 | 100 % | 0 | `3b47c30a9a7bd1e3` |  |
-| tema27 | pendiente | 22 | 100 % | 0 | `9c69d2a21da029c6` |  |
+| tema26 | revisado | 60 | 100 % | 0 | `3b47c30a9a7bd1e3` |  |
+| tema27 | revisado | 22 | 100 % | 0 | `9c69d2a21da029c6` |  |
 | tema27-lote02 | revisado | 30 | 100 % | 0 | `bae9f0f2535c226d` |  |
 | tema28 | revisado | 29 | 100 % | 0 | `e98b803ecbc6ed49` |  |
 | tema28-lote02 | revisado | 74 | 100 % | 0 | `307cf0309ca112a2` |  |
