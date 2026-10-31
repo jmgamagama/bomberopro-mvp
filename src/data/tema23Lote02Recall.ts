@@ -41,7 +41,7 @@ export const TEMA23_LOTE02_RECALL_CARDS: Tema23Lote02RecallCard[] = [
     "id": "CPEI-T23-OF-8E40EA88",
     "orden": 30,
     "concepto": "Según el Reglamento del Dominio Público Hidráulico, ¿qué anchura tienen la zona de servidumbre y la zona de policía de las márgenes de los cauces?",
-    "respuesta": "Zona de servidumbre: cinco metros (uso público); zona de policía: cien metros",
+    "respuesta": "Zona de servidumbre: cinco metros de anchura (uso público); zona de policía: 100 metros de anchura",
     "fuente": "RDPH (RD 849/1986), Artículo 6, apdo. 2. BOE-A-1986-10638, texto consolidado (últ. actualización 03/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1986-10638#a6",
     "localizacion": "RDPH (RD 849/1986), Artículo 6, apdo. 2",
     "apartado": "Dominio público hidráulico y zonas inundables (RDPH)"
@@ -104,16 +104,16 @@ export const TEMA23_LOTE02_RECALL_CARDS: Tema23Lote02RecallCard[] = [
     "id": "CPEI-T23-OF-A529B369",
     "orden": 100,
     "concepto": "Según el Reglamento del Dominio Público Hidráulico, ¿qué período estadístico de retorno define la zona inundable?",
-    "respuesta": "500 años",
-    "fuente": "RDPH (RD 849/1986), Artículo 14, apdo. 1. BOE-A-1986-10638, texto consolidado (últ. actualización 03/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1986-10638#a14",
-    "localizacion": "RDPH (RD 849/1986), Artículo 14, apdo. 1",
+    "respuesta": "Quinientos años",
+    "fuente": "RDPH (RD 849/1986), Artículo 14, apdo. 3. BOE-A-1986-10638, texto consolidado (últ. actualización 03/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1986-10638#a14",
+    "localizacion": "RDPH (RD 849/1986), Artículo 14, apdo. 3",
     "apartado": "Dominio público hidráulico y zonas inundables (RDPH)"
   },
   {
     "id": "CPEI-T23-OF-88816570",
     "orden": 110,
     "concepto": "Según el Reglamento del Dominio Público Hidráulico, ¿altera la calificación como zona inundable la calificación jurídica o la titularidad de los terrenos?",
-    "respuesta": "No, no alterará la calificación jurídica ni la titularidad dominical que dichos terrenos tuviesen",
+    "respuesta": "No: conservarán la calificación jurídica y la titularidad dominical que tuvieran",
     "fuente": "RDPH (RD 849/1986), Artículo 14, apdo. 1. BOE-A-1986-10638, texto consolidado (últ. actualización 03/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-1986-10638#a14",
     "localizacion": "RDPH (RD 849/1986), Artículo 14, apdo. 1",
     "apartado": "Dominio público hidráulico y zonas inundables (RDPH)"
