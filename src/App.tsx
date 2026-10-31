@@ -88,7 +88,7 @@ const SCREEN_TITLES = {
   forgetting_curve: 'Curva de olvido',
   mock_exam: 'Simulacro',
   today_training: 'Entrenamiento de hoy',
-  study_by_topic: 'Estudio por Temas',
+  study_by_topic: 'Estudio por temas',
   concept_t40: 'Estudiar hoy',
   constitucion: 'Constitución · Título Preliminar',
   my_reports: 'Mis reportes',
@@ -791,7 +791,7 @@ export default function App() {
               <span className="hidden sm:block w-2 h-2 rounded-full bg-amber-900 animate-pulse shrink-0" aria-hidden="true" />
               <span className="text-xs leading-tight sm:text-sm">
                 <strong>Modo invitado</strong>
-                <span className="sm:hidden">: tu progreso se guarda en este móvil.</span>
+                <span className="sm:hidden">: tu progreso se guarda en este dispositivo.</span>
                 <span className="hidden sm:inline">: tu progreso se guarda en este dispositivo.</span>
               </span>
             </div>
@@ -1203,7 +1203,7 @@ export default function App() {
         <div className="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
             <p className="font-semibold text-slate-600">BomberoPro — Oposición CPEI Badajoz</p>
-            <p className="text-xs text-slate-600 mt-0.5">Basado en Microconceptos, Interrogación activa, Repetición espaciada y Aseguramiento del dominio real.</p>
+            <p className="text-xs text-slate-600 mt-0.5">Basado en microconceptos, recuerdo activo y repaso espaciado.</p>
           </div>
         </div>
       </footer>

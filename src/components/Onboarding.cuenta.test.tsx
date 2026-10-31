@@ -7,7 +7,7 @@ import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import Onboarding from './Onboarding';
 import { hasCompletedOnboarding } from '../utils/onboarding';
-import AvisoGuardadoFichas from './AvisoGuardadoFichas';
+import AvisoGuardadoFichas, { textoAvisoFichas } from './AvisoGuardadoFichas';
 
 describe('bienvenida con cuenta', () => {
   beforeEach(() => window.localStorage.clear());
@@ -33,9 +33,10 @@ describe('bienvenida con cuenta', () => {
 });
 
 describe('aviso de guardado de las fichas', () => {
-  it('en la demo dice que todo queda en el navegador', () => {
+  it('en la demo no repite el aviso: ya lo dice la franja «Modo invitado» de la cabecera', () => {
     render(<AvisoGuardadoFichas demo />);
-    expect(screen.getByText(/modo invitado/i)).toHaveTextContent(/se guarda en este dispositivo/);
+    expect(document.querySelector('#aviso-guardado-fichas')).toBeNull();
+    expect(textoAvisoFichas(true)).toMatch(/modo invitado.*se guarda en este dispositivo/i);
   });
 
   it('con cuenta no da a entender que se pierde el progreso', () => {

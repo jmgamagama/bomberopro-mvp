@@ -111,7 +111,7 @@ describe('MockExam', () => {
     if (falladas.length > 0) {
       const q = served.find(x => x.id === falladas[0].questionId)!;
       expect(fallos[0]).toHaveTextContent(`Correcta: ${q.correct_answer}`);
-      expect(fallos[0]).toHaveTextContent(q.explanation);
+      if (!q.explanation.startsWith('Ficha:')) expect(fallos[0]).toHaveTextContent(q.explanation);
       if (q.fuente) expect(fallos[0]).toHaveTextContent(`Fuente: ${q.fuente}`);
     }
   });

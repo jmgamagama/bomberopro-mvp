@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
+import { formatArticle, conceptTopicLabel } from '../utils/conceptLabels';
 import { formatDecimal } from '../utils/formatNumber';
 import { Brain, Sparkles, ChevronRight, CheckCircle2, XCircle, AlertTriangle, HelpCircle, RefreshCw, ArrowLeft, Clock } from 'lucide-react';
 import { Question, ConfidenceLevel, MemoryState, Microconcept } from '../types';
@@ -425,16 +426,16 @@ export default function TrainScreen({
           {relatedConcept && (
             <div className="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-4">
               <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wider">
-                Microconcepto Relacionado
+                Concepto relacionado
               </h4>
 
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">
-                    {relatedConcept.id}
+                    {conceptTopicLabel(relatedConcept.id, question ? [question] : null)}
                   </span>
                   <span className="text-xs font-semibold text-indigo-600">
-                    Artículo {relatedConcept.article}
+                    {formatArticle(relatedConcept.article)}
                   </span>
                 </div>
                 <p className="text-xs text-slate-800 font-serif leading-relaxed italic bg-slate-50 p-2.5 rounded-lg">
@@ -486,7 +487,7 @@ export default function TrainScreen({
           <div className="p-5 bg-indigo-900 text-indigo-100 rounded-2xl space-y-3 border border-indigo-950">
             <h5 className="text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
               <Clock className={`w-4 h-4 ${!isAnswered ? 'animate-spin-slow' : ''}`} />
-              Cronómetro de Automatización
+              Cronómetro
             </h5>
 
             <div className="flex flex-wrap items-center justify-between gap-2" id="automation-timer">

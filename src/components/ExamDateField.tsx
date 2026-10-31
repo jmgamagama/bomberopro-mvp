@@ -81,7 +81,6 @@ export default function ExamDateField({
           </button>
         )}
       </div>
-      <p className="text-[11px] text-slate-500">La pones tú: la fecha oficial del examen aún no se ha publicado.</p>
       <p className="text-xs text-slate-700" id={`${idPrefix}-ritmo`}>
         {describeExamPace(pace)}
       </p>

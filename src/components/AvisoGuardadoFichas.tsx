@@ -11,6 +11,8 @@ export function textoAvisoFichas(demo: boolean): string {
 }
 
 export default function AvisoGuardadoFichas({ demo }: { demo: boolean }) {
+  // En modo invitado ya lo dice la franja «Modo invitado» de la cabecera: no se repite.
+  if (demo) return null;
   return (
     <p id="aviso-guardado-fichas" className="rounded-xl bg-indigo-50 px-3 py-2 text-sm text-slate-700">
       {textoAvisoFichas(demo)}

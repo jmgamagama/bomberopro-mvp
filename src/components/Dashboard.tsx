@@ -165,7 +165,7 @@ export default function Dashboard({
 
   return (
     <div className="space-y-6" id="mira-dashboard-container">
-      <h1 className="sr-only">Dashboard de BomberoPro</h1>
+      <h1 className="sr-only">Tu panel de BomberoPro</h1>
       {/* Simulation Header Indicator */}
       {import.meta.env.DEV && (
       <div className="flex flex-col md:flex-row md:items-center justify-between p-4 bg-slate-900 text-slate-100 rounded-2xl shadow-sm gap-4 border border-slate-800" id="mira-sim-bar">
@@ -416,7 +416,7 @@ export default function Dashboard({
           </div>
           <div>
             <h5 className="font-semibold text-sm text-slate-800">¿Quieres repasar primero el temario?</h5>
-            <p className="text-sm text-slate-600">Elige un tema del temario oficial y entrena de forma quirúrgica sobre tus fallos.</p>
+            <p className="text-sm text-slate-600">Elige un tema del temario oficial y repasa sus fichas y tus fallos.</p>
           </div>
         </div>
         <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
@@ -455,7 +455,7 @@ function RemoteDashboard({ state, onRetry, onNavigate }: {
   const order = ['por_aprender', 'aprendiendo', 'debil', 'dominado', 'consolidado'] as const;
   return (
     <div className="space-y-6" id="mira-dashboard-container">
-      <h1 className="sr-only">Dashboard de BomberoPro</h1>
+      <h1 className="sr-only">Tu panel de BomberoPro</h1>
       <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm" aria-labelledby="remote-progress-title">
         <h2 id="remote-progress-title" className="text-xl font-bold text-slate-900">Tu progreso</h2>
         <p className="mt-1 text-sm text-slate-600">En tu cuenta, disponible en todos tus dispositivos. Incluye los temas preparados para estudiar por conceptos.</p>

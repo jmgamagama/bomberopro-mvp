@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from 'react';
+import { conceptTopicLabel, formatArticle } from '../utils/conceptLabels';
 import { formatDecimal } from '../utils/formatNumber';
 import { BarChart2, Clock, Sparkles, AlertTriangle, RotateCcw, Brain, Info, Calendar, HelpCircle, Activity } from 'lucide-react';
 import { MemoryState, Microconcept } from '../types';
@@ -89,7 +90,7 @@ export default function ForgettingCurve({
               <Brain className="w-5 h-5 animate-pulse" />
             </div>
             <div>
-              <h2 className="text-xl font-bold text-slate-800">Gráfico de Retención & Curva del Olvido</h2>
+              <h2 className="text-xl font-bold text-slate-800">Curva del olvido</h2>
               <p className="text-xs text-slate-500">
                 Visualización científica del desgaste de memoria conforme pasa el tiempo.
               </p>
@@ -97,7 +98,7 @@ export default function ForgettingCurve({
           </div>
           <div className="bg-slate-50 border border-slate-200 px-4 py-2 rounded-xl flex items-center gap-2 text-xs font-semibold text-slate-700">
             <Calendar className="w-4 h-4 text-slate-500" />
-            Simulado: {now.toLocaleDateString('es-ES')}
+            Fecha: {now.toLocaleDateString('es-ES')}
           </div>
         </div>
 
@@ -107,7 +108,7 @@ export default function ForgettingCurve({
           <div className="space-y-1">
             <p className="font-bold">¿Cómo funciona la curva del olvido?</p>
             <p>
-              La recuperabilidad de memoria ($R$) decae de forma exponencial según la fórmula científica de Ebbinghaus:
+              La recuperabilidad de la memoria (R) decae de forma exponencial según la fórmula científica de Ebbinghaus:
               <span className="font-mono font-bold bg-white/70 px-1.5 py-0.5 rounded mx-1 text-indigo-800">R = e ^ (-t / S)</span>
               donde <strong className="text-indigo-800">t</strong> es el tiempo transcurrido desde el último repaso y <strong className="text-indigo-800">S</strong> es la estabilidad de tu memoria. 
               A mayor número de revisiones correctas, tu estabilidad (<strong className="text-indigo-800">S</strong>) aumenta y la pendiente de caída se vuelve más plana.
@@ -218,7 +219,7 @@ export default function ForgettingCurve({
             />
 
             {/* Draw nodes representing actual user microconcepts */}
-            {plottedPoints.map((pt) => {
+            {plottedPoints.map((pt, ptIndex) => {
               const isSelected = selectedPointId === pt.id;
               
               let nodeColor = '#1E3A5F'; // azul marino
@@ -269,7 +270,7 @@ export default function ForgettingCurve({
                     className="text-[7px] font-mono font-bold text-slate-500 opacity-60 group-hover:opacity-100 transition"
                     textAnchor="middle"
                   >
-                    {pt.id.replace('MC-ART1-', '')}
+                    {ptIndex + 1}
                   </text>
                 </g>
               );
@@ -289,14 +290,14 @@ export default function ForgettingCurve({
             <div className="flex items-center justify-between border-b border-indigo-200/40 pb-2">
               <div className="flex items-center gap-1.5">
                 <span id="fc-audit-title" className="text-xs font-mono font-bold bg-indigo-600 text-white px-2 py-0.5 rounded">
-                  {activePoint.id}
+                  {conceptTopicLabel(activePoint.id)}
                 </span>
-                <span className="text-xs font-semibold text-indigo-800">Artículo {activePoint.article}</span>
+                <span className="text-xs font-semibold text-indigo-800">{formatArticle(activePoint.article)}</span>
               </div>
               <button
                 onClick={() => setSelectedPointId(null)}
                 className="text-[10px] font-mono text-indigo-600 hover:text-indigo-800 font-bold"
-                aria-label={`Cerrar detalle de ${activePoint.id}`}
+                aria-label={`Cerrar detalle de ${conceptTopicLabel(activePoint.id)}`}
               >
                 CERRAR AUDITORÍA
               </button>
@@ -439,9 +440,9 @@ export default function ForgettingCurve({
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5">
                     <span className="text-xs font-mono font-semibold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">
-                      {mc.id}
+                      {conceptTopicLabel(mc.id)}
                     </span>
-                    <span className="text-xs text-slate-500">Art. {mc.article}</span>
+                    <span className="text-xs text-slate-500">{formatArticle(mc.article)}</span>
                   </div>
                   <span className={`px-2 py-0.5 text-[10px] font-bold font-mono rounded-md border ${risk.color}`}>
                     {risk.text.toUpperCase()}

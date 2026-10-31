@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
+import { conceptTopicLabel } from '../utils/conceptLabels';
 import { HelpCircle, Clock, CheckCircle2, XCircle, AlertTriangle, Play, RotateCcw, ArrowLeft, ArrowRight, Brain, Sparkles, Award } from 'lucide-react';
 import { Question, ConfidenceLevel, Microconcept } from '../types';
 import { INITIAL_QUESTIONS } from '../data/initialData';
@@ -60,6 +61,12 @@ interface FailedQuestion {
   cita?: string;
   fuente?: string;
   tema?: { numero: number; titulo: string } | null;
+}
+
+/** La explicación solo repite la respuesta y la fuente («Ficha: «X» Fuente: …»): no se muestra dos veces. */
+function isRedundantExplanation(f: FailedQuestion): boolean {
+  const e = f.explanation.trim();
+  return /^Ficha:/.test(e) && (!f.correctAnswer || e.includes(f.correctAnswer.replace(/\.$/, '')));
 }
 
 /** Línea de la fórmula de las bases (BOP de Badajoz nº 135, de 17/07/2026). */
@@ -394,16 +401,16 @@ export default function MockExam({
           </div>
           
           <div className="space-y-2">
-            <h2 className="text-2xl font-black text-slate-800">Simulador de Examen</h2>
+            <h2 className="text-2xl font-black text-slate-800">Simulador de examen</h2>
             <p className="text-base text-slate-600 max-w-md mx-auto">
-              Practica con 55 preguntas siguiendo la estructura indicada en las bases de CPEI Badajoz. Las preguntas pertenecen al banco de BomberoPRO y no son preguntas oficiales de exámenes anteriores.
+              {useServerQuestions ? 'Practica con 55 preguntas (50 + 5 de reserva)' : 'Practica con una muestra de preguntas'} siguiendo la estructura indicada en las bases de CPEI Badajoz. Las preguntas pertenecen al banco de BomberoPro y no son preguntas oficiales de exámenes anteriores.
             </p>
           </div>
 
           <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-left text-sm text-slate-700 space-y-3 max-w-md mx-auto">
             <p className="font-bold text-slate-800 flex items-center gap-1.5">
               <Clock className="w-4 h-4 text-indigo-500" />
-              Reglas del Simulacro:
+              Reglas del simulacro:
             </p>
             <ul className="list-disc list-inside space-y-1.5 pl-1 leading-normal">
               <li>Fórmula oficial: <strong>{formatPoints(EXAM_CORRECT_POINTS)}</strong> por acierto, <strong>{formatPoints(EXAM_INCORRECT_POINTS)}</strong> por error y 0 en blanco.</li>
@@ -416,7 +423,7 @@ export default function MockExam({
                 <li>Sin cuenta es un <strong>simulacro de muestra</strong> con las <strong>{INITIAL_QUESTIONS.length} preguntas públicas</strong> que hay hoy: todavía no sigue el reparto oficial (55 preguntas, 30 % de los temas 35-40).</li>
               )}
               <li>Preguntas en orden aleatorio, como en el examen.</li>
-              <li>Al finalizar obtendrás un informe detallado con tu plan de estudio de sanea-errores.</li>
+              <li>Al terminar verás tu nota, cada fallo con la respuesta correcta y su fuente, y qué tema repasar primero.</li>
             </ul>
           </div>
 
@@ -434,7 +441,7 @@ export default function MockExam({
             ) : (
               <>
                 <Play className="w-4 h-4 fill-current" />
-                Comenzar Simulacro
+                Comenzar simulacro
               </>
             )}
           </button>
@@ -608,7 +615,7 @@ export default function MockExam({
               </div>
               <div>
                 <span className="block text-xs uppercase text-slate-600">Tiempo medio</span>
-                <strong className="text-2xl sm:text-3xl font-extrabold text-indigo-600">{testResults.avgTime}s</strong>
+                <strong className="text-2xl sm:text-3xl font-extrabold text-indigo-600">{testResults.avgTime} s</strong>
               </div>
             </div>
 
@@ -674,7 +681,7 @@ export default function MockExam({
                       <p className="font-semibold text-slate-900">{i + 1}. {f.question}</p>
                       <p><span className="text-rose-700 font-semibold">Tu respuesta:</span> {f.answer}</p>
                       {f.correctAnswer && <p><span className="text-emerald-700 font-semibold">Correcta:</span> {f.correctAnswer}</p>}
-                      {f.explanation && <p className="text-slate-700">{f.explanation}</p>}
+                      {f.explanation && !isRedundantExplanation(f) && <p className="text-slate-700">{f.explanation}</p>}
                       {f.cita && <blockquote className="border-l-4 border-indigo-600 bg-slate-50 px-2 py-1 text-slate-700">«{f.cita}»</blockquote>}
                       {f.fuente && <p className="text-xs text-slate-600">Fuente: {f.fuente}</p>}
                     </li>
@@ -705,7 +712,7 @@ export default function MockExam({
           </div>
 
           {/* Diagnostics Column */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6" id="diagnostics-columns">
+          <div className="grid grid-cols-1 gap-6" id="diagnostics-columns">
             {/* Meta Data */}
             {/* La semilla se conserva (examSeed) para reproducir el examen, pero no se muestra al alumno. */}
             
@@ -727,40 +734,13 @@ export default function MockExam({
                   </p>
                   {testResults.falseDomains.map(id => (
                     <div key={id} className="p-2.5 bg-rose-50 rounded-lg text-sm text-rose-800 break-words font-serif leading-relaxed border border-rose-100">
-                      <strong>{id}:</strong> "{getConceptText(id)}"
+                      <strong>{conceptTopicLabel(id, questions)}:</strong> «{getConceptText(id)}»
                     </div>
                   ))}
                 </div>
               )}
             </div>
 
-            {/* Study Plan Recommendation */}
-            <div className="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-3">
-              <h4 className="text-base font-bold text-slate-800 flex items-center gap-1.5">
-                <Brain className="w-4 h-4 text-indigo-500" aria-hidden="true" />
-                Conceptos fallados
-              </h4>
-              
-              {testResults.failedConcepts.length === 0 ? (
-                <p className="text-sm text-slate-700 bg-emerald-50/50 p-3 rounded-xl border border-emerald-100/30">
-                  No has fallado ningún concepto. Sigue entrenando para no olvidarlo.
-                </p>
-              ) : (
-                <div className="space-y-2 text-xs text-slate-600">
-                  <p className="text-sm text-slate-600">
-                    Dedica tus próximas 2 sesiones a estos conceptos que has fallado:
-                  </p>
-                  <ul className="space-y-1 pl-1">
-                    {testResults.failedConcepts.map(id => (
-                      <li key={id} className="flex items-center gap-1.5 text-xs font-bold text-indigo-700 break-all bg-indigo-50/50 px-2 py-1 rounded">
-                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-600"></span>
-                        {id} (Art. {microconcepts.find(mc => mc.id === id)?.article})
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
           </div>
 
           {/* Footer Navigation */}
@@ -771,7 +751,7 @@ export default function MockExam({
               className="min-h-11 px-4 py-2.5 bg-white hover:bg-slate-100 text-slate-700 border border-slate-500 rounded-xl font-semibold text-sm transition flex items-center gap-1.5"
             >
               <RotateCcw className="w-4 h-4" />
-              Repetir Simulacro
+              Repetir simulacro
             </button>
             <button
               id="btn-nav-home-mock-finish"
