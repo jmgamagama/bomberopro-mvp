@@ -635,9 +635,9 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "id": "CPEI-T36-S06-1635983041",
     "orden": 3540,
     "concepto": "¿Dónde se localiza Los Molinos?",
-    "respuesta": "río Matachel; Hornachos.",
-    "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
+    "respuesta": "río Matachel; presa en el término de Hornachos.",
+    "fuente": "CEDEX, Anuario de Aforos 2021-2022, embalses de la C.H. Guadiana (ceh.cedex.es)",
+    "localizacion": "embalse 4017 LOS MOLINOS DE MATACHEL: corriente río Matachel; municipio Hornachos",
     "apartado": "Los Molinos"
   },
   {
@@ -662,9 +662,9 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "id": "CPEI-T36-S06-3FD7762AAD",
     "orden": 3570,
     "concepto": "¿Dónde se localiza Tentudía?",
-    "respuesta": "entorno de Monesterio/Tentudía.",
-    "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
+    "respuesta": "río Bodión; presa en el término de Calera de León.",
+    "fuente": "CEDEX, Anuario de Aforos 2021-2022, embalses de la C.H. Guadiana (ceh.cedex.es)",
+    "localizacion": "embalse 4020 TENTUDÍA: corriente río Bodión; municipio Calera de León",
     "apartado": "Tentudía"
   },
   {
@@ -689,18 +689,18 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "id": "CPEI-T36-S06-4961D87A48",
     "orden": 3600,
     "concepto": "¿Dónde se localiza Cornalvo?",
-    "respuesta": "arroyo Albarregas; parque natural de Cornalvo.",
-    "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
+    "respuesta": "arroyo Albarregas; presa en el término de Mérida (parque natural de Cornalvo).",
+    "fuente": "CEDEX, Anuario de Aforos 2021-2022, embalses de la C.H. Guadiana (ceh.cedex.es)",
+    "localizacion": "embalse 4013 CORNALBO: corriente arroyo Albarregas; municipio Mérida",
     "apartado": "Cornalvo"
   },
   {
     "id": "CPEI-T36-S06-79C9784D7C",
     "orden": 3610,
     "concepto": "¿Dónde se localiza Proserpina?",
-    "respuesta": "arroyo de Las Pardillas; Mérida.",
-    "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
+    "respuesta": "río Pardillas; presa en el término de Mérida.",
+    "fuente": "CEDEX, Anuario de Aforos 2021-2022, embalses de la C.H. Guadiana (ceh.cedex.es)",
+    "localizacion": "embalse 4014 PROSERPINA: corriente río Pardillas; municipio Mérida",
     "apartado": "Proserpina"
   },
   {
