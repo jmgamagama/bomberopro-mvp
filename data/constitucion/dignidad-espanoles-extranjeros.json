@@ -208,6 +208,7 @@
             "Los españoles de origen solo pueden perder la nacionalidad por resolución judicial firme."
           ],
           "correcta": 0,
+          "cita": "En estos mismos países, aun cuando no reconozcan a sus ciudadanos un derecho recíproco, podrán naturalizarse los españoles sin perder su nacionalidad de origen",
           "explicacion": "El art. 11.2 habla solo de los españoles «de origen», y para ellos no admite privación alguna."
         }
       ]
@@ -247,6 +248,7 @@
             "Solo si residen en ellos durante al menos diez años."
           ],
           "correcta": 0,
+          "cita": "En estos mismos países, aun cuando no reconozcan a sus ciudadanos un derecho recíproco, podrán naturalizarse los españoles sin perder su nacionalidad de origen",
           "explicacion": "Art. 11.3 CE: «aun cuando no reconozcan a sus ciudadanos un derecho recíproco»."
         },
         {
@@ -446,6 +448,7 @@
             "Cuando lo solicite un Estado miembro de la Unión Europea."
           ],
           "correcta": 0,
+          "cita": "La extradición sólo se concederá en cumplimiento de un tratado o de la ley, atendiendo al principio de reciprocidad",
           "explicacion": "Art. 13.3 CE."
         },
         {

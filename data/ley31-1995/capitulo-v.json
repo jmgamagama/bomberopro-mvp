@@ -51,6 +51,7 @@
       "La seguridad y la salud de los trabajadores."
      ],
      "correcta": 2,
+     "cita": "f) Cualquier otra acción que pueda tener efectos sustanciales sobre la seguridad y la salud de los trabajadores",
      "explicacion": "Art. 33.1.a): las nuevas tecnologías se consultan por sus consecuencias para la seguridad y la salud de los trabajadores."
     },
     {
@@ -102,6 +103,7 @@
       "Un servicio de prevención externo a la empresa."
      ],
      "correcta": 2,
+     "cita": "b) La organización y desarrollo de las actividades de protección de la salud y prevención de los riesgos profesionales en la empresa, incluida la designación de los trabajadores encargados de dichas actividades o el recurso a un servicio de prevención externo",
      "explicacion": "Art. 33.1.b): organización de las actividades preventivas, incluida la designación de trabajadores o el recurso a un servicio de prevención externo."
     },
     {
@@ -113,6 +115,7 @@
       "Cualquier otra medida propuesta por el servicio de prevención ajeno a la empresa."
      ],
      "correcta": 0,
+     "cita": "f) Cualquier otra acción que pueda tener efectos sustanciales sobre la seguridad y la salud de los trabajadores",
      "explicacion": "Art. 33.1.f): «cualquier otra acción que pueda tener efectos sustanciales sobre la seguridad y la salud de los trabajadores»."
     }
    ]
@@ -152,6 +155,7 @@
       "En las empresas que cuenten con representantes del personal."
      ],
      "correcta": 2,
+     "cita": "En las empresas que cuenten con representantes de los trabajadores, las consultas a que se refiere el apartado anterior se llevarán a cabo con dichos representantes",
      "explicacion": "Art. 33.2: el supuesto es «las empresas que cuenten con representantes de los trabajadores»."
     },
     {
@@ -202,6 +206,7 @@
       "La representación especializada que regula este capítulo."
      ],
      "correcta": 2,
+     "cita": "En las empresas o centros de trabajo que cuenten con seis o más trabajadores, la participación de éstos se canalizará a través de sus representantes y de la representación especializada que se regula en este capítulo",
      "explicacion": "Art. 34.1 párr. 2: representantes y «representación especializada que se regula en este capítulo» (Delegados de Prevención y Comité)."
     },
     {
@@ -241,6 +246,7 @@
       "Los representantes sindicales"
      ],
      "correcta": 1,
+     "cita": "A los Comités de Empresa, a los Delegados de Personal y a los representantes sindicales les corresponde, en los términos que, respectivamente, les reconocen el Estatuto de los Trabajadores, la Ley de Organos de Representación del Personal al Servicio de las Administraciones Públicas y la Ley Orgánica de Libertad Sindical, la defensa de los intereses de los trabajadores en materia de prevención de riesgos en el trabajo",
      "explicacion": "Art. 34.2: Comités de Empresa, Delegados de Personal y representantes sindicales."
     },
     {
@@ -252,6 +258,7 @@
       "Las empresas y los órganos y tribunales competentes."
      ],
      "correcta": 2,
+     "cita": "Para ello, los representantes del personal ejercerán las competencias que dichas normas establecen en materia de información, consulta y negociación, vigilancia y control y ejercicio de acciones ante las empresas y los órganos y tribunales competentes",
      "explicacion": "Art. 34.2: acciones «ante las empresas y los órganos y tribunales competentes»."
     },
     {
@@ -313,6 +320,7 @@
       "Suprimir los Comités de Seguridad y Salud sectoriales."
      ],
      "correcta": 0,
+     "cita": "El derecho de participación que se regula en este capítulo se ejercerá en el ámbito de las Administraciones públicas con las adaptaciones que procedan en atención a la diversidad de las actividades que desarrollan y las diferentes condiciones en que éstas se realizan, la complejidad y dispersión de su estructura organizativa y sus peculiaridades en materia de representación colectiva, en los términos previstos en la Ley 7/1990, de 19 de julio, sobre negociación colectiva y participación en la determinación de las condiciones de trabajo de los empleados públicos, pudiéndose establecer ámbitos sectoriales y descentralizados en función del número de efectivos y centros",
      "explicacion": "Art. 34.3: «pudiéndose establecer ámbitos sectoriales y descentralizados en función del número de efectivos y centros»."
     }
    ]
@@ -352,6 +360,7 @@
       "Un único Comité de Seguridad y Salud."
      ],
      "correcta": 2,
+     "cita": "d) Con carácter general, se constituirá un único Comité de Seguridad y Salud en el ámbito de los órganos de representación previstos en la Ley de Organos de Representación del Personal al Servicio de las Administraciones Públicas, que estará integrado por los Delegados de Prevención designados en dicho ámbito, tanto para el personal con relación de carácter administrativo o estatutario como para el personal laboral, y por representantes de la Administración en número no superior al de Delegados",
      "explicacion": "Art. 34.3.d): «se constituirá un único Comité de Seguridad y Salud», salvo otros ámbitos que aconsejen la actividad y los riesgos."
     },
     {
@@ -454,6 +463,7 @@
       "Las normas a que se refiere el artículo anterior."
      ],
      "correcta": 2,
+     "cita": "Los Delegados de Prevención serán designados por y entre los representantes del personal, en el ámbito de los órganos de representación previstos en las normas a que se refiere el artículo anterior, con arreglo a la siguiente escala",
      "explicacion": "Art. 35.2: ámbito de los órganos de representación de las normas del artículo anterior (art. 34)."
     },
     {
@@ -656,6 +666,7 @@
       "Un año anterior a la designación."
      ],
      "correcta": 2,
+     "cita": "b) Los contratados por término de hasta un año se computarán según el número de días trabajados en el período de un año anterior a la designación",
      "explicacion": "Art. 35.3.b): «en el período de un año anterior a la designación»."
     },
     {
@@ -706,6 +717,7 @@
       "En los convenios colectivos aplicables."
      ],
      "correcta": 2,
+     "cita": "No obstante lo dispuesto en el presente artículo, en los convenios colectivos podrán establecerse otros sistemas de designación de los Delegados de Prevención, siempre que se garantice que la facultad de designación corresponde a los representantes del personal o a los propios trabajadores",
      "explicacion": "Art. 35.4: «en los convenios colectivos podrán establecerse otros sistemas de designación»."
     },
     {
@@ -768,6 +780,7 @@
       "Requieren autorización previa de la Inspección de Trabajo."
      ],
      "correcta": 0,
+     "cita": "Dichos órganos podrán asumir, en los términos y conforme a las modalidades que se acuerden, competencias generales respecto del conjunto de los centros de trabajo incluidos en el ámbito de aplicación del convenio o del acuerdo, en orden a fomentar el mejor cumplimiento en los mismos de la normativa sobre prevención de riesgos laborales",
      "explicacion": "Art. 35.4 párr. 2: «en los términos y conforme a las modalidades que se acuerden»."
     }
    ]
@@ -808,6 +821,7 @@
       "Con carácter previo a la ejecución de la decisión."
      ],
      "correcta": 2,
+     "cita": "c) Ser consultados por el empresario, con carácter previo a su ejecución, acerca de las decisiones a que se refiere el artículo 33 de la presente Ley",
      "explicacion": "Art. 36.1.c): ser consultados «con carácter previo a su ejecución» sobre las decisiones del art. 33."
     },
     {
@@ -869,6 +883,7 @@
       "Sin Comité por falta de trabajadores, las asume el servicio de prevención ajeno."
      ],
      "correcta": 0,
+     "cita": "En las empresas que, de acuerdo con lo dispuesto en el apartado 2 del artículo 38 de esta Ley, no cuenten con Comité de Seguridad y Salud por no alcanzar el número mínimo de trabajadores establecido al efecto, las competencias atribuidas a aquél en la presente Ley serán ejercidas por los Delegados de Prevención",
      "explicacion": "Art. 36.1 último párr.: las competencias del Comité no quedan sin ejercer, las asumen los Delegados."
     }
    ]
@@ -897,6 +912,7 @@
       "Solo las zonas que el empresario autorice"
      ],
      "correcta": 0,
+     "cita": "e) Realizar visitas a los lugares de trabajo para ejercer una labor de vigilancia y control del estado de las condiciones de trabajo, pudiendo, a tal fin, acceder a cualquier zona de los mismos y comunicarse durante la jornada con los trabajadores, de manera que no se altere el normal desarrollo del proceso productivo",
      "explicacion": "Art. 36.2.e): acceso a «cualquier zona» de los lugares de trabajo."
     },
     {
@@ -919,6 +935,7 @@
       "Pueden sustituir a los Inspectores de Trabajo en las verificaciones de los centros."
      ],
      "correcta": 0,
+     "cita": "a) Acompañar a los técnicos en las evaluaciones de carácter preventivo del medio ambiente de trabajo, así como, en los términos previstos en el artículo 40 de esta Ley, a los Inspectores de Trabajo y Seguridad Social en las visitas y verificaciones que realicen en los centros de trabajo para comprobar el cumplimiento de la normativa sobre prevención de riesgos laborales, pudiendo formular ante ellos las observaciones que estimen oportunas",
      "explicacion": "Art. 36.2.a): acompañan a los Inspectores en sus visitas y pueden formular observaciones, sin sustituirlos ni necesitar autorización del empresario."
     }
    ]
@@ -959,6 +976,7 @@
       "El respeto de la confidencialidad."
      ],
      "correcta": 2,
+     "cita": "Cuando la información esté sujeta a las limitaciones reseñadas, sólo podrá ser suministrada de manera que se garantice el respeto de la confidencialidad",
      "explicacion": "Art. 36.2.b): la información con limitaciones (art. 22.4) se suministra «de manera que se garantice el respeto de la confidencialidad»."
     },
     {
@@ -970,6 +988,7 @@
       "En la siguiente reunión ordinaria del Comité de Seguridad y Salud."
      ],
      "correcta": 0,
+     "cita": "c) Ser informados por el empresario sobre los daños producidos en la salud de los trabajadores una vez que aquél hubiese tenido conocimiento de ellos, pudiendo presentarse, aún fuera de su jornada laboral, en el lugar de los hechos para conocer las circunstancias de los mismos",
      "explicacion": "Art. 36.2.c): la información se facilita «una vez que aquél hubiese tenido conocimiento de ellos»."
     }
    ]
@@ -1062,6 +1081,7 @@
       "Podrá poner en práctica la decisión adoptada."
      ],
      "correcta": 2,
+     "cita": "Transcurrido el plazo sin haberse emitido el informe, el empresario podrá poner en práctica su decisión",
      "explicacion": "Art. 36.3: transcurrido el plazo «el empresario podrá poner en práctica su decisión»."
     },
     {
@@ -1073,6 +1093,7 @@
       "Un plazo improrrogable de cinco días."
      ],
      "correcta": 0,
+     "cita": "Los informes que deban emitir los Delegados de Prevención a tenor de lo dispuesto en la letra c) del apartado 1 de este artículo deberán elaborarse en un plazo de quince días, o en el tiempo imprescindible cuando se trate de adoptar medidas dirigidas a prevenir riesgos inminentes",
      "explicacion": "Art. 36.3: para riesgos inminentes, «en el tiempo imprescindible», sin plazo fijo."
     }
    ]
@@ -1266,6 +1287,7 @@
       "Horas mensuales retribuidas previsto en el ET."
      ],
      "correcta": 2,
+     "cita": "El tiempo utilizado por los Delegados de Prevención para el desempeño de las funciones previstas en esta Ley será considerado como de ejercicio de funciones de representación a efectos de la utilización del crédito de horas mensuales retribuidas previsto en la letra e) del citado artículo 68 del Estatuto de los Trabajadores",
      "explicacion": "Art. 37.1 párr. 2: crédito de horas mensuales retribuidas de la letra e) del art. 68 ET."
     },
     {
@@ -1419,6 +1441,7 @@
       "Lo solicite alguna de las representaciones en el Comité."
      ],
      "correcta": 2,
+     "cita": "El Comité de Seguridad y Salud se reunirá trimestralmente y siempre que lo solicite alguna de las representaciones en el mismo",
      "explicacion": "Art. 38.2 párr. 3: técnicos ajenos, «siempre que así lo solicite alguna de las representaciones»."
     },
     {
@@ -1430,6 +1453,7 @@
       "Pueden asistir solo los Delegados Sindicales y los técnicos de la empresa, nunca otros trabajadores."
      ],
      "correcta": 0,
+     "cita": "En las mismas condiciones podrán participar trabajadores de la empresa que cuenten con una especial cualificación o información respecto de concretas cuestiones que se debatan en este órgano y técnicos en prevención ajenos a la empresa, siempre que así lo solicite alguna de las representaciones en el Comité",
      "explicacion": "Art. 38.2 párr. 3: también trabajadores con especial cualificación o información sobre cuestiones concretas."
     }
    ]
@@ -1459,6 +1483,7 @@
       "Concierto con organismos o entidades especializadas"
      ],
      "correcta": 1,
+     "cita": "La formación se deberá facilitar por el empresario por sus propios medios o mediante concierto con organismos o entidades especializadas en la materia y deberá adaptarse a la evolución de los riesgos y a la aparición de otros nuevos, repitiéndose periódicamente si fuera necesario",
      "explicacion": "Art. 37.2 párr. 1: medios y formación en materia preventiva necesarios para el ejercicio de sus funciones."
     },
     {
@@ -1470,6 +1495,7 @@
       "Periódicamente, si fuera necesario hacerlo."
      ],
      "correcta": 2,
+     "cita": "La formación se deberá facilitar por el empresario por sus propios medios o mediante concierto con organismos o entidades especializadas en la materia y deberá adaptarse a la evolución de los riesgos y a la aparición de otros nuevos, repitiéndose periódicamente si fuera necesario",
      "explicacion": "Art. 37.2 párr. 2: formación «adaptada a la evolución de los riesgos», «repitiéndose periódicamente si fuera necesario»."
     },
     {
@@ -1481,6 +1507,7 @@
       "El empresario solo puede formar mediante entidades designadas por el sindicato."
      ],
      "correcta": 0,
+     "cita": "La formación se deberá facilitar por el empresario por sus propios medios o mediante concierto con organismos o entidades especializadas en la materia y deberá adaptarse a la evolución de los riesgos y a la aparición de otros nuevos, repitiéndose periódicamente si fuera necesario",
      "explicacion": "Art. 37.2 párr. 2: «por sus propios medios o mediante concierto con organismos o entidades especializadas»."
     }
    ]
@@ -1532,6 +1559,7 @@
       "Las normas de funcionamiento las dicta el empresario."
      ],
      "correcta": 0,
+     "cita": "El Comité adoptará sus propias normas de funcionamiento",
      "explicacion": "Art. 38.3 párr. 1: «El Comité adoptará sus propias normas de funcionamiento»."
     }
    ]
@@ -1571,6 +1599,7 @@
       "A todos los efectos, sin excepción."
      ],
      "correcta": 2,
+     "cita": "El tiempo dedicado a la formación será considerado como tiempo de trabajo a todos los efectos y su coste no podrá recaer en ningún caso sobre los Delegados de Prevención",
      "explicacion": "Art. 37.2 párr. 3: tiempo de trabajo «a todos los efectos»."
     },
     {
@@ -1582,6 +1611,7 @@
       "El tiempo de formación se descuenta del crédito horario y su coste recae en el Delegado."
      ],
      "correcta": 0,
+     "cita": "El tiempo dedicado a la formación será considerado como tiempo de trabajo a todos los efectos y su coste no podrá recaer en ningún caso sobre los Delegados de Prevención",
      "explicacion": "Art. 37.2 párr. 3: tiempo de trabajo y coste ajeno al Delegado; no se descuenta del crédito ni se recupera."
     }
    ]
@@ -1684,6 +1714,7 @@
       "El sigilo cubre solo lo que el empresario califique expresamente de reservado."
      ],
      "correcta": 0,
+     "cita": "A los Delegados de Prevención les será de aplicación lo dispuesto en el apartado 2 del artículo 65 del Estatuto de los Trabajadores en cuanto al sigilo profesional debido respecto de las informaciones a que tuviesen acceso como consecuencia de su actuación en la empresa",
      "explicacion": "Art. 37.3: alcanza a «las informaciones a que tuviesen acceso como consecuencia de su actuación en la empresa»."
     }
    ]
@@ -1786,6 +1817,7 @@
       "Para el personal estatutario, la remisión de garantías y sigilo es a la Ley General de Sanidad."
      ],
      "correcta": 0,
+     "cita": "Lo dispuesto en el presente artículo en materia de garantías y sigilo profesional de los Delegados de Prevención se entenderá referido, en el caso de las relaciones de carácter administrativo o estatutario del personal al servicio de las Administraciones públicas, a la regulación contenida en los artículos 10, párrafo segundo, y 11 de la Ley 9/1987, de 12 de junio, de Organos de Representación, Determinación de las Condiciones de Trabajo y Participación del Personal al Servicio de las Administraciones Públicas",
      "explicacion": "Art. 37.4: la remisión es a la Ley 9/1987 (no a la Ley 7/1990, que el art. 34.3 cita para la adaptación de la participación)."
     }
    ]
@@ -1877,6 +1909,7 @@
       "La actividad del servicio de prevención, en su caso."
      ],
      "correcta": 2,
+     "cita": "b) Conocer cuantos documentos e informes relativos a las condiciones de trabajo sean necesarios para el cumplimiento de sus funciones, así como los procedentes de la actividad del servicio de prevención, en su caso",
      "explicacion": "Art. 39.2.b): documentos e informes de condiciones de trabajo y de la actividad del servicio de prevención."
     },
     {
@@ -1917,6 +1950,7 @@
       "Planes de formación profesional"
      ],
      "correcta": 0,
+     "cita": "d) Conocer e informar la memoria y programación anual de servicios de prevención",
      "explicacion": "Art. 39.2.d): «conocer e informar la memoria y programación anual de servicios de prevención»."
     },
     {
@@ -1939,6 +1973,7 @@
       "Aprobar la contratación del servicio de prevención ajeno."
      ],
      "correcta": 0,
+     "cita": "d) Conocer e informar la memoria y programación anual de servicios de prevención",
      "explicacion": "Art. 39.2.c) y d): el Comité conoce, analiza e informa; no elabora la evaluación ni contrata."
     }
    ]
@@ -1979,6 +2014,7 @@
       "Delegados de Prevención y empresarios."
      ],
      "correcta": 2,
+     "cita": "A fin de dar cumplimiento a lo dispuesto en esta Ley respecto de la colaboración entre empresas en los supuestos de desarrollo simultáneo de actividades en un mismo centro de trabajo, se podrá acordar la realización de reuniones conjuntas de los Comités de Seguridad y Salud o, en su defecto, de los Delegados de Prevención y empresarios de las empresas que carezcan de dichos Comités, u otras medidas de actuación coordinada",
      "explicacion": "Art. 39.3: «en su defecto, de los Delegados de Prevención y empresarios de las empresas que carezcan de dichos Comités»."
     },
     {
@@ -2069,6 +2105,7 @@
       "Las observaciones que estimen oportunas"
      ],
      "correcta": 1,
+     "cita": "En las visitas a los centros de trabajo para la comprobación del cumplimiento de la normativa sobre prevención de riesgos laborales, el Inspector de Trabajo y Seguridad Social comunicará su presencia al empresario o a su representante o a la persona inspeccionada, al Comité de Seguridad y Salud, al Delegado de Prevención o, en su ausencia, a los representantes legales de los trabajadores, a fin de que puedan acompañarle durante el desarrollo de su visita y formularle las observaciones que estimen oportunas, a menos que considere que dichas comunicaciones puedan perjudicar el éxito de sus funciones",
      "explicacion": "Art. 40.2: acompañarle y formularle «las observaciones que estimen oportunas»."
     },
     {
@@ -2080,6 +2117,7 @@
       "Los representantes legales de los trabajadores."
      ],
      "correcta": 2,
+     "cita": "En las visitas a los centros de trabajo para la comprobación del cumplimiento de la normativa sobre prevención de riesgos laborales, el Inspector de Trabajo y Seguridad Social comunicará su presencia al empresario o a su representante o a la persona inspeccionada, al Comité de Seguridad y Salud, al Delegado de Prevención o, en su ausencia, a los representantes legales de los trabajadores, a fin de que puedan acompañarle durante el desarrollo de su visita y formularle las observaciones que estimen oportunas, a menos que considere que dichas comunicaciones puedan perjudicar el éxito de sus funciones",
      "explicacion": "Art. 40.2: Delegado de Prevención «o, en su ausencia, a los representantes legales de los trabajadores»."
     },
     {
@@ -2091,6 +2129,7 @@
       "Cuando el empresario se oponga expresamente a la presencia de los representantes."
      ],
      "correcta": 0,
+     "cita": "En las visitas a los centros de trabajo para la comprobación del cumplimiento de la normativa sobre prevención de riesgos laborales, el Inspector de Trabajo y Seguridad Social comunicará su presencia al empresario o a su representante o a la persona inspeccionada, al Comité de Seguridad y Salud, al Delegado de Prevención o, en su ausencia, a los representantes legales de los trabajadores, a fin de que puedan acompañarle durante el desarrollo de su visita y formularle las observaciones que estimen oportunas, a menos que considere que dichas comunicaciones puedan perjudicar el éxito de sus funciones",
      "explicacion": "Art. 40.2: excepción si la comunicación «pueda perjudicar el éxito de sus funciones»."
     }
    ]
@@ -2131,6 +2170,7 @@
       "Las medidas adoptadas como consecuencia de las mismas."
      ],
      "correcta": 2,
+     "cita": "La Inspección de Trabajo y Seguridad Social informará a los Delegados de Prevención sobre los resultados de las visitas a que hace referencia el apartado anterior y sobre las medidas adoptadas como consecuencia de las mismas, así como al empresario mediante diligencia en el Libro de Visitas de la Inspección de Trabajo y Seguridad Social que debe existir en cada centro de trabajo",
      "explicacion": "Art. 40.3: informa a los Delegados de Prevención de resultados y «medidas adoptadas»."
     },
     {
