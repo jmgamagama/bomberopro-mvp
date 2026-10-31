@@ -66,7 +66,7 @@ Problemas detectados: **0**.
 | tema37 | pendiente | 37 | 0 % | 0 | `3b203830ea5fbedb` | sin enlace público |
 | tema38 | revisado | 198 | 0 % | 0 | `b6cea1fdfc24ec97` | sin enlace público |
 | tema39 | revisado | 149 | 0 % | 0 | `968a1cd93a6f265f` | sin enlace público |
-| tema40 | revisado | 213 | 0 % | 0 | `d1d2b93c30b34dce` | sin enlace público |
+| tema40 | revisado | 213 | 0 % | 0 | `841cf5d962ed36ce` | sin enlace público |
 
 ## Supuestos prácticos
 
