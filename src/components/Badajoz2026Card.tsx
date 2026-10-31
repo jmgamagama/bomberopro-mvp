@@ -19,8 +19,11 @@ export default function Badajoz2026Card({ onOpenSupuestos, onOpenProgress, now =
     topic: t,
     p: sumProgress(t.id, t.decks.map((d) => computeDeckProgress(store, d, today))),
   }));
-  const started = topics.filter((t) => t.p.seen > 0);
-  const shown = (started.length > 0 ? started : topics).slice(0, 6);
+  // Prioridad: temas específicos de la convocatoria (T35-T40) y después el resto por número de tema.
+  const prio = (tema: number) => (tema >= 35 && tema <= 40 ? 0 : 1);
+  const ordered = [...topics].sort((a, b) => prio(a.topic.tema) - prio(b.topic.tema) || a.topic.tema - b.topic.tema);
+  const started = ordered.filter((t) => t.p.seen > 0);
+  const shown = ordered;
 
   return (
     <section aria-labelledby="badajoz-title" id="badajoz-2026" className="mb-4 space-y-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
@@ -36,14 +39,15 @@ export default function Badajoz2026Card({ onOpenSupuestos, onOpenProgress, now =
       </p>
       <div>
         <h3 className="text-sm font-bold text-slate-800">
-          Tu progreso por tema <span className="font-normal text-slate-600">({started.length} de {topics.length} temas empezados)</span>
+          Tu progreso por tema <span className="font-normal text-slate-600">· empezados {started.length} de {topics.length} temas con fichas</span>
         </h3>
+        <p className="mt-1 text-xs text-slate-600" id="badajoz-cobertura">De momento hay fichas de {topics.length} temas del temario; se irán añadiendo más.</p>
         <ul className="mt-2 space-y-1.5" id="badajoz-progreso">
           {shown.map(({ topic, p }) => {
             const pct = p.total > 0 ? Math.round((p.seen / p.total) * 100) : 0;
             return (
               <li key={topic.id} className="text-xs text-slate-700">
-                <div className="flex justify-between gap-2"><span className="truncate">{topic.shortLabel} · {topic.name}</span><span>{p.seen}/{p.total}</span></div>
+                <div className="flex justify-between gap-2"><span className="min-w-0 truncate">{topic.shortLabel} · {topic.name}</span><span className="shrink-0 whitespace-nowrap tabular-nums">{p.seen}/{p.total}</span></div>
                 <div className="h-1.5 rounded-full bg-slate-100" role="progressbar" aria-label={`${topic.shortLabel}: ${pct} %`} aria-valuenow={pct} aria-valuemin={0} aria-valuemax={100}>
                   <div className="h-1.5 rounded-full bg-indigo-500" style={{ width: `${pct}%` }} />
                 </div>

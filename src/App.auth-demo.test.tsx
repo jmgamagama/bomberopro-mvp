@@ -77,8 +77,8 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     await user.click(demoButton);
 
     // Entra a la aplicación en modo demo
-    expect(await screen.findByRole('region', { name: /aviso de modo demostración/i })).toBeInTheDocument();
-    expect(screen.getByRole('region', { name: /aviso de modo demostración/i })).toHaveTextContent(/modo demostración.*no se guarda en ninguna cuenta.*dispositivo/i);
+    expect(await screen.findByRole('region', { name: /aviso de modo invitado/i })).toBeInTheDocument();
+    expect(screen.getByRole('region', { name: /aviso de modo invitado/i })).toHaveTextContent(/modo invitado.*tu progreso se guarda en este/i);
 
     // 3. La demo abre directamente las preguntas de prueba (sin pasar por el inicio ni la bienvenida)
     // Carga la primera pregunta de estudio (Art. 1.1)
@@ -103,7 +103,7 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     expect(rpcMock.mock.calls.filter(([fn]) => fn !== 'log_funnel_event')).toEqual([]);
 
     // 5. Salir de la demostración
-    await user.click(screen.getByRole('button', { name: /salir de la demo/i }));
+    await user.click(screen.getByRole('button', { name: /entrar con tu cuenta/i }));
 
     // Regresa limpiamente a la pantalla de Login
     expect(await screen.findByRole('heading', { name: /^bomberopro$/i })).toBeInTheDocument();
@@ -113,7 +113,7 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     await user.click(reEnterDemoBtn);
 
     // Nuevamente en Dashboard demo
-    expect(await screen.findByRole('region', { name: /aviso de modo demostración/i })).toBeInTheDocument();
+    expect(await screen.findByRole('region', { name: /aviso de modo invitado/i })).toBeInTheDocument();
 
     // Se presenta una sesión fresca desde la primera pregunta
     expect(await screen.findByText(/según el artículo 1\.1 de la constitución/i)).toBeInTheDocument();

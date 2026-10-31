@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-visual" />
-    <meta name="description" content="BomberoPro: entrenamiento adaptativo y simulacros para oposiciones de bombero." />
+    <meta name="description" content="%SEO_DESCRIPTION%" />
     <meta name="application-name" content="BomberoPro" />
     <meta name="theme-color" content="#1E3A5F" />
     <meta name="color-scheme" content="only light" />
@@ -17,15 +17,43 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="BomberoPro" />
-    <meta property="og:title" content="BomberoPro | Entrenamiento adaptativo" />
-    <meta property="og:description" content="Entrenamiento adaptativo y simulacros para oposiciones de bombero." />
+    <meta property="og:title" content="%SEO_TITLE%" />
+    <meta property="og:description" content="%SEO_DESCRIPTION%" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="BomberoPro | Entrenamiento adaptativo" />
-    <meta name="twitter:description" content="Entrenamiento adaptativo y simulacros para oposiciones de bombero." />
-    <title>BomberoPro | Entrenamiento adaptativo</title>
+    <meta name="twitter:title" content="%SEO_TITLE%" />
+    <meta name="twitter:description" content="%SEO_DESCRIPTION%" />
+    <title>%SEO_TITLE%</title>
+    <style>
+      body{margin:0;background:#f8fafc;font-family:ui-sans-serif,system-ui,sans-serif}
+      #app-shell{color:#0f172a}
+      .sr-shell{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+      .s-head{display:flex;align-items:center;gap:.625rem;min-height:3.5rem;padding:.375rem 1rem;background:#fff;border-bottom:1px solid #f1f5f9}
+      .s-logo{width:2.25rem;height:2.25rem;border-radius:.75rem;background:#1E3A5F}
+      .s-brand{font-weight:900;letter-spacing:-.025em}
+      .s-main{max-width:42rem;margin:0 auto;padding:2rem 1rem}
+      .s-k{margin:0;font-size:.75rem;font-weight:600;color:#C2410C}
+      .s-t{margin:.125rem 0 1rem;font-size:1.75rem;line-height:1.2;font-weight:900}
+      .s-card{height:9rem;border-radius:1rem;background:#e2e8f0}
+      .s-line{height:1rem;margin-top:.75rem;border-radius:.25rem;background:#e2e8f0}
+      .s-short{width:60%}
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Shell crítico: se pinta con el HTML, antes del JS; React lo sustituye al montar. -->
+      <div id="app-shell">
+        <p class="sr-shell" role="status">Cargando BomberoPro…</p>
+        <div aria-hidden="true">
+          <div class="s-head"><span class="s-logo"></span><span class="s-brand">BomberoPro</span></div>
+          <div class="s-main">
+            <p class="s-k">%SHELL_KICKER%</p>
+            <p class="s-t">%SHELL_TITLE%</p>
+            <div class="s-card"></div>
+            <div class="s-line"></div><div class="s-line s-short"></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -90,6 +90,7 @@
       "Sin su participación: la elabora solo el Gobierno"
      ],
      "correcta": 0,
+     "cita": "b) La elaboración de la política preventiva se llevará a cabo con la participación de los empresarios y de los trabajadores a través de sus organizaciones empresariales y sindicales más representativas.",
      "explicacion": "Art. 5.1.b): «con la participación de los empresarios y de los trabajadores a través de sus organizaciones empresariales y sindicales más representativas»."
     },
     {
@@ -101,6 +102,7 @@
       "Los empresarios y los trabajadores, a través de sus organizaciones empresariales y sindicales más representativas."
      ],
      "correcta": 2,
+     "cita": "b) La elaboración de la política preventiva se llevará a cabo con la participación de los empresarios y de los trabajadores a través de sus organizaciones empresariales y sindicales más representativas.",
      "explicacion": "Art. 5.1.b): participan empresarios y trabajadores mediante sus organizaciones más representativas."
     },
     {
@@ -136,7 +138,7 @@
      "nivel": 1,
      "enunciado": "Según el art. 5.2 LPRL, ¿qué promoverán las Administraciones públicas en los distintos niveles de enseñanza?",
      "opciones": [
-      "La creación de servicios de prevención propios",
+      "La creación de servicios de prevención propios en cada centro",
       "La mejora de la educación en materia preventiva"
      ],
      "correcta": 1,
@@ -151,6 +153,7 @@
       "Los Ministerios que correspondan, en particular los de Educación y de Sanidad."
      ],
      "correcta": 2,
+     "cita": "En el ámbito de la Administración General del Estado se establecerá una colaboración permanente entre el Ministerio de Trabajo y Seguridad Social y los Ministerios que correspondan, en particular los de Educación y Ciencia y de Sanidad y Consumo, al objeto de establecer los niveles formativos y especializaciones idóneas, así como la revisión permanente de estas enseñanzas, con el fin de adaptarlas a las necesidades existentes en cada momento.",
      "explicacion": "Art. 5.2 párr. 2: colaboración permanente entre Trabajo y los Ministerios que correspondan, en particular Educación y Ciencia y Sanidad y Consumo."
     },
     {
@@ -162,6 +165,7 @@
       "Decidir las sanciones aplicables a las empresas que incumplan sus obligaciones de formación de los trabajadores."
      ],
      "correcta": 0,
+     "cita": "En el ámbito de la Administración General del Estado se establecerá una colaboración permanente entre el Ministerio de Trabajo y Seguridad Social y los Ministerios que correspondan, en particular los de Educación y Ciencia y de Sanidad y Consumo, al objeto de establecer los niveles formativos y especializaciones idóneas, así como la revisión permanente de estas enseñanzas, con el fin de adaptarlas a las necesidades existentes en cada momento.",
      "explicacion": "Art. 5.2 párr. 2: la colaboración busca fijar niveles formativos y especializaciones idóneas y revisarlos permanentemente."
     }
    ]
@@ -201,6 +205,7 @@
       "La concesión de los incentivos que reglamentariamente se determinen, destinados especialmente a las PYMES."
      ],
      "correcta": 2,
+     "cita": "Los programas podrán instrumentarse a través de la concesión de los incentivos que reglamentariamente se determinen que se destinarán especialmente a las pequeñas y medianas empresas.",
      "explicacion": "Art. 5.3 párr. 2: los programas podrán instrumentarse a través de los incentivos que reglamentariamente se determinen, destinados especialmente a las PYMES."
     },
     {
@@ -212,6 +217,7 @@
       "Las de vigilancia y control del cumplimiento de la normativa que realicen los servicios de prevención ajenos."
      ],
      "correcta": 0,
+     "cita": "Del mismo modo, las Administraciones públicas fomentarán aquellas actividades desarrolladas por los sujetos a que se refiere el apartado 1 del artículo segundo, en orden a la mejora de las condiciones de seguridad y salud en el trabajo y la reducción de los riesgos laborales, la investigación o fomento de nuevas formas de protección y la promoción de estructuras eficaces de prevención.",
      "explicacion": "Art. 5.3 párr. 1: fomento de la mejora de condiciones, reducción de riesgos, investigación de nuevas formas de protección y estructuras eficaces de prevención."
     }
    ]
@@ -251,6 +257,7 @@
       "Detectar y prevenir situaciones en que los daños derivados del trabajo puedan aparecer vinculados al sexo de los trabajadores."
      ],
      "correcta": 2,
+     "cita": "Las Administraciones públicas promoverán la efectividad del principio de igualdad entre mujeres y hombres, considerando las variables relacionadas con el sexo tanto en los sistemas de recogida y tratamiento de datos como en el estudio e investigación generales en materia de prevención de riesgos laborales, con el objetivo de detectar y prevenir posibles situaciones en las que los daños derivados del trabajo puedan aparecer vinculados con el sexo de los trabajadores.",
      "explicacion": "Art. 5.4: el objetivo es detectar y prevenir daños derivados del trabajo que puedan aparecer vinculados con el sexo."
     },
     {
@@ -301,6 +308,7 @@
       "Un informe sobre su aplicación en las pequeñas y medianas empresas, con las medidas particulares previstas para ellas."
      ],
      "correcta": 2,
+     "cita": "A tal efecto, en el procedimiento de elaboración de las disposiciones de carácter general en materia de prevención de riesgos laborales deberá incorporarse un informe sobre su aplicación en las pequeñas y medianas empresas que incluirá, en su caso, las medidas particulares que para éstas se contemplen.",
      "explicacion": "Art. 5.5 párr. 2: informe sobre la aplicación de la disposición en las PYMES, con las medidas particulares que se contemplen."
     },
     {
@@ -312,6 +320,7 @@
       "La integración de la prevención se hará en un sistema paralelo e independiente del sistema de gestión de la empresa."
      ],
      "correcta": 0,
+     "cita": "Igualmente, la política en materia de seguridad y salud en el trabajo tendrá en cuenta las necesidades y dificultades específicas de las pequeñas y medianas empresas.",
      "explicacion": "Art. 5.5 párr. 2: la política «tendrá en cuenta las necesidades y dificultades específicas de las pequeñas y medianas empresas»."
     }
    ]
@@ -363,6 +372,7 @@
       "La composición de los comités de seguridad y salud de cada empresa."
      ],
      "correcta": 0,
+     "cita": "g) Procedimiento de calificación de las enfermedades profesionales, así como requisitos y procedimientos para la comunicación e información a la autoridad competente de los daños derivados del trabajo.",
      "explicacion": "Art. 6.1.g): procedimiento de calificación de las enfermedades profesionales. Las infracciones están en el cap. VII y los comités en el cap. V."
     }
    ]
@@ -402,6 +412,7 @@
       "El sometimiento a trámites de control administrativo."
      ],
      "correcta": 2,
+     "cita": "Específicamente podrá establecerse el sometimiento de estos procesos u operaciones a trámites de control administrativo, así como, en el caso de agentes peligrosos, la prohibición de su empleo.",
      "explicacion": "Art. 6.1.b): se puede establecer el «sometimiento de estos procesos u operaciones a trámites de control administrativo»."
     },
     {
@@ -413,6 +424,7 @@
       "La realización de un reconocimiento médico semestral y el archivo de los resultados durante cuarenta años."
      ],
      "correcta": 0,
+     "cita": "c) Condiciones o requisitos especiales para cualquiera de los supuestos contemplados en el apartado anterior, tales como la exigencia de un adiestramiento o formación previa o la elaboración de un plan en el que se contengan las medidas preventivas a adoptar.",
      "explicacion": "Art. 6.1.c): ejemplos de requisitos especiales: adiestramiento o formación previa, o plan con medidas preventivas."
     }
    ]
@@ -437,7 +449,7 @@
      "nivel": 1,
      "enunciado": "Según el art. 6.1.e) LPRL, al regular los servicios de prevención se considerarán las peculiaridades de:",
      "opciones": [
-      "Las grandes empresas",
+      "Las grandes empresas industriales",
       "Las pequeñas empresas"
      ],
      "correcta": 1,
@@ -452,6 +464,7 @@
       "Las capacidades y aptitudes que deban reunir los servicios y los trabajadores designados para la acción preventiva."
      ],
      "correcta": 2,
+     "cita": "e) Modalidades de organización, funcionamiento y control de los servicios de prevención, considerando las peculiaridades de las pequeñas empresas con el fin de evitar obstáculos innecesarios para su creación y desarrollo, así como capacidades y aptitudes que deban reunir los mencionados servicios y los trabajadores designados para desarrollar la acción preventiva.",
      "explicacion": "Art. 6.1.e): también regula las «capacidades y aptitudes que deban reunir los mencionados servicios y los trabajadores designados»."
     },
     {
@@ -491,6 +504,7 @@
       "Derogación automática a los cinco años"
      ],
      "correcta": 0,
+     "cita": "Las normas reglamentarias indicadas en el apartado anterior se ajustarán, en todo caso, a los principios de política preventiva establecidos en esta Ley, mantendrán la debida coordinación con la normativa sanitaria y de seguridad industrial y serán objeto de evaluación y, en su caso, de revisión periódica, de acuerdo con la experiencia en su aplicación y el progreso de la técnica.",
      "explicacion": "Art. 6.2: las normas «serán objeto de evaluación y, en su caso, de revisión periódica»."
     },
     {
@@ -513,6 +527,7 @@
       "Según las propuestas de modificación de las organizaciones sindicales más representativas en cada ejercicio."
      ],
      "correcta": 0,
+     "cita": "Las normas reglamentarias indicadas en el apartado anterior se ajustarán, en todo caso, a los principios de política preventiva establecidos en esta Ley, mantendrán la debida coordinación con la normativa sanitaria y de seguridad industrial y serán objeto de evaluación y, en su caso, de revisión periódica, de acuerdo con la experiencia en su aplicación y el progreso de la técnica.",
      "explicacion": "Art. 6.2: revisión «de acuerdo con la experiencia en su aplicación y el progreso de la técnica»."
     }
    ]
@@ -541,6 +556,7 @@
       "Sancionarlo, con arreglo al capítulo VII"
      ],
      "correcta": 1,
+     "cita": "c) Sancionando el incumplimiento de la normativa de prevención de riesgos laborales por los sujetos comprendidos en el ámbito de aplicación de la presente Ley, con arreglo a lo previsto en el capítulo VII de la misma.",
      "explicacion": "Art. 7.1: promoción, asesoramiento técnico, vigilancia y control y sanción de las infracciones."
     },
     {
@@ -563,6 +579,7 @@
       "Calificar las contingencias de los accidentes de trabajo a efectos del reconocimiento de prestaciones económicas."
      ],
      "correcta": 0,
+     "cita": "A estos efectos, prestarán el asesoramiento y la asistencia técnica necesarios para el mejor cumplimiento de dicha normativa y desarrollarán programas específicos dirigidos a lograr una mayor eficacia en el control.",
      "explicacion": "Art. 7.1.b): desarrollan «programas específicos dirigidos a lograr una mayor eficacia en el control»."
     }
    ]
@@ -603,6 +620,7 @@
       "Fabricación, transporte, almacenamiento, manipulación y utilización de explosivos, o el empleo de energía nuclear."
      ],
      "correcta": 2,
+     "cita": "Las funciones de las Administraciones públicas competentes en materia laboral que se señalan en el apartado 1 continuarán siendo desarrolladas, en lo referente a los trabajos en minas, canteras y túneles que exijan la aplicación de técnica minera, a los que impliquen fabricación, transporte, almacenamiento, manipulación y utilización de explosivos o el empleo de energía nuclear, por los órganos específicos contemplados en su normativa reguladora.",
      "explicacion": "Art. 7.2: explosivos (fabricación, transporte, almacenamiento, manipulación y utilización) y energía nuclear."
     },
     {
@@ -614,6 +632,7 @@
       "Se transfieren a los órganos de la legislación industrial cuando existan riesgos graves e inminentes."
      ],
      "correcta": 0,
+     "cita": "Las competencias previstas en el apartado anterior se entienden sin perjuicio de lo establecido en la legislación específica sobre productos e instalaciones industriales.",
      "explicacion": "Art. 7.2 párr. 2: «sin perjuicio de lo establecido en la legislación específica sobre productos e instalaciones industriales»."
     }
    ]
@@ -654,6 +673,7 @@
       "El análisis y estudio de las condiciones de seguridad y salud en el trabajo y la promoción y apoyo a su mejora."
      ],
      "correcta": 2,
+     "cita": "El Instituto Nacional de Seguridad e Higiene en el Trabajo es el órgano científico técnico especializado de la Administración General del Estado que tiene como misión el análisis y estudio de las condiciones de seguridad y salud en el trabajo, así como la promoción y apoyo a la mejora de las mismas.",
      "explicacion": "Art. 8.1: misión = análisis y estudio de las condiciones de seguridad y salud y promoción y apoyo a su mejora."
     },
     {
@@ -665,6 +685,7 @@
       "Con los comités de seguridad y salud y los delegados de prevención de las empresas."
      ],
      "correcta": 0,
+     "cita": "establecerá la cooperación necesaria con los órganos de las Comunidades Autónomas con competencias en esta materia",
      "explicacion": "Art. 8.1: cooperación «con los órganos de las Comunidades Autónomas con competencias en esta materia»."
     }
    ]
@@ -693,6 +714,7 @@
       "La negociación colectiva"
      ],
      "correcta": 0,
+     "cita": "a) Asesoramiento técnico en la elaboración de la normativa legal y en el desarrollo de la normalización, tanto a nivel nacional como internacional.",
      "explicacion": "Art. 8.1.a): asesoramiento técnico en normativa y en normalización, nacional e internacional."
     },
     {
@@ -704,6 +726,7 @@
       "Apoyo técnico y colaboración en su función de vigilancia y control en el ámbito de las Administraciones públicas."
      ],
      "correcta": 2,
+     "cita": "c) Apoyo técnico y colaboración con la Inspección de Trabajo y Seguridad Social en el cumplimiento de su función de vigilancia y control, prevista en el artículo 9 de la presente Ley, en el ámbito de las Administraciones públicas.",
      "explicacion": "Art. 8.1.c): apoyo técnico y colaboración con la Inspección de Trabajo y Seguridad Social, en el ámbito de las Administraciones públicas."
     },
     {
@@ -715,7 +738,17 @@
       "Promover actividades de formación, información, investigación, estudio y divulgación preventiva."
      ],
      "correcta": 0,
-     "explicacion": "Sancionar corresponde a la Administración laboral (art. 7.1.c) y la Inspección propone la sanción (art. 9); no es función del Instituto."
+     "explicacion": "Sancionar corresponde a la Administración laboral (art. 7.1.c) y la Inspección propone la sanción (art. 9); no es función del Instituto.",
+     "respaldo": [
+      {
+       "articulo": "a9",
+       "cita": "proponiendo a la autoridad laboral competente la sanción correspondiente"
+      },
+      {
+       "articulo": "a7",
+       "cita": "c) Sancionando el incumplimiento de la normativa de prevención de riesgos laborales"
+      }
+     ]
     }
    ]
   },
@@ -754,6 +787,7 @@
       "Las distintas Administraciones públicas."
      ],
      "correcta": 2,
+     "cita": "El Instituto Nacional de Seguridad e Higiene en el Trabajo, en el marco de sus funciones, velará por la coordinación, apoyará el intercambio de información y las experiencias entre las distintas Administraciones públicas y especialmente fomentará y prestará apoyo a la realización de actividades de promoción de la seguridad y de la salud por las Comunidades Autónomas.",
      "explicacion": "Art. 8.2: vela por la coordinación y apoya el intercambio de información y experiencias entre las distintas Administraciones públicas."
     },
     {
@@ -765,6 +799,7 @@
       "Las de acreditación de los servicios de prevención ajenos de su territorio."
      ],
      "correcta": 0,
+     "cita": "El Instituto Nacional de Seguridad e Higiene en el Trabajo es el órgano científico técnico especializado de la Administración General del Estado que tiene como misión el análisis y estudio de las condiciones de seguridad y salud en el trabajo, así como la promoción y apoyo a la mejora de las mismas.",
      "explicacion": "Art. 8.2: fomenta y presta apoyo a las actividades de promoción de la seguridad y de la salud por las Comunidades Autónomas."
     }
    ]
@@ -804,6 +839,7 @@
       "La Agencia Europea para la Seguridad y la Salud en el Trabajo y su Red."
      ],
      "correcta": 2,
+     "cita": "En relación con las Instituciones de la Unión Europea, el Instituto Nacional de Seguridad e Higiene en el Trabajo actuará como centro de referencia nacional, garantizando la coordinación y transmisión de la información que deberá facilitar a escala nacional, en particular respecto a la Agencia Europea para la Seguridad y la Salud en el Trabajo y su Red.",
      "explicacion": "Art. 8.3: en particular respecto a la Agencia Europea para la Seguridad y la Salud en el Trabajo y su Red."
     },
     {
@@ -815,6 +851,7 @@
       "El Instituto ejerce la representación de España en el Consejo de la Unión Europea cuando se traten asuntos de empleo y política social."
      ],
      "correcta": 0,
+     "cita": "En relación con las Instituciones de la Unión Europea, el Instituto Nacional de Seguridad e Higiene en el Trabajo actuará como centro de referencia nacional, garantizando la coordinación y transmisión de la información que deberá facilitar a escala nacional, en particular respecto a la Agencia Europea para la Seguridad y la Salud en el Trabajo y su Red.",
      "explicacion": "Art. 8.3: centro de referencia nacional que garantiza la coordinación y transmisión de la información."
     }
    ]
@@ -854,6 +891,7 @@
       "La asistencia técnica y científica necesaria para el desarrollo de sus competencias."
      ],
      "correcta": 2,
+     "cita": "El Instituto Nacional de Seguridad e Higiene en el Trabajo ejercerá la Secretaría General de la Comisión Nacional de Seguridad y Salud en el Trabajo, prestándole la asistencia técnica y científica necesaria para el desarrollo de sus competencias.",
      "explicacion": "Art. 8.4: asistencia técnica y científica «necesaria para el desarrollo de sus competencias»."
     },
     {
@@ -865,6 +903,7 @@
       "El Instituto preside la Comisión Nacional y nombra a los representantes de las Comunidades Autónomas."
      ],
      "correcta": 0,
+     "cita": "El Instituto Nacional de Seguridad e Higiene en el Trabajo ejercerá la Secretaría General de la Comisión Nacional de Seguridad y Salud en el Trabajo, prestándole la asistencia técnica y científica necesaria para el desarrollo de sus competencias.",
      "explicacion": "Art. 8.4: la Secretaría General la ejerce el Instituto, no al revés; la presidencia no se le atribuye."
     }
    ]
@@ -905,6 +944,7 @@
       "Propone a la autoridad laboral competente la sanción correspondiente."
      ],
      "correcta": 2,
+     "cita": "a) Vigilar el cumplimiento de la normativa sobre prevención de riesgos laborales, así como de las normas jurídico-técnicas que incidan en las condiciones de trabajo en materia de prevención, aunque no tuvieran la calificación directa de normativa laboral, proponiendo a la autoridad laboral competente la sanción correspondiente, cuando comprobase una infracción a la normativa sobre prevención de riesgos laborales, de acuerdo con lo previsto en el capítulo VII de la presente Ley.",
      "explicacion": "Art. 9.1.a): la Inspección propone la sanción a la autoridad laboral competente (cap. VII); no la impone."
     },
     {
@@ -916,6 +956,7 @@
       "Los convenios colectivos sectoriales que regulen exclusivamente la jornada, las retribuciones y las vacaciones de los trabajadores."
      ],
      "correcta": 0,
+     "cita": "a) Vigilar el cumplimiento de la normativa sobre prevención de riesgos laborales, así como de las normas jurídico-técnicas que incidan en las condiciones de trabajo en materia de prevención, aunque no tuvieran la calificación directa de normativa laboral, proponiendo a la autoridad laboral competente la sanción correspondiente, cuando comprobase una infracción a la normativa sobre prevención de riesgos laborales, de acuerdo con lo previsto en el capítulo VII de la presente Ley.",
      "explicacion": "Art. 9.1.a): vigila también las normas jurídico-técnicas con incidencia preventiva, «aunque no tuvieran la calificación directa de normativa laboral»."
     }
    ]
@@ -991,9 +1032,10 @@
      "enunciado": "Según el art. 9.1.c) LPRL, la Inspección elabora los informes solicitados por:",
      "opciones": [
       "Los Juzgados de lo Social",
-      "Los Juzgados de lo Penal"
+      "Los Juzgados de lo Contencioso-administrativo"
      ],
      "correcta": 0,
+     "cita": "c) Elaborar los informes solicitados por los Juzgados de lo Social en las demandas deducidas ante los mismos en los procedimientos de accidentes de trabajo y enfermedades profesionales.",
      "explicacion": "Art. 9.1.c): informes para los Juzgados de lo Social en procedimientos de accidentes de trabajo y enfermedades profesionales."
     },
     {
@@ -1005,6 +1047,7 @@
       "Mortales, muy graves o graves, y aquellos otros en que se considere necesario por sus características o por los sujetos afectados."
      ],
      "correcta": 2,
+     "cita": "d) Informar a la autoridad laboral sobre los accidentes de trabajo mortales, muy graves o graves, y sobre aquellos otros en que, por sus características o por los sujetos afectados, se considere necesario dicho informe, así como sobre las enfermedades profesionales en las que concurran dichas calificaciones y, en general, en los supuestos en que aquélla lo solicite respecto del cumplimiento de la normativa legal en materia de prevención de riesgos laborales.",
      "explicacion": "Art. 9.1.d): accidentes mortales, muy graves o graves y los demás que se considere necesario informar por sus características o los sujetos afectados."
     },
     {
@@ -1016,6 +1059,7 @@
       "Designar a los trabajadores que desarrollarán la actividad preventiva en las empresas de menos de seis trabajadores."
      ],
      "correcta": 0,
+     "cita": "e) Comprobar y favorecer el cumplimiento de las obligaciones asumidas por los servicios de prevención establecidos en la presente Ley.",
      "explicacion": "Art. 9.1.e): «comprobar y favorecer el cumplimiento de las obligaciones asumidas por los servicios de prevención»."
     }
    ]
@@ -1056,6 +1100,7 @@
       "Las empresas de mediano y pequeño tamaño y las de sectores de actividad con mayor nivel de riesgo o siniestralidad."
      ],
      "correcta": 2,
+     "cita": "especialmente las de mediano y pequeño tamaño y las de sectores de actividad con mayor nivel de riesgo o de siniestralidad",
      "explicacion": "Art. 9.2 párr. 2: planes de actuación para las empresas «especialmente las de mediano y pequeño tamaño y las de sectores de actividad con mayor nivel de riesgo o de siniestralidad»."
     },
     {
@@ -1067,6 +1112,7 @@
       "Funciones de paralización de trabajos y de levantamiento de actas de infracción por sí mismos."
      ],
      "correcta": 0,
+     "cita": "En el ejercicio de tales cometidos, los funcionarios públicos de las citadas Administraciones que ejerzan labores técnicas en materia de prevención de riesgos laborales a que se refiere el párrafo anterior, podrán desempeñar funciones de asesoramiento, información y comprobatorias de las condiciones de seguridad y salud en las empresas y centros de trabajo, con el alcance señalado en el apartado 3 de este artículo y con la capacidad de requerimiento a que se refiere el artículo 43 de esta ley, todo ello en la forma que se determine reglamentariamente.",
      "explicacion": "Art. 9.2 párr. 3: asesoramiento, información y comprobación, con capacidad de requerimiento del art. 43; el acta de infracción la levanta la Inspección (art. 9.3)."
     }
    ]
@@ -1106,6 +1152,7 @@
       "Incumplimiento de previo requerimiento."
      ],
      "correcta": 2,
+     "cita": "Cuando de las actuaciones de comprobación a que se refiere el apartado anterior, se deduzca la existencia de infracción, y siempre que haya mediado incumplimiento de previo requerimiento, el funcionario actuante remitirá informe a la Inspección de Trabajo y Seguridad Social, en el que se recogerán los hechos comprobados, a efectos de que se levante la correspondiente acta de infracción, si así procediera.",
      "explicacion": "Art. 9.3: el presupuesto es el incumplimiento de previo requerimiento."
     },
     {
@@ -1117,6 +1164,7 @@
       "Solo sirven como orientación y no pueden fundamentar un acta de infracción en ningún caso."
      ],
      "correcta": 0,
+     "cita": "A estos efectos, los hechos relativos a las actuaciones de comprobación de las condiciones materiales o técnicas de seguridad y salud recogidos en tales informes gozarán de la presunción de certeza a que se refiere la disposición adicional cuarta, apartado 2, de la Ley 42/1997, de 14 de noviembre, Ordenadora de la Inspección de Trabajo y Seguridad Social.",
      "explicacion": "Art. 9.3 párr. 2: presunción de certeza (DA 4.ª.2 de la Ley 42/1997) para los hechos de comprobación de condiciones materiales o técnicas."
     }
    ]
@@ -1145,6 +1193,7 @@
       "42/1997, Ordenadora de la Inspección de Trabajo y Seguridad Social"
      ],
      "correcta": 1,
+     "cita": "Las actuaciones previstas en los dos apartados anteriores, estarán sujetas a los plazos establecidos en el artículo 14, apartado 2, de la Ley 42/1997, de 14 de noviembre, Ordenadora de la Inspección de Trabajo y Seguridad Social.",
      "explicacion": "Art. 9.4: plazos del «artículo 14, apartado 2, de la Ley 42/1997»."
     },
     {
@@ -1156,6 +1205,7 @@
       "Del artículo 14, apartado 2, de la Ley Ordenadora de la Inspección de Trabajo y Seguridad Social."
      ],
      "correcta": 2,
+     "cita": "Las actuaciones previstas en los dos apartados anteriores, estarán sujetas a los plazos establecidos en el artículo 14, apartado 2, de la Ley 42/1997, de 14 de noviembre, Ordenadora de la Inspección de Trabajo y Seguridad Social.",
      "explicacion": "Art. 9.4: se remite al art. 14.2 de la Ley 42/1997 y no al cap. VII ni a un plazo fijado por el INSHT."
     },
     {
@@ -1167,6 +1217,7 @@
       "Declara que las actuaciones de comprobación no están sujetas a plazo alguno de caducidad."
      ],
      "correcta": 0,
+     "cita": "Las actuaciones previstas en los dos apartados anteriores, estarán sujetas a los plazos establecidos en el artículo 14, apartado 2, de la Ley 42/1997, de 14 de noviembre, Ordenadora de la Inspección de Trabajo y Seguridad Social.",
      "explicacion": "Art. 9.4 no fija plazos propios: se remite a la Ley 42/1997."
     }
    ]
@@ -1196,6 +1247,7 @@
       "42/1997, Ordenadora de la Inspección de Trabajo"
      ],
      "correcta": 0,
+     "cita": "Las actuaciones de las Administraciones públicas competentes en materia sanitaria referentes a la salud laboral se llevarán a cabo a través de las acciones y en relación con los aspectos señalados en el capítulo IV del Título I de la Ley 14/1986, de 25 de abril, General de Sanidad, y disposiciones dictadas para su desarrollo.",
      "explicacion": "Art. 10 párr. 1: acciones del cap. IV del Título I de la Ley 14/1986, General de Sanidad."
     },
     {
@@ -1218,6 +1270,7 @@
       "Acreditar la formación de los trabajadores designados por el empresario para la acción preventiva en las empresas."
      ],
      "correcta": 0,
+     "cita": "c) La supervisión de la formación que, en materia de prevención y promoción de la salud laboral, deba recibir el personal sanitario actuante en los servicios de prevención autorizados.",
      "explicacion": "Art. 10.c): supervisión de la formación del personal sanitario de los servicios de prevención autorizados."
     }
    ]
@@ -1257,6 +1310,7 @@
       "Realizar estudios epidemiológicos para identificar y prevenir las patologías que puedan afectar a la salud de los trabajadores."
      ],
      "correcta": 2,
+     "cita": "b) La implantación de sistemas de información adecuados que permitan la elaboración, junto con las autoridades laborales competentes, de mapas de riesgos laborales, así como la realización de estudios epidemiológicos para la identificación y prevención de las patologías que puedan afectar a la salud de los trabajadores, así como hacer posible un rápido intercambio de información.",
      "explicacion": "Art. 10.b): también estudios epidemiológicos para la identificación y prevención de patologías."
     },
     {
@@ -1268,6 +1322,7 @@
       "La propuesta de sanciones a las empresas que incumplan sus obligaciones en materia de vigilancia de la salud."
      ],
      "correcta": 0,
+     "cita": "d) La elaboración y divulgación de estudios, investigaciones y estadísticas relacionados con la salud de los trabajadores.",
      "explicacion": "Art. 10.d): elaboración y divulgación de estudios, investigaciones y estadísticas sobre la salud de los trabajadores."
     }
    ]
@@ -1294,7 +1349,7 @@
      "enunciado": "Según el art. 11 LPRL, hay que coordinar las actuaciones de las Administraciones competentes en materia laboral, sanitaria y de:",
      "opciones": [
       "Industria",
-      "Hacienda"
+      "Hacienda pública"
      ],
      "correcta": 0,
      "explicacion": "Art. 11: coordinación de las Administraciones laboral, sanitaria y de industria."
@@ -1319,6 +1374,7 @@
       "La negociación colectiva sectorial y la regulación de las condiciones de empleo en las empresas del sector."
      ],
      "correcta": 0,
+     "cita": "La elaboración de normas preventivas y el control de su cumplimiento, la promoción de la prevención, la investigación y la vigilancia epidemiológica sobre riesgos laborales, accidentes de trabajo y enfermedades profesionales determinan la necesidad de coordinar las actuaciones de las Administraciones competentes en materia laboral, sanitaria y de industria para una más eficaz protección de la seguridad y la salud de los trabajadores.",
      "explicacion": "Art. 11 párr. 1: normas y control, promoción, investigación y vigilancia epidemiológica determinan la necesidad de coordinar."
     }
    ]
@@ -1359,17 +1415,19 @@
       "La planificación, programación, organización y control de la gestión relacionada con la mejora de las condiciones de trabajo."
      ],
      "correcta": 2,
+     "cita": "La participación de empresarios y trabajadores, a través de las organizaciones empresariales y sindicales más representativas, en la planificación, programación, organización y control de la gestión relacionada con la mejora de las condiciones de trabajo y la protección de la seguridad y salud de los trabajadores en el trabajo es principio básico de la política de prevención de riesgos laborales, a desarrollar por las Administraciones públicas competentes en los distintos niveles territoriales.",
      "explicacion": "Art. 12: planificación, programación, organización y control de la gestión de la mejora de condiciones de trabajo y protección de la seguridad y salud."
     },
     {
      "nivel": 3,
      "enunciado": "¿Cuál de estas afirmaciones sobre el art. 12 LPRL es correcta?",
      "opciones": [
-      "Esa participación se hace a través de las organizaciones empresariales y sindicales más representativas.",
-      "Esa participación se hace a través de los comités de empresa de cada centro de trabajo sin distinción.",
-      "Esa participación solo se desarrolla en el nivel estatal, sin intervención de otros niveles territoriales."
+      "La participación de empresarios y trabajadores en la política preventiva se hace a través de las organizaciones empresariales y sindicales más representativas.",
+      "La participación de empresarios y trabajadores en la política preventiva se hace a través de los comités de empresa de cada centro de trabajo sin distinción.",
+      "La participación de empresarios y trabajadores en la política preventiva solo se desarrolla en el nivel estatal, sin intervención de otros niveles territoriales."
      ],
      "correcta": 0,
+     "cita": "La participación de empresarios y trabajadores, a través de las organizaciones empresariales y sindicales más representativas, en la planificación, programación, organización y control de la gestión relacionada con la mejora de las condiciones de trabajo y la protección de la seguridad y salud de los trabajadores en el trabajo es principio básico de la política de prevención de riesgos laborales, a desarrollar por las Administraciones públicas competentes en los distintos niveles territoriales.",
      "explicacion": "Art. 12: a través de las organizaciones empresariales y sindicales más representativas, en los distintos niveles territoriales."
     }
    ]
@@ -1410,6 +1468,7 @@
       "Órgano de participación institucional en materia de seguridad y salud en el trabajo."
      ],
      "correcta": 2,
+     "cita": "Se crea la Comisión Nacional de Seguridad y Salud en el Trabajo como órgano colegiado asesor de las Administraciones públicas en la formulación de las políticas de prevención y órgano de participación institucional en materia de seguridad y salud en el trabajo.",
      "explicacion": "Art. 13.1: además es «órgano de participación institucional en materia de seguridad y salud en el trabajo»."
     },
     {
@@ -1461,6 +1520,7 @@
       "Representantes de las organizaciones empresariales y sindicales más representativas."
      ],
      "correcta": 2,
+     "cita": "La Comisión estará integrada por un representante de cada una de las Comunidades Autónomas y por igual número de miembros de la Administración General del Estado y, paritariamente con todos los anteriores, por representantes de las organizaciones empresariales y sindicales más representativas.",
      "explicacion": "Art. 13.2: paritariamente con todos los anteriores, organizaciones empresariales y sindicales más representativas."
     },
     {
@@ -1501,6 +1561,7 @@
       "Sentencias de los Juzgados de lo Social"
      ],
      "correcta": 0,
+     "cita": "– Proyectos de disposiciones de carácter general.",
      "explicacion": "Art. 13.3: proyectos de disposiciones de carácter general, además de criterios y programas generales y coordinación."
     },
     {
@@ -1523,6 +1584,7 @@
       "La acreditación de los servicios de prevención ajenos y la fijación de sus tarifas de contratación."
      ],
      "correcta": 0,
+     "cita": "– Coordinación entre las Administraciones públicas competentes en materia laboral, sanitaria y de industria.",
      "explicacion": "Art. 13.3: coordinación entre las Administraciones competentes en materia laboral, sanitaria y de industria."
     }
    ]
@@ -1573,6 +1635,7 @@
       "Todos los miembros de la Comisión tienen un voto y el Presidente un voto de calidad en caso de empate."
      ],
      "correcta": 0,
+     "cita": "A tal fin, los representantes de las Administraciones públicas tendrán cada uno un voto y dos los de las organizaciones empresariales y sindicales.",
      "explicacion": "Art. 13.4: Administraciones, un voto cada representante; organizaciones empresariales y sindicales, dos."
     }
    ]
@@ -1612,6 +1675,7 @@
       "Secretario general de Empleo y Relaciones Laborales."
      ],
      "correcta": 2,
+     "cita": "La Presidencia de la Comisión corresponderá al Secretario general de Empleo y Relaciones Laborales, recayendo la Vicepresidencia atribuida a la Administración General del Estado en el Subsecretario de Sanidad y Consumo.",
      "explicacion": "Art. 13.5: Presidencia = Secretario general de Empleo y Relaciones Laborales. El Subsecretario de Sanidad y Consumo es el Vicepresidente de la AGE y el Director del INSHT ejerce la Secretaría."
     },
     {
@@ -1623,6 +1687,7 @@
       "En el Director del Instituto Nacional de Seguridad e Higiene en el Trabajo."
      ],
      "correcta": 0,
+     "cita": "La Presidencia de la Comisión corresponderá al Secretario general de Empleo y Relaciones Laborales, recayendo la Vicepresidencia atribuida a la Administración General del Estado en el Subsecretario de Sanidad y Consumo.",
      "explicacion": "Art. 13.5: Vicepresidencia de la AGE = Subsecretario de Sanidad y Consumo."
     }
    ]
@@ -1724,6 +1789,7 @@
       "La Ley 42/1997 Ordenadora de la Inspección de Trabajo y Seguridad Social y su normativa de desarrollo."
      ],
      "correcta": 0,
+     "cita": "En lo no previsto en la presente Ley y en el Reglamento interno a que hace referencia el párrafo anterior la Comisión se regirá por la Ley 30/1992, de Régimen Jurídico de las Administraciones Públicas y del Procedimiento Administrativo Común.",
      "explicacion": "Art. 13.7 párr. 2: supletoriamente, la Ley 30/1992."
     }
    ]

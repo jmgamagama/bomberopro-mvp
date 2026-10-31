@@ -44,11 +44,21 @@ export const PLAN_COPY = {
   proPrice: 'Precio de lanzamiento próximamente',
 } as const;
 
+const FREE_DECK_LABEL = 'Recuerdo del tema 40 (Procedimientos de trabajo CPEI-Badajoz)';
+
+/** Resumen de una línea por plan, para la Bienvenida y los avisos (sin precios: no hay ninguno publicado). */
+export function planSummary(plan: Plan): string {
+  if (plan === 'free') {
+    return `Gratis, sin cuenta: ${FREE_DECK_LABEL.charAt(0).toLowerCase()}${FREE_DECK_LABEL.slice(1)}, ${PLAN_LIMITS.free.dailySessionSize} fichas al día y un simulacro de muestra.`;
+  }
+  return `Pro: todos los temas, sesión de ${PLAN_LIMITS.pro.dailySessionSize} fichas al día y estadísticas. ${PLAN_COPY.proPrice}.`;
+}
+
 export function planFeatures(plan: Plan, allDecksLabel: string): string[] {
   const l = PLAN_LIMITS[plan];
   if (plan === 'free') {
     return [
-      'Recuerdo del tema 40 (Procedimientos de trabajo CPEI-Badajoz)',
+      FREE_DECK_LABEL,
       `Sesión diaria de ${l.dailySessionSize} fichas al día`,
       `Hasta ${l.dailyDistinctQuestions} preguntas de test distintas al día`,
       'Simulacro de muestra sin cuenta',
@@ -74,6 +84,31 @@ export function getPlan(): Plan {
 export function canAccessDeck(deckId: string, plan: Plan = getPlan()): boolean {
   const ids = PLAN_LIMITS[plan].deckIds;
   return ids === 'all' || ids.includes(deckId);
+}
+
+/**
+ * Temas del bloque de procedimientos de Badajoz (T35-T40) que se abren por defecto en modo invitado.
+ * Orden de preferencia: el tema 40 (el del plan gratis, fichas en el propio bundle) y luego 35→39.
+ */
+export const GUEST_DEFAULT_TEMAS: readonly number[] = [40, 35, 36, 37, 38, 39];
+
+/**
+ * Mazo que se abre por defecto. En modo invitado, el primer mazo ACCESIBLE (canAccessDeck) de T35-40;
+ * si no hay ninguno, o fuera del modo invitado, el primer mazo accesible del registro.
+ */
+export function pickDefaultDeck<D extends { id: string; tema: number }>(
+  decks: readonly D[],
+  plan: Plan = getPlan(),
+  guest = false,
+): D | undefined {
+  const accessible = decks.filter((d) => canAccessDeck(d.id, plan));
+  if (guest) {
+    for (const tema of GUEST_DEFAULT_TEMAS) {
+      const hit = accessible.find((d) => d.tema === tema);
+      if (hit) return hit;
+    }
+  }
+  return accessible[0] ?? decks[0];
 }
 
 export function getDailySessionSize(plan: Plan = getPlan()): number {

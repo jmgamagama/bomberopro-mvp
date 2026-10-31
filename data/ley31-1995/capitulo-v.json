@@ -51,6 +51,7 @@
       "La seguridad y la salud de los trabajadores."
      ],
      "correcta": 2,
+     "cita": "f) Cualquier otra acción que pueda tener efectos sustanciales sobre la seguridad y la salud de los trabajadores.",
      "explicacion": "Art. 33.1.a): las nuevas tecnologías se consultan por sus consecuencias para la seguridad y la salud de los trabajadores."
     },
     {
@@ -62,7 +63,17 @@
       "El proyecto y la organización de la formación preventiva."
      ],
      "correcta": 0,
-     "explicacion": "Art. 33.1.a) a f): planificación, organización preventiva, emergencias, documentación, formación y acciones sustanciales; no el salario ni la jornada."
+     "explicacion": "Art. 33.1.a) a f): planificación, organización preventiva, emergencias, documentación, formación y acciones sustanciales; no el salario ni la jornada.",
+     "respaldo": [
+      {
+       "articulo": "a33",
+       "cita": "c) La designación de los trabajadores encargados de las medidas de emergencia."
+      },
+      {
+       "articulo": "a33",
+       "cita": "e) El proyecto y la organización de la formación en materia preventiva."
+      }
+     ]
     }
    ]
   },
@@ -70,7 +81,7 @@
    "id": "LPRL-a33-1-detalle",
    "bloque": "a33",
    "apartado": "1",
-   "orden": 1410,
+   "orden": 1408,
    "tipo": "lista",
    "prioridad": 2,
    "tarjeta": {
@@ -102,6 +113,7 @@
       "Un servicio de prevención externo a la empresa."
      ],
      "correcta": 2,
+     "cita": "b) La organización y desarrollo de las actividades de protección de la salud y prevención de los riesgos profesionales en la empresa, incluida la designación de los trabajadores encargados de dichas actividades o el recurso a un servicio de prevención externo.",
      "explicacion": "Art. 33.1.b): organización de las actividades preventivas, incluida la designación de trabajadores o el recurso a un servicio de prevención externo."
     },
     {
@@ -113,6 +125,7 @@
       "Cualquier otra medida propuesta por el servicio de prevención ajeno a la empresa."
      ],
      "correcta": 0,
+     "cita": "f) Cualquier otra acción que pueda tener efectos sustanciales sobre la seguridad y la salud de los trabajadores.",
      "explicacion": "Art. 33.1.f): «cualquier otra acción que pueda tener efectos sustanciales sobre la seguridad y la salud de los trabajadores»."
     }
    ]
@@ -121,7 +134,7 @@
    "id": "LPRL-a33-2-representantes",
    "bloque": "a33",
    "apartado": "2",
-   "orden": 1420,
+   "orden": 1416,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -152,6 +165,7 @@
       "En las empresas que cuenten con representantes del personal."
      ],
      "correcta": 2,
+     "cita": "En las empresas que cuenten con representantes de los trabajadores, las consultas a que se refiere el apartado anterior se llevarán a cabo con dichos representantes.",
      "explicacion": "Art. 33.2: el supuesto es «las empresas que cuenten con representantes de los trabajadores»."
     },
     {
@@ -171,7 +185,7 @@
    "id": "LPRL-a34-1-participacion",
    "bloque": "a34",
    "apartado": "1",
-   "orden": 1430,
+   "orden": 1424,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -202,6 +216,7 @@
       "La representación especializada que regula este capítulo."
      ],
      "correcta": 2,
+     "cita": "En las empresas o centros de trabajo que cuenten con seis o más trabajadores, la participación de éstos se canalizará a través de sus representantes y de la representación especializada que se regula en este capítulo.",
      "explicacion": "Art. 34.1 párr. 2: representantes y «representación especializada que se regula en este capítulo» (Delegados de Prevención y Comité)."
     },
     {
@@ -213,7 +228,13 @@
       "Con seis o más trabajadores, la participación se canaliza a través de sus representantes."
      ],
      "correcta": 0,
-     "explicacion": "Art. 34.1: el umbral es seis trabajadores, no cincuenta (cifra del art. 35.2 para la escala de Delegados)."
+     "explicacion": "Art. 34.1: el umbral es seis trabajadores, no cincuenta (cifra del art. 35.2 para la escala de Delegados).",
+     "respaldo": [
+      {
+       "articulo": "a34",
+       "cita": "En las empresas o centros de trabajo que cuenten con seis o más trabajadores, la participación de éstos se canalizará a través de sus representantes y de la representación especializada que se regula en este capítulo."
+      }
+     ]
     }
    ]
   },
@@ -221,7 +242,7 @@
    "id": "LPRL-a34-2-representantes",
    "bloque": "a34",
    "apartado": "2",
-   "orden": 1440,
+   "orden": 1432,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -241,6 +262,7 @@
       "Los representantes sindicales"
      ],
      "correcta": 1,
+     "cita": "A los Comités de Empresa, a los Delegados de Personal y a los representantes sindicales les corresponde, en los términos que, respectivamente, les reconocen el Estatuto de los Trabajadores, la Ley de Organos de Representación del Personal al Servicio de las Administraciones Públicas y la Ley Orgánica de Libertad Sindical, la defensa de los intereses de los trabajadores en materia de prevención de riesgos en el trabajo.",
      "explicacion": "Art. 34.2: Comités de Empresa, Delegados de Personal y representantes sindicales."
     },
     {
@@ -252,6 +274,7 @@
       "Las empresas y los órganos y tribunales competentes."
      ],
      "correcta": 2,
+     "cita": "Para ello, los representantes del personal ejercerán las competencias que dichas normas establecen en materia de información, consulta y negociación, vigilancia y control y ejercicio de acciones ante las empresas y los órganos y tribunales competentes.",
      "explicacion": "Art. 34.2: acciones «ante las empresas y los órganos y tribunales competentes»."
     },
     {
@@ -263,7 +286,13 @@
       "La información, la consulta y la negociación sobre prevención."
      ],
      "correcta": 0,
-     "explicacion": "Art. 34.2: las competencias son información, consulta y negociación, vigilancia y control y ejercicio de acciones; no designar el servicio de prevención."
+     "explicacion": "Art. 34.2: las competencias son información, consulta y negociación, vigilancia y control y ejercicio de acciones; no designar el servicio de prevención.",
+     "respaldo": [
+      {
+       "articulo": "a34",
+       "cita": "los representantes del personal ejercerán las competencias que dichas normas establecen en materia de información, consulta y negociación, vigilancia y control y ejercicio de acciones ante las empresas y los órganos y tribunales competentes."
+      }
+     ]
     }
    ]
   },
@@ -271,7 +300,7 @@
    "id": "LPRL-a34-3-adaptacion",
    "bloque": "a34",
    "apartado": "3",
-   "orden": 1450,
+   "orden": 1440,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -313,6 +342,7 @@
       "Suprimir los Comités de Seguridad y Salud sectoriales."
      ],
      "correcta": 0,
+     "cita": "El derecho de participación que se regula en este capítulo se ejercerá en el ámbito de las Administraciones públicas con las adaptaciones que procedan en atención a la diversidad de las actividades que desarrollan y las diferentes condiciones en que éstas se realizan, la complejidad y dispersión de su estructura organizativa y sus peculiaridades en materia de representación colectiva, en los términos previstos en la Ley 7/1990, de 19 de julio, sobre negociación colectiva y participación en la determinación de las condiciones de trabajo de los empleados públicos, pudiéndose establecer ámbitos sectoriales y descentralizados en función del número de efectivos y centros.",
      "explicacion": "Art. 34.3: «pudiéndose establecer ámbitos sectoriales y descentralizados en función del número de efectivos y centros»."
     }
    ]
@@ -321,7 +351,7 @@
    "id": "LPRL-a34-3-comite",
    "bloque": "a34",
    "apartado": "3",
-   "orden": 1460,
+   "orden": 1448,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -352,17 +382,19 @@
       "Un único Comité de Seguridad y Salud."
      ],
      "correcta": 2,
+     "cita": "d) Con carácter general, se constituirá un único Comité de Seguridad y Salud en el ámbito de los órganos de representación previstos en la Ley de Organos de Representación del Personal al Servicio de las Administraciones Públicas, que estará integrado por los Delegados de Prevención designados en dicho ámbito, tanto para el personal con relación de carácter administrativo o estatutario como para el personal laboral, y por representantes de la Administración en número no superior al de Delegados.",
      "explicacion": "Art. 34.3.d): «se constituirá un único Comité de Seguridad y Salud», salvo otros ámbitos que aconsejen la actividad y los riesgos."
     },
     {
      "nivel": 3,
      "enunciado": "¿Cuál de estas afirmaciones sobre el art. 34.3.a) LPRL es correcta?",
      "opciones": [
-      "La adaptación nunca puede afectar a las competencias de los Delegados de Prevención.",
-      "La adaptación puede reducir las garantías de los Delegados si la estructura es dispersa.",
-      "La adaptación puede suprimir los Comités de Seguridad y Salud cuando convenga."
+      "La adaptación de las normas de consulta y participación de la LPRL a la Administración General del Estado nunca puede afectar a las competencias de los Delegados de Prevención.",
+      "La adaptación de las normas de consulta y participación de la LPRL a la Administración General del Estado puede reducir las garantías de los Delegados si la estructura es dispersa.",
+      "La adaptación de las normas de consulta y participación de la LPRL a la Administración General del Estado puede suprimir los Comités de Seguridad y Salud cuando convenga."
      ],
      "correcta": 0,
+     "cita": "En ningún caso dicha adaptación podrá afectar a las competencias, facultades y garantías",
      "explicacion": "Art. 34.3.a): la adaptación «en ningún caso» puede afectar a las competencias, facultades y garantías de Delegados y Comités."
     }
    ]
@@ -371,7 +403,7 @@
    "id": "LPRL-a35-1-definicion",
    "bloque": "a35",
    "apartado": "1",
-   "orden": 1470,
+   "orden": 1456,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -388,7 +420,7 @@
      "enunciado": "Según el art. 35.1 LPRL, los Delegados de Prevención son representantes de los trabajadores con funciones:",
      "opciones": [
       "Específicas en prevención de riesgos",
-      "Generales en materia de negociación"
+      "Generales en materia de negociación colectiva"
      ],
      "correcta": 0,
      "explicacion": "Art. 35.1: representantes de los trabajadores con funciones específicas en prevención."
@@ -421,7 +453,7 @@
    "id": "LPRL-a35-2-designacion",
    "bloque": "a35",
    "apartado": "2",
-   "orden": 1480,
+   "orden": 1464,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -453,6 +485,7 @@
       "Las normas a que se refiere el artículo anterior."
      ],
      "correcta": 2,
+     "cita": "Los Delegados de Prevención serán designados por y entre los representantes del personal, en el ámbito de los órganos de representación previstos en las normas a que se refiere el artículo anterior, con arreglo a la siguiente escala:",
      "explicacion": "Art. 35.2: ámbito de los órganos de representación de las normas del artículo anterior (art. 34)."
     },
     {
@@ -472,7 +505,7 @@
    "id": "LPRL-a35-2-escala",
    "bloque": "a35",
    "apartado": "2",
-   "orden": 1490,
+   "orden": 1472,
    "tipo": "lista",
    "prioridad": 1,
    "tarjeta": {
@@ -523,7 +556,7 @@
    "id": "LPRL-a35-2-pequenas",
    "bloque": "a35",
    "apartado": "2",
-   "orden": 1500,
+   "orden": 1480,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -554,6 +587,7 @@
       "Un Delegado de Prevención elegido por y entre los Delegados de Personal."
      ],
      "correcta": 2,
+     "cita": "En las empresas de treinta y uno a cuarenta y nueve trabajadores habrá un Delegado de Prevención que será elegido por y entre los Delegados de Personal",
      "explicacion": "Art. 35.2: de 31 a 49 trabajadores, «un Delegado de Prevención que será elegido por y entre los Delegados de Personal»."
     },
     {
@@ -573,7 +607,7 @@
    "id": "LPRL-a35-3-fijos",
    "bloque": "a35",
    "apartado": "3",
-   "orden": 1510,
+   "orden": 1488,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -615,7 +649,13 @@
       "Un contrato de dos años queda excluido del cómputo de la escala."
      ],
      "correcta": 0,
-     "explicacion": "Art. 35.3.a): un contrato de dos años supera el año y cuenta como fijo; el cómputo por días es del apartado b)."
+     "explicacion": "Art. 35.3.a): un contrato de dos años supera el año y cuenta como fijo; el cómputo por días es del apartado b).",
+     "respaldo": [
+      {
+       "articulo": "a35",
+       "cita": "a) Los trabajadores vinculados por contratos de duración determinada superior a un año se computarán como trabajadores fijos de plantilla."
+      }
+     ]
     }
    ]
   },
@@ -623,7 +663,7 @@
    "id": "LPRL-a35-3-temporales",
    "bloque": "a35",
    "apartado": "3",
-   "orden": 1520,
+   "orden": 1496,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -654,6 +694,7 @@
       "Un año anterior a la designación."
      ],
      "correcta": 2,
+     "cita": "b) Los contratados por término de hasta un año se computarán según el número de días trabajados en el período de un año anterior a la designación.",
      "explicacion": "Art. 35.3.b): «en el período de un año anterior a la designación»."
     },
     {
@@ -673,7 +714,7 @@
    "id": "LPRL-a35-4-sistemas",
    "bloque": "a35",
    "apartado": "4",
-   "orden": 1530,
+   "orden": 1504,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -704,6 +745,7 @@
       "En los convenios colectivos aplicables."
      ],
      "correcta": 2,
+     "cita": "No obstante lo dispuesto en el presente artículo, en los convenios colectivos podrán establecerse otros sistemas de designación de los Delegados de Prevención, siempre que se garantice que la facultad de designación corresponde a los representantes del personal o a los propios trabajadores.",
      "explicacion": "Art. 35.4: «en los convenios colectivos podrán establecerse otros sistemas de designación»."
     },
     {
@@ -715,7 +757,13 @@
       "La que atribuye la designación a los propios trabajadores."
      ],
      "correcta": 0,
-     "explicacion": "Art. 35.4: se exige que la facultad corresponda a representantes o trabajadores; nunca solo al empresario."
+     "explicacion": "Art. 35.4: se exige que la facultad corresponda a representantes o trabajadores; nunca solo al empresario.",
+     "respaldo": [
+      {
+       "articulo": "a35",
+       "cita": "siempre que se garantice que la facultad de designación corresponde a los representantes del personal o a los propios trabajadores."
+      }
+     ]
     }
    ]
   },
@@ -723,7 +771,7 @@
    "id": "LPRL-a35-4-organos",
    "bloque": "a35",
    "apartado": "4",
-   "orden": 1540,
+   "orden": 1512,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -754,6 +802,7 @@
       "Conjunto de centros incluidos en el ámbito del convenio."
      ],
      "correcta": 2,
+     "cita": "respecto del conjunto de los centros de trabajo incluidos en el ámbito de aplicación",
      "explicacion": "Art. 35.4 párr. 2: competencias generales «respecto del conjunto de los centros de trabajo incluidos en el ámbito de aplicación»."
     },
     {
@@ -765,6 +814,7 @@
       "Requieren autorización previa de la Inspección de Trabajo."
      ],
      "correcta": 0,
+     "cita": "Dichos órganos podrán asumir, en los términos y conforme a las modalidades que se acuerden, competencias generales respecto del conjunto de los centros de trabajo incluidos en el ámbito de aplicación del convenio o del acuerdo, en orden a fomentar el mejor cumplimiento en los mismos de la normativa sobre prevención de riesgos laborales.",
      "explicacion": "Art. 35.4 párr. 2: «en los términos y conforme a las modalidades que se acuerden»."
     }
    ]
@@ -773,7 +823,7 @@
    "id": "LPRL-a36-1-competencias",
    "bloque": "a36",
    "apartado": "1",
-   "orden": 1550,
+   "orden": 1520,
    "tipo": "lista",
    "prioridad": 1,
    "tarjeta": {
@@ -805,6 +855,7 @@
       "Con carácter previo a la ejecución de la decisión."
      ],
      "correcta": 2,
+     "cita": "c) Ser consultados por el empresario, con carácter previo a su ejecución, acerca de las decisiones a que se refiere el artículo 33 de la presente Ley.",
      "explicacion": "Art. 36.1.c): ser consultados «con carácter previo a su ejecución» sobre las decisiones del art. 33."
     },
     {
@@ -816,7 +867,17 @@
       "Promover la cooperación de los trabajadores en la normativa preventiva."
      ],
      "correcta": 0,
-     "explicacion": "Art. 36.1.a) a d): colaborar, promover la cooperación, ser consultados y vigilar; no sancionar."
+     "explicacion": "Art. 36.1.a) a d): colaborar, promover la cooperación, ser consultados y vigilar; no sancionar.",
+     "respaldo": [
+      {
+       "articulo": "a36",
+       "cita": "a) Colaborar con la dirección de la empresa en la mejora de la acción preventiva."
+      },
+      {
+       "articulo": "a36",
+       "cita": "b) Promover y fomentar la cooperación de los trabajadores en la ejecución de la normativa sobre prevención de riesgos laborales."
+      }
+     ]
     }
    ]
   },
@@ -824,7 +885,7 @@
    "id": "LPRL-a36-1-sin-comite",
    "bloque": "a36",
    "apartado": "1",
-   "orden": 1560,
+   "orden": 1528,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -866,6 +927,7 @@
       "Sin Comité por falta de trabajadores, las asume el servicio de prevención ajeno."
      ],
      "correcta": 0,
+     "cita": "En las empresas que, de acuerdo con lo dispuesto en el apartado 2 del artículo 38 de esta Ley, no cuenten con Comité de Seguridad y Salud por no alcanzar el número mínimo de trabajadores establecido al efecto, las competencias atribuidas a aquél en la presente Ley serán ejercidas por los Delegados de Prevención.",
      "explicacion": "Art. 36.1 último párr.: las competencias del Comité no quedan sin ejercer, las asumen los Delegados."
     }
    ]
@@ -874,7 +936,7 @@
    "id": "LPRL-a36-2-visitas",
    "bloque": "a36",
    "apartado": "2",
-   "orden": 1570,
+   "orden": 1536,
    "tipo": "lista",
    "prioridad": 2,
    "tarjeta": {
@@ -894,6 +956,7 @@
       "Solo las zonas que el empresario autorice"
      ],
      "correcta": 0,
+     "cita": "e) Realizar visitas a los lugares de trabajo para ejercer una labor de vigilancia y control del estado de las condiciones de trabajo, pudiendo, a tal fin, acceder a cualquier zona de los mismos y comunicarse durante la jornada con los trabajadores, de manera que no se altere el normal desarrollo del proceso productivo.",
      "explicacion": "Art. 36.2.e): acceso a «cualquier zona» de los lugares de trabajo."
     },
     {
@@ -916,6 +979,7 @@
       "Pueden sustituir a los Inspectores de Trabajo en las verificaciones de los centros."
      ],
      "correcta": 0,
+     "cita": "a) Acompañar a los técnicos en las evaluaciones de carácter preventivo del medio ambiente de trabajo, así como, en los términos previstos en el artículo 40 de esta Ley, a los Inspectores de Trabajo y Seguridad Social en las visitas y verificaciones que realicen en los centros de trabajo para comprobar el cumplimiento de la normativa sobre prevención de riesgos laborales, pudiendo formular ante ellos las observaciones que estimen oportunas.",
      "explicacion": "Art. 36.2.a): acompañan a los Inspectores en sus visitas y pueden formular observaciones, sin sustituirlos ni necesitar autorización del empresario."
     }
    ]
@@ -924,7 +988,7 @@
    "id": "LPRL-a36-2-informacion",
    "bloque": "a36",
    "apartado": "2",
-   "orden": 1580,
+   "orden": 1544,
    "tipo": "lista",
    "prioridad": 1,
    "tarjeta": {
@@ -956,6 +1020,7 @@
       "El respeto de la confidencialidad."
      ],
      "correcta": 2,
+     "cita": "Cuando la información esté sujeta a las limitaciones reseñadas, sólo podrá ser suministrada de manera que se garantice el respeto de la confidencialidad.",
      "explicacion": "Art. 36.2.b): la información con limitaciones (art. 22.4) se suministra «de manera que se garantice el respeto de la confidencialidad»."
     },
     {
@@ -967,6 +1032,7 @@
       "En la siguiente reunión ordinaria del Comité de Seguridad y Salud."
      ],
      "correcta": 0,
+     "cita": "c) Ser informados por el empresario sobre los daños producidos en la salud de los trabajadores una vez que aquél hubiese tenido conocimiento de ellos, pudiendo presentarse, aún fuera de su jornada laboral, en el lugar de los hechos para conocer las circunstancias de los mismos.",
      "explicacion": "Art. 36.2.c): la información se facilita «una vez que aquél hubiese tenido conocimiento de ellos»."
     }
    ]
@@ -975,7 +1041,7 @@
    "id": "LPRL-a36-2-propuestas",
    "bloque": "a36",
    "apartado": "2",
-   "orden": 1590,
+   "orden": 1552,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -1007,6 +1073,7 @@
       "Comité de Seguridad y Salud, para su discusión."
      ],
      "correcta": 2,
+     "cita": "efectuar propuestas al empresario, así como al Comité de Seguridad y Salud para su discusión en el mismo",
      "explicacion": "Art. 36.2.f): propuestas «al empresario, así como al Comité de Seguridad y Salud para su discusión en el mismo»."
     },
     {
@@ -1018,7 +1085,13 @@
       "Recabar del empresario la adopción de medidas de carácter preventivo."
      ],
      "correcta": 0,
-     "explicacion": "Art. 36.2.g): el Delegado propone la paralización; no la acuerda por sí solo."
+     "explicacion": "Art. 36.2.g): el Delegado propone la paralización; no la acuerda por sí solo.",
+     "respaldo": [
+      {
+       "articulo": "a36",
+       "cita": "g) Proponer al órgano de representación de los trabajadores la adopción del acuerdo de paralización de actividades a que se refiere el apartado 3 del artículo 21."
+      }
+     ]
     }
    ]
   },
@@ -1026,7 +1099,7 @@
    "id": "LPRL-a36-3-plazo",
    "bloque": "a36",
    "apartado": "3",
-   "orden": 1600,
+   "orden": 1560,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -1058,6 +1131,7 @@
       "Podrá poner en práctica la decisión adoptada."
      ],
      "correcta": 2,
+     "cita": "Transcurrido el plazo sin haberse emitido el informe, el empresario podrá poner en práctica su decisión.",
      "explicacion": "Art. 36.3: transcurrido el plazo «el empresario podrá poner en práctica su decisión»."
     },
     {
@@ -1069,6 +1143,7 @@
       "Un plazo improrrogable de cinco días."
      ],
      "correcta": 0,
+     "cita": "Los informes que deban emitir los Delegados de Prevención a tenor de lo dispuesto en la letra c) del apartado 1 de este artículo deberán elaborarse en un plazo de quince días, o en el tiempo imprescindible cuando se trate de adoptar medidas dirigidas a prevenir riesgos inminentes.",
      "explicacion": "Art. 36.3: para riesgos inminentes, «en el tiempo imprescindible», sin plazo fijo."
     }
    ]
@@ -1077,7 +1152,7 @@
    "id": "LPRL-a38-1-organo",
    "bloque": "a38",
    "apartado": "1",
-   "orden": 1600,
+   "orden": 1624,
    "tipo": "definicion",
    "prioridad": 1,
    "tarjeta": {
@@ -1128,7 +1203,7 @@
    "id": "LPRL-a36-4-motivacion",
    "bloque": "a36",
    "apartado": "4",
-   "orden": 1610,
+   "orden": 1568,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -1179,7 +1254,7 @@
    "id": "LPRL-a38-2-constitucion",
    "bloque": "a38",
    "apartado": "2",
-   "orden": 1610,
+   "orden": 1632,
    "tipo": "cifra",
    "prioridad": 1,
    "tarjeta": {
@@ -1230,7 +1305,7 @@
    "id": "LPRL-a37-1-garantias",
    "bloque": "a37",
    "apartado": "1",
-   "orden": 1620,
+   "orden": 1576,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -1262,17 +1337,19 @@
       "Horas mensuales retribuidas previsto en el ET."
      ],
      "correcta": 2,
+     "cita": "El tiempo utilizado por los Delegados de Prevención para el desempeño de las funciones previstas en esta Ley será considerado como de ejercicio de funciones de representación a efectos de la utilización del crédito de horas mensuales retribuidas previsto en la letra e) del citado artículo 68 del Estatuto de los Trabajadores.",
      "explicacion": "Art. 37.1 párr. 2: crédito de horas mensuales retribuidas de la letra e) del art. 68 ET."
     },
     {
      "nivel": 3,
      "enunciado": "¿Cuál de estas afirmaciones sobre el art. 37.1, párrafo 2, LPRL es correcta?",
      "opciones": [
-      "Ese tiempo se imputa, en general, al crédito de horas mensuales retribuidas.",
-      "Ese tiempo nunca se imputa al crédito de horas mensuales retribuidas.",
-      "Ese tiempo se imputa a las vacaciones anuales retribuidas del Delegado."
+      "El tiempo que los Delegados de Prevención dedican a sus funciones se imputa, en general, al crédito de horas mensuales retribuidas.",
+      "El tiempo que los Delegados de Prevención dedican a sus funciones nunca se imputa al crédito de horas mensuales retribuidas.",
+      "El tiempo que los Delegados de Prevención dedican a sus funciones se imputa a las vacaciones anuales retribuidas del Delegado."
      ],
      "correcta": 0,
+     "cita": "será considerado como de ejercicio de funciones de representación a efectos de la utilización del crédito de horas mensuales retribuidas",
      "explicacion": "Art. 37.1 párr. 2: como regla general, se imputa al crédito de horas; las excepciones están en el párrafo 3."
     }
    ]
@@ -1281,7 +1358,7 @@
    "id": "LPRL-a38-2-composicion",
    "bloque": "a38",
    "apartado": "2",
-   "orden": 1620,
+   "orden": 1640,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -1332,7 +1409,7 @@
    "id": "LPRL-a37-1-tiempo-efectivo",
    "bloque": "a37",
    "apartado": "1",
-   "orden": 1630,
+   "orden": 1584,
    "tipo": "lista",
    "prioridad": 1,
    "tarjeta": {
@@ -1375,7 +1452,13 @@
       "El de las reuniones convocadas por el empresario sobre prevención."
      ],
      "correcta": 0,
-     "explicacion": "Art. 37.1 párr. 3: solo exime las visitas a) y c); las visitas de la letra e) se imputan al crédito."
+     "explicacion": "Art. 37.1 párr. 3: solo exime las visitas a) y c); las visitas de la letra e) se imputan al crédito.",
+     "respaldo": [
+      {
+       "articulo": "a37",
+       "cita": "el correspondiente a las reuniones del Comité de Seguridad y Salud y a cualesquiera otras convocadas por el empresario en materia de prevención de riesgos, así como el destinado a las visitas previstas en las letras a) y c) del número 2 del artículo anterior."
+      }
+     ]
     }
    ]
   },
@@ -1383,7 +1466,7 @@
    "id": "LPRL-a38-2-participantes",
    "bloque": "a38",
    "apartado": "2",
-   "orden": 1630,
+   "orden": 1648,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -1414,6 +1497,7 @@
       "Lo solicite alguna de las representaciones en el Comité."
      ],
      "correcta": 2,
+     "cita": "El Comité de Seguridad y Salud se reunirá trimestralmente y siempre que lo solicite alguna de las representaciones en el mismo.",
      "explicacion": "Art. 38.2 párr. 3: técnicos ajenos, «siempre que así lo solicite alguna de las representaciones»."
     },
     {
@@ -1425,6 +1509,7 @@
       "Pueden asistir solo los Delegados Sindicales y los técnicos de la empresa, nunca otros trabajadores."
      ],
      "correcta": 0,
+     "cita": "En las mismas condiciones podrán participar trabajadores de la empresa que cuenten con una especial cualificación o información respecto de concretas cuestiones que se debatan en este órgano y técnicos en prevención ajenos a la empresa, siempre que así lo solicite alguna de las representaciones en el Comité.",
      "explicacion": "Art. 38.2 párr. 3: también trabajadores con especial cualificación o información sobre cuestiones concretas."
     }
    ]
@@ -1433,7 +1518,7 @@
    "id": "LPRL-a37-2-medios",
    "bloque": "a37",
    "apartado": "2",
-   "orden": 1640,
+   "orden": 1592,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -1454,6 +1539,7 @@
       "Concierto con organismos o entidades especializadas"
      ],
      "correcta": 1,
+     "cita": "La formación se deberá facilitar por el empresario por sus propios medios o mediante concierto con organismos o entidades especializadas en la materia y deberá adaptarse a la evolución de los riesgos y a la aparición de otros nuevos, repitiéndose periódicamente si fuera necesario.",
      "explicacion": "Art. 37.2 párr. 1: medios y formación en materia preventiva necesarios para el ejercicio de sus funciones."
     },
     {
@@ -1465,6 +1551,7 @@
       "Periódicamente, si fuera necesario hacerlo."
      ],
      "correcta": 2,
+     "cita": "La formación se deberá facilitar por el empresario por sus propios medios o mediante concierto con organismos o entidades especializadas en la materia y deberá adaptarse a la evolución de los riesgos y a la aparición de otros nuevos, repitiéndose periódicamente si fuera necesario.",
      "explicacion": "Art. 37.2 párr. 2: formación «adaptada a la evolución de los riesgos», «repitiéndose periódicamente si fuera necesario»."
     },
     {
@@ -1476,6 +1563,7 @@
       "El empresario solo puede formar mediante entidades designadas por el sindicato."
      ],
      "correcta": 0,
+     "cita": "La formación se deberá facilitar por el empresario por sus propios medios o mediante concierto con organismos o entidades especializadas en la materia y deberá adaptarse a la evolución de los riesgos y a la aparición de otros nuevos, repitiéndose periódicamente si fuera necesario.",
      "explicacion": "Art. 37.2 párr. 2: «por sus propios medios o mediante concierto con organismos o entidades especializadas»."
     }
    ]
@@ -1484,7 +1572,7 @@
    "id": "LPRL-a38-3-reuniones",
    "bloque": "a38",
    "apartado": "3",
-   "orden": 1640,
+   "orden": 1656,
    "tipo": "cifra",
    "prioridad": 1,
    "tarjeta": {
@@ -1501,7 +1589,7 @@
      "nivel": 1,
      "enunciado": "Según el art. 38.3 LPRL, el Comité de Seguridad y Salud se reúne ordinariamente de forma:",
      "opciones": [
-      "Semestral",
+      "Cuatrimestral",
       "Trimestral"
      ],
      "correcta": 1,
@@ -1527,6 +1615,7 @@
       "Las normas de funcionamiento las dicta el empresario."
      ],
      "correcta": 0,
+     "cita": "El Comité adoptará sus propias normas de funcionamiento.",
      "explicacion": "Art. 38.3 párr. 1: «El Comité adoptará sus propias normas de funcionamiento»."
     }
    ]
@@ -1535,7 +1624,7 @@
    "id": "LPRL-a37-2-coste",
    "bloque": "a37",
    "apartado": "2",
-   "orden": 1650,
+   "orden": 1600,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -1566,6 +1655,7 @@
       "A todos los efectos, sin excepción."
      ],
      "correcta": 2,
+     "cita": "El tiempo dedicado a la formación será considerado como tiempo de trabajo a todos los efectos y su coste no podrá recaer en ningún caso sobre los Delegados de Prevención.",
      "explicacion": "Art. 37.2 párr. 3: tiempo de trabajo «a todos los efectos»."
     },
     {
@@ -1577,6 +1667,7 @@
       "El tiempo de formación se descuenta del crédito horario y su coste recae en el Delegado."
      ],
      "correcta": 0,
+     "cita": "El tiempo dedicado a la formación será considerado como tiempo de trabajo a todos los efectos y su coste no podrá recaer en ningún caso sobre los Delegados de Prevención.",
      "explicacion": "Art. 37.2 párr. 3: tiempo de trabajo y coste ajeno al Delegado; no se descuenta del crédito ni se recupera."
     }
    ]
@@ -1585,7 +1676,7 @@
    "id": "LPRL-a38-3-intercentros",
    "bloque": "a38",
    "apartado": "3",
-   "orden": 1650,
+   "orden": 1664,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -1636,7 +1727,7 @@
    "id": "LPRL-a37-3-sigilo",
    "bloque": "a37",
    "apartado": "3",
-   "orden": 1660,
+   "orden": 1608,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -1679,6 +1770,7 @@
       "El sigilo cubre solo lo que el empresario califique expresamente de reservado."
      ],
      "correcta": 0,
+     "cita": "A los Delegados de Prevención les será de aplicación lo dispuesto en el apartado 2 del artículo 65 del Estatuto de los Trabajadores en cuanto al sigilo profesional debido respecto de las informaciones a que tuviesen acceso como consecuencia de su actuación en la empresa.",
      "explicacion": "Art. 37.3: alcanza a «las informaciones a que tuviesen acceso como consecuencia de su actuación en la empresa»."
     }
    ]
@@ -1687,7 +1779,7 @@
    "id": "LPRL-a39-1-planes",
    "bloque": "a39",
    "apartado": "1",
-   "orden": 1660,
+   "orden": 1672,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -1730,7 +1822,17 @@
       "El proyecto y organización de la formación preventiva."
      ],
      "correcta": 0,
-     "explicacion": "Art. 39.1.a): modalidad organizativa, planificación, nuevas tecnologías y formación; no salarios."
+     "explicacion": "Art. 39.1.a): modalidad organizativa, planificación, nuevas tecnologías y formación; no salarios.",
+     "respaldo": [
+      {
+       "articulo": "a39",
+       "cita": "los proyectos en materia de planificación, organización del trabajo e introducción de nuevas tecnologías"
+      },
+      {
+       "articulo": "a39",
+       "cita": "proyecto y organización de la formación en materia preventiva."
+      }
+     ]
     }
    ]
   },
@@ -1738,7 +1840,7 @@
    "id": "LPRL-a37-4-aapp",
    "bloque": "a37",
    "apartado": "4",
-   "orden": 1670,
+   "orden": 1616,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -1781,6 +1883,7 @@
       "Para el personal estatutario, la remisión de garantías y sigilo es a la Ley General de Sanidad."
      ],
      "correcta": 0,
+     "cita": "Lo dispuesto en el presente artículo en materia de garantías y sigilo profesional de los Delegados de Prevención se entenderá referido, en el caso de las relaciones de carácter administrativo o estatutario del personal al servicio de las Administraciones públicas, a la regulación contenida en los artículos 10, párrafo segundo, y 11 de la Ley 9/1987, de 12 de junio, de Organos de Representación, Determinación de las Condiciones de Trabajo y Participación del Personal al Servicio de las Administraciones Públicas.",
      "explicacion": "Art. 37.4: la remisión es a la Ley 9/1987 (no a la Ley 7/1990, que el art. 34.3 cita para la adaptación de la participación)."
     }
    ]
@@ -1789,7 +1892,7 @@
    "id": "LPRL-a39-1-iniciativas",
    "bloque": "a39",
    "apartado": "1",
-   "orden": 1670,
+   "orden": 1680,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -1832,7 +1935,13 @@
       "El Comité sanciona a la empresa que no corrige las deficiencias."
      ],
      "correcta": 0,
-     "explicacion": "Art. 39.1.b): el Comité propone; no ordena ni sanciona."
+     "explicacion": "Art. 39.1.b): el Comité propone; no ordena ni sanciona.",
+     "respaldo": [
+      {
+       "articulo": "a39",
+       "cita": "b) Promover iniciativas sobre métodos y procedimientos para la efectiva prevención de los riesgos, proponiendo a la empresa la mejora de las condiciones o la corrección de las deficiencias existentes."
+      }
+     ]
     }
    ]
   },
@@ -1840,7 +1949,7 @@
    "id": "LPRL-a39-2-conocer",
    "bloque": "a39",
    "apartado": "2",
-   "orden": 1680,
+   "orden": 1688,
    "tipo": "lista",
    "prioridad": 1,
    "tarjeta": {
@@ -1872,6 +1981,7 @@
       "La actividad del servicio de prevención, en su caso."
      ],
      "correcta": 2,
+     "cita": "b) Conocer cuantos documentos e informes relativos a las condiciones de trabajo sean necesarios para el cumplimiento de sus funciones, así como los procedentes de la actividad del servicio de prevención, en su caso.",
      "explicacion": "Art. 39.2.b): documentos e informes de condiciones de trabajo y de la actividad del servicio de prevención."
     },
     {
@@ -1883,7 +1993,13 @@
       "El Comité necesita autorización de la autoridad laboral para realizar cada visita al centro."
      ],
      "correcta": 0,
-     "explicacion": "Art. 39.2.a) y b): facultad propia, sin autorización previa, de conocer directamente situación y documentos."
+     "explicacion": "Art. 39.2.a) y b): facultad propia, sin autorización previa, de conocer directamente situación y documentos.",
+     "respaldo": [
+      {
+       "articulo": "a39",
+       "cita": "a) Conocer directamente la situación relativa a la prevención de riesgos en el centro de trabajo, realizando a tal efecto las visitas que estime oportunas."
+      }
+     ]
     }
    ]
   },
@@ -1891,7 +2007,7 @@
    "id": "LPRL-a39-2-danos-memoria",
    "bloque": "a39",
    "apartado": "2",
-   "orden": 1690,
+   "orden": 1696,
    "tipo": "lista",
    "prioridad": 1,
    "tarjeta": {
@@ -1912,6 +2028,7 @@
       "Planes de formación profesional"
      ],
      "correcta": 0,
+     "cita": "d) Conocer e informar la memoria y programación anual de servicios de prevención.",
      "explicacion": "Art. 39.2.d): «conocer e informar la memoria y programación anual de servicios de prevención»."
     },
     {
@@ -1934,6 +2051,7 @@
       "Aprobar la contratación del servicio de prevención ajeno."
      ],
      "correcta": 0,
+     "cita": "d) Conocer e informar la memoria y programación anual de servicios de prevención.",
      "explicacion": "Art. 39.2.c) y d): el Comité conoce, analiza e informa; no elabora la evaluación ni contrata."
     }
    ]
@@ -1942,7 +2060,7 @@
    "id": "LPRL-a39-3-reuniones-conjuntas",
    "bloque": "a39",
    "apartado": "3",
-   "orden": 1700,
+   "orden": 1704,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -1974,6 +2092,7 @@
       "Delegados de Prevención y empresarios."
      ],
      "correcta": 2,
+     "cita": "A fin de dar cumplimiento a lo dispuesto en esta Ley respecto de la colaboración entre empresas en los supuestos de desarrollo simultáneo de actividades en un mismo centro de trabajo, se podrá acordar la realización de reuniones conjuntas de los Comités de Seguridad y Salud o, en su defecto, de los Delegados de Prevención y empresarios de las empresas que carezcan de dichos Comités, u otras medidas de actuación coordinada.",
      "explicacion": "Art. 39.3: «en su defecto, de los Delegados de Prevención y empresarios de las empresas que carezcan de dichos Comités»."
     },
     {
@@ -1993,7 +2112,7 @@
    "id": "LPRL-a40-1-recurso",
    "bloque": "a40",
    "apartado": "1",
-   "orden": 1710,
+   "orden": 1712,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -2064,6 +2183,7 @@
       "Las observaciones que estimen oportunas"
      ],
      "correcta": 1,
+     "cita": "En las visitas a los centros de trabajo para la comprobación del cumplimiento de la normativa sobre prevención de riesgos laborales, el Inspector de Trabajo y Seguridad Social comunicará su presencia al empresario o a su representante o a la persona inspeccionada, al Comité de Seguridad y Salud, al Delegado de Prevención o, en su ausencia, a los representantes legales de los trabajadores, a fin de que puedan acompañarle durante el desarrollo de su visita y formularle las observaciones que estimen oportunas, a menos que considere que dichas comunicaciones puedan perjudicar el éxito de sus funciones.",
      "explicacion": "Art. 40.2: acompañarle y formularle «las observaciones que estimen oportunas»."
     },
     {
@@ -2075,6 +2195,7 @@
       "Los representantes legales de los trabajadores."
      ],
      "correcta": 2,
+     "cita": "En las visitas a los centros de trabajo para la comprobación del cumplimiento de la normativa sobre prevención de riesgos laborales, el Inspector de Trabajo y Seguridad Social comunicará su presencia al empresario o a su representante o a la persona inspeccionada, al Comité de Seguridad y Salud, al Delegado de Prevención o, en su ausencia, a los representantes legales de los trabajadores, a fin de que puedan acompañarle durante el desarrollo de su visita y formularle las observaciones que estimen oportunas, a menos que considere que dichas comunicaciones puedan perjudicar el éxito de sus funciones.",
      "explicacion": "Art. 40.2: Delegado de Prevención «o, en su ausencia, a los representantes legales de los trabajadores»."
     },
     {
@@ -2086,6 +2207,7 @@
       "Cuando el empresario se oponga expresamente a la presencia de los representantes."
      ],
      "correcta": 0,
+     "cita": "En las visitas a los centros de trabajo para la comprobación del cumplimiento de la normativa sobre prevención de riesgos laborales, el Inspector de Trabajo y Seguridad Social comunicará su presencia al empresario o a su representante o a la persona inspeccionada, al Comité de Seguridad y Salud, al Delegado de Prevención o, en su ausencia, a los representantes legales de los trabajadores, a fin de que puedan acompañarle durante el desarrollo de su visita y formularle las observaciones que estimen oportunas, a menos que considere que dichas comunicaciones puedan perjudicar el éxito de sus funciones.",
      "explicacion": "Art. 40.2: excepción si la comunicación «pueda perjudicar el éxito de sus funciones»."
     }
    ]
@@ -2094,7 +2216,7 @@
    "id": "LPRL-a40-3-informe",
    "bloque": "a40",
    "apartado": "3",
-   "orden": 1730,
+   "orden": 1728,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -2126,6 +2248,7 @@
       "Las medidas adoptadas como consecuencia de las mismas."
      ],
      "correcta": 2,
+     "cita": "La Inspección de Trabajo y Seguridad Social informará a los Delegados de Prevención sobre los resultados de las visitas a que hace referencia el apartado anterior y sobre las medidas adoptadas como consecuencia de las mismas, así como al empresario mediante diligencia en el Libro de Visitas de la Inspección de Trabajo y Seguridad Social que debe existir en cada centro de trabajo.",
      "explicacion": "Art. 40.3: informa a los Delegados de Prevención de resultados y «medidas adoptadas»."
     },
     {
@@ -2145,7 +2268,7 @@
    "id": "LPRL-a40-4-consulta",
    "bloque": "a40",
    "apartado": "4",
-   "orden": 1740,
+   "orden": 1736,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -2187,6 +2310,7 @@
       "Dirigir su ejecución junto con los inspectores."
      ],
      "correcta": 0,
+     "cita": "e informadas del resultado de dichos planes",
      "explicacion": "Art. 40.4: serán «informadas del resultado de dichos planes»."
     }
    ]

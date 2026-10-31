@@ -30,24 +30,13 @@ import {
 import { getAdaptiveQuestion, processAttempt, getAdaptiveDailySession, createNewMemoryState, normalizeSpacedEvidence } from './utils/engine';
 import { MAX_VALID_RESPONSE_SECONDS } from './utils/activeTimer';
 
-import Dashboard from './components/Dashboard';
-import TodayTraining from './components/TodayTraining';
-import TrainScreen from './components/TrainScreen';
-import ErrorPanel from './components/ErrorPanel';
-import AccountErrorPanel, { type AccountErrorsState } from './components/AccountErrorPanel';
-import ForgettingCurve from './components/ForgettingCurve';
-import MockExam from './components/MockExam';
-import Login from './components/Login';
+import type { AccountErrorsState } from './components/AccountErrorPanel';
 import AccesoConfirmado from './components/AccesoConfirmado';
 import { retornoAuthInicial, limpiarUrlRetornoAuth } from './lib/authRetorno';
-import StudyByTopic from './components/StudyByTopic';
 import { fetchKeyless } from './lib/secureQuestions';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer, toLevelInt } from './lib/saveAttemptToServer';
 import UpdateBanner from './components/UpdateBanner';
-import MyReports from './components/MyReports';
-import ConceptStudy from './components/ConceptStudy';
-import MaterialConstitucion from './components/MaterialConstitucion';
 import SaveFailureBanner from './components/SaveFailureBanner';
 import { hasCompletedOnboarding } from './utils/onboarding';
 import { isPlanesEnabled, textoAlta } from './config/features';
@@ -60,8 +49,14 @@ import { cargarSupuestosCuenta } from './lib/privateSupuestos';
 import { shuffleAllOptions } from './utils/shuffleOptions';
 import { newStudySessionId, startStudySession, finishStudySession } from './lib/studySession';
 import { TrainCelebration } from './components/SessionCelebration';
+import Dashboard from './components/Dashboard';
+import TrainScreen from './components/TrainScreen';
 import Badajoz2026Card from './components/Badajoz2026Card';
 import { hasGuestSignupIntent, markGuestSignupIntent, markPreferLogin, migrateGuestProgress, prefersLogin } from './utils/guestProgress';
+import Skeleton from './components/Skeleton';
+import AppShell from './components/AppShell';
+
+const GUEST_SIN_BACKEND = import.meta.env.VITE_GUEST_SIN_BACKEND === 'true';
 
 // Normalize only the in-memory view; preserve the original local history for recovery.
 const getSafeMemoryStates = (): Record<string, MemoryState> => {
@@ -70,11 +65,21 @@ const getSafeMemoryStates = (): Record<string, MemoryState> => {
 };
 
 // Pantallas de recuerdo: se cargan bajo demanda para no meter todos los mazos en el bundle inicial.
+const TodayTraining = lazy(() => import('./components/TodayTraining'));
+const ErrorPanel = lazy(() => import('./components/ErrorPanel'));
+const ForgettingCurve = lazy(() => import('./components/ForgettingCurve'));
+const MockExam = lazy(() => import('./components/MockExam'));
+const Login = lazy(() => import('./components/Login'));
+const StudyByTopic = lazy(() => import('./components/StudyByTopic'));
+const MyReports = lazy(() => import('./components/MyReports'));
+const AccountErrorPanel = lazy(() => import('./components/AccountErrorPanel'));
+const ConceptStudy = lazy(() => import('./components/ConceptStudy'));
+const MaterialConstitucion = lazy(() => import('./components/MaterialConstitucion'));
 const RecallHub = lazy(() => import('./components/RecallHub'));
 const DailySession = lazy(() => import('./components/DailySession'));
 const OrdenaPasos = lazy(() => import('./components/OrdenaPasos'));
 const SupuestosPracticos = lazy(() => import('./components/SupuestosPracticos'));
-const Onboarding = lazy(() => import('./components/Onboarding'));
+import Onboarding from './components/Onboarding';
 const Planes = lazy(() => import('./components/Planes'));
 
 const SCREEN_TITLES = {
@@ -84,7 +89,7 @@ const SCREEN_TITLES = {
   forgetting_curve: 'Curva de olvido',
   mock_exam: 'Simulacro',
   today_training: 'Entrenamiento de hoy',
-  study_by_topic: 'Estudio por Temas',
+  study_by_topic: 'Estudio por temas',
   concept_t40: 'Estudiar hoy',
   constitucion: 'Constitución · Título Preliminar',
   my_reports: 'Mis reportes',
@@ -125,6 +130,8 @@ export default function App() {
   const openPlanes = planesEnabled ? () => handleNavigate('planes') : undefined;
   // La bienvenida abre la sesión diaria directamente en la primera ficha.
   const [dailyAutoStart, setDailyAutoStart] = useState(false);
+  const [mockAutoStart, setMockAutoStart] = useState(false);
+  const [recallTarget, setRecallTarget] = useState<string | undefined>(undefined);
 
   const [memoryStates, setMemoryStates] = useState<Record<string, MemoryState>>({});
   // «Errores críticos» con cuenta: fallos guardados en el servidor (migración 42).
@@ -257,7 +264,7 @@ export default function App() {
   // tema según el peso en el examen. El orden que devuelve se respeta tal cual.
   const loadServerSession = async (): Promise<Question[]> => {
     if (!supabase) return [];
-    // C2 (migración 34): la sesión llega SIN clave; TrainScreen corrige con check_answer.
+    // C2 (migración 38): la sesión llega SIN clave; TrainScreen corrige con check_answer.
     // Fail closed: nunca volver al exportador heredado cuando falla el motor seguro.
     return shuffleAllOptions(await fetchKeyless(supabase, 'get_study_session_v2', { p_limit: 10 }));
   };
@@ -335,6 +342,8 @@ export default function App() {
   ) => {
     if (screen === 'planes') trackFunnel('planes_view');
     setDailyAutoStart(false);
+    setMockAutoStart(false);
+    setRecallTarget(undefined);
     setCurrentScreen(screen);
     
     // Clear targeted concept constraints when returning to general study or exiting train screen
@@ -642,8 +651,9 @@ export default function App() {
 
   // Primer uso sin cuenta: se entra directamente como invitado (sin muro de registro).
   // La pantalla de acceso solo aparece si el alumno la pide o ya tuvo sesión en este navegador.
+  // Build de prueba sin VITE_SUPABASE_* (VITE_GUEST_SIN_BACKEND=true): también entra como invitado (demo local).
   const autoGuestDone = useRef(false);
-  const autoGuestPending = !loadingAuth && !session && !!supabase && !isDemoMode && !prefersLogin() && !autoGuestDone.current;
+  const autoGuestPending = !loadingAuth && !session && (!!supabase || GUEST_SIN_BACKEND) && !isDemoMode && !prefersLogin() && !retornoAuthInicial && !autoGuestDone.current;
   useEffect(() => {
     if (!autoGuestPending) return;
     autoGuestDone.current = true;
@@ -651,12 +661,17 @@ export default function App() {
     handleStartDemo();
   }, [autoGuestPending]);
 
-  const handleStartDemo = () => {
+  // Primer uso automático (invitado): bienvenida/inicio. Botón «Prueba 15 preguntas» del acceso: directo a las preguntas.
+  const handleStartDemo = (directo = false) => {
     resetDemoState();
     demoFirstAnswerTracked.current = false;
     if (!session) trackFunnel('demo_start');
     setIsDemoMode(true);
     setDbQuestions(INITIAL_QUESTIONS);
+    if (!directo) {
+      setCurrentScreen(hasCompletedOnboarding() ? 'dashboard' : 'onboarding');
+      return;
+    }
     // La entrada promete «Prueba 15 preguntas»: la demo abre directamente esas preguntas.
     setDailyAutoStart(false);
     setCurrentScreen('train');
@@ -704,15 +719,7 @@ export default function App() {
 
   if (loadingAuth || autoGuestPending) {
     return (
-      <div
-        className="min-h-screen bg-fondo flex items-center justify-center font-sans"
-        role="status"
-        aria-live="polite"
-        aria-busy="true"
-      >
-        <div className="animate-spin w-8 h-8 border-4 border-indigo-200 border-t-indigo-600 rounded-full" aria-hidden="true"></div>
-        <span className="sr-only">Comprobando tu sesión...</span>
-      </div>
+      <AppShell label="Comprobando tu sesión..." />
     );
   }
 
@@ -757,7 +764,7 @@ export default function App() {
         {/* Si la sesión caduca a mitad de estudio, aquí se avisa de lo que sigue pendiente. */}
         <UpdateBanner />
         <SaveFailureBanner showIfPending />
-        <Login initialMode={loginMode} onStartDemo={() => { setLoginMode('entrar'); handleStartDemo(); }} />
+        <Suspense fallback={<Skeleton label="Cargando la pantalla de acceso…" className="p-6" />}><Login initialMode={loginMode} onStartDemo={() => { setLoginMode('entrar'); handleStartDemo(true); }} /></Suspense>
       </>
     );
   }
@@ -780,7 +787,7 @@ export default function App() {
       {isDemoMode && (
         <div
           role="region"
-          aria-label="Aviso de modo demostración"
+          aria-label="Aviso de modo invitado"
           className="bg-amber-400 text-slate-950 px-3 sm:px-4 py-1.5 text-sm font-semibold shadow-xs"
         >
           {/* En el móvil cabe en una sola fila: cada píxel de alto deja ver antes la pregunta. */}
@@ -788,9 +795,9 @@ export default function App() {
             <div className="flex min-w-0 items-center gap-2 text-left">
               <span className="hidden sm:block w-2 h-2 rounded-full bg-amber-900 animate-pulse shrink-0" aria-hidden="true" />
               <span className="text-xs leading-tight sm:text-sm">
-                <strong><span className="sm:hidden">Demo</span><span className="hidden sm:inline">Modo demostración</span></strong>
+                <strong>Modo invitado</strong>
                 <span className="sm:hidden">: tu progreso se guarda en este dispositivo.</span>
-                <span className="hidden sm:inline">: las fichas y el simulacro se guardan solo en este dispositivo. Crea una cuenta para conservarlos.</span>
+                <span className="hidden sm:inline">: tu progreso se guarda en este dispositivo.</span>
               </span>
             </div>
             <div className="flex items-center gap-2 shrink-0">
@@ -799,21 +806,22 @@ export default function App() {
                   type="button"
                   id="btn-demo-signup"
                   onClick={handleDemoSignup}
-                  className="min-h-11 px-3 py-1 bg-indigo-700 hover:bg-indigo-800 text-white rounded-lg text-sm font-bold transition cursor-pointer"
+                  className="min-h-11 px-2 py-1 text-slate-950 underline underline-offset-2 text-sm font-semibold cursor-pointer"
                 >
                   {textoAlta()}
                 </button>
               )}
-              <button
-                type="button"
-                id="btn-exit-demo"
-                onClick={handleExitDemo}
-                aria-label="Salir de la demo"
-                className="min-h-11 px-2.5 py-1 bg-slate-950 hover:bg-slate-800 text-white rounded-lg text-sm font-bold transition cursor-pointer"
-              >
-                <span className="sm:hidden">Salir</span>
-                <span className="hidden sm:inline">Salir de la demo</span>
-              </button>
+              {supabase && !session && (
+                <button
+                  type="button"
+                  id="btn-exit-demo"
+                  onClick={handleExitDemo}
+                  aria-label="Entrar con tu cuenta"
+                  className="min-h-11 px-2 py-1 text-slate-950 underline underline-offset-2 text-sm font-semibold cursor-pointer"
+                >
+                  Entrar
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -834,7 +842,7 @@ export default function App() {
         <div className="max-w-4xl mx-auto px-4 min-h-14 py-1.5 lg:min-h-16 flex flex-wrap items-center justify-between gap-2">
           <button
             type="button"
-            aria-label="Ir al inicio"
+            aria-label="BomberoPro, ir al inicio"
             className="flex min-h-11 min-w-0 items-center gap-2.5 cursor-pointer text-left"
             onClick={() => handleNavigate('dashboard')}
             id="brand-logo"
@@ -890,9 +898,9 @@ export default function App() {
             {!isDemoMode && (
             <button
               onClick={handleLogout}
-              aria-label="Cerrar sesión"
+              aria-label={isDemoMode ? 'Salir de la demostración' : 'Salir (cerrar sesión)'}
               className="min-h-11 min-w-11 px-2.5 py-1.5 text-slate-600 hover:text-red-600 hover:bg-red-50 rounded-lg text-xs font-semibold transition flex items-center justify-center gap-1"
-              title="Cerrar sesión"
+              title={isDemoMode ? 'Salir de la demostración' : 'Cerrar sesión'}
             >
               <LogOut className="w-4 h-4" aria-hidden="true" />
               <span>Salir</span>
@@ -908,6 +916,7 @@ export default function App() {
         tabIndex={-1}
         className="flex-1 max-w-4xl w-full mx-auto px-4 pt-4 pb-24 lg:py-8"
       >
+        <Suspense fallback={<Skeleton label="Cargando la pantalla…" />}>
         {currentScreen === 'dashboard' && (
           <>
           {!isDemoMode && session?.user?.id && supabase && (
@@ -1072,10 +1081,11 @@ export default function App() {
             onNavigateHome={() => handleNavigate('dashboard')}
             useServerQuestions={!!session && !isDemoMode}
             onGuestSignup={supabase && !session ? handleDemoSignup : undefined}
+            autoStart={mockAutoStart}
+            onStudyTopic={(topicId) => { handleNavigate('recuerdo'); setRecallTarget(topicId); }}
           />
         )}
 
-        <Suspense fallback={<p role="status" className="p-6 text-sm text-slate-500">Cargando fichas…</p>}>
           {currentScreen === 'onboarding' && (
             <Onboarding
               cuenta={Boolean(conceptOwner)}
@@ -1089,6 +1099,11 @@ export default function App() {
                 setDailyAutoStart(true);
               }}
               onSkip={() => handleNavigate('dashboard')}
+              onTryExam={isDemoMode || !session ? () => {
+                handleNavigate('mock_exam');
+                setMockAutoStart(true);
+              } : undefined}
+              onOpenPlanes={planesEnabled ? () => handleNavigate('planes') : undefined}
             />
           )}
 
@@ -1097,7 +1112,7 @@ export default function App() {
           )}
 
           {currentScreen === 'recuerdo' && (
-            <RecallHub demo={isDemoMode || !session} onNavigateHome={() => handleNavigate('dashboard')} onOpenPlanes={openPlanes} />
+            <RecallHub key={recallTarget ?? 'recuerdo'} initialDeckId={recallTarget} demo={isDemoMode || !session} onNavigateHome={() => handleNavigate('dashboard')} onOpenPlanes={openPlanes} />
           )}
 
           {currentScreen === 'sesion_diaria' && (
@@ -1121,13 +1136,10 @@ export default function App() {
               onBackToDaily={() => handleNavigate('sesion_diaria')}
             />
           )}
-        </Suspense>
 
         {currentScreen === 'study_by_topic' && (isDemoMode || !supabase) && (
-          <section aria-label="Estudio por temas no disponible en la demostración" className="rounded-xl border border-slate-200 bg-white p-6">
-            <h2 className="text-lg font-bold text-slate-900">Estudio por temas</h2>
-            <p className="mt-2 text-sm text-slate-600">Esta función guarda tu progreso y requiere una cuenta. Crea una cuenta o inicia sesión para usarla.</p>
-            <button type="button" className="mt-4 rounded-lg bg-indigo-700 px-4 py-2 font-semibold text-white" onClick={() => handleNavigate('dashboard')}>Volver al inicio</button>
+          <section aria-label="Estudiar por temas" className="space-y-3">
+            <RecallHub demo onNavigateHome={() => handleNavigate('dashboard')} onOpenPlanes={openPlanes} />
           </section>
         )}
         {currentScreen === 'study_by_topic' && !isDemoMode && !!supabase && (
@@ -1159,6 +1171,7 @@ export default function App() {
             </ul>
           </section>
         )}
+      </Suspense>
       </main>
 
       {currentScreen !== 'onboarding' && (
@@ -1195,7 +1208,7 @@ export default function App() {
         <div className="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
             <p className="font-semibold text-slate-600">BomberoPro — Oposición CPEI Badajoz</p>
-            <p className="text-xs text-slate-600 mt-0.5">Basado en Microconceptos, Interrogación activa, Repetición espaciada y Aseguramiento del dominio real.</p>
+            <p className="text-xs text-slate-600 mt-0.5">Basado en microconceptos, recuerdo activo y repaso espaciado.</p>
           </div>
         </div>
       </footer>

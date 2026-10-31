@@ -4,11 +4,16 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
+import { conceptTopicLabel } from '../utils/conceptLabels';
 import { HelpCircle, Clock, CheckCircle2, XCircle, AlertTriangle, Play, RotateCcw, ArrowLeft, ArrowRight, Brain, Sparkles, Award } from 'lucide-react';
 import { Question, ConfidenceLevel, Microconcept } from '../types';
 import { INITIAL_QUESTIONS } from '../data/initialData';
 import { supabase } from '../lib/supabase';
+import { formatDecimal, formatPoints } from '../utils/formatNumber';
 import { calculateExamScore, EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS, isExamPassed, scoreOutOfTen } from '../utils/examScoring';
+import { arrangeBlueprint } from '../utils/examBlueprint';
+import { recommendTopic, summarizeByTopic, type TopicSummary } from '../utils/examReport';
+import { getVisibleTopic } from '../data/recallRegistry';
 import { EXAM_DURATION_SECONDS, formatExamTime, getRemainingExamSeconds } from '../utils/examTimer';
 import StudentConsultation from './StudentConsultationModal';
 import GuestSignupPrompt from './GuestSignupPrompt';
@@ -40,14 +45,41 @@ interface MockExamProps {
   useServerQuestions?: boolean;
   /** Invitado sin cuenta: tras ver la nota, ofrecer guardar el progreso creando una cuenta. */
   onGuestSignup?: () => void;
+  /** Abre el Recuerdo de un tema (`tema35`) desde la recomendación del resultado. */
+  onStudyTopic?: (topicId: string) => void;
+  /** Empieza el simulacro al montar (atajo «Probar un simulacro de muestra» de la Bienvenida). */
+  autoStart?: boolean;
 }
+
+/** Pregunta fallada con los datos que ya trae (clave revelada al corregir, explicación, cita y fuente). */
+interface FailedQuestion {
+  id: string;
+  question: string;
+  answer: string;
+  correctAnswer: string;
+  explanation: string;
+  cita?: string;
+  fuente?: string;
+  tema?: { numero: number; titulo: string } | null;
+}
+
+/** La explicación solo repite la respuesta y la fuente («Ficha: «X» Fuente: …»): no se muestra dos veces. */
+function isRedundantExplanation(f: FailedQuestion): boolean {
+  const e = f.explanation.trim();
+  return /^Ficha:/.test(e) && (!f.correctAnswer || e.includes(f.correctAnswer.replace(/\.$/, '')));
+}
+
+/** Línea de la fórmula de las bases (BOP de Badajoz nº 135, de 17/07/2026). */
+export const EXAM_FORMULA_TEXT = `Fórmula de las bases (BOP de Badajoz nº 135, de 17/07/2026): ${formatPoints(EXAM_CORRECT_POINTS)} por acierto, ${formatPoints(EXAM_INCORRECT_POINTS)} por error y 0 en blanco.`;
 
 export default function MockExam({
   microconcepts,
   onFinishExam,
   onNavigateHome,
   useServerQuestions = false,
-  onGuestSignup
+  onGuestSignup,
+  autoStart = false,
+  onStudyTopic
 }: MockExamProps) {
   const [examStarted, setExamStarted] = useState(false);
   const [examFinished, setExamFinished] = useState(false);
@@ -55,6 +87,7 @@ export default function MockExam({
   const [questions, setQuestions] = useState<Question[]>([]);
   const [gradeError, setGradeError] = useState<string | null>(null);
   const [sampleMode, setSampleMode] = useState(false);
+  const [blueprintWarning, setBlueprintWarning] = useState<string | null>(null);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [examSeed, setExamSeed] = useState<number | null>(null);
   
@@ -87,6 +120,8 @@ export default function MockExam({
     specificStats: { correct: number; incorrect: number; blank: number };
     failedConcepts: string[];
     falseDomains: string[];
+    byTopic: TopicSummary[];
+    failedQuestions: FailedQuestion[];
   } | null>(null);
 
   // Generate 10 random mixed questions from the database
@@ -113,8 +148,13 @@ export default function MockExam({
         console.warn(`Usando el banco público local (${INITIAL_QUESTIONS.length} preguntas)`);
         selected = [...INITIAL_QUESTIONS].sort(() => 0.5 - Math.random());
         setSampleMode(true);
+        setBlueprintWarning(null);
       } else {
         setSampleMode(false);
+        // Bases: 50 puntuables + 5 de reserva y el 30 % de T35-40 entre las puntuables.
+        const bp = arrangeBlueprint(selected);
+        selected = bp.questions;
+        setBlueprintWarning(bp.complete ? null : `El banco solo permite ${selected.length} preguntas y ${bp.localScored} de los temas 35-40 entre las puntuables (las bases piden ${bp.localRequired}).`);
       }
 
       setQuestions(shuffleAllOptions(selected));
@@ -213,7 +253,8 @@ export default function MockExam({
         responseTime: rTime,
         answerChanges: answerChangesRef.current[q.id] || 0,
         isSpecific,
-        isReserve
+        isReserve,
+        tema: q.tema ?? null
       };
     });
 
@@ -263,7 +304,21 @@ export default function MockExam({
         blank: specificResults.filter(r => !r.answered).length
       },
       failedConcepts,
-      falseDomains
+      falseDomains,
+      byTopic: summarizeByTopic(officialResults),
+      failedQuestions: questions
+        .map((q, index) => ({ q, index, ans: answers[q.id] || '' }))
+        .filter(({ q, index, ans }) => index < 50 && ans !== '' && !checks[q.id]?.correct)
+        .map(({ q, ans }) => ({
+          id: q.id,
+          question: q.question,
+          answer: ans,
+          correctAnswer: checks[q.id]?.correctAnswer ?? q.correct_answer ?? '',
+          explanation: checks[q.id]?.explanation ?? q.explanation ?? '',
+          cita: q.cita,
+          fuente: q.fuente,
+          tema: q.tema ?? null,
+        })),
     } as any);
 
     setExamFinished(true);
@@ -306,6 +361,15 @@ export default function MockExam({
     if (examFinished && testResults) resultsSummaryRef.current?.focus();
   }, [examFinished, testResults]);
 
+  const autoStartedRef = useRef(false);
+  useEffect(() => {
+    if (autoStart && !autoStartedRef.current && !examStarted) {
+      autoStartedRef.current = true;
+      void startNewExam();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoStart]);
+
   const getConceptText = (id: string) => {
     return microconcepts.find(mc => mc.id === id)?.text || id;
   };
@@ -337,23 +401,29 @@ export default function MockExam({
           </div>
           
           <div className="space-y-2">
-            <h2 className="text-2xl font-black text-slate-800">Simulador de Examen</h2>
+            <h2 className="text-2xl font-black text-slate-800">Simulador de examen</h2>
             <p className="text-base text-slate-600 max-w-md mx-auto">
-              Practica con 55 preguntas siguiendo la estructura indicada en las bases de CPEI Badajoz. Las preguntas pertenecen al banco de BomberoPRO y no son preguntas oficiales de exámenes anteriores.
+              {useServerQuestions ? 'Practica con 55 preguntas (50 + 5 de reserva)' : 'Practica con una muestra de preguntas'} siguiendo la estructura indicada en las bases de CPEI Badajoz. Las preguntas pertenecen al banco de BomberoPro y no son preguntas oficiales de exámenes anteriores.
             </p>
           </div>
 
           <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 text-left text-sm text-slate-700 space-y-3 max-w-md mx-auto">
             <p className="font-bold text-slate-800 flex items-center gap-1.5">
               <Clock className="w-4 h-4 text-indigo-500" />
-              Reglas del Simulacro:
+              Reglas del simulacro:
             </p>
             <ul className="list-disc list-inside space-y-1.5 pl-1 leading-normal">
-              <li>Fórmula oficial: <strong>+{EXAM_CORRECT_POINTS.toFixed(3)}</strong> por acierto y <strong>{EXAM_INCORRECT_POINTS.toFixed(3)}</strong> por error.</li>
-              <li>Consta de <strong>55 preguntas (50 + 5 reserva)</strong>.{!useServerQuestions && <> Sin cuenta se usan las <strong>{INITIAL_QUESTIONS.length} preguntas públicas</strong> que hay hoy.</>}</li>
-              <li>Proporción oficial: <strong>30% de preguntas de temas 35-40</strong> garantizado.</li>
+              <li>Fórmula oficial: <strong>{formatPoints(EXAM_CORRECT_POINTS)}</strong> por acierto, <strong>{formatPoints(EXAM_INCORRECT_POINTS)}</strong> por error y 0 en blanco.</li>
+              {useServerQuestions ? (
+                <>
+                  <li>Consta de <strong>55 preguntas (50 + 5 reserva)</strong>.</li>
+                  <li>Proporción oficial: <strong>30% de preguntas de temas 35-40</strong> garantizado.</li>
+                </>
+              ) : (
+                <li>Sin cuenta es un <strong>simulacro de muestra</strong> con las <strong>{INITIAL_QUESTIONS.length} preguntas públicas</strong> que hay hoy: todavía no sigue el reparto oficial (55 preguntas, 30 % de los temas 35-40).</li>
+              )}
               <li>Preguntas en orden aleatorio, como en el examen.</li>
-              <li>Al finalizar obtendrás un informe detallado con tu plan de estudio de sanea-errores.</li>
+              <li>Al terminar verás tu nota, cada fallo con la respuesta correcta y su fuente, y qué tema repasar primero.</li>
             </ul>
           </div>
 
@@ -371,7 +441,7 @@ export default function MockExam({
             ) : (
               <>
                 <Play className="w-4 h-4 fill-current" />
-                Comenzar Simulacro
+                Comenzar simulacro
               </>
             )}
           </button>
@@ -388,8 +458,11 @@ export default function MockExam({
         <p role="note" className="mb-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900">
           {useServerQuestions
             ? `Simulacro de muestra con las ${questions.length} preguntas públicas: no se pudo cargar el banco completo.`
-            : `Simulacro de muestra sin cuenta con las ${questions.length} preguntas públicas disponibles. El simulacro oficial de 55 preguntas con el banco completo requiere una cuenta.`}
+            : `Simulacro de muestra con las ${questions.length} preguntas públicas disponibles; todavía no es el simulacro oficial de 55 preguntas.`}
         </p>
+      )}
+      {examStarted && !examFinished && blueprintWarning && (
+        <p role="note" className="mb-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900">{blueprintWarning}</p>
       )}
       {examStarted && !examFinished && questions.length > 0 && (
         <div className="max-w-3xl mx-auto space-y-4" id="active-exam-container">
@@ -512,7 +585,7 @@ export default function MockExam({
               <h3 id="mock-result-title" className="text-xl font-bold text-slate-900">Simulacro terminado</h3>
               <p className="text-sm text-slate-600">Tu resultado y qué repasar ahora.</p>
               <p id="mock-result-summary" className="sr-only">
-                Nota {testResults.score} de {testResults.maxScore}. Acierto {testResults.pct} por ciento. Tiempo medio {testResults.avgTime} segundos.
+                Nota {formatDecimal(testResults.score)} de {formatDecimal(testResults.maxScore)}. Acierto {testResults.pct} por ciento. Tiempo medio {testResults.avgTime} {testResults.avgTime === 1 ? 'segundo' : 'segundos'}.
               </p>
             </div>
 
@@ -520,11 +593,11 @@ export default function MockExam({
               <div>
                 <span className="block text-xs uppercase text-slate-600">Nota</span>
                 <strong className={`text-2xl sm:text-3xl font-extrabold ${testResults.passed ? 'text-emerald-600' : 'text-rose-600'}`}>
-                  {testResults.score.toFixed(3)}
+                  {formatDecimal(testResults.score)}
                 </strong>
-                <span className="text-sm text-slate-600"> / {testResults.maxScore}</span>
+                <span className="text-sm text-slate-600"> de {formatDecimal(testResults.maxScore)}</span>
                 {testResults.maxScore !== 10 && (
-                  <span className="block text-xs text-slate-600 mt-0.5">Equivale a {scoreOutOfTen(testResults.score, testResults.maxScore).toFixed(1)} sobre 10</span>
+                  <span className="block text-xs text-slate-600 mt-0.5">Equivale a {formatDecimal(scoreOutOfTen(testResults.score, testResults.maxScore), 1)} sobre 10</span>
                 )}
                 <span className={`block text-sm uppercase font-bold mt-0.5 ${testResults.passed ? 'text-emerald-600' : 'text-rose-600'}`}>
                   {testResults.passed ? '✓ Aprobado' : '✗ Suspenso'}
@@ -542,11 +615,80 @@ export default function MockExam({
               </div>
               <div>
                 <span className="block text-xs uppercase text-slate-600">Tiempo medio</span>
-                <strong className="text-2xl sm:text-3xl font-extrabold text-indigo-600">{testResults.avgTime}s</strong>
+                <strong className="text-2xl sm:text-3xl font-extrabold text-indigo-600">{testResults.avgTime} s</strong>
               </div>
             </div>
 
+            <p id="mock-formula" className="mx-auto max-w-md text-xs text-slate-600">{EXAM_FORMULA_TEXT}</p>
+
+            {(() => {
+              const rec = recommendTopic(testResults.byTopic);
+              const recTopic = rec?.numero != null ? getVisibleTopic(`tema${rec.numero}`) : undefined;
+              return (
+                <section aria-labelledby="mock-recomendacion-title" id="mock-recomendacion" className="mx-auto max-w-md space-y-2 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-left">
+                  <h4 id="mock-recomendacion-title" className="text-base font-bold text-slate-900">Qué estudiar ahora</h4>
+                  {rec ? (
+                    <p className="text-sm text-slate-800">
+                      Empieza por {rec.numero != null ? <strong>el tema {rec.numero} ({rec.titulo})</strong> : <strong>{rec.titulo.toLowerCase()}</strong>}:
+                      {' '}no acertaste {rec.incorrect + rec.blank} de {rec.total} {rec.total === 1 ? 'pregunta' : 'preguntas'}
+                      {rec.incorrect > 0 && rec.blank > 0 ? ` (${rec.incorrect} ${rec.incorrect === 1 ? 'fallo' : 'fallos'} y ${rec.blank} en blanco)` : ''}.
+                    </p>
+                  ) : (
+                    <p className="text-sm text-slate-800">Has acertado todas las preguntas puntuables. Repite el simulacro en unos días para comprobar que lo recuerdas.</p>
+                  )}
+                  {rec && recTopic && onStudyTopic && (
+                    <button type="button" id="btn-mock-study-topic" onClick={() => onStudyTopic(recTopic.id)}
+                      className="min-h-11 w-full rounded-xl border border-amber-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-amber-100">
+                      Repasar las fichas del tema {rec.numero}
+                    </button>
+                  )}
+                </section>
+              );
+            })()}
+
             {onGuestSignup && <GuestSignupPrompt what="el simulacro" onSignup={onGuestSignup} />}
+
+            <details className="mx-auto max-w-md text-left" id="mock-fallos-por-tema" open>
+              <summary className="min-h-11 cursor-pointer py-2 text-sm font-semibold text-slate-800">Resultado por tema</summary>
+              <table className="w-full text-sm">
+                <caption className="sr-only">Aciertos, fallos y blancos por tema</caption>
+                <thead>
+                  <tr className="text-xs text-slate-600"><th scope="col" className="py-1 text-left font-semibold">Tema</th><th scope="col" className="w-10 font-semibold"><span aria-hidden="true">✓</span><span className="sr-only">Aciertos</span></th><th scope="col" className="w-10 font-semibold"><span aria-hidden="true">✗</span><span className="sr-only">Fallos</span></th><th scope="col" className="w-10 font-semibold"><span aria-hidden="true">—</span><span className="sr-only">En blanco</span></th></tr>
+                </thead>
+                <tbody>
+                  {testResults.byTopic.map((t) => (
+                    <tr key={t.numero ?? 'otras'} className="border-t border-slate-200">
+                      <th scope="row" className="py-1.5 pr-2 text-left font-normal text-slate-800">{t.numero != null ? `T${t.numero} · ${t.titulo}` : t.titulo}</th>
+                      <td className="text-center text-emerald-700">{t.correct}</td>
+                      <td className="text-center text-rose-700">{t.incorrect}</td>
+                      <td className="text-center text-slate-700">{t.blank}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </details>
+
+
+            {testResults.failedQuestions.length > 0 && (
+              <section aria-labelledby="mock-fallos-title" id="mock-fallos" className="mx-auto max-w-md space-y-3 text-left">
+                <h4 id="mock-fallos-title" className="text-base font-bold text-slate-900">
+                  Tus fallos, con la respuesta correcta ({testResults.failedQuestions.length})
+                </h4>
+                <ol className="space-y-3">
+                  {testResults.failedQuestions.map((f, i) => (
+                    <li key={f.id} className="rounded-xl border border-slate-200 bg-white p-3 text-sm text-slate-800 space-y-1.5">
+                      {f.tema && <p className="text-xs font-semibold text-slate-600">T{f.tema.numero} · {f.tema.titulo}</p>}
+                      <p className="font-semibold text-slate-900">{i + 1}. {f.question}</p>
+                      <p><span className="text-rose-700 font-semibold">Tu respuesta:</span> {f.answer}</p>
+                      {f.correctAnswer && <p><span className="text-emerald-700 font-semibold">Correcta:</span> {f.correctAnswer}</p>}
+                      {f.explanation && !isRedundantExplanation(f) && <p className="text-slate-700">{f.explanation}</p>}
+                      {f.cita && <blockquote className="border-l-4 border-indigo-600 bg-slate-50 px-2 py-1 text-slate-700">«{f.cita}»</blockquote>}
+                      {f.fuente && <p className="text-xs text-slate-600">Fuente: {f.fuente}</p>}
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            )}
 
             {/* Topic Breakdown */}
             <div className="grid grid-cols-2 gap-3 max-w-md mx-auto pt-4 border-t border-slate-200 text-xs text-slate-600">
@@ -570,7 +712,7 @@ export default function MockExam({
           </div>
 
           {/* Diagnostics Column */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6" id="diagnostics-columns">
+          <div className="grid grid-cols-1 gap-6" id="diagnostics-columns">
             {/* Meta Data */}
             {/* La semilla se conserva (examSeed) para reproducir el examen, pero no se muestra al alumno. */}
             
@@ -592,40 +734,13 @@ export default function MockExam({
                   </p>
                   {testResults.falseDomains.map(id => (
                     <div key={id} className="p-2.5 bg-rose-50 rounded-lg text-sm text-rose-800 break-words font-serif leading-relaxed border border-rose-100">
-                      <strong>{id}:</strong> "{getConceptText(id)}"
+                      <strong>{conceptTopicLabel(id, questions)}:</strong> «{getConceptText(id)}»
                     </div>
                   ))}
                 </div>
               )}
             </div>
 
-            {/* Study Plan Recommendation */}
-            <div className="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-3">
-              <h4 className="text-base font-bold text-slate-800 flex items-center gap-1.5">
-                <Brain className="w-4 h-4 text-indigo-500" />
-                Qué repasar ahora
-              </h4>
-              
-              {testResults.failedConcepts.length === 0 ? (
-                <p className="text-sm text-slate-700 bg-emerald-50/50 p-3 rounded-xl border border-emerald-100/30">
-                  No has fallado ningún concepto. Sigue entrenando para no olvidarlo.
-                </p>
-              ) : (
-                <div className="space-y-2 text-xs text-slate-600">
-                  <p className="text-sm text-slate-600">
-                    Dedica tus próximas 2 sesiones a estos conceptos que has fallado:
-                  </p>
-                  <ul className="space-y-1 pl-1">
-                    {testResults.failedConcepts.map(id => (
-                      <li key={id} className="flex items-center gap-1.5 text-xs font-bold text-indigo-700 break-all bg-indigo-50/50 px-2 py-1 rounded">
-                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-600"></span>
-                        {id} (Art. {microconcepts.find(mc => mc.id === id)?.article})
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
           </div>
 
           {/* Footer Navigation */}
@@ -636,7 +751,7 @@ export default function MockExam({
               className="min-h-11 px-4 py-2.5 bg-white hover:bg-slate-100 text-slate-700 border border-slate-500 rounded-xl font-semibold text-sm transition flex items-center gap-1.5"
             >
               <RotateCcw className="w-4 h-4" />
-              Repetir Simulacro
+              Repetir simulacro
             </button>
             <button
               id="btn-nav-home-mock-finish"

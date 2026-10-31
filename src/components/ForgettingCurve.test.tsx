@@ -1,5 +1,6 @@
 // @vitest-environment jsdom
 
+import { conceptTopicLabel } from '../utils/conceptLabels';
 import '../test/setup';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -43,7 +44,7 @@ describe('ForgettingCurve', () => {
     await user.keyboard('{Enter}');
 
     expect(point).toHaveAttribute('aria-expanded', 'true');
-    expect(screen.getByRole('region', { name: concept.id })).toBeInTheDocument();
+    expect(screen.getByRole('region', { name: conceptTopicLabel(concept.id) })).toBeInTheDocument();
   });
 
   it('propaga la simulación temporal elegida', async () => {

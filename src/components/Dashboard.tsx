@@ -4,12 +4,14 @@
  */
 
 import React from 'react';
+import { formatDecimal } from '../utils/formatNumber';
 import { Play, AlertTriangle, HelpCircle, BarChart2, BookOpen, RotateCcw, Clock, ArrowRight, Flame, Award, Zap, Target, TrendingUp } from 'lucide-react';
 import { MemoryState, Microconcept, Attempt } from '../types';
 import { getCurrentDate, getTimeOffset } from '../utils/db';
 import type { RemoteConceptState } from '../lib/useRemoteConceptProgress';
 import { STATE_LABELS } from '../lib/conceptEngine';
 import StudentConsultation from './StudentConsultationModal';
+import Skeleton from './Skeleton';
 
 interface DashboardProps {
   remoteProgress?: RemoteConceptState;
@@ -147,7 +149,7 @@ export default function Dashboard({
       calibrationDesc = 'Tu alta seguridad coincide con aciertos reales. Gran precisión cognitiva en tus juicios.';
     } else if (calibrationIndex >= 70) {
       calibrationStatus = '⚖️ Calibración Estable';
-      calibrationColor = 'text-blue-500';
+      calibrationColor = 'text-indigo-500';
       calibrationDesc = 'Nivel de confianza bien alineado con la realidad. Buen equilibrio en tu autoevaluación.';
     } else {
       calibrationStatus = '⚠️ Sesgo de Sobreconfianza';
@@ -165,7 +167,7 @@ export default function Dashboard({
 
   return (
     <div className="space-y-6" id="mira-dashboard-container">
-      <h1 className="sr-only">Dashboard de BomberoPro</h1>
+      <h1 className="sr-only">Tu panel de BomberoPro</h1>
       {/* Simulation Header Indicator */}
       {import.meta.env.DEV && (
       <div className="flex flex-col md:flex-row md:items-center justify-between p-4 bg-slate-900 text-slate-100 rounded-2xl shadow-sm gap-4 border border-slate-800" id="mira-sim-bar">
@@ -271,7 +273,7 @@ export default function Dashboard({
             className="min-h-14 p-4 bg-white hover:bg-slate-50 text-slate-800 rounded-xl text-left border border-slate-300 transition"
           >
             <span className="flex items-center gap-2 font-semibold"><HelpCircle className="w-4 h-4 text-indigo-600" aria-hidden="true" />Hacer simulacro</span>
-            <span className="mt-0.5 block text-xs text-slate-600">Como el examen: 55 preguntas, 60 min.</span>
+            <span className="mt-0.5 block text-xs text-slate-600">Practica con tiempo, como en el examen.</span>
           </button>
           <button
             id="action-errors"
@@ -383,7 +385,7 @@ export default function Dashboard({
                 <div>
                   <span className="text-xs text-slate-600 block font-mono">Velocidad Media:</span>
                   <strong className="text-slate-700 text-xs font-mono">
-                    {avgResponseTime > 0 ? `${avgResponseTime.toFixed(1)}s` : 'N/A'}
+                    {avgResponseTime > 0 ? `${formatDecimal(avgResponseTime, 1)} s` : 'N/A'}
                   </strong>
                 </div>
               </div>
@@ -416,7 +418,7 @@ export default function Dashboard({
           </div>
           <div>
             <h5 className="font-semibold text-sm text-slate-800">¿Quieres repasar primero el temario?</h5>
-            <p className="text-sm text-slate-600">Elige un tema del temario oficial y entrena de forma quirúrgica sobre tus fallos.</p>
+            <p className="text-sm text-slate-600">Elige un tema del temario oficial y repasa sus fichas y tus fallos.</p>
           </div>
         </div>
         <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
@@ -455,11 +457,11 @@ function RemoteDashboard({ state, onRetry, onNavigate }: {
   const order = ['por_aprender', 'aprendiendo', 'debil', 'dominado', 'consolidado'] as const;
   return (
     <div className="space-y-6" id="mira-dashboard-container">
-      <h1 className="sr-only">Dashboard de BomberoPro</h1>
+      <h1 className="sr-only">Tu panel de BomberoPro</h1>
       <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm" aria-labelledby="remote-progress-title">
         <h2 id="remote-progress-title" className="text-xl font-bold text-slate-900">Tu progreso</h2>
         <p className="mt-1 text-sm text-slate-600">En tu cuenta, disponible en todos tus dispositivos. Incluye los temas preparados para estudiar por conceptos.</p>
-        {state.status === 'loading' && <p role="status" className="mt-6 text-slate-600">Cargando el progreso de tu cuenta…</p>}
+        {state.status === 'loading' && <Skeleton label="Cargando el progreso de tu cuenta…" className="mt-6" />}
         {state.status === 'error' && <div className="mt-6">
           <p role="alert" className="text-sm text-red-700">No se ha podido cargar tu progreso. Comprueba la conexión y vuelve a intentarlo.</p>
           <button type="button" onClick={onRetry} className="mt-3 rounded-xl bg-indigo-600 px-4 py-2 font-semibold text-white">Reintentar</button>

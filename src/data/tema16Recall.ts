@@ -24,7 +24,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cuándo usar el alfabeto radiotelefónico ICAO?",
     "respuesta": "Para nombres, matrículas, códigos o letras que puedan confundirse.",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "RR UIT 2024, apéndice 14, § 1 (p. 285) (deletrear distintivos, abreviaturas y palabras)",
     "apartado": "Deletreo"
   },
   {
@@ -32,8 +32,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 490,
     "concepto": "¿Qué tráfico prevalece en el orden de prioridad de las comunicaciones?",
     "respuesta": "Socorro/emergencia y seguridad sobre tráfico rutinario.",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "UIT, Reglamento de Radiocomunicaciones, ed. 2024, vol. 1",
+    "localizacion": "art. 53.1 (p. 435)",
     "apartado": "Prioridad"
   },
   {
@@ -41,8 +41,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 520,
     "concepto": "¿Cuándo se emplea MAYDAY?",
     "respuesta": "Solo conforme al procedimiento para peligro grave e inminente; no banalizar.",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "UIT, Reglamento de Radiocomunicaciones, ed. 2024, vol. 1",
+    "localizacion": "núms. 32.9 y 32.13BA (pp. 344-345)",
     "apartado": "Mayday"
   },
   {
@@ -51,7 +51,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra A en ICAO?",
     "respuesta": "Alfa",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "A"
   },
   {
@@ -60,7 +60,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra B en ICAO?",
     "respuesta": "Bravo",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "B"
   },
   {
@@ -69,7 +69,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra C en ICAO?",
     "respuesta": "Charlie",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "C"
   },
   {
@@ -78,7 +78,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra D en ICAO?",
     "respuesta": "Delta",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "D"
   },
   {
@@ -87,7 +87,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra E en ICAO?",
     "respuesta": "Echo",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "E"
   },
   {
@@ -96,7 +96,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra F en ICAO?",
     "respuesta": "Foxtrot",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "F"
   },
   {
@@ -105,7 +105,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra G en ICAO?",
     "respuesta": "Golf",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "G"
   },
   {
@@ -114,7 +114,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra H en ICAO?",
     "respuesta": "Hotel",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "H"
   },
   {
@@ -123,7 +123,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra I en ICAO?",
     "respuesta": "India",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "I"
   },
   {
@@ -132,7 +132,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra J en ICAO?",
     "respuesta": "Juliett",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "J"
   },
   {
@@ -141,7 +141,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra K en ICAO?",
     "respuesta": "Kilo",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "K"
   },
   {
@@ -150,7 +150,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra L en ICAO?",
     "respuesta": "Lima",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "L"
   },
   {
@@ -159,7 +159,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra M en ICAO?",
     "respuesta": "Mike",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "M"
   },
   {
@@ -168,7 +168,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra N en ICAO?",
     "respuesta": "November",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "N"
   },
   {
@@ -177,7 +177,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra O en ICAO?",
     "respuesta": "Oscar",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "O"
   },
   {
@@ -186,7 +186,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra P en ICAO?",
     "respuesta": "Papa",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "P"
   },
   {
@@ -195,7 +195,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra Q en ICAO?",
     "respuesta": "Quebec",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "Q"
   },
   {
@@ -204,7 +204,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra R en ICAO?",
     "respuesta": "Romeo",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "R"
   },
   {
@@ -213,7 +213,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra S en ICAO?",
     "respuesta": "Sierra",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "S"
   },
   {
@@ -222,7 +222,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra T en ICAO?",
     "respuesta": "Tango",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "T"
   },
   {
@@ -231,7 +231,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra U en ICAO?",
     "respuesta": "Uniform",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "U"
   },
   {
@@ -240,7 +240,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra V en ICAO?",
     "respuesta": "Victor",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "V"
   },
   {
@@ -249,7 +249,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra W en ICAO?",
     "respuesta": "Whiskey",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "W"
   },
   {
@@ -258,7 +258,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra X en ICAO?",
     "respuesta": "X-ray",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "X"
   },
   {
@@ -267,7 +267,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra Y en ICAO?",
     "respuesta": "Yankee",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "Y"
   },
   {
@@ -276,7 +276,7 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "concepto": "¿Cómo se deletrea la letra Z en ICAO?",
     "respuesta": "Zulu",
     "fuente": "OACI, Anexo 10 / fraseología aeronáutica",
-    "localizacion": "alfabeto radiotelefónico",
+    "localizacion": "Mismo alfabeto en RR UIT 2024, vol. 2, apéndice 14, § 1 (p. 285); texto del Anexo 10 OACI no verificado",
     "apartado": "Z"
   },
   {
@@ -284,8 +284,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 990,
     "concepto": "¿Qué significa QRA?",
     "respuesta": "Nombre/indicativo de la estación",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "Recomendación UIT-R M.1172 (1995), anexo 1, sección I (código Q)",
+    "localizacion": "sección I, PDF p. 3",
     "apartado": "QRA"
   },
   {
@@ -293,8 +293,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 1000,
     "concepto": "¿Qué significa QRM?",
     "respuesta": "Interferencia de otras estaciones",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "Recomendación UIT-R M.1172 (1995), anexo 1, sección I (código Q)",
+    "localizacion": "sección I, PDF p. 4",
     "apartado": "QRM"
   },
   {
@@ -302,8 +302,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 1010,
     "concepto": "¿Qué significa QRN?",
     "respuesta": "Interferencia atmosférica",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "Recomendación UIT-R M.1172 (1995), anexo 1, sección I (código Q)",
+    "localizacion": "sección I, PDF p. 4",
     "apartado": "QRN"
   },
   {
@@ -311,8 +311,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 1020,
     "concepto": "¿Qué significa QRO?",
     "respuesta": "Aumentar potencia",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "Recomendación UIT-R M.1172 (1995), anexo 1, sección I (código Q)",
+    "localizacion": "sección I, PDF p. 5",
     "apartado": "QRO"
   },
   {
@@ -320,8 +320,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 1030,
     "concepto": "¿Qué significa QRP?",
     "respuesta": "Disminuir potencia",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "Recomendación UIT-R M.1172 (1995), anexo 1, sección I (código Q)",
+    "localizacion": "sección I, PDF p. 5",
     "apartado": "QRP"
   },
   {
@@ -329,8 +329,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 1040,
     "concepto": "¿Qué significa QRT?",
     "respuesta": "Cesar transmisión",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "Recomendación UIT-R M.1172 (1995), anexo 1, sección I (código Q)",
+    "localizacion": "sección I, PDF p. 5",
     "apartado": "QRT"
   },
   {
@@ -338,8 +338,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 1050,
     "concepto": "¿Qué significa QRV?",
     "respuesta": "Estar preparado/a la escucha",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "Recomendación UIT-R M.1172 (1995), anexo 1, sección I (código Q)",
+    "localizacion": "sección I, PDF p. 5",
     "apartado": "QRV"
   },
   {
@@ -347,8 +347,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 1060,
     "concepto": "¿Qué significa QRX?",
     "respuesta": "Esperar / volver a llamar",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "Recomendación UIT-R M.1172 (1995), anexo 1, sección I (código Q)",
+    "localizacion": "sección I, PDF p. 5",
     "apartado": "QRX"
   },
   {
@@ -356,8 +356,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 1070,
     "concepto": "¿Qué significa QRZ?",
     "respuesta": "Quién llama / identifíquese",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "Recomendación UIT-R M.1172 (1995), anexo 1, sección I (código Q)",
+    "localizacion": "sección I, PDF p. 5",
     "apartado": "QRZ"
   },
   {
@@ -365,8 +365,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 1080,
     "concepto": "¿Qué significa QSB?",
     "respuesta": "Desvanecimiento de señal",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "Recomendación UIT-R M.1172 (1995), anexo 1, sección I (código Q)",
+    "localizacion": "sección I, PDF p. 6",
     "apartado": "QSB"
   },
   {
@@ -374,8 +374,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 1090,
     "concepto": "¿Qué significa QSL?",
     "respuesta": "Acuse de recibo / recibido",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "Recomendación UIT-R M.1172 (1995), anexo 1, sección I (código Q)",
+    "localizacion": "sección I, PDF p. 6",
     "apartado": "QSL"
   },
   {
@@ -383,8 +383,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 1100,
     "concepto": "¿Qué significa QSO?",
     "respuesta": "Comunicación entre estaciones",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "Recomendación UIT-R M.1172 (1995), anexo 1, sección I (código Q)",
+    "localizacion": "sección I, PDF p. 7",
     "apartado": "QSO"
   },
   {
@@ -392,8 +392,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 1110,
     "concepto": "¿Qué significa QSP?",
     "respuesta": "Retransmitir / hacer de puente",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "Recomendación UIT-R M.1172 (1995), anexo 1, sección I (código Q)",
+    "localizacion": "sección I, PDF p. 7",
     "apartado": "QSP"
   },
   {
@@ -401,8 +401,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 1120,
     "concepto": "¿Qué significa QSY?",
     "respuesta": "Cambiar de frecuencia/canal",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "Recomendación UIT-R M.1172 (1995), anexo 1, sección I (código Q)",
+    "localizacion": "sección I, PDF p. 8",
     "apartado": "QSY"
   },
   {
@@ -410,8 +410,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 1130,
     "concepto": "¿Qué significa QTC?",
     "respuesta": "Mensaje o tráfico",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "Recomendación UIT-R M.1172 (1995), anexo 1, sección I (código Q)",
+    "localizacion": "sección I, PDF p. 8",
     "apartado": "QTC"
   },
   {
@@ -419,8 +419,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 1140,
     "concepto": "¿Qué significa QTH?",
     "respuesta": "Ubicación de estación",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "Recomendación UIT-R M.1172 (1995), anexo 1, sección I (código Q)",
+    "localizacion": "sección I, PDF p. 9",
     "apartado": "QTH"
   },
   {
@@ -428,8 +428,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 1150,
     "concepto": "¿Qué significa QTR?",
     "respuesta": "Hora exacta",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "Recomendación UIT-R M.1172 (1995), anexo 1, sección I (código Q)",
+    "localizacion": "sección I, PDF p. 10",
     "apartado": "QTR"
   },
   {
@@ -437,8 +437,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 1160,
     "concepto": "¿Qué significa QUA?",
     "respuesta": "Noticias/novedades sobre",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "Recomendación UIT-R M.1172 (1995), anexo 1, sección I (código Q)",
+    "localizacion": "sección I, PDF p. 11",
     "apartado": "QUA"
   },
   {
@@ -446,8 +446,8 @@ export const TEMA16_RECALL_CARDS: Tema16RecallCard[] = [
     "orden": 1170,
     "concepto": "¿Qué significa QUM?",
     "respuesta": "Fin de situación de socorro según contexto UIT",
-    "fuente": "UIT, Reglamento de Radiocomunicaciones y Apéndice 14",
-    "localizacion": "alfabeto y códigos operativos",
+    "fuente": "Recomendación UIT-R M.1172 (1995), anexo 1, sección I (código Q)",
+    "localizacion": "sección I, PDF p. 12 (el texto oficial es «¿Puedo reanudar mi tráfico normal?»; respuesta simplificada)",
     "apartado": "QUM"
   }
 ];

@@ -7,6 +7,7 @@
 import React, { useEffect, useState } from 'react';
 import { ChevronDown, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import Skeleton from './Skeleton';
 
 export interface OutlineConcept { id: string; pregunta: string; respuesta: string | null; preguntas: number; dominado: boolean }
 export interface OutlineApartado { apartado: string; total: number; dominados: number; preguntas: number; conceptos: OutlineConcept[] }
@@ -79,7 +80,7 @@ export default function ConceptOutline({ tema }: { tema: number }) {
     return () => { vivo = false; };
   }, [tema]);
 
-  if (state.status === 'loading') return <p className="text-sm text-slate-500 p-3">Cargando conceptos…</p>;
+  if (state.status === 'loading') return <Skeleton label="Cargando conceptos…" block={false} lines={2} className="p-3" />;
   if (state.status === 'error') return <p className="text-sm text-slate-600 p-3">No se han podido cargar los conceptos. Inténtalo de nuevo más tarde.</p>;
   const t = state.data;
   if (!t) return <p className="text-sm text-slate-600 p-3">Este tema todavía no tiene conceptos publicados.</p>;

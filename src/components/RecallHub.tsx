@@ -2,9 +2,11 @@ import { useState } from 'react';
 import AvisoGuardadoFichas from './AvisoGuardadoFichas';
 import { Lock } from 'lucide-react';
 import RecallDeck from './RecallDeck';
+import TopicSearch from './TopicSearch';
+import { matchesTopic } from '../utils/topicSearch';
 import { canAccessTopic, getVisibleBloques, getVisibleDecks, getVisibleTopics, getVisibleTotalCards, type RecallDeck as RecallDeckData } from '../data/recallRegistry';
 import { isPlanesEnabled } from '../config/features';
-import { canAccessDeck, getPlan, PLAN_COPY } from '../utils/plan';
+import { canAccessDeck, getPlan, pickDefaultDeck, PLAN_COPY } from '../utils/plan';
 
 interface RecallHubProps {
   /** Demo o sin cuenta: cambia el aviso de dónde se guarda el repaso. */
@@ -35,7 +37,8 @@ export default function RecallHub({ onNavigateHome, initialDeckId, onOpenPlanes,
   const RECALL_TOPICS = getVisibleTopics();
   const RECALL_BLOQUES = getVisibleBloques();
   const RECALL_TOTAL_CARDS = getVisibleTotalCards();
-  const firstAccessible = RECALL_DECKS.find((d) => canAccessDeck(d.id, plan)) ?? RECALL_DECKS[0];
+  // Modo invitado: abre un tema accesible de T35-40 (procedimientos de Badajoz), no el tema 1.
+  const firstAccessible = pickDefaultDeck(RECALL_DECKS, plan, demo) ?? RECALL_DECKS[0];
   const [deckId, setDeckId] = useState(() => {
     const byDeck = RECALL_DECKS.find((d) => d.id === initialDeckId);
     if (byDeck) return byDeck.id;
@@ -46,6 +49,9 @@ export default function RecallHub({ onNavigateHome, initialDeckId, onOpenPlanes,
   const topic = RECALL_TOPICS.find((t) => t.id === deck.topicId) ?? RECALL_TOPICS[0];
   const locked = !canAccessDeck(deck.id, plan);
   const hasLotes = topic.decks.length > 1;
+  const [query, setQuery] = useState('');
+  const bloques = RECALL_BLOQUES.map((b) => ({ ...b, topics: b.topics.filter((t) => matchesTopic(query, t.tema, t.name, t.title, t.shortLabel)) })).filter((b) => b.topics.length > 0);
+  const shownTopics = bloques.reduce((n, b) => n + b.topics.length, 0);
 
   const selectTopic = (topicId: string) => {
     const next = RECALL_TOPICS.find((t) => t.id === topicId);
@@ -62,10 +68,13 @@ export default function RecallHub({ onNavigateHome, initialDeckId, onOpenPlanes,
         </p>
         {/* Temas agrupados por bloque (parte común / específica) en una cuadrícula compacta
             que salta de línea: sin scroll horizontal a 360 px y botones de al menos 44 px. */}
+        <div className="mt-2">
+          <TopicSearch id="recall-buscar-tema" value={query} onChange={setQuery} shown={shownTopics} total={RECALL_TOPICS.length} />
+        </div>
         <div role="tablist" aria-label="Temas de recuerdo" className="mt-2 space-y-2">
-          {RECALL_BLOQUES.map((b) => (
+          {bloques.map((b) => (
             <div key={b.id} role="presentation" id={`recall-bloque-${b.id}`}>
-              <p aria-hidden="true" className="px-0.5 pb-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+              <p aria-hidden="true" className="px-0.5 pb-1 text-[11px] font-semibold uppercase tracking-wide text-slate-600">
                 {b.label} · {b.topics.length} {b.topics.length === 1 ? 'tema' : 'temas'}
               </p>
               <div role="presentation" className="grid grid-cols-4 gap-1.5 min-[400px]:grid-cols-5 sm:grid-cols-8 sm:gap-2">
@@ -80,16 +89,16 @@ export default function RecallHub({ onNavigateHome, initialDeckId, onOpenPlanes,
                       id={`recall-tab-${t.id}`}
                       aria-selected={selected}
                       aria-controls="recall-deck-panel"
-                      aria-label={`${t.shortLabel} · ${t.count} fichas${t.decks.length > 1 ? ` · ${t.decks.length} lotes` : ''} · ${b.label}${isLocked ? ' (Pro)' : ''}`}
                       title={t.title}
                       onClick={() => selectTopic(t.id)}
                       className={`${tabClass(selected)} min-w-11`}
                     >
-                      <span className="inline-flex items-center gap-0.5">
-                        {isLocked && <Lock className="h-3 w-3 shrink-0" aria-hidden="true" />}
+                      <span className="sr-only">{`${t.shortLabel} · ${t.count} fichas${t.decks.length > 1 ? ` · ${t.decks.length} lotes` : ''} · ${b.label}${isLocked ? ' (Pro)' : ''}`}</span>
+                      <span aria-hidden="true" className="inline-flex items-center gap-0.5">
+                        {isLocked && <Lock className="h-3 w-3 shrink-0" />}
                         {t.shortLabel}
                       </span>
-                      <span className="text-[10px] font-medium opacity-75">{t.count}</span>
+                      <span aria-hidden="true" className="text-[10px] font-medium">{t.count}</span>
                     </button>
                   );
                 })}
@@ -115,16 +124,16 @@ export default function RecallHub({ onNavigateHome, initialDeckId, onOpenPlanes,
                     id={`recall-tab-${d.id}`}
                     aria-selected={selected}
                     aria-controls="recall-deck-panel"
-                    aria-label={`${d.loteLabel} · ${d.count} fichas${isLocked ? ' (Pro)' : ''}`}
                     title={d.title}
                     onClick={() => setDeckId(d.id)}
                     className={`${tabClass(selected)} ${selected ? '' : 'bg-white'}`}
                   >
-                    <span className="inline-flex items-center gap-0.5">
-                      {isLocked && <Lock className="h-3 w-3 shrink-0" aria-hidden="true" />}
+                    <span className="sr-only">{`${d.loteLabel} · ${d.count} fichas${isLocked ? ' (Pro)' : ''}`}</span>
+                    <span aria-hidden="true" className="inline-flex items-center gap-0.5">
+                      {isLocked && <Lock className="h-3 w-3 shrink-0" />}
                       {d.loteLabel}
                     </span>
-                    <span className="text-[10px] font-medium opacity-75">{d.count}</span>
+                    <span aria-hidden="true" className="text-[10px] font-medium">{d.count}</span>
                   </button>
                 );
               })}

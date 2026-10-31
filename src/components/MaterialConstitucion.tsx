@@ -4,6 +4,7 @@ import ConceptStudy from './ConceptStudy';
 import { loadConceptProgress, resolveTopicId, type ConceptProgress } from '../lib/conceptEngine';
 import { renderMarkdown } from '../utils/miniMarkdown';
 import { descargarMaterial } from '../utils/descargaLegible';
+import Skeleton from './Skeleton';
 
 /**
  * Piloto Constitución · Título Preliminar (tema 1). Tres capas de material de menos a más
@@ -115,7 +116,7 @@ export default function MaterialConstitucion({ userId, onExit }: Props) {
           </a>
         </div>
         {error && <p role="alert" className="mt-4 text-sm font-semibold text-red-700">No se ha podido cargar el material. Comprueba la conexión.</p>}
-        {!error && texto === null && <p role="status" className="mt-4 text-sm text-slate-500">Cargando…</p>}
+        {!error && texto === null && <Skeleton label="Cargando el texto…" block={false} lines={5} className="mt-4" />}
         {texto !== null && capa === 'completo' && (
           <button type="button" onClick={() => setTodas(v => !v)} className="mt-3 min-h-11 rounded-lg bg-slate-100 px-3 text-sm font-semibold text-slate-700 hover:bg-slate-200">
             {todas ? 'Ocultar respuestas' : 'Ver todas las respuestas'}

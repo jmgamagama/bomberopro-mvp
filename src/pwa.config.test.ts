@@ -19,7 +19,7 @@ function pngSize(path: string): { width: number; height: number } {
 
 describe('PWA: manifest', () => {
   it('es instalable: nombre, idioma, display standalone, start_url y scope en la raíz', () => {
-    expect(pwaManifest.name).toBe('BomberoPro');
+    expect(pwaManifest.name).toBe('BomberoPro · Oposiciones bombero CPEI Badajoz');
     expect(pwaManifest.short_name).toBe('BomberoPro');
     expect(pwaManifest.lang).toBe('es');
     expect(pwaManifest.display).toBe('standalone');
