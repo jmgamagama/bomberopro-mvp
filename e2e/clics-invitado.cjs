@@ -14,6 +14,8 @@ async function ruta(browser, pasos, meta) {
     const loc = paso(page);
     if (!(await loc.count())) continue;
     await loc.first().click(); clics++;
+    // Las pantallas se cargan en diferido: dar tiempo a que aparezca la meta antes del siguiente toque.
+    await meta(page).waitFor({ timeout: 3000 }).catch(() => {});
   }
   await meta(page).waitFor({ timeout: 10000 });
   await ctx.close();
