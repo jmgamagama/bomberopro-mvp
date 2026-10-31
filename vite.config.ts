@@ -4,6 +4,7 @@ import {defineConfig, loadEnv} from 'vite';
 import {VitePWA} from 'vite-plugin-pwa';
 import {buildPwaOptions} from './pwa.config';
 import {excluirMazosPendientes} from './scripts/excluir-mazos-pendientes';
+import {seo} from './scripts/seo';
 
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, process.cwd(), 'VITE_');
@@ -12,6 +13,7 @@ export default defineConfig(({mode}) => {
       // C1: los mazos pendientes de revisión no viajan en el bundle de producción.
       excluirMazosPendientes({include: env.VITE_INCLUDE_PENDING_DECKS === 'true'}),
       react(),
+      seo(env.VITE_SITE_URL),
       tailwindcss(),
       VitePWA(buildPwaOptions(env.VITE_SUPABASE_URL)),
     ],

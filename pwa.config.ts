@@ -14,9 +14,9 @@ export const PWA_BACKGROUND_COLOR = '#f8fafc'; // slate-50, fondo de la app
 
 export const pwaManifest = {
   id: '/',
-  name: 'BomberoPro',
+  name: 'BomberoPro · Oposiciones bombero CPEI Badajoz',
   short_name: 'BomberoPro',
-  description: 'Entrenamiento adaptativo, fichas de recuerdo y simulacros para oposiciones de bombero.',
+  description: 'Fichas con fuente oficial y simulacros para la oposición a Conductor/a Bombero/a del CPEI Badajoz 2026.',
   lang: 'es',
   dir: 'ltr',
   start_url: '/',
@@ -40,7 +40,8 @@ function escapeRegExp(value: string): string {
 }
 
 /** Rutas que nunca deben resolverse con el index.html cacheado. */
-export const NAVIGATE_FALLBACK_DENYLIST = [/^\/api\//, /^\/auth\//, /^\/rest\//, /^\/functions\//];
+// La landing estática se sirve tal cual, sin el shell de la app.
+export const NAVIGATE_FALLBACK_DENYLIST = [/^\/api\//, /^\/auth\//, /^\/rest\//, /^\/functions\//, /^\/oposiciones-bombero-badajoz-2026\//];
 
 /**
  * @param supabaseUrl VITE_SUPABASE_URL (opcional): si apunta a un dominio propio,
