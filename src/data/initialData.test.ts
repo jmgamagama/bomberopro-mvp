@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 // Banco público local (simulacro de invitado): reparto por temas y calidad del formato test.
 import { describe, expect, it } from 'vitest';
 import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from './initialData';
@@ -62,5 +64,17 @@ describe('INITIAL_QUESTIONS', () => {
   it('la posición de la correcta varía', () => {
     const pos = new Set(INITIAL_QUESTIONS.map(q => q.options!.indexOf(q.correct_answer)));
     expect(pos.size).toBe(3);
+  });
+
+  it('las preguntas de la Constitución llevan su cita literal del BOE (BOE-A-1978-31229)', () => {
+    const bloques = JSON.parse(readFileSync(resolve(__dirname, '../../data/fuentes/BOE-A-1978-31229/bloques.json'), 'utf-8')) as
+      { id: string; parrafos: { texto: string }[] }[];
+    const texto = bloques.map((b) => b.parrafos.map((p) => p.texto).join(' ')).join(' ');
+    const ce = INITIAL_QUESTIONS.filter((q) => q.fuente?.startsWith('Constitución Española'));
+    expect(ce.length).toBeGreaterThan(0);
+    for (const q of ce) {
+      expect(q.cita, q.id).toBeTruthy();
+      expect(texto.includes(q.cita!), q.id).toBe(true);
+    }
   });
 });

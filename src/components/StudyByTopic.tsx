@@ -276,7 +276,8 @@ return h('div', { className: 'min-h-screen bg-fondo p-4' },
                  answer === currentQuestion.correct_answer
                  ? h(CheckCircle2, { className: 'text-green-500 shrink-0', size: 18 })
                  : h(XCircle, { className: 'text-red-500 shrink-0', size: 18 }),
-                 h('span', null, currentQuestion.explanation)
+                 h('span', null, currentQuestion.explanation,
+                   currentQuestion.cita ? h('span', { className: 'block mt-1 text-slate-500', 'data-testid': 'cita-literal' }, `Cita literal: «${currentQuestion.cita}»`) : null)
                  )
              : null
              ),

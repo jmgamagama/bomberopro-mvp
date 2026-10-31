@@ -398,6 +398,11 @@ export default function TrainScreen({
               <div className="p-3 bg-white/70 rounded-xl border border-white text-base text-slate-800 space-y-1">
                 <p className="font-semibold text-slate-800">Soporte y justificación legal:</p>
                 <p>{revealed?.explanation ?? question.explanation}</p>
+                {question.cita && (
+                  <p className="text-sm text-slate-600" data-testid="cita-literal">
+                    Cita literal: «{question.cita}»
+                  </p>
+                )}
               </div>
               <button
                 type="button"

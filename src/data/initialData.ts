@@ -185,6 +185,7 @@ export const INITIAL_QUESTIONS: Question[] = [
     correct_answer: 'Estado social y democrático de Derecho',
     explanation: 'El artículo 1.1 establece textualmente que España se constituye en un "Estado social y democrático de Derecho" en este preciso orden.',
     fuente: "Constitución Española, art. 1.1",
+    cita: "España se constituye en un Estado social y democrático de Derecho, que propugna como valores superiores de su ordenamiento jurídico la libertad, la justicia, la igualdad y el pluralismo político.",
     tema: { numero: 1, titulo: "La Constitución Española de 1978" }
   },
   {
@@ -197,6 +198,7 @@ export const INITIAL_QUESTIONS: Question[] = [
     correct_answer: 'La libertad, la justicia, la igualdad y el pluralismo político.',
     explanation: 'El artículo 1.1 cita de forma explícita e inequívoca estos cuatro valores superiores: libertad, justicia, igualdad y pluralismo político.',
     fuente: "Constitución Española, art. 1.1",
+    cita: "España se constituye en un Estado social y democrático de Derecho, que propugna como valores superiores de su ordenamiento jurídico la libertad, la justicia, la igualdad y el pluralismo político.",
     tema: { numero: 1, titulo: "La Constitución Española de 1978" }
   },
   {
@@ -209,6 +211,7 @@ export const INITIAL_QUESTIONS: Question[] = [
     correct_answer: 'Que la soberanía nacional reside en el pueblo español.',
     explanation: 'El Artículo 1.2 conecta conceptualmente la soberanía del pueblo con el hecho de que de él emanen los poderes estatales.',
     fuente: "Constitución Española, art. 1.2",
+    cita: "La soberanía nacional reside en el pueblo español, del que emanan los poderes del Estado.",
     tema: { numero: 1, titulo: "La Constitución Española de 1978" }
   },
   {
@@ -221,6 +224,7 @@ export const INITIAL_QUESTIONS: Question[] = [
     correct_answer: 'Del pueblo español',
     explanation: 'El artículo 1.2 concluye: "...del que [el pueblo español] emanan los poderes del Estado".',
     fuente: "Constitución Española, art. 1.2",
+    cita: "La soberanía nacional reside en el pueblo español, del que emanan los poderes del Estado.",
     tema: { numero: 1, titulo: "La Constitución Española de 1978" }
   },
   {
@@ -233,6 +237,7 @@ export const INITIAL_QUESTIONS: Question[] = [
     correct_answer: 'La Monarquía parlamentaria',
     explanation: 'El texto dice de manera literal e inequívoca: "La forma política del Estado español es la Monarquía parlamentaria."',
     fuente: "Constitución Española, art. 1.3",
+    cita: "La forma política del Estado español es la Monarquía parlamentaria.",
     tema: { numero: 1, titulo: "La Constitución Española de 1978" }
   },
   // Tema 35 · ficha CPEI-T35-S01-D067024BDE (revisada)
