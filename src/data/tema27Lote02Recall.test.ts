@@ -39,6 +39,7 @@ describe('tema 27 · lote02 · fase 2 (texto oficial consolidado)', () => {
 
   it('se registra como mazo bajo demanda', async () => {
     expect(getRecallDeck('tema27-lote02').count).toBe(30);
-    expect(await loadRecallDeckCards('tema27-lote02')).toBe(TEMA27_LOTE02_RECALL_CARDS);
+    // Solo las 8 del RD 842/2013 (BOE); las 22 del CTE se filtran al cargar (recallCardReview.ts).
+    expect(await loadRecallDeckCards('tema27-lote02')).toHaveLength(8);
   });
 });

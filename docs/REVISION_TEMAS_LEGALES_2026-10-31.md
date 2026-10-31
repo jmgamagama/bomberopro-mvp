@@ -17,18 +17,18 @@
 | T31 | tema31 | RD 1215/1997, BOE-A-1997-17824 (act. 18/12/2025) | 83 | 73 | 10 | muestra | 0 | RD completo |
 | T34 | tema34-lote01/02/03 | RSCIEI, RD 164/2025, BOE-A-2025-7190 (act. 20/12/2025) | 132 | 129 | 3 | muestra | 0 | RD completo |
 
-## Pendiente (31/10/2026, actualizado 2.ª tanda)
+## Pendiente (31/10/2026, 3.ª tanda)
 
 - Sin fichas: T11, T18 (T19 excluido).
-- Ocultas por no tener norma oficial (INSST): 5 de T12 y 12 de T28-lote02 (NTP 400). Se verían si se acepta el INSST como fuente o se rehacen contra RD 614/2001.
-- T33-lote02 (arts. 21-22, anexos II-III RIPCI): fuera del epígrafe, sigue oculto.
-- T23-lote02: 18 de 23 con respaldo; 10 por debajo del umbral, sin revisar.
-- Mayoría sin enlace a artículo: T9, T15, T27-lote02, T32.
+- Solo INSST, ocultas (decisión del 31/10): 23 de T8, 5 de T12, 12 de T28-lote02 (NTP 400). Su contenido (fisiología de la corriente, mecanismos de extinción, teoría del fuego) no está en el RD 614/2001 ni en otra norma vigente; solo se reescribieron contra el RIPCI las clases de fuego C y D del T8.
+- T5: oculto. BOP nº 145 de 01/08/2022 (anuncio 3393/2022) publica solo la exposición pública de una modificación puntual del RRI, sin texto. Revisados los BOP del 02/08 al 31/12/2022: no hay aprobación definitiva ni texto publicado.
+- T26 (INSARAG, ONU): 59 de 60 literales con la guía, pero no es BOE/DOE/BOP; oculto a la espera de decisión.
+- T27 y 22 fichas de T27-lote02 (CTE DB SE y SE-AE, codigotecnico.org): 22 de 22 literales con el DB, pero el BOE consolidado del RD 314/2006 (BOE-A-2006-5515) solo trae la parte I; ocultas a la espera de decisión.
+- T21 y T21-lote02: Manual de la DGT, no BOE/DOE/BOP; ocultos.
+- T33-lote02: fuera del epígrafe.
+- Mayoría sin enlace a artículo: T9, T15, T32.
 - Sin texto consolidado en la API: T25 y T25-lote02 (BOE-A-2009-5490).
-- T5 (28/28 literales con el RRI, BOP nº 149 de 06/08/2012): NO abierto. El BOP nº 145 de 01/08/2022 (anuncio 3393/2022) publica la aprobación inicial de una modificación puntual del RRI cuyo texto no consta publicado; no se puede confirmar que el texto de 2012 sea el vigente.
-- T20 (Plan INFOEX): 15 de 24 con respaldo en el Decreto 136/2024 (DOE); 9 por debajo del umbral, falta descargar el texto del Decreto 132/2022 y cotejarlas.
-- T21 y T21-lote02: la fuente es el Manual básico de rescate de la DGT, no BOE/DOE/BOP; quedan ocultos.
-- Fuente BOP/DOE, sin cotejar: T29, T30, T37; resto sin revisar: T8, T26, T27, lotes 02 de T12, T13, T22.
+- Sin cotejar: T37; lotes 02 de T12, T13 y T22.
 
 | T10 | tema10 | RIPCI, RD 513/2017, BOE-A-2017-6606 | 34 | 34 | 0 | — | 0 | abastecimiento, hidrantes, BIE, columna seca (epígrafe T10) |
 | T22 | tema22 | RD 1215/1997 anexo II.4, BOE-A-1997-17824 | 33 | 32 | 1 | — | 0 | normativa de trabajos en altura |
@@ -40,3 +40,9 @@
 | T23 | tema23 | Plan Estatal de Inundaciones BOE-A-2011-14277; Directriz Básica BOE-A-2026-9160 | 21 | 19 | 2 | — | 0 | enlace de 1 ficha corregido a BOE-A-2026-9160 |
 | T13 | tema13 | RD 773/1997 (BOE-A-1997-12735) y Reglamento (UE) 2016/425 (DOUE-L-2016-80531, boe.es) | 25 | 23 | 2 | — | 0 | 7 enlaces añadidos al texto del DOUE en boe.es |
 | T4 | tema4 | Acuerdo de reorganización, BOP Badajoz nº 206 (29/10/2025), anuncio 4611/2025 | 28 | 28 | 0 | — | 0 | áreas, servicios, OOAA y consorcios (epígrafe T4) |
+| T20 | tema20 | Plan INFOEX: Decreto 132/2022 (DOE 210/2022) mod. Decreto 136/2024 (DOE 215/2024) | 24 | 24 | 0 | — | 0 | arts. 6, 7, 10-13 y 16 |
+| T23 | tema23-lote02 | RDPH, RD 903/2010, Directriz 2026 | 23 | 9 | 6 | 8 a mano | 0 | 3 respuestas literalizadas; art. 14 apdo. 3 corregido |
+| T29 | tema29 | PLATERCAEX, Decreto 187/2019 (DOE 247/2019) | 81 | 73 | 7 | 1 a mano | 0 | objetivo, alcance, estructura, operatividad |
+| T30 | tema30 | INUNCAEX (D. 39/2025, DOE 94), TRANSCAEX, RADIOCAEX, PLASISMEX (DOE 247 y 111) | 87 | 86 | 1 | — | 0 | definición, objetivos, estructura, operatividad |
+| T8 | tema8 | RIPCI, BOE-A-2017-6606 (anexo I 1.ª 4.5) | 25 | 2 | 0 | — | 23 ocultas (solo INSST) | clases de fuego C y D reescritas contra el RIPCI |
+| T27 | tema27-lote02 | RD 842/2013, BOE-A-2013-12323 | 30 | 4 | 2 | 2 a mano | 22 ocultas (CTE, sin texto en BOE) | respuesta al fuego |

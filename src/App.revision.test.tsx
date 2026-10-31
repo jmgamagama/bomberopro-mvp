@@ -10,7 +10,7 @@ import Onboarding from './components/Onboarding';
 import RecallStats from './components/RecallStats';
 import { setPreferredDeckId } from './utils/studyPreferences';
 
-const TEMAS_ALUMNO = ['T1', 'T2', 'T3', 'T4', 'T6', 'T7', 'T10', 'T12', 'T13', 'T14', 'T16', 'T17', 'T22', 'T23', 'T24', 'T28', 'T31', 'T33', 'T34', 'T35', 'T36', 'T38', 'T39', 'T40'];
+const TEMAS_ALUMNO = ['T1', 'T2', 'T3', 'T4', 'T6', 'T7', 'T8', 'T10', 'T12', 'T13', 'T14', 'T16', 'T17', 'T20', 'T22', 'T23', 'T24', 'T27', 'T28', 'T29', 'T30', 'T31', 'T33', 'T34', 'T35', 'T36', 'T38', 'T39', 'T40'];
 
 beforeEach(() => {
   window.localStorage.clear();
@@ -29,17 +29,17 @@ describe('mazos pendientes de revisión ocultos al alumno', () => {
     const tablist = await screen.findByRole('tablist', { name: 'Temas de recuerdo' });
     const tabs = within(tablist).getAllByRole('tab').map((t) => Array.from(t.querySelectorAll('[aria-hidden="true"]')).map((e) => e.textContent).join(''));
     // Etiqueta + nº de fichas visibles del tema (T10 solo su lote 2; T16 solo su lote 1; T36 solo las fichas revisadas sueltas de los lotes 1 a 8).
-    expect(tabs).toEqual(['T1129', 'T2121', 'T366', 'T428', 'T694', 'T764', 'T1047', 'T1216', 'T1325', 'T1424', 'T1648', 'T1714', 'T2233', 'T2321', 'T2419', 'T2891', 'T3183', 'T3367', 'T34132', 'T35148', 'T36362', 'T38168', 'T39131', 'T40213']);
-    expect(screen.getByText(/2144 fichas de repaso/)).toBeInTheDocument();
+    expect(tabs).toEqual(['T1129', 'T2121', 'T366', 'T428', 'T694', 'T764', 'T82', 'T1047', 'T1216', 'T1325', 'T1424', 'T1648', 'T1714', 'T2024', 'T2233', 'T2344', 'T2419', 'T278', 'T2891', 'T2981', 'T3087', 'T3183', 'T3367', 'T34132', 'T35148', 'T36362', 'T38168', 'T39131', 'T40213']);
+    expect(screen.getByText(/2369 fichas de repaso/)).toBeInTheDocument();
   });
 
   it('la bienvenida no ofrece temas pendientes', () => {
     render(<Onboarding onStart={vi.fn()} onSkip={vi.fn()} />);
     const group = screen.getByRole('radiogroup', { name: 'Tema para la sesión diaria' });
     expect(within(group).getAllByRole('radio')).toHaveLength(TEMAS_ALUMNO.length + 1);
-    expect(within(group).getByRole('radio', { name: /Todos los temas/ })).toHaveTextContent('2144 fichas');
+    expect(within(group).getByRole('radio', { name: /Todos los temas/ })).toHaveTextContent('2369 fichas');
     expect(within(group).queryByRole('radio', { name: /Tema 26/ })).toBeNull();
-    expect(within(group).queryByRole('radio', { name: /^T27 ·/ })).toBeNull();
+    expect(within(group).queryByRole('radio', { name: /^T25 ·/ })).toBeNull();
   });
 
   it('un tema prioritario pendiente se ignora y la sesión solo trae temas revisados', async () => {
@@ -51,16 +51,16 @@ describe('mazos pendientes de revisión ocultos al alumno', () => {
     await user.click(document.querySelector<HTMLButtonElement>('#mas-sesion_diaria')!);
     await waitFor(() => expect(document.querySelector('#daily-session-decks')).not.toBeNull());
     const text = document.querySelector('#daily-session-decks')!.textContent ?? '';
-    expect(text).not.toMatch(/\bT26\b|\bT27\b|\bT30\b/);
+    expect(text).not.toMatch(/\bT26\b|\bT25\b|\bT32\b/);
     expect(TEMAS_ALUMNO.some((t) => new RegExp(`\\b${t}\\b`).test(text))).toBe(true);
   });
 
   it('las estadísticas solo cuentan y listan temas revisados', () => {
     render(<RecallStats onBack={vi.fn()} />);
     const stats = document.querySelector('#recall-stats') as HTMLElement;
-    expect(within(stats).getByText('Fichas vistas').parentElement).toHaveTextContent('de 2144');
+    expect(within(stats).getByText('Fichas vistas').parentElement).toHaveTextContent('de 2369');
     const lista = document.querySelector('#recall-stats-topics')!.textContent ?? '';
     for (const t of TEMAS_ALUMNO) expect(lista).toMatch(new RegExp(`\\b${t}\\b`));
-    expect(lista).not.toMatch(/\bT26\b|\bT27\b/);
+    expect(lista).not.toMatch(/\bT26\b|\bT25\b/);
   });
 });
