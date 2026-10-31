@@ -42,8 +42,8 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "orden": 30,
     "concepto": "¿Qué tres tramos de población exige el epígrafe?",
     "respuesta": "Hasta 5.000 habitantes; de 5.001 a 20.000; y más de 20.000 habitantes.",
-    "fuente": "INE: población por municipios y sexo, Badajoz",
-    "localizacion": "tabla 2859 / Nomenclátor",
+    "fuente": "Temario de la convocatoria: BOP de Badajoz nº 135, de 17/07/2026 (anuncio 2843/2026), anexo I",
+    "localizacion": "anexo I, Tema 36: «Clasificación de los municipios por número de habitantes: hasta 5.000 habitantes, entre 5.001 y 20.000 habitantes y más de 20.000 habitantes»",
     "apartado": "Marco"
   },
   {
