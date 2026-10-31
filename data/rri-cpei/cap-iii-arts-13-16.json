@@ -1,0 +1,671 @@
+{
+ "norma": "BOP-BA-2012-5370",
+ "documento": "RRI-CPEI",
+ "nombre_norma": "Reglamento de Régimen Interno del CPEI de Badajoz",
+ "abreviatura": "RRI CPEI",
+ "hash_prefijo": "RRI",
+ "tema": 5,
+ "tema_nombre": "El organigrama del CPEI de Badajoz. El Reglamento de Régimen Interno del CPEI de Badajoz",
+ "bloque_temario": "Cap. III (arts. 13-16): obediencia, mando y jerarquía",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto único vigente publicado en el BOP de Badajoz n.º 149, de 06/08/2012)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "RRI-a13-1-instrucciones",
+   "bloque": "a13",
+   "apartado": "1",
+   "orden": 420,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 13.1 del RRI del CPEI, ¿qué instrucciones está obligado a cumplir todo el personal?",
+    "respuesta": "Las que reciba de sus superiores en asuntos relacionados con el Consorcio y dentro de sus funciones."
+   },
+   "cita": "Todo el personal está obligado a cumplir las instrucciones que reciba de sus superiores",
+   "confundible_con": [
+    "RRI-a13-2-consulta",
+    "RRI-a15-exclusiva"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 13.1 del Reglamento de Régimen Interno del CPEI, ¿debe el personal cumplir las instrucciones de sus superiores en asuntos del Consorcio?",
+     "opciones": [
+      "Sí, dentro de sus funciones",
+      "No, solo si las recibe por escrito"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.1: «Todo el personal está obligado a cumplir las instrucciones que reciba de sus superiores en asuntos relacionados con el Consorcio y dentro de sus funciones»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 13.1 del Reglamento de Régimen Interno del CPEI, el personal está obligado a cumplir las instrucciones de sus superiores:",
+     "opciones": [
+      "En asuntos del Consorcio y dentro de sus funciones",
+      "En cualquier asunto, aunque sea ajeno al servicio",
+      "Solo cuando se las dé el Gerente por escrito"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.1: en asuntos relacionados con el Consorcio y dentro de sus funciones."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 13.1 del Reglamento de Régimen Interno del CPEI, ¿qué límite tiene el deber de cumplir las instrucciones de los superiores?",
+     "opciones": [
+      "Que se refieran al Consorcio y estén dentro de sus funciones",
+      "Que el subordinado las considere convenientes para el servicio",
+      "Que estén firmadas por el Presidente del Consorcio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.1: instrucciones «en asuntos relacionados con el Consorcio y dentro de sus funciones»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a13-2-consulta",
+   "bloque": "a13",
+   "apartado": "2",
+   "orden": 430,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 13.2 del RRI del CPEI, ¿cómo se cumplen las instrucciones y cuándo puede consultarse al superior?",
+    "respuesta": "Sin dilación y ateniéndose exactamente a su contenido; se puede consultar si quien debe cumplirlas tiene dudas graves y fundadas."
+   },
+   "cita": "si quien debe cumplir las instrucciones tiene dudas graves y fundadas al respecto",
+   "confundible_con": [
+    "RRI-a13-1-instrucciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 13.2 del Reglamento de Régimen Interno del CPEI, ¿las instrucciones se cumplen sin dilación?",
+     "opciones": [
+      "Sí, sin dilación alguna",
+      "No, cuando el subordinado lo considere oportuno"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.2: «Su cumplimiento se hará sin dilación alguna, ateniéndose exactamente a su contenido»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 13.2 del Reglamento de Régimen Interno del CPEI, quien debe cumplir una instrucción podrá consultar al superior cuando:",
+     "opciones": [
+      "Tenga dudas graves y fundadas al respecto",
+      "No la haya recibido por escrito",
+      "Considere que hay una forma más rápida"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.2: «podrá consultarse al superior, si quien debe cumplir las instrucciones tiene dudas graves y fundadas al respecto»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 13.2 del Reglamento de Régimen Interno del CPEI, ¿cómo deben cumplirse las instrucciones de los superiores?",
+     "opciones": [
+      "Se cumplen ateniéndose exactamente a su contenido",
+      "Pueden adaptarse libremente si el resultado es igual",
+      "Solo se cumplen tras consultar siempre al superior"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.2: se cumplen sin dilación y «ateniéndose exactamente a su contenido»; la consulta es solo ante dudas graves y fundadas."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a13-3-superior-accidental",
+   "bloque": "a13",
+   "apartado": "3",
+   "orden": 440,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 13.3 del RRI del CPEI, ¿quién tiene consideración de superior jerárquico?",
+    "respuesta": "No solo quien esté nombrado en propiedad para el cargo, sino también quien accidentalmente desempeñe esa función."
+   },
+   "cita": "sino quien accidentalmente desempeñe tal función",
+   "confundible_con": [
+    "RRI-a16-1-mando-unico"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 13.3 del Reglamento de Régimen Interno del CPEI, ¿es superior jerárquico quien desempeña el cargo de forma accidental?",
+     "opciones": [
+      "Sí",
+      "No, solo quien lo tiene en propiedad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.3: es superior jerárquico «no sólo aquel que esté nombrado en propiedad… sino quien accidentalmente desempeñe tal función»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 13.3 del Reglamento de Régimen Interno del CPEI, tiene consideración de superior jerárquico:",
+     "opciones": [
+      "Quien lo es en propiedad y quien lo desempeña accidentalmente",
+      "Solo quien está nombrado en propiedad para el cargo",
+      "Solo el miembro de mayor antigüedad en el parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.3: el nombrado en propiedad y quien accidentalmente desempeñe la función."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Un Cabo sustituye de forma accidental al Sargento de su turno. Según el art. 13.3 del Reglamento de Régimen Interno del CPEI, mientras lo sustituye:",
+     "opciones": [
+      "Tiene consideración de superior jerárquico",
+      "Carece de autoridad por no tener la plaza en propiedad",
+      "Solo manda si lo autoriza por escrito el Gerente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.3: también es superior jerárquico «quien accidentalmente desempeñe tal función»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a13-4-libre-guardia",
+   "bloque": "a13",
+   "apartado": "4",
+   "orden": 450,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 13.4 del RRI del CPEI, ¿qué obligación tiene el personal libre de guardia que es localizado?",
+    "respuesta": "Asistir a los siniestros para los que sea requerido o de los que tenga conocimiento."
+   },
+   "cita": "estará obligado a asistir a los siniestros para los que sea requerido o tenga conocimiento",
+   "confundible_con": [
+    "RRI-a16-4-acto-servicio"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 13.4 del Reglamento de Régimen Interno del CPEI, ¿debe acudir a un siniestro el bombero libre de guardia que es localizado?",
+     "opciones": [
+      "Sí, está obligado",
+      "No, solo si quiere"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.4: el personal libre de guardia localizado «estará obligado a asistir a los siniestros para los que sea requerido o tenga conocimiento»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 13.4 del Reglamento de Régimen Interno del CPEI, el personal libre de guardia que sea localizado por cualquier medio:",
+     "opciones": [
+      "Está obligado a asistir a los siniestros para los que se le requiera",
+      "Puede negarse a asistir sin necesidad de justificarlo ante nadie",
+      "Solo asiste si el siniestro está en su municipio de residencia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.4: obligado a asistir a los siniestros para los que sea requerido o tenga conocimiento."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 13.4 del Reglamento de Régimen Interno del CPEI, ¿en qué siniestros debe asistir el personal libre de guardia localizado?",
+     "opciones": [
+      "En los que sea requerido o de los que tenga conocimiento",
+      "Solo en los que el Gerente declare de nivel máximo",
+      "Solo en los que ocurran en su zona de residencia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 13.4: «para los que sea requerido o tenga conocimiento»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a14-virtudes",
+   "bloque": "a14",
+   "apartado": "",
+   "orden": 460,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 14 del RRI del CPEI, ¿cuáles son las virtudes primordiales de quien ejerce la autoridad?",
+    "respuesta": "La ponderación, la prudencia y la discreción; además, ha de dar instrucciones claras, precisas y concretas."
+   },
+   "cita": "procurando la ponderación, la prudencia y la discreción",
+   "confundible_con": [
+    "RRI-a13-1-instrucciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 14 del Reglamento de Régimen Interno del CPEI, ¿es la prudencia una virtud primordial de quien ejerce la autoridad?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 14: «la ponderación, la prudencia y la discreción, que han de ser virtudes primordiales de quien ejerce la autoridad»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 14 del Reglamento de Régimen Interno del CPEI, las virtudes primordiales de quien ejerce la autoridad son:",
+     "opciones": [
+      "La ponderación, la prudencia y la discreción",
+      "La firmeza, el rigor y la disciplina",
+      "La rapidez, la exigencia y la reserva"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 14: ponderación, prudencia y discreción."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 14 del Reglamento de Régimen Interno del CPEI, ¿cómo deben ser las instrucciones que imparte el superior?",
+     "opciones": [
+      "Claras, precisas y concretas",
+      "Escritas, motivadas y registradas",
+      "Breves, generales y flexibles"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 14: el superior ha de ser «claro, preciso y concreto en las instrucciones que imparta»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a15-exclusiva",
+   "bloque": "a15",
+   "apartado": "",
+   "orden": 470,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 15 del RRI del CPEI, en materias de su exclusiva competencia, ¿a quién obedece el C.P.E.I.?",
+    "respuesta": "Solo a sus superiores naturales internos y a los miembros del Consejo de Administración; a otras autoridades se les hace ver, de forma cortés y respetuosa, la imposibilidad de obedecer."
+   },
+   "cita": "solamente obedecerá instrucciones de sus superiores naturales internos y de los miembros del Consejo de Administración",
+   "confundible_con": [
+    "RRI-a15-colaboracion-fcs"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 15 del Reglamento de Régimen Interno del CPEI, en materias de su exclusiva competencia, ¿obedece el C.P.E.I. a otras autoridades?",
+     "opciones": [
+      "No, solo a sus superiores internos y al Consejo",
+      "Sí, a cualquier autoridad presente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15: «solamente obedecerá instrucciones de sus superiores naturales internos y de los miembros del Consejo de Administración»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 15 del Reglamento de Régimen Interno del CPEI, cuando actúa en materias de su exclusiva competencia, el C.P.E.I. solo obedece instrucciones de:",
+     "opciones": [
+      "Sus superiores naturales internos y los miembros del Consejo de Administración",
+      "Sus superiores naturales internos y el alcalde del municipio afectado",
+      "Las Fuerzas y Cuerpos de Seguridad presentes en el lugar"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15: superiores naturales internos y miembros del Consejo de Administración."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 15 del Reglamento de Régimen Interno del CPEI, en materia de su exclusiva competencia, ¿cómo se responde a la instrucción de otra autoridad?",
+     "opciones": [
+      "Haciéndole ver con cortesía la imposibilidad de obedecer e indicando a qué superior dirigirse",
+      "Cumpliéndola de inmediato y dando parte después por escrito a su superior propio",
+      "Ignorándola sin más, sin dar ninguna explicación a la autoridad que la ha dado"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15: «se les hará ver, de forma cortés y respetuosa, la imposibilidad de obedecer con expresa indicación del superior del Consorcio al que proceda dirigirse»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a15-colaboracion-fcs",
+   "bloque": "a15",
+   "apartado": "",
+   "orden": 480,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 15 del RRI del CPEI, cuando colabora en situaciones de competencia de otras autoridades (p. ej. Fuerzas y Cuerpos de Seguridad), ¿cómo actúa el personal?",
+    "respuesta": "Bajo dependencia de sus superiores propios, pero con sujeción a las órdenes de esas autoridades."
+   },
+   "cita": "actuarán bajo dependencia de sus superiores propios, pero con sujeción a las órdenes que procedieran de tales autoridades",
+   "confundible_con": [
+    "RRI-a15-exclusiva"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 15 del Reglamento de Régimen Interno del CPEI, al colaborar en un asunto competencia de la Guardia Civil, ¿siguen los bomberos dependiendo de sus superiores propios?",
+     "opciones": [
+      "Sí, pero sujetos a las órdenes de esa autoridad",
+      "No, pasan a depender solo de la Guardia Civil"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15: «actuarán bajo dependencia de sus superiores propios, pero con sujeción a las órdenes que procedieran de tales autoridades»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 15 del Reglamento de Régimen Interno del CPEI, si colaboran en situaciones de competencia de las Fuerzas y Cuerpos de Seguridad, los miembros del C.P.E.I. actúan:",
+     "opciones": [
+      "Bajo sus superiores propios, sujetos a las órdenes de esas autoridades",
+      "Solo bajo las órdenes de sus superiores, sin atender a esas autoridades",
+      "Bajo el mando directo de esas autoridades, sin superiores propios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15: dependencia de sus superiores propios con sujeción a las órdenes de tales autoridades."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 15 del Reglamento de Régimen Interno del CPEI, ¿qué distingue la actuación en materia de exclusiva competencia de la colaboración con otras autoridades?",
+     "opciones": [
+      "En la colaboración se sujetan a las órdenes de esas autoridades",
+      "En ambos casos obedecen solo a sus superiores internos",
+      "En la exclusiva competencia mandan los Cuerpos de Seguridad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15: en exclusiva competencia solo obedecen a superiores internos y Consejo; al colaborar, dependen de sus superiores pero sujetos a las órdenes de la otra autoridad."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a15-conocer-superiores",
+   "bloque": "a15",
+   "apartado": "",
+   "orden": 490,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 15 del RRI del CPEI, ¿qué obligación tiene todo miembro del Consorcio respecto a sus superiores jerárquicos?",
+    "respuesta": "Conocerlos; los superiores deben poner los medios para que ese conocimiento sea posible y real."
+   },
+   "cita": "Todo miembro del Consorcio tiene obligación de conocer a los superiores jerárquicos",
+   "confundible_con": [
+    "RRI-a13-3-superior-accidental"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 15 del Reglamento de Régimen Interno del CPEI, ¿debe todo miembro del Consorcio conocer a sus superiores jerárquicos?",
+     "opciones": [
+      "Sí, es una obligación",
+      "No, es voluntario"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15: «Todo miembro del Consorcio tiene obligación de conocer a los superiores jerárquicos»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 15 del Reglamento de Régimen Interno del CPEI, para que el personal conozca a sus superiores jerárquicos:",
+     "opciones": [
+      "Los superiores deben poner los medios para ello",
+      "Cada bombero debe pedir un listado por escrito",
+      "La Dirección publica el organigrama en el BOP"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15: los superiores «deberán poner los medios para que ese conocimiento sea posible y real»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 15 del Reglamento de Régimen Interno del CPEI, ¿cómo debe ser el conocimiento de los superiores jerárquicos que se exige?",
+     "opciones": [
+      "Posible y real",
+      "Escrito y registrado",
+      "Anual y documentado"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15: los superiores ponen los medios «para que ese conocimiento sea posible y real»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a16-1-mando-unico",
+   "bloque": "a16",
+   "apartado": "1",
+   "orden": 500,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 16.1 del RRI del CPEI, cuando intervienen dos o más miembros del Consorcio, ¿bajo qué autoridad se actúa?",
+    "respuesta": "Siempre bajo la autoridad de una sola persona, observando rigurosamente la sucesión jerárquica de un empleo al inmediato superior."
+   },
+   "cita": "se realizará siempre bajo la autoridad de una solo persona",
+   "confundible_con": [
+    "RRI-a16-3-colision",
+    "RRI-a13-3-superior-accidental"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 16.1 del Reglamento de Régimen Interno del CPEI, si actúan varios miembros juntos, ¿cuántas personas tienen la autoridad?",
+     "opciones": [
+      "Una sola",
+      "Todas las de mayor categoría presentes"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.1: «se realizará siempre bajo la autoridad de una solo [sic] persona»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 16.1 del Reglamento de Régimen Interno del CPEI, todo servicio en el que intervengan dos o más miembros del Consorcio se realizará:",
+     "opciones": [
+      "Bajo la autoridad de una sola persona",
+      "Bajo la autoridad conjunta de los mandos presentes",
+      "Bajo la autoridad de quien llegue primero"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.1: siempre bajo la autoridad de una sola persona."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 16.1 del Reglamento de Régimen Interno del CPEI, ¿qué debe observarse rigurosamente cuando actúan varios miembros del Consorcio?",
+     "opciones": [
+      "La sucesión jerárquica de un empleo al inmediato superior",
+      "El orden de llegada al lugar del siniestro",
+      "El turno de guardia que figure en el cuadrante"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.1: «deberá observarse rigurosamente la sucesión jerárquica de un empleo al inmediato superior»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a16-2-relevo",
+   "bloque": "a16",
+   "apartado": "2",
+   "orden": 510,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 16.2 del RRI del CPEI, ¿hasta cuándo permanece a cargo quien está al frente de una dotación?",
+    "respuesta": "Hasta que sea relevado formalmente por quien proceda."
+   },
+   "cita": "permanecerá a su cargo hasta que sea relevado formalmente por quien proceda",
+   "confundible_con": [
+    "RRI-a16-1-mando-unico"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 16.2 del Reglamento de Régimen Interno del CPEI, ¿deja el mando de la dotación quien está al frente en cuanto llega un superior?",
+     "opciones": [
+      "No, hasta que sea relevado formalmente",
+      "Sí, de forma automática"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.2: permanecerá a su cargo «hasta que sea relevado formalmente por quien proceda»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 16.2 del Reglamento de Régimen Interno del CPEI, el que esté al frente de una dotación actuante permanecerá a su cargo:",
+     "opciones": [
+      "Hasta que sea relevado formalmente por quien proceda",
+      "Hasta que termine su turno de guardia",
+      "Hasta que llegue cualquier miembro de mayor antigüedad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.2: hasta el relevo formal."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 16.2 del Reglamento de Régimen Interno del CPEI, ¿qué requisito exige el cambio de responsable de las dotaciones actuantes?",
+     "opciones": [
+      "Un relevo formal por quien proceda",
+      "Un parte escrito firmado por el Gerente",
+      "La conformidad de todos los miembros"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.2: permanece a su cargo hasta ser «relevado formalmente por quien proceda»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a16-3-colision",
+   "bloque": "a16",
+   "apartado": "3",
+   "orden": 520,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 16.3 del RRI del CPEI, si concurren dos efectivos de igual categoría, ¿quién prevalece?",
+    "respuesta": "El que esté de guardia o de servicio; si persiste la colisión: mayor antigüedad en la categoría, mayor antigüedad en el Servicio y, en su defecto, mayor edad."
+   },
+   "cita": "se seguirán sucesivamente los criterios de mayor antigüedad en la categoría, mayor antigüedad en el Servicio y, en su defecto, el de mayor edad",
+   "confundible_con": [
+    "RRI-a16-1-mando-unico"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 16.3 del Reglamento de Régimen Interno del CPEI, entre dos Cabos, uno de guardia y otro libre de servicio, ¿quién prevalece?",
+     "opciones": [
+      "El que está de guardia",
+      "El que está libre de servicio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.3: «prevalecerá el que esté de guardia o de servicio, frente al que esté libre o franco de servicio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 16.3 del Reglamento de Régimen Interno del CPEI, si entre efectivos de igual categoría y situación subsiste la colisión, el primer criterio es:",
+     "opciones": [
+      "La mayor antigüedad en la categoría",
+      "La mayor antigüedad en el Servicio",
+      "La mayor edad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.3: sucesivamente, mayor antigüedad en la categoría, mayor antigüedad en el Servicio y mayor edad."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 16.3 del Reglamento de Régimen Interno del CPEI, ¿cuál es el orden de criterios si subsiste la colisión en el cargo?",
+     "opciones": [
+      "Antigüedad en la categoría, antigüedad en el Servicio, mayor edad",
+      "Antigüedad en el Servicio, antigüedad en la categoría, mayor edad",
+      "Mayor edad, antigüedad en la categoría, antigüedad en el Servicio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.3: «mayor antigüedad en la categoría, mayor antigüedad en el Servicio y, en su defecto, el de mayor edad»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a16-4-acto-servicio",
+   "bloque": "a16",
+   "apartado": "4",
+   "orden": 530,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 16.4 del RRI del CPEI, ¿cuándo se considera en acto de servicio a quien interviene fuera de su turno?",
+    "respuesta": "Cuando intervenga circunstancialmente en cualquier accidente o siniestro, siempre que acredite su condición de miembro del C.P.E.I."
+   },
+   "cita": "siempre que acredite su condición de miembro del C.P.E.I.",
+   "confundible_con": [
+    "RRI-a13-4-libre-guardia"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 16.4 del Reglamento de Régimen Interno del CPEI, ¿está en acto de servicio el bombero fuera de turno que actúa en un accidente?",
+     "opciones": [
+      "Sí, si acredita su condición de miembro del C.P.E.I.",
+      "No, nunca fuera de su turno"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.4: se considera en acto de servicio «siempre que acredite su condición de miembro del C.P.E.I.»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 16.4 del Reglamento de Régimen Interno del CPEI, el personal que, sin estar en turno, interviene circunstancialmente en un siniestro se considera:",
+     "opciones": [
+      "En acto de servicio, si acredita su condición de miembro",
+      "Un particular, sin cobertura del Consorcio",
+      "En servicio extraordinario solo si lo autoriza el Gerente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.4: en acto de servicio, siempre que acredite su condición de miembro del C.P.E.I."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 16.4 del Reglamento de Régimen Interno del CPEI, ¿qué requisito se exige para considerar en acto de servicio a quien interviene fuera de turno?",
+     "opciones": [
+      "Acreditar su condición de miembro del C.P.E.I.",
+      "Haber sido llamado previamente por la CECOB",
+      "Tener una antigüedad mínima de un año"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.4: «siempre que acredite su condición de miembro del C.P.E.I.»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a16-5-necesidades",
+   "bloque": "a16",
+   "apartado": "5",
+   "orden": 540,
+   "tipo": "definicion",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 16.5 del RRI del CPEI, ¿qué se consideran necesidades del servicio?",
+    "respuesta": "Las circunstancias que no se puedan prever con suficiente antelación, según las circunstancias concurrentes en cada caso."
+   },
+   "cita": "aquellas circunstancias que no se puedan prever con suficiente antelación",
+   "confundible_con": [
+    "RRI-a16-4-acto-servicio"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 16.5 del Reglamento de Régimen Interno del CPEI, ¿son necesidades del servicio las circunstancias imprevisibles con suficiente antelación?",
+     "opciones": [
+      "Sí",
+      "No, solo las que estén en el cuadrante"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.5: «Se considerarán necesidades del servicio aquellas circunstancias que no se puedan prever con suficiente antelación»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 16.5 del Reglamento de Régimen Interno del CPEI, se consideran necesidades del servicio:",
+     "opciones": [
+      "Las circunstancias que no se puedan prever con suficiente antelación",
+      "Las tareas que figuren en el cuadrante mensual de guardias",
+      "Las que el trabajador comunique con 48 horas de antelación"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.5: las circunstancias que no se puedan prever con suficiente antelación."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 16.5 del Reglamento de Régimen Interno del CPEI, ¿con qué criterio se aprecia si algo es una necesidad del servicio?",
+     "opciones": [
+      "Según las circunstancias concurrentes en cada caso",
+      "Según una lista cerrada aprobada por el Consejo",
+      "Según lo que decida el representante sindical"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.5: «según las circunstancias concurrentes en cada caso»."
+    }
+   ]
+  }
+ ]
+}
