@@ -40,6 +40,8 @@ interface MockExamProps {
   useServerQuestions?: boolean;
   /** Invitado sin cuenta: tras ver la nota, ofrecer guardar el progreso creando una cuenta. */
   onGuestSignup?: () => void;
+  /** Empieza el simulacro al montar (atajo «Probar un simulacro de muestra» de la Bienvenida). */
+  autoStart?: boolean;
 }
 
 export default function MockExam({
@@ -47,7 +49,8 @@ export default function MockExam({
   onFinishExam,
   onNavigateHome,
   useServerQuestions = false,
-  onGuestSignup
+  onGuestSignup,
+  autoStart = false
 }: MockExamProps) {
   const [examStarted, setExamStarted] = useState(false);
   const [examFinished, setExamFinished] = useState(false);
@@ -306,6 +309,15 @@ export default function MockExam({
     if (examFinished && testResults) resultsSummaryRef.current?.focus();
   }, [examFinished, testResults]);
 
+  const autoStartedRef = useRef(false);
+  useEffect(() => {
+    if (autoStart && !autoStartedRef.current && !examStarted) {
+      autoStartedRef.current = true;
+      void startNewExam();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoStart]);
+
   const getConceptText = (id: string) => {
     return microconcepts.find(mc => mc.id === id)?.text || id;
   };
@@ -350,8 +362,14 @@ export default function MockExam({
             </p>
             <ul className="list-disc list-inside space-y-1.5 pl-1 leading-normal">
               <li>Fórmula oficial: <strong>+{EXAM_CORRECT_POINTS.toFixed(3)}</strong> por acierto y <strong>{EXAM_INCORRECT_POINTS.toFixed(3)}</strong> por error.</li>
-              <li>Consta de <strong>55 preguntas (50 + 5 reserva)</strong>.{!useServerQuestions && <> Sin cuenta se usan las <strong>{INITIAL_QUESTIONS.length} preguntas públicas</strong> que hay hoy.</>}</li>
-              <li>Proporción oficial: <strong>30% de preguntas de temas 35-40</strong> garantizado.</li>
+              {useServerQuestions ? (
+                <>
+                  <li>Consta de <strong>55 preguntas (50 + 5 reserva)</strong>.</li>
+                  <li>Proporción oficial: <strong>30% de preguntas de temas 35-40</strong> garantizado.</li>
+                </>
+              ) : (
+                <li>Sin cuenta es un <strong>simulacro de muestra</strong> con las <strong>{INITIAL_QUESTIONS.length} preguntas públicas</strong> que hay hoy: no sigue el reparto oficial. El simulacro completo (55 preguntas, 30 % de los temas 35-40) requiere cuenta.</li>
+              )}
               <li>Preguntas en orden aleatorio, como en el examen.</li>
               <li>Al finalizar obtendrás un informe detallado con tu plan de estudio de sanea-errores.</li>
             </ul>
@@ -512,7 +530,7 @@ export default function MockExam({
               <h3 id="mock-result-title" className="text-xl font-bold text-slate-900">Simulacro terminado</h3>
               <p className="text-sm text-slate-600">Tu resultado y qué repasar ahora.</p>
               <p id="mock-result-summary" className="sr-only">
-                Nota {testResults.score} de {testResults.maxScore}. Acierto {testResults.pct} por ciento. Tiempo medio {testResults.avgTime} segundos.
+                Nota {testResults.score} de {testResults.maxScore}. Acierto {testResults.pct} por ciento. Tiempo medio {testResults.avgTime} {testResults.avgTime === 1 ? 'segundo' : 'segundos'}.
               </p>
             </div>
 
