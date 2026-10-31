@@ -24,6 +24,18 @@ describe('registro de material por tema', () => {
     const arts = [...esq.matchAll(/act\.php\?id=BOE-A-1995-24292#a(\d+(?:bis)?)\)/g)].map((x) => x[1]);
     expect(arts).toEqual([...Array.from({ length: 32 }, (_, i) => String(i + 1)), '32bis']);
   });
+  it('temas generados del BOE: cada precepto del índice está enlazado en el esquema', () => {
+    for (const n of [2, 3, 6, 7, 31, 34]) {
+      const m = materialDeTema(n)!;
+      expect(capasDisponibles(m), `T${n}`).toEqual(['esquema', 'completo']);
+      const indice = JSON.parse(readFileSync(`public/material/${m.carpeta}/${m.textoOficial!.file.replace('-texto-oficial.md', '-indice.json')}`, 'utf8'));
+      expect(indice.bloques.map((b: { id: string }) => b.id)).toEqual(m.bloques.map((b) => b.id));
+      for (const b of indice.bloques) {
+        const esq = readFileSync(`public/material/${m.carpeta}/${b.id}-1-esquema.md`, 'utf8');
+        for (const id of b.preceptos) expect(esq, `T${n} ${id}`).toContain(`act.php?id=${indice.boe}#${id})`);
+      }
+    }
+  });
   it('las fuentes son de boe.es', () => {
     const todas = [...MATERIAL_TEMAS.flatMap((m) => m.fuentes), ...Object.values(FUENTES_SIN_MATERIAL).flat()];
     for (const f of todas) expect(f.url).toMatch(/^https:\/\/www\.boe\.es\/buscar\/act\.php\?id=BOE-A-\d{4}-\d+$/);
