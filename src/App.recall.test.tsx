@@ -26,7 +26,7 @@ describe('navegación de recuerdo', () => {
     expect(screen.getAllByRole('button', { name: /^Recuerdo$/ })).toHaveLength(1);
     const tablist = await screen.findByRole('tablist', { name: 'Temas de recuerdo' });
     const tabs = within(tablist).getAllByRole('tab');
-    expect(tabs.map((t) => t.textContent)).toEqual(RECALL_TOPICS.map((t) => `${t.shortLabel}${t.count}`));
+    expect(tabs.map((t) => Array.from(t.querySelectorAll('[aria-hidden="true"]')).map((e) => e.textContent).join(''))).toEqual(RECALL_TOPICS.map((t) => `${t.shortLabel}${t.count}`));
     expect(document.title).toBe('Recuerdo | BomberoPro');
 
     await user.click(within(tablist).getByRole('tab', { name: /T40/ }));

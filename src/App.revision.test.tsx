@@ -26,7 +26,7 @@ describe('mazos pendientes de revisión ocultos al alumno', () => {
     await screen.findByRole('button', { name: /Por Temas/ });
     await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-recuerdo')!);
     const tablist = await screen.findByRole('tablist', { name: 'Temas de recuerdo' });
-    const tabs = within(tablist).getAllByRole('tab').map((t) => t.textContent);
+    const tabs = within(tablist).getAllByRole('tab').map((t) => Array.from(t.querySelectorAll('[aria-hidden="true"]')).map((e) => e.textContent).join(''));
     // Etiqueta + nº de fichas visibles del tema (T10 solo su lote 2; T16 solo su lote 1).
     expect(tabs).toEqual(['T1013', 'T1648', 'T1714', 'T2419', 'T35150', 'T38198', 'T39149', 'T40213']);
     expect(screen.getByText(/804 fichas de repaso/)).toBeInTheDocument();
