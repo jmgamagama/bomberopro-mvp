@@ -670,19 +670,19 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
   {
     "id": "CPEI-T36-S06-56C44E4A50",
     "orden": 3580,
-    "concepto": "¿Dónde se localiza Piedra Aguda?",
-    "respuesta": "Olivenza.",
-    "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
+    "concepto": "¿Sobre qué río está la presa de Piedra Aguda y dónde?",
+    "respuesta": "río Olivenza; la presa está en el límite entre Olivenza y Valverde de Leganés.",
+    "fuente": "MITECO, Inventario de Presas y Embalses (shapefiles egis_presa/egis_embalse, abril de 2025); municipio por las coordenadas de la presa sobre los límites municipales del IGN (unidades administrativas)",
+    "localizacion": "presa 4060031 PIEDRA AGUDA (embalse 1703): cauce río Olivenza; coordenadas en el límite municipal Olivenza / Valverde de Leganés",
     "apartado": "Piedra Aguda"
   },
   {
     "id": "CPEI-T36-S06-0EBFECFFE3",
     "orden": 3590,
-    "concepto": "¿Dónde se localiza Valuengo?",
+    "concepto": "¿Sobre qué río está la presa de Valuengo y en qué municipio?",
     "respuesta": "río Ardila; Jerez de los Caballeros.",
-    "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
+    "fuente": "MITECO, Inventario de Presas y Embalses (shapefiles egis_presa/egis_embalse, abril de 2025); municipio por las coordenadas de la presa sobre los límites municipales del IGN (unidades administrativas)",
+    "localizacion": "presa 4060067 VALUENGO (embalse 2435): cauce río Ardila; municipio Jerez de los Caballeros",
     "apartado": "Valuengo"
   },
   {
@@ -715,10 +715,10 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
   {
     "id": "CPEI-T36-S06-CAAF86E55A",
     "orden": 3630,
-    "concepto": "¿Dónde se localiza Embalse de Brovales?",
-    "respuesta": "Jerez de los Caballeros.",
-    "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
+    "concepto": "¿Sobre qué cauce está la presa de Brovales y en qué municipio?",
+    "respuesta": "arroyo de Brovales; Jerez de los Caballeros.",
+    "fuente": "MITECO, Inventario de Presas y Embalses (shapefiles egis_presa/egis_embalse, abril de 2025); municipio por las coordenadas de la presa sobre los límites municipales del IGN (unidades administrativas)",
+    "localizacion": "presa 4060047 BROVALES (embalse 382): cauce arroyo de Brovales; municipio Jerez de los Caballeros",
     "apartado": "Embalse de Brovales"
   }
 ];
