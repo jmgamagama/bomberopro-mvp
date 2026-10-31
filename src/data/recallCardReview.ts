@@ -149,6 +149,10 @@ export const REVIEWED_CARDS_IN_PENDING_DECKS: Readonly<Record<string, readonly s
     'CPEI-T36-S04-51C8483765',
     // Tramos de población: literal del temario (BOP de Badajoz nº 135, 17/07/2026, anexo I, Tema 36).
     'CPEI-T36-S01-419C97CE9B',
+    // Capital: NGBE del IGN, entidad 2721311 «Badajoz», tipo «Capital de provincia», nombre oficial (WFS NGBE, 31/10/2026).
+    'CPEI-T36-S01-2A0B8D8C18',
+    // Denominaciones oficiales georreferenciadas: reescrita al literal del art. 23.1 del RD 1545/2007 (BOE-A-2007-20556), 31/10/2026.
+    'CPEI-T36-S01-73F24B915A',
     // INE, tabla 2859 (Badajoz, cifras definitivas a 1/1/2025), descargada el 31/10/2026: las 21 poblaciones de más de 5.000 hab. coinciden, igual que la fecha y el código provincial 06.
     'CPEI-T36-S02-7CA46DB703', 'CPEI-T36-S02-581F657A32', 'CPEI-T36-S02-9A0E3EB510', 'CPEI-T36-S02-62A9FE3183',
     'CPEI-T36-S02-0A4022A679', 'CPEI-T36-S02-BE491A4A28', 'CPEI-T36-S02-69ABD4A739', 'CPEI-T36-S02-57A7367B23',
