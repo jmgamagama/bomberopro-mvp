@@ -1,0 +1,47 @@
+{
+ "boe": "BOE-A-2011-6651",
+ "version": "19/12/2025",
+ "epigrafe": "Ley 8/2011, de 23 de marzo, de Igualdad entre Mujeres y Hombres y contra la Violencia de Género en Extremadura: Disposiciones generales. Integración de la perspectiva de Género en las Políticas Públicas. Violencia de Género: Derechos de las mujeres en situaciones de violencia de género a la atención integral y efectiva.",
+ "bloques": [
+  {
+   "id": "ligualdad-01",
+   "titulo": "Título Preliminar · Disposiciones generales (arts. 1–4)",
+   "preceptos": [
+    "a1",
+    "a2",
+    "a3",
+    "a4"
+   ]
+  },
+  {
+   "id": "ligualdad-02",
+   "titulo": "Título II · Integración de la perspectiva de género en las políticas públicas",
+   "preceptos": [
+    "a2-3",
+    "a2-4",
+    "a2-5",
+    "a2-6",
+    "a2-7",
+    "a2-8",
+    "a2-9",
+    "a2-10",
+    "a2-11",
+    "a3-2",
+    "a3-3",
+    "a3-4"
+   ]
+  },
+  {
+   "id": "ligualdad-03",
+   "titulo": "Título IV · Capítulo II · Derechos de las mujeres en situaciones de violencia de género",
+   "preceptos": [
+    "a7-10",
+    "a7-11",
+    "a8-2",
+    "a8-3",
+    "a8-4",
+    "a8-5"
+   ]
+  }
+ ]
+}
