@@ -1145,6 +1145,7 @@ export default function App() {
         <StudyByTopic
           session={session}
           onNavigateHome={() => handleNavigate('dashboard')}
+          onOpenMaterial={(tema) => { setMaterialTema({ tema, vuelta: 'study_by_topic' }); handleNavigate('constitucion'); }}
           />
         )}
         {currentScreen === 'mas' && (
