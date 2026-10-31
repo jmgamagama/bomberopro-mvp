@@ -993,7 +993,6 @@ export default function App() {
             }}
             onStartTraining={() => handleNavigate('train')}
             onNavigateHome={() => handleNavigate('dashboard')}
-          onOpenMaterial={(tema) => { setMaterialTema({ tema, vuelta: 'study_by_topic' }); handleNavigate('constitucion'); }}
           />
         )}
 
