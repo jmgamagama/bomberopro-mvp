@@ -53,6 +53,8 @@ import TrainScreen from './components/TrainScreen';
 import Badajoz2026Card from './components/Badajoz2026Card';
 import { hasGuestSignupIntent, markGuestSignupIntent, markPreferLogin, migrateGuestProgress, prefersLogin } from './utils/guestProgress';
 
+const GUEST_SIN_BACKEND = import.meta.env.VITE_GUEST_SIN_BACKEND === 'true';
+
 // Normalize only the in-memory view; preserve the original local history for recovery.
 const getSafeMemoryStates = (): Record<string, MemoryState> => {
   const now = getCurrentDate();
@@ -640,8 +642,9 @@ export default function App() {
 
   // Primer uso sin cuenta: se entra directamente como invitado (sin muro de registro).
   // La pantalla de acceso solo aparece si el alumno la pide o ya tuvo sesión en este navegador.
+  // Build de prueba sin VITE_SUPABASE_* (VITE_GUEST_SIN_BACKEND=true): también entra como invitado (demo local).
   const autoGuestDone = useRef(false);
-  const autoGuestPending = !loadingAuth && !session && !!supabase && !isDemoMode && !prefersLogin() && !retornoAuthInicial && !autoGuestDone.current;
+  const autoGuestPending = !loadingAuth && !session && (!!supabase || GUEST_SIN_BACKEND) && !isDemoMode && !prefersLogin() && !retornoAuthInicial && !autoGuestDone.current;
   useEffect(() => {
     if (!autoGuestPending) return;
     autoGuestDone.current = true;
@@ -649,12 +652,17 @@ export default function App() {
     handleStartDemo();
   }, [autoGuestPending]);
 
-  const handleStartDemo = () => {
+  // Primer uso automático (invitado): bienvenida/inicio. Botón «Prueba 15 preguntas» del acceso: directo a las preguntas.
+  const handleStartDemo = (directo = false) => {
     resetDemoState();
     demoFirstAnswerTracked.current = false;
     if (!session) trackFunnel('demo_start');
     setIsDemoMode(true);
     setDbQuestions(INITIAL_QUESTIONS);
+    if (!directo) {
+      setCurrentScreen(hasCompletedOnboarding() ? 'dashboard' : 'onboarding');
+      return;
+    }
     // La entrada promete «Prueba 15 preguntas»: la demo abre directamente esas preguntas.
     setDailyAutoStart(false);
     setCurrentScreen('train');
@@ -755,7 +763,7 @@ export default function App() {
         {/* Si la sesión caduca a mitad de estudio, aquí se avisa de lo que sigue pendiente. */}
         <UpdateBanner />
         <SaveFailureBanner showIfPending />
-        <Suspense fallback={<p role="status" className="p-6 text-sm text-slate-600">Cargando…</p>}><Login initialMode={loginMode} onStartDemo={() => { setLoginMode('entrar'); handleStartDemo(); }} /></Suspense>
+        <Suspense fallback={<p role="status" className="p-6 text-sm text-slate-600">Cargando…</p>}><Login initialMode={loginMode} onStartDemo={() => { setLoginMode('entrar'); handleStartDemo(true); }} /></Suspense>
       </>
     );
   }

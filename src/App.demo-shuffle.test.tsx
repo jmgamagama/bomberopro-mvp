@@ -53,6 +53,7 @@ vi.mock('./lib/supabase', () => ({
 }));
 
 import App from './App';
+import { markPreferLogin } from './utils/guestProgress';
 
 // Regresión (28-oct-2026): en la demo las 15 preguntas tienen la correcta en la primera posición
 // y no se barajaban, así que el alumno veía la A correcta en todas.
@@ -62,10 +63,11 @@ describe('Demo: las opciones se barajan al montar la sesión', () => {
   it('la respuesta correcta no queda fija en la A y la corrección sigue acertando', async () => {
     // Con random() = 0 el barajado Fisher-Yates lleva la primera opción a la última posición.
     vi.spyOn(Math, 'random').mockReturnValue(0);
+    markPreferLogin(); // desde la pantalla de acceso (el primer uso automático va a la bienvenida)
     const user = userEvent.setup();
     render(<App />);
 
-    // Primer uso sin cuenta: se entra directamente como invitado en las preguntas de prueba.
+    await user.click(await screen.findByRole('button', { name: /prueba 15 preguntas/i }));
     await screen.findByText(/según el artículo 1\.1 de la constitución/i);
 
     const correct = screen.getByRole('button', { name: /estado social y democrático de derecho/i });
