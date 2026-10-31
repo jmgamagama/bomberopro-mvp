@@ -638,6 +638,15 @@ const DECK_SOURCES: readonly DeckSource[] = [
   },
   {
     meta: {
+      tema: 37,
+      title: 'Tema 37 · Plan de prevención de riesgos laborales del CPEI-Badajoz',
+      count: 37,
+      source: 'BOP de Badajoz nº 117, 22/06/2026, anuncio 2242/2026 (aprobación definitiva), fichas literales con página',
+    },
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema37Recall').then((m) => m.TEMA37_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 38,
       title: 'Tema 38 · ITF CPEI: horario, vestuario/EPIs, limpieza y gestión de EPIs colectivos',
       count: 198,
