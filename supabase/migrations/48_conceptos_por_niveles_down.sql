@@ -1,4 +1,4 @@
--- Marcha atrás de la 47: devuelve _concept_session a la definición exacta de producción
+-- Marcha atrás de la 48: devuelve _concept_session a la definición exacta de producción
 -- anterior (md5 de pg_get_functiondef 80dd58965321c539945bfca78aa1af53, comprobado el 31/10/2026)
 -- y retira la función de bloques y las columnas bloque/requiere (vacías salvo ajustes manuales).
 CREATE OR REPLACE FUNCTION public._concept_session(p_user uuid, p_topic integer, p_minutes integer, p_now timestamp with time zone)

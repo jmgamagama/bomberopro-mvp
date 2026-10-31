@@ -1,19 +1,19 @@
--- 47 · Sesión de conceptos por niveles dentro de cada bloque (regla de JM, 28/10/2026).
+-- 48 · Sesión de conceptos por niveles dentro de cada bloque (regla de JM, 28/10/2026).
 -- Nivel 1 = lo imprescindible para sacar 5-6; nivel 2 = de 5 a 8; nivel 3 = 9 y 10.
 -- Antes: los conceptos nuevos salían por prioridad sin mirar si el alumno dominaba lo anterior.
 -- Ahora: dentro de cada artículo o apartado se avanza 1 → 2 → 3, y si se olvida un concepto
 -- de nivel 3 se cierra el 3 de ese bloque y se repasa el 2. No cambia datos de contenido:
 -- añade dos columnas vacías (bloque para fijar el bloque a mano, requiere para las bases).
 -- Guardia: solo se aplica sobre la versión anterior conocida o sobre sí misma (idempotente).
--- Marcha atrás: 47_conceptos_por_niveles_down.sql.
+-- Marcha atrás: 48_conceptos_por_niveles_down.sql.
 
 DO $guard$
 DECLARE d text;
 BEGIN
   SELECT pg_get_functiondef('public._concept_session(uuid,integer,integer,timestamp with time zone)'::regprocedure) INTO d;
   IF position('row_number() OVER (ORDER BY c.prioridad, c.orden, c.id) AS rn' IN d) = 0
-     AND position('Niveles por bloque (47)' IN d) = 0 THEN
-    RAISE EXCEPTION '47: _concept_session no es la versión esperada; revisar antes de aplicar';
+     AND position('Niveles por bloque (48)' IN d) = 0 THEN
+    RAISE EXCEPTION '48: _concept_session no es la versión esperada; revisar antes de aplicar';
   END IF;
 END $guard$;
 
@@ -48,7 +48,7 @@ DECLARE
 BEGIN
   RETURN QUERY
   WITH
-  -- Niveles por bloque (47). Nivel del concepto = concepts.prioridad (1 = lo que más cae).
+  -- Niveles por bloque (48). Nivel del concepto = concepts.prioridad (1 = lo que más cae).
   -- Un bloque es el artículo o apartado (concepts.bloque o, si está vacío, _bloque_concepto).
   -- Dentro de cada bloque se avanza 1 → 2 → 3: un nivel se abre cuando el alumno domina
   -- (≥ 2 repasos y última nota ≥ 3) el 80 % del nivel inferior más cercano de ese bloque.

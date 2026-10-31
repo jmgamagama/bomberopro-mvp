@@ -1,5 +1,5 @@
-// Prueba de la migración 48 (la sesión diaria respeta los niveles 1-2-3 por tema) en PGlite.
-// Uso: NODE_PATH=<ruta con @electric-sql/pglite> node supabase/tests/sesion_niveles_48.pglite.mjs
+// Prueba de la migración 49 (la sesión diaria respeta los niveles 1-2-3 por tema) en PGlite.
+// Uso: NODE_PATH=<ruta con @electric-sql/pglite> node supabase/tests/sesion_niveles_49.pglite.mjs
 // Réplica mínima del esquema (sin RLS de Supabase). No sustituye a staging.
 import { createRequire } from 'node:module';
 import { readFileSync } from 'node:fs';
@@ -32,10 +32,10 @@ for (const [base, nivel] of [[0, 1], [100, 2], [200, 3]]) {
 }
 for (let i = 1; i <= 10; i++) await db.query(`insert into questions values ($1, 2, 'e', $2, 'a', 'x', 'f', 'publicada', 2)`, [300 + i, ops]);
 
-// Función de producción anterior (la del _down) y después la 48.
-await db.exec(read('48_sesion_por_niveles_down.sql'));
-await db.exec(read('48_sesion_por_niveles.sql'));
-await db.exec(read('48_sesion_por_niveles.sql')); // idempotente
+// Función de producción anterior (la del _down) y después la 49.
+await db.exec(read('49_sesion_por_niveles_down.sql'));
+await db.exec(read('49_sesion_por_niveles.sql'));
+await db.exec(read('49_sesion_por_niveles.sql')); // idempotente
 await db.exec(`set test.uid = '${U}'`);
 
 const niveles = async (tema = 1) => {
@@ -96,7 +96,7 @@ await db.exec(`set test.uid = ''`);
 await assert.rejects(() => db.query('select * from get_study_session(20)'), /not_authenticated/);
 
 // 8) Marcha atrás: vuelve la versión anterior (sin la escalera).
-await db.exec(read('48_sesion_por_niveles_down.sql'));
+await db.exec(read('49_sesion_por_niveles_down.sql'));
 const def = (await db.query(`select pg_get_functiondef('get_study_session(integer)'::regprocedure) d`)).rows[0].d;
 assert.ok(!def.includes('frontera') && def.includes('PARTITION BY b.topic_id ORDER BY random()'));
 // 9) Guardia: sobre una versión desconocida, la 48 no se aplica.
@@ -104,5 +104,5 @@ await db.exec(`create or replace function get_study_session(p_limit integer defa
   returns table(id text, microconcept_id text, level text, type text, question text, options text[], correct_answer text,
     explanation text, fuente text, tema jsonb, motivo text) language sql as $$ select null::text, null::text, null::text,
     null::text, null::text, null::text[], null::text, null::text, null::text, null::jsonb, null::text where false $$`);
-await assert.rejects(() => db.exec(read('48_sesion_por_niveles.sql')), /no tiene la forma esperada/);
-console.log('PASS migración 48: N1 primero, N2 al dominar N1, N3 al dominar N2, cierre del N3 al olvidarlo y reapertura, marcha atrás, guardia');
+await assert.rejects(() => db.exec(read('49_sesion_por_niveles.sql')), /no tiene la forma esperada/);
+console.log('PASS migración 49: N1 primero, N2 al dominar N1, N3 al dominar N2, cierre del N3 al olvidarlo y reapertura, marcha atrás, guardia');

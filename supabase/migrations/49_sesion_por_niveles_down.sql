@@ -1,4 +1,4 @@
--- Marcha atrás de 48_sesion_por_niveles.sql: vuelve a la get_study_session anterior (copia literal
+-- Marcha atrás de 49_sesion_por_niveles.sql: vuelve a la get_study_session anterior (copia literal
 -- de producción, comprobada de nuevo el 31/10/2026: md5 f683928501284640af2eedd981f1cba2), que elige las preguntas nuevas al azar sin mirar el nivel.
 CREATE OR REPLACE FUNCTION public.get_study_session(p_limit integer DEFAULT 20)
  RETURNS TABLE(id text, microconcept_id text, level text, type text, question text, options text[], correct_answer text, explanation text, fuente text, tema jsonb, motivo text)

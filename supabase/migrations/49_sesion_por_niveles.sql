@@ -1,4 +1,4 @@
--- 48 · La sesión diaria («Estudiar») respeta los niveles 1-2-3 por tema (regla de producto de JM,
+-- 49 · La sesión diaria («Estudiar») respeta los niveles 1-2-3 por tema (regla de producto de JM,
 -- 28/10/2026: primero la base, luego el núcleo de examen y al final el detalle).
 --
 -- Antes: get_study_session elegía las preguntas nuevas al azar dentro de cada tema, sin mirar el nivel.
@@ -14,7 +14,7 @@
 -- No cambia: los repasos vencidos (review_queue), el reparto 70/30 de temas, el recorte a 3 opciones,
 -- las preguntas reportadas ni el formato de salida. Con CREATE OR REPLACE se conservan permisos.
 -- Guardia: si la función de producción no es la copia esperada (otro cambio en medio), aborta.
--- Cómo se deshace: 48_sesion_por_niveles_down.sql (copia literal de la versión de producción del 31/10/2026).
+-- Cómo se deshace: 49_sesion_por_niveles_down.sql (copia literal de la versión de producción del 31/10/2026).
 DO $g$
 DECLARE d text;
 BEGIN
@@ -24,7 +24,7 @@ BEGIN
     -- nuevas al azar por tema) o sobre sí misma.
     IF position('row_number() OVER (PARTITION BY b.topic_id ORDER BY random()) AS rn_topic' IN d) = 0
        AND position('AS frontera' IN d) = 0 THEN
-      RAISE EXCEPTION '48: get_study_session no tiene la forma esperada; revisar a mano';
+      RAISE EXCEPTION '49: get_study_session no tiene la forma esperada; revisar a mano';
     END IF;
   END IF;
 END $g$;

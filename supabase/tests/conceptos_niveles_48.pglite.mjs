@@ -1,9 +1,9 @@
-// Pruebas de la migración 47 (sesión de conceptos por niveles dentro de cada bloque) en PGlite.
+// Pruebas de la migración 48 (sesión de conceptos por niveles dentro de cada bloque) en PGlite.
 //
 //   npm install --prefix /tmp/pg --no-save @electric-sql/pglite@0.5.11
-//   NODE_PATH=/tmp/pg/node_modules node supabase/tests/conceptos_niveles_47.pglite.mjs
+//   NODE_PATH=/tmp/pg/node_modules node supabase/tests/conceptos_niveles_48.pglite.mjs
 //
-// Parte de la definición actual de producción (la que restaura el _down), aplica la 47 y
+// Parte de la definición actual de producción (la que restaura el _down), aplica la 48 y
 // comprueba: solo nivel 1 al empezar; el nivel 2 de un bloque se abre al dominar su nivel 1;
 // bloque sin nivel 1 → mira el tema; «requiere» deja las bases antes; fallar un nivel 3 cierra
 // el 3 del bloque y repasa su nivel 2; idempotencia; guardia; marcha atrás exacta.
@@ -14,8 +14,8 @@ import { strict as assert } from 'node:assert';
 const { PGlite } = createRequire(import.meta.url)('@electric-sql/pglite');
 
 const mig = (n) => readFileSync(new URL(`../migrations/${n}`, import.meta.url), 'utf8');
-const up = mig('47_conceptos_por_niveles.sql');
-const down = mig('47_conceptos_por_niveles_down.sql');
+const up = mig('48_conceptos_por_niveles.sql');
+const down = mig('48_conceptos_por_niveles_down.sql');
 const db = new PGlite();
 const U = '00000000-0000-0000-0000-0000000000aa';
 const NOW = '2026-11-01T08:00:00Z';
@@ -129,7 +129,7 @@ await test('fallar un nivel 3 cierra el 3 de ese bloque y repasa su nivel 2 en t
   assert.ok(!s2.some((x) => x.motivo === 'BAJA_NIVEL'));
 });
 
-await test('repetir la 47 no cambia nada (idempotente)', async () => {
+await test('repetir la 48 no cambia nada (idempotente)', async () => {
   const antes = (await one(`select md5(pg_get_functiondef('public._concept_session(uuid,integer,integer,timestamptz)'::regprocedure)) h`)).h;
   await db.exec(up);
   const despues = (await one(`select md5(pg_get_functiondef('public._concept_session(uuid,integer,integer,timestamptz)'::regprocedure)) h`)).h;
@@ -146,7 +146,7 @@ await test('marcha atrás: misma definición que producción y sin columnas nuev
   assert.ok((await session()).length > 0, 'la versión anterior sigue funcionando');
 });
 
-await test('guardia: si _concept_session no es la versión esperada, la 47 no se aplica', async () => {
+await test('guardia: si _concept_session no es la versión esperada, la 48 no se aplica', async () => {
   await db.exec(`create or replace function public._concept_session(p_user uuid, p_topic integer, p_minutes integer, p_now timestamptz)
     returns table(pos integer, concept_id text, formato text, motivo text, prioridad double precision, recuerdo_estimado double precision,
       dias_vencido double precision, question_id bigint, question text, options text[], correct_answer text, explanation text,
@@ -156,4 +156,4 @@ await test('guardia: si _concept_session no es la versión esperada, la 47 no se
   await assert.rejects(db.exec(up), /no es la versión esperada/);
 });
 
-console.log(`\n${passed} pruebas OK (migración 47)`);
+console.log(`\n${passed} pruebas OK (migración 48)`);
