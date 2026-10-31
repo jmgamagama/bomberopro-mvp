@@ -268,7 +268,13 @@
       "Solo la formación puede recaer sobre el trabajador si se imparte fuera de la jornada."
      ],
      "correcta": 0,
-     "explicacion": "Art. 14.5: la regla es general, sin excepciones."
+     "explicacion": "Art. 14.5: la regla es general, sin excepciones.",
+     "respaldo": [
+      {
+       "articulo": "a14",
+       "cita": "El coste de las medidas relativas a la seguridad y la salud en el trabajo no deberá recaer en modo alguno sobre los trabajadores."
+      }
+     ]
     }
    ]
   },
@@ -937,7 +943,13 @@
       "La reparación debe encargarse siempre a un servicio de prevención ajeno."
      ],
      "correcta": 0,
-     "explicacion": "Art. 17.1.a): utilización reservada a los encargados."
+     "explicacion": "Art. 17.1.a): utilización reservada a los encargados.",
+     "respaldo": [
+      {
+       "articulo": "a17",
+       "cita": "a) La utilización del equipo de trabajo quede reservada a los encargados de dicha utilización."
+      }
+     ]
     }
    ]
   },
@@ -1394,7 +1406,13 @@
       "Deriva del art. 14.1 y se ejerce según su propia consideración del riesgo."
      ],
      "correcta": 2,
-     "explicacion": "Art. 21.2: remite al art. 14.1 y depende de que el trabajador «considere» el riesgo grave e inminente."
+     "explicacion": "Art. 21.2: remite al art. 14.1 y depende de que el trabajador «considere» el riesgo grave e inminente.",
+     "respaldo": [
+      {
+       "articulo": "a21",
+       "cita": "De acuerdo con lo previsto en el apartado 1 del artículo 14 de la presente Ley, el trabajador tendrá derecho a interrumpir su actividad y abandonar el lugar de trabajo, en caso necesario, cuando considere que dicha actividad entraña un riesgo grave e inminente para su vida o su salud."
+      }
+     ]
     },
     {
      "nivel": 3,
@@ -1869,7 +1887,17 @@
       "La evaluación de los riesgos con los controles periódicos."
      ],
      "correcta": 0,
-     "explicacion": "El art. 23.1 enumera plan, evaluación, planificación, controles de salud y relación de accidentes y enfermedades; no el libro de visitas."
+     "explicacion": "El art. 23.1 enumera plan, evaluación, planificación, controles de salud y relación de accidentes y enfermedades; no el libro de visitas.",
+     "respaldo": [
+      {
+       "articulo": "a23",
+       "cita": "c) Planificación de la actividad preventiva"
+      },
+      {
+       "articulo": "a23",
+       "cita": "b) Evaluación de los riesgos para la seguridad y la salud en el trabajo, incluido el resultado de los controles periódicos de las condiciones de trabajo y de la actividad de los trabajadores"
+      }
+     ]
     }
    ]
   },
@@ -2332,7 +2360,13 @@
       "Agota la regulación de la coordinación en la propia Ley."
      ],
      "correcta": 0,
-     "explicacion": "Art. 24.6: desarrollo reglamentario, no libre pacto."
+     "explicacion": "Art. 24.6: desarrollo reglamentario, no libre pacto.",
+     "respaldo": [
+      {
+       "articulo": "a24",
+       "cita": "Las obligaciones previstas en este artículo serán desarrolladas reglamentariamente."
+      }
+     ]
     }
    ]
   },

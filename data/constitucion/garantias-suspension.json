@@ -156,7 +156,17 @@
       "Los conflictos de competencia entre el Estado y las Comunidades Autónomas."
      ],
      "correcta": 0,
-     "explicacion": "El art. 161.1.a) CE atribuye al Tribunal Constitucional el recurso de inconstitucionalidad contra leyes y disposiciones normativas con fuerza de ley. El amparo es el 161.1.b) y los conflictos de competencia, el 161.1.c)."
+     "explicacion": "El art. 161.1.a) CE atribuye al Tribunal Constitucional el recurso de inconstitucionalidad contra leyes y disposiciones normativas con fuerza de ley. El amparo es el 161.1.b) y los conflictos de competencia, el 161.1.c).",
+     "respaldo": [
+      {
+       "articulo": "a53",
+       "cita": "que se tutelarán de acuerdo con lo previsto en el artículo 161, 1, a)."
+      },
+      {
+       "articulo": "a161",
+       "cita": "Del recurso de inconstitucionalidad contra leyes y disposiciones normativas con fuerza de ley."
+      }
+     ]
     }
    ]
   },
@@ -309,7 +319,36 @@
       "El derecho a la protección de la salud (art. 43)."
      ],
      "correcta": 0,
-     "explicacion": "El art. 19 está en la Sección primera del Capítulo segundo, protegida por el art. 53.2. El art. 33 es de la Sección segunda y el art. 43 es un principio rector del Capítulo tercero."
+     "explicacion": "El art. 19 está en la Sección primera del Capítulo segundo, protegida por el art. 53.2. El art. 33 es de la Sección segunda y el art. 43 es un principio rector del Capítulo tercero.",
+     "respaldo": [
+      {
+       "articulo": "a53",
+       "cita": "reconocidos en el artículo 14 y la Sección primera del Capítulo segundo"
+      },
+      {
+       "articulo": "a19",
+       "ubicacion": [
+        "ti",
+        "csegundo",
+        "s1"
+       ]
+      },
+      {
+       "articulo": "a33",
+       "ubicacion": [
+        "ti",
+        "csegundo",
+        "s2"
+       ]
+      },
+      {
+       "articulo": "a43",
+       "ubicacion": [
+        "ti",
+        "ctercero"
+       ]
+      }
+     ]
     }
    ]
   },
@@ -702,7 +741,13 @@
       "La limitación del uso de la informática (18.4)."
      ],
      "correcta": 0,
-     "explicacion": "Art. 55.1 CE: del art. 18 solo se suspenden los apartados 2 (domicilio) y 3 (secreto de las comunicaciones)."
+     "explicacion": "Art. 55.1 CE: del art. 18 solo se suspenden los apartados 2 (domicilio) y 3 (secreto de las comunicaciones).",
+     "respaldo": [
+      {
+       "articulo": "a55",
+       "cita": "Los derechos reconocidos en los artículos 17, 18, apartados 2 y 3, artículos 19,"
+      }
+     ]
     },
     {
      "nivel": 3,
@@ -752,7 +797,13 @@
       "La producción y creación literaria y artística (20.1 b)."
      ],
      "correcta": 0,
-     "explicacion": "Art. 55.1 CE: del art. 20.1 solo se suspenden las letras a) (expresión) y d) (información veraz), además del apartado 5."
+     "explicacion": "Art. 55.1 CE: del art. 20.1 solo se suspenden las letras a) (expresión) y d) (información veraz), además del apartado 5.",
+     "respaldo": [
+      {
+       "articulo": "a55",
+       "cita": "20, apartados 1, a) y d), y 5,"
+      }
+     ]
     },
     {
      "nivel": 3,
@@ -791,7 +842,13 @@
       "la libertad sindical (28.1)"
      ],
      "correcta": 0,
-     "explicacion": "Art. 55.1 CE: solo el art. 28, apartado 2 (huelga). La libertad sindical (28.1) no se suspende."
+     "explicacion": "Art. 55.1 CE: solo el art. 28, apartado 2 (huelga). La libertad sindical (28.1) no se suspende.",
+     "respaldo": [
+      {
+       "articulo": "a55",
+       "cita": "28, apartado 2,"
+      }
+     ]
     },
     {
      "nivel": 2,
@@ -802,7 +859,13 @@
       "La fuerza vinculante de los convenios (37.1)."
      ],
      "correcta": 0,
-     "explicacion": "Art. 55.1 CE: solo el art. 37, apartado 2 (medidas de conflicto colectivo)."
+     "explicacion": "Art. 55.1 CE: solo el art. 37, apartado 2 (medidas de conflicto colectivo).",
+     "respaldo": [
+      {
+       "articulo": "a55",
+       "cita": "y artículo 37, apartado 2, podrán ser suspendidos"
+      }
+     ]
     },
     {
      "nivel": 3,
@@ -813,7 +876,13 @@
       "La huelga (28.2) y la libertad sindical (28.1)."
      ],
      "correcta": 0,
-     "explicacion": "Art. 55.1 CE: «28, apartado 2, y artículo 37, apartado 2». Los apartados 1 de ambos artículos no se suspenden."
+     "explicacion": "Art. 55.1 CE: «28, apartado 2, y artículo 37, apartado 2». Los apartados 1 de ambos artículos no se suspenden.",
+     "respaldo": [
+      {
+       "articulo": "a55",
+       "cita": "28, apartado 2, y artículo 37, apartado 2, podrán ser suspendidos cuando se acuerde la declaración del estado de excepción o de sitio"
+      }
+     ]
     }
    ]
   },
@@ -853,7 +922,13 @@
       "El derecho de reunión (art. 21)."
      ],
      "correcta": 0,
-     "explicacion": "El art. 16 no figura en la lista del art. 55.1 CE; los arts. 19 y 21 sí."
+     "explicacion": "El art. 16 no figura en la lista del art. 55.1 CE; los arts. 19 y 21 sí.",
+     "respaldo": [
+      {
+       "articulo": "a55",
+       "cita": "Los derechos reconocidos en los artículos 17, 18, apartados 2 y 3, artículos 19, 20, apartados 1, a) y d), y 5, artículos 21, 28, apartado 2, y artículo 37, apartado 2, podrán ser suspendidos cuando se acuerde la declaración del estado de excepción o de sitio en los términos previstos en la Constitución."
+      }
+     ]
     },
     {
      "nivel": 3,
@@ -864,7 +939,13 @@
       "El plazo máximo de 72 horas de la detención preventiva (art. 17.2)."
      ],
      "correcta": 0,
-     "explicacion": "El art. 15 no está en la lista del art. 55.1 CE. El 28.2 sí, y el art. 17 entero también (en el estado de excepción, salvo su apartado 3)."
+     "explicacion": "El art. 15 no está en la lista del art. 55.1 CE. El 28.2 sí, y el art. 17 entero también (en el estado de excepción, salvo su apartado 3).",
+     "respaldo": [
+      {
+       "articulo": "a55",
+       "cita": "Los derechos reconocidos en los artículos 17, 18, apartados 2 y 3, artículos 19, 20, apartados 1, a) y d), y 5, artículos 21, 28, apartado 2, y artículo 37, apartado 2, podrán ser suspendidos cuando se acuerde la declaración del estado de excepción o de sitio en los términos previstos en la Constitución."
+      }
+     ]
     }
    ]
   },
@@ -904,7 +985,13 @@
       "El procedimiento de «habeas corpus» (17.4)."
      ],
      "correcta": 0,
-     "explicacion": "Solo el art. 17.3 queda excluido de la suspensión en el estado de excepción. Los apartados 2 y 4 del art. 17 sí pueden suspenderse."
+     "explicacion": "Solo el art. 17.3 queda excluido de la suspensión en el estado de excepción. Los apartados 2 y 4 del art. 17 sí pueden suspenderse.",
+     "respaldo": [
+      {
+       "articulo": "a55",
+       "cita": "Se exceptúa de lo establecido anteriormente el apartado 3 del artículo 17 para el supuesto de declaración de estado de excepción."
+      }
+     ]
     },
     {
      "nivel": 3,
@@ -965,7 +1052,17 @@
       "La del 55.2 alcanza a todo el art. 17; la del 55.1 solo al apartado 2 del art. 17, en estado de excepción."
      ],
      "correcta": 0,
-     "explicacion": "El 55.2 prevé una suspensión individual, para personas determinadas y en investigaciones sobre bandas armadas o elementos terroristas. El 55.1, una suspensión general, solo en los estados de excepción o de sitio."
+     "explicacion": "El 55.2 prevé una suspensión individual, para personas determinadas y en investigaciones sobre bandas armadas o elementos terroristas. El 55.1, una suspensión general, solo en los estados de excepción o de sitio.",
+     "respaldo": [
+      {
+       "articulo": "a55",
+       "cita": "de forma individual y con la necesaria intervención judicial y el adecuado control parlamentario"
+      },
+      {
+       "articulo": "a55",
+       "cita": "en relación con las investigaciones correspondientes a la actuación de bandas armadas o elementos terroristas"
+      }
+     ]
     }
    ]
   },
@@ -994,7 +1091,13 @@
       "el derecho de reunión (21)"
      ],
      "correcta": 0,
-     "explicacion": "Art. 55.2 CE: arts. 17.2, 18.2 y 18.3. El derecho de reunión solo se suspende con carácter general (art. 55.1)."
+     "explicacion": "Art. 55.2 CE: arts. 17.2, 18.2 y 18.3. El derecho de reunión solo se suspende con carácter general (art. 55.1).",
+     "respaldo": [
+      {
+       "articulo": "a55",
+       "cita": "los derechos reconocidos en los artículos 17, apartado 2, y 18, apartados 2 y 3, pueden ser suspendidos para personas determinadas"
+      }
+     ]
     },
     {
      "nivel": 2,
@@ -1016,7 +1119,17 @@
       "El secreto de las comunicaciones (art. 18.3)."
      ],
      "correcta": 0,
-     "explicacion": "El art. 19 está en la lista del 55.1 pero no en la del 55.2, que solo incluye los arts. 17.2, 18.2 y 18.3."
+     "explicacion": "El art. 19 está en la lista del 55.1 pero no en la del 55.2, que solo incluye los arts. 17.2, 18.2 y 18.3.",
+     "respaldo": [
+      {
+       "articulo": "a55",
+       "cita": "los derechos reconocidos en los artículos 17, apartado 2, y 18, apartados 2 y 3, pueden ser suspendidos para personas determinadas"
+      },
+      {
+       "articulo": "a55",
+       "cita": "artículos 19, 20, apartados 1, a) y d)"
+      }
+     ]
     }
    ]
   },

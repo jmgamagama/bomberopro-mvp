@@ -56,7 +56,24 @@
             "Capítulo cuarto del Título I (garantías)."
           ],
           "correcta": 0,
-          "explicacion": "El Capítulo tercero (arts. 39 a 52) recoge los principios rectores de la política social y económica."
+          "explicacion": "El Capítulo tercero (arts. 39 a 52) recoge los principios rectores de la política social y económica.",
+          "respaldo": [
+            {
+              "articulo": "a39",
+              "ubicacion": [
+                "ti",
+                "ctercero"
+              ]
+            },
+            {
+              "articulo": "a38",
+              "ubicacion": [
+                "ti",
+                "csegundo",
+                "s2"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -448,7 +465,20 @@
             "Los derechos y deberes de los ciudadanos de la Sección 2.ª."
           ],
           "correcta": 0,
-          "explicacion": "El art. 43 está en el Capítulo tercero (principios rectores). Por eso, según el art. 53.3, solo puede alegarse ante la jurisdicción ordinaria según las leyes que lo desarrollen."
+          "explicacion": "El art. 43 está en el Capítulo tercero (principios rectores). Por eso, según el art. 53.3, solo puede alegarse ante la jurisdicción ordinaria según las leyes que lo desarrollen.",
+          "respaldo": [
+            {
+              "articulo": "a43",
+              "ubicacion": [
+                "ti",
+                "ctercero"
+              ]
+            },
+            {
+              "articulo": "a53",
+              "cita": "Sólo podrán ser alegados ante la Jurisdicción ordinaria de acuerdo con lo que dispongan las leyes que los desarrollen."
+            }
+          ]
         },
         {
           "nivel": 3,
@@ -1322,7 +1352,23 @@
             "Título Preliminar."
           ],
           "correcta": 0,
-          "explicacion": "El Capítulo tercero abarca los arts. 39 a 52."
+          "explicacion": "El Capítulo tercero abarca los arts. 39 a 52.",
+          "respaldo": [
+            {
+              "articulo": "a52",
+              "ubicacion": [
+                "ti",
+                "ctercero"
+              ]
+            },
+            {
+              "articulo": "a53",
+              "ubicacion": [
+                "ti",
+                "ccuarto"
+              ]
+            }
+          ]
         }
       ]
     }

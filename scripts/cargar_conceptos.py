@@ -24,6 +24,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import pathlib
 import subprocess
 import sys
@@ -39,15 +40,41 @@ def arr(xs: list[str]) -> str:
     return "ARRAY[" + ",".join(q(x) for x in xs) + "]::text[]" if xs else "'{}'::text[]"
 
 
-def explicacion_con_cita(p: dict) -> str:
+def texto_encabezado(b: dict) -> str:
+    """«TÍTULO I (De los derechos y deberes fundamentales)» o «Sección 2.ª De los …», tal cual en el BOE."""
+    ps = [x["texto"] for x in b["parrafos"]]
+    return f"{ps[0]} ({ps[1]})" if len(ps) > 1 else ps[0]
+
+
+def texto_respaldo(p: dict, boe: dict | None, abrev: str) -> str:
+    """Respaldo comprobado por el validador: citas literales de otros preceptos y ubicación oficial."""
+    if not boe or not p.get("respaldo"):
+        return ""
+    partes = []
+    for r in p["respaldo"]:
+        b = boe.get(r["articulo"])
+        if not b:
+            continue
+        nombre = re.match(r"(Artículo \d+(?: bis)?)", b["titulo"] or "")
+        nombre = (nombre.group(1) if nombre else b["titulo"]).replace("Artículo", "Art.")
+        if "cita" in r:
+            partes.append(f"{nombre} {abrev}: «{r['cita']}».")
+        if "ubicacion" in r:
+            cadena = " › ".join(texto_encabezado(boe[i]) for i in r["ubicacion"] if i in boe)
+            partes.append(f"Ubicación del {nombre.lower()} {abrev}: {cadena}.")
+    return " ".join(partes)
+
+
+def explicacion_con_cita(p: dict, boe: dict | None = None, abrev: str = "CE") -> str:
     """La tabla questions no tiene columna «cita»: la cita propia de la pregunta (literal del BOE,
     comprobada por el validador) se añade al final de la explicación para que llegue a la base de datos.
     Si la pregunta no tiene cita propia, o la explicación ya la contiene, la explicación no cambia."""
     exp = p["explicacion"]
     cita = (p.get("cita") or "").strip()
-    if not cita or cita in exp:
-        return exp
-    return f"{exp.rstrip()} Cita literal: «{cita}»."
+    if cita and cita not in exp:
+        exp = f"{exp.rstrip()} Cita literal: «{cita}»."
+    extra = texto_respaldo(p, boe, abrev)
+    return f"{exp.rstrip()} {extra}" if extra else exp
 
 
 def sql_compacto(filas_c: list[dict], filas_q: list[dict], doc: str, est_c: str, est_q: str, origen: str) -> list[str]:
@@ -103,6 +130,7 @@ def main() -> int:
     nombre = d.get("nombre_norma", "Constitución Española")
     abrev = d.get("abreviatura", "CE")
     prefijo = d.get("hash_prefijo", "CE")
+    boe = {b["id"]: b for b in json.loads(pathlib.Path(f"data/fuentes/{fuente_id}/bloques.json").read_text(encoding="utf-8"))}
     meta = json.loads(pathlib.Path(f"data/fuentes/{fuente_id}/meta.json").read_text(encoding="utf-8"))
     fecha = meta["fecha_actualizacion_boe"][:8]
     fecha_txt = f"{fecha[6:8]}/{fecha[4:6]}/{fecha[0:4]}"
@@ -151,7 +179,7 @@ def main() -> int:
             opciones = [{"letra": letras[j], "texto": p["opciones"][i]} for j, i in enumerate(orden)]
             correcta = letras[orden.index(p["correcta"])]
             ops = json.dumps(opciones, ensure_ascii=False)
-            explicacion = explicacion_con_cita(p)
+            explicacion = explicacion_con_cita(p, boe, abrev)
             fuente_n = f"Art. {ref} {abrev} (texto consolidado BOE {fuente_id}, act. {fecha_txt})" if abrev != "CE" else f"Art. {ref} CE (texto consolidado BOE, act. {fecha_txt})"
             filas_q.append({"hash": hd, "enunciado": p["enunciado"], "opciones": opciones, "correcta": correcta,
                             "explicacion": explicacion, "fuente_normativa": fuente_n, "nivel": p["nivel"],

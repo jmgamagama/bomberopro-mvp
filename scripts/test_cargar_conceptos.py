@@ -52,5 +52,23 @@ class SqlGenerado(unittest.TestCase):
         self.assertNotIn("Cita literal:", generar(path))
 
 
+class Respaldo(unittest.TestCase):
+    """Preguntas cuyo dato está en otro precepto o en la estructura de la norma (revisión 31/10/2026)."""
+
+    def test_ubicacion_y_cita_de_otro_articulo_llegan_al_sql(self):
+        sql = generar("data/constitucion/deberes-ciudadanos.json")
+        self.assertIn("Ubicación del art. 30 CE: TÍTULO I (De los derechos y deberes fundamentales) › "
+                      "CAPÍTULO SEGUNDO (Derechos y libertades) › Sección 2.ª De los derechos y deberes de los ciudadanos.", sql)
+        self.assertIn("Art. 53 CE: «Este último recurso será aplicable a la objeción de conciencia reconocida en el artículo 30.».", sql)
+
+    def test_las_72_preguntas_revisadas_tienen_respaldo(self):
+        import glob
+        n = 0
+        for f in glob.glob("data/constitucion/[!v]*.json") + glob.glob("data/ley31-1995/capitulo-*.json"):
+            for c in json.load(open(f, encoding="utf-8"))["conceptos"]:
+                n += sum(1 for p in c["preguntas"] if p.get("respaldo"))
+        self.assertEqual(n, 72)
+
+
 if __name__ == "__main__":
     unittest.main()

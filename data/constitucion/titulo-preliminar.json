@@ -106,7 +106,17 @@
       "La justicia."
      ],
      "correcta": 0,
-     "explicacion": "La seguridad jurídica es uno de los principios que garantiza el art. 9.3 CE, no un valor superior del art. 1.1."
+     "explicacion": "La seguridad jurídica es uno de los principios que garantiza el art. 9.3 CE, no un valor superior del art. 1.1.",
+     "respaldo": [
+      {
+       "articulo": "a1",
+       "cita": "que propugna como valores superiores de su ordenamiento jurídico la libertad, la justicia, la igualdad y el pluralismo político."
+      },
+      {
+       "articulo": "a9",
+       "cita": "la seguridad jurídica"
+      }
+     ]
     }
    ]
   },
@@ -405,7 +415,13 @@
       "Una ley orgánica de las Cortes Generales."
      ],
      "correcta": 0,
-     "explicacion": "Art. 3.2 CE: son oficiales «de acuerdo con sus Estatutos»."
+     "explicacion": "Art. 3.2 CE: son oficiales «de acuerdo con sus Estatutos».",
+     "respaldo": [
+      {
+       "articulo": "a3",
+       "cita": "Las demás lenguas españolas serán también oficiales en las respectivas Comunidades Autónomas de acuerdo con sus Estatutos."
+      }
+     ]
     }
    ]
   },
@@ -653,7 +669,17 @@
       "Expresar el pluralismo político y ser instrumento fundamental para la participación política."
      ],
      "correcta": 0,
-     "explicacion": "Esa función es la de los sindicatos y asociaciones empresariales (art. 7 CE)."
+     "explicacion": "Esa función es la de los sindicatos y asociaciones empresariales (art. 7 CE).",
+     "respaldo": [
+      {
+       "articulo": "a6",
+       "cita": "Los partidos políticos expresan el pluralismo político, concurren a la formación y manifestación de la voluntad popular y son instrumento fundamental para la participación política."
+      },
+      {
+       "articulo": "a7",
+       "cita": "Los sindicatos de trabajadores y las asociaciones empresariales contribuyen a la defensa y promoción de los intereses económicos y sociales que les son propios."
+      }
+     ]
     }
    ]
   },
@@ -703,7 +729,17 @@
       "Únicamente a los sindicatos de trabajadores, por su función de defensa de intereses propios."
      ],
      "correcta": 0,
-     "explicacion": "La misma frase cierra los arts. 6 (partidos) y 7 (sindicatos y asociaciones empresariales)."
+     "explicacion": "La misma frase cierra los arts. 6 (partidos) y 7 (sindicatos y asociaciones empresariales).",
+     "respaldo": [
+      {
+       "articulo": "a6",
+       "cita": "Su estructura interna y funcionamiento deberán ser democráticos."
+      },
+      {
+       "articulo": "a7",
+       "cita": "Su estructura interna y funcionamiento deberán ser democráticos."
+      }
+     ]
     }
    ]
   },
@@ -903,7 +939,17 @@
       "Garantizar la independencia de España."
      ],
      "correcta": 0,
-     "explicacion": "La seguridad ciudadana corresponde a las Fuerzas y Cuerpos de seguridad (art. 104 CE)."
+     "explicacion": "La seguridad ciudadana corresponde a las Fuerzas y Cuerpos de seguridad (art. 104 CE).",
+     "respaldo": [
+      {
+       "articulo": "a8",
+       "cita": "tienen como misión garantizar la soberanía e independencia de España, defender su integridad territorial y el ordenamiento constitucional."
+      },
+      {
+       "articulo": "a104",
+       "cita": "garantizar la seguridad ciudadana"
+      }
+     ]
     }
    ]
   },

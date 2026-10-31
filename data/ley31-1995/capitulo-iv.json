@@ -835,7 +835,21 @@
       "Un miembro de un servicio de prevención ajeno concertado."
      ],
      "correcta": 0,
-     "explicacion": "Art. 32 bis.2: designados, servicio propio y servicios ajenos concertados; el delegado de prevención no figura."
+     "explicacion": "Art. 32 bis.2: designados, servicio propio y servicios ajenos concertados; el delegado de prevención no figura.",
+     "respaldo": [
+      {
+       "articulo": "a32bis",
+       "cita": "a) Uno o varios trabajadores designados de la empresa."
+      },
+      {
+       "articulo": "a32bis",
+       "cita": "b) Uno o varios miembros del servicio de prevención propio de la empresa."
+      },
+      {
+       "articulo": "a32bis",
+       "cita": "c) Uno o varios miembros del o los servicios de prevención ajenos concertados por la empresa."
+      }
+     ]
     }
    ]
   },

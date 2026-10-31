@@ -57,7 +57,28 @@
       "En el Título Preliminar, junto al art. 9."
      ],
      "correcta": 0,
-     "explicacion": "El art. 14 abre el Capítulo segundo («Derechos y libertades») y va antes de la Sección 1.ª, que empieza en el art. 15. Por eso el art. 53.2 lo cita aparte: «el artículo 14 y la Sección primera»."
+     "explicacion": "El art. 14 abre el Capítulo segundo («Derechos y libertades») y va antes de la Sección 1.ª, que empieza en el art. 15. Por eso el art. 53.2 lo cita aparte: «el artículo 14 y la Sección primera».",
+     "respaldo": [
+      {
+       "articulo": "a14",
+       "ubicacion": [
+        "ti",
+        "csegundo"
+       ]
+      },
+      {
+       "articulo": "a15",
+       "ubicacion": [
+        "ti",
+        "csegundo",
+        "s1"
+       ]
+      },
+      {
+       "articulo": "a53",
+       "cita": "reconocidos en el artículo 14 y la Sección primera del Capítulo segundo"
+      }
+     ]
     }
    ]
   },
@@ -107,7 +128,13 @@
       "Puede suspenderse durante el estado de sitio."
      ],
      "correcta": 0,
-     "explicacion": "Art. 15 CE: «sin que, en ningún caso, puedan ser sometidos a tortura…». La excepción de tiempos de guerra se refiere solo a la pena de muerte, y el art. 15 no está entre los suspendibles del art. 55."
+     "explicacion": "Art. 15 CE: «sin que, en ningún caso, puedan ser sometidos a tortura…». La excepción de tiempos de guerra se refiere solo a la pena de muerte, y el art. 15 no está entre los suspendibles del art. 55.",
+     "respaldo": [
+      {
+       "articulo": "a15",
+       "cita": "sin que, en ningún caso, puedan ser sometidos a tortura ni a penas o tratos inhumanos o degradantes"
+      }
+     ]
     }
    ]
   },
@@ -563,7 +590,17 @@
       "El derecho a la propia imagen de las personas."
      ],
      "correcta": 0,
-     "explicacion": "El art. 18.1 recoge el honor, la intimidad personal y familiar y la propia imagen. La inviolabilidad del domicilio es del art. 18.2."
+     "explicacion": "El art. 18.1 recoge el honor, la intimidad personal y familiar y la propia imagen. La inviolabilidad del domicilio es del art. 18.2.",
+     "respaldo": [
+      {
+       "articulo": "a18",
+       "cita": "Se garantiza el derecho al honor, a la intimidad personal y familiar y a la propia imagen."
+      },
+      {
+       "articulo": "a18",
+       "cita": "El domicilio es inviolable."
+      }
+     ]
     }
    ]
   },
@@ -614,7 +651,13 @@
       "Una resolución judicial que la autorice."
      ],
      "correcta": 0,
-     "explicacion": "Art. 18.2 CE: solo consentimiento del titular, resolución judicial o flagrante delito. La orden gubernativa no habilita la entrada."
+     "explicacion": "Art. 18.2 CE: solo consentimiento del titular, resolución judicial o flagrante delito. La orden gubernativa no habilita la entrada.",
+     "respaldo": [
+      {
+       "articulo": "a18",
+       "cita": "Ninguna entrada o registro podrá hacerse en él sin consentimiento del titular o resolución judicial, salvo en caso de flagrante delito."
+      }
+     ]
     }
    ]
   },
@@ -869,7 +912,17 @@
       "Solo en el art. 24.2, sobre la obligación de declarar."
      ],
      "correcta": 0,
-     "explicacion": "El art. 20.1.d) remite a la ley el secreto profesional de los informadores, y el art. 24.2 permite no declarar por razón de parentesco o secreto profesional."
+     "explicacion": "El art. 20.1.d) remite a la ley el secreto profesional de los informadores, y el art. 24.2 permite no declarar por razón de parentesco o secreto profesional.",
+     "respaldo": [
+      {
+       "articulo": "a20",
+       "cita": "La ley regulará el derecho a la cláusula de conciencia y al secreto profesional en el ejercicio de estas libertades."
+      },
+      {
+       "articulo": "a24",
+       "cita": "La ley regulará los casos en que, por razón de parentesco o de secreto profesional, no se estará obligado a declarar sobre hechos presuntamente delictivos."
+      }
+     ]
     }
    ]
   },
@@ -919,7 +972,17 @@
       "Ambos prohíben cualquier intervención sobre los medios de información, incluso la judicial."
      ],
      "correcta": 0,
-     "explicacion": "Art. 20.2: ningún tipo de censura previa. Art. 20.5: secuestro solo en virtud de resolución judicial."
+     "explicacion": "Art. 20.2: ningún tipo de censura previa. Art. 20.5: secuestro solo en virtud de resolución judicial.",
+     "respaldo": [
+      {
+       "articulo": "a20",
+       "cita": "El ejercicio de estos derechos no puede restringirse mediante ningún tipo de censura previa."
+      },
+      {
+       "articulo": "a20",
+       "cita": "Sólo podrá acordarse el secuestro de publicaciones, grabaciones y otros medios de información en virtud de resolución judicial."
+      }
+     ]
     }
    ]
   },
@@ -1018,7 +1081,13 @@
       "Los preceptos de las leyes que desarrollen el Título I."
      ],
      "correcta": 0,
-     "explicacion": "Art. 20.4 CE: respeto a los derechos del Título, a las leyes que lo desarrollen y, especialmente, honor, intimidad, propia imagen y protección de la juventud y de la infancia. No cita la seguridad nacional."
+     "explicacion": "Art. 20.4 CE: respeto a los derechos del Título, a las leyes que lo desarrollen y, especialmente, honor, intimidad, propia imagen y protección de la juventud y de la infancia. No cita la seguridad nacional.",
+     "respaldo": [
+      {
+       "articulo": "a20",
+       "cita": "Estas libertades tienen su límite en el respeto a los derechos reconocidos en este Título, en los preceptos de las leyes que lo desarrollen y, especialmente, en el derecho al honor, a la intimidad, a la propia imagen y a la protección de la juventud y de la infancia."
+      }
+     ]
     }
    ]
   },
@@ -1625,7 +1694,21 @@
       "El derecho a utilizar los medios de prueba pertinentes para la defensa."
      ],
      "correcta": 0,
-     "explicacion": "El art. 24.2 recoge el Juez ordinario predeterminado por la ley y los medios de prueba pertinentes. El jurado no aparece en el art. 24 (lo prevé el art. 125, fuera del tema)."
+     "explicacion": "El art. 24.2 recoge el Juez ordinario predeterminado por la ley y los medios de prueba pertinentes. El jurado no aparece en el art. 24 (lo prevé el art. 125, fuera del tema).",
+     "respaldo": [
+      {
+       "articulo": "a24",
+       "cita": "todos tienen derecho al Juez ordinario predeterminado por la ley"
+      },
+      {
+       "articulo": "a24",
+       "cita": "a utilizar los medios de prueba pertinentes para su defensa"
+      },
+      {
+       "articulo": "a125",
+       "cita": "participar en la Administración de Justicia mediante la institución del Jurado"
+      }
+     ]
     }
    ]
   },
@@ -1676,7 +1759,13 @@
       "Solo alcanza a los abogados, según el art. 24.2 CE."
      ],
      "correcta": 0,
-     "explicacion": "Art. 24.2 CE: «La ley regulará los casos…». La Constitución no fija grados de parentesco."
+     "explicacion": "Art. 24.2 CE: «La ley regulará los casos…». La Constitución no fija grados de parentesco.",
+     "respaldo": [
+      {
+       "articulo": "a24",
+       "cita": "La ley regulará los casos en que, por razón de parentesco o de secreto profesional, no se estará obligado a declarar sobre hechos presuntamente delictivos."
+      }
+     ]
     }
    ]
   },
@@ -1726,7 +1815,13 @@
       "Es válida si la ley posterior que tipifica la infracción es una ley orgánica."
      ],
      "correcta": 0,
-     "explicacion": "Art. 25.1 CE: «delito, falta o infracción administrativa, según la legislación vigente en aquel momento»."
+     "explicacion": "Art. 25.1 CE: «delito, falta o infracción administrativa, según la legislación vigente en aquel momento».",
+     "respaldo": [
+      {
+       "articulo": "a25",
+       "cita": "Nadie puede ser condenado o sancionado por acciones u omisiones que en el momento de producirse no constituyan delito, falta o infracción administrativa, según la legislación vigente en aquel momento."
+      }
+     ]
     }
    ]
   },
@@ -1827,7 +1922,13 @@
       "Los beneficios correspondientes de la Seguridad Social."
      ],
      "correcta": 0,
-     "explicacion": "El art. 25.2 garantiza trabajo remunerado, Seguridad Social, acceso a la cultura y desarrollo integral de la personalidad. Los permisos no los menciona."
+     "explicacion": "El art. 25.2 garantiza trabajo remunerado, Seguridad Social, acceso a la cultura y desarrollo integral de la personalidad. Los permisos no los menciona.",
+     "respaldo": [
+      {
+       "articulo": "a25",
+       "cita": "En todo caso, tendrá derecho a un trabajo remunerado y a los beneficios correspondientes de la Seguridad Social, así como al acceso a la cultura y al desarrollo integral de su personalidad."
+      }
+     ]
     }
    ]
   },
@@ -2326,7 +2427,13 @@
       "Autorizar y sancionar."
      ],
      "correcta": 0,
-     "explicacion": "Art. 27.8 CE: «inspeccionarán y homologarán»."
+     "explicacion": "Art. 27.8 CE: «inspeccionarán y homologarán».",
+     "respaldo": [
+      {
+       "articulo": "a27",
+       "cita": "Los poderes públicos inspeccionarán y homologarán el sistema educativo para garantizar el cumplimiento de las leyes."
+      }
+     ]
     }
    ]
   },
@@ -2628,7 +2735,17 @@
       "Les reconoce la sindicación sin límites, pero no el derecho de petición."
      ],
      "correcta": 0,
-     "explicacion": "Art. 28.1: la ley podrá limitar o exceptuar la sindicación. Art. 29.2: petición solo individual."
+     "explicacion": "Art. 28.1: la ley podrá limitar o exceptuar la sindicación. Art. 29.2: petición solo individual.",
+     "respaldo": [
+      {
+       "articulo": "a28",
+       "cita": "La ley podrá limitar o exceptuar el ejercicio de este derecho a las Fuerzas o Institutos armados o a los demás Cuerpos sometidos a disciplina militar"
+      },
+      {
+       "articulo": "a29",
+       "cita": "podrán ejercer este derecho sólo individualmente y con arreglo a lo dispuesto en su legislación específica."
+      }
+     ]
     }
    ]
   }

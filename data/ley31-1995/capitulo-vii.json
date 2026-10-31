@@ -62,7 +62,13 @@
       "La responsabilidad penal sustituye siempre a la administrativa y a la civil."
      ],
      "correcta": 0,
-     "explicacion": "Art. 42.1: las responsabilidades se acumulan; no se excluyen ni se sustituyen."
+     "explicacion": "Art. 42.1: las responsabilidades se acumulan; no se excluyen ni se sustituyen.",
+     "respaldo": [
+      {
+       "articulo": "a42",
+       "cita": "dará lugar a responsabilidades administrativas, así como, en su caso, a responsabilidades penales y a las civiles por los daños y perjuicios que puedan derivarse de dicho incumplimiento."
+      }
+     ]
     }
    ]
   },
@@ -266,7 +272,13 @@
       "Solo puede levantarla la autoridad laboral provincial, nunca el Inspector."
      ],
      "correcta": 0,
-     "explicacion": "Art. 43.2 párr. 2: lo hará el Inspector, «de no haberlo efectuado inicialmente»."
+     "explicacion": "Art. 43.2 párr. 2: lo hará el Inspector, «de no haberlo efectuado inicialmente».",
+     "respaldo": [
+      {
+       "articulo": "a43",
+       "cita": "Si se incumpliera el requerimiento formulado, persistiendo los hechos infractores, el Inspector de Trabajo y Seguridad Social, de no haberlo efectuado inicialmente, levantará la correspondiente acta de infracción por tales hechos."
+      }
+     ]
     }
    ]
   },
