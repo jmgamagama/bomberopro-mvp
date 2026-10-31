@@ -2,12 +2,12 @@
 
 Uso: python3 scripts/generate-pwa-icons.py
 Salida: public/icons/{icon-192,icon-512,icon-maskable-512,apple-touch-icon}.png y public/favicon.png
-Diseño: fondo índigo de la app (#4f46e5) y una llama blanca con núcleo ámbar.
+Diseño: fondo índigo de la app (#1E3A5F) y una llama blanca con núcleo ámbar.
 """
 from pathlib import Path
 from PIL import Image, ImageDraw
 
-INDIGO = (79, 70, 229, 255)
+INDIGO = (30, 58, 95, 255)
 WHITE = (255, 255, 255, 255)
 AMBER = (251, 191, 36, 255)
 OUT = Path(__file__).resolve().parent.parent / "public" / "icons"

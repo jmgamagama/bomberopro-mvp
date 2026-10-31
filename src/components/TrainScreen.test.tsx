@@ -68,7 +68,7 @@ describe('TrainScreen', () => {
     );
 
     expect(container.querySelector('#train-sidebar')).not.toHaveTextContent(INITIAL_MICROCONCEPTS[0].text);
-    expect(container.querySelector('#train-header-row')).toHaveClass('flex-col', 'sm:flex-row');
+    expect(container.querySelector('#train-header-row')).toHaveClass('flex-wrap');
     await user.click(screen.getByRole('button', { name: question.options![0] }));
     await user.click(screen.getByRole('button', { name: question.options![1] }));
     expect(screen.getByRole('button', { name: question.options![1] })).toHaveAttribute('aria-pressed', 'true');

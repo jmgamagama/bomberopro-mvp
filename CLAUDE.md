@@ -1,5 +1,7 @@
 # CLAUDE.md — Rol de Claude en el equipo multi-agente BomberoPro
 
+> Antes de nada lee `docs/ESTADO_VIVO.md` (estado y pendientes con dueño) y `docs/OPERACION.md` (reglas de chats). Al terminar, actualiza `ESTADO_VIVO.md`.
+
 ## Tu rol
 Arquitecto del sistema. Decisiones de producto, diseño del algoritmo de
 mastery/spaced repetition, lógica de los 5 subagentes, y revisión final

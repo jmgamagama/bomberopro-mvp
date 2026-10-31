@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect, useLayoutEffect, useRef, lazy, Suspense } from 'react';
-import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles, ClipboardList, Menu } from 'lucide-react';
+import { Brain, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles, ClipboardList, Menu } from 'lucide-react';
 import { trackFunnel } from './lib/funnel';
 import { getVisibleSupuestos } from './data/supuestos/supuestosRegistry';
 import { SUPUESTOS_PRIVADOS_EVENT, contarSupuestosPrivados } from './data/supuestos/supuestosPrivados';
@@ -29,13 +29,16 @@ import {
 } from './utils/db';
 import { getAdaptiveQuestion, processAttempt, getAdaptiveDailySession, createNewMemoryState, normalizeSpacedEvidence } from './utils/engine';
 
+import type { AccountErrorsState } from './components/AccountErrorPanel';
+import AccesoConfirmado from './components/AccesoConfirmado';
+import { retornoAuthInicial, limpiarUrlRetornoAuth } from './lib/authRetorno';
 import { fetchKeyless } from './lib/secureQuestions';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer, toLevelInt } from './lib/saveAttemptToServer';
 import UpdateBanner from './components/UpdateBanner';
 import SaveFailureBanner from './components/SaveFailureBanner';
 import { hasCompletedOnboarding } from './utils/onboarding';
-import { isPlanesEnabled } from './config/features';
+import { isPlanesEnabled, textoAlta } from './config/features';
 import SaveStatus from './components/SaveStatus';
 import { useRemoteConceptProgress } from './lib/useRemoteConceptProgress';
 import { useAttemptSync } from './lib/useAttemptSync';
@@ -64,6 +67,7 @@ const MockExam = lazy(() => import('./components/MockExam'));
 const Login = lazy(() => import('./components/Login'));
 const StudyByTopic = lazy(() => import('./components/StudyByTopic'));
 const MyReports = lazy(() => import('./components/MyReports'));
+const AccountErrorPanel = lazy(() => import('./components/AccountErrorPanel'));
 const ConceptStudy = lazy(() => import('./components/ConceptStudy'));
 const MaterialConstitucion = lazy(() => import('./components/MaterialConstitucion'));
 const RecallHub = lazy(() => import('./components/RecallHub'));
@@ -74,7 +78,7 @@ const Onboarding = lazy(() => import('./components/Onboarding'));
 const Planes = lazy(() => import('./components/Planes'));
 
 const SCREEN_TITLES = {
-  dashboard: 'Dashboard',
+  dashboard: 'Inicio',
   train: 'Entrenamiento',
   errors: 'Errores críticos',
   forgetting_curve: 'Curva de olvido',
@@ -123,6 +127,9 @@ export default function App() {
   const [mockAutoStart, setMockAutoStart] = useState(false);
 
   const [memoryStates, setMemoryStates] = useState<Record<string, MemoryState>>({});
+  // «Errores críticos» con cuenta: fallos guardados en el servidor (migración 42).
+  const [accountErrors, setAccountErrors] = useState<AccountErrorsState>({ status: 'loading' });
+  const accountErrorsRequest = useRef(0);
   const [attempts, setAttempts] = useState<Attempt[]>([]);
   const [activeConceptId, setActiveConceptId] = useState<string | null>(null);
   
@@ -133,7 +140,9 @@ export default function App() {
   // Reenvía las respuestas pendientes al haber sesión y al recuperar la conexión.
   useAttemptSync(session?.user?.id);
   const conceptOwner = session?.user?.id && !isDemoMode ? session.user.id : null;
-  const remoteConcepts = useRemoteConceptProgress(conceptOwner, currentScreen === 'dashboard');
+  // El recuento de repasos se pide en todas las pantallas menos durante el estudio por conceptos:
+  // así, al salir del estudio, el botón «Repasar (N)» se recalcula con lo que ya se ha repasado.
+  const remoteConcepts = useRemoteConceptProgress(conceptOwner, currentScreen !== 'concept_t40');
   const [dbQuestions, setDbQuestions] = useState<Question[]>(INITIAL_QUESTIONS);
   const [dbQuestionsLoading, setDbQuestionsLoading] = useState(false);
   const [dbQuestionsError, setDbQuestionsError] = useState<string | null>(null);
@@ -227,6 +236,9 @@ export default function App() {
     setMemoryStates(getSafeMemoryStates());
     setAttempts(getAttempts());
     setShowLegacyImport(canImportLegacyProgress());
+    // Los errores de la cuenta anterior no se muestran nunca a la siguiente.
+    accountErrorsRequest.current += 1;
+    setAccountErrors({ status: 'loading' });
     answeredQuestionIds.current = new Set();
     setActiveQuestion(null);
     setActiveReason('');
@@ -248,6 +260,24 @@ export default function App() {
     // C2 (migración 38): la sesión llega SIN clave; TrainScreen corrige con check_answer.
     // Fail closed: nunca volver al exportador heredado cuando falla el motor seguro.
     return shuffleAllOptions(await fetchKeyless(supabase, 'get_study_session_v2', { p_limit: 10 }));
+  };
+
+  // Preguntas que el alumno tiene falladas ahora (conceptos y banco), mismo formato que la sesión.
+  const loadAccountErrors = async () => {
+    const request = ++accountErrorsRequest.current;
+    const owner = authUserId.current;
+    setAccountErrors({ status: 'loading' });
+    try {
+      if (!supabase) throw new Error('backend_not_configured');
+      // Migración 45: llegan SIN clave; TrainScreen corrige con check_answer.
+      const questions = await fetchKeyless(supabase, 'get_error_session_v2', { p_limit: 50 });
+      if (request !== accountErrorsRequest.current || owner !== authUserId.current) return;
+      setAccountErrors({ status: 'ready', questions });
+    } catch (err) {
+      if (request !== accountErrorsRequest.current || owner !== authUserId.current) return;
+      console.error('No se pudieron cargar los errores:', err);
+      setAccountErrors({ status: 'error' });
+    }
   };
 
   const fetchQuestions = async (request: number) => {
@@ -314,6 +344,8 @@ export default function App() {
       setActiveConceptId(null);
     }
 
+    if (screen === 'errors' && session?.user?.id && !isDemoMode) void loadAccountErrors();
+
     // If entering the general train screen, generate the first adaptive question
     if (screen === 'train') {
       setActiveConceptId(null);
@@ -322,6 +354,11 @@ export default function App() {
   };
 
   const serverMode = Boolean(session?.user?.id) && !isDemoMode;
+  // Si la cuenta cambia con «Tus errores» abierto, se cargan los de la cuenta nueva.
+  useEffect(() => {
+    if (currentScreen === 'errors' && serverMode) void loadAccountErrors();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session?.user?.id]);
   // Re-render al importar/borrar supuestos privados (también desde otra pestaña) y enlace #supuestos.
   const [, setSupuestosPrivadosVersion] = useState(0);
   useEffect(() => {
@@ -354,14 +391,16 @@ export default function App() {
     }
   }, [currentScreen, activeQuestion?.id]);
 
-  const startTrainingSession = async (targetId: string | null) => {
+  const startTrainingSession = async (targetId: string | null, fixedPool?: Question[]) => {
     const request = ++trainingRequest.current;
     const owner = authUserId.current;
     const isCurrentRequest = () => request === trainingRequest.current && owner === authUserId.current;
     let source = dbQuestions;
     // Cada sesión nueva pide una sesión nueva al servidor, para no repetir las mismas 20
     // y para incluir los repasos que hayan vencido desde la última vez.
-    if (serverMode && !targetId && sessionCompletedRef.current) {
+    if (fixedPool) {
+      source = fixedPool;
+    } else if (serverMode && !targetId && sessionCompletedRef.current) {
       try {
         source = await loadServerSession();
         if (!isCurrentRequest()) return;
@@ -373,11 +412,15 @@ export default function App() {
     }
     if (!isCurrentRequest()) return;
     sessionCompletedRef.current = false;
-    const pool = (targetId
+    // Las opciones se barajan al montar cada sesión, venga del servidor o de la demo: las 15
+    // preguntas de la demo tienen la correcta siempre en la primera posición y sin barajar el
+    // alumno veía la A correcta en todas. La corrección compara por texto, así que el orden no
+    // cambia qué respuesta es la buena.
+    const pool = shuffleAllOptions<Question>((targetId
       ? source.filter(q => q.microconcept_id === targetId)
       : source).filter((question, index, questions) =>
       questions.findIndex(candidate => candidate.id === question.id) === index
-    );
+    ));
     answeredQuestionIds.current = new Set();
     trainingSessionId.current = newStudySessionId();
     trainingSessionOpened.current = false;
@@ -397,7 +440,8 @@ export default function App() {
     // Con cuenta manda el orden del servidor; en la demo, el motor local.
     const selected = serverMode
       ? (candidateQuestions[0]
-          ? { question: candidateQuestions[0], reason: (candidateQuestions[0] as any).motivo === 'repaso' ? 'Repaso programado' : 'Pregunta nueva' }
+          ? { question: candidateQuestions[0], reason: (candidateQuestions[0] as any).motivo === 'repaso' ? 'Repaso programado'
+              : (candidateQuestions[0] as any).motivo === 'error' ? 'La fallaste: repásala' : 'Pregunta nueva' }
           : null)
       : getAdaptiveQuestion(candidateQuestions, states, now);
     if (selected) {
@@ -597,7 +641,7 @@ export default function App() {
   // Primer uso sin cuenta: se entra directamente como invitado (sin muro de registro).
   // La pantalla de acceso solo aparece si el alumno la pide o ya tuvo sesión en este navegador.
   const autoGuestDone = useRef(false);
-  const autoGuestPending = !loadingAuth && !session && !!supabase && !isDemoMode && !prefersLogin() && !autoGuestDone.current;
+  const autoGuestPending = !loadingAuth && !session && !!supabase && !isDemoMode && !prefersLogin() && !retornoAuthInicial && !autoGuestDone.current;
   useEffect(() => {
     if (!autoGuestPending) return;
     autoGuestDone.current = true;
@@ -611,11 +655,20 @@ export default function App() {
     if (!session) trackFunnel('demo_start');
     setIsDemoMode(true);
     setDbQuestions(INITIAL_QUESTIONS);
-    setCurrentScreen(hasCompletedOnboarding() ? 'dashboard' : 'onboarding');
+    // La entrada promete «Prueba 15 preguntas»: la demo abre directamente esas preguntas.
+    setDailyAutoStart(false);
+    setCurrentScreen('train');
+    void startTrainingSession(null, INITIAL_QUESTIONS);
   };
 
-  // Pantalla de acceso con la que se vuelve de la demo: «crear» si el alumno pulsa «Crear cuenta gratis».
+  // Pantalla de acceso con la que se vuelve de la demo: «crear» si el alumno pulsa el botón de alta (textoAlta()).
   const [loginMode, setLoginMode] = useState<'entrar' | 'crear'>('entrar');
+  // Vuelta desde un enlace del correo (cuenta activada, invitación, contraseña o enlace caducado).
+  // «Entrar con enlace» no necesita pantalla: el alumno pasa directo a la app.
+  const [retornoAuth, setRetornoAuth] = useState(() => (retornoAuthInicial?.tipo === 'enlace' ? null : retornoAuthInicial));
+  useEffect(() => {
+    if (!loadingAuth && retornoAuthInicial?.tipo === 'enlace') limpiarUrlRetornoAuth();
+  }, [loadingAuth]);
 
   const handleDemoSignup = () => {
     trackFunnel('demo_signup_click');
@@ -650,7 +703,7 @@ export default function App() {
   if (loadingAuth || autoGuestPending) {
     return (
       <div
-        className="min-h-screen bg-slate-50 flex items-center justify-center font-sans"
+        className="min-h-screen bg-fondo flex items-center justify-center font-sans"
         role="status"
         aria-live="polite"
         aria-busy="true"
@@ -661,7 +714,7 @@ export default function App() {
     );
   }
 
-  // Navegación móvil: 5 pestañas. Lo menos usado vive en «Más» para no abrumar al alumno.
+  // Navegación única (móvil, tableta y escritorio): 5 secciones. Lo menos usado vive en «Más» para no abrumar al alumno.
   type Screen = typeof currentScreen;
   const estudiarScreen: Screen = conceptOwner ? 'concept_t40' : 'train';
   const MAS_SCREENS: Screen[] = ['mas', 'errors', 'forgetting_curve', 'recuerdo', 'sesion_diaria', 'ordena_pasos', 'today_training', 'supuestos', 'my_reports', 'planes', 'constitucion'];
@@ -683,6 +736,19 @@ export default function App() {
     ...(planesEnabled ? [{ key: 'planes', label: 'Planes', detail: 'Opciones de acceso.', Icon: Sparkles, target: 'planes' as Screen }] : []),
   ];
 
+  if (retornoAuth && supabase && !isDemoMode) {
+    return (
+      <>
+        <UpdateBanner />
+        <AccesoConfirmado
+          retorno={retornoAuth}
+          conSesion={!!session?.user?.id}
+          onContinuar={() => { limpiarUrlRetornoAuth(); setLoginMode('entrar'); setRetornoAuth(null); }}
+        />
+      </>
+    );
+  }
+
   if (!session && supabase && !isDemoMode) {
     return (
       <>
@@ -695,13 +761,13 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50/50 flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
+    <div className="min-h-screen bg-fondo flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
       <UpdateBanner />
       <SaveFailureBanner />
       <SaveStatus />
       {session && !isDemoMode && showLegacyImport && (
         <div role="region" aria-label="Progreso antiguo" className="border-b border-indigo-200 bg-indigo-50 px-4 py-3 text-sm text-slate-800">
-          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
+          <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-between gap-3">
             <p>Hay progreso antiguo en este navegador sin cuenta identificada. Si es tuyo, puedes copiarlo a esta cuenta; no se borrará el original.</p>
             <button type="button" onClick={handleImportLegacyProgress} className="rounded-lg bg-indigo-700 px-3 py-2 font-semibold text-white">
               Importar mi progreso
@@ -715,13 +781,14 @@ export default function App() {
           aria-label="Aviso de modo demostración"
           className="bg-amber-400 text-slate-950 px-3 sm:px-4 py-1.5 text-sm font-semibold shadow-xs"
         >
-          <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
-            <div className="flex items-center gap-2 text-left">
+          {/* En el móvil cabe en una sola fila: cada píxel de alto deja ver antes la pregunta. */}
+          <div className="max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
+            <div className="flex min-w-0 items-center gap-2 text-left">
               <span className="hidden sm:block w-2 h-2 rounded-full bg-amber-900 animate-pulse shrink-0" aria-hidden="true" />
-              <span>
+              <span className="text-xs leading-tight sm:text-sm">
                 <strong><span className="sm:hidden">Demo</span><span className="hidden sm:inline">Modo demostración</span></strong>
-                <span className="sm:hidden">: tu progreso se guarda en este dispositivo.</span>
-                <span className="hidden sm:inline">: las fichas y el simulacro se guardan solo en este dispositivo. Crea una cuenta para conservarlos.</span>
+                <span className="sm:hidden">: no se guarda en ninguna cuenta; queda en este dispositivo.</span>
+                <span className="hidden sm:inline">: lo que hagas no se guarda en ninguna cuenta; las fichas y el simulacro quedan solo en este dispositivo. Crea una cuenta para conservarlos.</span>
               </span>
             </div>
             <div className="flex items-center gap-2 shrink-0">
@@ -732,16 +799,18 @@ export default function App() {
                   onClick={handleDemoSignup}
                   className="min-h-11 px-3 py-1 bg-indigo-700 hover:bg-indigo-800 text-white rounded-lg text-sm font-bold transition cursor-pointer"
                 >
-                  Crear cuenta gratis
+                  {textoAlta()}
                 </button>
               )}
               <button
                 type="button"
                 id="btn-exit-demo"
                 onClick={handleExitDemo}
+                aria-label="Salir de la demo"
                 className="min-h-11 px-2.5 py-1 bg-slate-950 hover:bg-slate-800 text-white rounded-lg text-sm font-bold transition cursor-pointer"
               >
-                Salir de la demo
+                <span className="sm:hidden">Salir</span>
+                <span className="hidden sm:inline">Salir de la demo</span>
               </button>
             </div>
           </div>
@@ -758,151 +827,55 @@ export default function App() {
       </p>
 
       {/* Top Main Navigation Bar */}
-      {/* En el móvil la cabecera no es fija: ya hay barra inferior fija y cada píxel cuenta. */}
-      <header className="relative md:sticky md:top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm" id="mira-header">
-        <div className="max-w-6xl mx-auto px-4 min-h-14 py-1.5 md:min-h-16 flex flex-wrap items-center justify-between gap-2">
+      {/* Hasta 1024 px (móvil y tableta) la cabecera no es fija: ya hay barra inferior fija y cada píxel cuenta. */}
+      <header className="relative lg:sticky lg:top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm" id="mira-header">
+        <div className="max-w-4xl mx-auto px-4 min-h-14 py-1.5 lg:min-h-16 flex flex-wrap items-center justify-between gap-2">
           <button
             type="button"
-            aria-label="BomberoPro: ir al inicio"
+            aria-label="Ir al inicio"
             className="flex min-h-11 min-w-0 items-center gap-2.5 cursor-pointer text-left"
             onClick={() => handleNavigate('dashboard')}
             id="brand-logo"
           >
-            <div className="p-2 bg-indigo-600 text-white rounded-xl shadow-md shadow-indigo-100">
-              <GraduationCap className="w-5 h-5" aria-hidden="true" />
+            <div className="p-2 bg-orange-600 text-white rounded-xl shadow-md shadow-orange-100">
+              <Flame className="w-5 h-5" aria-hidden="true" />
             </div>
             <div>
               <span className="text-base font-black tracking-tight text-slate-950">
                 BomberoPro
               </span>
-              <p className="hidden sm:block text-xs text-slate-600 font-medium tracking-wide">Aprendizaje Adaptativo de Oposición</p>
             </div>
           </button>
 
+          {/* Escritorio: las mismas 5 secciones que la barra inferior del móvil (mobileTabs), con los
+              mismos nombres y destinos. Lo demás vive en «Más» en todos los dispositivos. */}
           <nav
             aria-label="Navegación principal"
-            className="hidden md:order-last md:flex md:w-full md:flex-wrap md:justify-center md:pb-1.5 items-center gap-1"
+            className="hidden lg:flex items-center gap-1"
             id="mira-nav-items"
           >
-            <button
-              id="nav-btn-dashboard"
-              onClick={() => handleNavigate('dashboard')}
-              aria-current={currentScreen === 'dashboard' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'dashboard' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <LayoutDashboard className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Dashboard
-            </button>
-            <button
-              id="nav-btn-study"
-              onClick={() => handleNavigate('today_training')}
-              aria-current={currentScreen === 'today_training' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'today_training' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <Target className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Entrenamiento de Hoy
-            </button>
-            <button
-              id="nav-btn-errors"
-              onClick={() => handleNavigate('errors')}
-              aria-current={currentScreen === 'errors' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'errors' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <AlertTriangle className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Errores Críticos
-            </button>
-            <button
-              id="nav-btn-forgetting"
-              onClick={() => handleNavigate('forgetting_curve')}
-              aria-current={currentScreen === 'forgetting_curve' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'forgetting_curve' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <BarChart2 className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Curva de Olvido
-            </button>
-            <button
-              id="nav-btn-exam"
-              onClick={() => handleNavigate('mock_exam')}
-              aria-current={currentScreen === 'mock_exam' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'mock_exam' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <HelpCircle className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Simulacro
-            </button>
-            <button
-              id="nav-btn-study-topic"
-              onClick={() => handleNavigate('study_by_topic')}
-              aria-current={currentScreen === 'study_by_topic' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'study_by_topic' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-              >
-            <BookOpen className="hidden lg:block w-4 h-4" aria-hidden="true" />
-            Por Temas
-            </button>
-
-            <button
-              id="nav-btn-recuerdo"
-              onClick={() => handleNavigate('recuerdo')}
-              aria-current={currentScreen === 'recuerdo' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'recuerdo' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <Layers className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Recuerdo
-            </button>
-            <button
-              id="nav-btn-sesion-diaria"
-              onClick={() => handleNavigate('sesion_diaria')}
-              aria-current={currentScreen === 'sesion_diaria' || currentScreen === 'ordena_pasos' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'sesion_diaria' || currentScreen === 'ordena_pasos' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <Flame className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Sesión diaria
-            </button>
-            {supuestosVisibles && (
-              <button
-                id="nav-btn-supuestos"
-                onClick={() => handleNavigate('supuestos')}
-                aria-current={currentScreen === 'supuestos' ? 'page' : undefined}
-                className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                  currentScreen === 'supuestos' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-                }`}
-              >
-                <ClipboardList className="hidden lg:block w-4 h-4" aria-hidden="true" />
-                Supuestos
-              </button>
-            )}
-            {planesEnabled && (
-              <button
-                id="nav-btn-planes"
-                onClick={() => handleNavigate('planes')}
-                aria-current={currentScreen === 'planes' ? 'page' : undefined}
-                className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                  currentScreen === 'planes' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-                }`}
-              >
-                <Sparkles className="hidden lg:block w-4 h-4" aria-hidden="true" />
-                Planes
-              </button>
-            )}
+            {mobileTabs.map(({ key, label, Icon, target, active }) => {
+              const isActive = active.includes(currentScreen);
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  id={`nav-btn-${key}`}
+                  aria-current={isActive ? 'page' : undefined}
+                  onClick={() => handleNavigate(target)}
+                  className={`min-h-11 px-3 py-2 text-sm font-semibold rounded-lg transition flex items-center gap-2 ${
+                    isActive ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                  }`}
+                >
+                  <Icon className="w-4 h-4" aria-hidden="true" />
+                  {label}
+                </button>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-2">
-            {pendingCount > 0 && currentScreen !== 'train' && currentScreen !== 'onboarding' && (
+            {pendingCount > 0 && currentScreen !== 'train' && currentScreen !== 'concept_t40' && currentScreen !== 'onboarding' && (
               <button
                 id="btn-quick-train"
                 onClick={() => handleNavigate(conceptOwner ? 'concept_t40' : 'train')}
@@ -911,6 +884,7 @@ export default function App() {
                 Repasar ({pendingCount})
               </button>
             )}
+            {/* En la demo ya está «Salir» en la franja amarilla: no lo repetimos aquí. */}
             {!isDemoMode && (
             <button
               onClick={handleLogout}
@@ -930,7 +904,7 @@ export default function App() {
       <main
         id="main-content"
         tabIndex={-1}
-        className="flex-1 max-w-6xl w-full mx-auto px-4 pt-8 pb-24 md:py-8"
+        className="flex-1 max-w-4xl w-full mx-auto px-4 pt-4 pb-24 lg:py-8"
       >
         <Suspense fallback={<p role="status" className="p-6 text-sm text-slate-600">Cargando…</p>}>
         {currentScreen === 'dashboard' && (
@@ -1056,7 +1030,23 @@ export default function App() {
           />
         )}
 
-        {currentScreen === 'errors' && (
+        {currentScreen === 'errors' && serverMode && (
+          <AccountErrorPanel
+            state={accountErrors}
+            onRetry={() => { void loadAccountErrors(); }}
+            onStart={() => {
+              if (accountErrors.status !== 'ready' || accountErrors.questions.length === 0) return;
+              setDailyAutoStart(false);
+              setActiveConceptId(null);
+              setCurrentScreen('train');
+              void startTrainingSession(null, accountErrors.questions);
+            }}
+            onStudy={() => handleNavigate(estudiarScreen)}
+            onNavigateHome={() => handleNavigate('dashboard')}
+          />
+        )}
+
+        {currentScreen === 'errors' && !serverMode && (
           <ErrorPanel
             memoryStates={memoryStates}
             microconcepts={INITIAL_MICROCONCEPTS}
@@ -1087,7 +1077,13 @@ export default function App() {
 
           {currentScreen === 'onboarding' && (
             <Onboarding
+              cuenta={Boolean(conceptOwner)}
               onStart={() => {
+                // Con cuenta: Tema 1 piloto (revisado, guardado en la cuenta). Sin cuenta: sesión de fichas.
+                if (conceptOwner) {
+                  handleNavigate('constitucion');
+                  return;
+                }
                 handleNavigate('sesion_diaria');
                 setDailyAutoStart(true);
               }}
@@ -1105,11 +1101,12 @@ export default function App() {
           )}
 
           {currentScreen === 'recuerdo' && (
-            <RecallHub onNavigateHome={() => handleNavigate('dashboard')} onOpenPlanes={openPlanes} />
+            <RecallHub demo={isDemoMode || !session} onNavigateHome={() => handleNavigate('dashboard')} onOpenPlanes={openPlanes} />
           )}
 
           {currentScreen === 'sesion_diaria' && (
             <DailySession
+              demo={isDemoMode || !session}
               autoStart={dailyAutoStart}
               onOpenPlanes={openPlanes}
               onNavigateHome={() => handleNavigate('dashboard')}
@@ -1176,7 +1173,7 @@ export default function App() {
       {currentScreen !== 'onboarding' && (
       <nav
         aria-label="Navegación móvil"
-        className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_18px_rgba(15,23,42,0.08)] backdrop-blur-md md:hidden"
+        className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_18px_rgba(15,23,42,0.08)] backdrop-blur-md lg:hidden"
       >
         <div className="mx-auto grid max-w-lg grid-cols-5 px-1">
           {mobileTabs.map(({ key, label, Icon, target, active }) => {
@@ -1202,8 +1199,9 @@ export default function App() {
       )}
 
       {/* Footer Branding Area */}
-      <footer className="border-t border-slate-100 py-6 bg-white text-slate-600 text-xs mt-12" id="mira-footer">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      {/* En móvil y tableta la barra inferior es fija: el pie deja su alto (4 rem + zona segura) para no quedar tapado. */}
+      <footer className="border-t border-slate-100 pt-6 pb-[calc(5.5rem+env(safe-area-inset-bottom))] lg:pb-6 bg-white text-slate-600 text-xs mt-12" id="mira-footer">
+        <div className="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
             <p className="font-semibold text-slate-600">BomberoPro — Oposición CPEI Badajoz</p>
             <p className="text-xs text-slate-600 mt-0.5">Basado en Microconceptos, Interrogación activa, Repetición espaciada y Aseguramiento del dominio real.</p>

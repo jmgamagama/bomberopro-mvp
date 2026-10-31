@@ -33,7 +33,7 @@ export default function StudyByTopic({ session, onNavigateHome }: StudyByTopicPr
   const [topicQuery, setTopicQuery] = useState('');
   const [loadingTopics, setLoadingTopics] = useState(true);
   // Recuentos reales de conceptos por tema y mapa de conceptos desplegable (migración 23).
-  const conceptSummary = useConceptSummary();
+  const { resumen: conceptSummary, listo: conceptSummaryListo } = useConceptSummary();
   const [outlineTema, setOutlineTema] = useState<number | null>(null);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [started, setStarted] = useState(false);
@@ -158,7 +158,7 @@ const restart = () => {
 const h = React.createElement;
 
 if (!started) {
-  return h('div', { className: 'min-h-screen bg-slate-50 p-4' },
+  return h('div', { className: 'min-h-screen bg-fondo p-4' },
            h('div', { className: 'max-w-2xl mx-auto' },
              h('div', { className: 'flex items-center justify-between mb-4' },
                h('button', { onClick: onNavigateHome, className: 'flex items-center gap-2 text-slate-600' },
@@ -193,7 +193,7 @@ if (!started) {
                        }),
                        h('span', { className: 'flex flex-col' },
                          h('span', { className: 'text-sm text-slate-800' }, 'Tema ' + t.numero + '. ' + t.nombre),
-                         h(ConceptCountBadge, { tema: conceptSummary[t.numero] })
+                         h(ConceptCountBadge, { tema: conceptSummary[t.numero], listo: conceptSummaryListo })
                        )
                      ),
                      conceptSummary[t.numero] ? h('button', {
@@ -218,7 +218,7 @@ if (!started) {
 }
 
 if (started && questions.length === 0) {
-  return h('div', { className: 'min-h-screen bg-slate-50 p-4 flex items-center justify-center' },
+  return h('div', { className: 'min-h-screen bg-fondo p-4 flex items-center justify-center' },
            h('div', { className: 'text-center' },
              h('p', { className: 'text-slate-600 mb-4' }, 'No hay preguntas disponibles para los temas seleccionados.'),
              h('button', { onClick: restart, className: 'text-indigo-700 font-semibold' }, 'Volver a elegir temas')
@@ -227,7 +227,7 @@ if (started && questions.length === 0) {
 }
 
 if (idx >= questions.length) {
-  return h('div', { className: 'min-h-screen bg-slate-50 p-4 flex items-center justify-center' },
+  return h('div', { className: 'min-h-screen bg-fondo p-4 flex items-center justify-center' },
            h('div', { className: 'max-w-md w-full text-center bg-white rounded-xl p-6 shadow' },
              h('h2', { className: 'text-xl font-bold text-slate-900 mb-2' }, 'Sesión completada'),
              h('p', { className: 'text-slate-600 mb-4' }, 'Acertaste ' + correctCount + ' de ' + questions.length + ' preguntas.'),
@@ -239,7 +239,7 @@ if (idx >= questions.length) {
            );
 }
 
-return h('div', { className: 'min-h-screen bg-slate-50 p-4' },
+return h('div', { className: 'min-h-screen bg-fondo p-4' },
          h('div', { className: 'max-w-2xl mx-auto' },
            h('div', { className: 'flex items-center justify-between mb-4' },
              h('button', { onClick: onNavigateHome, className: 'flex items-center gap-2 text-slate-600' },
@@ -284,7 +284,8 @@ return h('div', { className: 'min-h-screen bg-slate-50 p-4' },
                  answer === currentQuestion.correct_answer
                  ? h(CheckCircle2, { className: 'text-green-500 shrink-0', size: 18 })
                  : h(XCircle, { className: 'text-red-500 shrink-0', size: 18 }),
-                 h('span', null, currentQuestion.explanation)
+                 h('span', null, currentQuestion.explanation,
+                   currentQuestion.cita ? h('span', { className: 'block mt-1 text-slate-500', 'data-testid': 'cita-literal' }, `Cita literal: «${currentQuestion.cita}»`) : null)
                  )
              : null
              ),

@@ -1,0 +1,1330 @@
+{
+  "norma": "BOE-A-1978-31229",
+  "tema": 1,
+  "bloque_temario": "Título I, Capítulo III: principios rectores de la política social y económica (arts. 39-52)",
+  "estado": "borrador",
+  "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+  "niveles": {
+    "1": "fácil: 2 opciones, para aprender",
+    "2": "normal: 3 opciones, formato del examen",
+    "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+  },
+  "conceptos": [
+    {
+      "id": "CE-a39-1-familia",
+      "bloque": "a39",
+      "apartado": "1",
+      "orden": 1120,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Qué protección de la familia aseguran los poderes públicos (art. 39.1 CE)?",
+        "respuesta": "La protección social, económica y jurídica de la familia."
+      },
+      "cita": "Los poderes públicos aseguran la protección social, económica y jurídica de la familia.",
+      "confundible_con": [
+        "CE-a39-2-hijos"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 39.1 CE, los poderes públicos aseguran la protección social, económica y jurídica de…",
+          "opciones": [
+            "la familia",
+            "la juventud"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 39.1 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 39.1 CE, la protección de la familia que aseguran los poderes públicos es:",
+          "opciones": [
+            "Social, económica y jurídica.",
+            "Social, sanitaria y educativa.",
+            "Integral."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 39.1 CE. «Integral» es la protección de los hijos y de las madres (art. 39.2)."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "El art. 39 CE, sobre la protección de la familia, es el primer artículo del:",
+          "opciones": [
+            "Capítulo tercero del Título I (principios rectores).",
+            "Capítulo segundo del Título I, Sección 2.ª.",
+            "Capítulo cuarto del Título I (garantías)."
+          ],
+          "correcta": 0,
+          "explicacion": "El Capítulo tercero (arts. 39 a 52) recoge los principios rectores de la política social y económica."
+        }
+      ]
+    },
+    {
+      "id": "CE-a39-2-hijos",
+      "bloque": "a39",
+      "apartado": "2",
+      "orden": 1130,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿A quién aseguran los poderes públicos protección integral según el art. 39.2 CE?",
+        "respuesta": "A los hijos, iguales ante la ley con independencia de su filiación, y a las madres, cualquiera que sea su estado civil; la ley posibilitará la investigación de la paternidad."
+      },
+      "cita": "La ley posibilitará la investigación de la paternidad.",
+      "confundible_con": [
+        "CE-a39-3-padres",
+        "CE-a39-1-familia"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 39.2 CE, la ley posibilitará la investigación de…",
+          "opciones": [
+            "la paternidad",
+            "la filiación adoptiva"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 39.2 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 39.2 CE, los poderes públicos aseguran la protección integral de las madres:",
+          "opciones": [
+            "Cualquiera que sea su estado civil.",
+            "Casadas o con pareja inscrita.",
+            "Menores de edad."
+          ],
+          "correcta": 0,
+          "cita": "Los poderes públicos aseguran, asimismo, la protección integral de los hijos, iguales éstos ante la ley con independencia de su filiación, y de las madres, cualquiera que sea su estado civil.",
+          "explicacion": "Art. 39.2 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 39.2 CE, los hijos son iguales ante la ley:",
+          "opciones": [
+            "Con independencia de su filiación.",
+            "Si han nacido dentro del matrimonio.",
+            "Desde su inscripción en el Registro Civil."
+          ],
+          "correcta": 0,
+          "cita": "Los poderes públicos aseguran, asimismo, la protección integral de los hijos, iguales éstos ante la ley con independencia de su filiación, y de las madres, cualquiera que sea su estado civil.",
+          "explicacion": "Art. 39.2 CE: «iguales éstos ante la ley con independencia de su filiación»."
+        }
+      ]
+    },
+    {
+      "id": "CE-a39-3-padres",
+      "bloque": "a39",
+      "apartado": "3",
+      "orden": 1140,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Qué deben prestar los padres a sus hijos según el art. 39.3 CE?",
+        "respuesta": "Asistencia de todo orden a los hijos habidos dentro o fuera del matrimonio, durante su minoría de edad y en los demás casos en que legalmente proceda."
+      },
+      "cita": "Los padres deben prestar asistencia de todo orden a los hijos habidos dentro o fuera del matrimonio",
+      "confundible_con": [
+        "CE-a39-2-hijos",
+        "CE-a27-3-formacion-religiosa"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 39.3 CE, ¿deben los padres asistir a los hijos nacidos fuera del matrimonio?",
+          "opciones": [
+            "Sí",
+            "Solo si los han reconocido ante notario"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 39.3 CE: hijos habidos dentro o fuera del matrimonio."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "¿Qué apartado del art. 39 CE impone a los padres el deber de prestar asistencia de todo orden a los hijos?",
+          "opciones": [
+            "El 3.",
+            "El 2.",
+            "El 1."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 39.3 CE. El 39.1 trata de la protección de la familia y el 39.2, de la protección integral de los hijos y las madres."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 39.3 CE, la asistencia de los padres a los hijos se presta:",
+          "opciones": [
+            "Durante su minoría de edad y en los demás casos en que legalmente proceda.",
+            "Hasta que los hijos cumplan veinticinco años o se emancipen.",
+            "Solo durante su minoría de edad, sin excepción."
+          ],
+          "correcta": 0,
+          "cita": "Los padres deben prestar asistencia de todo orden a los hijos habidos dentro o fuera del matrimonio, durante su minoría de edad y en los demás casos en que legalmente proceda.",
+          "explicacion": "Art. 39.3 CE."
+        }
+      ]
+    },
+    {
+      "id": "CE-a39-4-ninos",
+      "bloque": "a39",
+      "apartado": "4",
+      "orden": 1150,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿De qué protección gozan los niños según el art. 39.4 CE?",
+        "respuesta": "De la prevista en los acuerdos internacionales que velan por sus derechos."
+      },
+      "cita": "Los niños gozarán de la protección prevista en los acuerdos internacionales que velan por sus derechos.",
+      "confundible_con": [],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 39.4 CE, los niños gozarán de la protección prevista en…",
+          "opciones": [
+            "los acuerdos internacionales que velan por sus derechos",
+            "el Código Civil"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 39.4 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "¿Qué apartado del art. 39 CE remite a los acuerdos internacionales que velan por los derechos de los niños?",
+          "opciones": [
+            "El 4.",
+            "El 2.",
+            "El 3."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 39.4 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 39.4 CE, los niños gozarán de la protección prevista en los acuerdos internacionales que:",
+          "opciones": [
+            "Velan por sus derechos.",
+            "Regulan la adopción internacional.",
+            "Ha suscrito la Unión Europea."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 39.4 CE: «Los niños gozarán de la protección prevista en los acuerdos internacionales que velan por sus derechos»."
+        }
+      ]
+    },
+    {
+      "id": "CE-a40-1-pleno-empleo",
+      "bloque": "a40",
+      "apartado": "1",
+      "orden": 1160,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Qué política realizarán de manera especial los poderes públicos según el art. 40.1 CE?",
+        "respuesta": "Una política orientada al pleno empleo, dentro de las condiciones favorables para el progreso social y económico y una distribución de la renta más equitativa."
+      },
+      "cita": "De manera especial realizarán una política orientada al pleno empleo.",
+      "confundible_con": [],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 40.1 CE, los poderes públicos realizarán de manera especial una política orientada al…",
+          "opciones": [
+            "pleno empleo",
+            "equilibrio presupuestario"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 40.1 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 40.1 CE, los poderes públicos promoverán una distribución de la renta regional y personal más equitativa en el marco de:",
+          "opciones": [
+            "Una política de estabilidad económica.",
+            "La planificación económica general.",
+            "La economía de mercado."
+          ],
+          "correcta": 0,
+          "cita": "Los poderes públicos promoverán las condiciones favorables para el progreso social y económico y para una distribución de la renta regional y personal más equitativa, en el marco de una política de estabilidad económica.",
+          "explicacion": "Art. 40.1 CE: «en el marco de una política de estabilidad económica». La economía de mercado es el marco de la libertad de empresa (art. 38)."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "El derecho al trabajo y la política orientada al pleno empleo aparecen, respectivamente, en los arts.:",
+          "opciones": [
+            "35.1 y 40.1.",
+            "40.1 y 35.1.",
+            "35.1 y 41."
+          ],
+          "correcta": 0,
+          "explicacion": "Derecho al trabajo: art. 35.1 (Sección 2.ª). Política de pleno empleo: art. 40.1 (principio rector)."
+        }
+      ]
+    },
+    {
+      "id": "CE-a40-2-seguridad-trabajo",
+      "bloque": "a40",
+      "apartado": "2",
+      "orden": 1170,
+      "tipo": "lista",
+      "prioridad": 1,
+      "tarjeta": {
+        "pregunta": "¿Qué tareas asigna el art. 40.2 CE a los poderes públicos en materia laboral?",
+        "respuesta": "Fomentar la formación y readaptación profesionales, velar por la seguridad e higiene en el trabajo y garantizar el descanso necesario mediante la limitación de la jornada, las vacaciones periódicas retribuidas y la promoción de centros adecuados."
+      },
+      "cita": "velarán por la seguridad e higiene en el trabajo",
+      "confundible_con": [
+        "CE-a43-2-salud-publica"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 40.2 CE, los poderes públicos velarán por la seguridad e higiene en…",
+          "opciones": [
+            "el trabajo",
+            "los espacios públicos"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 40.2 CE: fundamento constitucional de la prevención de riesgos laborales."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 40.2 CE, los poderes públicos garantizarán el descanso necesario mediante:",
+          "opciones": [
+            "La limitación de la jornada laboral y las vacaciones periódicas retribuidas.",
+            "La reducción de la edad de jubilación y el trabajo a tiempo parcial.",
+            "El salario mínimo interprofesional y los permisos por cuidado de hijos."
+          ],
+          "correcta": 0,
+          "cita": "Asimismo, los poderes públicos fomentarán una política que garantice la formación y readaptación profesionales; velarán por la seguridad e higiene en el trabajo y garantizarán el descanso necesario, mediante la limitación de la jornada laboral, las vacaciones periódicas retribuidas y la promoción de centros adecuados.",
+          "explicacion": "Art. 40.2 CE: el descanso necesario se garantiza «mediante la limitación de la jornada laboral, las vacaciones periódicas retribuidas y la promoción de centros adecuados»."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "El fundamento constitucional de la Ley de Prevención de Riesgos Laborales se encuentra en el art. 40.2 CE, que encomienda a los poderes públicos:",
+          "opciones": [
+            "Velar por la seguridad e higiene en el trabajo.",
+            "Organizar y tutelar la salud pública.",
+            "Garantizar la defensa de los consumidores y usuarios."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 40.2 CE. La salud pública es del art. 43.2 y los consumidores, del art. 51.1."
+        }
+      ]
+    },
+    {
+      "id": "CE-a41-seguridad-social",
+      "bloque": "a41",
+      "apartado": "",
+      "orden": 1180,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Qué régimen mantendrán los poderes públicos según el art. 41 CE?",
+        "respuesta": "Un régimen público de Seguridad Social para todos los ciudadanos, con asistencia y prestaciones suficientes ante situaciones de necesidad, especialmente el desempleo; la asistencia y prestaciones complementarias serán libres."
+      },
+      "cita": "La asistencia y prestaciones complementarias serán libres.",
+      "confundible_con": [
+        "CE-a50-tercera-edad"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 41 CE, el régimen de Seguridad Social es…",
+          "opciones": [
+            "público y para todos los ciudadanos",
+            "privado y voluntario"
+          ],
+          "correcta": 0,
+          "cita": "Los poderes públicos mantendrán un régimen público de Seguridad Social para todos los ciudadanos, que garantice la asistencia y prestaciones sociales suficientes ante situaciones de necesidad, especialmente en caso de desempleo.",
+          "explicacion": "Art. 41 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 41 CE, el régimen público de Seguridad Social garantizará la asistencia y prestaciones sociales suficientes ante situaciones de necesidad, especialmente en caso de:",
+          "opciones": [
+            "Desempleo.",
+            "Jubilación.",
+            "Enfermedad."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 41 CE: «especialmente en caso de desempleo»."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 41 CE, la asistencia y prestaciones complementarias:",
+          "opciones": [
+            "Serán libres.",
+            "Serán obligatorias para los trabajadores por cuenta ajena.",
+            "Las gestionará en exclusiva la Seguridad Social."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 41 CE: «serán libres»."
+        }
+      ]
+    },
+    {
+      "id": "CE-a42-emigrantes",
+      "bloque": "a42",
+      "apartado": "",
+      "orden": 1190,
+      "tipo": "regla",
+      "prioridad": 3,
+      "tarjeta": {
+        "pregunta": "¿Qué hará el Estado respecto de los trabajadores españoles en el extranjero (art. 42 CE)?",
+        "respuesta": "Velará especialmente por la salvaguardia de sus derechos económicos y sociales y orientará su política hacia su retorno."
+      },
+      "cita": "orientará su política hacia su retorno",
+      "confundible_con": [],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 42 CE, el Estado orientará su política respecto de los trabajadores españoles en el extranjero hacia su…",
+          "opciones": [
+            "retorno",
+            "integración en el país de acogida"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 42 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 42 CE, el Estado velará especialmente por la salvaguardia de los derechos de los trabajadores españoles en el extranjero, en concreto de sus derechos:",
+          "opciones": [
+            "Económicos y sociales.",
+            "Políticos y electorales.",
+            "Civiles y familiares."
+          ],
+          "correcta": 0,
+          "cita": "El Estado velará especialmente por la salvaguardia de los derechos económicos y sociales de los trabajadores españoles en el extranjero y orientará su política hacia su retorno.",
+          "explicacion": "Art. 42 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "El art. 42 CE asigna la salvaguardia de los derechos de los trabajadores españoles en el extranjero a:",
+          "opciones": [
+            "El Estado.",
+            "Las Comunidades Autónomas de origen.",
+            "Las organizaciones sindicales."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 42 CE: «El Estado velará…»; a diferencia de la mayoría de principios rectores, que hablan de «los poderes públicos»."
+        }
+      ]
+    },
+    {
+      "id": "CE-a43-1-salud",
+      "bloque": "a43",
+      "apartado": "1",
+      "orden": 1200,
+      "tipo": "dato",
+      "prioridad": 1,
+      "tarjeta": {
+        "pregunta": "¿Qué derecho reconoce el art. 43.1 CE?",
+        "respuesta": "El derecho a la protección de la salud."
+      },
+      "cita": "Se reconoce el derecho a la protección de la salud.",
+      "confundible_con": [
+        "CE-a15-vida-integridad"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "¿Qué artículo de la Constitución reconoce el derecho a la protección de la salud?",
+          "opciones": [
+            "El 43",
+            "El 15"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 43.1 CE. El 15 reconoce el derecho a la vida y a la integridad física y moral."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "El derecho a la protección de la salud del art. 43 CE está ubicado entre:",
+          "opciones": [
+            "Los principios rectores de la política social y económica.",
+            "Los derechos fundamentales de la Sección 1.ª.",
+            "Los derechos y deberes de los ciudadanos de la Sección 2.ª."
+          ],
+          "correcta": 0,
+          "explicacion": "El art. 43 está en el Capítulo tercero (principios rectores). Por eso, según el art. 53.3, solo puede alegarse ante la jurisdicción ordinaria según las leyes que lo desarrollen."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 43.1 CE, se reconoce el derecho:",
+          "opciones": [
+            "A la protección de la salud.",
+            "A la asistencia sanitaria gratuita.",
+            "A la salud."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 43.1 CE: «el derecho a la protección de la salud»; no habla de gratuidad ni de un derecho «a la salud» sin más."
+        }
+      ]
+    },
+    {
+      "id": "CE-a43-2-salud-publica",
+      "bloque": "a43",
+      "apartado": "2",
+      "orden": 1210,
+      "tipo": "regla",
+      "prioridad": 1,
+      "tarjeta": {
+        "pregunta": "¿Qué compete a los poderes públicos según el art. 43.2 CE?",
+        "respuesta": "Organizar y tutelar la salud pública a través de medidas preventivas y de las prestaciones y servicios necesarios; la ley establecerá los derechos y deberes de todos al respecto."
+      },
+      "cita": "Compete a los poderes públicos organizar y tutelar la salud pública a través de medidas preventivas y de las prestaciones y servicios necesarios.",
+      "confundible_con": [
+        "CE-a40-2-seguridad-trabajo",
+        "CE-a43-3-deporte"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 43.2 CE, compete a los poderes públicos organizar y tutelar…",
+          "opciones": [
+            "la salud pública",
+            "la sanidad privada"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 43.2 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 43.2 CE, los poderes públicos organizan y tutelan la salud pública a través de:",
+          "opciones": [
+            "Medidas preventivas y de las prestaciones y servicios necesarios.",
+            "Un sistema nacional de salud gratuito, universal y de gestión pública.",
+            "Los hospitales públicos y los centros concertados."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 43.2 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 43.2 CE, los derechos y deberes de todos respecto de la salud pública:",
+          "opciones": [
+            "Los establecerá la ley.",
+            "Los fija directamente la Constitución.",
+            "Los regula cada Comunidad Autónoma por reglamento."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 43.2 CE: «La ley establecerá los derechos y deberes de todos al respecto»."
+        }
+      ]
+    },
+    {
+      "id": "CE-a43-3-deporte",
+      "bloque": "a43",
+      "apartado": "3",
+      "orden": 1220,
+      "tipo": "lista",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Qué fomentarán los poderes públicos según el art. 43.3 CE?",
+        "respuesta": "La educación sanitaria, la educación física y el deporte; además facilitarán la adecuada utilización del ocio."
+      },
+      "cita": "Los poderes públicos fomentarán la educación sanitaria, la educación física y el deporte.",
+      "confundible_con": [
+        "CE-a43-2-salud-publica",
+        "CE-a50-tercera-edad"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 43.3 CE, los poderes públicos fomentarán la educación sanitaria, la educación física y…",
+          "opciones": [
+            "el deporte",
+            "la investigación médica"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 43.3 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 43.3 CE, los poderes públicos facilitarán:",
+          "opciones": [
+            "La adecuada utilización del ocio.",
+            "El acceso gratuito a instalaciones deportivas.",
+            "La práctica del deporte profesional."
+          ],
+          "correcta": 0,
+          "cita": "Asimismo facilitarán la adecuada utilización del ocio.",
+          "explicacion": "Art. 43.3 CE: «Asimismo facilitarán la adecuada utilización del ocio»."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "¿En qué artículo del Título I de la Constitución aparece el deporte?",
+          "opciones": [
+            "En el 43.3.",
+            "En el 44.1.",
+            "En el 27.2."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 43.3 CE: «la educación física y el deporte»."
+        }
+      ]
+    },
+    {
+      "id": "CE-a44-1-cultura",
+      "bloque": "a44",
+      "apartado": "1",
+      "orden": 1230,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Qué promoverán y tutelarán los poderes públicos según el art. 44.1 CE?",
+        "respuesta": "El acceso a la cultura, a la que todos tienen derecho."
+      },
+      "cita": "Los poderes públicos promoverán y tutelarán el acceso a la cultura, a la que todos tienen derecho.",
+      "confundible_con": [
+        "CE-a46-patrimonio",
+        "CE-a44-2-ciencia"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 44.1 CE, ¿quiénes tienen derecho a la cultura?",
+          "opciones": [
+            "Todos",
+            "Solo los españoles"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 44.1 CE: «a la que todos tienen derecho»."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 44.1 CE, los poderes públicos promoverán y tutelarán:",
+          "opciones": [
+            "El acceso a la cultura.",
+            "La conservación del patrimonio histórico.",
+            "La libertad de creación artística."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 44.1 CE. El patrimonio está en el art. 46 y la creación artística, en el art. 20.1.b)."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 44.1 CE, respecto del acceso a la cultura, los poderes públicos:",
+          "opciones": [
+            "Promoverán y tutelarán.",
+            "Garantizarán y financiarán.",
+            "Fomentarán y protegerán."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 44.1 CE: «promoverán y tutelarán»."
+        }
+      ]
+    },
+    {
+      "id": "CE-a44-2-ciencia",
+      "bloque": "a44",
+      "apartado": "2",
+      "orden": 1240,
+      "tipo": "regla",
+      "prioridad": 3,
+      "tarjeta": {
+        "pregunta": "¿Qué promoverán los poderes públicos según el art. 44.2 CE?",
+        "respuesta": "La ciencia y la investigación científica y técnica en beneficio del interés general."
+      },
+      "cita": "Los poderes públicos promoverán la ciencia y la investigación científica y técnica en beneficio del interés general.",
+      "confundible_con": [
+        "CE-a44-1-cultura"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 44.2 CE, los poderes públicos promoverán la ciencia y la investigación científica y técnica en beneficio del…",
+          "opciones": [
+            "interés general",
+            "sector privado empresarial"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 44.2 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "¿Qué apartado de la Constitución dispone que los poderes públicos promoverán la ciencia y la investigación científica y técnica?",
+          "opciones": [
+            "El art. 44.2.",
+            "El art. 20.1.b).",
+            "El art. 27.10."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 44.2 CE. El 20.1.b) reconoce el derecho a la producción y creación científica y técnica; el 27.10, la autonomía universitaria."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 44.2 CE, la promoción de la investigación científica y técnica se hace:",
+          "opciones": [
+            "En beneficio del interés general.",
+            "En el marco de la autonomía universitaria.",
+            "Con fondos de la Unión Europea."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 44.2 CE."
+        }
+      ]
+    },
+    {
+      "id": "CE-a45-1-medio-ambiente",
+      "bloque": "a45",
+      "apartado": "1",
+      "orden": 1250,
+      "tipo": "regla",
+      "prioridad": 1,
+      "tarjeta": {
+        "pregunta": "¿Qué derecho y qué deber recoge el art. 45.1 CE?",
+        "respuesta": "El derecho de todos a disfrutar de un medio ambiente adecuado para el desarrollo de la persona y el deber de conservarlo."
+      },
+      "cita": "Todos tienen el derecho a disfrutar de un medio ambiente adecuado para el desarrollo de la persona, así como el deber de conservarlo.",
+      "confundible_con": [
+        "CE-a45-2-recursos"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 45.1 CE, conservar el medio ambiente es…",
+          "opciones": [
+            "un deber de todos",
+            "solo una tarea de los poderes públicos"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 45.1 CE: derecho a disfrutarlo y deber de conservarlo."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 45.1 CE, todos tienen el derecho a disfrutar de un medio ambiente:",
+          "opciones": [
+            "Adecuado para el desarrollo de la persona.",
+            "Sano y ecológicamente equilibrado.",
+            "Libre de contaminación."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 45.1 CE: «adecuado para el desarrollo de la persona»."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "El art. 45.1 CE configura el medio ambiente como:",
+          "opciones": [
+            "Un derecho a disfrutarlo y un deber de conservarlo para todos.",
+            "Un derecho fundamental de la Sección 1.ª protegido por el recurso de amparo.",
+            "Una competencia exclusiva del Estado."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 45.1 CE. Está en el Capítulo tercero, sin recurso de amparo (art. 53)."
+        }
+      ]
+    },
+    {
+      "id": "CE-a45-2-recursos",
+      "bloque": "a45",
+      "apartado": "2",
+      "orden": 1260,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Por qué velarán los poderes públicos según el art. 45.2 CE y con qué apoyo?",
+        "respuesta": "Por la utilización racional de todos los recursos naturales, para proteger y mejorar la calidad de vida y defender y restaurar el medio ambiente, apoyándose en la indispensable solidaridad colectiva."
+      },
+      "cita": "apoyándose en la indispensable solidaridad colectiva",
+      "confundible_con": [
+        "CE-a45-1-medio-ambiente",
+        "CE-a45-3-sanciones"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 45.2 CE, los poderes públicos velarán por la utilización racional de…",
+          "opciones": [
+            "todos los recursos naturales",
+            "los recursos energéticos"
+          ],
+          "correcta": 0,
+          "cita": "Los poderes públicos velarán por la utilización racional de todos los recursos naturales, con el fin de proteger y mejorar la calidad de la vida y defender y restaurar el medio ambiente, apoyándose en la indispensable solidaridad colectiva.",
+          "explicacion": "Art. 45.2 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 45.2 CE, los poderes públicos velarán por la utilización racional de los recursos naturales apoyándose en:",
+          "opciones": [
+            "La indispensable solidaridad colectiva.",
+            "La cooperación internacional en materia ambiental.",
+            "La iniciativa privada."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 45.2 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 45.2 CE, la utilización racional de los recursos naturales tiene como fin:",
+          "opciones": [
+            "Proteger y mejorar la calidad de la vida y defender y restaurar el medio ambiente.",
+            "Garantizar un crecimiento económico sostenible y compatible con el empleo.",
+            "Asegurar la autosuficiencia de recursos y el desarrollo del medio rural."
+          ],
+          "correcta": 0,
+          "cita": "Los poderes públicos velarán por la utilización racional de todos los recursos naturales, con el fin de proteger y mejorar la calidad de la vida y defender y restaurar el medio ambiente, apoyándose en la indispensable solidaridad colectiva.",
+          "explicacion": "Art. 45.2 CE."
+        }
+      ]
+    },
+    {
+      "id": "CE-a45-3-sanciones",
+      "bloque": "a45",
+      "apartado": "3",
+      "orden": 1270,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Qué consecuencias prevé el art. 45.3 CE para quienes dañen el medio ambiente?",
+        "respuesta": "Sanciones penales o, en su caso, administrativas en los términos que la ley fije, y la obligación de reparar el daño causado."
+      },
+      "cita": "se establecerán sanciones penales o, en su caso, administrativas, así como la obligación de reparar el daño causado",
+      "confundible_con": [
+        "CE-a46-patrimonio"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 45.3 CE, además de las sanciones, quienes violen lo dispuesto en el apartado anterior tienen la obligación de…",
+          "opciones": [
+            "reparar el daño causado",
+            "indemnizar al Estado con el doble del daño"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 45.3 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 45.3 CE, para quienes violen lo dispuesto en el apartado anterior se establecerán, en los términos que la ley fije, sanciones:",
+          "opciones": [
+            "Penales o, en su caso, administrativas.",
+            "Administrativas, con exclusión de las penales.",
+            "Penales, con exclusión de las administrativas."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 45.3 CE: «sanciones penales o, en su caso, administrativas, así como la obligación de reparar el daño causado»."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "En materia de medio ambiente (art. 45.3) y de patrimonio histórico (art. 46), la Constitución prevé, respectivamente:",
+          "opciones": [
+            "Sanciones penales o administrativas y reparación; y sanción penal de los atentados.",
+            "Solo sanciones administrativas en ambos casos, sin reparación.",
+            "Reparación del daño en ambos casos, sin que se prevean sanciones penales."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 45.3: sanciones penales o administrativas y reparación. Art. 46: «La ley penal sancionará los atentados contra este patrimonio»."
+        }
+      ]
+    },
+    {
+      "id": "CE-a46-patrimonio",
+      "bloque": "a46",
+      "apartado": "",
+      "orden": 1280,
+      "tipo": "regla",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Qué garantizarán y promoverán los poderes públicos según el art. 46 CE?",
+        "respuesta": "La conservación y el enriquecimiento del patrimonio histórico, cultural y artístico de los pueblos de España, cualquiera que sea su régimen jurídico y titularidad; la ley penal sancionará los atentados contra él."
+      },
+      "cita": "La ley penal sancionará los atentados contra este patrimonio.",
+      "confundible_con": [
+        "CE-a44-1-cultura",
+        "CE-a45-3-sanciones"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 46 CE, los atentados contra el patrimonio histórico, cultural y artístico los sancionará…",
+          "opciones": [
+            "la ley penal",
+            "la Administración cultural"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 46 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 46 CE, los poderes públicos garantizarán la conservación y promoverán el enriquecimiento del patrimonio histórico, cultural y artístico:",
+          "opciones": [
+            "Cualquiera que sea su régimen jurídico y su titularidad.",
+            "Solo el de titularidad pública y el de la Iglesia.",
+            "Solo el declarado Bien de Interés Cultural por ley."
+          ],
+          "correcta": 0,
+          "cita": "Los poderes públicos garantizarán la conservación y promoverán el enriquecimiento del patrimonio histórico, cultural y artístico de los pueblos de España y de los bienes que lo integran, cualquiera que sea su régimen jurídico y su titularidad.",
+          "explicacion": "Art. 46 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 46 CE, respecto del patrimonio histórico, cultural y artístico, los poderes públicos:",
+          "opciones": [
+            "Garantizarán su conservación y promoverán su enriquecimiento.",
+            "Promoverán su conservación y garantizarán su enriquecimiento.",
+            "Tutelarán su acceso y fomentarán su difusión."
+          ],
+          "correcta": 0,
+          "cita": "Los poderes públicos garantizarán la conservación y promoverán el enriquecimiento del patrimonio histórico, cultural y artístico de los pueblos de España y de los bienes que lo integran, cualquiera que sea su régimen jurídico y su titularidad.",
+          "explicacion": "Art. 46 CE: «garantizarán la conservación y promoverán el enriquecimiento»."
+        }
+      ]
+    },
+    {
+      "id": "CE-a47-vivienda",
+      "bloque": "a47",
+      "apartado": "",
+      "orden": 1290,
+      "tipo": "regla",
+      "prioridad": 1,
+      "tarjeta": {
+        "pregunta": "¿Qué derecho reconoce el art. 47 CE y qué deben hacer los poderes públicos?",
+        "respuesta": "El derecho a disfrutar de una vivienda digna y adecuada; los poderes públicos regularán la utilización del suelo de acuerdo con el interés general para impedir la especulación, y la comunidad participará en las plusvalías de la acción urbanística pública."
+      },
+      "cita": "Todos los españoles tienen derecho a disfrutar de una vivienda digna y adecuada.",
+      "confundible_con": [],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 47 CE, los españoles tienen derecho a disfrutar de una vivienda…",
+          "opciones": [
+            "digna y adecuada",
+            "en propiedad"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 47 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 47 CE, los poderes públicos regularán la utilización del suelo de acuerdo con el interés general para impedir:",
+          "opciones": [
+            "La especulación.",
+            "La despoblación rural.",
+            "La construcción ilegal."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 47 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 47 CE, ¿quién participará en las plusvalías que genere la acción urbanística de los entes públicos?",
+          "opciones": [
+            "La comunidad.",
+            "Los propietarios del suelo.",
+            "Los ayuntamientos, en exclusiva."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 47 CE: «La comunidad participará en las plusvalías…»."
+        }
+      ]
+    },
+    {
+      "id": "CE-a48-juventud",
+      "bloque": "a48",
+      "apartado": "",
+      "orden": 1300,
+      "tipo": "regla",
+      "prioridad": 3,
+      "tarjeta": {
+        "pregunta": "¿Qué participación de la juventud promoverán los poderes públicos (art. 48 CE)?",
+        "respuesta": "La participación libre y eficaz de la juventud en el desarrollo político, social, económico y cultural."
+      },
+      "cita": "Los poderes públicos promoverán las condiciones para la participación libre y eficaz de la juventud en el desarrollo político, social, económico y cultural.",
+      "confundible_con": [
+        "CE-a9-2-igualdad-real"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 48 CE, los poderes públicos promoverán la participación libre y eficaz de…",
+          "opciones": [
+            "la juventud",
+            "la tercera edad"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 48 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 48 CE, la participación de la juventud que promueven los poderes públicos es en el desarrollo:",
+          "opciones": [
+            "Político, social, económico y cultural.",
+            "Educativo, profesional y deportivo.",
+            "Deportivo y cultural."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 48 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 48 CE, la participación de la juventud que promueven los poderes públicos debe ser:",
+          "opciones": [
+            "Libre y eficaz.",
+            "Real y efectiva.",
+            "Directa y representativa."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 48 CE: «participación libre y eficaz». «Reales y efectivas» es la expresión del art. 9.2."
+        }
+      ]
+    },
+    {
+      "id": "CE-a49-1-discapacidad",
+      "bloque": "a49",
+      "apartado": "1",
+      "orden": 1310,
+      "tipo": "regla",
+      "prioridad": 1,
+      "tarjeta": {
+        "pregunta": "¿Qué dice el art. 49.1 CE, tras la reforma de 2024, sobre las personas con discapacidad?",
+        "respuesta": "Que ejercen los derechos del Título I en condiciones de libertad e igualdad reales y efectivas; la ley regulará la protección especial necesaria para dicho ejercicio."
+      },
+      "cita": "Las personas con discapacidad ejercen los derechos previstos en este Título en condiciones de libertad e igualdad reales y efectivas.",
+      "confundible_con": [
+        "CE-a49-2-politicas",
+        "CE-a9-2-igualdad-real"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 49.1 CE, las personas con discapacidad ejercen los derechos del Título I en condiciones de libertad e igualdad…",
+          "opciones": [
+            "reales y efectivas",
+            "formales"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 49.1 CE, redacción de la reforma de 15 de febrero de 2024."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "El art. 49 CE se reformó en:",
+          "opciones": [
+            "2024.",
+            "2011.",
+            "1992."
+          ],
+          "correcta": 0,
+          "explicacion": "Reforma de 15 de febrero de 2024. En 1992 se reformó el art. 13.2 y en 2011, el art. 135."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 49.1 CE vigente, la protección especial necesaria para que las personas con discapacidad ejerzan sus derechos:",
+          "opciones": [
+            "Se regulará por ley.",
+            "La regulan los poderes públicos mediante reglamento.",
+            "La fija directamente la Constitución."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 49.1 CE: «Se regulará por ley la protección especial que sea necesaria para dicho ejercicio»."
+        }
+      ]
+    },
+    {
+      "id": "CE-a49-2-politicas",
+      "bloque": "a49",
+      "apartado": "2",
+      "orden": 1320,
+      "tipo": "regla",
+      "prioridad": 1,
+      "tarjeta": {
+        "pregunta": "¿Qué políticas impulsarán los poderes públicos según el art. 49.2 CE?",
+        "respuesta": "Las que garanticen la plena autonomía personal y la inclusión social de las personas con discapacidad en entornos universalmente accesibles; fomentarán la participación de sus organizaciones y atenderán en particular a mujeres y menores con discapacidad."
+      },
+      "cita": "Se atenderán particularmente las necesidades específicas de las mujeres y los menores con discapacidad.",
+      "confundible_con": [
+        "CE-a49-1-discapacidad"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 49.2 CE, las políticas para las personas con discapacidad se desarrollarán en entornos…",
+          "opciones": [
+            "universalmente accesibles",
+            "especialmente protegidos"
+          ],
+          "correcta": 0,
+          "cita": "Los poderes públicos impulsarán las políticas que garanticen la plena autonomía personal y la inclusión social de las personas con discapacidad, en entornos universalmente accesibles.",
+          "explicacion": "Art. 49.2 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 49.2 CE, se atenderán particularmente las necesidades específicas de:",
+          "opciones": [
+            "Las mujeres y los menores con discapacidad.",
+            "Las personas mayores con discapacidad.",
+            "Las personas con discapacidad en el medio rural."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 49.2 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 49.2 CE, las políticas que impulsen los poderes públicos deben garantizar:",
+          "opciones": [
+            "La plena autonomía personal y la inclusión social de las personas con discapacidad.",
+            "La previsión, tratamiento, rehabilitación e integración de las personas con discapacidad.",
+            "La atención especializada y el amparo especial de las personas con discapacidad."
+          ],
+          "correcta": 0,
+          "cita": "Los poderes públicos impulsarán las políticas que garanticen la plena autonomía personal y la inclusión social de las personas con discapacidad, en entornos universalmente accesibles.",
+          "explicacion": "Art. 49.2 CE vigente. «Previsión, tratamiento, rehabilitación e integración» es la redacción anterior a la reforma de 2024."
+        }
+      ]
+    },
+    {
+      "id": "CE-a50-tercera-edad",
+      "bloque": "a50",
+      "apartado": "",
+      "orden": 1330,
+      "tipo": "lista",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Cómo garantizan los poderes públicos la suficiencia económica en la tercera edad y qué problemas atenderán los servicios sociales (art. 50 CE)?",
+        "respuesta": "Mediante pensiones adecuadas y periódicamente actualizadas; los servicios sociales atenderán sus problemas específicos de salud, vivienda, cultura y ocio."
+      },
+      "cita": "mediante pensiones adecuadas y periódicamente actualizadas, la suficiencia económica a los ciudadanos durante la tercera edad",
+      "confundible_con": [
+        "CE-a41-seguridad-social"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 50 CE, las pensiones de la tercera edad serán adecuadas y…",
+          "opciones": [
+            "periódicamente actualizadas",
+            "fijas e iguales para todos los pensionistas"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 50 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 50 CE, los servicios sociales para la tercera edad atenderán sus problemas específicos de:",
+          "opciones": [
+            "Salud, vivienda, cultura y ocio.",
+            "Salud, dependencia y soledad.",
+            "Vivienda, transporte y alimentación."
+          ],
+          "correcta": 0,
+          "cita": "Asimismo, y con independencia de las obligaciones familiares, promoverán su bienestar mediante un sistema de servicios sociales que atenderán sus problemas específicos de salud, vivienda, cultura y ocio.",
+          "explicacion": "Art. 50 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 50 CE, los poderes públicos promoverán el bienestar de la tercera edad mediante un sistema de servicios sociales:",
+          "opciones": [
+            "Con independencia de las obligaciones familiares.",
+            "Subsidiario de las obligaciones familiares.",
+            "Gestionado por la Seguridad Social."
+          ],
+          "correcta": 0,
+          "cita": "Asimismo, y con independencia de las obligaciones familiares, promoverán su bienestar mediante un sistema de servicios sociales que atenderán sus problemas específicos de salud, vivienda, cultura y ocio.",
+          "explicacion": "Art. 50 CE: «Asimismo, y con independencia de las obligaciones familiares, promoverán su bienestar…»."
+        }
+      ]
+    },
+    {
+      "id": "CE-a51-1-consumidores",
+      "bloque": "a51",
+      "apartado": "1",
+      "orden": 1340,
+      "tipo": "lista",
+      "prioridad": 2,
+      "tarjeta": {
+        "pregunta": "¿Qué protegerán los poderes públicos al garantizar la defensa de consumidores y usuarios (art. 51.1 CE)?",
+        "respuesta": "Mediante procedimientos eficaces, su seguridad, su salud y sus legítimos intereses económicos."
+      },
+      "cita": "protegiendo, mediante procedimientos eficaces, la seguridad, la salud y los legítimos intereses económicos de los mismos",
+      "confundible_con": [
+        "CE-a51-2-informacion"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 51.1 CE, los poderes públicos garantizarán la defensa de los consumidores y…",
+          "opciones": [
+            "usuarios",
+            "empresarios"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 51.1 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 51.1 CE, al defender a los consumidores y usuarios, los poderes públicos protegerán, mediante procedimientos eficaces, su:",
+          "opciones": [
+            "Seguridad, salud y legítimos intereses económicos.",
+            "Libertad de elección y la calidad de los productos.",
+            "Información, educación y derecho de asociación."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 51.1 CE. Información, educación y organizaciones son del art. 51.2."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 51.1 CE, la protección de los consumidores y usuarios se hará:",
+          "opciones": [
+            "Mediante procedimientos eficaces.",
+            "Mediante tribunales especiales de consumo.",
+            "Mediante el arbitraje obligatorio."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 51.1 CE."
+        }
+      ]
+    },
+    {
+      "id": "CE-a51-2-informacion",
+      "bloque": "a51",
+      "apartado": "2",
+      "orden": 1350,
+      "tipo": "lista",
+      "prioridad": 3,
+      "tarjeta": {
+        "pregunta": "¿Qué harán los poderes públicos respecto de los consumidores según el art. 51.2 CE?",
+        "respuesta": "Promoverán su información y educación, fomentarán sus organizaciones y oirán a éstas en las cuestiones que puedan afectarles."
+      },
+      "cita": "Los poderes públicos promoverán la información y la educación de los consumidores y usuarios, fomentarán sus organizaciones y oirán a éstas en las cuestiones que puedan afectar a aquéllos",
+      "confundible_con": [
+        "CE-a51-1-consumidores"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 51.2 CE, ¿oirán los poderes públicos a las organizaciones de consumidores?",
+          "opciones": [
+            "Sí, en las cuestiones que puedan afectarles",
+            "No"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 51.2 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 51.2 CE, los poderes públicos promoverán de los consumidores y usuarios:",
+          "opciones": [
+            "La información y la educación.",
+            "La seguridad y la salud.",
+            "La libertad de empresa."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 51.2 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "Según el art. 51.2 CE, respecto de las organizaciones de consumidores y usuarios, los poderes públicos:",
+          "opciones": [
+            "Las fomentarán y las oirán en las cuestiones que puedan afectar a los consumidores.",
+            "Las financiarán y controlarán que su funcionamiento sea democrático.",
+            "Las inscribirán en un registro a efectos de publicidad."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 51.2 CE."
+        }
+      ]
+    },
+    {
+      "id": "CE-a51-3-comercio",
+      "bloque": "a51",
+      "apartado": "3",
+      "orden": 1360,
+      "tipo": "regla",
+      "prioridad": 3,
+      "tarjeta": {
+        "pregunta": "¿Qué regulará la ley según el art. 51.3 CE?",
+        "respuesta": "El comercio interior y el régimen de autorización de productos comerciales."
+      },
+      "cita": "la ley regulará el comercio interior y el régimen de autorización de productos comerciales",
+      "confundible_con": [
+        "CE-a51-1-consumidores"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 51.3 CE, la ley regulará el comercio…",
+          "opciones": [
+            "interior",
+            "exterior"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 51.3 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 51.3 CE, en el marco de la defensa de los consumidores, la ley regulará:",
+          "opciones": [
+            "El comercio interior y el régimen de autorización de productos comerciales.",
+            "La publicidad comercial y las garantías de los productos de consumo.",
+            "Los precios de los productos de primera necesidad."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 51.3 CE."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "¿Qué apartado del art. 51 CE se refiere al régimen de autorización de productos comerciales?",
+          "opciones": [
+            "El 3.",
+            "El 1.",
+            "El 2."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 51.3 CE."
+        }
+      ]
+    },
+    {
+      "id": "CE-a52-organizaciones",
+      "bloque": "a52",
+      "apartado": "",
+      "orden": 1370,
+      "tipo": "regla",
+      "prioridad": 3,
+      "tarjeta": {
+        "pregunta": "¿Qué organizaciones regulará la ley según el art. 52 CE y cómo deben funcionar?",
+        "respuesta": "Las organizaciones profesionales que contribuyan a la defensa de sus intereses económicos propios; su estructura interna y funcionamiento deberán ser democráticos."
+      },
+      "cita": "La ley regulará las organizaciones profesionales que contribuyan a la defensa de los intereses económicos que les sean propios.",
+      "confundible_con": [
+        "CE-a7-sindicatos-funciones"
+      ],
+      "preguntas": [
+        {
+          "nivel": 1,
+          "enunciado": "Según el art. 52 CE, la estructura interna y el funcionamiento de las organizaciones profesionales deberán ser…",
+          "opciones": [
+            "democráticos",
+            "públicos"
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 52 CE."
+        },
+        {
+          "nivel": 2,
+          "enunciado": "Según el art. 52 CE, la ley regulará las organizaciones profesionales que contribuyan a la defensa de los intereses:",
+          "opciones": [
+            "Económicos que les sean propios.",
+            "Económicos y sociales de los trabajadores.",
+            "Generales de la profesión."
+          ],
+          "correcta": 0,
+          "explicacion": "Art. 52 CE. «Económicos y sociales que les son propios» es la fórmula del art. 7 para sindicatos y asociaciones empresariales."
+        },
+        {
+          "nivel": 3,
+          "enunciado": "El art. 52 CE, sobre las organizaciones profesionales, es el último artículo del:",
+          "opciones": [
+            "Capítulo tercero del Título I.",
+            "Capítulo segundo del Título I.",
+            "Título Preliminar."
+          ],
+          "correcta": 0,
+          "explicacion": "El Capítulo tercero abarca los arts. 39 a 52."
+        }
+      ]
+    }
+  ]
+}

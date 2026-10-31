@@ -24,6 +24,10 @@
 --     de suscripciones en las migraciones. Si no hay fila o el plan no es 'pro' → error plan_required.
 --   - Esta migración NO carga fichas: la carga es un paso aparte (pendiente).
 --
+-- CORRECCIÓN 29/10/2026: en producción users_app NO tiene columna `plan` (ni hay tabla de planes). Leerla
+-- directamente rompería check_answer/grade_exam (39). Se lee con _user_plan(), que devuelve NULL si no
+-- existe la columna; get_recall_deck_cards falla cerrado (plan_required) en ese caso.
+--
 -- Cómo se deshace: 38_correccion_servidor_y_fichas_pro_down.sql
 
 -- C2 ─────────────────────────────────────────────────────────────────────────────────────────
@@ -150,6 +154,21 @@ ALTER TABLE public.recall_cards ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.recall_free_decks ENABLE ROW LEVEL SECURITY;
 REVOKE ALL ON public.recall_cards, public.recall_free_decks FROM PUBLIC, anon, authenticated;
 
+-- Plan del usuario en el servidor: 'pro' | 'free' si existe users_app.plan; NULL si no hay sistema de planes
+-- (producción a 29/10/2026). No referencia la columna directamente para no fallar cuando no existe.
+CREATE OR REPLACE FUNCTION public._user_plan(p_uid uuid)
+RETURNS text LANGUAGE plpgsql STABLE SECURITY DEFINER SET search_path TO 'public' AS $$
+DECLARE v text;
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM information_schema.columns
+                  WHERE table_schema = 'public' AND table_name = 'users_app' AND column_name = 'plan') THEN
+    RETURN NULL;
+  END IF;
+  EXECUTE 'SELECT lower(plan) FROM public.users_app WHERE id = $1' INTO v USING p_uid;
+  RETURN coalesce(v, 'free');
+END $$;
+REVOKE ALL ON FUNCTION public._user_plan(uuid) FROM PUBLIC, anon, authenticated;
+
 CREATE OR REPLACE FUNCTION public.get_recall_deck_cards(p_deck_id text)
 RETURNS TABLE(id text, orden integer, concepto text, respuesta text, fuente text, localizacion text, apartado text)
 LANGUAGE plpgsql STABLE SECURITY DEFINER SET search_path TO 'public' AS $$
@@ -158,7 +177,7 @@ BEGIN
   IF v_uid IS NULL THEN RAISE EXCEPTION 'not_authenticated' USING ERRCODE = '42501'; END IF;
   v_free := EXISTS (SELECT 1 FROM recall_free_decks f WHERE f.deck_id = p_deck_id);
   IF NOT v_free THEN
-    SELECT u.plan INTO v_plan FROM users_app u WHERE u.id = v_uid;
+    v_plan := public._user_plan(v_uid);
     IF coalesce(lower(v_plan), '') <> 'pro' THEN
       RAISE EXCEPTION 'plan_required' USING ERRCODE = '42501';
     END IF;

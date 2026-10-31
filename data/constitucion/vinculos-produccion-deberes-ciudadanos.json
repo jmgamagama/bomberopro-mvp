@@ -1,0 +1,287 @@
+{
+  "descripcion": "Preguntas YA publicadas en producción (tema 1) sobre los arts. 30-38 CE, revisadas una a una contra el texto consolidado del BOE el 29/10/2026. accion: vincular, retirar_duplicada (se despublica con registro; el motivo indica si además tenía un error).",
+  "motivo_registro": "revisión arts. 30-38 CE contra BOE (29/10/2026)",
+  "revisado_por": "Claude (revisión manual contra el BOE), con el OK general de JM del 28/10/2026",
+  "preguntas": [
+    {
+      "question_id": 4787,
+      "accion": "vincular",
+      "concepto": "CE-a30-1-defender",
+      "nivel": 2,
+      "motivo": "Correcta y literal: derecho y deber, con distractores que separan uno del otro."
+    },
+    {
+      "question_id": 8235,
+      "accion": "vincular",
+      "concepto": "CE-a30-1-defender",
+      "nivel": 2,
+      "motivo": "Correcta: los distractores cambian «exención» por «sanción» (30.2) e «interés general» por «interés social» (30.3)."
+    },
+    {
+      "question_id": 892,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: la opción a («El derecho de defender a España») es cierta pero incompleta. La cubren la 4787 y las preguntas nuevas del art. 30.1."
+    },
+    {
+      "question_id": 806,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Opción referencial «Ninguna es correcta» y la correcta es la más larga y la única completa. La cubren las preguntas nuevas del art. 30.2."
+    },
+    {
+      "question_id": 6176,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: la correcta es la única completa y la más larga; los distractores son absolutos («exclusivamente», «cualquier»)."
+    },
+    {
+      "question_id": 827,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la pregunta nueva de nivel 1 del art. 30.3 (mismo dato: «interés general»)."
+    },
+    {
+      "question_id": 825,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la pregunta nueva de nivel 1 del art. 30.4 (mismo dato: «calamidad pública»)."
+    },
+    {
+      "question_id": 8244,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la pregunta nueva de nivel 2 del art. 31.1."
+    },
+    {
+      "question_id": 828,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: las opciones b y c son ambas ciertas («Igualdad y progresividad» y la misma frase con el alcance no confiscatorio)."
+    },
+    {
+      "question_id": 908,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Opción referencial «Ninguna es correcta». La cubre la pregunta nueva de nivel 3 del art. 31.1."
+    },
+    {
+      "question_id": 6177,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: la correcta es la única con el límite literal; los distractores dicen «sin límite alguno» y «con alcance confiscatorio». La cubren las preguntas nuevas del art. 31.1."
+    },
+    {
+      "question_id": 829,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la pregunta nueva de nivel 2 del art. 31.2; además la opción c («Justicia y poder social») es un distractor absurdo."
+    },
+    {
+      "question_id": 833,
+      "accion": "vincular",
+      "concepto": "CE-a31-2-gasto",
+      "nivel": 2,
+      "motivo": "Correcta y literal: «recursos públicos»."
+    },
+    {
+      "question_id": 4780,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la pregunta nueva de nivel 2 del art. 31.2."
+    },
+    {
+      "question_id": 8226,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la pregunta nueva de nivel 2 del art. 31.2."
+    },
+    {
+      "question_id": 924,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Discutible: «La Constitución y la ley» se confunde con la correcta («La ley»). La cubren las preguntas nuevas del art. 31.3."
+    },
+    {
+      "question_id": 864,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Duplicada de la pregunta nueva de nivel 1 del art. 32.1 (mismo dato: «plena igualdad jurídica»)."
+    },
+    {
+      "question_id": 6178,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Enunciado confuso: presenta la igualdad jurídica como «otro principio», cuando es la condición del mismo derecho. La cubren las preguntas nuevas del art. 32.1."
+    },
+    {
+      "question_id": 874,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: la correcta es la única con la lista completa y la más larga. La cubren las preguntas nuevas del art. 32.2."
+    },
+    {
+      "question_id": 8240,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: la correcta es la única con la lista completa y la más larga. Duplicada de la 874."
+    },
+    {
+      "question_id": 4791,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: distractores absolutos («sin sus efectos», «Únicamente»). La cubre la pregunta nueva de nivel 2 del art. 32.2."
+    },
+    {
+      "question_id": 839,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Ambigua: las opciones b («A la propiedad privada») y c («A la herencia») son ciertas pero incompletas."
+    },
+    {
+      "question_id": 4766,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: la correcta es mucho más larga y los distractores son absolutos («sin excepción alguna», «Solo»)."
+    },
+    {
+      "question_id": 8209,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "La correcta es la opción referencial «Las dos anteriores son correctas»."
+    },
+    {
+      "question_id": 922,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Discutible: «Las leyes y la Constitución» se confunde con la correcta («Las leyes»). La cubre la pregunta nueva de nivel 2 del art. 33.2."
+    },
+    {
+      "question_id": 926,
+      "accion": "vincular",
+      "concepto": "CE-a33-3-expropiacion",
+      "nivel": 3,
+      "motivo": "Correcta y literal: los distractores cambian «interés social» por «interés general» y «las leyes» por «la Constitución»."
+    },
+    {
+      "question_id": 810,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Discutible: la opción c («con arreglo a la Constitución y la ley») se confunde con la correcta. La cubren las preguntas nuevas del art. 34.1."
+    },
+    {
+      "question_id": 6179,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: distractores absolutos («exclusivamente», «únicamente»). La cubren las preguntas nuevas del art. 34.1."
+    },
+    {
+      "question_id": 4784,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "La correcta es la opción referencial «Las tres anteriores son correctas»."
+    },
+    {
+      "question_id": 8231,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "ERROR: da como única correcta la b, pero las opciones a y c también son ciertas por la remisión del art. 34.2 a los apartados 2 y 4 del art. 22."
+    },
+    {
+      "question_id": 904,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: la opción b cita un «apartado 8» del art. 22, que no existe. La cubren las preguntas nuevas del art. 34.2."
+    },
+    {
+      "question_id": 4781,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "La correcta es la opción referencial «Las tres anteriores son correctas»."
+    },
+    {
+      "question_id": 814,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Opción referencial «Ambas son correctas». La cubre la pregunta nueva de nivel 1 del art. 36."
+    },
+    {
+      "question_id": 929,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Opción referencial «Ambas son correctas». La cubren las preguntas nuevas del art. 37.1."
+    },
+    {
+      "question_id": 4762,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "La correcta es la opción referencial «Todas las anteriores son correctas»."
+    },
+    {
+      "question_id": 8205,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "La correcta es la opción referencial «Todas las anteriores son correctas»."
+    },
+    {
+      "question_id": 866,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: los distractores son absurdos (vacaciones, huelga general sin preaviso). La cubren las preguntas nuevas del art. 37.2."
+    },
+    {
+      "question_id": 853,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Opción referencial «Ninguna nos vale»; además «economía de libre mercado» se confunde con la correcta."
+    },
+    {
+      "question_id": 6180,
+      "accion": "retirar_duplicada",
+      "concepto": null,
+      "nivel": null,
+      "motivo": "Con pista: la correcta es la única completa y la más larga. La cubren las preguntas nuevas del art. 38."
+    },
+    {
+      "question_id": 877,
+      "accion": "vincular",
+      "concepto": "CE-a38-empresa",
+      "nivel": 2,
+      "motivo": "Correcta y literal: «las exigencias de la economía general»."
+    }
+  ]
+}

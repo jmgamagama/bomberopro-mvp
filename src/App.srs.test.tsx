@@ -16,8 +16,9 @@ beforeEach(() => vi.stubEnv('VITE_FEATURE_REVISION_ADMIN', 'true'));
 afterEach(() => vi.unstubAllEnvs());
 
 async function openDaily(user: ReturnType<typeof userEvent.setup>) {
-  await screen.findByRole('button', { name: /Por Temas/ }, { timeout: 8000 });
-  await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-sesion-diaria')!);
+  await screen.findAllByRole('button', { name: 'Temas' }, { timeout: 8000 });
+  await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-mas')!);
+    await user.click(document.querySelector<HTMLButtonElement>('#mas-sesion_diaria')!);
   await waitFor(() => expect(document.querySelector('#daily-session-mix')).not.toBeNull(), { timeout: 8000 });
 }
 
@@ -50,8 +51,9 @@ describe('autoevaluación y repaso espaciado', () => {
   it('Recuerdo: autoevaluar una ficha la guarda, avanza y muestra su próximo repaso', async () => {
     const user = userEvent.setup();
     render(<App />);
-    await screen.findByRole('button', { name: /Por Temas/ });
-    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-recuerdo')!);
+    await screen.findAllByRole('button', { name: 'Temas' });
+    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-mas')!);
+    await user.click(document.querySelector<HTMLButtonElement>('#mas-recuerdo')!);
     const tablist = await screen.findByRole('tablist', { name: 'Temas de recuerdo' });
     await user.click(within(tablist).getByRole('tab', { name: /T40/ }));
     await screen.findByText(/Ficha 1 de 213/);

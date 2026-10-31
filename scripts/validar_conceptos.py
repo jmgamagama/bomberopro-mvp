@@ -111,6 +111,10 @@ def main() -> int:
                 errores.append(f"{tag}: {len(ops)} opciones, se esperaban {want}")
             if len({low(o) for o in ops}) != len(ops):
                 errores.append(f"{tag}: opciones repetidas")
+            # Cita propia de la pregunta (cuando el dato preguntado no está en la cita del concepto):
+            # debe ser literal del mismo artículo (auditoría 26/10/2026, citas desalineadas).
+            if q.get("cita") and norm(q["cita"]) not in norm(" ".join(aps.values())):
+                errores.append(f"{tag}: la cita de la pregunta no es literal del art. {c['bloque'][1:]}")
             if not (0 <= q["correcta"] < len(ops)):
                 errores.append(f"{tag}: índice de correcta fuera de rango")
                 continue
@@ -137,6 +141,28 @@ def main() -> int:
     sin = [f"{k[1:]}.{ap}" if ap else k[1:] for k in rango for ap, tx in apartados(boe[k]).items() if (k, ap) not in cubiertos and vigente(tx)]
     if sin:
         errores.append(f"apartados sin concepto: {', '.join(sin)}")
+
+    # Orden dentro del tema: la app lista y sirve los conceptos por «orden», así que todos los ficheros
+    # del mismo tema y norma deben seguir el orden de los artículos, sin repetir valores.
+    pos = {k: i for i, k in enumerate(boe)}
+    todos = []
+    for f in sorted(path.parent.glob("*.json")):
+        try:
+            otro = json.loads(f.read_text(encoding="utf-8"))
+        except ValueError:
+            continue
+        if not isinstance(otro, dict) or "conceptos" not in otro:
+            continue
+        if otro.get("tema") != data.get("tema") or otro.get("norma") != data.get("norma"):
+            continue
+        todos += [(c["orden"], pos.get(c["bloque"], -1), c["id"], f.name) for c in otro["conceptos"]]
+    todos.sort()
+    for (o1, p1, i1, f1), (o2, p2, i2, f2) in zip(todos, todos[1:]):
+        if o1 == o2:
+            errores.append(f"orden {o1} repetido en el tema: {i1} ({f1}) y {i2} ({f2})")
+        elif p2 < p1:
+            errores.append(f"orden fuera de secuencia: {i2} ({f2}, orden {o2}) va después de {i1} ({f1}, orden {o1})"
+                           " pero su artículo es anterior")
 
     print(f"{path}: {len(conceptos)} conceptos, {n_preg} preguntas, {len(cubiertos)} apartados cubiertos")
     for a in avisos:

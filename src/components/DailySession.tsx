@@ -1,5 +1,6 @@
 import GuestSignupPrompt from './GuestSignupPrompt';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import AvisoGuardadoFichas from './AvisoGuardadoFichas';
 import { Flame, Play, Eye, EyeOff, CheckCircle2, ListOrdered, BarChart3, Lock } from 'lucide-react';
 import {
   pickDailyRecallSession,
@@ -32,6 +33,8 @@ import ExamDateField from './ExamDateField';
 import DailyMinutesField from './DailyMinutesField';
 
 interface DailySessionProps {
+  /** Demo o sin cuenta: cambia el aviso de dónde se guarda el repaso. */
+  demo?: boolean;
   onNavigateHome: () => void;
   onOpenOrdenaPasos: () => void;
   /** Empieza directamente en la primera ficha (p. ej. al venir de la bienvenida). */
@@ -44,7 +47,7 @@ interface DailySessionProps {
 
 type Phase = 'intro' | 'study' | 'done' | 'stats';
 
-export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false, onOpenPlanes, onGuestSignup }: DailySessionProps) {
+export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false, onOpenPlanes, onGuestSignup, demo = true }: DailySessionProps) {
   const plan = getPlan();
   const planesOn = isPlanesEnabled();
   const planSessionSize = getDailySessionSize(plan);
@@ -166,7 +169,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
 
   return (
     <div className="mx-auto mt-2 max-w-3xl space-y-6 sm:mt-8" id="daily-session-root">
-      <p className="rounded-xl bg-indigo-50 px-3 py-2 text-sm text-slate-700">El progreso de estas fichas se guarda solo en este navegador; todavía no se sincroniza con tus otros dispositivos.</p>
+      <AvisoGuardadoFichas demo={demo} />
       {phase === 'intro' && (
         <section className="space-y-6 rounded-2xl border border-slate-100 bg-white p-6 text-center shadow-sm sm:rounded-3xl sm:p-8">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-orange-50 text-orange-600 shadow-inner">
@@ -281,13 +284,13 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
 
           <div className="mx-auto my-6 grid max-w-sm grid-cols-2 gap-4">
             <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
-              <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-slate-400">Fichas hoy</span>
+              <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-slate-500">Fichas hoy</span>
               <span className="text-3xl font-extrabold text-indigo-600" id="daily-session-count">{session.length}</span>
             </div>
             <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
-              <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-slate-400">Racha</span>
+              <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-slate-500">Racha</span>
               <span className="text-3xl font-extrabold text-orange-600">{streak.streakCount}</span>
-              <span className="mt-1 block text-[10px] text-slate-400">días seguidos</span>
+              <span className="mt-1 block text-[10px] text-slate-500">días seguidos</span>
             </div>
           </div>
 
@@ -400,7 +403,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
             La sabías: {grades[2]} · Dudosas: {grades[1]} · No la sabías: {grades[0]}
           </p>
           <div className="mx-auto max-w-xs rounded-2xl border border-orange-100 bg-orange-50 p-4">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-orange-500">Racha</p>
+            <p className="text-[10px] font-bold uppercase tracking-wider text-orange-700">Racha</p>
             <p className="text-4xl font-black text-orange-600">{streak.streakCount}</p>
             <p className="text-xs text-orange-700">días seguidos</p>
           </div>

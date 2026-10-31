@@ -40,6 +40,7 @@
       "El empresario que la adquiere y utiliza"
      ],
      "correcta": 0,
+     "cita": "Los fabricantes, importadores y suministradores de elementos para la protección de los trabajadores están obligados a asegurar la efectividad de los mismos, siempre que sean instalados y usados en las condiciones y de la forma recomendada por ellos.",
      "explicacion": "Art. 41.1 párr. 1: fabricantes, importadores y suministradores."
     },
     {
@@ -91,6 +92,7 @@
       "Contenido y los riesgos que comportan"
      ],
      "correcta": 1,
+     "cita": "Los fabricantes, importadores y suministradores de productos y sustancias químicas de utilización en el trabajo están obligados a envasar y etiquetar los mismos de forma que se permita su conservación y manipulación en condiciones de seguridad y se identifique claramente su contenido y los riesgos para la seguridad o la salud de los trabajadores que su almacenamiento o utilización comporten.",
      "explicacion": "Art. 41.1 párr. 2: envasar y etiquetar para conservación y manipulación seguras e identificar contenido y riesgos."
     },
     {
@@ -102,6 +104,7 @@
       "Utilización por los trabajadores."
      ],
      "correcta": 2,
+     "cita": "Los sujetos mencionados en los dos párrafos anteriores deberán suministrar la información que indique la forma correcta de utilización por los trabajadores, las medidas preventivas adicionales que deban tomarse y los riesgos laborales que conlleven tanto su uso normal, como su manipulación o empleo inadecuado.",
      "explicacion": "Art. 41.1 párr. 3: información sobre la forma correcta de utilización por los trabajadores."
     },
     {
@@ -113,6 +116,7 @@
       "Debe omitir los riesgos del uso normal si el producto ya está homologado."
      ],
      "correcta": 0,
+     "cita": "Los sujetos mencionados en los dos párrafos anteriores deberán suministrar la información que indique la forma correcta de utilización por los trabajadores, las medidas preventivas adicionales que deban tomarse y los riesgos laborales que conlleven tanto su uso normal, como su manipulación o empleo inadecuado.",
      "explicacion": "Art. 41.1 párr. 3: riesgos «tanto su uso normal, como su manipulación o empleo inadecuado»."
     }
    ]
@@ -153,6 +157,7 @@
       "Una utilización sin riesgos y para cumplir sus obligaciones de información."
      ],
      "correcta": 2,
+     "cita": "Los fabricantes, importadores y suministradores deberán proporcionar a los empresarios, y éstos recabar de aquéllos, la información necesaria para que la utilización y manipulación de la maquinaria, equipos, productos, materias primas y útiles de trabajo se produzca sin riesgos para la seguridad y la salud de los trabajadores, así como para que los empresarios puedan cumplir con sus obligaciones de información respecto de los trabajadores.",
      "explicacion": "Art. 41.1 párr. 5: información que permita utilización sin riesgos y cumplir las obligaciones de información del empresario."
     },
     {
@@ -164,6 +169,7 @@
       "La efectividad es responsabilidad exclusiva del trabajador que los usa y los mantiene."
      ],
      "correcta": 0,
+     "cita": "Los fabricantes, importadores y suministradores de elementos para la protección de los trabajadores están obligados a asegurar la efectividad de los mismos, siempre que sean instalados y usados en las condiciones y de la forma recomendada por ellos.",
      "explicacion": "Art. 41.1 párr. 4: efectividad «siempre que sean instalados y usados en las condiciones y de la forma recomendada por ellos»."
     }
    ]

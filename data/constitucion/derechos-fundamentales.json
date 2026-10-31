@@ -1,0 +1,2636 @@
+{
+ "norma": "BOE-A-1978-31229",
+ "tema": 1,
+ "bloque_temario": "Título I, Capítulo II: igualdad y derechos fundamentales (arts. 14-29)",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto consolidado del BOE)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "CE-a14-igualdad",
+   "bloque": "a14",
+   "apartado": "",
+   "orden": 400,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué establece el art. 14 CE y qué causas de discriminación cita expresamente?",
+    "respuesta": "Que los españoles son iguales ante la ley, sin discriminación por razón de nacimiento, raza, sexo, religión, opinión o cualquier otra condición o circunstancia personal o social."
+   },
+   "cita": "Los españoles son iguales ante la ley, sin que pueda prevalecer discriminación alguna por razón de nacimiento, raza, sexo, religión, opinión o cualquier otra condición o circunstancia personal o social.",
+   "confundible_con": [
+    "CE-a9-2-igualdad-real",
+    "CE-a1-1-valores"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 14 CE, los españoles son…",
+     "opciones": [
+      "iguales ante la ley",
+      "iguales en derechos económicos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 14 CE: los españoles son iguales ante la ley."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "¿Cuál de estas causas de discriminación NO aparece citada expresamente en el art. 14 CE?",
+     "opciones": [
+      "Edad.",
+      "Nacimiento.",
+      "Opinión."
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 14 cita nacimiento, raza, sexo, religión, opinión y «cualquier otra condición o circunstancia personal o social». La edad no se nombra expresamente."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "El art. 14 CE, sobre la igualdad ante la ley, se encuentra:",
+     "opciones": [
+      "Al inicio del Capítulo segundo, antes de la Sección primera.",
+      "Dentro de la Sección primera del Capítulo segundo.",
+      "En el Título Preliminar, junto al art. 9."
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 14 abre el Capítulo segundo («Derechos y libertades») y va antes de la Sección 1.ª, que empieza en el art. 15. Por eso el art. 53.2 lo cita aparte: «el artículo 14 y la Sección primera»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a15-vida-integridad",
+   "bloque": "a15",
+   "apartado": "",
+   "orden": 410,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué derechos reconoce el art. 15 CE y qué prohíbe en todo caso?",
+    "respuesta": "El derecho a la vida y a la integridad física y moral; prohíbe la tortura y las penas o tratos inhumanos o degradantes."
+   },
+   "cita": "Todos tienen derecho a la vida y a la integridad física y moral, sin que, en ningún caso, puedan ser sometidos a tortura ni a penas o tratos inhumanos o degradantes.",
+   "confundible_con": [
+    "CE-a15-pena-muerte"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 15 CE, ¿quiénes tienen derecho a la vida y a la integridad física y moral?",
+     "opciones": [
+      "Todos",
+      "Solo los españoles"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15 CE: «Todos tienen derecho a la vida…»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 15 CE, todos tienen derecho a la vida y a la integridad:",
+     "opciones": [
+      "Física y moral.",
+      "Física y psíquica.",
+      "Personal y familiar."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15 CE: integridad física y moral. «Intimidad personal y familiar» es del art. 18.1."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 15 CE, la prohibición de someter a tortura o a penas o tratos inhumanos o degradantes:",
+     "opciones": [
+      "No admite excepciones en ningún caso.",
+      "Puede exceptuarse en tiempos de guerra por las leyes penales militares.",
+      "Puede suspenderse durante el estado de sitio."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15 CE: «sin que, en ningún caso, puedan ser sometidos a tortura…». La excepción de tiempos de guerra se refiere solo a la pena de muerte, y el art. 15 no está entre los suspendibles del art. 55."
+    }
+   ]
+  },
+  {
+   "id": "CE-a15-pena-muerte",
+   "bloque": "a15",
+   "apartado": "",
+   "orden": 420,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué dice el art. 15 CE sobre la pena de muerte?",
+    "respuesta": "Queda abolida, salvo lo que puedan disponer las leyes penales militares para tiempos de guerra."
+   },
+   "cita": "Queda abolida la pena de muerte, salvo lo que puedan disponer las leyes penales militares para tiempos de guerra.",
+   "confundible_con": [
+    "CE-a15-vida-integridad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el texto del art. 15 CE, la pena de muerte…",
+     "opciones": [
+      "queda abolida, salvo lo que puedan disponer las leyes penales militares para tiempos de guerra",
+      "queda abolida, salvo en los delitos de terrorismo cometidos durante el estado de sitio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15 CE: abolida «salvo lo que puedan disponer las leyes penales militares para tiempos de guerra». La Ley Orgánica 11/1995 la abolió también en tiempo de guerra, pero el texto constitucional conserva la salvedad."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 15 CE, la abolición de la pena de muerte tiene como salvedad lo que puedan disponer:",
+     "opciones": [
+      "Las leyes penales militares para tiempos de guerra.",
+      "Las leyes orgánicas durante el estado de sitio.",
+      "El Código Penal para los delitos de terrorismo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15 CE. Hoy no existe en la práctica, porque la Ley Orgánica 11/1995 la abolió también en tiempo de guerra, pero el texto constitucional mantiene la salvedad."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Un compañero afirma: «el art. 15 CE permite la pena de muerte durante el estado de sitio». ¿Es correcto?",
+     "opciones": [
+      "No: la salvedad del art. 15 se limita a las leyes penales militares para tiempos de guerra.",
+      "Sí: durante el estado de sitio rigen las leyes penales militares, que pueden imponer la pena de muerte.",
+      "Sí, siempre que lo autorice el Congreso por mayoría absoluta."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 15 CE: la única salvedad es «lo que puedan disponer las leyes penales militares para tiempos de guerra». El estado de sitio no la activa."
+    }
+   ]
+  },
+  {
+   "id": "CE-a16-1-libertad-ideologica",
+   "bloque": "a16",
+   "apartado": "1",
+   "orden": 430,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué libertad garantiza el art. 16.1 CE y cuál es su único límite?",
+    "respuesta": "La libertad ideológica, religiosa y de culto de los individuos y las comunidades; su único límite, en sus manifestaciones, es el necesario para mantener el orden público protegido por la ley."
+   },
+   "cita": "Se garantiza la libertad ideológica, religiosa y de culto de los individuos y las comunidades sin más limitación, en sus manifestaciones, que la necesaria para el mantenimiento del orden público protegido por la ley.",
+   "confundible_con": [
+    "CE-a16-3-aconfesionalidad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 16.1 CE, ¿qué libertad se garantiza?",
+     "opciones": [
+      "La libertad ideológica, religiosa y de culto",
+      "La libertad de cátedra"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.1 CE. La libertad de cátedra está en el art. 20.1.c)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 16.1 CE, la libertad ideológica, religiosa y de culto no tiene más limitación, en sus manifestaciones, que:",
+     "opciones": [
+      "La necesaria para el mantenimiento del orden público protegido por la ley.",
+      "El respeto a las creencias de los demás y a la cooperación con la Iglesia Católica y las otras confesiones.",
+      "La protección de la juventud y de la infancia."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.1 CE. La protección de la juventud y de la infancia es un límite de las libertades del art. 20 (art. 20.4)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 16.1 CE, ¿de quiénes se garantiza la libertad ideológica, religiosa y de culto?",
+     "opciones": [
+      "De los individuos y las comunidades.",
+      "Solo de los individuos, nunca de las comunidades.",
+      "De los ciudadanos españoles y de las confesiones inscritas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.1 CE: «de los individuos y las comunidades»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a16-2-no-declarar",
+   "bloque": "a16",
+   "apartado": "2",
+   "orden": 440,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Sobre qué nadie puede ser obligado a declarar (art. 16.2 CE)?",
+    "respuesta": "Sobre su ideología, religión o creencias."
+   },
+   "cita": "Nadie podrá ser obligado a declarar sobre su ideología, religión o creencias.",
+   "confundible_con": [
+    "CE-a17-3-detenido",
+    "CE-a24-2-garantias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 16.2 CE, ¿puede alguien ser obligado a declarar sobre su religión?",
+     "opciones": [
+      "No",
+      "Sí, si lo exige la ley"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.2 CE: nadie podrá ser obligado a declarar sobre su ideología, religión o creencias."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 16.2 CE, nadie podrá ser obligado a declarar sobre su:",
+     "opciones": [
+      "Ideología, religión o creencias.",
+      "Ideología, afiliación sindical o religión.",
+      "Patrimonio, religión o creencias."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.2 CE: ideología, religión o creencias."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué artículo de la Constitución establece que nadie podrá ser obligado a declarar sobre su ideología, religión o creencias?",
+     "opciones": [
+      "El art. 16.2.",
+      "El art. 17.3.",
+      "El art. 24.2."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.2 CE. El 17.3 recoge que el detenido no puede ser obligado a declarar y el 24.2, el derecho a no declarar contra sí mismo."
+    }
+   ]
+  },
+  {
+   "id": "CE-a16-3-aconfesionalidad",
+   "bloque": "a16",
+   "apartado": "3",
+   "orden": 450,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué dice el art. 16.3 CE sobre las confesiones y las relaciones con ellas?",
+    "respuesta": "Ninguna confesión tendrá carácter estatal; los poderes públicos tendrán en cuenta las creencias religiosas de la sociedad y mantendrán relaciones de cooperación con la Iglesia Católica y las demás confesiones."
+   },
+   "cita": "Ninguna confesión tendrá carácter estatal.",
+   "confundible_con": [
+    "CE-a16-1-libertad-ideologica"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 16.3 CE, ¿tiene alguna confesión carácter estatal?",
+     "opciones": [
+      "No, ninguna",
+      "Sí, la católica"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.3 CE: ninguna confesión tendrá carácter estatal."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 16.3 CE, los poderes públicos mantendrán relaciones de cooperación con:",
+     "opciones": [
+      "La Iglesia Católica y las demás confesiones.",
+      "La Iglesia Católica, exclusivamente.",
+      "Las confesiones inscritas en el registro de asociaciones."
+     ],
+     "correcta": 0,
+     "cita": "Los poderes públicos tendrán en cuenta las creencias religiosas de la sociedad española y mantendrán las consiguientes relaciones de cooperación con la Iglesia Católica y las demás confesiones.",
+     "explicacion": "Art. 16.3 CE: con la Iglesia Católica y las demás confesiones."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué afirmación se ajusta al art. 16.3 CE?",
+     "opciones": [
+      "Ninguna confesión tiene carácter estatal, pero los poderes públicos tienen en cuenta las creencias religiosas de la sociedad española.",
+      "El Estado es laico: los poderes públicos no tienen en cuenta las creencias religiosas ni mantienen relaciones con ninguna confesión.",
+      "La religión católica tiene carácter oficial y las demás son toleradas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 16.3 CE: aconfesionalidad con cooperación («tendrán en cuenta las creencias religiosas… y mantendrán las consiguientes relaciones de cooperación»)."
+    }
+   ]
+  },
+  {
+   "id": "CE-a17-1-libertad-seguridad",
+   "bloque": "a17",
+   "apartado": "1",
+   "orden": 460,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Qué derecho reconoce el art. 17.1 CE y cuándo puede alguien ser privado de libertad?",
+    "respuesta": "El derecho a la libertad y a la seguridad; solo se puede privar de libertad con lo establecido en el art. 17 y en los casos y la forma previstos en la ley."
+   },
+   "cita": "Toda persona tiene derecho a la libertad y a la seguridad.",
+   "confundible_con": [
+    "CE-a17-2-72-horas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.1 CE, toda persona tiene derecho a la libertad y a la…",
+     "opciones": [
+      "seguridad",
+      "propiedad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.1 CE: derecho a la libertad y a la seguridad."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.1 CE, nadie puede ser privado de su libertad sino:",
+     "opciones": [
+      "Con la observancia de lo establecido en este artículo y en los casos y en la forma previstos en la ley.",
+      "Por orden de la autoridad gubernativa en los casos de alteración del orden público.",
+      "Por resolución judicial firme, en todo caso."
+     ],
+     "correcta": 0,
+     "cita": "Nadie puede ser privado de su libertad, sino con la observancia de lo establecido en este artículo y en los casos y en la forma previstos en la ley.",
+     "explicacion": "Art. 17.1 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "El derecho a la libertad y a la seguridad del art. 17.1 CE corresponde a:",
+     "opciones": [
+      "Toda persona.",
+      "Los españoles y los extranjeros con residencia legal.",
+      "Los ciudadanos, en los términos que establezca la ley."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.1 CE: «Toda persona tiene derecho…»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a17-2-72-horas",
+   "bloque": "a17",
+   "apartado": "2",
+   "orden": 470,
+   "tipo": "plazo",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Cuánto puede durar como máximo la detención preventiva (art. 17.2 CE)?",
+    "respuesta": "El tiempo estrictamente necesario para las averiguaciones y, en todo caso, un máximo de setenta y dos horas; después, libertad o disposición de la autoridad judicial."
+   },
+   "cita": "en todo caso, en el plazo máximo de setenta y dos horas, el detenido deberá ser puesto en libertad o a disposición de la autoridad judicial",
+   "confundible_con": [
+    "CE-a17-4-habeas-corpus"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.2 CE, el plazo máximo de la detención preventiva es de…",
+     "opciones": [
+      "setenta y dos horas",
+      "cuarenta y ocho horas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.2 CE: en todo caso, setenta y dos horas como máximo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.2 CE, la detención preventiva no podrá durar más del tiempo estrictamente necesario y, en todo caso, en el plazo máximo de setenta y dos horas el detenido deberá ser:",
+     "opciones": [
+      "Puesto en libertad o a disposición de la autoridad judicial.",
+      "Informado de sus derechos y asistido por abogado.",
+      "Puesto a disposición del Ministerio Fiscal."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.2 CE: en libertad o a disposición de la autoridad judicial."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el texto del art. 17.2 CE, ¿qué afirmación es correcta sobre la duración de la detención preventiva?",
+     "opciones": [
+      "No más de lo estrictamente necesario y, como máximo, setenta y dos horas.",
+      "Puede durar siempre setenta y dos horas completas, aunque las averiguaciones hayan terminado antes.",
+      "Puede prorrogarse otras setenta y dos horas por orden de la autoridad gubernativa."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.2 CE: «no podrá durar más del tiempo estrictamente necesario… y, en todo caso, en el plazo máximo de setenta y dos horas»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a17-3-detenido",
+   "bloque": "a17",
+   "apartado": "3",
+   "orden": 480,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué derechos tiene todo detenido según el art. 17.3 CE?",
+    "respuesta": "Ser informado de forma inmediata y comprensible de sus derechos y de las razones de su detención, no ser obligado a declarar y la asistencia de abogado en las diligencias policiales y judiciales."
+   },
+   "cita": "Toda persona detenida debe ser informada de forma inmediata, y de modo que le sea comprensible, de sus derechos y de las razones de su detención, no pudiendo ser obligada a declarar.",
+   "confundible_con": [
+    "CE-a24-2-garantias",
+    "CE-a55-1-excepcion-17-3"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.3 CE, ¿puede ser obligada a declarar una persona detenida?",
+     "opciones": [
+      "No",
+      "Sí, ante la policía"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.3 CE: no pudiendo ser obligada a declarar."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.3 CE, toda persona detenida debe ser informada de sus derechos y de las razones de su detención:",
+     "opciones": [
+      "De forma inmediata y de modo que le sea comprensible.",
+      "En el plazo de veinticuatro horas y por escrito.",
+      "En presencia de su abogado y del juez."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.3 CE: «de forma inmediata, y de modo que le sea comprensible»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 17.3 CE, la asistencia de abogado al detenido se garantiza:",
+     "opciones": [
+      "En las diligencias policiales y judiciales, en los términos que la ley establezca.",
+      "Solo en las diligencias judiciales; en las policiales, si lo autoriza el juez de guardia.",
+      "Solo cuando el detenido lo solicite expresamente y por escrito."
+     ],
+     "correcta": 0,
+     "cita": "Se garantiza la asistencia de abogado al detenido en las diligencias policiales y judiciales, en los términos que la ley establezca.",
+     "explicacion": "Art. 17.3 CE: «en las diligencias policiales y judiciales, en los términos que la ley establezca»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a17-4-habeas-corpus",
+   "bloque": "a17",
+   "apartado": "4",
+   "orden": 490,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Para qué sirve el «habeas corpus» y qué más remite a la ley el art. 17.4 CE?",
+    "respuesta": "Para la inmediata puesta a disposición judicial de toda persona detenida ilegalmente; la ley también fijará el plazo máximo de la prisión provisional."
+   },
+   "cita": "La ley regulará un procedimiento de «habeas corpus» para producir la inmediata puesta a disposición judicial de toda persona detenida ilegalmente.",
+   "confundible_con": [
+    "CE-a17-2-72-horas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.4 CE, el procedimiento de «habeas corpus» sirve para la inmediata puesta a disposición judicial de toda persona…",
+     "opciones": [
+      "detenida ilegalmente",
+      "condenada en rebeldía"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.4 CE: de toda persona detenida ilegalmente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.4 CE, ¿quién determinará el plazo máximo de duración de la prisión provisional?",
+     "opciones": [
+      "La ley.",
+      "La autoridad judicial en cada caso.",
+      "La propia Constitución: setenta y dos horas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.4 CE: «por ley se determinará el plazo máximo de duración de la prisión provisional». Las setenta y dos horas son de la detención preventiva (art. 17.2)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué diferencia hay entre los apartados 2 y 4 del art. 17 CE?",
+     "opciones": [
+      "El 17.2 fija el máximo de la detención preventiva; el 17.4 remite a la ley el de la prisión provisional.",
+      "El 17.2 remite a la ley el máximo de la detención preventiva; el 17.4 fija en 72 horas la prisión provisional.",
+      "Ambos fijan en la Constitución el mismo plazo de setenta y dos horas."
+     ],
+     "correcta": 0,
+     "cita": "Asimismo, por ley se determinará el plazo máximo de duración de la prisión provisional.",
+     "explicacion": "Detención preventiva: máximo 72 horas fijado por la Constitución (17.2). Prisión provisional: plazo máximo que fija la ley (17.4)."
+    }
+   ]
+  },
+  {
+   "id": "CE-a18-1-honor",
+   "bloque": "a18",
+   "apartado": "1",
+   "orden": 500,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué tres derechos garantiza el art. 18.1 CE?",
+    "respuesta": "El derecho al honor, a la intimidad personal y familiar y a la propia imagen."
+   },
+   "cita": "Se garantiza el derecho al honor, a la intimidad personal y familiar y a la propia imagen.",
+   "confundible_con": [
+    "CE-a20-4-limites"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 18.1 CE, se garantiza el derecho al honor, a la intimidad personal y familiar y…",
+     "opciones": [
+      "a la propia imagen",
+      "a la libertad de expresión"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.1 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 18.1 CE, la intimidad que se garantiza es la:",
+     "opciones": [
+      "Personal y familiar.",
+      "Personal y profesional.",
+      "Física y moral."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.1 CE: intimidad personal y familiar. La integridad «física y moral» es del art. 15."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de los siguientes derechos NO figura en el art. 18.1 CE?",
+     "opciones": [
+      "La inviolabilidad del domicilio.",
+      "El derecho al honor, junto con la intimidad.",
+      "El derecho a la propia imagen de las personas."
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 18.1 recoge el honor, la intimidad personal y familiar y la propia imagen. La inviolabilidad del domicilio es del art. 18.2."
+    }
+   ]
+  },
+  {
+   "id": "CE-a18-2-domicilio",
+   "bloque": "a18",
+   "apartado": "2",
+   "orden": 510,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿En qué tres supuestos se puede entrar o registrar un domicilio (art. 18.2 CE)?",
+    "respuesta": "Con consentimiento del titular, con resolución judicial o en caso de flagrante delito."
+   },
+   "cita": "Ninguna entrada o registro podrá hacerse en él sin consentimiento del titular o resolución judicial, salvo en caso de flagrante delito.",
+   "confundible_con": [
+    "CE-a18-3-comunicaciones",
+    "CE-a55-1-lista-17-19"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 18.2 CE, en caso de flagrante delito, ¿se puede entrar en un domicilio sin consentimiento del titular ni resolución judicial?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.2 CE: ninguna entrada o registro sin consentimiento del titular o resolución judicial, «salvo en caso de flagrante delito»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 18.2 CE, ninguna entrada o registro podrá hacerse en el domicilio sin consentimiento del titular o resolución judicial, salvo en caso de:",
+     "opciones": [
+      "Flagrante delito.",
+      "Alteración grave del orden público.",
+      "Orden de la autoridad gubernativa."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.2 CE: salvo en caso de flagrante delito."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 18.2 CE, ¿cuál de estos supuestos NO permite entrar en un domicilio?",
+     "opciones": [
+      "Una orden escrita del Delegado del Gobierno.",
+      "El consentimiento del titular del domicilio.",
+      "Una resolución judicial que la autorice."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.2 CE: solo consentimiento del titular, resolución judicial o flagrante delito. La orden gubernativa no habilita la entrada."
+    }
+   ]
+  },
+  {
+   "id": "CE-a18-3-comunicaciones",
+   "bloque": "a18",
+   "apartado": "3",
+   "orden": 520,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué garantiza el art. 18.3 CE y cuál es su excepción?",
+    "respuesta": "El secreto de las comunicaciones, en especial postales, telegráficas y telefónicas, salvo resolución judicial."
+   },
+   "cita": "Se garantiza el secreto de las comunicaciones y, en especial, de las postales, telegráficas y telefónicas, salvo resolución judicial.",
+   "confundible_con": [
+    "CE-a18-2-domicilio"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 18.3 CE, el secreto de las comunicaciones puede levantarse por…",
+     "opciones": [
+      "resolución judicial",
+      "orden policial"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.3 CE: salvo resolución judicial."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 18.3 CE, se garantiza el secreto de las comunicaciones y, en especial, de las:",
+     "opciones": [
+      "Postales, telegráficas y telefónicas.",
+      "Telefónicas, electrónicas e informáticas.",
+      "Postales, telefónicas y bancarias."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.3 CE: postales, telegráficas y telefónicas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "A diferencia del art. 18.2 (domicilio), ¿qué excepción prevé expresamente el texto del art. 18.3 CE para el secreto de las comunicaciones?",
+     "opciones": [
+      "Solo la resolución judicial.",
+      "La resolución judicial y el flagrante delito.",
+      "La resolución judicial y el consentimiento de cualquiera de los comunicantes."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.3 CE: «salvo resolución judicial». El art. 18.2 admite además el consentimiento del titular y el flagrante delito. (La suspensión en los estados de excepción o de sitio es otra cosa: art. 55.)"
+    }
+   ]
+  },
+  {
+   "id": "CE-a18-4-informatica",
+   "bloque": "a18",
+   "apartado": "4",
+   "orden": 530,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Para qué limitará la ley el uso de la informática (art. 18.4 CE)?",
+    "respuesta": "Para garantizar el honor y la intimidad personal y familiar de los ciudadanos y el pleno ejercicio de sus derechos."
+   },
+   "cita": "La ley limitará el uso de la informática para garantizar el honor y la intimidad personal y familiar de los ciudadanos y el pleno ejercicio de sus derechos.",
+   "confundible_con": [
+    "CE-a18-1-honor"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 18.4 CE, ¿qué limitará la ley para garantizar el honor y la intimidad?",
+     "opciones": [
+      "El uso de la informática",
+      "El uso de la prensa escrita"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.4 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 18.4 CE, la ley limitará el uso de la informática para garantizar:",
+     "opciones": [
+      "El honor y la intimidad personal y familiar y el pleno ejercicio de sus derechos.",
+      "La seguridad nacional, el orden público y la persecución de los delitos cometidos a través de la red.",
+      "La libertad de información y el secreto profesional."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.4 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué apartado del art. 18 CE se refiere al uso de la informática?",
+     "opciones": [
+      "El apartado 4.",
+      "El apartado 3.",
+      "El apartado 1."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.4 CE. El 18.3 trata del secreto de las comunicaciones."
+    }
+   ]
+  },
+  {
+   "id": "CE-a19-residencia-circulacion",
+   "bloque": "a19",
+   "apartado": "",
+   "orden": 540,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué derechos reconoce el art. 19 CE y qué límite prohíbe?",
+    "respuesta": "Elegir libremente residencia, circular por el territorio nacional y entrar y salir libremente de España en los términos de la ley; este derecho no puede limitarse por motivos políticos o ideológicos."
+   },
+   "cita": "Este derecho no podrá ser limitado por motivos políticos o ideológicos.",
+   "confundible_con": [
+    "CE-a55-1-lista-17-19"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19 CE, los españoles tienen derecho a elegir libremente su residencia y a…",
+     "opciones": [
+      "circular por el territorio nacional",
+      "elegir libremente su nacionalidad"
+     ],
+     "correcta": 0,
+     "cita": "Los españoles tienen derecho a elegir libremente su residencia y a circular por el territorio nacional.",
+     "explicacion": "Art. 19 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19 CE, el derecho a entrar y salir libremente de España no podrá ser limitado por motivos:",
+     "opciones": [
+      "Políticos o ideológicos.",
+      "Sanitarios o de seguridad.",
+      "Económicos o fiscales."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19 CE: «no podrá ser limitado por motivos políticos o ideológicos»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 19 CE, ¿quiénes son titulares del derecho a elegir libremente la residencia y a circular por el territorio nacional?",
+     "opciones": [
+      "Los españoles.",
+      "Todas las personas.",
+      "Los españoles y los ciudadanos de la Unión Europea."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19 CE: «Los españoles tienen derecho…». Para los extranjeros rige el art. 13.1 (tratados y ley)."
+    }
+   ]
+  },
+  {
+   "id": "CE-a20-1-expresion",
+   "bloque": "a20",
+   "apartado": "1",
+   "orden": 550,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué cuatro derechos reconoce y protege el art. 20.1 CE?",
+    "respuesta": "a) Expresar y difundir libremente pensamientos, ideas y opiniones; b) la producción y creación literaria, artística, científica y técnica; c) la libertad de cátedra; d) comunicar o recibir libremente información veraz."
+   },
+   "cita": "A expresar y difundir libremente los pensamientos, ideas y opiniones mediante la palabra, el escrito o cualquier otro medio de reproducción.",
+   "confundible_con": [
+    "CE-a20-1-informacion",
+    "CE-a16-1-libertad-ideologica"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "¿Reconoce el art. 20.1 CE la libertad de cátedra?",
+     "opciones": [
+      "Sí",
+      "No, la reconoce el art. 27"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20.1.c) CE: «A la libertad de cátedra». El art. 27 reconoce la libertad de enseñanza."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 20.1.b) CE, se reconoce y protege el derecho a la producción y creación:",
+     "opciones": [
+      "Literaria, artística, científica y técnica.",
+      "Literaria, artística y cultural, en todas sus formas.",
+      "Científica, técnica e industrial."
+     ],
+     "correcta": 0,
+     "cita": "b) A la producción y creación literaria, artística, científica y técnica.",
+     "explicacion": "Art. 20.1.b) CE: literaria, artística, científica y técnica."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 20.1.a) CE, el derecho a expresar y difundir libremente pensamientos, ideas y opiniones se ejerce:",
+     "opciones": [
+      "Mediante la palabra, el escrito o cualquier otro medio de reproducción.",
+      "Mediante la palabra y el escrito, con exclusión de los medios audiovisuales.",
+      "Por cualquier medio, previa comunicación a la autoridad."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20.1.a) CE. No hay comunicación previa: el art. 20.2 prohíbe incluso la censura previa."
+    }
+   ]
+  },
+  {
+   "id": "CE-a20-1-informacion",
+   "bloque": "a20",
+   "apartado": "1",
+   "orden": 560,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué información protege el art. 20.1.d) CE y qué regulará la ley en este ámbito?",
+    "respuesta": "Comunicar o recibir libremente información veraz por cualquier medio de difusión; la ley regulará la cláusula de conciencia y el secreto profesional."
+   },
+   "cita": "A comunicar o recibir libremente información veraz por cualquier medio de difusión.",
+   "confundible_con": [
+    "CE-a20-1-expresion",
+    "CE-a24-2-parentesco"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 20.1.d) CE, el derecho a comunicar o recibir libremente información se refiere a información…",
+     "opciones": [
+      "veraz",
+      "oficial"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20.1.d) CE: información veraz."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 20.1.d) CE, la ley regulará en el ejercicio de las libertades de información:",
+     "opciones": [
+      "El derecho a la cláusula de conciencia y al secreto profesional.",
+      "El registro obligatorio de los periodistas.",
+      "La autorización previa de los medios de comunicación."
+     ],
+     "correcta": 0,
+     "cita": "La ley regulará el derecho a la cláusula de conciencia y al secreto profesional en el ejercicio de estas libertades.",
+     "explicacion": "Art. 20.1.d) CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "El «secreto profesional» aparece en el Título I de la Constitución:",
+     "opciones": [
+      "En el art. 20.1.d) (información) y en el art. 24.2 (obligación de declarar).",
+      "Solo en el art. 20.1.d), referido a los periodistas y demás profesionales de la información.",
+      "Solo en el art. 24.2, sobre la obligación de declarar."
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 20.1.d) remite a la ley el secreto profesional de los informadores, y el art. 24.2 permite no declarar por razón de parentesco o secreto profesional."
+    }
+   ]
+  },
+  {
+   "id": "CE-a20-2-censura",
+   "bloque": "a20",
+   "apartado": "2",
+   "orden": 570,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Puede restringirse el ejercicio de los derechos del art. 20 mediante censura previa?",
+    "respuesta": "No: no puede restringirse mediante ningún tipo de censura previa (art. 20.2 CE)."
+   },
+   "cita": "El ejercicio de estos derechos no puede restringirse mediante ningún tipo de censura previa.",
+   "confundible_con": [
+    "CE-a20-5-secuestro"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 20.2 CE, ¿puede restringirse la libertad de expresión mediante censura previa?",
+     "opciones": [
+      "No, mediante ningún tipo",
+      "Sí, por resolución judicial"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20.2 CE: no mediante ningún tipo de censura previa."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 20.2 CE, el ejercicio de los derechos del art. 20 no puede restringirse mediante:",
+     "opciones": [
+      "Ningún tipo de censura previa.",
+      "Resolución judicial motivada.",
+      "Las leyes que desarrollen el Título I."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20.2 CE. La resolución judicial sí permite el secuestro de publicaciones (art. 20.5)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué diferencia hay entre los apartados 2 y 5 del art. 20 CE?",
+     "opciones": [
+      "El 20.2 prohíbe toda censura previa; el 20.5 permite el secuestro solo por resolución judicial.",
+      "El 20.2 permite la censura previa por resolución judicial; el 20.5 prohíbe el secuestro.",
+      "Ambos prohíben cualquier intervención sobre los medios de información, incluso la judicial."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20.2: ningún tipo de censura previa. Art. 20.5: secuestro solo en virtud de resolución judicial."
+    }
+   ]
+  },
+  {
+   "id": "CE-a20-3-medios-publicos",
+   "bloque": "a20",
+   "apartado": "3",
+   "orden": 580,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "¿Qué regulará la ley sobre los medios de comunicación públicos (art. 20.3 CE)?",
+    "respuesta": "Su organización y control parlamentario, y garantizará el acceso de los grupos sociales y políticos significativos, respetando el pluralismo y las diversas lenguas de España."
+   },
+   "cita": "La ley regulará la organización y el control parlamentario de los medios de comunicación social dependientes del Estado o de cualquier ente público",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 20.3 CE, los medios de comunicación social dependientes del Estado están sometidos a control…",
+     "opciones": [
+      "parlamentario",
+      "del Gobierno de la Nación"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20.3 CE: organización y control parlamentario."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 20.3 CE, la ley garantizará el acceso a los medios de comunicación públicos de:",
+     "opciones": [
+      "Los grupos sociales y políticos significativos.",
+      "Todos los partidos inscritos en el registro.",
+      "Las asociaciones declaradas de utilidad pública."
+     ],
+     "correcta": 0,
+     "cita": "La ley regulará la organización y el control parlamentario de los medios de comunicación social dependientes del Estado o de cualquier ente público y garantizará el acceso a dichos medios de los grupos sociales y políticos significativos, respetando el pluralismo de la sociedad y de las diversas lenguas de España.",
+     "explicacion": "Art. 20.3 CE: de los grupos sociales y políticos significativos, respetando el pluralismo de la sociedad y de las diversas lenguas de España."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "El art. 20.3 CE se aplica a los medios de comunicación social dependientes:",
+     "opciones": [
+      "Del Estado o de cualquier ente público.",
+      "Exclusivamente del Estado.",
+      "De las Comunidades Autónomas, en exclusiva."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20.3 CE: «dependientes del Estado o de cualquier ente público»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a20-4-limites",
+   "bloque": "a20",
+   "apartado": "4",
+   "orden": 590,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Cuál es el límite de las libertades del art. 20 CE?",
+    "respuesta": "El respeto a los derechos del Título I, a las leyes que lo desarrollen y, especialmente, al derecho al honor, a la intimidad, a la propia imagen y a la protección de la juventud y de la infancia."
+   },
+   "cita": "especialmente, en el derecho al honor, a la intimidad, a la propia imagen y a la protección de la juventud y de la infancia",
+   "confundible_con": [
+    "CE-a18-1-honor"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 20.4 CE, ¿es la protección de la juventud y de la infancia un límite de la libertad de expresión?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20.4 CE: la cita especialmente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 20.4 CE, las libertades del art. 20 tienen su límite especialmente en el derecho:",
+     "opciones": [
+      "Al honor, a la intimidad, a la propia imagen y a la protección de la juventud y de la infancia.",
+      "A la vida, a la integridad física y moral, a la seguridad y a la tutela judicial efectiva.",
+      "A la tutela judicial efectiva y a la presunción de inocencia."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20.4 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos NO aparece expresamente en el art. 20.4 CE como límite de las libertades del art. 20?",
+     "opciones": [
+      "La seguridad nacional.",
+      "La propia imagen.",
+      "Los preceptos de las leyes que desarrollen el Título I."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20.4 CE: respeto a los derechos del Título, a las leyes que lo desarrollen y, especialmente, honor, intimidad, propia imagen y protección de la juventud y de la infancia. No cita la seguridad nacional."
+    }
+   ]
+  },
+  {
+   "id": "CE-a20-5-secuestro",
+   "bloque": "a20",
+   "apartado": "5",
+   "orden": 600,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Cómo puede acordarse el secuestro de publicaciones, grabaciones y otros medios de información (art. 20.5 CE)?",
+    "respuesta": "Solo en virtud de resolución judicial."
+   },
+   "cita": "Sólo podrá acordarse el secuestro de publicaciones, grabaciones y otros medios de información en virtud de resolución judicial.",
+   "confundible_con": [
+    "CE-a20-2-censura",
+    "CE-a22-4-disolucion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 20.5 CE, el secuestro de publicaciones solo puede acordarse por…",
+     "opciones": [
+      "resolución judicial",
+      "orden del Ministerio del Interior"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20.5 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 20.5 CE, sólo podrá acordarse el secuestro de publicaciones, grabaciones y otros medios de información:",
+     "opciones": [
+      "En virtud de resolución judicial.",
+      "En virtud de resolución judicial o, en caso de urgencia, gubernativa.",
+      "Durante la vigencia del estado de excepción."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20.5 CE: solo por resolución judicial."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué objetos menciona el art. 20.5 CE al regular el secuestro?",
+     "opciones": [
+      "Publicaciones, grabaciones y otros medios de información.",
+      "Publicaciones periódicas y emisiones de radio y televisión.",
+      "Libros, periódicos y archivos informáticos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20.5 CE: «publicaciones, grabaciones y otros medios de información»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a21-1-reunion",
+   "bloque": "a21",
+   "apartado": "1",
+   "orden": 610,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué reunión reconoce el art. 21.1 CE y necesita autorización previa?",
+    "respuesta": "La reunión pacífica y sin armas; su ejercicio no necesita autorización previa."
+   },
+   "cita": "Se reconoce el derecho de reunión pacífica y sin armas. El ejercicio de este derecho no necesitará autorización previa.",
+   "confundible_con": [
+    "CE-a21-2-manifestaciones",
+    "CE-a22-1-asociacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 21.1 CE, ¿necesita autorización previa el ejercicio del derecho de reunión?",
+     "opciones": [
+      "No",
+      "Sí"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 21.1 CE: no necesitará autorización previa."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 21.1 CE, se reconoce el derecho de reunión:",
+     "opciones": [
+      "Pacífica y sin armas.",
+      "Pacífica y en lugares cerrados.",
+      "Pacífica, previa comunicación a la autoridad."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 21.1 CE. La comunicación previa solo se exige para reuniones en lugares de tránsito público y manifestaciones (art. 21.2)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Sobre el derecho de reunión, ¿qué afirmación se ajusta al art. 21 CE?",
+     "opciones": [
+      "Nunca exige autorización previa; en tránsito público y manifestaciones exige comunicación previa.",
+      "Exige autorización previa para las manifestaciones y comunicación previa para las reuniones en locales cerrados.",
+      "Exige comunicación previa para todas las reuniones y autorización para las de más de veinte personas."
+     ],
+     "correcta": 0,
+     "cita": "En los casos de reuniones en lugares de tránsito público y manifestaciones se dará comunicación previa a la autoridad, que sólo podrá prohibirlas cuando existan razones fundadas de alteración del orden público, con peligro para personas o bienes.",
+     "explicacion": "Art. 21.1: sin autorización previa. Art. 21.2: comunicación previa en lugares de tránsito público y manifestaciones."
+    }
+   ]
+  },
+  {
+   "id": "CE-a21-2-manifestaciones",
+   "bloque": "a21",
+   "apartado": "2",
+   "orden": 620,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué exige el art. 21.2 CE para reuniones en lugares de tránsito público y manifestaciones, y cuándo pueden prohibirse?",
+    "respuesta": "Comunicación previa a la autoridad, que solo puede prohibirlas por razones fundadas de alteración del orden público, con peligro para personas o bienes."
+   },
+   "cita": "que sólo podrá prohibirlas cuando existan razones fundadas de alteración del orden público, con peligro para personas o bienes",
+   "confundible_con": [
+    "CE-a21-1-reunion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 21.2 CE, para las manifestaciones se dará a la autoridad…",
+     "opciones": [
+      "comunicación previa",
+      "solicitud de autorización"
+     ],
+     "correcta": 0,
+     "cita": "En los casos de reuniones en lugares de tránsito público y manifestaciones se dará comunicación previa a la autoridad, que sólo podrá prohibirlas cuando existan razones fundadas de alteración del orden público, con peligro para personas o bienes.",
+     "explicacion": "Art. 21.2 CE: comunicación previa."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 21.2 CE, la autoridad sólo podrá prohibir las reuniones en lugares de tránsito público y las manifestaciones cuando existan razones fundadas de:",
+     "opciones": [
+      "Alteración del orden público, con peligro para personas o bienes.",
+      "Perjuicio para el tráfico o para los comercios de la zona.",
+      "Coincidencia con otra manifestación ya comunicada."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 21.2 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 21.2 CE, para prohibir una manifestación comunicada no basta con:",
+     "opciones": [
+      "Que exista riesgo de alteración del orden público sin peligro para personas o bienes.",
+      "Que existan razones fundadas de alteración del orden público con peligro para personas.",
+      "Que existan razones fundadas de alteración del orden público con peligro para bienes."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 21.2 CE: exige razones fundadas de alteración del orden público «con peligro para personas o bienes»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a22-1-asociacion",
+   "bloque": "a22",
+   "apartado": "1",
+   "orden": 630,
+   "tipo": "dato",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Qué derecho reconoce el art. 22.1 CE?",
+    "respuesta": "El derecho de asociación."
+   },
+   "cita": "Se reconoce el derecho de asociación.",
+   "confundible_con": [
+    "CE-a21-1-reunion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "¿Qué artículo de la Constitución reconoce el derecho de asociación?",
+     "opciones": [
+      "El art. 22",
+      "El art. 21"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.1 CE. El art. 21 reconoce el derecho de reunión."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "¿Qué derecho reconoce el art. 22.1 CE?",
+     "opciones": [
+      "El derecho de asociación.",
+      "El derecho de reunión.",
+      "El derecho de fundación."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.1 CE: «Se reconoce el derecho de asociación». La reunión está en el art. 21 y la fundación en el art. 34."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Los derechos de reunión, asociación y fundación se reconocen, respectivamente, en los artículos:",
+     "opciones": [
+      "21, 22 y 34.",
+      "21, 22 y 23.",
+      "20, 21 y 22."
+     ],
+     "correcta": 0,
+     "explicacion": "Reunión: art. 21. Asociación: art. 22. Fundación: art. 34."
+    }
+   ]
+  },
+  {
+   "id": "CE-a22-2-ilegales",
+   "bloque": "a22",
+   "apartado": "2",
+   "orden": 640,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Qué asociaciones son ilegales según el art. 22.2 CE?",
+    "respuesta": "Las que persigan fines o utilicen medios tipificados como delito."
+   },
+   "cita": "Las asociaciones que persigan fines o utilicen medios tipificados como delito son ilegales.",
+   "confundible_con": [
+    "CE-a22-5-prohibidas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 22.2 CE, son ilegales las asociaciones que persigan fines o utilicen medios tipificados como…",
+     "opciones": [
+      "delito",
+      "infracción administrativa"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.2 CE: tipificados como delito."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 22.2 CE, son ilegales las asociaciones que:",
+     "opciones": [
+      "Persigan fines o utilicen medios tipificados como delito.",
+      "No se inscriban en el registro correspondiente.",
+      "Persigan fines políticos sin ser partidos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.2 CE. La inscripción registral es solo a efectos de publicidad (art. 22.3)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Una asociación que no persigue fines delictivos, pero utiliza medios tipificados como delito, según el art. 22.2 CE:",
+     "opciones": [
+      "Es ilegal, porque basta con que los medios estén tipificados como delito.",
+      "Es legal, porque la Constitución solo atiende a los fines que persigue la asociación.",
+      "Es legal mientras esté inscrita en el registro."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.2 CE: «persigan fines o utilicen medios tipificados como delito»; basta con uno de los dos."
+    }
+   ]
+  },
+  {
+   "id": "CE-a22-3-registro",
+   "bloque": "a22",
+   "apartado": "3",
+   "orden": 650,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Con qué efectos se inscriben las asociaciones en un registro (art. 22.3 CE)?",
+    "respuesta": "A los solos efectos de publicidad."
+   },
+   "cita": "Las asociaciones constituidas al amparo de este artículo deberán inscribirse en un registro a los solos efectos de publicidad.",
+   "confundible_con": [
+    "CE-a22-2-ilegales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 22.3 CE, las asociaciones se inscriben en un registro a los solos efectos de…",
+     "opciones": [
+      "publicidad",
+      "autorización"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.3 CE: a los solos efectos de publicidad."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 22.3 CE, la inscripción de las asociaciones en un registro:",
+     "opciones": [
+      "Es obligatoria y a los solos efectos de publicidad.",
+      "Es voluntaria y constitutiva de la asociación.",
+      "Es obligatoria y necesaria para su legalidad."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.3 CE: «deberán inscribirse… a los solos efectos de publicidad»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Una asociación lícita que no se ha inscrito en el registro, según el art. 22 CE:",
+     "opciones": [
+      "No es ilegal por ello, porque la inscripción es a los solos efectos de publicidad.",
+      "Es ilegal y la Administración puede disolverla hasta que regularice su inscripción.",
+      "No existe jurídicamente hasta su inscripción."
+     ],
+     "correcta": 0,
+     "explicacion": "La ilegalidad depende de fines o medios delictivos (22.2); la inscripción tiene efectos de publicidad (22.3) y la disolución exige resolución judicial motivada (22.4)."
+    }
+   ]
+  },
+  {
+   "id": "CE-a22-4-disolucion",
+   "bloque": "a22",
+   "apartado": "4",
+   "orden": 660,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Cómo pueden disolverse o suspenderse las asociaciones (art. 22.4 CE)?",
+    "respuesta": "Solo en virtud de resolución judicial motivada."
+   },
+   "cita": "Las asociaciones sólo podrán ser disueltas o suspendidas en sus actividades en virtud de resolución judicial motivada.",
+   "confundible_con": [
+    "CE-a20-5-secuestro"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 22.4 CE, ¿puede la Administración disolver una asociación?",
+     "opciones": [
+      "No, solo una resolución judicial motivada",
+      "Sí, por resolución motivada"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.4 CE: solo en virtud de resolución judicial motivada."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 22.4 CE, las asociaciones sólo podrán ser disueltas o suspendidas en sus actividades en virtud de:",
+     "opciones": [
+      "Resolución judicial motivada.",
+      "Resolución del Ministerio del Interior.",
+      "Sentencia firme del Tribunal Constitucional."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.4 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 22.4 CE, la resolución judicial que disuelva o suspenda una asociación debe ser:",
+     "opciones": [
+      "Motivada.",
+      "Firme y dictada por el Tribunal Supremo.",
+      "Previa al registro de la asociación."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.4 CE: «resolución judicial motivada»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a22-5-prohibidas",
+   "bloque": "a22",
+   "apartado": "5",
+   "orden": 670,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué asociaciones prohíbe el art. 22.5 CE?",
+    "respuesta": "Las asociaciones secretas y las de carácter paramilitar."
+   },
+   "cita": "Se prohíben las asociaciones secretas y las de carácter paramilitar.",
+   "confundible_con": [
+    "CE-a22-2-ilegales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 22.5 CE, se prohíben las asociaciones secretas y las de carácter…",
+     "opciones": [
+      "paramilitar",
+      "religioso"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.5 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 22.5 CE, se prohíben las asociaciones:",
+     "opciones": [
+      "Secretas y las de carácter paramilitar.",
+      "No inscritas y las de carácter político.",
+      "Secretas y las que no tengan estructura democrática."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.5 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué apartado del art. 22 CE prohíbe las asociaciones secretas y paramilitares?",
+     "opciones": [
+      "El 5.",
+      "El 2.",
+      "El 4."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.5 CE. El 22.2 declara ilegales las de fines o medios delictivos y el 22.4 regula la disolución."
+    }
+   ]
+  },
+  {
+   "id": "CE-a23-1-participacion",
+   "bloque": "a23",
+   "apartado": "1",
+   "orden": 680,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué derecho reconoce el art. 23.1 CE?",
+    "respuesta": "El de los ciudadanos a participar en los asuntos públicos, directamente o por medio de representantes libremente elegidos en elecciones periódicas por sufragio universal."
+   },
+   "cita": "Los ciudadanos tienen el derecho a participar en los asuntos públicos, directamente o por medio de representantes, libremente elegidos en elecciones periódicas por sufragio universal.",
+   "confundible_con": [
+    "CE-a23-2-acceso-cargos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.1 CE, los ciudadanos pueden participar en los asuntos públicos directamente o…",
+     "opciones": [
+      "por medio de representantes",
+      "solo a través de los partidos políticos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.1 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 23.1 CE, los representantes son libremente elegidos en elecciones periódicas por sufragio:",
+     "opciones": [
+      "Universal.",
+      "Universal, libre y secreto, cada cuatro años.",
+      "Directo de los mayores de veintiún años."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.1 CE: «en elecciones periódicas por sufragio universal». No fija la periodicidad."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 23.1 CE, ¿quiénes tienen el derecho a participar en los asuntos públicos?",
+     "opciones": [
+      "Los ciudadanos.",
+      "Todas las personas residentes en España.",
+      "Los partidos políticos, como instrumento fundamental."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.1 CE: «Los ciudadanos tienen el derecho a participar en los asuntos públicos». Los partidos son instrumento fundamental para la participación (art. 6), pero el derecho es de los ciudadanos; y el art. 13.2 reserva este derecho a los españoles, salvo el sufragio municipal."
+    }
+   ]
+  },
+  {
+   "id": "CE-a23-2-acceso-cargos",
+   "bloque": "a23",
+   "apartado": "2",
+   "orden": 690,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué derecho recoge el art. 23.2 CE?",
+    "respuesta": "El de acceder en condiciones de igualdad a las funciones y cargos públicos, con los requisitos que señalen las leyes."
+   },
+   "cita": "tienen derecho a acceder en condiciones de igualdad a las funciones y cargos públicos, con los requisitos que señalen las leyes",
+   "confundible_con": [
+    "CE-a23-1-participacion",
+    "CE-a14-igualdad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.2 CE, se accede a las funciones y cargos públicos en condiciones de…",
+     "opciones": [
+      "igualdad",
+      "libre designación"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.2 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "El derecho de un opositor a bombero a acceder en condiciones de igualdad a una plaza pública se reconoce en el art.:",
+     "opciones": [
+      "23.2 CE.",
+      "14 CE, exclusivamente.",
+      "35.1 CE."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.2 CE: acceso en condiciones de igualdad a las funciones y cargos públicos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 23.2 CE, el acceso a las funciones y cargos públicos se produce:",
+     "opciones": [
+      "En condiciones de igualdad, con los requisitos que señalen las leyes.",
+      "En condiciones de igualdad, con los requisitos que fije cada Administración por reglamento.",
+      "Por mérito y capacidad, con los requisitos que fije la Constitución."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.2 CE: «con los requisitos que señalen las leyes». Mérito y capacidad aparecen en el art. 103.3, no en el 23.2."
+    }
+   ]
+  },
+  {
+   "id": "CE-a24-1-tutela",
+   "bloque": "a24",
+   "apartado": "1",
+   "orden": 700,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué derecho reconoce el art. 24.1 CE y qué no puede producirse en ningún caso?",
+    "respuesta": "El derecho a obtener la tutela efectiva de jueces y tribunales en el ejercicio de derechos e intereses legítimos; en ningún caso puede producirse indefensión."
+   },
+   "cita": "Todas las personas tienen derecho a obtener la tutela efectiva de los jueces y tribunales en el ejercicio de sus derechos e intereses legítimos, sin que, en ningún caso, pueda producirse indefensión.",
+   "confundible_con": [
+    "CE-a24-2-garantias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 24.1 CE, en el ejercicio de la tutela judicial efectiva no puede producirse en ningún caso…",
+     "opciones": [
+      "indefensión",
+      "una sentencia desfavorable"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 24.1 CE: sin que, en ningún caso, pueda producirse indefensión."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 24.1 CE, ¿quiénes tienen derecho a obtener la tutela efectiva de los jueces y tribunales?",
+     "opciones": [
+      "Todas las personas.",
+      "Los españoles.",
+      "Los ciudadanos con residencia legal."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 24.1 CE: «Todas las personas»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 24.1 CE, la tutela judicial efectiva se refiere al ejercicio de:",
+     "opciones": [
+      "Derechos e intereses legítimos.",
+      "Derechos fundamentales, exclusivamente.",
+      "Derechos subjetivos reconocidos en una ley orgánica."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 24.1 CE: «en el ejercicio de sus derechos e intereses legítimos»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a24-2-garantias",
+   "bloque": "a24",
+   "apartado": "2",
+   "orden": 710,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Enumera las garantías procesales del art. 24.2 CE.",
+    "respuesta": "Juez ordinario predeterminado por la ley, defensa y asistencia de letrado, ser informados de la acusación, proceso público sin dilaciones indebidas y con todas las garantías, medios de prueba pertinentes, no declarar contra sí mismos, no confesarse culpables y presunción de inocencia."
+   },
+   "cita": "a no declarar contra sí mismos, a no confesarse culpables y a la presunción de inocencia",
+   "confundible_con": [
+    "CE-a24-1-tutela",
+    "CE-a17-3-detenido"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "¿Recoge el art. 24.2 CE la presunción de inocencia?",
+     "opciones": [
+      "Sí",
+      "No, la recoge el art. 25"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 24.2 CE: «…y a la presunción de inocencia»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 24.2 CE, todos tienen derecho a un proceso público:",
+     "opciones": [
+      "Sin dilaciones indebidas y con todas las garantías.",
+      "Y gratuito en todas sus instancias, con abogado de oficio.",
+      "Con jurado en los delitos graves."
+     ],
+     "correcta": 0,
+     "cita": "Asimismo, todos tienen derecho al Juez ordinario predeterminado por la ley, a la defensa y a la asistencia de letrado, a ser informados de la acusación formulada contra ellos, a un proceso público sin dilaciones indebidas y con todas las garantías, a utilizar los medios de prueba pertinentes para su defensa, a no declarar contra sí mismos, a no confesarse culpables y a la presunción de inocencia.",
+     "explicacion": "Art. 24.2 CE: «a un proceso público sin dilaciones indebidas y con todas las garantías»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos derechos NO figura en el art. 24.2 CE?",
+     "opciones": [
+      "El derecho a ser juzgado por un jurado.",
+      "El derecho al Juez ordinario predeterminado por la ley.",
+      "El derecho a utilizar los medios de prueba pertinentes para la defensa."
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 24.2 recoge el Juez ordinario predeterminado por la ley y los medios de prueba pertinentes. El jurado no aparece en el art. 24 (lo prevé el art. 125, fuera del tema)."
+    }
+   ]
+  },
+  {
+   "id": "CE-a24-2-parentesco",
+   "bloque": "a24",
+   "apartado": "2",
+   "orden": 720,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Por qué razones regulará la ley que no se esté obligado a declarar sobre hechos presuntamente delictivos (art. 24.2 CE)?",
+    "respuesta": "Por razón de parentesco o de secreto profesional."
+   },
+   "cita": "La ley regulará los casos en que, por razón de parentesco o de secreto profesional, no se estará obligado a declarar sobre hechos presuntamente delictivos.",
+   "confundible_con": [
+    "CE-a20-1-informacion",
+    "CE-a16-2-no-declarar"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 24.2 CE, ¿puede eximirse de declarar sobre hechos delictivos por razón de parentesco?",
+     "opciones": [
+      "Sí, en los casos que regule la ley",
+      "No, nunca"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 24.2 CE, párrafo segundo."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 24.2 CE, la ley regulará los casos en que no se estará obligado a declarar sobre hechos presuntamente delictivos por razón de:",
+     "opciones": [
+      "Parentesco o de secreto profesional.",
+      "Ideología o creencias religiosas.",
+      "Amistad íntima o enemistad manifiesta."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 24.2 CE: parentesco o secreto profesional. La ideología o creencias se protegen en el art. 16.2, que es otra cosa."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "La dispensa de declarar sobre hechos presuntamente delictivos por parentesco o secreto profesional:",
+     "opciones": [
+      "La regula la ley por mandato del art. 24.2 CE.",
+      "La fija directamente el art. 24.2 CE para los parientes hasta el cuarto grado.",
+      "Solo alcanza a los abogados, según el art. 24.2 CE."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 24.2 CE: «La ley regulará los casos…». La Constitución no fija grados de parentesco."
+    }
+   ]
+  },
+  {
+   "id": "CE-a25-1-legalidad-penal",
+   "bloque": "a25",
+   "apartado": "1",
+   "orden": 730,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué principio recoge el art. 25.1 CE?",
+    "respuesta": "Nadie puede ser condenado o sancionado por acciones u omisiones que, en el momento de producirse, no constituyan delito, falta o infracción administrativa según la legislación vigente entonces."
+   },
+   "cita": "Nadie puede ser condenado o sancionado por acciones u omisiones que en el momento de producirse no constituyan delito, falta o infracción administrativa, según la legislación vigente en aquel momento.",
+   "confundible_con": [
+    "CE-a9-3-irretroactividad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25.1 CE, ¿se puede sancionar una conducta que no era infracción cuando se cometió?",
+     "opciones": [
+      "No",
+      "Sí, si una ley posterior la tipifica"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.1 CE: según la legislación vigente en aquel momento."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25.1 CE, nadie puede ser condenado o sancionado por acciones u omisiones que en el momento de producirse no constituyan:",
+     "opciones": [
+      "Delito, falta o infracción administrativa.",
+      "Delito o falta, exclusivamente.",
+      "Delito tipificado en una ley orgánica."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.1 CE: incluye también la infracción administrativa."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Una multa administrativa por una conducta que solo se tipificó como infracción después de realizarla:",
+     "opciones": [
+      "Vulnera el art. 25.1 CE, que alcanza también a las infracciones administrativas.",
+      "No vulnera el art. 25.1 CE, que solo se refiere a los delitos.",
+      "Es válida si la ley posterior que tipifica la infracción es una ley orgánica."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.1 CE: «delito, falta o infracción administrativa, según la legislación vigente en aquel momento»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a25-2-reinsercion",
+   "bloque": "a25",
+   "apartado": "2",
+   "orden": 740,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Hacia qué se orientan las penas privativas de libertad y qué no pueden consistir (art. 25.2 CE)?",
+    "respuesta": "Hacia la reeducación y reinserción social; no pueden consistir en trabajos forzados."
+   },
+   "cita": "Las penas privativas de libertad y las medidas de seguridad estarán orientadas hacia la reeducación y reinserción social y no podrán consistir en trabajos forzados.",
+   "confundible_con": [
+    "CE-a25-2-preso"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25.2 CE, ¿pueden las penas privativas de libertad consistir en trabajos forzados?",
+     "opciones": [
+      "No",
+      "Sí, en casos graves"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.2 CE: no podrán consistir en trabajos forzados."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25.2 CE, las penas privativas de libertad y las medidas de seguridad estarán orientadas hacia:",
+     "opciones": [
+      "La reeducación y reinserción social.",
+      "La retribución del daño causado.",
+      "La protección de la víctima y la prevención general."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.2 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 25.2 CE, la orientación hacia la reeducación y reinserción social se aplica a:",
+     "opciones": [
+      "Las penas privativas de libertad y las medidas de seguridad.",
+      "Solo a las penas de prisión, no a las medidas de seguridad.",
+      "Todas las penas y sanciones administrativas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.2 CE: «Las penas privativas de libertad y las medidas de seguridad»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a25-2-preso",
+   "bloque": "a25",
+   "apartado": "2",
+   "orden": 750,
+   "tipo": "lista",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Qué derechos tiene en todo caso el condenado a prisión (art. 25.2 CE)?",
+    "respuesta": "Los derechos fundamentales del Capítulo, salvo los limitados por el fallo, el sentido de la pena y la ley penitenciaria; y en todo caso trabajo remunerado, beneficios de la Seguridad Social, acceso a la cultura y desarrollo integral de su personalidad."
+   },
+   "cita": "En todo caso, tendrá derecho a un trabajo remunerado y a los beneficios correspondientes de la Seguridad Social, así como al acceso a la cultura y al desarrollo integral de su personalidad.",
+   "confundible_con": [
+    "CE-a25-2-reinsercion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25.2 CE, el condenado a prisión tiene derecho a un trabajo…",
+     "opciones": [
+      "remunerado",
+      "obligatorio y no remunerado"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.2 CE: trabajo remunerado."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25.2 CE, el condenado a pena de prisión gozará de los derechos fundamentales del Capítulo, excepto los limitados expresamente por:",
+     "opciones": [
+      "El contenido del fallo condenatorio, el sentido de la pena y la ley penitenciaria.",
+      "El director del centro penitenciario y el juez de vigilancia penitenciaria.",
+      "El Código Penal y el reglamento del centro."
+     ],
+     "correcta": 0,
+     "cita": "El condenado a pena de prisión que estuviere cumpliendo la misma gozará de los derechos fundamentales de este Capítulo, a excepción de los que se vean expresamente limitados por el contenido del fallo condenatorio, el sentido de la pena y la ley penitenciaria.",
+     "explicacion": "Art. 25.2 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos derechos NO reconoce en todo caso el art. 25.2 CE al condenado a prisión?",
+     "opciones": [
+      "El derecho a permisos de salida periódicos.",
+      "El acceso a la cultura.",
+      "Los beneficios correspondientes de la Seguridad Social."
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 25.2 garantiza trabajo remunerado, Seguridad Social, acceso a la cultura y desarrollo integral de la personalidad. Los permisos no los menciona."
+    }
+   ]
+  },
+  {
+   "id": "CE-a25-3-administracion",
+   "bloque": "a25",
+   "apartado": "3",
+   "orden": 760,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué sanciones no puede imponer la Administración civil (art. 25.3 CE)?",
+    "respuesta": "Las que, directa o subsidiariamente, impliquen privación de libertad."
+   },
+   "cita": "La Administración civil no podrá imponer sanciones que, directa o subsidiariamente, impliquen privación de libertad.",
+   "confundible_con": [
+    "CE-a26-tribunales-honor"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25.3 CE, ¿puede la Administración civil imponer sanciones que impliquen privación de libertad?",
+     "opciones": [
+      "No",
+      "Sí, de forma subsidiaria"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.3 CE: ni directa ni subsidiariamente."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25.3 CE, la Administración civil no podrá imponer sanciones que impliquen privación de libertad:",
+     "opciones": [
+      "Directa o subsidiariamente.",
+      "Superiores a treinta días.",
+      "Sin audiencia previa del interesado."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.3 CE: «directa o subsidiariamente»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "La prohibición de sanciones privativas de libertad del art. 25.3 CE se refiere expresamente a:",
+     "opciones": [
+      "La Administración civil.",
+      "Todas las Administraciones, incluida la militar.",
+      "Los jueces de instrucción."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.3 CE: «La Administración civil». La Constitución no extiende expresamente esta prohibición a la Administración militar."
+    }
+   ]
+  },
+  {
+   "id": "CE-a26-tribunales-honor",
+   "bloque": "a26",
+   "apartado": "",
+   "orden": 770,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Dónde prohíbe el art. 26 CE los Tribunales de Honor?",
+    "respuesta": "En el ámbito de la Administración civil y de las organizaciones profesionales."
+   },
+   "cita": "Se prohíben los Tribunales de Honor en el ámbito de la Administración civil y de las organizaciones profesionales.",
+   "confundible_con": [
+    "CE-a25-3-administracion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 26 CE, se prohíben los Tribunales de…",
+     "opciones": [
+      "Honor",
+      "Excepción"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 26 CE: Tribunales de Honor."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 26 CE, se prohíben los Tribunales de Honor en el ámbito de:",
+     "opciones": [
+      "La Administración civil y de las organizaciones profesionales.",
+      "La Administración civil y de la Administración militar.",
+      "Las Fuerzas Armadas y los Colegios Profesionales."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 26 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué artículo de la Constitución prohíbe los Tribunales de Honor?",
+     "opciones": [
+      "El 26.",
+      "El 25.",
+      "El 24."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 26 CE."
+    }
+   ]
+  },
+  {
+   "id": "CE-a27-1-educacion",
+   "bloque": "a27",
+   "apartado": "1",
+   "orden": 780,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué derecho y qué libertad reconoce el art. 27.1 CE?",
+    "respuesta": "El derecho de todos a la educación y la libertad de enseñanza."
+   },
+   "cita": "Todos tienen el derecho a la educación. Se reconoce la libertad de enseñanza.",
+   "confundible_con": [
+    "CE-a20-1-expresion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 27.1 CE, ¿quiénes tienen derecho a la educación?",
+     "opciones": [
+      "Todos",
+      "Los españoles menores de edad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.1 CE: «Todos tienen el derecho a la educación»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 27.1 CE, se reconoce la libertad:",
+     "opciones": [
+      "De enseñanza.",
+      "De cátedra.",
+      "De elección de centro docente público."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.1 CE: libertad de enseñanza. La libertad de cátedra está en el art. 20.1.c)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "«Libertad de enseñanza» y «libertad de cátedra» aparecen, respectivamente, en los artículos:",
+     "opciones": [
+      "27.1 y 20.1.c).",
+      "20.1.c) y 27.1.",
+      "27.1 y 27.10."
+     ],
+     "correcta": 0,
+     "explicacion": "Libertad de enseñanza: art. 27.1. Libertad de cátedra: art. 20.1.c)."
+    }
+   ]
+  },
+  {
+   "id": "CE-a27-2-objeto",
+   "bloque": "a27",
+   "apartado": "2",
+   "orden": 790,
+   "tipo": "definicion",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Cuál es el objeto de la educación según el art. 27.2 CE?",
+    "respuesta": "El pleno desarrollo de la personalidad humana en el respeto a los principios democráticos de convivencia y a los derechos y libertades fundamentales."
+   },
+   "cita": "La educación tendrá por objeto el pleno desarrollo de la personalidad humana en el respeto a los principios democráticos de convivencia y a los derechos y libertades fundamentales.",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 27.2 CE, la educación tendrá por objeto el pleno desarrollo de…",
+     "opciones": [
+      "la personalidad humana",
+      "la capacidad profesional del alumnado"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.2 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 27.2 CE, la educación tendrá por objeto el pleno desarrollo de la personalidad humana en el respeto a:",
+     "opciones": [
+      "Los principios democráticos de convivencia y a los derechos y libertades fundamentales.",
+      "Las creencias religiosas y morales mayoritarias de la sociedad española.",
+      "La unidad de la Nación y a la Corona."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.2 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "El «pleno desarrollo de la personalidad humana» aparece en el art. 27.2 CE como:",
+     "opciones": [
+      "El objeto de la educación.",
+      "Un fundamento del orden político y de la paz social.",
+      "Un valor superior del ordenamiento jurídico."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.2 CE: objeto de la educación. El art. 10.1 habla del «libre desarrollo de la personalidad» como fundamento del orden político."
+    }
+   ]
+  },
+  {
+   "id": "CE-a27-3-formacion-religiosa",
+   "bloque": "a27",
+   "apartado": "3",
+   "orden": 800,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Qué derecho de los padres garantizan los poderes públicos según el art. 27.3 CE?",
+    "respuesta": "Que sus hijos reciban la formación religiosa y moral que esté de acuerdo con sus propias convicciones."
+   },
+   "cita": "Los poderes públicos garantizan el derecho que asiste a los padres para que sus hijos reciban la formación religiosa y moral que esté de acuerdo con sus propias convicciones.",
+   "confundible_con": [
+    "CE-a16-3-aconfesionalidad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 27.3 CE, los padres tienen derecho a que sus hijos reciban la formación religiosa y moral acorde con…",
+     "opciones": [
+      "sus propias convicciones",
+      "las creencias mayoritarias de la sociedad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.3 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 27.3 CE, ¿qué formación garantizan los poderes públicos de acuerdo con las convicciones de los padres?",
+     "opciones": [
+      "La formación religiosa y moral.",
+      "La formación religiosa, exclusivamente.",
+      "La formación cívica y profesional."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.3 CE: formación religiosa y moral."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 27.3 CE, el derecho a la formación religiosa y moral corresponde:",
+     "opciones": [
+      "A los padres, para sus hijos.",
+      "A los alumnos mayores de edad.",
+      "A las confesiones religiosas con acuerdo con el Estado."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.3 CE: «el derecho que asiste a los padres para que sus hijos reciban…»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a27-4-basica",
+   "bloque": "a27",
+   "apartado": "4",
+   "orden": 810,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Cómo es la enseñanza básica según el art. 27.4 CE?",
+    "respuesta": "Obligatoria y gratuita."
+   },
+   "cita": "La enseñanza básica es obligatoria y gratuita.",
+   "confundible_con": [
+    "CE-a27-5-programacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 27.4 CE, la enseñanza básica es…",
+     "opciones": [
+      "obligatoria y gratuita",
+      "voluntaria y gratuita para todos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.4 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 27.4 CE, ¿qué enseñanza es obligatoria y gratuita?",
+     "opciones": [
+      "La básica.",
+      "La básica y la universitaria.",
+      "Toda la enseñanza pública."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.4 CE: la enseñanza básica."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué fija directamente el art. 27.4 CE sobre la enseñanza básica?",
+     "opciones": [
+      "Que es obligatoria y gratuita, sin fijar las edades.",
+      "Que es obligatoria y gratuita hasta los dieciséis años.",
+      "Que es gratuita en los centros públicos y obligatoria hasta los dieciocho años."
+     ],
+     "correcta": 0,
+     "explicacion": "El art. 27.4 solo dice «obligatoria y gratuita»; las edades las fija la ley."
+    }
+   ]
+  },
+  {
+   "id": "CE-a27-5-programacion",
+   "bloque": "a27",
+   "apartado": "5",
+   "orden": 820,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "¿Cómo garantizan los poderes públicos el derecho a la educación (art. 27.5 CE)?",
+    "respuesta": "Mediante una programación general de la enseñanza, con participación efectiva de todos los sectores afectados, y la creación de centros docentes."
+   },
+   "cita": "mediante una programación general de la enseñanza, con participación efectiva de todos los sectores afectados y la creación de centros docentes",
+   "confundible_con": [
+    "CE-a27-7-control-gestion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 27.5 CE, los poderes públicos garantizan el derecho a la educación mediante una programación general de la enseñanza y…",
+     "opciones": [
+      "la creación de centros docentes",
+      "la privatización de los centros"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.5 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 27.5 CE, la programación general de la enseñanza se hará:",
+     "opciones": [
+      "Con participación efectiva de todos los sectores afectados.",
+      "Por el Gobierno, oídas las Comunidades Autónomas.",
+      "Por las Universidades, en el marco de su autonomía."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.5 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Qué apartado del art. 27 CE garantiza el derecho de todos a la educación mediante una programación general de la enseñanza?",
+     "opciones": [
+      "El 5.",
+      "El 1.",
+      "El 8."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.5 CE. El 27.1 reconoce el derecho y el 27.8 trata de la inspección y homologación."
+    }
+   ]
+  },
+  {
+   "id": "CE-a27-6-creacion-centros",
+   "bloque": "a27",
+   "apartado": "6",
+   "orden": 830,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿A quién reconoce el art. 27.6 CE la libertad de creación de centros docentes?",
+    "respuesta": "A las personas físicas y jurídicas, dentro del respeto a los principios constitucionales."
+   },
+   "cita": "Se reconoce a las personas físicas y jurídicas la libertad de creación de centros docentes, dentro del respeto a los principios constitucionales.",
+   "confundible_con": [
+    "CE-a27-9-ayudas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 27.6 CE, ¿pueden las personas jurídicas crear centros docentes?",
+     "opciones": [
+      "Sí",
+      "No, solo las personas físicas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.6 CE: personas físicas y jurídicas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 27.6 CE, la libertad de creación de centros docentes se ejerce:",
+     "opciones": [
+      "Dentro del respeto a los principios constitucionales.",
+      "Previa autorización del Ministerio de Educación.",
+      "Solo por entidades sin ánimo de lucro."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.6 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "El art. 27.6 CE reconoce la libertad de creación de centros docentes a:",
+     "opciones": [
+      "Las personas físicas y jurídicas.",
+      "Las confesiones religiosas y las asociaciones de padres.",
+      "Los poderes públicos y las Universidades."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.6 CE."
+    }
+   ]
+  },
+  {
+   "id": "CE-a27-7-control-gestion",
+   "bloque": "a27",
+   "apartado": "7",
+   "orden": 840,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Quiénes intervienen en el control y gestión de los centros sostenidos con fondos públicos (art. 27.7 CE)?",
+    "respuesta": "Los profesores, los padres y, en su caso, los alumnos, en los términos que la ley establezca."
+   },
+   "cita": "Los profesores, los padres y, en su caso, los alumnos intervendrán en el control y gestión de todos los centros sostenidos por la Administración con fondos públicos",
+   "confundible_con": [
+    "CE-a27-5-programacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 27.7 CE, ¿intervienen los padres en el control y gestión de los centros sostenidos con fondos públicos?",
+     "opciones": [
+      "Sí",
+      "No, solo los profesores"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.7 CE: profesores, padres y, en su caso, alumnos."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 27.7 CE, intervendrán en el control y gestión de los centros sostenidos por la Administración con fondos públicos:",
+     "opciones": [
+      "Los profesores, los padres y, en su caso, los alumnos.",
+      "Los profesores y la Administración educativa.",
+      "Los padres y los ayuntamientos."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.7 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 27.7 CE, la intervención de los alumnos en el control y gestión de los centros sostenidos con fondos públicos:",
+     "opciones": [
+      "Se produce «en su caso», en los términos que la ley establezca.",
+      "Es obligatoria en todos los niveles educativos, incluida la Universidad.",
+      "No está prevista en la Constitución."
+     ],
+     "correcta": 0,
+     "cita": "Se reconoce la autonomía de las Universidades, en los términos que la ley establezca.",
+     "explicacion": "Art. 27.7 CE: «y, en su caso, los alumnos»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a27-8-inspeccion",
+   "bloque": "a27",
+   "apartado": "8",
+   "orden": 850,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "¿Qué harán los poderes públicos con el sistema educativo según el art. 27.8 CE?",
+    "respuesta": "Lo inspeccionarán y homologarán para garantizar el cumplimiento de las leyes."
+   },
+   "cita": "Los poderes públicos inspeccionarán y homologarán el sistema educativo para garantizar el cumplimiento de las leyes.",
+   "confundible_con": [
+    "CE-a27-5-programacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 27.8 CE, los poderes públicos inspeccionarán y homologarán…",
+     "opciones": [
+      "el sistema educativo",
+      "los títulos extranjeros"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.8 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 27.8 CE, los poderes públicos inspeccionarán y homologarán el sistema educativo para:",
+     "opciones": [
+      "Garantizar el cumplimiento de las leyes.",
+      "Garantizar la calidad de la enseñanza privada.",
+      "Asegurar la libertad de cátedra."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.8 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 27.8 CE, ¿qué dos acciones realizan los poderes públicos sobre el sistema educativo?",
+     "opciones": [
+      "Inspeccionar y homologar.",
+      "Financiar y dirigir.",
+      "Autorizar y sancionar."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.8 CE: «inspeccionarán y homologarán»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a27-9-ayudas",
+   "bloque": "a27",
+   "apartado": "9",
+   "orden": 860,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "¿A qué centros ayudarán los poderes públicos (art. 27.9 CE)?",
+    "respuesta": "A los centros docentes que reúnan los requisitos que la ley establezca."
+   },
+   "cita": "Los poderes públicos ayudarán a los centros docentes que reúnan los requisitos que la ley establezca.",
+   "confundible_con": [
+    "CE-a27-6-creacion-centros"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 27.9 CE, ¿ayudarán los poderes públicos a los centros docentes que reúnan los requisitos que la ley establezca?",
+     "opciones": [
+      "Sí",
+      "No: la Constitución no prevé ayudas a los centros docentes"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.9 CE: «Los poderes públicos ayudarán a los centros docentes que reúnan los requisitos que la ley establezca»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 27.9 CE, los poderes públicos ayudarán a los centros docentes que:",
+     "opciones": [
+      "Reúnan los requisitos que la ley establezca.",
+      "Sean de titularidad pública o concertados con la Administración.",
+      "No tengan ideario propio."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.9 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Los requisitos para que un centro docente reciba ayuda de los poderes públicos (art. 27.9 CE) los establece:",
+     "opciones": [
+      "La ley.",
+      "El Gobierno, por real decreto.",
+      "La propia Constitución."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.9 CE: «que reúnan los requisitos que la ley establezca»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a27-10-universidades",
+   "bloque": "a27",
+   "apartado": "10",
+   "orden": 870,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "¿Qué reconoce el art. 27.10 CE a las Universidades?",
+    "respuesta": "Su autonomía, en los términos que la ley establezca."
+   },
+   "cita": "Se reconoce la autonomía de las Universidades, en los términos que la ley establezca.",
+   "confundible_con": [
+    "CE-a27-1-educacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 27.10 CE, se reconoce la autonomía de…",
+     "opciones": [
+      "las Universidades",
+      "los colegios públicos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.10 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 27.10 CE, la autonomía de las Universidades se reconoce:",
+     "opciones": [
+      "En los términos que la ley establezca.",
+      "Sin límite alguno.",
+      "En los términos que fije cada Comunidad Autónoma por decreto."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.10 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿En qué apartado del art. 27 CE se reconoce la autonomía universitaria?",
+     "opciones": [
+      "En el 10.",
+      "En el 1.",
+      "En el 6."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27.10 CE."
+    }
+   ]
+  },
+  {
+   "id": "CE-a28-1-sindicacion",
+   "bloque": "a28",
+   "apartado": "1",
+   "orden": 880,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué dice el art. 28.1 CE sobre el derecho a sindicarse y sus limitaciones?",
+    "respuesta": "Todos tienen derecho a sindicarse libremente; la ley podrá limitarlo o exceptuarlo para las Fuerzas o Institutos armados y demás Cuerpos con disciplina militar, y regulará sus peculiaridades para los funcionarios públicos. Nadie podrá ser obligado a afiliarse."
+   },
+   "cita": "La ley podrá limitar o exceptuar el ejercicio de este derecho a las Fuerzas o Institutos armados o a los demás Cuerpos sometidos a disciplina militar y regulará las peculiaridades de su ejercicio para los funcionarios públicos.",
+   "confundible_con": [
+    "CE-a7-sindicatos-regimen",
+    "CE-a29-2-militares"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 28.1 CE, ¿puede alguien ser obligado a afiliarse a un sindicato?",
+     "opciones": [
+      "No",
+      "Sí, en los servicios esenciales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.1 CE: «Nadie podrá ser obligado a afiliarse a un sindicato»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 28.1 CE, respecto de los funcionarios públicos, la ley:",
+     "opciones": [
+      "Regulará las peculiaridades del ejercicio del derecho a sindicarse.",
+      "Podrá exceptuar su derecho a sindicarse.",
+      "Prohibirá su afiliación a sindicatos de ámbito nacional."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.1 CE. Limitar o exceptuar se prevé para las Fuerzas o Institutos armados y Cuerpos con disciplina militar; para los funcionarios, solo regular peculiaridades."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 28.1 CE, la libertad sindical comprende:",
+     "opciones": [
+      "Fundar sindicatos, afiliarse al de su elección y que los sindicatos formen confederaciones e internacionales.",
+      "Fundar sindicatos y afiliarse al de su elección, pero no que los sindicatos formen confederaciones.",
+      "Solo el derecho a afiliarse a los sindicatos ya existentes."
+     ],
+     "correcta": 0,
+     "cita": "La libertad sindical comprende el derecho a fundar sindicatos y a afiliarse al de su elección, así como el derecho de los sindicatos a formar confederaciones y a fundar organizaciones sindicales internacionales o a afiliarse a las mismas.",
+     "explicacion": "Art. 28.1 CE."
+    }
+   ]
+  },
+  {
+   "id": "CE-a28-2-huelga",
+   "bloque": "a28",
+   "apartado": "2",
+   "orden": 890,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Qué reconoce el art. 28.2 CE y qué garantías debe incluir la ley que lo regule?",
+    "respuesta": "El derecho a la huelga de los trabajadores para la defensa de sus intereses; la ley establecerá garantías para asegurar el mantenimiento de los servicios esenciales de la comunidad."
+   },
+   "cita": "Se reconoce el derecho a la huelga de los trabajadores para la defensa de sus intereses.",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 28.2 CE, el derecho a la huelga se reconoce a…",
+     "opciones": [
+      "los trabajadores",
+      "los trabajadores y los empresarios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.2 CE: huelga de los trabajadores. Las medidas de conflicto colectivo de trabajadores y empresarios están en el art. 37.2."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 28.2 CE, la ley que regule el derecho de huelga establecerá las garantías precisas para asegurar:",
+     "opciones": [
+      "El mantenimiento de los servicios esenciales de la comunidad.",
+      "El funcionamiento normal de las empresas durante la huelga.",
+      "La negociación previa entre las partes."
+     ],
+     "correcta": 0,
+     "cita": "La ley que regule el ejercicio de este derecho establecerá las garantías precisas para asegurar el mantenimiento de los servicios esenciales de la comunidad.",
+     "explicacion": "Art. 28.2 CE: «el mantenimiento de los servicios esenciales de la comunidad»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Huelga (art. 28.2) y medidas de conflicto colectivo (art. 37.2): ¿qué afirmación es correcta?",
+     "opciones": [
+      "La huelga es solo de los trabajadores; el conflicto colectivo, de trabajadores y empresarios.",
+      "Ambos derechos son solo de los trabajadores.",
+      "La huelga es de trabajadores y empresarios; el conflicto colectivo, solo de los trabajadores."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.2: derecho a la huelga «de los trabajadores». Art. 37.2: «de los trabajadores y empresarios»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a29-1-peticion",
+   "bloque": "a29",
+   "apartado": "1",
+   "orden": 900,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Cómo puede ejercerse el derecho de petición (art. 29.1 CE)?",
+    "respuesta": "De forma individual y colectiva, por escrito, en la forma y con los efectos que determine la ley."
+   },
+   "cita": "Todos los españoles tendrán el derecho de petición individual y colectiva, por escrito, en la forma y con los efectos que determine la ley.",
+   "confundible_con": [
+    "CE-a29-2-militares"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 29.1 CE, el derecho de petición se ejerce…",
+     "opciones": [
+      "por escrito",
+      "de forma oral o escrita"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29.1 CE: por escrito."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 29.1 CE, todos los españoles tendrán el derecho de petición:",
+     "opciones": [
+      "Individual y colectiva, por escrito.",
+      "Individual, oral o escrita.",
+      "Colectiva, a través de asociaciones inscritas."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29.1 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 29.1 CE, ¿quiénes son titulares del derecho de petición?",
+     "opciones": [
+      "Todos los españoles.",
+      "Todas las personas.",
+      "Los ciudadanos mayores de edad inscritos en el censo."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29.1 CE: «Todos los españoles»."
+    }
+   ]
+  },
+  {
+   "id": "CE-a29-2-militares",
+   "bloque": "a29",
+   "apartado": "2",
+   "orden": 910,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "¿Cómo pueden ejercer el derecho de petición los miembros de las Fuerzas o Institutos armados (art. 29.2 CE)?",
+    "respuesta": "Solo individualmente y con arreglo a su legislación específica."
+   },
+   "cita": "podrán ejercer este derecho sólo individualmente y con arreglo a lo dispuesto en su legislación específica",
+   "confundible_con": [
+    "CE-a29-1-peticion",
+    "CE-a28-1-sindicacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 29.2 CE, los miembros de las Fuerzas Armadas pueden ejercer el derecho de petición…",
+     "opciones": [
+      "solo individualmente",
+      "solo de forma colectiva"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29.2 CE."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 29.2 CE, los miembros de las Fuerzas o Institutos armados o de los Cuerpos sometidos a disciplina militar podrán ejercer el derecho de petición:",
+     "opciones": [
+      "Solo individualmente y con arreglo a lo dispuesto en su legislación específica.",
+      "Individual y colectivamente, por escrito y con autorización de su mando.",
+      "Solo de forma colectiva, a través de sus asociaciones profesionales."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29.2 CE."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Para los miembros de los Cuerpos sometidos a disciplina militar, la Constitución:",
+     "opciones": [
+      "Permite a la ley limitar o exceptuar la sindicación y limita la petición a la forma individual.",
+      "Les prohíbe expresamente tanto la sindicación como el ejercicio del derecho de petición.",
+      "Les reconoce la sindicación sin límites, pero no el derecho de petición."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.1: la ley podrá limitar o exceptuar la sindicación. Art. 29.2: petición solo individual."
+    }
+   ]
+  }
+ ]
+}

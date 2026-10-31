@@ -34,46 +34,41 @@ describe('App navigation', () => {
       '-1',
     );
 
-    const navigation = screen.getByRole('navigation', {
-      name: 'Navegación principal',
-    });
-    const dashboard = within(navigation).getByRole('button', {
-      name: 'Dashboard',
-    });
-    expect(dashboard).toHaveAttribute('aria-current', 'page');
-    expect(document.title).toBe('Dashboard | BomberoPro');
+    // Escritorio y móvil comparten las mismas 5 secciones, con los mismos nombres y destinos.
+    const navigation = screen.getByRole('navigation', { name: 'Navegación principal' });
+    const mobileNavigation = screen.getByRole('navigation', { name: 'Navegación móvil' });
+    const etiquetas = (nav: HTMLElement) => within(nav).getAllByRole('button').map((b) => b.textContent?.trim());
+    expect(etiquetas(navigation)).toEqual(['Inicio', 'Estudiar', 'Temas', 'Simulacro', 'Más']);
+    expect(etiquetas(mobileNavigation)).toEqual(etiquetas(navigation));
+
+    const inicio = within(navigation).getByRole('button', { name: 'Inicio' });
+    expect(inicio).toHaveAttribute('aria-current', 'page');
+    expect(document.title).toBe('Inicio | BomberoPro');
     expect(screen.getByRole('status', { name: 'Anuncio de pantalla actual' })).toHaveTextContent(
-      'Pantalla actual: Dashboard',
+      'Pantalla actual: Inicio',
     );
 
-    const todayTraining = within(navigation).getByRole('button', {
-      name: 'Entrenamiento de Hoy',
-    });
-    fireEvent.click(todayTraining);
+    const simulacro = within(navigation).getByRole('button', { name: 'Simulacro' });
+    fireEvent.click(simulacro);
+    expect(simulacro).toHaveAttribute('aria-current', 'page');
+    expect(within(mobileNavigation).getByRole('button', { name: 'Simulacro' })).toHaveAttribute('aria-current', 'page');
+    expect(inicio).not.toHaveAttribute('aria-current');
 
-    expect(todayTraining).toHaveAttribute('aria-current', 'page');
-    expect(dashboard).not.toHaveAttribute('aria-current');
+    fireEvent.click(screen.getByRole('button', { name: 'Ir al inicio' }));
+    expect(inicio).toHaveAttribute('aria-current', 'page');
+    expect(document.title).toBe('Inicio | BomberoPro');
+
+    // Lo menos usado vive en «Más», igual en los dos menús.
+    const mas = within(navigation).getByRole('button', { name: 'Más' });
+    fireEvent.click(mas);
+    expect(mas).toHaveAttribute('aria-current', 'page');
+    fireEvent.click(screen.getByRole('button', { name: /Entrenamiento de hoy/ }));
     expect(document.title).toBe('Entrenamiento de hoy | BomberoPro');
-    expect(screen.getByRole('status', { name: 'Anuncio de pantalla actual' })).toHaveTextContent(
-      'Pantalla actual: Entrenamiento de hoy',
-    );
-
-    fireEvent.click(screen.getByRole('button', { name: /ir al inicio/i }));
-
-    expect(dashboard).toHaveAttribute('aria-current', 'page');
-    expect(document.title).toBe('Dashboard | BomberoPro');
-
-    const mobileNavigation = screen.getByRole('navigation', {
-      name: 'Navegación móvil',
-    });
-    // Móvil: 5 pestañas; lo menos usado vive en «Más».
-    expect(within(mobileNavigation).getAllByRole('button')).toHaveLength(5);
-    const mobileMas = within(mobileNavigation).getByRole('button', { name: 'Más' });
-    fireEvent.click(mobileMas);
-    expect(mobileMas).toHaveAttribute('aria-current', 'page');
+    expect(mas).toHaveAttribute('aria-current', 'page');
+    fireEvent.click(within(mobileNavigation).getByRole('button', { name: 'Más' }));
     fireEvent.click(screen.getByRole('button', { name: /Errores críticos/ }));
 
-    expect(mobileMas).toHaveAttribute('aria-current', 'page');
+    expect(within(mobileNavigation).getByRole('button', { name: 'Más' })).toHaveAttribute('aria-current', 'page');
     expect(document.title).toBe('Errores críticos | BomberoPro');
   });
 });

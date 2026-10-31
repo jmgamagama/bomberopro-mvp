@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import AvisoGuardadoFichas from './AvisoGuardadoFichas';
 import { Lock } from 'lucide-react';
 import RecallDeck from './RecallDeck';
 import TopicSearch from './TopicSearch';
@@ -8,6 +9,8 @@ import { isPlanesEnabled } from '../config/features';
 import { canAccessDeck, getPlan, PLAN_COPY } from '../utils/plan';
 
 interface RecallHubProps {
+  /** Demo o sin cuenta: cambia el aviso de dónde se guarda el repaso. */
+  demo?: boolean;
   onNavigateHome: () => void;
   /** Mazo (`tema36-lote02`) o tema (`tema36`) a abrir al entrar. */
   initialDeckId?: string;
@@ -26,7 +29,7 @@ const tabClass = (selected: boolean) =>
  * segundo selector de lote. Solo se cargan las fichas del lote abierto.
  * Con planes activados, los temas/lotes Pro muestran candado.
  */
-export default function RecallHub({ onNavigateHome, initialDeckId, onOpenPlanes }: RecallHubProps) {
+export default function RecallHub({ onNavigateHome, initialDeckId, onOpenPlanes, demo = true }: RecallHubProps) {
   const plan = getPlan();
   const planesOn = isPlanesEnabled();
   // Solo mazos publicados (revisados), salvo propietario/admin de revisión.
@@ -58,8 +61,8 @@ export default function RecallHub({ onNavigateHome, initialDeckId, onOpenPlanes 
   return (
     <div className="space-y-2">
       <div className="mx-auto max-w-3xl pt-2 sm:px-4">
-        <p className="rounded-xl bg-indigo-50 px-3 py-2 text-sm text-slate-700">El progreso de estas fichas se guarda solo en este navegador; todavía no se sincroniza con tus otros dispositivos.</p>
-        <p className="text-xs text-slate-600">
+        <AvisoGuardadoFichas demo={demo} />
+        <p className="text-xs text-slate-500">
           Elige un tema · {RECALL_TOTAL_CARDS} fichas de repaso con su fuente oficial
         </p>
         {/* Temas agrupados por bloque (parte común / específica) en una cuadrícula compacta

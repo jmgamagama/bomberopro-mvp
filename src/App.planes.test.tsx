@@ -14,8 +14,9 @@ beforeEach(() => vi.stubEnv('VITE_FEATURE_REVISION_ADMIN', 'true'));
 afterEach(() => vi.unstubAllEnvs());
 
 async function openRecuerdo(user: ReturnType<typeof userEvent.setup>) {
-  await screen.findByRole('button', { name: /Por Temas/ });
-  await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-recuerdo')!);
+  await screen.findAllByRole('button', { name: 'Temas' });
+  await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-mas')!);
+    await user.click(document.querySelector<HTMLButtonElement>('#mas-recuerdo')!);
   return screen.findByRole('tablist', { name: 'Temas de recuerdo' });
 }
 
@@ -27,12 +28,12 @@ describe('planes con la bandera desactivada', () => {
     const user = userEvent.setup();
     render(<App />);
     const tablist = await openRecuerdo(user);
-    expect(document.querySelector('#nav-btn-planes')).toBeNull();
     expect(screen.queryByRole('button', { name: /Planes/ })).toBeNull();
     expect(within(tablist).queryAllByRole('tab', { name: /\(Pro\)/ })).toHaveLength(0);
     expect(within(tablist).getByRole('tab', { name: new RegExp(`^${RECALL_TOPICS[0].shortLabel} ·`) })).toHaveAttribute('aria-selected', 'true');
 
-    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-sesion-diaria')!);
+    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-mas')!);
+    await user.click(document.querySelector<HTMLButtonElement>('#mas-sesion_diaria')!);
     expect(await screen.findByText(/Hasta 30 fichas/)).toBeInTheDocument();
     expect(document.querySelector('#daily-session-plan')).toBeNull();
     expect(screen.queryByText(/\(Pro\)/)).toBeNull();
@@ -47,8 +48,9 @@ describe('planes con la bandera activada', () => {
     window.localStorage.removeItem('mira_planes_interes_v1');
     const user = userEvent.setup();
     render(<App />);
-    await screen.findByRole('button', { name: /Por Temas/ });
-    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-planes')!);
+    await screen.findAllByRole('button', { name: 'Temas' });
+    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-mas')!);
+    await user.click(document.querySelector<HTMLButtonElement>('#mas-planes')!);
     expect(await screen.findByRole('heading', { name: 'Elige cómo preparar tu oposición' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Gratis' })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Pro' })).toBeInTheDocument();
@@ -86,8 +88,9 @@ describe('planes con la bandera activada', () => {
     vi.stubEnv('VITE_FEATURE_PLANES', 'true');
     const user = userEvent.setup();
     render(<App />);
-    await screen.findByRole('button', { name: /Por Temas/ });
-    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-sesion-diaria')!);
+    await screen.findAllByRole('button', { name: 'Temas' });
+    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-mas')!);
+    await user.click(document.querySelector<HTMLButtonElement>('#mas-sesion_diaria')!);
     expect(await screen.findByText(/Hasta 10 fichas/)).toBeInTheDocument();
     expect(document.querySelector('#daily-session-plan')).toHaveTextContent('Plan Gratis');
     await waitFor(() => expect(document.querySelector('#daily-session-decks')).toHaveTextContent('T40'));

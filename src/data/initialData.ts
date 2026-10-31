@@ -67,19 +67,19 @@ export const INITIAL_MICROCONCEPTS: Microconcept[] = [
   {
     id: "CPEI-T35-S01-D067024BDE",
     topic_id: 'T35',
-    article: "preámbulo/anexo",
+    article: "Decreto 98/2008, anexo",
     text: "¿Qué tres categorías ordinarias emplea el catálogo? Red básica, red intercomarcal y red local.",
-    explanation: "Ficha revisada del tema 35. Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — preámbulo/anexo.",
+    explanation: "Ficha revisada del tema 35. Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — anexo, columna «Categoría»: básica, intercomarcal y local, además de autovía autonómica (DOE n.º 103, 29/05/2008, pp. 14496-14500).",
     difficulty: 'media',
     confusion_risk: 'medio',
     type: 'dato literal'
   },
   {
-    id: "CPEI-T35-S01-D003AEE18E",
+    id: "CPEI-T35-S01-57F9BFBC83",
     topic_id: 'T35',
-    article: "preámbulo/anexo",
-    text: "¿Qué prefijo identifica las carreteras provinciales de Badajoz? BA.",
-    explanation: "Ficha revisada del tema 35. Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — preámbulo/anexo.",
+    article: "Ley 37/2015, art. 4.1",
+    text: "¿Qué administración es titular de A y N de la Red de Carreteras del Estado? La Administración General del Estado, a través del ministerio competente en carreteras.",
+    explanation: "Ficha revisada del tema 35. Fuente: Ley 37/2015, de 29 de septiembre, de carreteras (BOE-A-2015-10439) — art. 4.1 y anexo II (Catálogo de la Red de Carreteras del Estado).",
     difficulty: 'media',
     confusion_risk: 'medio',
     type: 'dato literal'
@@ -125,11 +125,11 @@ export const INITIAL_MICROCONCEPTS: Microconcept[] = [
     type: 'dato literal'
   },
   {
-    id: "CPEI-T39-SPE-010",
+    id: "CPEI-T39-SOP-005",
     topic_id: 'T39',
-    article: "PDF p. 12",
-    text: "¿Cuáles son los cuatro estados posibles de una tarea programada? No gestionada; Gestionada; Finalizada; No pudo finalizarse.",
-    explanation: "Ficha revisada del tema 39. Fuente: Uso y manejo de la plataforma SOS — Módulo de personal (manual bomberos nuevo ingreso; PDF Drive FUENTE_OFICIAL_SOS_Personal.pdf, 30 págs.) — PDF p. 12.",
+    article: "PDF p. 5",
+    text: "¿Para qué sirve el icono Servicios/Ruta en el móvil? Para recibir en el teléfono el punto de intervención.",
+    explanation: "Ficha revisada del tema 39. Fuente: Uso y manejo de la plataforma SOS — Módulo operativo (manual bomberos nuevo ingreso; PDF Drive FUENTE_OFICIAL_SOS_Operativo.pdf, 47 págs.) — PDF p. 5.",
     difficulty: 'media',
     confusion_risk: 'medio',
     type: 'dato literal'
@@ -184,7 +184,9 @@ export const INITIAL_QUESTIONS: Question[] = [
     options: ["Estado social y democrático de Derecho", "Estado democrático y social de Derecho", "Estado social y liberal de Derecho"],
     correct_answer: 'Estado social y democrático de Derecho',
     explanation: 'El artículo 1.1 establece textualmente que España se constituye en un "Estado social y democrático de Derecho" en este preciso orden.',
-    fuente: "Constitución Española, art. 1.1"
+    fuente: "Constitución Española, art. 1.1",
+    cita: "España se constituye en un Estado social y democrático de Derecho, que propugna como valores superiores de su ordenamiento jurídico la libertad, la justicia, la igualdad y el pluralismo político.",
+    tema: { numero: 1, titulo: "La Constitución Española de 1978" }
   },
   {
     id: 'Q-ART1-002-N1',
@@ -192,10 +194,12 @@ export const INITIAL_QUESTIONS: Question[] = [
     level: 'N1',
     type: 'test_literal',
     question: 'Según el artículo 1.1 de la Constitución Española, ¿cuáles son los valores superiores de su ordenamiento jurídico?',
-    options: ["La libertad, la seguridad, la igualdad y la democracia.", "La libertad, la justicia, la igualdad y el pluralismo político.", "La justicia, la solidaridad, la igualdad y la autonomía."],
+    options: ["La libertad, la justicia, la igualdad y la soberanía nacional.", "La libertad, la justicia, la igualdad y el pluralismo político.", "La justicia, la solidaridad, la igualdad y la autonomía."],
     correct_answer: 'La libertad, la justicia, la igualdad y el pluralismo político.',
     explanation: 'El artículo 1.1 cita de forma explícita e inequívoca estos cuatro valores superiores: libertad, justicia, igualdad y pluralismo político.',
-    fuente: "Constitución Española, art. 1.1"
+    fuente: "Constitución Española, art. 1.1",
+    cita: "España se constituye en un Estado social y democrático de Derecho, que propugna como valores superiores de su ordenamiento jurídico la libertad, la justicia, la igualdad y el pluralismo político.",
+    tema: { numero: 1, titulo: "La Constitución Española de 1978" }
   },
   {
     id: 'Q-ART1-003-N3',
@@ -203,10 +207,12 @@ export const INITIAL_QUESTIONS: Question[] = [
     level: 'N3',
     type: 'pregunta_inversa',
     question: 'Si afirmamos que "del pueblo español emanan los poderes del Estado", ¿qué principio fundamental consagrado en el Artículo 1.2 sustenta directamente esta afirmación?',
-    options: ["La constitución de un Estado social de Derecho.", "El principio de legalidad de los órganos del Estado.", "Que la soberanía nacional reside en el pueblo español."],
+    options: ["La constitución de un Estado social de Derecho.", "El principio de legalidad y de jerarquía de los órganos del Estado.", "Que la soberanía nacional reside en el pueblo español."],
     correct_answer: 'Que la soberanía nacional reside en el pueblo español.',
     explanation: 'El Artículo 1.2 conecta conceptualmente la soberanía del pueblo con el hecho de que de él emanen los poderes estatales.',
-    fuente: "Constitución Española, art. 1.2"
+    fuente: "Constitución Española, art. 1.2",
+    cita: "La soberanía nacional reside en el pueblo español, del que emanan los poderes del Estado.",
+    tema: { numero: 1, titulo: "La Constitución Española de 1978" }
   },
   {
     id: 'Q-ART1-004-N1',
@@ -217,7 +223,9 @@ export const INITIAL_QUESTIONS: Question[] = [
     options: ["Del Estado español", "Del pueblo español", "De la Constitución"],
     correct_answer: 'Del pueblo español',
     explanation: 'El artículo 1.2 concluye: "...del que [el pueblo español] emanan los poderes del Estado".',
-    fuente: "Constitución Española, art. 1.2"
+    fuente: "Constitución Española, art. 1.2",
+    cita: "La soberanía nacional reside en el pueblo español, del que emanan los poderes del Estado.",
+    tema: { numero: 1, titulo: "La Constitución Española de 1978" }
   },
   {
     id: 'Q-ART1-005-N1',
@@ -228,7 +236,9 @@ export const INITIAL_QUESTIONS: Question[] = [
     options: ["La República parlamentaria", "La Monarquía democrática", "La Monarquía parlamentaria"],
     correct_answer: 'La Monarquía parlamentaria',
     explanation: 'El texto dice de manera literal e inequívoca: "La forma política del Estado español es la Monarquía parlamentaria."',
-    fuente: "Constitución Española, art. 1.3"
+    fuente: "Constitución Española, art. 1.3",
+    cita: "La forma política del Estado español es la Monarquía parlamentaria.",
+    tema: { numero: 1, titulo: "La Constitución Española de 1978" }
   },
   // Tema 35 · ficha CPEI-T35-S01-D067024BDE (revisada)
   {
@@ -237,23 +247,23 @@ export const INITIAL_QUESTIONS: Question[] = [
     level: 'N1',
     type: 'test_literal',
     question: "Según el Decreto 98/2008, ¿qué tres categorías ordinarias emplea el catálogo de carreteras de Extremadura?",
-    options: ["Red básica, red comarcal y red vecinal.", "Red básica, red intercomarcal y red local.", "Red estatal, red regional y red local."],
+    options: ["Red básica, red complementaria y red local.", "Red básica, red intercomarcal y red local.", "Red estatal, red regional y red local."],
     correct_answer: "Red básica, red intercomarcal y red local.",
-    explanation: "Ficha: «Red básica, red intercomarcal y red local.» Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — preámbulo/anexo.",
-    fuente: "Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — preámbulo/anexo",
+    explanation: "Ficha: «Red básica, red intercomarcal y red local.» Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — anexo, columna «Categoría»: básica, intercomarcal y local, además de autovía autonómica (DOE n.º 103, 29/05/2008, pp. 14496-14500).",
+    fuente: "Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — anexo, columna «Categoría»: básica, intercomarcal y local, además de autovía autonómica (DOE n.º 103, 29/05/2008, pp. 14496-14500)",
     tema: { numero: 35, titulo: "Red de carreteras de Extremadura (provincia de Badajoz)" }
   },
-  // Tema 35 · ficha CPEI-T35-S01-D003AEE18E (revisada)
+  // Tema 35 · ficha CPEI-T35-S01-57F9BFBC83 (revisada)
   {
-    id: "Q-CPEI-T35-S01-D003AEE18E",
-    microconcept_id: "CPEI-T35-S01-D003AEE18E",
+    id: "Q-CPEI-T35-S01-57F9BFBC83",
+    microconcept_id: "CPEI-T35-S01-57F9BFBC83",
     level: 'N1',
     type: 'test_literal',
-    question: "¿Qué prefijo identifica las carreteras provinciales de Badajoz?",
-    options: ["EX", "CC", "BA"],
-    correct_answer: "BA",
-    explanation: "Ficha: «BA.» Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — preámbulo/anexo.",
-    fuente: "Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — preámbulo/anexo",
+    question: "¿Qué administración es titular de las carreteras A y N de la Red de Carreteras del Estado?",
+    options: ["La Junta de Extremadura, a través de su consejería competente en materia de carreteras.", "La Administración General del Estado, a través del ministerio competente en carreteras.", "Las Diputaciones Provinciales, a través de sus servicios provinciales de vías y obras."],
+    correct_answer: "La Administración General del Estado, a través del ministerio competente en carreteras.",
+    explanation: "Ficha: «La Administración General del Estado, a través del ministerio competente en carreteras.» Fuente: Ley 37/2015, de 29 de septiembre, de carreteras (BOE-A-2015-10439) — art. 4.1 y anexo II (Catálogo de la Red de Carreteras del Estado).",
+    fuente: "Ley 37/2015, de 29 de septiembre, de carreteras (BOE-A-2015-10439) — art. 4.1 y anexo II (Catálogo de la Red de Carreteras del Estado)",
     tema: { numero: 35, titulo: "Red de carreteras de Extremadura (provincia de Badajoz)" }
   },
   // Tema 35 · ficha CPEI-T35-S03-99DDF8B8E0 (revisada)
@@ -289,7 +299,7 @@ export const INITIAL_QUESTIONS: Question[] = [
     level: 'N1',
     type: 'test_literal',
     question: "Según la ITF Horario de actividades, ¿qué puede suponer un retraso injustificado y/o la acumulación de retrasos injustificados?",
-    options: ["La consideración de falta leve.", "Una amonestación por escrito.", "La consideración de falta grave."],
+    options: ["La consideración de falta muy grave.", "Una amonestación por escrito.", "La consideración de falta grave."],
     correct_answer: "La consideración de falta grave.",
     explanation: "Ficha: «La consideración de falta grave.» Fuente: ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020) — PDF p. 7.",
     fuente: "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020) — PDF p. 7",
@@ -302,23 +312,23 @@ export const INITIAL_QUESTIONS: Question[] = [
     level: 'N1',
     type: 'test_literal',
     question: "Según el protocolo de radiocomunicaciones del CPEI, para deletrear, ¿qué código fonético se utiliza?",
-    options: ["El código fonético internacional ICAO.", "El código fonético propio del CPEI.", "El código Morse internacional."],
+    options: ["El código fonético internacional ICAO.", "El alfabeto fonético propio del CPEI de Badajoz.", "El código Morse internacional."],
     correct_answer: "El código fonético internacional ICAO.",
     explanation: "Ficha: «El código fonético internacional ICAO.» Fuente: Protocolo de movilización ante siniestros CPEI Badajoz (BOP Badajoz n.º 224, anuncio 4899/2025, 24/11/2025; 34 págs.; incluye protocolo de radiocomunicaciones y anexo SOS) — PDF p. 26.",
     fuente: "Protocolo de movilización ante siniestros CPEI Badajoz (BOP Badajoz n.º 224, anuncio 4899/2025, 24/11/2025; 34 págs.; incluye protocolo de radiocomunicaciones y anexo SOS) — PDF p. 26",
     tema: { numero: 39, titulo: "Protocolo de movilización CPEI + SOS operativo + SOS personal" }
   },
-  // Tema 39 · ficha CPEI-T39-SPE-010 (revisada)
+  // Tema 39 · ficha CPEI-T39-SOP-005 (revisada). Sustituye a SPE-010 (SOS Módulo de personal, fuera del epígrafe del tema 39).
   {
-    id: "Q-CPEI-T39-SPE-010",
-    microconcept_id: "CPEI-T39-SPE-010",
+    id: "Q-CPEI-T39-SOP-005",
+    microconcept_id: "CPEI-T39-SOP-005",
     level: 'N1',
     type: 'test_literal',
-    question: "Según el manual del módulo de personal de SOS, ¿cuáles son los cuatro estados posibles de una tarea programada?",
-    options: ["Pendiente; En curso; Finalizada; Archivada.", "No gestionada; Gestionada; Finalizada; No pudo finalizarse.", "No gestionada; Asignada; Cerrada; Archivada."],
-    correct_answer: "No gestionada; Gestionada; Finalizada; No pudo finalizarse.",
-    explanation: "Ficha: «No gestionada; Gestionada; Finalizada; No pudo finalizarse.» Fuente: Uso y manejo de la plataforma SOS — Módulo de personal (manual bomberos nuevo ingreso; PDF Drive FUENTE_OFICIAL_SOS_Personal.pdf, 30 págs.) — PDF p. 12.",
-    fuente: "Uso y manejo de la plataforma SOS — Módulo de personal (manual bomberos nuevo ingreso; PDF Drive FUENTE_OFICIAL_SOS_Personal.pdf, 30 págs.) — PDF p. 12",
+    question: "Según el manual del módulo operativo de SOS, ¿para qué sirve el icono Servicios/Ruta en el móvil?",
+    options: ["Para enviar al CPEI la posición del vehículo.", "Para recibir en el teléfono el punto de intervención.", "Para consultar el historial de intervenciones del parque."],
+    correct_answer: "Para recibir en el teléfono el punto de intervención.",
+    explanation: "Ficha: «Para recibir en el teléfono el punto de intervención.» Fuente: Uso y manejo de la plataforma SOS — Módulo operativo (manual bomberos nuevo ingreso; PDF Drive FUENTE_OFICIAL_SOS_Operativo.pdf, 47 págs.) — PDF p. 5.",
+    fuente: "Uso y manejo de la plataforma SOS — Módulo operativo (manual bomberos nuevo ingreso; PDF Drive FUENTE_OFICIAL_SOS_Operativo.pdf, 47 págs.) — PDF p. 5",
     tema: { numero: 39, titulo: "Protocolo de movilización CPEI + SOS operativo + SOS personal" }
   },
   // Tema 40 · ficha CPEI-T40-PT03-081 (revisada)

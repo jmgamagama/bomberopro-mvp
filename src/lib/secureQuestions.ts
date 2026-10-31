@@ -37,7 +37,7 @@ export function gradeLocally(q: Question, answer: string): AnswerCheck {
   };
 }
 
-export async function fetchKeyless(client: RpcClient, fn: 'get_exam_questions_v2' | 'get_study_session_v2' | 'get_topic_questions_v2', args: Record<string, unknown>): Promise<Question[]> {
+export async function fetchKeyless(client: RpcClient, fn: 'get_exam_questions_v2' | 'get_study_session_v2' | 'get_topic_questions_v2' | 'get_error_session_v2', args: Record<string, unknown>): Promise<Question[]> {
   const { data, error } = await client.rpc(fn, args);
   if (error) throw error;
   return ((data ?? []) as any[]).map(toKeylessQuestion);

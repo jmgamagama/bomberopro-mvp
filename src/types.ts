@@ -69,6 +69,8 @@ export interface Question {
   explanation: string;
   // Nuevos campos según Decision 2 (alineado con pipeline)
   fuente?: string;
+  /** Cita literal de la norma (BOE) que respalda la respuesta; se muestra tras corregir. */
+  cita?: string;
   version_convocatoria?: string;
   tema?: {
     numero: number;

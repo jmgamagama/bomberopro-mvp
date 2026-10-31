@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
-// Migración 35: al superar el límite de correcciones, cada pantalla muestra un aviso y no corrige.
-import { fireEvent, render, screen } from '@testing-library/react';
+// Migración 39: al superar el límite de correcciones, cada pantalla muestra un aviso y no corrige.
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import '../test/setup';
 
@@ -9,10 +9,7 @@ vi.mock('../lib/supabase', () => ({ supabase: { rpc, from } }));
 vi.mock('../lib/saveAttemptToServer', () => ({ saveAttemptToServer: vi.fn(), toLevelInt: () => 1, newAttemptKey: () => 'k' }));
 vi.mock('./StudentConsultationModal', () => ({ default: () => null }));
 vi.mock('./ReportQuestionButton', () => ({ default: () => null }));
-vi.mock('../utils/shuffleOptions', async (importOriginal) => ({
-  ...(await importOriginal<typeof import('../utils/shuffleOptions')>()),
-  shuffleAllOptions: (q: unknown) => q,
-}));
+vi.mock('../utils/shuffleOptions', async (importOriginal) => ({ ...(await importOriginal<typeof import('../utils/shuffleOptions')>()), shuffleAllOptions: (q: unknown) => q }));
 
 import StudyByTopic from './StudyByTopic';
 import TrainScreen from './TrainScreen';
@@ -47,5 +44,24 @@ describe('aviso de límite de correcciones', () => {
     fireEvent.click(container.querySelector('#conf-btn-media')!);
     expect(await screen.findByRole('alert')).toHaveTextContent(/300 correcciones por hora/);
     expect(onAnswer).not.toHaveBeenCalled();
+  });
+
+  it('TrainScreen bloquea las opciones mientras el servidor corrige', async () => {
+    let resolveCheck: (v: unknown) => void = () => {};
+    rpc.mockReturnValue(new Promise((resolve) => { resolveCheck = resolve; }));
+    const q = { ...INITIAL_QUESTIONS[0], correct_answer: '', explanation: '' };
+    const { container } = render(
+      <TrainScreen question={q} selectionReason="r" microconcepts={INITIAL_MICROCONCEPTS} memoryStates={{}}
+        sessionCurrent={1} sessionTotal={1} onAnswer={vi.fn()} onNextQuestion={vi.fn()} onNavigateHome={vi.fn()} />);
+    const [a, b] = [q.options![0], q.options![1]];
+    fireEvent.click(screen.getByRole('button', { name: a }));
+    fireEvent.click(container.querySelector('#conf-btn-media')!);
+    // Corrección pendiente: no se puede cambiar a B ni volver a confirmar.
+    expect(screen.getByRole('button', { name: b })).toBeDisabled();
+    expect(container.querySelector('#conf-btn-alta')).toBeDisabled();
+    // Si falla, se vuelve a poder elegir.
+    await act(async () => { resolveCheck({ data: null, error: { code: 'P0429', message: 'rate_limited_hour' } }); });
+    expect(await screen.findByRole('alert')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: b })).not.toBeDisabled();
   });
 });

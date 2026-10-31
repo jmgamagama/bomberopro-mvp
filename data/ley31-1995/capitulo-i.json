@@ -61,6 +61,7 @@
       "Limita la normativa preventiva a las normas con rango de ley aprobadas por las Cortes Generales."
      ],
      "correcta": 1,
+     "cita": "La normativa sobre prevención de riesgos laborales está constituida por la presente Ley, sus disposiciones de desarrollo o complementarias y cuantas otras normas, legales o convencionales, contengan prescripciones relativas a la adopción de medidas preventivas en el ámbito laboral o susceptibles de producirlas en dicho ámbito.",
      "explicacion": "El art. 1 incluye las normas que contengan prescripciones relativas a la adopción de medidas preventivas en el ámbito laboral «o susceptibles de producirlas en dicho ámbito», sean legales o convencionales."
     }
    ]
@@ -111,6 +112,7 @@
       "Únicamente las de las mutuas colaboradoras y los servicios de prevención ajenos acreditados."
      ],
      "correcta": 1,
+     "cita": "Para el cumplimiento de dichos fines, la presente Ley regula las actuaciones a desarrollar por las Administraciones públicas, así como por los empresarios, los trabajadores y sus respectivas organizaciones representativas.",
      "explicacion": "Art. 2.1: la Ley regula las actuaciones de las Administraciones públicas, así como de los empresarios, los trabajadores y sus respectivas organizaciones representativas."
     }
    ]
@@ -189,6 +191,7 @@
       "No, solo a los trabajadores con contrato laboral"
      ],
      "correcta": 0,
+     "cita": "En los centros y establecimientos militares será de aplicación lo dispuesto en la presente Ley, con las particularidades previstas en su normativa específica.",
      "explicacion": "Art. 3.1: se aplica también a las relaciones de carácter administrativo o estatutario del personal al servicio de las Administraciones Públicas, con sus peculiaridades."
     },
     {
@@ -240,6 +243,7 @@
       "No, la Ley se aplica siempre a protección civil"
      ],
      "correcta": 0,
+     "cita": "La presente Ley no será de aplicación en aquellas actividades cuyas particularidades lo impidan en el ámbito de las funciones públicas de:",
      "explicacion": "Art. 3.2: la Ley no se aplica a esas actividades cuando sus particularidades lo impidan."
     },
     {
@@ -351,6 +355,7 @@
       "Solo se aplica a los internos que trabajen en talleres, nunca a los funcionarios de prisiones."
      ],
      "correcta": 1,
+     "cita": "En los establecimientos penitenciarios, se adaptarán a la presente Ley aquellas actividades cuyas características justifiquen una regulación especial, lo que se llevará a efecto en los términos señalados en la Ley 7/1990, de 19 de julio, sobre negociación colectiva y participación en la determinación de las condiciones de trabajo de los empleados públicos.",
      "explicacion": "Art. 3.3, párrafo segundo: se adaptarán a la Ley las actividades que justifiquen una regulación especial, en los términos de la Ley 7/1990."
     },
     {
@@ -362,6 +367,7 @@
       "El texto refundido de la Ley del Estatuto de los Trabajadores y sus normas complementarias."
      ],
      "correcta": 0,
+     "cita": "En los establecimientos penitenciarios, se adaptarán a la presente Ley aquellas actividades cuyas características justifiquen una regulación especial, lo que se llevará a efecto en los términos señalados en la Ley 7/1990, de 19 de julio, sobre negociación colectiva y participación en la determinación de las condiciones de trabajo de los empleados públicos.",
      "explicacion": "Art. 3.3: «en los términos señalados en la Ley 7/1990, de 19 de julio, sobre negociación colectiva y participación…»."
     }
    ]
@@ -453,6 +459,7 @@
       "La enfermedad profesional reconocida como tal por la Seguridad Social tras el expediente."
      ],
      "correcta": 0,
+     "cita": "2.º Se entenderá como «riesgo laboral» la posibilidad de que un trabajador sufra un determinado daño derivado del trabajo.",
      "explicacion": "Art. 4.2.º LPRL."
     },
     {
@@ -604,6 +611,7 @@
       "Únicamente si se superan los valores límite durante más de una jornada completa de trabajo."
      ],
      "correcta": 1,
+     "cita": "En el caso de exposición a agentes susceptibles de causar daños graves a la salud de los trabajadores, se considerará que existe un riesgo grave e inminente cuando sea probable racionalmente que se materialice en un futuro inmediato una exposición a dichos agentes de la que puedan derivarse daños graves para la salud, aun cuando éstos no se manifiesten de forma inmediata.",
      "explicacion": "Art. 4.4.º, párrafo segundo."
     },
     {
@@ -615,6 +623,7 @@
       "Solo lo será si el trabajador ya presenta síntomas de la enfermedad en ese momento."
      ],
      "correcta": 1,
+     "cita": "En el caso de exposición a agentes susceptibles de causar daños graves a la salud de los trabajadores, se considerará que existe un riesgo grave e inminente cuando sea probable racionalmente que se materialice en un futuro inmediato una exposición a dichos agentes de la que puedan derivarse daños graves para la salud, aun cuando éstos no se manifiesten de forma inmediata.",
      "explicacion": "Art. 4.4.º: lo inminente es la exposición; basta que puedan derivarse daños graves «aun cuando éstos no se manifiesten de forma inmediata»."
     }
    ]
@@ -754,6 +763,7 @@
       "El horario, las vacaciones y el salario pactados en el convenio colectivo aplicable."
      ],
      "correcta": 0,
+     "cita": "cualquier característica del mismo que pueda tener una influencia significativa en la generación de riesgos para la seguridad y la salud del trabajador",
      "explicacion": "Art. 4.7.º LPRL."
     },
     {
