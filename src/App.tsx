@@ -29,6 +29,7 @@ import {
 } from './utils/db';
 import { getAdaptiveQuestion, processAttempt, getAdaptiveDailySession, createNewMemoryState, normalizeSpacedEvidence } from './utils/engine';
 import { MAX_VALID_RESPONSE_SECONDS } from './utils/activeTimer';
+import { SCREEN_TITLES } from './utils/screenTitles';
 
 import Dashboard from './components/Dashboard';
 import TodayTraining from './components/TodayTraining';
@@ -75,25 +76,6 @@ const SupuestosPracticos = lazy(() => import('./components/SupuestosPracticos'))
 const Onboarding = lazy(() => import('./components/Onboarding'));
 const Planes = lazy(() => import('./components/Planes'));
 
-const SCREEN_TITLES = {
-  dashboard: 'Inicio',
-  train: 'Entrenamiento',
-  errors: 'Errores críticos',
-  forgetting_curve: 'Curva de olvido',
-  mock_exam: 'Simulacro',
-  today_training: 'Entrenamiento de hoy',
-  study_by_topic: 'Estudio por Temas',
-  concept_t40: 'Estudiar hoy',
-  constitucion: 'Constitución · Título Preliminar',
-  my_reports: 'Mis reportes',
-  recuerdo: 'Recuerdo',
-  sesion_diaria: 'Sesión diaria',
-  onboarding: 'Bienvenida',
-  planes: 'Planes',
-  ordena_pasos: 'Ordena los pasos',
-  supuestos: 'Supuestos prácticos',
-  mas: 'Más',
-} as const;
 
   const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds: number | null, modo: 'adaptativo' | 'simulacro' = 'adaptativo', nivel: unknown = 1, sessionId: string | null = null) => {
       if (!supabase || !userId) return;

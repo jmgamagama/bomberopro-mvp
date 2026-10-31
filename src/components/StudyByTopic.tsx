@@ -169,7 +169,7 @@ if (!started) {
                  defaultReason: 'Temario y estudio',
                })
              ),
-             h('h1', { className: 'text-2xl font-bold text-slate-900 mb-2' }, 'Estudio por Temas'),
+             h('h1', { className: 'text-2xl font-bold text-slate-900 mb-2' }, 'Temas'),
              h('p', { className: 'text-slate-600 mb-6' }, 'Elige uno o varios temas para practicar preguntas centradas en ese contenido.'),
              loadingTopics
              ? h('p', { className: 'text-slate-500' }, 'Cargando temas...')

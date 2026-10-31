@@ -88,7 +88,7 @@ export default function ForgettingCurve({
               <Brain className="w-5 h-5 animate-pulse" />
             </div>
             <div>
-              <h2 className="text-xl font-bold text-slate-800">Gráfico de Retención & Curva del Olvido</h2>
+              <h2 className="text-xl font-bold text-slate-800">Curva de olvido</h2>
               <p className="text-xs text-slate-500">
                 Visualización científica del desgaste de memoria conforme pasa el tiempo.
               </p>
