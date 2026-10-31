@@ -5,6 +5,9 @@ import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import Onboarding from './Onboarding';
 import { planSummary, PLAN_LIMITS } from '../utils/plan';
+import { getVisibleTopics } from '../data/recallRegistry';
+import { getPreferredDeckId } from '../utils/studyPreferences';
+import { getDailyMinutes } from '../utils/studyPlan';
 
 afterEach(() => vi.unstubAllEnvs());
 
@@ -14,6 +17,17 @@ describe('Bienvenida del invitado', () => {
     render(<Onboarding onStart={() => {}} onSkip={() => {}} onTryExam={onTryExam} />);
     await userEvent.setup().click(screen.getByRole('button', { name: /probar un simulacro de muestra/i }));
     expect(onTryExam).toHaveBeenCalledTimes(1);
+  });
+
+  it('ir al simulacro conserva el tema y los minutos elegidos', async () => {
+    const user = userEvent.setup();
+    render(<Onboarding onStart={() => {}} onSkip={() => {}} onTryExam={() => {}} />);
+    const topic = getVisibleTopics()[0];
+    await user.click(screen.getByRole('radio', { name: new RegExp(`^${topic.shortLabel} ·`) }));
+    await user.click(screen.getByRole('radio', { name: '20 min' }));
+    await user.click(screen.getByRole('button', { name: /probar un simulacro de muestra/i }));
+    expect(getPreferredDeckId()).toBe(topic.id);
+    expect(getDailyMinutes()).toBe(20);
   });
 
   it('con planes: dice qué es gratis y qué es Pro con los textos de plan.ts', async () => {

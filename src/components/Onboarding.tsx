@@ -53,11 +53,16 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes }:
   const planSize = getDailySessionSize(plan);
   const sessionSize = resolveDailySessionSize(planSize, minutes, reviewLog, isPlanesEnabled() && plan === 'free');
 
-  const start = () => {
+  /** Guarda tema, minutos y fecha elegidos (tanto al empezar la sesión como al ir al simulacro). */
+  const savePreferences = () => {
     setPreferredDeckId(choice === ALL ? null : choice);
     setExamDate(examDate);
     setDailyMinutes(minutes);
     completeOnboarding('started');
+  };
+
+  const start = () => {
+    savePreferences();
     onStart();
   };
 
@@ -233,7 +238,7 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes }:
             type="button"
             id="btn-onboarding-simulacro"
             onClick={() => {
-              completeOnboarding('skipped');
+              savePreferences();
               onTryExam();
             }}
             className="mt-2 flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-indigo-200 bg-white px-4 py-2 text-sm font-semibold text-indigo-700 hover:bg-indigo-50"
