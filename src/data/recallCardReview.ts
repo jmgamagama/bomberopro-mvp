@@ -40,7 +40,9 @@ export const OUT_OF_SYLLABUS_CARDS: Readonly<Record<string, readonly string[]>> 
     'CPEI-T28-OF-3D6693BE', 'CPEI-T28-OF-E6962F89', 'CPEI-T28-OF-A5F36376', 'CPEI-T28-OF-CA271CF9',
   ],
   'tema35': ['CPEI-T35-S01-D003AEE18E', 'CPEI-T35-S01-400B30628A'],
+  // T36-lote01: S03-887722957A es una ficha meta (cómo se generaron las 165 fichas de límites), no contenido del epígrafe; se retira (01/11/2026).
   'tema36-lote01': [
+    'CPEI-T36-S03-887722957A',
     'CPEI-T36-S02-734D640EE3', 'CPEI-T36-S02-6090DF251C', 'CPEI-T36-S02-B08849E3E1', 'CPEI-T36-S02-9A8D6DB432',
     'CPEI-T36-S02-64ABC67D70', 'CPEI-T36-S02-7C73BF41ED', 'CPEI-T36-S02-0037BF95E9', 'CPEI-T36-S02-71A23AB595',
     'CPEI-T36-S02-F26BE13AAA', 'CPEI-T36-S02-C8D4A7B9F0', 'CPEI-T36-S02-A1DB66F378', 'CPEI-T36-S02-7117FFA23D',
@@ -153,6 +155,8 @@ export const REVIEWED_CARDS_IN_PENDING_DECKS: Readonly<Record<string, readonly s
     'CPEI-T36-S01-2A0B8D8C18',
     // Denominaciones oficiales georreferenciadas: reescrita al literal del art. 23.1 del RD 1545/2007 (BOE-A-2007-20556), 31/10/2026.
     'CPEI-T36-S01-73F24B915A',
+    // Complejo Lagunar de La Albuera: ficha sintética del anexo de la Resolución de 18/12/2002 (Ramsar), BOE-A-2003-989, p. 2013; sitio Ramsar ES049/1256 aún en la lista del MITECO (10/2025). 01/11/2026.
+    'CPEI-T36-S06-290EA56D14',
     // INE, tabla 2859 (Badajoz, cifras definitivas a 1/1/2025), descargada el 31/10/2026: las 21 poblaciones de más de 5.000 hab. coinciden, igual que la fecha y el código provincial 06.
     'CPEI-T36-S02-7CA46DB703', 'CPEI-T36-S02-581F657A32', 'CPEI-T36-S02-9A0E3EB510', 'CPEI-T36-S02-62A9FE3183',
     'CPEI-T36-S02-0A4022A679', 'CPEI-T36-S02-BE491A4A28', 'CPEI-T36-S02-69ABD4A739', 'CPEI-T36-S02-57A7367B23',
