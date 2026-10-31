@@ -24,8 +24,8 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "orden": 10,
     "concepto": "¿Cuál es la capital de la provincia?",
     "respuesta": "Badajoz.",
-    "fuente": "IGN: Nomenclátor Geográfico de Municipios y Entidades de Población",
-    "localizacion": "tabla 2859 / Nomenclátor",
+    "fuente": "IGN: Nomenclátor Geográfico Básico de España (NGBE)",
+    "localizacion": "NGBE 2721311: «Badajoz», tipo «Capital de provincia», nombre oficial (WFS NGBE del IGN, consultado el 31/10/2026)",
     "apartado": "Marco"
   },
   {
@@ -58,10 +58,10 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
   {
     "id": "CPEI-T36-S01-73F24B915A",
     "orden": 50,
-    "concepto": "¿Qué fuente decide la denominación oficial y georreferenciada?",
-    "respuesta": "El Nomenclátor Geográfico de Municipios y Entidades de Población del IGN.",
-    "fuente": "IGN: Nomenclátor Geográfico de Municipios y Entidades de Población",
-    "localizacion": "tabla 2859 / Nomenclátor",
+    "concepto": "Según el Real Decreto 1545/2007, ¿qué registro recoge las denominaciones oficiales referenciadas geográficamente que deben utilizarse en la cartografía oficial?",
+    "respuesta": "El Nomenclátor Geográfico Nacional.",
+    "fuente": "Real Decreto 1545/2007, de 23 de noviembre, por el que se regula el Sistema Cartográfico Nacional (BOE-A-2007-20556)",
+    "localizacion": "art. 23.1: «El Nomenclátor Geográfico Nacional es un registro dinámico de información que recoge las denominaciones oficiales referenciadas geográficamente que deben utilizarse en la cartografía oficial»",
     "apartado": "Marco"
   },
   {
