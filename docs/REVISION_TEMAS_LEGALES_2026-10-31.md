@@ -31,3 +31,4 @@
 | T14 | tema14 | RGC BOE-A-2003-23514, RGV BOE-A-1999-1826, BOE-A-2021-4194 | 24 | 24 | 0 | — | 0 | normativa de aplicación de vehículos |
 | T28 | tema28 | RD 614/2001, REBT, RD 223/2008 | 29 | 29 | 0 | — | 0 | definiciones, distancias de seguridad, redes |
 | T12 | tema12 | RIPCI, BOE-A-2017-6606 | 21 | 16 | 0 | — | 5 ocultas (INSST, sin norma) | extintores, clases de fuego |
+| T28 | tema28-lote02 | REBT, RD 337/2014, RD 614/2001 | 74 | 61 | 1 | — | 12 ocultas (NTP 400, sin norma) | redes, CT, instalaciones de enlace |

@@ -29,15 +29,15 @@ describe('mazos pendientes de revisión ocultos al alumno', () => {
     const tablist = await screen.findByRole('tablist', { name: 'Temas de recuerdo' });
     const tabs = within(tablist).getAllByRole('tab').map((t) => t.textContent);
     // Etiqueta + nº de fichas visibles del tema (T10 solo su lote 2; T16 solo su lote 1; T36 solo las fichas revisadas sueltas de los lotes 1 a 8).
-    expect(tabs).toEqual(['T1129', 'T2121', 'T366', 'T694', 'T764', 'T1047', 'T1216', 'T1424', 'T1648', 'T1714', 'T2233', 'T2419', 'T2829', 'T3183', 'T34132', 'T35148', 'T36362', 'T38168', 'T39131', 'T40213']);
-    expect(screen.getByText(/1941 fichas de repaso/)).toBeInTheDocument();
+    expect(tabs).toEqual(['T1129', 'T2121', 'T366', 'T694', 'T764', 'T1047', 'T1216', 'T1424', 'T1648', 'T1714', 'T2233', 'T2419', 'T2891', 'T3183', 'T34132', 'T35148', 'T36362', 'T38168', 'T39131', 'T40213']);
+    expect(screen.getByText(/2003 fichas de repaso/)).toBeInTheDocument();
   });
 
   it('la bienvenida no ofrece temas pendientes', () => {
     render(<Onboarding onStart={vi.fn()} onSkip={vi.fn()} />);
     const group = screen.getByRole('radiogroup', { name: 'Tema para la sesión diaria' });
     expect(within(group).getAllByRole('radio')).toHaveLength(TEMAS_ALUMNO.length + 1);
-    expect(within(group).getByRole('radio', { name: /Todos los temas/ })).toHaveTextContent('1941 fichas');
+    expect(within(group).getByRole('radio', { name: /Todos los temas/ })).toHaveTextContent('2003 fichas');
     expect(within(group).queryByRole('radio', { name: /Tema 26/ })).toBeNull();
     expect(within(group).queryByRole('radio', { name: /^T27 ·/ })).toBeNull();
   });
@@ -58,7 +58,7 @@ describe('mazos pendientes de revisión ocultos al alumno', () => {
   it('las estadísticas solo cuentan y listan temas revisados', () => {
     render(<RecallStats onBack={vi.fn()} />);
     const stats = document.querySelector('#recall-stats') as HTMLElement;
-    expect(within(stats).getByText('Fichas vistas').parentElement).toHaveTextContent('de 1941');
+    expect(within(stats).getByText('Fichas vistas').parentElement).toHaveTextContent('de 2003');
     const lista = document.querySelector('#recall-stats-topics')!.textContent ?? '';
     for (const t of TEMAS_ALUMNO) expect(lista).toMatch(new RegExp(`\\b${t}\\b`));
     expect(lista).not.toMatch(/\bT26\b|\bT27\b/);
