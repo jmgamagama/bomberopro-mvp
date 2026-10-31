@@ -146,7 +146,7 @@ describe('sesión diaria con tema prioritario', () => {
     const date = new Date(2026, 9, 6);
     const base = pickDailyRecallSession(RECALL_CARDS, 30, date).map((c) => c.id);
     expect(pickDailyRecallSession(RECALL_CARDS, 30, date, { preferredDeckId: null }).map((c) => c.id)).toEqual(base);
-    expect(pickDailyRecallSession(RECALL_CARDS, 30, date, { preferredDeckId: 'tema37' }).map((c) => c.id)).toEqual(base);
+    expect(pickDailyRecallSession(RECALL_CARDS, 30, date, { preferredDeckId: 'tema11' }).map((c) => c.id)).toEqual(base);
   });
 });
 

@@ -40,7 +40,7 @@ describe('navegación de recuerdo', () => {
     expect(within(lotes).getAllByRole('tab')).toHaveLength(t36.decks.length);
     expect(await screen.findByText(/Ficha 1 de 78/)).toBeInTheDocument();
     await user.click(within(lotes).getByRole('tab', { name: /^Lote 2 ·/ }));
-    expect(await screen.findByText(/Ficha 1 de 79/)).toBeInTheDocument();
+    expect(await screen.findByText(/Ficha 1 de 80/)).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /Lote 02/ })).toBeInTheDocument();
   });
 

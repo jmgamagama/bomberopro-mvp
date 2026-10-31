@@ -1,4 +1,4 @@
-/** Tema 36 lote 03 recall cards — local subset (78). Self-contained: do not load all 528 tema 36 cards nor the other lotes (lote 01, lote 02, lote 04, lote 05, lote 06, lote 07, lote 08). */
+/** Tema 36 lote 03 recall cards — local subset (80). Self-contained: do not load all 528 tema 36 cards nor the other lotes (lote 01, lote 02, lote 04, lote 05, lote 06, lote 07, lote 08). */
 
 export type Tema36Lote03RecallCard = {
   id: string;
@@ -14,7 +14,7 @@ export const TEMA36_LOTE03_RECALL_META = {
   tema: 36,
   lote: "lote03",
   title: "Tema 36 · Lote 03 — Municipios restantes (INE + población ≤5.000): Esparragosa de la Serena → Nogales",
-  count: 78,
+  count: 80,
   source: "tema36_fichas.json + tema36_lotes.json",
 } as const;
 
@@ -26,6 +26,15 @@ export const TEMA36_LOTE03_RECALL_CARDS: Tema36Lote03RecallCard[] = [
     "respuesta": "06047",
     "fuente": "INE: población por municipios y sexo, Badajoz",
     "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Esparragosa de la Serena"
+  },
+  {
+    "id": "CPEI-T36-S02-EFA62999F3",
+    "orden": 995,
+    "concepto": "¿Qué población oficial tenía Esparragosa de la Serena a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "912 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
     "apartado": "Esparragosa de la Serena"
   },
   {
@@ -485,6 +494,15 @@ export const TEMA36_LOTE03_RECALL_CARDS: Tema36Lote03RecallCard[] = [
     "respuesta": "06077",
     "fuente": "INE: población por municipios y sexo, Badajoz",
     "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Malcocinado"
+  },
+  {
+    "id": "CPEI-T36-S02-FF8106CF01",
+    "orden": 1585,
+    "concepto": "¿Qué población oficial tenía Malcocinado a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "343 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
     "apartado": "Malcocinado"
   },
   {

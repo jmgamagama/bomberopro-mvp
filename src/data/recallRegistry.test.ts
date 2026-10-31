@@ -76,28 +76,29 @@ const EXPECTED_DECKS: Array<[string, string, number]> = [
   ['tema34-lote03', 'T34·3', 35],
   ['tema35', 'T35', 150],
   ['tema36-lote01', 'T36·1', 78],
-  ['tema36-lote02', 'T36·2', 79],
-  ['tema36-lote03', 'T36·3', 78],
+  ['tema36-lote02', 'T36·2', 80],
+  ['tema36-lote03', 'T36·3', 80],
   ['tema36-lote04', 'T36·4', 78],
   ['tema36-lote05', 'T36·5', 50],
   ['tema36-lote06', 'T36·6', 55],
   ['tema36-lote07', 'T36·7', 55],
   ['tema36-lote08', 'T36·8', 55],
+  ['tema37', 'T37', 37],
   ['tema38', 'T38', 198],
   ['tema39', 'T39', 149],
   ['tema40', 'T40', 213],
 ];
-const EXPECTED_TOPICS = ["tema1", "tema2", "tema3", "tema4", "tema5", "tema6", "tema7", "tema8", "tema9", "tema10", "tema12", "tema13", "tema14", "tema15", "tema16", "tema17", "tema20", "tema21", "tema22", "tema23", "tema24", "tema25", "tema26", "tema27", "tema28", "tema29", "tema30", "tema31", "tema32", "tema33", "tema34", "tema35", "tema36", "tema38", "tema39", "tema40"];
+const EXPECTED_TOPICS = ["tema1", "tema2", "tema3", "tema4", "tema5", "tema6", "tema7", "tema8", "tema9", "tema10", "tema12", "tema13", "tema14", "tema15", "tema16", "tema17", "tema20", "tema21", "tema22", "tema23", "tema24", "tema25", "tema26", "tema27", "tema28", "tema29", "tema30", "tema31", "tema32", "tema33", "tema34", "tema35", "tema36", "tema37", "tema38", "tema39", "tema40"];
 const EXPECTED_BLOQUES = [["comun", "Parte común"], ["especifica", "Parte específica"]];
-const EXPECTED_TOTAL = 3402;
-const EXPECTED_COVERAGE = '1, 2, 3, 4, 5, 6, 7, 8, 9, 10 (lote 02), 12 (lote 02), 13 (lote 02), 14, 15, 16 (lote 02), 17, 20, 21 (lote 02), 22 (lote 02), 23 (lote 02), 24, 25 (lote 02), 26, 27 (lote 02), 28 (lote 02), 29, 30, 31, 32, 33 (lote 02), 34 (lotes 01 a 03), 35, 36 (lotes 01 a 08), 38, 39 y 40';
+const EXPECTED_TOTAL = 3442;
+const EXPECTED_COVERAGE = '1, 2, 3, 4, 5, 6, 7, 8, 9, 10 (lote 02), 12 (lote 02), 13 (lote 02), 14, 15, 16 (lote 02), 17, 20, 21 (lote 02), 22 (lote 02), 23 (lote 02), 24, 25 (lote 02), 26, 27 (lote 02), 28 (lote 02), 29, 30, 31, 32, 33 (lote 02), 34 (lotes 01 a 03), 35, 36 (lotes 01 a 08), 37, 38, 39 y 40';
 // </generado:fase2>
 
 describe('registro central de recuerdo', () => {
   it('contiene un único mazo por tema/lote cargado, ordenado por tema', () => {
     expect(RECALL_DECKS.map((d) => d.id)).toEqual(EXPECTED_DECKS.map(([id]) => id));
     expect(RECALL_DECKS.map((d) => d.shortLabel)).toEqual(EXPECTED_DECKS.map(([, label]) => label));
-    expect(RECALL_DECKS.some((d) => d.tema === 37)).toBe(false);
+    expect(RECALL_DECKS.some((d) => d.tema === 37)).toBe(true);
     // Temas sin permiso de uso de su fuente (docs/PERMISOS_FUENTES.md): no se cargan.
     // El tema 15 solo se carga desde fuentes oficiales gratuitas (INSST, BOE), nunca desde manuales.
     expect(RECALL_DECKS.some((d) => [18, 19].includes(d.tema))).toBe(false);
@@ -112,7 +113,7 @@ describe('registro central de recuerdo', () => {
     expect(getRecallTopic('tema40')!.title).toBe(getRecallDeck('tema40').title);
     expect(toTopicId('tema36-lote02')).toBe('tema36');
     expect(toTopicId('tema40')).toBe('tema40');
-    expect(toTopicId('tema37')).toBeNull();
+    expect(toTopicId('tema11')).toBeNull();
   });
 
   it('agrupa los temas por bloque del temario (1-7 común, 8-40 específica)', () => {
@@ -154,7 +155,7 @@ describe('registro central de recuerdo', () => {
     // Vista del alumno: sin las 18 fichas del SOS «Módulo de personal» (fuera del epígrafe).
     expect(a).toHaveLength(131);
     expect(await loadRawRecallDeckCards('tema39')).toHaveLength(149);
-    await expect(loadRawRecallDeckCards('tema37')).rejects.toThrow();
+    await expect(loadRawRecallDeckCards('tema11')).rejects.toThrow();
   });
 
   it('todas las fichas tienen concepto, respuesta y fuente, con ids únicos entre mazos', async () => {
@@ -173,8 +174,8 @@ describe('registro central de recuerdo', () => {
       expect(n).toBeLessThan(100);
     }
     expect(readdirSync(dir).some((f) => /tema36Recall\.ts$|tema36Fichas/i.test(f))).toBe(false);
-    // Tema 36 completo: las 528 fichas de la BASE repartidas en 8 lotes.
-    expect(getRecallTopic('tema36')!.count).toBe(528);
+    // Tema 36 completo: las 528 fichas de la BASE más 3 poblaciones añadidas (INE), en 8 lotes.
+    expect(getRecallTopic('tema36')!.count).toBe(531);
     expect(getRecallTopic('tema36')!.decks).toHaveLength(8);
     // El registro no importa estáticamente ningún módulo de datos.
     const registry = readFileSync(resolve(dir, 'recallRegistry.ts'), 'utf-8');
@@ -183,7 +184,7 @@ describe('registro central de recuerdo', () => {
 
   it('getRecallDeck devuelve el mazo pedido y falla con ids desconocidos', () => {
     expect(getRecallDeck('tema40').title).toContain('Tema 40');
-    expect(() => getRecallDeck('tema37')).toThrow();
+    expect(() => getRecallDeck('tema11')).toThrow();
   });
 
   it('describeRecallCoverage resume los temas y lotes cargados', () => {

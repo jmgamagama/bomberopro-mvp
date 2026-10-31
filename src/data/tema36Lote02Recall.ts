@@ -1,4 +1,4 @@
-/** Tema 36 lote 02 recall cards — local subset (79). Self-contained: do not load all 528 tema 36 cards, lote 01 or lotes 03–08. */
+/** Tema 36 lote 02 recall cards — local subset (80). Self-contained: do not load all 528 tema 36 cards, lote 01 or lotes 03–08. */
 
 export type Tema36Lote02RecallCard = {
   id: string;
@@ -14,7 +14,7 @@ export const TEMA36_LOTE02_RECALL_META = {
   tema: 36,
   lote: "lote02",
   title: "Tema 36 · Lote 02 — Municipios restantes (INE + población ≤5.000): Acedera → Esparragosa de Lares",
-  count: 79,
+  count: 80,
   source: "tema36_fichas.json + tema36_lotes.json",
 } as const;
 
@@ -602,6 +602,15 @@ export const TEMA36_LOTE02_RECALL_CARDS: Tema36Lote02RecallCard[] = [
     "respuesta": "06038",
     "fuente": "INE: población por municipios y sexo, Badajoz",
     "localizacion": "tabla 2859, fila municipal",
+    "apartado": "Cordobilla de Lácara"
+  },
+  {
+    "id": "CPEI-T36-S02-1545BE119A",
+    "orden": 825,
+    "concepto": "¿Qué población oficial tenía Cordobilla de Lácara a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+    "respuesta": "815 habitantes; hasta 5.000 habitantes.",
+    "fuente": "INE: población por municipios y sexo, Badajoz",
+    "localizacion": "tabla 2859, columna Total 2025",
     "apartado": "Cordobilla de Lácara"
   },
   {
