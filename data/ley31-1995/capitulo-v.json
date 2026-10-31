@@ -70,7 +70,7 @@
    "id": "LPRL-a33-1-detalle",
    "bloque": "a33",
    "apartado": "1",
-   "orden": 1410,
+   "orden": 1408,
    "tipo": "lista",
    "prioridad": 2,
    "tarjeta": {
@@ -121,7 +121,7 @@
    "id": "LPRL-a33-2-representantes",
    "bloque": "a33",
    "apartado": "2",
-   "orden": 1420,
+   "orden": 1416,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -171,7 +171,7 @@
    "id": "LPRL-a34-1-participacion",
    "bloque": "a34",
    "apartado": "1",
-   "orden": 1430,
+   "orden": 1424,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -221,7 +221,7 @@
    "id": "LPRL-a34-2-representantes",
    "bloque": "a34",
    "apartado": "2",
-   "orden": 1440,
+   "orden": 1432,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -271,7 +271,7 @@
    "id": "LPRL-a34-3-adaptacion",
    "bloque": "a34",
    "apartado": "3",
-   "orden": 1450,
+   "orden": 1440,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -321,7 +321,7 @@
    "id": "LPRL-a34-3-comite",
    "bloque": "a34",
    "apartado": "3",
-   "orden": 1460,
+   "orden": 1448,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -372,7 +372,7 @@
    "id": "LPRL-a35-1-definicion",
    "bloque": "a35",
    "apartado": "1",
-   "orden": 1470,
+   "orden": 1456,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -422,7 +422,7 @@
    "id": "LPRL-a35-2-designacion",
    "bloque": "a35",
    "apartado": "2",
-   "orden": 1480,
+   "orden": 1464,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -473,7 +473,7 @@
    "id": "LPRL-a35-2-escala",
    "bloque": "a35",
    "apartado": "2",
-   "orden": 1490,
+   "orden": 1472,
    "tipo": "lista",
    "prioridad": 1,
    "tarjeta": {
@@ -524,7 +524,7 @@
    "id": "LPRL-a35-2-pequenas",
    "bloque": "a35",
    "apartado": "2",
-   "orden": 1500,
+   "orden": 1480,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -575,7 +575,7 @@
    "id": "LPRL-a35-3-fijos",
    "bloque": "a35",
    "apartado": "3",
-   "orden": 1510,
+   "orden": 1488,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -625,7 +625,7 @@
    "id": "LPRL-a35-3-temporales",
    "bloque": "a35",
    "apartado": "3",
-   "orden": 1520,
+   "orden": 1496,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -675,7 +675,7 @@
    "id": "LPRL-a35-4-sistemas",
    "bloque": "a35",
    "apartado": "4",
-   "orden": 1530,
+   "orden": 1504,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -725,7 +725,7 @@
    "id": "LPRL-a35-4-organos",
    "bloque": "a35",
    "apartado": "4",
-   "orden": 1540,
+   "orden": 1512,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -776,7 +776,7 @@
    "id": "LPRL-a36-1-competencias",
    "bloque": "a36",
    "apartado": "1",
-   "orden": 1550,
+   "orden": 1520,
    "tipo": "lista",
    "prioridad": 1,
    "tarjeta": {
@@ -827,7 +827,7 @@
    "id": "LPRL-a36-1-sin-comite",
    "bloque": "a36",
    "apartado": "1",
-   "orden": 1560,
+   "orden": 1528,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -877,7 +877,7 @@
    "id": "LPRL-a36-2-visitas",
    "bloque": "a36",
    "apartado": "2",
-   "orden": 1570,
+   "orden": 1536,
    "tipo": "lista",
    "prioridad": 2,
    "tarjeta": {
@@ -927,7 +927,7 @@
    "id": "LPRL-a36-2-informacion",
    "bloque": "a36",
    "apartado": "2",
-   "orden": 1580,
+   "orden": 1544,
    "tipo": "lista",
    "prioridad": 1,
    "tarjeta": {
@@ -978,7 +978,7 @@
    "id": "LPRL-a36-2-propuestas",
    "bloque": "a36",
    "apartado": "2",
-   "orden": 1590,
+   "orden": 1552,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -1030,7 +1030,7 @@
    "id": "LPRL-a36-3-plazo",
    "bloque": "a36",
    "apartado": "3",
-   "orden": 1600,
+   "orden": 1560,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -1081,7 +1081,7 @@
    "id": "LPRL-a38-1-organo",
    "bloque": "a38",
    "apartado": "1",
-   "orden": 1600,
+   "orden": 1624,
    "tipo": "definicion",
    "prioridad": 1,
    "tarjeta": {
@@ -1132,7 +1132,7 @@
    "id": "LPRL-a36-4-motivacion",
    "bloque": "a36",
    "apartado": "4",
-   "orden": 1610,
+   "orden": 1568,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -1183,7 +1183,7 @@
    "id": "LPRL-a38-2-constitucion",
    "bloque": "a38",
    "apartado": "2",
-   "orden": 1610,
+   "orden": 1632,
    "tipo": "cifra",
    "prioridad": 1,
    "tarjeta": {
@@ -1234,7 +1234,7 @@
    "id": "LPRL-a37-1-garantias",
    "bloque": "a37",
    "apartado": "1",
-   "orden": 1620,
+   "orden": 1576,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -1286,7 +1286,7 @@
    "id": "LPRL-a38-2-composicion",
    "bloque": "a38",
    "apartado": "2",
-   "orden": 1620,
+   "orden": 1640,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -1337,7 +1337,7 @@
    "id": "LPRL-a37-1-tiempo-efectivo",
    "bloque": "a37",
    "apartado": "1",
-   "orden": 1630,
+   "orden": 1584,
    "tipo": "lista",
    "prioridad": 1,
    "tarjeta": {
@@ -1388,7 +1388,7 @@
    "id": "LPRL-a38-2-participantes",
    "bloque": "a38",
    "apartado": "2",
-   "orden": 1630,
+   "orden": 1648,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -1438,7 +1438,7 @@
    "id": "LPRL-a37-2-medios",
    "bloque": "a37",
    "apartado": "2",
-   "orden": 1640,
+   "orden": 1592,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -1489,7 +1489,7 @@
    "id": "LPRL-a38-3-reuniones",
    "bloque": "a38",
    "apartado": "3",
-   "orden": 1640,
+   "orden": 1656,
    "tipo": "cifra",
    "prioridad": 1,
    "tarjeta": {
@@ -1540,7 +1540,7 @@
    "id": "LPRL-a37-2-coste",
    "bloque": "a37",
    "apartado": "2",
-   "orden": 1650,
+   "orden": 1600,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -1590,7 +1590,7 @@
    "id": "LPRL-a38-3-intercentros",
    "bloque": "a38",
    "apartado": "3",
-   "orden": 1650,
+   "orden": 1664,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -1641,7 +1641,7 @@
    "id": "LPRL-a37-3-sigilo",
    "bloque": "a37",
    "apartado": "3",
-   "orden": 1660,
+   "orden": 1608,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -1692,7 +1692,7 @@
    "id": "LPRL-a39-1-planes",
    "bloque": "a39",
    "apartado": "1",
-   "orden": 1660,
+   "orden": 1672,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -1743,7 +1743,7 @@
    "id": "LPRL-a37-4-aapp",
    "bloque": "a37",
    "apartado": "4",
-   "orden": 1670,
+   "orden": 1616,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -1794,7 +1794,7 @@
    "id": "LPRL-a39-1-iniciativas",
    "bloque": "a39",
    "apartado": "1",
-   "orden": 1670,
+   "orden": 1680,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -1845,7 +1845,7 @@
    "id": "LPRL-a39-2-conocer",
    "bloque": "a39",
    "apartado": "2",
-   "orden": 1680,
+   "orden": 1688,
    "tipo": "lista",
    "prioridad": 1,
    "tarjeta": {
@@ -1896,7 +1896,7 @@
    "id": "LPRL-a39-2-danos-memoria",
    "bloque": "a39",
    "apartado": "2",
-   "orden": 1690,
+   "orden": 1696,
    "tipo": "lista",
    "prioridad": 1,
    "tarjeta": {
@@ -1947,7 +1947,7 @@
    "id": "LPRL-a39-3-reuniones-conjuntas",
    "bloque": "a39",
    "apartado": "3",
-   "orden": 1700,
+   "orden": 1704,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -1998,7 +1998,7 @@
    "id": "LPRL-a40-1-recurso",
    "bloque": "a40",
    "apartado": "1",
-   "orden": 1710,
+   "orden": 1712,
    "tipo": "regla",
    "prioridad": 1,
    "tarjeta": {
@@ -2099,7 +2099,7 @@
    "id": "LPRL-a40-3-informe",
    "bloque": "a40",
    "apartado": "3",
-   "orden": 1730,
+   "orden": 1728,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
@@ -2150,7 +2150,7 @@
    "id": "LPRL-a40-4-consulta",
    "bloque": "a40",
    "apartado": "4",
-   "orden": 1740,
+   "orden": 1736,
    "tipo": "regla",
    "prioridad": 2,
    "tarjeta": {
