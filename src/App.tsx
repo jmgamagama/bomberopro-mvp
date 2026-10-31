@@ -29,21 +29,10 @@ import {
 } from './utils/db';
 import { getAdaptiveQuestion, processAttempt, getAdaptiveDailySession, createNewMemoryState, normalizeSpacedEvidence } from './utils/engine';
 
-import Dashboard from './components/Dashboard';
-import TodayTraining from './components/TodayTraining';
-import TrainScreen from './components/TrainScreen';
-import ErrorPanel from './components/ErrorPanel';
-import ForgettingCurve from './components/ForgettingCurve';
-import MockExam from './components/MockExam';
-import Login from './components/Login';
-import StudyByTopic from './components/StudyByTopic';
 import { fetchKeyless } from './lib/secureQuestions';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer, toLevelInt } from './lib/saveAttemptToServer';
 import UpdateBanner from './components/UpdateBanner';
-import MyReports from './components/MyReports';
-import ConceptStudy from './components/ConceptStudy';
-import MaterialConstitucion from './components/MaterialConstitucion';
 import SaveFailureBanner from './components/SaveFailureBanner';
 import { hasCompletedOnboarding } from './utils/onboarding';
 import { isPlanesEnabled } from './config/features';
@@ -56,6 +45,8 @@ import { cargarSupuestosCuenta } from './lib/privateSupuestos';
 import { shuffleAllOptions } from './utils/shuffleOptions';
 import { newStudySessionId, startStudySession, finishStudySession } from './lib/studySession';
 import { TrainCelebration } from './components/SessionCelebration';
+import Dashboard from './components/Dashboard';
+import TrainScreen from './components/TrainScreen';
 import Badajoz2026Card from './components/Badajoz2026Card';
 import { hasGuestSignupIntent, markGuestSignupIntent, markPreferLogin, migrateGuestProgress, prefersLogin } from './utils/guestProgress';
 
@@ -66,6 +57,15 @@ const getSafeMemoryStates = (): Record<string, MemoryState> => {
 };
 
 // Pantallas de recuerdo: se cargan bajo demanda para no meter todos los mazos en el bundle inicial.
+const TodayTraining = lazy(() => import('./components/TodayTraining'));
+const ErrorPanel = lazy(() => import('./components/ErrorPanel'));
+const ForgettingCurve = lazy(() => import('./components/ForgettingCurve'));
+const MockExam = lazy(() => import('./components/MockExam'));
+const Login = lazy(() => import('./components/Login'));
+const StudyByTopic = lazy(() => import('./components/StudyByTopic'));
+const MyReports = lazy(() => import('./components/MyReports'));
+const ConceptStudy = lazy(() => import('./components/ConceptStudy'));
+const MaterialConstitucion = lazy(() => import('./components/MaterialConstitucion'));
 const RecallHub = lazy(() => import('./components/RecallHub'));
 const DailySession = lazy(() => import('./components/DailySession'));
 const OrdenaPasos = lazy(() => import('./components/OrdenaPasos'));
@@ -689,7 +689,7 @@ export default function App() {
         {/* Si la sesión caduca a mitad de estudio, aquí se avisa de lo que sigue pendiente. */}
         <UpdateBanner />
         <SaveFailureBanner showIfPending />
-        <Login initialMode={loginMode} onStartDemo={() => { setLoginMode('entrar'); handleStartDemo(); }} />
+        <Suspense fallback={<p role="status" className="p-6 text-sm text-slate-600">Cargando…</p>}><Login initialMode={loginMode} onStartDemo={() => { setLoginMode('entrar'); handleStartDemo(); }} /></Suspense>
       </>
     );
   }
@@ -932,6 +932,7 @@ export default function App() {
         tabIndex={-1}
         className="flex-1 max-w-6xl w-full mx-auto px-4 pt-8 pb-24 md:py-8"
       >
+        <Suspense fallback={<p role="status" className="p-6 text-sm text-slate-600">Cargando…</p>}>
         {currentScreen === 'dashboard' && (
           <>
           {!isDemoMode && session?.user?.id && supabase && (
@@ -1084,7 +1085,6 @@ export default function App() {
           />
         )}
 
-        <Suspense fallback={<p role="status" className="p-6 text-sm text-slate-500">Cargando fichas…</p>}>
           {currentScreen === 'onboarding' && (
             <Onboarding
               onStart={() => {
@@ -1128,7 +1128,6 @@ export default function App() {
               onBackToDaily={() => handleNavigate('sesion_diaria')}
             />
           )}
-        </Suspense>
 
         {currentScreen === 'study_by_topic' && (isDemoMode || !supabase) && (
           <section aria-label="Estudio por temas no disponible en la demostración" className="rounded-xl border border-slate-200 bg-white p-6">
@@ -1171,6 +1170,7 @@ export default function App() {
             </ul>
           </section>
         )}
+      </Suspense>
       </main>
 
       {currentScreen !== 'onboarding' && (
