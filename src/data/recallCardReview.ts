@@ -99,6 +99,8 @@ export const REVIEWED_CARDS_IN_PENDING_DECKS: Readonly<Record<string, readonly s
     'CPEI-T36-S06-3390F3AC52',
     // La Serena (CEDEX 4010) y Montijo (CEDEX 4016).
     'CPEI-T36-S06-782DE8B9C6', 'CPEI-T36-S06-AE1F66E806',
+    // Cornalvo (4013), Proserpina (4014), Los Molinos de Matachel (4017) y Tentudía (4020), CEDEX.
+    'CPEI-T36-S06-4961D87A48', 'CPEI-T36-S06-79C9784D7C', 'CPEI-T36-S06-1635983041', 'CPEI-T36-S06-3FD7762AAD',
   ],
 };
 

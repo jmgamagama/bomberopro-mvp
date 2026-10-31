@@ -738,7 +738,17 @@
       "Promover actividades de formación, información, investigación, estudio y divulgación preventiva."
      ],
      "correcta": 0,
-     "explicacion": "Sancionar corresponde a la Administración laboral (art. 7.1.c) y la Inspección propone la sanción (art. 9); no es función del Instituto."
+     "explicacion": "Sancionar corresponde a la Administración laboral (art. 7.1.c) y la Inspección propone la sanción (art. 9); no es función del Instituto.",
+     "respaldo": [
+      {
+       "articulo": "a9",
+       "cita": "proponiendo a la autoridad laboral competente la sanción correspondiente"
+      },
+      {
+       "articulo": "a7",
+       "cita": "c) Sancionando el incumplimiento de la normativa de prevención de riesgos laborales"
+      }
+     ]
     }
    ]
   },

@@ -55,6 +55,47 @@ def apartados(bloque: dict) -> dict[str, str]:
     return out
 
 
+def texto_bloque(bloque: dict) -> str:
+    """Texto completo de un precepto (con sus numeraciones), para comprobar citas literales."""
+    return " ".join(p["texto"] for p in bloque["parrafos"] if p.get("clase") in ("parrafo", "parrafo_2"))
+
+
+def rango_encabezado(i: str) -> int | None:
+    """Título (0), capítulo (1) o sección (2), según el id del encabezado en bloques.json."""
+    return {"t": 0, "c": 1, "s": 2}.get(i[:1])
+
+
+def ubicaciones(bloques: list[dict]) -> dict[str, list[str]]:
+    """Cadena de encabezados oficiales (título, capítulo, sección) de cada precepto, según el orden del BOE."""
+    pila: list[tuple[int, str]] = []
+    out: dict[str, list[str]] = {}
+    for b in bloques:
+        if b.get("tipo") == "encabezado" and rango_encabezado(b["id"]) is not None:
+            r = rango_encabezado(b["id"])
+            pila = [x for x in pila if x[0] < r] + [(r, b["id"])]
+        elif b.get("tipo") == "precepto":
+            out[b["id"]] = [x[1] for x in pila]
+    return out
+
+
+def errores_respaldo(tag: str, q: dict, boe: dict, ubic: dict) -> list[str]:
+    """Respaldo de una pregunta cuyo dato no está en su artículo: citas literales de otros preceptos
+    de la misma norma o la ubicación oficial (título, capítulo, sección) de un precepto."""
+    errs = []
+    for r in q.get("respaldo", []):
+        art = r.get("articulo")
+        if art not in boe:
+            errs.append(f"{tag}: respaldo con precepto inexistente '{art}'")
+            continue
+        if "cita" in r and norm(r["cita"]) not in norm(texto_bloque(boe[art])):
+            errs.append(f"{tag}: la cita del respaldo no es literal de {boe[art]['titulo']}")
+        if "ubicacion" in r and r["ubicacion"] != ubic.get(art):
+            errs.append(f"{tag}: ubicación {r['ubicacion']} incorrecta para {boe[art]['titulo']} (es {ubic.get(art)})")
+        if "cita" not in r and "ubicacion" not in r:
+            errs.append(f"{tag}: respaldo sin cita ni ubicación")
+    return errs
+
+
 def main() -> int:
     args = sys.argv[1:]
     path = pathlib.Path(args[0])
@@ -64,7 +105,9 @@ def main() -> int:
     data = json.loads(path.read_text(encoding="utf-8"))
     # La fuente es la norma del propio fichero (por defecto, la Constitución).
     fuente = pathlib.Path(f"data/fuentes/{data['norma']}/bloques.json") if data.get("norma") else FUENTE
-    boe = {b["id"]: b for b in json.loads(fuente.read_text(encoding="utf-8"))}
+    lista_boe = json.loads(fuente.read_text(encoding="utf-8"))
+    boe = {b["id"]: b for b in lista_boe}
+    ubic = ubicaciones(lista_boe)
     conceptos = data["conceptos"]
     errores: list[str] = []
     avisos: list[str] = []
@@ -115,6 +158,7 @@ def main() -> int:
             # debe ser literal del mismo artículo (auditoría 26/10/2026, citas desalineadas).
             if q.get("cita") and norm(q["cita"]) not in norm(" ".join(aps.values())):
                 errores.append(f"{tag}: la cita de la pregunta no es literal del art. {c['bloque'][1:]}")
+            errores.extend(errores_respaldo(tag, q, boe, ubic))
             if not (0 <= q["correcta"] < len(ops)):
                 errores.append(f"{tag}: índice de correcta fuera de rango")
                 continue

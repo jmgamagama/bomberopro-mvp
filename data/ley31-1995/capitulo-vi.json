@@ -221,7 +221,13 @@
       "Basta con entregarla a los trabajadores en el idioma original del fabricante."
      ],
      "correcta": 0,
-     "explicacion": "Art. 41.2: las informaciones deben ser «facilitadas a los trabajadores», no solo archivadas."
+     "explicacion": "Art. 41.2: las informaciones deben ser «facilitadas a los trabajadores», no solo archivadas.",
+     "respaldo": [
+      {
+       "articulo": "a41",
+       "cita": "El empresario deberá garantizar que las informaciones a que se refiere el apartado anterior sean facilitadas a los trabajadores en términos que resulten comprensibles para los mismos."
+      }
+     ]
     }
    ]
   }

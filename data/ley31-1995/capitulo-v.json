@@ -63,7 +63,17 @@
       "El proyecto y la organización de la formación preventiva."
      ],
      "correcta": 0,
-     "explicacion": "Art. 33.1.a) a f): planificación, organización preventiva, emergencias, documentación, formación y acciones sustanciales; no el salario ni la jornada."
+     "explicacion": "Art. 33.1.a) a f): planificación, organización preventiva, emergencias, documentación, formación y acciones sustanciales; no el salario ni la jornada.",
+     "respaldo": [
+      {
+       "articulo": "a33",
+       "cita": "c) La designación de los trabajadores encargados de las medidas de emergencia."
+      },
+      {
+       "articulo": "a33",
+       "cita": "e) El proyecto y la organización de la formación en materia preventiva."
+      }
+     ]
     }
    ]
   },
@@ -218,7 +228,13 @@
       "Con seis o más trabajadores, la participación se canaliza a través de sus representantes."
      ],
      "correcta": 0,
-     "explicacion": "Art. 34.1: el umbral es seis trabajadores, no cincuenta (cifra del art. 35.2 para la escala de Delegados)."
+     "explicacion": "Art. 34.1: el umbral es seis trabajadores, no cincuenta (cifra del art. 35.2 para la escala de Delegados).",
+     "respaldo": [
+      {
+       "articulo": "a34",
+       "cita": "En las empresas o centros de trabajo que cuenten con seis o más trabajadores, la participación de éstos se canalizará a través de sus representantes y de la representación especializada que se regula en este capítulo."
+      }
+     ]
     }
    ]
   },
@@ -270,7 +286,13 @@
       "La información, la consulta y la negociación sobre prevención."
      ],
      "correcta": 0,
-     "explicacion": "Art. 34.2: las competencias son información, consulta y negociación, vigilancia y control y ejercicio de acciones; no designar el servicio de prevención."
+     "explicacion": "Art. 34.2: las competencias son información, consulta y negociación, vigilancia y control y ejercicio de acciones; no designar el servicio de prevención.",
+     "respaldo": [
+      {
+       "articulo": "a34",
+       "cita": "los representantes del personal ejercerán las competencias que dichas normas establecen en materia de información, consulta y negociación, vigilancia y control y ejercicio de acciones ante las empresas y los órganos y tribunales competentes."
+      }
+     ]
     }
    ]
   },
@@ -627,7 +649,13 @@
       "Un contrato de dos años queda excluido del cómputo de la escala."
      ],
      "correcta": 0,
-     "explicacion": "Art. 35.3.a): un contrato de dos años supera el año y cuenta como fijo; el cómputo por días es del apartado b)."
+     "explicacion": "Art. 35.3.a): un contrato de dos años supera el año y cuenta como fijo; el cómputo por días es del apartado b).",
+     "respaldo": [
+      {
+       "articulo": "a35",
+       "cita": "a) Los trabajadores vinculados por contratos de duración determinada superior a un año se computarán como trabajadores fijos de plantilla."
+      }
+     ]
     }
    ]
   },
@@ -729,7 +757,13 @@
       "La que atribuye la designación a los propios trabajadores."
      ],
      "correcta": 0,
-     "explicacion": "Art. 35.4: se exige que la facultad corresponda a representantes o trabajadores; nunca solo al empresario."
+     "explicacion": "Art. 35.4: se exige que la facultad corresponda a representantes o trabajadores; nunca solo al empresario.",
+     "respaldo": [
+      {
+       "articulo": "a35",
+       "cita": "siempre que se garantice que la facultad de designación corresponde a los representantes del personal o a los propios trabajadores."
+      }
+     ]
     }
    ]
   },
@@ -833,7 +867,17 @@
       "Promover la cooperación de los trabajadores en la normativa preventiva."
      ],
      "correcta": 0,
-     "explicacion": "Art. 36.1.a) a d): colaborar, promover la cooperación, ser consultados y vigilar; no sancionar."
+     "explicacion": "Art. 36.1.a) a d): colaborar, promover la cooperación, ser consultados y vigilar; no sancionar.",
+     "respaldo": [
+      {
+       "articulo": "a36",
+       "cita": "a) Colaborar con la dirección de la empresa en la mejora de la acción preventiva."
+      },
+      {
+       "articulo": "a36",
+       "cita": "b) Promover y fomentar la cooperación de los trabajadores en la ejecución de la normativa sobre prevención de riesgos laborales."
+      }
+     ]
     }
    ]
   },
@@ -1041,7 +1085,13 @@
       "Recabar del empresario la adopción de medidas de carácter preventivo."
      ],
      "correcta": 0,
-     "explicacion": "Art. 36.2.g): el Delegado propone la paralización; no la acuerda por sí solo."
+     "explicacion": "Art. 36.2.g): el Delegado propone la paralización; no la acuerda por sí solo.",
+     "respaldo": [
+      {
+       "articulo": "a36",
+       "cita": "g) Proponer al órgano de representación de los trabajadores la adopción del acuerdo de paralización de actividades a que se refiere el apartado 3 del artículo 21."
+      }
+     ]
     }
    ]
   },
@@ -1402,7 +1452,13 @@
       "El de las reuniones convocadas por el empresario sobre prevención."
      ],
      "correcta": 0,
-     "explicacion": "Art. 37.1 párr. 3: solo exime las visitas a) y c); las visitas de la letra e) se imputan al crédito."
+     "explicacion": "Art. 37.1 párr. 3: solo exime las visitas a) y c); las visitas de la letra e) se imputan al crédito.",
+     "respaldo": [
+      {
+       "articulo": "a37",
+       "cita": "el correspondiente a las reuniones del Comité de Seguridad y Salud y a cualesquiera otras convocadas por el empresario en materia de prevención de riesgos, así como el destinado a las visitas previstas en las letras a) y c) del número 2 del artículo anterior."
+      }
+     ]
     }
    ]
   },
@@ -1766,7 +1822,17 @@
       "El proyecto y organización de la formación preventiva."
      ],
      "correcta": 0,
-     "explicacion": "Art. 39.1.a): modalidad organizativa, planificación, nuevas tecnologías y formación; no salarios."
+     "explicacion": "Art. 39.1.a): modalidad organizativa, planificación, nuevas tecnologías y formación; no salarios.",
+     "respaldo": [
+      {
+       "articulo": "a39",
+       "cita": "los proyectos en materia de planificación, organización del trabajo e introducción de nuevas tecnologías"
+      },
+      {
+       "articulo": "a39",
+       "cita": "proyecto y organización de la formación en materia preventiva."
+      }
+     ]
     }
    ]
   },
@@ -1869,7 +1935,13 @@
       "El Comité sanciona a la empresa que no corrige las deficiencias."
      ],
      "correcta": 0,
-     "explicacion": "Art. 39.1.b): el Comité propone; no ordena ni sanciona."
+     "explicacion": "Art. 39.1.b): el Comité propone; no ordena ni sanciona.",
+     "respaldo": [
+      {
+       "articulo": "a39",
+       "cita": "b) Promover iniciativas sobre métodos y procedimientos para la efectiva prevención de los riesgos, proponiendo a la empresa la mejora de las condiciones o la corrección de las deficiencias existentes."
+      }
+     ]
     }
    ]
   },
@@ -1921,7 +1993,13 @@
       "El Comité necesita autorización de la autoridad laboral para realizar cada visita al centro."
      ],
      "correcta": 0,
-     "explicacion": "Art. 39.2.a) y b): facultad propia, sin autorización previa, de conocer directamente situación y documentos."
+     "explicacion": "Art. 39.2.a) y b): facultad propia, sin autorización previa, de conocer directamente situación y documentos.",
+     "respaldo": [
+      {
+       "articulo": "a39",
+       "cita": "a) Conocer directamente la situación relativa a la prevención de riesgos en el centro de trabajo, realizando a tal efecto las visitas que estime oportunas."
+      }
+     ]
     }
    ]
   },

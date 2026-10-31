@@ -141,7 +141,13 @@
       "No, nunca pueden modificarlas"
      ],
      "correcta": 0,
-     "explicacion": "Art. 2.2: son Derecho necesario mínimo indisponible, «pudiendo ser mejoradas y desarrolladas en los convenios colectivos»."
+     "explicacion": "Art. 2.2: son Derecho necesario mínimo indisponible, «pudiendo ser mejoradas y desarrolladas en los convenios colectivos».",
+     "respaldo": [
+      {
+       "articulo": "a2",
+       "cita": "pudiendo ser mejoradas y desarrolladas en los convenios colectivos."
+      }
+     ]
     },
     {
      "nivel": 2,
@@ -163,7 +169,13 @@
       "Es válida siempre que la apruebe expresamente la autoridad laboral de la comunidad autónoma."
      ],
      "correcta": 1,
-     "explicacion": "Art. 2.2: las disposiciones laborales son Derecho necesario mínimo indisponible; los convenios pueden mejorarlas y desarrollarlas, no rebajarlas."
+     "explicacion": "Art. 2.2: las disposiciones laborales son Derecho necesario mínimo indisponible; los convenios pueden mejorarlas y desarrollarlas, no rebajarlas.",
+     "respaldo": [
+      {
+       "articulo": "a2",
+       "cita": "tendrán en todo caso el carácter de Derecho necesario mínimo indisponible, pudiendo ser mejoradas y desarrolladas en los convenios colectivos."
+      }
+     ]
     }
    ]
   },
@@ -266,7 +278,21 @@
       "Trabajos en establecimientos penitenciarios."
      ],
      "correcta": 2,
-     "explicacion": "Los establecimientos penitenciarios no están en el art. 3.2: el art. 3.3 dice que se adaptarán a la Ley las actividades que lo justifiquen."
+     "explicacion": "Los establecimientos penitenciarios no están en el art. 3.2: el art. 3.3 dice que se adaptarán a la Ley las actividades que lo justifiquen.",
+     "respaldo": [
+      {
+       "articulo": "a3",
+       "cita": "–Policía, seguridad y resguardo aduanero."
+      },
+      {
+       "articulo": "a3",
+       "cita": "–Servicios operativos de protección civil y peritaje forense en los casos de grave riesgo, catástrofe y calamidad pública."
+      },
+      {
+       "articulo": "a3",
+       "cita": "En los establecimientos penitenciarios, se adaptarán a la presente Ley aquellas actividades cuyas características justifiquen una regulación especial"
+      }
+     ]
     }
    ]
   },
@@ -316,7 +342,17 @@
       "La exclusión solo afecta a las actividades militares, y en ellas la Ley no tiene ningún efecto."
      ],
      "correcta": 1,
-     "explicacion": "Art. 3.2: no se aplica «en aquellas actividades cuyas particularidades lo impidan», y la Ley inspirará la normativa específica."
+     "explicacion": "Art. 3.2: no se aplica «en aquellas actividades cuyas particularidades lo impidan», y la Ley inspirará la normativa específica.",
+     "respaldo": [
+      {
+       "articulo": "a3",
+       "cita": "La presente Ley no será de aplicación en aquellas actividades cuyas particularidades lo impidan en el ámbito de las funciones públicas de:"
+      },
+      {
+       "articulo": "a3",
+       "cita": "No obstante, esta Ley inspirará la normativa específica que se dicte para regular la protección de la seguridad y la salud de los trabajadores que prestan sus servicios en las indicadas actividades."
+      }
+     ]
     }
    ]
   },
@@ -521,7 +557,13 @@
       "La avería de un vehículo de la empresa."
      ],
      "correcta": 2,
-     "explicacion": "El art. 4.3.º se refiere a enfermedades, patologías o lesiones de las personas, no a daños materiales."
+     "explicacion": "El art. 4.3.º se refiere a enfermedades, patologías o lesiones de las personas, no a daños materiales.",
+     "respaldo": [
+      {
+       "articulo": "a4",
+       "cita": "3.º Se considerarán como «daños derivados del trabajo» las enfermedades, patologías o lesiones sufridas con motivo u ocasión del trabajo."
+      }
+     ]
     }
    ]
   },
@@ -775,7 +817,17 @@
       "El salario y las retribuciones del trabajador."
      ],
      "correcta": 2,
-     "explicacion": "El art. 4.7.º enumera locales e instalaciones, agentes, procedimientos de uso y organización del trabajo; no las retribuciones."
+     "explicacion": "El art. 4.7.º enumera locales e instalaciones, agentes, procedimientos de uso y organización del trabajo; no las retribuciones.",
+     "respaldo": [
+      {
+       "articulo": "a4",
+       "cita": "a) Las características generales de los locales, instalaciones, equipos, productos y demás útiles existentes en el centro de trabajo."
+      },
+      {
+       "articulo": "a4",
+       "cita": "b) La naturaleza de los agentes físicos, químicos y biológicos presentes en el ambiente de trabajo y sus correspondientes intensidades, concentraciones o niveles de presencia."
+      }
+     ]
     }
    ]
   },

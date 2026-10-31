@@ -56,7 +56,17 @@
             "El Capítulo tercero del Título I."
           ],
           "correcta": 0,
-          "explicacion": "La Sección 2.ª («De los derechos y deberes de los ciudadanos») abarca los arts. 30 a 38."
+          "explicacion": "La Sección 2.ª («De los derechos y deberes de los ciudadanos») abarca los arts. 30 a 38.",
+          "respaldo": [
+            {
+              "articulo": "a30",
+              "ubicacion": [
+                "ti",
+                "csegundo",
+                "s2"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -107,7 +117,13 @@
             "No tiene protección jurisdiccional específica."
           ],
           "correcta": 0,
-          "explicacion": "Art. 53.2 CE: el recurso de amparo «será aplicable a la objeción de conciencia reconocida en el artículo 30»."
+          "explicacion": "Art. 53.2 CE: el recurso de amparo «será aplicable a la objeción de conciencia reconocida en el artículo 30».",
+          "respaldo": [
+            {
+              "articulo": "a53",
+              "cita": "Este último recurso será aplicable a la objeción de conciencia reconocida en el artículo 30."
+            }
+          ]
         }
       ]
     },
@@ -459,7 +475,17 @@
             "Los derechos y deberes de los cónyuges."
           ],
           "correcta": 0,
-          "explicacion": "Art. 32.2 CE: formas, edad y capacidad, derechos y deberes de los cónyuges, separación y disolución. La filiación aparece en el art. 39.2."
+          "explicacion": "Art. 32.2 CE: formas, edad y capacidad, derechos y deberes de los cónyuges, separación y disolución. La filiación aparece en el art. 39.2.",
+          "respaldo": [
+            {
+              "articulo": "a32",
+              "cita": "La ley regulará las formas de matrimonio, la edad y capacidad para contraerlo, los derechos y deberes de los cónyuges, las causas de separación y disolución y sus efectos."
+            },
+            {
+              "articulo": "a39",
+              "cita": "iguales éstos ante la ley con independencia de su filiación"
+            }
+          ]
         }
       ]
     },
@@ -509,7 +535,21 @@
             "Sí, pero solo frente a las expropiaciones."
           ],
           "correcta": 0,
-          "explicacion": "Art. 53.2 CE: el amparo cubre el art. 14, la Sección 1.ª del Capítulo segundo y la objeción de conciencia del art. 30. La propiedad (art. 33) está en la Sección 2.ª."
+          "explicacion": "Art. 53.2 CE: el amparo cubre el art. 14, la Sección 1.ª del Capítulo segundo y la objeción de conciencia del art. 30. La propiedad (art. 33) está en la Sección 2.ª.",
+          "respaldo": [
+            {
+              "articulo": "a53",
+              "cita": "Cualquier ciudadano podrá recabar la tutela de las libertades y derechos reconocidos en el artículo 14 y la Sección primera del Capítulo segundo ante los Tribunales ordinarios por un procedimiento basado en los principios de preferencia y sumariedad y, en su caso, a través del recurso de amparo ante el Tribunal Constitucional."
+            },
+            {
+              "articulo": "a33",
+              "ubicacion": [
+                "ti",
+                "csegundo",
+                "s2"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -560,7 +600,17 @@
             "Un principio rector de la política social y económica."
           ],
           "correcta": 0,
-          "explicacion": "Art. 33.2 CE. La expropiación (33.3) exige siempre indemnización."
+          "explicacion": "Art. 33.2 CE. La expropiación (33.3) exige siempre indemnización.",
+          "respaldo": [
+            {
+              "articulo": "a33",
+              "cita": "La función social de estos derechos delimitará su contenido, de acuerdo con las leyes."
+            },
+            {
+              "articulo": "a33",
+              "cita": "mediante la correspondiente indemnización"
+            }
+          ]
         }
       ]
     },
@@ -610,7 +660,13 @@
             "La correspondiente indemnización."
           ],
           "correcta": 0,
-          "explicacion": "Art. 33.3 CE: causa justificada, indemnización y conformidad con las leyes. No exige resolución judicial."
+          "explicacion": "Art. 33.3 CE: causa justificada, indemnización y conformidad con las leyes. No exige resolución judicial.",
+          "respaldo": [
+            {
+              "articulo": "a33",
+              "cita": "Nadie podrá ser privado de sus bienes y derechos sino por causa justificada de utilidad pública o interés social, mediante la correspondiente indemnización y de conformidad con lo dispuesto por las leyes."
+            }
+          ]
         }
       ]
     },
@@ -660,7 +716,25 @@
             "Art. 34, Sección 1.ª del Capítulo segundo."
           ],
           "correcta": 0,
-          "explicacion": "El derecho de fundación (art. 34) está en la Sección 2.ª; el de asociación (art. 22), en la Sección 1.ª."
+          "explicacion": "El derecho de fundación (art. 34) está en la Sección 2.ª; el de asociación (art. 22), en la Sección 1.ª.",
+          "respaldo": [
+            {
+              "articulo": "a34",
+              "ubicacion": [
+                "ti",
+                "csegundo",
+                "s2"
+              ]
+            },
+            {
+              "articulo": "a22",
+              "ubicacion": [
+                "ti",
+                "csegundo",
+                "s1"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -711,7 +785,17 @@
             "Está prohibida si tiene carácter secreto."
           ],
           "correcta": 0,
-          "explicacion": "El art. 34.2 remite a los apartados 2 (ilegalidad) y 4 (disolución judicial) del art. 22, no al 3 (registro) ni al 5 (secretas y paramilitares)."
+          "explicacion": "El art. 34.2 remite a los apartados 2 (ilegalidad) y 4 (disolución judicial) del art. 22, no al 3 (registro) ni al 5 (secretas y paramilitares).",
+          "respaldo": [
+            {
+              "articulo": "a34",
+              "cita": "Regirá también para las fundaciones lo dispuesto en los apartados 2 y 4 del artículo 22."
+            },
+            {
+              "articulo": "a22",
+              "cita": "Las asociaciones sólo podrán ser disueltas o suspendidas en sus actividades en virtud de resolución judicial motivada."
+            }
+          ]
         }
       ]
     },
@@ -966,7 +1050,13 @@
             "Solo puede suspenderse en el estado de alarma."
           ],
           "correcta": 0,
-          "explicacion": "El art. 55.1 incluye expresamente el art. 37.2 entre los derechos suspendibles en los estados de excepción o de sitio."
+          "explicacion": "El art. 55.1 incluye expresamente el art. 37.2 entre los derechos suspendibles en los estados de excepción o de sitio.",
+          "respaldo": [
+            {
+              "articulo": "a55",
+              "cita": "artículos 21, 28, apartado 2, y artículo 37, apartado 2, podrán ser suspendidos cuando se acuerde la declaración del estado de excepción o de sitio"
+            }
+          ]
         }
       ]
     },
