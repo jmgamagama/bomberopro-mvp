@@ -5,6 +5,7 @@ import { TEMA36_LOTE01_RECALL_CARDS } from './tema36Lote01Recall';
 import { TEMA36_LOTE02_RECALL_CARDS } from './tema36Lote02Recall';
 import { TEMA36_LOTE03_RECALL_CARDS, TEMA36_LOTE03_RECALL_META } from './tema36Lote03Recall';
 import { getRecallDeck, loadRecallDeckCards } from './recallRegistry';
+import { isCardReviewedInPendingDeck } from './recallCardReview';
 
 const fichasJson = JSON.parse(
   readFileSync(resolve(__dirname, '../../data/tema36/fichas_lote03_78.json'), 'utf-8'),
@@ -60,6 +61,7 @@ describe('tema 36 lote 03 (municipios Esparragosa de la Serena → Nogales)', ()
     expect(deck.count).toBe(78);
     expect(deck.topicId).toBe('tema36');
     expect(deck.loteLabel).toBe('Lote 3');
-    expect(await loadRecallDeckCards(deck.id)).toBe(TEMA36_LOTE03_RECALL_CARDS);
+    // El alumno solo ve las fichas revisadas sueltas (poblaciones verificadas con el INE).
+    expect(await loadRecallDeckCards(deck.id)).toEqual(TEMA36_LOTE03_RECALL_CARDS.filter((c) => isCardReviewedInPendingDeck(deck.id, c.id)));
   });
 });

@@ -7,6 +7,10 @@ import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 import Tema36Lote02Recall from './Tema36Lote02Recall';
 import { TEMA36_LOTE02_RECALL_CARDS, TEMA36_LOTE02_RECALL_META } from '../data/tema36Lote02Recall';
+import { isCardReviewedInPendingDeck } from '../data/recallCardReview';
+
+// El alumno solo ve las fichas revisadas sueltas del lote (poblaciones verificadas con el INE).
+const VISIBLES = TEMA36_LOTE02_RECALL_CARDS.filter((c) => isCardReviewedInPendingDeck('tema36-lote02', c.id));
 
 const fichasJson = JSON.parse(
   readFileSync(resolve(__dirname, '../../data/tema36/fichas_lote02_79.json'), 'utf-8'),
@@ -53,10 +57,11 @@ describe('Tema36Lote02Recall', () => {
     expect(first.concepto).toContain('Acedera');
     expect(first.respuesta).toBe('06001');
     expect(screen.getByRole('heading', { name: TEMA36_LOTE02_RECALL_META.title })).toBeInTheDocument();
-    expect(screen.getByText(first.concepto)).toBeInTheDocument();
-    expect(screen.getByText(first.respuesta)).toBeInTheDocument();
-    expect(screen.getByText(first.fuente)).toBeInTheDocument();
-    expect(screen.getByText(/Ficha 1 de 79/)).toBeInTheDocument();
+    const shown = VISIBLES[0];
+    expect(screen.getByText(shown.concepto)).toBeInTheDocument();
+    expect(screen.getByText(shown.respuesta)).toBeInTheDocument();
+    expect(screen.getAllByText(shown.fuente).length).toBeGreaterThan(0);
+    expect(screen.getByText(new RegExp(`Ficha 1 de ${VISIBLES.length}`))).toBeInTheDocument();
   });
 
   it('empieza con la respuesta oculta, permite mostrarla/ocultarla, avanzar y salir al inicio', async () => {
@@ -64,14 +69,14 @@ describe('Tema36Lote02Recall', () => {
     const onNavigateHome = vi.fn();
     render(<Tema36Lote02Recall onNavigateHome={onNavigateHome} />);
     await screen.findByText(/Ficha 1 de/);
-    expect(screen.queryByText(TEMA36_LOTE02_RECALL_CARDS[0].respuesta)).not.toBeInTheDocument();
+    expect(screen.queryByText(VISIBLES[0].respuesta)).not.toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /Mostrar respuesta/i }));
-    expect(screen.getByText(TEMA36_LOTE02_RECALL_CARDS[0].respuesta)).toBeInTheDocument();
+    expect(screen.getByText(VISIBLES[0].respuesta)).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /Ocultar respuesta/i }));
-    expect(screen.queryByText(TEMA36_LOTE02_RECALL_CARDS[0].respuesta)).not.toBeInTheDocument();
+    expect(screen.queryByText(VISIBLES[0].respuesta)).not.toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /Siguiente/i }));
-    expect(screen.getByText(/Ficha 2 de 79/)).toBeInTheDocument();
-    expect(screen.getByText(TEMA36_LOTE02_RECALL_CARDS[1].concepto)).toBeInTheDocument();
+    expect(screen.getByText(new RegExp(`Ficha 2 de ${VISIBLES.length}`))).toBeInTheDocument();
+    expect(screen.getByText(VISIBLES[1].concepto)).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /Salir al inicio/i }));
     expect(onNavigateHome).toHaveBeenCalledOnce();
   });
