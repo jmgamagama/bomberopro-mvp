@@ -23,8 +23,9 @@ describe('mazos pendientes de revisión ocultos al alumno', () => {
   it('Recuerdo solo muestra los temas revisados', async () => {
     const user = userEvent.setup();
     render(<App />);
-    await screen.findByRole('button', { name: /Por Temas/ });
-    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-recuerdo')!);
+    await screen.findAllByRole('button', { name: 'Temas' });
+    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-mas')!);
+    await user.click(document.querySelector<HTMLButtonElement>('#mas-recuerdo')!);
     const tablist = await screen.findByRole('tablist', { name: 'Temas de recuerdo' });
     const tabs = within(tablist).getAllByRole('tab').map((t) => t.textContent);
     // Etiqueta + nº de fichas visibles del tema (T10 solo su lote 2; T16 solo su lote 1).
@@ -45,7 +46,9 @@ describe('mazos pendientes de revisión ocultos al alumno', () => {
     setPreferredDeckId('tema36');
     const user = userEvent.setup();
     render(<App />);
-    await user.click(await screen.findByRole('button', { name: /^Sesión diaria$/ }));
+    await screen.findAllByRole('button', { name: 'Temas' });
+    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-mas')!);
+    await user.click(document.querySelector<HTMLButtonElement>('#mas-sesion_diaria')!);
     await waitFor(() => expect(document.querySelector('#daily-session-decks')).not.toBeNull());
     const text = document.querySelector('#daily-session-decks')!.textContent ?? '';
     expect(text).not.toMatch(/\bT36\b|\bT1\b|\bT3\b/);

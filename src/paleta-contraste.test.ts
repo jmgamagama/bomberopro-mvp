@@ -54,3 +54,23 @@ describe('Paleta Variante A · contraste WCAG AA', () => {
     expect(contraste('#62748e', variable('color-fondo'))).toBeLessThan(4.5);
   });
 });
+
+// slate-400 (#90a1b9) da ≈2,6:1 sobre blanco: no vale para texto ni iconos. Solo se admite sobre el
+// panel oscuro de desarrollo del inicio (Dashboard.tsx, fondo slate-900), donde sí pasa.
+describe('textos pequeños sin grises ni colores demasiado claros', () => {
+  const componentes = import.meta.glob('./components/*.tsx', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+
+  it('ningún componente usa text-slate-400 sobre fondo claro', () => {
+    const conGrisClaro = Object.entries(componentes)
+      .filter(([ruta]) => !ruta.endsWith('.test.tsx') && !ruta.endsWith('/Dashboard.tsx'))
+      .filter(([, codigo]) => /\btext-slate-400\b/.test(codigo))
+      .map(([ruta]) => ruta);
+    expect(conGrisClaro).toEqual([]);
+  });
+
+  it('Curva de olvido: el porcentaje de recuperabilidad usa tonos -700 (pasan AA sobre blanco)', () => {
+    const curva = componentes['./components/ForgettingCurve.tsx'];
+    expect(curva).toMatch(/'text-emerald-700'/);
+    expect(curva).not.toMatch(/'text-(emerald|blue|amber|rose)-500'/);
+  });
+});

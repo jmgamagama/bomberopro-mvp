@@ -175,6 +175,7 @@ describe('con la aplicación completa', () => {
     const movil = await screen.findByRole('navigation', { name: 'Navegación móvil' });
     await waitFor(() => expect(llamadasTabla()).toBeGreaterThan(0));
     expect(within(movil).getAllByRole('button')).toHaveLength(5);
-    expect(document.querySelector('#nav-btn-supuestos')).toBeNull();
+    await userEvent.setup().click(within(movil).getByRole('button', { name: 'Más' }));
+    expect(document.querySelector('#mas-supuestos')).toBeNull();
   });
 });

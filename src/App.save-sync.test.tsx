@@ -64,7 +64,8 @@ describe('guardado pendiente con la aplicación completa', () => {
       : {data:[],error:null}));
     render(<App />);
     await waitFor(() => expect(requests).toBe(1));
-    fireEvent.click(document.querySelector('#nav-btn-study')!);
+    fireEvent.click(document.querySelector('#nav-btn-mas')!);
+    fireEvent.click(document.querySelector('#mas-today_training')!);
     expect(await screen.findByText('No se pudo cargar la sesión')).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: /reintentar/i }));
     await waitFor(() => expect(requests).toBe(2));
@@ -109,7 +110,8 @@ describe('guardado pendiente con la aplicación completa', () => {
     await waitFor(() => expect(resolvers).toHaveLength(2));
     expect(getProgressOwner()).toBe('B');
     await act(async () => resolvers[1]({ data: INITIAL_QUESTIONS.slice(0, 2), error: null }));
-    fireEvent.click(document.querySelector('#nav-btn-study')!);
+    fireEvent.click(document.querySelector('#nav-btn-mas')!);
+    fireEvent.click(document.querySelector('#mas-today_training')!);
     expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe('2');
 
     await act(async () => resolvers[0]({ data: INITIAL_QUESTIONS.slice(0, 1), error: null }));
@@ -138,14 +140,15 @@ describe('guardado pendiente con la aplicación completa', () => {
 
     render(<App />);
     await waitFor(() => expect(sessionCalls).toBe(1));
-    fireEvent.click(document.querySelector('#nav-btn-study')!);
+    fireEvent.click(document.querySelector('#nav-btn-mas')!);
+    fireEvent.click(document.querySelector('#mas-today_training')!);
     await waitFor(() => expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe('1'));
     fireEvent.click(screen.getByRole('button', { name: /comenzar sesión automática/i }));
     expect(screen.getByRole('heading', { name: questionA.question })).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: questionA.correct_answer }));
     fireEvent.click(document.querySelector('#conf-btn-alta')!);
     await screen.findByRole('button', { name: /siguiente pregunta/i });
-    fireEvent.click(document.querySelector('#nav-btn-dashboard')!);
+    fireEvent.click(document.querySelector('#nav-btn-inicio')!);
     fireEvent.click(screen.getByRole('button', { name: /practicar preguntas/i }));
     await waitFor(() => expect(resolveSecond).toBeTypeOf('function'));
 
@@ -157,7 +160,8 @@ describe('guardado pendiente con la aplicación completa', () => {
     // Resolver antes de navegar: la invalidación debe venir de la cuenta/demo,
     // no de abandonar la pantalla de entrenamiento.
     await act(async () => resolveSecond({ data: [questionA, { ...questionA, id: '102' }], error: null }));
-    fireEvent.click(document.querySelector('#nav-btn-study')!);
+    fireEvent.click(document.querySelector('#nav-btn-mas')!);
+    fireEvent.click(document.querySelector('#mas-today_training')!);
     expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe(expectedCount);
     fireEvent.click(screen.getByRole('button', { name: /comenzar sesión automática/i }));
     expect(screen.queryByRole('heading', { name: questionA.question })).not.toBeInTheDocument();
@@ -182,6 +186,7 @@ describe('guardado pendiente con la aplicación completa', () => {
     await act(async () => authChanged?.('TOKEN_REFRESHED', account()));
     expect(rpcMock.mock.calls.filter(call => call[0] === 'get_study_session_v2')).toHaveLength(1);
     await act(async () => resolveQuestions({ data: INITIAL_QUESTIONS.slice(0, 1), error: null }));
-    fireEvent.click(document.querySelector('#nav-btn-study')!);
+    fireEvent.click(document.querySelector('#nav-btn-mas')!);
+    fireEvent.click(document.querySelector('#mas-today_training')!);
     expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe('1');
   });});

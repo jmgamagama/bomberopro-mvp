@@ -46,7 +46,7 @@ describe('compatibilidad móvil', () => {
 
   it('el pie y el aviso de guardado no quedan tapados por la barra inferior', () => {
     const app = leer('src/App.tsx');
-    expect(app).toMatch(/<footer className="[^"]*pb-\[calc\(5\.5rem\+env\(safe-area-inset-bottom\)\)\][^"]*md:pb-6/);
+    expect(app).toMatch(/<footer className="[^"]*pb-\[calc\(5\.5rem\+env\(safe-area-inset-bottom\)\)\][^"]*lg:pb-6/);
     expect(leer('src/components/SaveStatus.tsx')).toContain('bottom-[calc(5rem+env(safe-area-inset-bottom))]');
   });
 });

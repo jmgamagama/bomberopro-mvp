@@ -12,15 +12,15 @@ import App from './App';
 describe('piloto del artículo 1 oculto', () => {
   it('el panel de inicio no ofrece el estudio guiado ni menciona el piloto', async () => {
     render(<App />);
-    await screen.findByRole('button', { name: /Por Temas/ });
+    await screen.findAllByRole('button', { name: 'Temas' });
     expect(screen.queryByRole('button', { name: /estudio guiado del artículo 1/i })).toBeNull();
     expect(screen.queryByText(/piloto pendiente de revisión/i)).toBeNull();
   });
 
-  it('"Por Temas" en demostración no abre el piloto: explica que requiere cuenta', async () => {
+  it('"Temas" en demostración no abre el piloto: explica que requiere cuenta', async () => {
     const user = userEvent.setup();
     render(<App />);
-    await user.click(await screen.findByRole('button', { name: /Por Temas/ }));
+    await user.click((await screen.findAllByRole('button', { name: 'Temas' }))[0]);
     expect(screen.queryByRole('heading', { name: 'Lee el artículo completo' })).toBeNull();
     expect(screen.queryByText('Pregunta 1 de 15')).toBeNull();
     expect(screen.getByRole('heading', { name: 'Estudio por temas' })).toBeInTheDocument();

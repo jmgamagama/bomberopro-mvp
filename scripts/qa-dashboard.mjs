@@ -116,7 +116,7 @@ try {
   report.events = events.length;
   report.checks.push('Finite session complete and unique persisted events');
   const before = await call('/rest/v1/rpc/get_concept_progress', { p_topic: null }, auth.access_token);
-  await page.locator('#nav-btn-dashboard').click();
+  await page.locator('#nav-btn-inicio').click();
   await assertPanel(page, before);
   report.checks.push('Returning from study refreshes Dashboard to match real remote progress');
   const second = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true });
