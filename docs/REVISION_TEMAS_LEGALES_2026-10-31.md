@@ -25,7 +25,10 @@
 - T23-lote02: 18 de 23 con respaldo; 10 por debajo del umbral, sin revisar.
 - Mayoría sin enlace a artículo: T9, T15, T27-lote02, T32.
 - Sin texto consolidado en la API: T25 y T25-lote02 (BOE-A-2009-5490).
-- Fuente BOP/DOE, sin cotejar: T4, T5, T20, T21, T29, T30, T37; resto sin revisar: T8, T26, T27, lotes 02 de T12, T13, T22.
+- T5 (28/28 literales con el RRI, BOP nº 149 de 06/08/2012): NO abierto. El BOP nº 145 de 01/08/2022 (anuncio 3393/2022) publica la aprobación inicial de una modificación puntual del RRI cuyo texto no consta publicado; no se puede confirmar que el texto de 2012 sea el vigente.
+- T20 (Plan INFOEX): 15 de 24 con respaldo en el Decreto 136/2024 (DOE); 9 por debajo del umbral, falta descargar el texto del Decreto 132/2022 y cotejarlas.
+- T21 y T21-lote02: la fuente es el Manual básico de rescate de la DGT, no BOE/DOE/BOP; quedan ocultos.
+- Fuente BOP/DOE, sin cotejar: T29, T30, T37; resto sin revisar: T8, T26, T27, lotes 02 de T12, T13, T22.
 
 | T10 | tema10 | RIPCI, RD 513/2017, BOE-A-2017-6606 | 34 | 34 | 0 | — | 0 | abastecimiento, hidrantes, BIE, columna seca (epígrafe T10) |
 | T22 | tema22 | RD 1215/1997 anexo II.4, BOE-A-1997-17824 | 33 | 32 | 1 | — | 0 | normativa de trabajos en altura |
