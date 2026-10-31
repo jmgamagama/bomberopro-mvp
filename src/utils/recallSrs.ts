@@ -97,16 +97,14 @@ export function loadSrs(): SrsStore {
 
 export function saveSrs(store: SrsStore): void {
   const s = storage();
-  if (!s) return;
+  if (!s) throw new Error('local_storage_unavailable');
   const d: Record<string, Record<string, Packed>> = {};
   for (const [deckId, cards] of Object.entries(store)) {
     for (const [cardId, state] of Object.entries(cards)) (d[deckId] ??= {})[cardId] = pack(state);
   }
-  try {
-    writeOwned(SRS_STORAGE_KEY, JSON.stringify({ v: 1, d }));
-  } catch {
-    // Almacenamiento lleno o bloqueado: el repaso sigue funcionando en esta sesión.
-  }
+  // La valoración solo se confirma en la interfaz si la escritura principal se completa.
+  // `writeOwned` propaga errores de cuota/bloqueo para que el usuario pueda reintentar.
+  writeOwned(SRS_STORAGE_KEY, JSON.stringify({ v: 1, d }));
 }
 
 export function getCardSrs(store: SrsStore, deckId: string | undefined, cardId: string): CardSrs | undefined {

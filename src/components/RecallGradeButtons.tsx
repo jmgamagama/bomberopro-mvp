@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { GRADE_AGAIN, GRADE_GOOD, GRADE_HARD, previewInterval, type CardSrs, type RecallGrade } from '../utils/recallSrs';
 
 interface RecallGradeButtonsProps {
@@ -21,9 +22,25 @@ const BUTTONS: { grade: RecallGrade; label: string; className: string }[] = [
 
 /** Autoevaluación tras ver la respuesta: tres botones grandes con la fecha del próximo repaso. */
 export default function RecallGradeButtons({ state, today, onGrade }: RecallGradeButtonsProps) {
+  const [saveError, setSaveError] = useState(false);
+
+  const handleGrade = (grade: RecallGrade) => {
+    setSaveError(false);
+    try {
+      onGrade(grade);
+    } catch {
+      setSaveError(true);
+    }
+  };
+
   return (
     <div className="space-y-1.5" role="group" aria-label="¿La sabías?">
       <p className="text-xs font-semibold text-slate-600">¿La sabías?</p>
+      {saveError && (
+        <p role="alert" className="rounded-lg border border-rose-200 bg-rose-50 p-3 text-sm text-rose-800">
+          No se pudo guardar el repaso en este dispositivo. La ficha sigue aquí; comprueba el almacenamiento e inténtalo de nuevo.
+        </p>
+      )}
       <div className="grid grid-cols-3 gap-2">
         {BUTTONS.map(({ grade, label, className }) => {
           const hint = formatInterval(previewInterval(state, grade, today));
@@ -33,7 +50,7 @@ export default function RecallGradeButtons({ state, today, onGrade }: RecallGrad
               type="button"
               id={`btn-grade-${grade}`}
               aria-label={`${label} (próximo repaso ${hint})`}
-              onClick={() => onGrade(grade)}
+              onClick={() => handleGrade(grade)}
               className={`flex min-h-14 flex-col items-center justify-center rounded-xl border px-1 py-2 text-sm font-bold leading-tight transition ${className}`}
             >
               <span>{label}</span>

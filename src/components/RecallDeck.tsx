@@ -86,9 +86,10 @@ function RecallDeckViewer({
 
   const grade = (g: RecallGrade) => {
     if (finalGraded === index) return;
-    if (index + 1 >= total) setFinalGraded(index);
+    setLastSaved(null);
     const next = recordRecallGrade(deck.id, card.id, g, new Date(), measuredElapsedMs(shownAt.current));
     setSrs(loadSrs());
+    if (index + 1 >= total) setFinalGraded(index);
     setLastSaved(
       index + 1 >= total
         ? `Guardado. Próximo repaso ${formatInterval(next.due - today)}. Has llegado al final del lote.`
