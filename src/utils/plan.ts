@@ -86,6 +86,31 @@ export function canAccessDeck(deckId: string, plan: Plan = getPlan()): boolean {
   return ids === 'all' || ids.includes(deckId);
 }
 
+/**
+ * Temas del bloque de procedimientos de Badajoz (T35-T40) que se abren por defecto en modo invitado.
+ * Orden de preferencia: el tema 40 (el del plan gratis, fichas en el propio bundle) y luego 35→39.
+ */
+export const GUEST_DEFAULT_TEMAS: readonly number[] = [40, 35, 36, 37, 38, 39];
+
+/**
+ * Mazo que se abre por defecto. En modo invitado, el primer mazo ACCESIBLE (canAccessDeck) de T35-40;
+ * si no hay ninguno, o fuera del modo invitado, el primer mazo accesible del registro.
+ */
+export function pickDefaultDeck<D extends { id: string; tema: number }>(
+  decks: readonly D[],
+  plan: Plan = getPlan(),
+  guest = false,
+): D | undefined {
+  const accessible = decks.filter((d) => canAccessDeck(d.id, plan));
+  if (guest) {
+    for (const tema of GUEST_DEFAULT_TEMAS) {
+      const hit = accessible.find((d) => d.tema === tema);
+      if (hit) return hit;
+    }
+  }
+  return accessible[0] ?? decks[0];
+}
+
 export function getDailySessionSize(plan: Plan = getPlan()): number {
   return PLAN_LIMITS[plan].dailySessionSize;
 }

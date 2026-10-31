@@ -6,7 +6,7 @@ import TopicSearch from './TopicSearch';
 import { matchesTopic } from '../utils/topicSearch';
 import { canAccessTopic, getVisibleBloques, getVisibleDecks, getVisibleTopics, getVisibleTotalCards, type RecallDeck as RecallDeckData } from '../data/recallRegistry';
 import { isPlanesEnabled } from '../config/features';
-import { canAccessDeck, getPlan, PLAN_COPY } from '../utils/plan';
+import { canAccessDeck, getPlan, pickDefaultDeck, PLAN_COPY } from '../utils/plan';
 
 interface RecallHubProps {
   /** Demo o sin cuenta: cambia el aviso de dónde se guarda el repaso. */
@@ -37,7 +37,8 @@ export default function RecallHub({ onNavigateHome, initialDeckId, onOpenPlanes,
   const RECALL_TOPICS = getVisibleTopics();
   const RECALL_BLOQUES = getVisibleBloques();
   const RECALL_TOTAL_CARDS = getVisibleTotalCards();
-  const firstAccessible = RECALL_DECKS.find((d) => canAccessDeck(d.id, plan)) ?? RECALL_DECKS[0];
+  // Modo invitado: abre un tema accesible de T35-40 (procedimientos de Badajoz), no el tema 1.
+  const firstAccessible = pickDefaultDeck(RECALL_DECKS, plan, demo) ?? RECALL_DECKS[0];
   const [deckId, setDeckId] = useState(() => {
     const byDeck = RECALL_DECKS.find((d) => d.id === initialDeckId);
     if (byDeck) return byDeck.id;

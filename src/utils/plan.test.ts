@@ -82,3 +82,35 @@ describe('fuente única del plan gratis (embudo 2026-10-26)', () => {
     expect(planFeatures('pro', 'X').join(' ')).toMatch(/300 correcciones por hora y 1500 al día/);
   });
 });
+
+describe('pickDefaultDeck: tema por defecto en Temas', () => {
+  const decks = [
+    { id: 'tema1', tema: 1 },
+    { id: 'tema35', tema: 35 },
+    { id: 'tema40', tema: 40 },
+  ];
+  it('invitado con plan pro: abre el tema 40 (T35-40), no el tema 1', async () => {
+    const { pickDefaultDeck } = await import('./plan');
+    expect(pickDefaultDeck(decks, 'pro', true)?.id).toBe('tema40');
+  });
+  it('invitado con plan gratis: abre un mazo de T35-40 al que tiene acceso', async () => {
+    const { pickDefaultDeck } = await import('./plan');
+    const d = pickDefaultDeck(decks, 'free', true)!;
+    expect(d.tema).toBeGreaterThanOrEqual(35);
+    expect(canAccessDeck(d.id, 'free')).toBe(true);
+  });
+  it('con cuenta conserva el primer mazo accesible del registro', async () => {
+    const { pickDefaultDeck } = await import('./plan');
+    expect(pickDefaultDeck(decks, 'pro', false)?.id).toBe('tema1');
+    expect(pickDefaultDeck(decks, 'free', false)?.id).toBe('tema40');
+  });
+  it('en el registro real hay un mazo accesible de T35-40 para el invitado', async () => {
+    const { pickDefaultDeck } = await import('./plan');
+    for (const plan of ['free', 'pro'] as const) {
+      const d = pickDefaultDeck(RECALL_DECKS, plan, true)!;
+      expect(d.tema).toBeGreaterThanOrEqual(35);
+      expect(d.tema).toBeLessThanOrEqual(40);
+      expect(canAccessDeck(d.id, plan)).toBe(true);
+    }
+  });
+});
