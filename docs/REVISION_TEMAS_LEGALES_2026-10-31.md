@@ -17,15 +17,16 @@
 | T31 | tema31 | RD 1215/1997, BOE-A-1997-17824 (act. 18/12/2025) | 83 | 73 | 10 | muestra | 0 | RD completo |
 | T34 | tema34-lote01/02/03 | RSCIEI, RD 164/2025, BOE-A-2025-7190 (act. 20/12/2025) | 132 | 129 | 3 | muestra | 0 | RD completo |
 
-## Pendiente (31/10/2026)
+## Pendiente (31/10/2026, actualizado 2.ª tanda)
 
 - Sin fichas: T11, T18 (T19 excluido).
-- Cotejo automático OK, falta comprobar el alcance del epígrafe: T22 (anexo II RD 1215), T10 lote 1, T12, T14, T28.
-- T33: 61 fichas del anexo I sección 1 del RIPCI; el epígrafe solo cubre abastecimiento, hidrantes, BIE y columna seca, así que hay que filtrar por apartado. T33-lote02 (arts. 21-22 y anexos II-III) queda fuera del epígrafe.
-- Parciales: T23 20/21, T23-lote02 18/23, T13 18 OK + 7 sin enlace, T12 5 sin enlace, T28-lote02 12 sin enlace.
+- Ocultas por no tener norma oficial (INSST): 5 de T12 y 12 de T28-lote02 (NTP 400). Se verían si se acepta el INSST como fuente o se rehacen contra RD 614/2001.
+- T33-lote02 (arts. 21-22, anexos II-III RIPCI): fuera del epígrafe, sigue oculto.
+- T23-lote02: 18 de 23 con respaldo; 10 por debajo del umbral, sin revisar.
 - Mayoría sin enlace a artículo: T9, T15, T27-lote02, T32.
-- Sin texto consolidado en la API: T25 y T25-lote02 (BOE-A-2009-5490), T16-lote02 / T17 (BOE-A-2025-77).
-- Fuente BOP/DOE, sin cotejar: T4, T5, T20, T21, T29, T30, T37 y el resto (T8, T26, T27).
+- Sin texto consolidado en la API: T25 y T25-lote02 (BOE-A-2009-5490).
+- Fuente BOP/DOE, sin cotejar: T4, T5, T20, T21, T29, T30, T37; resto sin revisar: T8, T26, T27, lotes 02 de T12, T13, T22.
+
 | T10 | tema10 | RIPCI, RD 513/2017, BOE-A-2017-6606 | 34 | 34 | 0 | — | 0 | abastecimiento, hidrantes, BIE, columna seca (epígrafe T10) |
 | T22 | tema22 | RD 1215/1997 anexo II.4, BOE-A-1997-17824 | 33 | 32 | 1 | — | 0 | normativa de trabajos en altura |
 | T14 | tema14 | RGC BOE-A-2003-23514, RGV BOE-A-1999-1826, BOE-A-2021-4194 | 24 | 24 | 0 | — | 0 | normativa de aplicación de vehículos |
