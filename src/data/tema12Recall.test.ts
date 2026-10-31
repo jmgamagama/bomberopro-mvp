@@ -39,6 +39,7 @@ describe('tema 12 · fase 2 (texto oficial consolidado)', () => {
 
   it('se registra como mazo bajo demanda', async () => {
     expect(getRecallDeck('tema12').count).toBe(21);
-    expect(await loadRecallDeckCards('tema12')).toBe(TEMA12_RECALL_CARDS);
+    // Las 5 fichas del INSST se filtran al cargar (recallCardReview.ts).
+    expect((await loadRecallDeckCards('tema12')).map((c) => c.id)).toEqual(TEMA12_RECALL_CARDS.filter((c) => !c.id.startsWith('CPEI-T12-OF-') || !['01AA23CD', 'A4DBE918', '591B1F12', '395A3760', '1464CEF3'].includes(c.id.slice(12))).map((c) => c.id));
   });
 });

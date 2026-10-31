@@ -42,6 +42,7 @@ export const REVIEWED_DECKS: Readonly<Record<string, DeckReview>> = {
   tema22: revisado('33 de 33 fichas cotejadas con RD 1215/1997 anexo II.4, BOE-A-1997-17824 vigente (31/10/2026); marco legal de trabajos en altura', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   tema14: revisado('24 de 24 fichas literales (RGC BOE-A-2003-23514, RGV BOE-A-1999-1826, BOE-A-2021-4194), vigentes (31/10/2026); normativa de vehículos del epígrafe', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   tema28: revisado('29 de 29 fichas literales (RD 614/2001 BOE-A-2001-11881, REBT BOE-A-2002-18099, RD 223/2008 BOE-A-2008-5269), vigentes (31/10/2026)', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
+  tema12: revisado('16 de 21 fichas literales en RIPCI anexo I secc. 1, BOE-A-2017-6606 vigente (31/10/2026); las 5 del INSST quedan ocultas (sin norma oficial)', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   tema35: revisado('revisión completa por decisión del propietario', 'tema35_calidad.md'),
   tema38: revisado('revisión completa por decisión del propietario', 'tema38_cambios.md'),
   tema39: revisado('revisión completa por decisión del propietario', 'tema39_cambios.md'),

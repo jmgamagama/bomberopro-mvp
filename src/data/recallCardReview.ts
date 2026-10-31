@@ -12,6 +12,8 @@
  * Dudosas (se mantienen, a decidir por JM): audit/fuera-de-epigrafe-dudosas.md.
  */
 export const OUT_OF_SYLLABUS_CARDS: Readonly<Record<string, readonly string[]>> = {
+  // Sin norma oficial (BOE/DOE/BOP) que respalde la respuesta: documentos técnicos del INSST (31/10/2026).
+  'tema12': ['CPEI-T12-OF-01AA23CD', 'CPEI-T12-OF-A4DBE918', 'CPEI-T12-OF-591B1F12', 'CPEI-T12-OF-395A3760', 'CPEI-T12-OF-1464CEF3'],
   'tema35': ['CPEI-T35-S01-D003AEE18E', 'CPEI-T35-S01-400B30628A'],
   'tema36-lote01': [
     'CPEI-T36-S02-734D640EE3', 'CPEI-T36-S02-6090DF251C', 'CPEI-T36-S02-B08849E3E1', 'CPEI-T36-S02-9A8D6DB432',

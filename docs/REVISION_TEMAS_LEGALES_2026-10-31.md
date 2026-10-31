@@ -30,3 +30,4 @@
 | T22 | tema22 | RD 1215/1997 anexo II.4, BOE-A-1997-17824 | 33 | 32 | 1 | — | 0 | normativa de trabajos en altura |
 | T14 | tema14 | RGC BOE-A-2003-23514, RGV BOE-A-1999-1826, BOE-A-2021-4194 | 24 | 24 | 0 | — | 0 | normativa de aplicación de vehículos |
 | T28 | tema28 | RD 614/2001, REBT, RD 223/2008 | 29 | 29 | 0 | — | 0 | definiciones, distancias de seguridad, redes |
+| T12 | tema12 | RIPCI, BOE-A-2017-6606 | 21 | 16 | 0 | — | 5 ocultas (INSST, sin norma) | extintores, clases de fuego |
