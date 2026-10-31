@@ -1,0 +1,22 @@
+{
+ "boe": "BOE-A-2017-6606",
+ "version": "19/12/2025",
+ "epigrafe": "Real Decreto 513/2017, de 22 de mayo, por el que se aprueba el Reglamento de instalaciones de proteccion contra incendios: objeto y ambito de aplicacion. Sistemas de abastecimiento de agua contra incendios, hidrantes, bocas de incendio equipadas, columnas secas.",
+ "bloques": [
+  {
+   "id": "ripci-01",
+   "titulo": "Reglamento · Objeto y ámbito de aplicación (arts. 1–2)",
+   "preceptos": [
+    "a1",
+    "a2"
+   ]
+  },
+  {
+   "id": "ripci-02",
+   "titulo": "Anexo I, sección 1.ª · Abastecimiento de agua, hidrantes, BIE y columna seca (apdos. 2, 3, 5 y 6)",
+   "preceptos": [
+    "s1-2"
+   ]
+  }
+ ]
+}
