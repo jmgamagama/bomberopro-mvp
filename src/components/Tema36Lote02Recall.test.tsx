@@ -20,12 +20,12 @@ const fichasJson = JSON.parse(
 };
 
 describe('Tema36Lote02Recall', () => {
-  it('carga exactamente 79 fichas del tema 36 lote 02 desde el JSON limpio', () => {
-    expect(TEMA36_LOTE02_RECALL_META.count).toBe(79);
+  it('carga exactamente 80 fichas del tema 36 lote 02 desde el JSON limpio', () => {
+    expect(TEMA36_LOTE02_RECALL_META.count).toBe(80);
     expect(TEMA36_LOTE02_RECALL_META.lote).toBe('lote02');
     expect(fichasJson.metadata.lote).toBe('lote02');
-    expect(TEMA36_LOTE02_RECALL_CARDS).toHaveLength(79);
-    expect(fichasJson.fichas).toHaveLength(79);
+    expect(TEMA36_LOTE02_RECALL_CARDS).toHaveLength(80);
+    expect(fichasJson.fichas).toHaveLength(80);
     expect(TEMA36_LOTE02_RECALL_CARDS.every((c) => c.concepto && c.respuesta && c.fuente)).toBe(true);
     expect(TEMA36_LOTE02_RECALL_CARDS.every((c) => c.id.startsWith('CPEI-T36-S02-'))).toBe(true);
     expect(fichasJson.fichas.every((c) => c.subtema === 'S02')).toBe(true);
@@ -38,8 +38,8 @@ describe('Tema36Lote02Recall', () => {
       expect(c.respuesta).toBe(fichasJson.fichas[i].respuesta);
       expect(c.fuente).toBe(fichasJson.fichas[i].fuente);
     });
-    expect(new Set(TEMA36_LOTE02_RECALL_CARDS.map((c) => c.id)).size).toBe(79);
-    expect(new Set(TEMA36_LOTE02_RECALL_CARDS.map((c) => c.concepto)).size).toBe(79);
+    expect(new Set(TEMA36_LOTE02_RECALL_CARDS.map((c) => c.id)).size).toBe(80);
+    expect(new Set(TEMA36_LOTE02_RECALL_CARDS.map((c) => c.concepto)).size).toBe(80);
   });
 
   it('no incluye fichas del lote 01 (muestra CPEI-T36-S01-2A0B8D8C18)', () => {

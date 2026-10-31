@@ -15,11 +15,11 @@ const fichasJson = JSON.parse(
 };
 
 describe('tema 36 lote 03 (municipios Esparragosa de la Serena → Nogales)', () => {
-  it('carga exactamente 78 fichas desde el JSON limpio', () => {
-    expect(TEMA36_LOTE03_RECALL_META.count).toBe(78);
+  it('carga exactamente 80 fichas desde el JSON limpio', () => {
+    expect(TEMA36_LOTE03_RECALL_META.count).toBe(80);
     expect(TEMA36_LOTE03_RECALL_META.lote).toBe('lote03');
-    expect(fichasJson.metadata).toMatchObject({ lote: 'lote03', count: 78 });
-    expect(TEMA36_LOTE03_RECALL_CARDS).toHaveLength(78);
+    expect(fichasJson.metadata).toMatchObject({ lote: 'lote03', count: 80 });
+    expect(TEMA36_LOTE03_RECALL_CARDS).toHaveLength(80);
     expect(fichasJson.fichas.every((c) => c.subtema === 'S02')).toBe(true);
     expect(TEMA36_LOTE03_RECALL_CARDS.every((c) => c.concepto && c.respuesta && c.fuente)).toBe(true);
   });
@@ -28,8 +28,8 @@ describe('tema 36 lote 03 (municipios Esparragosa de la Serena → Nogales)', ()
     expect(TEMA36_LOTE03_RECALL_CARDS.map((c) => [c.id, c.concepto, c.respuesta, c.fuente])).toEqual(
       fichasJson.fichas.map((c) => [c.id, c.concepto, c.respuesta, c.fuente]),
     );
-    expect(new Set(TEMA36_LOTE03_RECALL_CARDS.map((c) => c.id)).size).toBe(78);
-    expect(new Set(TEMA36_LOTE03_RECALL_CARDS.map((c) => c.concepto)).size).toBe(78);
+    expect(new Set(TEMA36_LOTE03_RECALL_CARDS.map((c) => c.id)).size).toBe(80);
+    expect(new Set(TEMA36_LOTE03_RECALL_CARDS.map((c) => c.concepto)).size).toBe(80);
   });
 
   it('no solapa con los lotes 01 y 02 (ids, conceptos ni códigos INE)', () => {
@@ -58,7 +58,7 @@ describe('tema 36 lote 03 (municipios Esparragosa de la Serena → Nogales)', ()
   it('entra por el registro central como lote 3 del tema 36', async () => {
     const deck = getRecallDeck('tema36-lote03');
     expect(deck.shortLabel).toBe('T36·3');
-    expect(deck.count).toBe(78);
+    expect(deck.count).toBe(80);
     expect(deck.topicId).toBe('tema36');
     expect(deck.loteLabel).toBe('Lote 3');
     // El alumno solo ve las fichas revisadas sueltas (poblaciones verificadas con el INE).
