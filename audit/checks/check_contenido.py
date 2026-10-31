@@ -35,6 +35,11 @@ def articulo(boe,num):
     if not os.path.exists(p): return None
     for b in json.load(open(p,encoding='utf-8')):
         if b['id']==f'a{num}': return ' '.join(x.get('texto','') for x in b.get('parrafos',[]))
+def retiradas():
+    # Fichas ya retiradas de la vista del alumno (src/data/recallCardReview.ts): no cuentan.
+    p=os.path.join(ROOT,'src/data/recallCardReview.ts')
+    return set(re.findall(r"'(CPEI-[^']+)'",open(p,encoding='utf-8').read())) if os.path.exists(p) else set()
+RETIRADAS=retiradas()
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--banco',default=None);a=ap.parse_args()
     F=fichas()
@@ -49,7 +54,7 @@ def main():
         if not re.search(r'\d',f['localizacion']): R['fichas_sin_localizacion_numerica'].append((f['id'],f['localizacion']))
         if f['_tema'] not in TEMAS_ANEXO: R['tema_invalido_o_fuera_anexo'].append((f['id'],f['_tema']))
         for lab,fn in FUERA_EPIGRAFE:
-            if fn(f): R['fuera_de_epigrafe'].append((f['id'],lab))
+            if fn(f) and f['id'] not in RETIRADAS: R['fuera_de_epigrafe'].append((f['id'],lab))
     nchk=0
     for q in Q:
         txt=json.dumps(q,ensure_ascii=False)

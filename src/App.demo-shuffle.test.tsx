@@ -69,7 +69,7 @@ describe('Demo: las opciones se barajan al montar la sesión', () => {
     await screen.findByText(/según el artículo 1\.1 de la constitución/i);
 
     const correct = screen.getByRole('button', { name: /estado social y democrático de derecho/i });
-    expect(correct).toHaveTextContent(/^D\)/);
+    expect(correct).toHaveTextContent(/^C\)/);
     expect(screen.getByRole('button', { name: /estado democrático y social de derecho/i })).toHaveTextContent(/^A\)/);
 
     await user.click(correct);

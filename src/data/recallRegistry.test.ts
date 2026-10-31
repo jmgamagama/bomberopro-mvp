@@ -11,6 +11,7 @@ import {
   getLoadedDeckCards,
   getRecallDeck,
   getRecallTopic,
+  loadRawRecallDeckCards,
   loadRecallDeckCards,
   toTopicId,
 } from './recallRegistry';
@@ -140,7 +141,7 @@ describe('registro central de recuerdo', () => {
       expect(meta.count).toBe(deck.count);
       expect(meta.tema).toBe(deck.tema);
       expect(meta.lote).toBe(deck.lote);
-      expect(await loadRecallDeckCards(deck.id)).toBe(cards);
+      expect(await loadRawRecallDeckCards(deck.id)).toBe(cards);
     }
   });
 
@@ -150,11 +151,14 @@ describe('registro central de recuerdo', () => {
     const [a, b] = await Promise.all([p1, p2]);
     expect(a).toBe(b);
     expect(getLoadedDeckCards('tema39')).toBe(a);
-    await expect(loadRecallDeckCards('tema37')).rejects.toThrow();
+    // Vista del alumno: sin las 18 fichas del SOS «Módulo de personal» (fuera del epígrafe).
+    expect(a).toHaveLength(131);
+    expect(await loadRawRecallDeckCards('tema39')).toHaveLength(149);
+    await expect(loadRawRecallDeckCards('tema37')).rejects.toThrow();
   });
 
   it('todas las fichas tienen concepto, respuesta y fuente, con ids únicos entre mazos', async () => {
-    const all = (await Promise.all(RECALL_DECKS.map((d) => loadRecallDeckCards(d.id)))).flat();
+    const all = (await Promise.all(RECALL_DECKS.map((d) => loadRawRecallDeckCards(d.id)))).flat();
     expect(all).toHaveLength(RECALL_TOTAL_CARDS);
     expect(all.every((c) => c.concepto && c.respuesta && c.fuente)).toBe(true);
     expect(new Set(all.map((c) => c.id)).size).toBe(all.length);

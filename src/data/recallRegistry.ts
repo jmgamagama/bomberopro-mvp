@@ -20,6 +20,7 @@
 import { canAccessDeck, getPlan, PLAN_LIMITS, type Plan } from '../utils/plan';
 import { getDeckRevision, type RecallRevision } from './recallReview';
 import { canSeePendingDecks } from '../utils/revisionAccess';
+import { isCardOutOfSyllabus, outOfSyllabusCount } from './recallCardReview';
 
 /**
  * C1, paso 2 (auditoría 2026-10-26; migración 34): con VITE_PRO_DECKS_FROM_SERVER=true el build
@@ -750,7 +751,10 @@ export const RECALL_BLOQUES: readonly RecallBloque[] = buildBloques(RECALL_TOPIC
 // ---------------------------------------------------------------------------
 
 /** Mazos con revisión humana completa. */
-export const REVIEWED_RECALL_DECKS: readonly RecallDeck[] = RECALL_DECKS.filter((d) => d.revision === 'revisado');
+export const REVIEWED_RECALL_DECKS: readonly RecallDeck[] = RECALL_DECKS
+  .filter((d) => d.revision === 'revisado')
+  // Las fichas fuera del epígrafe (recallCardReview.ts) no cuentan para el alumno.
+  .map((d) => (outOfSyllabusCount(d.id) ? { ...d, count: d.count - outOfSyllabusCount(d.id) } : d));
 const REVIEWED_TOPICS = buildTopics(REVIEWED_RECALL_DECKS);
 const REVIEWED_BLOQUES = buildBloques(REVIEWED_TOPICS);
 
@@ -817,13 +821,14 @@ export function canAccessTopic(topic: RecallTopic, plan: Plan = getPlan()): bool
 const cardCache = new Map<string, readonly RecallSourceCard[]>();
 const pending = new Map<string, Promise<readonly RecallSourceCard[]>>();
 
-/** Fichas de un mazo ya cargado (o `undefined` si aún no se ha pedido). */
+/** Fichas de un mazo ya cargado, tal como las ve el usuario actual (o `undefined` si aún no se ha pedido). */
 export function getLoadedDeckCards(id: string): readonly RecallSourceCard[] | undefined {
-  return cardCache.get(id);
+  const cards = cardCache.get(id);
+  return cards && viewFor(id, cards);
 }
 
-/** Carga (una sola vez) las fichas de un mazo: import dinámico de su módulo. */
-export function loadRecallDeckCards(id: string): Promise<readonly RecallSourceCard[]> {
+/** Carga (una sola vez) TODAS las fichas de un mazo: import dinámico de su módulo (auditoría, revisión). */
+export function loadRawRecallDeckCards(id: string): Promise<readonly RecallSourceCard[]> {
   const cached = cardCache.get(id);
   if (cached) return Promise.resolve(cached);
   const inFlight = pending.get(id);
@@ -842,6 +847,27 @@ export function loadRecallDeckCards(id: string): Promise<readonly RecallSourceCa
     .finally(() => pending.delete(id));
   pending.set(id, promise);
   return promise;
+}
+
+const studentView = new Map<readonly RecallSourceCard[], readonly RecallSourceCard[]>();
+
+/**
+ * Fichas de un mazo tal como las ve el usuario actual. En un mazo publicado, el alumno no recibe
+ * las fichas fuera del epígrafe (recallCardReview.ts); el propietario/admin de revisión sí. Los
+ * mazos pendientes ya están ocultos al alumno: al publicarlos se aplicará el mismo filtro.
+ */
+export function loadRecallDeckCards(id: string): Promise<readonly RecallSourceCard[]> {
+  return loadRawRecallDeckCards(id).then((cards) => viewFor(id, cards));
+}
+
+function viewFor(id: string, cards: readonly RecallSourceCard[]): readonly RecallSourceCard[] {
+  if (!outOfSyllabusCount(id) || canSeePendingDecks() || getRecallDeck(id).revision !== 'revisado') return cards;
+  let view = studentView.get(cards);
+  if (!view) {
+    view = cards.filter((c) => !isCardOutOfSyllabus(c.id));
+    studentView.set(cards, view);
+  }
+  return view;
 }
 
 function joinEs(items: readonly string[]): string {

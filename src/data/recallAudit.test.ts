@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { RECALL_DECKS, loadRecallDeckCards, type RecallSourceCard } from './recallRegistry';
+import { RECALL_DECKS, loadRawRecallDeckCards, type RecallSourceCard } from './recallRegistry';
 import { DECKS_SIN_ENLACE, auditDeck, canonicalDeckContent, citedUrls, isOfficialUrl } from './recallAudit';
 
 const fingerprint = (cards: readonly RecallSourceCard[]) =>
@@ -56,7 +56,7 @@ describe('todas las fichas del registro', () => {
     const ids = new Map<string, string>();
     const problems: string[] = [];
     for (const deck of RECALL_DECKS) {
-      const a = auditDeck(deck.id, deck.count, await loadRecallDeckCards(deck.id), ids);
+      const a = auditDeck(deck.id, deck.count, await loadRawRecallDeckCards(deck.id), ids);
       problems.push(...a.problems.map((p) => `${deck.id}: ${p}`));
     }
     expect(problems).toEqual([]);
@@ -66,7 +66,7 @@ describe('todas las fichas del registro', () => {
     const ids = new Set(RECALL_DECKS.map((d) => d.id));
     for (const id of Object.keys(DECKS_SIN_ENLACE)) {
       expect(ids.has(id), id).toBe(true);
-      const cards = await loadRecallDeckCards(id);
+      const cards = await loadRawRecallDeckCards(id);
       expect(cards.some((c) => citedUrls(c).length > 0), id).toBe(false);
     }
   });
@@ -78,7 +78,7 @@ describe('todas las fichas del registro', () => {
       expect(row, `${deck.id} falta en el informe`).toBeDefined();
       if (deck.revision !== 'revisado') continue;
       expect(row, `${deck.id}: contenido publicado cambiado sin regenerar el informe`).toContain(
-        `\`${fingerprint(await loadRecallDeckCards(deck.id))}\``,
+        `\`${fingerprint(await loadRawRecallDeckCards(deck.id))}\``,
       );
     }
   });
