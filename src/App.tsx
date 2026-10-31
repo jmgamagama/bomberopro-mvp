@@ -120,6 +120,7 @@ export default function App() {
   const openPlanes = planesEnabled ? () => handleNavigate('planes') : undefined;
   // La bienvenida abre la sesión diaria directamente en la primera ficha.
   const [dailyAutoStart, setDailyAutoStart] = useState(false);
+  const [mockAutoStart, setMockAutoStart] = useState(false);
 
   const [memoryStates, setMemoryStates] = useState<Record<string, MemoryState>>({});
   const [attempts, setAttempts] = useState<Attempt[]>([]);
@@ -304,6 +305,7 @@ export default function App() {
   ) => {
     if (screen === 'planes') trackFunnel('planes_view');
     setDailyAutoStart(false);
+    setMockAutoStart(false);
     setCurrentScreen(screen);
     
     // Clear targeted concept constraints when returning to general study or exiting train screen
@@ -909,6 +911,7 @@ export default function App() {
                 Repasar ({pendingCount})
               </button>
             )}
+            {!isDemoMode && (
             <button
               onClick={handleLogout}
               aria-label={isDemoMode ? 'Salir de la demostración' : 'Salir (cerrar sesión)'}
@@ -918,6 +921,7 @@ export default function App() {
               <LogOut className="w-4 h-4" aria-hidden="true" />
               <span>Salir</span>
             </button>
+            )}
           </div>
         </div>
       </header>
@@ -1076,6 +1080,7 @@ export default function App() {
             onNavigateHome={() => handleNavigate('dashboard')}
             useServerQuestions={!!session && !isDemoMode}
             onGuestSignup={supabase && !session ? handleDemoSignup : undefined}
+            autoStart={mockAutoStart}
           />
         )}
 
@@ -1087,6 +1092,11 @@ export default function App() {
                 setDailyAutoStart(true);
               }}
               onSkip={() => handleNavigate('dashboard')}
+              onTryExam={isDemoMode || !session ? () => {
+                handleNavigate('mock_exam');
+                setMockAutoStart(true);
+              } : undefined}
+              onOpenPlanes={planesEnabled ? () => handleNavigate('planes') : undefined}
             />
           )}
 
@@ -1124,7 +1134,12 @@ export default function App() {
           <section aria-label="Estudio por temas no disponible en la demostración" className="rounded-xl border border-slate-200 bg-white p-6">
             <h2 className="text-lg font-bold text-slate-900">Estudio por temas</h2>
             <p className="mt-2 text-sm text-slate-600">Esta función guarda tu progreso y requiere una cuenta. Crea una cuenta o inicia sesión para usarla.</p>
-            <button type="button" className="mt-4 rounded-lg bg-indigo-700 px-4 py-2 font-semibold text-white" onClick={() => handleNavigate('dashboard')}>Volver al inicio</button>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {supabase && !session && (
+                <button type="button" className="min-h-11 rounded-lg bg-indigo-700 px-4 py-2 font-semibold text-white" onClick={handleDemoSignup}>Crear cuenta gratis</button>
+              )}
+              <button type="button" className={`min-h-11 rounded-lg px-4 py-2 font-semibold ${supabase && !session ? 'border border-slate-300 bg-white text-slate-800' : 'bg-indigo-700 text-white'}`} onClick={() => handleNavigate('dashboard')}>Volver al inicio</button>
+            </div>
           </section>
         )}
         {currentScreen === 'study_by_topic' && !isDemoMode && !!supabase && (

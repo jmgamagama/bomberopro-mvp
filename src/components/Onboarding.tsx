@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CalendarClock, Check, FileText, Flame, Lock, Play } from 'lucide-react';
+import { CalendarClock, Check, FileText, Flame, HelpCircle, Lock, Play } from 'lucide-react';
 import { CONVOCATORIA_CPEI_2026 as C } from '../data/convocatoria';
 import { canAccessTopic, getVisibleBloques, getVisibleTopic, getVisibleTotalCards, type RecallTopic } from '../data/recallRegistry';
 import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreferences';
@@ -18,13 +18,18 @@ import ExamDateField from './ExamDateField';
 import DailyMinutesField from './DailyMinutesField';
 import TopicSearch from './TopicSearch';
 import { matchesTopic } from '../utils/topicSearch';
-import { getDailySessionSize, getPlan } from '../utils/plan';
+import { canAccessDeck, getDailySessionSize, getPlan, planSummary, PLAN_COPY } from '../utils/plan';
+import { getVisibleDecks } from '../data/recallRegistry';
 
 interface OnboardingProps {
   /** El opositor pulsó «Empezar sesión diaria»: abrir la sesión ya en la primera ficha. */
   onStart: () => void;
   /** «Saltar»: ir al inicio sin cambiar preferencias. */
   onSkip: () => void;
+  /** Invitado: ir directo a la primera pregunta de un simulacro de muestra. */
+  onTryExam?: () => void;
+  /** Abre la página de planes (solo con VITE_FEATURE_PLANES). */
+  onOpenPlanes?: () => void;
 }
 
 const ALL = 'todos';
@@ -33,8 +38,10 @@ const ALL = 'todos';
  * Bienvenida para usuario nuevo: convocatoria + elegir tema (o todos) + empezar.
  * Dos toques hasta la primera ficha: tema → «Empezar sesión diaria».
  */
-export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
+export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes }: OnboardingProps) {
   const plan = getPlan();
+  const showPlans = isPlanesEnabled() && plan === 'free';
+  const planCards = getVisibleDecks().filter((d) => canAccessDeck(d.id, plan)).reduce((n, d) => n + d.count, 0);
   const [choice, setChoice] = useState<string>(() => {
     const stored = getVisibleTopic(getPreferredDeckId() ?? '');
     return stored && canAccessTopic(stored, plan) ? stored.id : ALL;
@@ -69,7 +76,7 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
   });
   // «Todos los temas» y, debajo, los temas agrupados por bloque (parte común / específica).
   const groups: { id: string; label: string | null; options: Option[] }[] = [
-    { id: ALL, label: null, options: [{ id: ALL, label: 'Todos los temas', detail: `${getVisibleTotalCards()} fichas`, locked: false }] },
+    { id: ALL, label: null, options: [{ id: ALL, label: showPlans ? 'Todos los temas de tu plan' : 'Todos los temas', detail: showPlans ? `${planCards} fichas en Gratis` : `${getVisibleTotalCards()} fichas`, locked: false }] },
     ...getVisibleBloques()
       .map((b) => ({ b, topics: b.topics.filter((t) => matchesTopic(query, t.tema, t.name, t.title, t.shortLabel)) }))
       .filter(({ topics }) => topics.length > 0)
@@ -126,6 +133,21 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
         </ul>
       </div>
 
+      {showPlans && (
+        <div id="onboarding-planes" className="space-y-1 rounded-2xl border border-slate-200 bg-white p-3.5 text-[13px] leading-snug text-slate-700 sm:text-sm">
+          <p><strong className="text-slate-900">{planSummary('free')}</strong></p>
+          <p>
+            <Lock className="mr-1 inline h-3.5 w-3.5 align-[-2px]" aria-hidden="true" />
+            {planSummary('pro')}{' '}
+            {onOpenPlanes && (
+              <button type="button" onClick={onOpenPlanes} className="min-h-11 font-semibold text-indigo-700 underline">
+                Ver planes
+              </button>
+            )}
+          </p>
+        </div>
+      )}
+
       <fieldset className="space-y-2">
         <legend className="text-sm font-bold text-slate-800">¿Qué quieres repasar primero?</legend>
         <TopicSearch id="onboarding-buscar-tema" value={query} onChange={setQuery} shown={shownTopics} total={totalTopics} />
@@ -156,7 +178,7 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
                     <span className="min-w-0">
                       <span className="block font-semibold leading-snug break-words">
                         {o.locked && <Lock className="mr-1 inline h-3.5 w-3.5 align-[-2px]" aria-hidden="true" />}
-                        {o.label} <span className="font-normal text-slate-600">· {o.detail}{o.locked ? ' · Pro' : ''}</span>
+                        {o.label} <span className="font-normal text-slate-600">· {o.detail}{o.locked ? ` · ${PLAN_COPY.lockedDeck}` : ''}</span>
                       </span>
                     </span>
                     <span
@@ -206,7 +228,21 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
           <Play className="h-5 w-5 fill-current" aria-hidden="true" />
           Empezar sesión diaria
         </button>
-        <p className="mt-1.5 text-center text-xs text-slate-500">Puedes cambiar el tema, el tiempo y la fecha más tarde desde la Sesión diaria.</p>
+        {onTryExam && (
+          <button
+            type="button"
+            id="btn-onboarding-simulacro"
+            onClick={() => {
+              completeOnboarding('skipped');
+              onTryExam();
+            }}
+            className="mt-2 flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-indigo-200 bg-white px-4 py-2 text-sm font-semibold text-indigo-700 hover:bg-indigo-50"
+          >
+            <HelpCircle className="h-4 w-4" aria-hidden="true" />
+            Probar un simulacro de muestra
+          </button>
+        )}
+        <p className="mt-1.5 text-center text-xs text-slate-600">Puedes cambiar el tema, el tiempo y la fecha más tarde desde la Sesión diaria.</p>
       </div>
     </section>
   );
