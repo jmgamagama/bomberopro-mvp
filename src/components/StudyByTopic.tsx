@@ -12,6 +12,8 @@ import ReportQuestionButton from './ReportQuestionButton';
 import { shuffleAllOptions } from '../utils/shuffleOptions';
 import { checkAnswer, describeCheckError, fetchKeyless, withRevealedKey } from '../lib/secureQuestions';
 import { newStudySessionId, startStudySession, finishStudySession } from '../lib/studySession';
+import TopicSearch from './TopicSearch';
+import { matchesTopic } from '../utils/topicSearch';
 import ConceptOutline, { ConceptCountBadge, useConceptSummary } from './ConceptOutline';
 
 interface TopicOption {
@@ -28,6 +30,7 @@ interface StudyByTopicProps {
 export default function StudyByTopic({ session, onNavigateHome }: StudyByTopicProps) {
   const [topics, setTopics] = useState<TopicOption[]>([]);
   const [selected, setSelected] = useState<number[]>([]);
+  const [topicQuery, setTopicQuery] = useState('');
   const [loadingTopics, setLoadingTopics] = useState(true);
   // Recuentos reales de conceptos por tema y mapa de conceptos desplegable (migración 23).
   const conceptSummary = useConceptSummary();
@@ -170,9 +173,14 @@ if (!started) {
              h('h1', { className: 'text-2xl font-bold text-slate-900 mb-2' }, 'Estudio por Temas'),
              h('p', { className: 'text-slate-600 mb-6' }, 'Elige uno o varios temas para practicar preguntas centradas en ese contenido.'),
              loadingTopics
-             ? h('p', { className: 'text-slate-500' }, 'Cargando temas...')
+             ? h('p', { className: 'text-slate-600' }, 'Cargando temas...')
+             : h('div', { className: 'mb-3' },
+                 h(TopicSearch, { id: 'por-temas-buscar-tema', value: topicQuery, onChange: setTopicQuery, shown: topics.filter(t => matchesTopic(topicQuery, t.numero, t.nombre)).length, total: topics.length })
+               ),
+             loadingTopics
+             ? null
              : h('div', { className: 'grid grid-cols-1 gap-2 mb-6' },
-                 topics.map(t => h('div', { key: t.id, className: 'space-y-2' },
+                 topics.filter(t => matchesTopic(topicQuery, t.numero, t.nombre)).map(t => h('div', { key: t.id, className: 'space-y-2' },
                    h('div', {
                      className: 'flex items-center gap-2 p-3 rounded-lg border ' + (selected.includes(t.id) ? 'border-indigo-600 bg-indigo-50' : 'border-slate-200 bg-white')
                    },

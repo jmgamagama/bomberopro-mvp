@@ -16,6 +16,8 @@ import { loadReviewLog } from '../utils/recallReviewLog';
 import { isPlanesEnabled } from '../config/features';
 import ExamDateField from './ExamDateField';
 import DailyMinutesField from './DailyMinutesField';
+import TopicSearch from './TopicSearch';
+import { matchesTopic } from '../utils/topicSearch';
 import { getDailySessionSize, getPlan } from '../utils/plan';
 
 interface OnboardingProps {
@@ -57,6 +59,7 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
     onSkip();
   };
 
+  const [query, setQuery] = useState('');
   type Option = { id: string; label: string; detail: string; locked: boolean };
   const toOption = (t: RecallTopic): Option => ({
     id: t.id,
@@ -67,8 +70,13 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
   // «Todos los temas» y, debajo, los temas agrupados por bloque (parte común / específica).
   const groups: { id: string; label: string | null; options: Option[] }[] = [
     { id: ALL, label: null, options: [{ id: ALL, label: 'Todos los temas', detail: `${getVisibleTotalCards()} fichas`, locked: false }] },
-    ...getVisibleBloques().map((b) => ({ id: b.id, label: `${b.label} · ${b.topics.length} ${b.topics.length === 1 ? 'tema' : 'temas'}`, options: b.topics.map(toOption) })),
+    ...getVisibleBloques()
+      .map((b) => ({ b, topics: b.topics.filter((t) => matchesTopic(query, t.tema, t.name, t.title, t.shortLabel)) }))
+      .filter(({ topics }) => topics.length > 0)
+      .map(({ b, topics }) => ({ id: b.id, label: `${b.label} · ${b.topics.length} ${b.topics.length === 1 ? 'tema' : 'temas'}`, options: topics.map(toOption) })),
   ];
+  const totalTopics = getVisibleBloques().reduce((n, b) => n + b.topics.length, 0);
+  const shownTopics = groups.reduce((n, g) => n + (g.id === ALL ? 0 : g.options.length), 0);
 
   return (
     <section aria-labelledby="onboarding-title" className="mx-auto max-w-2xl space-y-4 sm:space-y-5 sm:py-6">
@@ -120,11 +128,12 @@ export default function Onboarding({ onStart, onSkip }: OnboardingProps) {
 
       <fieldset className="space-y-2">
         <legend className="text-sm font-bold text-slate-800">¿Qué quieres repasar primero?</legend>
+        <TopicSearch id="onboarding-buscar-tema" value={query} onChange={setQuery} shown={shownTopics} total={totalTopics} />
         <div className="space-y-3" role="radiogroup" aria-label="Tema para la sesión diaria">
           {groups.map((g) => (
             <div key={g.id} role="presentation" id={`onboarding-grupo-${g.id}`} className="space-y-2">
               {g.label && (
-                <p aria-hidden="true" className="px-0.5 text-[11px] font-semibold uppercase tracking-wide text-slate-500">
+                <p aria-hidden="true" className="px-0.5 text-[11px] font-semibold uppercase tracking-wide text-slate-600">
                   {g.label}
                 </p>
               )}
