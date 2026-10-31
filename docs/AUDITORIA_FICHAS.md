@@ -45,7 +45,7 @@ Problemas detectados: **0**.
 | tema27-lote02 | pendiente | 30 | 100 % | 0 | `bae9f0f2535c226d` |  |
 | tema28 | revisado | 29 | 100 % | 0 | `e98b803ecbc6ed49` |  |
 | tema28-lote02 | revisado | 74 | 100 % | 0 | `307cf0309ca112a2` |  |
-| tema29 | pendiente | 81 | 100 % | 0 | `538f7dd425a9125c` |  |
+| tema29 | revisado | 81 | 100 % | 0 | `538f7dd425a9125c` |  |
 | tema30 | pendiente | 87 | 100 % | 0 | `30ee8e6e235730f1` |  |
 | tema31 | revisado | 83 | 100 % | 0 | `8ec0f4305c1c067e` |  |
 | tema32 | pendiente | 91 | 100 % | 0 | `9987144bd4168be1` |  |

@@ -42,3 +42,4 @@
 | T4 | tema4 | Acuerdo de reorganización, BOP Badajoz nº 206 (29/10/2025), anuncio 4611/2025 | 28 | 28 | 0 | — | 0 | áreas, servicios, OOAA y consorcios (epígrafe T4) |
 | T20 | tema20 | Plan INFOEX: Decreto 132/2022 (DOE 210/2022) mod. Decreto 136/2024 (DOE 215/2024) | 24 | 24 | 0 | — | 0 | arts. 6, 7, 10-13 y 16 |
 | T23 | tema23-lote02 | RDPH, RD 903/2010, Directriz 2026 | 23 | 9 | 6 | 8 a mano | 0 | 3 respuestas literalizadas; art. 14 apdo. 3 corregido |
+| T29 | tema29 | PLATERCAEX, Decreto 187/2019 (DOE 247/2019) | 81 | 73 | 7 | 1 a mano | 0 | objetivo, alcance, estructura, operatividad |
