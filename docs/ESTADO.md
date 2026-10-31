@@ -17,6 +17,7 @@
 ## En curso
 - #183 registro por invitación (borrador): staging bloqueado por una confirmación de Supabase al crear el disparador en `auth.users` (ver MANUAL).
 - #194: lista salvo el ensayo en staging (guion en `/mnt/project-files/revisiones/194/`). Niveles 1-2-3: motores 48 y 49 probados en local, sin aplicar. #153 y #179 cerradas el 31/10; tope de 150/día aplazado hasta que haya plan de pago. #209 (límite en conceptos, mig. 47).
+- Tema 5 (RRI CPEI): en producción solo el art. 1 en borrador (invisible); arts. 1-16 van en el paquete (fila 6).
 - Paquete de lanzamiento: `docs/LANZAMIENTO.md` (esqueleto).
 
 ## Supuestos sin verificar
