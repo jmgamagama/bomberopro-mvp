@@ -581,9 +581,9 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "id": "CPEI-T36-S06-782DE8B9C6",
     "orden": 3480,
     "concepto": "¿Dónde se localiza La Serena?",
-    "respuesta": "río Zújar; comarca de La Serena.",
-    "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
+    "respuesta": "río Zújar; presa en el término de Castuera.",
+    "fuente": "CEDEX, Anuario de Aforos 2021-2022, embalses de la C.H. Guadiana (ceh.cedex.es)",
+    "localizacion": "embalse 4010 LA SERENA: corriente río Zújar; municipio Castuera",
     "apartado": "La Serena"
   },
   {
@@ -608,9 +608,9 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "id": "CPEI-T36-S06-3390F3AC52",
     "orden": 3510,
     "concepto": "¿Dónde se localiza Cíjara?",
-    "respuesta": "río Guadiana; nordeste provincial.",
-    "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
+    "respuesta": "río Guadiana; la presa está en Alía (Cáceres), no en la provincia de Badajoz.",
+    "fuente": "CEDEX, Anuario de Aforos 2021-2022, embalses de la C.H. Guadiana (ceh.cedex.es)",
+    "localizacion": "embalse 4002 CIJARA: corriente río Guadiana; municipio Alía (Cáceres)",
     "apartado": "Cíjara"
   },
   {
@@ -644,9 +644,9 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "id": "CPEI-T36-S06-AE1F66E806",
     "orden": 3550,
     "concepto": "¿Dónde se localiza Montijo?",
-    "respuesta": "río Guadiana; Vegas Bajas.",
-    "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
+    "respuesta": "río Guadiana; presa en el término de Mérida.",
+    "fuente": "CEDEX, Anuario de Aforos 2021-2022, embalses de la C.H. Guadiana (ceh.cedex.es)",
+    "localizacion": "embalse 4016 MONTIJO: corriente río Guadiana; municipio Mérida",
     "apartado": "Montijo"
   },
   {

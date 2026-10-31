@@ -95,6 +95,10 @@ export const REVIEWED_CARDS_IN_PENDING_DECKS: Readonly<Record<string, readonly s
   'tema36-lote01': [
     'CPEI-T36-S06-92E86A0B31', 'CPEI-T36-S06-203D362D2B', 'CPEI-T36-S06-1602493A86',
     'CPEI-T36-S06-A1DD263767', 'CPEI-T36-S06-38F90AE742',
+    // Cíjara corregida: la presa está en Alía (Cáceres), CEDEX 4002.
+    'CPEI-T36-S06-3390F3AC52',
+    // La Serena (CEDEX 4010) y Montijo (CEDEX 4016).
+    'CPEI-T36-S06-782DE8B9C6', 'CPEI-T36-S06-AE1F66E806',
   ],
 };
 
