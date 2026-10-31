@@ -23,7 +23,7 @@ import {
   setRevisionViewer,
 } from '../utils/revisionAccess';
 
-const PUBLICADOS = ['tema10-lote02', 'tema16', 'tema17', 'tema24', 'tema35', 'tema38', 'tema39', 'tema40'];
+const PUBLICADOS = ['tema10-lote02', 'tema16', 'tema17', 'tema24', 'tema35', 'tema36-lote01', 'tema38', 'tema39', 'tema40'];
 
 beforeEach(() => {
   window.localStorage.clear();
@@ -61,20 +61,22 @@ describe('vista del alumno', () => {
   it('no ve los mazos pendientes en ningún listado', () => {
     expect(canSeePendingDecks()).toBe(false);
     expect(getVisibleDecks().map((d) => d.id).sort()).toEqual([...PUBLICADOS].sort());
-    expect(getVisibleTotalCards()).toBe(784);
-    expect(getVisibleTopics().map((t) => t.id)).toEqual(['tema10', 'tema16', 'tema17', 'tema24', 'tema35', 'tema38', 'tema39', 'tema40']);
+    expect(getVisibleTotalCards()).toBe(789);
+    expect(getVisibleTopics().map((t) => t.id)).toEqual(['tema10', 'tema16', 'tema17', 'tema24', 'tema35', 'tema36', 'tema38', 'tema39', 'tema40']);
     expect(getVisibleBloques().map((b) => b.id)).toEqual(['especifica']);
     // Tema con lotes mixtos: solo su lote revisado.
     expect(getVisibleTopic('tema16')!.decks.map((d) => d.id)).toEqual(['tema16']);
     expect(getVisibleTopic('tema10')!.count).toBe(13);
-    expect(getVisibleTopic('tema36')).toBeUndefined();
-    expect(canAccessTopic(getRecallTopic('tema36')!)).toBe(false);
+    // T36: solo el lote 01, y de él solo las fichas revisadas sueltas (recallCardReview.ts).
+    expect(getVisibleTopic('tema36')!.decks.map((d) => d.id)).toEqual(['tema36-lote01']);
+    expect(getVisibleTopic('tema36')!.count).toBe(5);
+    expect(canAccessTopic(getRecallTopic('tema34')!)).toBe(false);
     expect(getAccessibleDecks().every((d) => d.revision === 'revisado')).toBe(true);
   });
 
   it('la sesión diaria solo toma fichas de mazos revisados', async () => {
     const pool = await loadRecallPoolForPlan();
-    expect(pool).toHaveLength(784);
+    expect(pool).toHaveLength(789);
     expect(pool.every((c) => c.revision === 'revisado')).toBe(true);
     expect(new Set(pool.map((c) => c.deckId))).toEqual(new Set(PUBLICADOS));
   });

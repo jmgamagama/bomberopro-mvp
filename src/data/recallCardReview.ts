@@ -85,3 +85,29 @@ export function isCardOutOfSyllabus(cardId: string): boolean {
 export function outOfSyllabusCount(deckId: string): number {
   return OUT_OF_SYLLABUS_CARDS[deckId]?.length ?? 0;
 }
+
+/**
+ * Fichas revisadas una a una dentro de un mazo que sigue pendiente (verificadas con fuente oficial).
+ * El alumno solo ve estas fichas del mazo; el resto sigue oculto hasta que se revise el lote entero.
+ */
+export const REVIEWED_CARDS_IN_PENDING_DECKS: Readonly<Record<string, readonly string[]>> = {
+  // Embalses verificados con el Anuario de Aforos del CEDEX (río y municipio), 31/10/2026.
+  'tema36-lote01': [
+    'CPEI-T36-S06-92E86A0B31', 'CPEI-T36-S06-203D362D2B', 'CPEI-T36-S06-1602493A86',
+    'CPEI-T36-S06-A1DD263767', 'CPEI-T36-S06-38F90AE742',
+  ],
+};
+
+const REVIEWED_SUELTAS = new Map(
+  Object.entries(REVIEWED_CARDS_IN_PENDING_DECKS).map(([deck, ids]) => [deck, new Set(ids.filter((id) => !ALL.has(id)))]),
+);
+
+/** ¿Esta ficha de un mazo pendiente está revisada por sí sola? */
+export function isCardReviewedInPendingDeck(deckId: string, cardId: string): boolean {
+  return REVIEWED_SUELTAS.get(deckId)?.has(cardId) ?? false;
+}
+
+/** Nº de fichas revisadas sueltas de un mazo pendiente (0 si ninguna). */
+export function reviewedCardCount(deckId: string): number {
+  return REVIEWED_SUELTAS.get(deckId)?.size ?? 0;
+}

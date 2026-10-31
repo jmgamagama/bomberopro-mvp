@@ -19,8 +19,8 @@
 
 import { canAccessDeck, getPlan, PLAN_LIMITS, type Plan } from '../utils/plan';
 import { getDeckRevision, type RecallRevision } from './recallReview';
-import { canSeePendingDecks } from '../utils/revisionAccess';
-import { isCardOutOfSyllabus, outOfSyllabusCount } from './recallCardReview';
+import { canSeePendingDecks, pendingDecksBundled } from '../utils/revisionAccess';
+import { isCardOutOfSyllabus, isCardReviewedInPendingDeck, outOfSyllabusCount, reviewedCardCount } from './recallCardReview';
 
 /**
  * C1, paso 2 (auditoría 2026-10-26; migración 34): con VITE_PRO_DECKS_FROM_SERVER=true el build
@@ -98,6 +98,8 @@ export interface RecallDeck {
   count: number;
   /** Revisión humana: solo los 'revisado' se publican al alumno (src/data/recallReview.ts). */
   revision: RecallRevision;
+  /** Solo en la vista del alumno: mazo pendiente del que se publican únicamente sus fichas revisadas sueltas. */
+  parcial?: boolean;
 }
 
 /** Bloque del temario (BOP Badajoz n.º 135/2026, anexo I): temas 1-7 parte común, 8-40 parte específica. */
@@ -751,16 +753,19 @@ export const RECALL_BLOQUES: readonly RecallBloque[] = buildBloques(RECALL_TOPIC
 // ---------------------------------------------------------------------------
 
 /** Mazos con revisión humana completa. */
-export const REVIEWED_RECALL_DECKS: readonly RecallDeck[] = RECALL_DECKS
-  .filter((d) => d.revision === 'revisado')
+export const REVIEWED_RECALL_DECKS: readonly RecallDeck[] = RECALL_DECKS.flatMap((d): RecallDeck[] => {
   // Las fichas fuera del epígrafe (recallCardReview.ts) no cuentan para el alumno.
-  .map((d) => (outOfSyllabusCount(d.id) ? { ...d, count: d.count - outOfSyllabusCount(d.id) } : d));
+  if (d.revision === 'revisado') return [outOfSyllabusCount(d.id) ? { ...d, count: d.count - outOfSyllabusCount(d.id) } : d];
+  // Mazo pendiente con fichas revisadas una a una: se publican solo esas.
+  const n = reviewedCardCount(d.id);
+  return n ? [{ ...d, revision: 'revisado', count: n, parcial: true }] : [];
+});
 const REVIEWED_TOPICS = buildTopics(REVIEWED_RECALL_DECKS);
 const REVIEWED_BLOQUES = buildBloques(REVIEWED_TOPICS);
 
 /** ¿Lo ve el usuario actual? Revisados siempre; pendientes solo propietario/admin. */
 export function isDeckVisible(deck: RecallDeck): boolean {
-  return deck.revision === 'revisado' || canSeePendingDecks();
+  return deck.revision === 'revisado' || reviewedCardCount(deck.id) > 0 || canSeePendingDecks();
 }
 
 /** Mazos que ve el usuario actual. */
@@ -838,7 +843,9 @@ export function loadRawRecallDeckCards(id: string): Promise<readonly RecallSourc
   const deck = getRecallDeck(id);
   const promise = load()
     .then((cards) => {
-      if (cards.length !== deck.count) {
+      // Build de producción: de un mazo pendiente solo viajan sus fichas revisadas sueltas (excluir-mazos-pendientes).
+      const esperadas = deck.revision !== 'revisado' && !pendingDecksBundled() ? reviewedCardCount(id) : deck.count;
+      if (cards.length !== esperadas) {
         throw new Error(`Mazo ${deck.label}: se esperaban ${deck.count} fichas y hay ${cards.length}`);
       }
       cardCache.set(id, cards);
@@ -861,10 +868,14 @@ export function loadRecallDeckCards(id: string): Promise<readonly RecallSourceCa
 }
 
 function viewFor(id: string, cards: readonly RecallSourceCard[]): readonly RecallSourceCard[] {
-  if (!outOfSyllabusCount(id) || canSeePendingDecks() || getRecallDeck(id).revision !== 'revisado') return cards;
+  if (canSeePendingDecks()) return cards;
+  const pendiente = getRecallDeck(id).revision !== 'revisado';
+  if (pendiente ? !reviewedCardCount(id) : !outOfSyllabusCount(id)) return cards;
   let view = studentView.get(cards);
   if (!view) {
-    view = cards.filter((c) => !isCardOutOfSyllabus(c.id));
+    view = pendiente
+      ? cards.filter((c) => isCardReviewedInPendingDeck(id, c.id))
+      : cards.filter((c) => !isCardOutOfSyllabus(c.id));
     studentView.set(cards, view);
   }
   return view;
