@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   GRADE_AGAIN,
   GRADE_GOOD,
@@ -20,6 +20,7 @@ import {
   type CardSrs,
 } from './recallSrs';
 import { localDayNumber } from './localDate';
+import { loadReviewLog } from './recallReviewLog';
 
 const D = 20000; // día local de referencia
 
@@ -115,6 +116,23 @@ describe('persistencia en localStorage (mira_recall_srs_v1)', () => {
       JSON.stringify({ v: 1, d: { tema40: { ok: [1, 250, 1, 1, 1, 0, 2, 1], bad: [1, 2], worse: 'x', grade: [1, 250, 1, 1, 1, 0, 7, 1] } } }),
     );
     expect(Object.keys(loadSrs().tema40)).toEqual(['ok']);
+  });
+
+  it('propaga un fallo al guardar el SRS y no añade un evento de revisión huérfano', () => {
+    const originalSetItem = Storage.prototype.setItem;
+    const setItem = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(function (key, value) {
+      if (key === srsStorageKey()) throw new DOMException('quota exceeded', 'QuotaExceededError');
+      return originalSetItem.call(this, key, value);
+    });
+
+    try {
+      expect(() => recordRecallGrade('tema40', 'CPEI-T40-PT03-001', GRADE_GOOD, new Date(2026, 9, 6, 10)))
+        .toThrow(/quota exceeded/i);
+    } finally {
+      setItem.mockRestore();
+    }
+    expect(loadSrs()).toEqual({});
+    expect(loadReviewLog()).toEqual([]);
   });
 });
 
