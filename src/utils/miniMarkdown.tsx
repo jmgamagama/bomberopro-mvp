@@ -34,14 +34,16 @@ function Autoevaluacion({ pregunta, respuesta, abierta }: { pregunta: string; re
  */
 function inline(text: string, keyBase: string): ReactNode[] {
   const out: ReactNode[] = [];
-  const re = /(\*\*[^*]+\*\*|_[^_]+_)/g;
+  const re = /(\[[^\]]+\]\(https?:\/\/[^)\s]+\)|\*\*[^*]+\*\*|_[^_]+_)/g;
   let last = 0;
   let m: RegExpExecArray | null;
   let i = 0;
   while ((m = re.exec(text))) {
     if (m.index > last) out.push(text.slice(last, m.index));
     const t = m[0];
-    if (t.startsWith('**')) out.push(<strong key={`${keyBase}-b${i++}`}>{t.slice(2, -2)}</strong>);
+    const link = /^\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)$/.exec(t);
+    if (link) out.push(<a key={`${keyBase}-a${i++}`} href={link[2]} target="_blank" rel="noopener noreferrer" className="font-semibold text-indigo-700 underline hover:text-orange-700">{link[1]}</a>);
+    else if (t.startsWith('**')) out.push(<strong key={`${keyBase}-b${i++}`}>{t.slice(2, -2)}</strong>);
     else out.push(<em key={`${keyBase}-i${i++}`}>{t.slice(1, -1)}</em>);
     last = m.index + t.length;
   }
