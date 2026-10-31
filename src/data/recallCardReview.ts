@@ -101,6 +101,8 @@ export const REVIEWED_CARDS_IN_PENDING_DECKS: Readonly<Record<string, readonly s
     'CPEI-T36-S06-782DE8B9C6', 'CPEI-T36-S06-AE1F66E806',
     // Cornalvo (4013), Proserpina (4014), Los Molinos de Matachel (4017) y Tentudía (4020), CEDEX.
     'CPEI-T36-S06-4961D87A48', 'CPEI-T36-S06-79C9784D7C', 'CPEI-T36-S06-1635983041', 'CPEI-T36-S06-3FD7762AAD',
+    // Cumbres con reseña de vértice geodésico del IGN: Tentudía (89753), Buitrera (80621), San Cristóbal (89650), Peña Utrera (85349).
+    'CPEI-T36-S04-CC867DE3D2', 'CPEI-T36-S04-7210607B16', 'CPEI-T36-S04-8917348693', 'CPEI-T36-S04-BFD6A68289',
   ],
 };
 

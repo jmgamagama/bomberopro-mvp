@@ -538,10 +538,10 @@
     {
       "id": "CPEI-T36-S04-CC867DE3D2",
       "orden": 3340,
-      "concepto": "¿Dónde se ubica Tentudía y qué altitud de referencia tiene?",
-      "respuesta": "Sierra de Tentudía, Calera de León; 1.104 m.",
-      "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-      "localizacion": "SIN VERIFICAR (sin artículo ni página): MDT/toponimia oficial; verificar cota puntual",
+      "concepto": "¿Dónde está el vértice geodésico Tentudía y qué altitud de referencia da el IGN?",
+      "respuesta": "Calera de León, sobre el tejado del monasterio de Nuestra Señora de Tentudía; 1.112,446 m (base del pilar).",
+      "fuente": "IGN, Red Geodésica Nacional: reseñas de vértices geodésicos (datos-geodesia.ign.es), consultadas el 31/10/2026",
+      "localizacion": "vértice geodésico IGN nº 89753 Tentudía (hoja MTN50 0897): municipio Calera de León; altitud sobre el nivel medio del mar 1.112,446 m (BP)",
       "subtema": "S04",
       "apartado": "Tentudía",
       "tipo_unidad": "orografía"
@@ -549,10 +549,10 @@
     {
       "id": "CPEI-T36-S04-7210607B16",
       "orden": 3350,
-      "concepto": "¿Dónde se ubica Pico de la Buitrera y qué altitud de referencia tiene?",
-      "respuesta": "Sierra de la Buitrera, sector de Puebla de Alcocer; 1.021 m.",
-      "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-      "localizacion": "SIN VERIFICAR (sin artículo ni página): MDT/toponimia oficial; verificar cota puntual",
+      "concepto": "¿Dónde está el vértice geodésico Buitrera y qué altitud de referencia da el IGN?",
+      "respuesta": "Punto más alto de la sierra de Buitrera, en Benquerencia de la Serena; 855,757 m (base del pilar).",
+      "fuente": "IGN, Red Geodésica Nacional: reseñas de vértices geodésicos (datos-geodesia.ign.es), consultadas el 31/10/2026",
+      "localizacion": "vértice geodésico IGN nº 80621 Buitrera (hoja MTN50 0806): municipio Benquerencia de la Serena; altitud sobre el nivel medio del mar 855,757 m (BP)",
       "subtema": "S04",
       "apartado": "Pico de la Buitrera",
       "tipo_unidad": "orografía"
@@ -560,10 +560,10 @@
     {
       "id": "CPEI-T36-S04-8917348693",
       "orden": 3360,
-      "concepto": "¿Dónde se ubica Cerro de San Cristóbal y qué altitud de referencia tiene?",
-      "respuesta": "Sierra de San Cristóbal, zona de Fregenal de la Sierra; aprox. 917 m.",
-      "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-      "localizacion": "SIN VERIFICAR (sin artículo ni página): MDT/toponimia oficial; verificar cota puntual",
+      "concepto": "¿Dónde está el vértice geodésico San Cristóbal y qué altitud de referencia da el IGN?",
+      "respuesta": "Cumbre del cerro San Cristóbal (sierra del Dómine), unos 2,5 km al N de Higuera la Real; 773,533 m (base del pilar).",
+      "fuente": "IGN, Red Geodésica Nacional: reseñas de vértices geodésicos (datos-geodesia.ign.es), consultadas el 31/10/2026",
+      "localizacion": "vértice geodésico IGN nº 89650 San Cristóbal (hoja MTN50 0896): municipio Higuera la Real; altitud sobre el nivel medio del mar 773,533 m (BP)",
       "subtema": "S04",
       "apartado": "Cerro de San Cristóbal",
       "tipo_unidad": "orografía"
@@ -571,10 +571,10 @@
     {
       "id": "CPEI-T36-S04-BFD6A68289",
       "orden": 3370,
-      "concepto": "¿Dónde se ubica Peña Utrera y qué altitud de referencia tiene?",
-      "respuesta": "Sierra de Hornachos; aprox. 813 m.",
-      "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-      "localizacion": "SIN VERIFICAR (sin artículo ni página): MDT/toponimia oficial; verificar cota puntual",
+      "concepto": "¿Dónde está el vértice geodésico Peña Utrera y qué altitud de referencia da el IGN?",
+      "respuesta": "Peñón de Peña Utrera, unos 1.300 m al O del castillo de Salvatierra de los Barros; 814,604 m (base del pilar).",
+      "fuente": "IGN, Red Geodésica Nacional: reseñas de vértices geodésicos (datos-geodesia.ign.es), consultadas el 31/10/2026",
+      "localizacion": "vértice geodésico IGN nº 85349 Peña Utrera (hoja MTN50 0853): municipio Salvatierra de los Barros; altitud sobre el nivel medio del mar 814,604 m (BP)",
       "subtema": "S04",
       "apartado": "Peña Utrera",
       "tipo_unidad": "orografía"
