@@ -9,6 +9,7 @@ import { Question, ConfidenceLevel, Microconcept } from '../types';
 import { INITIAL_QUESTIONS } from '../data/initialData';
 import { supabase } from '../lib/supabase';
 import { calculateExamScore, EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS, isExamPassed, scoreOutOfTen } from '../utils/examScoring';
+import { arrangeBlueprint } from '../utils/examBlueprint';
 import { EXAM_DURATION_SECONDS, formatExamTime, getRemainingExamSeconds } from '../utils/examTimer';
 import StudentConsultation from './StudentConsultationModal';
 import GuestSignupPrompt from './GuestSignupPrompt';
@@ -58,6 +59,7 @@ export default function MockExam({
   const [questions, setQuestions] = useState<Question[]>([]);
   const [gradeError, setGradeError] = useState<string | null>(null);
   const [sampleMode, setSampleMode] = useState(false);
+  const [blueprintWarning, setBlueprintWarning] = useState<string | null>(null);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [examSeed, setExamSeed] = useState<number | null>(null);
   
@@ -116,8 +118,13 @@ export default function MockExam({
         console.warn(`Usando el banco público local (${INITIAL_QUESTIONS.length} preguntas)`);
         selected = [...INITIAL_QUESTIONS].sort(() => 0.5 - Math.random());
         setSampleMode(true);
+        setBlueprintWarning(null);
       } else {
         setSampleMode(false);
+        // Bases: 50 puntuables + 5 de reserva y el 30 % de T35-40 entre las puntuables.
+        const bp = arrangeBlueprint(selected);
+        selected = bp.questions;
+        setBlueprintWarning(bp.complete ? null : `El banco solo permite ${selected.length} preguntas y ${bp.localScored} de los temas 35-40 entre las puntuables (las bases piden ${bp.localRequired}).`);
       }
 
       setQuestions(shuffleAllOptions(selected));
@@ -408,6 +415,9 @@ export default function MockExam({
             ? `Simulacro de muestra con las ${questions.length} preguntas públicas: no se pudo cargar el banco completo.`
             : `Simulacro de muestra sin cuenta con las ${questions.length} preguntas públicas disponibles. El simulacro oficial de 55 preguntas con el banco completo requiere una cuenta.`}
         </p>
+      )}
+      {examStarted && !examFinished && blueprintWarning && (
+        <p role="note" className="mb-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900">{blueprintWarning}</p>
       )}
       {examStarted && !examFinished && questions.length > 0 && (
         <div className="max-w-3xl mx-auto space-y-4" id="active-exam-container">
