@@ -10,3 +10,4 @@
 | Tema | Mazo | Norma (BOE) | Fichas | Literales | Casi literales | Revisadas a mano | Errores | Epígrafe |
 |---|---|---|---:|---:|---:|---:|---:|---|
 | T1 | tema1 | Constitución, BOE-A-1978-31229 (act. 29/10/2026) | 129 | 125 | 3 | 1 + muestra | 0 | arts. 1-55 (Tít. Preliminar y Tít. I) |
+| T2 | tema2 | Estatuto de Autonomía de Extremadura, BOE-A-2011-1638 (act. 30/10/2026) | 121 | 112 | 6 | 3 + muestra | 0 | arts. 1-48 (Tít. Preliminar, I y II) |
