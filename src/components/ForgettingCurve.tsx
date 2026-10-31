@@ -477,14 +477,14 @@ export default function ForgettingCurve({
                   <div className="flex justify-between items-center text-xs">
                     <span className="text-slate-500 font-medium">Recuperabilidad (R)</span>
                     <span className={`font-mono font-bold ${
-                      rPct >= 90 ? 'text-emerald-700' : rPct >= 75 ? 'text-blue-700' : rPct >= 50 ? 'text-amber-700' : 'text-rose-700'
+                      rPct >= 90 ? 'text-emerald-700' : rPct >= 75 ? 'text-indigo-700' : rPct >= 50 ? 'text-amber-700' : 'text-rose-700'
                     }`}>{rPct}%</span>
                   </div>
 
                   <div className="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
                     <div
                       className={`h-full rounded-full transition-all duration-300 ${
-                        rPct >= 90 ? 'bg-emerald-500' : rPct >= 75 ? 'bg-blue-500' : rPct >= 50 ? 'bg-amber-500' : 'bg-rose-500'
+                        rPct >= 90 ? 'bg-emerald-500' : rPct >= 75 ? 'bg-indigo-500' : rPct >= 50 ? 'bg-amber-500' : 'bg-rose-500'
                       }`}
                       style={{ width: `${rPct}%` }}
                     />

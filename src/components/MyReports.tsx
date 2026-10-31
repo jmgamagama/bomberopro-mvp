@@ -23,7 +23,7 @@ const CATEGORIA: Record<string, string> = {
 
 const ESTADO: Record<string, { label: string; cls: string }> = {
   pendiente: { label: 'Recibido · pendiente de revisión', cls: 'bg-amber-100 text-amber-800' },
-  en_revision: { label: 'En revisión', cls: 'bg-blue-100 text-blue-800' },
+  en_revision: { label: 'En revisión', cls: 'bg-indigo-100 text-indigo-800' },
   resuelto: { label: 'Resuelto', cls: 'bg-emerald-100 text-emerald-800' },
   descartado: { label: 'Revisado · sin cambios', cls: 'bg-slate-100 text-slate-700' },
 };

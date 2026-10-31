@@ -786,7 +786,7 @@ export default function App() {
       {isDemoMode && (
         <div
           role="region"
-          aria-label="Aviso de modo demostración"
+          aria-label="Aviso de modo invitado"
           className="bg-amber-400 text-slate-950 px-3 sm:px-4 py-1.5 text-sm font-semibold shadow-xs"
         >
           {/* En el móvil cabe en una sola fila: cada píxel de alto deja ver antes la pregunta. */}
@@ -794,9 +794,9 @@ export default function App() {
             <div className="flex min-w-0 items-center gap-2 text-left">
               <span className="hidden sm:block w-2 h-2 rounded-full bg-amber-900 animate-pulse shrink-0" aria-hidden="true" />
               <span className="text-xs leading-tight sm:text-sm">
-                <strong><span className="sm:hidden">Demo</span><span className="hidden sm:inline">Modo demostración</span></strong>
-                <span className="sm:hidden">: no se guarda en ninguna cuenta; queda en este dispositivo.</span>
-                <span className="hidden sm:inline">: lo que hagas no se guarda en ninguna cuenta; las fichas y el simulacro quedan solo en este dispositivo. Crea una cuenta para conservarlos.</span>
+                <strong>Modo invitado</strong>
+                <span className="sm:hidden">: tu progreso se guarda en este móvil.</span>
+                <span className="hidden sm:inline">: tu progreso se guarda en este dispositivo.</span>
               </span>
             </div>
             <div className="flex items-center gap-2 shrink-0">
@@ -805,21 +805,22 @@ export default function App() {
                   type="button"
                   id="btn-demo-signup"
                   onClick={handleDemoSignup}
-                  className="min-h-11 px-3 py-1 bg-indigo-700 hover:bg-indigo-800 text-white rounded-lg text-sm font-bold transition cursor-pointer"
+                  className="min-h-11 px-2 py-1 text-slate-950 underline underline-offset-2 text-sm font-semibold cursor-pointer"
                 >
                   {textoAlta()}
                 </button>
               )}
-              <button
-                type="button"
-                id="btn-exit-demo"
-                onClick={handleExitDemo}
-                aria-label="Salir de la demo"
-                className="min-h-11 px-2.5 py-1 bg-slate-950 hover:bg-slate-800 text-white rounded-lg text-sm font-bold transition cursor-pointer"
-              >
-                <span className="sm:hidden">Salir</span>
-                <span className="hidden sm:inline">Salir de la demo</span>
-              </button>
+              {supabase && !session && (
+                <button
+                  type="button"
+                  id="btn-exit-demo"
+                  onClick={handleExitDemo}
+                  aria-label="Entrar con tu cuenta"
+                  className="min-h-11 px-2 py-1 text-slate-950 underline underline-offset-2 text-sm font-semibold cursor-pointer"
+                >
+                  Entrar
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -1135,15 +1136,11 @@ export default function App() {
           )}
 
         {currentScreen === 'study_by_topic' && (isDemoMode || !supabase) && (
-          <section aria-label="Estudio por temas no disponible en la demostración" className="rounded-xl border border-slate-200 bg-white p-6">
-            <h2 className="text-lg font-bold text-slate-900">Estudio por temas</h2>
-            <p className="mt-2 text-sm text-slate-600">Esta función guarda tu progreso y requiere una cuenta. Crea una cuenta o inicia sesión para usarla.</p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {supabase && !session && (
-                <button type="button" className="min-h-11 rounded-lg bg-indigo-700 px-4 py-2 font-semibold text-white" onClick={handleDemoSignup}>Crear cuenta gratis</button>
-              )}
-              <button type="button" className={`min-h-11 rounded-lg px-4 py-2 font-semibold ${supabase && !session ? 'border border-slate-300 bg-white text-slate-800' : 'bg-indigo-700 text-white'}`} onClick={() => handleNavigate('dashboard')}>Volver al inicio</button>
-            </div>
+          <section aria-label="Estudiar por temas" className="space-y-3">
+            <p className="rounded-xl border border-slate-200 bg-white p-3 text-sm text-slate-700" id="temas-invitado-aviso">
+              Estudia por temas con las fichas de recuerdo. Tu progreso se guarda en este dispositivo.
+            </p>
+            <RecallHub demo onNavigateHome={() => handleNavigate('dashboard')} onOpenPlanes={openPlanes} />
           </section>
         )}
         {currentScreen === 'study_by_topic' && !isDemoMode && !!supabase && (

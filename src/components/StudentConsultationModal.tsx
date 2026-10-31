@@ -281,6 +281,9 @@ export default function StudentConsultation({
   const [isOpen, setIsOpen] = useState(false);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
+  // Build de prueba sin backend (modo invitado): no hay equipo atendiendo consultas, así que no se ofrece.
+  if (import.meta.env.VITE_GUEST_SIN_BACKEND === 'true') return null;
+
   return (
     <>
       {variant === 'card' && (

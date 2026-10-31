@@ -375,7 +375,7 @@ export default function MockExam({
                   <li>Proporción oficial: <strong>30% de preguntas de temas 35-40</strong> garantizado.</li>
                 </>
               ) : (
-                <li>Sin cuenta es un <strong>simulacro de muestra</strong> con las <strong>{INITIAL_QUESTIONS.length} preguntas públicas</strong> que hay hoy: no sigue el reparto oficial. El simulacro completo (55 preguntas, 30 % de los temas 35-40) requiere cuenta.</li>
+                <li>Sin cuenta es un <strong>simulacro de muestra</strong> con las <strong>{INITIAL_QUESTIONS.length} preguntas públicas</strong> que hay hoy: todavía no sigue el reparto oficial (55 preguntas, 30 % de los temas 35-40).</li>
               )}
               <li>Preguntas en orden aleatorio, como en el examen.</li>
               <li>Al finalizar obtendrás un informe detallado con tu plan de estudio de sanea-errores.</li>
@@ -413,7 +413,7 @@ export default function MockExam({
         <p role="note" className="mb-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900">
           {useServerQuestions
             ? `Simulacro de muestra con las ${questions.length} preguntas públicas: no se pudo cargar el banco completo.`
-            : `Simulacro de muestra sin cuenta con las ${questions.length} preguntas públicas disponibles. El simulacro oficial de 55 preguntas con el banco completo requiere una cuenta.`}
+            : `Simulacro de muestra con las ${questions.length} preguntas públicas disponibles; todavía no es el simulacro oficial de 55 preguntas.`}
         </p>
       )}
       {examStarted && !examFinished && blueprintWarning && (

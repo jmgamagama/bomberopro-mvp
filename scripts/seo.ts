@@ -63,7 +63,7 @@ export function landingHtml(siteUrl?: string): string {
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>${esc(SEO_TITLE)}</title>
 <meta name="description" content="${esc(SEO_DESCRIPTION)}" />
-<meta name="theme-color" content="#4f46e5" />
+<meta name="theme-color" content="#1E3A5F" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="es_ES" />
 <meta property="og:site_name" content="BomberoPro" />
@@ -74,12 +74,12 @@ export function landingHtml(siteUrl?: string): string {
 <link rel="manifest" href="/manifest.webmanifest" />
 ${headMeta(siteUrl, 'landing')}
 <style>
-*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#0f172a;background:#f8fafc}
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#0f172a;background:#FAF8F5}
 main{max-width:42rem;margin:0 auto;padding:1.25rem 1rem 3rem}h1{font-size:1.6rem;line-height:1.2;margin:.25rem 0 .75rem}
-h2{font-size:1.15rem;margin:1.75rem 0 .5rem}.k{color:#4338ca;font-weight:700;font-size:.85rem;margin:0}
+h2{font-size:1.15rem;margin:1.75rem 0 .5rem}.k{color:#C2410C;font-weight:700;font-size:.85rem;margin:0}
 .card{background:#fff;border:1px solid #e2e8f0;border-radius:1rem;padding:1rem}ul{padding-left:1.2rem;margin:.25rem 0}li{margin:.3rem 0}
-.cta{display:block;text-align:center;background:#4f46e5;color:#fff;font-weight:700;text-decoration:none;border-radius:.75rem;padding:.9rem 1rem;margin:1rem 0 .5rem;min-height:48px}
-.cta:focus-visible{outline:3px solid #312e81;outline-offset:2px}.muted{color:#475569;font-size:.9rem}dt{font-weight:700;margin-top:.75rem}dd{margin:.2rem 0 0}
+.cta{display:block;text-align:center;background:#1E3A5F;color:#fff;font-weight:700;text-decoration:none;border-radius:.75rem;padding:.9rem 1rem;margin:1rem 0 .5rem;min-height:48px}
+.cta:focus-visible{outline:3px solid #C2410C;outline-offset:2px}.muted{color:#475569;font-size:.9rem}dt{font-weight:700;margin-top:.75rem}dd{margin:.2rem 0 0}
 footer{color:#475569;font-size:.85rem;margin-top:2rem}
 </style>
 </head>

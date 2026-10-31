@@ -26,7 +26,7 @@ describe('primer uso sin cuenta', () => {
 
   it('entra como invitado sin pasar por la pantalla de acceso y anota landing_view', async () => {
     render(<App />);
-    expect(await screen.findByRole('region', { name: /modo demostración/i })).toBeInTheDocument();
+    expect(await screen.findByRole('region', { name: /modo invitado/i })).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /^entrar$/i })).not.toBeInTheDocument();
     expect(readFunnelLog().map(e => e.e)).toEqual(expect.arrayContaining(['landing_view', 'demo_start']));
     // landing_view se envía al servidor (migración 37) solo con el evento y el id anónimo.
@@ -38,8 +38,8 @@ describe('primer uso sin cuenta', () => {
   it('«Salir de la demo» lleva a la pantalla de acceso y lo recuerda', async () => {
     const user = userEvent.setup();
     render(<App />);
-    await user.click(await screen.findByRole('button', { name: /salir de la demo/i }));
-    await waitFor(() => expect(screen.queryByRole('region', { name: /modo demostración/i })).not.toBeInTheDocument());
+    await user.click(await screen.findByRole('button', { name: /entrar con tu cuenta/i }));
+    await waitFor(() => expect(screen.queryByRole('region', { name: /modo invitado/i })).not.toBeInTheDocument());
     expect(window.localStorage.getItem('bomberopro:prefer-login:v1')).toBe('1');
   });
 });

@@ -145,7 +145,7 @@ export default function Dashboard({
       calibrationDesc = 'Tu alta seguridad coincide con aciertos reales. Gran precisión cognitiva en tus juicios.';
     } else if (calibrationIndex >= 70) {
       calibrationStatus = '⚖️ Calibración Estable';
-      calibrationColor = 'text-blue-500';
+      calibrationColor = 'text-indigo-500';
       calibrationDesc = 'Nivel de confianza bien alineado con la realidad. Buen equilibrio en tu autoevaluación.';
     } else {
       calibrationStatus = '⚠️ Sesgo de Sobreconfianza';
