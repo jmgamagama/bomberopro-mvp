@@ -25,7 +25,7 @@ describe('registro de material por tema', () => {
     expect(arts).toEqual([...Array.from({ length: 32 }, (_, i) => String(i + 1)), '32bis']);
   });
   it('temas generados del BOE: cada precepto del índice está enlazado en el esquema', () => {
-    for (const n of [2, 3, 6, 7, 31, 34]) {
+    for (const n of [2, 3, 6, 7, 31, 33, 34]) {
       const m = materialDeTema(n)!;
       expect(capasDisponibles(m), `T${n}`).toEqual(['esquema', 'completo']);
       const indice = JSON.parse(readFileSync(`public/material/${m.carpeta}/${m.textoOficial!.file.replace('-texto-oficial.md', '-indice.json')}`, 'utf8'));
@@ -36,8 +36,11 @@ describe('registro de material por tema', () => {
       }
     }
   });
-  it('las fuentes son de boe.es', () => {
-    const todas = [...MATERIAL_TEMAS.flatMap((m) => m.fuentes), ...Object.values(FUENTES_SIN_MATERIAL).flat()];
-    for (const f of todas) expect(f.url).toMatch(/^https:\/\/www\.boe\.es\/buscar\/act\.php\?id=BOE-A-\d{4}-\d+$/);
+  it('las fuentes del material son del BOE; las demás, de boletines oficiales (DOE, BOP)', () => {
+    for (const f of MATERIAL_TEMAS.flatMap((m) => m.fuentes)) expect(f.url).toMatch(/^https:\/\/www\.boe\.es\/buscar\/act\.php\?id=BOE-A-\d{4}-\d+$/);
+    for (const f of Object.values(FUENTES_SIN_MATERIAL).flat()) {
+      expect(f.url).toMatch(/^https:\/\/(doe\.juntaex\.es|www\.dip-badajoz\.es\/ficheros\/bop)\//);
+    }
+    expect(FUENTES_SIN_MATERIAL[40]).toBeUndefined();
   });
 });

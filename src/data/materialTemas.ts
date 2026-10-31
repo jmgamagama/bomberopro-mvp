@@ -166,14 +166,31 @@ export const MATERIAL_TEMAS: readonly MaterialTema[] = [
       boe('rsciei-08', "Anexo V · Normas UNE y otras reconocidas"),
     ],
   },
+  {
+    tema: 33,
+    nombre: 'Real Decreto 513/2017 · Reglamento de instalaciones de protección contra incendios (RIPCI)',
+    carpeta: 'tema33',
+    textoOficial: { file: 'ripci-texto-oficial.md', titulo: 'RIPCI (RD 513/2017) · Texto consolidado (BOE)' },
+    fuentes: [{ titulo: 'Real Decreto 513/2017, de 22 de mayo, por el que se aprueba el Reglamento de instalaciones de protección contra incendios', boe: 'BOE-A-2017-6606', url: boeUrl('BOE-A-2017-6606'), version: '19/12/2025' }],
+    alcance: 'El temario (anexo I) pide: objeto y ámbito de aplicación (arts. 1–2 del Reglamento) y, del anexo I, abastecimiento de agua, hidrantes, bocas de incendio equipadas y columna seca (sección 1.ª, apartados 2, 3, 5 y 6).',
+    bloques: [
+      boe('ripci-01', 'Reglamento · Objeto y ámbito de aplicación (arts. 1–2)'),
+      boe('ripci-02', 'Anexo I, sección 1.ª · Abastecimiento de agua, hidrantes, BIE y columna seca (apdos. 2, 3, 5 y 6)'),
+    ],
+  },
 ];
 
 /**
- * Fuentes oficiales verificadas de temas que aún no tienen material (texto consolidado descargado en
- * data/fuentes/<BOE-A-…>/meta.json). Permiten enlazar la norma aunque no haya esquema.
+ * Fuentes oficiales verificadas de temas que aún no tienen material. Permiten enlazar el documento oficial
+ * aunque no haya esquema. Se generan esquema y texto solo desde texto consolidado del BOE; estos no lo tienen
+ * (detalle en docs/MATERIAL_POR_TEMA.md):
+ *  - T35: el epígrafe no cita norma; el catálogo vigente es el Decreto 98/2008 (DOE n.º 103, 29/05/2008), solo en PDF.
+ *  - T39: Protocolo de movilización (BOP de Badajoz n.º 224, anuncio 4899/2025), solo en PDF.
+ *  - T40: PT01 y PT03 son documentos internos del CPEI sin publicación oficial localizada: sin enlace.
  */
 export const FUENTES_SIN_MATERIAL: Readonly<Record<number, readonly FuenteTema[]>> = {
-  33: [{ titulo: 'Real Decreto 513/2017 · Reglamento de instalaciones de protección contra incendios', boe: 'BOE-A-2017-6606', url: boeUrl('BOE-A-2017-6606') }],
+  35: [{ titulo: 'Decreto 98/2008, de 23 de mayo, por el que se aprueba el nuevo Catálogo de las Carreteras de titularidad de la Junta de Extremadura (DOE n.º 103, 29/05/2008)', url: 'https://doe.juntaex.es/pdfs/doe/2008/1030o/08040108.pdf' }],
+  39: [{ titulo: 'Protocolo de movilización del CPEI-Badajoz (BOP de Badajoz n.º 224, anuncio 4899/2025, 24/11/2025)', url: 'https://www.dip-badajoz.es/ficheros/bop/bopedictos/2025-11-24000000_4899.pdf' }],
 };
 
 export function materialDeTema(tema: number): MaterialTema | undefined {
