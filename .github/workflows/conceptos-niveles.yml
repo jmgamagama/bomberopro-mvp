@@ -3,6 +3,8 @@ on:
   pull_request:
     paths:
       - 'supabase/migrations/47_conceptos_por_niveles*.sql'
+      - 'supabase/migrations/48_sesion_por_niveles*.sql'
+      - 'supabase/tests/sesion_niveles_48.pglite.mjs'
       - 'supabase/tests/conceptos_niveles_47.pglite.mjs'
       - '.github/workflows/conceptos-niveles.yml'
   workflow_dispatch:
@@ -21,5 +23,7 @@ jobs:
         run: npm install --prefix "$RUNNER_TEMP/pg-runtime" --no-save --ignore-scripts @electric-sql/pglite@0.5.11
       - name: Test levels-by-block session, guard and rollback
         run: NODE_PATH="$RUNNER_TEMP/pg-runtime/node_modules" node supabase/tests/conceptos_niveles_47.pglite.mjs
+      - name: Test question session by levels (48)
+        run: NODE_PATH="$RUNNER_TEMP/pg-runtime/node_modules" node supabase/tests/sesion_niveles_48.pglite.mjs
       - name: Validate migration numbers
         run: node scripts/check-migrations.mjs
