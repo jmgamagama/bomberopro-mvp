@@ -1,0 +1,15 @@
+{
+ "descripcion": "Preguntas YA publicadas en producción (tema 5) sobre los arts. 13-16 del Reglamento de Régimen Interno del CPEI, revisadas una a una contra el texto único vigente del BOP de Badajoz n.º 149, de 06/08/2012, el 31/10/2026. Tenían 3 opciones y nivel 1: se vinculan con nivel 2 (formato de examen).",
+ "motivo_registro": "revisión arts. 13-16 RRI CPEI contra BOP 149/2012 (31/10/2026)",
+ "revisado_por": "Claude (revisión manual contra el BOP); OK general de JM del 28/10/2026",
+ "preguntas": [
+  {"question_id": 12288, "accion": "vincular", "concepto": "RRI-a13-1-instrucciones", "nivel": 2, "motivo": ""},
+  {"question_id": 12292, "accion": "vincular", "concepto": "RRI-a13-2-consulta", "nivel": 2, "motivo": ""},
+  {"question_id": 12326, "accion": "vincular", "concepto": "RRI-a13-3-superior-accidental", "nivel": 2, "motivo": ""},
+  {"question_id": 12302, "accion": "vincular", "concepto": "RRI-a13-4-libre-guardia", "nivel": 2, "motivo": ""},
+  {"question_id": 12293, "accion": "retirar_duplicada", "concepto": null, "nivel": null, "motivo": "Igual que la nueva RRI-a14-virtudes N2 (mismo enunciado y mismo distractor «La firmeza, el rigor y la disciplina»)."},
+  {"question_id": 12320, "accion": "vincular", "concepto": "RRI-a15-conocer-superiores", "nivel": 2, "motivo": ""},
+  {"question_id": 12303, "accion": "vincular", "concepto": "RRI-a16-1-mando-unico", "nivel": 2, "motivo": ""},
+  {"question_id": 12296, "accion": "retirar_duplicada", "concepto": null, "nivel": null, "motivo": "Igual que la nueva RRI-a16-3-colision N3 (mismo orden de criterios y mismos distractores)."}
+ ]
+}
