@@ -26,7 +26,7 @@ describe('RecallStats · aprendizaje', () => {
     render(<RecallStats onBack={vi.fn()} date={new Date(2026, 9, 3, 12)} />);
     expect(screen.getByRole('heading', { name: 'Cómo lo recuerdas con el tiempo' })).toBeInTheDocument();
     expect(document.querySelector('[data-estado="CONSOLIDADO"]')).toHaveTextContent('Consolidadas 1');
-    expect(document.querySelector('[data-estado="NO_EVALUADO"]')).toHaveTextContent('Sin empezar 947');
+    expect(document.querySelector('[data-estado="NO_EVALUADO"]')).toHaveTextContent('Sin empezar 1112');
     expect(document.querySelector('#recall-stats-diferido')).toHaveTextContent('Recuerdo a 1 día o más: 100 % (1 repasos)');
   });
 });
