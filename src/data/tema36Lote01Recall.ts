@@ -706,10 +706,10 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
   {
     "id": "CPEI-T36-S06-290EA56D14",
     "orden": 3620,
-    "concepto": "¿Dónde se localiza Laguna de La Albuera?",
-    "respuesta": "complejo lagunar de La Albuera.",
-    "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
+    "concepto": "¿Dónde se localiza el Complejo Lagunar de La Albuera, humedal Ramsar de la provincia de Badajoz?",
+    "respuesta": "En los términos municipales de La Albuera, Badajoz, Torre de Miguel Sesmero y Nogales: siete lagunas naturales y cuatro charcas artificiales (1.878,31 ha).",
+    "fuente": "Resolución de 18/12/2002 de la D. G. de Conservación de la Naturaleza (Acuerdo del Consejo de Ministros de 15/11/2002, inclusión en la Lista Ramsar), BOE nº 14, 16/01/2003, BOE-A-2003-989",
+    "localizacion": "anexo, «Ficha sintética descriptiva: Complejo Lagunar de La Albuera» (municipios, superficie y descripción), p. 2013",
     "apartado": "Laguna de La Albuera"
   },
   {
