@@ -23,7 +23,7 @@ Problemas detectados: **0**.
 | tema10-lote02 | revisado | 13 | 100 % | 0 | `4dbd481541494ac3` |  |
 | tema12 | revisado | 21 | 100 % | 0 | `7ef9bc6244b177a0` |  |
 | tema12-lote02 | pendiente | 23 | 100 % | 0 | `dee29796b90e5874` |  |
-| tema13 | pendiente | 25 | 100 % | 0 | `1a00973aa68f0f00` |  |
+| tema13 | revisado | 25 | 100 % | 0 | `c7b656624323a70d` |  |
 | tema13-lote02 | pendiente | 47 | 100 % | 0 | `fb997e1f468503d0` |  |
 | tema14 | revisado | 24 | 100 % | 0 | `eddcc0cb7906176f` |  |
 | tema15 | pendiente | 92 | 100 % | 0 | `49d4b07ff339ed47` |  |

@@ -34,3 +34,4 @@
 | T28 | tema28-lote02 | REBT, RD 337/2014, RD 614/2001 | 74 | 61 | 1 | — | 12 ocultas (NTP 400, sin norma) | redes, CT, instalaciones de enlace |
 | T33 | tema33 | RIPCI, BOE-A-2017-6606 | 67 | 67 | 0 | — | 0 | arts. 1-2; anexo I secc. 1 apdos. 2, 3, 5 y 6 (filtrado por apartado: 0 fichas fuera). T33-lote02 (arts. 21-22, anexos II-III) sigue oculto: fuera del epígrafe |
 | T23 | tema23 | Plan Estatal de Inundaciones BOE-A-2011-14277; Directriz Básica BOE-A-2026-9160 | 21 | 19 | 2 | — | 0 | enlace de 1 ficha corregido a BOE-A-2026-9160 |
+| T13 | tema13 | RD 773/1997 (BOE-A-1997-12735) y Reglamento (UE) 2016/425 (DOUE-L-2016-80531, boe.es) | 25 | 23 | 2 | — | 0 | 7 enlaces añadidos al texto del DOUE en boe.es |
