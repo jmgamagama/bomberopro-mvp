@@ -99,7 +99,7 @@ def main() -> int:
     est_q = "publicada" if estado == "publicado" else "borrador"
 
     out = [f"-- Generado por scripts/cargar_conceptos.py desde {path} (estado {estado}).",
-           f"-- Texto oficial: {fuente_id}, actualización BOE {fecha_txt}, sha256 {meta['sha256_texto_xml'][:12]}…",
+           f"-- Texto oficial: {fuente_id}, {meta.get('boletin') or 'actualización BOE ' + fecha_txt}, sha256 {meta['sha256_texto_xml'][:12]}…",
            "BEGIN;"]
     if crear_tema:
         out.append(f"INSERT INTO public.topics (convocatoria_id, numero, nombre) SELECT 1, {tema}, " + q(d.get('tema_nombre', 'Constitución Española')) + " "
@@ -117,7 +117,9 @@ def main() -> int:
         art = c["bloque"][1:].replace("bis", " bis")
         ref = f"{art}.{c['apartado']}" if c["apartado"] else art
         apartado = f"{d['bloque_temario'].split(' (')[0]} · Art. {ref}"
-        fuente = f"{nombre}, art. {ref} ({fuente_id}, texto consolidado, act. {fecha_txt})"
+        # Normas del BOP (meta.json con «boletin»): se cita el boletín, no un «texto consolidado» del BOE.
+        fuente = (f"{nombre}, art. {ref} ({meta['boletin']})" if meta.get("boletin")
+                  else f"{nombre}, art. {ref} ({fuente_id}, texto consolidado, act. {fecha_txt})")
         filas_c.append({"id": c["id"], "apartado": apartado, "orden": c["orden"], "pregunta": c["tarjeta"]["pregunta"],
                         "respuesta": c["tarjeta"]["respuesta"], "fuente": fuente, "cita": c["cita"], "tipo": c["tipo"],
                         "prioridad": c["prioridad"], "confundible_con": c.get("confundible_con", [])})
@@ -139,7 +141,12 @@ def main() -> int:
             opciones = [{"letra": letras[j], "texto": p["opciones"][i]} for j, i in enumerate(orden)]
             correcta = letras[orden.index(p["correcta"])]
             ops = json.dumps(opciones, ensure_ascii=False)
-            fuente_n = f"Art. {ref} {abrev} (texto consolidado BOE {fuente_id}, act. {fecha_txt})" if abrev != "CE" else f"Art. {ref} CE (texto consolidado BOE, act. {fecha_txt})"
+            if meta.get("boletin"):
+                fuente_n = f"Art. {ref} {abrev} ({meta['boletin']})"
+            elif abrev != "CE":
+                fuente_n = f"Art. {ref} {abrev} (texto consolidado BOE {fuente_id}, act. {fecha_txt})"
+            else:
+                fuente_n = f"Art. {ref} CE (texto consolidado BOE, act. {fecha_txt})"
             filas_q.append({"hash": hd, "enunciado": p["enunciado"], "opciones": opciones, "correcta": correcta,
                             "explicacion": p["explicacion"], "fuente_normativa": fuente_n, "nivel": p["nivel"],
                             "concept_id": c["id"]})
