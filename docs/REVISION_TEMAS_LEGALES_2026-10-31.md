@@ -16,3 +16,13 @@
 | T7 | tema7 | Ley 8/2011 de Extremadura, BOE-A-2011-6651 (act. 19/12/2025) | 64 | 60 | 4 | muestra | 0 | arts. 1-4, 21-32 y 78-83 |
 | T31 | tema31 | RD 1215/1997, BOE-A-1997-17824 (act. 18/12/2025) | 83 | 73 | 10 | muestra | 0 | RD completo |
 | T34 | tema34-lote01/02/03 | RSCIEI, RD 164/2025, BOE-A-2025-7190 (act. 20/12/2025) | 132 | 129 | 3 | muestra | 0 | RD completo |
+
+## Pendiente (31/10/2026)
+
+- Sin fichas: T11, T18 (T19 excluido).
+- Cotejo automático OK, falta comprobar el alcance del epígrafe: T22 (anexo II RD 1215), T10 lote 1, T12, T14, T28.
+- T33: 61 fichas del anexo I sección 1 del RIPCI; el epígrafe solo cubre abastecimiento, hidrantes, BIE y columna seca, así que hay que filtrar por apartado. T33-lote02 (arts. 21-22 y anexos II-III) queda fuera del epígrafe.
+- Parciales: T2 (1 ficha sin respaldo literal; está fuera, porque el mazo se abrió con 120/121? ver fila T2), T23 20/21, T23-lote02 18/23, T13 18 OK + 7 sin enlace, T12 5 sin enlace, T28-lote02 12 sin enlace.
+- Mayoría sin enlace a artículo: T9, T15, T27-lote02, T32.
+- Sin texto consolidado en la API: T25 y T25-lote02 (BOE-A-2009-5490), T16-lote02 / T17 (BOE-A-2025-77).
+- Fuente BOP/DOE, sin cotejar: T4, T5, T20, T21, T29, T30, T37 y el resto (T8, T26, T27).
