@@ -95,17 +95,28 @@ export function loadSrs(): SrsStore {
   }
 }
 
-export function saveSrs(store: SrsStore): void {
+/** Guarda el estado. Devuelve false si el almacenamiento está lleno o bloqueado (nunca lanza). */
+export function saveSrs(store: SrsStore): boolean {
   const s = storage();
-  if (!s) return;
+  if (!s) return false;
   const d: Record<string, Record<string, Packed>> = {};
   for (const [deckId, cards] of Object.entries(store)) {
     for (const [cardId, state] of Object.entries(cards)) (d[deckId] ??= {})[cardId] = pack(state);
   }
   try {
     writeOwned(SRS_STORAGE_KEY, JSON.stringify({ v: 1, d }));
+    return true;
   } catch {
-    // Almacenamiento lleno o bloqueado: el repaso sigue funcionando en esta sesión.
+    // Almacenamiento lleno o bloqueado: quien llama decide (recordRecallGrade avisa para reintentar).
+    return false;
+  }
+}
+
+/** El guardado local de una autoevaluación ha fallado: no se ha registrado nada; se puede reintentar. */
+export class RecallSaveError extends Error {
+  constructor() {
+    super('No se pudo guardar la autoevaluación en este dispositivo.');
+    this.name = 'RecallSaveError';
   }
 }
 
@@ -163,6 +174,7 @@ export function previewInterval(prev: CardSrs | undefined, grade: RecallGrade, t
 
 /**
  * Guarda la autoevaluación de una ficha y devuelve su nuevo estado.
+ * Lanza RecallSaveError si no se pudo guardar (no toca el registro; la ficha puede reintentarse).
  * `elapsedMs` (opcional): tiempo desde que se mostró la ficha; solo va al registro local.
  */
 export function recordRecallGrade(
@@ -177,7 +189,7 @@ export function recordRecallGrade(
   const prev = store[deckId]?.[cardId];
   const next = scheduleReview(prev, grade, today);
   (store[deckId] ??= {})[cardId] = next;
-  saveSrs(store);
+  if (!saveSrs(store)) throw new RecallSaveError();
   // Registro local para medir el recuerdo diferido (./recallReviewLog); no altera la programación.
   appendReviewLog(deckId, cardId, grade, today, prev?.lastReview, elapsedMs);
   return next;
@@ -256,4 +268,52 @@ export function sumProgress(id: string, parts: readonly DeckProgress[]): DeckPro
     wrong,
     accuracy: correct + wrong > 0 ? Math.round((correct / (correct + wrong)) * 100) : null,
   };
+}
+
+// ---------------------------------------------------------------------------------------------
+// API pura con validación (mismo algoritmo y mismo contrato de estado que scheduleReview).
+//
+// Rating MIRA 1|2|3|4 → nota de la interfaz: 1 «No la sabía», 2 «Dudosa», 3 «La sabía».
+// 4 («Fácil») se acepta y valida, pero hoy se programa EXACTAMENTE como 3: no hay decisión escrita
+// sobre su bonificación (PENDIENTE en docs/DECISIONS.md; no se inventan coeficientes).
+// Nivel N1|N2|N3: se valida, pero NO modifica la programación: no hay coeficientes por nivel
+// decididos (PENDIENTE en docs/DECISIONS.md).
+// ---------------------------------------------------------------------------------------------
+
+export type MiraRating = 1 | 2 | 3 | 4;
+export type MiraLevel = 1 | 2 | 3;
+
+const RATING_TO_GRADE: Record<MiraRating, RecallGrade> = { 1: GRADE_AGAIN, 2: GRADE_HARD, 3: GRADE_GOOD, 4: GRADE_GOOD };
+
+export function isMiraRating(x: unknown): x is MiraRating {
+  return x === 1 || x === 2 || x === 3 || x === 4;
+}
+
+export function isMiraLevel(x: unknown): x is MiraLevel {
+  return x === 1 || x === 2 || x === 3;
+}
+
+/** Comprueba que un estado tiene la forma y los rangos que admite el almacenamiento. */
+export function isValidCardSrs(s: unknown): s is CardSrs {
+  if (typeof s !== 'object' || s === null) return false;
+  const c = s as Record<string, unknown>;
+  const ints = ['interval', 'due', 'reps', 'correct', 'wrong', 'lastReview'] as const;
+  if (!ints.every((k) => isInt(c[k]))) return false;
+  if (typeof c.ease !== 'number' || !Number.isFinite(c.ease) || c.ease < MIN_EASE) return false;
+  const v = c as unknown as CardSrs;
+  if (v.interval < 0 || v.reps < 0 || v.correct < 0 || v.wrong < 0) return false;
+  return v.lastGrade === 0 || v.lastGrade === 1 || v.lastGrade === 2;
+}
+
+/**
+ * Función pura: nuevo estado de una ficha tras calificarla con `rating` en el instante `now`
+ * (el día local de `now`). Lanza RangeError si el rating, el nivel, el instante o el estado previo
+ * no son válidos. No lee ni escribe almacenamiento.
+ */
+export function reviewCard(prev: CardSrs | undefined, rating: MiraRating, now: Date, level?: MiraLevel): CardSrs {
+  if (!isMiraRating(rating)) throw new RangeError(`Rating no válido: ${String(rating)} (se espera 1, 2, 3 o 4)`);
+  if (level !== undefined && !isMiraLevel(level)) throw new RangeError(`Nivel no válido: ${String(level)} (se espera 1, 2 o 3)`);
+  if (!(now instanceof Date) || !Number.isFinite(now.getTime())) throw new RangeError('Instante no válido');
+  if (prev !== undefined && !isValidCardSrs(prev)) throw new RangeError('Estado de la ficha no válido');
+  return scheduleReview(prev, RATING_TO_GRADE[rating], localDayNumber(now));
 }

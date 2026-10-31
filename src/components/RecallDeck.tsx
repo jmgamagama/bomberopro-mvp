@@ -4,7 +4,8 @@ import type { RecallDeck as RecallDeckData, RecallSourceCard } from '../data/rec
 import { useRecallDeckCards } from '../hooks/useRecallDeckCards';
 import RecallGradeButtons, { formatInterval } from './RecallGradeButtons';
 import { localDayNumber } from '../utils/localDate';
-import { classifyCard, loadSrs, recordRecallGrade, type RecallGrade, type SrsStore } from '../utils/recallSrs';
+import { classifyCard, loadSrs, RecallSaveError, recordRecallGrade, type RecallGrade, type SrsStore } from '../utils/recallSrs';
+import RecallSaveErrorNotice from './RecallSaveError';
 import { measuredElapsedMs } from '../utils/recallReviewLog';
 
 interface RecallDeckProps {
@@ -82,12 +83,27 @@ function RecallDeckViewer({
     setIndex(clamped);
     setRevealed(false);
     setFinalGraded(null);
+    setFailedGrade(null);
   };
 
+  const [saving, setSaving] = useState(false);
+  const [failedGrade, setFailedGrade] = useState<RecallGrade | null>(null);
   const grade = (g: RecallGrade) => {
-    if (finalGraded === index) return;
+    if (finalGraded === index || saving) return;
+    setSaving(true);
+    let next;
+    try {
+      next = recordRecallGrade(deck.id, card.id, g, new Date(), measuredElapsedMs(shownAt.current));
+    } catch (err) {
+      // Guardado local fallido: la ficha se queda, se avisa y se puede reintentar.
+      if (!(err instanceof RecallSaveError)) console.error(err);
+      setFailedGrade(g);
+      setSaving(false);
+      return;
+    }
+    setFailedGrade(null);
+    setSaving(false);
     if (index + 1 >= total) setFinalGraded(index);
-    const next = recordRecallGrade(deck.id, card.id, g, new Date(), measuredElapsedMs(shownAt.current));
     setSrs(loadSrs());
     setLastSaved(
       index + 1 >= total
@@ -157,12 +173,18 @@ function RecallDeckViewer({
               <p className="text-xs font-semibold uppercase tracking-wide text-amber-900">Fuente</p>
               <p className="mt-1 break-words text-sm font-medium text-slate-900">{card.fuente}</p>
             </div>
-            {finalGraded === index ? null : <RecallGradeButtons state={cardState} today={today} onGrade={grade} />}
+            {failedGrade !== null && <RecallSaveErrorNotice onRetry={() => grade(failedGrade)} />}
+            {finalGraded === index ? null : <RecallGradeButtons state={cardState} today={today} onGrade={grade} disabled={saving} />}
           </>
         ) : (
-          <p className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-4 text-sm text-slate-600">
-            Respuesta y fuente ocultas. Pulsa «Mostrar respuesta» para verlas.
-          </p>
+          <button
+            type="button"
+            id="recall-card-flip"
+            onClick={() => setRevealed(true)}
+            className="w-full cursor-pointer rounded-xl border border-dashed border-slate-300 bg-slate-50 p-4 text-left text-sm text-slate-600 hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+          >
+            Girar la ficha: respuesta y fuente ocultas (Espacio o Intro con el foco aquí).
+          </button>
         )}
 
         <p aria-live="polite" className="min-h-4 text-xs font-medium text-emerald-700" id="recall-grade-saved">
