@@ -1,6 +1,6 @@
 /**
  * «Errores críticos» con cuenta: lo que el alumno tiene fallado AHORA, leído del servidor
- * (get_error_session, migración 42). Junta los fallos de «Estudiar» (conceptos) y de
+ * (get_error_session_v2, migración 45; antes get_error_session, migración 42). Junta los fallos de «Estudiar» (conceptos) y de
  * «Practicar preguntas» (los 40 temas), así que es igual en el móvil y en el PC.
  * Al acertar una pregunta deja de ser error y desaparece de la lista.
  */

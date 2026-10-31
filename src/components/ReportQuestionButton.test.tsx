@@ -41,6 +41,26 @@ describe('ReportQuestionButton', () => {
     expect(onReported).not.toHaveBeenCalled();
   });
 
+  it('si la llamada de red rechaza, permite reintentar sin perder la sesión', async () => {
+    rpc.mockRejectedValueOnce(new TypeError('Failed to fetch'));
+    rpc.mockResolvedValueOnce({ data: { status: 'received' }, error: null });
+    const onReported = vi.fn();
+    const user = userEvent.setup();
+    render(<ReportQuestionButton questionId={7} onReported={onReported} />);
+    await user.click(screen.getByRole('button', { name: /reportar pregunta/i }));
+    await user.click(screen.getByLabelText(/respuesta es incorrecta/i));
+    await user.click(screen.getByRole('button', { name: /enviar reporte/i }));
+
+    expect(await screen.findByRole('alert')).toHaveTextContent(/no se ha podido enviar/i);
+    expect(screen.getByRole('button', { name: /enviar reporte/i })).toBeEnabled();
+    expect(onReported).not.toHaveBeenCalled();
+
+    await user.click(screen.getByRole('button', { name: /enviar reporte/i }));
+    expect(await screen.findByText(/ya no te saldrá/i)).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /seguir estudiando/i }));
+    expect(onReported).toHaveBeenCalledTimes(1);
+  });
+
   it.each([
     [/poco probable en el examen/i, 'poco_probable'],
     [/nivel más fácil/i, 'nivel_facil'],

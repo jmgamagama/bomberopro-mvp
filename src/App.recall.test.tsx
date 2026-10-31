@@ -20,10 +20,10 @@ describe('navegación de recuerdo', () => {
   it('«Recuerdo» muestra una pestaña por tema, con selector de lote en el tema 36', async () => {
     const user = userEvent.setup();
     render(<App />);
-    // Entrada de escritorio (#nav-btn-recuerdo); la móvil tiene la misma etiqueta.
-    await screen.findByRole('button', { name: /Por Temas/ });
-    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-recuerdo')!);
-    expect(screen.getAllByRole('button', { name: /^Recuerdo$/ })).toHaveLength(1);
+    // «Recuerdo» vive en «Más», igual en escritorio y en móvil.
+    await screen.findAllByRole('button', { name: 'Temas' });
+    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-mas')!);
+    await user.click(document.querySelector<HTMLButtonElement>('#mas-recuerdo')!);
     const tablist = await screen.findByRole('tablist', { name: 'Temas de recuerdo' });
     const tabs = within(tablist).getAllByRole('tab');
     expect(tabs.map((t) => t.textContent)).toEqual(RECALL_TOPICS.map((t) => `${t.shortLabel}${t.count}`));
@@ -47,7 +47,9 @@ describe('navegación de recuerdo', () => {
   it('la Sesión diaria anuncia fichas de todos los mazos cargados', async () => {
     const user = userEvent.setup();
     render(<App />);
-    await user.click(await screen.findByRole('button', { name: /^Sesión diaria$/ }));
+    await screen.findAllByRole('button', { name: 'Temas' });
+    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-mas')!);
+    await user.click(document.querySelector<HTMLButtonElement>('#mas-sesion_diaria')!);
     expect(await screen.findByRole('heading', { name: 'Sesión diaria' })).toBeInTheDocument();
     await waitFor(() => expect(document.querySelector('#daily-session-decks')).not.toBeNull());
     const decks = document.querySelector('#daily-session-decks');

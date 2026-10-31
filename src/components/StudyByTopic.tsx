@@ -10,6 +10,9 @@ import { saveAttemptToServer, toLevelInt } from '../lib/saveAttemptToServer';
 import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
 import { shuffleAllOptions } from '../utils/shuffleOptions';
+import { checkAnswer, describeCheckError, fetchKeyless, withRevealedKey } from '../lib/secureQuestions';
+import { useActiveTimer } from '../hooks/useActiveTimer';
+import { validResponseMs } from '../utils/activeTimer';
 import { newStudySessionId, startStudySession, finishStudySession } from '../lib/studySession';
 import ConceptOutline, { ConceptCountBadge, useConceptSummary } from './ConceptOutline';
 
@@ -37,12 +40,14 @@ export default function StudyByTopic({ session, onNavigateHome }: StudyByTopicPr
   const [idx, setIdx] = useState(0);
   const [answer, setAnswer] = useState('');
   const [answered, setAnswered] = useState(false);
-  const [startTime, setStartTime] = useState(0);
+  // Tiempo ACTIVO de la pregunta (se pausa con la pestaña oculta y al responder; ver utils/activeTimer).
+  const timer = useActiveTimer(`${started}-${idx}`, { running: started && !answered });
   const [correctCount, setCorrectCount] = useState(0);
   // Sesión de estudio en curso (para medir sesiones terminadas). null si no hay cuenta.
   const sessionIdRef = useRef<string | null>(null);
   const finishedRef = useRef(false);
   const answeringRef = useRef(false);
+  const [checkError, setCheckError] = useState<string | null>(null);
 
 useEffect(() => {
   const loadTopics = async () => {
@@ -65,12 +70,14 @@ const toggleTopic = (id: number) => {
 const startStudy = async () => {
   if (selected.length === 0) return;
   setLoadingQuestions(true);
-  const { data, error } = await supabase.rpc('get_topic_study_questions', {
-    p_user_id: session?.user?.id,
-    p_topic_ids: selected,
-    p_limit: 10
-  });
-  if (!error && data) {
+  // C2: preguntas SIN clave; se corrigen una a una con check_answer.
+  let data: Question[] | null = null;
+  try {
+    data = await fetchKeyless(supabase, 'get_topic_questions_v2', { p_topic_ids: selected, p_limit: 10 });
+  } catch (err) {
+    console.error('No se pudieron cargar las preguntas del tema:', err);
+  }
+  if (data) {
     setQuestions(shuffleAllOptions(data as Question[]));
     finishedRef.current = false;
     answeringRef.current = false;
@@ -81,7 +88,6 @@ const startStudy = async () => {
     setStarted(true);
     setIdx(0);
     setCorrectCount(0);
-    setStartTime(Date.now());
   }
   setLoadingQuestions(false);
 };
@@ -101,17 +107,31 @@ const confirmAnswer = async (chosen: string) => {
   if (!currentQuestion || !chosen || answered || answeringRef.current) return;
   answeringRef.current = true;
   setAnswer(chosen);
-  const isCorrect = chosen === currentQuestion.correct_answer;
+  // Se mide antes de esperar al servidor; más de 2 min activos = sin dato (null).
+  const responseMs = validResponseMs(timer.getElapsedMs());
+  let isCorrect = false;
+  try {
+    const check = await checkAnswer(supabase, currentQuestion, chosen);
+    isCorrect = check.correct;
+    const answeredIdx = idx;
+    setQuestions(prev => prev.map((q, i) => (i === answeredIdx ? withRevealedKey(q, check) : q)));
+  } catch (err) {
+    console.error('No se pudo corregir la respuesta:', err);
+    setCheckError(describeCheckError(err));
+    setAnswer('');
+    answeringRef.current = false;
+    return;
+  }
+  setCheckError(null);
   if (isCorrect) setCorrectCount(c => c + 1);
   setAnswered(true);
-  const responseTimeMs = Date.now() - startTime;
   if (supabase && session?.user?.id) {
     await saveAttemptToServer({
       p_user_id: session.user.id,
       p_question_id: Number(currentQuestion.id),
       p_acierto: isCorrect,
       p_respuesta: chosen,
-      p_tiempo_ms: responseTimeMs,
+      p_tiempo_ms: responseMs,
       p_modo: 'estudio_por_temas',
       p_session_id: sessionIdRef.current,
       p_nivel: toLevelInt(currentQuestion.level),
@@ -124,7 +144,6 @@ const nextQuestion = () => {
   answeringRef.current = false;
   setAnswer('');
   setAnswered(false);
-  setStartTime(Date.now());
   setIdx(i => i + 1);
 };
 
@@ -230,6 +249,9 @@ return h('div', { className: 'min-h-screen bg-fondo p-4' },
                h(ReportQuestionButton, { questionId: currentQuestion.id, onReported: nextQuestion })
              )
            ),
+           checkError
+           ? h('p', { role: 'alert', id: 'topic-check-error', className: 'mb-3 p-3 rounded-lg border border-rose-300 bg-rose-50 text-rose-900 text-sm' }, checkError)
+           : null,
            h('div', { className: 'bg-white rounded-xl p-5 shadow mb-4' },
              h('p', { className: 'text-slate-900 font-medium mb-4' }, currentQuestion.question),
              h('div', { className: 'flex flex-col gap-2' },

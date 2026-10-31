@@ -7,9 +7,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Brain, Sparkles, ChevronRight, CheckCircle2, XCircle, AlertTriangle, HelpCircle, RefreshCw, ArrowLeft, Clock } from 'lucide-react';
 import { Question, ConfidenceLevel, MemoryState, Microconcept } from '../types';
 import { countAnswerChange } from '../utils/attempt';
+import { describeTimer, validResponseSeconds, MAX_VALID_RESPONSE_SECONDS, TARGET_RESPONSE_SECONDS } from '../utils/activeTimer';
+import { useActiveTimer } from '../hooks/useActiveTimer';
 import { optionLetter } from '../utils/shuffleOptions';
 import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
+import { supabase } from '../lib/supabase';
+import { checkAnswer, describeCheckError, type AnswerCheck } from '../lib/secureQuestions';
 
 interface TrainScreenProps {
   question: Question | null;
@@ -23,8 +27,11 @@ interface TrainScreenProps {
     microconceptId: string,
     answer: string,
     confidence: ConfidenceLevel,
-    responseTime: number,
-    answerChanges: number
+    /** Segundos de tiempo ACTIVO de respuesta; null si no es una medición fiable (más de 2 min). */
+    responseTime: number | null,
+    answerChanges: number,
+    /** Acierto decidido por el servidor (check_answer) si la pregunta llegó sin clave. */
+    serverCorrect?: boolean
   ) => {
     feedbackTitle: string;
     feedbackMessage: string;
@@ -53,11 +60,25 @@ export default function TrainScreen({
   const [selectedConfidence, setSelectedConfidence] = useState<ConfidenceLevel | null>(null);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
-  const [startTime, setStartTime] = useState<number>(0);
-  const [timeTaken, setTimeTaken] = useState<number>(0);
-  const [elapsedSeconds, setElapsedSeconds] = useState(0);
+  // Mientras el servidor corrige no se puede cambiar de opción: la corrección y lo que se ve irían a distinta respuesta.
+  const [isChecking, setIsChecking] = useState(false);
+  // Cronómetro de tiempo ACTIVO: se pausa con la pestaña oculta, mientras el servidor corrige y al responder.
+  const timer = useActiveTimer(question?.id, { running: !isAnswered && !isChecking, display: true });
+  const [timerVisible, setTimerVisible] = useState<boolean>(() => {
+    try { return window.localStorage.getItem('bomberopro_timer_visible') !== 'false'; } catch { return true; }
+  });
+  const toggleTimer = () => {
+    setTimerVisible(v => {
+      try { window.localStorage.setItem('bomberopro_timer_visible', String(!v)); } catch { /* sin almacenamiento */ }
+      return !v;
+    });
+  };
   const [answerChanges, setAnswerChanges] = useState(0);
   const feedbackRef = useRef<HTMLDivElement>(null);
+  // C2: clave y explicación recibidas del servidor DESPUÉS de responder.
+  const [revealed, setRevealed] = useState<AnswerCheck | null>(null);
+  const [checkError, setCheckError] = useState<string | null>(null);
+  const checkingRef = useRef(false);
 
   // Feedback states
   const [feedback, setFeedback] = useState<{
@@ -67,25 +88,18 @@ export default function TrainScreen({
     updatedState: MemoryState | null;
   } | null>(null);
 
-  // Start timer on question load
+  // Reinicio al cargar una pregunta
   useEffect(() => {
-    setStartTime(Date.now());
     setSelectedConfidence(null);
     setSelectedAnswer(null);
     setIsAnswered(false);
     setAnswerChanges(0);
     setFeedback(null);
-    setElapsedSeconds(0);
+    setRevealed(null);
+    setCheckError(null);
+    setIsChecking(false);
+    checkingRef.current = false;
   }, [question?.id]);
-
-  // Live-updating chronometer while the question is unanswered
-  useEffect(() => {
-    if (isAnswered || !startTime) return;
-    const interval = setInterval(() => {
-      setElapsedSeconds(Math.floor((Date.now() - startTime) / 1000));
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [startTime, isAnswered]);
 
   useEffect(() => {
     if (feedback) feedbackRef.current?.focus();
@@ -126,23 +140,31 @@ export default function TrainScreen({
   const relatedConcept = microconcepts.find(mc => mc.id === question.microconcept_id);
   const currentState = memoryStates[question.microconcept_id];
 
-  const formatElapsed = (totalSeconds: number) => {
-    const m = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
-    const s = (totalSeconds % 60).toString().padStart(2, '0');
-    return `${m}:${s}`;
-  };
-
-  const displayedSeconds = isAnswered ? timeTaken : elapsedSeconds;
-  const isWithinTarget = displayedSeconds < 15;
+  const timerView = describeTimer(timer.elapsedMs);
 
   // Auditoría UX móvil (11-oct-2026): responder costaba 3 toques (opción, confianza, confirmar) y
   // «Confirmar» quedaba fuera de la pantalla. Ahora tocar el nivel de seguridad corrige la respuesta.
-  const handleSubmit = (confidenceChoice: ConfidenceLevel | null = selectedConfidence) => {
-    if (!selectedAnswer || !confidenceChoice || isAnswered) return;
+  const handleSubmit = async (confidenceChoice: ConfidenceLevel | null = selectedConfidence) => {
+    if (!selectedAnswer || !confidenceChoice || isAnswered || checkingRef.current) return;
+    checkingRef.current = true;
+    setIsChecking(true);
     setSelectedConfidence(confidenceChoice);
 
-    const elapsed = Math.round((Date.now() - startTime) / 1000);
-    setTimeTaken(elapsed);
+    // Se mide antes de esperar al servidor: la red no cuenta como tiempo del alumno.
+    const elapsed = validResponseSeconds(timer.getElapsedMs());
+    let check: AnswerCheck;
+    try {
+      check = await checkAnswer(supabase, question, selectedAnswer);
+    } catch (err) {
+      console.error('No se pudo corregir la respuesta:', err);
+      setCheckError(describeCheckError(err));
+      checkingRef.current = false;
+      setIsChecking(false);
+      return;
+    }
+    setCheckError(null);
+    setIsChecking(false);
+    setRevealed(check);
     setIsAnswered(true);
 
     const result = onAnswer(
@@ -151,7 +173,8 @@ export default function TrainScreen({
       selectedAnswer,
       confidenceChoice,
       elapsed,
-      answerChanges
+      answerChanges,
+      check.correct
     );
 
     setFeedback({
@@ -266,7 +289,7 @@ export default function TrainScreen({
             <div className="space-y-2.5">
               {question.options?.map((option, idx) => {
                 const isSelected = selectedAnswer === option;
-                const isCorrect = option === question.correct_answer;
+                const isCorrect = option === (revealed?.correctAnswer ?? question.correct_answer);
 
                 // Bordes ≥3:1 con el fondo (slate-500 = 4,8:1); el estado no depende solo del color.
                 let optionStyle = 'border-slate-500 bg-white hover:bg-slate-50 text-slate-800';
@@ -286,7 +309,7 @@ export default function TrainScreen({
                   <button
                     key={idx}
                     id={`train-option-${idx}`}
-                    disabled={isAnswered}
+                    disabled={isAnswered || isChecking}
                     aria-pressed={isSelected}
                     onClick={() => {
                       setAnswerChanges(current => current + countAnswerChange(selectedAnswer, option));
@@ -311,6 +334,9 @@ export default function TrainScreen({
             </div>
 
             {/* Confidence Selection Widget - MANDATORY BEFORE ANSWERING */}
+            {checkError && !isAnswered && (
+              <p role="alert" id="train-check-error" className="text-sm text-rose-800 bg-rose-50 border border-rose-300 rounded-xl p-3">{checkError}</p>
+            )}
             {!isAnswered && (
               <div className="pt-3 border-t border-slate-200 space-y-2 scroll-mb-28 md:scroll-mb-4" id="confidence-selector">
                 <p id="confidence-label" className="text-sm font-semibold text-slate-700">
@@ -329,8 +355,8 @@ export default function TrainScreen({
                       key={level}
                       type="button"
                       id={`conf-btn-${level}`}
-                      disabled={!selectedAnswer}
-                      onClick={() => handleSubmit(level)}
+                      disabled={!selectedAnswer || isChecking}
+                      onClick={() => { void handleSubmit(level); }}
                       className="min-h-14 px-1 py-2 rounded-xl border border-slate-500 bg-white text-slate-800 hover:bg-slate-50 transition flex flex-col items-center justify-center gap-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <span className="text-base font-bold">{label}</span>
@@ -364,7 +390,7 @@ export default function TrainScreen({
 
               <div className="p-3 bg-white/70 rounded-xl border border-white text-base text-slate-800 space-y-1">
                 <p className="font-semibold text-slate-800">Soporte y justificación legal:</p>
-                <p>{question.explanation}</p>
+                <p>{revealed?.explanation ?? question.explanation}</p>
               </div>
               <button
                 type="button"
@@ -443,32 +469,41 @@ export default function TrainScreen({
             </div>
           )}
 
-          {/* Time Warning Box */}
-          <div className="p-5 bg-indigo-900 text-indigo-100 rounded-2xl space-y-3 border border-indigo-950">
-            <h5 className="text-xs font-bold uppercase tracking-wider flex items-center gap-1.5">
-              <Clock className={`w-4 h-4 ${!isAnswered ? 'animate-spin-slow' : ''}`} />
-              Cronómetro de Automatización
-            </h5>
-
-            <div className="flex flex-wrap items-center justify-between gap-2" id="automation-timer">
-              <span
-                className={`text-3xl font-black tabular-nums ${
-                  !isAnswered && !isWithinTarget ? 'text-amber-300' : 'text-white'
-                }`}
+          {/* Tiempo de respuesta: indicador pequeño y ocultable (solo cuenta el tiempo activo, hasta 2 min) */}
+          <div id="automation-timer" className="px-4 py-3 bg-white border border-slate-200 rounded-2xl space-y-2">
+            <div className="flex items-center justify-between gap-2">
+              <h5 className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1.5">
+                <Clock className="w-4 h-4" aria-hidden="true" />
+                Tiempo
+              </h5>
+              <button
+                type="button"
+                onClick={toggleTimer}
+                aria-pressed={timerVisible}
+                className="min-h-8 px-2 text-xs font-semibold text-indigo-700 hover:text-indigo-900 underline underline-offset-2"
               >
-                {formatElapsed(displayedSeconds)}
-              </span>
-              <span
-                className={`text-xs font-bold uppercase tracking-wider px-2 py-1 rounded-full ${
-                  isWithinTarget ? 'bg-emerald-500/20 text-emerald-300' : 'bg-amber-500/20 text-amber-300'
-                }`}
-              >
-                {isWithinTarget ? 'En objetivo' : 'Fuera de objetivo'}
-              </span>
+                {timerVisible ? 'Ocultar' : 'Mostrar'}
+              </button>
             </div>
-
-            <p className="text-xs text-indigo-200">
-              El tiempo de respuesta es una señal orientativa. Responder rápido no demuestra recuerdo a largo plazo: necesitamos comprobarlo en repasos separados en el tiempo.
+            {timerVisible && (
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span
+                  className={`text-xl font-black tabular-nums ${timerView.state === 'en-objetivo' ? 'text-slate-800' : 'text-amber-700'}`}
+                  aria-label={`Tiempo de respuesta: ${timerView.text}`}
+                >
+                  {timerView.text}
+                </span>
+                <span
+                  className={`text-xs font-bold px-2 py-1 rounded-full ${
+                    timerView.state === 'en-objetivo' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'
+                  }`}
+                >
+                  {timerView.state === 'en-objetivo' ? `En objetivo (${TARGET_RESPONSE_SECONDS} s)` : timerView.state === 'fuera-de-objetivo' ? 'Fuera de objetivo' : 'Sin medir'}
+                </span>
+              </div>
+            )}
+            <p className="text-xs text-slate-600">
+              Solo cuenta el tiempo con la pantalla activa y hasta {MAX_VALID_RESPONSE_SECONDS / 60} min; más allá no se mide. Responder rápido no demuestra recuerdo a largo plazo: lo comprobamos en repasos separados en el tiempo.
             </p>
           </div>
         </div>

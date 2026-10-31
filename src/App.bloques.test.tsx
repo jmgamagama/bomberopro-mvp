@@ -38,7 +38,8 @@ describe('selectores de tema agrupados por bloque', () => {
     const user = userEvent.setup();
     render(<App />);
     await user.click(await screen.findByRole('button', { name: 'Saltar' }));
-    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-recuerdo')!);
+    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-mas')!);
+    await user.click(document.querySelector<HTMLButtonElement>('#mas-recuerdo')!);
     const tablist = await screen.findByRole('tablist', { name: 'Temas de recuerdo' });
     const bloque = document.querySelector<HTMLElement>('#recall-bloque-especifica')!;
     expect(tablist).toContainElement(bloque);
@@ -56,7 +57,8 @@ describe('selectores de tema agrupados por bloque', () => {
     const user = userEvent.setup();
     render(<App />);
     await user.click(await screen.findByRole('button', { name: 'Saltar' }));
-    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-sesion-diaria')!);
+    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-mas')!);
+    await user.click(document.querySelector<HTMLButtonElement>('#mas-sesion_diaria')!);
     const select = await screen.findByLabelText('Tema prioritario');
     const group = select.querySelector('optgroup[label="Parte específica"]')!;
     expect([...group.querySelectorAll('option')].map((o) => o.value)).toEqual(ESPECIFICA.map((t) => t.id));
@@ -73,7 +75,8 @@ describe('selectores de tema agrupados por bloque', () => {
     const user = userEvent.setup();
     render(<App />);
     await user.click(await screen.findByRole('button', { name: 'Saltar' }));
-    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-recuerdo')!);
+    await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-mas')!);
+    await user.click(document.querySelector<HTMLButtonElement>('#mas-recuerdo')!);
     const tablist = await screen.findByRole('tablist', { name: 'Temas de recuerdo' });
     expect(within(tablist).getByRole('tab', { name: /^T16 .*\(Pro\)$/ })).toBeInTheDocument();
   });

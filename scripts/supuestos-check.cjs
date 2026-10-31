@@ -159,9 +159,10 @@ const CALCULOS = { 't33-agua-01-p1': '25', 't33-agua-01-p5': '19.200', 't33-agua
     await page.getByRole('button', { name: 'Otros supuestos' }).click();
   }
 
-  // Escritorio: entrada «Supuestos» en la navegación principal.
+  // Escritorio: «Casos prácticos» en «Más», igual que en el móvil.
   await page.setViewportSize({ width: 1280, height: 800 });
-  check('escritorio (admin): #nav-btn-supuestos visible', await page.locator('#nav-btn-supuestos').isVisible());
+  await page.locator('#nav-btn-mas').click();
+  check('escritorio (admin): «Casos prácticos» en «Más»', await page.locator('#mas-supuestos').isVisible());
   check('sin errores de página (admin)', errors.length === 0, errors.join(' | '));
   await ctx.close();
 
@@ -179,7 +180,8 @@ const CALCULOS = { 't33-agua-01-p1': '25', 't33-agua-01-p5': '19.200', 't33-agua
     const malas2 = await mobileLabelsOverlap(p2);
     check('alumno: etiquetas de la barra móvil sin solaparse', malas2.length === 0, malas2.join(', '));
     await p2.setViewportSize({ width: 1280, height: 800 });
-    check('alumno: sin «Supuestos» en escritorio', (await p2.locator('#nav-btn-supuestos').count()) === 0);
+    await p2.locator('#nav-btn-mas').click();
+    check('alumno: sin «Casos prácticos» en «Más» (escritorio)', (await p2.locator('#mas-supuestos').count()) === 0);
     await p2.setViewportSize({ width: 360, height: 740 });
 
     // Enlace directo para la primera importación.

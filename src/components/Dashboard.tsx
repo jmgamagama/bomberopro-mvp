@@ -122,8 +122,10 @@ export default function Dashboard({
   const totalAttempts = attempts.length;
   
   // 1. Average Response Time
-  const avgResponseTime = totalAttempts > 0
-    ? (attempts.reduce((acc, a) => acc + a.response_time_seconds, 0) / totalAttempts)
+  // Solo cuentan las mediciones fiables (tiempo activo hasta 2 min): una pestaña olvidada no es «tardar».
+  const timedAttempts = attempts.filter(a => a.response_time_valid !== false);
+  const avgResponseTime = timedAttempts.length > 0
+    ? (timedAttempts.reduce((acc, a) => acc + a.response_time_seconds, 0) / timedAttempts.length)
     : 0;
 
   // 2. Calibration of Confidence

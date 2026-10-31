@@ -28,6 +28,7 @@ import {
   getTimeOffset
 } from './utils/db';
 import { getAdaptiveQuestion, processAttempt, getAdaptiveDailySession, createNewMemoryState, normalizeSpacedEvidence } from './utils/engine';
+import { MAX_VALID_RESPONSE_SECONDS } from './utils/activeTimer';
 
 import Dashboard from './components/Dashboard';
 import TodayTraining from './components/TodayTraining';
@@ -40,6 +41,7 @@ import Login from './components/Login';
 import AccesoConfirmado from './components/AccesoConfirmado';
 import { retornoAuthInicial, limpiarUrlRetornoAuth } from './lib/authRetorno';
 import StudyByTopic from './components/StudyByTopic';
+import { fetchKeyless } from './lib/secureQuestions';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer, toLevelInt } from './lib/saveAttemptToServer';
 import UpdateBanner from './components/UpdateBanner';
@@ -74,7 +76,7 @@ const Onboarding = lazy(() => import('./components/Onboarding'));
 const Planes = lazy(() => import('./components/Planes'));
 
 const SCREEN_TITLES = {
-  dashboard: 'Dashboard',
+  dashboard: 'Inicio',
   train: 'Entrenamiento',
   errors: 'Errores críticos',
   forgetting_curve: 'Curva de olvido',
@@ -93,7 +95,7 @@ const SCREEN_TITLES = {
   mas: 'Más',
 } as const;
 
-  const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds, modo: 'adaptativo' | 'simulacro' = 'adaptativo', nivel: unknown = 1, sessionId: string | null = null) => {
+  const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds: number | null, modo: 'adaptativo' | 'simulacro' = 'adaptativo', nivel: unknown = 1, sessionId: string | null = null) => {
       if (!supabase || !userId) return;
       const numericQuestionId = Number(questionId);
       if (!Number.isFinite(numericQuestionId)) return;
@@ -103,7 +105,8 @@ const SCREEN_TITLES = {
             p_question_id: numericQuestionId,
             p_acierto: isCorrect,
             p_respuesta: answer,
-            p_tiempo_ms: Math.round(responseTimeSeconds * 1000),
+            // null = sin dato fiable: no se guarda un tiempo inventado.
+            p_tiempo_ms: responseTimeSeconds === null ? null : Math.round(responseTimeSeconds * 1000),
             p_modo: modo,
             p_session_id: sessionId,
             p_nivel: toLevelInt(nivel),
@@ -245,10 +248,9 @@ export default function App() {
   // tema según el peso en el examen. El orden que devuelve se respeta tal cual.
   const loadServerSession = async (): Promise<Question[]> => {
     if (!supabase) return [];
-    const res = await supabase.rpc('get_study_session', { p_limit: 10 });
-    if (!res.error) return shuffleAllOptions((res.data ?? []) as Question[]);
+    // C2 (migración 34): la sesión llega SIN clave; TrainScreen corrige con check_answer.
     // Fail closed: nunca volver al exportador heredado cuando falla el motor seguro.
-    throw res.error;
+    return shuffleAllOptions(await fetchKeyless(supabase, 'get_study_session_v2', { p_limit: 10 }));
   };
 
   // Preguntas que el alumno tiene falladas ahora (conceptos y banco), mismo formato que la sesión.
@@ -258,10 +260,10 @@ export default function App() {
     setAccountErrors({ status: 'loading' });
     try {
       if (!supabase) throw new Error('backend_not_configured');
-      const res = await supabase.rpc('get_error_session', { p_limit: 50 });
-      if (res.error) throw res.error;
+      // Migración 45: llegan SIN clave; TrainScreen corrige con check_answer.
+      const questions = await fetchKeyless(supabase, 'get_error_session_v2', { p_limit: 50 });
       if (request !== accountErrorsRequest.current || owner !== authUserId.current) return;
-      setAccountErrors({ status: 'ready', questions: (res.data ?? []) as Question[] });
+      setAccountErrors({ status: 'ready', questions });
     } catch (err) {
       if (request !== accountErrorsRequest.current || owner !== authUserId.current) return;
       console.error('No se pudieron cargar los errores:', err);
@@ -461,20 +463,24 @@ export default function App() {
     microconceptId: string,
     answer: string,
     confidence: ConfidenceLevel,
-    responseTime: number,
-    answerChanges: number
+    responseTime: number | null,
+    answerChanges: number,
+    serverCorrect?: boolean
   ) => {
     const now = getCurrentDate();
     answeredQuestionIds.current.add(questionId);
-    const isCorrect = (sessionQuestionPool.find(q => q.id === questionId)
-      ?? dbQuestions.find(q => q.id === questionId))?.correct_answer === answer;
+    // C2: si la pregunta llegó sin clave, el acierto lo decide el servidor (check_answer).
+    const isCorrect = serverCorrect ?? ((sessionQuestionPool.find(q => q.id === questionId)
+      ?? dbQuestions.find(q => q.id === questionId))?.correct_answer === answer);
 
     // Load current memory state
     const currentStates = isDemoMode ? memoryStates : getSafeMemoryStates();
         const currentState = currentStates[microconceptId] || createNewMemoryState(microconceptId);
 
     // Compute updated values via core cognitive engine
-    const result = processAttempt(currentState, isCorrect, confidence, responseTime, now);
+    // Sin dato fiable de tiempo: el motor lo trata como una respuesta lenta (sin bonus de velocidad ni penalización).
+    const engineSeconds = responseTime ?? MAX_VALID_RESPONSE_SECONDS;
+    const result = processAttempt(currentState, isCorrect, confidence, engineSeconds, now);
 
     const newAttempt: Attempt = {
       id: `att-${Date.now()}`,
@@ -484,7 +490,8 @@ export default function App() {
       answer_user: answer,
       correct: isCorrect,
       confidence,
-      response_time_seconds: responseTime,
+      response_time_seconds: engineSeconds,
+      response_time_valid: responseTime !== null,
       answer_changes: answerChanges,
       created_at: now.toISOString()
     };
@@ -685,7 +692,7 @@ export default function App() {
     );
   }
 
-  // Navegación móvil: 5 pestañas. Lo menos usado vive en «Más» para no abrumar al alumno.
+  // Navegación única (móvil, tableta y escritorio): 5 secciones. Lo menos usado vive en «Más» para no abrumar al alumno.
   type Screen = typeof currentScreen;
   const estudiarScreen: Screen = conceptOwner ? 'concept_t40' : 'train';
   const MAS_SCREENS: Screen[] = ['mas', 'errors', 'forgetting_curve', 'recuerdo', 'sesion_diaria', 'ordena_pasos', 'today_training', 'supuestos', 'my_reports', 'planes', 'constitucion'];
@@ -738,7 +745,7 @@ export default function App() {
       <SaveStatus />
       {session && !isDemoMode && showLegacyImport && (
         <div role="region" aria-label="Progreso antiguo" className="border-b border-indigo-200 bg-indigo-50 px-4 py-3 text-sm text-slate-800">
-          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
+          <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-between gap-3">
             <p>Hay progreso antiguo en este navegador sin cuenta identificada. Si es tuyo, puedes copiarlo a esta cuenta; no se borrará el original.</p>
             <button type="button" onClick={handleImportLegacyProgress} className="rounded-lg bg-indigo-700 px-3 py-2 font-semibold text-white">
               Importar mi progreso
@@ -753,7 +760,7 @@ export default function App() {
           className="bg-amber-400 text-slate-950 px-3 sm:px-4 py-1.5 text-sm font-semibold shadow-xs"
         >
           {/* En el móvil cabe en una sola fila: cada píxel de alto deja ver antes la pregunta. */}
-          <div className="max-w-6xl mx-auto flex items-center justify-between gap-2">
+          <div className="max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
             <div className="flex min-w-0 items-center gap-2 text-left">
               <span className="hidden sm:block w-2 h-2 rounded-full bg-amber-900 animate-pulse shrink-0" aria-hidden="true" />
               <span className="text-xs leading-tight sm:text-sm">
@@ -798,12 +805,12 @@ export default function App() {
       </p>
 
       {/* Top Main Navigation Bar */}
-      {/* En el móvil la cabecera no es fija: ya hay barra inferior fija y cada píxel cuenta. */}
-      <header className="relative md:sticky md:top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm" id="mira-header">
-        <div className="max-w-6xl mx-auto px-4 min-h-14 py-1.5 md:min-h-16 flex flex-wrap items-center justify-between gap-2">
+      {/* Hasta 1024 px (móvil y tableta) la cabecera no es fija: ya hay barra inferior fija y cada píxel cuenta. */}
+      <header className="relative lg:sticky lg:top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm" id="mira-header">
+        <div className="max-w-4xl mx-auto px-4 min-h-14 py-1.5 lg:min-h-16 flex flex-wrap items-center justify-between gap-2">
           <button
             type="button"
-            aria-label="Ir al dashboard"
+            aria-label="Ir al inicio"
             className="flex min-h-11 min-w-0 items-center gap-2.5 cursor-pointer text-left"
             onClick={() => handleNavigate('dashboard')}
             id="brand-logo"
@@ -815,130 +822,34 @@ export default function App() {
               <span className="text-base font-black tracking-tight text-slate-950">
                 BomberoPro
               </span>
-              <p className="hidden sm:block text-xs text-slate-600 font-medium tracking-wide">Aprendizaje Adaptativo de Oposición</p>
             </div>
           </button>
 
+          {/* Escritorio: las mismas 5 secciones que la barra inferior del móvil (mobileTabs), con los
+              mismos nombres y destinos. Lo demás vive en «Más» en todos los dispositivos. */}
           <nav
             aria-label="Navegación principal"
-            className="hidden md:order-last md:flex md:w-full md:flex-wrap md:justify-center md:pb-1.5 items-center gap-1"
+            className="hidden lg:flex items-center gap-1"
             id="mira-nav-items"
           >
-            <button
-              id="nav-btn-dashboard"
-              onClick={() => handleNavigate('dashboard')}
-              aria-current={currentScreen === 'dashboard' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'dashboard' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <LayoutDashboard className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Dashboard
-            </button>
-            <button
-              id="nav-btn-study"
-              onClick={() => handleNavigate('today_training')}
-              aria-current={currentScreen === 'today_training' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'today_training' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <Target className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Entrenamiento de Hoy
-            </button>
-            <button
-              id="nav-btn-errors"
-              onClick={() => handleNavigate('errors')}
-              aria-current={currentScreen === 'errors' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'errors' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <AlertTriangle className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Errores Críticos
-            </button>
-            <button
-              id="nav-btn-forgetting"
-              onClick={() => handleNavigate('forgetting_curve')}
-              aria-current={currentScreen === 'forgetting_curve' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'forgetting_curve' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <BarChart2 className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Curva de Olvido
-            </button>
-            <button
-              id="nav-btn-exam"
-              onClick={() => handleNavigate('mock_exam')}
-              aria-current={currentScreen === 'mock_exam' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'mock_exam' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <HelpCircle className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Simulacro
-            </button>
-            <button
-              id="nav-btn-study-topic"
-              onClick={() => handleNavigate('study_by_topic')}
-              aria-current={currentScreen === 'study_by_topic' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'study_by_topic' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-              >
-            <BookOpen className="hidden lg:block w-4 h-4" aria-hidden="true" />
-            Por Temas
-            </button>
-
-            <button
-              id="nav-btn-recuerdo"
-              onClick={() => handleNavigate('recuerdo')}
-              aria-current={currentScreen === 'recuerdo' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'recuerdo' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <Layers className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Recuerdo
-            </button>
-            <button
-              id="nav-btn-sesion-diaria"
-              onClick={() => handleNavigate('sesion_diaria')}
-              aria-current={currentScreen === 'sesion_diaria' || currentScreen === 'ordena_pasos' ? 'page' : undefined}
-              className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'sesion_diaria' || currentScreen === 'ordena_pasos' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <Flame className="hidden lg:block w-4 h-4" aria-hidden="true" />
-              Sesión diaria
-            </button>
-            {supuestosVisibles && (
-              <button
-                id="nav-btn-supuestos"
-                onClick={() => handleNavigate('supuestos')}
-                aria-current={currentScreen === 'supuestos' ? 'page' : undefined}
-                className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                  currentScreen === 'supuestos' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-                }`}
-              >
-                <ClipboardList className="hidden lg:block w-4 h-4" aria-hidden="true" />
-                Supuestos
-              </button>
-            )}
-            {planesEnabled && (
-              <button
-                id="nav-btn-planes"
-                onClick={() => handleNavigate('planes')}
-                aria-current={currentScreen === 'planes' ? 'page' : undefined}
-                className={`min-h-11 px-2 lg:px-3 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                  currentScreen === 'planes' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-                }`}
-              >
-                <Sparkles className="hidden lg:block w-4 h-4" aria-hidden="true" />
-                Planes
-              </button>
-            )}
+            {mobileTabs.map(({ key, label, Icon, target, active }) => {
+              const isActive = active.includes(currentScreen);
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  id={`nav-btn-${key}`}
+                  aria-current={isActive ? 'page' : undefined}
+                  onClick={() => handleNavigate(target)}
+                  className={`min-h-11 px-3 py-2 text-sm font-semibold rounded-lg transition flex items-center gap-2 ${
+                    isActive ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                  }`}
+                >
+                  <Icon className="w-4 h-4" aria-hidden="true" />
+                  {label}
+                </button>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-2">
@@ -971,7 +882,7 @@ export default function App() {
       <main
         id="main-content"
         tabIndex={-1}
-        className="flex-1 max-w-6xl w-full mx-auto px-4 pt-4 pb-24 md:py-8"
+        className="flex-1 max-w-4xl w-full mx-auto px-4 pt-4 pb-24 lg:py-8"
       >
         {currentScreen === 'dashboard' && (
           <>
@@ -1003,11 +914,6 @@ export default function App() {
                 <span className="mt-0.5 block text-sm text-slate-600">Esquema, desarrollo y texto oficial, con preguntas que se adaptan a tu nivel.</span>
               </span>
               <span className="shrink-0 rounded-xl bg-indigo-600 px-4 py-2 text-sm font-bold text-white">Abrir</span>
-            </button>
-          )}
-          {!isDemoMode && session?.user?.id && supabase && (
-            <button type="button" id="btn-my-reports" onClick={() => handleNavigate('my_reports')} className="mb-4 text-sm font-semibold text-indigo-700 underline">
-              Mis reportes
             </button>
           )}
           <Dashboard
@@ -1223,7 +1129,7 @@ export default function App() {
       {currentScreen !== 'onboarding' && (
       <nav
         aria-label="Navegación móvil"
-        className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_18px_rgba(15,23,42,0.08)] backdrop-blur-md md:hidden"
+        className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_18px_rgba(15,23,42,0.08)] backdrop-blur-md lg:hidden"
       >
         <div className="mx-auto grid max-w-lg grid-cols-5 px-1">
           {mobileTabs.map(({ key, label, Icon, target, active }) => {
@@ -1249,9 +1155,9 @@ export default function App() {
       )}
 
       {/* Footer Branding Area */}
-      {/* En el móvil la barra inferior es fija: el pie deja su alto (4 rem + zona segura) para no quedar tapado. */}
-      <footer className="border-t border-slate-100 pt-6 pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-6 bg-white text-slate-600 text-xs mt-12" id="mira-footer">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      {/* En móvil y tableta la barra inferior es fija: el pie deja su alto (4 rem + zona segura) para no quedar tapado. */}
+      <footer className="border-t border-slate-100 pt-6 pb-[calc(5.5rem+env(safe-area-inset-bottom))] lg:pb-6 bg-white text-slate-600 text-xs mt-12" id="mira-footer">
+        <div className="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
             <p className="font-semibold text-slate-600">BomberoPro — Oposición CPEI Badajoz</p>
             <p className="text-xs text-slate-600 mt-0.5">Basado en Microconceptos, Interrogación activa, Repetición espaciada y Aseguramiento del dominio real.</p>

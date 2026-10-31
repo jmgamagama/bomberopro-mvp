@@ -100,7 +100,7 @@ export default function ErrorPanel({
                     </p>
 
                     <div className="pt-2 flex flex-col items-start gap-3 border-t border-slate-100 sm:flex-row sm:items-center sm:justify-between">
-                      <div className="text-[10px] text-slate-400 font-mono">
+                      <div className="text-[10px] text-slate-500 font-mono">
                         Dominio Real: <span className="font-bold text-rose-500">{state.mastery_score}%</span>
                       </div>
                       
@@ -167,7 +167,7 @@ export default function ErrorPanel({
                     </p>
 
                     <div className="pt-2 flex flex-col items-start gap-3 border-t border-slate-100 sm:flex-row sm:items-center sm:justify-between">
-                      <div className="text-[10px] text-slate-400 font-mono">
+                      <div className="text-[10px] text-slate-500 font-mono">
                         Dominio Real: <span className="font-bold text-amber-500">{state.mastery_score}%</span>
                       </div>
                       

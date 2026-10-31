@@ -21,6 +21,8 @@ import {
   type VisibleState,
 } from '../lib/conceptEngine';
 import { newAttemptKey } from '../lib/saveAttemptToServer';
+import { useActiveTimer } from '../hooks/useActiveTimer';
+import { validResponseMs } from '../utils/activeTimer';
 import { optionLetter, shuffleQuestionOptions } from '../utils/shuffleOptions';
 import ReportQuestionButton from './ReportQuestionButton';
 import { startStudySession, finishStudySession } from '../lib/studySession';
@@ -100,7 +102,9 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
   const testEventId = useRef(newAttemptKey());
   const testResponseMs = useRef<number | null>(null);
   const testConfidence = useRef<Confidence | null>(null);
-  const shownAt = useRef(Date.now());
+  // Tiempo ACTIVO del elemento actual (se pausa con la pestaña oculta); más de 2 min = sin dato (null).
+  // Se reinicia a mano al cambiar de elemento (resetItem).
+  const timer = useActiveTimer('concepto', { running: true });
 
   const refreshProgress = async () => {
     const owner = userId;
@@ -144,7 +148,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
     setRecoveryNote(null);
     setTestFeedback(null); setPendingTestChoice(null); testEventId.current = newAttemptKey();
     testResponseMs.current = null; testConfidence.current = null;
-    shownAt.current = Date.now();
+    timer.reset();
   };
 
   const start = async () => {
@@ -175,7 +179,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
     const owner = userId;
     setStaging(true);
     try {
-      const r = await recordConceptEvent(owner, { ...ev, p_session_id: sessionId.current, p_response_ms: Date.now() - shownAt.current });
+      const r = await recordConceptEvent(owner, { ...ev, p_session_id: sessionId.current, p_response_ms: validResponseMs(timer.getElapsedMs()) });
       if (ownerRef.current !== owner) return false;
       setPendingSave(r.pending);
       setRejectedSave(r.rejected);
@@ -218,7 +222,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
     const owner = userId;
     const epoch = sessionEpoch.current;
     const selectedOption = pendingTestChoice ?? chosen;
-    if (testResponseMs.current == null) testResponseMs.current = Date.now() - shownAt.current;
+    if (testResponseMs.current == null) testResponseMs.current = validResponseMs(timer.getElapsedMs());
     if (testConfidence.current == null) testConfidence.current = confidence;
     // El mismo ID, opción, confianza y duración en todos los reintentos: el servidor califica UNA vez.
     setPendingTestChoice(selectedOption);

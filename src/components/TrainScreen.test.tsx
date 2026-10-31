@@ -1,9 +1,9 @@
 // @vitest-environment jsdom
 
 import '../test/setup';
-import { render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from '../data/initialData';
 import { MemoryState } from '../types';
 import TrainScreen from './TrainScreen';
@@ -73,6 +73,7 @@ describe('TrainScreen', () => {
     await user.click(screen.getByRole('button', { name: question.options![1] }));
     expect(screen.getByRole('button', { name: question.options![1] })).toHaveAttribute('aria-pressed', 'true');
     await user.click(container.querySelector<HTMLButtonElement>('#conf-btn-alta')!);
+    await waitFor(() => expect(onAnswer).toHaveBeenCalled());
     expect(container.querySelector('#train-sidebar')).toHaveTextContent(INITIAL_MICROCONCEPTS[0].text);
 
     expect(onAnswer).toHaveBeenCalledWith(
@@ -82,8 +83,9 @@ describe('TrainScreen', () => {
       'alta',
       expect.any(Number),
       1,
+      question.options![1] === question.correct_answer,
     );
-    expect(screen.getByText('Respuesta registrada')).toBeInTheDocument();
+    expect(await screen.findByText('Respuesta registrada')).toBeInTheDocument();
     expect(container.querySelector('#train-feedback-box')).toHaveFocus();
     await user.tab();
     expect(screen.getByRole('button', { name: /siguiente pregunta/i })).toHaveFocus();
@@ -118,7 +120,78 @@ describe('TrainScreen', () => {
     await user.click(screen.getByRole('button', { name: question.options![0] }));
     expect(media).toBeEnabled();
     await user.click(media);
-    expect(onAnswer).toHaveBeenCalledOnce();
-    expect(onAnswer).toHaveBeenCalledWith(question.id, question.microconcept_id, question.options![0], 'media', expect.any(Number), 0);
+    await waitFor(() => expect(onAnswer).toHaveBeenCalledOnce());
+    expect(onAnswer).toHaveBeenCalledWith(question.id, question.microconcept_id, question.options![0], 'media', expect.any(Number), 0,
+      question.options![0] === question.correct_answer);
+  });
+});
+
+describe('TrainScreen: tiempo de respuesta activo', () => {
+  const q = { ...INITIAL_QUESTIONS[0] };
+  const result = {
+    feedbackTitle: 't', feedbackMessage: 'm', feedbackType: 'correct_strong' as const, updatedState: memoryState,
+  };
+
+  const setVisibility = (state: 'visible' | 'hidden') => {
+    Object.defineProperty(document, 'visibilityState', { configurable: true, get: () => state });
+    document.dispatchEvent(new Event('visibilitychange'));
+  };
+
+  const renderTrain = (onAnswer = vi.fn().mockReturnValue(result)) => {
+    const view = render(
+      <TrainScreen
+        question={q}
+        selectionReason="r"
+        microconcepts={INITIAL_MICROCONCEPTS}
+        memoryStates={{ [q.microconcept_id]: memoryState }}
+        sessionCurrent={1}
+        sessionTotal={5}
+        onAnswer={onAnswer}
+        onNextQuestion={vi.fn()}
+        onNavigateHome={vi.fn()}
+      />,
+    );
+    return { ...view, onAnswer };
+  };
+
+  const answer = async (container: HTMLElement) => {
+    fireEvent.click(screen.getByRole('button', { name: q.options![0] }));
+    await act(async () => { fireEvent.click(container.querySelector('#conf-btn-media')!); });
+    await act(async () => { await Promise.resolve(); });
+  };
+
+  beforeEach(() => { vi.useFakeTimers(); setVisibility('visible'); window.localStorage.clear(); });
+  afterEach(() => { vi.useRealTimers(); setVisibility('visible'); });
+
+  it('con la pestaña oculta una hora, el tiempo guardado es solo el activo', async () => {
+    const { container, onAnswer } = renderTrain();
+    act(() => { vi.advanceTimersByTime(5_000); });
+    act(() => { setVisibility('hidden'); });
+    act(() => { vi.advanceTimersByTime(60 * 60 * 1000); });
+    act(() => { setVisibility('visible'); });
+    await answer(container);
+    expect(onAnswer).toHaveBeenCalledTimes(1);
+    expect(onAnswer.mock.calls[0][4]).toBe(5);
+  });
+
+  it('pasados 2 min activos el tiempo es «sin dato» (null) y el contador no enseña cifras enormes', async () => {
+    const { container, onAnswer } = renderTrain();
+    act(() => { vi.advanceTimersByTime(150_000); });
+    expect(container.querySelector('#automation-timer')).toHaveTextContent('+2 min');
+    expect(container.querySelector('#automation-timer')).toHaveTextContent('Sin medir');
+    expect(container.querySelector('#automation-timer')).not.toHaveTextContent(/\d{2}:\d{2}/);
+    await answer(container);
+    expect(onAnswer.mock.calls[0][4]).toBeNull();
+  });
+
+  it('el indicador se puede ocultar y se recuerda la elección', () => {
+    const { container } = renderTrain();
+    const timer = container.querySelector('#automation-timer')!;
+    expect(timer).toHaveTextContent('En objetivo');
+    fireEvent.click(screen.getByRole('button', { name: 'Ocultar' }));
+    expect(timer).not.toHaveTextContent('En objetivo');
+    expect(window.localStorage.getItem('bomberopro_timer_visible')).toBe('false');
+    fireEvent.click(screen.getByRole('button', { name: 'Mostrar' }));
+    expect(timer).toHaveTextContent('En objetivo');
   });
 });

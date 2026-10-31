@@ -140,7 +140,7 @@ export function StudentConsultationModal({
             type="button"
             onClick={onClose}
             aria-label="Cerrar diálogo de consulta"
-            className="p-1.5 text-slate-400 hover:text-slate-700 hover:bg-slate-200/60 rounded-lg transition cursor-pointer"
+            className="p-1.5 text-slate-500 hover:text-slate-700 hover:bg-slate-200/60 rounded-lg transition cursor-pointer"
           >
             <X className="w-5 h-5" aria-hidden="true" />
           </button>
@@ -217,7 +217,7 @@ export function StudentConsultationModal({
           <div className="space-y-1.5">
             <label htmlFor="consultation-note-input" className="text-xs font-semibold text-slate-700 flex items-center justify-between">
               <span>Detalle de tu duda (opcional)</span>
-              <span className="text-[11px] text-slate-400 font-normal">Se incluirá en el borrador</span>
+              <span className="text-[11px] text-slate-500 font-normal">Se incluirá en el borrador</span>
             </label>
             <textarea
               id="consultation-note-input"
@@ -225,7 +225,7 @@ export function StudentConsultationModal({
               value={userNote}
               onChange={(e) => setUserNote(e.target.value)}
               placeholder="Escribe brevemente tu duda si deseas que aparezca prellenada en el correo..."
-              className="w-full text-xs p-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-hidden resize-none bg-slate-50/50 placeholder:text-slate-400 text-slate-800"
+              className="w-full text-xs p-3 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-hidden resize-none bg-slate-50/50 placeholder:text-slate-500 text-slate-800"
             />
           </div>
 
@@ -253,10 +253,6 @@ export function StudentConsultationModal({
           </button>
           <a
             href={mailtoUrl}
-            onClick={() => {
-              // Close after trigger so user returns smoothly
-              setTimeout(onClose, 200);
-            }}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl shadow-md hover:shadow-lg transition cursor-pointer"
           >
             <Mail className="w-4 h-4" aria-hidden="true" />

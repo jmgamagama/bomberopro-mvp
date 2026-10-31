@@ -95,7 +95,7 @@ export default function ForgettingCurve({
             </div>
           </div>
           <div className="bg-slate-50 border border-slate-200 px-4 py-2 rounded-xl flex items-center gap-2 text-xs font-semibold text-slate-700">
-            <Calendar className="w-4 h-4 text-slate-400" />
+            <Calendar className="w-4 h-4 text-slate-500" />
             Simulado: {now.toLocaleDateString('es-ES')}
           </div>
         </div>
@@ -123,12 +123,12 @@ export default function ForgettingCurve({
               <Activity className="w-4 h-4 text-indigo-500" />
               Simulador Matemático de Ebbinghaus (0 a 30 Días)
             </h3>
-            <p className="text-[10px] text-slate-400">Haz clic en los nodos de colores para auditar cada microconcepto en la gráfica.</p>
+            <p className="text-[10px] text-slate-500">Haz clic en los nodos de colores para auditar cada microconcepto en la gráfica.</p>
           </div>
 
           {/* Preset selector */}
           <div className="flex items-center gap-1" role="group" aria-label="Estabilidad de referencia">
-            <span className="text-[10px] text-slate-400 font-mono mr-1.5">Referencia (S):</span>
+            <span className="text-[10px] text-slate-500 font-mono mr-1.5">Referencia (S):</span>
             <button
               onClick={() => setSelectedStability(1.0)}
               aria-pressed={selectedStability === 1.0}
@@ -177,7 +177,7 @@ export default function ForgettingCurve({
               return (
                 <g key={i}>
                   <line x1="40" y1={gy} x2="480" y2={gy} stroke="#f1f5f9" strokeWidth="1" strokeDasharray="3,3" />
-                  <text x="32" y={gy + 3} className="text-[8px] font-mono text-slate-400 text-right font-semibold" textAnchor="end">
+                  <text x="32" y={gy + 3} className="text-[8px] font-mono text-slate-500 text-right font-semibold" textAnchor="end">
                     {v * 100}%
                   </text>
                 </g>
@@ -190,7 +190,7 @@ export default function ForgettingCurve({
               return (
                 <g key={i}>
                   <line x1={gx} y1="20" x2={gx} y2="150" stroke="#f1f5f9" strokeWidth="1" strokeDasharray="3,3" />
-                  <text x={gx} y="162" className="text-[8px] font-mono text-slate-400 text-center font-semibold" textAnchor="middle">
+                  <text x={gx} y="162" className="text-[8px] font-mono text-slate-500 text-center font-semibold" textAnchor="middle">
                     {d === 0 ? 'Hoy' : `${d}D`}
                   </text>
                 </g>
@@ -202,7 +202,7 @@ export default function ForgettingCurve({
             <line x1="40" y1="20" x2="40" y2="150" stroke="#cbd5e1" strokeWidth="1.5" />
 
             {/* Title for Axis */}
-            <text x="260" y="174" className="text-[8px] font-mono font-bold text-slate-400 tracking-wider text-center" textAnchor="middle">
+            <text x="260" y="174" className="text-[8px] font-mono font-bold text-slate-500 tracking-wider text-center" textAnchor="middle">
               TIEMPO SIMULADO DESDE ÚLTIMO REPASO (DÍAS)
             </text>
 
@@ -307,25 +307,25 @@ export default function ForgettingCurve({
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center pt-1">
               <div className="p-2 bg-white rounded-lg border border-indigo-100">
-                <span className="text-[9px] text-slate-400 block font-mono">Estabilidad (S)</span>
+                <span className="text-[9px] text-slate-500 block font-mono">Estabilidad (S)</span>
                 <strong className="text-indigo-800 text-xs font-mono">
                   {activePoint.stability < 1 ? `${Math.round(activePoint.stability * 24 * 60)} min` : `${activePoint.stability.toFixed(1)} días`}
                 </strong>
               </div>
               <div className="p-2 bg-white rounded-lg border border-indigo-100">
-                <span className="text-[9px] text-slate-400 block font-mono">Tiempo sin repaso</span>
+                <span className="text-[9px] text-slate-500 block font-mono">Tiempo sin repaso</span>
                 <strong className="text-indigo-800 text-xs font-mono">
                   {activePoint.daysSinceLast.toFixed(2)} días
                 </strong>
               </div>
               <div className="p-2 bg-white rounded-lg border border-indigo-100">
-                <span className="text-[9px] text-slate-400 block font-mono">Recuperabilidad (R)</span>
+                <span className="text-[9px] text-slate-500 block font-mono">Recuperabilidad (R)</span>
                 <strong className="text-indigo-800 text-xs font-mono">
                   {activePoint.rPct}%
                 </strong>
               </div>
               <div className="p-2 bg-white rounded-lg border border-indigo-100">
-                <span className="text-[9px] text-slate-400 block font-mono">Estado Cognitivo</span>
+                <span className="text-[9px] text-slate-500 block font-mono">Estado Cognitivo</span>
                 <span className={`text-[10px] font-extrabold uppercase font-mono block ${activePoint.risk.color.split(' ')[0]}`}>
                   {activePoint.risk.text}
                 </span>
@@ -348,7 +348,7 @@ export default function ForgettingCurve({
             Máquina del Tiempo de Aprendizaje Adaptativo
           </h4>
         </div>
-        <p className="text-xs text-slate-400 leading-normal">
+        <p className="text-xs text-slate-500 leading-normal">
           Para comprobar el poder predictivo del algoritmo, simula el paso de los días. Verás cómo disminuye la probabilidad de recordar cada microconcepto en base a tu historial previo.
         </p>
 
@@ -440,7 +440,7 @@ export default function ForgettingCurve({
                     <span className="text-xs font-mono font-semibold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">
                       {mc.id}
                     </span>
-                    <span className="text-xs text-slate-400">Art. {mc.article}</span>
+                    <span className="text-xs text-slate-500">Art. {mc.article}</span>
                   </div>
                   <span className={`px-2 py-0.5 text-[10px] font-bold font-mono rounded-md border ${risk.color}`}>
                     {risk.text.toUpperCase()}
@@ -455,19 +455,19 @@ export default function ForgettingCurve({
                 {/* Mathematical variables columns */}
                 <div className="grid grid-cols-3 gap-2 text-center text-[10px] font-mono text-slate-500 border-y border-slate-100 py-3 my-1">
                   <div>
-                    <span className="block text-slate-400">Estabilidad (S)</span>
+                    <span className="block text-slate-500">Estabilidad (S)</span>
                     <strong className="text-slate-800 text-xs">
                       {stability < 1 ? `${Math.round(stability * 24 * 60)} min` : `${stability.toFixed(1)} d`}
                     </strong>
                   </div>
                   <div>
-                    <span className="block text-slate-400">Días sin repaso (t)</span>
+                    <span className="block text-slate-500">Días sin repaso (t)</span>
                     <strong className="text-slate-800 text-xs">
                       {state && state.last_review ? `${daysSinceLast.toFixed(1)} d` : 'Nunca'}
                     </strong>
                   </div>
                   <div>
-                    <span className="block text-slate-400">Dominio Real</span>
+                    <span className="block text-slate-500">Dominio Real</span>
                     <strong className="text-slate-800 text-xs">{mastery}%</strong>
                   </div>
                 </div>
@@ -477,7 +477,7 @@ export default function ForgettingCurve({
                   <div className="flex justify-between items-center text-xs">
                     <span className="text-slate-500 font-medium">Recuperabilidad (R)</span>
                     <span className={`font-mono font-bold ${
-                      rPct >= 90 ? 'text-emerald-500' : rPct >= 75 ? 'text-blue-500' : rPct >= 50 ? 'text-amber-500' : 'text-rose-500'
+                      rPct >= 90 ? 'text-emerald-700' : rPct >= 75 ? 'text-blue-700' : rPct >= 50 ? 'text-amber-700' : 'text-rose-700'
                     }`}>{rPct}%</span>
                   </div>
 
@@ -492,7 +492,7 @@ export default function ForgettingCurve({
                 </div>
 
                 {/* Maintenance target review time */}
-                <div className="text-[10px] text-slate-400 font-mono flex items-center justify-between pt-1">
+                <div className="text-[10px] text-slate-500 font-mono flex items-center justify-between pt-1">
                   <span>Próximo repaso agendado:</span>
                   <span className="font-semibold text-slate-600">
                     {state && state.next_review 

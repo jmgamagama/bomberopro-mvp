@@ -71,14 +71,19 @@ export default function ReportQuestionButton({ questionId, onReported, className
     setSent(choice);
     setState('sending');
     const nota = note.trim() || null;
-    const { data, error } = isFeedback(choice)
-      ? await supabase!.rpc('send_question_feedback', { p_question_id: numericId, p_tipo: choice, p_nota: nota })
-      : await supabase!.rpc('report_question', { p_question_id: numericId, p_categoria: choice, p_nota: nota });
-    if (error || (data as any)?.status !== 'received') {
+    try {
+      const { data, error } = isFeedback(choice)
+        ? await supabase!.rpc('send_question_feedback', { p_question_id: numericId, p_tipo: choice, p_nota: nota })
+        : await supabase!.rpc('report_question', { p_question_id: numericId, p_categoria: choice, p_nota: nota });
+      if (error || (data as any)?.status !== 'received') {
+        setState('error');
+        return;
+      }
+      setState('done');
+    } catch {
+      // Network failures can reject the promise instead of returning a Supabase error result.
       setState('error');
-      return;
     }
-    setState('done');
   };
 
   const finish = () => {
@@ -124,7 +129,7 @@ export default function ReportQuestionButton({ questionId, onReported, className
                 <p className="mt-0.5 text-xs text-slate-500">Lo revisa el equipo. Gracias por ayudarnos a mejorar.</p>
               </div>
               <button ref={closeRef} type="button" onClick={() => setOpen(false)} aria-label="Cerrar"
-                className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-700">
+                className="rounded-lg p-1.5 text-slate-500 hover:bg-slate-100 hover:text-slate-700">
                 <X className="h-5 w-5" aria-hidden="true" />
               </button>
             </div>
