@@ -26,3 +26,7 @@
 - Mayoría sin enlace a artículo: T9, T15, T27-lote02, T32.
 - Sin texto consolidado en la API: T25 y T25-lote02 (BOE-A-2009-5490), T16-lote02 / T17 (BOE-A-2025-77).
 - Fuente BOP/DOE, sin cotejar: T4, T5, T20, T21, T29, T30, T37 y el resto (T8, T26, T27).
+| T10 | tema10 | RIPCI, RD 513/2017, BOE-A-2017-6606 | 34 | 34 | 0 | — | 0 | abastecimiento, hidrantes, BIE, columna seca (epígrafe T10) |
+| T22 | tema22 | RD 1215/1997 anexo II.4, BOE-A-1997-17824 | 33 | 32 | 1 | — | 0 | normativa de trabajos en altura |
+| T14 | tema14 | RGC BOE-A-2003-23514, RGV BOE-A-1999-1826, BOE-A-2021-4194 | 24 | 24 | 0 | — | 0 | normativa de aplicación de vehículos |
+| T28 | tema28 | RD 614/2001, REBT, RD 223/2008 | 29 | 29 | 0 | — | 0 | definiciones, distancias de seguridad, redes |

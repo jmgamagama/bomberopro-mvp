@@ -19,13 +19,13 @@ Problemas detectados: **0**.
 | tema7 | revisado | 64 | 100 % | 0 | `2bd953ad56a2fdc3` |  |
 | tema8 | pendiente | 25 | 100 % | 0 | `5c8331e250016463` |  |
 | tema9 | pendiente | 84 | 100 % | 0 | `eb372a5e7f210965` |  |
-| tema10 | pendiente | 34 | 100 % | 0 | `735c9bacebb0513f` |  |
+| tema10 | revisado | 34 | 100 % | 0 | `735c9bacebb0513f` |  |
 | tema10-lote02 | revisado | 13 | 100 % | 0 | `4dbd481541494ac3` |  |
 | tema12 | pendiente | 21 | 100 % | 0 | `7ef9bc6244b177a0` |  |
 | tema12-lote02 | pendiente | 23 | 100 % | 0 | `dee29796b90e5874` |  |
 | tema13 | pendiente | 25 | 100 % | 0 | `1a00973aa68f0f00` |  |
 | tema13-lote02 | pendiente | 47 | 100 % | 0 | `fb997e1f468503d0` |  |
-| tema14 | pendiente | 24 | 100 % | 0 | `eddcc0cb7906176f` |  |
+| tema14 | revisado | 24 | 100 % | 0 | `eddcc0cb7906176f` |  |
 | tema15 | pendiente | 92 | 100 % | 0 | `49d4b07ff339ed47` |  |
 | tema16 | revisado | 48 | 0 % | 0 | `6e058207cb7dd087` | sin enlace público |
 | tema16-lote02 | pendiente | 21 | 100 % | 0 | `dc82c612be1668e9` |  |
@@ -33,7 +33,7 @@ Problemas detectados: **0**.
 | tema20 | pendiente | 24 | 100 % | 0 | `0b4c4913afacc656` |  |
 | tema21 | pendiente | 42 | 100 % | 0 | `0d98869be8aec3c7` |  |
 | tema21-lote02 | pendiente | 73 | 100 % | 0 | `14c772aff03c5482` |  |
-| tema22 | pendiente | 33 | 100 % | 0 | `5e2e70abd6843bc0` |  |
+| tema22 | revisado | 33 | 100 % | 0 | `5e2e70abd6843bc0` |  |
 | tema22-lote02 | pendiente | 27 | 100 % | 0 | `5c1bd829625cfc84` |  |
 | tema23 | pendiente | 21 | 100 % | 0 | `aa55537b5dd00923` |  |
 | tema23-lote02 | pendiente | 23 | 100 % | 0 | `179b5ef08b1938d1` |  |
@@ -43,7 +43,7 @@ Problemas detectados: **0**.
 | tema26 | pendiente | 60 | 100 % | 0 | `3b47c30a9a7bd1e3` |  |
 | tema27 | pendiente | 22 | 100 % | 0 | `9c69d2a21da029c6` |  |
 | tema27-lote02 | pendiente | 30 | 100 % | 0 | `bae9f0f2535c226d` |  |
-| tema28 | pendiente | 29 | 100 % | 0 | `e98b803ecbc6ed49` |  |
+| tema28 | revisado | 29 | 100 % | 0 | `e98b803ecbc6ed49` |  |
 | tema28-lote02 | pendiente | 74 | 100 % | 0 | `307cf0309ca112a2` |  |
 | tema29 | pendiente | 81 | 100 % | 0 | `538f7dd425a9125c` |  |
 | tema30 | pendiente | 87 | 100 % | 0 | `30ee8e6e235730f1` |  |
