@@ -17,6 +17,7 @@ Reglas:
   * Idempotente: concepto por id; pregunta por hash_dedupe = 'CE:<concepto>:N<nivel>'. Volver a cargar
     actualiza el texto sin duplicar ni cambiar el id de la pregunta (los intentos ya hechos siguen ligados).
   * El tema se resuelve por (convocatoria_id = 1, numero = tema), nunca por id fijo.
+  * Si una pregunta tiene «cita» propia, se añade a su explicación («Cita literal: «…».»).
   * La letra de la correcta se asigna con un barajado determinista (sha256), no siempre la «a».
 """
 from __future__ import annotations
@@ -36,6 +37,17 @@ def q(s: str | None) -> str:
 
 def arr(xs: list[str]) -> str:
     return "ARRAY[" + ",".join(q(x) for x in xs) + "]::text[]" if xs else "'{}'::text[]"
+
+
+def explicacion_con_cita(p: dict) -> str:
+    """La tabla questions no tiene columna «cita»: la cita propia de la pregunta (literal del BOE,
+    comprobada por el validador) se añade al final de la explicación para que llegue a la base de datos.
+    Si la pregunta no tiene cita propia, o la explicación ya la contiene, la explicación no cambia."""
+    exp = p["explicacion"]
+    cita = (p.get("cita") or "").strip()
+    if not cita or cita in exp:
+        return exp
+    return f"{exp.rstrip()} Cita literal: «{cita}»."
 
 
 def sql_compacto(filas_c: list[dict], filas_q: list[dict], doc: str, est_c: str, est_q: str, origen: str) -> list[str]:
@@ -139,19 +151,20 @@ def main() -> int:
             opciones = [{"letra": letras[j], "texto": p["opciones"][i]} for j, i in enumerate(orden)]
             correcta = letras[orden.index(p["correcta"])]
             ops = json.dumps(opciones, ensure_ascii=False)
+            explicacion = explicacion_con_cita(p)
             fuente_n = f"Art. {ref} {abrev} (texto consolidado BOE {fuente_id}, act. {fecha_txt})" if abrev != "CE" else f"Art. {ref} CE (texto consolidado BOE, act. {fecha_txt})"
             filas_q.append({"hash": hd, "enunciado": p["enunciado"], "opciones": opciones, "correcta": correcta,
-                            "explicacion": p["explicacion"], "fuente_normativa": fuente_n, "nivel": p["nivel"],
+                            "explicacion": explicacion, "fuente_normativa": fuente_n, "nivel": p["nivel"],
                             "concept_id": c["id"]})
             out.append(
                 "UPDATE public.questions SET enunciado = " + q(p["enunciado"]) + ", opciones = " + q(ops) + "::jsonb, "
-                f"correcta = {q(correcta)}, explicacion = {q(p['explicacion'])}, fuente_normativa = {q(fuente_n)}, "
+                f"correcta = {q(correcta)}, explicacion = {q(explicacion)}, fuente_normativa = {q(fuente_n)}, "
                 f"nivel = {p['nivel']}, concept_id = {q(c['id'])}, estado = {q(est_q)}, topic_id = (SELECT id FROM _tema) "
                 f"WHERE hash_dedupe = {q(hd)};")
             out.append(
                 "INSERT INTO public.questions (topic_id, enunciado, opciones, correcta, explicacion, fuente_normativa, "
                 "estado, nivel, origen_tipo, origen_archivo, concept_id, hash_dedupe) "
-                f"SELECT id, {q(p['enunciado'])}, {q(ops)}::jsonb, {q(correcta)}, {q(p['explicacion'])}, {q(fuente_n)}, "
+                f"SELECT id, {q(p['enunciado'])}, {q(ops)}::jsonb, {q(correcta)}, {q(explicacion)}, {q(fuente_n)}, "
                 f"{q(est_q)}, {p['nivel']}, 'propio', {q(str(path))}, {q(c['id'])}, {q(hd)} FROM _tema "
                 f"WHERE NOT EXISTS (SELECT 1 FROM public.questions WHERE hash_dedupe = {q(hd)});")
     if compacto:
