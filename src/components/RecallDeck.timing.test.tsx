@@ -7,6 +7,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import RecallDeck from './RecallDeck';
 import { getRecallDeck } from '../data/recallRegistry';
 import { loadReviewLog } from '../utils/recallReviewLog';
+import { srsStorageKey } from '../utils/recallSrs';
 import { resetLocalDataOwnerForTests, setLocalDataOwner } from '../utils/localOwner';
 
 let now = 1_000_000;
@@ -37,5 +38,27 @@ describe('RecallDeck · tiempo por ficha', () => {
     await screen.findByText(/Ficha 4 de 213/);
     await grade(300_000); // justo en el límite
     expect(loadReviewLog().map((e) => e.ms)).toEqual([12_000, undefined, undefined, 300_000]);
+  });
+
+  it('mantiene la ficha y permite reintentar si falla la escritura del progreso', async () => {
+    const user = userEvent.setup();
+    const originalSetItem = Storage.prototype.setItem;
+    const setItem = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(function (key, value) {
+      if (key === srsStorageKey()) throw new DOMException('quota exceeded', 'QuotaExceededError');
+      return originalSetItem.call(this, key, value);
+    });
+
+    try {
+      render(<RecallDeck deck={getRecallDeck('tema40')} onNavigateHome={vi.fn()} />);
+      await screen.findByText(/Ficha 1 de 213/);
+      await user.click(screen.getByRole('button', { name: /Mostrar respuesta/i }));
+      await user.click(screen.getByRole('button', { name: /La sabía/ }));
+
+      expect(screen.getByRole('alert')).toHaveTextContent(/No se pudo guardar el repaso/i);
+      expect(screen.getByText(/Ficha 1 de 213/)).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /La sabía/ })).toBeEnabled();
+    } finally {
+      setItem.mockRestore();
+    }
   });
 });
