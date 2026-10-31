@@ -8,6 +8,7 @@ import { HelpCircle, Clock, CheckCircle2, XCircle, AlertTriangle, Play, RotateCc
 import { Question, ConfidenceLevel, Microconcept } from '../types';
 import { INITIAL_QUESTIONS } from '../data/initialData';
 import { supabase } from '../lib/supabase';
+import { formatDecimal, formatPoints } from '../utils/formatNumber';
 import { calculateExamScore, EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS, isExamPassed, scoreOutOfTen } from '../utils/examScoring';
 import { arrangeBlueprint } from '../utils/examBlueprint';
 import { recommendTopic, summarizeByTopic, type TopicSummary } from '../utils/examReport';
@@ -48,6 +49,21 @@ interface MockExamProps {
   /** Empieza el simulacro al montar (atajo «Probar un simulacro de muestra» de la Bienvenida). */
   autoStart?: boolean;
 }
+
+/** Pregunta fallada con los datos que ya trae (clave revelada al corregir, explicación, cita y fuente). */
+interface FailedQuestion {
+  id: string;
+  question: string;
+  answer: string;
+  correctAnswer: string;
+  explanation: string;
+  cita?: string;
+  fuente?: string;
+  tema?: { numero: number; titulo: string } | null;
+}
+
+/** Línea de la fórmula de las bases (BOP de Badajoz nº 135, de 17/07/2026). */
+export const EXAM_FORMULA_TEXT = `Fórmula de las bases (BOP de Badajoz nº 135, de 17/07/2026): ${formatPoints(EXAM_CORRECT_POINTS)} por acierto, ${formatPoints(EXAM_INCORRECT_POINTS)} por error y 0 en blanco.`;
 
 export default function MockExam({
   microconcepts,
@@ -98,6 +114,7 @@ export default function MockExam({
     failedConcepts: string[];
     falseDomains: string[];
     byTopic: TopicSummary[];
+    failedQuestions: FailedQuestion[];
   } | null>(null);
 
   // Generate 10 random mixed questions from the database
@@ -281,7 +298,20 @@ export default function MockExam({
       },
       failedConcepts,
       falseDomains,
-      byTopic: summarizeByTopic(officialResults)
+      byTopic: summarizeByTopic(officialResults),
+      failedQuestions: questions
+        .map((q, index) => ({ q, index, ans: answers[q.id] || '' }))
+        .filter(({ q, index, ans }) => index < 50 && ans !== '' && !checks[q.id]?.correct)
+        .map(({ q, ans }) => ({
+          id: q.id,
+          question: q.question,
+          answer: ans,
+          correctAnswer: checks[q.id]?.correctAnswer ?? q.correct_answer ?? '',
+          explanation: checks[q.id]?.explanation ?? q.explanation ?? '',
+          cita: q.cita,
+          fuente: q.fuente,
+          tema: q.tema ?? null,
+        })),
     } as any);
 
     setExamFinished(true);
@@ -376,7 +406,7 @@ export default function MockExam({
               Reglas del Simulacro:
             </p>
             <ul className="list-disc list-inside space-y-1.5 pl-1 leading-normal">
-              <li>Fórmula oficial: <strong>+{EXAM_CORRECT_POINTS.toFixed(3)}</strong> por acierto y <strong>{EXAM_INCORRECT_POINTS.toFixed(3)}</strong> por error.</li>
+              <li>Fórmula oficial: <strong>{formatPoints(EXAM_CORRECT_POINTS)}</strong> por acierto, <strong>{formatPoints(EXAM_INCORRECT_POINTS)}</strong> por error y 0 en blanco.</li>
               {useServerQuestions ? (
                 <>
                   <li>Consta de <strong>55 preguntas (50 + 5 reserva)</strong>.</li>
@@ -548,7 +578,7 @@ export default function MockExam({
               <h3 id="mock-result-title" className="text-xl font-bold text-slate-900">Simulacro terminado</h3>
               <p className="text-sm text-slate-600">Tu resultado y qué repasar ahora.</p>
               <p id="mock-result-summary" className="sr-only">
-                Nota {testResults.score} de {testResults.maxScore}. Acierto {testResults.pct} por ciento. Tiempo medio {testResults.avgTime} {testResults.avgTime === 1 ? 'segundo' : 'segundos'}.
+                Nota {formatDecimal(testResults.score)} de {formatDecimal(testResults.maxScore)}. Acierto {testResults.pct} por ciento. Tiempo medio {testResults.avgTime} {testResults.avgTime === 1 ? 'segundo' : 'segundos'}.
               </p>
             </div>
 
@@ -556,11 +586,11 @@ export default function MockExam({
               <div>
                 <span className="block text-xs uppercase text-slate-600">Nota</span>
                 <strong className={`text-2xl sm:text-3xl font-extrabold ${testResults.passed ? 'text-emerald-600' : 'text-rose-600'}`}>
-                  {testResults.score.toFixed(3)}
+                  {formatDecimal(testResults.score)}
                 </strong>
-                <span className="text-sm text-slate-600"> / {testResults.maxScore}</span>
+                <span className="text-sm text-slate-600"> de {formatDecimal(testResults.maxScore)}</span>
                 {testResults.maxScore !== 10 && (
-                  <span className="block text-xs text-slate-600 mt-0.5">Equivale a {scoreOutOfTen(testResults.score, testResults.maxScore).toFixed(1)} sobre 10</span>
+                  <span className="block text-xs text-slate-600 mt-0.5">Equivale a {formatDecimal(scoreOutOfTen(testResults.score, testResults.maxScore), 1)} sobre 10</span>
                 )}
                 <span className={`block text-sm uppercase font-bold mt-0.5 ${testResults.passed ? 'text-emerald-600' : 'text-rose-600'}`}>
                   {testResults.passed ? '✓ Aprobado' : '✗ Suspenso'}
@@ -581,6 +611,8 @@ export default function MockExam({
                 <strong className="text-2xl sm:text-3xl font-extrabold text-indigo-600">{testResults.avgTime}s</strong>
               </div>
             </div>
+
+            <p id="mock-formula" className="mx-auto max-w-md text-xs text-slate-600">{EXAM_FORMULA_TEXT}</p>
 
             {(() => {
               const rec = recommendTopic(testResults.byTopic);
@@ -629,6 +661,27 @@ export default function MockExam({
               </table>
             </details>
 
+
+            {testResults.failedQuestions.length > 0 && (
+              <section aria-labelledby="mock-fallos-title" id="mock-fallos" className="mx-auto max-w-md space-y-3 text-left">
+                <h4 id="mock-fallos-title" className="text-base font-bold text-slate-900">
+                  Tus fallos, con la respuesta correcta ({testResults.failedQuestions.length})
+                </h4>
+                <ol className="space-y-3">
+                  {testResults.failedQuestions.map((f, i) => (
+                    <li key={f.id} className="rounded-xl border border-slate-200 bg-white p-3 text-sm text-slate-800 space-y-1.5">
+                      {f.tema && <p className="text-xs font-semibold text-slate-600">T{f.tema.numero} · {f.tema.titulo}</p>}
+                      <p className="font-semibold text-slate-900">{i + 1}. {f.question}</p>
+                      <p><span className="text-rose-700 font-semibold">Tu respuesta:</span> {f.answer}</p>
+                      {f.correctAnswer && <p><span className="text-emerald-700 font-semibold">Correcta:</span> {f.correctAnswer}</p>}
+                      {f.explanation && <p className="text-slate-700">{f.explanation}</p>}
+                      {f.cita && <blockquote className="border-l-4 border-indigo-600 bg-slate-50 px-2 py-1 text-slate-700">«{f.cita}»</blockquote>}
+                      {f.fuente && <p className="text-xs text-slate-600">Fuente: {f.fuente}</p>}
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            )}
 
             {/* Topic Breakdown */}
             <div className="grid grid-cols-2 gap-3 max-w-md mx-auto pt-4 border-t border-slate-200 text-xs text-slate-600">

@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from 'react';
+import { formatDecimal } from '../utils/formatNumber';
 import { BarChart2, Clock, Sparkles, AlertTriangle, RotateCcw, Brain, Info, Calendar, HelpCircle, Activity } from 'lucide-react';
 import { MemoryState, Microconcept } from '../types';
 import { calculateRetrievability, getRetrievabilityRisk } from '../utils/engine';
@@ -309,13 +310,13 @@ export default function ForgettingCurve({
               <div className="p-2 bg-white rounded-lg border border-indigo-100">
                 <span className="text-[9px] text-slate-500 block font-mono">Estabilidad (S)</span>
                 <strong className="text-indigo-800 text-xs font-mono">
-                  {activePoint.stability < 1 ? `${Math.round(activePoint.stability * 24 * 60)} min` : `${activePoint.stability.toFixed(1)} días`}
+                  {activePoint.stability < 1 ? `${Math.round(activePoint.stability * 24 * 60)} min` : `${formatDecimal(activePoint.stability, 1)} días`}
                 </strong>
               </div>
               <div className="p-2 bg-white rounded-lg border border-indigo-100">
                 <span className="text-[9px] text-slate-500 block font-mono">Tiempo sin repaso</span>
                 <strong className="text-indigo-800 text-xs font-mono">
-                  {activePoint.daysSinceLast.toFixed(2)} días
+                  {formatDecimal(activePoint.daysSinceLast)} días
                 </strong>
               </div>
               <div className="p-2 bg-white rounded-lg border border-indigo-100">
@@ -457,13 +458,13 @@ export default function ForgettingCurve({
                   <div>
                     <span className="block text-slate-500">Estabilidad (S)</span>
                     <strong className="text-slate-800 text-xs">
-                      {stability < 1 ? `${Math.round(stability * 24 * 60)} min` : `${stability.toFixed(1)} d`}
+                      {stability < 1 ? `${Math.round(stability * 24 * 60)} min` : `${formatDecimal(stability, 1)} d`}
                     </strong>
                   </div>
                   <div>
                     <span className="block text-slate-500">Días sin repaso (t)</span>
                     <strong className="text-slate-800 text-xs">
-                      {state && state.last_review ? `${daysSinceLast.toFixed(1)} d` : 'Nunca'}
+                      {state && state.last_review ? `${formatDecimal(daysSinceLast, 1)} d` : 'Nunca'}
                     </strong>
                   </div>
                   <div>

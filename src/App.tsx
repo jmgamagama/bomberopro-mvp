@@ -837,7 +837,7 @@ export default function App() {
         <div className="max-w-4xl mx-auto px-4 min-h-14 py-1.5 lg:min-h-16 flex flex-wrap items-center justify-between gap-2">
           <button
             type="button"
-            aria-label="Ir al inicio"
+            aria-label="BomberoPro, ir al inicio"
             className="flex min-h-11 min-w-0 items-center gap-2.5 cursor-pointer text-left"
             onClick={() => handleNavigate('dashboard')}
             id="brand-logo"

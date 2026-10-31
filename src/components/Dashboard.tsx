@@ -4,6 +4,7 @@
  */
 
 import React from 'react';
+import { formatDecimal } from '../utils/formatNumber';
 import { Play, AlertTriangle, HelpCircle, BarChart2, BookOpen, RotateCcw, Clock, ArrowRight, Flame, Award, Zap, Target, TrendingUp } from 'lucide-react';
 import { MemoryState, Microconcept, Attempt } from '../types';
 import { getCurrentDate, getTimeOffset } from '../utils/db';
@@ -382,7 +383,7 @@ export default function Dashboard({
                 <div>
                   <span className="text-xs text-slate-600 block font-mono">Velocidad Media:</span>
                   <strong className="text-slate-700 text-xs font-mono">
-                    {avgResponseTime > 0 ? `${avgResponseTime.toFixed(1)}s` : 'N/A'}
+                    {avgResponseTime > 0 ? `${formatDecimal(avgResponseTime, 1)} s` : 'N/A'}
                   </strong>
                 </div>
               </div>

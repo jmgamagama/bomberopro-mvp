@@ -4,6 +4,7 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
+import { formatDecimal } from '../utils/formatNumber';
 import { Brain, Sparkles, ChevronRight, CheckCircle2, XCircle, AlertTriangle, HelpCircle, RefreshCw, ArrowLeft, Clock } from 'lucide-react';
 import { Question, ConfidenceLevel, MemoryState, Microconcept } from '../types';
 import { countAnswerChange } from '../utils/attempt';
@@ -458,7 +459,7 @@ export default function TrainScreen({
                       <span className="text-lg font-bold text-indigo-700">
                         {feedback.updatedState.memory_stability < 1
                           ? `${Math.round(feedback.updatedState.memory_stability * 24 * 60)} min`
-                          : `${feedback.updatedState.memory_stability.toFixed(1)} días`
+                          : `${formatDecimal(feedback.updatedState.memory_stability, 1)} días`
                         }
                       </span>
                     </div>
