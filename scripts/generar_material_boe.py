@@ -13,6 +13,7 @@ La especificación (scripts/material/temaNN.json) fija la norma y los bloques de
 en orden del documento y ambos incluidos:
   {"boe": "BOE-A-…", "carpeta": "tema06", "prefijo": "lprl", "epigrafe": "…",
    "bloques": [{"titulo": "…", "desde": "ci", "hasta": "a4"}, …]}
+Opcional en un bloque: "apartados": ["2. ", "3. "] para quedarse solo con esos apartados de una sección.
 
 Salida en public/material/<carpeta>/:
   <prefijo>-NN-1-esquema.md   por bloque: rúbricas literales con enlace a cada precepto en el BOE
@@ -23,6 +24,7 @@ Salida en public/material/<carpeta>/:
 from __future__ import annotations
 
 import json
+import re
 import pathlib
 import shutil
 import sys
@@ -49,7 +51,8 @@ def cuerpo(b: dict, url: str) -> list[str]:
         c, t = p["clase"], p["texto"].strip()
         if not t or c == "articulo":
             continue
-        if c in SUBTITULO:
+        # Apartado numerado centrado («2. Sistemas de…») = subtítulo; el resto de centrados es texto.
+        if c in SUBTITULO or (c.startswith("centro_redonda") and re.match(r"^\d+\.\s", t)):
             if b["tipo"] == "encabezado" and cab_hechos < 2 and c in ("capitulo_num", "capitulo_tit", "titulo_num", "titulo_tit", "anexo_num", "anexo_tit", "anexo", "seccion"):
                 cab_hechos += 1  # ya va en la rúbrica
                 continue
@@ -59,6 +62,26 @@ def cuerpo(b: dict, url: str) -> list[str]:
         else:
             out += [f"> {t}", ""]
     return out
+
+
+def recortar(b: dict, apartados: list[str]) -> dict:
+    """Deja de un bloque largo (p. ej. una sección de anexo) solo los apartados pedidos por el epígrafe.
+
+    Un apartado empieza en un subtítulo centrado cuyo texto empieza por uno de los prefijos dados
+    («2. », «3. »…) y termina en el siguiente subtítulo centrado. Se conserva la cabecera del bloque.
+    """
+    if b["tipo"] != "encabezado":
+        return b
+    ps, dentro, out = b["parrafos"], False, []
+    for p in ps:
+        if p["clase"] in ("seccion", "anexo_num", "anexo_tit") and not out:
+            out.append(p)
+            continue
+        if p["clase"].startswith("centro_redonda"):
+            dentro = any(p["texto"].startswith(a) for a in apartados)
+        if dentro:
+            out.append(p)
+    return {**b, "parrafos": out}
 
 
 def main() -> None:
@@ -83,6 +106,8 @@ def main() -> None:
     indice = []
     for n, bl in enumerate(spec["bloques"], start=1):
         tramo = bloques[ids.index(bl["desde"]): ids.index(bl["hasta"]) + 1]
+        if bl.get("apartados"):
+            tramo = [recortar(b, bl["apartados"]) for b in tramo]
         # Encabezados sin texto propio (títulos, capítulos, secciones) son subtítulos; lo demás, preceptos.
         preceptos = [b for b in tramo if b["tipo"] == "precepto" or any(p["clase"] in TEXTO | TABLA for p in b["parrafos"])]
         slug = f"{spec['prefijo']}-{n:02d}"
