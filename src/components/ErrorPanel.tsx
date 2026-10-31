@@ -46,7 +46,7 @@ export default function ErrorPanel({
             <AlertTriangle className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-slate-800">Saneamiento de Errores Críticos</h2>
+            <h2 className="text-xl font-bold text-slate-800">Errores críticos</h2>
             <p className="text-xs text-slate-500">
               Detector cognitivo de brechas de memoria y falsos dominios. Ataca estos puntos prioritariamente.
             </p>

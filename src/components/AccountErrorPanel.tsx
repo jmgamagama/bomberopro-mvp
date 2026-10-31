@@ -36,7 +36,7 @@ export default function AccountErrorPanel({ state, onStart, onRetry, onStudy, on
             <AlertTriangle className="w-5 h-5" aria-hidden="true" />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-slate-800">Tus errores</h2>
+            <h2 className="text-xl font-bold text-slate-800">Errores críticos</h2>
             <p className="text-sm text-slate-600">
               Las preguntas que fallaste la última vez que las respondiste, en «Estudiar» o en «Practicar preguntas».
               Cuando aciertes una, sale de la lista.

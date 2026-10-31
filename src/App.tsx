@@ -29,6 +29,7 @@ import {
 } from './utils/db';
 import { getAdaptiveQuestion, processAttempt, getAdaptiveDailySession, createNewMemoryState, normalizeSpacedEvidence } from './utils/engine';
 import { MAX_VALID_RESPONSE_SECONDS } from './utils/activeTimer';
+import { SCREEN_TITLES } from './utils/screenTitles';
 
 import Dashboard from './components/Dashboard';
 import TodayTraining from './components/TodayTraining';
@@ -75,25 +76,6 @@ const SupuestosPracticos = lazy(() => import('./components/SupuestosPracticos'))
 const Onboarding = lazy(() => import('./components/Onboarding'));
 const Planes = lazy(() => import('./components/Planes'));
 
-const SCREEN_TITLES = {
-  dashboard: 'Inicio',
-  train: 'Entrenamiento',
-  errors: 'Errores críticos',
-  forgetting_curve: 'Curva de olvido',
-  mock_exam: 'Simulacro',
-  today_training: 'Entrenamiento de hoy',
-  study_by_topic: 'Estudio por Temas',
-  concept_t40: 'Estudiar hoy',
-  constitucion: 'Constitución · Título Preliminar',
-  my_reports: 'Mis reportes',
-  recuerdo: 'Recuerdo',
-  sesion_diaria: 'Sesión diaria',
-  onboarding: 'Bienvenida',
-  planes: 'Planes',
-  ordena_pasos: 'Ordena los pasos',
-  supuestos: 'Supuestos prácticos',
-  mas: 'Más',
-} as const;
 
   const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds: number | null, modo: 'adaptativo' | 'simulacro' = 'adaptativo', nivel: unknown = 1, sessionId: string | null = null) => {
       if (!supabase || !userId) return;
@@ -1089,8 +1071,8 @@ export default function App() {
         </Suspense>
 
         {currentScreen === 'study_by_topic' && (isDemoMode || !supabase) && (
-          <section aria-label="Estudio por temas no disponible en la demostración" className="rounded-xl border border-slate-200 bg-white p-6">
-            <h2 className="text-lg font-bold text-slate-900">Estudio por temas</h2>
+          <section aria-label="Temas no disponible en la demostración" className="rounded-xl border border-slate-200 bg-white p-6">
+            <h2 className="text-lg font-bold text-slate-900">Temas</h2>
             <p className="mt-2 text-sm text-slate-600">Esta función guarda tu progreso y requiere una cuenta. Crea una cuenta o inicia sesión para usarla.</p>
             <button type="button" className="mt-4 rounded-lg bg-indigo-700 px-4 py-2 font-semibold text-white" onClick={() => handleNavigate('dashboard')}>Volver al inicio</button>
           </section>
@@ -1160,7 +1142,7 @@ export default function App() {
         <div className="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
             <p className="font-semibold text-slate-600">BomberoPro — Oposición CPEI Badajoz</p>
-            <p className="text-xs text-slate-600 mt-0.5">Basado en Microconceptos, Interrogación activa, Repetición espaciada y Aseguramiento del dominio real.</p>
+            <p className="text-xs text-slate-600 mt-0.5">Estudio por conceptos, preguntas de test y repaso espaciado.</p>
           </div>
         </div>
       </footer>

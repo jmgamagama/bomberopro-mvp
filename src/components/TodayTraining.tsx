@@ -21,7 +21,7 @@ export default function TodayTraining({ questions, isLoading, error, onRetry, on
         </div>
         
         <div className="space-y-2">
-          <h2 className="text-2xl font-black text-slate-800 tracking-tight">Entrenamiento de Hoy</h2>
+          <h2 className="text-2xl font-black text-slate-800 tracking-tight">Entrenamiento de hoy</h2>
           <p className="text-slate-500 max-w-md mx-auto leading-relaxed text-sm">
             Hemos preparado tu sesión basándonos en tu curva de olvido actual y los temas que necesitas consolidar. El algoritmo de selección se encarga de todo.
           </p>
@@ -81,7 +81,7 @@ export default function TodayTraining({ questions, isLoading, error, onRetry, on
           <span className="hidden sm:inline text-slate-300 text-xs" aria-hidden="true">•</span>
           <StudentConsultation
             variant="link"
-            context="Entrenamiento de Hoy"
+            context="Entrenamiento de hoy"
             defaultReason="Tarjetas y repasos"
           />
         </div>
