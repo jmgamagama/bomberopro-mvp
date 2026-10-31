@@ -72,4 +72,25 @@ describe('Dashboard', () => {
     expect(screen.getByRole('dialog')).toBeInTheDocument();
     expect(screen.getByText(/el equipo revisará tu consulta de forma personalizada/i)).toBeInTheDocument();
   });
+
+  it('el tiempo medio ignora las respuestas sin medición fiable (pestaña olvidada)', () => {
+    const att = (id: string, seconds: number, valid?: boolean) => ({
+      id, user_id: 'u', question_id: 'q', microconcept_id: INITIAL_MICROCONCEPTS[0].id, answer_user: 'a',
+      correct: true, confidence: 'media' as const, response_time_seconds: seconds, response_time_valid: valid,
+      answer_changes: 0, created_at: '2026-07-23T09:00:00.000Z',
+    });
+    render(
+      <Dashboard
+        memoryStates={{}}
+        attempts={[att('1', 10), att('2', 20), att('3', 120, false)]}
+        microconcepts={INITIAL_MICROCONCEPTS}
+        pendingCount={0}
+        onNavigate={vi.fn()}
+        onReset={vi.fn()}
+        onSimulateDays={vi.fn()}
+      />,
+    );
+    // (10 + 20) / 2 = 15 s; con la medición no fiable (120 s) saldría 50 s.
+    expect(screen.getByText('15.0s')).toBeInTheDocument();
+  });
 });

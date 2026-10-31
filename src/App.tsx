@@ -28,6 +28,7 @@ import {
   getTimeOffset
 } from './utils/db';
 import { getAdaptiveQuestion, processAttempt, getAdaptiveDailySession, createNewMemoryState, normalizeSpacedEvidence } from './utils/engine';
+import { MAX_VALID_RESPONSE_SECONDS } from './utils/activeTimer';
 
 import Dashboard from './components/Dashboard';
 import TodayTraining from './components/TodayTraining';
@@ -94,7 +95,7 @@ const SCREEN_TITLES = {
   mas: 'Más',
 } as const;
 
-  const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds, modo: 'adaptativo' | 'simulacro' = 'adaptativo', nivel: unknown = 1, sessionId: string | null = null) => {
+  const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds: number | null, modo: 'adaptativo' | 'simulacro' = 'adaptativo', nivel: unknown = 1, sessionId: string | null = null) => {
       if (!supabase || !userId) return;
       const numericQuestionId = Number(questionId);
       if (!Number.isFinite(numericQuestionId)) return;
@@ -104,7 +105,8 @@ const SCREEN_TITLES = {
             p_question_id: numericQuestionId,
             p_acierto: isCorrect,
             p_respuesta: answer,
-            p_tiempo_ms: Math.round(responseTimeSeconds * 1000),
+            // null = sin dato fiable: no se guarda un tiempo inventado.
+            p_tiempo_ms: responseTimeSeconds === null ? null : Math.round(responseTimeSeconds * 1000),
             p_modo: modo,
             p_session_id: sessionId,
             p_nivel: toLevelInt(nivel),
@@ -461,7 +463,7 @@ export default function App() {
     microconceptId: string,
     answer: string,
     confidence: ConfidenceLevel,
-    responseTime: number,
+    responseTime: number | null,
     answerChanges: number,
     serverCorrect?: boolean
   ) => {
@@ -476,7 +478,9 @@ export default function App() {
         const currentState = currentStates[microconceptId] || createNewMemoryState(microconceptId);
 
     // Compute updated values via core cognitive engine
-    const result = processAttempt(currentState, isCorrect, confidence, responseTime, now);
+    // Sin dato fiable de tiempo: el motor lo trata como una respuesta lenta (sin bonus de velocidad ni penalización).
+    const engineSeconds = responseTime ?? MAX_VALID_RESPONSE_SECONDS;
+    const result = processAttempt(currentState, isCorrect, confidence, engineSeconds, now);
 
     const newAttempt: Attempt = {
       id: `att-${Date.now()}`,
@@ -486,7 +490,8 @@ export default function App() {
       answer_user: answer,
       correct: isCorrect,
       confidence,
-      response_time_seconds: responseTime,
+      response_time_seconds: engineSeconds,
+      response_time_valid: responseTime !== null,
       answer_changes: answerChanges,
       created_at: now.toISOString()
     };

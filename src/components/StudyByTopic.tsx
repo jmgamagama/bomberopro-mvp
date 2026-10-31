@@ -11,6 +11,8 @@ import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
 import { shuffleAllOptions } from '../utils/shuffleOptions';
 import { checkAnswer, describeCheckError, fetchKeyless, withRevealedKey } from '../lib/secureQuestions';
+import { useActiveTimer } from '../hooks/useActiveTimer';
+import { validResponseMs } from '../utils/activeTimer';
 import { newStudySessionId, startStudySession, finishStudySession } from '../lib/studySession';
 import ConceptOutline, { ConceptCountBadge, useConceptSummary } from './ConceptOutline';
 
@@ -38,7 +40,8 @@ export default function StudyByTopic({ session, onNavigateHome }: StudyByTopicPr
   const [idx, setIdx] = useState(0);
   const [answer, setAnswer] = useState('');
   const [answered, setAnswered] = useState(false);
-  const [startTime, setStartTime] = useState(0);
+  // Tiempo ACTIVO de la pregunta (se pausa con la pestaña oculta y al responder; ver utils/activeTimer).
+  const timer = useActiveTimer(`${started}-${idx}`, { running: started && !answered });
   const [correctCount, setCorrectCount] = useState(0);
   // Sesión de estudio en curso (para medir sesiones terminadas). null si no hay cuenta.
   const sessionIdRef = useRef<string | null>(null);
@@ -85,7 +88,6 @@ const startStudy = async () => {
     setStarted(true);
     setIdx(0);
     setCorrectCount(0);
-    setStartTime(Date.now());
   }
   setLoadingQuestions(false);
 };
@@ -105,6 +107,8 @@ const confirmAnswer = async (chosen: string) => {
   if (!currentQuestion || !chosen || answered || answeringRef.current) return;
   answeringRef.current = true;
   setAnswer(chosen);
+  // Se mide antes de esperar al servidor; más de 2 min activos = sin dato (null).
+  const responseMs = validResponseMs(timer.getElapsedMs());
   let isCorrect = false;
   try {
     const check = await checkAnswer(supabase, currentQuestion, chosen);
@@ -121,14 +125,13 @@ const confirmAnswer = async (chosen: string) => {
   setCheckError(null);
   if (isCorrect) setCorrectCount(c => c + 1);
   setAnswered(true);
-  const responseTimeMs = Date.now() - startTime;
   if (supabase && session?.user?.id) {
     await saveAttemptToServer({
       p_user_id: session.user.id,
       p_question_id: Number(currentQuestion.id),
       p_acierto: isCorrect,
       p_respuesta: chosen,
-      p_tiempo_ms: responseTimeMs,
+      p_tiempo_ms: responseMs,
       p_modo: 'estudio_por_temas',
       p_session_id: sessionIdRef.current,
       p_nivel: toLevelInt(currentQuestion.level),
@@ -141,7 +144,6 @@ const nextQuestion = () => {
   answeringRef.current = false;
   setAnswer('');
   setAnswered(false);
-  setStartTime(Date.now());
   setIdx(i => i + 1);
 };
 
