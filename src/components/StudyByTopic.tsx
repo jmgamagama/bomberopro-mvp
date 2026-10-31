@@ -15,6 +15,7 @@ import { newStudySessionId, startStudySession, finishStudySession } from '../lib
 import TopicSearch from './TopicSearch';
 import { matchesTopic } from '../utils/topicSearch';
 import ConceptOutline, { ConceptCountBadge, useConceptSummary } from './ConceptOutline';
+import Skeleton from './Skeleton';
 
 interface TopicOption {
   id: number;
@@ -173,7 +174,7 @@ if (!started) {
              h('h1', { className: 'text-2xl font-bold text-slate-900 mb-2' }, 'Estudio por Temas'),
              h('p', { className: 'text-slate-600 mb-6' }, 'Elige uno o varios temas para practicar preguntas centradas en ese contenido.'),
              loadingTopics
-             ? h('p', { className: 'text-slate-600' }, 'Cargando temas...')
+             ? h(Skeleton, { label: 'Cargando temas...', block: false, lines: 5 })
              : h('div', { className: 'mb-3' },
                  h(TopicSearch, { id: 'por-temas-buscar-tema', value: topicQuery, onChange: setTopicQuery, shown: topics.filter(t => matchesTopic(topicQuery, t.numero, t.nombre)).length, total: topics.length })
                ),

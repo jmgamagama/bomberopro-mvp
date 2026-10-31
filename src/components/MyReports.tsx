@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
+import Skeleton from './Skeleton';
 
 interface MyReport {
   id: number;
@@ -58,7 +59,7 @@ export default function MyReports({ onExit }: { onExit: () => void }) {
         Cada pregunta que reportas la revisa primero la IA y después una persona. Aquí ves cómo va.
       </p>
       {error && <p className="rounded-lg bg-red-50 p-3 text-sm text-red-700">No se pudieron cargar tus reportes. Inténtalo de nuevo en un momento.</p>}
-      {!error && rows === null && <p className="text-sm text-slate-500">Cargando…</p>}
+      {!error && rows === null && <Skeleton label="Cargando tus reportes…" block={false} />}
       {!error && rows?.length === 0 && <p className="text-sm text-slate-500">Todavía no has reportado ninguna pregunta.</p>}
       <ul className="space-y-3">
         {rows?.map(r => {

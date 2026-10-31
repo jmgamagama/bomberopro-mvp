@@ -10,6 +10,7 @@ import { getCurrentDate, getTimeOffset } from '../utils/db';
 import type { RemoteConceptState } from '../lib/useRemoteConceptProgress';
 import { STATE_LABELS } from '../lib/conceptEngine';
 import StudentConsultation from './StudentConsultationModal';
+import Skeleton from './Skeleton';
 
 interface DashboardProps {
   remoteProgress?: RemoteConceptState;
@@ -457,7 +458,7 @@ function RemoteDashboard({ state, onRetry, onNavigate }: {
       <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm" aria-labelledby="remote-progress-title">
         <h2 id="remote-progress-title" className="text-xl font-bold text-slate-900">Tu progreso</h2>
         <p className="mt-1 text-sm text-slate-600">En tu cuenta, disponible en todos tus dispositivos. Incluye los temas preparados para estudiar por conceptos.</p>
-        {state.status === 'loading' && <p role="status" className="mt-6 text-slate-600">Cargando el progreso de tu cuenta…</p>}
+        {state.status === 'loading' && <Skeleton label="Cargando el progreso de tu cuenta…" className="mt-6" />}
         {state.status === 'error' && <div className="mt-6">
           <p role="alert" className="text-sm text-red-700">No se ha podido cargar tu progreso. Comprueba la conexión y vuelve a intentarlo.</p>
           <button type="button" onClick={onRetry} className="mt-3 rounded-xl bg-indigo-600 px-4 py-2 font-semibold text-white">Reintentar</button>
