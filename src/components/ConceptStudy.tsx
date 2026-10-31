@@ -26,6 +26,7 @@ import ReportQuestionButton from './ReportQuestionButton';
 import { startStudySession, finishStudySession } from '../lib/studySession';
 import SessionCelebration from './SessionCelebration';
 import { useStudyStreak } from '../lib/streak';
+import FuenteOficial from './FuenteOficial';
 
 interface Props {
   userId: string;
@@ -385,7 +386,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
   const source = (
     <p className="mt-3 flex items-start gap-2 rounded-lg bg-slate-50 px-3 py-2 text-xs text-slate-600">
       <BookOpen className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-      <span>Fuente: {item.fuente}{item.pagina ? `, página ${item.pagina}` : ''}</span>
+      <span>Fuente: <FuenteOficial fuente={item.fuente} extra={item.pagina ? `, página ${item.pagina}` : ''} /></span>
     </p>
   );
 
