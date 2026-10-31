@@ -53,6 +53,7 @@ export const REVIEWED_DECKS: Readonly<Record<string, DeckReview>> = {
   tema29: revisado('81 de 81 fichas cotejadas (73 literales) con el texto íntegro del PLATERCAEX aprobado por Decreto 187/2019 (DOE nº 247, 26/12/2019), vigente; sin actualización posterior en el DOE (31/10/2026)', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   tema30: revisado('87 de 87 fichas cotejadas (86 literales) con INUNCAEX (Decreto 39/2025, DOE 94/2025), TRANSCAEX, RADIOCAEX y PLASISMEX (DOE 247 y 111), vigentes (31/10/2026)', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   tema8: revisado('2 de 25 fichas reescritas y cotejadas literalmente con RIPCI anexo I secc. 1, 4.5.c) y d), BOE-A-2017-6606 vigente (31/10/2026); las 23 con fuente solo INSST quedan ocultas', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
+  'tema27-lote02': revisado('8 de 30 fichas cotejadas con RD 842/2013, BOE-A-2013-12323 vigente (31/10/2026): reacción y resistencia al fuego; las 22 del CTE (DB en codigotecnico.org) quedan ocultas a la espera de decisión', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   tema35: revisado('revisión completa por decisión del propietario', 'tema35_calidad.md'),
   tema38: revisado('revisión completa por decisión del propietario', 'tema38_cambios.md'),
   tema39: revisado('revisión completa por decisión del propietario', 'tema39_cambios.md'),

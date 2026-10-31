@@ -45,3 +45,4 @@
 | T29 | tema29 | PLATERCAEX, Decreto 187/2019 (DOE 247/2019) | 81 | 73 | 7 | 1 a mano | 0 | objetivo, alcance, estructura, operatividad |
 | T30 | tema30 | INUNCAEX (D. 39/2025, DOE 94), TRANSCAEX, RADIOCAEX, PLASISMEX (DOE 247 y 111) | 87 | 86 | 1 | — | 0 | definición, objetivos, estructura, operatividad |
 | T8 | tema8 | RIPCI, BOE-A-2017-6606 (anexo I 1.ª 4.5) | 25 | 2 | 0 | — | 23 ocultas (solo INSST) | clases de fuego C y D reescritas contra el RIPCI |
+| T27 | tema27-lote02 | RD 842/2013, BOE-A-2013-12323 | 30 | 4 | 2 | 2 a mano | 22 ocultas (CTE, sin texto en BOE) | respuesta al fuego |
