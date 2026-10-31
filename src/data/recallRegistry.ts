@@ -648,7 +648,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
   {
     meta: {
       tema: 38,
-      title: 'Tema 38 · ITF CPEI: horario, vestuario/EPIs, limpieza y gestión de EPIs colectivos',
+      title: 'Tema 38 · ITF CPEI: horario, vestuario/EPIs y limpieza de EPIs',
       count: 198,
       source: 'ITF oficiales CPEI (Horario 2022, Vestuario/Limpieza/Gestión EPIs 2026) rebuild desde PDFs',
     },

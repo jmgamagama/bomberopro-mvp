@@ -2,6 +2,7 @@
  * Fichas sueltas que NO cuentan como revisadas aunque su mazo lo esté (auditoría 26/10/2026, A-EPI).
  * Motivo: contenido claramente fuera del epígrafe del anexo I (BOP Badajoz n.º 135, 17/07/2026):
  *  - Tema 36 pide «municipios: denominación, ubicación y límites administrativos»: el código INE no está.
+ *  - Tema 38 enuncia solo tres ITF (Horario, EPIs y vestuario, Limpieza): la ITF de EPIs de uso colectivo no está.
  *  - Tema 39 pide el «Manual software de navegación S.O.S. Profesional»: el SOS «Módulo de personal»
  *    (calendario, tareas, guardias, sesión) no es navegación.
  * El alumno no las ve (se filtran al cargar el mazo); el propietario o el admin de revisión sí.
@@ -64,6 +65,16 @@ export const OUT_OF_SYLLABUS_CARDS: Readonly<Record<string, readonly string[]>> 
     'CPEI-T36-S02-8524F80628', 'CPEI-T36-S02-6A0E94F59D', 'CPEI-T36-S02-5057CACF71', 'CPEI-T36-S02-24B02632E4',
     'CPEI-T36-S02-B87742374F', 'CPEI-T36-S02-1A1274C657', 'CPEI-T36-S02-E2103A00F9', 'CPEI-T36-S02-5B7C753ED6',
     'CPEI-T36-S02-DC02850501',
+  ],
+  // Tema 38: el anexo I (BOP nº 135) solo enuncia las ITF de Horario, EPIs y vestuario de permanencia y Limpieza de EPIs
+  // en el parque. La «ITF Gestión de equipos de protección de uso colectivo» (30 fichas GES) queda como ampliación no visible
+  // (decisión del propietario, 31/10/2026). Ver docs/AMPLIACION_T38_GES.md.
+  'tema38': [
+    'CPEI-T38-GES-001', 'CPEI-T38-GES-002', 'CPEI-T38-GES-003', 'CPEI-T38-GES-004', 'CPEI-T38-GES-005', 'CPEI-T38-GES-006',
+    'CPEI-T38-GES-007', 'CPEI-T38-GES-008', 'CPEI-T38-GES-009', 'CPEI-T38-GES-010', 'CPEI-T38-GES-011', 'CPEI-T38-GES-012',
+    'CPEI-T38-GES-013', 'CPEI-T38-GES-014', 'CPEI-T38-GES-015', 'CPEI-T38-GES-016', 'CPEI-T38-GES-017', 'CPEI-T38-GES-018',
+    'CPEI-T38-GES-019', 'CPEI-T38-GES-020', 'CPEI-T38-GES-021', 'CPEI-T38-GES-022', 'CPEI-T38-GES-023', 'CPEI-T38-GES-024',
+    'CPEI-T38-GES-025', 'CPEI-T38-GES-026', 'CPEI-T38-GES-027', 'CPEI-T38-GES-028', 'CPEI-T38-GES-029', 'CPEI-T38-GES-030',
   ],
   'tema39': [
     'CPEI-T39-SPE-001', 'CPEI-T39-SPE-002', 'CPEI-T39-SPE-003', 'CPEI-T39-SPE-004',

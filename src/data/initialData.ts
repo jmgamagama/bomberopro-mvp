@@ -8,7 +8,7 @@ import { Microconcept, Question } from '../types';
 export const INITIAL_TOPICS = [
   { id: 'T-CE', name: 'Constitución Española - Título Preliminar' },
   { id: 'T35', name: 'Tema 35 · Red de carreteras de Extremadura (provincia de Badajoz)' },
-  { id: 'T38', name: 'Tema 38 · ITF CPEI: horario, vestuario/EPIs, limpieza y gestión de EPIs colectivos' },
+  { id: 'T38', name: 'Tema 38 · ITF CPEI: horario, vestuario/EPIs y limpieza de EPIs' },
   { id: 'T39', name: 'Tema 39 · Protocolo de movilización CPEI + SOS operativo + SOS personal' },
   { id: 'T40', name: 'Tema 40 · Procedimientos de trabajo CPEI-Badajoz' }
 ];
@@ -290,7 +290,7 @@ export const INITIAL_QUESTIONS: Question[] = [
     correct_answer: "De 8:30 a 9:45.",
     explanation: "Ficha: «De 8:30 a 9:45.» Fuente: ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020) — PDF p. 3.",
     fuente: "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020) — PDF p. 3",
-    tema: { numero: 38, titulo: "ITF CPEI: horario, vestuario/EPIs, limpieza y gestión de EPIs colectivos" }
+    tema: { numero: 38, titulo: "ITF CPEI: horario, vestuario/EPIs y limpieza de EPIs" }
   },
   // Tema 38 · ficha CPEI-T38-HOR-034 (revisada)
   {
@@ -303,7 +303,7 @@ export const INITIAL_QUESTIONS: Question[] = [
     correct_answer: "La consideración de falta grave.",
     explanation: "Ficha: «La consideración de falta grave.» Fuente: ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020) — PDF p. 7.",
     fuente: "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020) — PDF p. 7",
-    tema: { numero: 38, titulo: "ITF CPEI: horario, vestuario/EPIs, limpieza y gestión de EPIs colectivos" }
+    tema: { numero: 38, titulo: "ITF CPEI: horario, vestuario/EPIs y limpieza de EPIs" }
   },
   // Tema 39 · ficha CPEI-T39-MOV-089 (revisada)
   {

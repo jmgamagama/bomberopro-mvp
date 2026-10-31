@@ -61,7 +61,7 @@ describe('vista del alumno', () => {
   it('no ve los mazos pendientes en ningún listado', () => {
     expect(canSeePendingDecks()).toBe(false);
     expect(getVisibleDecks().map((d) => d.id).sort()).toEqual([...PUBLICADOS].sort());
-    expect(getVisibleTotalCards()).toBe(837);
+    expect(getVisibleTotalCards()).toBe(807);
     expect(getVisibleTopics().map((t) => t.id)).toEqual(['tema10', 'tema16', 'tema17', 'tema24', 'tema35', 'tema36', 'tema38', 'tema39', 'tema40']);
     expect(getVisibleBloques().map((b) => b.id)).toEqual(['especifica']);
     // Tema con lotes mixtos: solo su lote revisado.
@@ -76,7 +76,7 @@ describe('vista del alumno', () => {
 
   it('la sesión diaria solo toma fichas de mazos revisados', async () => {
     const pool = await loadRecallPoolForPlan();
-    expect(pool).toHaveLength(837);
+    expect(pool).toHaveLength(807);
     expect(pool.every((c) => c.revision === 'revisado')).toBe(true);
     expect(new Set(pool.map((c) => c.deckId))).toEqual(new Set(PUBLICADOS));
   });
