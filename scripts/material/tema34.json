@@ -1,0 +1,49 @@
+{
+ "tema": 34,
+ "boe": "BOE-A-2025-7190",
+ "carpeta": "tema34",
+ "prefijo": "rsciei",
+ "epigrafe": "Real Decreto 164/2025, de 4 de marzo, por el que se aprueba el Reglamento de seguridad contra incendios en los establecimientos industriales.",
+ "bloques": [
+  {
+   "titulo": "Real Decreto 164/2025 · Artículo único y disposiciones",
+   "desde": "au",
+   "hasta": "df-12"
+  },
+  {
+   "titulo": "Reglamento · Capítulos I y II · Disposiciones generales y requisitos",
+   "desde": "re",
+   "hasta": "a9"
+  },
+  {
+   "titulo": "Reglamento · Capítulos III a VI · Puesta en servicio, inspecciones, actuación y sanciones",
+   "desde": "ci-3",
+   "hasta": "a1-10"
+  },
+  {
+   "titulo": "Anexo I · Caracterización de los establecimientos industriales",
+   "desde": "ai",
+   "hasta": "ai"
+  },
+  {
+   "titulo": "Anexo II · Requisitos constructivos",
+   "desde": "ai-2",
+   "hasta": "ai-2"
+  },
+  {
+   "titulo": "Anexo III · Requisitos dotacionales de instalaciones de protección contra incendios",
+   "desde": "ai-3",
+   "hasta": "ai-3"
+  },
+  {
+   "titulo": "Anexo IV · Zonas con condiciones particulares",
+   "desde": "ai-4",
+   "hasta": "ai-4"
+  },
+  {
+   "titulo": "Anexo V · Normas UNE y otras reconocidas",
+   "desde": "av",
+   "hasta": "av"
+  }
+ ]
+}
