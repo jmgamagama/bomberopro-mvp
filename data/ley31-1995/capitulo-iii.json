@@ -101,6 +101,7 @@
       "Perfeccionar de manera continua la identificación, evaluación y control de los riesgos que no se hayan podido evitar."
      ],
      "correcta": 2,
+     "cita": "con el fin de perfeccionar de manera continua las actividades de identificación, evaluación y control de los riesgos que no se hayan podido evitar",
      "explicacion": "Art. 14.2 párr. 2: seguimiento permanente para perfeccionar de manera continua identificación, evaluación y control de riesgos."
     },
     {
@@ -1115,6 +1116,7 @@
       "Cuando el convenio colectivo modifique las tablas salariales."
      ],
      "correcta": 0,
+     "cita": "o se introduzcan nuevas tecnologías o cambios en los equipos de trabajo",
      "explicacion": "Art. 19.1: cambios de funciones, nuevas tecnologías o cambios en equipos."
     }
    ]
@@ -1517,6 +1519,7 @@
       "Realizar siempre las mismas pruebas a todos los trabajadores de la empresa."
      ],
      "correcta": 0,
+     "cita": "En todo caso se deberá optar por la realización de aquellos reconocimientos o pruebas que causen las menores molestias al trabajador y que sean proporcionales al riesgo",
      "explicacion": "Art. 22.1 párr. 3: menores molestias y proporcionalidad al riesgo."
     }
    ]
@@ -1656,6 +1659,7 @@
       "Al personal médico y a las autoridades sanitarias que lleven a cabo la vigilancia."
      ],
      "correcta": 2,
+     "cita": "El acceso a la información médica de carácter personal se limitará al personal médico y a las autoridades sanitarias que lleven a cabo la vigilancia de la salud de los trabajadores",
      "explicacion": "Art. 22.4 párr. 2: acceso limitado al personal médico y autoridades sanitarias."
     },
     {
@@ -2299,6 +2303,7 @@
       "Las evaluaciones de los riesgos"
      ],
      "correcta": 1,
+     "cita": "deberá tener en cuenta dichos aspectos en las evaluaciones de los riesgos",
      "explicacion": "Art. 25.1: se tiene en cuenta en las evaluaciones y, en función de ellas, se adoptan medidas."
     },
     {
@@ -2310,6 +2315,7 @@
       "Ellos mismos, los demás trabajadores u otras personas relacionadas con la empresa."
      ],
      "correcta": 2,
+     "cita": "puedan ellos, los demás trabajadores u otras personas relacionadas con la empresa ponerse en situación de peligro",
      "explicacion": "Art. 25.1 párr. 2: peligro para ellos, los demás trabajadores u otras personas relacionadas con la empresa."
     },
     {
@@ -2952,6 +2958,7 @@
       "La empresa usuaria"
      ],
      "correcta": 0,
+     "cita": "La empresa de trabajo temporal será responsable del cumplimiento de las obligaciones en materia de formación y vigilancia de la salud",
      "explicacion": "Art. 28.5 párr. 2: formación y vigilancia de la salud son de la ETT."
     },
     {
@@ -2963,6 +2970,7 @@
       "Información de los apartados 2 y 4."
      ],
      "correcta": 2,
+     "cita": "Corresponderá, además, a la empresa usuaria el cumplimiento de las obligaciones en materia de información previstas en los apartados 2 y 4",
      "explicacion": "Art. 28.5 párr. 1: la usuaria responde de las condiciones de ejecución y de la información (aps. 2 y 4)."
     },
     {
@@ -2974,6 +2982,7 @@
       "A la Comisión Nacional de Seguridad y Salud en el Trabajo."
      ],
      "correcta": 0,
+     "cita": "La empresa usuaria deberá informar a los representantes de los trabajadores en la misma",
      "explicacion": "Art. 28.5 párr. 4: la usuaria informa a los representantes de los trabajadores."
     }
    ]

@@ -111,6 +111,10 @@ def main() -> int:
                 errores.append(f"{tag}: {len(ops)} opciones, se esperaban {want}")
             if len({low(o) for o in ops}) != len(ops):
                 errores.append(f"{tag}: opciones repetidas")
+            # Cita propia de la pregunta (cuando el dato preguntado no está en la cita del concepto):
+            # debe ser literal del mismo artículo (auditoría 26/10/2026, citas desalineadas).
+            if q.get("cita") and norm(q["cita"]) not in norm(" ".join(aps.values())):
+                errores.append(f"{tag}: la cita de la pregunta no es literal del art. {c['bloque'][1:]}")
             if not (0 <= q["correcta"] < len(ops)):
                 errores.append(f"{tag}: índice de correcta fuera de rango")
                 continue
