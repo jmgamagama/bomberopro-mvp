@@ -5,6 +5,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, Play, CheckCircle2, XCircle } from 'lucide-react';
 import { Question } from '../types';
+import { materialDeTema } from '../data/materialTemas';
 import { supabase } from '../lib/supabase';
 import { saveAttemptToServer, toLevelInt } from '../lib/saveAttemptToServer';
 import StudentConsultation from './StudentConsultationModal';
@@ -26,9 +27,11 @@ interface TopicOption {
 interface StudyByTopicProps {
   session: any;
   onNavigateHome: () => void;
+  /** Abre «Material por tema» en ese tema (solo se muestra el botón si el tema tiene material). */
+  onOpenMaterial?: (tema: number) => void;
 }
 
-export default function StudyByTopic({ session, onNavigateHome }: StudyByTopicProps) {
+export default function StudyByTopic({ session, onNavigateHome, onOpenMaterial }: StudyByTopicProps) {
   const [topics, setTopics] = useState<TopicOption[]>([]);
   const [selected, setSelected] = useState<number[]>([]);
   const [topicQuery, setTopicQuery] = useState('');
@@ -197,6 +200,12 @@ if (!started) {
                          h(ConceptCountBadge, { tema: conceptSummary[t.numero], listo: conceptSummaryListo })
                        )
                      ),
+                     onOpenMaterial && materialDeTema(t.numero) ? h('button', {
+                       type: 'button',
+                       onClick: () => onOpenMaterial(t.numero),
+                       'aria-label': 'Material del tema ' + t.numero,
+                       className: 'shrink-0 min-h-11 rounded-lg border border-orange-300 px-3 text-xs font-semibold text-orange-700 hover:bg-orange-50'
+                     }, 'Material') : null,
                      conceptSummary[t.numero] ? h('button', {
                        type: 'button',
                        'aria-expanded': outlineTema === t.numero,

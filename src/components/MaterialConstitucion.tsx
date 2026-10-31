@@ -1,7 +1,7 @@
 import React from 'react';
 import MaterialTema from './MaterialTema';
 
-/** Piloto Constitución (tema 1): ahora es la pantalla general de material abierta en el tema 1. */
-export default function MaterialConstitucion({ userId, onExit }: { userId: string; onExit: () => void }) {
-  return <MaterialTema userId={userId} onExit={onExit} tema={1} />;
+/** Pantalla «Material por tema» (nació como piloto de la Constitución, tema 1). */
+export default function MaterialConstitucion({ userId, onExit, tema = 1 }: { userId: string; onExit: () => void; tema?: number }) {
+  return <MaterialTema userId={userId} onExit={onExit} tema={tema} />;
 }
