@@ -14,3 +14,4 @@
 | T3 | tema3 | LBRL, BOE-A-1985-5392 (act. 05/10/2026) | 66 | 54 | 11 | 1 + muestra | 0 | arts. 31-38 (Título III, la Provincia) |
 | T6 | tema6 | LPRL, BOE-A-1995-24292 (act. 23/10/2026) | 94 | 86 | 8 | muestra | 0 | arts. 1-32 bis (caps. I-IV) |
 | T7 | tema7 | Ley 8/2011 de Extremadura, BOE-A-2011-6651 (act. 19/12/2025) | 64 | 60 | 4 | muestra | 0 | arts. 1-4, 21-32 y 78-83 |
+| T31 | tema31 | RD 1215/1997, BOE-A-1997-17824 (act. 18/12/2025) | 83 | 73 | 10 | muestra | 0 | RD completo |

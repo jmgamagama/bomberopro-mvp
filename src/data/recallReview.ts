@@ -34,6 +34,7 @@ export const REVIEWED_DECKS: Readonly<Record<string, DeckReview>> = {
   tema3: revisado('66 de 66 fichas cotejadas con el texto consolidado vigente BOE-A-1985-5392 (31/10/2026); arts. 31-38 (La Provincia) dentro del epígrafe', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   tema6: revisado('94 de 94 fichas cotejadas con el texto consolidado vigente BOE-A-1995-24292 (31/10/2026); arts. 1-32 bis dentro del epígrafe', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   tema7: revisado('64 de 64 fichas cotejadas con el texto consolidado vigente BOE-A-2011-6651 (31/10/2026); arts. 1-4, 21-32 y 78-83 dentro del epígrafe', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
+  tema31: revisado('83 de 83 fichas cotejadas con el texto consolidado vigente BOE-A-1997-17824 (31/10/2026); el epígrafe es el RD completo', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   tema35: revisado('revisión completa por decisión del propietario', 'tema35_calidad.md'),
   tema38: revisado('revisión completa por decisión del propietario', 'tema38_cambios.md'),
   tema39: revisado('revisión completa por decisión del propietario', 'tema39_cambios.md'),
