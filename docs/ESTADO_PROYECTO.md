@@ -74,3 +74,10 @@ Arreglado en PR #54: aria-label "Anuncio de pantalla actual" en el <p role="stat
 Fusionados tambien los PR de Codex #49-52 (docs y limpieza, validados sin coste porque Codex se quedo sin credito hasta el 29 jul).
 
 PR #53 (bridging de #47/#48 a main) seguia fallando el CI incluso reejecutando los jobs tras el fix: GitHub Actions reusa el merge-ref calculado en el push original al hacer "Re-run", no lo recalcula contra el main ya arreglado. Hizo falta un commit nuevo (evento synchronize) directamente en la rama del PR para forzar el recalculo. Al aplicar el mismo fix de aria-label en esa rama aparecio un conflicto real (ambas ramas habian arreglado las mismas lineas de forma distinta); resuelto en el editor de conflictos de GitHub y fusionado. main quedo verde (Quality Gate #56).
+
+## Histórico: estado vivo del 26/10/2026 (movido aquí el 31/10)
+- Cifras (auditoría 26/10): banco ≈ 10,3 k preguntas publicadas; clave errónea 0/200 en muestra; 17,5 % enlazadas a conceptos. Detalle en `AUDITORIA_PREMORTEM_2026-10-26.md`.
+- Hecho el 26/10: migración 34 (59 «Las dos anteriores»), letras A/B/C en UI (#175), acceso anónimo a `questions` cerrado y 35 preguntas apartadas (#177, migraciones 35-36), PR #166 aplicada (10 a borrador).
+- Contenido nuevo en producción (según el chat «Auditoría material bomberos Drive», sin verificar desde la app): temas 2, 3, 7, 31, 33, 34 → 275 conceptos / 825 preguntas.
+- Decisión aplazada: reparto de opciones/relabel global (por la cola de respuestas offline).
+
