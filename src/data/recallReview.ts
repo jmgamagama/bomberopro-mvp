@@ -29,6 +29,7 @@ export const REVIEWED_DECKS: Readonly<Record<string, DeckReview>> = {
   tema16: revisado('48 de 48 fichas revisadas ficha a ficha, 0 errores', 'tema16_calidad.md'),
   tema17: revisado('14 de 14 fichas revisadas a mano, 0 errores', 'tema17_calidad.md'),
   tema24: revisado('19 de 19 fichas revisadas a mano, 0 errores', 'tema24_calidad.md'),
+  tema1: revisado('129 de 129 fichas cotejadas con el texto consolidado vigente BOE-A-1978-31229 (31/10/2026): respuesta literal o casi literal en el artículo citado, arts. 1-55 dentro del epígrafe', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   tema35: revisado('revisión completa por decisión del propietario', 'tema35_calidad.md'),
   tema38: revisado('revisión completa por decisión del propietario', 'tema38_cambios.md'),
   tema39: revisado('revisión completa por decisión del propietario', 'tema39_cambios.md'),

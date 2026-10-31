@@ -1,0 +1,12 @@
+# Revisión de temas normativos contra su fuente oficial (31/10/2026)
+
+**Método**, ficha a ficha y sin cambiar el contenido:
+1. Vigencia. Cada norma se comprueba por su número BOE con la API de datos abiertos del BOE (`/legislacion-consolidada/id/{BOE}/metadatos`). En todas consta: estatus de derogación N, de anulación N, vigencia agotada N y consolidación «Finalizado».
+2. Texto. Se descarga el texto consolidado vigente (`/texto`, última versión de cada bloque) y se localiza el bloque del ancla de la ficha (`#aN`).
+3. Cotejo. La respuesta tiene que aparecer en el artículo citado de forma literal o casi literal (al menos el 60 % de sus trigramas, con revisión a mano de esas fichas). Además, el número de artículo de la pregunta tiene que coincidir con el bloque.
+4. Epígrafe. Los artículos citados tienen que estar dentro del epígrafe del anexo I (BOP de Badajoz nº 135, de 17/07/2026).
+5. Muestra. Se leen a mano al menos 5 fichas al azar por mazo.
+
+| Tema | Mazo | Norma (BOE) | Fichas | Literales | Casi literales | Revisadas a mano | Errores | Epígrafe |
+|---|---|---|---:|---:|---:|---:|---:|---|
+| T1 | tema1 | Constitución, BOE-A-1978-31229 (act. 29/10/2026) | 129 | 125 | 3 | 1 + muestra | 0 | arts. 1-55 (Tít. Preliminar y Tít. I) |

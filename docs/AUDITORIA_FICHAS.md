@@ -10,7 +10,7 @@ Problemas detectados: **0**.
 
 | Mazo | Revisión | Fichas | Con enlace oficial | Problemas | Versión | Nota |
 |---|---|---:|---:|---:|---|---|
-| tema1 | pendiente | 129 | 100 % | 0 | `685c7d6dbcf833da` |  |
+| tema1 | revisado | 129 | 100 % | 0 | `685c7d6dbcf833da` |  |
 | tema2 | pendiente | 121 | 100 % | 0 | `f30711142bf017a4` |  |
 | tema3 | pendiente | 66 | 100 % | 0 | `c4552f857057dbfc` |  |
 | tema4 | pendiente | 28 | 100 % | 0 | `6e84da2108610bb2` |  |

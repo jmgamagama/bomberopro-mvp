@@ -16,7 +16,7 @@ describe('excluir mazos pendientes del build', () => {
     const pending = pendingDeckModules(registry);
     const expected = RECALL_DECKS.filter((d) => d.revision !== 'revisado');
     expect(pending.size).toBe(expected.length);
-    expect(expected.reduce((n, d) => n + d.count, 0)).toBe(2638);
+    expect(expected.reduce((n, d) => n + d.count, 0)).toBe(2509);
     expect([...pending].some((m) => /^tema40Recall$/.test(m))).toBe(false);
   });
   it('el stub conserva las exportaciones sin ninguna ficha', () => {
