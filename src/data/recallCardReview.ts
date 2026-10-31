@@ -102,6 +102,9 @@ export const REVIEWED_CARDS_IN_PENDING_DECKS: Readonly<Record<string, readonly s
     // Cornalvo (4013), Proserpina (4014), Los Molinos de Matachel (4017) y Tentudía (4020), CEDEX.
     'CPEI-T36-S06-4961D87A48', 'CPEI-T36-S06-79C9784D7C', 'CPEI-T36-S06-1635983041', 'CPEI-T36-S06-3FD7762AAD',
     'CPEI-T36-S06-56C44E4A50', 'CPEI-T36-S06-0EBFECFFE3', 'CPEI-T36-S06-CAAF86E55A',
+    // Ríos con la red Pfafstetter del MITECO (rios_comp_pfaf) y municipios del IGN: Guadiana, Zújar, Matachel, Gévora, Guadámez, Ardila, Alcarrache, Bodión, Ortiga.
+    'CPEI-T36-S05-7B8FA3BC15', 'CPEI-T36-S05-BAAF017EE4', 'CPEI-T36-S05-99FA6D1593', 'CPEI-T36-S05-5907106D74', 'CPEI-T36-S05-1E8DFEE86D',
+    'CPEI-T36-S05-845FA7851C', 'CPEI-T36-S05-B5B0FB6E5E', 'CPEI-T36-S05-804BF77282', 'CPEI-T36-S05-BF1DFE6130',
     // Cumbres con reseña de vértice geodésico del IGN: Tentudía (89753), Buitrera (80621), San Cristóbal (89650), Peña Utrera (85349).
     'CPEI-T36-S04-CC867DE3D2', 'CPEI-T36-S04-7210607B16', 'CPEI-T36-S04-8917348693', 'CPEI-T36-S04-BFD6A68289',
   ],

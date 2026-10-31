@@ -593,10 +593,10 @@
     {
       "id": "CPEI-T36-S05-7B8FA3BC15",
       "orden": 3390,
-      "concepto": "¿A qué cuenca pertenece el Guadiana y cuál es su recorrido funcional en Badajoz?",
-      "respuesta": "cuenca del Guadiana; eje principal de este a oeste; atraviesa Vegas Altas, Mérida, Vegas Bajas y Badajoz hacia Portugal.",
-      "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-      "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía oficial",
+      "concepto": "¿A qué cuenca pertenece el Guadiana y por dónde pasa en Badajoz?",
+      "respuesta": "cuenca del Guadiana; es el río principal de la cuenca; pasa por Mérida y por Badajoz, donde recibe al Gévora.",
+      "fuente": "MITECO, Ríos completos clasificados según Pfafstetter modificado (capa agua:rios_comp_pfaf, escala 1:25.000, act. 13/03/2018); municipios por las coordenadas del nacimiento y la desembocadura sobre las unidades administrativas del IGN",
+      "localizacion": "río 1008 RIO GUADIANA: cauce en los términos de Mérida (06083) y Badajoz (06015); confluencia del Gévora (100834) en Badajoz",
       "subtema": "S05",
       "apartado": "Guadiana",
       "tipo_unidad": "hidrografía"
@@ -604,10 +604,10 @@
     {
       "id": "CPEI-T36-S05-BAAF017EE4",
       "orden": 3400,
-      "concepto": "¿A qué cuenca pertenece el Zújar y cuál es su recorrido funcional en Badajoz?",
-      "respuesta": "cuenca del Guadiana; nace en Sierra Morena, atraviesa La Serena y desemboca en el Guadiana.",
-      "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-      "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía oficial",
+      "concepto": "¿A qué cuenca pertenece el Zújar y cuál es su recorrido en Badajoz?",
+      "respuesta": "cuenca del Guadiana; nace en el límite entre Fuente Obejuna (Córdoba) y Granja de Torrehermosa y desemboca en el Guadiana en Villanueva de la Serena.",
+      "fuente": "MITECO, Ríos completos clasificados según Pfafstetter modificado (capa agua:rios_comp_pfaf, escala 1:25.000, act. 13/03/2018); municipios por las coordenadas del nacimiento y la desembocadura sobre las unidades administrativas del IGN",
+      "localizacion": "río 10084 RIO ZUJAR (211,1 km): nacimiento en el límite Fuente Obejuna (14029) / Granja de Torrehermosa (06059); desembocadura en el Guadiana en Villanueva de la Serena (06153)",
       "subtema": "S05",
       "apartado": "Zújar",
       "tipo_unidad": "hidrografía"
@@ -615,10 +615,10 @@
     {
       "id": "CPEI-T36-S05-99FA6D1593",
       "orden": 3410,
-      "concepto": "¿A qué cuenca pertenece el Matachel y cuál es su recorrido funcional en Badajoz?",
-      "respuesta": "cuenca del Guadiana; recorre el centro-sur y desemboca en el Guadiana en el entorno de Alange.",
-      "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-      "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía oficial",
+      "concepto": "¿A qué cuenca pertenece el Matachel y cuál es su recorrido en Badajoz?",
+      "respuesta": "cuenca del Guadiana; nace en Azuaga y desemboca en el Guadiana en el límite entre Don Álvaro y La Zarza.",
+      "fuente": "MITECO, Ríos completos clasificados según Pfafstetter modificado (capa agua:rios_comp_pfaf, escala 1:25.000, act. 13/03/2018); municipios por las coordenadas del nacimiento y la desembocadura sobre las unidades administrativas del IGN",
+      "localizacion": "río 100836 RIO MATACHEL (129,3 km): nacimiento en Azuaga (06014); desembocadura en el Guadiana en el límite Don Álvaro (06043) / La Zarza (06162)",
       "subtema": "S05",
       "apartado": "Matachel",
       "tipo_unidad": "hidrografía"
@@ -626,10 +626,10 @@
     {
       "id": "CPEI-T36-S05-5907106D74",
       "orden": 3420,
-      "concepto": "¿A qué cuenca pertenece el Gévora y cuál es su recorrido funcional en Badajoz?",
-      "respuesta": "cuenca del Guadiana; procede de Portugal, cruza el noroeste y desemboca cerca de Badajoz.",
-      "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-      "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía oficial",
+      "concepto": "¿A qué cuenca pertenece el Gévora y cuál es su recorrido en Badajoz?",
+      "respuesta": "cuenca del Guadiana; su cauce en la red española empieza en La Codosera y desemboca en el Guadiana en Badajoz.",
+      "fuente": "MITECO, Ríos completos clasificados según Pfafstetter modificado (capa agua:rios_comp_pfaf, escala 1:25.000, act. 13/03/2018); municipios por las coordenadas del nacimiento y la desembocadura sobre las unidades administrativas del IGN",
+      "localizacion": "río 100834 RIO GEVORA (51,3 km en la red española): primer punto en La Codosera (06037); desembocadura en el Guadiana en Badajoz (06015)",
       "subtema": "S05",
       "apartado": "Gévora",
       "tipo_unidad": "hidrografía"
@@ -637,10 +637,10 @@
     {
       "id": "CPEI-T36-S05-1E8DFEE86D",
       "orden": 3430,
-      "concepto": "¿A qué cuenca pertenece el Guadámez y cuál es su recorrido funcional en Badajoz?",
-      "respuesta": "cuenca del Guadiana; recorre Tierra de Barros/Guareña y desemboca en el Guadiana.",
-      "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-      "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía oficial",
+      "concepto": "¿A qué cuenca pertenece el Guadámez y cuál es su recorrido en Badajoz?",
+      "respuesta": "cuenca del Guadiana; nace en Valencia de las Torres y desemboca en el Guadiana en Guareña.",
+      "fuente": "MITECO, Ríos completos clasificados según Pfafstetter modificado (capa agua:rios_comp_pfaf, escala 1:25.000, act. 13/03/2018); municipios por las coordenadas del nacimiento y la desembocadura sobre las unidades administrativas del IGN",
+      "localizacion": "río 1008374 RIO GUADAMEZ (93,9 km): nacimiento en Valencia de las Torres (06139); desembocadura en el Guadiana en Guareña (06060)",
       "subtema": "S05",
       "apartado": "Guadámez",
       "tipo_unidad": "hidrografía"
@@ -648,10 +648,10 @@
     {
       "id": "CPEI-T36-S05-845FA7851C",
       "orden": 3440,
-      "concepto": "¿A qué cuenca pertenece el Ardila y cuál es su recorrido funcional en Badajoz?",
-      "respuesta": "cuenca del Guadiana; recorre el suroeste y entra en Portugal.",
-      "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-      "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía oficial",
+      "concepto": "¿A qué cuenca pertenece el Ardila y cuál es su recorrido en Badajoz?",
+      "respuesta": "cuenca del Guadiana; afluente del Guadiana; nace en Cabeza la Vaca y su tramo en la red española acaba en Valencia del Mombuey.",
+      "fuente": "MITECO, Ríos completos clasificados según Pfafstetter modificado (capa agua:rios_comp_pfaf, escala 1:25.000, act. 13/03/2018); municipios por las coordenadas del nacimiento y la desembocadura sobre las unidades administrativas del IGN",
+      "localizacion": "río 10082 RIO ARDILA (115,9 km en la red española): nacimiento en Cabeza la Vaca (06024); último punto en Valencia del Mombuey (06140); código Pfafstetter de afluente directo del Guadiana (1008)",
       "subtema": "S05",
       "apartado": "Ardila",
       "tipo_unidad": "hidrografía"
@@ -659,10 +659,10 @@
     {
       "id": "CPEI-T36-S05-B5B0FB6E5E",
       "orden": 3450,
-      "concepto": "¿A qué cuenca pertenece el Alcarrache y cuál es su recorrido funcional en Badajoz?",
-      "respuesta": "cuenca del Guadiana; recorre el suroeste provincial hacia el Guadiana.",
-      "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-      "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía oficial",
+      "concepto": "¿A qué cuenca pertenece el Alcarrache y cuál es su recorrido en Badajoz?",
+      "respuesta": "cuenca del Guadiana; afluente del Guadiana; nace en Jerez de los Caballeros y su tramo en la red española acaba en Villanueva del Fresno.",
+      "fuente": "MITECO, Ríos completos clasificados según Pfafstetter modificado (capa agua:rios_comp_pfaf, escala 1:25.000, act. 13/03/2018); municipios por las coordenadas del nacimiento y la desembocadura sobre las unidades administrativas del IGN",
+      "localizacion": "río 1008332 RIO ALCARRACHE (73,0 km en la red española): nacimiento en Jerez de los Caballeros (06070); último punto en Villanueva del Fresno (06154); código Pfafstetter de afluente directo del Guadiana (1008)",
       "subtema": "S05",
       "apartado": "Alcarrache",
       "tipo_unidad": "hidrografía"
@@ -670,10 +670,10 @@
     {
       "id": "CPEI-T36-S05-804BF77282",
       "orden": 3460,
-      "concepto": "¿A qué cuenca pertenece el Bodión y cuál es su recorrido funcional en Badajoz?",
-      "respuesta": "cuenca del Guadiana; sur de la provincia, afluente del Ardila.",
-      "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-      "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía oficial",
+      "concepto": "¿A qué cuenca pertenece el Bodión y cuál es su recorrido en Badajoz?",
+      "respuesta": "cuenca del Guadiana; afluente del Ardila; nace en Monesterio y desemboca en el Ardila en el límite entre Burguillos del Cerro y Fregenal de la Sierra.",
+      "fuente": "MITECO, Ríos completos clasificados según Pfafstetter modificado (capa agua:rios_comp_pfaf, escala 1:25.000, act. 13/03/2018); municipios por las coordenadas del nacimiento y la desembocadura sobre las unidades administrativas del IGN",
+      "localizacion": "río 100828 RIO BODION (62,7 km): nacimiento en Monesterio (06085); desembocadura en el Ardila (10082) en el límite Burguillos del Cerro (06022) / Fregenal de la Sierra (06050)",
       "subtema": "S05",
       "apartado": "Bodión",
       "tipo_unidad": "hidrografía"
@@ -681,10 +681,10 @@
     {
       "id": "CPEI-T36-S05-BF1DFE6130",
       "orden": 3470,
-      "concepto": "¿A qué cuenca pertenece el Ortiga y cuál es su recorrido funcional en Badajoz?",
-      "respuesta": "cuenca del Guadiana; La Serena–Vegas Altas, afluente del Guadiana.",
-      "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-      "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía oficial",
+      "concepto": "¿A qué cuenca pertenece el Ortiga y cuál es su recorrido en Badajoz?",
+      "respuesta": "cuenca del Guadiana; nace en Zalamea de la Serena y desemboca en el Guadiana en Medellín.",
+      "fuente": "MITECO, Ríos completos clasificados según Pfafstetter modificado (capa agua:rios_comp_pfaf, escala 1:25.000, act. 13/03/2018); municipios por las coordenadas del nacimiento y la desembocadura sobre las unidades administrativas del IGN",
+      "localizacion": "río 1008378 RIO ORTIGA (60,8 km): nacimiento en Zalamea de la Serena (06160); desembocadura en el Guadiana en Medellín (06080)",
       "subtema": "S05",
       "apartado": "Ortiga",
       "tipo_unidad": "hidrografía"
