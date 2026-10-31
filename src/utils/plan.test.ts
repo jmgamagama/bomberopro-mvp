@@ -71,3 +71,14 @@ describe('sin pasarela de pago', () => {
     expect(deps).not.toMatch(/stripe|paypal|braintree|adyen|lemonsqueezy|paddle|revenuecat/i);
   });
 });
+
+describe('fuente única del plan gratis (embudo 2026-10-26)', () => {
+  it('gratis incluye 150 preguntas distintas al día, igual que la migración 39', async () => {
+    const { PLAN_LIMITS, PLAN_COPY, planFeatures } = await import('./plan');
+    expect(PLAN_LIMITS.free.dailyDistinctQuestions).toBe(150);
+    expect(PLAN_LIMITS.pro.dailyDistinctQuestions).toBeNull();
+    expect(planFeatures('free', '')).toContain('Hasta 150 preguntas de test distintas al día');
+    expect(PLAN_COPY.dailyQuestionLimit).toMatch(/150 preguntas distintas/);
+    expect(planFeatures('pro', 'X').join(' ')).toMatch(/300 correcciones por hora y 1500 al día/);
+  });
+});

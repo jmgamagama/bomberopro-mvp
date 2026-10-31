@@ -1,3 +1,4 @@
+import GuestSignupPrompt from './GuestSignupPrompt';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import AvisoGuardadoFichas from './AvisoGuardadoFichas';
 import { Flame, Play, Eye, EyeOff, CheckCircle2, ListOrdered, BarChart3, Lock } from 'lucide-react';
@@ -40,11 +41,13 @@ interface DailySessionProps {
   autoStart?: boolean;
   /** Abre la página de planes (solo con VITE_FEATURE_PLANES activado). */
   onOpenPlanes?: () => void;
+  /** Invitado sin cuenta: al terminar, ofrecer guardar el progreso creando una cuenta. */
+  onGuestSignup?: () => void;
 }
 
 type Phase = 'intro' | 'study' | 'done' | 'stats';
 
-export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false, onOpenPlanes, demo = true }: DailySessionProps) {
+export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false, onOpenPlanes, demo = true, onGuestSignup }: DailySessionProps) {
   const plan = getPlan();
   const planesOn = isPlanesEnabled();
   const planSessionSize = getDailySessionSize(plan);
@@ -404,6 +407,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
             <p className="text-4xl font-black text-orange-600">{streak.streakCount}</p>
             <p className="text-xs text-orange-700">días seguidos</p>
           </div>
+          {onGuestSignup && <GuestSignupPrompt what="tu sesión de fichas" onSignup={onGuestSignup} />}
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <button
               type="button"

@@ -4,7 +4,7 @@ import { Lock } from 'lucide-react';
 import RecallDeck from './RecallDeck';
 import { canAccessTopic, getVisibleBloques, getVisibleDecks, getVisibleTopics, getVisibleTotalCards, type RecallDeck as RecallDeckData } from '../data/recallRegistry';
 import { isPlanesEnabled } from '../config/features';
-import { canAccessDeck, getPlan } from '../utils/plan';
+import { canAccessDeck, getPlan, PLAN_COPY } from '../utils/plan';
 
 interface RecallHubProps {
   /** Demo o sin cuenta: cambia el aviso de dónde se guarda el repaso. */
@@ -139,7 +139,7 @@ export default function RecallHub({ onNavigateHome, initialDeckId, onOpenPlanes,
             className="mx-auto mt-4 max-w-3xl space-y-3 rounded-2xl border border-amber-200 bg-amber-50/60 p-5 text-slate-800"
           >
             <p className="flex items-center gap-2 text-sm font-bold text-amber-900">
-              <Lock className="h-4 w-4" aria-hidden="true" /> Tema incluido en Pro
+              <Lock className="h-4 w-4" aria-hidden="true" /> {PLAN_COPY.lockedDeck}
             </p>
             <h1 className="text-lg font-bold leading-snug">{deck.title}</h1>
             <p className="text-sm text-slate-700">

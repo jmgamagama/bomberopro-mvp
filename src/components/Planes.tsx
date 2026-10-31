@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { BellRing, Check, Lock } from 'lucide-react';
 import { describeRecallCoverage, getVisibleDecks } from '../data/recallRegistry';
-import { PLAN_LIMITS, getPlan, hasRegisteredPlanInterest, registerPlanInterest } from '../utils/plan';
+import { PLAN_COPY, getPlan, planFeatures, hasRegisteredPlanInterest, registerPlanInterest } from '../utils/plan';
 
 interface PlanesProps {
   onNavigateHome: () => void;
@@ -20,18 +20,8 @@ export default function Planes({ onNavigateHome }: PlanesProps) {
     setInterested(true);
   };
 
-  const free = [
-    'Recuerdo del tema 40 (Procedimientos de trabajo CPEI-Badajoz)',
-    `Sesión diaria de ${PLAN_LIMITS.free.dailySessionSize} fichas al día`,
-    'Fuente oficial visible en cada ficha',
-    'Funciona sin conexión',
-  ];
-  const pro = [
-    `Todos los temas: ${describeRecallCoverage(getVisibleDecks())}`,
-    `Sesión diaria completa de ${PLAN_LIMITS.pro.dailySessionSize} fichas`,
-    'Tema prioritario en la sesión diaria',
-    'Estadísticas de progreso',
-  ];
+  const free = planFeatures('free', '');
+  const pro = planFeatures('pro', describeRecallCoverage(getVisibleDecks()));
 
   return (
     <section aria-labelledby="planes-title" className="mx-auto max-w-3xl space-y-5 py-2 sm:py-6">
@@ -76,7 +66,7 @@ export default function Planes({ onNavigateHome }: PlanesProps) {
               <Lock className="h-3 w-3" aria-hidden="true" /> Próximamente
             </span>
           </div>
-          <p className="text-sm font-semibold text-slate-900">Precio de lanzamiento próximamente</p>
+          <p className="text-sm font-semibold text-slate-900">{PLAN_COPY.proPrice}</p>
           <ul className="space-y-2 text-sm text-slate-700">
             {pro.map((item) => (
               <li key={item} className="flex gap-2">

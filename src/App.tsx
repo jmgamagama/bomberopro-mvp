@@ -60,6 +60,8 @@ import { cargarSupuestosCuenta } from './lib/privateSupuestos';
 import { shuffleAllOptions } from './utils/shuffleOptions';
 import { newStudySessionId, startStudySession, finishStudySession } from './lib/studySession';
 import { TrainCelebration } from './components/SessionCelebration';
+import Badajoz2026Card from './components/Badajoz2026Card';
+import { hasGuestSignupIntent, markGuestSignupIntent, markPreferLogin, migrateGuestProgress, prefersLogin } from './utils/guestProgress';
 
 // Normalize only the in-memory view; preserve the original local history for recovery.
 const getSafeMemoryStates = (): Record<string, MemoryState> => {
@@ -217,6 +219,13 @@ export default function App() {
   useLayoutEffect(() => {
     if (loadingAuth) return;
     const userId = session?.user?.id ?? null;
+    // Embudo: el invitado que pidió crear cuenta conserva su progreso (fichas, racha, simulacro).
+    if (userId) {
+      markPreferLogin();
+      const wasGuest = hasGuestSignupIntent();
+      migrateGuestProgress(userId);
+      if (wasGuest) trackFunnel('signup_complete');
+    }
     const request = ++questionsRequest.current;
     trainingRequest.current += 1;
     setProgressOwner(userId);
@@ -324,6 +333,7 @@ export default function App() {
   const handleNavigate = (
     screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes' | 'mas'
   ) => {
+    if (screen === 'planes') trackFunnel('planes_view');
     setDailyAutoStart(false);
     setCurrentScreen(screen);
     
@@ -630,6 +640,17 @@ export default function App() {
     setActiveConceptId(null);
   };
 
+  // Primer uso sin cuenta: se entra directamente como invitado (sin muro de registro).
+  // La pantalla de acceso solo aparece si el alumno la pide o ya tuvo sesión en este navegador.
+  const autoGuestDone = useRef(false);
+  const autoGuestPending = !loadingAuth && !session && !!supabase && !isDemoMode && !prefersLogin() && !autoGuestDone.current;
+  useEffect(() => {
+    if (!autoGuestPending) return;
+    autoGuestDone.current = true;
+    trackFunnel('landing_view');
+    handleStartDemo();
+  }, [autoGuestPending]);
+
   const handleStartDemo = () => {
     resetDemoState();
     demoFirstAnswerTracked.current = false;
@@ -653,12 +674,15 @@ export default function App() {
 
   const handleDemoSignup = () => {
     trackFunnel('demo_signup_click');
+    markGuestSignupIntent();
     setLoginMode('crear');
     handleExitDemo();
   };
 
   const handleExitDemo = () => {
     resetDemoState();
+    // Quien sale de la demo quiere la pantalla de acceso: no se le vuelve a mandar a invitado.
+    if (!session) markPreferLogin();
     // If an authenticated user exists, restore real data from storage
     if (session) {
       setMemoryStates(getSafeMemoryStates());
@@ -678,7 +702,7 @@ export default function App() {
     }
   };
 
-  if (loadingAuth) {
+  if (loadingAuth || autoGuestPending) {
     return (
       <div
         className="min-h-screen bg-fondo flex items-center justify-center font-sans"
@@ -765,8 +789,8 @@ export default function App() {
               <span className="hidden sm:block w-2 h-2 rounded-full bg-amber-900 animate-pulse shrink-0" aria-hidden="true" />
               <span className="text-xs leading-tight sm:text-sm">
                 <strong><span className="sm:hidden">Demo</span><span className="hidden sm:inline">Modo demostración</span></strong>
-                <span className="sm:hidden">: no se guarda</span>
-                <span className="hidden sm:inline">: lo que hagas no se guarda en ninguna cuenta; el repaso de fichas queda solo en este dispositivo.</span>
+                <span className="sm:hidden">: tu progreso se guarda en este dispositivo.</span>
+                <span className="hidden sm:inline">: las fichas y el simulacro se guardan solo en este dispositivo. Crea una cuenta para conservarlos.</span>
               </span>
             </div>
             <div className="flex items-center gap-2 shrink-0">
@@ -916,6 +940,15 @@ export default function App() {
               <span className="shrink-0 rounded-xl bg-indigo-600 px-4 py-2 text-sm font-bold text-white">Abrir</span>
             </button>
           )}
+          {!isDemoMode && session?.user?.id && supabase && (
+            <button type="button" id="btn-my-reports" onClick={() => handleNavigate('my_reports')} className="mb-4 text-sm font-semibold text-indigo-700 underline">
+              Mis reportes
+            </button>
+          )}
+          <Badajoz2026Card
+            onOpenSupuestos={supuestosVisibles ? () => handleNavigate('supuestos') : undefined}
+            onOpenProgress={() => handleNavigate('recuerdo')}
+          />
           <Dashboard
             remoteProgress={conceptOwner ? remoteConcepts.state : undefined}
             onRetryProgress={() => { void remoteConcepts.refresh(); }}
@@ -1038,6 +1071,7 @@ export default function App() {
             onFinishExam={handleFinishExam}
             onNavigateHome={() => handleNavigate('dashboard')}
             useServerQuestions={!!session && !isDemoMode}
+            onGuestSignup={supabase && !session ? handleDemoSignup : undefined}
           />
         )}
 
@@ -1073,6 +1107,7 @@ export default function App() {
               onOpenPlanes={openPlanes}
               onNavigateHome={() => handleNavigate('dashboard')}
               onOpenOrdenaPasos={() => handleNavigate('ordena_pasos')}
+              onGuestSignup={supabase && !session ? handleDemoSignup : undefined}
             />
           )}
 
