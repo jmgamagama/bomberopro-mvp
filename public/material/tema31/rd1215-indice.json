@@ -1,0 +1,38 @@
+{
+ "boe": "BOE-A-1997-17824",
+ "version": "18/12/2025",
+ "epigrafe": "Real Decreto 1215/1997, de 18 de julio, por el que se establecen las disposiciones minimas de seguridad y salud para la utilizacion por los trabajadores de los equipos de trabajo.",
+ "bloques": [
+  {
+   "id": "rd1215-01",
+   "titulo": "Real Decreto 1215/1997 · Articulado y disposiciones",
+   "preceptos": [
+    "a1",
+    "a2",
+    "a3",
+    "a4",
+    "a5",
+    "a6",
+    "dtunica",
+    "ddunica",
+    "dfprimera",
+    "dfsegunda",
+    "dftercera"
+   ]
+  },
+  {
+   "id": "rd1215-02",
+   "titulo": "Anexo I · Disposiciones mínimas aplicables a los equipos de trabajo",
+   "preceptos": [
+    "ani"
+   ]
+  },
+  {
+   "id": "rd1215-03",
+   "titulo": "Anexo II · Utilización de los equipos de trabajo",
+   "preceptos": [
+    "anii"
+   ]
+  }
+ ]
+}
