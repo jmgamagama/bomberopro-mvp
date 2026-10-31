@@ -69,7 +69,7 @@ export const INITIAL_MICROCONCEPTS: Microconcept[] = [
     topic_id: 'T35',
     article: "preámbulo/anexo",
     text: "¿Qué tres categorías ordinarias emplea el catálogo? Red básica, red intercomarcal y red local.",
-    explanation: "Ficha revisada del tema 35. Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — preámbulo/anexo.",
+    explanation: "Ficha revisada del tema 35. Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — anexo, columna «Categoría»: básica, intercomarcal y local, además de autovía autonómica (DOE n.º 103, 29/05/2008, pp. 14496-14500).",
     difficulty: 'media',
     confusion_risk: 'medio',
     type: 'dato literal'
@@ -79,7 +79,7 @@ export const INITIAL_MICROCONCEPTS: Microconcept[] = [
     topic_id: 'T35',
     article: "preámbulo/anexo",
     text: "¿Qué prefijo identifica las carreteras provinciales de Badajoz? BA.",
-    explanation: "Ficha revisada del tema 35. Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — preámbulo/anexo.",
+    explanation: "Ficha revisada del tema 35. Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — anexo, columna «Categoría»: básica, intercomarcal y local, además de autovía autonómica (DOE n.º 103, 29/05/2008, pp. 14496-14500).",
     difficulty: 'media',
     confusion_risk: 'medio',
     type: 'dato literal'
@@ -244,8 +244,8 @@ export const INITIAL_QUESTIONS: Question[] = [
     question: "Según el Decreto 98/2008, ¿qué tres categorías ordinarias emplea el catálogo de carreteras de Extremadura?",
     options: ["Red básica, red complementaria y red local.", "Red básica, red intercomarcal y red local.", "Red estatal, red regional y red local."],
     correct_answer: "Red básica, red intercomarcal y red local.",
-    explanation: "Ficha: «Red básica, red intercomarcal y red local.» Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — preámbulo/anexo.",
-    fuente: "Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — preámbulo/anexo",
+    explanation: "Ficha: «Red básica, red intercomarcal y red local.» Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — anexo, columna «Categoría»: básica, intercomarcal y local, además de autovía autonómica (DOE n.º 103, 29/05/2008, pp. 14496-14500).",
+    fuente: "Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — anexo, columna «Categoría»: básica, intercomarcal y local, además de autovía autonómica (DOE n.º 103, 29/05/2008, pp. 14496-14500)",
     tema: { numero: 35, titulo: "Red de carreteras de Extremadura (provincia de Badajoz)" }
   },
   // Tema 35 · ficha CPEI-T35-S01-D003AEE18E (revisada)
@@ -257,8 +257,8 @@ export const INITIAL_QUESTIONS: Question[] = [
     question: "¿Qué prefijo identifica las carreteras provinciales de Badajoz?",
     options: ["EX", "CC", "BA"],
     correct_answer: "BA",
-    explanation: "Ficha: «BA.» Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — preámbulo/anexo.",
-    fuente: "Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — preámbulo/anexo",
+    explanation: "Ficha: «BA.» Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — anexo, columna «Categoría»: básica, intercomarcal y local, además de autovía autonómica (DOE n.º 103, 29/05/2008, pp. 14496-14500).",
+    fuente: "Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — anexo, columna «Categoría»: básica, intercomarcal y local, además de autovía autonómica (DOE n.º 103, 29/05/2008, pp. 14496-14500)",
     tema: { numero: 35, titulo: "Red de carreteras de Extremadura (provincia de Badajoz)" }
   },
   // Tema 35 · ficha CPEI-T35-S03-99DDF8B8E0 (revisada)

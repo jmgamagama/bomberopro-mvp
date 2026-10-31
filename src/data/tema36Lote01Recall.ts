@@ -457,7 +457,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se ubica Tentudía y qué altitud de referencia tiene?",
     "respuesta": "Sierra de Tentudía, Calera de León; 1.104 m.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "MDT/toponimia oficial; verificar cota puntual",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): MDT/toponimia oficial; verificar cota puntual",
     "apartado": "Tentudía"
   },
   {
@@ -466,7 +466,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se ubica Pico de la Buitrera y qué altitud de referencia tiene?",
     "respuesta": "Sierra de la Buitrera, sector de Puebla de Alcocer; 1.021 m.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "MDT/toponimia oficial; verificar cota puntual",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): MDT/toponimia oficial; verificar cota puntual",
     "apartado": "Pico de la Buitrera"
   },
   {
@@ -475,7 +475,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se ubica Cerro de San Cristóbal y qué altitud de referencia tiene?",
     "respuesta": "Sierra de San Cristóbal, zona de Fregenal de la Sierra; aprox. 917 m.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "MDT/toponimia oficial; verificar cota puntual",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): MDT/toponimia oficial; verificar cota puntual",
     "apartado": "Cerro de San Cristóbal"
   },
   {
@@ -484,7 +484,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se ubica Peña Utrera y qué altitud de referencia tiene?",
     "respuesta": "Sierra de Hornachos; aprox. 813 m.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "MDT/toponimia oficial; verificar cota puntual",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): MDT/toponimia oficial; verificar cota puntual",
     "apartado": "Peña Utrera"
   },
   {
@@ -493,7 +493,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se ubica La Centinela y qué altitud de referencia tiene?",
     "respuesta": "Sierra de San Pedro, sector de Alburquerque; aprox. 703 m.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "MDT/toponimia oficial; verificar cota puntual",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): MDT/toponimia oficial; verificar cota puntual",
     "apartado": "La Centinela"
   },
   {
@@ -502,7 +502,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿A qué cuenca pertenece el Guadiana y cuál es su recorrido funcional en Badajoz?",
     "respuesta": "cuenca del Guadiana; eje principal de este a oeste; atraviesa Vegas Altas, Mérida, Vegas Bajas y Badajoz hacia Portugal.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía oficial",
     "apartado": "Guadiana"
   },
   {
@@ -511,7 +511,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿A qué cuenca pertenece el Zújar y cuál es su recorrido funcional en Badajoz?",
     "respuesta": "cuenca del Guadiana; nace en Sierra Morena, atraviesa La Serena y desemboca en el Guadiana.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía oficial",
     "apartado": "Zújar"
   },
   {
@@ -520,7 +520,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿A qué cuenca pertenece el Matachel y cuál es su recorrido funcional en Badajoz?",
     "respuesta": "cuenca del Guadiana; recorre el centro-sur y desemboca en el Guadiana en el entorno de Alange.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía oficial",
     "apartado": "Matachel"
   },
   {
@@ -529,7 +529,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿A qué cuenca pertenece el Gévora y cuál es su recorrido funcional en Badajoz?",
     "respuesta": "cuenca del Guadiana; procede de Portugal, cruza el noroeste y desemboca cerca de Badajoz.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía oficial",
     "apartado": "Gévora"
   },
   {
@@ -538,7 +538,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿A qué cuenca pertenece el Guadámez y cuál es su recorrido funcional en Badajoz?",
     "respuesta": "cuenca del Guadiana; recorre Tierra de Barros/Guareña y desemboca en el Guadiana.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía oficial",
     "apartado": "Guadámez"
   },
   {
@@ -547,7 +547,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿A qué cuenca pertenece el Ardila y cuál es su recorrido funcional en Badajoz?",
     "respuesta": "cuenca del Guadiana; recorre el suroeste y entra en Portugal.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía oficial",
     "apartado": "Ardila"
   },
   {
@@ -556,7 +556,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿A qué cuenca pertenece el Alcarrache y cuál es su recorrido funcional en Badajoz?",
     "respuesta": "cuenca del Guadiana; recorre el suroeste provincial hacia el Guadiana.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía oficial",
     "apartado": "Alcarrache"
   },
   {
@@ -565,7 +565,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿A qué cuenca pertenece el Bodión y cuál es su recorrido funcional en Badajoz?",
     "respuesta": "cuenca del Guadiana; sur de la provincia, afluente del Ardila.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía oficial",
     "apartado": "Bodión"
   },
   {
@@ -574,7 +574,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿A qué cuenca pertenece el Ortiga y cuál es su recorrido funcional en Badajoz?",
     "respuesta": "cuenca del Guadiana; La Serena–Vegas Altas, afluente del Guadiana.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía oficial",
     "apartado": "Ortiga"
   },
   {
@@ -583,7 +583,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se localiza La Serena?",
     "respuesta": "río Zújar; comarca de La Serena.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía y cartografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
     "apartado": "La Serena"
   },
   {
@@ -592,7 +592,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se localiza Zújar?",
     "respuesta": "río Zújar; entorno de Castuera/Esparragosa de Lares.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía y cartografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
     "apartado": "Zújar"
   },
   {
@@ -601,7 +601,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se localiza Orellana?",
     "respuesta": "río Guadiana; Vegas Altas–Orellana.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía y cartografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
     "apartado": "Orellana"
   },
   {
@@ -610,7 +610,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se localiza Cíjara?",
     "respuesta": "río Guadiana; nordeste provincial.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía y cartografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
     "apartado": "Cíjara"
   },
   {
@@ -619,7 +619,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se localiza García de Sola / Puerto Peña?",
     "respuesta": "río Guadiana; Talarrubias–Herrera del Duque.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía y cartografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
     "apartado": "García de Sola / Puerto Peña"
   },
   {
@@ -628,7 +628,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se localiza Alange?",
     "respuesta": "río Matachel; Alange.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía y cartografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
     "apartado": "Alange"
   },
   {
@@ -637,7 +637,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se localiza Los Molinos?",
     "respuesta": "río Matachel; Hornachos.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía y cartografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
     "apartado": "Los Molinos"
   },
   {
@@ -646,7 +646,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se localiza Montijo?",
     "respuesta": "río Guadiana; Vegas Bajas.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía y cartografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
     "apartado": "Montijo"
   },
   {
@@ -655,7 +655,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se localiza Villar del Rey / Peña del Águila?",
     "respuesta": "río Zapatón; Villar del Rey.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía y cartografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
     "apartado": "Villar del Rey / Peña del Águila"
   },
   {
@@ -664,7 +664,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se localiza Tentudía?",
     "respuesta": "entorno de Monesterio/Tentudía.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía y cartografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
     "apartado": "Tentudía"
   },
   {
@@ -673,7 +673,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se localiza Piedra Aguda?",
     "respuesta": "Olivenza.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía y cartografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
     "apartado": "Piedra Aguda"
   },
   {
@@ -682,7 +682,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se localiza Valuengo?",
     "respuesta": "río Ardila; Jerez de los Caballeros.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía y cartografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
     "apartado": "Valuengo"
   },
   {
@@ -691,7 +691,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se localiza Cornalvo?",
     "respuesta": "arroyo Albarregas; parque natural de Cornalvo.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía y cartografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
     "apartado": "Cornalvo"
   },
   {
@@ -700,7 +700,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se localiza Proserpina?",
     "respuesta": "arroyo de Las Pardillas; Mérida.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía y cartografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
     "apartado": "Proserpina"
   },
   {
@@ -709,7 +709,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se localiza Laguna de La Albuera?",
     "respuesta": "complejo lagunar de La Albuera.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía y cartografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
     "apartado": "Laguna de La Albuera"
   },
   {
@@ -718,7 +718,7 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "concepto": "¿Dónde se localiza Embalse de Brovales?",
     "respuesta": "Jerez de los Caballeros.",
     "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "hidrografía y cartografía oficial",
+    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
     "apartado": "Embalse de Brovales"
   }
 ];
