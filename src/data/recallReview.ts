@@ -45,6 +45,7 @@ export const REVIEWED_DECKS: Readonly<Record<string, DeckReview>> = {
   tema12: revisado('16 de 21 fichas literales en RIPCI anexo I secc. 1, BOE-A-2017-6606 vigente (31/10/2026); las 5 del INSST quedan ocultas (sin norma oficial)', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   'tema28-lote02': revisado('62 de 74 fichas cotejadas (61 literales) con REBT BOE-A-2002-18099, RAT BOE-A-2014-6084 y RD 614/2001 BOE-A-2001-11881, vigentes (31/10/2026); las 12 de la NTP 400 quedan ocultas (sin norma oficial)', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   tema33: revisado('67 de 67 fichas literales en BOE-A-2017-6606 vigente (31/10/2026): arts. 1-2 y anexo I secc. 1 apdos. 2 (abastecimiento), 3 (hidrantes), 5 (BIE) y 6 (columna seca), las del epígrafe', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
+  tema23: revisado('21 de 21 fichas cotejadas con el Plan Estatal de Inundaciones BOE-A-2011-14277 y la Directriz Básica BOE-A-2026-9160, vigentes (31/10/2026)', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   tema35: revisado('revisión completa por decisión del propietario', 'tema35_calidad.md'),
   tema38: revisado('revisión completa por decisión del propietario', 'tema38_cambios.md'),
   tema39: revisado('revisión completa por decisión del propietario', 'tema39_cambios.md'),
