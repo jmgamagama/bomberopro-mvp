@@ -51,6 +51,7 @@ export const REVIEWED_DECKS: Readonly<Record<string, DeckReview>> = {
   tema20: revisado('24 de 24 fichas literales en el Decreto 132/2022 (DOE nº 210, 02/11/2022) y en la redacción del Decreto 136/2024 (DOE nº 215, 05/11/2024); sin modificaciones posteriores localizadas (31/10/2026)', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   'tema23-lote02': revisado('23 de 23 fichas cotejadas con RDPH BOE-A-1986-10638, RD 903/2010 BOE-A-2010-11184 y Directriz BOE-A-2026-9160, vigentes (31/10/2026); las 10 por debajo del umbral revisadas a mano, 3 respuestas ajustadas al texto', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   tema29: revisado('81 de 81 fichas cotejadas (73 literales) con el texto íntegro del PLATERCAEX aprobado por Decreto 187/2019 (DOE nº 247, 26/12/2019), vigente; sin actualización posterior en el DOE (31/10/2026)', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
+  tema30: revisado('87 de 87 fichas cotejadas (86 literales) con INUNCAEX (Decreto 39/2025, DOE 94/2025), TRANSCAEX, RADIOCAEX y PLASISMEX (DOE 247 y 111), vigentes (31/10/2026)', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   tema35: revisado('revisión completa por decisión del propietario', 'tema35_calidad.md'),
   tema38: revisado('revisión completa por decisión del propietario', 'tema38_cambios.md'),
   tema39: revisado('revisión completa por decisión del propietario', 'tema39_cambios.md'),

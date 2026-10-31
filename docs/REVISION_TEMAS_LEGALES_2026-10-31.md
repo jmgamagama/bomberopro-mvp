@@ -43,3 +43,4 @@
 | T20 | tema20 | Plan INFOEX: Decreto 132/2022 (DOE 210/2022) mod. Decreto 136/2024 (DOE 215/2024) | 24 | 24 | 0 | — | 0 | arts. 6, 7, 10-13 y 16 |
 | T23 | tema23-lote02 | RDPH, RD 903/2010, Directriz 2026 | 23 | 9 | 6 | 8 a mano | 0 | 3 respuestas literalizadas; art. 14 apdo. 3 corregido |
 | T29 | tema29 | PLATERCAEX, Decreto 187/2019 (DOE 247/2019) | 81 | 73 | 7 | 1 a mano | 0 | objetivo, alcance, estructura, operatividad |
+| T30 | tema30 | INUNCAEX (D. 39/2025, DOE 94), TRANSCAEX, RADIOCAEX, PLASISMEX (DOE 247 y 111) | 87 | 86 | 1 | — | 0 | definición, objetivos, estructura, operatividad |
