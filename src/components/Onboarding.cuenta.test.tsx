@@ -35,7 +35,7 @@ describe('bienvenida con cuenta', () => {
 describe('aviso de guardado de las fichas', () => {
   it('en la demo dice que todo queda en el navegador', () => {
     render(<AvisoGuardadoFichas demo />);
-    expect(screen.getByText(/modo prueba/i)).toHaveTextContent(/solo en este navegador/);
+    expect(screen.getByText(/modo invitado/i)).toHaveTextContent(/se guarda en este dispositivo/);
   });
 
   it('con cuenta no da a entender que se pierde el progreso', () => {

@@ -269,7 +269,7 @@ export default function Dashboard({
             className="min-h-14 p-4 bg-white hover:bg-slate-50 text-slate-800 rounded-xl text-left border border-slate-300 transition"
           >
             <span className="flex items-center gap-2 font-semibold"><HelpCircle className="w-4 h-4 text-indigo-600" aria-hidden="true" />Hacer simulacro</span>
-            <span className="mt-0.5 block text-xs text-slate-600">Como el examen: 55 preguntas, 60 min.</span>
+            <span className="mt-0.5 block text-xs text-slate-600">Practica con tiempo, como en el examen.</span>
           </button>
           <button
             id="action-errors"

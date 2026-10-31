@@ -1137,9 +1137,6 @@ export default function App() {
 
         {currentScreen === 'study_by_topic' && (isDemoMode || !supabase) && (
           <section aria-label="Estudiar por temas" className="space-y-3">
-            <p className="rounded-xl border border-slate-200 bg-white p-3 text-sm text-slate-700" id="temas-invitado-aviso">
-              Estudia por temas con las fichas de recuerdo. Tu progreso se guarda en este dispositivo.
-            </p>
             <RecallHub demo onNavigateHome={() => handleNavigate('dashboard')} onOpenPlanes={openPlanes} />
           </section>
         )}

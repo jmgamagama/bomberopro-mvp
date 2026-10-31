@@ -23,7 +23,7 @@ describe('piloto del artículo 1 oculto', () => {
     await user.click((await screen.findAllByRole('button', { name: 'Temas' }))[0]);
     expect(screen.queryByRole('heading', { name: 'Lee el artículo completo' })).toBeNull();
     expect(screen.queryByText('Pregunta 1 de 15')).toBeNull();
-    expect(await screen.findByText(/estudia por temas con las fichas/i)).toBeInTheDocument();
+    expect(await screen.findByText(/fichas de repaso/i)).toBeInTheDocument();
     expect(screen.queryByText(/requiere una cuenta/i)).toBeNull();
   });
 });

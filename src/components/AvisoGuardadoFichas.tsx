@@ -6,7 +6,7 @@
  */
 export function textoAvisoFichas(demo: boolean): string {
   return demo
-    ? 'Modo prueba: lo que hagas aquí se guarda solo en este navegador.'
+    ? 'Modo invitado: tu progreso se guarda en este dispositivo.'
     : 'El repaso de estas fichas se guarda en este dispositivo. Lo que estudias en «Estudiar», en los temas y en los simulacros se guarda en tu cuenta.';
 }
 

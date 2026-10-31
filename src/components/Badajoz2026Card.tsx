@@ -39,7 +39,7 @@ export default function Badajoz2026Card({ onOpenSupuestos, onOpenProgress, now =
       </p>
       <div>
         <h3 className="text-sm font-bold text-slate-800">
-          Tu progreso por tema <span className="font-normal text-slate-600">({started.length} de {topics.length} temas con fichas empezados)</span>
+          Tu progreso por tema <span className="font-normal text-slate-600">· empezados {started.length} de {topics.length} temas con fichas</span>
         </h3>
         <p className="mt-1 text-xs text-slate-600" id="badajoz-cobertura">De momento hay fichas de {topics.length} temas del temario; se irán añadiendo más.</p>
         <ul className="mt-2 space-y-1.5" id="badajoz-progreso">
