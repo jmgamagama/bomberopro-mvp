@@ -7,6 +7,10 @@
 import type { Plugin } from 'vite';
 import { CONVOCATORIA_CPEI_2026 as C } from '../src/data/convocatoria';
 
+/** Texto del shell crítico (index.html y src/components/AppShell.tsx). */
+export const SHELL_TITLE = `Prepara tu oposición a ${C.plaza} del ${C.organismo}`;
+export const SHELL_KICKER = `Convocatoria ${C.organismo} 2026`;
+
 export const LANDING_PATH = '/oposiciones-bombero-badajoz-2026/';
 export const SEO_TITLE = `Oposiciones bombero Badajoz 2026: ${C.plazas} plazas ${C.organismo} | BomberoPro`;
 export const SEO_DESCRIPTION = `Prepara la oposición a ${C.plaza} del ${C.organismo} 2026: ${C.plazas} plazas (${C.desglosePlazas}), bases en el ${C.bases}. Fichas con fuente oficial y simulacro de muestra gratis, sin cuenta.`;
@@ -120,6 +124,8 @@ export function seo(siteUrl?: string): Plugin {
       return html
         .replace(/%SEO_TITLE%/g, esc(SEO_TITLE))
         .replace(/%SEO_DESCRIPTION%/g, esc(SEO_DESCRIPTION))
+        .replace(/%SHELL_TITLE%/g, esc(SHELL_TITLE))
+        .replace(/%SHELL_KICKER%/g, esc(SHELL_KICKER))
         .replace('</head>', `    ${headMeta(siteUrl, 'app')}\n  </head>`);
     },
     generateBundle() {

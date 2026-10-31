@@ -27,3 +27,13 @@ describe('SEO y landing Badajoz 2026', () => {
     expect(JSON.parse(jsonLd())['@graph'][0].url).toBeUndefined();
   });
 });
+
+describe('shell crítico', () => {
+  it('index.html y AppShell muestran el mismo título', async () => {
+    const { SHELL_TITLE } = await import('../scripts/seo');
+    const { readFileSync } = await import('node:fs');
+    expect(readFileSync(new URL('../index.html', import.meta.url), 'utf8')).toContain('%SHELL_TITLE%');
+    expect(readFileSync(new URL('./components/AppShell.tsx', import.meta.url), 'utf8')).toContain('Prepara tu oposición a ${C.plaza} del ${C.organismo}');
+    expect(SHELL_TITLE).toBe(`Prepara tu oposición a ${C.plaza} del ${C.organismo}`);
+  });
+});

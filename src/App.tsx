@@ -52,6 +52,8 @@ import Dashboard from './components/Dashboard';
 import TrainScreen from './components/TrainScreen';
 import Badajoz2026Card from './components/Badajoz2026Card';
 import { hasGuestSignupIntent, markGuestSignupIntent, markPreferLogin, migrateGuestProgress, prefersLogin } from './utils/guestProgress';
+import Skeleton from './components/Skeleton';
+import AppShell from './components/AppShell';
 
 const GUEST_SIN_BACKEND = import.meta.env.VITE_GUEST_SIN_BACKEND === 'true';
 
@@ -76,7 +78,7 @@ const RecallHub = lazy(() => import('./components/RecallHub'));
 const DailySession = lazy(() => import('./components/DailySession'));
 const OrdenaPasos = lazy(() => import('./components/OrdenaPasos'));
 const SupuestosPracticos = lazy(() => import('./components/SupuestosPracticos'));
-const Onboarding = lazy(() => import('./components/Onboarding'));
+import Onboarding from './components/Onboarding';
 const Planes = lazy(() => import('./components/Planes'));
 
 const SCREEN_TITLES = {
@@ -710,15 +712,7 @@ export default function App() {
 
   if (loadingAuth || autoGuestPending) {
     return (
-      <div
-        className="min-h-screen bg-fondo flex items-center justify-center font-sans"
-        role="status"
-        aria-live="polite"
-        aria-busy="true"
-      >
-        <div className="animate-spin w-8 h-8 border-4 border-indigo-200 border-t-indigo-600 rounded-full" aria-hidden="true"></div>
-        <span className="sr-only">Comprobando tu sesión...</span>
-      </div>
+      <AppShell label="Comprobando tu sesión..." />
     );
   }
 
@@ -763,7 +757,7 @@ export default function App() {
         {/* Si la sesión caduca a mitad de estudio, aquí se avisa de lo que sigue pendiente. */}
         <UpdateBanner />
         <SaveFailureBanner showIfPending />
-        <Suspense fallback={<p role="status" className="p-6 text-sm text-slate-600">Cargando…</p>}><Login initialMode={loginMode} onStartDemo={() => { setLoginMode('entrar'); handleStartDemo(true); }} /></Suspense>
+        <Suspense fallback={<Skeleton label="Cargando la pantalla de acceso…" className="p-6" />}><Login initialMode={loginMode} onStartDemo={() => { setLoginMode('entrar'); handleStartDemo(true); }} /></Suspense>
       </>
     );
   }
@@ -915,7 +909,7 @@ export default function App() {
         tabIndex={-1}
         className="flex-1 max-w-4xl w-full mx-auto px-4 pt-4 pb-24 lg:py-8"
       >
-        <Suspense fallback={<p role="status" className="p-6 text-sm text-slate-600">Cargando…</p>}>
+        <Suspense fallback={<Skeleton label="Cargando la pantalla…" />}>
         {currentScreen === 'dashboard' && (
           <>
           {!isDemoMode && session?.user?.id && supabase && (
