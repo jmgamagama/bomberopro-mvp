@@ -1444,7 +1444,7 @@
      "enunciado": "Según el art. 21.4 LPRL, no habrá perjuicio para el trabajador salvo mala fe o:",
      "opciones": [
       "Negligencia grave",
-      "Negligencia leve"
+      "Negligencia leve u ocasional"
      ],
      "correcta": 0,
      "explicacion": "Art. 21.4: excepción de mala fe o negligencia grave."
@@ -1493,7 +1493,7 @@
      "nivel": 1,
      "enunciado": "Según el art. 22.1 LPRL, la vigilancia de la salud se lleva a cabo con carácter general:",
      "opciones": [
-      "Con la sola decisión del empresario",
+      "Con la sola decisión unilateral del empresario",
       "Con el consentimiento del trabajador"
      ],
      "correcta": 1,
@@ -2554,7 +2554,7 @@
      "enunciado": "Según el art. 26.4 LPRL, la suspensión por riesgo durante la lactancia natural se refiere a hijos menores de:",
      "opciones": [
       "Nueve meses",
-      "Doce meses"
+      "Dieciocho meses"
      ],
      "correcta": 0,
      "explicacion": "Art. 26.4: hijos menores de nueve meses."

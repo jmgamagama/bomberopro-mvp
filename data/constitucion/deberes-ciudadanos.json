@@ -181,7 +181,7 @@
           "enunciado": "Según el art. 30.4 CE, mediante ley podrán regularse los deberes de los ciudadanos en casos de grave riesgo, catástrofe o…",
           "opciones": [
             "calamidad pública",
-            "conflicto armado"
+            "conflicto armado exterior"
           ],
           "correcta": 0,
           "explicacion": "Art. 30.4 CE: grave riesgo, catástrofe o calamidad pública."
@@ -632,7 +632,7 @@
           "enunciado": "Según el art. 34.1 CE, el derecho de fundación se reconoce para fines de…",
           "opciones": [
             "interés general",
-            "interés social"
+            "interés empresarial"
           ],
           "correcta": 0,
           "explicacion": "Art. 34.1 CE."
@@ -834,7 +834,7 @@
           "enunciado": "Según el art. 36 CE, la estructura interna y el funcionamiento de los Colegios Profesionales deberán ser…",
           "opciones": [
             "democráticos",
-            "jerárquicos"
+            "estrictamente jerárquicos"
           ],
           "correcta": 0,
           "explicacion": "Art. 36 CE."

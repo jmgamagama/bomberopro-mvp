@@ -136,7 +136,7 @@
      "nivel": 1,
      "enunciado": "Según el art. 5.2 LPRL, ¿qué promoverán las Administraciones públicas en los distintos niveles de enseñanza?",
      "opciones": [
-      "La creación de servicios de prevención propios",
+      "La creación de servicios de prevención propios en cada centro",
       "La mejora de la educación en materia preventiva"
      ],
      "correcta": 1,
@@ -437,7 +437,7 @@
      "nivel": 1,
      "enunciado": "Según el art. 6.1.e) LPRL, al regular los servicios de prevención se considerarán las peculiaridades de:",
      "opciones": [
-      "Las grandes empresas",
+      "Las grandes empresas industriales",
       "Las pequeñas empresas"
      ],
      "correcta": 1,
@@ -992,7 +992,7 @@
      "enunciado": "Según el art. 9.1.c) LPRL, la Inspección elabora los informes solicitados por:",
      "opciones": [
       "Los Juzgados de lo Social",
-      "Los Juzgados de lo Penal"
+      "Los Juzgados de lo Contencioso-administrativo"
      ],
      "correcta": 0,
      "explicacion": "Art. 9.1.c): informes para los Juzgados de lo Social en procedimientos de accidentes de trabajo y enfermedades profesionales."
@@ -1296,7 +1296,7 @@
      "enunciado": "Según el art. 11 LPRL, hay que coordinar las actuaciones de las Administraciones competentes en materia laboral, sanitaria y de:",
      "opciones": [
       "Industria",
-      "Hacienda"
+      "Hacienda pública"
      ],
      "correcta": 0,
      "explicacion": "Art. 11: coordinación de las Administraciones laboral, sanitaria y de industria."

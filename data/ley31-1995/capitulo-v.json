@@ -389,7 +389,7 @@
      "enunciado": "Según el art. 35.1 LPRL, los Delegados de Prevención son representantes de los trabajadores con funciones:",
      "opciones": [
       "Específicas en prevención de riesgos",
-      "Generales en materia de negociación"
+      "Generales en materia de negociación colectiva"
      ],
      "correcta": 0,
      "explicacion": "Art. 35.1: representantes de los trabajadores con funciones específicas en prevención."
@@ -1506,7 +1506,7 @@
      "nivel": 1,
      "enunciado": "Según el art. 38.3 LPRL, el Comité de Seguridad y Salud se reúne ordinariamente de forma:",
      "opciones": [
-      "Semestral",
+      "Cuatrimestral",
       "Trimestral"
      ],
      "correcta": 1,
