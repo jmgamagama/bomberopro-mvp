@@ -1,0 +1,299 @@
+
+ RUN  v3.2.7 /workspace/bomberopro-integracion
+
+ ❯ audit/checks/B_banco_posicion.test.ts (8 tests | 4 failed) 61ms
+   ✓ B · posición de la correcta (banco local) > ninguna letra supera el 40 % (k=3) en ningún grupo nivel×k con n≥30 2ms
+   ✓ B · posición de la correcta (banco local) > ninguna letra supera el 60 % (k=2) en ningún grupo con n≥30 0ms
+   × B · posición de la correcta (banco local) > chi-cuadrado no significativo (p ≥ 0,01) en el banco por nº de opciones y por nivel 9ms
+     → expected [ …(3) ] to deeply equal []
+   × B · posición de la correcta (banco local) > la correcta no es la opción más larga más de lo esperable por azar (k=2) 1ms
+     → 129/207 = 62.3 % (azar 50.0 %): expected 129 to be less than or equal to 122.05986799522023
+   × B · posición de la correcta (banco local) > la correcta no es la opción más larga más de lo esperable por azar (k=3) 1ms
+     → 179/414 = 43.2 % (azar 33.3 %): expected 179 to be less than or equal to 162.74649066029363
+   ✓ B · el cliente baraja las opciones > shuffleQuestionOptions reparte la correcta uniformemente (±5 pp) en 3 opciones 18ms
+   ✓ B · el cliente baraja las opciones > las preguntas «posicionales» del banco NO se barajan (quedan con el sesgo de origen) 0ms
+   × B · demo (src/data/initialData.ts) sin barajar > la correcta del prototipo no está en la misma posición en > 40 % y la demo la baraja 29ms
+     → expected { enPosicionA: '15/15', …(1) } to deeply equal { …(2) }
+ ❯ audit/checks/B_sm2_local.test.ts (15 tests | 6 failed) 26ms
+   ✓ B1 · alumno que lo falla todo 30 días > estado acotado: intervalo 1, facilidad en el mínimo, nada «dominado» (sin intervalos absurdos) 4ms
+   × B1 · alumno que lo falla todo 30 días > no queda atrapado en las mismas 30 fichas (callejón sin salida): ≥ 60 fichas distintas en 30 días 6ms
+     → expected 30 to be greater than or equal to 60
+   ✓ B2 · alumno que lo acierta todo > intervalos crecientes, ≤ 365 d y sin saltos > 3× (excepto 1→3) 1ms
+   × B2 · alumno que lo acierta todo > «Consolidada» no se concede antes que «dominada» (intervalo ≥ 7 d) 5ms
+     → expected { estado: 'CONSOLIDADO', …(2) } to deeply equal { estado: 'CONSOLIDADO', …(2) }
+   × B3 · notas «Dudosa» > dos «Dudosa» seguidas no deberían contar como CONSOLIDADO 1ms
+     → expected 'CONSOLIDADO' not to be 'CONSOLIDADO' // Object.is equality
+   × B3 · notas «Dudosa» > la facilidad se recupera tras un fallo antiguo si luego se acierta siempre (sin «ease hell») 1ms
+     → expected 1.3 to be greater than or equal to 2
+   ✓ B4 · tarjeta «lo sé» pero la falla después (repaso adelantado) > un repaso adelantado acertado no alarga, uno fallado sí resetea (asimetría documentada) 0ms
+   × B5 · cambio de día / zona horaria > dos repasos separados por 2 minutos a medianoche no cuentan como recuerdo espaciado 2ms
+     → expected { Object (estado, diferido1d) } to deeply equal { estado: 'COMPROBAR', diferido1d: +0 }
+   ✓ B5 · cambio de día / zona horaria > viaje hacia el oeste (día local que retrocede) no produce intervalos negativos ni pérdida 0ms
+   ✓ B5 · cambio de día / zona horaria > cambio de hora (25/10/2026, fin del horario de verano) no altera el nº de día 0ms
+   × B6 · alumno que vuelve tras 60 días > las fichas que NO sabía reaparecen en ≤ 3 días (no quedan detrás de toda la deuda) 1ms
+     → expected 20 to be less than or equal to 3
+   ✓ B6 · alumno que vuelve tras 60 días > la cola de vencidas se vacía (no es infinita) 0ms
+   ✓ B7 · cuota del 60 % y mazo vacío > mazo vacío → sesión vacía, sin bucle 0ms
+   ✓ B7 · cuota del 60 % y mazo vacío > con vencidas de sobra, el tema prioritario recibe 18/30 (60 %) 3ms
+   ✓ B7 · cuota del 60 % y mazo vacío > mazo pequeño: la sesión no repite la misma ficha dos veces el mismo día 0ms
+ ❯ audit/checks/B_escalera_fsrs.test.ts (9 tests | 6 failed) 11ms
+   ✓ B · escalera + FSRS (SQL local) > S0 · con el banco del repo (todo borrador) la sesión está vacía y no da error 1ms
+   × B · escalera + FSRS (SQL local) > S1 · quien lo falla todo 30 días no queda atascado sin conceptos nuevos > 7 días 4ms
+     → {"eventos":927,"estab_max":0.14390531,"estab_min":0.1438826,"nivel_max":1,"nuevos_por_dia":[10,7,5,3,2,2,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"conceptos_tocados":32,"dias_sin_nuevos_al_final":20}: expected 20 to be less than or equal to 7
+   × B · escalera + FSRS (SQL local) > S2 · acertarlo todo no produce intervalos > 365 días 1ms
+     → expected 455 to be less than or equal to 365
+   × B · escalera + FSRS (SQL local) > S2 · la primera recuperación, minutos después de leer la ficha, no programa ≥ 7 días 1ms
+     → expected 14 to be less than 7
+   × B · escalera + FSRS (SQL local) > S3 · fallar en N1 (sin nivel inferior) no sirve como «escalera» una pregunta MÁS difícil 1ms
+     → expected 2 to be less than or equal to 1
+   × B · escalera + FSRS (SQL local) > S4 · sin nivel superior se queda en 3, y un ACIERTO nunca baja de nivel 1ms
+     → expected 2 to be greater than or equal to 3
+   ✓ B · escalera + FSRS (SQL local) > S5 · «Lo sabía» + test fallado: se verifica a las 21 h, baja a N1 y la calibración lo cuenta 1ms
+   × B · escalera + FSRS (SQL local) > S6 · vuelta tras 60 días: la deuda se drena en ≤ 10 días y un acierto tardío no da > 120 días 0ms
+     → expected 217 to be less than or equal to 120
+   ✓ B · escalera + FSRS (SQL local) > S7 · medianoche: dos aciertos a 2 min no suben la estabilidad 0ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 16 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  audit/checks/B_banco_posicion.test.ts > B · posición de la correcta (banco local) > chi-cuadrado no significativo (p ≥ 0,01) en el banco por nº de opciones y por nivel
+AssertionError: expected [ …(3) ] to deeply equal []
+
+- Expected
++ Received
+
+- []
++ [
++   "k4: χ²=40.5 df=3 p=8.35e-9 93.8/6.3/0/0",
++   "N2·k4: χ²=15 df=3 p=1.82e-3 100/0/0/0",
++   "N3·k4: χ²=15 df=3 p=1.82e-3 100/0/0/0",
++ ]
+
+ ❯ audit/checks/B_banco_posicion.test.ts:84:112
+     82|   it('chi-cuadrado no significativo (p ≥ 0,01) en el banco por nº de o…
+     83|     const bad = table.filter((t) => !t.grupo.startsWith('T') && t.p < …
+     84|     expect(bad.map((t) => `${t.grupo}: χ²=${t.chi2} df=${t.df} p=${t.p…
+       |                                                                                                                ^
+     85|   });
+     86|   // Umbral: la correcta puede ser la más larga como mucho lo que da e…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/16]⎯
+
+ FAIL  audit/checks/B_banco_posicion.test.ts > B · posición de la correcta (banco local) > la correcta no es la opción más larga más de lo esperable por azar (k=2)
+AssertionError: 129/207 = 62.3 % (azar 50.0 %): expected 129 to be less than or equal to 122.05986799522023
+ ❯ audit/checks/B_banco_posicion.test.ts:92:114
+     90|       const p0 = 1 / k;
+     91|       const limite = s.n * p0 + 2.58 * Math.sqrt(s.n * p0 * (1 - p0));
+     92|       expect(s.max, `${s.max}/${s.n} = ${((100 * s.max) / s.n).toFixed…
+       |                                                                                                                  ^
+     93|     });
+     94|   }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/16]⎯
+
+ FAIL  audit/checks/B_banco_posicion.test.ts > B · posición de la correcta (banco local) > la correcta no es la opción más larga más de lo esperable por azar (k=3)
+AssertionError: 179/414 = 43.2 % (azar 33.3 %): expected 179 to be less than or equal to 162.74649066029363
+ ❯ audit/checks/B_banco_posicion.test.ts:92:114
+     90|       const p0 = 1 / k;
+     91|       const limite = s.n * p0 + 2.58 * Math.sqrt(s.n * p0 * (1 - p0));
+     92|       expect(s.max, `${s.max}/${s.n} = ${((100 * s.max) / s.n).toFixed…
+       |                                                                                                                  ^
+     93|     });
+     94|   }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/16]⎯
+
+ FAIL  audit/checks/B_banco_posicion.test.ts > B · demo (src/data/initialData.ts) sin barajar > la correcta del prototipo no está en la misma posición en > 40 % y la demo la baraja
+AssertionError: expected { enPosicionA: '15/15', …(1) } to deeply equal { …(2) }
+
+- Expected
++ Received
+
+  {
+-   "demoSinBarajar": false,
+-   "enPosicionA": StringNotMatching /^(1[0-5]|[7-9])\/15$/,
++   "demoSinBarajar": true,
++   "enPosicionA": "15/15",
+  }
+
+ ❯ audit/checks/B_banco_posicion.test.ts:122:83
+    120|     // App.tsx usa INITIAL_QUESTIONS tal cual como pool del entrenamie…
+    121|     const sinBarajar = /useState<Question\[\]>\(INITIAL_QUESTIONS\)/.t…
+    122|     expect({ enPosicionA: `${first}/${pos.length}`, demoSinBarajar: si…
+       |                                                                                   ^
+    123|   });
+    124| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/16]⎯
+
+ FAIL  audit/checks/B_escalera_fsrs.test.ts > B · escalera + FSRS (SQL local) > S1 · quien lo falla todo 30 días no queda atascado sin conceptos nuevos > 7 días
+AssertionError: {"eventos":927,"estab_max":0.14390531,"estab_min":0.1438826,"nivel_max":1,"nuevos_por_dia":[10,7,5,3,2,2,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],"conceptos_tocados":32,"dias_sin_nuevos_al_final":20}: expected 20 to be less than or equal to 7
+ ❯ audit/checks/B_escalera_fsrs.test.ts:24:99
+     22|   it('S1 · quien lo falla todo 30 días no queda atascado sin conceptos…
+     23|     expect(res.S1_falla_todo_30d.nivel_max).toBe(1);
+     24|     expect(res.S1_falla_todo_30d.dias_sin_nuevos_al_final, JSON.string…
+       |                                                                                                   ^
+     25|   });
+     26|   it('S2 · acertarlo todo no produce intervalos > 365 días', () => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/16]⎯
+
+ FAIL  audit/checks/B_escalera_fsrs.test.ts > B · escalera + FSRS (SQL local) > S2 · acertarlo todo no produce intervalos > 365 días
+AssertionError: expected 455 to be less than or equal to 365
+ ❯ audit/checks/B_escalera_fsrs.test.ts:28:57
+     26|   it('S2 · acertarlo todo no produce intervalos > 365 días', () => {
+     27|     expect(res.S2_acierta_todo_365d.nivel_max).toBe(3);
+     28|     expect(res.S2_acierta_todo_365d.intervalo_max_dias).toBeLessThanOr…
+       |                                                         ^
+     29|   });
+     30|   it('S2 · la primera recuperación, minutos después de leer la ficha, …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/16]⎯
+
+ FAIL  audit/checks/B_escalera_fsrs.test.ts > B · escalera + FSRS (SQL local) > S2 · la primera recuperación, minutos después de leer la ficha, no programa ≥ 7 días
+AssertionError: expected 14 to be less than 7
+ ❯ audit/checks/B_escalera_fsrs.test.ts:31:66
+     29|   });
+     30|   it('S2 · la primera recuperación, minutos después de leer la ficha, …
+     31|     expect(res.S2_acierta_todo_365d.primer_intervalo_test_nota4).toBeL…
+       |                                                                  ^
+     32|   });
+     33|   it('S3 · fallar en N1 (sin nivel inferior) no sirve como «escalera» …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/16]⎯
+
+ FAIL  audit/checks/B_escalera_fsrs.test.ts > B · escalera + FSRS (SQL local) > S3 · fallar en N1 (sin nivel inferior) no sirve como «escalera» una pregunta MÁS difícil
+AssertionError: expected 2 to be less than or equal to 1
+ ❯ audit/checks/B_escalera_fsrs.test.ts:35:40
+     33|   it('S3 · fallar en N1 (sin nivel inferior) no sirve como «escalera» …
+     34|     expect(res.S3_falla_N1.nivel_tras_fallo).toBe(1);
+     35|     expect(res.S3_falla_N1.step_nivel).toBeLessThanOrEqual(1);
+       |                                        ^
+     36|   });
+     37|   it('S4 · sin nivel superior se queda en 3, y un ACIERTO nunca baja d…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/16]⎯
+
+ FAIL  audit/checks/B_escalera_fsrs.test.ts > B · escalera + FSRS (SQL local) > S4 · sin nivel superior se queda en 3, y un ACIERTO nunca baja de nivel
+AssertionError: expected 2 to be greater than or equal to 3
+ ❯ audit/checks/B_escalera_fsrs.test.ts:39:76
+     37|   it('S4 · sin nivel superior se queda en 3, y un ACIERTO nunca baja d…
+     38|     expect(res.S4_techo_y_acierto_bajo.nivel_tras_acertar_N3).toBe(3);
+     39|     expect(res.S4_techo_y_acierto_bajo.nivel_tras_acertar_N1_estando_e…
+       |                                                                            ^
+     40|   });
+     41|   it('S5 · «Lo sabía» + test fallado: se verifica a las 21 h, baja a N…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/16]⎯
+
+ FAIL  audit/checks/B_escalera_fsrs.test.ts > B · escalera + FSRS (SQL local) > S6 · vuelta tras 60 días: la deuda se drena en ≤ 10 días y un acierto tardío no da > 120 días
+AssertionError: expected 217 to be less than or equal to 120
+ ❯ audit/checks/B_escalera_fsrs.test.ts:49:45
+     47|     const s = res.S6_vuelve_60d;
+     48|     expect(s.vencidos_por_dia.indexOf(0)).toBeLessThanOrEqual(10);
+     49|     expect(s.intervalo_tras_acierto_tardio).toBeLessThanOrEqual(120);
+       |                                             ^
+     50|   });
+     51|   it('S7 · medianoche: dos aciertos a 2 min no suben la estabilidad', …
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/16]⎯
+
+ FAIL  audit/checks/B_sm2_local.test.ts > B1 · alumno que lo falla todo 30 días > no queda atrapado en las mismas 30 fichas (callejón sin salida): ≥ 60 fichas distintas en 30 días
+AssertionError: expected 30 to be greater than or equal to 60
+ ❯ audit/checks/B_sm2_local.test.ts:44:23
+     42|   it('no queda atrapado en las mismas 30 fichas (callejón sin salida):…
+     43|     // Si falla: las 30 fichas del día 1 ocupan la sesión los 29 días …
+     44|     expect(seen.size).toBeGreaterThanOrEqual(60);
+       |                       ^
+     45|   });
+     46| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/16]⎯
+
+ FAIL  audit/checks/B_sm2_local.test.ts > B2 · alumno que lo acierta todo > «Consolidada» no se concede antes que «dominada» (intervalo ≥ 7 d)
+AssertionError: expected { estado: 'CONSOLIDADO', …(2) } to deeply equal { estado: 'CONSOLIDADO', …(2) }
+
+- Expected
++ Received
+
+  {
+-   "dominada": true,
++   "dominada": false,
+    "estado": "CONSOLIDADO",
+    "intervalo": 3,
+  }
+
+ ❯ audit/checks/B_sm2_local.test.ts:64:90
+     62|     let s = scheduleReview(undefined, 2, DAY0);
+     63|     s = scheduleReview(s, 2, s.due); // 2.º recuerdo, intervalo 3
+     64|     expect({ estado: learningState(s), dominada: isMastered(s), interv…
+       |                                                                                          ^
+     65|   });
+     66| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/16]⎯
+
+ FAIL  audit/checks/B_sm2_local.test.ts > B3 · notas «Dudosa» > dos «Dudosa» seguidas no deberían contar como CONSOLIDADO
+AssertionError: expected 'CONSOLIDADO' not to be 'CONSOLIDADO' // Object.is equality
+ ❯ audit/checks/B_sm2_local.test.ts:72:34
+     70|     let s = scheduleReview(undefined, 1, DAY0);
+     71|     s = scheduleReview(s, 1, s.due);
+     72|     expect(learningState(s)).not.toBe('CONSOLIDADO');
+       |                                  ^
+     73|   });
+     74|   it('la facilidad se recupera tras un fallo antiguo si luego se acier…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/16]⎯
+
+ FAIL  audit/checks/B_sm2_local.test.ts > B3 · notas «Dudosa» > la facilidad se recupera tras un fallo antiguo si luego se acierta siempre (sin «ease hell»)
+AssertionError: expected 1.3 to be greater than or equal to 2
+ ❯ audit/checks/B_sm2_local.test.ts:78:20
+     76|     for (let i = 0; i < 6; i++) s = scheduleReview(s, 0, s.due);
+     77|     for (let i = 0; i < 20; i++) s = scheduleReview(s, 2, s.due);
+     78|     expect(s.ease).toBeGreaterThanOrEqual(2.0);
+       |                    ^
+     79|   });
+     80| });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/16]⎯
+
+ FAIL  audit/checks/B_sm2_local.test.ts > B5 · cambio de día / zona horaria > dos repasos separados por 2 minutos a medianoche no cuentan como recuerdo espaciado
+AssertionError: expected { Object (estado, diferido1d) } to deeply equal { estado: 'COMPROBAR', diferido1d: +0 }
+
+- Expected
++ Received
+
+  {
+-   "diferido1d": 0,
+-   "estado": "COMPROBAR",
++   "diferido1d": 1,
++   "estado": "CONSOLIDADO",
+  }
+
+ ❯ audit/checks/B_sm2_local.test.ts:100:85
+     98|     s = scheduleReview(s, 2, d2);
+     99|     const log = [{ day: d2, deckId: 'x', cardId: 'y', grade: 2 as cons…
+    100|     expect({ estado: learningState(s), diferido1d: delayedRecall(log, …
+       |                                                                                     ^
+    101|   });
+    102|   it('viaje hacia el oeste (día local que retrocede) no produce interv…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/16]⎯
+
+ FAIL  audit/checks/B_sm2_local.test.ts > B6 · alumno que vuelve tras 60 días > las fichas que NO sabía reaparecen en ≤ 3 días (no quedan detrás de toda la deuda)
+AssertionError: expected 20 to be less than or equal to 3
+ ❯ audit/checks/B_sm2_local.test.ts:126:28
+    124|   it('las fichas que NO sabía reaparecen en ≤ 3 días (no quedan detrás…
+    125|     expect(firstFailedDay).toBeGreaterThanOrEqual(0);
+    126|     expect(firstFailedDay).toBeLessThanOrEqual(3);
+       |                            ^
+    127|   });
+    128|   it('la cola de vencidas se vacía (no es infinita)', () => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/16]⎯
+
+
+ Test Files  3 failed (3)
+      Tests  16 failed | 16 passed (32)
+   Start at  16:16:45
+   Duration  1.39s (transform 214ms, setup 0ms, collect 1.02s, tests 98ms, environment 1ms, prepare 152ms)
+

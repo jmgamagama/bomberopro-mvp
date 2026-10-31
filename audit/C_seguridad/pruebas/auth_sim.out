@@ -1,0 +1,43 @@
+BEGIN
+UPDATE 207
+              set_config              
+--------------------------------------
+ 11111111-1111-1111-1111-111111111111
+(1 row)
+
+SET
+                t                | count 
+---------------------------------+-------
+ concepts legibles con respuesta |   207
+(1 row)
+
+              t               | ?column? 
+------------------------------+----------
+ outline_tema6 trae respuesta | t
+(1 row)
+
+psql:audit/C_seguridad/pruebas/auth_sim.sql:8: ERROR:  permission denied for table concepts
+psql:audit/C_seguridad/pruebas/auth_sim.sql:9: ERROR:  permission denied for table concepts
+psql:audit/C_seguridad/pruebas/auth_sim.sql:10: ERROR:  permission denied for table concepts
+       t        | count 
+----------------+-------
+ concept_events |     0
+(1 row)
+
+psql:audit/C_seguridad/pruebas/auth_sim.sql:12: ERROR:  permission denied for table concept_events
+psql:audit/C_seguridad/pruebas/auth_sim.sql:13: ERROR:  permission denied for table user_concept_state
+            t             | count 
+--------------------------+-------
+ private_supuestos ajenos |     0
+(1 row)
+
+psql:audit/C_seguridad/pruebas/auth_sim.sql:15: ERROR:  permission denied for table private_supuestos
+psql:audit/C_seguridad/pruebas/auth_sim.sql:16: ERROR:  permission denied for table questions
+psql:audit/C_seguridad/pruebas/auth_sim.sql:17: ERROR:  permission denied for table attempts
+psql:audit/C_seguridad/pruebas/auth_sim.sql:18: ERROR:  permission denied for table funnel_events
+   t    | recalculate_questions_difficulty 
+--------+----------------------------------
+ recalc | 
+(1 row)
+
+ROLLBACK

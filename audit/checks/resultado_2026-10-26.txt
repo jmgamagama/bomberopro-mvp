@@ -1,0 +1,8 @@
+fichas=3402 test=637
+[FALLA] derogadas_sin_aviso: 1.0 (umbral 0) ej=[('CPEI-T29-OF-9EF929B4', 'R(?:eal )?D(?:ecreto)?\\.? ?407/1992', 'RD 524/2023 (Norma Básica de Protección Civil)')]
+[FALLA] test_sin_cita_o_fuente: 16.0 (umbral 0) ej=['Q-ART1-001-N1', 'Q-ART1-001-N2', 'Q-ART1-001-N3']
+[FALLA] fichas_sin_localizacion_numerica: 86.0 (umbral 0) ej=[('CPEI-T16-S04-6897FCDA30', 'alfabeto radiotelefónico'), ('CPEI-T16-S05-1E8A511BA6', 'alfabeto y códigos operativos'), ('CPEI-T16-S05-026BE7449D', 'alfabeto y códigos operativos')]
+[FALLA] tema_invalido_o_fuera_anexo: 16.0 (umbral 0) ej=[('Q-ART1-001-N1', '1 (prototipo art. 1 CE)'), ('Q-ART1-001-N2', '1 (prototipo art. 1 CE)'), ('Q-ART1-001-N3', '1 (prototipo art. 1 CE)')]
+[FALLA] test_opciones_distintas_de_3: 223.0 (umbral 0) ej=[('Q1', 2), ('Q4', 2), ('Q7', 2)]
+[OK ] test_cita_no_en_articulo_pct: 0.0% (umbral 2.0) ej=[]
+[FALLA] fuera_de_epigrafe: 184.0 (umbral 0) ej=[('CPEI-T36-S02-734D640EE3', 'código INE (tema 36 no lo incluye)'), ('CPEI-T36-S02-6090DF251C', 'código INE (tema 36 no lo incluye)'), ('CPEI-T36-S02-B08849E3E1', 'código INE (tema 36 no lo incluye)')]

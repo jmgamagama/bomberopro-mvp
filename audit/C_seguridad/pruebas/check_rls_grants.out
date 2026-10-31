@@ -1,0 +1,20 @@
+psql:audit/checks/C_seguridad/check_rls_grants.sql:38: ERROR:  check_rls_grants: 17 problemas
+SIN RLS: public.attempts
+SIN RLS: public.convocatorias
+SIN RLS: public.microconcepts
+SIN RLS: public.qa_changes_20260923
+SIN RLS: public.question_reports
+SIN RLS: public.questions
+SIN RLS: public.study_sessions
+SIN RLS: public.topics
+SIN RLS: public.user_question_state
+SIN RLS: public.users_app
+SECURITY DEFINER sin search_path: recalculate_questions_difficulty()
+SECURITY DEFINER sin search_path: trigger_update_single_question_difficulty()
+SECURITY DEFINER sin search_path: get_blueprint_exam_questions(double precision)
+SECURITY DEFINER sin search_path: get_random_exam_questions(integer)
+SECURITY DEFINER ejecutable por anon: recalculate_questions_difficulty()
+SECURITY DEFINER ejecutable por anon: trigger_update_single_question_difficulty()
+SECURITY DEFINER ejecutable por anon: get_blueprint_exam_questions(double precision)
+CONTEXT:  PL/pgSQL function inline_code_block line 27 at RAISE
+rc=3

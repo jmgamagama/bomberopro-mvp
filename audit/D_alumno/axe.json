@@ -1,0 +1,17 @@
+{
+  "bienvenida": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "n": 1,
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "ej": [
+        "#onboarding-opcion-todos > .min-w-0 > .block.break-words.leading-snug > .font-normal.text-slate-500"
+      ]
+    }
+  ],
+  "ficha": [],
+  "ficha_respuesta": [],
+  "dashboard": [],
+  "simulacro": []
+}

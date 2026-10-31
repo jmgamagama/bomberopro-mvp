@@ -1,0 +1,144 @@
+{
+  "perfil": "p2_repetidor",
+  "base": "http://localhost:4173",
+  "clicks": 38,
+  "pasos": [
+    "clic 1: Saltar bienvenida",
+    "clic 2: Por Temas",
+    "clic 3: Recuerdo",
+    "clic 4: Simulacro",
+    "clic 5: Comenzar Simulacro",
+    "clic 6: opción A pregunta 1",
+    "clic 7: confianza alta",
+    "clic 8: Siguiente/Finalizar",
+    "clic 9: opción A pregunta 2",
+    "clic 10: confianza alta",
+    "clic 11: Siguiente/Finalizar",
+    "clic 12: opción A pregunta 3",
+    "clic 13: confianza alta",
+    "clic 14: Siguiente/Finalizar",
+    "clic 15: opción A pregunta 4",
+    "clic 16: confianza alta",
+    "clic 17: Siguiente/Finalizar",
+    "clic 18: opción A pregunta 5",
+    "clic 19: confianza alta",
+    "clic 20: Siguiente/Finalizar",
+    "clic 21: opción A pregunta 6",
+    "clic 22: confianza alta",
+    "clic 23: Siguiente/Finalizar",
+    "clic 24: opción A pregunta 7",
+    "clic 25: confianza alta",
+    "clic 26: Siguiente/Finalizar",
+    "clic 27: opción A pregunta 8",
+    "clic 28: confianza alta",
+    "clic 29: Siguiente/Finalizar",
+    "clic 30: opción A pregunta 9",
+    "clic 31: confianza alta",
+    "clic 32: Siguiente/Finalizar",
+    "clic 33: opción A pregunta 10",
+    "clic 34: confianza alta",
+    "clic 35: Siguiente/Finalizar",
+    "clic 36: Errores Críticos",
+    "clic 37: Curva de Olvido",
+    "clic 38: Dashboard"
+  ],
+  "atascos": [
+    {
+      "desc": "Sin buscador de temas. Busco T25 (mercancías peligrosas) y T6 (PRL): T25=false, T6=false. Solo hay 8 temas: T10, T16, T17, T24, T35, T38, T39, T40.",
+      "captura": "p2_repetidor_01_sin_t25_ni_t6.png"
+    },
+    {
+      "desc": "«Por Temas» del menú principal lleva a un muro: «Esta función guarda tu progreso y requiere una cuenta», pero en modo demo no hay botón para crear cuenta: solo «Volver al inicio».",
+      "captura": "p2_repetidor_02_por_temas_muro.png"
+    },
+    {
+      "desc": "Simulacro anunciado «55 preguntas (50 + 5 reserva)», pero arranca «Pregunta 1 de 10» con cronómetro «Tiempo restante: 60:00»: 6 min/pregunta, no simula presión de examen.",
+      "captura": "p2_repetidor_04_simulacro_10_preguntas_60min.png"
+    },
+    {
+      "desc": "Ninguna de las 10 preguntas del simulacro muestra su fuente (BOE/artículo) mientras se responde.",
+      "captura": "p2_repetidor_07_simulacro_sin_fuente.png"
+    }
+  ],
+  "consola": [],
+  "echaDeMenos": [],
+  "capturas": [
+    "p2_repetidor_01_sin_t25_ni_t6.png",
+    "p2_repetidor_02_por_temas_muro.png",
+    "p2_repetidor_03_simulacro_q1.png",
+    "p2_repetidor_04_simulacro_10_preguntas_60min.png",
+    "p2_repetidor_05_simulacro_tras_q1.png",
+    "p2_repetidor_06_simulacro_resultado.png",
+    "p2_repetidor_07_simulacro_sin_fuente.png",
+    "p2_repetidor_08_errores_tras_fallar.png",
+    "p2_repetidor_09_curva_olvido.png",
+    "p2_repetidor_10_dashboard_tras_simulacro.png"
+  ],
+  "hayBuscador": false,
+  "temasEnBienvenida": [
+    "T10",
+    "T16",
+    "T17",
+    "T24",
+    "T35",
+    "T38",
+    "T39",
+    "T40"
+  ],
+  "hayT25": false,
+  "hayT6": false,
+  "menu": [
+    "Dashboard",
+    "Entrenamiento de Hoy",
+    "Errores Críticos",
+    "Curva de Olvido",
+    "Simulacro",
+    "Por Temas",
+    "Recuerdo",
+    "Sesión diaria"
+  ],
+  "porTemas": "Estudio por temas\n\nEsta función guarda tu progreso y requiere una cuenta. Crea una cuenta o inicia sesión para usarla.\n\nVolver al inicio",
+  "porTemasBotones": [
+    "Volver al inicio"
+  ],
+  "temasRecuerdo": [
+    "T1013",
+    "T1648",
+    "T1714",
+    "T2419",
+    "T35150",
+    "T38198",
+    "T39149",
+    "T40213"
+  ],
+  "reglasSimulacro": "Volver al inicio\nConsultar duda\nSimulador de Examen\n\nPon a prueba tu retención real en condiciones de examen ciego de oposición (Blueprint oficial).\n\nReglas del Simulacro:\n\nFórmula oficial: +0.200 por acierto y -0.066 por error.\nConsta de 55 preguntas (50 + 5 reserva).\nProporción oficial: 30% de preguntas de temas 35-40 garantizado.\nPreguntas en orden aleatorio, como en el examen.\nAl finalizar obtendrás un informe detallado con tu plan de estudio de sanea-errores.\nComenzar Simulacro",
+  "clicksPrimeraPregunta": 5,
+  "msPrimeraPregunta": 2327,
+  "nota": "Simulacro de muestra con 10 preguntas de ejemplo. El simulacro completo con el banco real requiere una cuenta.",
+  "total": "Pregunta 1 de 10",
+  "timer": "Tiempo restante: 60:00",
+  "preguntasSimulacro": [
+    "¿Es verdadero o falso que la soberanía nacional reside en las Cortes Generales como representantes legítimos?",
+    "Según el Artículo 1.1 de la Constitución, España se constituye en un:",
+    "Analice la frase: \"La soberanía reside en el Estado y de él emanan los poderes del pueblo\". ¿Es constitucionalmente correcta?",
+    "¿Qué adjetivos definen exactamente al Estado español en el primer párrafo del Artículo 1 de la Constitución?",
+    "Si afirmamos que \"del pueblo español emanan los poderes del Estado\", ¿qué principio fundamental consagrado en el Artículo 1.2 sustenta directamente esta afirmación?",
+    "Complete textualmente según el Artículo 1.2: \"La soberanía nacional reside en ________, del que emanan los poderes del Estado.\"",
+    "En un examen de oposición, un enunciado indica que la forma de gobierno es una \"Monarquía representativa y demócrata\". Según la precisión literal de la Constitución, este enunciado es:",
+    "¿Qué emana directamente del pueblo español según el Artículo 1.2 de la Constitución?",
+    "Según la Constitución Española, ¿de dónde emanan los poderes del Estado?",
+    "Completa la fórmula del Artículo 1.1: \"España se constituye en un Estado ________ y democrático de ________.\""
+  ],
+  "preguntasConFuenteVisible": 0,
+  "resultado": "Volver al inicio\nConsultar duda\nSimulacro terminado\n\nTu resultado y qué repasar ahora.\n\nNota 0.404 de 2. Acierto 40 por ciento. Tiempo medio 1 segundos.\n\nNOTA\n0.404 / 2\nEquivale a 2.0 sobre 10\n✗ SUSPENSO\nACIERTOS / FALLOS / BLANCOS\n4\n/\n6\n/\n0\nTIEMPO MEDIO\n1s\nTEMAS 1-34\n4 \n6 \n0 -\nTEMAS 35-40\n0 \n0 \n0 -\nFallos con mucha seguridad (3)\n\nCometiste fallos en preguntas que marcaste con alta confianza. Estos son los errores más peligrosos de la oposición:\n\nMC-ART1-003: \"La soberanía nacional reside en el pueblo español.\"\nMC-ART1-001: \"España se constituye en un Estado social y democrático de Derecho.\"\nMC-ART1-004: \"Del pueblo español emanan los poderes del Estado.\"\nQué repasar ahora\n\nDedica tus próximas 2 sesiones a estos conceptos que has fallado:\n\nMC-ART1-003 (Art. 1.2)\nMC-ART1-001 (Art. 1.1)\nMC-ART1-004 (Art. 1.2)\nRepetir Simulacro\nVolver al inicio",
+  "resultadoBotones": [
+    "Volver al inicio",
+    "Consultar duda",
+    "Repetir Simulacro",
+    "Volver al inicio"
+  ],
+  "errores": "Saneamiento de Errores Críticos\n\nDetector cognitivo de brechas de memoria y falsos dominios. Ataca estos puntos prioritariamente.\n\nFALSOS DOMINIOS DETECTADOS (3)\nPRIORIDAD MÁXIMA\nMC-ART1-001\nFALSO DOMINIO\n\nMicroconcepto\nEspaña se constituye en un Estado social y democrático de Derecho.\n\nDiagnóstico de Oposición: Creías que dominabas este punto (marcaste confianza Alta) pero cometiste un error en la pregunta literal. Es sumamente peligroso para el examen.\n\nDominio Real: 0%\nReentrenar Error\nMC-ART1-003\nFALSO DOMINIO\n\nMicroconcepto\nLa soberanía nacional reside en el pueblo español.\n\nDiagnóstico de Oposición: Creías que dominabas este punto (marcaste confianza Alta) pero cometiste un error en la pregunta literal. Es sumamente peligroso para el examen.\n\nDominio Real: 0%\nReentrenar Error\nMC-ART1",
+  "curva": "Gráfico de Retención & Curva del Olvido\n\nVisualización científica del desgaste de memoria conforme pasa el tiempo.\n\nSimulado: 26/10/2026\n\n¿Cómo funciona la curva del olvido?\n\nLa recuperabilidad de memoria ($R$) decae de forma exponencial según la fórmula científica de Ebbinghaus:R = e ^ (-t / S)donde t es el tiempo transcurrido desde el último repaso y S es la estabilidad de tu memoria. A mayor número de revisiones correctas, tu estabilidad (S) aumenta y la pendiente de caída se vuelve más plana.\n\nSimulador Matemático de Ebbinghaus (0 a 30 Días)\n\nHaz clic en los nodos de colores para auditar cada microconcepto en la gráfica.\n\nReferencia (S):\n1D (Nuevo)\n7D (Estable)\n15D (Dominado)\n25%\n50%\n75%\n100%\nHoy\n5D\n10D\n15D\n20D\n25D\n30D\nTIEMPO SIMULADO DESDE ÚLTIMO REPASO (DÍAS)\n001\n002\n003\n004\n005\n💡 C",
+  "dashboard": "Dashboard de BomberoPro\nEmpezar a estudiar\nTienes 1 pregunta para repasar hoy.\nEmpezar\nHacer simulacro\nComo el examen: 55 preguntas, 60 min.\nRepasar errores\nLo que has fallado.\nDinamizador de Rachas\n\nConstancia de estudio\n\nCADETE EN FORMACIÓN\nRacha de Estudio\n1\ndías\nMeta de Hoy\n10\n/ 5\nProgreso diario:\n100%\n\n¡Fabuloso! Meta diaria completada para este día de estudio.\n\nAutocalibración & Sesgo\n\nPrecisión de tu seguridad declarada\n\n10 INTENTOS\nDiagnóstico Cognitivo:\n⚠️ Sesgo de Sobreconfianza\n40%\n\n¡Atención! Declaras alta confianza en respuestas incorrectas. Revisa tus falsos dominios con urgencia.\n\nVelocidad Media:\n1.0s\nÍndice Inseguridad:\n0%\n¿Dudas en tu preparación?\nAYUDA AL ALUMNO\n\nEl equipo revisa consultas sobre temario, simulacros, curva de repaso y pruebas físicas.\n\nConsultar al equipo",
+  "hayEstadisticas": true
+}

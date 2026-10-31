@@ -1,0 +1,80 @@
+BEGIN
+SET
+ current_user 
+--------------
+ anon
+(1 row)
+
+psql:audit/C_seguridad/pruebas/anon_sim.sql:6: ERROR:  permission denied for table questions
+psql:audit/C_seguridad/pruebas/anon_sim.sql:7: ERROR:  permission denied for table attempts
+psql:audit/C_seguridad/pruebas/anon_sim.sql:8: ERROR:  permission denied for table users_app
+psql:audit/C_seguridad/pruebas/anon_sim.sql:9: ERROR:  permission denied for table concepts
+psql:audit/C_seguridad/pruebas/anon_sim.sql:10: ERROR:  permission denied for table funnel_events
+psql:audit/C_seguridad/pruebas/anon_sim.sql:11: ERROR:  permission denied for table funnel_events
+psql:audit/C_seguridad/pruebas/anon_sim.sql:12: ERROR:  permission denied for table concepts
+psql:audit/C_seguridad/pruebas/anon_sim.sql:13: ERROR:  permission denied for table private_supuestos
+    t    | left 
+---------+------
+ outline | []
+(1 row)
+
+psql:audit/C_seguridad/pruebas/anon_sim.sql:15: ERROR:  operator does not exist: text ->> unknown
+LINE 3:     WHERE (q.tema->>'numero')::int < 35 OR q.tema IS NULL
+                         ^
+HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.
+QUERY:  WITH general_questions AS (
+    SELECT q.* FROM questions q
+    WHERE (q.tema->>'numero')::int < 35 OR q.tema IS NULL
+    ORDER BY random()
+    LIMIT 38
+  ),
+  specific_questions AS (
+    SELECT q.* FROM questions q
+    WHERE (q.tema->>'numero')::int >= 35
+    ORDER BY random()
+    LIMIT 17
+  )
+  SELECT 
+    f.id,
+    f.pregunta,
+    f.opciones,
+    f.respuesta_correcta,
+    f.explicacion,
+    f.microconcept_id,
+    f.nivel,
+    f.tema
+  FROM (
+    SELECT * FROM general_questions
+    UNION ALL
+    SELECT * FROM specific_questions
+  ) f
+  ORDER BY random()
+CONTEXT:  PL/pgSQL function get_blueprint_exam_questions(double precision) line 6 at RETURN QUERY
+   t    | recalculate_questions_difficulty 
+--------+----------------------------------
+ recalc | 
+(1 row)
+
+psql:audit/C_seguridad/pruebas/anon_sim.sql:17: ERROR:  permission denied for function get_random_exam_questions
+      t      | count 
+-------------+-------
+ funnel_5000 |  5000
+(1 row)
+
+        t        | count 
+-----------------+-------
+ funnel_mismo_id |   100
+(1 row)
+
+RESET
+                t                | count 
+---------------------------------+-------
+ filas_funnel_tras_llamadas_anon |  5060
+(1 row)
+
+          t           | count 
+----------------------+-------
+ filas_funnel_id_fijo |    60
+(1 row)
+
+ROLLBACK

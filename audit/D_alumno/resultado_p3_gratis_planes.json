@@ -1,0 +1,119 @@
+{
+  "perfil": "p3_gratis_planes",
+  "base": "http://localhost:4174",
+  "clicks": 28,
+  "pasos": [
+    "clic 1: Empezar sesión diaria",
+    "clic 2: Mostrar respuesta",
+    "clic 3: La sabía",
+    "clic 4: Mostrar respuesta",
+    "clic 5: La sabía",
+    "clic 6: Mostrar respuesta",
+    "clic 7: La sabía",
+    "clic 8: Mostrar respuesta",
+    "clic 9: La sabía",
+    "clic 10: Mostrar respuesta",
+    "clic 11: La sabía",
+    "clic 12: Mostrar respuesta",
+    "clic 13: La sabía",
+    "clic 14: Mostrar respuesta",
+    "clic 15: La sabía",
+    "clic 16: Mostrar respuesta",
+    "clic 17: La sabía",
+    "clic 18: Mostrar respuesta",
+    "clic 19: La sabía",
+    "clic 20: Mostrar respuesta",
+    "clic 21: La sabía",
+    "clic 22: Volver al inicio",
+    "clic 23: Empezar otra vez",
+    "clic 24: Simulacro",
+    "clic 25: Temas",
+    "clic 26: Más",
+    "clic 27: Planes",
+    "clic 28: Salir (cabecera)"
+  ],
+  "atascos": [
+    {
+      "desc": "Con planes, T35 aparece deshabilitado (gris, opacity 60 %) en la bienvenida; texto: «T35 · Red de carreteras de Extremadura (provincia de Badajoz) · 150 fichas · Pro». Al tocarlo no pasa nada.",
+      "captura": "p3_gratis_planes_02_t35_bloqueado.png"
+    },
+    {
+      "desc": "Plan gratis «10 fichas al día» agotado, pero «Empezar a estudiar» abre otra sesión: «Pregunta 1 de 15» con preguntas de Constitución (fuera del «solo tema 40» del plan gratis). El límite es decorativo y el contador de la portada dice «5 preguntas».",
+      "captura": "p3_gratis_planes_06_limite_gratis_decorativo.png"
+    },
+    {
+      "desc": "Muro sin salida: «Estudio por temas Esta función guarda tu progreso y requiere una cuenta. Crea una cuenta o inicia sesión para usarla. Volver al inicio» y el único botón es [\"Volver al inicio\"]. No hay forma de crear la cuenta que pide.",
+      "captura": "p3_gratis_planes_08_muro_sin_registro.png"
+    }
+  ],
+  "consola": [],
+  "echaDeMenos": [],
+  "capturas": [
+    "p3_gratis_planes_01_inicio.png",
+    "p3_gratis_planes_02_t35_bloqueado.png",
+    "p3_gratis_planes_03_primera_ficha.png",
+    "p3_gratis_planes_04_fin_sesion.png",
+    "p3_gratis_planes_05_segunda_sesion.png",
+    "p3_gratis_planes_06_limite_gratis_decorativo.png",
+    "p3_gratis_planes_07_temas_muro.png",
+    "p3_gratis_planes_08_muro_sin_registro.png",
+    "p3_gratis_planes_09_planes.png",
+    "p3_gratis_planes_10_tras_salir.png"
+  ],
+  "planes": true,
+  "textoInicio": "Saltar al contenido principal\n\nPantalla actual: Bienvenida\n\nBomberoPro\nSalir\n\nBienvenida\n\nPrepara tu oposición a Conductor/a Bombero/a del CPEI Badajoz\nSaltar\n\nConvocatoria CPEI Badajoz 2026 · 38 plazas\n\nConductor/a Bombero/a: 38 plazas (9 OEP 2024 + 29 OEP 2026).\nBases en el BOP de Badajoz nº 135, de 17/07/2026, anuncio 2843/2026.\nEl 30 % de las preguntas del test versa sobre los temas 35 a 40. Fuente: Bases, primera prueba (BOP nº 135, 17/07/2026).\nFecha de examen: aún sin publicar.\n¿Qué quieres repasar primero?\nTodos los temas · 804 fichas\n\nPARTE ESPECÍFICA · 8 TEMAS\n\nT10 · El agua: abastecimiento, hidrantes, BIE, mangueras y lanzas · 13 fichas · Pro\nT16 · El código ICAO (alfabeto radiotelefónico) y códigos Q de la UIT · 48 fichas · Pro\nT17 · Socorrismo: desfibriladores fuera del ámbito sanitario (RD 365/2009) · 14 fichas · Pro\nT24 · Marco legal: RD 630/2013, Catálogo español de especies exóticas invasoras · 19 fichas · Pro\nT35 · Red de carreteras de Extremadura (provincia de Badajoz) · 150 fichas · Pro\nT38 · ITF CPEI: horario, vestuario/EPIs, limpieza y gestión de EPIs colectivos · 198 fichas · Pro\nT39 · Protocolo de movilización CPEI + SOS operativo + SOS personal · 149 fichas · Pro\nT40 · Procedimientos de trabajo CPEI-Badajoz · 213 fichas\n\nTiempo al día\n\n10 fichas\n10 min\n20 min\n30 min\n\nSesión de siempre: hasta 10 fichas.\n\nFecha prevista de tu examen (opcional)\n\nLa pones tú: la fecha oficial del examen aún no se ha publicado.\n\nSi quieres, pon la fecha que esperas para tu examen y te diremos a qué ritmo ir. La fecha oficial aún no se ha publicado.\n\nEmpezar sesión diaria\n\nPuedes cambiar el tema, el tiempo y la fecha más tarde desde la Sesión diaria.\n\nBomberoPro — Oposición CPEI Badajoz\n\nBasado en Microconceptos, Interrogación activa, Repetición espaciada y Aseguramiento del dominio real.",
+  "mencion20Tests": false,
+  "pideEmail": 0,
+  "temasOfrecidos": [
+    "T10",
+    "T16",
+    "T17",
+    "T24",
+    "T35",
+    "T38",
+    "T39",
+    "T40"
+  ],
+  "t35Deshabilitado": true,
+  "t35Etiqueta": "T35 · Red de carreteras de Extremadura (provincia de Badajoz) · 150 fichas · Pro",
+  "clicksPrimeraPregunta": 1,
+  "msPrimeraPregunta": 1572,
+  "contador": "Recuerdo · 1 / 10",
+  "temaPrimeraFicha": "T40",
+  "temasFichas": [
+    "T40",
+    "T40",
+    "T40",
+    "T40",
+    "T40",
+    "T40",
+    "T40",
+    "T40",
+    "T40",
+    "?"
+  ],
+  "fichasSesion": 10,
+  "resumenTemas": {
+    "T40": 9,
+    "?": 1
+  },
+  "finSesion": "El progreso de estas fichas se guarda solo en este navegador; todavía no se sincroniza con tus otros dispositivos.\n\nSesión completada\n\nHas repasado 10 fichas de recuerdo.\n\nLa sabías: 10 · Dudosas: 0 · No la sabías: 0\n\nRACHA\n\n1\n\ndías seguidos\n\nVer tu progreso\nProbar «Ordena los pasos»\nVolver al inicio",
+  "finBotones": [
+    "Ver tu progreso",
+    "Probar «Ordena los pasos»",
+    "Volver al inicio"
+  ],
+  "botonInicio2": "Empezar a estudiarTienes 5 preguntas para repasar hoy. Empezar",
+  "segundaSesion": "Volver al inicio\n⏰ Próximo repaso vencido (Repetición espaciada)\nConsultar duda\nPregunta 1 de 15\nSesión de hoy\nDificultad 1 de 3\nSegún el Artículo 1.1 de la Constitución, España se constituye en un:\nEstado social y democrático de Derecho\nEstado democrático y social de Derecho\nEstado social, de derecho y democrático\nEstado de Derecho constitucional y social\n\nElige una respuesta y después tu segurid",
+  "puedeSeguir": 0,
+  "simulacroNota": "Volver al inicio\nConsultar duda\nSimulador de Examen\n\nPon a prueba tu retención real en condiciones de examen ciego de oposición (Blueprint oficial).\n\nReglas del Simulacro:\n\nFórmula oficial: +0.200 por",
+  "temasTexto": "Estudio por temas\n\nEsta función guarda tu progreso y requiere una cuenta. Crea una cuenta o inicia sesión para usarla.\n\nVolver al inicio",
+  "temasBotones": [
+    "Volver al inicio"
+  ],
+  "hayPlanes": 1,
+  "planesTexto": "Planes\n\nElige cómo preparar tu oposición\nVolver\nGratis\nTu plan\nRecuerdo del tema 40 (Procedimientos de trabajo CPEI-Badajoz)\nSesión diaria de 10 fichas al día\nFuente oficial visible en cada ficha\nFunciona sin conexión\nPro\nPróximamente\n\nPrecio de lanzamiento próximamente\n\nTodos los temas: 10 (lote 02), 16, 17, 24, 35, 38, 39 y 40\nSesión diaria completa de 30 fichas\nTema prioritario en la sesión diaria\nEstadísticas de progreso\nAvísame cuando esté disponible",
+  "trasSalir": "Saltar al contenido principal\n\nPantalla actual: Planes\n\nBomberoPro\nRepasar (5)\nSalir\n\nPlanes\n\nElige cómo preparar tu oposición\nVolver\nGratis\nTu plan\nRecuerdo del tema 40 (Procedimientos de trabajo CPEI-Badajoz)\nSesión diaria de 10 fichas al día\nFuente oficial visible en cada ficha\nFunciona sin conexión\nPro\nPróximamente\n\nPrecio de lanzamiento próximamente\n\nTodos los temas: 10 (lote 02), 16, 17, 24, 35, 38, 39 y 40\nSesión diaria completa de 30 fichas\nTema prioritario en la sesión diaria\nEstadísticas de progreso\nAvísame cuando esté disponible\nInicio\nEstudiar\nTemas\nSimulacro\nMás\n\nBomberoPro — Opos",
+  "pideEmailTrasSalir": 0,
+  "mencion20TestsEnCualquierPantalla": false
+}

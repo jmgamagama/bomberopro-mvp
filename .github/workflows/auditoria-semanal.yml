@@ -1,0 +1,59 @@
+name: Auditoría semanal
+
+on:
+  schedule:
+    - cron: '0 6 * * 1' # lunes 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Checks de la auditoría
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci
+
+      # --- Bloqueantes: fallan si se supera un umbral ---
+      - name: Typecheck
+        run: npm run lint
+      - name: Auditoría de fichas
+        run: npm run auditar:fichas
+      - name: Contenido (A)
+        run: python3 audit/checks/check_contenido.py
+      - name: SM-2 local y posición de la correcta (B)
+        run: npx vitest run audit/checks/B_sm2_local.test.ts audit/checks/B_banco_posicion.test.ts --configLoader runner
+      - name: Build
+        run: npm run build
+      - name: Bundle sin fichas pendientes ni secretos (C1)
+        run: bash audit/checks/C_seguridad/check_dist.sh
+
+      # --- No bloqueantes: necesitan Postgres con el esquema completo o el preview ---
+      - name: Escalera FSRS (B, Postgres)
+        # continue-on-error: requiere Postgres con las tablas base, que no están en el repo (C3/C6); en CI se salta o falla por el entorno.
+        continue-on-error: true
+        run: npx vitest run audit/checks/B_escalera_fsrs.test.ts --configLoader runner
+      - name: RLS y grants (C, Postgres)
+        # continue-on-error: requiere el esquema montado (local o rol de solo lectura en producción); no reproducible desde cero (C6).
+        continue-on-error: true
+        run: |
+          sudo systemctl start postgresql || true
+          psql -h localhost -U postgres -v ON_ERROR_STOP=1 -f audit/checks/C_seguridad/check_rls_grants.sql
+      - name: Recorridos de alumno y axe (D, preview)
+        # continue-on-error: depende del preview, de Playwright y de tiempos de red (frágil en CI).
+        continue-on-error: true
+        run: |
+          npm i --no-save playwright @axe-core/playwright
+          npx playwright install --with-deps chromium
+          (npx vite preview --port 4173 &) ; sleep 5
+          NODE_PATH=$PWD/node_modules MAX_CLICKS=3 BASE=http://localhost:4173 BASE_PLANES=http://localhost:4173 bash audit/checks/D_alumno/run_all.sh

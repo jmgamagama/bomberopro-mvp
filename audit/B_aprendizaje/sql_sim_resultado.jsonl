@@ -1,0 +1,8 @@
+{"k" : "S0_borrador", "v" : {"items_sesion": 0, "conceptos_publicados": 0, "preguntas_publicadas": 0}}
+{"k" : "S1_falla_todo_30d", "v" : {"eventos": 927, "estab_max": 0.14390531, "estab_min": 0.1438826, "nivel_max": 1, "nuevos_por_dia": [10, 7, 5, 3, 2, 2, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "conceptos_tocados": 32, "dias_sin_nuevos_al_final": 20}}
+{"k" : "S2_acierta_todo_365d", "v" : {"conceptos": 24, "estab_max": 455.3417, "nivel_max": 3, "nivel_min": 3, "intervalo_max_dias": 455.0, "primer_intervalo_test_nota4": 14.0}}
+{"k" : "S3_falla_N1", "v" : {"step_qid": 2, "step_nivel": 2, "nivel_tras_fallo": 1}}
+{"k" : "S4_techo_y_acierto_bajo", "v" : {"nivel_tras_acertar_N3": 3, "nivel_tras_acertar_N1_estando_en_3": 2}}
+{"k" : "S5_lo_se_y_falla", "v" : {"formato": "test", "calibracion": {"seguro_tests": 1, "seguro_fallados": 1, "tarjeta_si_falladas": 1, "tarjeta_si_verificadas": 1}, "motivo_a_las_21h": "VERIFICAR", "nivel_tras_fallo": 1, "verificar_pendiente": true, "dias_hasta_vencer_tras_si": 4.00}}
+{"k" : "S6_vuelve_60d", "v" : {"nuevos_por_dia": [0, 0, 0, 0, 5, 10, 10, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "vencidos_por_dia": [153, 119, 85, 51, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 10, 10, 5, 0, 0, 0, 0, 0, 0, 0], "intervalo_tras_acierto_tardio": 217.0}}
+{"k" : "S7_medianoche", "v" : {"s_antes": 3.7145, "s_despues": 3.7145, "dias_hasta_vencer": 4.00}}

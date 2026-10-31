@@ -1,0 +1,34 @@
+{
+  "perfil": "axe",
+  "base": "http://localhost:4173",
+  "clicks": 0,
+  "pasos": [],
+  "atascos": [],
+  "consola": [],
+  "echaDeMenos": [],
+  "capturas": [
+    "axe_01_axe_bienvenida.png",
+    "axe_02_axe_ficha.png",
+    "axe_03_axe_ficha_respuesta.png",
+    "axe_04_axe_dashboard.png",
+    "axe_05_axe_simulacro.png"
+  ],
+  "axe": {
+    "bienvenida": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "n": 1,
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "ej": [
+          "#onboarding-opcion-todos > .min-w-0 > .block.break-words.leading-snug > .font-normal.text-slate-500"
+        ]
+      }
+    ],
+    "ficha": [],
+    "ficha_respuesta": [],
+    "dashboard": [],
+    "simulacro": []
+  },
+  "clicksPrimeraPregunta": 1
+}
