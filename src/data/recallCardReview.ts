@@ -5,9 +5,13 @@
  *  - Tema 39 pide el «Manual software de navegación S.O.S. Profesional»: el SOS «Módulo de personal»
  *    (calendario, tareas, guardias, sesión) no es navegación.
  * El alumno no las ve (se filtran al cargar el mazo); el propietario o el admin de revisión sí.
+ * También se retiran fichas sin fuente oficial verificable (auditoría de localizaciones, 31/10/2026):
+ *  - Tema 35: prefijo BA de las provinciales y «carreteras estatales que estructuran Badajoz»; no constan
+ *    en el Decreto 98/2008 ni en la Ley 37/2015 (anexo II no asigna provincias ni «principales»).
  * Dudosas (se mantienen, a decidir por JM): audit/fuera-de-epigrafe-dudosas.md.
  */
 export const OUT_OF_SYLLABUS_CARDS: Readonly<Record<string, readonly string[]>> = {
+  'tema35': ['CPEI-T35-S01-D003AEE18E', 'CPEI-T35-S01-400B30628A'],
   'tema36-lote01': [
     'CPEI-T36-S02-734D640EE3', 'CPEI-T36-S02-6090DF251C', 'CPEI-T36-S02-B08849E3E1', 'CPEI-T36-S02-9A8D6DB432',
     'CPEI-T36-S02-64ABC67D70', 'CPEI-T36-S02-7C73BF41ED', 'CPEI-T36-S02-0037BF95E9', 'CPEI-T36-S02-71A23AB595',

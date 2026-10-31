@@ -68,8 +68,8 @@ export const TEMA35_RECALL_CARDS: Tema35RecallCard[] = [
     "orden": 60,
     "concepto": "¿Qué administración es titular de A y N de la Red de Carreteras del Estado?",
     "respuesta": "La Administración General del Estado, a través del ministerio competente en carreteras.",
-    "fuente": "Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura",
-    "localizacion": "SIN VERIFICAR: no consta en el Decreto 98/2008 (DOE n.º 103); fuente pendiente",
+    "fuente": "Ley 37/2015, de 29 de septiembre, de carreteras (BOE-A-2015-10439)",
+    "localizacion": "art. 4.1 y anexo II (Catálogo de la Red de Carreteras del Estado)",
     "apartado": "Conceptos rectores"
   },
   {

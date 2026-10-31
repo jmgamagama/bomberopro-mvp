@@ -358,9 +358,9 @@
      "nivel": 3,
      "enunciado": "¿Cuál de estas afirmaciones sobre el art. 34.3.a) LPRL es correcta?",
      "opciones": [
-      "La adaptación nunca puede afectar a las competencias de los Delegados de Prevención.",
-      "La adaptación puede reducir las garantías de los Delegados si la estructura es dispersa.",
-      "La adaptación puede suprimir los Comités de Seguridad y Salud cuando convenga."
+      "La adaptación de las normas de consulta y participación de la LPRL a la Administración General del Estado nunca puede afectar a las competencias de los Delegados de Prevención.",
+      "La adaptación de las normas de consulta y participación de la LPRL a la Administración General del Estado puede reducir las garantías de los Delegados si la estructura es dispersa.",
+      "La adaptación de las normas de consulta y participación de la LPRL a la Administración General del Estado puede suprimir los Comités de Seguridad y Salud cuando convenga."
      ],
      "correcta": 0,
      "cita": "En ningún caso dicha adaptación podrá afectar a las competencias, facultades y garantías",
@@ -1272,9 +1272,9 @@
      "nivel": 3,
      "enunciado": "¿Cuál de estas afirmaciones sobre el art. 37.1, párrafo 2, LPRL es correcta?",
      "opciones": [
-      "Ese tiempo se imputa, en general, al crédito de horas mensuales retribuidas.",
-      "Ese tiempo nunca se imputa al crédito de horas mensuales retribuidas.",
-      "Ese tiempo se imputa a las vacaciones anuales retribuidas del Delegado."
+      "El tiempo que los Delegados de Prevención dedican a sus funciones se imputa, en general, al crédito de horas mensuales retribuidas.",
+      "El tiempo que los Delegados de Prevención dedican a sus funciones nunca se imputa al crédito de horas mensuales retribuidas.",
+      "El tiempo que los Delegados de Prevención dedican a sus funciones se imputa a las vacaciones anuales retribuidas del Delegado."
      ],
      "correcta": 0,
      "cita": "será considerado como de ejercicio de funciones de representación a efectos de la utilización del crédito de horas mensuales retribuidas",

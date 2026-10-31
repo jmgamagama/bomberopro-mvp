@@ -67,7 +67,7 @@ export const INITIAL_MICROCONCEPTS: Microconcept[] = [
   {
     id: "CPEI-T35-S01-D067024BDE",
     topic_id: 'T35',
-    article: "preámbulo/anexo",
+    article: "Decreto 98/2008, anexo",
     text: "¿Qué tres categorías ordinarias emplea el catálogo? Red básica, red intercomarcal y red local.",
     explanation: "Ficha revisada del tema 35. Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — anexo, columna «Categoría»: básica, intercomarcal y local, además de autovía autonómica (DOE n.º 103, 29/05/2008, pp. 14496-14500).",
     difficulty: 'media',
@@ -75,11 +75,11 @@ export const INITIAL_MICROCONCEPTS: Microconcept[] = [
     type: 'dato literal'
   },
   {
-    id: "CPEI-T35-S01-D003AEE18E",
+    id: "CPEI-T35-S01-57F9BFBC83",
     topic_id: 'T35',
-    article: "preámbulo/anexo",
-    text: "¿Qué prefijo identifica las carreteras provinciales de Badajoz? BA.",
-    explanation: "Ficha revisada del tema 35. Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — anexo, columna «Categoría»: básica, intercomarcal y local, además de autovía autonómica (DOE n.º 103, 29/05/2008, pp. 14496-14500).",
+    article: "Ley 37/2015, art. 4.1",
+    text: "¿Qué administración es titular de A y N de la Red de Carreteras del Estado? La Administración General del Estado, a través del ministerio competente en carreteras.",
+    explanation: "Ficha revisada del tema 35. Fuente: Ley 37/2015, de 29 de septiembre, de carreteras (BOE-A-2015-10439) — art. 4.1 y anexo II (Catálogo de la Red de Carreteras del Estado).",
     difficulty: 'media',
     confusion_risk: 'medio',
     type: 'dato literal'
@@ -248,17 +248,17 @@ export const INITIAL_QUESTIONS: Question[] = [
     fuente: "Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — anexo, columna «Categoría»: básica, intercomarcal y local, además de autovía autonómica (DOE n.º 103, 29/05/2008, pp. 14496-14500)",
     tema: { numero: 35, titulo: "Red de carreteras de Extremadura (provincia de Badajoz)" }
   },
-  // Tema 35 · ficha CPEI-T35-S01-D003AEE18E (revisada)
+  // Tema 35 · ficha CPEI-T35-S01-57F9BFBC83 (revisada)
   {
-    id: "Q-CPEI-T35-S01-D003AEE18E",
-    microconcept_id: "CPEI-T35-S01-D003AEE18E",
+    id: "Q-CPEI-T35-S01-57F9BFBC83",
+    microconcept_id: "CPEI-T35-S01-57F9BFBC83",
     level: 'N1',
     type: 'test_literal',
-    question: "¿Qué prefijo identifica las carreteras provinciales de Badajoz?",
-    options: ["EX", "CC", "BA"],
-    correct_answer: "BA",
-    explanation: "Ficha: «BA.» Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — anexo, columna «Categoría»: básica, intercomarcal y local, además de autovía autonómica (DOE n.º 103, 29/05/2008, pp. 14496-14500).",
-    fuente: "Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — anexo, columna «Categoría»: básica, intercomarcal y local, además de autovía autonómica (DOE n.º 103, 29/05/2008, pp. 14496-14500)",
+    question: "¿Qué administración es titular de las carreteras A y N de la Red de Carreteras del Estado?",
+    options: ["La Junta de Extremadura, a través de su consejería competente en materia de carreteras.", "La Administración General del Estado, a través del ministerio competente en carreteras.", "Las Diputaciones Provinciales, a través de sus servicios provinciales de vías y obras."],
+    correct_answer: "La Administración General del Estado, a través del ministerio competente en carreteras.",
+    explanation: "Ficha: «La Administración General del Estado, a través del ministerio competente en carreteras.» Fuente: Ley 37/2015, de 29 de septiembre, de carreteras (BOE-A-2015-10439) — art. 4.1 y anexo II (Catálogo de la Red de Carreteras del Estado).",
+    fuente: "Ley 37/2015, de 29 de septiembre, de carreteras (BOE-A-2015-10439) — art. 4.1 y anexo II (Catálogo de la Red de Carreteras del Estado)",
     tema: { numero: 35, titulo: "Red de carreteras de Extremadura (provincia de Badajoz)" }
   },
   // Tema 35 · ficha CPEI-T35-S03-99DDF8B8E0 (revisada)

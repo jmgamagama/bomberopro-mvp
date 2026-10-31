@@ -51,7 +51,7 @@ def main():
         txt=' '.join([f['concepto'],f['respuesta'],f['fuente'],f['localizacion']])
         for p,sus in DEROGADAS.items():
             if re.search(p,txt,re.I) and not AVISO.search(txt): R['derogadas_sin_aviso'].append((f['id'],p,sus))
-        if not re.search(r'\d',f['localizacion']): R['fichas_sin_localizacion_numerica'].append((f['id'],f['localizacion']))
+        if (not re.search(r'\d',f['localizacion'])) or 'SIN VERIFICAR' in f['localizacion'].upper(): R['fichas_sin_localizacion_numerica'].append((f['id'],f['localizacion']))
         if f['_tema'] not in TEMAS_ANEXO: R['tema_invalido_o_fuera_anexo'].append((f['id'],f['_tema']))
         for lab,fn in FUERA_EPIGRAFE:
             if fn(f) and f['id'] not in RETIRADAS: R['fuera_de_epigrafe'].append((f['id'],lab))
