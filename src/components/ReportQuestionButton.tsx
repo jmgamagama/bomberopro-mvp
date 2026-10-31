@@ -71,14 +71,19 @@ export default function ReportQuestionButton({ questionId, onReported, className
     setSent(choice);
     setState('sending');
     const nota = note.trim() || null;
-    const { data, error } = isFeedback(choice)
-      ? await supabase!.rpc('send_question_feedback', { p_question_id: numericId, p_tipo: choice, p_nota: nota })
-      : await supabase!.rpc('report_question', { p_question_id: numericId, p_categoria: choice, p_nota: nota });
-    if (error || (data as any)?.status !== 'received') {
+    try {
+      const { data, error } = isFeedback(choice)
+        ? await supabase!.rpc('send_question_feedback', { p_question_id: numericId, p_tipo: choice, p_nota: nota })
+        : await supabase!.rpc('report_question', { p_question_id: numericId, p_categoria: choice, p_nota: nota });
+      if (error || (data as any)?.status !== 'received') {
+        setState('error');
+        return;
+      }
+      setState('done');
+    } catch {
+      // Network failures can reject the promise instead of returning a Supabase error result.
       setState('error');
-      return;
     }
-    setState('done');
   };
 
   const finish = () => {
