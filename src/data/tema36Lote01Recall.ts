@@ -591,8 +591,8 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "orden": 3490,
     "concepto": "¿Dónde se localiza Zújar?",
     "respuesta": "río Zújar; entorno de Castuera/Esparragosa de Lares.",
-    "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
+    "fuente": "CEDEX, Anuario de Aforos 2021-2022, embalses de la C.H. Guadiana (ceh.cedex.es)",
+    "localizacion": "embalse 4006 ZÚJAR: corriente río Zújar; municipio Esparragosa de Lares",
     "apartado": "Zújar"
   },
   {
@@ -600,8 +600,8 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "orden": 3500,
     "concepto": "¿Dónde se localiza Orellana?",
     "respuesta": "río Guadiana; Vegas Altas–Orellana.",
-    "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
+    "fuente": "CEDEX, Anuario de Aforos 2021-2022, embalses de la C.H. Guadiana (ceh.cedex.es)",
+    "localizacion": "embalse 4004 ORELLANA: corriente río Guadiana; municipio Orellana la Vieja",
     "apartado": "Orellana"
   },
   {
@@ -618,8 +618,8 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "orden": 3520,
     "concepto": "¿Dónde se localiza García de Sola / Puerto Peña?",
     "respuesta": "río Guadiana; Talarrubias–Herrera del Duque.",
-    "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
+    "fuente": "CEDEX, Anuario de Aforos 2021-2022, embalses de la C.H. Guadiana (ceh.cedex.es)",
+    "localizacion": "embalse 4003 GARCÍA DE SOLA: corriente río Guadiana; municipio Talarrubias; hoja 756 (Herrera del Duque)",
     "apartado": "García de Sola / Puerto Peña"
   },
   {
@@ -627,8 +627,8 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "orden": 3530,
     "concepto": "¿Dónde se localiza Alange?",
     "respuesta": "río Matachel; Alange.",
-    "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
+    "fuente": "CEDEX, Anuario de Aforos 2021-2022, embalses de la C.H. Guadiana (ceh.cedex.es)",
+    "localizacion": "embalse 4011 ALANGE: corriente río Matachel; municipio Alange",
     "apartado": "Alange"
   },
   {
@@ -654,8 +654,8 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "orden": 3560,
     "concepto": "¿Dónde se localiza Villar del Rey / Peña del Águila?",
     "respuesta": "río Zapatón; Villar del Rey.",
-    "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
+    "fuente": "CEDEX, Anuario de Aforos 2021-2022, embalses de la C.H. Guadiana (ceh.cedex.es)",
+    "localizacion": "embalse 4015 VILLAR DEL REY: corriente río Zapatón; municipio Villar del Rey",
     "apartado": "Villar del Rey / Peña del Águila"
   },
   {
