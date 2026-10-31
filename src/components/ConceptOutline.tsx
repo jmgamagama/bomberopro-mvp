@@ -7,6 +7,7 @@
 import React, { useEffect, useState } from 'react';
 import { ChevronDown, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
+import { DOCUMENTOS_OFICIALES } from '../data/fuentesOficiales';
 import Skeleton from './Skeleton';
 
 export interface OutlineConcept { id: string; pregunta: string; respuesta: string | null; preguntas: number; dominado: boolean }
@@ -15,16 +16,9 @@ export interface OutlineDocumento { documento: string; total: number; dominados:
 export interface OutlineTema { tema: number; nombre: string; total: number; dominados: number; preguntas: number; documentos?: OutlineDocumento[] }
 
 /** Nombre legible de cada documento (el código es el que guarda la base de datos). */
-export const DOCUMENTOS: Record<string, string> = {
-  CE: 'Constitución Española',
-  LPRL: 'Ley 31/1995 de Prevención de Riesgos Laborales',
-  D98: 'Decreto 98/2008 · Catálogo de carreteras',
-  MOV: 'Protocolo de movilización',
-  RAD: 'Procedimiento de radiocomunicaciones',
-  SOS: 'Aplicación SOS',
-  PT01: 'PT01 · Conducción',
-  PT03: 'PT03 · Amianto',
-};
+export const DOCUMENTOS: Record<string, string> = Object.fromEntries(
+  Object.entries(DOCUMENTOS_OFICIALES).map(([codigo, d]) => [codigo, d.nombre]),
+);
 
 const plural = (n: number, uno: string, varios: string) => `${n} ${n === 1 ? uno : varios}`;
 

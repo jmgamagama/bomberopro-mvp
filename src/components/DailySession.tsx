@@ -31,6 +31,7 @@ import {
 import { loadReviewLog, measuredElapsedMs } from '../utils/recallReviewLog';
 import ExamDateField from './ExamDateField';
 import DailyMinutesField from './DailyMinutesField';
+import FuenteOficial from './FuenteOficial';
 
 interface DailySessionProps {
   /** Demo o sin cuenta: cambia el aviso de dónde se guarda el repaso. */
@@ -370,7 +371,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
               {current.deckLabel && (
                 <span className="mr-2 rounded-full bg-indigo-50 px-2 py-0.5 font-semibold text-indigo-700">{current.deckLabel}</span>
               )}
-              Fuente: {current.fuente}
+              Fuente: <FuenteOficial fuente={current.fuente} />
             </p>
           </div>
 

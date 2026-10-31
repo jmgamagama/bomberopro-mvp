@@ -80,6 +80,7 @@ const DailySession = lazy(() => import('./components/DailySession'));
 const OrdenaPasos = lazy(() => import('./components/OrdenaPasos'));
 const SupuestosPracticos = lazy(() => import('./components/SupuestosPracticos'));
 import Onboarding from './components/Onboarding';
+import { MATERIAL_TEMAS } from './data/materialTemas';
 const Planes = lazy(() => import('./components/Planes'));
 
 const SCREEN_TITLES = {
@@ -91,7 +92,7 @@ const SCREEN_TITLES = {
   today_training: 'Entrenamiento de hoy',
   study_by_topic: 'Estudio por temas',
   concept_t40: 'Estudiar hoy',
-  constitucion: 'Constitución · Título Preliminar',
+  constitucion: 'Material por tema',
   my_reports: 'Mis reportes',
   recuerdo: 'Recuerdo',
   sesion_diaria: 'Sesión diaria',
@@ -132,6 +133,8 @@ export default function App() {
   const [dailyAutoStart, setDailyAutoStart] = useState(false);
   const [mockAutoStart, setMockAutoStart] = useState(false);
   const [recallTarget, setRecallTarget] = useState<string | undefined>(undefined);
+  // Material por tema: tema abierto y pantalla a la que vuelve («Estudio por temas» o el inicio).
+  const [materialTema, setMaterialTema] = useState<{ tema: number; vuelta: 'dashboard' | 'study_by_topic' }>({ tema: 1, vuelta: 'dashboard' });
 
   const [memoryStates, setMemoryStates] = useState<Record<string, MemoryState>>({});
   // «Errores críticos» con cuenta: fallos guardados en el servidor (migración 42).
@@ -938,13 +941,13 @@ export default function App() {
             <button
               type="button"
               id="btn-constitucion"
-              onClick={() => handleNavigate('constitucion')}
+              onClick={() => { setMaterialTema({ tema: 1, vuelta: 'dashboard' }); handleNavigate('constitucion'); }}
               className="mb-6 flex w-full items-center justify-between gap-4 rounded-2xl border border-indigo-200 bg-white p-5 text-left shadow-sm hover:bg-indigo-50"
             >
               <span>
-                <span className="block text-xs font-bold uppercase tracking-wider text-indigo-600">Tema 1 · Piloto</span>
-                <span className="mt-1 block text-lg font-bold text-slate-900">Constitución · Título Preliminar</span>
-                <span className="mt-0.5 block text-sm text-slate-600">Esquema, desarrollo y texto oficial, con preguntas que se adaptan a tu nivel.</span>
+                <span className="block text-xs font-bold uppercase tracking-wider text-indigo-600">Material por tema · Temas {MATERIAL_TEMAS.map((m) => m.tema).sort((a, b) => a - b).join(', ')}</span>
+                <span className="mt-1 block text-lg font-bold text-slate-900">Esquema, texto oficial y fuentes</span>
+                <span className="mt-0.5 block text-sm text-slate-600">Elige un tema: verás qué material tiene, el enlace a su norma oficial y sus conceptos para estudiar.</span>
               </span>
               <span className="shrink-0 rounded-xl bg-indigo-600 px-4 py-2 text-sm font-bold text-white">Abrir</span>
             </button>
@@ -977,7 +980,7 @@ export default function App() {
         )}
 
         {currentScreen === 'constitucion' && session?.user?.id && !isDemoMode && (
-          <MaterialConstitucion userId={session.user.id} onExit={() => handleNavigate('dashboard')} />
+          <MaterialConstitucion key={materialTema.tema} userId={session.user.id} tema={materialTema.tema} onExit={() => handleNavigate(materialTema.vuelta)} volverLabel={materialTema.vuelta === 'study_by_topic' ? 'Volver a Estudio por temas' : undefined} />
         )}
 
         {currentScreen === 'concept_t40' && session?.user?.id && !isDemoMode && (
@@ -1146,6 +1149,7 @@ export default function App() {
         <StudyByTopic
           session={session}
           onNavigateHome={() => handleNavigate('dashboard')}
+          onOpenMaterial={(tema) => { setMaterialTema({ tema, vuelta: 'study_by_topic' }); handleNavigate('constitucion'); }}
           />
         )}
         {currentScreen === 'mas' && (

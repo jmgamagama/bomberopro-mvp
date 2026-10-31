@@ -6,6 +6,7 @@ import RecallGradeButtons, { formatInterval } from './RecallGradeButtons';
 import { localDayNumber } from '../utils/localDate';
 import { classifyCard, loadSrs, RecallSaveError, recordRecallGrade, type RecallGrade, type SrsStore } from '../utils/recallSrs';
 import { measuredElapsedMs } from '../utils/recallReviewLog';
+import FuenteOficial from './FuenteOficial';
 
 interface RecallDeckProps {
   deck: RecallDeckData;
@@ -170,7 +171,7 @@ function RecallDeckViewer({
             </div>
             <div className="rounded-xl border border-amber-100 bg-amber-50/70 p-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-amber-900">Fuente</p>
-              <p className="mt-1 break-words text-sm font-medium text-slate-900">{card.fuente}</p>
+              <p className="mt-1 break-words text-sm font-medium text-slate-900"><FuenteOficial fuente={card.fuente} /></p>
               {card.localizacion && (
                 <p className="mt-1 break-words text-sm text-slate-700" id="recall-card-localizacion">
                   Localización: {card.localizacion}
