@@ -8,8 +8,6 @@ import { dayNumberFromKey, toLocalDateKey } from './localDate';
 import { ownedKey, readOwned, writeOwned } from './localOwner';
 import { classifyCard, getCardSrs, type RecallCardStatus, type SrsStore } from './recallSrs';
 import { learningState } from './recallLearning';
-import type { ReviewLogEntry } from './recallReviewLog';
-import { comparePriority, examTopicWeight, recentFailures, reviewPriority, temaOf, type ReviewPriority } from './examPriority';
 
 export const DAILY_SESSION_SIZE = 30;
 /** Clave base; se guarda por cuenta/demo (./localOwner). */
@@ -92,58 +90,9 @@ function allocateQuotas(sizes: number[], total: number): number[] {
 }
 
 /**
- * Reparte `total` plazas según pesos (cada grupo como mucho su tamaño; lo que no cabe en uno pasa a
- * los demás). Con total ≥ nº de grupos, al menos 1 por grupo no vacío.
- */
-function allocateWeighted(sizes: number[], weights: number[], total: number): number[] {
-  const poolSize = sizes.reduce((a, b) => a + b, 0);
-  if (total >= poolSize) return [...sizes];
-  const quotas = sizes.map(() => 0);
-  let remaining = total;
-  if (total >= sizes.filter((n) => n > 0).length) {
-    sizes.forEach((n, i) => { if (n > 0) { quotas[i] = 1; remaining--; } });
-  }
-  while (remaining > 0) {
-    const open = sizes.map((n, i) => i).filter((i) => quotas[i] < sizes[i] && weights[i] > 0);
-    if (open.length === 0) break;
-    const wSum = open.reduce((a, i) => a + weights[i], 0);
-    const exact = open.map((i) => ({ i, x: (remaining * weights[i]) / wSum }));
-    let given = 0;
-    for (const { i, x } of exact) {
-      const add = Math.min(sizes[i] - quotas[i], Math.floor(x));
-      quotas[i] += add;
-      given += add;
-    }
-    if (given === 0) {
-      exact.sort((a, b) => b.x - Math.floor(b.x) - (a.x - Math.floor(a.x)) || a.i - b.i);
-      for (const { i } of exact) {
-        if (remaining - given === 0) break;
-        if (quotas[i] < sizes[i]) { quotas[i]++; given++; }
-      }
-      if (given === 0) break;
-    }
-    remaining -= given;
-  }
-  return quotas;
-}
-
-/**
- * Peso de cada mazo para repartir fichas nuevas: el peso del tema en el examen (./examPriority)
- * repartido entre sus mazos presentes según su tamaño. Así un tema con muchas fichas no acapara la
- * sesión y los temas 35-40 (30 % del test) reciben la parte que les corresponde.
- */
-function deckExamWeights(keys: string[], sizes: number[]): number[] {
-  const topicSize = new Map<string, number>();
-  const topicKey = (k: string) => String(temaOf(k) ?? k);
-  keys.forEach((k, i) => topicSize.set(topicKey(k), (topicSize.get(topicKey(k)) ?? 0) + sizes[i]));
-  return keys.map((k, i) => (examTopicWeight(temaOf(k)) * sizes[i]) / (topicSize.get(topicKey(k)) || 1));
-}
-
-/**
  * Elige hasta `maxSize` fichas de recuerdo (por defecto 30) de TODOS los mazos del pool.
  * Sin planificador SRS:
- *  - cada mazo (`deckId`) aporta una cuota según el peso de su tema en el examen (temas 35-40 = 30 %
- *    del test; ./examPriority), repartido entre los mazos del tema por tamaño (mínimo 1 si caben);
+ *  - cada mazo (`deckId`) aporta una cuota proporcional a su tamaño (mínimo 1 si caben);
  *  - dentro de cada mazo se recorre un orden barajado fijo, avanzando una ventana por día,
  *    de modo que días consecutivos muestran fichas distintas hasta completar el mazo (rotación);
  *  - el resultado del día se mezcla de forma determinista por fecha.
@@ -166,12 +115,6 @@ export interface DailySessionOptions {
    * repaso adelantado de lo ya visto (primero lo no consolidado). Si aun así sobra sitio, más nuevas.
    */
   finalStretch?: boolean;
-  /**
-   * Registro local de repasos (./recallReviewLog): da los fallos recientes por ficha. Vencidas y
-   * fallidas se ordenan por peso del tema en el examen, luego fallos recientes y luego riesgo de
-   * olvido (curva de ./engine); ver ./examPriority.
-   */
-  reviewLog?: readonly ReviewLogEntry[];
 }
 
 /** En el tramo final, como mucho 1 de cada 4 fichas de la sesión es nueva (si hay repaso que hacer). */
@@ -212,13 +155,6 @@ export function pickDailyRecallSession(
   const by = (key: (c: RecallCard) => number) => (a: RecallCard, b: RecallCard) =>
     key(a) - key(b) || prefRank(a) - prefRank(b) || rot(a) - rot(b);
   const st = (c: RecallCard) => getCardSrs(srs, c.deckId, c.id)!;
-  const fails = recentFailures(options.reviewLog ?? [], today);
-  const prio = new Map<RecallCard, ReviewPriority>();
-  const priority = (c: RecallCard) => {
-    let p = prio.get(c);
-    if (p === undefined) prio.set(c, (p = reviewPriority(c, st(c), today, fails)));
-    return p;
-  };
 
   // Salida del callejón (auditoría 26/10/2026, B-H6): si las fallidas por sí solas llenan la sesión,
   // quien lo falla todo veía siempre las mismas fichas y nunca entraba nada nuevo. En ese caso se
@@ -230,12 +166,9 @@ export function pickDailyRecallSession(
   // Vencidas y fallidas: si no caben todas, el tema prioritario se queda con ≈60 % (como las nuevas).
   // Selección: las FALLIDAS reservan plaza primero (auditoría 26/10/2026, B-H4: tras una pausa larga,
   // lo que el alumno no sabía esperaba detrás de toda la deuda de vencidas y reaparecía el día 20).
-  // Dentro de cada grupo, primero lo de más peso en el examen, más riesgo de olvido y más fallos
-  // recientes (./examPriority). Presentación: vencidas y luego fallidas, cada una en ese orden.
-  const byPriority = (a: RecallCard, b: RecallCard) =>
-    comparePriority(priority(a), priority(b)) || prefRank(a) - prefRank(b) || rot(a) - rot(b);
-  const dueSorted = [...tiers.due].sort(byPriority);
-  const failedSorted = [...tiers.failed].sort(byPriority);
+  // Presentación: se mantiene el orden de siempre (vencidas más antiguas, luego fallidas).
+  const dueSorted = [...tiers.due].sort(by((c) => st(c).due));
+  const failedSorted = [...tiers.failed].sort(by((c) => st(c).lastReview));
   const chosen = new Set(takeWithPreferredShare([...failedSorted, ...dueSorted], total - stuckNew, preferred));
   const picked: RecallCard[] = [...dueSorted, ...failedSorted].filter((c) => chosen.has(c));
   if (options.finalStretch) {
@@ -321,13 +254,12 @@ function pickRotation(
     preferredQuota = Math.max(preferredQuota, total - othersTotal);
     const otherIdx = keys.map((_, i) => i).filter((i) => !isPreferred(i));
     const prefQuotas = allocateQuotas(preferredIdx.map((i) => sizes[i]), preferredQuota);
-    const otherWeights = deckExamWeights(otherIdx.map((i) => keys[i]), otherIdx.map((i) => sizes[i]));
-    const otherQuotas = allocateWeighted(otherIdx.map((i) => sizes[i]), otherWeights, total - preferredQuota);
+    const otherQuotas = allocateQuotas(otherIdx.map((i) => sizes[i]), total - preferredQuota);
     quotas = sizes.map(() => 0);
     preferredIdx.forEach((i, j) => { quotas[i] = prefQuotas[j]; });
     otherIdx.forEach((i, j) => { quotas[i] = otherQuotas[j]; });
   } else {
-    quotas = allocateWeighted(sizes, deckExamWeights(keys, sizes), total);
+    quotas = allocateQuotas(sizes, total);
   }
   const day = dayNumber(dateKey);
 

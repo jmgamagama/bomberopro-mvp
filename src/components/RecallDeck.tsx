@@ -5,7 +5,6 @@ import { useRecallDeckCards } from '../hooks/useRecallDeckCards';
 import RecallGradeButtons, { formatInterval } from './RecallGradeButtons';
 import { localDayNumber } from '../utils/localDate';
 import { classifyCard, loadSrs, RecallSaveError, recordRecallGrade, type RecallGrade, type SrsStore } from '../utils/recallSrs';
-import RecallSaveErrorNotice from './RecallSaveError';
 import { measuredElapsedMs } from '../utils/recallReviewLog';
 
 interface RecallDeckProps {
@@ -172,19 +171,26 @@ function RecallDeckViewer({
             <div className="rounded-xl border border-amber-100 bg-amber-50/70 p-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-amber-900">Fuente</p>
               <p className="mt-1 break-words text-sm font-medium text-slate-900">{card.fuente}</p>
+              {card.localizacion && (
+                <p className="mt-1 break-words text-sm text-slate-700" id="recall-card-localizacion">
+                  Localización: {card.localizacion}
+                </p>
+              )}
             </div>
-            {failedGrade !== null && <RecallSaveErrorNotice onRetry={() => grade(failedGrade)} />}
+            {failedGrade !== null && (
+              <div role="alert" id="recall-save-error" className="space-y-2 rounded-xl border border-orange-200 bg-orange-50 p-3 text-sm text-orange-900">
+                <p>No se ha podido guardar tu respuesta en este dispositivo (almacenamiento lleno o bloqueado). La ficha sigue aquí.</p>
+                <button type="button" onClick={() => grade(failedGrade)} className="min-h-11 rounded-xl bg-slate-900 px-4 py-2 font-semibold text-white hover:bg-slate-800">
+                  Reintentar guardado
+                </button>
+              </div>
+            )}
             {finalGraded === index ? null : <RecallGradeButtons state={cardState} today={today} onGrade={grade} disabled={saving} />}
           </>
         ) : (
-          <button
-            type="button"
-            id="recall-card-flip"
-            onClick={() => setRevealed(true)}
-            className="w-full cursor-pointer rounded-xl border border-dashed border-slate-300 bg-slate-50 p-4 text-left text-sm text-slate-600 hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
-          >
-            Girar la ficha: respuesta y fuente ocultas (Espacio o Intro con el foco aquí).
-          </button>
+          <p className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-4 text-sm text-slate-600">
+            Respuesta y fuente ocultas. Pulsa «Mostrar respuesta» para verlas.
+          </p>
         )}
 
         <p aria-live="polite" className="min-h-4 text-xs font-medium text-emerald-700" id="recall-grade-saved">

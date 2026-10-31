@@ -13,7 +13,6 @@ import RecallGradeButtons from './RecallGradeButtons';
 import RecallStats from './RecallStats';
 import { localDayNumber } from '../utils/localDate';
 import { getCardSrs, loadSrs, RecallSaveError, recordRecallGrade, type RecallGrade, type SrsStore } from '../utils/recallSrs';
-import RecallSaveErrorNotice from './RecallSaveError';
 import type { RecallCard } from '../data/recallCards';
 import { canAccessTopic, getVisibleBloques, getVisibleTopic, getVisibleTopics } from '../data/recallRegistry';
 import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreferences';
@@ -107,13 +106,12 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
     () =>
       pool
         ? pickDailyRecallSession(pool, sessionSize, undefined, {
-            reviewLog,
             preferredDeckId: effectivePreferred,
             srs: srsSnapshot,
             finalStretch,
           })
         : [],
-    [effectivePreferred, finalStretch, pool, reviewLog, sessionSize, srsSnapshot],
+    [effectivePreferred, finalStretch, pool, sessionSize, srsSnapshot],
   );
   const mix = useMemo(() => summarizeSession(session, srsSnapshot), [session, srsSnapshot]);
   const loading = pool === null;
@@ -145,25 +143,20 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
     shownAt.current = Date.now();
   }, [phase, index]);
 
-  // Guardado local de la nota: solo se pasa de ficha si ha ido bien; si falla, se avisa y se puede reintentar.
-  const [saving, setSaving] = useState(false);
+  // Si el guardado local falla, la ficha se queda y se puede reintentar (recordRecallGrade lanza RecallSaveError).
   const [failedGrade, setFailedGrade] = useState<RecallGrade | null>(null);
   const handleGrade = (grade: RecallGrade) => {
-    if (saving) return;
-    setSaving(true);
-    try {
-      if (current?.deckId) {
+    if (current?.deckId) {
+      try {
         recordRecallGrade(current.deckId, current.id, grade, new Date(), measuredElapsedMs(shownAt.current));
-        setLiveSrs(loadSrs());
+      } catch (err) {
+        if (!(err instanceof RecallSaveError)) throw err;
+        setFailedGrade(grade);
+        return;
       }
-    } catch (err) {
-      if (!(err instanceof RecallSaveError)) console.error(err);
-      setFailedGrade(grade);
-      setSaving(false);
-      return;
+      setLiveSrs(loadSrs());
     }
     setFailedGrade(null);
-    setSaving(false);
     setGrades((g) => {
       const next: [number, number, number] = [g[0], g[1], g[2]];
       next[grade] += 1;
@@ -386,7 +379,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
               type="button"
               id="btn-reveal-recall"
               onClick={() => setRevealed(true)}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-800 px-4 py-3 font-semibold text-white hover:bg-slate-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-800 px-4 py-3 font-semibold text-white hover:bg-slate-900"
             >
               <Eye className="h-4 w-4" aria-hidden="true" />
               Mostrar respuesta
@@ -400,8 +393,15 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
                 </p>
                 {current.answer}
               </div>
-              {failedGrade !== null && <RecallSaveErrorNotice onRetry={() => handleGrade(failedGrade)} />}
-<RecallGradeButtons state={getCardSrs(liveSrs, current.deckId, current.id)} today={today} onGrade={handleGrade} disabled={saving} />
+              {failedGrade !== null && (
+                <div role="alert" id="recall-save-error" className="space-y-2 rounded-xl border border-orange-200 bg-orange-50 p-3 text-sm text-orange-900">
+                  <p>No se ha podido guardar tu respuesta en este dispositivo. La ficha sigue aquí.</p>
+                  <button type="button" onClick={() => handleGrade(failedGrade)} className="min-h-11 rounded-xl bg-slate-900 px-4 py-2 font-semibold text-white">
+                    Reintentar guardado
+                  </button>
+                </div>
+              )}
+<RecallGradeButtons state={getCardSrs(liveSrs, current.deckId, current.id)} today={today} onGrade={handleGrade} />
             </div>
           )}
         </section>

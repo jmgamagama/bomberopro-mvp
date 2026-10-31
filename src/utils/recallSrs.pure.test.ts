@@ -1,80 +1,50 @@
-// API pura del repaso espaciado MIRA (reviewCard): ratings 1-4, niveles N1-N3, límites e inválidos.
-import { describe, expect, it } from 'vitest';
+// @vitest-environment jsdom
+// scheduleReview: validación de entradas (sin cambiar el cálculo) y persistencia con fallos de escritura.
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   GRADE_AGAIN,
   GRADE_GOOD,
   GRADE_HARD,
-  INITIAL_EASE,
-  MAX_INTERVAL_DAYS,
-  MIN_EASE,
+  RecallSaveError,
   isValidCardSrs,
-  reviewCard,
+  loadSrs,
+  recordRecallGrade,
   scheduleReview,
+  srsStorageKey,
   type CardSrs,
-  type MiraLevel,
-  type MiraRating,
+  type RecallGrade,
 } from './recallSrs';
-import { localDayNumber } from './localDate';
+import { loadReviewLog, reviewLogStorageKey } from './recallReviewLog';
 
-const NOW = new Date(2026, 9, 31, 12);
-const D = localDayNumber(NOW);
+const D = 20000;
 const st = (over: Partial<CardSrs> = {}): CardSrs => ({
   interval: 8, ease: 2.5, due: D, reps: 3, correct: 3, wrong: 0, lastGrade: GRADE_GOOD, lastReview: D - 8, ...over,
 });
 
-describe('reviewCard: los 4 ratings', () => {
-  it('1 = «No la sabía», 2 = «Dudosa», 3 = «La sabía» (mismo algoritmo que scheduleReview)', () => {
-    const prev = st();
-    expect(reviewCard(prev, 1, NOW)).toEqual(scheduleReview(prev, GRADE_AGAIN, D));
-    expect(reviewCard(prev, 2, NOW)).toEqual(scheduleReview(prev, GRADE_HARD, D));
-    expect(reviewCard(prev, 3, NOW)).toEqual(scheduleReview(prev, GRADE_GOOD, D));
-  });
-
-  it('4 («Fácil») se programa igual que 3 hasta que haya decisión escrita (sin coeficiente inventado)', () => {
-    expect(reviewCard(st(), 4, NOW)).toEqual(reviewCard(st(), 3, NOW));
-    expect(reviewCard(undefined, 4, NOW)).toEqual(reviewCard(undefined, 3, NOW));
-  });
-
-  it('el nuevo estado siempre es válido y respeta los límites', () => {
-    for (const r of [1, 2, 3, 4] as const) {
-      const next = reviewCard(st({ interval: 300, lastReview: D - 300 }), r, NOW);
-      expect(isValidCardSrs(next)).toBe(true);
-      expect(next.interval).toBeLessThanOrEqual(MAX_INTERVAL_DAYS);
-      expect(next.ease).toBeGreaterThanOrEqual(MIN_EASE);
+describe('scheduleReview: entradas', () => {
+  it('las tres notas producen estados válidos; el cálculo no depende de nada más que (prev, nota, día)', () => {
+    for (const g of [GRADE_AGAIN, GRADE_HARD, GRADE_GOOD]) {
+      const a = scheduleReview(st(), g, D);
+      expect(isValidCardSrs(a)).toBe(true);
+      expect(scheduleReview(st(), g, D)).toEqual(a);
     }
-    expect(reviewCard(undefined, 3, NOW)).toMatchObject({ interval: 1, ease: INITIAL_EASE, due: D + 1 });
   });
 
-  it('es pura: no modifica el estado previo y depende solo de `now`', () => {
+  it('no modifica el estado previo', () => {
     const prev = st();
     const copy = { ...prev };
-    const a = reviewCard(prev, 3, NOW);
+    scheduleReview(prev, GRADE_AGAIN, D);
     expect(prev).toEqual(copy);
-    expect(reviewCard(prev, 3, new Date(NOW))).toEqual(a);
-    expect(reviewCard(prev, 3, new Date(2026, 10, 30, 12)).due).not.toBe(a.due);
   });
-});
 
-describe('reviewCard: niveles N1-N3', () => {
-  it('cada nivel se acepta y, sin coeficientes decididos, no cambia la programación', () => {
-    for (const r of [1, 2, 3, 4] as const) {
-      const base = reviewCard(st(), r, NOW);
-      for (const level of [1, 2, 3] as const) expect(reviewCard(st(), r, NOW, level)).toEqual(base);
-    }
+  it.each([3, -1, 1.5, NaN, '2', null])('rechaza la nota %s', (g) => {
+    expect(() => scheduleReview(st(), g as unknown as RecallGrade, D)).toThrow(RangeError);
   });
-});
 
-describe('reviewCard: entradas inválidas', () => {
-  it.each([0, 5, 2.5, -1, NaN, '3', null, undefined])('rechaza el rating %s', (r) => {
-    expect(() => reviewCard(st(), r as unknown as MiraRating, NOW)).toThrow(RangeError);
+  it.each([NaN, 1.5, Infinity])('rechaza el día %s', (d) => {
+    expect(() => scheduleReview(st(), GRADE_GOOD, d)).toThrow(RangeError);
   });
-  it.each([0, 4, 1.5, '1', null])('rechaza el nivel %s', (l) => {
-    expect(() => reviewCard(st(), 3, NOW, l as unknown as MiraLevel)).toThrow(RangeError);
-  });
-  it('rechaza un instante inválido', () => {
-    expect(() => reviewCard(st(), 3, new Date('x'))).toThrow(RangeError);
-    expect(() => reviewCard(st(), 3, '2026-10-31' as unknown as Date)).toThrow(RangeError);
-  });
+
   it.each([
     ['facilidad por debajo del mínimo', { ease: 1.2 }],
     ['intervalo negativo', { interval: -1 }],
@@ -82,6 +52,43 @@ describe('reviewCard: entradas inválidas', () => {
     ['contador no entero', { correct: 1.5 }],
     ['fecha no numérica', { due: '20000' }],
   ])('rechaza un estado previo con %s', (_, over) => {
-    expect(() => reviewCard(st(over as Partial<CardSrs>), 3, NOW)).toThrow(RangeError);
+    expect(() => scheduleReview(st(over as Partial<CardSrs>), GRADE_GOOD, D)).toThrow(RangeError);
+  });
+});
+
+describe('recordRecallGrade: fallos de escritura y reintentos', () => {
+  const date = new Date(2026, 9, 31, 12);
+  beforeEach(() => window.localStorage.clear());
+  afterEach(() => vi.restoreAllMocks());
+
+  it('si falla el guardado del estado: lanza RecallSaveError y no escribe estado ni registro; el reintento cuenta una vez', () => {
+    const realSet = Storage.prototype.setItem;
+    const spy = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new DOMException('lleno', 'QuotaExceededError');
+    });
+    expect(() => recordRecallGrade('tema40', 'c1', GRADE_GOOD, date)).toThrow(RecallSaveError);
+    expect(window.localStorage.getItem(srsStorageKey())).toBeNull();
+    expect(loadReviewLog()).toHaveLength(0);
+    spy.mockImplementation(realSet);
+    recordRecallGrade('tema40', 'c1', GRADE_GOOD, date);
+    expect(loadSrs().tema40.c1).toMatchObject({ correct: 1, wrong: 0 });
+    expect(loadReviewLog()).toHaveLength(1);
+  });
+
+  it('si se guarda el estado pero falla el registro: no lanza (no hay reintento) y la nota cuenta una sola vez', () => {
+    const realSet = Storage.prototype.setItem;
+    vi.spyOn(Storage.prototype, 'setItem').mockImplementation(function (this: Storage, key: string, value: string) {
+      if (key === reviewLogStorageKey()) throw new DOMException('lleno', 'QuotaExceededError');
+      return realSet.call(this, key, value);
+    });
+    const next = recordRecallGrade('tema40', 'c1', GRADE_GOOD, date);
+    expect(next.correct).toBe(1);
+    expect(loadSrs().tema40.c1.correct).toBe(1);
+    expect(loadReviewLog()).toHaveLength(0);
+  });
+
+  it('rechaza una fecha inválida sin escribir nada', () => {
+    expect(() => recordRecallGrade('tema40', 'c1', GRADE_GOOD, new Date('x'))).toThrow(RangeError);
+    expect(window.localStorage.getItem(srsStorageKey())).toBeNull();
   });
 });

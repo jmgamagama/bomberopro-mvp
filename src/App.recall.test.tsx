@@ -55,7 +55,7 @@ describe('navegación de recuerdo', () => {
     const decks = document.querySelector('#daily-session-decks');
     // Con más mazos que plazas de la sesión (30) no caben todos los temas cada día.
     const presentes = RECALL_TOPICS.filter((t) => new RegExp(`\\b${t.shortLabel}\\b`).test(decks!.textContent ?? ''));
-    expect(presentes.length).toBeGreaterThanOrEqual(Math.min(RECALL_TOPICS.length, 12)); // reparto por peso en el examen (T35-40 = 30 %)
+    expect(presentes.length).toBeGreaterThanOrEqual(Math.min(RECALL_TOPICS.length, 15));
     expect(RECALL_DECKS.length).toBeGreaterThan(RECALL_TOPICS.length);
   });
 });

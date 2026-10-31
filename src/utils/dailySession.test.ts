@@ -99,9 +99,9 @@ describe('sesión diaria con todos los temas cargados', () => {
       expect(session).toHaveLength(30);
       expect(new Set(session.map((c) => c.id)).size).toBe(30);
       const decks = new Set(session.map((c) => c.deckId));
-      // Con más mazos que plazas (30) el reparto sigue el peso en el examen y no caben todos cada día.
+      // Con más mazos que plazas (30) el reparto es proporcional y no caben todos cada día.
       if (RECALL_DECKS.length <= DAILY_SESSION_SIZE) expect(decks.size).toBe(RECALL_DECKS.length);
-      else expect(decks.size).toBeGreaterThanOrEqual(12);
+      else expect(decks.size).toBeGreaterThanOrEqual(15);
       const temas = new Set(session.map((c) => RECALL_DECKS.find((d) => d.id === c.deckId)!.tema));
       expect(temas.size).toBeGreaterThanOrEqual(5);
     }
@@ -162,13 +162,13 @@ describe('sesión diaria con repaso espaciado', () => {
     expect(pickDailyRecallSession(RECALL_CARDS, 30, date, { srs: {} }).map((c) => c.id)).toEqual(base);
   });
 
-  it('prioriza vencidas (más riesgo de olvido primero), luego falladas y luego nuevas', () => {
+  it('prioriza vencidas (más antiguas primero), luego falladas y luego nuevas', () => {
     const t40 = RECALL_CARDS.filter((c) => c.deckId === 'tema40');
     const t35 = RECALL_CARDS.filter((c) => c.deckId === 'tema35');
     const srs: SrsStore = {
       tema40: {
-        [t40[0].id]: st({ due: today - 1, lastReview: today - 4 }),
-        [t40[1].id]: st({ due: today - 5, lastReview: today - 8 }),
+        [t40[0].id]: st({ due: today - 1 }),
+        [t40[1].id]: st({ due: today - 5 }),
         [t40[2].id]: st({ lastGrade: GRADE_AGAIN, interval: 1, reps: 0, due: today, lastReview: today - 1 }),
         [t40[3].id]: st({ due: today + 4 }), // programada: no entra mientras haya nuevas
       },
@@ -200,7 +200,7 @@ describe('sesión diaria con repaso espaciado', () => {
     // 40 vencidas de cada tema (las del 35 más antiguas): sin preferencia ganarían las del 35.
     const srs: SrsStore = {
       tema40: Object.fromEntries(t40.slice(0, 40).map((c) => [c.id, st({ due: today - 1 })])),
-      tema35: Object.fromEntries(t35.slice(0, 40).map((c) => [c.id, st({ due: today - 9, lastReview: today - 12 })])),
+      tema35: Object.fromEntries(t35.slice(0, 40).map((c) => [c.id, st({ due: today - 9 })])),
     };
     const sinPref = pickDailyRecallSession(RECALL_CARDS, 30, date, { srs });
     expect(sinPref.filter((c) => c.topicId === 'tema35')).toHaveLength(30);
