@@ -1,4 +1,4 @@
-// Prueba del tema 5, bloque «caps. I-II» (arts. 1-12 del Reglamento de Régimen Interno del CPEI)
+// Prueba del tema 5 (Reglamento de Régimen Interno del CPEI), bloques arts. 1-12 y 13-16,
 // en Postgres en memoria: la carga resuelve el tema 5 por número, cita el BOP (no el BOE) y la
 // revisión de preguntas existentes vincula y despublica con registro.
 //
@@ -11,13 +11,15 @@ import { strict as assert } from 'node:assert';
 
 const read = (f) => readFileSync(new URL(`../migrations/${f}`, import.meta.url), 'utf8');
 const py = (...a) => execFileSync('python3', a, { encoding: 'utf8' });
-const CFILE = 'data/rri-cpei/caps-i-ii.json';
-const VFILE = 'data/rri-cpei/vinculos-produccion-caps-i-ii.json';
-const carga = py('scripts/cargar_conceptos.py', CFILE, '--estado', 'borrador');
-const cargaCompacta = py('scripts/cargar_conceptos.py', CFILE, '--estado', 'borrador', '--compacto');
-const vinculos = py('scripts/aplicar_vinculos.py', VFILE);
-const conceptos = JSON.parse(readFileSync(CFILE, 'utf8')).conceptos;
-const mapa = JSON.parse(readFileSync(VFILE, 'utf8'));
+const BLOQUES = [
+  ['data/rri-cpei/caps-i-ii.json', 'data/rri-cpei/vinculos-produccion-caps-i-ii.json'],
+  ['data/rri-cpei/cap-iii-arts-13-16.json', 'data/rri-cpei/vinculos-produccion-cap-iii-arts-13-16.json'],
+];
+const carga = BLOQUES.map(([c]) => py('scripts/cargar_conceptos.py', c, '--estado', 'borrador')).join('\n');
+const cargaCompacta = BLOQUES.map(([c]) => py('scripts/cargar_conceptos.py', c, '--estado', 'borrador', '--compacto')).join('\n');
+const vinculos = BLOQUES.map(([, v]) => py('scripts/aplicar_vinculos.py', v)).join('\n');
+const conceptos = BLOQUES.flatMap(([c]) => JSON.parse(readFileSync(c, 'utf8')).conceptos);
+const mapa = { preguntas: BLOQUES.flatMap(([, v]) => JSON.parse(readFileSync(v, 'utf8')).preguntas) };
 const db = new PGlite();
 const one = async (s, p = []) => (await db.query(s, p)).rows[0];
 const n = async (s, p = []) => Number((await one(s, p)).n);
@@ -71,12 +73,14 @@ await test('el formato compacto da el mismo resultado y es idempotente', async (
   assert.equal(await n(`select count(*) n from questions where hash_dedupe like 'RRI:%'`), conceptos.length * 3);
 });
 
-await test('aplica la revisión: vincula con nivel 2 y despublica la duplicada con registro', async () => {
+await test('aplica la revisión: vincula con nivel 2 y despublica las duplicadas con registro', async () => {
   await db.exec(vinculos);
   const vinc = mapa.preguntas.filter(e => e.accion === 'vincular').length;
   assert.equal(await n(`select count(*) n from questions where concept_id like 'RRI-%' and hash_dedupe is null and nivel = 2`), vinc);
-  assert.equal(await n(`select count(*) n from questions where id = 7002 and estado = 'duplicada'`), 1);
-  assert.ok(await n(`select count(*) n from qa_changes_20260923 where motivo like 'revisión arts. 1-12 RRI CPEI%'`) >= vinc + 1);
+  const dup = mapa.preguntas.filter(e => e.accion === 'retirar_duplicada').map(e => e.question_id);
+  assert.equal(await n(`select count(*) n from questions where id = any($1) and estado = 'duplicada'`, [dup]), dup.length);
+  assert.ok(await n(`select count(*) n from qa_changes_20260923 where motivo like 'revisión arts. % RRI CPEI%'`) >= vinc + dup.length);
+  assert.equal(await n(`select count(distinct orden) n from concepts where id like 'RRI-%'`), conceptos.length, 'orden sin repetir');
 });
 
 console.log(`\n${passed} pruebas superadas`);
