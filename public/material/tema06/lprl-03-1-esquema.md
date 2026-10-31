@@ -1,8 +1,10 @@
-# CAPÍTULO III · Derechos y obligaciones · Esquema
+# Capítulo III · Derechos y obligaciones (arts. 14–29) · Esquema
 
 Texto consolidado del BOE (BOE-A-1995-24292, última actualización publicada el 23/10/2026). Fuente oficial: [Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales](https://www.boe.es/buscar/act.php?id=BOE-A-1995-24292). Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
 
-16 preceptos. Cada rúbrica (literal) enlaza con su artículo en el BOE.
+16 preceptos. Cada rúbrica (literal) enlaza con el BOE.
+
+**CAPÍTULO III · Derechos y obligaciones**
 
 - [Artículo 14. Derecho a la protección frente a los riesgos laborales](https://www.boe.es/buscar/act.php?id=BOE-A-1995-24292#a14)
 - [Artículo 15. Principios de la acción preventiva](https://www.boe.es/buscar/act.php?id=BOE-A-1995-24292#a15)

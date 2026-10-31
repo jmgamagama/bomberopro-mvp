@@ -1,8 +1,10 @@
-# CAPÍTULO II · Política en materia de prevención de riesgos para proteger la seguridad y la salud en el trabajo · Esquema
+# Capítulo II · Política en materia de prevención (arts. 5–13) · Esquema
 
 Texto consolidado del BOE (BOE-A-1995-24292, última actualización publicada el 23/10/2026). Fuente oficial: [Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales](https://www.boe.es/buscar/act.php?id=BOE-A-1995-24292). Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
 
-9 preceptos. Cada rúbrica (literal) enlaza con su artículo en el BOE.
+9 preceptos. Cada rúbrica (literal) enlaza con el BOE.
+
+**CAPÍTULO II · Política en materia de prevención de riesgos para proteger la seguridad y la salud en el trabajo**
 
 - [Artículo 5. Objetivos de la política](https://www.boe.es/buscar/act.php?id=BOE-A-1995-24292#a5)
 - [Artículo 6. Normas reglamentarias](https://www.boe.es/buscar/act.php?id=BOE-A-1995-24292#a6)
