@@ -47,6 +47,7 @@ export const REVIEWED_DECKS: Readonly<Record<string, DeckReview>> = {
   tema33: revisado('67 de 67 fichas literales en BOE-A-2017-6606 vigente (31/10/2026): arts. 1-2 y anexo I secc. 1 apdos. 2 (abastecimiento), 3 (hidrantes), 5 (BIE) y 6 (columna seca), las del epígrafe', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   tema23: revisado('21 de 21 fichas cotejadas con el Plan Estatal de Inundaciones BOE-A-2011-14277 y la Directriz Básica BOE-A-2026-9160, vigentes (31/10/2026)', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   tema13: revisado('25 de 25 fichas: 18 en RD 773/1997 y normas BOE vigentes; 7 del anexo I y art. 3 del Reglamento (UE) 2016/425, enlazadas a DOUE-L-2016-80531 en boe.es y literales (31/10/2026)', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
+  tema4: revisado('28 de 28 fichas literales en el acuerdo plenario de 29/10/2025 de reorganización de la estructura orgánica (BOP Badajoz nº 206, anuncio 4611/2025); sin reorganización posterior localizada (31/10/2026)', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   tema35: revisado('revisión completa por decisión del propietario', 'tema35_calidad.md'),
   tema38: revisado('revisión completa por decisión del propietario', 'tema38_cambios.md'),
   tema39: revisado('revisión completa por decisión del propietario', 'tema39_cambios.md'),

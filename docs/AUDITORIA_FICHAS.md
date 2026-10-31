@@ -13,7 +13,7 @@ Problemas detectados: **0**.
 | tema1 | revisado | 129 | 100 % | 0 | `685c7d6dbcf833da` |  |
 | tema2 | revisado | 121 | 100 % | 0 | `026de90d662228de` |  |
 | tema3 | revisado | 66 | 100 % | 0 | `c4552f857057dbfc` |  |
-| tema4 | pendiente | 28 | 100 % | 0 | `6e84da2108610bb2` |  |
+| tema4 | revisado | 28 | 100 % | 0 | `6e84da2108610bb2` |  |
 | tema5 | pendiente | 28 | 100 % | 0 | `fc80511b9650598a` |  |
 | tema6 | revisado | 94 | 100 % | 0 | `4fd29b1f6e6f146b` |  |
 | tema7 | revisado | 64 | 100 % | 0 | `2bd953ad56a2fdc3` |  |
