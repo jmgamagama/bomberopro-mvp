@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import pathlib
 import subprocess
 import sys
@@ -116,6 +117,10 @@ def main() -> int:
     for c in d["conceptos"]:
         art = c["bloque"][1:].replace("bis", " bis")
         ref = f"{art}.{c['apartado']}" if c["apartado"] else art
+        # Listas que reinician numeración dentro de un artículo (p. ej. «mg3» en el art. 35 del RRI del CPEI):
+        # el fichero da el nombre de cada serie en «series» y se muestra «Art. 35 (faltas muy graves, n.º 3)».
+        if (m := re.fullmatch(r"([a-z]+)(\d+)", c["apartado"])) and m.group(1) in d.get("series", {}):
+            ref = f"{art} ({d['series'][m.group(1)]}, n.º {m.group(2)})"
         apartado = f"{d['bloque_temario'].split(' (')[0]} · Art. {ref}"
         # Normas del BOP (meta.json con «boletin»): se cita el boletín, no un «texto consolidado» del BOE.
         fuente = (f"{nombre}, art. {ref} ({meta['boletin']})" if meta.get("boletin")

@@ -1,0 +1,133 @@
+{
+ "descripcion": "Preguntas YA publicadas en producción (tema 5) sobre los arts. 17-22 del Reglamento de Régimen Interno del CPEI, revisadas una a una contra el texto único vigente del BOP de Badajoz n.º 149, de 06/08/2012, el 31/10/2026. Las 18 son correctas. Tienen 3 opciones (16 estaban en nivel 1): se vinculan con nivel 2 (formato de examen).",
+ "motivo_registro": "revisión arts. 17-22 RRI CPEI contra BOP 149/2012 (31/10/2026)",
+ "revisado_por": "Claude (revisión manual contra el BOP); se aplica en producción solo dentro de un paquete de lanzamiento aprobado por JM",
+ "preguntas": [
+  {
+   "question_id": 12322,
+   "accion": "vincular",
+   "concepto": "RRI-a17-14-superiores",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12297,
+   "accion": "vincular",
+   "concepto": "RRI-a17-11-modificaciones",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12309,
+   "accion": "vincular",
+   "concepto": "RRI-a17-18-orden-superiores",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12316,
+   "accion": "vincular",
+   "concepto": "RRI-a17-19-instruccion-especifica",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12287,
+   "accion": "vincular",
+   "concepto": "RRI-a18-5-red",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12313,
+   "accion": "vincular",
+   "concepto": "RRI-a19-2-verbales",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12317,
+   "accion": "vincular",
+   "concepto": "RRI-a19-6-asistencia",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12318,
+   "accion": "vincular",
+   "concepto": "RRI-a19-6-asistencia",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12300,
+   "accion": "vincular",
+   "concepto": "RRI-a19-7-regimen-interno",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12298,
+   "accion": "vincular",
+   "concepto": "RRI-a19-8-incidencias",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12311,
+   "accion": "vincular",
+   "concepto": "RRI-a19-9-intervencion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12315,
+   "accion": "vincular",
+   "concepto": "RRI-a19-9-intervencion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12294,
+   "accion": "vincular",
+   "concepto": "RRI-a19-11-aclaracion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12319,
+   "accion": "vincular",
+   "concepto": "RRI-a19-15-correspondencia",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12321,
+   "accion": "vincular",
+   "concepto": "RRI-a19-17-registro-general",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12290,
+   "accion": "vincular",
+   "concepto": "RRI-a20-reglas",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12305,
+   "accion": "vincular",
+   "concepto": "RRI-a20-firma",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12329,
+   "accion": "vincular",
+   "concepto": "RRI-a22-1-novedades",
+   "nivel": 2,
+   "motivo": ""
+  }
+ ]
+}

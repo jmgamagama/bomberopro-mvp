@@ -39,20 +39,49 @@ def low(s: str) -> str:
 
 
 def apartados(bloque: dict) -> dict[str, str]:
-    """{'1': texto, '2': texto} o {'': texto} si el artículo no tiene apartados numerados."""
+    """{'1': texto, '2': texto} o {'': texto} si el artículo no tiene apartados numerados.
+
+    Si la numeración vuelve a empezar dentro del artículo (p. ej. RRI CPEI art. 35: faltas muy
+    graves 1-14, graves 1-18 y leves 1-8), cada serie lleva un prefijo sacado de su encabezado
+    («* Son faltas muy graves:» -> «mg», «* Se consideran faltas graves:» -> «g»), o «s2», «s3»…
+    si no lo hay. Así ninguna serie pisa a otra: «mg3», «g3», «l3»."""
     body = [p["texto"] for p in bloque["parrafos"] if p["clase"] in ("parrafo", "parrafo_2")]
+    nums = [int(m.group(1)) for t in body if (m := re.match(r"^(\d+)\.\s+", t))]
+    reinicia = any(b <= a for a, b in zip(nums, nums[1:]))
     out: dict[str, str] = {}
     cur = None
+    prefijo, serie, ultimo, encabezado = "", 0, 0, None
     for t in body:
         m = re.match(r"^(\d+)\.\s+(.*)$", t)
         if m:
-            cur = m.group(1)
+            n = int(m.group(1))
+            if reinicia and (serie == 0 or n <= ultimo):
+                serie += 1
+                prefijo = _prefijo(encabezado, serie)
+            ultimo = n
+            cur = f"{prefijo}{n}"
             out[cur] = m.group(2)
-        elif cur is not None:
-            out[cur] += " " + t  # letras a), b)… u otros párrafos del mismo apartado
+            encabezado = None
         else:
-            out[""] = (out.get("", "") + " " + t).strip()
+            if reinicia and t.lstrip().startswith("*"):
+                encabezado = t
+            if cur is not None:
+                out[cur] += " " + t  # letras a), b)… u otros párrafos del mismo apartado
+            else:
+                out[""] = (out.get("", "") + " " + t).strip()
     return out
+
+
+_VACIAS = {"se", "son", "consideran", "faltas", "de", "la", "las", "los", "el", "y"}
+
+
+def _prefijo(encabezado: str | None, serie: int) -> str:
+    if encabezado:
+        palabras = re.findall(r"\w+", encabezado.lower())
+        ini = "".join(w[0] for w in palabras if w not in _VACIAS)
+        if ini:
+            return ini
+    return f"s{serie}"
 
 
 def main() -> int:

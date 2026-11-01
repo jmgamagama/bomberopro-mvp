@@ -1,0 +1,3525 @@
+{
+ "norma": "BOP-BA-2012-5370",
+ "documento": "RRI-CPEI",
+ "nombre_norma": "Reglamento de Régimen Interno del CPEI de Badajoz",
+ "abreviatura": "RRI CPEI",
+ "hash_prefijo": "RRI",
+ "tema": 5,
+ "tema_nombre": "El organigrama del CPEI de Badajoz. El Reglamento de Régimen Interno del CPEI de Badajoz",
+ "bloque_temario": "Cap. IV-VII (arts. 23-34): uniformidad, parques, funcionamiento, deberes específicos y responsabilidad",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto único vigente publicado en el BOP de Badajoz n.º 149, de 06/08/2012)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "RRI-a23-1-sentido",
+   "bloque": "a23",
+   "apartado": "1",
+   "orden": 1060,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 23.1 del RRI del CPEI, ¿qué pone de manifiesto la plena uniformidad y por qué es una necesidad?",
+    "respuesta": "Pone de manifiesto el grado de respeto que se tiene a la profesión; además, el uniforme es una necesidad real y práctica, en especial en la subescala Operativa."
+   },
+   "cita": "pone de manifiesto el grado de respeto que se tiene a la profesión",
+   "confundible_con": [
+    "RRI-a23-2-diferencias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.1 del Reglamento de Régimen Interno del CPEI, ¿pone de manifiesto la plena uniformidad el grado de respeto a la profesión?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.1: la plena uniformidad «pone de manifiesto el grado de respeto que se tiene a la profesión»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 23.1 del Reglamento de Régimen Interno del CPEI, el uso del uniforme es una necesidad real y práctica, en especial en la subescala:",
+     "opciones": [
+      "Operativa",
+      "Técnica",
+      "Administrativa"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.1: «en especial en la subescala Operativa, dadas las misiones y servicios del C.P.E.I.»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 23.1 del Reglamento de Régimen Interno del CPEI, la plena uniformidad debe darse:",
+     "opciones": [
+      "Tanto individual como en el conjunto",
+      "Solo en los actos oficiales del Consorcio",
+      "Solo en el personal de la subescala Técnica"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.1: «La plena uniformidad en todos los componentes del Consorcio, tanto individual como en el conjunto»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a23-2-diferencias",
+   "bloque": "a23",
+   "apartado": "2",
+   "orden": 1066,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 23.2 del RRI del CPEI, ¿qué diferencias exteriores admite la uniformidad?",
+    "respuesta": "Solo las que correspondan a las diversas escalas y, en cada una, a los distintivos del grado; esos distintivos deben llevarse a la vista en la prenda y lugar correspondiente."
+   },
+   "cita": "No se establecerán más diferencias exteriores en la uniformidad",
+   "confundible_con": [
+    "RRI-a23-1-sentido"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.2 del Reglamento de Régimen Interno del CPEI, ¿es obligatorio llevar a la vista los distintivos del grado en la prenda y lugar correspondiente?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.2: «Será, por tanto, de obligatorio cumplimiento mantener a la vista en la prenda y lugar correspondiente dichos distintivos»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 23.2 del Reglamento de Régimen Interno del CPEI, los distintivos del grado deben llevarse:",
+     "opciones": [
+      "A la vista, en la prenda y lugar correspondiente",
+      "Solo en los actos oficiales del Consorcio",
+      "A elección de cada trabajador"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.2: es obligatorio «mantener a la vista en la prenda y lugar correspondiente dichos distintivos»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 23.2 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas diferencias exteriores en la uniformidad se admite?",
+     "opciones": [
+      "La que distingue el parque de destino",
+      "La que corresponde a cada escala y grado",
+      "La que elige el trabajador por antigüedad"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 23.2: solo las «que corresponda a las diversas escalas y en cada una de ellas, a los distintivos del grado»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a23-3-trabajo",
+   "bloque": "a23",
+   "apartado": "3",
+   "orden": 1072,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 23.3 del RRI del CPEI, ¿qué es la uniformidad de trabajo o de parque?",
+    "respuesta": "Todas las prendas aprobadas y suministradas por el Consorcio; el trabajador elige la combinación entre ellas. Para fijarlas se articula la participación de la representación sindical."
+   },
+   "cita": "quedando a elección del trabajador la combinación que desee entre ellas",
+   "confundible_con": [
+    "RRI-a23-3-entrega"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.3 del Reglamento de Régimen Interno del CPEI, ¿puede el trabajador elegir la combinación de prendas de la uniformidad de trabajo?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.3: «quedando a elección del trabajador la combinación que desee entre ellas»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 23.3 del Reglamento de Régimen Interno del CPEI, para determinar las prendas de la uniformidad de trabajo se articulará la participación de:",
+     "opciones": [
+      "La representación sindical",
+      "El Consejo de Administración",
+      "Cada Ayuntamiento con parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.3: «se articulará el adecuado proceso de participación de la representación sindical»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 23.3 del Reglamento de Régimen Interno del CPEI, las prendas de la uniformidad de trabajo o de parque son:",
+     "opciones": [
+      "Las aprobadas y suministradas por el Consorcio",
+      "Las que adquiera cada trabajador a su cargo",
+      "Las que fije cada Jefe de Parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.3: «estará constituida por todas las prendas aprobadas y suministradas por este Consorcio»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a23-3-entrega",
+   "bloque": "a23",
+   "apartado": "3",
+   "orden": 1078,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 23.3 del RRI del CPEI, ¿cuándo se entregan las prendas del uniforme de trabajo?",
+    "respuesta": "En dos periodos anuales, abril y octubre, con la dotación que se acuerde según las necesidades del servicio."
+   },
+   "cita": "se entregará en dos periodos anuales, abril y octubre",
+   "confundible_con": [
+    "RRI-a23-3-trabajo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.3 del Reglamento de Régimen Interno del CPEI, ¿se entregan las prendas del uniforme de trabajo en dos periodos anuales?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.3: «se entregará en dos periodos anuales, abril y octubre»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 23.3 del Reglamento de Régimen Interno del CPEI, las prendas del uniforme de trabajo se entregan en:",
+     "opciones": [
+      "Abril y octubre",
+      "Enero y julio",
+      "Marzo y septiembre"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.3: «en dos periodos anuales, abril y octubre»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 23.3 del Reglamento de Régimen Interno del CPEI, la dotación de prendas que se entrega en cada periodo es:",
+     "opciones": [
+      "La que se acuerde según las necesidades del servicio",
+      "Una muda completa por trabajador, siempre",
+      "La que solicite cada trabajador libremente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.3: «con la dotación que se acuerde en base a las necesidades del servicio»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a23-4-uso",
+   "bloque": "a23",
+   "apartado": "4",
+   "orden": 1084,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 23.4 del RRI del CPEI, ¿cuándo es obligatorio el uniforme?",
+    "respuesta": "Para todos los componentes cuando estén de servicio; la subescala Técnica, cuando la Dirección lo exija para actos o actividades concretas. Fuera del servicio, solo con autorización previa de la Dirección y motivo justificado."
+   },
+   "cita": "El uso del uniforme del servicio es obligatorio para todos los componentes del C.P.E.I. cuando estén de servicio",
+   "confundible_con": [
+    "RRI-a33-c-presentacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.4 del Reglamento de Régimen Interno del CPEI, ¿es obligatorio el uniforme para todos los componentes del C.P.E.I. cuando están de servicio?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.4: «El uso del uniforme del servicio es obligatorio para todos los componentes del C.P.E.I. cuando estén de servicio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 23.4 del Reglamento de Régimen Interno del CPEI, un bombero que quiera vestir el uniforme en un acto ajeno al servicio necesita:",
+     "opciones": [
+      "Autorización previa de la Dirección y motivo justificado",
+      "Solo comunicarlo después a su Jefe de Parque",
+      "Nada: puede vestirlo libremente cuando quiera"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.4: «Previa autorización de la Dirección y con motivo justificado, los miembros del Consorcio podrán vestir la uniformidad reglamentaria en actos o momentos ajenos al servicio»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 23.4 del Reglamento de Régimen Interno del CPEI, los miembros de la subescala Técnica están obligados a vestir el uniforme:",
+     "opciones": [
+      "Siempre que estén en su puesto",
+      "Cuando la Dirección lo exija para actos concretos",
+      "Nunca, por la naturaleza de sus funciones"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 23.4: «estarán obligados a vestir el uniforme, cuando la Dirección lo exija, para actos concretos o actividades determinadas»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a23-5-ataque",
+   "bloque": "a23",
+   "apartado": "5",
+   "orden": 1090,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 23.5 del RRI del CPEI, ¿quién acuerda la composición del uniforme de ataque al fuego?",
+    "respuesta": "Los órganos competentes; el uniforme de ataque al fuego está constituido por diferentes prendas."
+   },
+   "cita": "Existirá un uniforme de ataque al fuego",
+   "confundible_con": [
+    "RRI-a23-7-seguridad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.5 del Reglamento de Régimen Interno del CPEI, ¿existirá un uniforme de ataque al fuego?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.5: «Existirá un uniforme de ataque al fuego constituido por diferentes prendas»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 23.5 del Reglamento de Régimen Interno del CPEI, la composición del uniforme de ataque al fuego será acordada por:",
+     "opciones": [
+      "Los órganos competentes",
+      "Cada Jefe de Parque",
+      "El propio trabajador"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.5: «cuya composición será acordada por los órganos competentes»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 23.5 del Reglamento de Régimen Interno del CPEI, el uniforme de ataque al fuego:",
+     "opciones": [
+      "Lo forman diferentes prendas que acuerdan los órganos competentes",
+      "Es una prenda única fijada en el propio Reglamento",
+      "Lo elige cada trabajador entre las prendas del parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.5: «constituido por diferentes prendas, cuya composición será acordada por los órganos competentes»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a23-6-conservacion",
+   "bloque": "a23",
+   "apartado": "6",
+   "orden": 1096,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 23.6 del RRI del CPEI, ¿quién cuida del estado de la uniformidad y equipación personal?",
+    "respuesta": "La Dirección debe cuidar de que en todo momento estén en correcto estado de conservación."
+   },
+   "cita": "La Dirección deberá cuidar de que en todo momento, la uniformidad",
+   "confundible_con": [
+    "RRI-a23-6-duracion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.6 del Reglamento de Régimen Interno del CPEI, ¿debe la Dirección cuidar de que la uniformidad esté en correcto estado de conservación?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.6: «La Dirección deberá cuidar de que en todo momento, la uniformidad… se halle en correcto estado de conservación»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 23.6 del Reglamento de Régimen Interno del CPEI, además de la uniformidad, la Dirección debe cuidar del correcto estado de conservación de:",
+     "opciones": [
+      "La equipación personal",
+      "Los vehículos particulares",
+      "Las viviendas del personal"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.6: «la uniformidad y, en general, la equipación personal de los componentes del Consorcio»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 23.6 del Reglamento de Régimen Interno del CPEI, ¿con qué frecuencia debe cuidar la Dirección del estado de conservación de la uniformidad?",
+     "opciones": [
+      "En todo momento",
+      "Una vez al año",
+      "En cada entrega de abril y octubre"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.6: «deberá cuidar de que en todo momento…»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a23-6-duracion",
+   "bloque": "a23",
+   "apartado": "6",
+   "orden": 1102,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 23.6 del RRI del CPEI, ¿quién fija la duración media de cada prenda y qué pasa si se deteriora antes?",
+    "respuesta": "La comisión de prevención de riesgos laborales que se constituya; si hay deterioro prematuro, se repone y se investigan las causas para adoptar medidas."
+   },
+   "cita": "se fijará el periodo de tiempo medio de duración de cada prenda o útil personal",
+   "confundible_con": [
+    "RRI-a23-6-conservacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.6 del Reglamento de Régimen Interno del CPEI, ¿se repone una prenda que se deteriora antes de tiempo?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.6: «en caso de deterioro prematuro, se procederá a su reposición»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 23.6 del Reglamento de Régimen Interno del CPEI, el periodo medio de duración de cada prenda o útil personal lo fijará:",
+     "opciones": [
+      "La comisión de prevención de riesgos laborales",
+      "El Jefe de cada parque, para su dotación",
+      "El fabricante, según la ficha de la prenda"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.6: «Por comisión de prevención de riesgos laborales, que en su día se constituya, se fijará el periodo de tiempo medio de duración»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 23.6 del Reglamento de Régimen Interno del CPEI, ante el deterioro prematuro de una prenda, además de reponerla:",
+     "opciones": [
+      "Se recaba información para determinar sus causas",
+      "Se descuenta su coste de la nómina",
+      "Se abre siempre expediente disciplinario"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.6: «se procederá a su reposición, recabándose la información correspondiente, para determinar sus causas, adoptándose las medidas necesarias»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a23-7-seguridad",
+   "bloque": "a23",
+   "apartado": "7",
+   "orden": 1108,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 23.7 del RRI del CPEI, ¿qué prendas se consideran de seguridad?",
+    "respuesta": "Casco, chaquetón, botas, cinturón, mosquetón, cuerdas, guantes y cubrepantalón."
+   },
+   "cita": "casco, chaquetón, botas, cinturón, mosquetón, cuerdas, guantes y cubrepantalón",
+   "confundible_con": [
+    "RRI-a23-5-ataque"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 23.7 del Reglamento de Régimen Interno del CPEI, ¿es el mosquetón una prenda de seguridad?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 23.7: «casco, chaquetón, botas, cinturón, mosquetón, cuerdas, guantes y cubrepantalón»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 23.7 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas NO figura entre las prendas de seguridad?",
+     "opciones": [
+      "El cinturón",
+      "El cubrepantalón",
+      "La linterna"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 23.7: casco, chaquetón, botas, cinturón, mosquetón, cuerdas, guantes y cubrepantalón. No cita la linterna."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 23.7 del Reglamento de Régimen Interno del CPEI, ¿cuántas prendas de seguridad enumera?",
+     "opciones": [
+      "Seis",
+      "Ocho",
+      "Diez"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 23.7: ocho — casco, chaquetón, botas, cinturón, mosquetón, cuerdas, guantes y cubrepantalón."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a24-aseo",
+   "bloque": "a24",
+   "apartado": "",
+   "orden": 1114,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 24 del RRI del CPEI, ¿qué relación hay entre aseo personal y uniformidad?",
+    "respuesta": "El aseo personal es complemento indispensable de la correcta uniformidad; todos deben distinguirse por su correcta presentación."
+   },
+   "cita": "El aseo personal es complemento indispensable para la correcta uniformidad",
+   "confundible_con": [
+    "RRI-a23-4-uso"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 24 del Reglamento de Régimen Interno del CPEI, ¿es el aseo personal complemento indispensable de la correcta uniformidad?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 24: «El aseo personal es complemento indispensable para la correcta uniformidad»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 24 del Reglamento de Régimen Interno del CPEI, el aseo personal es, respecto de la correcta uniformidad:",
+     "opciones": [
+      "Un complemento indispensable",
+      "Una recomendación sin efectos",
+      "Una cuestión solo de la vida privada"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 24: «es complemento indispensable para la correcta uniformidad»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 24 del Reglamento de Régimen Interno del CPEI, ¿a quién alcanza el deber de distinguirse por la correcta presentación?",
+     "opciones": [
+      "Solo al personal operativo de guardia",
+      "A todos los miembros del Consorcio",
+      "Solo a los mandos en actos oficiales"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 24: «todos los miembros del Consorcio deberán distinguirse por su correcta presentación»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a25-definicion",
+   "bloque": "a25",
+   "apartado": "",
+   "orden": 1120,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 25 del RRI del CPEI, ¿qué es un parque?",
+    "respuesta": "El conjunto de servicios comunes que, con autonomía funcional, cubre los riesgos de determinada área a nivel de primera intervención."
+   },
+   "cita": "Se define como parque el conjunto de servicios comunes que con autonomía funcional",
+   "confundible_con": [
+    "RRI-a25-clasificacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿tiene el parque autonomía funcional?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25: parque es «el conjunto de servicios comunes que con autonomía funcional, cubre los riesgos de determinada área a nivel de primera intervención»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, el parque cubre los riesgos de determinada área a nivel de:",
+     "opciones": [
+      "Primera intervención",
+      "Segunda intervención",
+      "Apoyo logístico"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25: «cubre los riesgos de determinada área a nivel de primera intervención»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, los parques deben disponer de:",
+     "opciones": [
+      "Espacios suficientes con locales acondicionados",
+      "Un helipuerto y una torre de prácticas propios",
+      "Al menos dos autobombas de reserva en el parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25: «Los parques deben disponer de espacios suficientes con locales, debidamente acondicionados para el buen desarrollo de su actividad»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a25-distribucion",
+   "bloque": "a25",
+   "apartado": "",
+   "orden": 1126,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 25 del RRI del CPEI, ¿cómo se sitúan los medios del CPEI?",
+    "respuesta": "En los parques, distribuidos en el término municipal que se determine, de forma que cubran los riesgos existentes de manera equilibrada."
+   },
+   "cita": "de forma que cubran los riesgos existentes de manera equilibrada",
+   "confundible_con": [
+    "RRI-a25-definicion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿se sitúan en los parques los medios humanos y materiales del C.P.E.I.?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25: «Los medios humanos y materiales del C.P.E.I.. [sic] se situarán en los parques»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, los parques se distribuyen de forma que cubran los riesgos:",
+     "opciones": [
+      "De manera equilibrada",
+      "Solo de los municipios mayores",
+      "Por orden de antigüedad del parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25: «de forma que cubran los riesgos existentes de manera equilibrada»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, los parques se ubican:",
+     "opciones": [
+      "En el término municipal que se determine",
+      "Solo en las cabeceras de partido judicial",
+      "En todos los municipios de más de 5.000 habitantes"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25: «distribuidos en el término municipal que se determine»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a25-clasificacion",
+   "bloque": "a25",
+   "apartado": "",
+   "orden": 1132,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 25 del RRI del CPEI, ¿cómo se clasifican los parques y con qué criterio?",
+    "respuesta": "En Central, Comarcal y Local, según una evaluación de los riesgos existentes en el término municipal o comarcal donde están ubicados."
+   },
+   "cita": "se clasifican en base a una evaluación de riesgos existentes en el término municipal o comarcal donde están ubicados",
+   "confundible_con": [
+    "RRI-a25-central",
+    "RRI-a25-comarcal",
+    "RRI-a25-local"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿es el «Parque Comarcal» una de las categorías de parque?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25: se clasifican en Parque Central, Parque Comarcal y Parque Local."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas NO es una categoría de parque?",
+     "opciones": [
+      "Parque Local",
+      "Parque Provincial",
+      "Parque Central"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 25: Parque Central, Parque Comarcal y Parque Local."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿cuántos parques de Bomberos hay en la provincia de Badajoz?",
+     "opciones": [
+      "Doce",
+      "Quince",
+      "Dieciocho"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 25: «Los quince parques de Bomberos de la provincia de Badajoz se agruparán en zonas»: 2 centrales, 10 comarcales y 3 locales."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a25-central",
+   "bloque": "a25",
+   "apartado": "",
+   "orden": 1138,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 25 del RRI del CPEI, ¿cómo es el Parque Central?",
+    "respuesta": "Índice de riesgo alto; sus intervenciones potenciales le impiden acudir en ayuda de otro parque salvo en sucesos de extrema gravedad u ocasiones especiales, así que normalmente actúa en su ámbito territorial."
+   },
+   "cita": "Este parque tiene un índice de riesgo alto",
+   "confundible_con": [
+    "RRI-a25-comarcal"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿tiene el Parque Central un índice de riesgo alto?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.a): «Este parque tiene un índice de riesgo alto»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, el Parque Central acude en ayuda de otro parque:",
+     "opciones": [
+      "Solo en sucesos de extrema gravedad u ocasiones especiales",
+      "Siempre que se lo pida un parque comarcal de la zona",
+      "Nunca, ni siquiera en sucesos de extrema gravedad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.a): sus intervenciones potenciales le imposibilitan acudir en ayuda de otro parque, «salvo en sucesos de extrema gravedad o ocasiones especiales que así lo aconsejen»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, normalmente las intervenciones del Parque Central se limitan a:",
+     "opciones": [
+      "Las poblaciones y términos de su ámbito territorial",
+      "Toda la provincia, como parque de referencia",
+      "El apoyo a los parques locales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.a): «normalmente sus intervenciones se limitarán a las poblaciones y términos municipales pertenecientes a su ámbito territorial»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a25-comarcal",
+   "bloque": "a25",
+   "apartado": "",
+   "orden": 1144,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 25 del RRI del CPEI, ¿cómo es el Parque Comarcal?",
+    "respuesta": "Índice de riesgo medio; cubre como norma general su ámbito territorial y apoya a los parques locales cuando las circunstancias lo requieran."
+   },
+   "cita": "índice de riesgo medio tendrá capacidad de cobertura",
+   "confundible_con": [
+    "RRI-a25-central",
+    "RRI-a25-local"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿apoya el Parque Comarcal a los parques locales cuando las circunstancias lo requieren?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.b): tendrá capacidad de cobertura de su ámbito «y de apoyo a los parques locales, cuando las circunstancias lo requieran»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, el índice de riesgo del Parque Comarcal es:",
+     "opciones": [
+      "Alto",
+      "Medio",
+      "Bajo"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 25.b): «por su ubicación e índice de riesgo medio»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿qué tipo de parque, además de cubrir su ámbito territorial, apoya a otros parques cuando las circunstancias lo requieren?",
+     "opciones": [
+      "El Central",
+      "El Comarcal",
+      "El Local"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 25.b): el Parque Comarcal apoya a los parques locales. El Central solo acude fuera en sucesos de extrema gravedad u ocasiones especiales."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a25-local",
+   "bloque": "a25",
+   "apartado": "",
+   "orden": 1150,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 25 del RRI del CPEI, ¿cómo es el Parque Local?",
+    "respuesta": "Índice de riesgo bajo; depende del sector de un Parque Comarcal y atiende en exclusiva los siniestros de poca envergadura."
+   },
+   "cita": "índice de riesgo bajo dependerá del sector de un Parque Comarcal",
+   "confundible_con": [
+    "RRI-a25-comarcal"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿depende el Parque Local del sector de un Parque Central?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 25.c): el Parque Local «dependerá del sector de un Parque Comarcal»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, los siniestros de poca envergadura en la zona de un Parque Local los atiende:",
+     "opciones": [
+      "Exclusivamente el personal de ese parque",
+      "Siempre el Parque Comarcal de su sector",
+      "El Parque Central más próximo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25.c): «En siniestros de poca envergadura será atendido exclusivamente por el personal del parque»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, el Parque Local tiene un índice de riesgo:",
+     "opciones": [
+      "Medio",
+      "Bajo",
+      "Alto"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 25.c): «por su ubicación e índice de riesgo bajo»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a25-centrales",
+   "bloque": "a25",
+   "apartado": "",
+   "orden": 1156,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 25 del RRI del CPEI, ¿qué parques son Centrales?",
+    "respuesta": "Mérida y Don Benito-Villanueva de la Serena."
+   },
+   "cita": "Tendrán la categoría de Parque Central, los parques de Bomberos de Mérida y Don Benito-Villanueva de la Serena",
+   "confundible_con": [
+    "RRI-a25-comarcales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿es Don Benito-Villanueva de la Serena un Parque Central?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25: «Tendrán la categoría de Parque Central, los parques de Bomberos de Mérida y Don Benito-Villanueva de la Serena»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿cuál de estos parques tiene la categoría de Parque Central?",
+     "opciones": [
+      "Zafra",
+      "Almendralejo",
+      "Mérida"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 25: Parques Centrales: Mérida y Don Benito-Villanueva de la Serena."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿cuántos parques tienen la categoría de Parque Central?",
+     "opciones": [
+      "Uno",
+      "Dos",
+      "Tres"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 25: dos, Mérida y Don Benito-Villanueva de la Serena."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a25-comarcales",
+   "bloque": "a25",
+   "apartado": "",
+   "orden": 1162,
+   "tipo": "lista",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 25 del RRI del CPEI, ¿qué parques son Comarcales?",
+    "respuesta": "Alburquerque, Almendralejo, Castuera, Herrera del Duque, Jerez de los Caballeros, Llerena, Olivenza, Puebla de la Calzada, Villafranca de los Barros y Zafra (diez)."
+   },
+   "cita": "Tendrán la categoría de Parque Comarcal, los parques de Bomberos de Alburquerque, Almendralejo, Castuera",
+   "confundible_con": [
+    "RRI-a25-centrales",
+    "RRI-a25-locales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿es Llerena un Parque Comarcal?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25: Llerena figura entre los Parques Comarcales."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿cuál de estos parques tiene la categoría de Parque Comarcal?",
+     "opciones": [
+      "Castuera",
+      "Azuaga",
+      "Hornachos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25: Castuera es Comarcal; Azuaga es Local y Mérida, Central."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿cuántos parques tienen la categoría de Parque Comarcal?",
+     "opciones": [
+      "Ocho",
+      "Diez",
+      "Doce"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 25: diez — Alburquerque, Almendralejo, Castuera, Herrera del Duque, Jerez de los Caballeros, Llerena, Olivenza, Puebla de la Calzada, Villafranca de los Barros y Zafra."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a25-locales",
+   "bloque": "a25",
+   "apartado": "",
+   "orden": 1168,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 25 del RRI del CPEI, ¿qué parques son Locales?",
+    "respuesta": "Azuaga, Fregenal de la Sierra y Hornachos."
+   },
+   "cita": "Tendrán la categoría de Parque Local los parques de Bomberos de Azuaga, Fregenal de la Sierra y Hornachos",
+   "confundible_con": [
+    "RRI-a25-comarcales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿es Fregenal de la Sierra un Parque Local?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25: «Tendrán la categoría de Parque Local los parques de Bomberos de Azuaga, Fregenal de la Sierra y Hornachos»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿qué tres parques tienen la categoría de Parque Local?",
+     "opciones": [
+      "Azuaga, Fregenal de la Sierra y Hornachos",
+      "Azuaga, Llerena y Castuera del Guadiana",
+      "Hornachos, Olivenza y Zafra de los Barros"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25: Azuaga, Fregenal de la Sierra y Hornachos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿cuál de estos parques NO es un Parque Local?",
+     "opciones": [
+      "Fregenal de la Sierra",
+      "Hornachos",
+      "Jerez de los Caballeros"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 25: Jerez de los Caballeros es Comarcal. Los Locales son Azuaga, Fregenal de la Sierra y Hornachos."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a25-protocolos",
+   "bloque": "a25",
+   "apartado": "",
+   "orden": 1174,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 25 del RRI del CPEI, ¿cómo se hace toda salida a siniestro?",
+    "respuesta": "Conforme a los protocolos de intervención que reglamentariamente se acuerden."
+   },
+   "cita": "Toda salida a siniestro se hará conforme a los protocolos de intervención",
+   "confundible_con": [
+    "RRI-a32-recomendacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿debe hacerse toda salida a siniestro conforme a los protocolos de intervención?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25: «Toda salida a siniestro se hará conforme a los protocolos de intervención que reglamentariamente se acuerden»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, toda salida a siniestro se hará conforme a:",
+     "opciones": [
+      "Los protocolos de intervención que se acuerden",
+      "El criterio libre del bombero más antiguo",
+      "Las instrucciones del Ayuntamiento afectado"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25: conforme a «los protocolos de intervención que reglamentariamente se acuerden»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, los protocolos de intervención para las salidas a siniestro:",
+     "opciones": [
+      "Se acuerdan reglamentariamente",
+      "Los dicta cada parque a su criterio",
+      "Los fija la Delegación del Gobierno"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25: «protocolos de intervención que reglamentariamente se acuerden»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a25-zonas",
+   "bloque": "a25",
+   "apartado": "",
+   "orden": 1180,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 25 del RRI del CPEI, ¿cómo se agrupan los parques y quién está al frente?",
+    "respuesta": "Los quince parques se agrupan en zonas, cada una al frente de un Suboficial. Además, cada zona tiene todos los días, en turno de 24 horas, un responsable máximo de guardia localizada para las intervenciones complejas y las contingencias imprevistas."
+   },
+   "cita": "se agruparán en zonas al frente de las cuales se encontrará un Suboficial",
+   "confundible_con": [
+    "RRI-a25-clasificacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿se agrupan los parques en zonas?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25: «Los quince parques de Bomberos de la provincia de Badajoz se agruparán en zonas»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, al frente de cada zona de parques se encontrará:",
+     "opciones": [
+      "Un Cabo",
+      "Un Suboficial",
+      "Un Inspector"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 25: «se agruparán en zonas al frente de las cuales se encontrará un Suboficial»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, en cada zona, todos los días del año y en turno de 24 horas, hay de guardia localizada:",
+     "opciones": [
+      "Un responsable máximo de las intervenciones",
+      "Una dotación completa de reserva del parque",
+      "Un emisorista de apoyo al CECOB de la zona"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 25: «se encontrará de guardia localizada un responsable máximo de las intervenciones que por su complejidad o magnitud así lo requieran»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a26-jefes",
+   "bloque": "a26",
+   "apartado": "",
+   "orden": 1186,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 26 del RRI del CPEI, ¿quién cubre las ausencias de los Jefes de Parque de más de 10 días?",
+    "respuesta": "Con carácter general, el personal del parque de más alta graduación; si hay varios de la misma graduación, el que designe la Presidencia a propuesta de la Gerencia."
+   },
+   "cita": "Las ausencias de los Jefes de Parques por un periodo superior a 10 días serán cubiertas",
+   "confundible_con": [
+    "RRI-a26-cabos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 26 del Reglamento de Régimen Interno del CPEI, ¿se cubren las ausencias de los Jefes de Parque superiores a 10 días?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 26.a): «Las ausencias de los Jefes de Parques por un periodo superior a 10 días serán cubiertas…»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 26 del Reglamento de Régimen Interno del CPEI, si en el parque hay varios con la más alta graduación, el sustituto del Jefe de Parque lo designa:",
+     "opciones": [
+      "La Presidencia, a propuesta de la Gerencia",
+      "El más antiguo de ellos, sin designación",
+      "El Suboficial de la zona"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 26.a): «sobre aquel que designara la Presidencia, a propuesta de la Gerencia»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 26 del Reglamento de Régimen Interno del CPEI, la sustitución del Jefe de Parque procede cuando su ausencia supera:",
+     "opciones": [
+      "Cinco días",
+      "Diez días",
+      "Quince días"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 26.a): «por un periodo superior a 10 días». Ojo: para los cabos la Administración actúa si la ausencia supera quince días (26.b)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a26-compensacion",
+   "bloque": "a26",
+   "apartado": "",
+   "orden": 1192,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 26 del RRI del CPEI, ¿qué percibe quien sustituye al Jefe de Parque?",
+    "respuesta": "Mientras desempeñe esas funciones, la compensación económica que legalmente le corresponda."
+   },
+   "cita": "tendrá derecho a percibir la compensación económica que legalmente le corresponda",
+   "confundible_con": [
+    "RRI-a26-jefes"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 26 del Reglamento de Régimen Interno del CPEI, ¿tiene derecho a compensación económica quien sustituye al Jefe de Parque?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 26.a): «tendrá derecho a percibir la compensación económica que legalmente le corresponda»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 26 del Reglamento de Régimen Interno del CPEI, la sustitución del Jefe de Parque por el de más alta graduación se hace:",
+     "opciones": [
+      "Como cometido específico de sus funciones",
+      "Solo si el interesado la acepta por escrito",
+      "Por concurso entre todo el personal"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 26.a): «por el personal del parque que ostentara la más alta graduación, como cometido específico de sus funciones»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 26 del Reglamento de Régimen Interno del CPEI, la compensación económica del sustituto del Jefe de Parque se percibe:",
+     "opciones": [
+      "Durante el periodo en que desempeñe esas funciones",
+      "Solo a partir del segundo mes de sustitución",
+      "Al finalizar el año, en un pago único"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 26.a): «Durante el periodo que el sustituto tuviera desempeñando las referidas funciones tendrá derecho a percibir la compensación económica»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a26-cabos",
+   "bloque": "a26",
+   "apartado": "",
+   "orden": 1198,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 26 del RRI del CPEI, ¿cuándo cubre la Administración los puestos de cabo?",
+    "respuesta": "Cuando la ausencia derive de circunstancias extraordinarias ajenas a la voluntad del titular y dure más de quince días; puede hacerlo por cobertura interina o accidental según los acuerdos generales de funcionarios."
+   },
+   "cita": "se extienda más de quince días",
+   "confundible_con": [
+    "RRI-a26-jefes"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 26 del Reglamento de Régimen Interno del CPEI, ¿cubre la Administración el puesto de cabo si la ausencia se debe a circunstancias extraordinarias ajenas a la voluntad del titular y supera quince días?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 26.b): la Administración procederá a la cobertura «cuando la ausencia sea derivada de circunstancias extraordinarias ajenas a la voluntad del titular de la plaza, se extienda más de quince días»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 26 del Reglamento de Régimen Interno del CPEI, para cubrir el puesto de un cabo ausente, la Administración puede optar por:",
+     "opciones": [
+      "La cobertura interina o la accidental",
+      "Solo la contratación de un bombero externo",
+      "Solo el ascenso definitivo de un bombero"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 26.b): «bien proceder a la cobertura interina de la plaza bien a su cobertura accidental»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 26 del Reglamento de Régimen Interno del CPEI, la cobertura accidental de un puesto de cabo se hace por los procedimientos regulados en:",
+     "opciones": [
+      "Los acuerdos generales de funcionarios",
+      "El propio Reglamento de Régimen Interno",
+      "Las bases de cada convocatoria de oposición"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 26.b): «por los procedimientos regulados en acuerdos generales de funcionarios con los requisitos y límites que se establecen en los mismos»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a27-preparado",
+   "bloque": "a27",
+   "apartado": "",
+   "orden": 1204,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 27 del RRI del CPEI, ¿cómo debe estar el personal dentro de los parques?",
+    "respuesta": "Preparado para salir en cualquier momento y atender emergencias; por ello, correctamente uniformado, sin perjuicio de las normas de la Dirección para actividades y prácticas."
+   },
+   "cita": "todo el personal deberá estar preparado para salir en cualquier momento",
+   "confundible_con": [
+    "RRI-a27-horario"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 27 del Reglamento de Régimen Interno del CPEI, ¿debe estar el personal correctamente uniformado dentro de los parques?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27: «A tal efecto, deberá estar correctamente uniformado»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 27 del Reglamento de Régimen Interno del CPEI, el personal debe estar correctamente uniformado dentro del parque para:",
+     "opciones": [
+      "Salir en cualquier momento a una emergencia",
+      "Recibir visitas institucionales",
+      "Superar las inspecciones de la Gerencia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27: deberá estar preparado para salir en cualquier momento y atender las emergencias; «a tal efecto, deberá estar correctamente uniformado»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 27 del Reglamento de Régimen Interno del CPEI, la obligación de estar correctamente uniformado en el parque se entiende sin perjuicio de:",
+     "opciones": [
+      "Las normas de la Dirección para actividades y prácticas",
+      "Las preferencias personales de cada bombero",
+      "Lo que acuerde por mayoría cada turno de guardia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27: «sin perjuicio de las normas que por la Dirección puedan dictarse, en especial para las actividades y prácticas a realizar»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a27-horario",
+   "bloque": "a27",
+   "apartado": "",
+   "orden": 1210,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 27 del RRI del CPEI, ¿qué horario de actividades se sigue en la guardia?",
+    "respuesta": "El horario general de actividades propuesto para el trimestre, revisado trimestralmente por la Dirección; es responsabilidad compartida de todo el personal directivo."
+   },
+   "cita": "será revisado trimestralmente por la Dirección del Consorcio",
+   "confundible_con": [
+    "RRI-a29-normas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 27 del Reglamento de Régimen Interno del CPEI, ¿se revisa trimestralmente el horario general de actividades de la guardia?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27: el horario general de actividades «será revisado trimestralmente por la Dirección del Consorcio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 27 del Reglamento de Régimen Interno del CPEI, el horario general de actividades del turno de guardia lo revisa la Dirección:",
+     "opciones": [
+      "Cada mes",
+      "Cada trimestre",
+      "Cada semestre"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 27: «propuesto para el trimestre del año en curso, que será revisado trimestralmente por la Dirección»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 27 del Reglamento de Régimen Interno del CPEI, lograr una constante y perfecta disposición del personal es responsabilidad:",
+     "opciones": [
+      "Compartida de todo el personal directivo",
+      "Exclusiva del Cabo Jefe de Turno",
+      "Exclusiva de cada bombero"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 27: «siendo responsabilidad compartida de todo el personal directivo»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a28-1-ausentarse",
+   "bloque": "a28",
+   "apartado": "1",
+   "orden": 1216,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 28.1 del RRI del CPEI, ¿puede alguien ausentarse del parque sin permiso?",
+    "respuesta": "No: nadie puede ausentarse del parque o dependencia sin la autorización pertinente del responsable."
+   },
+   "cita": "Nadie podrá ausentarse del parque o dependencia sin la autorización pertinente del responsable del mismo",
+   "confundible_con": [
+    "RRI-a28-2-asuntos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 28.1 del Reglamento de Régimen Interno del CPEI, ¿puede alguien ausentarse del parque sin autorización del responsable?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 28.1: «Nadie podrá ausentarse del parque o dependencia sin la autorización pertinente del responsable del mismo»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 28.1 del Reglamento de Régimen Interno del CPEI, para ausentarse de una dependencia del Consorcio se necesita:",
+     "opciones": [
+      "La autorización de su responsable",
+      "Solo avisar al compañero de turno",
+      "Nada si es durante el descanso"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.1: hace falta «la autorización pertinente del responsable del mismo»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 28.1 del Reglamento de Régimen Interno del CPEI, la regla de no ausentarse sin autorización del responsable se aplica:",
+     "opciones": [
+      "Al parque o dependencia",
+      "Solo a los parques comarcales",
+      "Solo durante las salidas a siniestro"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.1: «Nadie podrá ausentarse del parque o dependencia…»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a28-2-asuntos",
+   "bloque": "a28",
+   "apartado": "2",
+   "orden": 1222,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 28.2 del RRI del CPEI, ¿quién autoriza ausentarse por asuntos personales o familiares de duración imprevisible?",
+    "respuesta": "El Jefe de Parque; en casos graves y urgentes, si no se le localiza de inmediato, el Cabo Jefe de Turno, con comunicación posterior al Jefe de Parque."
+   },
+   "cita": "se requerirá el conocimiento y autorización del Jefe de Parque",
+   "confundible_con": [
+    "RRI-a28-2-cabo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 28.2 del Reglamento de Régimen Interno del CPEI, ¿puede el Cabo Jefe de Turno autorizar una ausencia urgente si no se localiza al Jefe de Parque?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.2: «En los casos graves y urgentes en que a éste no se le pueda localizar de inmediato, el Cabo Jefe de Turno podrá conceder la autorización»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 28.2 del Reglamento de Régimen Interno del CPEI, si el Cabo Jefe de Turno autoriza una ausencia urgente por no localizar al Jefe de Parque:",
+     "opciones": [
+      "Lo comunica después al Jefe de Parque",
+      "La ausencia no tiene validez alguna",
+      "Debe pedir permiso escrito a la Gerencia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.2: «sin perjuicio de la posterior comunicación a dicho Jefe de Parque»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 28.2 del Reglamento de Régimen Interno del CPEI, además de lo que dice el propio artículo, para las ausencias por asuntos personales se estará a lo establecido en:",
+     "opciones": [
+      "Los acuerdos reguladores",
+      "El Estatuto de los Trabajadores",
+      "Las instrucciones de cada Ayuntamiento"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.2: «No obstante, se estará a lo establecido a los acuerdos reguladores»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a28-2-cabo",
+   "bloque": "a28",
+   "apartado": "2",
+   "orden": 1228,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 28.2 del RRI del CPEI, ¿qué hace el Cabo Jefe de Turno si es él quien tiene que ausentarse?",
+    "respuesta": "Lo comunica a su superior inmediato y, si no es posible, al Emisorista de servicio."
+   },
+   "cita": "si no es posible la comunicación lo hará al Emisorísta de servicio",
+   "confundible_con": [
+    "RRI-a28-2-asuntos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 28.2 del Reglamento de Régimen Interno del CPEI, si el que se ausenta es el Cabo Jefe de Turno, ¿debe comunicarlo a su superior inmediato?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.2: «Si la ausencia fuera del Cabo Jefe de Turno deberá comunicárselo a su superior inmediato»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "El Cabo Jefe de Turno debe ausentarse y no logra contactar con su superior inmediato. Según el art. 28.2 del Reglamento de Régimen Interno del CPEI, ¿a quién se lo comunica?",
+     "opciones": [
+      "Al Jefe de otro parque",
+      "Al Emisorista de servicio",
+      "Al Gerente del Consorcio"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 28.2: «si no es posible la comunicación lo hará al Emisorísta [sic] de servicio»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 28.2 del Reglamento de Régimen Interno del CPEI, ¿en qué orden comunica el Cabo Jefe de Turno su propia ausencia?",
+     "opciones": [
+      "Primero al Emisorista y luego a su superior inmediato",
+      "A su superior inmediato y, si no es posible, al Emisorista",
+      "Solo a la Gerencia, por escrito y con antelación"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 28.2: a su superior inmediato y, si no es posible la comunicación, al Emisorista de servicio."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a28-3-permanencia",
+   "bloque": "a28",
+   "apartado": "3",
+   "orden": 1234,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 28.3 del RRI del CPEI, ¿quién puede permanecer en los parques y cómo acceden otras personas?",
+    "respuesta": "Solo los miembros del Consorcio, de forma continuada. El responsable puede autorizar accesos por conveniencia personal si no alteran el servicio; cualquier otra persona debe pedir por escrito a la Gerencia el uso y permanencia."
+   },
+   "cita": "sólo estará permitida la permanencia continuada de los miembros del Consorcio",
+   "confundible_con": [
+    "RRI-a28-3-sindicales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 28.3 del Reglamento de Régimen Interno del CPEI, ¿está permitida en los parques la permanencia continuada de los miembros del Consorcio?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.3: «sólo estará permitida la permanencia continuada de los miembros del Consorcio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 28.3 del Reglamento de Régimen Interno del CPEI, el acceso al parque por razones de conveniencia personal lo puede autorizar:",
+     "opciones": [
+      "El responsable del parque o dependencia",
+      "Solo el Presidente del Consorcio",
+      "Cualquier bombero de guardia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.3: «Se podrá autorizar por el responsable del parque o dependencia, el acceso por razones de conveniencia personal»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Una asociación vecinal quiere usar los locales de un parque para una reunión. Según el art. 28.3 del Reglamento de Régimen Interno del CPEI, debe:",
+     "opciones": [
+      "Solicitarlo por escrito a la Gerencia",
+      "Pedirlo al responsable del parque, que decide",
+      "Pedirlo al Ayuntamiento donde está el parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.3: «Cualquier otra persona física tendrá que solicitar, por escrito, a la Gerencia, el uso y permanencia en los locales de los parques»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a28-3-sindicales",
+   "bloque": "a28",
+   "apartado": "3",
+   "orden": 1240,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 28.3 del RRI del CPEI, ¿pueden acceder a los parques los representantes sindicales?",
+    "respuesta": "Sí, salvo resolución motivada en contra, para actividades que no excedan de sus pautas habituales de actuación."
+   },
+   "cita": "se permitirá el acceso de quienes tengan la condición de representantes sindicales",
+   "confundible_con": [
+    "RRI-a28-3-permanencia"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 28.3 del Reglamento de Régimen Interno del CPEI, ¿se permite, en general, el acceso de los representantes sindicales a los parques?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.3: «salvo resolución motivada que disponga lo contrario, se permitirá el acceso de quienes tengan la condición de representantes sindicales»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 28.3 del Reglamento de Régimen Interno del CPEI, el acceso de los representantes sindicales solo puede impedirse:",
+     "opciones": [
+      "Por resolución motivada",
+      "Por decisión verbal del Cabo",
+      "Durante los fines de semana"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.3: «salvo resolución motivada que disponga lo contrario»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 28.3 del Reglamento de Régimen Interno del CPEI, los representantes sindicales acceden a los parques para actividades que:",
+     "opciones": [
+      "No excedan de sus pautas habituales de actuación",
+      "Hayan sido aprobadas por el Pleno de la Diputación",
+      "Se realicen fuera del horario de guardia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.3: «para la realización de actividades que no excedan de las pautas habituales de actuación de los mismos»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a28-3-dependencias",
+   "bloque": "a28",
+   "apartado": "3",
+   "orden": 1246,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 28.3 del RRI del CPEI, ¿cómo se pide usar instalaciones de otras dependencias para reuniones o cursos?",
+    "respuesta": "En el resto de dependencias el Jefe respectivo autoriza la permanencia en las mismas condiciones, salvo para reuniones, charlas o cursos, que deben solicitarse por escrito a la Gerencia."
+   },
+   "cita": "En el resto de las dependencias el Jefe respectivo podrá autorizar la permanencia",
+   "confundible_con": [
+    "RRI-a28-3-permanencia"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 28.3 del Reglamento de Régimen Interno del CPEI, ¿puede el Jefe de una dependencia autorizar por sí solo su uso para un curso?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 28.3: para usar las instalaciones para «reuniones, charlas, cursos, etc.» hay que solicitarlo por escrito a la Gerencia del Consorcio."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 28.3 del Reglamento de Régimen Interno del CPEI, en las dependencias distintas de los parques, la permanencia la puede autorizar:",
+     "opciones": [
+      "El Jefe respectivo",
+      "Solo la Presidencia",
+      "Cualquier empleado presente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.3: «En el resto de las dependencias el Jefe respectivo podrá autorizar la permanencia en iguales condiciones»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 28.3 del Reglamento de Régimen Interno del CPEI, usar las instalaciones de una dependencia para una charla o un curso requiere:",
+     "opciones": [
+      "Solicitud por escrito a la Gerencia",
+      "Permiso verbal del Jefe de la dependencia",
+      "Aviso previo al Emisorista de servicio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 28.3: «excepto cuando se requiera usar las instalaciones para reuniones, charlas, cursos, etc., que se debe ser solicitado por escrito a la Gerencia del Consorcio»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a29-normas",
+   "bloque": "a29",
+   "apartado": "",
+   "orden": 1252,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 29 del RRI del CPEI, ¿quién fija las normas internas y de convivencia de los parques?",
+    "respuesta": "La Dirección, en especial horarios y actividades, de acuerdo con el Reglamento."
+   },
+   "cita": "Por la Dirección se marcarán todas aquellas normas que sean necesarias para el funcionamiento interno y de convivencia de los parques",
+   "confundible_con": [
+    "RRI-a27-horario"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, ¿marca la Dirección las normas de funcionamiento interno y de convivencia de los parques?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29: «Por la Dirección se marcarán todas aquellas normas que sean necesarias para el funcionamiento interno y de convivencia de los parques»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, entre las normas internas de los parques que marca la Dirección destacan, en especial:",
+     "opciones": [
+      "Los horarios y las actividades",
+      "Las retribuciones del personal",
+      "Los ascensos de categoría"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29: «en especial los horarios y las actividades a desarrollar»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, las normas internas que marca la Dirección deben ajustarse a:",
+     "opciones": [
+      "Lo determinado en el Reglamento",
+      "Lo que vote cada turno de guardia",
+      "Las costumbres de cada parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29: «de acuerdo con lo determinado en este reglamento»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a29-cuadrantes",
+   "bloque": "a29",
+   "apartado": "",
+   "orden": 1258,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 29 del RRI del CPEI, ¿con qué antelación hace el Jefe de Parque los cuadrantes mensuales?",
+    "respuesta": "Con una antelación mínima de tres meses."
+   },
+   "cita": "con una antelación mínima de tres meses",
+   "confundible_con": [
+    "RRI-a29-devolucion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, ¿confecciona el Jefe de Parque los cuadrantes mensuales de servicio?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29: «El Jefe de Parque deberá confeccionar los cuadrantes mensuales de servicio para el personal del parque»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, ¿quién confecciona los cuadrantes mensuales de servicio del personal del parque?",
+     "opciones": [
+      "El Jefe de Parque",
+      "El Cabo Jefe de Turno",
+      "La Gerencia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29: «El Jefe de Parque deberá confeccionar los cuadrantes mensuales de servicio»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, el cuadrante mensual de servicio del mes de marzo debe estar confeccionado, como muy tarde:",
+     "opciones": [
+      "El 1 de febrero",
+      "El 1 de enero",
+      "El 1 de diciembre"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 29: los cuadrantes mensuales se confeccionan «con una antelación mínima de tres meses»; para marzo, como muy tarde el 1 de diciembre."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a29-turnos",
+   "bloque": "a29",
+   "apartado": "",
+   "orden": 1264,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 29 del RRI del CPEI, ¿son fijos los turnos de trabajo?",
+    "respuesta": "Como norma general, no: se puede cambiar al personal de turno por razones de servicio. Los cambios de la Dirección serán motivados y no aumentarán las guardias mensuales de cada parque."
+   },
+   "cita": "Los turnos de trabajo, como norma general, no tendrán la categoría de fijos",
+   "confundible_con": [
+    "RRI-a29-cambios"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, ¿tienen los turnos de trabajo, como norma general, la categoría de fijos?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 29: «Los turnos de trabajo, como norma general, no tendrán la categoría de fijos, pudiéndose cambiar el personal de turno por razones de servicio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, se puede cambiar al personal de turno por:",
+     "opciones": [
+      "Razones de servicio",
+      "Antigüedad en el parque",
+      "Preferencias personales del Jefe"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29: «pudiéndose cambiar el personal de turno por razones de servicio»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, los cambios de turno que propone la Dirección:",
+     "opciones": [
+      "Pueden aumentar las guardias del parque si hay urgencia",
+      "Son motivados y no aumentan las guardias mensuales",
+      "No necesitan motivación si son solo temporales"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 29: «Los cambios propuestos por la dirección serán siempre de carácter motivado y no significarán un incremento del número de guardias establecidas mensualmente en cada parque»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a29-baja",
+   "bloque": "a29",
+   "apartado": "",
+   "orden": 1270,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 29 del RRI del CPEI, ¿qué hace el Jefe de Parque si alguien que entra de guardia causa baja?",
+    "respuesta": "Si la baja se produce por contingencias imprevistas con antelación mínima de 48 horas, puede llamar a cualquier componente del parque de la misma categoría, siguiendo un orden establecido, en general el turno siguiente."
+   },
+   "cita": "con una antelación mínima de cuarenta y ocho horas se produce la baja",
+   "confundible_con": [
+    "RRI-a29-turnos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, para cubrir la baja de quien entraría de guardia, ¿puede el Jefe de Parque llamar a alguien de otra categoría?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 29: puede llamar a cualquier componente del parque, «siempre de la misma categoría»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, para cubrir esa baja imprevista, el orden establecido será con carácter general:",
+     "opciones": [
+      "El turno siguiente",
+      "El de mayor antigüedad",
+      "El del turno saliente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29: «siguiendo un orden establecido, que con carácter general será el turno siguiente»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, la regla para cubrir la baja imprevista de quien entraría de guardia se refiere a bajas producidas con una antelación mínima de:",
+     "opciones": [
+      "Veinticuatro horas",
+      "Cuarenta y ocho horas",
+      "Setenta y dos horas"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 29: «con una antelación mínima de cuarenta y ocho horas». Ojo: el «cambio de turno» se pide con veinticuatro horas."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a29-cambios",
+   "bloque": "a29",
+   "apartado": "",
+   "orden": 1276,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 29 del RRI del CPEI, ¿cuántos cambios de turno puede pedir el personal y cómo?",
+    "respuesta": "Hasta cuatro al mes, con conocimiento previo por escrito del Jefe de Parque de destino, mediante el documento «cambio de turno» completo, con al menos 24 horas de antelación."
+   },
+   "cita": "hasta cuatro veces al mes",
+   "confundible_con": [
+    "RRI-a29-devolucion",
+    "RRI-a29-validez"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, ¿se pide el cambio de turno con el documento «cambio de turno» cumplimentado en todos sus campos?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29: «a través del documento “cambio de turno” que deberá ser cumplimentado en todos sus campos»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, el documento «cambio de turno» se presenta con una antelación mínima de:",
+     "opciones": [
+      "Doce horas",
+      "Veinticuatro horas",
+      "Cuarenta y ocho horas"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 29: «con una antelación mínima de veinticuatro horas»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, los cambios de turno del personal se comunican previamente por escrito a:",
+     "opciones": [
+      "El Jefe de Parque de destino",
+      "La Gerencia del Consorcio",
+      "El Emisorista de servicio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29: «previo conocimiento por escrito al Jefe de Parque de destino»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a29-devolucion",
+   "bloque": "a29",
+   "apartado": "",
+   "orden": 1282,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 29 del RRI del CPEI, ¿cómo se devuelve una guardia cambiada y cómo se cuenta?",
+    "respuesta": "A la misma persona que aceptó el cambio y en un máximo de tres meses. Un cambio de turno es una guardia completa y cuenta tanto para quien lo pide como para quien lo devuelve."
+   },
+   "cita": "La devolución de la guardia por motivo de este cambio se hará a la misma persona que acepto el cambio y en un tiempo máximo de tres meses",
+   "confundible_con": [
+    "RRI-a29-cambios"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, ¿se devuelve la guardia a la misma persona que aceptó el cambio?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29: «La devolución de la guardia… se hará a la misma persona que acepto [sic] el cambio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, la guardia cambiada debe devolverse en un tiempo máximo de:",
+     "opciones": [
+      "Un mes",
+      "Tres meses",
+      "Seis meses"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 29: «en un tiempo máximo de tres meses»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, ¿a quién se le contabiliza un cambio de turno?",
+     "opciones": [
+      "Solo a quien lo solicita, que es quien lo debe",
+      "A quien lo solicita y a quien lo devuelve",
+      "Solo a quien lo devuelve, pues hace la guardia"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 29: «se contabilizará el cambio de turno tanto para aquel que lo solicita como para el que lo devuelve». Se entiende por cambio de turno una guardia completa."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a29-limites",
+   "bloque": "a29",
+   "apartado": "",
+   "orden": 1288,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 29 del RRI del CPEI, ¿qué límites tienen los cambios de turno?",
+    "respuesta": "Dentro de la misma categoría, salvo que el servicio o la Dirección autoricen otros; nunca pueden aumentar la jornada de la planilla anual ni hacerse sin el descanso necesario."
+   },
+   "cita": "Los cambios se realizarán dentro de la misma categoría",
+   "confundible_con": [
+    "RRI-a29-cambios"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, ¿pueden los cambios de turno incrementar la jornada laboral de la planilla anual?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 29: «Estos cambios de turno no significarán en ningún caso… un incremento de la jornada laboral reflejada en la planilla anual establecida»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, como regla, los cambios de turno se hacen:",
+     "opciones": [
+      "Entre personal de distinto parque",
+      "Dentro de la misma categoría",
+      "Solo entre bomberos del mismo turno"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 29: «Los cambios se realizarán dentro de la misma categoría, salvo que circunstancias del servicio o la Dirección autorice otros cambios»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, debe descartarse un cambio de turno que:",
+     "opciones": [
+      "Se haga sin el descanso necesario antes o después",
+      "Se pida con más de un mes de antelación",
+      "Coincida con un día festivo o con un domingo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29: «deberá descartarse la realización de los mismos sin que medie el necesario descanso antes o después de la jornada que establece la citada planilla»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a29-validez",
+   "bloque": "a29",
+   "apartado": "",
+   "orden": 1294,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 29 del RRI del CPEI, ¿qué pasa con un cambio de turno sin visto bueno del Jefe de Parque?",
+    "respuesta": "No tiene validez alguna, y el personal implicado queda sujeto al régimen disciplinario del Reglamento."
+   },
+   "cita": "Todo cambio de turno que no cuente con el visto bueno del Jefe de Parque no tendrá validez alguna",
+   "confundible_con": [
+    "RRI-a29-cambios"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, ¿es válido un cambio de turno sin el visto bueno del Jefe de Parque?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 29: «Todo cambio de turno que no cuente con el visto bueno del Jefe de Parque no tendrá validez alguna»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, el personal que participa en un cambio de turno no autorizado:",
+     "opciones": [
+      "Queda sujeto al régimen disciplinario",
+      "Solo debe repetir la solicitud",
+      "Pierde el derecho a pedir cambios ese año"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29: «estando sujetos el personal relacionado con el cambio de turno no autorizado al régimen disciplinario del presente reglamento»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, para que un cambio de turno tenga validez necesita:",
+     "opciones": [
+      "El visto bueno del Jefe de Parque",
+      "La firma del Gerente",
+      "El acuerdo de la representación sindical"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29: sin «el visto bueno del Jefe de Parque» el cambio no tiene validez alguna."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a29-vacaciones",
+   "bloque": "a29",
+   "apartado": "",
+   "orden": 1300,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 29 del RRI del CPEI, ¿cómo se disfrutan las vacaciones?",
+    "respuesta": "Con la duración de la normativa vigente, procurando agruparlas por quincenas completas, conforme al plan de vacaciones."
+   },
+   "cita": "se disfrutarán siempre tratando de agruparlas por quincenas completas",
+   "confundible_con": [
+    "RRI-a29-cuadrantes"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, ¿se procura agrupar las vacaciones por quincenas completas?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29: «se disfrutarán siempre tratando de agruparlas por quincenas completas»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, las vacaciones se procuran agrupar por:",
+     "opciones": [
+      "Semanas sueltas",
+      "Quincenas completas",
+      "Mensualidades completas"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 29: «tratando de agruparlas por quincenas completas»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 29 del Reglamento de Régimen Interno del CPEI, la duración de las vacaciones es:",
+     "opciones": [
+      "La establecida en la normativa vigente",
+      "Treinta días naturales, fijados en el Reglamento",
+      "La que decida cada Jefe de Parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 29: «Las vacaciones tendrán la duración establecida en la normativa vigente sobre la materia»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a30-responsabilidad",
+   "bloque": "a30",
+   "apartado": "",
+   "orden": 1306,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 30 del RRI del CPEI, ¿de qué responde el personal de guardia?",
+    "respuesta": "De la buena realización del servicio a su cargo, sin excluir la responsabilidad que pueda corresponder a otros superiores jerárquicos."
+   },
+   "cita": "El personal de guardia es responsable de la buena realización del servicio a su cargo",
+   "confundible_con": [
+    "RRI-a30-fisico"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 30 del Reglamento de Régimen Interno del CPEI, ¿excluye la responsabilidad del personal de guardia la de sus superiores jerárquicos?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 30: «Su responsabilidad no excluye la que pueda corresponder a otros superiores jerárquicos»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 30 del Reglamento de Régimen Interno del CPEI, el personal de guardia es responsable de:",
+     "opciones": [
+      "La buena realización del servicio a su cargo",
+      "Las decisiones que adopte la Gerencia",
+      "El mantenimiento de los edificios del parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 30: «El personal de guardia es responsable de la buena realización del servicio a su cargo»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 30 del Reglamento de Régimen Interno del CPEI, la responsabilidad del personal de guardia por el servicio a su cargo:",
+     "opciones": [
+      "Excluye la de sus superiores jerárquicos",
+      "Es compatible con la de otros superiores",
+      "Solo existe si hay daños a terceros"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 30: «Su responsabilidad no excluye la que pueda corresponder a otros superiores jerárquicos»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a30-fisico",
+   "bloque": "a30",
+   "apartado": "",
+   "orden": 1312,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 30 del RRI del CPEI, ¿qué obligación física tienen los miembros del CPEI?",
+    "respuesta": "Mantenerse en buen estado físico; disponen de asistencia médica y físico-deportiva y deben hacer su preparación física en el gimnasio durante sus turnos, en el horario establecido, si las circunstancias no lo impiden."
+   },
+   "cita": "estarán obligados a mantenerse en buen estado físico para el desarrollo de sus funciones",
+   "confundible_con": [
+    "RRI-a33-d-aptitud"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 30 del Reglamento de Régimen Interno del CPEI, ¿es obligatoria la preparación física en el gimnasio durante los turnos si las circunstancias no lo impiden?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 30: «teniendo obligatoriamente que realizar su preparación física en el gimnasio durante sus turnos de trabajo»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 30 del Reglamento de Régimen Interno del CPEI, para mantenerse en buen estado físico, los miembros del C.P.E.I. dispondrán de:",
+     "opciones": [
+      "Asistencia médica y físico-deportiva",
+      "Un gimnasio privado a su elección",
+      "Una paga por rendimiento físico"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 30: «dispondrán de la asistencia médica y físico-deportiva necesaria»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 30 del Reglamento de Régimen Interno del CPEI, la preparación física en el gimnasio durante el turno puede no hacerse cuando:",
+     "opciones": [
+      "Las circunstancias lo impidan",
+      "El bombero lo prefiera",
+      "Haya visitas en el parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 30: «en el horario establecido al efecto, si las circunstancias no lo impiden»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a31-1-reconocimiento",
+   "bloque": "a31",
+   "apartado": "1",
+   "orden": 1318,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 31.1 del RRI del CPEI, ¿cómo es la revisión médica del personal?",
+    "respuesta": "Anual y obligatoria, limitada a constatar que su salud le permite trabajar sin riesgo para sí o sus compañeros; su alcance y el tratamiento de la información se fijan previo informe del Comité de Salud Laboral."
+   },
+   "cita": "Todo el personal del C.P.E.I. se someterá anualmente a revisión médica",
+   "confundible_con": [
+    "RRI-a31-2-no-supera",
+    "RRI-a33-d-aptitud"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 31.1 del Reglamento de Régimen Interno del CPEI, ¿es obligatorio el reconocimiento médico anual?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.1: «Dicho reconocimiento médico anual tendrá carácter obligatorio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 31.1 del Reglamento de Régimen Interno del CPEI, el alcance y finalidad del reconocimiento médico se determinan previo informe de:",
+     "opciones": [
+      "El Comité de Salud Laboral",
+      "El médico de cabecera de cada empleado",
+      "El Consejo de Administración"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.1: «se determinará previo informe del Comité de Salud Laboral»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 31.1 del Reglamento de Régimen Interno del CPEI, ¿con qué periodicidad se somete el personal a revisión médica?",
+     "opciones": [
+      "Cada seis meses",
+      "Cada año",
+      "Cada dos años"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 31.1: «se someterá anualmente a revisión médica»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a31-2-no-supera",
+   "bloque": "a31",
+   "apartado": "2",
+   "orden": 1324,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 31.2 del RRI del CPEI, ¿qué ocurre con el personal operativo que no supera la revisión por motivos ajenos a su voluntad?",
+    "respuesta": "Puede ser destinado a otras vacantes del Consorcio, si las hay, como personal de apoyo técnico; si no hay vacantes, se pone a disposición de su Administración de procedencia para funciones similares."
+   },
+   "cita": "pasando a ser considerado dentro de la categoría de personal de apoyo técnico",
+   "confundible_con": [
+    "RRI-a31-1-reconocimiento"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 31.2 del Reglamento de Régimen Interno del CPEI, si no hay vacantes en el Consorcio, ¿se pone al afectado a disposición de su Administración de procedencia?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.2: «En caso de no existir vacantes en el Consorcio, se pondría a disposición del órgano competente de la Administración de procedencia»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 31.2 del Reglamento de Régimen Interno del CPEI, el personal operativo que no supera las pruebas por motivos ajenos a su voluntad puede:",
+     "opciones": [
+      "Ser destinado a otras vacantes del Consorcio",
+      "Ser cesado sin más trámite ni recolocación",
+      "Seguir en su puesto operativo como hasta ahora"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.2: «podrá ser destinado a ocupar otras plazas vacantes de la plantilla del Consorcio, si las hubiera»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 31.2 del Reglamento de Régimen Interno del CPEI, si no hay vacantes en el Consorcio, el afectado realizará en su Administración de procedencia funciones:",
+     "opciones": [
+      "Similares a las de su categoría",
+      "De categoría inmediatamente inferior",
+      "Solo de carácter administrativo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 31.2: «para realizar otro tipo de funciones similares a las de su categoría»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a32-material",
+   "bloque": "a32",
+   "apartado": "",
+   "orden": 1330,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 del RRI del CPEI, ¿quién puede usar el material del Consorcio?",
+    "respuesta": "Solo su propio personal y para sus fines, salvo autorización expresa del Jefe de Parque o de un superior jerárquico de este, que queda responsable."
+   },
+   "cita": "El material del Consorcio únicamente podrá ser utilizado por su propio personal y para los fines de aquel",
+   "confundible_con": [
+    "RRI-a32-vehiculos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, si el Jefe de Parque autoriza a un tercero a usar material del Consorcio, ¿queda bajo su responsabilidad?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «quedando aquel bajo la responsabilidad expresa de la persona que lo autorizó»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, cuando se autoriza el uso del material del Consorcio a terceros, la responsabilidad es de:",
+     "opciones": [
+      "Quien lo utiliza",
+      "La persona que lo autorizó",
+      "El Consorcio, en todo caso"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 32: «quedando aquel bajo la responsabilidad expresa de la persona que lo autorizó»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, como regla general, el material del Consorcio lo puede utilizar:",
+     "opciones": [
+      "Su propio personal y para los fines del Consorcio",
+      "Cualquier servicio público de emergencias",
+      "Los Ayuntamientos con parque, libremente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «únicamente podrá ser utilizado por su propio personal y para los fines de aquel»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a32-vehiculos",
+   "bloque": "a32",
+   "apartado": "",
+   "orden": 1336,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 del RRI del CPEI, ¿quién supervisa los vehículos?",
+    "respuesta": "Los mecánicos-conductores-bomberos y sus superiores jerárquicos inmediatos."
+   },
+   "cita": "los vehículos quedarán bajo la supervisión de los mecánicos-conductores-bomberos",
+   "confundible_con": [
+    "RRI-a32-material"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿quedan los vehículos bajo la supervisión de los mecánicos-conductores-bomberos?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «En particular los vehículos quedarán bajo la supervisión de los mecánicos-conductores-bomberos y de sus superiores jerárquicos inmediatos»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, junto a los mecánicos-conductores-bomberos, supervisan los vehículos:",
+     "opciones": [
+      "Sus superiores jerárquicos inmediatos",
+      "Los talleres concertados por la Gerencia",
+      "Los Emisoristas del CECOB de guardia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «y de sus superiores jerárquicos inmediatos»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿qué categoría tiene encomendada en particular la supervisión de los vehículos?",
+     "opciones": [
+      "Los Cabos Jefes de Turno de cada parque",
+      "Los mecánicos-conductores-bomberos",
+      "Los Suboficiales responsables de zona"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 32: los vehículos quedan bajo la supervisión de los mecánicos-conductores-bomberos y de sus superiores jerárquicos inmediatos."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a32-senales",
+   "bloque": "a32",
+   "apartado": "",
+   "orden": 1342,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 del RRI del CPEI, ¿qué señales usan los vehículos al ir a un siniestro y qué se hace con quien no deja paso?",
+    "respuesta": "Señales luminosas y acústicas, a criterio del responsable. El responsable de la dotación anota a los infractores y lo comunica a la Dirección, que lo traslada a la autoridad competente."
+   },
+   "cita": "harán funcionar las señales luminosas y acústicas",
+   "confundible_con": [
+    "RRI-a32-regreso",
+    "RRI-a32-circulacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿usan los vehículos señales luminosas y acústicas cuando acuden a un siniestro?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «Cuando se acuda a un siniestro, los vehículos del Consorcio harán funcionar las señales luminosas y acústicas»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿quién toma nota de los conductores que no dejan vía libre al vehículo que acude a un siniestro?",
+     "opciones": [
+      "El responsable de la dotación",
+      "El conductor del vehículo",
+      "El Emisorista del CECOB"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «El responsable de la dotación tomará nota de los infractores de tal prescripción»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, los datos de los infractores que no dejan vía libre se ponen en conocimiento de:",
+     "opciones": [
+      "La Dirección del Consorcio, que lo traslada a la autoridad",
+      "La Policía Local, directamente desde el vehículo",
+      "El Juzgado de guardia de la localidad afectada"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «poniéndolo en conocimiento de la Dirección del Consorcio para su posterior traslado a la autoridad competente»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a32-circulacion",
+   "bloque": "a32",
+   "apartado": "",
+   "orden": 1348,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 del RRI del CPEI, ¿cómo circulan los mecánicos-conductores-bomberos en servicio de urgencia?",
+    "respuesta": "Como norma general observan las reglas de circulación y usan su relativo privilegio de preferencia, con especial cuidado en intersecciones: antes, se cercioran de que no hay riesgo de atropello y de que los demás vehículos se han detenido o les facilitan el paso."
+   },
+   "cita": "harán uso de su relativo privilegio de preferencia",
+   "confundible_con": [
+    "RRI-a32-senales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿tienen los mecánicos-conductores-bomberos un privilegio de preferencia absoluto?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 32: harán uso de «su relativo privilegio de preferencia», observando como norma general las reglas de circulación."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, antes de pasar una intersección con preferencia, el conductor debe cerciorarse de que:",
+     "opciones": [
+      "No hay riesgo de atropello y los demás le ceden el paso",
+      "El semáforo de la intersección está en verde para él",
+      "Le acompaña delante un vehículo de la Policía Local"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «hasta cerciorarse de que no existe riesgo de atropello a peatones y de que los conductores de otros vehículos han detenido su marcha o se dispongan a facilitar la suya»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, el privilegio de preferencia de los vehículos del Consorcio es:",
+     "opciones": [
+      "Absoluto, sin obligación de respetar las normas",
+      "Relativo, observando en general las reglas de circulación",
+      "Inexistente: circulan como cualquier otro vehículo"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 32: «deberán de observar, como norma general, las reglas de circulación y harán uso de su relativo privilegio de preferencia»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a32-regreso",
+   "bloque": "a32",
+   "apartado": "",
+   "orden": 1354,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 del RRI del CPEI, ¿cómo se regresa del servicio?",
+    "respuesta": "Con las señales de emergencia sin sonido, salvo orden expresa del responsable de guardia."
+   },
+   "cita": "Al regreso del servicio se circulará con las señales de emergencia sin sonido",
+   "confundible_con": [
+    "RRI-a32-senales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿se regresa del servicio con las señales de emergencia sin sonido, salvo orden expresa?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «Al regreso del servicio se circulará con las señales de emergencia sin sonido, salvo orden expresa del responsable de guardia»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿quién puede ordenar que se use el sonido en el regreso del servicio?",
+     "opciones": [
+      "El conductor del vehículo",
+      "El responsable de guardia",
+      "El Emisorista del CECOB"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 32: «salvo orden expresa del responsable de guardia»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Un vehículo del Consorcio vuelve al parque tras un servicio, sin orden especial. Según el art. 32 del Reglamento de Régimen Interno del CPEI, circula:",
+     "opciones": [
+      "Con señales luminosas y acústicas",
+      "Con señales de emergencia sin sonido",
+      "Sin ninguna señal de emergencia"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 32: al regreso, con las señales de emergencia sin sonido, salvo orden expresa del responsable de guardia."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a32-cecob",
+   "bloque": "a32",
+   "apartado": "",
+   "orden": 1360,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 del RRI del CPEI, ¿quién coordina los medios del CPEI en situaciones de grave riesgo y cómo se recibe una llamada?",
+    "respuesta": "El Centro de Comunicaciones de Bomberos (CECOB). Al recibir la llamada, el Emisorista cumplimenta la Carta de Llamada: la clasifica, identifica al llamante y, en su caso, la asocia a un Parte de Incidencia."
+   },
+   "cita": "serán coordinados por el Centro de Comunicaciones de Bomberos (CECOB)",
+   "confundible_con": [
+    "RRI-a32-parte-incidencia"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿coordina el CECOB los medios del C.P.E.I. ante situaciones de grave riesgo, catástrofe y calamidad pública?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «serán coordinados por el Centro de Comunicaciones de Bomberos (CECOB)»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, al recibir una llamada de emergencia en el CECOB, el Emisorista cumplimenta:",
+     "opciones": [
+      "La Carta de Llamada",
+      "El Informe de Actuación",
+      "El parte de asistencia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «el Emisorísta [sic] cumplimenta la Carta de Llamada, según la cuál clasifica la llamada, identifica los datos del llamante»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, con la Carta de Llamada el Emisorista:",
+     "opciones": [
+      "Clasifica la llamada e identifica al llamante",
+      "Fija la ruta de acceso y las fichas de mercancías peligrosas",
+      "Redacta el informe final del siniestro atendido"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «clasifica la llamada, identifica los datos del llamante y asocia, en su caso, la llamada a un Parte de Incidencia»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a32-parte-incidencia",
+   "bloque": "a32",
+   "apartado": "",
+   "orden": 1366,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 del RRI del CPEI, ¿para qué sirve el Parte de Incidencia en la emergencia?",
+    "respuesta": "Para localizar exactamente el siniestro, clasificar el tipo de intervención y darle un nivel de prioridad según las personas afectadas y los riesgos especiales del entorno."
+   },
+   "cita": "se localiza exactamente el lugar del siniestro, se clasifica el tipo de intervención",
+   "confundible_con": [
+    "RRI-a32-cecob",
+    "RRI-a32-recomendacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿se otorga mediante el Parte de Incidencia un nivel de prioridad a la emergencia?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «se le otorga un nivel de prioridad a la emergencia en función de las personas afectadas y los riesgos especiales del entorno»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, el nivel de prioridad de la emergencia se fija en función de:",
+     "opciones": [
+      "Las personas afectadas y los riesgos del entorno",
+      "La distancia al parque más cercano al siniestro",
+      "El orden de entrada de las llamadas en el CECOB"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «en función de las personas afectadas y los riesgos especiales del entorno de la zona afectada»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿en qué documento se localiza exactamente el lugar del siniestro y se clasifica el tipo de intervención?",
+     "opciones": [
+      "La Carta de Llamada",
+      "El Parte de Incidencia",
+      "El Informe de Actuación"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 32: «Mediante el Parte de Incidencia, se localiza exactamente el lugar del siniestro, se clasifica el tipo de intervención»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a32-recomendacion",
+   "bloque": "a32",
+   "apartado": "",
+   "orden": 1372,
+   "tipo": "lista",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 del RRI del CPEI, ¿qué se obtiene del protocolo de Gestión de Recursos o de los mandos operativos?",
+    "respuesta": "Parques a movilizar, recursos propios a usar, recursos y organismos exteriores a avisar, la ruta más idónea, el protocolo de actuación del personal y las fichas de Mercancías Peligrosas."
+   },
+   "cita": "se obtiene la recomendación de Parques a movilizar",
+   "confundible_con": [
+    "RRI-a32-parte-incidencia",
+    "RRI-a25-protocolos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿se obtiene la ruta más idónea de acceso al siniestro a partir del protocolo de Gestión de Recursos?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: se obtiene, entre otros, «la ruta más idónea de acceso al lugar del siniestro»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿qué genera el protocolo de Gestión de Recursos del Consorcio?",
+     "opciones": [
+      "El Sistema Integrador de Comunicaciones del CECOB",
+      "El Jefe de cada parque, con su propio criterio",
+      "La Gerencia, a mano, en cada emergencia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «el protocolo de Gestión de Recursos del Consorcio que genera el Sistema Integrador de Comunicaciones del CECOB»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿cuál de estos elementos NO se cita entre lo que se obtiene tras el Parte de Incidencia?",
+     "opciones": [
+      "Los Recursos y Organismos Exteriores que avisar",
+      "El presupuesto estimado de la intervención",
+      "El protocolo de actuación del personal interviniente"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 32: parques a movilizar, recursos, organismos exteriores, ruta, protocolo de actuación y fichas de Mercancías Peligrosas. No cita ningún presupuesto."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a32-transmisiones",
+   "bloque": "a32",
+   "apartado": "",
+   "orden": 1378,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 del RRI del CPEI, ¿qué comunica obligatoriamente el personal interviniente por emisora?",
+    "respuesta": "Salida del parque, llegada al siniestro, finalización del siniestro y llegada al parque; además, una primera evaluación y las incidencias, pidiendo lo que el siniestro requiera."
+   },
+   "cita": "ha de comunicar salida del parque, llegada al siniestro, finalización del siniestro y llegada al parque",
+   "confundible_con": [
+    "RRI-a32-interlocutor"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿se avisa al personal de guardia preferentemente vía emisora?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «El aviso al personal de guardia se hará preferentemente vía emisora siguiendo el Protocolo de Transmisiones del Consorcio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, además de los cuatro momentos de la intervención, el personal debe comunicar al CECOB:",
+     "opciones": [
+      "Una primera evaluación del siniestro y sus incidencias",
+      "Solo el número de heridos, al terminar el servicio",
+      "El consumo de combustible del vehículo utilizado"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «dará cuenta a la CECOB de una primera evaluación del siniestro, así como todas las incidencias que se produzcan»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿cuál de estos momentos NO figura entre los que se comunican obligatoriamente por emisora?",
+     "opciones": [
+      "La llegada al siniestro",
+      "La llegada al parque",
+      "El repostaje del vehículo"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 32: salida del parque, llegada al siniestro, finalización del siniestro y llegada al parque."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a32-interlocutor",
+   "bloque": "a32",
+   "apartado": "",
+   "orden": 1384,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 del RRI del CPEI, ¿quién comunica las novedades al CECOB durante el siniestro?",
+    "respuesta": "El mando superior operativo: establece el canal de comunicación con el personal interviniente y es el único interlocutor válido con el CECOB."
+   },
+   "cita": "sea el único interlocutor válido para comunicar las novedades a la CECOB",
+   "confundible_con": [
+    "RRI-a32-transmisiones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿es el mando superior operativo el único interlocutor válido para comunicar novedades al CECOB?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «sea el único interlocutor válido para comunicar las novedades a la CECOB»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, durante el siniestro, ¿quién establece el canal de comunicación con el personal interviniente?",
+     "opciones": [
+      "El mando superior operativo",
+      "El Emisorista del CECOB",
+      "Cada jefe de vehículo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «será obligatorio que el mando superior operativo establezca el canal de comunicación adecuado con el resto del personal interviniente»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "En un siniestro, un bombero de la dotación quiere pedir más material directamente al CECOB. Según el art. 32 del Reglamento de Régimen Interno del CPEI:",
+     "opciones": [
+      "Puede hacerlo él si el caso es urgente",
+      "Lo comunica el mando superior operativo",
+      "Debe pedirlo al Ayuntamiento afectado"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 32: el mando superior operativo es «el único interlocutor válido para comunicar las novedades a la CECOB»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a32-potestades",
+   "bloque": "a32",
+   "apartado": "",
+   "orden": 1390,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 del RRI del CPEI, ¿qué puede disponer el mando superior operativo en el siniestro?",
+    "respuesta": "Si lo considera necesario para evitar daños y facilitar la actuación: evacuar edificios, locales o instalaciones; interrumpir suministros de agua, gas o electricidad; y prohibir el paso de personas y tráfico."
+   },
+   "cita": "tendrá plena potestad de disponer la evacuación del edificio, locales o instalaciones",
+   "confundible_con": [
+    "RRI-a32-movilizacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿puede el mando superior operativo establecer zonas de prohibición de paso al tráfico rodado?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: tiene plena potestad para «establecer zonas de prohibición de paso a persona y tráfico rodado»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿qué potestad tiene el mando superior operativo en un siniestro?",
+     "opciones": [
+      "Evacuar el edificio, locales o instalaciones",
+      "Detener a los responsables del siniestro",
+      "Imponer multas a los propietarios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «tendrá plena potestad de disponer la evacuación del edificio, locales o instalaciones»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, el mando superior operativo ejerce esas potestades:",
+     "opciones": [
+      "Cuando lo considere necesario para evitar daños",
+      "Solo con autorización previa del Alcalde",
+      "Solo si lo pide el propietario del edificio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «en caso de que lo considere necesario y al objeto de evitar posibles daños a personal y bienes, y facilitar la actuación del Consorcio»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a32-movilizacion",
+   "bloque": "a32",
+   "apartado": "",
+   "orden": 1396,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 del RRI del CPEI, ¿qué hace falta para movilizar personal fuera de servicio?",
+    "respuesta": "La aquiescencia taxativa del Oficial del Consorcio o, en su ausencia, del Suboficial; la localización sigue el orden fijado por los mandos superiores operativos."
+   },
+   "cita": "deberá contar de forma taxativa con la aquiescencia del Oficial del Consorcio",
+   "confundible_con": [
+    "RRI-a32-potestades",
+    "RRI-a32-compensacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿puede el mando presente movilizar personal fuera de servicio sin la aquiescencia del Oficial o del Suboficial?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 32: «deberá contar de forma taxativa con la aquiescencia del Oficial del Consorcio, o en su ausencia, del Suboficial del Consorcio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Para movilizar personal fuera de servicio, si el Oficial del Consorcio está ausente, según el art. 32 del Reglamento de Régimen Interno del CPEI se necesita la aquiescencia de:",
+     "opciones": [
+      "El Suboficial del Consorcio",
+      "El Cabo Jefe de Turno",
+      "El Emisorista de servicio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «del Oficial del Consorcio, o en su ausencia, del Suboficial del Consorcio»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, la localización del personal fuera de servicio que se moviliza sigue:",
+     "opciones": [
+      "Un orden fijado por los mandos superiores operativos",
+      "El orden alfabético de la plantilla del parque",
+      "La cercanía de cada domicilio al lugar del siniestro"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «La localización del personal se llevará a cabo siguiendo un orden establecido por los mandos superiores operativos»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a32-retirada",
+   "bloque": "a32",
+   "apartado": "",
+   "orden": 1402,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 del RRI del CPEI, ¿qué se hace antes de retirarse del siniestro?",
+    "respuesta": "Adoptar medidas de seguridad sobre el edificio, la vía pública y las propiedades colindantes: acotar la zona, inspeccionar los daños y hacer solo los trabajos urgentes de consolidación posibles, con carácter provisional."
+   },
+   "cita": "se acotará la zona, se inspeccionarán los daños",
+   "confundible_con": [
+    "RRI-a32-informe"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿tienen carácter definitivo los trabajos de consolidación que se hacen antes de retirarse?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 32: «se realizaran únicamente los trabajos de consolidación urgentes que sean posibles, que tendrán carácter provisional»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, antes de retirarse del siniestro, ¿qué trabajos de consolidación se realizan?",
+     "opciones": [
+      "Solo los urgentes que sean posibles",
+      "Todos los necesarios para la reconstrucción",
+      "Ninguno: corresponden a la propiedad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «se realizaran únicamente los trabajos de consolidación urgentes que sean posibles»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas actuaciones NO se cita entre las previas a retirarse del siniestro?",
+     "opciones": [
+      "Acotar la zona afectada por el siniestro",
+      "Inspeccionar los daños producidos",
+      "Tasar los daños para el seguro"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 32: acotar la zona, inspeccionar los daños y realizar los trabajos de consolidación urgentes posibles. No cita ninguna tasación."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a32-informe",
+   "bloque": "a32",
+   "apartado": "",
+   "orden": 1408,
+   "tipo": "procedimiento",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 del RRI del CPEI, ¿qué se hace al terminar la emergencia y al llegar al parque?",
+    "respuesta": "En el lugar se toman datos para el Informe de Actuación y se cuenta y recoge el material. En el parque se revisa y verifica material y vehículos, se limpian y colocan, y, ya aseado el personal, se redacta el Informe de Actuación."
+   },
+   "cita": "se redactará el correspondiente Informe de Actuación",
+   "confundible_con": [
+    "RRI-a32-retirada"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿se redacta el Informe de Actuación una vez el personal está aseado y en condiciones de actuación?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «Una vez el personal aseado y en condiciones de actuación, se redactará el correspondiente Informe de Actuación»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, al llegar al parque, ¿qué se hace primero con el material utilizado?",
+     "opciones": [
+      "Revisarlo y verificar su funcionamiento",
+      "Guardarlo sin revisar hasta el turno siguiente",
+      "Enviarlo a la Gerencia para inventario"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «Llegado al parque, se revisará nuevamente el material utilizado, se comprobará y se verificará el estado de funcionamiento… procediendo seguidamente a su limpieza y colocación»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, el Informe de Actuación se basa en:",
+     "opciones": [
+      "Los datos recabados y anotados en el lugar del siniestro",
+      "La grabación de las comunicaciones con el CECOB",
+      "La declaración escrita del propietario afectado"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «basado en los datos recabados y anotados en el lugar del siniestro»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a32-compensacion",
+   "bloque": "a32",
+   "apartado": "",
+   "orden": 1414,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 32 del RRI del CPEI, ¿cómo se compensan y computan los servicios extraordinarios?",
+    "respuesta": "Según los Convenios y Acuerdos generales vigentes; se computa desde la localización del personal fuera de servicio llamado, salvo que ese periodo exceda de lo habitual."
+   },
+   "cita": "para su cómputo se tendrá en cuenta el tiempo transcurrido desde la localización del personal fuera de servicio",
+   "confundible_con": [
+    "RRI-a32-movilizacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, ¿se compensan los servicios extraordinarios según los Convenios y Acuerdos generales vigentes?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «se efectuará de conformidad con los Convenios y Acuerdos generales vigentes en cada momento»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 32 del Reglamento de Régimen Interno del CPEI, la compensación de los servicios extraordinarios se rige por:",
+     "opciones": [
+      "Los Convenios y Acuerdos generales vigentes",
+      "Una tabla fija del propio Reglamento",
+      "Lo que decida el Jefe de Parque en cada caso"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: «de conformidad con los Convenios y Acuerdos generales vigentes en cada momento»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "A un bombero fuera de servicio lo localizan a las 3:00 y llega al parque a las 3:30. Según el art. 32 del Reglamento de Régimen Interno del CPEI, si el tiempo es el habitual, el cómputo empieza:",
+     "opciones": [
+      "A las 3:00, al ser localizado",
+      "A las 3:30, al llegar al parque",
+      "Al llegar al siniestro"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 32: se tiene en cuenta «el tiempo transcurrido desde la localización del personal fuera de servicio que hubiera sido llamados [sic] salvo que dicho período excediera de los parámetros habituales»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a33-a-incompatibilidad",
+   "bloque": "a33",
+   "apartado": "",
+   "orden": 1420,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 33 a) del RRI del CPEI, ¿qué deber específico hay sobre incompatibilidades?",
+    "respuesta": "No incurrir en causa de incompatibilidad desempeñando actividades públicas o privadas, salvo las permitidas por la legislación vigente."
+   },
+   "cita": "No incurrir en causa de incompatibilidad desempeñando cualquier actividad pública o privada",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, ¿puede el personal operativo desempeñar actividades privadas permitidas por la legislación vigente?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.a): no incurrir en incompatibilidad, «salvo las permitidas por la legislación vigente en los términos que la misma establece»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, el deber de no incurrir en causa de incompatibilidad admite como excepción:",
+     "opciones": [
+      "Las actividades permitidas por la legislación vigente",
+      "Las actividades realizadas en días libres",
+      "Las que autorice verbalmente el Jefe de Parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.a): «salvo las permitidas por la legislación vigente en los términos que la misma establece»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, los deberes específicos del personal operativo se aplican:",
+     "opciones": [
+      "Sin perjuicio de la normativa general de función pública",
+      "En lugar de la normativa general de la función pública",
+      "Solo al personal laboral del Consorcio, no al funcionario"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33: «Sin perjuicio de lo establecido en la normativa sobre personal al servicio de las Administraciones Públicas, son deberes específicos…»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a33-b-ordenes",
+   "bloque": "a33",
+   "apartado": "",
+   "orden": 1426,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 33 b) del RRI del CPEI, ¿qué deber hay sobre las órdenes?",
+    "respuesta": "Conocerlas y cumplirlas sin alegar desconocimiento, y cumplir exactamente los servicios encomendados, salvo que constituyan delito o infrinjan manifiestamente el ordenamiento jurídico."
+   },
+   "cita": "Conocer y cumplir las órdenes dictadas para la prestación del servicio, no pudiendo alegar su desconocimiento",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, ¿debe cumplirse una orden que constituya delito?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 33.b): se cumplen los servicios encomendados «siempre que no constituyan delito o infrinjan manifiestamente el ordenamiento jurídico»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, sobre las órdenes dictadas para la prestación del servicio, el personal operativo:",
+     "opciones": [
+      "No puede alegar su desconocimiento",
+      "Puede alegar desconocimiento si son verbales",
+      "Solo debe conocer las que firme el Gerente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.b): «Conocer y cumplir las órdenes dictadas para la prestación del servicio, no pudiendo alegar su desconocimiento»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, el deber de cumplir exactamente los servicios encomendados por los superiores decae cuando:",
+     "opciones": [
+      "El servicio resulta especialmente penoso",
+      "Infringen manifiestamente el ordenamiento jurídico",
+      "No se han dado por escrito"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 33.b): «siempre que no constituyan delito o infrinjan manifiestamente el ordenamiento jurídico»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a33-c-presentacion",
+   "bloque": "a33",
+   "apartado": "",
+   "orden": 1432,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 33 c) del RRI del CPEI, ¿qué deber hay sobre uniformidad y equipos?",
+    "respuesta": "Presentarse siempre en perfecto estado de uniformidad y aseo y conservar en buen estado el vestuario, los equipos y las instalaciones entregados o encomendados."
+   },
+   "cita": "Deberán presentarse en todo momento en perfecto estado de uniformidad y aseo personal",
+   "confundible_con": [
+    "RRI-a23-4-uso",
+    "RRI-a24-aseo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, ¿deben conservar en buen estado las instalaciones que se les encomienden?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.c): «garantizando en buen estado de conservación tanto el vestuario como los equipos e instalaciones que le fueren entregados o encomendados»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, el personal operativo debe presentarse en perfecto estado de uniformidad y aseo:",
+     "opciones": [
+      "En todo momento",
+      "Solo en los actos oficiales",
+      "Solo al inicio de cada guardia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.c): «Deberán presentarse en todo momento en perfecto estado de uniformidad y aseo personal»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, el deber de conservación alcanza al vestuario y a:",
+     "opciones": [
+      "Los equipos e instalaciones entregados o encomendados",
+      "Los vehículos particulares del personal",
+      "Los edificios municipales cercanos al parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.c): «tanto el vestuario como los equipos e instalaciones que le fueren entregados o encomendados para su uso o custodia»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a33-d-aptitud",
+   "bloque": "a33",
+   "apartado": "",
+   "orden": 1438,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 33 d) del RRI del CPEI, ¿qué deber hay sobre la aptitud física?",
+    "respuesta": "Mantener la aptitud física para desempeñar correctamente las funciones y someterse periódicamente a revisiones físicas y médicas que la aseguren."
+   },
+   "cita": "Mantener la aptitud física para el desempeño correcto de las funciones",
+   "confundible_con": [
+    "RRI-a30-fisico",
+    "RRI-a31-1-reconocimiento"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, ¿es un deber específico someterse periódicamente a revisiones físicas y médicas?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.d): «someterse periódicamente a revisiones físicas y médicas que aseguren el mantenimiento de la aptitud mencionada»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, las revisiones físicas y médicas periódicas tienen por objeto asegurar:",
+     "opciones": [
+      "El mantenimiento de la aptitud física",
+      "La concesión de complementos salariales",
+      "El ascenso a la categoría superior"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.d): revisiones «que aseguren el mantenimiento de la aptitud mencionada»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, mantener la aptitud física es:",
+     "opciones": [
+      "Un deber específico del personal operativo",
+      "Una recomendación sin efectos",
+      "Un mérito voluntario para concursos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.d): figura entre los deberes específicos del personal de los servicios operativos."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a33-e-jornada",
+   "bloque": "a33",
+   "apartado": "",
+   "orden": 1444,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 33 e) del RRI del CPEI, ¿qué deber hay sobre la jornada?",
+    "respuesta": "Cumplirla íntegramente; en casos de excepcional emergencia se puede exigir trabajar fuera del horario, movilizando al personal fuera de servicio, y nadie abandona el servicio sin haber sido relevado."
+   },
+   "cita": "Cumplir íntegramente su jornada de trabajo",
+   "confundible_con": [
+    "RRI-a32-movilizacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, ¿puede abandonarse el servicio al terminar el horario ordinario sin haber sido relevado?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 33.e): «no abandonarán el servicio aun terminado el horario ordinario si no han sido previamente relevados»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, terminado el horario ordinario, el personal no abandonará el servicio si:",
+     "opciones": [
+      "No ha sido previamente relevado",
+      "Hay visitas en el parque",
+      "Falta por limpiar el material"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.e): «Igualmente no abandonarán el servicio aun terminado el horario ordinario si no han sido previamente relevados»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, ¿cuándo se puede exigir al personal tareas fuera del horario ordinario?",
+     "opciones": [
+      "En casos de excepcional emergencia",
+      "Siempre que falte personal de guardia",
+      "Cuando lo pida el Ayuntamiento"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.e): «en casos de excepcional emergencia se les podrá exigir el desempeño de tareas fuera del horario ordinario, movilizando al personal fuera de servicio»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a33-f-residencia",
+   "bloque": "a33",
+   "apartado": "",
+   "orden": 1450,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 33 f) del RRI del CPEI, ¿dónde debe residir el personal operativo?",
+    "respuesta": "En un punto que le permita real y efectivamente cumplir sus obligaciones, incluida la de atender actuaciones extraordinarias fuera de la jornada habitual."
+   },
+   "cita": "Residir en un punto que permita real y efectivamente",
+   "confundible_con": [
+    "RRI-a33-e-jornada"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, ¿es un deber específico residir en un punto que permita atender actuaciones extraordinarias fuera de la jornada?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.f): residir en un punto que permita cumplir las obligaciones del puesto, «incluidas entre estas la de atender actuaciones extraordinarias fuera de la jornada de trabajo habitual»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, el lugar de residencia del personal operativo debe permitirle:",
+     "opciones": [
+      "Cumplir real y efectivamente sus obligaciones",
+      "Llegar al parque en menos de diez minutos",
+      "Vivir en el mismo municipio que el parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.f): «Residir en un punto que permita real y efectivamente… el cumplimiento de las obligaciones inherentes al desempeño de su puesto»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, entre las obligaciones que el lugar de residencia debe permitir cumplir figura:",
+     "opciones": [
+      "Atender actuaciones extraordinarias fuera de la jornada",
+      "Acudir a los cursos de formación en sus días libres",
+      "Recibir en mano la correspondencia oficial del parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33.f): «incluidas entre estas la de atender actuaciones extraordinarias fuera de la jornada de trabajo habitual»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a33-responsabilidad",
+   "bloque": "a33",
+   "apartado": "",
+   "orden": 1456,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 33 del RRI del CPEI, ¿qué se tiene en cuenta al exigir responsabilidad por incumplir los deberes específicos?",
+    "respuesta": "Las circunstancias concurrentes, la gravedad e intencionalidad del incumplimiento y el daño causado a la Administración o al interés público, conforme a la normativa de función pública y al Reglamento."
+   },
+   "cita": "la gravedad e intencionalidad del incumplimiento y el daño causado a la Administración o al interés público",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, ¿se tiene en cuenta la intencionalidad del incumplimiento al exigir responsabilidades?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33: «teniendo en cuenta las circunstancias concurrentes en cada caso, la gravedad e intencionalidad del incumplimiento»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, el incumplimiento de los deberes específicos da lugar a responsabilidades conforme a:",
+     "opciones": [
+      "La normativa de función pública y el propio Reglamento",
+      "Solo el Código Penal y la Ley de Enjuiciamiento Criminal",
+      "Solo el convenio colectivo del personal laboral"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 33: «de conformidad con la normativa vigente en materia de funciónpública [sic] y lo dispuesto en el propio reglamento»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 33 del Reglamento de Régimen Interno del CPEI, ¿cuál de estos criterios NO se cita para exigir responsabilidad por incumplir los deberes específicos?",
+     "opciones": [
+      "El daño causado al interés público",
+      "La gravedad del incumplimiento",
+      "La categoría profesional del infractor"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 33: circunstancias concurrentes, gravedad e intencionalidad y daño causado a la Administración o al interés público. No la categoría."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a34-responsabilidad",
+   "bloque": "a34",
+   "apartado": "",
+   "orden": 1462,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 34 del RRI del CPEI, ¿a qué responsabilidades están sujetos los miembros del CPEI?",
+    "respuesta": "Administrativa, civil y penal por sus actos u omisiones en el ejercicio del cargo o que afecten a su condición de funcionario en activo y de miembro del Consorcio."
+   },
+   "cita": "estarán sujetos a responsabilidad administrativa civil y penal",
+   "confundible_con": [
+    "RRI-a34-defensa"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 34 del Reglamento de Régimen Interno del CPEI, ¿están sujetos los miembros del C.P.E.I. a responsabilidad penal por sus actos en el ejercicio del cargo?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34: «estarán sujetos a responsabilidad administrativa civil y penal por sus actos u omisiones en el ejercicio del cargo»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 34 del Reglamento de Régimen Interno del CPEI, los miembros del C.P.E.I. están sujetos a responsabilidad:",
+     "opciones": [
+      "Administrativa, civil y penal",
+      "Solo administrativa",
+      "Solo civil, cubierta por el seguro"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34: «responsabilidad administrativa civil y penal»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 34 del Reglamento de Régimen Interno del CPEI, la responsabilidad alcanza a los actos u omisiones:",
+     "opciones": [
+      "En el cargo o que afecten a su condición de funcionario",
+      "Solo los cometidos durante una intervención",
+      "Solo los cometidos fuera del horario de servicio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34: «por sus actos u omisiones en el ejercicio del cargo o que afecten a su condición de funcionario en activo»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a34-defensa",
+   "bloque": "a34",
+   "apartado": "",
+   "orden": 1468,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 34 del RRI del CPEI, ¿cuándo asume el órgano competente la defensa de un miembro del Consorcio?",
+    "respuesta": "Se hace cargo de su representación, defensa y fianzas si es consecuencia del ejercicio de las funciones de su cargo y la Administración de procedencia no es parte contraria."
+   },
+   "cita": "El órgano competente se hará cargo de la representación, defensa y constitución de fianzas",
+   "confundible_con": [
+    "RRI-a34-seguro"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 34 del Reglamento de Régimen Interno del CPEI, ¿asume el órgano competente la defensa si la Administración de procedencia es parte contraria?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 34: solo «que la Administración de donde procedan no sea parte contraria»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 34 del Reglamento de Régimen Interno del CPEI, el órgano competente se hace cargo, además de la representación y defensa, de:",
+     "opciones": [
+      "La constitución de fianzas",
+      "El pago de las multas de tráfico",
+      "Las sanciones disciplinarias"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34: «de la representación, defensa y constitución de fianzas»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 34 del Reglamento de Régimen Interno del CPEI, para que el órgano competente asuma la defensa de un miembro del Consorcio, el asunto debe ser:",
+     "opciones": [
+      "Consecuencia del ejercicio de las funciones de su cargo",
+      "Cualquier asunto, aunque sea de su vida privada",
+      "Solo un procedimiento de carácter penal"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34: «siempre que ello sea consecuencia del ejercicio de las funciones propias de su cargo»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a34-seguro",
+   "bloque": "a34",
+   "apartado": "",
+   "orden": 1474,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 34 del RRI del CPEI, ¿qué seguro contrata el Consorcio y qué procura para los conductores?",
+    "respuesta": "Uno de responsabilidad civil y de vida y accidente que cubra los daños en acto de servicio; y procura que la cobertura de los conductores se asimile a la de los demás ocupantes del vehículo."
+   },
+   "cita": "El Consorcio contratará un seguro de responsabilidad civil y de vida y accidente",
+   "confundible_con": [
+    "RRI-a34-defensa"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 34 del Reglamento de Régimen Interno del CPEI, ¿cubre el seguro del Consorcio los daños causados en acto de servicio?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34: «un seguro de responsabilidad civil y de vida y accidente que cubra los daños causados en acto de servicio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 34 del Reglamento de Régimen Interno del CPEI, el seguro que contrata el Consorcio debe cubrir los daños causados:",
+     "opciones": [
+      "En acto de servicio",
+      "En cualquier momento",
+      "Solo en los parques"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34: «que cubra los daños causados en acto de servicio»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 34 del Reglamento de Régimen Interno del CPEI, el Consorcio procurará que la cobertura de los riesgos de los conductores de vehículos a motor:",
+     "opciones": [
+      "Se asimile a la de los demás ocupantes",
+      "Sea inferior por ir conduciendo",
+      "Corra a cargo del propio conductor"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 34: «se asimile a aquella que tuviera asegurada el resto de eventuales ocupantes del vehículo». El art. 47.8 repite la regla para la Administración Provincial."
+    }
+   ]
+  }
+ ]
+}

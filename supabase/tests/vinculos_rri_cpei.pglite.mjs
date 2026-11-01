@@ -1,4 +1,4 @@
-// Prueba del tema 5 (Reglamento de Régimen Interno del CPEI), bloques arts. 1-12 y 13-16,
+// Prueba del tema 5 (Reglamento de Régimen Interno del CPEI), bloques arts. 1-12, 13-16 y 17-22,
 // en Postgres en memoria: la carga resuelve el tema 5 por número, cita el BOP (no el BOE) y la
 // revisión de preguntas existentes vincula y despublica con registro.
 //
@@ -14,6 +14,9 @@ const py = (...a) => execFileSync('python3', a, { encoding: 'utf8' });
 const BLOQUES = [
   ['data/rri-cpei/caps-i-ii.json', 'data/rri-cpei/vinculos-produccion-caps-i-ii.json'],
   ['data/rri-cpei/cap-iii-arts-13-16.json', 'data/rri-cpei/vinculos-produccion-cap-iii-arts-13-16.json'],
+  ['data/rri-cpei/cap-iii-arts-17-22.json', 'data/rri-cpei/vinculos-produccion-cap-iii-arts-17-22.json'],
+  ['data/rri-cpei/caps-iv-vii-arts-23-34.json', 'data/rri-cpei/vinculos-produccion-caps-iv-vii-arts-23-34.json'],
+  ['data/rri-cpei/cap-iii-arts-35-48.json', 'data/rri-cpei/vinculos-produccion-cap-iii-arts-35-48.json'],
 ];
 const carga = BLOQUES.map(([c]) => py('scripts/cargar_conceptos.py', c, '--estado', 'borrador')).join('\n');
 const cargaCompacta = BLOQUES.map(([c]) => py('scripts/cargar_conceptos.py', c, '--estado', 'borrador', '--compacto')).join('\n');
