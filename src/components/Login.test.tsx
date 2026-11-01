@@ -271,14 +271,16 @@ describe('Login', () => {
       expect(aviso).toHaveTextContent(/cambiar la contraseña/i);
     });
 
-    it('permite pedir un enlace distinto para entrar sin contraseña', async () => {
+    it('permite pedir un enlace distinto sin revelar si el correo tiene cuenta', async () => {
       signInWithOtp.mockResolvedValue({ data: {}, error: { status: 422, code: 'otp_disabled', message: 'Signups not allowed for otp' } });
       const user = userEvent.setup();
       render(<Login />);
       await user.type(screen.getByLabelText(/correo electrónico/i), 'nuevo@ejemplo.es');
       await user.click(screen.getByRole('button', { name: 'Entrar con enlace sin contraseña' }));
       expect(signInWithOtp).toHaveBeenCalledWith({ email: 'nuevo@ejemplo.es', options: { shouldCreateUser: false, emailRedirectTo: expect.stringContaining('/?acceso=enlace') } });
-      expect(await screen.findByRole('alert')).toHaveTextContent(/activa antes tu invitación/i);
+      const alerta = await screen.findByRole('alert');
+      expect(alerta).toHaveTextContent(/necesitas una invitación/i);
+      expect(alerta).not.toHaveTextContent(/no encontramos una cuenta/i);
     });
 
     it('el ojo muestra y oculta la contraseña', async () => {
