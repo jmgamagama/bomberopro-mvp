@@ -25,7 +25,7 @@ const PUNTOS_CONFIANZA = [
 
 /**
  * Pantalla de entrada. Con el piloto cerrado (por defecto) el alta es «Activar invitación».
- * Enlace directo para invitados: /?invitacion=1&email=correo — abre esa pestaña con el correo escrito.
+ * Enlace para invitados: /?invitacion=1. El alumno escribe el mismo correo al que recibió la invitación.
  */
 export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProps = {}) {
   const abierto = isRegistroAbierto();
