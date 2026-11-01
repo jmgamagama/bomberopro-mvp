@@ -28,6 +28,9 @@ const res = []; const check = (n, ok, d = '') => { res.push(ok); console.log(`${
   check('sesión diaria completada sin cuenta', await page.getByRole('heading', { name: 'Sesión completada' }).isVisible(), `(${fichas} fichas)`);
   check('oferta de guardar progreso tras la sesión', await page.getByRole('button', { name: /(crear cuenta|activar invitación) y guardar mi progreso/i }).isVisible());
   check('progreso de fichas en local (demo)', (await page.evaluate(() => localStorage.getItem('mira_recall_srs_v1:demo'))) !== null);
+  // «Guarda tu progreso» con la cifra real (01-nov-2026): tras la primera sesión, las fichas de hoy.
+  const progSesion = await page.locator('#guest-signup-progreso').innerText();
+  check('guardar progreso dice cuántas fichas lleva', new RegExp(`^${fichas} fichas? repasadas?$`).test(progSesion), `(${progSesion})`);
   // Fin de sesión (01-nov-2026): «vuelve mañana» con cifra y el simulacro como siguiente paso, directo a la primera pregunta.
   check('fin de sesión dice qué vuelve mañana', /vuelve mañana|mañana te vuelven a tocar \d+ fichas? de hoy/i.test(await page.locator('#daily-session-manana').innerText()));
   check('fin de sesión sin scroll horizontal', (await sw()) <= 360, String(await sw()));
@@ -58,6 +61,9 @@ const res = []; const check = (n, ok, d = '') => { res.push(ok); console.log(`${
   check('resultado por tema', (await page.locator('#mock-fallos-por-tema tbody tr').count()) > 0);
   const cta = page.getByRole('button', { name: /(crear cuenta|activar invitación) y guardar mi progreso/i });
   check('oferta de guardar progreso tras la nota', await cta.isVisible());
+  const progNota = await page.locator('#guest-signup-progreso').innerText();
+  const guardado = await page.evaluate(() => (JSON.parse(localStorage.getItem('mira_demo_attempts_v2') || '[]')).length);
+  check('tras la nota, cifra de respuestas = lo guardado', progNota.includes(`${guardado} respuestas de test`) && guardado > 0, `(${progNota})`);
   check('resultado sin scroll horizontal', (await sw()) <= 360, String(await sw()));
   await page.screenshot({ path: '/tmp/invitado-360-nota.png', fullPage: true });
   const log = await page.evaluate(() => JSON.parse(localStorage.getItem('bomberopro:funnel-log:v1') || '[]').map((e) => e.e));
