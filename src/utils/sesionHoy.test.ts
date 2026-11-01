@@ -79,7 +79,7 @@ describe('textoSesionHoy', () => {
 
   it('con fichas para hoy: cuántas, y la racha si sigue viva', () => {
     const t = textoSesionHoy({ ...base, vistas: 30, hoy: 12, manana: 12, racha: 2 });
-    expect(t.frase).toBe('Hoy te toca repasar 12 fichas que ya viste. Llevas una racha de 2 días: haz la de hoy para que siga.');
+    expect(t.frase).toBe('Hoy te toca repasar 12 fichas que ya viste. Llevas 2 días seguidos: haz la de hoy para que siga.');
     expect(t.boton).toBe('Seguir con la sesión diaria');
     expect(t.empiezaDirecto).toBe(true);
     expect(textoSesionHoy({ ...base, vistas: 1, hoy: 1, manana: 1 }).frase).toBe('Hoy te toca repasar 1 ficha que ya viste.');
@@ -97,12 +97,12 @@ describe('textoSesionHoy', () => {
 
   it('ya hecha hoy: lo dice, cuántas tocan mañana, y abre la sesión sin empezarla', () => {
     expect(textoSesionHoy({ ...base, vistas: 30, manana: 30, hechaHoy: true, racha: 1 })).toEqual({
-      frase: 'Hoy ya has hecho tu sesión. Mañana te tocan 30 fichas: vuelve para que sume tu racha.',
+      frase: 'Hoy ya has hecho tu sesión. Llevas 1 día seguido. Mañana te tocan 30 fichas: vuelve para que sume tu racha.',
       boton: 'Abrir la sesión diaria',
       empiezaDirecto: false,
     });
     expect(textoSesionHoy({ ...base, vistas: 30, hechaHoy: true, racha: 5 }).frase)
-      .toBe('Hoy ya has hecho tu sesión. Llevas una racha de 5 días. Vuelve mañana para que sume tu racha.');
+      .toBe('Hoy ya has hecho tu sesión. Llevas 5 días seguidos. Vuelve mañana para que sume tu racha.');
   });
 
   it('sin planes, precios ni «Pro»', () => {

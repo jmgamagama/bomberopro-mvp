@@ -16,7 +16,7 @@ describe('SesionHoyCard («Tu plan de hoy»)', () => {
     const onPreg = vi.fn();
     render(<SesionHoyCard onOpen={onOpen} onOpenPreguntas={onPreg} resumen={base} plan={plan} />);
     expect(screen.getByRole('heading', { name: 'Tu plan de hoy' })).toBeInTheDocument();
-    expect(document.querySelector('#sesion-hoy-texto')).toHaveTextContent('25 fichas (12 pendientes de repaso y 13 nuevas) del T6 y el T33, y 10 preguntas, unos 23 min. Llevas una racha de 1 día.');
+    expect(document.querySelector('#sesion-hoy-texto')).toHaveTextContent('25 fichas (12 pendientes de repaso y 13 nuevas) del T6 y el T33, y 10 preguntas, unos 23 min. Llevas 1 día seguido: haz la de hoy para que siga.');
     expect(document.querySelector('#sesion-hoy-fallos')).toHaveTextContent('Prioriza el T6');
     const user = userEvent.setup();
     await user.click(screen.getByRole('button', { name: 'Empezar mi plan de hoy' }));

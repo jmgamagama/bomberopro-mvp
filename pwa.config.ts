@@ -74,6 +74,8 @@ export function buildPwaOptions(supabaseUrl?: string): Partial<VitePWAOptions> {
       navigateFallback: '/index.html',
       navigateFallbackDenylist: NAVIGATE_FALLBACK_DENYLIST,
       cleanupOutdatedCaches: true,
+      // Recordatorio diario opcional (Periodic Background Sync, sin servidor): public/recordatorio-sw.js.
+      importScripts: ['/recordatorio-sw.js'],
       clientsClaim: true,
       skipWaiting: true,
       runtimeCaching: networkOnlyPatterns.map((urlPattern) => ({

@@ -15,6 +15,7 @@ import { dayNumberFromKey, toLocalDateKey } from './localDate';
 import { getDailyMinutes, resolveDailySessionSize } from './studyPlan';
 import { loadReviewLog } from './recallReviewLog';
 import { loadPrioridad } from './planDiario';
+import { textoRacha } from './racha';
 
 export interface SesionHoyResumen {
   /** Fichas visibles ya repasadas alguna vez en este dispositivo. */
@@ -80,16 +81,15 @@ export function tamanoSesionHoy(): number {
 /** Miles con punto también en 4 cifras («1.500»), como en la bienvenida. */
 const miles = (n: number) => new Intl.NumberFormat('es-ES', { useGrouping: 'always' } as Intl.NumberFormatOptions).format(n);
 const fichas = (n: number) => `${miles(n)} ${n === 1 ? 'ficha' : 'fichas'}`;
-const dias = (n: number) => `${n} ${n === 1 ? 'día' : 'días'}`;
 
 /** Textos de la tarjeta (título del botón y frase), todos con las cifras del resumen. */
 export function textoSesionHoy(r: SesionHoyResumen): { frase: string; boton: string; empiezaDirecto: boolean } {
   if (r.hechaHoy) {
-    const racha = r.racha > 1 ? ` Llevas una racha de ${dias(r.racha)}.` : '';
+    const racha = r.racha > 0 ? ` Llevas ${textoRacha(r.racha)}.` : '';
     const manana = r.manana > 0 ? ` Mañana te tocan ${fichas(r.manana)}: vuelve para que sume tu racha.` : ' Vuelve mañana para que sume tu racha.';
     return { frase: `Hoy ya has hecho tu sesión.${racha}${manana}`, boton: 'Abrir la sesión diaria', empiezaDirecto: false };
   }
-  const racha = r.racha > 0 ? ` Llevas una racha de ${dias(r.racha)}: haz la de hoy para que siga.` : '';
+  const racha = r.racha > 0 ? ` Llevas ${textoRacha(r.racha)}: haz la de hoy para que siga.` : '';
   if (r.hoy > 0) {
     const tope = r.hoy > r.tamanoSesion ? ` La sesión de hoy trae ${fichas(r.tamanoSesion)}, empezando por esas.` : '';
     return { frase: `Hoy te toca repasar ${fichas(r.hoy)} que ya viste.${tope}${racha}`, boton: 'Seguir con la sesión diaria', empiezaDirecto: true };
