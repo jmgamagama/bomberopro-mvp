@@ -255,3 +255,21 @@ export function enlaceArticulo(fuente: string | undefined, relacionadas: readonl
   }
   return null;
 }
+
+/**
+ * Plan de varios días (informe del simulacro): cada ficha entra como prioridad el día indicado
+ * (nº de día local). Misma clave y regla que marcarParaManana: si ya tenía un día anterior, se
+ * conserva. Devuelve cuántas quedan marcadas (0 si no se pudo guardar).
+ */
+export function marcarPrioridadDias(asignaciones: readonly { deckId?: string; id: string; day: number }[]): number {
+  const p = loadPrioridad();
+  let n = 0;
+  for (const a of asignaciones) {
+    if (!a.deckId || !Number.isInteger(a.day)) continue;
+    const k = cardKey(a.deckId, a.id);
+    p[k] = Math.min(p[k] ?? a.day, a.day);
+    n++;
+  }
+  if (n === 0 || !savePrioridad(p)) return 0;
+  return n;
+}
