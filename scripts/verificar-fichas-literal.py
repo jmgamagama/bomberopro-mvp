@@ -8,7 +8,10 @@ Para cada ficha de los mazos configurados lee la URL de su campo `fuente` y:
     data/fuentes/<ID>/bloques.json (descargado con scripts/fuente_boe.py).
   - CTE (codigotecnico.org/pdf/Documentos/.../<DB>.pdf#page=N): busca la respuesta en el texto de la
     página N del PDF oficial (pdftotext, con y sin -layout); se admite que siga en la página N+1.
-  - Cualquier otra fuente (INSST, IDAE/MITECO, EUR-Lex…): no aceptada, la ficha sigue oculta.
+  - INSST (insst.es/documents/.../<pdf>#page=N), solo NTP 221, 841 y 842 y Guía técnica de equipos de trabajo,
+    aceptadas como fuente oficial por el propietario (feat/fichas-insst, 01/11/2026): como el CTE, la respuesta
+    en la página N del PDF oficial descargado de insst.es (se admite que siga en la N+1).
+  - Cualquier otra fuente (otros documentos del INSST, IDAE/MITECO, EUR-Lex…): no aceptada, la ficha sigue oculta.
 La respuesta tiene que aparecer ENTERA y seguida tras normalizar (minúsculas, sin tildes, comillas ni
 puntuación). No hay coincidencia difusa: lo que no cuadra al pie de la letra queda oculto.
 Además, si la pregunta cita un artículo («art. 11.2»), tiene que ser el del bloque enlazado.
@@ -29,12 +32,15 @@ MAZOS = {
     'tema9': 'src/data/tema9Recall.ts',
     'tema15': 'src/data/tema15Recall.ts',
 }
+INSST = {'ntp_221.pdf': 'NTP221', '841+web.pdf': 'NTP841', '842+web.pdf': 'NTP842',
+         'Gu%C3%ADa+t%C3%A9cnica+para+la+evaluaci%C3%B3n+y+prevenci%C3%B3n+de+los+riesgos+relativos+a+la+utilizaci%C3%B3n+de+los+equipos+de+trabajo.pdf': 'GUIA_ET'}
 PDFS = {'DBSI': 'SI/DBSI.pdf', 'DBSUA': 'SUA/DBSUA.pdf', 'DBHS': 'HS/DBHS.pdf'}
 
 
 def norm(s: str) -> str:
     s = unicodedata.normalize('NFKD', s)
     s = ''.join(c for c in s if not unicodedata.combining(c)).lower()
+    s = re.sub('­\\s*', '', s)  # guion blando (también a fin de línea, PDF de las NTP)
     s = s.replace('­', '').replace('²', '2').replace('³', '3')
     s = re.sub(r'\biux\b', 'lux', s)  # capa de texto del PDF del DB SUA: «Iux» por «lux»
     s = re.sub(r'(\w)-\s*\n\s*(\w)', r'\1\2', s)  # guion de fin de línea
@@ -73,7 +79,7 @@ def pagina(pdf_dir: pathlib.Path, db: str, n: int) -> str:
     return '\n'.join(out)
 
 
-def verificar(c: dict, pdf_dir: pathlib.Path) -> dict:
+def verificar(c: dict, pdf_dir: pathlib.Path, insst_dir: pathlib.Path = pathlib.Path('/workspace/fuentes_insst')) -> dict:
     f = c['fuente']
     r = {'id': c['id'], 'concepto': c['concepto'], 'respuesta': c['respuesta'], 'fuente': f}
     resp = norm(c['respuesta'])
@@ -101,18 +107,28 @@ def verificar(c: dict, pdf_dir: pathlib.Path) -> dict:
         if resp in p12:
             return r | {'estado': 'ok', 'origen': 'CTE', 'db': db, 'pagina': n, 'nota': f'sigue en la pág. {n + 1}'}
         return r | {'estado': 'no_literal', 'origen': 'CTE', 'db': db, 'pagina': n, 'motivo': 'la respuesta no está literal en la página citada'}
+    m = re.search(r'https://www\.insst\.es/documents/94886/\d+/([^/#\s]+\.pdf)#page=(\d+)', f)
+    if m and m.group(1) in INSST:
+        db, n = INSST[m.group(1)], int(m.group(2))
+        d = insst_dir
+        if resp in norm(pagina(d, db, n)):
+            return r | {'estado': 'ok', 'origen': 'INSST', 'doc': db, 'pagina': n}
+        if resp in norm(pagina(d, db, n) + '\n' + pagina(d, db, n + 1)):
+            return r | {'estado': 'ok', 'origen': 'INSST', 'doc': db, 'pagina': n, 'nota': f'sigue en la pág. {n + 1}'}
+        return r | {'estado': 'no_literal', 'origen': 'INSST', 'doc': db, 'pagina': n, 'motivo': 'la respuesta no está literal en la página citada'}
     return r | {'estado': 'fuente_no_aceptada', 'motivo': 'fuente fuera de BOE/DOE/BOP/CTE/INSARAG'}
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument('--pdf-dir', default='/workspace/fuentes_abrir')
+    ap.add_argument('--insst-dir', default='/workspace/fuentes_insst')
     ap.add_argument('--json', default='')
     a = ap.parse_args()
     pdf_dir = pathlib.Path(a.pdf_dir)
     todo = {}
     for mazo, ts in MAZOS.items():
-        res = [verificar(c, pdf_dir) for c in fichas(ROOT / ts)]
+        res = [verificar(c, pdf_dir, pathlib.Path(a.insst_dir)) for c in fichas(ROOT / ts)]
         todo[mazo] = res
         cuenta: dict[str, int] = {}
         for x in res:
