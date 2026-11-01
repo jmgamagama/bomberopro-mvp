@@ -40,7 +40,7 @@ describe('tema 15 · fase 2 (texto oficial consolidado)', () => {
   it('se registra como mazo bajo demanda', async () => {
     expect(getRecallDeck('tema15').count).toBe(92);
     expect(getRecallDeck('tema15').revision).toBe('pendiente');
-    // Pendiente, pero desde el 01/11/2026 se ven solo las 33 fichas literales de BOE (RD 1644/2008, RD 1215/1997, ITC-BT-40).
-    expect(await loadRecallDeckCards('tema15')).toHaveLength(33);
+    // Pendiente, pero desde el 01/11/2026 se ven solo las 36 fichas literales de BOE (RD 1644/2008, RD 1215/1997, ITC-BT-40); 3 de ellas recitadas al RD 1644/2008 con feat/t15-literal.
+    expect(await loadRecallDeckCards('tema15')).toHaveLength(36);
   });
 });
