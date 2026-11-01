@@ -20,7 +20,9 @@
    "NTP221": "5ff922998231f7e67ee5570231236b49975afa16257c0ab1636ffe4b1b2cd342",
    "NTP841": "8655cc7af85ba0f27571166d9ef9671e28b36dcb24f71661eb7072d2c36fce95",
    "NTP842": "570baa4be106d84bd82d9d6f478d34a2f71ac03b91abdf9e4e93c14173701c7b",
-   "GUIA_ET": "ee8f65a04c8465807c78d7083492db5bd9c57fc2f96cc151e6be2fab4327f8df"
+   "GUIA_ET": "ee8f65a04c8465807c78d7083492db5bd9c57fc2f96cc151e6be2fab4327f8df",
+   "NTP400": "461d79591829e8a08ad33e4f1207e40e3a0822a081f5bba469f058a2e4bec4f8",
+   "INSST_T33": "13a7201e5d42a5bc9018f274e7c645aeb99242537f68d63f00f4b0b952ef0a2d"
   }
  },
  "mazos": {
@@ -1853,5 +1855,6 @@
  },
  "t9_literal": "2026-11-01: 14 respuestas reescritas al literal (feat/t9-literal); 2 siguen ocultas",
  "t15_literal": "2026-11-01: 3 fichas recitadas al literal del RD 1644/2008 (feat/t15-literal); 56 siguen ocultas (fuente INSST sin texto equivalente en una norma BOE vigente, o ya cubierto por otra ficha visible)",
- "fichas_insst": "2026-11-01: INSST aceptado como fuente oficial (NTP 221, 841, 842 y Guía técnica de equipos de trabajo); 56 fichas de T15 cotejadas al literal con los PDF vigentes de insst.es, 2 respuestas ajustadas al literal (feat/fichas-insst)"
+ "fichas_insst": "2026-11-01: INSST aceptado como fuente oficial (NTP 221, 841, 842 y Guía técnica de equipos de trabajo); 56 fichas de T15 cotejadas al literal con los PDF vigentes de insst.es, 2 respuestas ajustadas al literal (feat/fichas-insst)",
+ "fichas_insst_2": "2026-11-01: INSST aceptado en general; T12 (5, Tema 33 «El riesgo de incendio (I)») y T28-lote02 (12, NTP 400) cotejadas al literal con los PDF vigentes de insst.es, 17 de 17 ok sin cambios (feat/fichas-insst)"
 }

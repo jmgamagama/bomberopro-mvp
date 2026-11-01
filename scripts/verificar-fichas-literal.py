@@ -8,7 +8,7 @@ Para cada ficha de los mazos configurados lee la URL de su campo `fuente` y:
     data/fuentes/<ID>/bloques.json (descargado con scripts/fuente_boe.py).
   - CTE (codigotecnico.org/pdf/Documentos/.../<DB>.pdf#page=N): busca la respuesta en el texto de la
     página N del PDF oficial (pdftotext, con y sin -layout); se admite que siga en la página N+1.
-  - INSST (insst.es/documents/.../<pdf>#page=N), solo NTP 221, 841 y 842 y Guía técnica de equipos de trabajo,
+  - INSST (insst.es/documents/.../<pdf>#page=N), NTP 221, 400, 841 y 842, Guía técnica de equipos de trabajo y Tema 33 del temario del INSST (#pNN),
     aceptadas como fuente oficial por el propietario (feat/fichas-insst, 01/11/2026): como el CTE, la respuesta
     en la página N del PDF oficial descargado de insst.es (se admite que siga en la N+1).
   - Cualquier otra fuente (otros documentos del INSST, IDAE/MITECO, EUR-Lex…): no aceptada, la ficha sigue oculta.
@@ -32,7 +32,8 @@ MAZOS = {
     'tema9': 'src/data/tema9Recall.ts',
     'tema15': 'src/data/tema15Recall.ts',
 }
-INSST = {'ntp_221.pdf': 'NTP221', '841+web.pdf': 'NTP841', '842+web.pdf': 'NTP842',
+INSST = {'ntp_221.pdf': 'NTP221', '841+web.pdf': 'NTP841', '842+web.pdf': 'NTP842', 'ntp_400.pdf': 'NTP400',
+         'tema-33-el-riesgo-de-incendio-i-': 'INSST_T33',
          'Gu%C3%ADa+t%C3%A9cnica+para+la+evaluaci%C3%B3n+y+prevenci%C3%B3n+de+los+riesgos+relativos+a+la+utilizaci%C3%B3n+de+los+equipos+de+trabajo.pdf': 'GUIA_ET'}
 PDFS = {'DBSI': 'SI/DBSI.pdf', 'DBSUA': 'SUA/DBSUA.pdf', 'DBHS': 'HS/DBHS.pdf'}
 
@@ -107,9 +108,9 @@ def verificar(c: dict, pdf_dir: pathlib.Path, insst_dir: pathlib.Path = pathlib.
         if resp in p12:
             return r | {'estado': 'ok', 'origen': 'CTE', 'db': db, 'pagina': n, 'nota': f'sigue en la pág. {n + 1}'}
         return r | {'estado': 'no_literal', 'origen': 'CTE', 'db': db, 'pagina': n, 'motivo': 'la respuesta no está literal en la página citada'}
-    m = re.search(r'https://www\.insst\.es/documents/94886/\d+/([^/#\s]+\.pdf)#page=(\d+)', f)
-    if m and m.group(1) in INSST:
-        db, n = INSST[m.group(1)], int(m.group(2))
+    m = re.search(r'https://www\.insst\.es/documents/(?:94886/\d+/([^/#\s]+\.pdf)#page=|d/portal-insst/([\w-]+)#p)(\d+)', f)
+    if m and (m.group(1) or m.group(2)) in INSST:
+        db, n = INSST[m.group(1) or m.group(2)], int(m.group(3))
         d = insst_dir
         if resp in norm(pagina(d, db, n)):
             return r | {'estado': 'ok', 'origen': 'INSST', 'doc': db, 'pagina': n}

@@ -12,6 +12,8 @@
  * Dudosas (se mantienen, a decidir por JM): audit/fuera-de-epigrafe-dudosas.md.
  */
 export const OUT_OF_SYLLABUS_CARDS: Readonly<Record<string, readonly string[]>> = {
+  // T12 (5) y T28-lote02 (12), antes aquí por fuente solo INSST, se abren el 01/11/2026 (feat/fichas-insst): el propietario acepta el
+  // INSST en general; Tema 33 «El riesgo de incendio (I)» y NTP 400 cotejados al literal con los PDF vigentes de insst.es.
   // Sin norma oficial (BOE/DOE/BOP) que respalde la respuesta: documentos técnicos del INSST (31/10/2026).
   // T8: solo fuente INSST; las clases C y D se reescribieron contra el RIPCI (31/10/2026).
   'tema8': [
@@ -32,14 +34,6 @@ export const OUT_OF_SYLLABUS_CARDS: Readonly<Record<string, readonly string[]>> 
     'CPEI-T33-OF-818C7871', 'CPEI-T33-OF-288169CE', 'CPEI-T33-OF-2204FAF6', 'CPEI-T33-OF-2F67DFE7',
     'CPEI-T33-OF-C279E68B', 'CPEI-T33-OF-12E30316', 'CPEI-T33-OF-714C9F36', 'CPEI-T33-OF-A942FBC2',
     'CPEI-T33-OF-0A02432D', 'CPEI-T33-OF-A5360729',
-  ],
-  // T12 y T28-lote02 siguen ocultas tras feat/fichas-insst (01/11/2026): sus documentos (INSST, Tema 33 «El riesgo de incendio (I)»
-  // del temario de oposición, y NTP 400) no están entre los que el propietario aceptó (NTP 221, 841, 842 y Guía técnica de equipos de trabajo).
-  'tema12': ['CPEI-T12-OF-01AA23CD', 'CPEI-T12-OF-A4DBE918', 'CPEI-T12-OF-591B1F12', 'CPEI-T12-OF-395A3760', 'CPEI-T12-OF-1464CEF3'],
-  'tema28-lote02': [
-    'CPEI-T28-OF-21518B3F', 'CPEI-T28-OF-887BC3C3', 'CPEI-T28-OF-7916E057', 'CPEI-T28-OF-D3CAD79A',
-    'CPEI-T28-OF-AAD97119', 'CPEI-T28-OF-9BC8BC24', 'CPEI-T28-OF-C1C27976', 'CPEI-T28-OF-54CF5404',
-    'CPEI-T28-OF-3D6693BE', 'CPEI-T28-OF-E6962F89', 'CPEI-T28-OF-A5F36376', 'CPEI-T28-OF-CA271CF9',
   ],
   'tema35': ['CPEI-T35-S01-D003AEE18E', 'CPEI-T35-S01-400B30628A'],
   // T36-lote01: S03-887722957A es una ficha meta (cómo se generaron las 165 fichas de límites), no contenido del epígrafe; se retira (01/11/2026).
