@@ -37,6 +37,13 @@ describe('mensajes de la pantalla de entrada', () => {
     }
   });
 
+  it('un conflicto de alta no confirma que el correo ya tenga una cuenta', () => {
+    const mensaje = mensajeErrorAcceso('crear', { status: 422, code: 'user_already_exists' }, false);
+    expect(mensaje.text).not.toMatch(/ya tienes cuenta con este correo/i);
+    expect(mensaje.text).toMatch(/si ya tienes una/i);
+    expect(mensaje.accion).toBeUndefined();
+  });
+
   it('el registro globalmente desactivado da una instrucción distinta de un fallo de servidor', () => {
     expect(mensajeErrorAcceso('crear', { status: 422, code: 'signup_disabled' }, false).text)
       .toMatch(/registro está cerrado/i);
