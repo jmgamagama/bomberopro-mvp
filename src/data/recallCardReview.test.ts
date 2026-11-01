@@ -70,3 +70,44 @@ describe('fichas revisadas sueltas', () => {
     expect(await loadRecallDeckCards(LOTE)).toHaveLength(raw.length);
   });
 });
+
+// T36 (01/11/2026): cada ficha de los lotes 01 a 08 está revisada o retirada con motivo; no queda ninguna «sin verificar».
+// Cotejo en directo: scripts/verificar-t36-fuentes.py (INE tabla 2859 e IGN, WFS de Unidades Administrativas).
+describe('Tema 36: ninguna ficha queda pendiente de verificar', () => {
+  const VISIBLES: Record<string, number> = {
+    'tema36-lote01': 56, 'tema36-lote02': 40, 'tema36-lote03': 40, 'tema36-lote04': 39,
+    'tema36-lote05': 25, 'tema36-lote06': 55, 'tema36-lote07': 55, 'tema36-lote08': 55,
+  };
+  const FICHA_META = 'CPEI-T36-S03-887722957A';
+
+  it('cada ficha está revisada o fuera del epígrafe, y las cifras por lote no cambian sin querer', async () => {
+    let visibles = 0;
+    let total = 0;
+    for (const [deck, esperadas] of Object.entries(VISIBLES)) {
+      const raw = await loadRawRecallDeckCards(deck);
+      total += raw.length;
+      for (const c of raw) {
+        const revisada = isCardReviewedInPendingDeck(deck, c.id);
+        const retirada = isCardOutOfSyllabus(c.id);
+        expect(revisada !== retirada, `${deck} ${c.id}`).toBe(true);
+      }
+      expect(reviewedCardCount(deck), deck).toBe(esperadas);
+      visibles += esperadas;
+    }
+    expect(total).toBe(531);
+    expect(visibles).toBe(365);
+  });
+
+  it('las retiradas son solo los códigos INE (fuera del epígrafe) y la ficha meta', async () => {
+    let codigos = 0;
+    for (const deck of Object.keys(VISIBLES)) {
+      for (const c of await loadRawRecallDeckCards(deck)) {
+        if (!isCardOutOfSyllabus(c.id)) continue;
+        if (c.id === FICHA_META) continue;
+        expect(c.concepto, c.id).toMatch(/código INE del municipio/);
+        codigos++;
+      }
+    }
+    expect(codigos).toBe(165);
+  });
+});
