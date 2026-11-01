@@ -131,6 +131,23 @@ export function outOfSyllabusCount(deckId: string): number {
  * El alumno solo ve estas fichas del mazo; el resto sigue oculto hasta que se revise el lote entero.
  */
 export const REVIEWED_CARDS_IN_PENDING_DECKS: Readonly<Record<string, readonly string[]>> = {
+  // T9 y T15 (01/11/2026, docs/REVISION_T32_T9_T15.md): comprobadas al pie de la letra con su fuente vigente.
+  // T9: RIPCI (BOE-A-2017-6606) y CTE DB HS 4 (codigotecnico.org). T15: RD 1644/2008, RD 1215/1997 y REBT ITC-BT-40 (BOE).
+  // El resto sigue oculto: fuente INSST, IDAE/MITECO o EUR-Lex (no aceptadas), o respuesta no literal.
+  'tema9': [
+    'CPEI-T09-OF-A520E5DF', 'CPEI-T09-OF-87E4530F', 'CPEI-T09-OF-52A4DCD7',
+  ],
+  'tema15': [
+    'CPEI-T15-OF-3B08563F', 'CPEI-T15-OF-D2F1AA50', 'CPEI-T15-OF-3AC3D004', 'CPEI-T15-OF-C8C8BD7F',
+    'CPEI-T15-OF-95FE950B', 'CPEI-T15-OF-D1E5BD30', 'CPEI-T15-OF-AD1717F5', 'CPEI-T15-OF-6C278F90',
+    'CPEI-T15-OF-ADD0E6E3', 'CPEI-T15-OF-E3EFB95D', 'CPEI-T15-OF-AEE721D0', 'CPEI-T15-OF-6F85EBEB',
+    'CPEI-T15-OF-6304DDC2', 'CPEI-T15-OF-4094FF94', 'CPEI-T15-OF-560C9B53', 'CPEI-T15-OF-2105B2A5',
+    'CPEI-T15-OF-95EAE040', 'CPEI-T15-OF-D785F0EF', 'CPEI-T15-OF-3AD9607F', 'CPEI-T15-OF-7C351FE7',
+    'CPEI-T15-OF-D1BCE0BC', 'CPEI-T15-OF-3073440B', 'CPEI-T15-OF-6E217486', 'CPEI-T15-OF-64E41A28',
+    'CPEI-T15-OF-AA6894F1', 'CPEI-T15-OF-17905817', 'CPEI-T15-OF-5CE69868', 'CPEI-T15-OF-FF05DE16',
+    'CPEI-T15-OF-1E65E692', 'CPEI-T15-OF-1B4EBEAA', 'CPEI-T15-OF-2D6D2074', 'CPEI-T15-OF-A659887D',
+    'CPEI-T15-OF-BEC236DD',
+  ],
   // Embalses verificados con el Anuario de Aforos del CEDEX (río y municipio), 31/10/2026.
   'tema36-lote01': [
     'CPEI-T36-S06-92E86A0B31', 'CPEI-T36-S06-203D362D2B', 'CPEI-T36-S06-1602493A86',
