@@ -32,6 +32,7 @@ export const FALLOS_RECIENTES_DIAS = 14;
 export const TEMAS_EN_FRASE = 2;
 
 export const PRIORIDAD_KEY = 'mira_plan_prioridad_v1';
+export const PRIORIDAD_EVENT = 'mira-plan-prioridad';
 
 const cardKey = (deckId: string, cardId: string) => `${deckId}|${cardId}`;
 
@@ -55,6 +56,8 @@ export function loadPrioridad(): Record<string, number> {
 function savePrioridad(p: Record<string, number>): boolean {
   try {
     writeOwned(PRIORIDAD_KEY, Object.keys(p).length ? JSON.stringify(p) : null);
+    // Aviso a las piezas que muestran la prioridad (FalloFichas) para que no se queden desfasadas.
+    if (typeof window !== 'undefined') window.dispatchEvent(new Event(PRIORIDAD_EVENT));
     return readOwned(PRIORIDAD_KEY) !== null || Object.keys(p).length === 0;
   } catch {
     return false;

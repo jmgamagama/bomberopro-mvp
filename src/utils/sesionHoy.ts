@@ -14,6 +14,7 @@ import { loadDailyStreak, type DailyStreak } from './dailySession';
 import { dayNumberFromKey, toLocalDateKey } from './localDate';
 import { getDailyMinutes, resolveDailySessionSize } from './studyPlan';
 import { loadReviewLog } from './recallReviewLog';
+import { loadPrioridad } from './planDiario';
 
 export interface SesionHoyResumen {
   /** Fichas visibles ya repasadas alguna vez en este dispositivo. */
@@ -54,6 +55,15 @@ export function resumenSesionHoy(
       if (status === 'due' || status === 'failed') hoy++;
       if (s.due <= today + 1) manana++;
     }
+  }
+  // Pulido 01/11/2026: las fichas que el alumno puso en el plan de mañana («Repasar estas fichas»,
+  // plan de 7 días) también tocan mañana; antes el Inicio y el fin de sesión daban cifras distintas.
+  for (const [k, day] of Object.entries(loadPrioridad())) {
+    if (day > today + 1) continue;
+    const [deckId, cardId] = k.split('|');
+    if (!isCardVisible(deckId, cardId)) continue;
+    const s = store[deckId]?.[cardId];
+    if (!s || s.due > today + 1) manana++;
   }
   const todayKey = toLocalDateKey(now);
   const hechaHoy = streak.lastCompletedDate === todayKey;

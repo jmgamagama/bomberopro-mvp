@@ -696,7 +696,7 @@ export default function MockExam({
                   {rec && recTopic && onStudyTopic && (
                     <button type="button" id="btn-mock-study-topic" onClick={() => onStudyTopic(recTopic.id)}
                       className="min-h-11 w-full rounded-xl border border-amber-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-amber-100">
-                      Repasar las fichas del tema {rec.numero}
+                      Estudiar ahora las fichas del tema {rec.numero}
                     </button>
                   )}
                 </section>

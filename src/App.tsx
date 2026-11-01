@@ -982,13 +982,9 @@ export default function App() {
               setDailyAutoStart(directo);
             }}
           />
-          <button type="button" id="btn-tu-progreso" onClick={() => handleNavigate('progreso')}
-            className="mb-4 flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border-2 border-[#1E3A5F] bg-white px-4 py-2 text-sm font-bold text-[#1E3A5F] hover:bg-slate-50">
-            Ver tu progreso por tema
-          </button>
           <Badajoz2026Card
             onOpenSupuestos={supuestosVisibles ? () => handleNavigate('supuestos') : undefined}
-            onOpenProgress={() => handleNavigate('recuerdo')}
+            onOpenProgress={() => handleNavigate('progreso')}
           />
           <Dashboard
             remoteProgress={conceptOwner ? remoteConcepts.state : undefined}
