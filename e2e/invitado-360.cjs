@@ -59,6 +59,9 @@ const res = []; const check = (n, ok, d = '') => { res.push(ok); console.log(`${
   check('nota visible', await page.getByText('Nota', { exact: true }).isVisible());
   check('recomendación de qué estudiar con el intento', await page.getByRole('heading', { name: 'Qué estudiar ahora' }).isVisible() && /no acertaste \d+ de \d+|acertado todas/i.test(await page.locator('#mock-recomendacion').innerText()));
   check('resultado por tema', (await page.locator('#mock-fallos-por-tema tbody tr').count()) > 0);
+  // Cómo sale la nota (01-nov-2026): aciertos × +0,200 y fallos × −0,066 con las cifras del intento.
+  const desglose = await page.locator('#mock-desglose').innerText();
+  check('cómo sale la nota, con la fórmula de las bases', /\d+ aciertos? × \+0,200 = \+\d+,\d{3}/.test(desglose) && /\d+ fallos? × −0,066 = [−+]\d+,\d{3}/.test(desglose) && /Total:/.test(desglose), `(${desglose.replace(/\n/g, ' | ')})`);
   const cta = page.getByRole('button', { name: /(crear cuenta|activar invitación) y guardar mi progreso/i });
   check('oferta de guardar progreso tras la nota', await cta.isVisible());
   const progNota = await page.locator('#guest-signup-progreso').innerText();
