@@ -69,17 +69,14 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
         if (result.error) {
           setMessage({ type: 'error', ...mensajeErrorAcceso('crear', result.error, abierto) });
           focusEmail();
-        } else if (!result.data.session && result.data.user && result.data.user.identities?.length === 0) {
-          // Supabase no da error si el correo ya tiene cuenta: devuelve un usuario sin identidades.
-          setMode('entrar');
-          setPassword('');
-          setMessage({ type: 'success', text: 'Ya tienes cuenta con este correo. Escribe tu contraseña y pulsa «Entrar».' });
-          passwordInputRef.current?.focus();
         } else if (!result.data.session) {
+          // Supabase puede devolver un usuario ficticio sin error cuando el correo ya existe.
+          // Mantener el mismo mensaje evita revelar qué direcciones tienen una cuenta.
           setEnviadoA(correo());
+          setPassword('');
           setMessage({
             type: 'success',
-            text: `Te hemos enviado un correo a ${correo()}. Ábrelo en este mismo dispositivo y pulsa el botón del correo: entrarás directamente. Si en 2 minutos no está, mira en Spam o Promociones.`,
+            text: `Si ${correo()} puede activar una cuenta, recibirás los pasos por correo. Si ya tienes cuenta, entra desde «Ya tengo cuenta». Revisa también Spam o Promociones.`,
             accion: 'reenviar',
           });
         }
