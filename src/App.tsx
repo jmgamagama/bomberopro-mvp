@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect, useLayoutEffect, useRef, lazy, Suspense } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef, useCallback, lazy, Suspense } from 'react';
 import { Brain, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles, ClipboardList, Menu } from 'lucide-react';
 import { trackFunnel } from './lib/funnel';
 import { getVisibleSupuestos } from './data/supuestos/supuestosRegistry';
@@ -54,6 +54,8 @@ import TrainScreen from './components/TrainScreen';
 import Badajoz2026Card from './components/Badajoz2026Card';
 import SesionHoyCard from './components/SesionHoyCard';
 import RecordatorioDiario from './components/RecordatorioDiario';
+import { AbrirMaterialContext, type AbrirMaterial } from './components/VerEnEsquema';
+import type { DestinoMaterial } from './utils/materialEnContexto';
 import { comprobarRecordatorio } from './lib/recordatorio';
 import { clearPreferLogin, hasGuestSignupIntent, markGuestSignupIntent, markPreferLogin, migrateGuestProgress, prefersLogin } from './utils/guestProgress';
 import Skeleton from './components/Skeleton';
@@ -78,6 +80,7 @@ const MyReports = lazy(() => import('./components/MyReports'));
 const AccountErrorPanel = lazy(() => import('./components/AccountErrorPanel'));
 const ConceptStudy = lazy(() => import('./components/ConceptStudy'));
 const MaterialConstitucion = lazy(() => import('./components/MaterialConstitucion'));
+const MaterialTemaPantalla = lazy(() => import('./components/MaterialTema'));
 const RecallHub = lazy(() => import('./components/RecallHub'));
 const DailySession = lazy(() => import('./components/DailySession'));
 const OrdenaPasos = lazy(() => import('./components/OrdenaPasos'));
@@ -186,6 +189,20 @@ export default function App() {
   const trainingSessionId = useRef<string>(newStudySessionId());
   const trainingSessionOpened = useRef(false);
   const trainingSessionFinished = useRef(false);
+
+  // Material en contexto (01/11/2026): «Ver en el esquema del tema» abre el material ENCIMA de la pantalla
+  // actual, que sigue montada (la sesión, el simulacro o «Tu progreso» no se pierden al volver).
+  const [materialFoco, setMaterialFoco] = useState<{ d: DestinoMaterial; origen: string; volverA: HTMLElement | null } | null>(null);
+  const abrirMaterial = useCallback<AbrirMaterial>((d, origen) => {
+    setMaterialFoco({ d, origen, volverA: document.activeElement instanceof HTMLElement ? document.activeElement : null });
+  }, []);
+  const cerrarMaterial = () => {
+    const v = materialFoco?.volverA;
+    setMaterialFoco(null);
+    window.setTimeout(() => v?.focus(), 0);
+  };
+  const dialogoMaterial = useRef<HTMLDivElement>(null);
+  useEffect(() => { if (materialFoco) dialogoMaterial.current?.focus(); }, [materialFoco]);
 
   // Recordatorio diario con la app abierta: comprobación cada minuto, sin pedir permisos.
   useEffect(() => {
@@ -799,7 +816,19 @@ export default function App() {
   }
 
   return (
+    <AbrirMaterialContext.Provider value={abrirMaterial}>
     <div className="min-h-screen bg-fondo flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
+      {materialFoco && (
+        <div ref={dialogoMaterial} tabIndex={-1} role="dialog" aria-modal="true" aria-label={`Material del tema ${materialFoco.d.tema}`}
+          id="material-contexto" className="fixed inset-0 z-[60] overflow-y-auto bg-fondo px-4 pb-8 pt-4 outline-none">
+          <Suspense fallback={<Skeleton label="Cargando el material…" />}>
+            <MaterialTemaPantalla userId={session?.user?.id ?? 'demo'} tema={materialFoco.d.tema} onExit={cerrarMaterial}
+              volverLabel={materialFoco.origen === 'Tu progreso' ? 'Volver a Tu progreso' : materialFoco.origen === 'este fallo' ? 'Volver al resultado' : 'Volver a la ficha'}
+              foco={materialFoco.d} origen={materialFoco.origen === 'Tu progreso' ? undefined : materialFoco.origen} />
+          </Suspense>
+        </div>
+      )}
+      <div className="contents" inert={materialFoco ? true : undefined}>
       <UpdateBanner />
       <SaveFailureBanner />
       <SaveStatus />
@@ -1262,6 +1291,8 @@ export default function App() {
           </div>
         </div>
       </footer>
+      </div>
     </div>
+    </AbrirMaterialContext.Provider>
   );
 }

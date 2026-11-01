@@ -3,6 +3,8 @@ import { BookOpen, ExternalLink, Repeat } from 'lucide-react';
 import type { RecallCard } from '../data/recallCards';
 import { enlaceArticulo, loadPrioridad, marcarParaManana, PRIORIDAD_EVENT } from '../utils/planDiario';
 import { localDayNumber } from '../utils/localDate';
+import VerEnEsquema from './VerEnEsquema';
+import { destinoMaterial } from '../utils/materialEnContexto';
 
 const DIA = new Intl.DateTimeFormat('es-ES', { weekday: 'short', day: '2-digit', month: '2-digit' });
 /** Día (el más tardío) en que todas las fichas ya están en el plan; null si alguna no lo está. */
@@ -23,8 +25,10 @@ function diaEnPlan(fichas: readonly RecallCard[]): number | null {
  * el artículo en el BOE y «Repasar estas fichas», que las pone como prioridad del plan de mañana
  * (localStorage, sin tocar el repaso espaciado: ver src/utils/planDiario.ts).
  */
-export default function FalloFichas({ id, fuente, fichas, onOpenFichas }: {
+export default function FalloFichas({ id, fuente, fichas, onOpenFichas, tema }: {
   id: string;
+  /** Tema de la pregunta (para «Ver en el esquema del tema»). */
+  tema?: number | null;
   fuente?: string;
   /** Fichas relacionadas (vacío si no hay o aún no se han cargado). */
   fichas: readonly RecallCard[];
@@ -48,7 +52,8 @@ export default function FalloFichas({ id, fuente, fichas, onOpenFichas }: {
     return `el ${DIA.format(d)}`;
   };
   const url = enlaceArticulo(fuente, fichas);
-  if (!url && fichas.length === 0) return null;
+  const conMaterial = !!destinoMaterial(tema, fuente);
+  if (!url && fichas.length === 0 && !conMaterial) return null;
   const n = fichas.length;
   return (
     <div className="mt-2 space-y-2 rounded-lg border border-slate-200 bg-slate-50 p-2" data-fallo-fichas={id}>
@@ -68,6 +73,7 @@ export default function FalloFichas({ id, fuente, fichas, onOpenFichas }: {
             <BookOpen className="h-3.5 w-3.5" aria-hidden="true" /> Ver {n === 1 ? 'la ficha' : 'las fichas'}
           </button>
         )}
+        <VerEnEsquema tema={tema} fuente={fuente} origen="este fallo" />
         {url && (
           <a href={url} target="_blank" rel="noopener noreferrer"
             className="inline-flex min-h-11 items-center gap-1 rounded-lg border border-slate-400 bg-white px-3 py-1.5 text-xs font-semibold text-[#1E3A5F] underline hover:bg-slate-100">

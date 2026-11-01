@@ -33,6 +33,26 @@ describe('MaterialTema', () => {
     expect(screen.getByTestId('capa-ausente')).toHaveTextContent('No se rellena con texto inventado');
   });
 
+  it('con foco (desde una ficha): abre su bloque y resalta el artículo', async () => {
+    render(<MaterialTema userId="u" onExit={() => {}} tema={6} origen="esta ficha" foco={{ bloque: 'lprl-03', precepto: 'a14', etiqueta: 'Artículo 14' }} />);
+    expect(screen.getByTestId('foco-material')).toHaveTextContent('Desde esta ficha: Artículo 14, resaltado en su bloque.');
+    await vi.waitFor(() => expect(document.querySelector('[data-resaltado]')).not.toBeNull());
+    expect(document.querySelector('[data-resaltado]')).toHaveTextContent(/^Artículo 14\. Derecho a la protección/);
+    expect((screen.getByLabelText('Bloque') as HTMLSelectElement).value).toBe('lprl-03');
+  });
+
+  it('con foco que el esquema no nombra: pasa al texto oficial y lo resalta allí', async () => {
+    render(<MaterialTema userId="u" onExit={() => {}} tema={1} origen="este fallo" foco={{ bloque: 'garantias-suspension', precepto: 'a54', etiqueta: 'Artículo 54' }} />);
+    await vi.waitFor(() => expect(document.querySelector('[data-resaltado]')).not.toBeNull());
+    expect(document.querySelector('[data-resaltado]')!.textContent).toMatch(/54/);
+  });
+
+  it('sin coincidencia verificable: abre solo el tema y lo dice', () => {
+    render(<MaterialTema userId="u" onExit={() => {}} tema={33} origen="esta ficha" foco={{}} />);
+    expect(screen.getByTestId('foco-material')).toHaveTextContent('se abre el tema entero');
+    expect(document.querySelector('[data-resaltado]')).toBeNull();
+  });
+
   it('tema sin material: dice qué tiene y qué no, sin pantalla vacía', async () => {
     render(<MaterialTema userId="u" onExit={() => {}} tema={11} />);
     const estado = screen.getByTestId('estado-tema');
