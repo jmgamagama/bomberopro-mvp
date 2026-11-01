@@ -109,10 +109,9 @@ export function mensajeErrorRecuperacion(e: ErrorAuth): MensajeAcceso {
 
 export const SIN_CONEXION = 'No hay conexión con BomberoPro. Comprueba tu internet e inténtalo de nuevo.';
 
-/** Lee el enlace de invitación: /?invitacion=1&email=ana@ejemplo.es */
+/** Lee el enlace genérico de invitación. El correo no se incluye en la URL por privacidad. */
 export function leerEnlaceInvitacion(search: string): { invitacion: boolean; email: string } {
   const p = new URLSearchParams(search);
-  const email = (p.get('email') ?? '').trim().toLowerCase();
   const invitacion = p.has('invitacion') || p.has('invitación');
-  return { invitacion, email: email.includes('@') ? email : '' };
+  return { invitacion, email: '' };
 }
