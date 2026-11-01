@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { leerEnlaceInvitacion, mensajeErrorAcceso, mensajeErrorEnlace } from './mensajesAcceso';
+import { leerEnlaceInvitacion, mensajeErrorAcceso, mensajeErrorEnlace, mensajeErrorRecuperacion } from './mensajesAcceso';
 
 describe('mensajes de la pantalla de entrada', () => {
   const jerga = /database|error|supabase|otp|status|500|422/i;
@@ -48,6 +48,14 @@ describe('mensajes de la pantalla de entrada', () => {
     expect(mensajeErrorAcceso('crear', { status: 422, code: 'weak_password' }, false).text).toMatch(/6 caracteres/);
     expect(mensajeErrorAcceso('entrar', { status: 400, code: 'email_not_confirmed' }, false)).toMatchObject({ accion: 'reenviar' });
     expect(mensajeErrorAcceso('crear', { status: 429, code: 'over_email_send_rate_limit' }, false).text).toMatch(/varios correos/);
+  });
+
+  it('los errores del restablecimiento no revelan si el correo tiene una cuenta', () => {
+    expect(mensajeErrorRecuperacion({ status: 429, code: 'over_email_send_rate_limit' }).text)
+      .toMatch(/espera unos minutos/i);
+    const interno = mensajeErrorRecuperacion({ status: 500, code: 'unexpected_failure' }).text;
+    expect(interno).toMatch(/inténtalo de nuevo más tarde/i);
+    expect(interno).not.toMatch(/cuenta|usuario|registrado/i);
   });
 
   it('lee el enlace de invitación y descarta correos mal formados', () => {
