@@ -84,7 +84,7 @@ describe('Login', () => {
     await user.click(screen.getByRole('button', { name: /^activar invitación$/i }));
     await fillAndSubmit(user);
 
-    expect(await screen.findByRole('status')).toHaveTextContent(/te hemos enviado un correo/i);
+    expect(await screen.findByRole('status')).toHaveTextContent(/recibirás los pasos por correo/i);
     expect(screen.queryByRole('alert')).not.toBeInTheDocument();
   });
 
@@ -190,19 +190,23 @@ describe('Login', () => {
       expect(alerta).not.toHaveTextContent(/lista del grupo piloto|no está invitado|database|error/i);
     });
 
-    it('si el correo ya tenía cuenta, pasa a «Entrar» con el correo puesto', async () => {
+    it('no revela si el correo ya tenía cuenta y permite pasar a «Entrar»', async () => {
       signUp.mockResolvedValue({ data: { session: null, user: { id: '1', identities: [] } }, error: null });
       const user = userEvent.setup();
       render(<Login />);
       await user.click(screen.getByRole('button', { name: 'Activar invitación' }));
       await fillAndSubmit(user);
-      expect(await screen.findByRole('status')).toHaveTextContent(/ya tienes cuenta/i);
+      const aviso = await screen.findByRole('status');
+      expect(aviso).toHaveTextContent(/si ana@example\.com puede activar una cuenta/i);
+      expect(aviso).not.toHaveTextContent(/ya tienes cuenta con este correo/i);
+      expect(screen.getByRole('button', { name: 'Activar invitación', pressed: true })).toBeInTheDocument();
+      await user.click(screen.getByRole('button', { name: 'Ya tengo cuenta' }));
       expect(screen.getByRole('button', { name: 'Ya tengo cuenta', pressed: true })).toBeInTheDocument();
       expect(screen.getByLabelText(/correo electrónico/i)).toHaveValue('ana@example.com');
       expect(screen.getByLabelText(/^contraseña$/i)).toHaveValue('');
     });
 
-    it('tras activar, dice a qué correo ha llegado el enlace y permite reenviarlo', async () => {
+    it('tras solicitar el alta, explica el siguiente paso sin afirmar si la cuenta ya existía', async () => {
       signUp.mockResolvedValue({ data: { session: null, user: { id: '1', identities: [{ id: 'i' }] } }, error: null });
       resend.mockResolvedValue({ data: {}, error: null });
       const user = userEvent.setup();
@@ -210,7 +214,10 @@ describe('Login', () => {
       await user.click(screen.getByRole('button', { name: 'Activar invitación' }));
       await fillAndSubmit(user, ' Ana@Example.com ');
       expect(signUp).toHaveBeenCalledWith(expect.objectContaining({ email: 'ana@example.com' }));
-      expect(await screen.findByRole('status')).toHaveTextContent(/ana@example\.com/);
+      const aviso = await screen.findByRole('status');
+      expect(aviso).toHaveTextContent(/ana@example\.com/);
+      expect(aviso).toHaveTextContent(/si .* puede activar una cuenta/i);
+      expect(aviso).not.toHaveTextContent(/te hemos enviado un correo/i);
       await user.click(screen.getByRole('button', { name: 'Reenviar el correo' }));
       expect(resend).toHaveBeenCalledWith({ type: 'signup', email: 'ana@example.com', options: { emailRedirectTo: expect.stringContaining('/?acceso=registro') } });
       expect(await screen.findByRole('status')).toHaveTextContent(/vuelto a enviar/i);
