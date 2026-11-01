@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import { trackFunnel } from '../lib/funnel';
-import { isRegistroAbierto, textoAlta } from '../config/features';
+import { isAppleAuthEnabled, isGoogleAuthEnabled, isRegistroAbierto, textoAlta } from '../config/features';
 import { urlRetornoAuth } from '../lib/authRetorno';
 import {
-  leerEnlaceInvitacion, mensajeErrorAcceso, mensajeErrorEnlace, SIN_CONEXION,
+  leerEnlaceInvitacion, mensajeErrorAcceso, mensajeErrorEnlace, mensajeErrorOAuth, SIN_CONEXION,
   type MensajeAcceso, type ModoAcceso,
 } from '../lib/mensajesAcceso';
 import { describeGuestProgress, guestProgressSummary, hasGuestSignupIntent, markGuestSignupIntent } from '../utils/guestProgress';
@@ -65,11 +65,25 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
     if (enlace.email) passwordInputRef.current?.focus();
   }, [enlace]);
 
+  // Evita el doble envío (doble toque en móvil antes de que React pinte el estado de carga).
+  const enCurso = useRef(false);
+  const unaVez = (fn: () => Promise<void>) => async () => {
+    if (enCurso.current) return;
+    enCurso.current = true;
+    try { await fn(); } finally { enCurso.current = false; }
+  };
+  const conGoogle = isGoogleAuthEnabled();
+  const conApple = isAppleAuthEnabled();
+
   const focusEmail = () => emailInputRef.current?.focus();
   const correo = () => email.trim().toLowerCase();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    void unaVez(enviar)();
+  };
+
+  const enviar = async () => {
     setLoading(true);
     setMessage(null);
 
@@ -113,8 +127,10 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
     }
   };
 
-  // Acceso sin contraseña: enlace de un solo uso al correo. Sirve para "he olvidado la contraseña".
-  const handleMagicLink = async () => {
+  // «He olvidado la contraseña»: correo de recuperación que vuelve a /?acceso=recuperar y abre la
+  // pantalla «Elige tu nueva contraseña» (AccesoConfirmado). Antes se mandaba un enlace mágico que
+  // dejaba entrar pero nunca ofrecía cambiar la contraseña.
+  const handleMagicLink = unaVez(async () => {
     if (!email.trim()) {
       setMessage({ type: 'error', text: 'Escribe primero tu correo y vuelve a pulsar.' });
       focusEmail();
@@ -123,21 +139,34 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
     setLoading(true);
     setMessage(null);
     try {
-      const { error } = await supabase!.auth.signInWithOtp({
-        email: correo(),
-        options: { shouldCreateUser: false, emailRedirectTo: urlRetornoAuth('enlace') },
-      });
+      const { error } = await supabase!.auth.resetPasswordForEmail(correo(), { redirectTo: urlRetornoAuth('recuperar') });
       setMessage(error
         ? { type: 'error', ...mensajeErrorEnlace(error, abierto) }
-        : { type: 'success', text: `Te hemos enviado un enlace a ${correo()}. Ábrelo desde este móvil para entrar sin contraseña.` });
+        : { type: 'success', text: `Si ${correo()} tiene cuenta, te llegará un correo para elegir una contraseña nueva. Ábrelo en este mismo dispositivo; si en 2 minutos no está, mira en Spam o Promociones.` });
     } catch {
       setMessage({ type: 'error', text: SIN_CONEXION });
     } finally {
       setLoading(false);
     }
-  };
+  });
 
-  const handleResend = async () => {
+  const handleOAuth = (provider: 'google' | 'apple') => unaVez(async () => {
+    setLoading(true);
+    setMessage(null);
+    try {
+      const { error } = await supabase!.auth.signInWithOAuth({ provider, options: { redirectTo: urlRetornoAuth('oauth') } });
+      // Sin error el navegador ya se va a Google/Apple: se deja el estado de carga.
+      if (error) {
+        setMessage({ type: 'error', ...mensajeErrorOAuth(provider, error) });
+        setLoading(false);
+      }
+    } catch {
+      setMessage({ type: 'error', text: SIN_CONEXION });
+      setLoading(false);
+    }
+  });
+
+  const handleResend = unaVez(async () => {
     setLoading(true);
     try {
       const { error } = await supabase!.auth.resend({
@@ -154,7 +183,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
     } finally {
       setLoading(false);
     }
-  };
+  });
 
   const switchMode = (next: ModoAcceso) => {
     setMode(next);
@@ -286,6 +315,23 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
           ))}
         </div>
 
+        {(conGoogle || conApple) && !enviadoA && (
+          <div className="mb-5 space-y-2" aria-label="Entrar con otra cuenta" role="group">
+            {conGoogle && (
+              <button type="button" id="btn-oauth-google" onClick={handleOAuth('google')} disabled={loading}
+                className="w-full min-h-12 rounded-xl border border-slate-400 bg-white px-4 py-3 text-base font-bold text-slate-800 hover:bg-slate-50 disabled:opacity-60">
+                Continuar con Google
+              </button>
+            )}
+            {conApple && (
+              <button type="button" id="btn-oauth-apple" onClick={handleOAuth('apple')} disabled={loading}
+                className="w-full min-h-12 rounded-xl bg-black px-4 py-3 text-base font-bold text-white hover:bg-slate-900 disabled:opacity-60">
+                Continuar con Apple
+              </button>
+            )}
+            <p className="text-center text-sm text-slate-600">o con tu correo</p>
+          </div>
+        )}
         {enviadoA ? (
           <section aria-labelledby="titulo-revisa" className="space-y-4">
             <h3 id="titulo-revisa" className="text-lg font-black text-slate-800">Revisa tu correo</h3>

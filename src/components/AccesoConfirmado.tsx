@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CheckCircle2, AlertTriangle, KeyRound, Loader2 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import type { RetornoAuth } from '../lib/authRetorno';
+import { explicarErrorRetorno, mensajeErrorNuevaContrasena } from '../lib/mensajesAcceso';
 
 interface AccesoConfirmadoProps {
   retorno: RetornoAuth;
@@ -48,7 +49,8 @@ function titulo(retorno: RetornoAuth, conSesion: boolean): string {
   switch (retorno.tipo) {
     case 'error': return 'Este enlace ya no funciona';
     case 'invitacion': return conSesion ? '¡Bienvenido a BomberoPro!' : 'Invitación aceptada';
-    case 'recuperar': return conSesion ? 'Elige tu nueva contraseña' : 'Enlace abierto';
+    case 'recuperar': return conSesion ? 'Elige tu nueva contraseña' : 'No hemos podido abrir el enlace';
+    case 'oauth': return conSesion ? '¡Ya estás dentro!' : 'No se ha completado el acceso';
     default: return '¡Cuenta activada!';
   }
 }
@@ -59,15 +61,18 @@ function Mensaje({ retorno, conSesion, onContinuar }: AccesoConfirmadoProps) {
     <>
       {retorno.tipo === 'error' ? (
         <>
-          <p className="text-base text-slate-700">
-            Puede que ya lo hayas usado (por ejemplo, si ya activaste tu cuenta) o que haya caducado.
-            Cada enlace sirve una sola vez y durante un tiempo limitado.
-          </p>
+          <p className="text-base text-slate-700">{explicarErrorRetorno(retorno.codigo)}</p>
           <p className="text-base text-slate-700">
             <strong>Si ya activaste tu cuenta</strong>, entra con tu correo y tu contraseña.
-            <strong> Si no</strong>, en «Entrar» pide un enlace nuevo al correo.
+            <strong> Si no</strong>, en «Entrar» pulsa «He olvidado la contraseña» y te mandamos uno nuevo.
           </p>
         </>
+      ) : (retorno.tipo === 'recuperar' || retorno.tipo === 'oauth') && !conSesion ? (
+        <p className="text-base text-slate-700">
+          {retorno.tipo === 'recuperar'
+            ? 'El enlace no ha abierto tu sesión: puede que haya caducado o ya se usara. En «Entrar» pulsa «He olvidado la contraseña» y abre el correo nuevo en este mismo dispositivo.'
+            : 'Vuelve a intentarlo o entra con tu correo y contraseña.'}
+        </p>
       ) : (
         <>
           <p className="text-base text-slate-700">
@@ -105,6 +110,7 @@ function FormularioContrasena({ retorno, onHecho }: { retorno: RetornoAuth; onHe
 
   const guardar = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (guardando) return;
     if (password.length < 6) {
       setError('La contraseña debe tener al menos 6 caracteres.');
       return;
@@ -113,7 +119,7 @@ function FormularioContrasena({ retorno, onHecho }: { retorno: RetornoAuth; onHe
     setError(null);
     try {
       const { error: fallo } = await supabase!.auth.updateUser({ password });
-      if (fallo) setError('No hemos podido guardar la contraseña. Prueba con otra distinta.');
+      if (fallo) setError(mensajeErrorNuevaContrasena(fallo));
       else setGuardada(true);
     } catch {
       setError('No hemos podido conectar. Comprueba tu conexión e inténtalo de nuevo.');
