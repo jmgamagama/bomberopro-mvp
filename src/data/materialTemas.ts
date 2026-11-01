@@ -81,7 +81,7 @@ export const MATERIAL_TEMAS: readonly MaterialTema[] = [
     carpeta: 'constitucion',
     piloto: true,
     textoOficial: { file: 'constitucion-espanola-texto-oficial.md', titulo: 'Constitución Española · Texto oficial (BOE)' },
-    fuentes: [{ titulo: 'Constitución Española', boe: 'BOE-A-1978-31229', url: boeUrl('BOE-A-1978-31229'), version: '29/10/2026' }],
+    fuentes: [{ titulo: 'Constitución Española', boe: 'BOE-A-1978-31229', url: boeUrl('BOE-A-1978-31229'), version: '20/05/2026' }],
     bloques: [
       ce('titulo-preliminar', 'Título Preliminar (arts. 1–9)'),
       ce('dignidad-espanoles-extranjeros', 'Dignidad, españoles y extranjeros (arts. 10–13)'),
@@ -96,7 +96,7 @@ export const MATERIAL_TEMAS: readonly MaterialTema[] = [
     nombre: 'Ley 31/1995 de Prevención de Riesgos Laborales',
     carpeta: 'tema06',
     textoOficial: { file: 'lprl-texto-oficial.md', titulo: 'Ley 31/1995 · Texto consolidado (BOE)' },
-    fuentes: [{ titulo: 'Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales', boe: 'BOE-A-1995-24292', url: boeUrl('BOE-A-1995-24292'), version: '23/10/2026' }],
+    fuentes: [{ titulo: 'Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales', boe: 'BOE-A-1995-24292', url: boeUrl('BOE-A-1995-24292'), version: '09/04/2026' }],
     alcance: 'El temario (anexo I) pide los capítulos I a IV: objeto, ámbito y definiciones; política de prevención; derechos y obligaciones; servicios de prevención.',
     bloques: [
       lprl(1, 'Capítulo I · Objeto, ámbito de aplicación y definiciones (arts. 1–4)'),
@@ -110,7 +110,7 @@ export const MATERIAL_TEMAS: readonly MaterialTema[] = [
     nombre: 'Estatuto de Autonomía de Extremadura',
     carpeta: 'tema02',
     textoOficial: { file: 'eaex-texto-oficial.md', titulo: "Estatuto de Autonomía de Extremadura · Texto consolidado (BOE)" },
-    fuentes: [{ titulo: "Ley Orgánica 1/2011, de 28 de enero, de reforma del Estatuto de Autonomía de la Comunidad Autónoma de Extremadura", boe: 'BOE-A-2011-1638', url: boeUrl('BOE-A-2011-1638'), version: '30/10/2026' }],
+    fuentes: [{ titulo: "Ley Orgánica 1/2011, de 28 de enero, de reforma del Estatuto de Autonomía de la Comunidad Autónoma de Extremadura", boe: 'BOE-A-2011-1638', url: boeUrl('BOE-A-2011-1638'), version: '29/01/2011' }],
     alcance: 'El temario (anexo I) pide: disposiciones generales; derechos, deberes y principios rectores; competencias; instituciones (Título Preliminar, Títulos I y II).',
     bloques: [
       boe('eaex-01', "Título Preliminar · Capítulo I · Disposiciones generales (arts. 1–5)"),
@@ -126,7 +126,7 @@ export const MATERIAL_TEMAS: readonly MaterialTema[] = [
     nombre: 'Ley 7/1985 Reguladora de las Bases del Régimen Local',
     carpeta: 'tema03',
     textoOficial: { file: 'lbrl-texto-oficial.md', titulo: "Ley 7/1985 Reguladora de las Bases del Régimen Local · Texto consolidado (BOE)" },
-    fuentes: [{ titulo: "Ley 7/1985, de 2 de abril, Reguladora de las Bases del Régimen Local", boe: 'BOE-A-1985-5392', url: boeUrl('BOE-A-1985-5392'), version: '05/10/2026' }],
+    fuentes: [{ titulo: "Ley 7/1985, de 2 de abril, Reguladora de las Bases del Régimen Local", boe: 'BOE-A-1985-5392', url: boeUrl('BOE-A-1985-5392'), version: '03/10/2026' }],
     alcance: 'El temario (anexo I) pide la Provincia: organización y competencias (Título III, arts. 31–38).',
     bloques: [
       boe('lbrl-01', "Título III · La Provincia: Organización (arts. 31–35)"),
@@ -138,7 +138,7 @@ export const MATERIAL_TEMAS: readonly MaterialTema[] = [
     nombre: 'Ley 8/2011 de Igualdad entre Mujeres y Hombres y contra la Violencia de Género en Extremadura',
     carpeta: 'tema07',
     textoOficial: { file: 'ligualdad-texto-oficial.md', titulo: "Ley 8/2011 de Igualdad entre Mujeres y Hombres y contra la Violencia de Género en Extremadura · Texto consolidado (BOE)" },
-    fuentes: [{ titulo: "Ley 8/2011, de 23 de marzo, de Igualdad entre mujeres y hombres y contra la violencia de género en Extremadura", boe: 'BOE-A-2011-6651', url: boeUrl('BOE-A-2011-6651'), version: '19/12/2025' }],
+    fuentes: [{ titulo: "Ley 8/2011, de 23 de marzo, de Igualdad entre mujeres y hombres y contra la violencia de género en Extremadura", boe: 'BOE-A-2011-6651', url: boeUrl('BOE-A-2011-6651'), version: '25/03/2011' }],
     alcance: 'El temario (anexo I) pide: disposiciones generales (Título Preliminar), integración de la perspectiva de género en las políticas públicas (Título II) y derechos de las mujeres en situaciones de violencia de género (Título IV, capítulo II).',
     bloques: [
       boe('ligualdad-01', "Título Preliminar · Disposiciones generales (arts. 1–4)"),
@@ -151,7 +151,7 @@ export const MATERIAL_TEMAS: readonly MaterialTema[] = [
     nombre: 'Real Decreto 1215/1997 · Equipos de trabajo',
     carpeta: 'tema31',
     textoOficial: { file: 'rd1215-texto-oficial.md', titulo: "Real Decreto 1215/1997 · Equipos de trabajo · Texto consolidado (BOE)" },
-    fuentes: [{ titulo: "Real Decreto 1215/1997, de 18 de julio, por el que se establecen las disposiciones mínimas de seguridad y salud para la utilización por los trabajadores de los equipos de trabajo", boe: 'BOE-A-1997-17824', url: boeUrl('BOE-A-1997-17824'), version: '18/12/2025' }],
+    fuentes: [{ titulo: "Real Decreto 1215/1997, de 18 de julio, por el que se establecen las disposiciones mínimas de seguridad y salud para la utilización por los trabajadores de los equipos de trabajo", boe: 'BOE-A-1997-17824', url: boeUrl('BOE-A-1997-17824'), version: '13/11/2004' }],
     alcance: 'El temario (anexo I) pide el Real Decreto completo, con sus dos anexos.',
     bloques: [
       boe('rd1215-01', "Real Decreto 1215/1997 · Articulado y disposiciones"),
@@ -164,7 +164,7 @@ export const MATERIAL_TEMAS: readonly MaterialTema[] = [
     nombre: 'Real Decreto 164/2025 · Seguridad contra incendios en establecimientos industriales',
     carpeta: 'tema34',
     textoOficial: { file: 'rsciei-texto-oficial.md', titulo: "Real Decreto 164/2025 · Seguridad contra incendios en establecimientos industriales · Texto consolidado (BOE)" },
-    fuentes: [{ titulo: "Real Decreto 164/2025, de 4 de marzo, por el que se aprueba el Reglamento de seguridad contra incendios en los establecimientos industriales", boe: 'BOE-A-2025-7190', url: boeUrl('BOE-A-2025-7190'), version: '20/12/2025' }],
+    fuentes: [{ titulo: "Real Decreto 164/2025, de 4 de marzo, por el que se aprueba el Reglamento de seguridad contra incendios en los establecimientos industriales", boe: 'BOE-A-2025-7190', url: boeUrl('BOE-A-2025-7190'), version: '10/04/2025' }],
     alcance: 'El temario (anexo I) pide el Real Decreto completo: articulado, Reglamento y anexos.',
     bloques: [
       boe('rsciei-01', "Real Decreto 164/2025 · Artículo único y disposiciones"),
@@ -182,7 +182,7 @@ export const MATERIAL_TEMAS: readonly MaterialTema[] = [
     nombre: 'Real Decreto 513/2017 · Reglamento de instalaciones de protección contra incendios (RIPCI)',
     carpeta: 'tema33',
     textoOficial: { file: 'ripci-texto-oficial.md', titulo: 'RIPCI (RD 513/2017) · Texto consolidado (BOE)' },
-    fuentes: [{ titulo: 'Real Decreto 513/2017, de 22 de mayo, por el que se aprueba el Reglamento de instalaciones de protección contra incendios', boe: 'BOE-A-2017-6606', url: boeUrl('BOE-A-2017-6606'), version: '19/12/2025' }],
+    fuentes: [{ titulo: 'Real Decreto 513/2017, de 22 de mayo, por el que se aprueba el Reglamento de instalaciones de protección contra incendios', boe: 'BOE-A-2017-6606', url: boeUrl('BOE-A-2017-6606'), version: '03/09/2025' }],
     alcance: 'El temario (anexo I) pide: objeto y ámbito de aplicación (arts. 1–2 del Reglamento) y, del anexo I, abastecimiento de agua, hidrantes, bocas de incendio equipadas y columna seca (sección 1.ª, apartados 2, 3, 5 y 6).',
     bloques: [
       boe('ripci-01', 'Reglamento · Objeto y ámbito de aplicación (arts. 1–2)'),
@@ -194,7 +194,7 @@ export const MATERIAL_TEMAS: readonly MaterialTema[] = [
     nombre: "El agua · abastecimiento, hidrantes, columnas secas y BIE (RIPCI)",
     carpeta: 'tema10',
     textoOficial: { file: 'ripci10-texto-oficial.md', titulo: "Real Decreto 513/2017 · Texto consolidado (BOE)" },
-    fuentes: [{ titulo: "Real Decreto 513/2017, de 22 de mayo, por el que se aprueba el Reglamento de instalaciones de protección contra incendios", boe: 'BOE-A-2017-6606', url: boeUrl('BOE-A-2017-6606'), version: '19/12/2025' }],
+    fuentes: [{ titulo: "Real Decreto 513/2017, de 22 de mayo, por el que se aprueba el Reglamento de instalaciones de protección contra incendios", boe: 'BOE-A-2017-6606', url: boeUrl('BOE-A-2017-6606'), version: '03/09/2025' }],
     alcance: "El epígrafe pide sistema de abastecimiento de agua, hidrantes, columnas secas y bocas de incendio equipadas: RIPCI, anexo I, sección 1.ª, apartados 2, 3, 5 y 6. El resto del tema (agua, lanzas, mangueras, monitor) no se apoya en una norma consolidada del BOE.",
     bloques: [
       boe('ripci10-01', "RIPCI, anexo I, sección 1.ª · Abastecimiento de agua, hidrantes, BIE y columna seca (apdos. 2, 3, 5 y 6)"),
@@ -205,7 +205,7 @@ export const MATERIAL_TEMAS: readonly MaterialTema[] = [
     nombre: "Extintores (RIPCI, anexo I)",
     carpeta: 'tema12',
     textoOficial: { file: 'ripci12-texto-oficial.md', titulo: "Real Decreto 513/2017 · Texto consolidado (BOE)" },
-    fuentes: [{ titulo: "Real Decreto 513/2017, de 22 de mayo, por el que se aprueba el Reglamento de instalaciones de protección contra incendios", boe: 'BOE-A-2017-6606', url: boeUrl('BOE-A-2017-6606'), version: '19/12/2025' }],
+    fuentes: [{ titulo: "Real Decreto 513/2017, de 22 de mayo, por el que se aprueba el Reglamento de instalaciones de protección contra incendios", boe: 'BOE-A-2017-6606', url: boeUrl('BOE-A-2017-6606'), version: '03/09/2025' }],
     alcance: "El epígrafe pide extintores: identificación, emplazamiento y distribución, que regula el RIPCI, anexo I, sección 1.ª, apartado 4. Las normas UNE-EN 3-7 y UNE-EN 1866-1 no se publican en el BOE.",
     bloques: [
       boe('ripci12-01', "RIPCI, anexo I, sección 1.ª · Extintores de incendio (apdo. 4)"),
@@ -216,7 +216,7 @@ export const MATERIAL_TEMAS: readonly MaterialTema[] = [
     nombre: "Equipos de protección individual (RD 773/1997)",
     carpeta: 'tema13',
     textoOficial: { file: 'rd773-texto-oficial.md', titulo: "Real Decreto 773/1997 · Texto consolidado (BOE)" },
-    fuentes: [{ titulo: "Real Decreto 773/1997, de 30 de mayo, sobre disposiciones mínimas de seguridad y salud relativas a la utilización por los trabajadores de equipos de protección individual", boe: 'BOE-A-1997-12735', url: boeUrl('BOE-A-1997-12735'), version: '18/12/2025' }],
+    fuentes: [{ titulo: "Real Decreto 773/1997, de 30 de mayo, sobre disposiciones mínimas de seguridad y salud relativas a la utilización por los trabajadores de equipos de protección individual", boe: 'BOE-A-1997-12735', url: boeUrl('BOE-A-1997-12735'), version: '08/12/2021' }],
     alcance: "El epígrafe pide la normativa, clasificación, uso y mantenimiento de los EPI: Real Decreto 773/1997, articulado y anexos. El Reglamento (UE) 2016/425 y las normas UNE de los EPI de bomberos no están en el BOE consolidado.",
     bloques: [
       boe('rd773-01', "Real Decreto 773/1997 · Articulado (arts. 1–10)"),
@@ -228,7 +228,7 @@ export const MATERIAL_TEMAS: readonly MaterialTema[] = [
     nombre: "Trabajos temporales en altura (RD 1215/1997, anexo II.4)",
     carpeta: 'tema22',
     textoOficial: { file: 'rd1215altura-texto-oficial.md', titulo: "Real Decreto 1215/1997 · Texto consolidado (BOE)" },
-    fuentes: [{ titulo: "Real Decreto 1215/1997, de 18 de julio, por el que se establecen las disposiciones mínimas de seguridad y salud para la utilización por los trabajadores de los equipos de trabajo", boe: 'BOE-A-1997-17824', url: boeUrl('BOE-A-1997-17824'), version: '18/12/2025' }],
+    fuentes: [{ titulo: "Real Decreto 1215/1997, de 18 de julio, por el que se establecen las disposiciones mínimas de seguridad y salud para la utilización por los trabajadores de los equipos de trabajo", boe: 'BOE-A-1997-17824', url: boeUrl('BOE-A-1997-17824'), version: '13/11/2004' }],
     alcance: "El epígrafe pide la normativa y el marco legal de los trabajos en altura: RD 1215/1997, anexo II, apartado 4 (añadido por el RD 2177/2004). El resto (material, nudos, poleas) es técnico, sin norma consolidada.",
     bloques: [
       boe('rd1215altura-01', "RD 1215/1997, anexo II · Trabajos temporales en altura (apdo. 4, añadido por el RD 2177/2004)"),
@@ -251,8 +251,8 @@ export const MATERIAL_TEMAS: readonly MaterialTema[] = [
     nombre: "Riesgo eléctrico (RD 614/2001 y REBT)",
     carpeta: 'tema28',
     textoOficial: { file: 'rd614-texto-oficial.md', titulo: "Real Decreto 614/2001 · Texto consolidado (BOE)" },
-    fuentes: [{ titulo: "Real Decreto 614/2001, de 8 de junio, sobre disposiciones mínimas para la protección de la salud y seguridad de los trabajadores frente al riesgo eléctrico", boe: 'BOE-A-2001-11881', url: boeUrl('BOE-A-2001-11881'), version: '18/12/2025' },
-      { titulo: "Real Decreto 842/2002, de 2 de agosto, por el que se aprueba el Reglamento electrotécnico para baja tensión", boe: 'BOE-A-2002-18099', url: boeUrl('BOE-A-2002-18099'), version: '18/12/2025' }],
+    fuentes: [{ titulo: "Real Decreto 614/2001, de 8 de junio, sobre disposiciones mínimas para la protección de la salud y seguridad de los trabajadores frente al riesgo eléctrico", boe: 'BOE-A-2001-11881', url: boeUrl('BOE-A-2001-11881'), version: '21/06/2001' },
+      { titulo: "Real Decreto 842/2002, de 2 de agosto, por el que se aprueba el Reglamento electrotécnico para baja tensión", boe: 'BOE-A-2002-18099', url: boeUrl('BOE-A-2002-18099'), version: '03/09/2025' }],
     alcance: "El epígrafe pide equipos, distancias de seguridad en función de la tensión y procedimientos de actuación con riesgo eléctrico (RD 614/2001, articulado y anexos I a VI), y redes de distribución en baja tensión, acometidas e instalaciones de enlace (REBT: arts. 4, 8 y 15 e ITC-BT-06, 07, 08 y 11 a 17). La alta tensión (RD 337/2014, RD 223/2008) y la parte de física no se han generado.",
     bloques: [
       boe('rd614-01', "Real Decreto 614/2001 · Articulado (arts. 1–6)"),
@@ -333,7 +333,7 @@ export const MATERIAL_TEMAS: readonly MaterialTema[] = [
     nombre: "Código Técnico de la Edificación (RD 314/2006)",
     carpeta: 'tema32',
     textoOficial: { file: 'cte-texto-oficial.md', titulo: "Real Decreto 314/2006 · Texto consolidado (BOE)" },
-    fuentes: [{ titulo: "Real Decreto 314/2006, de 17 de marzo, por el que se aprueba el Código Técnico de la Edificación", boe: 'BOE-A-2006-5515', url: boeUrl('BOE-A-2006-5515'), version: '18/12/2025' }],
+    fuentes: [{ titulo: "Real Decreto 314/2006, de 17 de marzo, por el que se aprueba el Código Técnico de la Edificación", boe: 'BOE-A-2006-5515', url: boeUrl('BOE-A-2006-5515'), version: '15/06/2022' }],
     alcance: "El epígrafe pide objeto y ámbito y las exigencias básicas SI y SUA: CTE, Parte I, arts. 1–2, 11 y 12. Los documentos básicos DB SI y DB SUA (Parte II) no están en el texto consolidado del BOE, que solo los cita.",
     bloques: [
       boe('cte-01', "CTE, Parte I · Objeto y ámbito de aplicación (arts. 1–2)"),

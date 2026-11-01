@@ -149,7 +149,7 @@ export const TEMA8_RECALL_CARDS: Tema8RecallCard[] = [
     "orden": 150,
     "concepto": "Según el RIPCI (clases de fuego normalizadas, UNE-EN 2), ¿qué fuegos son de clase D?",
     "respuesta": "Fuegos de metales",
-    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.d). BOE-A-2017-6606, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.d). BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.d)",
     "apartado": "Clasificación de los fuegos"
   },
@@ -158,7 +158,7 @@ export const TEMA8_RECALL_CARDS: Tema8RecallCard[] = [
     "orden": 160,
     "concepto": "Según el RIPCI (clases de fuego normalizadas, UNE-EN 2), ¿qué fuegos son de clase C?",
     "respuesta": "Fuegos de gases",
-    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.c). BOE-A-2017-6606, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.c). BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.c)",
     "apartado": "Clasificación de los fuegos"
   },
