@@ -25,7 +25,7 @@ describe('registro de material por tema', () => {
     expect(arts).toEqual([...Array.from({ length: 32 }, (_, i) => String(i + 1)), '32bis']);
   });
   it('temas generados del BOE: cada precepto del índice está enlazado en el esquema', () => {
-    for (const n of [2, 3, 6, 7, 31, 33, 34]) {
+    for (const n of [2, 3, 6, 7, 10, 12, 13, 22, 25, 28, 31, 32, 33, 34]) {
       const m = materialDeTema(n)!;
       expect(capasDisponibles(m), `T${n}`).toEqual(['esquema', 'completo']);
       const indice = JSON.parse(readFileSync(`public/material/${m.carpeta}/${m.textoOficial!.file.replace('-texto-oficial.md', '-indice.json')}`, 'utf8'));
@@ -36,6 +36,21 @@ describe('registro de material por tema', () => {
       }
     }
   });
+  it('temas nuevos recortados al epígrafe (01/11/2026)', () => {
+    const txt = (t: number, i = 0) => { const m = materialDeTema(t)!; return readFileSync(`public/material/${m.carpeta}/${m.bloques[i].capas.completo}`, 'utf8'); };
+    expect(txt(12)).toContain('**4. Extintores de incendio**');
+    expect(txt(12)).not.toContain('**5. Sistemas de bocas de incendio equipadas**');
+    expect(txt(10)).toContain('**3. Sistemas de hidrantes contra incendios**');
+    expect(txt(10)).not.toContain('**4. Extintores de incendio**');
+    expect(txt(22)).toMatch(/\*\*4\. Disposiciones relativas a la utilización de los equipos de trabajo para la realización de trabajos temporales en altura/);
+    expect(txt(22)).not.toContain('1. Condiciones generales de utilización de los equipos de trabajo');
+    const cte = JSON.parse(readFileSync('public/material/tema32/cte-indice.json', 'utf8'));
+    expect(cte.bloques.flatMap((b: { preceptos: string[] }) => b.preceptos)).toEqual(['a1', 'a2', 'a11', 'a12']);
+    const rd97 = JSON.parse(readFileSync('public/material/tema25/rd97-indice.json', 'utf8'));
+    expect(rd97.bloques.flatMap((b: { preceptos: string[] }) => b.preceptos)).toEqual(['a1', 'a2', 'a3', 'a20', 'a21', 'a22', 'a23']);
+    for (const t of [10, 12, 13, 22, 25, 28, 32]) expect(materialDeTema(t)!.alcance, `T${t}`).toMatch(/epígrafe/);
+  });
+
   it('las fuentes del material son del BOE; las demás, de boletines oficiales (DOE, BOP)', () => {
     for (const f of MATERIAL_TEMAS.flatMap((m) => m.fuentes)) expect(f.url).toMatch(/^https:\/\/www\.boe\.es\/buscar\/act\.php\?id=BOE-A-\d{4}-\d+$/);
     for (const f of Object.values(FUENTES_SIN_MATERIAL).flat()) {

@@ -10,6 +10,7 @@ import FalloFichas from './FalloFichas';
 import TuProgreso from './TuProgreso';
 import { buscarPrecepto } from './MaterialTema';
 import { renderMarkdown } from '../utils/miniMarkdown';
+import { MATERIAL_TEMAS } from '../data/materialTemas';
 
 afterEach(cleanup);
 const conAbrir = (ui: ReactNode, abrir = vi.fn()) => ({ abrir, ...render(<AbrirMaterialContext.Provider value={abrir}>{ui}</AbrirMaterialContext.Provider>) });
@@ -35,7 +36,7 @@ describe('«Ver en el esquema del tema»', () => {
     const { abrir } = conAbrir(<TuProgreso onNavigateHome={vi.fn()} />);
     const botones = [...document.querySelectorAll('[data-material-tema]')].map((b) => Number(b.getAttribute('data-material-tema')));
     expect(botones.length).toBeGreaterThan(0);
-    expect(botones.every((t) => [1, 2, 3, 6, 7, 31, 33, 34].includes(t))).toBe(true);
+    expect(botones.every((t) => MATERIAL_TEMAS.some((m) => m.tema === t))).toBe(true);
     await userEvent.setup().click(screen.getByRole('button', { name: `Material del tema ${botones[0]}` }));
     expect(abrir).toHaveBeenCalledWith({ tema: botones[0] }, 'Tu progreso');
   });

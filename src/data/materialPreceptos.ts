@@ -220,6 +220,74 @@ export const PRECEPTOS_MATERIAL: Readonly<Record<number, Readonly<Record<string,
       "a8-5"
     ]
   },
+  "10": {
+    "ripci10-01": [
+      "s1-2"
+    ]
+  },
+  "12": {
+    "ripci12-01": [
+      "s1-2"
+    ]
+  },
+  "13": {
+    "rd773-01": [
+      "a1",
+      "a2",
+      "a3",
+      "a4",
+      "a5",
+      "a6",
+      "a7",
+      "a8",
+      "a9",
+      "a10"
+    ],
+    "rd773-02": [
+      "ani",
+      "anii",
+      "aniii",
+      "aniv"
+    ]
+  },
+  "22": {
+    "rd1215altura-01": [
+      "anii"
+    ]
+  },
+  "25": {
+    "rd97-01": [
+      "a1",
+      "a2",
+      "a3"
+    ],
+    "rd97-02": [
+      "a20",
+      "a21",
+      "a22",
+      "a23"
+    ]
+  },
+  "28": {
+    "rd614-01": [
+      "a1",
+      "a2",
+      "a3",
+      "a4",
+      "a5",
+      "a6"
+    ],
+    "rd614-02": [
+      "ani"
+    ],
+    "rd614-03": [
+      "anii",
+      "aniii",
+      "aniv",
+      "anv",
+      "anvi"
+    ]
+  },
   "31": {
     "rd1215-01": [
       "a1",
@@ -239,6 +307,18 @@ export const PRECEPTOS_MATERIAL: Readonly<Record<number, Readonly<Record<string,
     ],
     "rd1215-03": [
       "anii"
+    ]
+  },
+  "32": {
+    "cte-01": [
+      "a1",
+      "a2"
+    ],
+    "cte-02": [
+      "a11"
+    ],
+    "cte-03": [
+      "a12"
     ]
   },
   "33": {

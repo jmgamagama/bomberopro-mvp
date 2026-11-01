@@ -1,0 +1,26 @@
+{
+ "boe": "BOE-A-2014-2110",
+ "version": "26/06/2026",
+ "epigrafe": "Mercancias peligrosas. Conceptos. Normativa y clasificacion segun ADR. Identificacion y partes de los depositos y cisternas que transportan Mercancias Peligrosas. Codigo de identificacion de riesgos. Etiquetas de peligro. Normas de actuacion y medidas a adoptar en caso de siniestro. Explosiones fisicas, bleve y boilover.\n",
+ "bloques": [
+  {
+   "id": "rd97-01",
+   "titulo": "Capítulo I · Disposiciones generales y definiciones (arts. 1–3)",
+   "preceptos": [
+    "a1",
+    "a2",
+    "a3"
+   ]
+  },
+  {
+   "id": "rd97-02",
+   "titulo": "Capítulo IV · Normas de actuación en caso de avería o accidente (arts. 20–23)",
+   "preceptos": [
+    "a20",
+    "a21",
+    "a22",
+    "a23"
+   ]
+  }
+ ]
+}
