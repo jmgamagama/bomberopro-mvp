@@ -6,9 +6,10 @@ import { localDayNumber } from './localDate';
 import type { CardSrs, SrsStore } from './recallSrs';
 import { loadSrs, scheduleReview } from './recallSrs';
 import {
-  articuloDe, construirPlanDiario, enlaceArticulo, fallosRecientesPorTema, fichasRelacionadas, frasePlan,
+  articuloDe, construirPlanDiario, fallosRecientesPorTema, frasePlan,
   loadPrioridad, marcarParaManana, minutosPlan, quitarPrioridad, SEGUNDOS_POR_FICHA_PLAN, SEGUNDOS_POR_PREGUNTA_PLAN,
 } from './planDiario';
+import { enlaceArticulo, fichasRelacionadas } from './fichasRelacionadas';
 
 const date = new Date(2026, 10, 1, 10);
 const today = localDayNumber(date);

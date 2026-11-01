@@ -61,7 +61,7 @@ describe('Dashboard', () => {
     expect(onReset).toHaveBeenCalledOnce();
   });
 
-  it('muestra la tarjeta de consulta pedagógica y permite abrir el diálogo de ayuda', () => {
+  it('muestra la tarjeta de consulta pedagógica y permite abrir el diálogo de ayuda', async () => {
     renderDashboard();
 
     expect(screen.getByText('¿Dudas en tu preparación?')).toBeInTheDocument();
@@ -69,7 +69,7 @@ describe('Dashboard', () => {
     expect(consultButton).toBeInTheDocument();
 
     fireEvent.click(consultButton);
-    expect(screen.getByRole('dialog')).toBeInTheDocument();
+    expect(await screen.findByRole('dialog')).toBeInTheDocument();
     expect(screen.getByText(/el equipo revisará tu consulta de forma personalizada/i)).toBeInTheDocument();
   });
 

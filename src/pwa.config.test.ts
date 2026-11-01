@@ -2,6 +2,8 @@ import { readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+  MATERIAL_CACHE,
+  MATERIAL_URL_PATTERN,
   NAVIGATE_FALLBACK_DENYLIST,
   PWA_THEME_COLOR,
   SUPABASE_URL_PATTERN,
@@ -65,7 +67,8 @@ describe('PWA: service worker', () => {
   });
 
   it('Supabase/auth va siempre a red (NetworkOnly) y queda fuera del fallback', () => {
-    const rc = options.workbox?.runtimeCaching ?? [];
+    const rc = (options.workbox?.runtimeCaching ?? []).filter((r) => r.urlPattern !== MATERIAL_URL_PATTERN);
+    expect(rc.length).toBeGreaterThan(0);
     expect(rc.every((r) => r.handler === 'NetworkOnly')).toBe(true);
     expect(SUPABASE_URL_PATTERN.test('https://abcd1234.supabase.co/rest/v1/questions')).toBe(true);
     expect(SUPABASE_URL_PATTERN.test('https://abcd1234.supabase.co/auth/v1/token')).toBe(true);
@@ -77,7 +80,21 @@ describe('PWA: service worker', () => {
     const custom = buildPwaOptions('https://api.ejemplo.es');
     const patterns = (custom.workbox?.runtimeCaching ?? []).map((r) => r.urlPattern as RegExp);
     expect(patterns.some((re) => re.test('https://api.ejemplo.es/auth/v1/user'))).toBe(true);
-    expect(custom.workbox?.runtimeCaching?.every((r) => r.handler === 'NetworkOnly')).toBe(true);
+    expect(custom.workbox?.runtimeCaching?.filter((r) => r.urlPattern !== MATERIAL_URL_PATTERN).every((r) => r.handler === 'NetworkOnly')).toBe(true);
+  });
+
+  it('el material ya visto se guarda para abrirlo sin conexión (red primero, solo el material)', () => {
+    const rc = options.workbox?.runtimeCaching ?? [];
+    const m = rc.filter((r) => r.urlPattern === MATERIAL_URL_PATTERN);
+    expect(m).toHaveLength(1);
+    expect(m[0].handler).toBe('NetworkFirst');
+    expect(m[0].options?.cacheName).toBe(MATERIAL_CACHE);
+    expect(MATERIAL_URL_PATTERN.test('https://bomberopro.vercel.app/material/tema02/eaex-01-1-esquema.md')).toBe(true);
+    expect(MATERIAL_URL_PATTERN.test('https://bomberopro.vercel.app/material/tema02/eaex-indice.json')).toBe(true);
+    expect(MATERIAL_URL_PATTERN.test('https://abcd1234.supabase.co/rest/v1/questions')).toBe(false);
+    expect(MATERIAL_URL_PATTERN.test('https://bomberopro.vercel.app/assets/index.js')).toBe(false);
+    // El material no entra en el precache (globPatterns no incluye md ni json).
+    expect(options.workbox?.globPatterns?.join(',')).not.toMatch(/md|json/);
   });
 });
 

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { BookOpen, ExternalLink, Repeat } from 'lucide-react';
 import type { RecallCard } from '../data/recallCards';
-import { enlaceArticulo, loadPrioridad, marcarParaManana, PRIORIDAD_EVENT } from '../utils/planDiario';
+import { loadPrioridad, marcarParaManana, PRIORIDAD_EVENT } from '../utils/planDiario';
+import { enlaceArticulo } from '../utils/fichasRelacionadas';
 import { localDayNumber } from '../utils/localDate';
 import VerEnEsquema from './VerEnEsquema';
 import { destinoMaterial } from '../utils/materialEnContexto';

@@ -2,7 +2,8 @@
 // Vista del ALUMNO (P1): solo se publican los mazos con revisión humana completa.
 import '../test/setup';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { REVIEWED_DECKS, getDeckRevision } from './recallReview';
+import { MAZOS_REVISADOS, getDeckRevision } from './recallReview';
+import { REVIEWED_DECKS } from './recallReviewMotivos';
 import {
   RECALL_DECKS,
   REVIEWED_RECALL_DECKS,
@@ -41,6 +42,10 @@ describe('estado de revisión por mazo', () => {
     for (const deck of RECALL_DECKS) expect(['revisado', 'pendiente']).toContain(deck.revision);
     const ids = new Set(RECALL_DECKS.map((d) => d.id));
     for (const id of Object.keys(REVIEWED_DECKS)) expect(ids.has(id)).toBe(true);
+  });
+  it('los ids revisados de la app (recallReview.ts) coinciden con el registro de motivos (recallReviewMotivos.ts)', () => {
+    expect([...MAZOS_REVISADOS].sort()).toEqual(Object.keys(REVIEWED_DECKS).sort());
+    for (const [id, r] of Object.entries(REVIEWED_DECKS)) expect(getDeckRevision(id), id).toBe(r.revision);
   });
 
   it('solo 35, 38, 39, 40 y los mazos revisados ficha a ficha están «revisado»', () => {

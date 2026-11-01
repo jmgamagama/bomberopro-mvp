@@ -359,10 +359,5 @@ export function isConceptAnswerFeedback(data: unknown): data is {
   return typeof x.correct === 'boolean' && typeof x.correct_answer === 'string';
 }
 
-export const STATE_LABELS: Record<VisibleState, { label: string; color: string }> = {
-  por_aprender: { label: 'Por aprender', color: 'bg-slate-300' },
-  debil: { label: 'Débil', color: 'bg-orange-400' },
-  aprendiendo: { label: 'Aprendiendo', color: 'bg-amber-300' },
-  dominado: { label: 'Dominado', color: 'bg-emerald-500' },
-  consolidado: { label: 'Consolidado', color: 'bg-sky-500' },
-};
+// En src/lib/conceptStateLabels.ts para que el inicio (Dashboard) no cargue el motor de conceptos (rendimiento-2).
+export { STATE_LABELS } from './conceptStateLabels';

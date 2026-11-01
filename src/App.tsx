@@ -31,7 +31,7 @@ import { getAdaptiveQuestion, processAttempt, getAdaptiveDailySession, createNew
 import { MAX_VALID_RESPONSE_SECONDS } from './utils/activeTimer';
 
 import type { AccountErrorsState } from './components/AccountErrorPanel';
-import AccesoConfirmado from './components/AccesoConfirmado';
+const AccesoConfirmado = lazy(() => import('./components/AccesoConfirmado'));
 import { retornoAuthInicial, limpiarUrlRetornoAuth } from './lib/authRetorno';
 import { fetchKeyless } from './lib/secureQuestions';
 import { supabase } from './lib/supabase';
@@ -48,13 +48,14 @@ import { setLocalDataOwner } from './utils/localOwner';
 import { cargarSupuestosCuenta } from './lib/privateSupuestos';
 import { shuffleAllOptions } from './utils/shuffleOptions';
 import { newStudySessionId, startStudySession, finishStudySession } from './lib/studySession';
-import { TrainCelebration } from './components/SessionCelebration';
+const TrainCelebration = lazy(() => import('./components/SessionCelebration').then((m) => ({ default: m.TrainCelebration })));
 import Dashboard from './components/Dashboard';
-import TrainScreen from './components/TrainScreen';
+// rendimiento-2 (01/11/2026): fuera del JS inicial; ya van dentro de un <Suspense> (o se envuelven aquí).
+const TrainScreen = lazy(() => import('./components/TrainScreen'));
 import Badajoz2026Card from './components/Badajoz2026Card';
 import SesionHoyCard from './components/SesionHoyCard';
 import RecordatorioDiario from './components/RecordatorioDiario';
-import { AbrirMaterialContext, type AbrirMaterial } from './components/VerEnEsquema';
+import { AbrirMaterialContext, type AbrirMaterial } from './components/abrirMaterial';
 import type { DestinoMaterial } from './utils/materialEnContexto';
 import { comprobarRecordatorio } from './lib/recordatorio';
 import { clearPreferLogin, hasGuestSignupIntent, markGuestSignupIntent, markPreferLogin, migrateGuestProgress, prefersLogin } from './utils/guestProgress';
@@ -86,7 +87,7 @@ const DailySession = lazy(() => import('./components/DailySession'));
 const OrdenaPasos = lazy(() => import('./components/OrdenaPasos'));
 const SupuestosPracticos = lazy(() => import('./components/SupuestosPracticos'));
 import Onboarding from './components/Onboarding';
-import { MATERIAL_TEMAS } from './data/materialTemas';
+import { TEMAS_CON_MATERIAL } from './data/materialTemasIndice';
 const Planes = lazy(() => import('./components/Planes'));
 const TuProgreso = lazy(() => import('./components/TuProgreso'));
 
@@ -795,11 +796,13 @@ export default function App() {
     return (
       <>
         <UpdateBanner />
-        <AccesoConfirmado
-          retorno={retornoAuth}
-          conSesion={!!session?.user?.id}
-          onContinuar={() => { limpiarUrlRetornoAuth(); setLoginMode('entrar'); setRetornoAuth(null); }}
-        />
+        <Suspense fallback={<Skeleton label="Cargando…" className="p-6" />}>
+          <AccesoConfirmado
+            retorno={retornoAuth}
+            conSesion={!!session?.user?.id}
+            onContinuar={() => { limpiarUrlRetornoAuth(); setLoginMode('entrar'); setRetornoAuth(null); }}
+          />
+        </Suspense>
       </>
     );
   }
@@ -1000,7 +1003,7 @@ export default function App() {
               className="mb-6 flex w-full items-center justify-between gap-4 rounded-2xl border border-indigo-200 bg-white p-5 text-left shadow-sm hover:bg-indigo-50"
             >
               <span>
-                <span className="block text-xs font-bold uppercase tracking-wider text-indigo-600">Material por tema · Temas {MATERIAL_TEMAS.map((m) => m.tema).sort((a, b) => a - b).join(', ')}</span>
+                <span className="block text-xs font-bold uppercase tracking-wider text-indigo-600">Material por tema · Temas {TEMAS_CON_MATERIAL.join(', ')}</span>
                 <span className="mt-1 block text-lg font-bold text-slate-900">Esquema, texto oficial y fuentes</span>
                 <span className="mt-0.5 block text-sm text-slate-600">Elige un tema: verás qué material tiene, el enlace a su norma oficial y sus conceptos para estudiar.</span>
               </span>

@@ -37,3 +37,12 @@ export const PRECEPTOS_MATERIAL: Readonly<Record<number, Readonly<Record<string,
 `;
 }
 
+
+/** src/data/materialTemasIndice.ts: solo los números de tema con material, para el JS inicial (App no carga el registro). */
+export function indiceTs(): string {
+  const temas = MATERIAL_TEMAS.map((m) => m.tema).sort((a, b) => a - b);
+  return `// Generado por scripts/generar-preceptos-material.ts (npm run material:preceptos). No editar a mano.
+// Temas con «Material por tema» (src/data/materialTemas.ts), ordenados. Va aparte para no meter el registro en el JS inicial.
+export const TEMAS_CON_MATERIAL: readonly number[] = ${JSON.stringify(temas)};
+`;
+}
