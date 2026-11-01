@@ -33,7 +33,8 @@ describe('AccesoConfirmado', () => {
   it('enlace caducado o ya usado: explica qué hacer y lleva a Entrar', () => {
     render(<AccesoConfirmado retorno={{ tipo: 'error', codigo: 'otp_expired' }} conSesion={false} onContinuar={vi.fn()} />);
     expect(screen.getByRole('heading', { name: 'Este enlace ya no funciona' })).toBeInTheDocument();
-    expect(screen.getByText(/pide un enlace nuevo/i)).toBeInTheDocument();
+    expect(screen.getByText(/caducado o ya se usó/i)).toBeInTheDocument();
+    expect(screen.getByText(/te mandamos uno nuevo/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Ir a Entrar' })).toBeInTheDocument();
   });
 

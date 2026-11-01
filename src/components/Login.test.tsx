@@ -5,7 +5,8 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-const { signUp, signInWithPassword, signInWithOtp, resend } = vi.hoisted(() => ({
+const { signUp, signInWithPassword, signInWithOtp, resend, resetPasswordForEmail } = vi.hoisted(() => ({
+  resetPasswordForEmail: vi.fn(),
   signUp: vi.fn(),
   signInWithPassword: vi.fn(),
   signInWithOtp: vi.fn(),
@@ -13,7 +14,7 @@ const { signUp, signInWithPassword, signInWithOtp, resend } = vi.hoisted(() => (
 }));
 
 vi.mock('../lib/supabase', () => ({
-  supabase: { auth: { signUp, signInWithPassword, signInWithOtp, resend } },
+  supabase: { auth: { signUp, signInWithPassword, signInWithOtp, resend, resetPasswordForEmail } },
 }));
 
 import Login from './Login';
@@ -247,14 +248,14 @@ describe('Login', () => {
       expect(screen.getByRole('button', { name: 'Activar invitación', pressed: true })).toBeInTheDocument();
     });
 
-    it('«He olvidado la contraseña» sin cuenta explica que hay que activar la invitación', async () => {
-      signInWithOtp.mockResolvedValue({ data: {}, error: { status: 422, code: 'otp_disabled', message: 'Signups not allowed for otp' } });
+    it('«He olvidado la contraseña» manda el correo de recuperación que vuelve a la pantalla de nueva contraseña', async () => {
+      resetPasswordForEmail.mockResolvedValue({ data: {}, error: null });
       const user = userEvent.setup();
       render(<Login />);
       await user.type(screen.getByLabelText(/correo electrónico/i), 'nuevo@ejemplo.es');
       await user.click(screen.getByRole('button', { name: 'He olvidado la contraseña' }));
-      expect(signInWithOtp).toHaveBeenCalledWith({ email: 'nuevo@ejemplo.es', options: { shouldCreateUser: false, emailRedirectTo: expect.stringContaining('/?acceso=enlace') } });
-      expect(await screen.findByRole('alert')).toHaveTextContent(/activa antes tu invitación/i);
+      expect(resetPasswordForEmail).toHaveBeenCalledWith('nuevo@ejemplo.es', { redirectTo: expect.stringContaining('/?acceso=recuperar') });
+      expect(await screen.findByRole('status')).toHaveTextContent(/contraseña nueva/i);
     });
 
     it('el ojo muestra y oculta la contraseña', async () => {
