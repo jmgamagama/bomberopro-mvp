@@ -45,7 +45,7 @@ export function mensajeErrorAcceso(modo: ModoAcceso, e: ErrorAuth, registroAbier
       return { text: 'La contraseña necesita al menos 6 caracteres.' };
     }
     if (e.code === 'user_already_exists' || e.code === 'email_exists') {
-      return { text: 'Ya tienes cuenta con este correo. Escribe tu contraseña y pulsa «Entrar».', accion: 'ir_a_entrar' };
+      return { text: 'No hemos podido activar la cuenta con esos datos. Si ya tienes una, entra en «Ya tengo cuenta»; si recibiste una invitación, contacta con el equipo.' };
     }
     if (e.code === 'signup_disabled') {
       return {
