@@ -792,6 +792,29 @@ export function getVisibleBloques(): readonly RecallBloque[] {
   return canSeePendingDecks() ? RECALL_BLOQUES : REVIEWED_BLOQUES;
 }
 
+/** Número de temas del temario oficial (Bases, BOP de Badajoz nº 135, 17/07/2026): del 1 al 40. */
+export const TEMAS_TEMARIO = 40;
+
+export interface TemaEnPreparacion {
+  tema: number;
+  /** Nombre que ya usa la app para ese tema (solo si tiene mazo registrado); si no, vacío. */
+  name: string;
+}
+
+/**
+ * Temas del temario que el usuario actual NO ve porque aún no tienen fichas revisadas.
+ * Se muestran como «En preparación», sin botón: no hay nada que abrir.
+ */
+export function getTemasEnPreparacion(): readonly TemaEnPreparacion[] {
+  const visibles = new Set(getVisibleTopics().map((t) => t.tema));
+  const out: TemaEnPreparacion[] = [];
+  for (let tema = 1; tema <= TEMAS_TEMARIO; tema++) {
+    if (visibles.has(tema)) continue;
+    out.push({ tema, name: RECALL_TOPICS.find((t) => t.tema === tema)?.name ?? '' });
+  }
+  return out;
+}
+
 /** Tema visible por id (`tema36`) o `undefined` si no existe o no se publica. */
 export function getVisibleTopic(id: string): RecallTopic | undefined {
   return getVisibleTopics().find((t) => t.id === id);

@@ -41,9 +41,10 @@ const opts = { viewport: { width: 360, height: 740 }, deviceScaleFactor: 2, isMo
     await page.getByRole('button', { name: i === total - 1 ? /finalizar examen/i : /^siguiente/i }).click();
   }
   await page.getByRole('heading', { name: 'Simulacro terminado' }).waitFor();
-  const bloque = page.locator('[data-fallo-fichas]').filter({ has: page.getByRole('button', { name: 'Repasar estas fichas' }) }).first();
-  await bloque.waitFor({ timeout: 10000 });
-  check('fallo con sus fichas y BOE', (await bloque.getByRole('link', { name: /Artículo en el BOE/ }).count()) === 1);
+  // El orden de las preguntas es aleatorio: no todos los fallos citan el BOE (T38-T40 citan ITF/PT del CPEI). Se elige uno que sí.
+  await page.locator('[data-fallo-fichas]').first().waitFor({ timeout: 10000 });
+  const bloque = page.locator('[data-fallo-fichas]').filter({ has: page.getByRole('button', { name: 'Repasar estas fichas' }) }).filter({ has: page.getByRole('link', { name: /Artículo en el BOE/ }) }).first();
+  check('fallo con sus fichas y BOE', (await bloque.count()) === 1);
   await bloque.scrollIntoViewIfNeeded();
   await page.locator('#mock-fallos').screenshot({ path: `${OUT}/02-resultado-fallos-con-fichas.png` });
   await bloque.getByRole('button', { name: 'Repasar estas fichas' }).click();

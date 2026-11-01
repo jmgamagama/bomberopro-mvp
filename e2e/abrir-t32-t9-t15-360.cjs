@@ -1,4 +1,4 @@
-// T32, T9 y T15 abiertos (feat/abrir-t32-t9-t15, 01/11/2026) a 360 px, con axe: el alumno ve 91, 17 y 36 fichas (tras feat/t9-literal y feat/t15-literal),
+// T32, T9 y T15 abiertos (feat/abrir-t32-t9-t15, 01/11/2026) a 360 px, con axe: el alumno ve 91, 17 y 92 fichas (T15 a 92 tras feat/fichas-insst) (tras feat/t9-literal y feat/t15-literal),
 // cada ficha muestra su fuente BOE/CTE con enlace, y T32 enlaza a su esquema del CTE.
 // Uso: BASE_URL=http://localhost:4310 NODE_PATH=/workspace/pwa-e2e/node_modules OUT=/tmp node e2e/abrir-t32-t9-t15-360.cjs
 const { chromium } = require('playwright');
@@ -27,7 +27,7 @@ async function axe(page, name) {
   await tablist.waitFor();
   const tabs = await tablist.getByRole('tab').evaluateAll((els) => els.map((t) => Array.from(t.querySelectorAll('[aria-hidden="true"]')).map((e) => e.textContent).join('')));
   log('PESTAÑAS:', tabs.join(' '));
-  for (const [t, n] of [['T9', 17], ['T15', 36], ['T32', 91]]) check(`${t}: ${n} fichas visibles`, tabs.includes(`${t}${n}`));
+  for (const [t, n] of [['T9', 17], ['T15', 92], ['T32', 91]]) check(`${t}: ${n} fichas visibles`, tabs.includes(`${t}${n}`));
   const total = await page.getByText(/\d+ fichas de repaso/).first().innerText().catch(() => '');
   log('TOTAL:', total);
   check('total de fichas: 2700', /2700 fichas de repaso/.test(total));
