@@ -1,0 +1,238 @@
+{
+ "descripcion": "Preguntas YA publicadas en producción (tema 5) sobre los arts. 35-48 del Reglamento de Régimen Interno del CPEI, revisadas una a una contra el texto único vigente del BOP de Badajoz n.º 149, de 06/08/2012, el 01/11/2026. Las 33 son correctas y tienen 3 opciones (26 estaban en nivel 1): se vinculan con nivel 2 (formato de examen).",
+ "motivo_registro": "revisión arts. 35-48 RRI CPEI contra BOP 149/2012 (01/11/2026)",
+ "revisado_por": "Claude (revisión manual contra el BOP); se aplica en producción solo dentro de un paquete de lanzamiento aprobado por JM",
+ "preguntas": [
+  {
+   "question_id": 12340,
+   "accion": "vincular",
+   "concepto": "RRI-a35-mg3",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12345,
+   "accion": "vincular",
+   "concepto": "RRI-a35-mg7",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12348,
+   "accion": "vincular",
+   "concepto": "RRI-a35-g1",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12350,
+   "accion": "vincular",
+   "concepto": "RRI-a35-mg6",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12353,
+   "accion": "vincular",
+   "concepto": "RRI-a35-mg9",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12355,
+   "accion": "vincular",
+   "concepto": "RRI-a35-mg10",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12356,
+   "accion": "vincular",
+   "concepto": "RRI-a35-mg1",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12359,
+   "accion": "vincular",
+   "concepto": "RRI-a35-mg11",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12362,
+   "accion": "vincular",
+   "concepto": "RRI-a35-mg14",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12365,
+   "accion": "vincular",
+   "concepto": "RRI-a35-g1",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12367,
+   "accion": "vincular",
+   "concepto": "RRI-a35-g12",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12709,
+   "accion": "vincular",
+   "concepto": "RRI-a36-sanciones",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12697,
+   "accion": "vincular",
+   "concepto": "RRI-a37-ejemplar",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12698,
+   "accion": "vincular",
+   "concepto": "RRI-a37-1-circunstancias",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12695,
+   "accion": "vincular",
+   "concepto": "RRI-a38-ignorancia",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12706,
+   "accion": "vincular",
+   "concepto": "RRI-a38-principios",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12704,
+   "accion": "vincular",
+   "concepto": "RRI-a39-conjunta",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12705,
+   "accion": "vincular",
+   "concepto": "RRI-a39-cadena",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12142,
+   "accion": "vincular",
+   "concepto": "RRI-a40-guardia",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12712,
+   "accion": "vincular",
+   "concepto": "RRI-a41-compensacion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12703,
+   "accion": "vincular",
+   "concepto": "RRI-a42-departamentos",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12707,
+   "accion": "vincular",
+   "concepto": "RRI-a42-departamentos",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12710,
+   "accion": "vincular",
+   "concepto": "RRI-a42-entes",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12699,
+   "accion": "vincular",
+   "concepto": "RRI-a43-injerencias",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12700,
+   "accion": "vincular",
+   "concepto": "RRI-a43-sugerencias",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12696,
+   "accion": "vincular",
+   "concepto": "RRI-a44-uso",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12708,
+   "accion": "vincular",
+   "concepto": "RRI-a44-excepcionales",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12143,
+   "accion": "vincular",
+   "concepto": "RRI-a46-limpieza",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12126,
+   "accion": "vincular",
+   "concepto": "RRI-a47-7-epis",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12127,
+   "accion": "vincular",
+   "concepto": "RRI-a47-8-seguro",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12158,
+   "accion": "vincular",
+   "concepto": "RRI-a47-6-botiquines",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12132,
+   "accion": "vincular",
+   "concepto": "RRI-a48-derechos",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12146,
+   "accion": "vincular",
+   "concepto": "RRI-a48-formacion",
+   "nivel": 2,
+   "motivo": ""
+  }
+ ]
+}

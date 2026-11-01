@@ -15,6 +15,7 @@ const BLOQUES = [
   ['data/rri-cpei/caps-i-ii.json', 'data/rri-cpei/vinculos-produccion-caps-i-ii.json'],
   ['data/rri-cpei/cap-iii-arts-13-16.json', 'data/rri-cpei/vinculos-produccion-cap-iii-arts-13-16.json'],
   ['data/rri-cpei/cap-iii-arts-17-22.json', 'data/rri-cpei/vinculos-produccion-cap-iii-arts-17-22.json'],
+  ['data/rri-cpei/cap-iii-arts-35-48.json', 'data/rri-cpei/vinculos-produccion-cap-iii-arts-35-48.json'],
 ];
 const carga = BLOQUES.map(([c]) => py('scripts/cargar_conceptos.py', c, '--estado', 'borrador')).join('\n');
 const cargaCompacta = BLOQUES.map(([c]) => py('scripts/cargar_conceptos.py', c, '--estado', 'borrador', '--compacto')).join('\n');
