@@ -58,8 +58,8 @@ export default function Badajoz2026Card({ onOpenSupuestos, onOpenProgress, now =
       </div>
       <div className="flex flex-col gap-2 sm:flex-row">
         {onOpenProgress && (
-          <button type="button" onClick={onOpenProgress} className="min-h-11 rounded-xl border border-slate-200 px-3 text-sm font-semibold text-slate-700 hover:bg-slate-50">
-            Ver todo el progreso
+          <button type="button" id="btn-tu-progreso" onClick={onOpenProgress} className="min-h-11 rounded-xl border-2 border-[#1E3A5F] bg-white px-3 text-sm font-bold text-[#1E3A5F] hover:bg-slate-50">
+            Ver tu progreso por tema
           </button>
         )}
         {onOpenSupuestos && (

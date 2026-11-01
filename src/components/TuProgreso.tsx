@@ -33,6 +33,7 @@ export default function TuProgreso({ onNavigateHome, onOpenTopic, date }: {
   }, [date]);
   const total = temas.reduce((n, t) => n + t.total, 0);
   const dominadas = temas.reduce((n, t) => n + t.dominadas, 0);
+  const vistas = temas.reduce((n, t) => n + t.vistas, 0);
   const tr = temas.reduce((n, t) => n + t.testRespondidas, 0);
   const ta = temas.reduce((n, t) => n + t.testAciertos, 0);
   const pct = (n: number, de: number) => { const p = porcentaje(n, de); return p === null ? '—' : `${p} %`; };
@@ -44,6 +45,7 @@ export default function TuProgreso({ onNavigateHome, onOpenTopic, date }: {
       <h2 className="text-2xl font-black text-[#1E3A5F]">Tu progreso</h2>
       <p id="progreso-resumen" className="text-sm text-slate-800">
         Dominas {miles(dominadas)} de {miles(total)} fichas ({total > 0 ? Math.floor((dominadas / total) * 100) : 0} %).
+        {dominadas === 0 && vistas > 0 && ` Aún ninguna: una ficha cuenta como dominada cuando la recuerdas al menos 3 veces en días distintos y su repaso queda a ${MASTERED_INTERVAL_DAYS} días o más. Llevas ${miles(vistas)} ${vistas === 1 ? 'vista' : 'vistas'}.`}
         {' '}{tr > 0 ? `En test, ${miles(ta)} aciertos de ${miles(tr)} respuestas (${pct(ta, tr)}).` : 'Aún no has respondido preguntas de test en este dispositivo.'}
       </p>
 

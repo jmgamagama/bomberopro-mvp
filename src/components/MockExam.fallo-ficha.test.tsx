@@ -63,4 +63,12 @@ describe('Resultado del simulacro: fallo → ficha', () => {
     fireEvent.click(screen.getByRole('button', { name: /Añadir a «Tu plan de hoy»/ }));
     expect(Object.keys(loadPrioridad()).length).toBeGreaterThan(0);
   });
+
+  it('3 · la recomendación abre el tema ahora y no se confunde con «Repasar estas fichas» (mañana)', async () => {
+    localStorage.clear();
+    const { container } = render_();
+    await hacerMuestra(container, () => 'mal');
+    expect(screen.getByRole('button', { name: /^Estudiar ahora las fichas del tema \d+$/ })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /^Repasar las fichas del tema/ })).toBeNull();
+  });
 });

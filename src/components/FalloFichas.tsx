@@ -1,7 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BookOpen, ExternalLink, Repeat } from 'lucide-react';
 import type { RecallCard } from '../data/recallCards';
-import { enlaceArticulo, marcarParaManana } from '../utils/planDiario';
+import { enlaceArticulo, loadPrioridad, marcarParaManana, PRIORIDAD_EVENT } from '../utils/planDiario';
+import { localDayNumber } from '../utils/localDate';
+
+const DIA = new Intl.DateTimeFormat('es-ES', { weekday: 'short', day: '2-digit', month: '2-digit' });
+/** Día (el más tardío) en que todas las fichas ya están en el plan; null si alguna no lo está. */
+function diaEnPlan(fichas: readonly RecallCard[]): number | null {
+  if (fichas.length === 0) return null;
+  const p = loadPrioridad();
+  let max = -Infinity;
+  for (const c of fichas) {
+    const d = c.deckId ? p[`${c.deckId}|${c.id}`] : undefined;
+    if (d === undefined) return null;
+    max = Math.max(max, d);
+  }
+  return max;
+}
 
 /**
  * Bajo cada pregunta fallada del simulacro (01/11/2026): sus fichas del mismo tema y artículo,
@@ -16,6 +31,22 @@ export default function FalloFichas({ id, fuente, fichas, onOpenFichas }: {
   onOpenFichas?: (deckId: string) => void;
 }) {
   const [marcadas, setMarcadas] = useState<number | null>(null);
+  // Pulido 01/11/2026: si ya están en el plan (p. ej. por «Tu plan de 7 días»), se dice qué día y no se ofrece otra vez.
+  const clave = fichas.map((c) => `${c.deckId}|${c.id}`).join(',');
+  const [enPlan, setEnPlan] = useState<number | null>(() => diaEnPlan(fichas));
+  useEffect(() => {
+    const upd = () => setEnPlan(diaEnPlan(fichas));
+    upd();
+    window.addEventListener(PRIORIDAD_EVENT, upd);
+    return () => window.removeEventListener(PRIORIDAD_EVENT, upd);
+  }, [clave]);
+  const fechaPlan = (day: number) => {
+    const off = day - localDayNumber();
+    if (off <= 0) return 'hoy';
+    if (off === 1) return 'mañana';
+    const d = new Date(); d.setDate(d.getDate() + off);
+    return `el ${DIA.format(d)}`;
+  };
   const url = enlaceArticulo(fuente, fichas);
   if (!url && fichas.length === 0) return null;
   const n = fichas.length;
@@ -43,7 +74,10 @@ export default function FalloFichas({ id, fuente, fichas, onOpenFichas }: {
             Artículo en el BOE <ExternalLink className="h-3 w-3" aria-hidden="true" />
           </a>
         )}
-        {n > 0 && (
+        {n > 0 && enPlan !== null && marcadas === null && (
+          <p className="inline-flex min-h-11 items-center text-xs font-semibold text-[#1E3A5F]" data-en-plan>Ya en tu plan: {n === 1 ? 'entra' : 'entran'} {fechaPlan(enPlan)}.</p>
+        )}
+        {n > 0 && (enPlan === null || marcadas !== null) && (
           <button type="button" disabled={marcadas !== null && marcadas > 0}
             onClick={() => setMarcadas(marcarParaManana(fichas))}
             className="inline-flex min-h-11 items-center gap-1 rounded-lg bg-[#C2410C] px-3 py-1.5 text-xs font-bold text-white hover:bg-[#9a3412] disabled:opacity-80">

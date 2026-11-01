@@ -5,6 +5,7 @@ import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import '../test/setup';
 import DailySession from './DailySession';
+import { resumenSesionHoy } from '../utils/sesionHoy';
 import { INITIAL_QUESTIONS } from '../data/initialData';
 import { setDailyMinutes } from '../utils/studyPlan';
 import { resetLocalDataOwnerForTests, setLocalDataOwner } from '../utils/localOwner';
@@ -38,8 +39,9 @@ describe('fin de la sesión diaria', () => {
     render(<DailySession onNavigateHome={vi.fn()} onOpenOrdenaPasos={vi.fn()} autoStart onTryExam={onTryExam} />);
     const fichas = await terminarSesion(user, /No la sabía/);
     expect(fichas).toBeGreaterThan(0);
-    // «No la sabía» vuelve mañana: todas las de hoy.
-    expect(document.querySelector('#daily-session-manana')).toHaveTextContent(`Mañana te vuelven a tocar ${fichas} fichas de hoy`);
+    // «No la sabía» vuelve mañana: todas las de hoy (misma cifra que el Inicio, resumenSesionHoy).
+    expect(document.querySelector('#daily-session-manana')).toHaveTextContent(`Mañana te tocan ${fichas} fichas.`);
+    expect(resumenSesionHoy().manana).toBe(fichas);
     const siguiente = document.querySelector('#daily-session-siguiente');
     expect(siguiente).toHaveTextContent(`Simulacro de muestra con ${INITIAL_QUESTIONS.length} preguntas de 3 opciones`);
     expect(siguiente).toHaveTextContent('+0,200 por acierto, −0,066 por fallo');

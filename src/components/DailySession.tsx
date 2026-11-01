@@ -5,7 +5,6 @@ import { Flame, Play, Eye, EyeOff, CheckCircle2, ListOrdered, BarChart3, Lock, H
 import {
   loadDailyStreak,
   completeDailySession,
-  countDueTomorrow,
   summarizeSession,
   type DailyStreak,
 } from '../utils/dailySession';
@@ -33,6 +32,7 @@ import ExamDateField from './ExamDateField';
 import DailyMinutesField from './DailyMinutesField';
 import FuenteOficial from './FuenteOficial';
 import { planHoyDelDispositivo } from '../utils/planHoy';
+import { resumenSesionHoy } from '../utils/sesionHoy';
 import { quitarPrioridad } from '../utils/planDiario';
 import { INITIAL_QUESTIONS } from '../data/initialData';
 import { EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS } from '../utils/examScoring';
@@ -131,7 +131,8 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
     [session],
   );
   // Fin de sesión: cuántas fichas de hoy vuelven mañana (solo lectura del estado guardado).
-  const dueTomorrow = useMemo(() => countDueTomorrow(session, liveSrs), [session, liveSrs]);
+  // Misma cifra que «Tu plan de hoy» del Inicio (resumenSesionHoy: todo lo que toca mañana, incluidas las prioridades).
+  const dueTomorrow = useMemo(() => resumenSesionHoy(new Date(), liveSrs).manana, [liveSrs]);
   const progressLabel = session.length === 0 ? '0 / 0' : `${index + 1} / ${session.length}`;
 
   const startSession = () => {
@@ -435,7 +436,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
             <CalendarClock className="mt-0.5 h-4 w-4 shrink-0 text-orange-700" aria-hidden="true" />
             <span>
               {dueTomorrow > 0
-                ? <>Mañana te vuelven a tocar <strong>{dueTomorrow} {dueTomorrow === 1 ? 'ficha' : 'fichas'}</strong> de hoy. Vuelve para que no se te olviden y sume tu racha.</>
+                ? <>Mañana te tocan <strong>{dueTomorrow} {dueTomorrow === 1 ? 'ficha' : 'fichas'}</strong>. Vuelve para que no se te olviden y sume tu racha.</>
                 : 'Vuelve mañana para que sume tu racha.'}
             </span>
           </p>
