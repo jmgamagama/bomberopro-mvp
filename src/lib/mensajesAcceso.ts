@@ -93,6 +93,20 @@ export function mensajeErrorEnlace(e: ErrorAuth, registroAbierto: boolean): Mens
   return { text: 'No hemos podido enviar el enlace. Revisa el correo escrito e inténtalo de nuevo.' };
 }
 
+/** Errores al solicitar el restablecimiento, sin revelar si la dirección tiene cuenta. */
+export function mensajeErrorRecuperacion(e: ErrorAuth): MensajeAcceso {
+  if (e.status === 429 || e.code === 'over_email_send_rate_limit' || e.code === 'over_request_rate_limit') {
+    return { text: 'Ya se ha solicitado un correo hace poco. Espera unos minutos antes de volver a intentarlo.' };
+  }
+  if (e.code === 'email_address_invalid' || msg(e).includes('invalid format') || msg(e).includes('is invalid')) {
+    return { text: 'Revisa el correo: parece que falta algo (por ejemplo, la @ o el dominio).' };
+  }
+  if ((typeof e.status === 'number' && e.status >= 500) || e.code === 'unexpected_failure') {
+    return { text: 'No podemos enviar el correo ahora. Inténtalo de nuevo más tarde.' };
+  }
+  return { text: 'No hemos podido solicitar el cambio de contraseña. Revisa el correo e inténtalo de nuevo.' };
+}
+
 export const SIN_CONEXION = 'No hay conexión con BomberoPro. Comprueba tu internet e inténtalo de nuevo.';
 
 /** Lee el enlace de invitación: /?invitacion=1&email=ana@ejemplo.es */
