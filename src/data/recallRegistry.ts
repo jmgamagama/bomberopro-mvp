@@ -802,6 +802,17 @@ export function getVisibleTotalCards(): number {
   return getVisibleDecks().reduce((sum, d) => sum + d.count, 0);
 }
 
+/**
+ * Cifras del mensaje de valor: solo fichas con revisión completa (lo que ve cualquier alumno;
+ * coincide con getVisibleTotalCards() salvo para el propietario, que también ve mazos pendientes).
+ */
+export function resumenFichasRevisadas(): { fichas: number; temas: number } {
+  return {
+    fichas: REVIEWED_RECALL_DECKS.reduce((n, d) => n + d.count, 0),
+    temas: new Set(REVIEWED_RECALL_DECKS.map((d) => d.topicId)).size,
+  };
+}
+
 export function getRecallDeck(id: string): RecallDeck {
   const deck = RECALL_DECKS.find((d) => d.id === id);
   if (!deck) throw new Error(`Mazo de recuerdo desconocido: ${id}`);
