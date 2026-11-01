@@ -191,3 +191,14 @@ El propietario acepta el INSST como fuente oficial para **NTP 221, NTP 841, NTP 
 Cada ficha cita su documento, apartado y página, y enlaza al PDF de insst.es (`#page=N`). T15: de 36 a **92 de 92** visibles. Total visible: de 2.627 a **2.683**.
 
 Siguen ocultas, porque su documento **no está en la aceptación**: T12 (5 fichas, INSST «Tema 33. El riesgo de incendio (I)», temario de oposición del INSST) y T28-lote02 (12 fichas, NTP 400). Se abrirían si el propietario acepta también esos documentos.
+
+### Ampliación: INSST aceptado en general (01/11/2026)
+
+José acepta el INSST como fuente en general, así que también cuentan la NTP 400 y el Tema 33 del temario del INSST. Ambos PDF se descargaron de insst.es el 01/11/2026:
+
+| Documento | Edición en insst.es | sha256 |
+|---|---|---|
+| NTP 400 (1996) | PDF v1.2, mod. 02/02/2015, 9 págs. | `461d79591829e8a0…` |
+| Tema 33 «El riesgo de incendio (I)», temario de oposición del INSST | v. abril 2025, PDF mod. 05/06/2025, 16 págs. | `13a7201e5d42a5bc…` |
+
+Las **17 fichas restantes** (5 del T12 y 12 del T28-lote02) son literales en la página citada, así que **se abren sin cambiar ninguna**. Cada una ya citaba su documento y página, con enlace a insst.es. T12 queda en 21 de 21 visibles, T28-lote02 en 74 de 74 y el total en **2.700**. El verificador reconoce ambos documentos, también el enlace `#pNN` del Tema 33.

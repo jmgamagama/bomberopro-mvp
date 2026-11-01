@@ -39,7 +39,7 @@ describe('tema 28 · fase 2 (texto oficial consolidado)', () => {
 
   it('se registra como mazo bajo demanda', async () => {
     expect(getRecallDeck('tema28-lote02').count).toBe(74);
-    // Las 12 fichas de la NTP 400 (INSST) se filtran al cargar (recallCardReview.ts).
-    expect(await loadRecallDeckCards('tema28-lote02')).toHaveLength(62);
+    // Desde el 01/11/2026 (feat/fichas-insst) se ven las 74: las 12 de la NTP 400 (INSST) se cotejaron al literal y se abren.
+    expect(await loadRecallDeckCards('tema28-lote02')).toHaveLength(74);
   });
 });
