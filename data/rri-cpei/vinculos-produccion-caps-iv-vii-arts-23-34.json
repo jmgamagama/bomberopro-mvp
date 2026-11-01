@@ -1,0 +1,525 @@
+{
+ "descripcion": "Preguntas YA publicadas en producción (tema 5) sobre los arts. 23-34 del Reglamento de Régimen Interno del CPEI, revisadas una a una contra el texto único vigente del BOP de Badajoz n.º 149, de 06/08/2012, el 01/11/2026. Las 74 son correctas y tienen 3 opciones. Se vinculan 70 con nivel 2 (65 estaban en nivel 1) y se despublican 4 duplicadas.",
+ "motivo_registro": "revisión arts. 23-34 RRI CPEI contra BOP 149/2012 (01/11/2026)",
+ "revisado_por": "Claude (revisión manual contra el BOP); se aplica en producción solo dentro de un paquete de lanzamiento aprobado por JM",
+ "preguntas": [
+  {
+   "question_id": 6994,
+   "accion": "vincular",
+   "concepto": "RRI-a23-2-diferencias",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12136,
+   "accion": "vincular",
+   "concepto": "RRI-a23-3-trabajo",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12147,
+   "accion": "vincular",
+   "concepto": "RRI-a23-4-uso",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12131,
+   "accion": "vincular",
+   "concepto": "RRI-a23-4-uso",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12122,
+   "accion": "vincular",
+   "concepto": "RRI-a23-6-conservacion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12159,
+   "accion": "vincular",
+   "concepto": "RRI-a23-6-duracion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12150,
+   "accion": "vincular",
+   "concepto": "RRI-a24-aseo",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12344,
+   "accion": "vincular",
+   "concepto": "RRI-a25-definicion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 11964,
+   "accion": "vincular",
+   "concepto": "RRI-a25-distribucion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 7001,
+   "accion": "vincular",
+   "concepto": "RRI-a25-clasificacion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 11977,
+   "accion": "vincular",
+   "concepto": "RRI-a25-clasificacion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 11959,
+   "accion": "vincular",
+   "concepto": "RRI-a25-central",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 11957,
+   "accion": "vincular",
+   "concepto": "RRI-a25-comarcal",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 11967,
+   "accion": "vincular",
+   "concepto": "RRI-a25-local",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 11963,
+   "accion": "vincular",
+   "concepto": "RRI-a25-centrales",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 11973,
+   "accion": "vincular",
+   "concepto": "RRI-a25-comarcales",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 11956,
+   "accion": "vincular",
+   "concepto": "RRI-a25-locales",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 11955,
+   "accion": "vincular",
+   "concepto": "RRI-a25-zonas",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 11958,
+   "accion": "vincular",
+   "concepto": "RRI-a25-zonas",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12363,
+   "accion": "vincular",
+   "concepto": "RRI-a26-jefes",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 11965,
+   "accion": "vincular",
+   "concepto": "RRI-a26-compensacion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 11975,
+   "accion": "vincular",
+   "concepto": "RRI-a26-cabos",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12646,
+   "accion": "vincular",
+   "concepto": "RRI-a27-preparado",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12648,
+   "accion": "vincular",
+   "concepto": "RRI-a27-preparado",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12641,
+   "accion": "vincular",
+   "concepto": "RRI-a28-1-ausentarse",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12653,
+   "accion": "vincular",
+   "concepto": "RRI-a28-2-asuntos",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12642,
+   "accion": "vincular",
+   "concepto": "RRI-a28-2-asuntos",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12639,
+   "accion": "vincular",
+   "concepto": "RRI-a28-2-cabo",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12635,
+   "accion": "vincular",
+   "concepto": "RRI-a28-3-permanencia",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12637,
+   "accion": "vincular",
+   "concepto": "RRI-a28-3-permanencia",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12649,
+   "accion": "vincular",
+   "concepto": "RRI-a28-3-permanencia",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12655,
+   "accion": "vincular",
+   "concepto": "RRI-a28-3-sindicales",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12640,
+   "accion": "vincular",
+   "concepto": "RRI-a28-3-dependencias",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12651,
+   "accion": "vincular",
+   "concepto": "RRI-a29-normas",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12650,
+   "accion": "vincular",
+   "concepto": "RRI-a29-cuadrantes",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12633,
+   "accion": "vincular",
+   "concepto": "RRI-a29-turnos",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12657,
+   "accion": "vincular",
+   "concepto": "RRI-a29-baja",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12632,
+   "accion": "vincular",
+   "concepto": "RRI-a29-cambios",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12643,
+   "accion": "vincular",
+   "concepto": "RRI-a29-limites",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12630,
+   "accion": "vincular",
+   "concepto": "RRI-a29-limites",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12645,
+   "accion": "vincular",
+   "concepto": "RRI-a29-validez",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12647,
+   "accion": "vincular",
+   "concepto": "RRI-a30-fisico",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12631,
+   "accion": "vincular",
+   "concepto": "RRI-a31-1-reconocimiento",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12628,
+   "accion": "vincular",
+   "concepto": "RRI-a31-2-no-supera",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 11960,
+   "accion": "vincular",
+   "concepto": "RRI-a32-material",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12638,
+   "accion": "vincular",
+   "concepto": "RRI-a32-vehiculos",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12636,
+   "accion": "vincular",
+   "concepto": "RRI-a32-circulacion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12652,
+   "accion": "vincular",
+   "concepto": "RRI-a32-regreso",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12656,
+   "accion": "vincular",
+   "concepto": "RRI-a32-parte-incidencia",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12627,
+   "accion": "vincular",
+   "concepto": "RRI-a32-recomendacion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12654,
+   "accion": "vincular",
+   "concepto": "RRI-a32-transmisiones",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12629,
+   "accion": "vincular",
+   "concepto": "RRI-a32-interlocutor",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12644,
+   "accion": "vincular",
+   "concepto": "RRI-a32-potestades",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6998,
+   "accion": "vincular",
+   "concepto": "RRI-a32-potestades",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12634,
+   "accion": "vincular",
+   "concepto": "RRI-a32-movilizacion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12312,
+   "accion": "vincular",
+   "concepto": "RRI-a32-movilizacion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12295,
+   "accion": "vincular",
+   "concepto": "RRI-a32-retirada",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6999,
+   "accion": "vincular",
+   "concepto": "RRI-a32-retirada",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12308,
+   "accion": "vincular",
+   "concepto": "RRI-a32-retirada",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12331,
+   "accion": "vincular",
+   "concepto": "RRI-a32-informe",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12291,
+   "accion": "vincular",
+   "concepto": "RRI-a32-informe",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12325,
+   "accion": "vincular",
+   "concepto": "RRI-a32-compensacion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 11966,
+   "accion": "vincular",
+   "concepto": "RRI-a33-a-incompatibilidad",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 11976,
+   "accion": "vincular",
+   "concepto": "RRI-a33-b-ordenes",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 11972,
+   "accion": "vincular",
+   "concepto": "RRI-a33-c-presentacion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 11974,
+   "accion": "vincular",
+   "concepto": "RRI-a33-d-aptitud",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 11971,
+   "accion": "vincular",
+   "concepto": "RRI-a33-e-jornada",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 11954,
+   "accion": "vincular",
+   "concepto": "RRI-a33-responsabilidad",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12711,
+   "accion": "vincular",
+   "concepto": "RRI-a34-defensa",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 12342,
+   "accion": "vincular",
+   "concepto": "RRI-a34-seguro",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6993,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Mismo hecho que 12638 (art. 32, supervisión de los vehículos); se conserva la 12638, con fuente del Reglamento vigente."
+  },
+  {
+   "question_id": 6995,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Mismo hecho que 12653 y 12642 (art. 28.2, autorización del Jefe de Parque o del Cabo Jefe de Turno); se conservan esas dos."
+  },
+  {
+   "question_id": 6996,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Mismo hecho que 11960 (art. 32, autorización para usar el material); se conserva la 11960."
+  },
+  {
+   "question_id": 6997,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Mismo hecho que 12652 (art. 32, regreso sin sonido salvo orden del responsable de guardia); se conserva la 12652."
+  }
+ ]
+}
