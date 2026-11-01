@@ -26,6 +26,18 @@ const BASE = process.env.BASE_URL || 'http://127.0.0.1:4174';
   await scan('ficha');
   await page.getByRole('button', { name: /mostrar respuesta/i }).click();
   await scan('ficha_respuesta');
+  // Fin de la sesión diaria (01-nov-2026): «vuelve mañana» y el simulacro como siguiente paso.
+  for (let i = 0; i < 40; i++) {
+    const done = page.getByRole('heading', { name: 'Sesión completada' });
+    if (await done.isVisible()) break;
+    const show = page.getByRole('button', { name: /mostrar respuesta/i });
+    if (await show.isVisible()) await show.click();
+    await page.getByRole('group', { name: '¿La sabías?' }).getByRole('button').first().click();
+    await Promise.race([page.getByRole('button', { name: /mostrar respuesta/i }).waitFor(), done.waitFor()]);
+  }
+  await page.locator('#daily-session-siguiente').waitFor();
+  await scan('fin_sesion');
+  await page.screenshot({ path: '/tmp/axe-fin-sesion.png', fullPage: true });
   await nav.getByRole('button', { name: 'Inicio' }).click(); await page.locator('#badajoz-2026').waitFor();
   await scan('portada');
   await nav.getByRole('button', { name: 'Simulacro' }).click();
