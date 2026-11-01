@@ -15,7 +15,7 @@
 - Desfasado: faltan 30, 31, 33, 34, 39, 45, 41 y 47. Mig. 40 y 38 aplicadas (38: 31/10, huellas iguales a producción). 39 y 47 sin aplicar por falta de confirmación de Supabase.
 
 ## En curso
-- #183 registro por invitación (borrador): staging bloqueado por una confirmación de Supabase al crear el disparador en `auth.users` (ver MANUAL).
+- #183 cerrada 1/11; la sustituye #215 (mig. 48, borrador; CI inestable, sin aplicar). Antes: #183 registro por invitación (borrador): staging bloqueado por una confirmación de Supabase al crear el disparador en `auth.users` (ver MANUAL).
 - #194: lista salvo el ensayo en staging (guion en `/mnt/project-files/revisiones/194/`). Niveles 1-2-3: motores 48 y 49 probados en local, sin aplicar. #153 y #179 cerradas el 31/10; tope de 150/día aplazado hasta que haya plan de pago. #209 (límite en conceptos, mig. 47).
 - Tema 5 (RRI CPEI): en producción solo el art. 1 en borrador (invisible); arts. 1-22 van en el paquete (fila 6).
 - Paquete de lanzamiento: `docs/LANZAMIENTO.md` (esqueleto).
