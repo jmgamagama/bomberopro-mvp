@@ -27,10 +27,10 @@ async function axe(page, name) {
   await tablist.waitFor();
   const tabs = await tablist.getByRole('tab').evaluateAll((els) => els.map((t) => Array.from(t.querySelectorAll('[aria-hidden="true"]')).map((e) => e.textContent).join('')));
   log('PESTAÑAS:', tabs.join(' '));
-  for (const [t, n] of [['T9', 3], ['T15', 33], ['T32', 91]]) check(`${t}: ${n} fichas visibles`, tabs.includes(`${t}${n}`));
+  for (const [t, n] of [['T9', 17], ['T15', 33], ['T32', 91]]) check(`${t}: ${n} fichas visibles`, tabs.includes(`${t}${n}`));
   const total = await page.getByText(/\d+ fichas de repaso/).first().innerText().catch(() => '');
   log('TOTAL:', total);
-  check('total de fichas: 2610', /2610 fichas de repaso/.test(total));
+  check('total de fichas: 2624', /2624 fichas de repaso/.test(total));
   let i = 1;
   for (const t of ['T32', 'T9', 'T15']) {
     const tab = tablist.getByRole('tab').filter({ has: page.locator('[aria-hidden="true"]', { hasText: new RegExp(`^${t}$`) }) }).first();

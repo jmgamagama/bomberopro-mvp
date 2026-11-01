@@ -478,18 +478,15 @@
   "tema9": [
    {
     "id": "CPEI-T09-OF-96E138CB",
-    "estado": "no_literal",
-    "motivo": "la respuesta no está literal en el bloque citado"
+    "estado": "ok"
    },
    {
     "id": "CPEI-T09-OF-0E62FDF1",
-    "estado": "no_literal",
-    "motivo": "la respuesta no está literal en el bloque citado"
+    "estado": "ok"
    },
    {
     "id": "CPEI-T09-OF-6E9C710E",
-    "estado": "no_literal",
-    "motivo": "la respuesta no está literal en el bloque citado"
+    "estado": "ok"
    },
    {
     "id": "CPEI-T09-OF-7FF3307F",
@@ -498,18 +495,15 @@
    },
    {
     "id": "CPEI-T09-OF-B70EA739",
-    "estado": "no_literal",
-    "motivo": "la respuesta no está literal en el bloque citado"
+    "estado": "ok"
    },
    {
     "id": "CPEI-T09-OF-30C5C610",
-    "estado": "no_literal",
-    "motivo": "la respuesta no está literal en el bloque citado"
+    "estado": "ok"
    },
    {
     "id": "CPEI-T09-OF-48B860EC",
-    "estado": "no_literal",
-    "motivo": "la respuesta no está literal en el bloque citado"
+    "estado": "ok"
    },
    {
     "id": "CPEI-T09-OF-3909180C",
@@ -663,8 +657,7 @@
    },
    {
     "id": "CPEI-T09-OF-90325772",
-    "estado": "no_literal",
-    "motivo": "la respuesta no está literal en la página citada",
+    "estado": "ok",
     "pagina": 91
    },
    {
@@ -829,14 +822,12 @@
    },
    {
     "id": "CPEI-T09-OF-96375034",
-    "estado": "no_literal",
-    "motivo": "la respuesta no está literal en la página citada",
+    "estado": "ok",
     "pagina": 86
    },
    {
     "id": "CPEI-T09-OF-25E9FCD4",
-    "estado": "no_literal",
-    "motivo": "la respuesta no está literal en la página citada",
+    "estado": "ok",
     "pagina": 86
    },
    {
@@ -861,33 +852,27 @@
    },
    {
     "id": "CPEI-T09-OF-20C37F4A",
-    "estado": "no_literal",
-    "motivo": "la respuesta no está literal en el bloque citado"
+    "estado": "ok"
    },
    {
     "id": "CPEI-T09-OF-A520E5DF",
-    "estado": "ok",
-    "motivo": ""
+    "estado": "ok"
    },
    {
     "id": "CPEI-T09-OF-87E4530F",
-    "estado": "ok",
-    "motivo": ""
+    "estado": "ok"
    },
    {
     "id": "CPEI-T09-OF-25A494F2",
-    "estado": "no_literal",
-    "motivo": "la respuesta no está literal en el bloque citado"
+    "estado": "ok"
    },
    {
     "id": "CPEI-T09-OF-B378FA6E",
-    "estado": "no_literal",
-    "motivo": "la respuesta no está literal en el bloque citado"
+    "estado": "ok"
    },
    {
     "id": "CPEI-T09-OF-B1BF79D7",
-    "estado": "no_literal",
-    "motivo": "la respuesta no está literal en la página citada",
+    "estado": "ok",
     "pagina": 83
    },
    {
@@ -897,8 +882,7 @@
    },
    {
     "id": "CPEI-T09-OF-D374F81F",
-    "estado": "no_literal",
-    "motivo": "la respuesta no está literal en la página citada",
+    "estado": "ok",
     "pagina": 91
    }
   ],
@@ -1364,5 +1348,6 @@
     "motivo": ""
    }
   ]
- }
+ },
+ "t9_literal": "2026-11-01: 14 respuestas reescritas al literal (feat/t9-literal); 2 siguen ocultas"
 }

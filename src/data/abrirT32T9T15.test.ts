@@ -20,9 +20,9 @@ describe('T32, T9 y T15: se abren solo las fichas literales con fuente aceptada'
     expect(getDeckRevision(m)).toBe(m === 'tema32' ? 'revisado' : 'pendiente');
     expect(V.mazos[m].map((x) => x.id).sort()).toEqual(MAZOS[m as keyof typeof MAZOS].map((c) => c.id).sort());
   });
-  it('cuántas se abren: T32 91 de 91, T9 3 de 84, T15 33 de 92', () => {
+  it('cuántas se abren: T32 91 de 91, T9 17 de 84, T15 33 de 92', () => {
     const vistas = (m: keyof typeof MAZOS) => MAZOS[m].filter((c) => isCardVisible(m, c.id)).length;
-    expect([vistas('tema32'), vistas('tema9'), vistas('tema15')]).toEqual([91, 3, 33]);
+    expect([vistas('tema32'), vistas('tema9'), vistas('tema15')]).toEqual([91, 17, 33]);
   });
   it.each(Object.keys(MAZOS))('%s: visible ⇔ «ok» en la comprobación literal, con cita y enlace a BOE o CTE', (m) => {
     const estado = new Map(V.mazos[m].map((x) => [x.id, x.estado]));
