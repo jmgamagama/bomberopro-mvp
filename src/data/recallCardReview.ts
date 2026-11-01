@@ -134,8 +134,13 @@ export const REVIEWED_CARDS_IN_PENDING_DECKS: Readonly<Record<string, readonly s
   // T9 y T15 (01/11/2026, docs/REVISION_T32_T9_T15.md): comprobadas al pie de la letra con su fuente vigente.
   // T9: RIPCI (BOE-A-2017-6606) y CTE DB HS 4 (codigotecnico.org). T15: RD 1644/2008, RD 1215/1997 y REBT ITC-BT-40 (BOE).
   // El resto sigue oculto: fuente INSST, IDAE/MITECO o EUR-Lex (no aceptadas), o respuesta no literal.
+  // T9: 14 más el 01/11/2026 (feat/t9-literal): respuesta reescrita al fragmento literal del RD 709/2015, RD 2032/2009, RIPCI o DB HS 4.
   'tema9': [
-    'CPEI-T09-OF-A520E5DF', 'CPEI-T09-OF-87E4530F', 'CPEI-T09-OF-52A4DCD7',
+    'CPEI-T09-OF-96E138CB', 'CPEI-T09-OF-0E62FDF1', 'CPEI-T09-OF-6E9C710E', 'CPEI-T09-OF-B70EA739',
+    'CPEI-T09-OF-30C5C610', 'CPEI-T09-OF-48B860EC', 'CPEI-T09-OF-90325772', 'CPEI-T09-OF-96375034',
+    'CPEI-T09-OF-25E9FCD4', 'CPEI-T09-OF-20C37F4A', 'CPEI-T09-OF-A520E5DF', 'CPEI-T09-OF-87E4530F',
+    'CPEI-T09-OF-25A494F2', 'CPEI-T09-OF-B378FA6E', 'CPEI-T09-OF-B1BF79D7', 'CPEI-T09-OF-52A4DCD7',
+    'CPEI-T09-OF-D374F81F',
   ],
   'tema15': [
     'CPEI-T15-OF-3B08563F', 'CPEI-T15-OF-D2F1AA50', 'CPEI-T15-OF-3AC3D004', 'CPEI-T15-OF-C8C8BD7F',

@@ -51,7 +51,9 @@ describe('tema 9 · hidráulica (fuentes oficiales)', () => {
     const rho = 1000; // kg/m3, agua a 20 °C
     const g = 9.81; // m/s2
     // 1 bar = 0,1 MPa = 100 kPa = 10^5 Pa; atmósfera normal 101 325 Pa = 1,013 25 bar.
-    expect(byConcepto('1 bar')).toContain('100 000 Pa');
+    // Respuesta literal del RD 2032/2009 (tabla 8), sin el «105 Pa» que el BOE escribe sin superíndice.
+    expect(byConcepto('1 bar')).toBe('1 bar = 0,1 MPa = 100 kPa');
+    expect(0.1e6).toBe(100e3);
     expect(101325 / 1e5).toBeCloseTo(1.01325, 10);
     expect(byConcepto('atmósfera normal')).toContain('101 325 Pa');
     // 10 m de columna de agua: ρ·g·h = 98 100 Pa = 202 600 − 104 500 Pa.
@@ -88,9 +90,9 @@ describe('tema 9 · hidráulica (fuentes oficiales)', () => {
     expect(byConcepto('presión mínima debe haber en los puntos de consumo')).toContain('100 kPa');
   });
 
-  it('se registra como mazo bajo demanda, pendiente, con sus 3 fichas literales visibles (01/11/2026)', async () => {
+  it('se registra como mazo bajo demanda, pendiente, con sus 17 fichas literales visibles (01/11/2026)', async () => {
     expect(getRecallDeck('tema9').count).toBe(N);
     expect(getRecallDeck('tema9').revision).toBe('pendiente');
-    expect(await loadRecallDeckCards('tema9')).toHaveLength(3);
+    expect(await loadRecallDeckCards('tema9')).toHaveLength(17);
   });
 });

@@ -22,7 +22,7 @@ export const TEMA9_RECALL_CARDS: Tema9RecallCard[] = [
     "id": "CPEI-T09-OF-96E138CB",
     "orden": 10,
     "concepto": "Según el RD 709/2015 de equipos a presión, ¿qué se entiende por «fluidos»?",
-    "respuesta": "Los gases, los líquidos y los vapores en fase pura o en mezclas; un fluido puede contener una suspensión de sólidos",
+    "respuesta": "Los gases, los líquidos y los vapores en fase pura o en mezclas. Un fluido podrá contener una suspensión de sólidos",
     "fuente": "RD 709/2015 (equipos a presión), artículo 2.12. BOE-A-2015-9527, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2015-9527#a2",
     "localizacion": "RD 709/2015 (equipos a presión), artículo 2.12",
     "apartado": "Concepto de fluido, densidad y unidades"
@@ -31,7 +31,7 @@ export const TEMA9_RECALL_CARDS: Tema9RecallCard[] = [
     "id": "CPEI-T09-OF-0E62FDF1",
     "orden": 20,
     "concepto": "Según el RD 709/2015 de equipos a presión, ¿respecto a qué se mide la «presión» y cómo se expresa el vacío?",
-    "respuesta": "Respecto a la presión atmosférica (presión relativa o manométrica); el vacío se expresa con un valor negativo",
+    "respuesta": "La presión relativa a la presión atmosférica, es decir, la presión manométrica. En consecuencia, el vacío se expresa mediante un valor negativo",
     "fuente": "RD 709/2015 (equipos a presión), artículo 2.7. BOE-A-2015-9527, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2015-9527#a2",
     "localizacion": "RD 709/2015 (equipos a presión), artículo 2.7",
     "apartado": "Concepto de fluido, densidad y unidades"
@@ -40,7 +40,7 @@ export const TEMA9_RECALL_CARDS: Tema9RecallCard[] = [
     "id": "CPEI-T09-OF-6E9C710E",
     "orden": 30,
     "concepto": "Según el RD 2032/2009, ¿cuál es la unidad SI de la densidad (masa en volumen)?",
-    "respuesta": "El kilogramo por metro cúbico (kg/m3)",
+    "respuesta": "Kilogramo por metro cúbico, kg/m3",
     "fuente": "RD 2032/2009 (unidades legales de medida), anexo, capítulo II, tabla 2. BOE-A-2010-927, texto consolidado (últ. actualización 29/04/2020): https://www.boe.es/buscar/act.php?id=BOE-A-2010-927#cii",
     "localizacion": "RD 2032/2009 (unidades legales de medida), anexo, capítulo II, tabla 2",
     "apartado": "Concepto de fluido, densidad y unidades"
@@ -58,7 +58,7 @@ export const TEMA9_RECALL_CARDS: Tema9RecallCard[] = [
     "id": "CPEI-T09-OF-B70EA739",
     "orden": 50,
     "concepto": "Según el RD 2032/2009, ¿qué unidad SI corresponde a la viscosidad dinámica?",
-    "respuesta": "El pascal segundo (Pa s)",
+    "respuesta": "Pascal segundo, Pa s",
     "fuente": "RD 2032/2009 (unidades legales de medida), anexo, capítulo II, tabla 4. BOE-A-2010-927, texto consolidado (últ. actualización 29/04/2020): https://www.boe.es/buscar/act.php?id=BOE-A-2010-927#cii",
     "localizacion": "RD 2032/2009 (unidades legales de medida), anexo, capítulo II, tabla 4",
     "apartado": "Concepto de fluido, densidad y unidades"
@@ -67,7 +67,7 @@ export const TEMA9_RECALL_CARDS: Tema9RecallCard[] = [
     "id": "CPEI-T09-OF-30C5C610",
     "orden": 60,
     "concepto": "Según el RD 2032/2009, ¿a cuánto equivale 1 bar en unidades SI?",
-    "respuesta": "1 bar = 0,1 MPa = 100 kPa = 100 000 Pa (10^5 Pa)",
+    "respuesta": "1 bar = 0,1 MPa = 100 kPa",
     "fuente": "RD 2032/2009 (unidades legales de medida), anexo, capítulo IV, tabla 8. BOE-A-2010-927, texto consolidado (últ. actualización 29/04/2020): https://www.boe.es/buscar/act.php?id=BOE-A-2010-927#civ",
     "localizacion": "RD 2032/2009 (unidades legales de medida), anexo, capítulo IV, tabla 8",
     "apartado": "Concepto de fluido, densidad y unidades"
@@ -76,7 +76,7 @@ export const TEMA9_RECALL_CARDS: Tema9RecallCard[] = [
     "id": "CPEI-T09-OF-48B860EC",
     "orden": 70,
     "concepto": "Según el RD 2032/2009, ¿a cuánto equivale la atmósfera normal en bar y en pascales?",
-    "respuesta": "A 1,013 25 bar, es decir, 101 325 Pa",
+    "respuesta": "La atmósfera normal, igual a 1,013 25 bar o 101 325 Pa",
     "fuente": "RD 2032/2009 (unidades legales de medida), anexo, capítulo IV, tabla 8, nota (a). BOE-A-2010-927, texto consolidado (últ. actualización 29/04/2020): https://www.boe.es/buscar/act.php?id=BOE-A-2010-927#civ",
     "localizacion": "RD 2032/2009 (unidades legales de medida), anexo, capítulo IV, tabla 8, nota (a)",
     "apartado": "Concepto de fluido, densidad y unidades"
@@ -355,7 +355,7 @@ export const TEMA9_RECALL_CARDS: Tema9RecallCard[] = [
     "id": "CPEI-T09-OF-90325772",
     "orden": 380,
     "concepto": "Según el CTE DB HS 4, ¿cómo pueden estimarse las pérdidas de carga localizadas de un tramo?",
-    "respuesta": "En un 20 % a 30 % de la pérdida producida sobre la longitud real del tramo, o evaluándolas a partir de sus elementos",
+    "respuesta": "Podrán estimarse en un 20% al 30% de la producida sobre la longitud real del tramo o evaluarse a partir de los elementos de la instalación",
     "fuente": "CTE DB HS 4 (suministro de agua), apartado 4.2.2 «Comprobación de la presión», pág. 91. CTE-DB-HS4, DB HS consolidado (14 de junio de 2022): https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf#page=91",
     "localizacion": "CTE DB HS 4 (suministro de agua), apartado 4.2.2 «Comprobación de la presión», pág. 91",
     "apartado": "Pérdidas de carga"
@@ -652,7 +652,7 @@ export const TEMA9_RECALL_CARDS: Tema9RecallCard[] = [
     "id": "CPEI-T09-OF-96375034",
     "orden": 710,
     "concepto": "Según el CTE DB HS 4, ¿qué elementos tiene un grupo de presión convencional?",
-    "respuesta": "Depósito auxiliar de alimentación, equipo de bombeo de al menos dos bombas iguales de funcionamiento alterno montadas en paralelo y depósitos de presión con membrana",
+    "respuesta": "i) depósito auxiliar de alimentación, que evite la toma de agua directa por el equipo de bombeo; ii) equipo de bombeo, compuesto, como mínimo, de dos bombas de iguales prestaciones y funcionamiento alterno, montadas en paralelo; iii) depósitos de presión con membrana, conectados a dispositivos suficientes de valoración de los parámetros de presión de la instalación, para su puesta en marcha y parada automáticas",
     "fuente": "CTE DB HS 4 (suministro de agua), apartado 3.2.1.5.1 «Sistemas de sobreelevación: grupos de presión», pág. 86. CTE-DB-HS4, DB HS consolidado (14 de junio de 2022): https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf#page=86",
     "localizacion": "CTE DB HS 4 (suministro de agua), apartado 3.2.1.5.1 «Sistemas de sobreelevación: grupos de presión», pág. 86",
     "apartado": "Acoplamiento de bombas"
@@ -661,7 +661,7 @@ export const TEMA9_RECALL_CARDS: Tema9RecallCard[] = [
     "id": "CPEI-T09-OF-25E9FCD4",
     "orden": 720,
     "concepto": "Según el CTE DB HS 4, ¿cómo funciona un grupo de presión de accionamiento regulable o de caudal variable?",
-    "respuesta": "Con un variador de frecuencia que acciona las bombas manteniendo constante la presión de salida, sea cual sea el caudal; puede prescindir del depósito auxiliar",
+    "respuesta": "Podrá prescindir del depósito auxiliar de alimentación y contará con un variador de frecuencia que accionará las bombas manteniendo constante la presión de salida, independientemente del caudal solicitado o disponible",
     "fuente": "CTE DB HS 4 (suministro de agua), apartado 3.2.1.5.1 «Sistemas de sobreelevación: grupos de presión», pág. 86. CTE-DB-HS4, DB HS consolidado (14 de junio de 2022): https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf#page=86",
     "localizacion": "CTE DB HS 4 (suministro de agua), apartado 3.2.1.5.1 «Sistemas de sobreelevación: grupos de presión», pág. 86",
     "apartado": "Acoplamiento de bombas"
@@ -706,7 +706,7 @@ export const TEMA9_RECALL_CARDS: Tema9RecallCard[] = [
     "id": "CPEI-T09-OF-20C37F4A",
     "orden": 770,
     "concepto": "Según el RIPCI, ¿de qué está formado un sistema de abastecimiento de agua contra incendios y qué debe asegurar?",
-    "respuesta": "De fuentes de agua, equipos de impulsión y una red general de incendios; debe asegurar el caudal y la presión necesarios durante el tiempo de autonomía requerido",
+    "respuesta": "Por un conjunto de fuentes de agua, equipos de impulsión y una red general de incendios destinada a asegurar, para uno o varios sistemas específicos de protección, el caudal y presión de agua necesarios durante el tiempo de autonomía requerido",
     "fuente": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 2 «Sistemas de abastecimiento de agua contra incendios». BOE-A-2017-6606, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 2 «Sistemas de abastecimiento de agua contra incendios»",
     "apartado": "Instalaciones hidráulicas de extinción con agua"
@@ -733,7 +733,7 @@ export const TEMA9_RECALL_CARDS: Tema9RecallCard[] = [
     "id": "CPEI-T09-OF-25A494F2",
     "orden": 800,
     "concepto": "Según el RIPCI, ¿qué presión máxima puede haber a la entrada de una BIE de manguera semirrígida o plana y por qué se limita?",
-    "respuesta": "9 bar (900 kPa), por la presión máxima de servicio del sistema y por la maniobrabilidad de las mangueras",
+    "respuesta": "Estará condicionada por las características técnicas del sistema (presión máxima de servicio) y por la maniobrabilidad de las mangueras durante su uso. En consecuencia, la presión máxima a la entrada de la BIE con manguera semirrígida o con manguera plana no deberá superar los 9 bar (900 kPa)",
     "fuente": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 4 «Sistemas de bocas de incendio equipadas». BOE-A-2017-6606, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 4 «Sistemas de bocas de incendio equipadas»",
     "apartado": "Instalaciones hidráulicas de extinción con agua"
@@ -742,7 +742,7 @@ export const TEMA9_RECALL_CARDS: Tema9RecallCard[] = [
     "id": "CPEI-T09-OF-B378FA6E",
     "orden": 810,
     "concepto": "Según el RIPCI, ¿qué presión dinámica mínima debe proporcionar la red en el orificio de salida de una BIE de alta presión?",
-    "respuesta": "3.450 kPa (35 kg/cm2), con las dos BIE hidráulicamente más desfavorables funcionando a la vez durante al menos una hora",
+    "respuesta": "Durante una hora como mínimo, en la hipótesis de funcionamiento simultáneo de las dos BIE hidráulicamente más desfavorables, una presión dinámica mínima de 3.450 kPa (35 kg/cm2)",
     "fuente": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 4 «Sistemas de bocas de incendio equipadas». BOE-A-2017-6606, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 4 «Sistemas de bocas de incendio equipadas»",
     "apartado": "Instalaciones hidráulicas de extinción con agua"
@@ -751,7 +751,7 @@ export const TEMA9_RECALL_CARDS: Tema9RecallCard[] = [
     "id": "CPEI-T09-OF-B1BF79D7",
     "orden": 820,
     "concepto": "Según el CTE DB HS 4, ¿qué presión mínima debe haber en los puntos de consumo?",
-    "respuesta": "100 kPa en grifos comunes y 150 kPa en fluxores y calentadores",
+    "respuesta": "a) 100 kPa para grifos comunes; b) 150 kPa para fluxores y calentadores",
     "fuente": "CTE DB HS 4 (suministro de agua), apartado 2.1.3 «Condiciones mínimas de suministro», pág. 83. CTE-DB-HS4, DB HS consolidado (14 de junio de 2022): https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf#page=83",
     "localizacion": "CTE DB HS 4 (suministro de agua), apartado 2.1.3 «Condiciones mínimas de suministro», pág. 83",
     "apartado": "Instalaciones de suministro de agua y sus características"
@@ -769,7 +769,7 @@ export const TEMA9_RECALL_CARDS: Tema9RecallCard[] = [
     "id": "CPEI-T09-OF-D374F81F",
     "orden": 840,
     "concepto": "Según el CTE DB HS 4, ¿entre qué velocidades de cálculo se dimensionan las tuberías de suministro de agua?",
-    "respuesta": "Metálicas, entre 0,50 y 2,00 m/s; termoplásticas y multicapas, entre 0,50 y 3,50 m/s",
+    "respuesta": "i) tuberías metálicas: entre 0,50 y 2,00 m/s; ii) tuberías termoplásticas y multicapas: entre 0,50 y 3,50 m/s",
     "fuente": "CTE DB HS 4 (suministro de agua), apartado 4.2.1 «Dimensionado de los tramos», pág. 91. CTE-DB-HS4, DB HS consolidado (14 de junio de 2022): https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf#page=91",
     "localizacion": "CTE DB HS 4 (suministro de agua), apartado 4.2.1 «Dimensionado de los tramos», pág. 91",
     "apartado": "Instalaciones de suministro de agua y sus características"
