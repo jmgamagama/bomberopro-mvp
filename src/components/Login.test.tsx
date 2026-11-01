@@ -169,12 +169,12 @@ describe('Login', () => {
       expect(screen.queryByText('Grupo piloto')).not.toBeInTheDocument();
     });
 
-    it('el enlace de invitación abre «Activar invitación» con el correo escrito y lo quita de la barra', () => {
+    it('el enlace genérico abre «Activar invitación» y elimina de la URL cualquier correo antiguo', () => {
       window.history.replaceState(null, '', '/?invitacion=1&email=Ana%40Ejemplo.es');
       render(<Login />);
       expect(screen.getByRole('button', { name: 'Activar invitación', pressed: true })).toBeInTheDocument();
-      expect(screen.getByLabelText(/correo electrónico/i)).toHaveValue('ana@ejemplo.es');
-      expect(screen.getByLabelText(/^contraseña$/i)).toHaveFocus();
+      expect(screen.getByLabelText(/correo electrónico/i)).toHaveValue('');
+      expect(screen.getByLabelText(/correo electrónico/i)).toHaveFocus();
       expect(window.location.search).toBe('');
     });
 
