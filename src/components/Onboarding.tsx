@@ -19,7 +19,10 @@ import DailyMinutesField from './DailyMinutesField';
 import TopicSearch from './TopicSearch';
 import { matchesTopic } from '../utils/topicSearch';
 import { canAccessDeck, getDailySessionSize, getPlan, planSummary, PLAN_COPY } from '../utils/plan';
-import { getVisibleDecks } from '../data/recallRegistry';
+import { getVisibleDecks, resumenFichasRevisadas } from '../data/recallRegistry';
+
+/** Miles con punto también en 4 cifras («2.483»), como en el resto de textos del proyecto. */
+const formatMiles = (n: number) => new Intl.NumberFormat('es-ES', { useGrouping: 'always' } as Intl.NumberFormatOptions).format(n);
 
 interface OnboardingProps {
   /** El opositor pulsó «Empezar sesión diaria»: abrir la sesión ya en la primera ficha. */
@@ -45,6 +48,7 @@ const ALL = 'todos';
  */
 export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, cuenta = false }: OnboardingProps) {
   const plan = getPlan();
+  const resumen = resumenFichasRevisadas();
   const showPlans = isPlanesEnabled() && plan === 'free';
   const planCards = getVisibleDecks().filter((d) => canAccessDeck(d.id, plan)).reduce((n, d) => n + d.count, 0);
   const [choice, setChoice] = useState<string>(() => {
@@ -108,6 +112,11 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, c
           <h1 id="onboarding-title" className="mt-0.5 text-xl font-black leading-tight text-slate-900 sm:text-2xl">
             Prepara tu oposición a {C.plaza} del {C.organismo}
           </h1>
+          {/* Valor en una línea, con las cifras reales de lo que ve este alumno (mazos revisados del registro). */}
+          <p id="onboarding-valor" className="mt-1 text-[13px] leading-snug text-slate-700 sm:text-sm">
+            <strong className="text-slate-900">{formatMiles(resumen.fichas)} fichas revisadas de {resumen.temas} temas</strong>, cada una con su fuente oficial, y simulacro con la puntuación del examen.
+            {!cuenta && ' Empiezas sin cuenta.'}
+          </p>
         </div>
         <button
           type="button"
