@@ -343,7 +343,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       tema: 24,
       title: "Tema 24 · Marco legal: RD 630/2013, Catálogo español de especies exóticas invasoras",
       count: 19,
-      source: "Fase 3 · texto consolidado BOE-A-2013-8565 (RD 630/2013; últ. act. 19/12/2025)",
+      source: "Fase 3 · texto consolidado BOE-A-2013-8565 (RD 630/2013; últ. act. publicada 19/10/2026)",
     },
     load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema24Recall').then((m) => m.TEMA24_RECALL_CARDS),
   },
