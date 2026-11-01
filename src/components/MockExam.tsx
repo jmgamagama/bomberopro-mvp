@@ -20,7 +20,7 @@ import GuestSignupPrompt from './GuestSignupPrompt';
 import FalloFichas from './FalloFichas';
 import InformeSimulacro from './InformeSimulacro';
 import { loadRecallPoolForPlan, type RecallCard } from '../data/recallCards';
-import { fichasRelacionadas } from '../utils/planDiario';
+import { fichasRelacionadas } from '../utils/fichasRelacionadas';
 import { trackFunnel } from '../lib/funnel';
 import { countAnswerChange } from '../utils/attempt';
 import { optionLetter, shuffleAllOptions } from '../utils/shuffleOptions';

@@ -18,8 +18,6 @@ import { pickDailyRecallSession } from './dailySession';
 import { localDayNumber } from './localDate';
 import { readOwned, writeOwned } from './localOwner';
 import { classifyCard, getCardSrs, GRADE_AGAIN, type SrsStore } from './recallSrs';
-import { relacionar } from './relacionFichas';
-import { boeUrl, DOCUMENTOS_OFICIALES, resolverFuente } from '../data/fuentesOficiales';
 
 /** Minutos estimados por ficha y por pregunta para «unos N min» (constantes, no medidas). */
 export const SEGUNDOS_POR_FICHA_PLAN = 30;
@@ -225,38 +223,6 @@ export function articuloDe(texto: string | null | undefined): string | undefined
   const m = [...(texto ?? '').matchAll(/\bart(?:ículo|\.|s?\.)?\s*(\d+)(?:\s*(bis|ter|quater)\b)?/gi)];
   const nums = new Set(m.map((x) => x[1] + (x[2] ? x[2].toLowerCase() : '')));
   return nums.size === 1 ? [...nums][0] : undefined;
-}
-
-/**
- * Fichas relacionadas con una pregunta: mismo tema y documento, y mismo artículo o misma
- * localización literal (criterios verificables, ver ./relacionFichas).
- */
-export function fichasRelacionadas(
-  q: { tema?: { numero: number } | null; fuente?: string; question?: string },
-  pool: readonly RecallCard[],
-): RecallCard[] {
-  return relacionar(q, pool).fichas;
-}
-
-/**
- * Enlace al artículo en el BOE de una pregunta: el de su fuente si lo trae; si no, el del documento
- * nombrado en la fuente (DOCUMENTOS_OFICIALES) con el ancla del artículo; si no, el de una ficha
- * relacionada. Null si no hay ninguno verificable (no se inventa).
- */
-export function enlaceArticulo(fuente: string | undefined, relacionadas: readonly RecallCard[] = []): string | null {
-  const directa = resolverFuente(fuente).url;
-  if (directa) return directa;
-  const texto = fuente ?? '';
-  const art = articuloDe(texto);
-  for (const doc of Object.values(DOCUMENTOS_OFICIALES)) {
-    const nombre = doc.nombre.split(/ \(| ·/)[0];
-    if (doc.boe && texto.toLowerCase().startsWith(nombre.toLowerCase())) return boeUrl(doc.boe, art);
-  }
-  for (const c of relacionadas) {
-    const u = resolverFuente(c.fuente).url;
-    if (u) return u;
-  }
-  return null;
 }
 
 /**

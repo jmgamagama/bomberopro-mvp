@@ -11,7 +11,7 @@ import type { RecallCard } from '../data/recallCards';
 import type { RecallTopic } from '../data/recallRegistry';
 import type { TopicSummary } from './examReport';
 import { mapaTemas, type TemaProgreso } from './progresoMapa';
-import { fichasRelacionadas } from './planDiario';
+import { fichasRelacionadas } from './fichasRelacionadas';
 import type { SrsStore } from './recallSrs';
 
 export const DIAS_PLAN_SIMULACRO = 7;

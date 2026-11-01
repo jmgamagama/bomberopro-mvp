@@ -1,11 +1,8 @@
-import { createContext, useContext } from 'react';
 import { FileText } from 'lucide-react';
-import { destinoMaterial, type DestinoMaterial } from '../utils/materialEnContexto';
+import { destinoMaterial } from '../utils/materialEnContexto';
+import { useAbrirMaterial } from './abrirMaterial';
 
-/** Lo da App: abre «Material por tema» encima de la pantalla actual (que no se desmonta) con el destino. */
-export type AbrirMaterial = (d: DestinoMaterial, origen: string) => void;
-export const AbrirMaterialContext = createContext<AbrirMaterial | null>(null);
-export const useAbrirMaterial = () => useContext(AbrirMaterialContext);
+export { AbrirMaterialContext, useAbrirMaterial, type AbrirMaterial } from './abrirMaterial';
 
 /**
  * «Ver en el esquema del tema» bajo una ficha o un fallo (01/11/2026). Solo aparece si el tema tiene

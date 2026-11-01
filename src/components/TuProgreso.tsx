@@ -5,7 +5,7 @@ import { INITIAL_QUESTIONS } from '../data/initialData';
 import { getAttempts } from '../utils/db';
 import { loadSrs, MASTERED_INTERVAL_DAYS } from '../utils/recallSrs';
 import { loadReviewLog } from '../utils/recallReviewLog';
-import { useAbrirMaterial } from './VerEnEsquema';
+import { useAbrirMaterial } from './abrirMaterial';
 import { materialDeTema } from '../data/materialTemas';
 import { etiquetaSemana, evolucionSemanal, mapaTemas, porcentaje, SEMANAS_EVOLUCION } from '../utils/progresoMapa';
 
