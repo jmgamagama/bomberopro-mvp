@@ -4,7 +4,7 @@ import { trackFunnel } from '../lib/funnel';
 import { isRegistroAbierto, textoAlta } from '../config/features';
 import { urlRetornoAuth } from '../lib/authRetorno';
 import {
-  leerEnlaceInvitacion, mensajeErrorAcceso, mensajeErrorEnlace, SIN_CONEXION,
+  leerEnlaceInvitacion, mensajeErrorAcceso, mensajeErrorEnlace, mensajeErrorRecuperacion, SIN_CONEXION,
   type MensajeAcceso, type ModoAcceso,
 } from '../lib/mensajesAcceso';
 import { Lock, Loader2, Flame, ScrollText, Timer, Brain, ArrowRight, Eye, EyeOff, MailCheck } from 'lucide-react';
@@ -98,7 +98,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
     }
   };
 
-  // Acceso sin contraseña: enlace de un solo uso al correo. Sirve para "he olvidado la contraseña".
+  // Acceso sin contraseña: opción distinta al restablecimiento de contraseña.
   const handleMagicLink = async () => {
     if (!email.trim()) {
       setMessage({ type: 'error', text: 'Escribe primero tu correo y vuelve a pulsar.' });
@@ -115,6 +115,31 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
       setMessage(error
         ? { type: 'error', ...mensajeErrorEnlace(error, abierto) }
         : { type: 'success', text: `Te hemos enviado un enlace a ${correo()}. Ábrelo desde este móvil para entrar sin contraseña.` });
+    } catch {
+      setMessage({ type: 'error', text: SIN_CONEXION });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handlePasswordReset = async () => {
+    if (!email.trim()) {
+      setMessage({ type: 'error', text: 'Escribe primero tu correo y vuelve a pulsar.' });
+      focusEmail();
+      return;
+    }
+    setLoading(true);
+    setMessage(null);
+    try {
+      const { error } = await supabase!.auth.resetPasswordForEmail(correo(), {
+        redirectTo: urlRetornoAuth('recuperar'),
+      });
+      setMessage(error
+        ? { type: 'error', ...mensajeErrorRecuperacion(error) }
+        : {
+            type: 'success',
+            text: `Si ${correo()} tiene una cuenta, recibirá un correo con los pasos para cambiar la contraseña. Revisa también Spam o Promociones.`,
+          });
     } catch {
       setMessage({ type: 'error', text: SIN_CONEXION });
     } finally {
@@ -318,14 +343,24 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
           </button>
 
           {mode === 'entrar' && (
-            <button
-              type="button"
-              onClick={handleMagicLink}
-              disabled={loading}
-              className="w-full min-h-11 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline underline-offset-2"
-            >
-              He olvidado la contraseña
-            </button>
+            <div className="space-y-1">
+              <button
+                type="button"
+                onClick={handlePasswordReset}
+                disabled={loading}
+                className="w-full min-h-11 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline underline-offset-2"
+              >
+                He olvidado la contraseña
+              </button>
+              <button
+                type="button"
+                onClick={handleMagicLink}
+                disabled={loading}
+                className="w-full min-h-11 text-sm font-semibold text-slate-600 hover:text-slate-900 underline underline-offset-2"
+              >
+                Entrar con enlace sin contraseña
+              </button>
+            </div>
           )}
         </form>
         )}
