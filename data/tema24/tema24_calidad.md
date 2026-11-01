@@ -4,7 +4,7 @@
 
 ## Fuente
 
-- Real Decreto 630/2013, Catálogo español de especies exóticas invasoras — BOE-A-2013-8565, texto consolidado del BOE, última actualización/versión 19/12/2025: https://www.boe.es/buscar/act.php?id=BOE-A-2013-8565 (copia en /workspace/fuentes_oficiales/tema24/)
+- Real Decreto 630/2013, Catálogo español de especies exóticas invasoras — BOE-A-2013-8565, texto consolidado del BOE, última actualización publicada el 19/10/2026 (Orden TED/1096/2026, solo cambia el anexo; las 19 fichas se comprobaron literales el 01/11/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2013-8565 (copia en /workspace/fuentes_oficiales/tema24/)
 
 ## Resultado
 
