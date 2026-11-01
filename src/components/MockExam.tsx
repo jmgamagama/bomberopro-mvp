@@ -17,6 +17,9 @@ import { getVisibleTopic } from '../data/recallRegistry';
 import { EXAM_DURATION_SECONDS, formatExamTime, getRemainingExamSeconds } from '../utils/examTimer';
 import StudentConsultation from './StudentConsultationModal';
 import GuestSignupPrompt from './GuestSignupPrompt';
+import FalloFichas from './FalloFichas';
+import { loadRecallPoolForPlan, type RecallCard } from '../data/recallCards';
+import { fichasRelacionadas } from '../utils/planDiario';
 import { trackFunnel } from '../lib/funnel';
 import { countAnswerChange } from '../utils/attempt';
 import { optionLetter, shuffleAllOptions } from '../utils/shuffleOptions';
@@ -137,6 +140,14 @@ export default function MockExam({
   const [totalElapsedTime, setTotalElapsedTime] = useState(0);
   const [remainingTime, setRemainingTime] = useState(EXAM_DURATION_SECONDS);
   const hasExamInProgress = examStarted && !examFinished;
+  // Fichas para enlazar cada fallo con las suyas (se cargan al ver el resultado).
+  const [recallPool, setRecallPool] = useState<RecallCard[]>([]);
+  useEffect(() => {
+    if (!examFinished) return;
+    let alive = true;
+    loadRecallPoolForPlan().then((p) => alive && setRecallPool(p), () => undefined);
+    return () => { alive = false; };
+  }, [examFinished]);
   const finishStartedRef = useRef(false);
   const answerChangesRef = useRef<Record<string, number>>({});
   const resultsSummaryRef = useRef<HTMLDivElement>(null);
@@ -729,6 +740,7 @@ export default function MockExam({
                       {f.explanation && !isRedundantExplanation(f) && <p className="text-slate-700">{f.explanation}</p>}
                       {f.cita && <blockquote className="border-l-4 border-indigo-600 bg-slate-50 px-2 py-1 text-slate-700">«{f.cita}»</blockquote>}
                       {f.fuente && <p className="text-xs text-slate-600">Fuente: {f.fuente}</p>}
+                      <FalloFichas id={f.id} fuente={f.fuente} fichas={fichasRelacionadas(f, recallPool)} onOpenFichas={onStudyTopic} />
                     </li>
                   ))}
                 </ol>
