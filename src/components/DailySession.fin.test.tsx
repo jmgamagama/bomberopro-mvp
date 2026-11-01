@@ -54,4 +54,11 @@ describe('fin de la sesión diaria', () => {
     expect(document.querySelector('#daily-session-siguiente')).toBeNull();
     expect(document.querySelector('#daily-session-manana')).not.toBeNull();
   });
+
+  it('invitado: «Guarda tu progreso» dice cuántas fichas lleva repasadas (las de esta sesión, ya guardadas)', async () => {
+    const user = userEvent.setup();
+    render(<DailySession onNavigateHome={vi.fn()} onOpenOrdenaPasos={vi.fn()} autoStart onTryExam={vi.fn()} onGuestSignup={vi.fn()} />);
+    const fichas = await terminarSesion(user, /La sabía/);
+    expect(document.querySelector('#guest-signup-progreso')).toHaveTextContent(new RegExp(`^${fichas} fichas? repasadas?$`));
+  });
 });

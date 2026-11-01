@@ -93,6 +93,17 @@ export function guestProgressSummary(s: Storage | null = store()): GuestProgress
   return out;
 }
 
+const plural = (n: number, uno: string, varios: string) => `${n} ${n === 1 ? uno : varios}`;
+
+/** «12 fichas repasadas y 15 respuestas de test»: solo lo que de verdad hay guardado («» si no hay nada). */
+export function describeGuestProgress({ fichas, respuestas }: GuestProgressSummary): string {
+  const partes = [
+    fichas > 0 ? plural(fichas, 'ficha repasada', 'fichas repasadas') : null,
+    respuestas > 0 ? plural(respuestas, 'respuesta de test', 'respuestas de test') : null,
+  ].filter(Boolean);
+  return partes.join(' y ');
+}
+
 const PREFER_LOGIN_KEY = 'bomberopro:prefer-login:v1';
 /** El alumno pidió la pantalla de acceso (salió de la demo o ya tuvo sesión): no se le manda a invitado. */
 export function markPreferLogin(): void { store()?.setItem(PREFER_LOGIN_KEY, '1'); }

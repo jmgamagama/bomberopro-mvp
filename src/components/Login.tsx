@@ -7,7 +7,7 @@ import {
   leerEnlaceInvitacion, mensajeErrorAcceso, mensajeErrorEnlace, SIN_CONEXION,
   type MensajeAcceso, type ModoAcceso,
 } from '../lib/mensajesAcceso';
-import { guestProgressSummary, hasGuestSignupIntent, markGuestSignupIntent } from '../utils/guestProgress';
+import { describeGuestProgress, guestProgressSummary, hasGuestSignupIntent, markGuestSignupIntent } from '../utils/guestProgress';
 import { Lock, Loader2, Flame, ScrollText, Timer, Brain, ArrowRight, BookOpen, Eye, EyeOff, MailCheck, Save } from 'lucide-react';
 
 interface LoginProps {
@@ -21,16 +21,8 @@ interface LoginProps {
   onContinueGuest?: () => void;
 }
 
-const plural = (n: number, uno: string, varios: string) => `${n} ${n === 1 ? uno : varios}`;
-
-/** «12 fichas repasadas y 15 respuestas de test»: solo lo que de verdad hay guardado. */
-export function describeGuestProgress({ fichas, respuestas }: { fichas: number; respuestas: number }): string {
-  const partes = [
-    fichas > 0 ? plural(fichas, 'ficha repasada', 'fichas repasadas') : null,
-    respuestas > 0 ? plural(respuestas, 'respuesta de test', 'respuestas de test') : null,
-  ].filter(Boolean);
-  return partes.join(' y ');
-}
+/** Se mantiene la exportación para quien la importe desde aquí; vive en utils/guestProgress. */
+export { describeGuestProgress };
 
 type Aviso = (MensajeAcceso & { type: 'success' | 'error' }) | null;
 
