@@ -53,7 +53,7 @@ import Dashboard from './components/Dashboard';
 import TrainScreen from './components/TrainScreen';
 import Badajoz2026Card from './components/Badajoz2026Card';
 import SesionHoyCard from './components/SesionHoyCard';
-import { hasGuestSignupIntent, markGuestSignupIntent, markPreferLogin, migrateGuestProgress, prefersLogin } from './utils/guestProgress';
+import { clearPreferLogin, hasGuestSignupIntent, markGuestSignupIntent, markPreferLogin, migrateGuestProgress, prefersLogin } from './utils/guestProgress';
 import Skeleton from './components/Skeleton';
 import AppShell from './components/AppShell';
 
@@ -684,10 +684,13 @@ export default function App() {
 
   // «Seguir sin cuenta con mi progreso» (pantalla de acceso): vuelve al modo invitado sin empezar de cero.
   // Sin sesión, el dueño del progreso local es la demo: se recargan sus respuestas guardadas (test y simulacro).
+  // Es una elección explícita: se quita la marca de «prefiere el acceso» para que al volver entre directo a su
+  // progreso. En un equipo compartido basta con «Salir» en la franja del modo invitado, que vuelve a poner la marca.
   const handleContinueGuest = () => {
     setLoginMode('entrar');
     handleStartDemo(false);
     if (!session) {
+      clearPreferLogin();
       setAttempts(getAttempts());
       setMemoryStates(getSafeMemoryStates());
     }

@@ -41,5 +41,19 @@ describe('volver con progreso de invitado', () => {
     expect(screen.queryByText(/^Pregunta 1 de/)).not.toBeInTheDocument();
     // El progreso guardado sigue intacto.
     expect(JSON.parse(localStorage.getItem('mira_demo_attempts_v2') ?? '[]')).toHaveLength(1);
+    // Eligió seguir sin cuenta: al volver otro día entra directo, sin pasar otra vez por la pantalla de acceso.
+    expect(localStorage.getItem('bomberopro:prefer-login:v1')).toBeNull();
+  });
+
+  it('al volver tras «Seguir sin cuenta» entra directo al modo invitado, sin la pantalla de acceso', async () => {
+    const user = userEvent.setup();
+    const { unmount } = render(<App />);
+    await user.click(await screen.findByRole('button', { name: 'Seguir sin cuenta con mi progreso' }));
+    expect(await screen.findByRole('region', { name: /modo invitado/i })).toBeInTheDocument();
+    unmount();
+    render(<App />);
+    expect(await screen.findByRole('region', { name: /modo invitado/i })).toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: 'Tu progreso sin cuenta' })).not.toBeInTheDocument();
+    expect(JSON.parse(localStorage.getItem('mira_demo_attempts_v2') ?? '[]')).toHaveLength(1);
   });
 });

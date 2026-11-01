@@ -107,6 +107,8 @@ export function describeGuestProgress({ fichas, respuestas }: GuestProgressSumma
 const PREFER_LOGIN_KEY = 'bomberopro:prefer-login:v1';
 /** El alumno pidió la pantalla de acceso (salió de la demo o ya tuvo sesión): no se le manda a invitado. */
 export function markPreferLogin(): void { store()?.setItem(PREFER_LOGIN_KEY, '1'); }
+/** El alumno eligió seguir sin cuenta: la próxima vez vuelve directo a su progreso de invitado. */
+export function clearPreferLogin(): void { store()?.removeItem(PREFER_LOGIN_KEY); }
 export function prefersLogin(): boolean {
   const s = store();
   if (!s) return false;

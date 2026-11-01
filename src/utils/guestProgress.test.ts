@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { beforeEach, describe, expect, it } from 'vitest';
-import { guestKeyPlan, hasGuestSignupIntent, markGuestSignupIntent, markPreferLogin, migrateGuestProgress, prefersLogin } from './guestProgress';
+import { clearPreferLogin, guestKeyPlan, hasGuestSignupIntent, markGuestSignupIntent, markPreferLogin, migrateGuestProgress, prefersLogin } from './guestProgress';
 
 describe('progreso de invitado → cuenta', () => {
   beforeEach(() => window.localStorage.clear());
@@ -43,6 +43,12 @@ describe('progreso de invitado → cuenta', () => {
     expect(prefersLogin()).toBe(true);
     localStorage.clear();
     markPreferLogin();
+    expect(prefersLogin()).toBe(true);
+    clearPreferLogin();
+    expect(prefersLogin()).toBe(false);
+    // Respuestas pendientes de una cuenta siguen mandando al acceso aunque se quite la marca.
+    localStorage.setItem('bomberopro:pending-attempts:v1:user-1', '[]');
+    clearPreferLogin();
     expect(prefersLogin()).toBe(true);
   });
 });
