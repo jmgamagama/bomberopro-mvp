@@ -86,6 +86,7 @@ Visibles para el alumno: **804** de 3402 fichas.
 | `tema36-lote06` | 55 | pendiente | 0 | solo comprobación automática (sin revisión manual ficha a ficha) | `/workspace/tema36_lote06_calidad.md` |
 | `tema36-lote07` | 55 | pendiente | 0 | solo comprobación automática (sin revisión manual ficha a ficha) | `/workspace/tema36_lote07_calidad.md` |
 | `tema36-lote08` | 55 | pendiente | 0 | solo comprobación automática (sin revisión manual ficha a ficha) | `/workspace/tema36_lote08_calidad.md` |
+| `tema37` | 37 | revisado | 37 | 37 de 37 literales en la página citada del BOP de Badajoz nº 117 (22/06/2026, anuncio 2242/2026), 01/11/2026 | `docs/TEMAS_EN_PREPARACION_2026-11-01.md` |
 | `tema38` | 198 | revisado | 198 | decisión del propietario | `/workspace/tema38_cambios.md` |
 | `tema39` | 149 | revisado | 149 | decisión del propietario | `/workspace/tema39_cambios.md` |
 | `tema40` | 213 | revisado | 213 | decisión del propietario | `/workspace/tema40_validacion.md` |

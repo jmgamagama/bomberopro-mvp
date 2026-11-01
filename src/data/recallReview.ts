@@ -60,6 +60,7 @@ export const MAZOS_REVISADOS: ReadonlySet<string> = new Set([
   'tema27-lote02',
   'tema33-lote02',
   'tema35',
+  'tema37',
   'tema38',
   'tema39',
   'tema40',

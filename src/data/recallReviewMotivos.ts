@@ -44,6 +44,7 @@ export const REVIEWED_DECKS: Readonly<Record<string, DeckReview>> = {
   'tema27-lote02': revisado('30 de 30 fichas cotejadas: 8 con RD 842/2013, BOE-A-2013-12323 vigente, y 22 con el CTE DB SI (ed. 4/3/2025, codigotecnico.org), aceptado como fuente oficial por el propietario (31/10/2026)', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   'tema33-lote02': revisado('8 de 30 fichas dentro del epígrafe (mantenimiento de BIE, hidrantes, columnas secas y abastecimiento de agua) cotejadas con el anexo II del RIPCI en su versión vigente desde el 10/05/2025 (RD 164/2025), BOE-A-2017-6606 (31/10/2026); las 22 restantes quedan ocultas por estar fuera del epígrafe', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),
   tema35: revisado('revisión completa por decisión del propietario', 'tema35_calidad.md'),
+  tema37: revisado('37 de 37 fichas literales en la página citada del Plan de prevención de riesgos laborales del CPEI, aprobación definitiva en el BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026 (PDF de dip-badajoz.es idéntico a la copia del repo, 01/11/2026); 3 respuestas completadas al literal (dos PRA y la autorización de uso de equipos) y 1 pregunta reformulada', 'docs/TEMAS_EN_PREPARACION_2026-11-01.md'),
   tema38: revisado('revisión completa por decisión del propietario', 'tema38_cambios.md'),
   tema39: revisado('revisión completa por decisión del propietario', 'tema39_cambios.md'),
   tema40: revisado('revisión completa por decisión del propietario', 'tema40_validacion.md'),

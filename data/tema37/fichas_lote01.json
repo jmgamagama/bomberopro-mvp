@@ -60,7 +60,7 @@
       "id": "CPEI-T37-L01-4660EB2EC9",
       "orden": 70,
       "concepto": "¿Qué parques forman el PRA Puebla - Alburquerque (zona 1)?",
-      "respuesta": "Pra Puebla - Alburquerque Parque Puebla de la Calzada",
+      "respuesta": "Pra Puebla - Alburquerque Parque Puebla de la Calzada Parque Alburqueque",
       "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
       "localizacion": "BOP nº 117, anuncio 2242/2026, página 5 de 77, apartado 1.2",
       "apartado": "1.2"
@@ -69,7 +69,7 @@
       "id": "CPEI-T37-L01-A597CC01FF",
       "orden": 80,
       "concepto": "¿Qué parques forman el PRA Castuera-Herrera (zona 2)?",
-      "respuesta": "PRA Castuera-Herrera Parque Castuera",
+      "respuesta": "PRA Castuera-Herrera Parque Castuera Parque Herrera del Duque",
       "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
       "localizacion": "BOP nº 117, anuncio 2242/2026, página 5 de 77, apartado 1.2",
       "apartado": "1.2"
@@ -77,7 +77,7 @@
     {
       "id": "CPEI-T37-L01-91DD951A0A",
       "orden": 90,
-      "concepto": "¿Qué parque consorciado encabeza la zona 4?",
+      "concepto": "¿Qué parque consorciado forma parte de la zona 4?",
       "respuesta": "Zona 4 Parque Consorciado de Almendralejo",
       "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
       "localizacion": "BOP nº 117, anuncio 2242/2026, página 5 de 77, apartado 1.2",
@@ -258,7 +258,7 @@
       "id": "CPEI-T37-L01-67FF18856D",
       "orden": 290,
       "concepto": "¿Qué lugar ocupan los equipos de protección individual entre las medidas preventivas según el Plan?",
-      "respuesta": "La utilización de equipos de protección individual será el último recurso",
+      "respuesta": "La utilización de equipos de protección individual será el último recurso preventivo que adoptarán las personas trabajadoras",
       "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
       "localizacion": "BOP nº 117, anuncio 2242/2026, página 13 de 77, apartado 15",
       "apartado": "15"
@@ -329,10 +329,10 @@
     {
       "id": "CPEI-T37-L01-423B47B0B7",
       "orden": 370,
-      "concepto": "¿Quién autoriza el uso de equipos tras la comunicación del Jefe/a de Servicio de Formación?",
-      "respuesta": "Proceder a la autorización del uso de equipos una vez recibida la comunicación por parte del Jefe/a de",
+      "concepto": "Según las funciones del Jefe/a de Servicio de Formación, ¿a quién comunica la formación necesaria y quién autoriza después el uso del equipo de trabajo?",
+      "respuesta": "Comunicar al oficial la conclusión y aprovechamiento de la formación necesaria para que este, proceda a la autorización del uso del equipo de trabajo por parte del trabajador.",
       "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
-      "localizacion": "BOP nº 117, anuncio 2242/2026, página 16 de 77, apartado Anexo II",
+      "localizacion": "BOP nº 117, anuncio 2242/2026, página 15 de 77, apartado Anexo II",
       "apartado": "Anexo II"
     }
   ]
