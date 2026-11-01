@@ -17,14 +17,14 @@ interface AccesoConfirmadoProps {
  */
 export default function AccesoConfirmado({ retorno, conSesion, onContinuar }: AccesoConfirmadoProps) {
   const pideContrasena = conSesion && (retorno.tipo === 'invitacion' || retorno.tipo === 'recuperar');
-  const esError = retorno.tipo === 'error';
+  const necesitaAtencion = retorno.tipo === 'error' || (!conSesion && (retorno.tipo === 'invitacion' || retorno.tipo === 'recuperar'));
 
   return (
     <div role="main" className="min-h-screen bg-fondo flex items-center justify-center p-4 font-sans text-slate-800">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-100">
-        <div className={`p-8 text-center text-white ${esError ? 'bg-slate-700' : 'bg-indigo-600'}`}>
+        <div className={`p-8 text-center text-white ${necesitaAtencion ? 'bg-slate-700' : 'bg-indigo-600'}`}>
           <div className="mx-auto w-14 h-14 bg-white/15 rounded-full flex items-center justify-center mb-4">
-            {esError
+            {necesitaAtencion
               ? <AlertTriangle className="w-7 h-7 text-white" aria-hidden="true" />
               : pideContrasena
                 ? <KeyRound className="w-7 h-7 text-white" aria-hidden="true" />
@@ -47,14 +47,15 @@ export default function AccesoConfirmado({ retorno, conSesion, onContinuar }: Ac
 function titulo(retorno: RetornoAuth, conSesion: boolean): string {
   switch (retorno.tipo) {
     case 'error': return 'Este enlace ya no funciona';
-    case 'invitacion': return conSesion ? '¡Bienvenido a BomberoPro!' : 'Invitación aceptada';
-    case 'recuperar': return conSesion ? 'Elige tu nueva contraseña' : 'Enlace abierto';
+    case 'invitacion': return conSesion ? '¡Bienvenido a BomberoPro!' : 'No se pudo abrir la invitación';
+    case 'recuperar': return conSesion ? 'Elige tu nueva contraseña' : 'No se pudo abrir el enlace';
     default: return '¡Cuenta activada!';
   }
 }
 
 function Mensaje({ retorno, conSesion, onContinuar }: AccesoConfirmadoProps) {
-  const boton = conSesion ? 'Empezar a estudiar' : 'Ir a Entrar';
+  const necesitaNuevoEnlace = retorno.tipo === 'invitacion' || retorno.tipo === 'recuperar';
+  const boton = conSesion ? 'Empezar a estudiar' : necesitaNuevoEnlace ? 'Volver a Entrar' : 'Ir a Entrar';
   return (
     <>
       {retorno.tipo === 'error' ? (
@@ -66,6 +67,24 @@ function Mensaje({ retorno, conSesion, onContinuar }: AccesoConfirmadoProps) {
           <p className="text-base text-slate-700">
             <strong>Si ya activaste tu cuenta</strong>, entra con tu correo y tu contraseña.
             <strong> Si no</strong>, en «Entrar» pide un enlace nuevo al correo.
+          </p>
+        </>
+      ) : !conSesion && retorno.tipo === 'recuperar' ? (
+        <>
+          <p role="alert" className="text-base text-slate-700">
+            No hemos podido validar el enlace para cambiar tu contraseña. Puede que haya caducado o que ya se haya usado.
+          </p>
+          <p className="text-sm text-slate-600">
+            Vuelve a Entrar y solicita otro desde «He olvidado la contraseña». Usa el correo más reciente y ábrelo en el navegador donde quieres estudiar.
+          </p>
+        </>
+      ) : !conSesion && retorno.tipo === 'invitacion' ? (
+        <>
+          <p role="alert" className="text-base text-slate-700">
+            No hemos podido iniciar tu sesión con este enlace de invitación. Puede que haya caducado o ya se haya usado.
+          </p>
+          <p className="text-sm text-slate-600">
+            Vuelve a Entrar y activa la invitación con el mismo correo. Si sigue sin funcionar, pide al equipo que te envíe otra.
           </p>
         </>
       ) : (
