@@ -111,19 +111,19 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
   {
     "id": "CPEI-T15-OF-3479E342",
     "orden": 110,
-    "concepto": "Según la NTP 221 del INSST, ¿por qué elemento viene determinada la capacidad de carga de una eslinga?",
-    "respuesta": "Por la de su elemento más débil",
-    "fuente": "NTP 221 (INSST), Capacidad de carga, pág. 5. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=5",
-    "localizacion": "NTP 221 (INSST), Capacidad de carga, pág. 5",
+    "concepto": "Según el anexo I del RD 1644/2008, ¿qué se tiene en cuenta para determinar la carga máxima de utilización de una eslinga de hilos múltiples?",
+    "respuesta": "El coeficiente de utilización del hilo más débil, el número de hilos y un factor de reducción que dependerá de la configuración de eslingado",
+    "fuente": "RD 1644/2008, anexo I, 4.1.2.5.e. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "localizacion": "RD 1644/2008, anexo I, 4.1.2.5.e",
     "apartado": "Eslingas y accesorios de elevación"
   },
   {
     "id": "CPEI-T15-OF-92BB32EF",
     "orden": 120,
-    "concepto": "Según la NTP 221 del INSST, ¿dónde debe estar marcada la capacidad de carga máxima?",
-    "respuesta": "En la eslinga, en lugar bien visible",
-    "fuente": "NTP 221 (INSST), Capacidad de carga, pág. 5. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=5",
-    "localizacion": "NTP 221 (INSST), Capacidad de carga, pág. 5",
+    "concepto": "Según el anexo I del RD 1644/2008, ¿dónde deben colocarse las indicaciones de un accesorio de elevación, como su carga máxima de utilización?",
+    "respuesta": "En un lugar en el que no puedan desaparecer por causa del desgaste ni pongan en peligro la resistencia del accesorio",
+    "fuente": "RD 1644/2008, anexo I, 4.3.2. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "localizacion": "RD 1644/2008, anexo I, 4.3.2",
     "apartado": "Eslingas y accesorios de elevación"
   },
   {
@@ -255,10 +255,10 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
   {
     "id": "CPEI-T15-OF-35B8860D",
     "orden": 270,
-    "concepto": "Según la NTP 841 del INSST, ¿qué es el coeficiente de utilización (o de seguridad)?",
-    "respuesta": "Relación aritmética entre la carga mínima de rotura garantizada por el fabricante y la carga máxima de utilización marcada sobre la eslinga",
-    "fuente": "NTP 841 (INSST), Términos y definiciones, pág. 2. INSST, NTP 841: Eslingas textiles (I) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/841+web.pdf#page=2",
-    "localizacion": "NTP 841 (INSST), Términos y definiciones, pág. 2",
+    "concepto": "Según el anexo I del RD 1644/2008, ¿qué es el «coeficiente de utilización»?",
+    "respuesta": "Relación aritmética entre la carga que un elemento puede soportar, garantizada por el fabricante o su representante autorizado, y la carga máxima de utilización marcada en el elemento",
+    "fuente": "RD 1644/2008, anexo I, 4.1.1.c. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "localizacion": "RD 1644/2008, anexo I, 4.1.1.c",
     "apartado": "Eslingas y accesorios de elevación"
   },
   {

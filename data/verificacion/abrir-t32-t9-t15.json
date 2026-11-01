@@ -939,13 +939,13 @@
    },
    {
     "id": "CPEI-T15-OF-3479E342",
-    "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "estado": "ok",
+    "motivo": ""
    },
    {
     "id": "CPEI-T15-OF-92BB32EF",
-    "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "estado": "ok",
+    "motivo": ""
    },
    {
     "id": "CPEI-T15-OF-E5726FB4",
@@ -1019,8 +1019,8 @@
    },
    {
     "id": "CPEI-T15-OF-35B8860D",
-    "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "estado": "ok",
+    "motivo": ""
    },
    {
     "id": "CPEI-T15-OF-4D5A07C5",
@@ -1349,5 +1349,6 @@
    }
   ]
  },
- "t9_literal": "2026-11-01: 14 respuestas reescritas al literal (feat/t9-literal); 2 siguen ocultas"
+ "t9_literal": "2026-11-01: 14 respuestas reescritas al literal (feat/t9-literal); 2 siguen ocultas",
+ "t15_literal": "2026-11-01: 3 fichas recitadas al literal del RD 1644/2008 (feat/t15-literal); 56 siguen ocultas (fuente INSST sin texto equivalente en una norma BOE vigente, o ya cubierto por otra ficha visible)"
 }

@@ -152,6 +152,8 @@ export const REVIEWED_CARDS_IN_PENDING_DECKS: Readonly<Record<string, readonly s
     'CPEI-T15-OF-AA6894F1', 'CPEI-T15-OF-17905817', 'CPEI-T15-OF-5CE69868', 'CPEI-T15-OF-FF05DE16',
     'CPEI-T15-OF-1E65E692', 'CPEI-T15-OF-1B4EBEAA', 'CPEI-T15-OF-2D6D2074', 'CPEI-T15-OF-A659887D',
     'CPEI-T15-OF-BEC236DD',
+    // T15: 3 más el 01/11/2026 (feat/t15-literal): recitadas de la NTP del INSST al literal del RD 1644/2008, anexo I (4.1.1.c, 4.1.2.5.e y 4.3.2).
+    'CPEI-T15-OF-35B8860D', 'CPEI-T15-OF-3479E342', 'CPEI-T15-OF-92BB32EF',
   ],
   // Embalses verificados con el Anuario de Aforos del CEDEX (río y municipio), 31/10/2026.
   'tema36-lote01': [
