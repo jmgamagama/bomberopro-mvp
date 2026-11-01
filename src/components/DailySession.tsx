@@ -3,7 +3,6 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import AvisoGuardadoFichas from './AvisoGuardadoFichas';
 import { Flame, Play, Eye, EyeOff, CheckCircle2, ListOrdered, BarChart3, Lock, HelpCircle, CalendarClock } from 'lucide-react';
 import {
-  pickDailyRecallSession,
   loadDailyStreak,
   completeDailySession,
   countDueTomorrow,
@@ -33,6 +32,8 @@ import { loadReviewLog, measuredElapsedMs } from '../utils/recallReviewLog';
 import ExamDateField from './ExamDateField';
 import DailyMinutesField from './DailyMinutesField';
 import FuenteOficial from './FuenteOficial';
+import { planHoyDelDispositivo } from '../utils/planHoy';
+import { quitarPrioridad } from '../utils/planDiario';
 import { INITIAL_QUESTIONS } from '../data/initialData';
 import { EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS } from '../utils/examScoring';
 import { formatPoints } from '../utils/formatNumber';
@@ -109,15 +110,11 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
   const preferredTopicRaw = preferredDeckId ? getVisibleTopic(preferredDeckId) : undefined;
   const preferredTopic = preferredTopicRaw && canAccessTopic(preferredTopicRaw, plan) ? preferredTopicRaw : undefined;
   const effectivePreferred = preferredTopic?.id ?? null;
+  // Misma selección que «Tu plan de hoy» del Inicio (src/utils/planHoy.ts): prioridades de mañana,
+  // tema con más fallos recientes si no se eligió uno, y el reparto de pickDailyRecallSession.
   const session = useMemo(
-    () =>
-      pool
-        ? pickDailyRecallSession(pool, sessionSize, undefined, {
-            preferredDeckId: effectivePreferred,
-            srs: srsSnapshot,
-            finalStretch,
-          })
-        : [],
+    () => (pool ? planHoyDelDispositivo(pool, { size: sessionSize, srs: srsSnapshot, preferredDeckId: effectivePreferred }).cards : []),
+    // finalStretch se lee dentro; se mantiene como dependencia para recalcular si cambia la fecha.
     [effectivePreferred, finalStretch, pool, sessionSize, srsSnapshot],
   );
   const mix = useMemo(() => summarizeSession(session, srsSnapshot), [session, srsSnapshot]);
@@ -158,6 +155,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
     if (current?.deckId) {
       try {
         recordRecallGrade(current.deckId, current.id, grade, new Date(), measuredElapsedMs(shownAt.current));
+        quitarPrioridad(current.deckId, current.id);
       } catch (err) {
         if (!(err instanceof RecallSaveError)) throw err;
         setFailedGrade(grade);

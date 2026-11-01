@@ -972,14 +972,14 @@ export default function App() {
               Mis reportes
             </button>
           )}
-          {(isDemoMode || !session) && (
-            <SesionHoyCard
-              onOpen={(directo) => {
-                handleNavigate('sesion_diaria');
-                setDailyAutoStart(directo);
-              }}
-            />
-          )}
+          <SesionHoyCard
+            preguntasPendientes={pendingCount}
+            onOpenPreguntas={() => handleNavigate('today_training')}
+            onOpen={(directo) => {
+              handleNavigate('sesion_diaria');
+              setDailyAutoStart(directo);
+            }}
+          />
           <Badajoz2026Card
             onOpenSupuestos={supuestosVisibles ? () => handleNavigate('supuestos') : undefined}
             onOpenProgress={() => handleNavigate('recuerdo')}

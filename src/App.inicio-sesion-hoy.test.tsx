@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 // Inicio del invitado (01/11/2026): al volver (bienvenida ya vista), la sesión diaria está arriba
 // con las fichas que le tocan hoy, y un toque lleva a la primera ficha. Antes solo estaba en «Más».
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import './test/setup';
@@ -40,20 +40,22 @@ describe('Inicio del invitado que vuelve', () => {
     localStorage.setItem('mira_recall_srs_v1:demo', JSON.stringify({ v: 1, d: { tema40: d } }));
     const user = userEvent.setup();
     render(<App />);
-    expect(await screen.findByRole('heading', { name: 'Tu sesión diaria' })).toBeInTheDocument();
-    expect(document.querySelector('#sesion-hoy-texto')).toHaveTextContent('Hoy te toca repasar 2 fichas que ya viste.');
+    expect(await screen.findByRole('heading', { name: 'Tu plan de hoy' })).toBeInTheDocument();
+    // El plan dice cuántas son de repaso (las 2 que vencen) y empieza por ellas.
+    await waitFor(() => expect(document.querySelector('#sesion-hoy-texto')).toHaveTextContent(/^\d+ fichas \(2 pendientes de repaso y \d+ nuevas\) del T\d+/));
+    expect(document.querySelector('#sesion-hoy-texto')).toHaveTextContent(/unos \d+ min\./);
     // Va antes que la portada de la convocatoria.
     const tarjeta = document.querySelector('#sesion-hoy')!;
     const portada = document.querySelector('#badajoz-2026')!;
     expect(tarjeta.compareDocumentPosition(portada) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    await user.click(screen.getByRole('button', { name: 'Seguir con la sesión diaria' }));
+    await user.click(screen.getByRole('button', { name: 'Empezar mi plan de hoy' }));
     expect(await screen.findByRole('button', { name: /mostrar respuesta/i })).toBeInTheDocument();
     expect(screen.getByText(/^Recuerdo · 1 \/ \d+$/)).toBeInTheDocument();
   });
 
   it('sin nada repasado, invita a empezar la sesión', async () => {
     render(<App />);
-    expect(await screen.findByRole('button', { name: 'Empezar sesión diaria' })).toBeInTheDocument();
-    expect(document.querySelector('#sesion-hoy-texto')).toHaveTextContent(/^Hasta \d+ fichas de repaso de todos los temas\. Sin cuenta: se guarda en este dispositivo\.$/);
+    expect(await screen.findByRole('button', { name: 'Empezar mi plan de hoy' })).toBeInTheDocument();
+    expect(document.querySelector('#sesion-hoy-texto')).toHaveTextContent(/^\d+ fichas \(\d+ nuevas\) del T\d+/);
   });
 });
