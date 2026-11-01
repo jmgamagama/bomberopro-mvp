@@ -176,15 +176,16 @@ describe('Login', () => {
       expect(window.location.search).toBe('');
     });
 
-    it('un correo no invitado recibe un mensaje claro, sin jerga técnica', async () => {
+    it('un error interno de registro recibe un mensaje neutral, sin revelar el estado de invitación', async () => {
       signUp.mockResolvedValue({ data: { session: null, user: null }, error: { status: 500, code: 'unexpected_failure', message: 'Database error saving new user' } });
       const user = userEvent.setup();
       render(<Login />);
       await user.click(screen.getByRole('button', { name: 'Activar invitación' }));
       await fillAndSubmit(user, 'otro@ejemplo.es');
       const alerta = await screen.findByRole('alert');
-      expect(alerta).toHaveTextContent(/no está en la lista del grupo piloto/i);
-      expect(alerta).not.toHaveTextContent(/database|error/i);
+      expect(alerta).toHaveTextContent(/no hemos podido completar el alta/i);
+      expect(alerta).toHaveTextContent(/contacta con el equipo/i);
+      expect(alerta).not.toHaveTextContent(/lista del grupo piloto|no está invitado|database|error/i);
     });
 
     it('si el correo ya tenía cuenta, pasa a «Entrar» con el correo puesto', async () => {
