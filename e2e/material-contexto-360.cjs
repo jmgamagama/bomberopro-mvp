@@ -159,6 +159,51 @@ async function comprobarDialogo(page, nombre, conResalte) {
     await page.getByRole('button', { name: 'Volver a Tu progreso' }).click();
     await page.locator('#material-contexto').waitFor({ state: 'detached' });
   }
+  // 5) Normas del DOE (feat/material-doe): T20, T29 y T30, con el aviso de la comprobación manual y enlaces al PDF oficial.
+  let m = 12;
+  for (const [t, normas] of [['20', 1], ['29', 1], ['30', 4]]) {
+    const b = page.locator(`[data-material-tema="${t}"]`);
+    if (await b.count()) { await b.scrollIntoViewIfNeeded(); await b.click(); await page.locator('#material-contexto').waitFor(); }
+    else {
+      log(`T${t}: sin acceso en Tu progreso; se abre desde el selector de tema`);
+      await page.locator('[data-material-tema]').first().click();
+      await page.locator('#material-contexto').waitFor();
+      await page.locator('#material-contexto select').first().selectOption(t);
+    }
+    const dlg = page.locator('#material-contexto');
+    const avisos = dlg.locator('[data-testid="aviso-doe"]');
+    await avisos.first().waitFor({ timeout: 8000 }).catch(() => {});
+    const textos = await avisos.allInnerTexts();
+    log(`T${t} AVISO DOE:`, textos.map((x) => x.slice(0, 160).replace(/\n+/g, ' ')).join(' || '));
+    check(`T${t}: ${normas} aviso(s) con fecha de comprobación y lo buscado`, textos.length === normas && textos.every((x) => /comprobado a mano el 01\/11\/2026/.test(x) && /Qué se buscó: \S/.test(x)));
+    const doe = await dlg.locator('[data-testid="aviso-doe"] a[href^="https://doe.juntaex.es/pdfs/doe/"]').count();
+    check(`T${t}: enlace al PDF del DOE en cada norma`, doe === normas);
+    const pdf = dlg.locator('[role="tabpanel"] a[href*=".pdf#page="]');
+    await pdf.first().waitFor({ timeout: 8000 }).catch(() => {});
+    const href = await pdf.first().getAttribute('href').catch(() => '');
+    log(`T${t}: esquema con ${await pdf.count()} enlaces a páginas del PDF oficial; p. ej. ${href}`);
+    check(`T${t}: rúbricas del esquema enlazadas a su página del PDF oficial`, (await pdf.count()) > 0 && (await dlg.locator('[role="tabpanel"] a[href*="boe.es"]').count()) === 0);
+    await page.screenshot({ path: `${OUT}/${m++}-material-T${t}-esquema.png` });
+    await avisos.first().scrollIntoViewIfNeeded();
+    await page.screenshot({ path: `${OUT}/${m++}-material-T${t}-aviso-doe.png` });
+    await axe(page, `material DOE T${t}`);
+    check(`T${t}: sin scroll horizontal`, (await page.evaluate(() => document.documentElement.scrollWidth)) <= 360);
+    if (t === '30') {
+      // Las tablas no se copian: se remite a su página del PDF (INUNCAEX, operatividad).
+      await page.getByLabel('Bloque').selectOption('planes-03');
+      await dlg.getByRole('tab', { name: 'Texto oficial' }).click();
+      const tabla = dlg.locator('[role="tabpanel"] a', { hasText: /^PDF oficial, pág\. \d+$/ });
+      await tabla.first().waitFor({ timeout: 8000 }).catch(() => {});
+      log('T30 texto oficial: remisiones de tablas al PDF:', await tabla.count(), '| nota de la capa:', await dlg.getByText(/Texto literal del PDF oficial/).first().innerText().catch(() => ''));
+      check('T30: las tablas se remiten a su página del PDF', (await tabla.count()) > 0);
+      check('T30: la capa no dice «del BOE»', (await dlg.getByText('Texto literal del BOE, artículo por artículo.').count()) === 0);
+      await tabla.first().scrollIntoViewIfNeeded();
+      await page.screenshot({ path: `${OUT}/${m++}-material-T30-tabla-remitida.png` });
+      await axe(page, 'material DOE T30 texto oficial');
+    }
+    await page.getByRole('button', { name: 'Volver a Tu progreso' }).click();
+    await page.locator('#material-contexto').waitFor({ state: 'detached' });
+  }
   await browser.close();
   const ok = res.every(Boolean);
   log(ok ? `TODO OK (${res.length})` : 'HAY FALLOS');

@@ -45,9 +45,15 @@ def main() -> None:
                 pares.append((spec["tema"], b))
     pares.sort()
     vistos: dict[str, dict] = {}
+    manuales: list[str] = []
     for tema, boe_id in pares:
         spec = {"tema": tema}
         meta = json.loads((pathlib.Path("data/fuentes") / boe_id / "meta.json").read_text(encoding="utf-8"))
+        if meta.get("origen") == "doe":
+            # El DOE no tiene API de vigencia: se lista la comprobación manual guardada en meta.json (scripts/fuente_doe.py).
+            manuales.append(f"| {tema} | {boe_id} | {meta['publicacion']} | {meta['comprobado']} | {meta['busqueda']} |")
+            print("DOE ", f"T{tema}", boe_id, "comprobado a mano el", meta["comprobado"])
+            continue
         api = vistos.setdefault(boe_id, metadatos(boe_id))
         local = meta["fecha_actualizacion_boe"]
         ok = api["vigencia_agotada"] == "N" and api["estado_consolidacion"] == "Finalizado" and api["fecha_actualizacion"] == local and not api["fecha_derogacion"]
@@ -64,7 +70,10 @@ def main() -> None:
                        "legislación consolidada, `/metadatos`). «Igual a la descargada» compara `fecha_actualizacion` del BOE con "
                        "`data/fuentes/<ID>/meta.json`.\n\n"
                        "| Tema | Norma | Última actualización BOE | Vigencia agotada | Consolidación | Igual a la descargada |\n|---|---|---|---|---|---|\n"
-                       + "\n".join(filas) + "\n", encoding="utf-8")
+                       + "\n".join(filas) + "\n"
+                       + ("\n## Normas del DOE (sin API de vigencia: comprobación manual)\n\n"
+                          "| Tema | Norma | Publicación | Comprobado | Qué se buscó |\n|---|---|---|---|---|\n"
+                          + "\n".join(manuales) + "\n" if manuales else ""), encoding="utf-8")
     if errores:
         print("\n".join(errores))
         raise SystemExit(1)

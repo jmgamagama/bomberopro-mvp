@@ -21,6 +21,12 @@ Opcional en un bloque: "apartados": ["2. ", "3. "] para quedarse solo con esos a
 "subtitulo": clase de párrafo que abre cada apartado (por defecto «centro_redonda»; el anexo II del
 RD 1215/1997 usa «centro_cursiva»).
 
+Normas del DOE (01/11/2026): si data/fuentes/<id>/meta.json trae "origen": "doe" (la genera
+scripts/fuente_doe.py a partir del PDF oficial), el campo "boe" de la especificación y de cada bloque es un
+identificador genérico de norma («DOE-2019040203»). Cambia solo la cabecera (PDF de origen, publicación en el
+DOE, fecha de la comprobación y lo que se buscó, porque el DOE no tiene API de vigencia) y los enlaces, que van
+a la página del PDF oficial (url de cada precepto). Lo demás es la misma lógica.
+
 Salida en public/material/<carpeta>/:
   <prefijo>-NN-1-esquema.md   por bloque: rúbricas literales con enlace a cada precepto en el BOE
   <prefijo>-NN-3-completo.md  por bloque: texto literal con su enlace (las tablas se remiten al BOE)
@@ -50,12 +56,12 @@ def rubrica(b: dict) -> str:
     return " · ".join(cab[:2]) or (b.get("titulo") or b["id"])
 
 
-def cuerpo(b: dict, url: str) -> list[str]:
+def cuerpo(b: dict, url: str, doe: bool = False) -> list[str]:
     out: list[str] = []
     cab_hechos = 0
     for p in b["parrafos"]:
         c, t = p["clase"], p["texto"].strip()
-        if not t or c == "articulo":
+        if (not t and not (doe and c in TABLA)) or c == "articulo":
             continue
         # Apartado numerado centrado («2. Sistemas de…») = subtítulo; el resto de centrados es texto.
         if c in SUBTITULO or (c.startswith("centro_redonda") and re.match(r"^\d+\.\s", t)):
@@ -63,8 +69,14 @@ def cuerpo(b: dict, url: str) -> list[str]:
                 cab_hechos += 1  # ya va en la rúbrica
                 continue
             out += [f"**{t}**", ""]
+        elif c in TABLA and doe:
+            pag = f"{url.split('#')[0]}#page={p['pagina']}" if p.get("pagina") else url
+            # Sin cursiva: el renderizador no anida un enlace dentro de «_…_» (y las URL de la Junta llevan «_»).
+            out += [f"Tabla o figura: consúltala en el [PDF oficial, pág. {p.get('pagina', '')}]({pag}).", ""]
         elif c in TABLA:
             out += [f"_Tabla: consúltala en el [texto oficial del BOE]({url})._", ""]
+        elif c == "nota" and doe:
+            out += [f"> _{t}_" if "_" not in t else f"> {t}", ""]
         else:
             out += [f"> {t}", ""]
     return out
@@ -101,12 +113,19 @@ def main() -> None:
             d = pathlib.Path("data/fuentes") / nid
             meta = json.loads((d / "meta.json").read_text(encoding="utf-8"))
             bl = json.loads((d / "bloques.json").read_text(encoding="utf-8"))
-            f = meta["fecha_actualizacion_boe"][:8]
-            fecha = f"{f[6:8]}/{f[4:6]}/{f[0:4]}"
-            cab = (f"Texto consolidado del BOE ({nid}, última actualización publicada el {fecha}). "
-                   f"Fuente oficial: [{meta['titulo'].rstrip('.')}]({meta['url']}). Texto con carácter informativo; "
-                   "la versión con valor jurídico es la publicada en el BOE.")
-            normas[nid] = {"bloques": bl, "ids": [b["id"] for b in bl], "fecha": fecha, "url": meta["url"], "cab": cab}
+            doe = meta.get("origen") == "doe"
+            if doe:
+                fecha = meta["comprobado"]
+                cab = (f"Texto extraído del PDF oficial: [{meta['titulo'].rstrip('.')}]({meta['pdf']}) ({meta['version']}). "
+                       f"{meta['publicacion']}: [PDF del DOE]({meta['pdf_doe']}). El DOE no tiene API de vigencia: comprobado a mano el {fecha}. "
+                       f"Qué se buscó: {meta['busqueda']} Texto con carácter informativo; la versión con valor jurídico es la publicada en el DOE.")
+            else:
+                f = meta["fecha_actualizacion_boe"][:8]
+                fecha = f"{f[6:8]}/{f[4:6]}/{f[0:4]}"
+                cab = (f"Texto consolidado del BOE ({nid}, última actualización publicada el {fecha}). "
+                       f"Fuente oficial: [{meta['titulo'].rstrip('.')}]({meta['url']}). Texto con carácter informativo; "
+                       "la versión con valor jurídico es la publicada en el BOE.")
+            normas[nid] = {"bloques": bl, "ids": [b["id"] for b in bl], "fecha": fecha, "url": meta["url"], "cab": cab, "doe": doe}
         return normas[nid]
 
     fecha = norma(boe_id)["fecha"]
@@ -119,7 +138,8 @@ def main() -> None:
     for n, bl in enumerate(spec["bloques"], start=1):
         bid = bl.get("boe", boe_id)
         nm = norma(bid)
-        bloques, ids, url, cab = nm["bloques"], nm["ids"], nm["url"], nm["cab"]
+        bloques, ids, url, cab, doe = nm["bloques"], nm["ids"], nm["url"], nm["cab"], nm["doe"]
+        donde = "el PDF oficial" if doe else "el BOE"
         if bl.get("ids"):
             tramo = [bloques[ids.index(i)] for i in bl["ids"]]
         else:
@@ -130,20 +150,20 @@ def main() -> None:
         preceptos = [b for b in tramo if b["tipo"] == "precepto" or any(p["clase"] in TEXTO | TABLA for p in b["parrafos"])]
         slug = f"{spec['prefijo']}-{n:02d}"
         esq = [f"# {bl['titulo']} · Esquema", "", cab, "",
-               f"{len(preceptos)} {'precepto' if len(preceptos) == 1 else 'preceptos'}. Cada rúbrica (literal) enlaza con el BOE.", ""]
+               f"{len(preceptos)} {'precepto' if len(preceptos) == 1 else 'preceptos'}. Cada rúbrica (literal) enlaza con {donde}.", ""]
         com = [f"# {bl['titulo']} · Texto oficial", "", cab, ""]
         for b in tramo:
             if b not in preceptos:
                 esq += [f"**{rubrica(b)}**", ""]
                 com += [f"## {rubrica(b)}", ""]
                 continue
-            enlace = f"{url}#{b['id']}"
+            enlace = b["url"] if doe else f"{url}#{b['id']}"
             esq.append(f"- [{rubrica(b)}]({enlace})")
             if b["tipo"] == "encabezado":  # anexo: sus apartados (subtítulos literales) como subnivel
-                subs = [t for t in cuerpo(b, url) if t.startswith("**") and not t.strip("*").startswith(("Figura", "Tabla", "Gráfico", "Fórmula"))]
+                subs = [t for t in cuerpo(b, url, doe) if t.startswith("**") and not t.strip("*").startswith(("Figura", "Tabla", "Gráfico", "Fórmula"))]
                 esq += [f"  - {t.strip('*')}" for t in subs]
-            com += [f"### {rubrica(b)}", "", f"[Ver en el BOE]({enlace})", ""]
-            com += cuerpo(b, url)
+            com += [f"### {rubrica(b)}", "", f"[Ver en {'el PDF oficial' if doe else 'el BOE'}]({enlace})", ""]
+            com += cuerpo(b, enlace if doe else url, doe)
         # Listas separadas por subtítulos: una línea en blanco al final de cada lista.
         esq_txt = "\n".join(esq).replace("\n**", "\n\n**").replace("\n\n\n", "\n\n")
         (out / f"{slug}-1-esquema.md").write_text(esq_txt.rstrip() + "\n", encoding="utf-8")
