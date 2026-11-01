@@ -8,7 +8,7 @@ import { mapaTemas } from './progresoMapa';
 import { localDayNumber } from './localDate';
 
 const today = localDayNumber(new Date(2026, 10, 1, 12));
-const c = (tema: number, i: number, art: number): RecallCard => ({ id: `t${tema}-${i}`, prompt: '', answer: '', fuente: `Ley, Artículo ${art}`, deckId: `tema${tema}`, topicId: `tema${tema}` });
+const c = (tema: number, i: number, art: number): RecallCard => ({ id: `t${tema}-${i}`, prompt: '', answer: '', fuente: `${tema === 1 ? 'CE' : 'Decreto'}, Artículo ${art}`, deckId: `tema${tema}`, topicId: `tema${tema}` });
 const pool = [...Array.from({ length: 9 }, (_, i) => c(1, i, 1)), c(1, 20, 2), ...Array.from({ length: 3 }, (_, i) => c(35, i, 5))];
 
 beforeEach(() => localStorage.clear());

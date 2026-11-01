@@ -52,7 +52,7 @@ export interface PlanSimulacro {
 }
 
 export function planDesdeFallos(
-  fallos: readonly { tema?: { numero: number } | null; fuente?: string }[],
+  fallos: readonly { tema?: { numero: number } | null; fuente?: string; question?: string }[],
   pool: readonly RecallCard[],
   dias: number = DIAS_PLAN_SIMULACRO,
 ): PlanSimulacro {
