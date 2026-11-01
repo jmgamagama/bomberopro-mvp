@@ -5,15 +5,16 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-const { signUp, signInWithPassword, signInWithOtp, resend } = vi.hoisted(() => ({
+const { signUp, signInWithPassword, signInWithOtp, resetPasswordForEmail, resend } = vi.hoisted(() => ({
   signUp: vi.fn(),
   signInWithPassword: vi.fn(),
   signInWithOtp: vi.fn(),
+  resetPasswordForEmail: vi.fn(),
   resend: vi.fn(),
 }));
 
 vi.mock('../lib/supabase', () => ({
-  supabase: { auth: { signUp, signInWithPassword, signInWithOtp, resend } },
+  supabase: { auth: { signUp, signInWithPassword, signInWithOtp, resetPasswordForEmail, resend } },
 }));
 
 import Login from './Login';
@@ -29,6 +30,7 @@ describe('Login', () => {
     signUp.mockReset();
     signInWithPassword.mockReset();
     signInWithOtp.mockReset();
+    resetPasswordForEmail.mockReset();
     resend.mockReset();
   });
   afterEach(() => {
@@ -248,12 +250,26 @@ describe('Login', () => {
       expect(screen.getByRole('button', { name: 'Activar invitación', pressed: true })).toBeInTheDocument();
     });
 
-    it('«He olvidado la contraseña» sin cuenta explica que hay que activar la invitación', async () => {
+    it('solicita el restablecimiento de contraseña y ofrece un mensaje que no revela si hay cuenta', async () => {
+      resetPasswordForEmail.mockResolvedValue({ data: {}, error: null });
+      const user = userEvent.setup();
+      render(<Login />);
+      await user.type(screen.getByLabelText(/correo electrónico/i), 'ANA@ejemplo.es');
+      await user.click(screen.getByRole('button', { name: 'He olvidado la contraseña' }));
+      expect(resetPasswordForEmail).toHaveBeenCalledWith('ana@ejemplo.es', {
+        redirectTo: expect.stringContaining('/?acceso=recuperar'),
+      });
+      const aviso = await screen.findByRole('status');
+      expect(aviso).toHaveTextContent(/si ana@ejemplo\.es tiene una cuenta/i);
+      expect(aviso).toHaveTextContent(/cambiar la contraseña/i);
+    });
+
+    it('permite pedir un enlace distinto para entrar sin contraseña', async () => {
       signInWithOtp.mockResolvedValue({ data: {}, error: { status: 422, code: 'otp_disabled', message: 'Signups not allowed for otp' } });
       const user = userEvent.setup();
       render(<Login />);
       await user.type(screen.getByLabelText(/correo electrónico/i), 'nuevo@ejemplo.es');
-      await user.click(screen.getByRole('button', { name: 'He olvidado la contraseña' }));
+      await user.click(screen.getByRole('button', { name: 'Entrar con enlace sin contraseña' }));
       expect(signInWithOtp).toHaveBeenCalledWith({ email: 'nuevo@ejemplo.es', options: { shouldCreateUser: false, emailRedirectTo: expect.stringContaining('/?acceso=enlace') } });
       expect(await screen.findByRole('alert')).toHaveTextContent(/activa antes tu invitación/i);
     });
