@@ -18,6 +18,7 @@ import { pickDailyRecallSession } from './dailySession';
 import { localDayNumber } from './localDate';
 import { readOwned, writeOwned } from './localOwner';
 import { classifyCard, getCardSrs, GRADE_AGAIN, type SrsStore } from './recallSrs';
+import { relacionar } from './relacionFichas';
 import { boeUrl, DOCUMENTOS_OFICIALES, resolverFuente } from '../data/fuentesOficiales';
 
 /** Minutos estimados por ficha y por pregunta para «unos N min» (constantes, no medidas). */
@@ -226,16 +227,15 @@ export function articuloDe(texto: string | null | undefined): string | undefined
   return nums.size === 1 ? [...nums][0] : undefined;
 }
 
-/** Fichas del mismo tema y artículo que una pregunta (por la fuente de ambas). */
+/**
+ * Fichas relacionadas con una pregunta: mismo tema y documento, y mismo artículo o misma
+ * localización literal (criterios verificables, ver ./relacionFichas).
+ */
 export function fichasRelacionadas(
-  q: { tema?: { numero: number } | null; fuente?: string },
+  q: { tema?: { numero: number } | null; fuente?: string; question?: string },
   pool: readonly RecallCard[],
 ): RecallCard[] {
-  if (!q.tema) return [];
-  const art = articuloDe(q.fuente);
-  if (!art) return [];
-  const tema = `tema${q.tema.numero}`;
-  return pool.filter((c) => c.topicId === tema && articuloDe(c.fuente.split(/https?:\/\//)[0]) === art);
+  return relacionar(q, pool).fichas;
 }
 
 /**
