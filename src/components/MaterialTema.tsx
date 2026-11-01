@@ -152,7 +152,19 @@ export default function MaterialTema({ userId, onExit, tema: temaInicial = 1, vo
                 <a href={f.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 font-semibold text-indigo-700 underline hover:text-orange-700">
                   {f.titulo}<ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
                 </a>
-                {f.version && <span className="text-xs text-slate-500"> · texto consolidado a {f.version}</span>}
+                {f.version && !f.doe && <span className="text-xs text-slate-500"> · texto consolidado a {f.version}</span>}
+                {f.doe && (
+                  <div className="mt-1 text-xs text-slate-600" data-testid="aviso-doe">
+                    <p>
+                      {f.doe.version} · {f.doe.publicacion}:{' '}
+                      <a href={f.doe.pdfDoe} target="_blank" rel="noopener noreferrer" className="font-semibold text-[#1E3A5F] underline hover:text-[#C2410C]">PDF del DOE</a>
+                    </p>
+                    <p className="mt-0.5">
+                      <strong className="text-[#C2410C]">El DOE no tiene API de vigencia: comprobado a mano el {f.doe.comprobado}.</strong>{' '}
+                      Qué se buscó: {f.doe.busqueda}
+                    </p>
+                  </div>
+                )}
               </li>
             ))}
           </ul>
@@ -203,6 +215,20 @@ function DescargaOficial({ material }: { material: Material }) {
 
 /** Elemento del texto que corresponde al precepto: el enlace a su ancla del BOE o su encabezado/línea «Art. N». */
 export function buscarPrecepto(raiz: HTMLElement, precepto: string): HTMLElement | null {
+  // Apartado de un plan del DOE («s-iv-3-1»): sus enlaces van a una página del PDF, compartida; se busca por el número
+  // con que empieza el encabezado o la línea («IV.3.1 PUESTO…», o «3.1.- …» si el capítulo no va en el número).
+  const s = /^s-(.+)$/.exec(precepto);
+  if (s) {
+    const partes = s[1].split('-');
+    const nums = [partes.map((x) => x.toUpperCase()).join('.')];
+    if (/^[ivxl]+$/.test(partes[0]) && partes.length > 1) nums.push(partes.slice(1).join('.'));
+    const res = nums.map((n) => new RegExp(`^${n.replace(/\./g, '\\.')}(?:\\.?-|\\.)?(?:\\s|$)`, 'i'));
+    for (const el of raiz.querySelectorAll<HTMLElement>('h2, h3, h4, li')) {
+      const t = (el.textContent ?? '').trim();
+      if (res.some((re) => re.test(t))) return el;
+    }
+    return null;
+  }
   const enlace = raiz.querySelector<HTMLElement>(`a[href$="#${precepto.replace(/[^a-z0-9-]/gi, "")}"]`);
   if (enlace) return enlace.closest<HTMLElement>('li, h2, h3, h4, p') ?? enlace;
   const m = /^a(\d+)(bis|ter|quater)?$/.exec(precepto);
@@ -211,7 +237,7 @@ export function buscarPrecepto(raiz: HTMLElement, precepto: string): HTMLElement
   const re = new RegExp(`^Art(?:ículo|s?\\.)\\s*[\\d\\s,y]*?\\b${n}\\b(?![.]\\d)`, 'i');
   for (const el of raiz.querySelectorAll<HTMLElement>('h2, h3, h4, li')) {
     const t = (el.textContent ?? '').trim();
-    if (el.tagName === 'LI' ? new RegExp(`^${n}\\s`).test(t) : re.test(t)) return el;
+    if (re.test(t) || (el.tagName === 'LI' && new RegExp(`^${n}\\s`).test(t))) return el;
   }
   return null;
 }
@@ -296,7 +322,7 @@ function Capas({ material, foco }: { material: Material; foco?: Props['foco'] })
         ) : (
           <>
             <div className="flex items-start justify-between gap-3">
-              <p className="text-xs text-slate-500">{actual.nota}</p>
+              <p className="text-xs text-slate-500">{capa === 'completo' && material.fuentes.some((f) => f.doe) ? 'Texto literal del PDF oficial (plan o decreto del DOE), apartado por apartado.' : actual.nota}</p>
               <a href={materialUrl(material, file)} download onClick={(e) => descargar(e, materialUrl(material, file), `${bloque.titulo} · ${actual.label}`)}
                 className="flex shrink-0 items-center gap-1 text-xs font-semibold text-indigo-700 underline">
                 <Download className="h-3.5 w-3.5" aria-hidden="true" /> Descargar

@@ -57,6 +57,17 @@ describe('buscarPrecepto sobre el material real', () => {
     cleanup();
     expect(buscarPrecepto(pinta('constitucion/derechos-fundamentales-1-esquema.md'), 'a17')?.textContent).toMatch(/^17 Libertad y seguridad/);
   });
+  it('material del DOE: el número del apartado al principio de la línea (con o sin capítulo) o «Artículo N»', () => {
+    const p = pinta('tema29/platercaex-03-1-esquema.md');
+    expect(buscarPrecepto(p, 's-iv-3-1')?.textContent).toMatch(/^IV\.3\.1 PUESTO DE MANDO AVANZADO/);
+    expect(buscarPrecepto(p, 's-iv-3')?.textContent).toMatch(/^IV\.3 ESTRUCTURA OPERATIVA/);
+    cleanup();
+    const i = pinta('tema30/planes-03-3-completo.md');
+    expect(buscarPrecepto(i, 's-v-2-1')?.textContent).toMatch(/^2\.1\.- Umbrales/);
+    expect(buscarPrecepto(i, 's-v-2')?.textContent).toMatch(/^2\.- SISTEMAS/);
+    cleanup();
+    expect(buscarPrecepto(pinta('tema20/infoex-02-1-esquema.md'), 'a10')?.textContent).toMatch(/^Artículo 10\. Dirección del Plan INFOEX/);
+  });
   it('texto completo: «Artículo N»; y nada si no está', () => {
     const c = pinta('constitucion/titulo-preliminar-3-completo.md');
     expect(buscarPrecepto(c, 'a4')?.textContent).toBe('Artículo 4');

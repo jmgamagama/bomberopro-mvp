@@ -9,6 +9,8 @@
  *  - Tema 1 (piloto): scripts/generar_material.py (texto BOE) + esquema y desarrollo revisados a mano.
  *  - Temas 2, 3, 6, 7, 10, 12, 13, 22, 25, 28, 31, 32, 33 y 34: scripts/generar_material_boe.py scripts/material/temaNN.json (solo texto
  *    literal del BOE, limitado al epígrafe del anexo I). Sin desarrollo.
+ *  - Temas 20, 29 y 30 (normas del DOE): el mismo generador sobre el texto que scripts/fuente_doe.py saca del PDF oficial
+ *    (docs/MATERIAL_DOE.md). Cada fuente lleva `doe` con la fecha de la comprobación manual y lo que se buscó.
  * Para añadir un tema: genera sus ficheros y añade UNA entrada a MATERIAL_TEMAS. Los tests comprueban
  * que cada fichero citado existe.
  */
@@ -32,6 +34,13 @@ export interface FuenteTema {
   boe?: string;
   /** Fecha de la versión consolidada descargada (dd/mm/aaaa). */
   version?: string;
+  /**
+   * Norma del DOE (sin API de vigencia): de dónde sale el texto y qué se comprobó a mano. Si está, `boe` es un
+   * identificador genérico («DOE-2019040203», el de data/fuentes/) y `url` el PDF del que sale el texto.
+   */
+  doe?: { publicacion: string; pdfDoe: string; version: string; comprobado: string; busqueda: string };
+  /** Nombre con el que empiezan las citas de las fichas («PLATERCAEX»): así se reconoce la norma de una cita. */
+  claves?: readonly string[];
 }
 
 export interface MaterialTema {
@@ -252,6 +261,71 @@ export const MATERIAL_TEMAS: readonly MaterialTema[] = [
       { ...boe('rd614-04', "REBT (RD 842/2002) · Reglamento: clasificación de las tensiones, redes de distribución y acometidas e instalaciones de enlace (arts. 4, 8 y 15)"), boe: 'BOE-A-2002-18099' },
       { ...boe('rd614-05', "REBT · Redes de distribución en baja tensión y acometidas (ITC-BT-06, 07, 08 y 11)"), boe: 'BOE-A-2002-18099' },
       { ...boe('rd614-06', "REBT · Instalaciones de enlace (ITC-BT-12 a 17)"), boe: 'BOE-A-2002-18099' },
+    ],
+  },
+  {
+    tema: 20,
+    nombre: "Incendios forestales · Plan INFOEX (Decreto 132/2022)",
+    carpeta: 'tema20',
+    textoOficial: { file: 'infoex-texto-oficial.md', titulo: "Plan INFOEX · Decreto 132/2022, texto consolidado (DOE, PDF)" },
+    fuentes: [{ titulo: "Decreto 132/2022, de 26 de octubre, por el que se aprueba el Plan de Lucha contra Incendios Forestales de Extremadura (Plan INFOEX)", boe: 'DOE-2022040193', url: "https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf", claves: ["Plan INFOEX", "Decreto 132/2022"],
+        doe: { publicacion: "DOE n.º 210, de 02/11/2022; modificado por el Decreto 136/2024, de 29 de octubre (DOE n.º 215, de 05/11/2024)", pdfDoe: "https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193.pdf", version: "texto consolidado del DOE (última modificación publicada el 05/11/2024)", comprobado: "01/11/2026",
+          busqueda: "Ficha ELI del decreto en doe.juntaex.es: la versión consolidada vigente es la de 05/11/2024 (Decreto 136/2024) y no hay otra posterior. Búsqueda de decretos posteriores que modifiquen el Plan INFOEX: ninguno localizado." } }],
+    alcance: "El epígrafe no cita norma; las fichas del tema se apoyan en el Plan INFOEX, Decreto 132/2022 (texto consolidado del DOE con el Decreto 136/2024). Se ha generado la parte operativa que citan: caps. II a VII (arts. 4–20: zonificación, épocas de peligro, clasificación de los incendios, dirección, estructura y organización de la extinción). El comportamiento del fuego, las técnicas, los vehículos y las herramientas son contenido técnico sin norma.",
+    bloques: [
+      boe('infoex-01', "Plan INFOEX (Decreto 132/2022) · Zonificación y épocas de peligro (caps. II y III, arts. 4–6)"),
+      boe('infoex-02', "Plan INFOEX · Clasificación de los incendios y dirección del Plan (caps. IV y V, arts. 7–10)"),
+      boe('infoex-03', "Plan INFOEX · Estructura organizativa (cap. VI, arts. 11–15)"),
+      boe('infoex-04', "Plan INFOEX · Organización de la extinción (cap. VII, arts. 16–20)"),
+    ],
+  },
+  {
+    tema: 29,
+    nombre: "PLATERCAEX (Decreto 187/2019)",
+    carpeta: 'tema29',
+    textoOficial: { file: 'platercaex-texto-oficial.md', titulo: "PLATERCAEX · Texto del plan (PDF oficial de la Junta), apartados del epígrafe" },
+    fuentes: [{ titulo: "Plan Territorial de Protección Civil de la Comunidad Autónoma de Extremadura (PLATERCAEX)", boe: 'DOE-2019040203', url: "https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf", claves: ["PLATERCAEX"],
+        doe: { publicacion: "Decreto 187/2019, de 15 de octubre (DOE n.º 247, de 26/12/2019)", pdfDoe: "https://doe.juntaex.es/pdfs/doe/2019/2470o/19040203.pdf", version: "PDF del plan de 31/01/2020", comprobado: "01/11/2026",
+          busqueda: "El decreto (art. único.2) remite el texto íntegro del plan a la web oficial de la Dirección General de Protección Civil y Emergencias; el texto sale de ese PDF. Ficha ELI del decreto en doe.juntaex.es: solo la versión original publicada, sin versiones consolidadas ni modificaciones. Búsqueda de un decreto posterior que actualice el PLATERCAEX: ninguno publicado (la Junta anunció en octubre de 2026 que lo revisará). El PDF de juntaex.es es el mismo fichero (sha256) con el que se hicieron las fichas." } }],
+    alcance: "El epígrafe pide objetivo, alcance, estructura, estructura operativa y operatividad: caps. I (I.1–I.2), IV (IV.1–IV.3.5) y V (V.1–V.5) del plan. El Decreto 187/2019 (DOE) remite el texto íntegro a la web de la Junta, de donde sale. El organigrama y las tablas se remiten al PDF.",
+    bloques: [
+      boe('platercaex-01', "PLATERCAEX · Objetivo y alcance del plan (cap. I, I.1–I.2)"),
+      boe('platercaex-02', "PLATERCAEX · Estructura organizativa: organigrama y estructura de dirección y coordinación (cap. IV, IV.1–IV.2)"),
+      boe('platercaex-03', "PLATERCAEX · Estructura operativa (cap. IV, IV.3)"),
+      boe('platercaex-04', "PLATERCAEX · Operatividad (cap. V, V.1–V.5)"),
+    ],
+  },
+  {
+    tema: 30,
+    nombre: "Planes especiales de la CAEX (INUNCAEX, TRANSCAEX, RADIOCAEX y PLASISMEX)",
+    carpeta: 'tema30',
+    textoOficial: { file: 'planes-texto-oficial.md', titulo: "INUNCAEX · Texto del plan (PDF oficial de la Junta), apartados del epígrafe" },
+    fuentes: [{ titulo: "Plan Especial de Protección Civil de Riesgo de Inundaciones de la Comunidad Autónoma de Extremadura (INUNCAEX)", boe: 'DOE-2025040069', url: "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf", claves: ["INUNCAEX"],
+        doe: { publicacion: "Decreto 39/2025, de 13 de mayo (DOE n.º 94, de 19/05/2025)", pdfDoe: "https://doe.juntaex.es/pdfs/doe/2025/940o/25040069.pdf", version: "PDF del plan de 09/05/2025", comprobado: "01/11/2026",
+          busqueda: "El decreto (art. único.2) remite el texto íntegro del plan a la web oficial de la Dirección General de Protección Civil y Emergencias; el texto sale de ese PDF. Ficha ELI del decreto en doe.juntaex.es: solo la versión original publicada, sin versiones consolidadas ni modificaciones. El Decreto 39/2025 deroga el Decreto 188/2019; no se ha localizado ninguna norma posterior. El PDF de juntaex.es es el mismo fichero (sha256) con el que se hicieron las fichas." } },
+      { titulo: "Plan Especial de Protección Civil de la Comunidad Autónoma de Extremadura sobre transportes de mercancías peligrosas por carretera y ferrocarril (TRANSCAEX)", boe: 'DOE-2019040205', url: "https://www.juntaex.es/documents/77055/406857/TRANSCAEX.pdf", claves: ["TRANSCAEX"],
+        doe: { publicacion: "Decreto 189/2019, de 15 de octubre (DOE n.º 247, de 26/12/2019)", pdfDoe: "https://doe.juntaex.es/pdfs/doe/2019/2470o/19040205.pdf", version: "PDF del plan de 25/03/2019", comprobado: "01/11/2026",
+          busqueda: "El decreto (art. único.2) remite el texto íntegro del plan a la web oficial de la Dirección General de Protección Civil y Emergencias; el texto sale de ese PDF. Ficha ELI del decreto en doe.juntaex.es: solo la versión original publicada, sin versiones consolidadas ni modificaciones. Búsqueda de un decreto posterior que actualice o derogue el TRANSCAEX: ninguno localizado. El PDF de juntaex.es es el mismo fichero (sha256) con el que se hicieron las fichas." } },
+      { titulo: "Plan Especial de Protección Civil de la Comunidad Autónoma de Extremadura sobre Riesgo Radiológico (RADIOCAEX)", boe: 'DOE-2019040206', url: "https://www.juntaex.es/documents/77055/406857/RADIOCAEX-+%281%29.pdf", claves: ["RADIOCAEX"],
+        doe: { publicacion: "Decreto 200/2019, de 22 de octubre (DOE n.º 247, de 26/12/2019)", pdfDoe: "https://doe.juntaex.es/pdfs/doe/2019/2470o/19040206.pdf", version: "PDF del plan de 19/12/2019", comprobado: "01/11/2026",
+          busqueda: "El decreto (art. único.2) remite el texto íntegro del plan a la web oficial de la Dirección General de Protección Civil y Emergencias; el texto sale de ese PDF. Ficha ELI del decreto en doe.juntaex.es: solo la versión original publicada, sin versiones consolidadas ni modificaciones. Búsqueda de un decreto posterior que actualice o derogue el RADIOCAEX: ninguno localizado. El PDF de juntaex.es es el mismo fichero (sha256) con el que se hicieron las fichas." } },
+      { titulo: "Plan Especial de Protección Civil ante el Riesgo Sísmico de la Comunidad Autónoma de Extremadura (PLASISMEX)", boe: 'DOE-2009040140', url: "https://www.juntaex.es/documents/77055/406857/01_PLASISMEX+%281%29.pdf", claves: ["PLASISMEX"],
+        doe: { publicacion: "Decreto 127/2009, de 5 de junio (DOE n.º 111, de 11/06/2009)", pdfDoe: "https://doe.juntaex.es/pdfs/doe/2009/1110o/09040140.pdf", version: "PDF del plan de 21/02/2013", comprobado: "01/11/2026",
+          busqueda: "El DOE publica solo el decreto; el texto del plan sale del PDF publicado en juntaex.es. Ficha ELI del decreto en doe.juntaex.es: solo la versión original publicada, sin versiones consolidadas ni modificaciones. Búsqueda de un decreto posterior que actualice o derogue el PLASISMEX: ninguno localizado. La Directriz Básica de terremotos (Orden INT/1069/2026, BOE-A-2026-21145) da cuatro años para adaptar los planes; el PLASISMEX aún no se ha adaptado. El PDF de juntaex.es es el mismo fichero (sha256) con el que se hicieron las fichas." } }],
+    alcance: "El epígrafe pide definición, objetivos, estructura y organización y operatividad de los cuatro planes: INUNCAEX (cap. I §2, cap. IV y cap. V), TRANSCAEX (1.1–1.2 y caps. 4 y 5), RADIOCAEX (1.3 y caps. 3 y 4) y PLASISMEX (1.2 y apdos. 3 y 4). Los decretos (DOE) remiten el texto íntegro de cada plan a la web de la Junta, de donde sale. Tablas, figuras y organigramas se remiten al PDF.",
+    bloques: [
+      boe('planes-01', "INUNCAEX (Decreto 39/2025) · Objetivo y funciones básicas (cap. I, 2)"),
+      boe('planes-02', "INUNCAEX · Estructura y organización (cap. IV, 1–3.5)"),
+      boe('planes-03', "INUNCAEX · Operatividad (cap. V, 1–8.3)"),
+      { ...boe('planes-04', "TRANSCAEX (Decreto 189/2019) · Definición y objetivos (1.1–1.2)"), boe: 'DOE-2019040205' },
+      { ...boe('planes-05', "TRANSCAEX · Estructura y organización (cap. 4)"), boe: 'DOE-2019040205' },
+      { ...boe('planes-06', "TRANSCAEX · Operatividad (cap. 5)"), boe: 'DOE-2019040205' },
+      { ...boe('planes-07', "RADIOCAEX (Decreto 200/2019) · Definición y objetivos (1.3)"), boe: 'DOE-2019040206' },
+      { ...boe('planes-08', "RADIOCAEX · Estructura, organización y funciones (cap. 3)"), boe: 'DOE-2019040206' },
+      { ...boe('planes-09', "RADIOCAEX · Operatividad (cap. 4)"), boe: 'DOE-2019040206' },
+      { ...boe('planes-10', "PLASISMEX · Definición, objeto y funciones (1.2)"), boe: 'DOE-2009040140' },
+      { ...boe('planes-11', "PLASISMEX · Estructura y organización (3)"), boe: 'DOE-2009040140' },
+      { ...boe('planes-12', "PLASISMEX · Operatividad (4)"), boe: 'DOE-2009040140' },
     ],
   },
   {

@@ -1,0 +1,29 @@
+{
+ "tema": 20,
+ "boe": "DOE-2022040193",
+ "carpeta": "tema20",
+ "prefijo": "infoex",
+ "epigrafe": "Incendios forestales. Comportamiento del incendio forestal. Seguridad y prevencion de riesgos en incendios forestales. Autoproteccion. Extincion, operaciones, metodos y formas de realizar el combate de incendios forestales. Estrategia, tactica y operativa en la extincion de incendios forestales. Vehiculos autobomba y tendidos de mangueras. Herramientas manuales habituales en incendios forestales.\n",
+ "bloques": [
+  {
+   "titulo": "Plan INFOEX (Decreto 132/2022) · Zonificación y épocas de peligro (caps. II y III, arts. 4–6)",
+   "desde": "cap-ii",
+   "hasta": "a6"
+  },
+  {
+   "titulo": "Plan INFOEX · Clasificación de los incendios y dirección del Plan (caps. IV y V, arts. 7–10)",
+   "desde": "cap-iv",
+   "hasta": "a10"
+  },
+  {
+   "titulo": "Plan INFOEX · Estructura organizativa (cap. VI, arts. 11–15)",
+   "desde": "cap-vi",
+   "hasta": "a15"
+  },
+  {
+   "titulo": "Plan INFOEX · Organización de la extinción (cap. VII, arts. 16–20)",
+   "desde": "cap-vii",
+   "hasta": "a20"
+  }
+ ]
+}

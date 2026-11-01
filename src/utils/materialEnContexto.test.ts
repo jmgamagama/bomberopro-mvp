@@ -42,6 +42,26 @@ describe('material en contexto: relación verificable fuente → bloque del mate
     expect(destinoMaterial(28, rebt('ib-9', 'ITC-BT-09'))).toEqual({ tema: 28 });
     expect(destinoMaterial(28, 'REBT (RD 842/2002), Artículo 2. BOE-A-2002-18099')).toEqual({ tema: 28 });
   });
+  it('normas del DOE (T20, T29, T30): la clave de la cita da la norma y el apartado del plan, el bloque', () => {
+    const pdf = (f: string, p: number) => `texto íntegro oficial: https://www.juntaex.es/documents/77055/406857/${f}#page=${p}`;
+    expect(destinoMaterial(29, `PLATERCAEX, IV.3.1, pág. 35. Decreto 187/2019 (DOE nº 247, de 26/12/2019); ${pdf('PLATERCAEX_2019_%2B%283%29.pdf', 35)}`))
+      .toEqual({ tema: 29, bloque: 'platercaex-03', precepto: 's-iv-3-1', etiqueta: 'Apartado IV.3.1' });
+    // La nota de vigencia trae un BOE (Norma Básica de 2023): no cambia la norma de la cita.
+    expect(destinoMaterial(29, 'PLATERCAEX, V.2, pág. 47. Decreto 187/2019. Vigencia: RD 524/2023 (BOE-A-2023-14679, https://www.boe.es/buscar/act.php?id=BOE-A-2023-14679)')?.bloque).toBe('platercaex-04');
+    expect(destinoMaterial(30, `INUNCAEX, cap. V, 2.1, pág. 333. Decreto 39/2025; ${pdf('INUNCAEX_2024.pdf', 333)}`))
+      .toEqual({ tema: 30, bloque: 'planes-03', precepto: 's-v-2-1', etiqueta: 'Apartado V.2.1' });
+    expect(destinoMaterial(30, 'TRANSCAEX, 4.4.4.1, pág. 140. Decreto 189/2019')?.bloque).toBe('planes-05');
+    // Apartado sin bloque propio: el que lo contiene (RADIOCAEX 4.3.2 está dentro de 4.3; INUNCAEX cap. I, 2.3 dentro de 2).
+    expect(destinoMaterial(30, `RADIOCAEX, 4.3.2, pág. 88. Decreto 200/2019; ${pdf('RADIOCAEX-+%281%29.pdf', 88)}`)).toMatchObject({ bloque: 'planes-09', precepto: 's-4-3' });
+    expect(destinoMaterial(30, 'INUNCAEX, cap. I, 2.3, pág. 11. Decreto 39/2025')).toMatchObject({ bloque: 'planes-01', precepto: 's-i-2' });
+    // Fuera del epígrafe recortado: solo el tema.
+    expect(destinoMaterial(30, 'PLASISMEX, 1.3, pág. 15. Decreto 127/2009')).toEqual({ tema: 30 });
+    expect(destinoMaterial(30, 'INUNCAEX, cap. I, 4, pág. 12. Decreto 39/2025')).toEqual({ tema: 30 });
+    expect(destinoMaterial(29, 'PLATERCAEX, Introducción, pág. 5. Decreto 187/2019')).toEqual({ tema: 29 });
+    expect(destinoMaterial(20, 'Plan INFOEX (Decreto 132/2022, mod. Decreto 136/2024), 1. La dirección del Plan INFOEX corresponderá, al Comité de Dirección…, art. 10.1. Decreto 136/2024, texto consolidado'))
+      .toEqual({ tema: 20, bloque: 'infoex-02', precepto: 'a10', etiqueta: 'Artículo 10' });
+    expect(destinoMaterial(30, 'Otro plan, 4.1, pág. 3')).toEqual({ tema: 30 });
+  });
 
   it('tema sin material → sin enlace', () => {
     expect(destinoMaterial(40, 'PT03 — PDF p. 23')).toBeNull();

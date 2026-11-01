@@ -55,10 +55,43 @@ describe('registro de material por tema', () => {
   });
 
   it('las fuentes del material son del BOE; las demás, de boletines oficiales (DOE, BOP)', () => {
-    for (const f of MATERIAL_TEMAS.flatMap((m) => m.fuentes)) expect(f.url).toMatch(/^https:\/\/www\.boe\.es\/buscar\/act\.php\?id=BOE-A-\d{4}-\d+$/);
+    for (const f of MATERIAL_TEMAS.flatMap((m) => m.fuentes)) {
+      if (f.doe) {
+        expect(f.boe).toMatch(/^DOE-\d{10}$/);
+        expect(f.url).toMatch(/^https:\/\/(doe\.juntaex\.es\/pdfs\/doe|www\.juntaex\.es\/documents)\/.+\.pdf$/);
+        expect(f.doe.pdfDoe).toMatch(/^https:\/\/doe\.juntaex\.es\/pdfs\/doe\/.+\.pdf$/);
+      } else expect(f.url).toMatch(/^https:\/\/www\.boe\.es\/buscar\/act\.php\?id=BOE-A-\d{4}-\d+$/);
+    }
     for (const f of Object.values(FUENTES_SIN_MATERIAL).flat()) {
       expect(f.url).toMatch(/^https:\/\/(doe\.juntaex\.es|www\.dip-badajoz\.es\/ficheros\/bop)\//);
     }
     expect(FUENTES_SIN_MATERIAL[40]).toBeUndefined();
+  });
+
+  it('temas del DOE (T20, T29, T30): texto del PDF oficial, enlazado por página, con la comprobación manual', () => {
+    for (const n of [20, 29, 30]) {
+      const m = materialDeTema(n)!;
+      expect(capasDisponibles(m), `T${n}`).toEqual(['esquema', 'completo']);
+      expect(m.alcance, `T${n}`).toMatch(/epígrafe/);
+      const indice: { boe: string; bloques: { id: string; boe: string; preceptos: string[] }[] } = JSON.parse(readFileSync(`public/material/${m.carpeta}/${m.textoOficial!.file.replace('-texto-oficial.md', '-indice.json')}`, 'utf8'));
+      expect(indice.bloques.map((b) => b.id)).toEqual(m.bloques.map((b) => b.id));
+      for (const b of indice.bloques) {
+        const f = m.fuentes.find((x) => x.boe === b.boe)!;
+        expect(f?.doe, `T${n} ${b.id}`).toBeDefined();
+        expect(m.bloques.find((x) => x.id === b.id)!.boe ?? indice.boe).toBe(b.boe);
+        const esq = readFileSync(`public/material/${m.carpeta}/${b.id}-1-esquema.md`, 'utf8');
+        expect(esq).toContain(`comprobado a mano el ${f.doe!.comprobado}`);
+        expect(esq).toContain(`Qué se buscó: ${f.doe!.busqueda}`);
+        expect(esq).toContain(`(${f.doe!.pdfDoe})`);
+        expect((esq.match(/^- \[/gm) ?? []).length, `T${n} ${b.id}`).toBe(b.preceptos.length);
+        expect(esq).toContain(`(${f.url}#page=`);
+        const com = readFileSync(`public/material/${m.carpeta}/${b.id}-3-completo.md`, 'utf8');
+        expect(com).not.toContain('BOE)');
+      }
+    }
+    expect(materialDeTema(30)!.fuentes.map((f) => f.claves![0])).toEqual(['INUNCAEX', 'TRANSCAEX', 'RADIOCAEX', 'PLASISMEX']);
+    // Las tablas no se copian: se remite a la página del PDF.
+    const tablas = readFileSync('public/material/tema30/planes-03-3-completo.md', 'utf8');
+    expect(tablas).toMatch(/^Tabla o figura: consúltala en el \[PDF oficial, pág\. \d+\]\(https:\/\/www\.juntaex\.es\/documents\/[^)]+#page=\d+\)\.$/m);
   });
 });
