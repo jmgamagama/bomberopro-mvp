@@ -71,8 +71,8 @@ describe('mensajes de la pantalla de entrada', () => {
     expect(mensaje).not.toMatch(/no encontramos una cuenta|correo no registrado/i);
   });
 
-  it('lee el enlace de invitación y descarta correos mal formados', () => {
-    expect(leerEnlaceInvitacion('?invitacion=1&email=%20Ana@Ejemplo.ES')).toEqual({ invitacion: true, email: 'ana@ejemplo.es' });
+  it('lee la invitación sin tomar el correo de la URL', () => {
+    expect(leerEnlaceInvitacion('?invitacion=1&email=%20Ana@Ejemplo.ES')).toEqual({ invitacion: true, email: '' });
     expect(leerEnlaceInvitacion('?invitacion')).toEqual({ invitacion: true, email: '' });
     expect(leerEnlaceInvitacion('?email=sinarroba')).toEqual({ invitacion: false, email: '' });
     expect(leerEnlaceInvitacion('')).toEqual({ invitacion: false, email: '' });
