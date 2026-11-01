@@ -67,6 +67,32 @@ export function migrateGuestProgress(userId: string): string[] {
   return copied;
 }
 
+export interface GuestProgressSummary {
+  /** Fichas de recuerdo con al menos un repaso sin cuenta (`mira_recall_srs_v1:demo`). */
+  fichas: number;
+  /** Respuestas de test y simulacro guardadas sin cuenta (`mira_demo_attempts_v2`). */
+  respuestas: number;
+}
+
+/**
+ * Cuánto progreso de invitado hay en este navegador (solo lectura, nada sale del dispositivo).
+ * Cuenta lo que de verdad hay guardado: si una clave falta o está dañada, cuenta 0.
+ */
+export function guestProgressSummary(s: Storage | null = store()): GuestProgressSummary {
+  const out: GuestProgressSummary = { fichas: 0, respuestas: 0 };
+  if (!s) return out;
+  try {
+    const srs = JSON.parse(s.getItem('mira_recall_srs_v1:demo') ?? 'null');
+    const decks = srs && typeof srs === 'object' && srs.d && typeof srs.d === 'object' ? Object.values(srs.d) : [];
+    for (const deck of decks) if (deck && typeof deck === 'object') out.fichas += Object.keys(deck as object).length;
+  } catch { /* dañado: 0 */ }
+  try {
+    const attempts = JSON.parse(s.getItem('mira_demo_attempts_v2') ?? 'null');
+    if (Array.isArray(attempts)) out.respuestas = attempts.length;
+  } catch { /* dañado: 0 */ }
+  return out;
+}
+
 const PREFER_LOGIN_KEY = 'bomberopro:prefer-login:v1';
 /** El alumno pidió la pantalla de acceso (salió de la demo o ya tuvo sesión): no se le manda a invitado. */
 export function markPreferLogin(): void { store()?.setItem(PREFER_LOGIN_KEY, '1'); }
