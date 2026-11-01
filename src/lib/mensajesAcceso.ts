@@ -47,11 +47,18 @@ export function mensajeErrorAcceso(modo: ModoAcceso, e: ErrorAuth, registroAbier
     if (e.code === 'user_already_exists' || e.code === 'email_exists') {
       return { text: 'Ya tienes cuenta con este correo. Escribe tu contraseña y pulsa «Entrar».', accion: 'ir_a_entrar' };
     }
-    // El trigger de la migración 41 rechaza el alta y Supabase lo devuelve como error 500
-    // («Database error saving new user»). Con el registro cerrado, es casi siempre un correo no invitado.
-    if (!registroAbierto && (e.status === 500 || e.code === 'unexpected_failure' || e.code === 'signup_disabled' || msg(e).includes('database error'))) {
+    if (e.code === 'signup_disabled') {
       return {
-        text: 'Este correo no está en la lista del grupo piloto. Escribe el mismo correo al que te llegó la invitación, sin espacios ni letras de más.',
+        text: registroAbierto
+          ? 'Ahora mismo no se pueden crear cuentas. Inténtalo más tarde o contacta con el equipo.'
+          : 'El registro está cerrado. Si tienes una invitación, contacta con el equipo para que te ayude a activar la cuenta.',
+      };
+    }
+    // Auth puede devolver 500 tanto si falla un trigger como si hay una incidencia de servicio.
+    // No permite saber si el correo está invitado; no atribuir el problema al alumno ni revelar la lista.
+    if ((typeof e.status === 'number' && e.status >= 500) || e.code === 'unexpected_failure' || msg(e).includes('database error')) {
+      return {
+        text: 'No hemos podido completar el alta ahora. Inténtalo de nuevo más tarde; si tienes una invitación y sigue fallando, contacta con el equipo.',
       };
     }
     return { text: 'No hemos podido activar la cuenta. Revisa el correo y la contraseña e inténtalo de nuevo.' };
