@@ -83,6 +83,7 @@ const SupuestosPracticos = lazy(() => import('./components/SupuestosPracticos'))
 import Onboarding from './components/Onboarding';
 import { MATERIAL_TEMAS } from './data/materialTemas';
 const Planes = lazy(() => import('./components/Planes'));
+const TuProgreso = lazy(() => import('./components/TuProgreso'));
 
 const SCREEN_TITLES = {
   dashboard: 'Inicio',
@@ -102,6 +103,7 @@ const SCREEN_TITLES = {
   ordena_pasos: 'Ordena los pasos',
   supuestos: 'Supuestos prácticos',
   mas: 'Más',
+  progreso: 'Tu progreso',
 } as const;
 
   const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds: number | null, modo: 'adaptativo' | 'simulacro' = 'adaptativo', nivel: unknown = 1, sessionId: string | null = null) => {
@@ -125,7 +127,7 @@ const SCREEN_TITLES = {
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
-    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes' | 'mas'
+    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes' | 'mas' | 'progreso'
   >(() => (hasCompletedOnboarding() ? (isSupuestosHash() ? 'supuestos' : 'dashboard') : 'onboarding'));
   // Página de planes: solo con VITE_FEATURE_PLANES=true (por defecto no aparece nada).
   const planesEnabled = isPlanesEnabled();
@@ -342,7 +344,7 @@ export default function App() {
 
   // Handle switching screens
   const handleNavigate = (
-    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes' | 'mas'
+    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes' | 'mas' | 'progreso'
   ) => {
     if (screen === 'planes') trackFunnel('planes_view');
     setDailyAutoStart(false);
@@ -746,7 +748,7 @@ export default function App() {
   const estudiarScreen: Screen = conceptOwner ? 'concept_t40' : 'train';
   const MAS_SCREENS: Screen[] = ['mas', 'errors', 'forgetting_curve', 'recuerdo', 'sesion_diaria', 'ordena_pasos', 'today_training', 'supuestos', 'my_reports', 'planes', 'constitucion'];
   const mobileTabs: { key: string; label: string; Icon: typeof LayoutDashboard; target: Screen; active: Screen[] }[] = [
-    { key: 'inicio', label: 'Inicio', Icon: LayoutDashboard, target: 'dashboard', active: ['dashboard'] },
+    { key: 'inicio', label: 'Inicio', Icon: LayoutDashboard, target: 'dashboard', active: ['dashboard', 'progreso'] },
     { key: 'estudiar', label: 'Estudiar', Icon: Target, target: estudiarScreen, active: ['concept_t40', 'train'] },
     { key: 'temas', label: 'Temas', Icon: BookOpen, target: 'study_by_topic', active: ['study_by_topic'] },
     { key: 'simulacro', label: 'Simulacro', Icon: HelpCircle, target: 'mock_exam', active: ['mock_exam'] },
@@ -980,6 +982,10 @@ export default function App() {
               setDailyAutoStart(directo);
             }}
           />
+          <button type="button" id="btn-tu-progreso" onClick={() => handleNavigate('progreso')}
+            className="mb-4 flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border-2 border-[#1E3A5F] bg-white px-4 py-2 text-sm font-bold text-[#1E3A5F] hover:bg-slate-50">
+            Ver tu progreso por tema
+          </button>
           <Badajoz2026Card
             onOpenSupuestos={supuestosVisibles ? () => handleNavigate('supuestos') : undefined}
             onOpenProgress={() => handleNavigate('recuerdo')}
@@ -1153,6 +1159,13 @@ export default function App() {
                 handleNavigate('mock_exam');
                 setMockAutoStart(true);
               } : undefined}
+            />
+          )}
+
+          {currentScreen === 'progreso' && (
+            <TuProgreso
+              onNavigateHome={() => handleNavigate('dashboard')}
+              onOpenTopic={(topicId) => { handleNavigate('recuerdo'); setRecallTarget(topicId); }}
             />
           )}
 
