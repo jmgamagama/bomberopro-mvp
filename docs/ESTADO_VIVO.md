@@ -22,7 +22,7 @@
 6. JM → pasar la URL del BOP nº 135; Claude rellena `convocatorias` (filas 1 y 3: `borrador`, `bases_url` NULL).
 7. JM → PR #176 (paleta Brasa y Noche, solo docs): revisar y fusionar.
 8. Decisión pendiente: reparto de opciones/relabel global (aplazado por la cola de respuestas offline).
-9. Claude → niveles 1-2-3 (regla de JM 28/10): migraciones 48 (sesión de conceptos por bloque, columnas `bloque` y `requiere`) y 49 («Practicar preguntas» por niveles) probadas, sin aplicar; van detrás de la PR #194. Criterio de probabilidad: estudio por conceptos ≈ 36 % del examen esperable; siguientes temas 8, 27, 5, 9, 30, 25 (decide JM).
+9. Claude → niveles 1-2-3 (regla de JM 28/10): migraciones 49 (sesión de conceptos por bloque, columnas `bloque` y `requiere`) y 50 («Practicar preguntas» por niveles) probadas, sin aplicar; van detrás de la PR #194. Criterio de probabilidad: estudio por conceptos ≈ 36 % del examen esperable; siguientes temas 8, 27, 5, 9, 30, 25 (decide JM).
 
 ## Decisiones cerradas (no reabrir sin dato nuevo)
 - Paleta A «Brasa y Noche»; estado = icono + texto + contorno, relleno sólido solo en acciones.

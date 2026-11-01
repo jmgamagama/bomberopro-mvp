@@ -1,42 +1,6 @@
--- 48 · Sesión de conceptos por niveles dentro de cada bloque (regla de JM, 28/10/2026).
--- Nivel 1 = lo imprescindible para sacar 5-6; nivel 2 = de 5 a 8; nivel 3 = 9 y 10.
--- Antes: los conceptos nuevos salían por prioridad sin mirar si el alumno dominaba lo anterior.
--- Ahora: dentro de cada artículo o apartado se avanza 1 → 2 → 3, y si se olvida un concepto
--- de nivel 3 se cierra el 3 de ese bloque y se repasa el 2. No cambia datos de contenido:
--- añade dos columnas vacías (bloque para fijar el bloque a mano, requiere para las bases).
--- Guardia: solo se aplica sobre la versión anterior conocida o sobre sí misma (idempotente).
--- Marcha atrás: 48_conceptos_por_niveles_down.sql.
-
-DO $guard$
-DECLARE d text;
-BEGIN
-  SELECT pg_get_functiondef('public._concept_session(uuid,integer,integer,timestamp with time zone)'::regprocedure) INTO d;
-  IF position('row_number() OVER (ORDER BY c.prioridad, c.orden, c.id) AS rn' IN d) = 0
-     AND position('Niveles por bloque (48)' IN d) = 0 THEN
-    RAISE EXCEPTION '48: _concept_session no es la versión esperada; revisar antes de aplicar';
-  END IF;
-END $guard$;
-
-ALTER TABLE public.concepts ADD COLUMN IF NOT EXISTS bloque text;
-ALTER TABLE public.concepts ADD COLUMN IF NOT EXISTS requiere text[] NOT NULL DEFAULT '{}';
-COMMENT ON COLUMN public.concepts.bloque IS 'Bloque (artículo o apartado) para avanzar por niveles; vacío = se deduce de documento y apartado';
-COMMENT ON COLUMN public.concepts.requiere IS 'Conceptos base que el alumno debe haber visto antes (p. ej. triángulo antes que tetraedro)';
-
--- Bloque deducido: «Art. N» si el apartado cita un artículo; si no, lo anterior a «·», «:», «–»
--- o el número inicial; sin el sufijo entre paréntesis. Siempre precedido del documento.
-CREATE OR REPLACE FUNCTION public._bloque_concepto(p_documento text, p_apartado text)
- RETURNS text LANGUAGE sql IMMUTABLE SET search_path TO 'public'
-AS $$
-  SELECT coalesce(p_documento, '') || ' | ' || CASE
-    WHEN p_apartado ~* 'art(\.|ículo)\s*[0-9]+'
-      THEN 'Art. ' || substring(p_apartado from '(?i)art(?:\.|ículo)\s*([0-9]+)')
-    WHEN p_apartado LIKE '%·%' THEN trim(split_part(p_apartado, '·', 1))
-    WHEN p_apartado ~ '^[0-9]+' THEN substring(p_apartado from '^([0-9]+)')
-    ELSE trim(regexp_replace(split_part(split_part(coalesce(p_apartado, ''), '–', 1), ':', 1), '\s*\(.*\)\s*$', ''))
-  END
-$$;
-REVOKE ALL ON FUNCTION public._bloque_concepto(text, text) FROM PUBLIC, anon;
-
+-- Marcha atrás de la 49: devuelve _concept_session a la definición exacta de producción
+-- anterior (md5 de pg_get_functiondef 80dd58965321c539945bfca78aa1af53, comprobado el 31/10/2026)
+-- y retira la función de bloques y las columnas bloque/requiere (vacías salvo ajustes manuales).
 CREATE OR REPLACE FUNCTION public._concept_session(p_user uuid, p_topic integer, p_minutes integer, p_now timestamp with time zone)
  RETURNS TABLE(pos integer, concept_id text, formato text, motivo text, prioridad double precision, recuerdo_estimado double precision, dias_vencido double precision, question_id bigint, question text, options text[], correct_answer text, explanation text, concept_pregunta text, concept_respuesta text, fuente text, pagina integer, apartado text)
  LANGUAGE plpgsql
@@ -47,62 +11,7 @@ DECLARE
   v_budget double precision := LEAST(GREATEST(coalesce(p_minutes, 20), 5), 180) * 60.0;
 BEGIN
   RETURN QUERY
-  WITH
-  -- Niveles por bloque (48). Nivel del concepto = concepts.prioridad (1 = lo que más cae).
-  -- Un bloque es el artículo o apartado (concepts.bloque o, si está vacío, _bloque_concepto).
-  -- Dentro de cada bloque se avanza 1 → 2 → 3: un nivel se abre cuando el alumno domina
-  -- (≥ 2 repasos y última nota ≥ 3) el 80 % del nivel inferior más cercano de ese bloque.
-  -- Si el bloque no tiene nivel inferior, se mira el tema entero. Si falla un concepto de
-  -- nivel 3, su bloque cierra el nivel 3 hasta recuperarlo y repasa antes su nivel 2.
-  cs AS (
-    SELECT x.*, min(x.orden) OVER (PARTITION BY x.topic_id, x.bloque) AS orden_bloque
-      FROM (
-        SELECT c.id, c.topic_id, c.prioridad, c.orden, c.apartado, c.requiere,
-               coalesce(c.bloque, public._bloque_concepto(c.documento, c.apartado)) AS bloque,
-               s.concept_id IS NOT NULL AS visto,
-               coalesce(s.reps >= 2 AND s.last_grade >= 3, false) AS dominado,
-               coalesce(s.last_grade = 1, false) AS fallado,
-               s.due_at, s.last_review_at, s.verificar_pendiente
-          FROM concepts c
-          LEFT JOIN user_concept_state s ON s.user_id = p_user AND s.concept_id = c.id
-         WHERE (p_topic IS NULL OR c.topic_id = p_topic) AND c.estado = 'publicado'
-      ) x
-  ),
-  nb AS (
-    SELECT cs.topic_id, cs.bloque, cs.prioridad, count(*) AS n,
-           count(*) FILTER (WHERE cs.dominado) AS dom, bool_or(cs.fallado) AS fallo
-      FROM cs GROUP BY 1, 2, 3
-  ),
-  nt AS (
-    SELECT cs.topic_id, cs.prioridad, count(*) AS n, count(*) FILTER (WHERE cs.dominado) AS dom
-      FROM cs GROUP BY 1, 2
-  ),
-  abierto AS (
-    SELECT b.topic_id, b.bloque, b.prioridad,
-           CASE
-             WHEN b.prioridad <= 1 THEN true
-             WHEN b.prioridad >= 3 AND b.fallo THEN false
-             WHEN EXISTS (SELECT 1 FROM nb l WHERE l.topic_id = b.topic_id AND l.bloque = b.bloque AND l.prioridad < b.prioridad)
-               THEN (SELECT l.dom >= 0.8 * l.n FROM nb l
-                      WHERE l.topic_id = b.topic_id AND l.bloque = b.bloque AND l.prioridad < b.prioridad
-                      ORDER BY l.prioridad DESC LIMIT 1)
-             ELSE coalesce((SELECT t.dom >= 0.8 * t.n FROM nt t
-                             WHERE t.topic_id = b.topic_id AND t.prioridad < b.prioridad
-                             ORDER BY t.prioridad DESC LIMIT 1), true)
-           END AS ok
-      FROM nb b
-  ),
-  -- «Bajar al 2»: por cada bloque con un nivel 3 fallado, sus 2 conceptos de nivel 2 repasados
-  -- hace más tiempo vuelven a la sesión aunque no hayan vencido.
-  refuerzo AS (
-    SELECT r.id AS concept_id FROM (
-      SELECT cs.id, row_number() OVER (PARTITION BY cs.topic_id, cs.bloque ORDER BY cs.last_review_at, cs.id) AS rn
-        FROM cs JOIN nb f ON f.topic_id = cs.topic_id AND f.bloque = cs.bloque AND f.prioridad = 3 AND f.fallo
-       WHERE cs.prioridad = 2 AND cs.visto AND cs.due_at > p_now
-         AND NOT (coalesce(cs.verificar_pendiente, false) AND cs.last_review_at <= p_now - interval '20 hours')
-    ) r WHERE r.rn <= 2
-  ),
-  due0 AS (
+  WITH due0 AS (
     SELECT s.*, c.prioridad AS c_prioridad, c.apartado AS c_apartado,
            EXISTS (SELECT 1 FROM questions q WHERE q.concept_id = s.concept_id AND q.estado = 'publicada' AND NOT EXISTS (SELECT 1 FROM question_reports rr WHERE rr.question_id = q.id AND rr.user_id = p_user AND rr.categoria <> 'otro')) AS has_q,
            (SELECT ev.kind FROM concept_events ev WHERE ev.user_id = p_user AND ev.concept_id = s.concept_id
@@ -111,8 +20,7 @@ BEGIN
       FROM user_concept_state s
       JOIN concepts c ON c.id = s.concept_id AND c.estado = 'publicado' AND (p_topic IS NULL OR c.topic_id = p_topic)
      WHERE s.user_id = p_user
-       AND (s.due_at <= p_now OR (s.verificar_pendiente AND s.last_review_at <= p_now - interval '20 hours')
-            OR s.concept_id IN (SELECT rf.concept_id FROM refuerzo rf))
+       AND (s.due_at <= p_now OR (s.verificar_pendiente AND s.last_review_at <= p_now - interval '20 hours'))
   ),
   due AS (
     -- Repasos vencidos, reaprendizaje (fallos recientes) y verificación de «Lo sabía» (19).
@@ -120,24 +28,22 @@ BEGIN
            -- Vueltas que alternan formato (19): fallo o verificación → test; tras un test (≥ 2 repasos)
            -- → tarjeta de recuerdo; tras una tarjeta → test. Sin preguntas → siempre tarjeta.
            CASE WHEN NOT s.has_q THEN 'recuerdo'
-                WHEN s.last_grade = 1 OR s.verificar OR s.due_at > p_now THEN 'test'
+                WHEN s.last_grade = 1 OR s.verificar THEN 'test'
                 WHEN s.last_kind = 'test' AND s.reps >= 2 THEN 'recuerdo'
                 ELSE 'test' END AS formato,
-           CASE WHEN s.due_at > p_now AND NOT s.verificar THEN 'BAJA_NIVEL'
-                WHEN s.last_grade = 1 THEN 'ERROR_RECIENTE'
+           CASE WHEN s.last_grade = 1 THEN 'ERROR_RECIENTE'
                 WHEN s.verificar THEN 'VERIFICAR'
                 WHEN s.stability IS NULL THEN 'PRIMERA_RECUPERACION'
                 ELSE 'REPASO_VENCIDO' END AS motivo,
            -- Prioridad = nivel (errores y verificación 2, repasos 1, nuevos < 1) + riesgo de olvido × importancia.
-           (CASE WHEN s.last_grade = 1 OR s.stability IS NULL OR s.verificar THEN 2.0
-                   WHEN s.due_at > p_now THEN 1.5 ELSE 1.0 END)
+           (CASE WHEN s.last_grade = 1 OR s.stability IS NULL OR s.verificar THEN 2.0 ELSE 1.0 END)
              + (1 - COALESCE(public.fsrs_r(extract(epoch FROM (p_now - s.last_review_at))/86400.0, s.stability), 0))
              * CASE s.c_prioridad WHEN 1 THEN 1.0 WHEN 2 THEN 0.7 ELSE 0.4 END AS prioridad,
            CASE WHEN s.stability IS NULL THEN NULL
                 ELSE public.fsrs_r(extract(epoch FROM (p_now - s.last_review_at))/86400.0, s.stability) END AS r,
            extract(epoch FROM (p_now - s.due_at))/86400.0 AS overdue,
            CASE WHEN NOT s.has_q THEN 25.0
-                WHEN s.last_grade = 1 OR s.verificar OR s.due_at > p_now THEN 35.0
+                WHEN s.last_grade = 1 OR s.verificar THEN 35.0
                 WHEN s.last_kind = 'test' AND s.reps >= 2 THEN 25.0
                 ELSE 35.0 END AS coste,
            s.c_apartado AS apartado
@@ -160,14 +66,10 @@ BEGIN
     SELECT c.id AS concept_id, 'ficha'::text AS formato, 'NUEVO'::text AS motivo,
            CASE c.prioridad WHEN 1 THEN 0.5 WHEN 2 THEN 0.35 ELSE 0.2 END::double precision AS prioridad,
            NULL::double precision AS r, NULL::double precision AS overdue, c.apartado,
-           row_number() OVER (ORDER BY c.prioridad, c.orden_bloque, c.orden, c.id) AS rn
-      FROM cs c
-      JOIN abierto a ON a.topic_id = c.topic_id AND a.bloque = c.bloque AND a.prioridad = c.prioridad AND a.ok
-     WHERE NOT c.visto
-       -- Las bases antes: si el concepto requiere otros, deben haberse visto ya.
-       AND NOT EXISTS (SELECT 1 FROM unnest(c.requiere) rq(id)
-                        JOIN concepts c2 ON c2.id = rq.id AND c2.estado = 'publicado'
-                       WHERE NOT EXISTS (SELECT 1 FROM user_concept_state s WHERE s.user_id = p_user AND s.concept_id = rq.id))
+           row_number() OVER (ORDER BY c.prioridad, c.orden, c.id) AS rn
+      FROM concepts c
+     WHERE (p_topic IS NULL OR c.topic_id = p_topic) AND c.estado = 'publicado'
+       AND NOT EXISTS (SELECT 1 FROM user_concept_state s WHERE s.user_id = p_user AND s.concept_id = c.id)
   ),
   picks AS (
     SELECT a.concept_id, a.formato, a.motivo, a.prioridad::double precision AS prioridad, a.r, a.overdue, a.apartado
@@ -237,3 +139,7 @@ BEGIN
     LEFT JOIN qserved qs ON qs.p = o.p
    ORDER BY o.p;
 END $function$;
+
+DROP FUNCTION IF EXISTS public._bloque_concepto(text, text);
+ALTER TABLE public.concepts DROP COLUMN IF EXISTS requiere;
+ALTER TABLE public.concepts DROP COLUMN IF EXISTS bloque;
