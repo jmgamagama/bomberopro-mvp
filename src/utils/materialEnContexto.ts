@@ -6,8 +6,9 @@
  *     no lo trae, el nombre del documento (lo anterior a «, art.» o « — ») coincide, normalizado, con el
  *     título de la fuente o el nombre del material («Constitución Española, art. 1.1»).
  *  3. El precepto es el ancla de la URL del BOE (#a5, #a32bis) o, sin URL, el único artículo citado
- *     (articuloDe → «a5»), y está en UN solo bloque (src/data/materialPreceptos.ts, generado de los
- *     índices del material).
+ *     (articuloDe → «a5»), y está en UN solo bloque DE ESA NORMA (src/data/materialPreceptos.ts, generado
+ *     de los índices del material; cada bloque guarda su identificador BOE, porque un tema puede tener
+ *     varias normas y sus anclas coinciden: «a4» es un artículo distinto en el RD 614/2001 y en el REBT).
  * Si 2 o 3 fallan, se abre solo el tema (sin bloque ni resaltado).
  */
 import { materialDeTema } from '../data/materialTemas';
@@ -39,13 +40,20 @@ export function etiquetaPrecepto(p: string): string | undefined {
   return m ? `Artículo ${m[1]}${m[2] ? ` ${m[2]}` : ''}` : undefined;
 }
 
-export function mismoDocumento(tema: number, fuente: string): boolean {
+/** Norma del material (identificador BOE) a la que pertenece la cita, o null si no es de ninguna. */
+export function normaDeCita(tema: number, fuente: string): string | null {
   const m = materialDeTema(tema);
-  if (!m) return false;
+  if (!m) return null;
   const id = boeId(fuente);
-  if (id) return m.fuentes.some((f) => f.boe === id);
+  if (id) return m.fuentes.some((f) => f.boe === id) ? id : null;
   const doc = documento(fuente);
-  return !!doc && [m.nombre, ...m.fuentes.map((f) => f.titulo)].some((t) => norm(t) === doc);
+  if (!doc) return null;
+  const f = m.fuentes.find((x) => norm(x.titulo) === doc) ?? (norm(m.nombre) === doc && m.fuentes.length === 1 ? m.fuentes[0] : undefined);
+  return f?.boe ?? null;
+}
+
+export function mismoDocumento(tema: number, fuente: string): boolean {
+  return normaDeCita(tema, fuente) !== null;
 }
 
 export function preceptoDe(fuente: string): string | null {
@@ -59,10 +67,11 @@ export function preceptoDe(fuente: string): string | null {
 export function destinoMaterial(tema: number | null | undefined, fuente: string | null | undefined): DestinoMaterial | null {
   if (tema == null || !materialDeTema(tema)) return null;
   const f = fuente ?? '';
-  if (!mismoDocumento(tema, f)) return { tema };
+  const boe = normaDeCita(tema, f);
+  if (!boe) return { tema };
   const p = preceptoDe(f);
   if (!p) return { tema };
-  const bloques = Object.entries(PRECEPTOS_MATERIAL[tema] ?? {}).filter(([, ps]) => ps.includes(p)).map(([id]) => id);
+  const bloques = Object.entries(PRECEPTOS_MATERIAL[tema] ?? {}).filter(([, b]) => b.boe === boe && b.preceptos.includes(p)).map(([id]) => id);
   if (bloques.length !== 1) return { tema };
   return { tema, bloque: bloques[0], precepto: p, etiqueta: etiquetaPrecepto(p) };
 }

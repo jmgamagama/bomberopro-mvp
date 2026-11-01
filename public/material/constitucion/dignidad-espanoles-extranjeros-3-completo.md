@@ -1,6 +1,6 @@
 # Dignidad, españoles y extranjeros (arts. 10–13) · Texto completo y conceptos
 
-Texto literal del BOE (BOE-A-1978-31229, actualización publicada el 20/05/2026). Debajo de cada artículo, los conceptos que BomberoPro te pregunta de él.
+Texto literal del BOE (BOE-A-1978-31229, actualización publicada el 29/10/2026). Debajo de cada artículo, los conceptos que BomberoPro te pregunta de él.
 
 ## Artículo 10
 

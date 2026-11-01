@@ -19,6 +19,31 @@
    "titulo": "Anexos II a VI · Trabajos sin tensión, en tensión, maniobras, proximidad y emplazamientos con riesgo de incendio o explosión",
    "desde": "anii",
    "hasta": "anvi"
+  },
+  {
+   "titulo": "REBT (RD 842/2002) · Reglamento: clasificación de las tensiones, redes de distribución y acometidas e instalaciones de enlace (arts. 4, 8 y 15)",
+   "boe": "BOE-A-2002-18099",
+   "ids": [
+    "a4",
+    "a8",
+    "a1-7"
+   ]
+  },
+  {
+   "titulo": "REBT · Redes de distribución en baja tensión y acometidas (ITC-BT-06, 07, 08 y 11)",
+   "boe": "BOE-A-2002-18099",
+   "ids": [
+    "ib-6",
+    "ib-7",
+    "ib-8",
+    "ib-11"
+   ]
+  },
+  {
+   "titulo": "REBT · Instalaciones de enlace (ITC-BT-12 a 17)",
+   "boe": "BOE-A-2002-18099",
+   "desde": "ib-12",
+   "hasta": "ib-17"
   }
  ]
 }

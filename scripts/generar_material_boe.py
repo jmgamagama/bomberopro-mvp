@@ -13,6 +13,10 @@ La especificación (scripts/material/temaNN.json) fija la norma y los bloques de
 en orden del documento y ambos incluidos:
   {"boe": "BOE-A-…", "carpeta": "tema06", "prefijo": "lprl", "epigrafe": "…",
    "bloques": [{"titulo": "…", "desde": "ci", "hasta": "a4"}, …]}
+Varias normas por tema (01/11/2026): un bloque puede llevar su propio "boe" (si no, el de la especificación) y,
+en vez de "desde"/"hasta", una lista "ids" de bloques sueltos del BOE (p. ej. arts. 4, 8 y 15 del REBT). Cada bloque
+del índice guarda su "boe"; el índice lista además todas las normas en "normas". El texto oficial completo que se
+copia es el de la norma principal ("boe" de la especificación).
 Opcional en un bloque: "apartados": ["2. ", "3. "] para quedarse solo con esos apartados de una sección, y
 "subtitulo": clase de párrafo que abre cada apartado (por defecto «centro_redonda»; el anexo II del
 RD 1215/1997 usa «centro_cursiva»).
@@ -90,16 +94,22 @@ def main() -> None:
     spec = json.loads(pathlib.Path(sys.argv[1]).read_text(encoding="utf-8"))
     boe_id = spec["boe"]
     fuente = pathlib.Path("data/fuentes") / boe_id
-    meta = json.loads((fuente / "meta.json").read_text(encoding="utf-8"))
-    bloques = json.loads((fuente / "bloques.json").read_text(encoding="utf-8"))
-    ids = [b["id"] for b in bloques]
-    f = meta["fecha_actualizacion_boe"][:8]
-    fecha = f"{f[6:8]}/{f[4:6]}/{f[0:4]}"
-    url = meta["url"]
-    titulo_norma = meta["titulo"].rstrip(".")
-    cab = (f"Texto consolidado del BOE ({boe_id}, última actualización publicada el {fecha}). "
-           f"Fuente oficial: [{titulo_norma}]({url}). Texto con carácter informativo; "
-           "la versión con valor jurídico es la publicada en el BOE.")
+    normas: dict[str, dict] = {}
+
+    def norma(nid: str) -> dict:
+        if nid not in normas:
+            d = pathlib.Path("data/fuentes") / nid
+            meta = json.loads((d / "meta.json").read_text(encoding="utf-8"))
+            bl = json.loads((d / "bloques.json").read_text(encoding="utf-8"))
+            f = meta["fecha_actualizacion_boe"][:8]
+            fecha = f"{f[6:8]}/{f[4:6]}/{f[0:4]}"
+            cab = (f"Texto consolidado del BOE ({nid}, última actualización publicada el {fecha}). "
+                   f"Fuente oficial: [{meta['titulo'].rstrip('.')}]({meta['url']}). Texto con carácter informativo; "
+                   "la versión con valor jurídico es la publicada en el BOE.")
+            normas[nid] = {"bloques": bl, "ids": [b["id"] for b in bl], "fecha": fecha, "url": meta["url"], "cab": cab}
+        return normas[nid]
+
+    fecha = norma(boe_id)["fecha"]
 
     out = pathlib.Path("public/material") / spec["carpeta"]
     if out.exists():
@@ -107,7 +117,13 @@ def main() -> None:
     out.mkdir(parents=True)
     indice = []
     for n, bl in enumerate(spec["bloques"], start=1):
-        tramo = bloques[ids.index(bl["desde"]): ids.index(bl["hasta"]) + 1]
+        bid = bl.get("boe", boe_id)
+        nm = norma(bid)
+        bloques, ids, url, cab = nm["bloques"], nm["ids"], nm["url"], nm["cab"]
+        if bl.get("ids"):
+            tramo = [bloques[ids.index(i)] for i in bl["ids"]]
+        else:
+            tramo = bloques[ids.index(bl["desde"]): ids.index(bl["hasta"]) + 1]
         if bl.get("apartados"):
             tramo = [recortar(b, bl["apartados"], bl.get("subtitulo", "centro_redonda")) for b in tramo]
         # Encabezados sin texto propio (títulos, capítulos, secciones) son subtítulos; lo demás, preceptos.
@@ -132,9 +148,10 @@ def main() -> None:
         esq_txt = "\n".join(esq).replace("\n**", "\n\n**").replace("\n\n\n", "\n\n")
         (out / f"{slug}-1-esquema.md").write_text(esq_txt.rstrip() + "\n", encoding="utf-8")
         (out / f"{slug}-3-completo.md").write_text("\n".join(com).rstrip() + "\n", encoding="utf-8")
-        indice.append({"id": slug, "titulo": bl["titulo"], "preceptos": [b["id"] for b in preceptos]})
+        indice.append({"id": slug, "titulo": bl["titulo"], "boe": bid, "preceptos": [b["id"] for b in preceptos]})
     (out / f"{spec['prefijo']}-indice.json").write_text(
-        json.dumps({"boe": boe_id, "version": fecha, "epigrafe": spec.get("epigrafe", ""), "bloques": indice},
+        json.dumps({"boe": boe_id, "version": fecha, "epigrafe": spec.get("epigrafe", ""),
+                    "normas": [{"boe": k, "version": v["fecha"]} for k, v in normas.items()], "bloques": indice},
                    ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     shutil.copyfile(fuente / "texto.md", out / f"{spec['prefijo']}-texto-oficial.md")
 
