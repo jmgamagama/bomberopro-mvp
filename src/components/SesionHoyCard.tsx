@@ -5,6 +5,7 @@ import { loadRecallPoolForPlan } from '../data/recallCards';
 import { loadSrs } from '../utils/recallSrs';
 import { planHoyDelDispositivo } from '../utils/planHoy';
 import { frasePlan, type PlanDiario } from '../utils/planDiario';
+import { textoRacha } from '../utils/racha';
 
 interface Props {
   /** Abre la sesión diaria; `directo` = empezar ya en la primera ficha (sin la pantalla de opciones). */
@@ -41,7 +42,7 @@ export default function SesionHoyCard({ onOpen, preguntasPendientes = 0, onOpenP
 
   const frase = !r.hechaHoy && plan ? frasePlan(plan) : '';
   const texto = frase ? `${frase.charAt(0).toUpperCase()}${frase.slice(1)}` : t.frase;
-  const racha = !r.hechaHoy && r.racha > 0 ? ` Llevas una racha de ${r.racha} ${r.racha === 1 ? 'día' : 'días'}.` : '';
+  const racha = !r.hechaHoy && r.racha > 0 ? ` Llevas ${textoRacha(r.racha)}: haz la de hoy para que siga.` : '';
   const conFichas = !r.hechaHoy && (plan ? plan.cards.length > 0 : true);
   const boton = r.hechaHoy ? t.boton : plan ? 'Empezar mi plan de hoy' : t.boton;
   return (

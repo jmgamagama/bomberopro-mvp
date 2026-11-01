@@ -33,6 +33,9 @@ import DailyMinutesField from './DailyMinutesField';
 import FuenteOficial from './FuenteOficial';
 import { planHoyDelDispositivo } from '../utils/planHoy';
 import { resumenSesionHoy } from '../utils/sesionHoy';
+import { rachaViva, unidadRacha } from '../utils/racha';
+import RecordatorioDiario from './RecordatorioDiario';
+import { sincronizarRecordatorio } from '../lib/recordatorio';
 import { quitarPrioridad } from '../utils/planDiario';
 import { INITIAL_QUESTIONS } from '../data/initialData';
 import { EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS } from '../utils/examScoring';
@@ -177,6 +180,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
     if (index + 1 >= session.length) {
       const nextStreak = completeDailySession();
       setStreak(nextStreak);
+      sincronizarRecordatorio();
       setPhase('done');
       return;
     }
@@ -306,8 +310,8 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
             </div>
             <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
               <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-slate-500">Racha</span>
-              <span className="text-3xl font-extrabold text-orange-600">{streak.streakCount}</span>
-              <span className="mt-1 block text-[10px] text-slate-500">días seguidos</span>
+              <span className="text-3xl font-extrabold text-orange-600" id="daily-session-racha-intro">{rachaViva(streak)}</span>
+              <span className="mt-1 block text-[10px] text-slate-500">{unidadRacha(rachaViva(streak))}</span>
             </div>
           </div>
 
@@ -429,8 +433,8 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
           </p>
           <div className="mx-auto max-w-xs rounded-2xl border border-orange-100 bg-orange-50 p-4">
             <p className="text-[10px] font-bold uppercase tracking-wider text-orange-700">Racha</p>
-            <p className="text-4xl font-black text-orange-600">{streak.streakCount}</p>
-            <p className="text-xs text-orange-700">días seguidos</p>
+            <p className="text-4xl font-black text-orange-600" id="daily-session-racha">{rachaViva(streak)}</p>
+            <p className="text-xs text-orange-700">{unidadRacha(rachaViva(streak))}</p>
           </div>
           <p className="mx-auto flex max-w-md items-start justify-center gap-2 text-sm text-slate-700" id="daily-session-manana">
             <CalendarClock className="mt-0.5 h-4 w-4 shrink-0 text-orange-700" aria-hidden="true" />
@@ -440,6 +444,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
                 : 'Vuelve mañana para que sume tu racha.'}
             </span>
           </p>
+          <RecordatorioDiario idPrefix="recordatorio-fin" />
           {onTryExam && (
             <aside aria-labelledby="daily-session-siguiente-titulo" id="daily-session-siguiente" className="mx-auto max-w-md space-y-2 rounded-2xl border border-orange-200 bg-orange-50 p-4 text-left">
               <h3 id="daily-session-siguiente-titulo" className="text-base font-bold text-slate-900">Siguiente paso: ponte a prueba</h3>

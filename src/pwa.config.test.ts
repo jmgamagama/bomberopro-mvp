@@ -56,6 +56,14 @@ describe('PWA: service worker', () => {
     expect(options.workbox?.maximumFileSizeToCacheInBytes).toBeGreaterThan(1024 * 1024);
   });
 
+  it('importa el script del recordatorio diario, que existe en public/ y no usa push remoto', async () => {
+    expect(options.workbox?.importScripts).toEqual(['/recordatorio-sw.js']);
+    const fs = await import('node:fs');
+    const src = fs.readFileSync('public/recordatorio-sw.js', 'utf8');
+    expect(src).toContain('periodicsync');
+    expect(src).not.toMatch(/addEventListener\(['"]push['"]/);
+  });
+
   it('Supabase/auth va siempre a red (NetworkOnly) y queda fuera del fallback', () => {
     const rc = options.workbox?.runtimeCaching ?? [];
     expect(rc.every((r) => r.handler === 'NetworkOnly')).toBe(true);

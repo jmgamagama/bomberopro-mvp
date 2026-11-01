@@ -1,3 +1,4 @@
+import { rachaViva, unidadRacha } from '../utils/racha';
 import { useState } from 'react';
 import { ArrowLeft, Lock } from 'lucide-react';
 import LocalDataPanel from './LocalDataPanel';
@@ -120,7 +121,7 @@ export default function RecallStats({ onBack, onOpenPlanes, date }: RecallStatsP
     { label: 'Dominadas', value: `${all.mastered}`, detail: 'repaso ≥ 7 días' },
     { label: 'Para repasar hoy', value: `${all.dueToday}`, detail: 'vencidas y fallidas' },
     { label: 'Acierto', value: all.accuracy === null ? '—' : `${all.accuracy} %`, detail: `${all.correct + all.wrong} repasos` },
-    { label: 'Racha', value: `${streak.streakCount}`, detail: 'días seguidos' },
+    { label: 'Racha', value: `${rachaViva(streak)}`, detail: unidadRacha(rachaViva(streak)) },
   ];
 
   return (

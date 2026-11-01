@@ -308,7 +308,7 @@ export default function Dashboard({
 
           <div className="grid grid-cols-2 gap-4 my-3 text-center">
             <div className="p-4 bg-rose-50/30 border border-rose-500/10 rounded-xl">
-              <span className="text-xs text-slate-600 block font-mono">Racha de Estudio</span>
+              <span className="text-xs text-slate-600 block font-mono">Días seguidos con test</span>
               <span className="text-3xl font-extrabold text-rose-500 font-mono flex items-center justify-center gap-1">
                 {currentStreak} <span className="text-xs font-semibold text-slate-600">días</span>
               </span>

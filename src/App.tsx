@@ -53,6 +53,8 @@ import Dashboard from './components/Dashboard';
 import TrainScreen from './components/TrainScreen';
 import Badajoz2026Card from './components/Badajoz2026Card';
 import SesionHoyCard from './components/SesionHoyCard';
+import RecordatorioDiario from './components/RecordatorioDiario';
+import { comprobarRecordatorio } from './lib/recordatorio';
 import { clearPreferLogin, hasGuestSignupIntent, markGuestSignupIntent, markPreferLogin, migrateGuestProgress, prefersLogin } from './utils/guestProgress';
 import Skeleton from './components/Skeleton';
 import AppShell from './components/AppShell';
@@ -184,6 +186,13 @@ export default function App() {
   const trainingSessionId = useRef<string>(newStudySessionId());
   const trainingSessionOpened = useRef(false);
   const trainingSessionFinished = useRef(false);
+
+  // Recordatorio diario con la app abierta: comprobación cada minuto, sin pedir permisos.
+  useEffect(() => {
+    void comprobarRecordatorio();
+    const t = window.setInterval(() => { void comprobarRecordatorio(); }, 60_000);
+    return () => window.clearInterval(t);
+  }, []);
 
   useEffect(() => {
     document.title = `${SCREEN_TITLES[currentScreen]} | BomberoPro`;
@@ -982,6 +991,7 @@ export default function App() {
               setDailyAutoStart(directo);
             }}
           />
+          <RecordatorioDiario idPrefix="recordatorio-inicio" />
           <Badajoz2026Card
             onOpenSupuestos={supuestosVisibles ? () => handleNavigate('supuestos') : undefined}
             onOpenProgress={() => handleNavigate('progreso')}
