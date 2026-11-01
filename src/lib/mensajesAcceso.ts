@@ -84,8 +84,8 @@ export function mensajeErrorEnlace(e: ErrorAuth, registroAbierto: boolean): Mens
   // shouldCreateUser: false → si no hay cuenta, Supabase responde «Signups not allowed for otp».
   if (e.code === 'otp_disabled' || e.code === 'user_not_found' || msg(e).includes('signups not allowed')) {
     return registroAbierto
-      ? { text: 'No encontramos una cuenta con este correo. Revisa que esté bien escrito o crea una cuenta.', accion: 'ir_a_crear' }
-      : { text: 'No encontramos una cuenta con este correo. Si es tu primera vez, activa antes tu invitación.', accion: 'ir_a_crear' };
+      ? { text: 'No hemos podido enviar el enlace. Si es tu primera vez, crea una cuenta; si ya tienes una, revisa el correo e inténtalo de nuevo.' }
+      : { text: 'No hemos podido enviar el enlace. Si es tu primera vez, necesitas una invitación; si sigue fallando, contacta con el equipo.' };
   }
   if (e.code === 'email_address_invalid') {
     return { text: 'Revisa el correo: parece que falta algo (por ejemplo, la @ o el dominio).' };
