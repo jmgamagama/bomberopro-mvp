@@ -61,6 +61,7 @@
       "Limita la normativa preventiva a las normas con rango de ley aprobadas por las Cortes Generales."
      ],
      "correcta": 1,
+     "cita": "La normativa sobre prevención de riesgos laborales está constituida por la presente Ley, sus disposiciones de desarrollo o complementarias y cuantas otras normas, legales o convencionales, contengan prescripciones relativas a la adopción de medidas preventivas en el ámbito laboral o susceptibles de producirlas en dicho ámbito.",
      "explicacion": "El art. 1 incluye las normas que contengan prescripciones relativas a la adopción de medidas preventivas en el ámbito laboral «o susceptibles de producirlas en dicho ámbito», sean legales o convencionales."
     }
    ]
@@ -111,6 +112,7 @@
       "Únicamente las de las mutuas colaboradoras y los servicios de prevención ajenos acreditados."
      ],
      "correcta": 1,
+     "cita": "Para el cumplimiento de dichos fines, la presente Ley regula las actuaciones a desarrollar por las Administraciones públicas, así como por los empresarios, los trabajadores y sus respectivas organizaciones representativas.",
      "explicacion": "Art. 2.1: la Ley regula las actuaciones de las Administraciones públicas, así como de los empresarios, los trabajadores y sus respectivas organizaciones representativas."
     }
    ]
@@ -139,7 +141,13 @@
       "No, nunca pueden modificarlas"
      ],
      "correcta": 0,
-     "explicacion": "Art. 2.2: son Derecho necesario mínimo indisponible, «pudiendo ser mejoradas y desarrolladas en los convenios colectivos»."
+     "explicacion": "Art. 2.2: son Derecho necesario mínimo indisponible, «pudiendo ser mejoradas y desarrolladas en los convenios colectivos».",
+     "respaldo": [
+      {
+       "articulo": "a2",
+       "cita": "pudiendo ser mejoradas y desarrolladas en los convenios colectivos."
+      }
+     ]
     },
     {
      "nivel": 2,
@@ -161,7 +169,13 @@
       "Es válida siempre que la apruebe expresamente la autoridad laboral de la comunidad autónoma."
      ],
      "correcta": 1,
-     "explicacion": "Art. 2.2: las disposiciones laborales son Derecho necesario mínimo indisponible; los convenios pueden mejorarlas y desarrollarlas, no rebajarlas."
+     "explicacion": "Art. 2.2: las disposiciones laborales son Derecho necesario mínimo indisponible; los convenios pueden mejorarlas y desarrollarlas, no rebajarlas.",
+     "respaldo": [
+      {
+       "articulo": "a2",
+       "cita": "tendrán en todo caso el carácter de Derecho necesario mínimo indisponible, pudiendo ser mejoradas y desarrolladas en los convenios colectivos."
+      }
+     ]
     }
    ]
   },
@@ -189,6 +203,7 @@
       "No, solo a los trabajadores con contrato laboral"
      ],
      "correcta": 0,
+     "cita": "En los centros y establecimientos militares será de aplicación lo dispuesto en la presente Ley, con las particularidades previstas en su normativa específica.",
      "explicacion": "Art. 3.1: se aplica también a las relaciones de carácter administrativo o estatutario del personal al servicio de las Administraciones Públicas, con sus peculiaridades."
     },
     {
@@ -240,6 +255,7 @@
       "No, la Ley se aplica siempre a protección civil"
      ],
      "correcta": 0,
+     "cita": "La presente Ley no será de aplicación en aquellas actividades cuyas particularidades lo impidan en el ámbito de las funciones públicas de:",
      "explicacion": "Art. 3.2: la Ley no se aplica a esas actividades cuando sus particularidades lo impidan."
     },
     {
@@ -262,7 +278,21 @@
       "Trabajos en establecimientos penitenciarios."
      ],
      "correcta": 2,
-     "explicacion": "Los establecimientos penitenciarios no están en el art. 3.2: el art. 3.3 dice que se adaptarán a la Ley las actividades que lo justifiquen."
+     "explicacion": "Los establecimientos penitenciarios no están en el art. 3.2: el art. 3.3 dice que se adaptarán a la Ley las actividades que lo justifiquen.",
+     "respaldo": [
+      {
+       "articulo": "a3",
+       "cita": "–Policía, seguridad y resguardo aduanero."
+      },
+      {
+       "articulo": "a3",
+       "cita": "–Servicios operativos de protección civil y peritaje forense en los casos de grave riesgo, catástrofe y calamidad pública."
+      },
+      {
+       "articulo": "a3",
+       "cita": "En los establecimientos penitenciarios, se adaptarán a la presente Ley aquellas actividades cuyas características justifiquen una regulación especial"
+      }
+     ]
     }
    ]
   },
@@ -312,7 +342,17 @@
       "La exclusión solo afecta a las actividades militares, y en ellas la Ley no tiene ningún efecto."
      ],
      "correcta": 1,
-     "explicacion": "Art. 3.2: no se aplica «en aquellas actividades cuyas particularidades lo impidan», y la Ley inspirará la normativa específica."
+     "explicacion": "Art. 3.2: no se aplica «en aquellas actividades cuyas particularidades lo impidan», y la Ley inspirará la normativa específica.",
+     "respaldo": [
+      {
+       "articulo": "a3",
+       "cita": "La presente Ley no será de aplicación en aquellas actividades cuyas particularidades lo impidan en el ámbito de las funciones públicas de:"
+      },
+      {
+       "articulo": "a3",
+       "cita": "No obstante, esta Ley inspirará la normativa específica que se dicte para regular la protección de la seguridad y la salud de los trabajadores que prestan sus servicios en las indicadas actividades."
+      }
+     ]
     }
    ]
   },
@@ -351,6 +391,7 @@
       "Solo se aplica a los internos que trabajen en talleres, nunca a los funcionarios de prisiones."
      ],
      "correcta": 1,
+     "cita": "En los establecimientos penitenciarios, se adaptarán a la presente Ley aquellas actividades cuyas características justifiquen una regulación especial, lo que se llevará a efecto en los términos señalados en la Ley 7/1990, de 19 de julio, sobre negociación colectiva y participación en la determinación de las condiciones de trabajo de los empleados públicos.",
      "explicacion": "Art. 3.3, párrafo segundo: se adaptarán a la Ley las actividades que justifiquen una regulación especial, en los términos de la Ley 7/1990."
     },
     {
@@ -362,6 +403,7 @@
       "El texto refundido de la Ley del Estatuto de los Trabajadores y sus normas complementarias."
      ],
      "correcta": 0,
+     "cita": "En los establecimientos penitenciarios, se adaptarán a la presente Ley aquellas actividades cuyas características justifiquen una regulación especial, lo que se llevará a efecto en los términos señalados en la Ley 7/1990, de 19 de julio, sobre negociación colectiva y participación en la determinación de las condiciones de trabajo de los empleados públicos.",
      "explicacion": "Art. 3.3: «en los términos señalados en la Ley 7/1990, de 19 de julio, sobre negociación colectiva y participación…»."
     }
    ]
@@ -453,6 +495,7 @@
       "La enfermedad profesional reconocida como tal por la Seguridad Social tras el expediente."
      ],
      "correcta": 0,
+     "cita": "2.º Se entenderá como «riesgo laboral» la posibilidad de que un trabajador sufra un determinado daño derivado del trabajo.",
      "explicacion": "Art. 4.2.º LPRL."
     },
     {
@@ -514,7 +557,13 @@
       "La avería de un vehículo de la empresa."
      ],
      "correcta": 2,
-     "explicacion": "El art. 4.3.º se refiere a enfermedades, patologías o lesiones de las personas, no a daños materiales."
+     "explicacion": "El art. 4.3.º se refiere a enfermedades, patologías o lesiones de las personas, no a daños materiales.",
+     "respaldo": [
+      {
+       "articulo": "a4",
+       "cita": "3.º Se considerarán como «daños derivados del trabajo» las enfermedades, patologías o lesiones sufridas con motivo u ocasión del trabajo."
+      }
+     ]
     }
    ]
   },
@@ -604,6 +653,7 @@
       "Únicamente si se superan los valores límite durante más de una jornada completa de trabajo."
      ],
      "correcta": 1,
+     "cita": "En el caso de exposición a agentes susceptibles de causar daños graves a la salud de los trabajadores, se considerará que existe un riesgo grave e inminente cuando sea probable racionalmente que se materialice en un futuro inmediato una exposición a dichos agentes de la que puedan derivarse daños graves para la salud, aun cuando éstos no se manifiesten de forma inmediata.",
      "explicacion": "Art. 4.4.º, párrafo segundo."
     },
     {
@@ -615,6 +665,7 @@
       "Solo lo será si el trabajador ya presenta síntomas de la enfermedad en ese momento."
      ],
      "correcta": 1,
+     "cita": "En el caso de exposición a agentes susceptibles de causar daños graves a la salud de los trabajadores, se considerará que existe un riesgo grave e inminente cuando sea probable racionalmente que se materialice en un futuro inmediato una exposición a dichos agentes de la que puedan derivarse daños graves para la salud, aun cuando éstos no se manifiesten de forma inmediata.",
      "explicacion": "Art. 4.4.º: lo inminente es la exposición; basta que puedan derivarse daños graves «aun cuando éstos no se manifiesten de forma inmediata»."
     }
    ]
@@ -754,6 +805,7 @@
       "El horario, las vacaciones y el salario pactados en el convenio colectivo aplicable."
      ],
      "correcta": 0,
+     "cita": "cualquier característica del mismo que pueda tener una influencia significativa en la generación de riesgos para la seguridad y la salud del trabajador",
      "explicacion": "Art. 4.7.º LPRL."
     },
     {
@@ -765,7 +817,17 @@
       "El salario y las retribuciones del trabajador."
      ],
      "correcta": 2,
-     "explicacion": "El art. 4.7.º enumera locales e instalaciones, agentes, procedimientos de uso y organización del trabajo; no las retribuciones."
+     "explicacion": "El art. 4.7.º enumera locales e instalaciones, agentes, procedimientos de uso y organización del trabajo; no las retribuciones.",
+     "respaldo": [
+      {
+       "articulo": "a4",
+       "cita": "a) Las características generales de los locales, instalaciones, equipos, productos y demás útiles existentes en el centro de trabajo."
+      },
+      {
+       "articulo": "a4",
+       "cita": "b) La naturaleza de los agentes físicos, químicos y biológicos presentes en el ambiente de trabajo y sus correspondientes intensidades, concentraciones o niveles de presencia."
+      }
+     ]
     }
    ]
   },

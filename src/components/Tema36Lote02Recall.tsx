@@ -6,7 +6,7 @@ interface Tema36Lote02RecallProps {
 }
 
 /**
- * Recuerdo del tema 36 lote 02: flashcards locales (79). No carga los 528 del tema 36, ni el lote 01 ni los lotes 03–08.
+ * Recuerdo del tema 36 lote 02: flashcards locales (80). No carga los 528 del tema 36, ni el lote 01 ni los lotes 03–08.
  * Envoltorio del visor genérico: los datos salen del registro central (src/data/recallRegistry.ts).
  */
 export default function Tema36Lote02Recall({ onNavigateHome }: Tema36Lote02RecallProps) {

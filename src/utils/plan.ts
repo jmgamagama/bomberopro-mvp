@@ -17,12 +17,63 @@ export interface PlanLimits {
   dailySessionSize: number;
   /** Estadísticas avanzadas de progreso. */
   stats: boolean;
+  /**
+   * Preguntas de test DISTINTAS corregidas al día (null = sin tope propio del plan).
+   * Debe coincidir con `free_distinct_per_day` de la migración 39 (rama fix/c2-limite-consultas).
+   */
+  dailyDistinctQuestions: number | null;
 }
 
+/** Límites del servidor para todos los planes (migración 39, rama fix/c2-limite-consultas). */
+export const ANSWER_CHECK_LIMITS = { perHour: 300, perDay: 1500 } as const;
+
 export const PLAN_LIMITS: Record<Plan, PlanLimits> = {
-  free: { deckIds: ['tema40'], dailySessionSize: 10, stats: false },
-  pro: { deckIds: 'all', dailySessionSize: 30, stats: true },
+  free: { deckIds: ['tema40'], dailySessionSize: 10, stats: false, dailyDistinctQuestions: 150 },
+  pro: { deckIds: 'all', dailySessionSize: 30, stats: true, dailyDistinctQuestions: null },
 };
+
+/**
+ * ÚNICA fuente de verdad de lo que incluye cada plan, en texto para el alumno.
+ * La usan la página de planes, los bloqueos (candados) y los avisos. Sin precios: no hay
+ * ninguno publicado en el repo.
+ */
+export const PLAN_COPY = {
+  lockedDeck: 'Tema incluido en Pro',
+  lockedStats: 'Las estadísticas por tema y lote (fichas vistas, dominadas, pendientes y % de acierto) están incluidas en Pro.',
+  dailyQuestionLimit: `El plan gratis permite corregir ${PLAN_LIMITS.free.dailyDistinctQuestions} preguntas distintas al día.`,
+  proPrice: 'Precio de lanzamiento próximamente',
+} as const;
+
+const FREE_DECK_LABEL = 'Recuerdo del tema 40 (Procedimientos de trabajo CPEI-Badajoz)';
+
+/** Resumen de una línea por plan, para la Bienvenida y los avisos (sin precios: no hay ninguno publicado). */
+export function planSummary(plan: Plan): string {
+  if (plan === 'free') {
+    return `Gratis, sin cuenta: ${FREE_DECK_LABEL.charAt(0).toLowerCase()}${FREE_DECK_LABEL.slice(1)}, ${PLAN_LIMITS.free.dailySessionSize} fichas al día y un simulacro de muestra.`;
+  }
+  return `Pro: todos los temas, sesión de ${PLAN_LIMITS.pro.dailySessionSize} fichas al día y estadísticas. ${PLAN_COPY.proPrice}.`;
+}
+
+export function planFeatures(plan: Plan, allDecksLabel: string): string[] {
+  const l = PLAN_LIMITS[plan];
+  if (plan === 'free') {
+    return [
+      FREE_DECK_LABEL,
+      `Sesión diaria de ${l.dailySessionSize} fichas al día`,
+      `Hasta ${l.dailyDistinctQuestions} preguntas de test distintas al día`,
+      'Simulacro de muestra sin cuenta',
+      'Fuente oficial visible en cada ficha',
+      'Funciona sin conexión',
+    ];
+  }
+  return [
+    `Todos los temas: ${allDecksLabel}`,
+    `Sesión diaria completa de ${l.dailySessionSize} fichas`,
+    `Preguntas de test sin el tope diario del plan gratis (máximo técnico: ${ANSWER_CHECK_LIMITS.perHour} correcciones por hora y ${ANSWER_CHECK_LIMITS.perDay} al día)`,
+    'Tema prioritario en la sesión diaria',
+    'Estadísticas de progreso',
+  ];
+}
 
 export const PLAN_INTEREST_STORAGE_KEY = 'mira_planes_interes_v1';
 
@@ -33,6 +84,31 @@ export function getPlan(): Plan {
 export function canAccessDeck(deckId: string, plan: Plan = getPlan()): boolean {
   const ids = PLAN_LIMITS[plan].deckIds;
   return ids === 'all' || ids.includes(deckId);
+}
+
+/**
+ * Temas del bloque de procedimientos de Badajoz (T35-T40) que se abren por defecto en modo invitado.
+ * Orden de preferencia: el tema 40 (el del plan gratis, fichas en el propio bundle) y luego 35→39.
+ */
+export const GUEST_DEFAULT_TEMAS: readonly number[] = [40, 35, 36, 37, 38, 39];
+
+/**
+ * Mazo que se abre por defecto. En modo invitado, el primer mazo ACCESIBLE (canAccessDeck) de T35-40;
+ * si no hay ninguno, o fuera del modo invitado, el primer mazo accesible del registro.
+ */
+export function pickDefaultDeck<D extends { id: string; tema: number }>(
+  decks: readonly D[],
+  plan: Plan = getPlan(),
+  guest = false,
+): D | undefined {
+  const accessible = decks.filter((d) => canAccessDeck(d.id, plan));
+  if (guest) {
+    for (const tema of GUEST_DEFAULT_TEMAS) {
+      const hit = accessible.find((d) => d.tema === tema);
+      if (hit) return hit;
+    }
+  }
+  return accessible[0] ?? decks[0];
 }
 
 export function getDailySessionSize(plan: Plan = getPlan()): number {

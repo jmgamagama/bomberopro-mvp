@@ -4,8 +4,9 @@ import type { RecallDeck as RecallDeckData, RecallSourceCard } from '../data/rec
 import { useRecallDeckCards } from '../hooks/useRecallDeckCards';
 import RecallGradeButtons, { formatInterval } from './RecallGradeButtons';
 import { localDayNumber } from '../utils/localDate';
-import { classifyCard, loadSrs, recordRecallGrade, type RecallGrade, type SrsStore } from '../utils/recallSrs';
+import { classifyCard, loadSrs, RecallSaveError, recordRecallGrade, type RecallGrade, type SrsStore } from '../utils/recallSrs';
 import { measuredElapsedMs } from '../utils/recallReviewLog';
+import FuenteOficial from './FuenteOficial';
 
 interface RecallDeckProps {
   deck: RecallDeckData;
@@ -82,12 +83,27 @@ function RecallDeckViewer({
     setIndex(clamped);
     setRevealed(false);
     setFinalGraded(null);
+    setFailedGrade(null);
   };
 
+  const [saving, setSaving] = useState(false);
+  const [failedGrade, setFailedGrade] = useState<RecallGrade | null>(null);
   const grade = (g: RecallGrade) => {
-    if (finalGraded === index) return;
+    if (finalGraded === index || saving) return;
+    setSaving(true);
+    let next;
+    try {
+      next = recordRecallGrade(deck.id, card.id, g, new Date(), measuredElapsedMs(shownAt.current));
+    } catch (err) {
+      // Guardado local fallido: la ficha se queda, se avisa y se puede reintentar.
+      if (!(err instanceof RecallSaveError)) console.error(err);
+      setFailedGrade(g);
+      setSaving(false);
+      return;
+    }
+    setFailedGrade(null);
+    setSaving(false);
     if (index + 1 >= total) setFinalGraded(index);
-    const next = recordRecallGrade(deck.id, card.id, g, new Date(), measuredElapsedMs(shownAt.current));
     setSrs(loadSrs());
     setLastSaved(
       index + 1 >= total
@@ -155,9 +171,22 @@ function RecallDeckViewer({
             </div>
             <div className="rounded-xl border border-amber-100 bg-amber-50/70 p-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-amber-900">Fuente</p>
-              <p className="mt-1 break-words text-sm font-medium text-slate-900">{card.fuente}</p>
+              <p className="mt-1 break-words text-sm font-medium text-slate-900"><FuenteOficial fuente={card.fuente} /></p>
+              {card.localizacion && (
+                <p className="mt-1 break-words text-sm text-slate-700" id="recall-card-localizacion">
+                  Localización: {card.localizacion}
+                </p>
+              )}
             </div>
-            {finalGraded === index ? null : <RecallGradeButtons state={cardState} today={today} onGrade={grade} />}
+            {failedGrade !== null && (
+              <div role="alert" id="recall-save-error" className="space-y-2 rounded-xl border border-orange-200 bg-orange-50 p-3 text-sm text-orange-900">
+                <p>No se ha podido guardar tu respuesta en este dispositivo (almacenamiento lleno o bloqueado). La ficha sigue aquí.</p>
+                <button type="button" onClick={() => grade(failedGrade)} className="min-h-11 rounded-xl bg-slate-900 px-4 py-2 font-semibold text-white hover:bg-slate-800">
+                  Reintentar guardado
+                </button>
+              </div>
+            )}
+            {finalGraded === index ? null : <RecallGradeButtons state={cardState} today={today} onGrade={grade} disabled={saving} />}
           </>
         ) : (
           <p className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-4 text-sm text-slate-600">

@@ -62,7 +62,13 @@
       "La responsabilidad penal sustituye siempre a la administrativa y a la civil."
      ],
      "correcta": 0,
-     "explicacion": "Art. 42.1: las responsabilidades se acumulan; no se excluyen ni se sustituyen."
+     "explicacion": "Art. 42.1: las responsabilidades se acumulan; no se excluyen ni se sustituyen.",
+     "respaldo": [
+      {
+       "articulo": "a42",
+       "cita": "dará lugar a responsabilidades administrativas, así como, en su caso, a responsabilidades penales y a las civiles por los daños y perjuicios que puedan derivarse de dicho incumplimiento."
+      }
+     ]
     }
    ]
   },
@@ -162,6 +168,7 @@
       "El requerimiento sustituye a la paralización aun con riesgo grave e inminente."
      ],
      "correcta": 0,
+     "cita": "Todo ello sin perjuicio de la propuesta de sanción correspondiente, en su caso.",
      "explicacion": "Art. 43.1: «sin perjuicio de la propuesta de sanción correspondiente, en su caso»."
     }
    ]
@@ -191,6 +198,7 @@
       "Delegados de Prevención"
      ],
      "correcta": 1,
+     "cita": "Dicho requerimiento se pondrá, asimismo, en conocimiento de los Delegados de Prevención.",
      "explicacion": "Art. 43.2 párr. 1: «por escrito» con indicación del plazo para su subsanación."
     },
     {
@@ -264,7 +272,13 @@
       "Solo puede levantarla la autoridad laboral provincial, nunca el Inspector."
      ],
      "correcta": 0,
-     "explicacion": "Art. 43.2 párr. 2: lo hará el Inspector, «de no haberlo efectuado inicialmente»."
+     "explicacion": "Art. 43.2 párr. 2: lo hará el Inspector, «de no haberlo efectuado inicialmente».",
+     "respaldo": [
+      {
+       "articulo": "a43",
+       "cita": "Si se incumpliera el requerimiento formulado, persistiendo los hechos infractores, el Inspector de Trabajo y Seguridad Social, de no haberlo efectuado inicialmente, levantará la correspondiente acta de infracción por tales hechos."
+      }
+     ]
     }
    ]
   },
@@ -315,6 +329,7 @@
       "Los funcionarios actúan solo a instancia del Comité de Seguridad y Salud de la empresa."
      ],
      "correcta": 0,
+     "cita": "Los requerimientos efectuados por los funcionarios públicos a que se refiere el artículo 9.2 de esta ley, en ejercicio de sus funciones de apoyo y colaboración con la Inspección de Trabajo y Seguridad Social, se practicarán con los requisitos y efectos establecidos en el apartado anterior, pudiendo reflejarse en el Libro de Visitas de la Inspección de Trabajo y Seguridad Social, en la forma que se determine reglamentariamente.",
      "explicacion": "Art. 43.3: «funciones de apoyo y colaboración con la Inspección de Trabajo y Seguridad Social»."
     }
    ]

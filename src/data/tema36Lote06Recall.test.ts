@@ -71,6 +71,7 @@ describe('tema 36 lote 06 (Acedera → Granja de Torrehermosa)', () => {
     expect(deck.count).toBe(55);
     expect(deck.topicId).toBe('tema36');
     expect(deck.loteLabel).toBe('Lote 6');
-    expect(await loadRecallDeckCards(deck.id)).toBe(TEMA36_LOTE06_RECALL_CARDS);
+    // Lote revisado ficha a ficha entero: el alumno ve todas sus fichas.
+    expect(await loadRecallDeckCards(deck.id)).toEqual(TEMA36_LOTE06_RECALL_CARDS);
   });
 });

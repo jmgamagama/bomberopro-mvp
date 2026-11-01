@@ -7,7 +7,7 @@ import {
   leerEnlaceInvitacion, mensajeErrorAcceso, mensajeErrorEnlace, SIN_CONEXION,
   type MensajeAcceso, type ModoAcceso,
 } from '../lib/mensajesAcceso';
-import { Lock, Loader2, Flame, ScrollText, Timer, Brain, ArrowRight, Eye, EyeOff, MailCheck } from 'lucide-react';
+import { Lock, Loader2, Flame, ScrollText, Timer, Brain, ArrowRight, BookOpen, Eye, EyeOff, MailCheck } from 'lucide-react';
 
 interface LoginProps {
   onStartDemo?: () => void;
@@ -210,6 +210,22 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
       </header>
 
       <main className="max-w-md mx-auto px-5 pt-4 pb-[calc(2rem+env(safe-area-inset-bottom))]">
+        {onStartDemo && (
+          <div className="pb-5 mb-5 border-b border-slate-200 text-center space-y-2">
+            <button
+              type="button"
+              id="btn-login-demo"
+              onClick={onStartDemo}
+              className="w-full min-h-12 py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-base font-bold transition flex items-center justify-center gap-2 shadow-lg shadow-indigo-200 cursor-pointer"
+            >
+              <BookOpen className="w-5 h-5" aria-hidden="true" />
+              <span>{abierto ? 'Empieza ya: prueba 15 preguntas sin registrarte' : '¿Aún sin invitación? Prueba 15 preguntas'}</span>
+            </button>
+            <p className="text-sm text-slate-600">
+              Prueba preguntas reales del temario. Las fichas y el simulacro se guardan solo en este dispositivo hasta que crees una cuenta.
+            </p>
+          </div>
+        )}
         <div role="group" aria-label="Tipo de acceso" className="grid grid-cols-2 gap-1 p-1 mb-5 bg-slate-100 rounded-xl">
           {(['entrar', 'crear'] as const).map(m => (
             <button
@@ -341,17 +357,6 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
           ))}
         </ul>
 
-        {onStartDemo && (
-          <button
-            type="button"
-            id="btn-login-demo"
-            onClick={onStartDemo}
-            className="mt-6 w-full min-h-11 flex items-center justify-center gap-1.5 text-sm font-bold text-orange-700 hover:text-orange-800 cursor-pointer"
-          >
-            {abierto ? 'Prueba 15 preguntas sin registrarte' : '¿Aún sin invitación? Prueba 15 preguntas'}
-            <ArrowRight className="w-4 h-4" aria-hidden="true" />
-          </button>
-        )}
       </main>
     </div>
   );

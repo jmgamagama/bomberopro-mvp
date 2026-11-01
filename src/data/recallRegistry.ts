@@ -19,10 +19,11 @@
 
 import { canAccessDeck, getPlan, PLAN_LIMITS, type Plan } from '../utils/plan';
 import { getDeckRevision, type RecallRevision } from './recallReview';
-import { canSeePendingDecks } from '../utils/revisionAccess';
+import { canSeePendingDecks, pendingDecksBundled } from '../utils/revisionAccess';
+import { isCardOutOfSyllabus, isCardReviewedInPendingDeck, outOfSyllabusCount, reviewedCardCount } from './recallCardReview';
 
 /**
- * C1, paso 2 (auditoría 2026-10-26; migración 34): con VITE_PRO_DECKS_FROM_SERVER=true el build
+ * C1, paso 2 (auditoría 2026-10-26; migración 38): con VITE_PRO_DECKS_FROM_SERVER=true el build
  * SOLO empaqueta los mazos gratis (PLAN_LIMITS.free). Vite sustituye la bandera por una constante y
  * Rollup elimina los `import()` de los mazos Pro: sus fichas se piden a `get_recall_deck_cards`,
  * que comprueba el plan en el servidor. Desactivada por defecto hasta cargar las fichas en
@@ -97,6 +98,8 @@ export interface RecallDeck {
   count: number;
   /** Revisión humana: solo los 'revisado' se publican al alumno (src/data/recallReview.ts). */
   revision: RecallRevision;
+  /** Solo en la vista del alumno: mazo pendiente del que se publican únicamente sus fichas revisadas sueltas. */
+  parcial?: boolean;
 }
 
 /** Bloque del temario (BOP Badajoz n.º 135/2026, anexo I): temas 1-7 parte común, 8-40 parte específica. */
@@ -568,7 +571,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       tema: 36,
       lote: 'lote02',
       title: 'Tema 36 · Lote 02 — Municipios restantes (INE + población ≤5.000): Acedera → Esparragosa de Lares',
-      count: 79,
+      count: 80,
       source: 'tema36_fichas.json + tema36_lotes.json',
     },
     load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema36Lote02Recall').then((m) => m.TEMA36_LOTE02_RECALL_CARDS),
@@ -578,7 +581,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       tema: 36,
       lote: 'lote03',
       title: 'Tema 36 · Lote 03 — Municipios restantes (INE + población ≤5.000): Esparragosa de la Serena → Nogales',
-      count: 78,
+      count: 80,
       source: 'tema36_fichas.json + tema36_lotes.json',
     },
     load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema36Lote03Recall').then((m) => m.TEMA36_LOTE03_RECALL_CARDS),
@@ -635,8 +638,17 @@ const DECK_SOURCES: readonly DeckSource[] = [
   },
   {
     meta: {
+      tema: 37,
+      title: 'Tema 37 · Plan de prevención de riesgos laborales del CPEI-Badajoz',
+      count: 37,
+      source: 'BOP de Badajoz nº 117, 22/06/2026, anuncio 2242/2026 (aprobación definitiva), fichas literales con página',
+    },
+    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema37Recall').then((m) => m.TEMA37_RECALL_CARDS),
+  },
+  {
+    meta: {
       tema: 38,
-      title: 'Tema 38 · ITF CPEI: horario, vestuario/EPIs, limpieza y gestión de EPIs colectivos',
+      title: 'Tema 38 · ITF CPEI: horario, vestuario/EPIs y limpieza de EPIs',
       count: 198,
       source: 'ITF oficiales CPEI (Horario 2022, Vestuario/Limpieza/Gestión EPIs 2026) rebuild desde PDFs',
     },
@@ -750,13 +762,19 @@ export const RECALL_BLOQUES: readonly RecallBloque[] = buildBloques(RECALL_TOPIC
 // ---------------------------------------------------------------------------
 
 /** Mazos con revisión humana completa. */
-export const REVIEWED_RECALL_DECKS: readonly RecallDeck[] = RECALL_DECKS.filter((d) => d.revision === 'revisado');
+export const REVIEWED_RECALL_DECKS: readonly RecallDeck[] = RECALL_DECKS.flatMap((d): RecallDeck[] => {
+  // Las fichas fuera del epígrafe (recallCardReview.ts) no cuentan para el alumno.
+  if (d.revision === 'revisado') return [outOfSyllabusCount(d.id) ? { ...d, count: d.count - outOfSyllabusCount(d.id) } : d];
+  // Mazo pendiente con fichas revisadas una a una: se publican solo esas.
+  const n = reviewedCardCount(d.id);
+  return n ? [{ ...d, revision: 'revisado', count: n, parcial: true }] : [];
+});
 const REVIEWED_TOPICS = buildTopics(REVIEWED_RECALL_DECKS);
 const REVIEWED_BLOQUES = buildBloques(REVIEWED_TOPICS);
 
 /** ¿Lo ve el usuario actual? Revisados siempre; pendientes solo propietario/admin. */
 export function isDeckVisible(deck: RecallDeck): boolean {
-  return deck.revision === 'revisado' || canSeePendingDecks();
+  return deck.revision === 'revisado' || reviewedCardCount(deck.id) > 0 || canSeePendingDecks();
 }
 
 /** Mazos que ve el usuario actual. */
@@ -817,13 +835,14 @@ export function canAccessTopic(topic: RecallTopic, plan: Plan = getPlan()): bool
 const cardCache = new Map<string, readonly RecallSourceCard[]>();
 const pending = new Map<string, Promise<readonly RecallSourceCard[]>>();
 
-/** Fichas de un mazo ya cargado (o `undefined` si aún no se ha pedido). */
+/** Fichas de un mazo ya cargado, tal como las ve el usuario actual (o `undefined` si aún no se ha pedido). */
 export function getLoadedDeckCards(id: string): readonly RecallSourceCard[] | undefined {
-  return cardCache.get(id);
+  const cards = cardCache.get(id);
+  return cards && viewFor(id, cards);
 }
 
-/** Carga (una sola vez) las fichas de un mazo: import dinámico de su módulo. */
-export function loadRecallDeckCards(id: string): Promise<readonly RecallSourceCard[]> {
+/** Carga (una sola vez) TODAS las fichas de un mazo: import dinámico de su módulo (auditoría, revisión). */
+export function loadRawRecallDeckCards(id: string): Promise<readonly RecallSourceCard[]> {
   const cached = cardCache.get(id);
   if (cached) return Promise.resolve(cached);
   const inFlight = pending.get(id);
@@ -833,7 +852,9 @@ export function loadRecallDeckCards(id: string): Promise<readonly RecallSourceCa
   const deck = getRecallDeck(id);
   const promise = load()
     .then((cards) => {
-      if (cards.length !== deck.count) {
+      // Build de producción: de un mazo pendiente solo viajan sus fichas revisadas sueltas (excluir-mazos-pendientes).
+      const esperadas = deck.revision !== 'revisado' && !pendingDecksBundled() ? reviewedCardCount(id) : deck.count;
+      if (cards.length !== esperadas) {
         throw new Error(`Mazo ${deck.label}: se esperaban ${deck.count} fichas y hay ${cards.length}`);
       }
       cardCache.set(id, cards);
@@ -842,6 +863,31 @@ export function loadRecallDeckCards(id: string): Promise<readonly RecallSourceCa
     .finally(() => pending.delete(id));
   pending.set(id, promise);
   return promise;
+}
+
+const studentView = new Map<readonly RecallSourceCard[], readonly RecallSourceCard[]>();
+
+/**
+ * Fichas de un mazo tal como las ve el usuario actual. En un mazo publicado, el alumno no recibe
+ * las fichas fuera del epígrafe (recallCardReview.ts); el propietario/admin de revisión sí. Los
+ * mazos pendientes ya están ocultos al alumno: al publicarlos se aplicará el mismo filtro.
+ */
+export function loadRecallDeckCards(id: string): Promise<readonly RecallSourceCard[]> {
+  return loadRawRecallDeckCards(id).then((cards) => viewFor(id, cards));
+}
+
+function viewFor(id: string, cards: readonly RecallSourceCard[]): readonly RecallSourceCard[] {
+  if (canSeePendingDecks()) return cards;
+  const pendiente = getRecallDeck(id).revision !== 'revisado';
+  if (pendiente ? !reviewedCardCount(id) : !outOfSyllabusCount(id)) return cards;
+  let view = studentView.get(cards);
+  if (!view) {
+    view = pendiente
+      ? cards.filter((c) => isCardReviewedInPendingDeck(id, c.id))
+      : cards.filter((c) => !isCardOutOfSyllabus(c.id));
+    studentView.set(cards, view);
+  }
+  return view;
 }
 
 function joinEs(items: readonly string[]): string {

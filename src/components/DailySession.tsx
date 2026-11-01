@@ -1,3 +1,4 @@
+import GuestSignupPrompt from './GuestSignupPrompt';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import AvisoGuardadoFichas from './AvisoGuardadoFichas';
 import { Flame, Play, Eye, EyeOff, CheckCircle2, ListOrdered, BarChart3, Lock } from 'lucide-react';
@@ -11,7 +12,7 @@ import {
 import RecallGradeButtons from './RecallGradeButtons';
 import RecallStats from './RecallStats';
 import { localDayNumber } from '../utils/localDate';
-import { getCardSrs, loadSrs, recordRecallGrade, type RecallGrade, type SrsStore } from '../utils/recallSrs';
+import { getCardSrs, loadSrs, RecallSaveError, recordRecallGrade, type RecallGrade, type SrsStore } from '../utils/recallSrs';
 import type { RecallCard } from '../data/recallCards';
 import { canAccessTopic, getVisibleBloques, getVisibleTopic, getVisibleTopics } from '../data/recallRegistry';
 import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreferences';
@@ -30,6 +31,7 @@ import {
 import { loadReviewLog, measuredElapsedMs } from '../utils/recallReviewLog';
 import ExamDateField from './ExamDateField';
 import DailyMinutesField from './DailyMinutesField';
+import FuenteOficial from './FuenteOficial';
 
 interface DailySessionProps {
   /** Demo o sin cuenta: cambia el aviso de dónde se guarda el repaso. */
@@ -40,11 +42,13 @@ interface DailySessionProps {
   autoStart?: boolean;
   /** Abre la página de planes (solo con VITE_FEATURE_PLANES activado). */
   onOpenPlanes?: () => void;
+  /** Invitado sin cuenta: al terminar, ofrecer guardar el progreso creando una cuenta. */
+  onGuestSignup?: () => void;
 }
 
 type Phase = 'intro' | 'study' | 'done' | 'stats';
 
-export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false, onOpenPlanes, demo = true }: DailySessionProps) {
+export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false, onOpenPlanes, demo = true, onGuestSignup }: DailySessionProps) {
   const plan = getPlan();
   const planesOn = isPlanesEnabled();
   const planSessionSize = getDailySessionSize(plan);
@@ -140,11 +144,20 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
     shownAt.current = Date.now();
   }, [phase, index]);
 
+  // Si el guardado local falla, la ficha se queda y se puede reintentar (recordRecallGrade lanza RecallSaveError).
+  const [failedGrade, setFailedGrade] = useState<RecallGrade | null>(null);
   const handleGrade = (grade: RecallGrade) => {
     if (current?.deckId) {
-      recordRecallGrade(current.deckId, current.id, grade, new Date(), measuredElapsedMs(shownAt.current));
+      try {
+        recordRecallGrade(current.deckId, current.id, grade, new Date(), measuredElapsedMs(shownAt.current));
+      } catch (err) {
+        if (!(err instanceof RecallSaveError)) throw err;
+        setFailedGrade(grade);
+        return;
+      }
       setLiveSrs(loadSrs());
     }
+    setFailedGrade(null);
     setGrades((g) => {
       const next: [number, number, number] = [g[0], g[1], g[2]];
       next[grade] += 1;
@@ -358,7 +371,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
               {current.deckLabel && (
                 <span className="mr-2 rounded-full bg-indigo-50 px-2 py-0.5 font-semibold text-indigo-700">{current.deckLabel}</span>
               )}
-              Fuente: {current.fuente}
+              Fuente: <FuenteOficial fuente={current.fuente} />
             </p>
           </div>
 
@@ -381,6 +394,14 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
                 </p>
                 {current.answer}
               </div>
+              {failedGrade !== null && (
+                <div role="alert" id="recall-save-error" className="space-y-2 rounded-xl border border-orange-200 bg-orange-50 p-3 text-sm text-orange-900">
+                  <p>No se ha podido guardar tu respuesta en este dispositivo. La ficha sigue aquí.</p>
+                  <button type="button" onClick={() => handleGrade(failedGrade)} className="min-h-11 rounded-xl bg-slate-900 px-4 py-2 font-semibold text-white">
+                    Reintentar guardado
+                  </button>
+                </div>
+              )}
 <RecallGradeButtons state={getCardSrs(liveSrs, current.deckId, current.id)} today={today} onGrade={handleGrade} />
             </div>
           )}
@@ -404,6 +425,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
             <p className="text-4xl font-black text-orange-600">{streak.streakCount}</p>
             <p className="text-xs text-orange-700">días seguidos</p>
           </div>
+          {onGuestSignup && <GuestSignupPrompt what="tu sesión de fichas" onSignup={onGuestSignup} />}
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <button
               type="button"

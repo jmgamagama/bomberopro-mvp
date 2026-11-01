@@ -91,6 +91,6 @@ describe('Dashboard', () => {
       />,
     );
     // (10 + 20) / 2 = 15 s; con la medición no fiable (120 s) saldría 50 s.
-    expect(screen.getByText('15.0s')).toBeInTheDocument();
+    expect(screen.getByText('15 s')).toBeInTheDocument();
   });
 });

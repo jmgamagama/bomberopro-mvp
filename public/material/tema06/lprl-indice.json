@@ -1,0 +1,64 @@
+{
+ "boe": "BOE-A-1995-24292",
+ "version": "23/10/2026",
+ "epigrafe": "Ley 31/1995, de 8 de noviembre, de Prevencion de Riesgos Laborales: Objeto, ambito de aplicacion y definiciones. Politica en materia de prevencion de riesgos para proteger la seguridad y salud en el trabajo. Derechos y obligaciones. Servicios de Prevencion.",
+ "bloques": [
+  {
+   "id": "lprl-01",
+   "titulo": "Capítulo I · Objeto, ámbito de aplicación y definiciones (arts. 1–4)",
+   "preceptos": [
+    "a1",
+    "a2",
+    "a3",
+    "a4"
+   ]
+  },
+  {
+   "id": "lprl-02",
+   "titulo": "Capítulo II · Política en materia de prevención (arts. 5–13)",
+   "preceptos": [
+    "a5",
+    "a6",
+    "a7",
+    "a8",
+    "a9",
+    "a10",
+    "a11",
+    "a12",
+    "a13"
+   ]
+  },
+  {
+   "id": "lprl-03",
+   "titulo": "Capítulo III · Derechos y obligaciones (arts. 14–29)",
+   "preceptos": [
+    "a14",
+    "a15",
+    "a16",
+    "a17",
+    "a18",
+    "a19",
+    "a20",
+    "a21",
+    "a22",
+    "a23",
+    "a24",
+    "a25",
+    "a26",
+    "a27",
+    "a28",
+    "a29"
+   ]
+  },
+  {
+   "id": "lprl-04",
+   "titulo": "Capítulo IV · Servicios de prevención (arts. 30–32 bis)",
+   "preceptos": [
+    "a30",
+    "a31",
+    "a32",
+    "a32bis"
+   ]
+  }
+ ]
+}

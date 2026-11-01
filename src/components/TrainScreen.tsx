@@ -4,6 +4,8 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
+import { formatArticle, conceptTopicLabel } from '../utils/conceptLabels';
+import { formatDecimal } from '../utils/formatNumber';
 import { Brain, Sparkles, ChevronRight, CheckCircle2, XCircle, AlertTriangle, HelpCircle, RefreshCw, ArrowLeft, Clock } from 'lucide-react';
 import { Question, ConfidenceLevel, MemoryState, Microconcept } from '../types';
 import { countAnswerChange } from '../utils/attempt';
@@ -391,6 +393,11 @@ export default function TrainScreen({
               <div className="p-3 bg-white/70 rounded-xl border border-white text-base text-slate-800 space-y-1">
                 <p className="font-semibold text-slate-800">Soporte y justificación legal:</p>
                 <p>{revealed?.explanation ?? question.explanation}</p>
+                {question.cita && (
+                  <p className="text-sm text-slate-600" data-testid="cita-literal">
+                    Cita literal: «{question.cita}»
+                  </p>
+                )}
               </div>
               <button
                 type="button"
@@ -412,16 +419,16 @@ export default function TrainScreen({
           {relatedConcept && (
             <div className="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-4">
               <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wider">
-                Microconcepto Relacionado
+                Concepto relacionado
               </h4>
 
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">
-                    {relatedConcept.id}
+                    {conceptTopicLabel(relatedConcept.id, question ? [question] : null)}
                   </span>
                   <span className="text-xs font-semibold text-indigo-600">
-                    Artículo {relatedConcept.article}
+                    {formatArticle(relatedConcept.article)}
                   </span>
                 </div>
                 <p className="text-xs text-slate-800 font-serif leading-relaxed italic bg-slate-50 p-2.5 rounded-lg">
@@ -446,7 +453,7 @@ export default function TrainScreen({
                       <span className="text-lg font-bold text-indigo-700">
                         {feedback.updatedState.memory_stability < 1
                           ? `${Math.round(feedback.updatedState.memory_stability * 24 * 60)} min`
-                          : `${feedback.updatedState.memory_stability.toFixed(1)} días`
+                          : `${formatDecimal(feedback.updatedState.memory_stability, 1)} días`
                         }
                       </span>
                     </div>

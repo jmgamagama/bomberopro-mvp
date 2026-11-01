@@ -2,7 +2,8 @@
 
 import { beforeAll, beforeEach, describe, expect, it, afterEach, vi } from 'vitest';
 import { loadRecallPool, type RecallCard } from '../data/recallCards';
-import { RECALL_DECKS, RECALL_TOPICS, RECALL_TOTAL_CARDS } from '../data/recallRegistry';
+import { RECALL_DECKS, RECALL_TOPICS, RECALL_TOTAL_CARDS, getRecallDeck } from '../data/recallRegistry';
+import { outOfSyllabusCount, reviewedCardCount } from '../data/recallCardReview';
 import {
   DAILY_SESSION_SIZE,
   streakStorageKey,
@@ -80,9 +81,15 @@ describe('sesión diaria de recuerdo', () => {
 
 describe('sesión diaria con todos los temas cargados', () => {
   it('el pool incluye las fichas de todos los mazos del registro', () => {
-    expect(RECALL_CARDS).toHaveLength(RECALL_TOTAL_CARDS);
+    // Menos las fichas fuera del epígrafe de los mazos publicados (recallCardReview.ts), que el alumno no recibe.
+    // De un mazo pendiente con fichas revisadas sueltas, el alumno recibe solo esas.
+    const retiradas = (id: string) =>
+      getRecallDeck(id).revision === 'revisado'
+        ? outOfSyllabusCount(id)
+        : reviewedCardCount(id) ? getRecallDeck(id).count - reviewedCardCount(id) : 0;
+    expect(RECALL_CARDS).toHaveLength(RECALL_TOTAL_CARDS - RECALL_DECKS.reduce((n, d) => n + retiradas(d.id), 0));
     for (const deck of RECALL_DECKS) {
-      expect(RECALL_CARDS.filter((c) => c.deckId === deck.id)).toHaveLength(deck.count);
+      expect(RECALL_CARDS.filter((c) => c.deckId === deck.id)).toHaveLength(deck.count - retiradas(deck.id));
     }
   });
 
@@ -139,7 +146,7 @@ describe('sesión diaria con tema prioritario', () => {
     const date = new Date(2026, 9, 6);
     const base = pickDailyRecallSession(RECALL_CARDS, 30, date).map((c) => c.id);
     expect(pickDailyRecallSession(RECALL_CARDS, 30, date, { preferredDeckId: null }).map((c) => c.id)).toEqual(base);
-    expect(pickDailyRecallSession(RECALL_CARDS, 30, date, { preferredDeckId: 'tema37' }).map((c) => c.id)).toEqual(base);
+    expect(pickDailyRecallSession(RECALL_CARDS, 30, date, { preferredDeckId: 'tema11' }).map((c) => c.id)).toEqual(base);
   });
 });
 
