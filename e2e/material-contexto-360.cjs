@@ -118,6 +118,31 @@ async function comprobarDialogo(page, nombre, conResalte) {
   await axe(page, 'material desde progreso');
   await page.getByRole('button', { name: 'Volver a Tu progreso' }).click();
   check('progreso: al volver sigue en Tu progreso', await page.getByRole('heading', { name: 'Tu progreso' }).isVisible());
+  // 4) Temas con material nuevo (feat/material-mas-temas): se abren y muestran su esquema del BOE.
+  let n = 7;
+  for (const t of ['10', '12', '13', '22', '25', '28', '32']) {
+    const b = page.locator(`[data-material-tema="${t}"]`);
+    if (await b.count()) {
+      await b.scrollIntoViewIfNeeded();
+      await b.click();
+      await page.locator('#material-contexto').waitFor();
+    } else {
+      // Sin fichas publicadas para el alumno, el tema no sale en Tu progreso: se elige en el selector del material.
+      log(`T${t}: sin acceso en Tu progreso (sus fichas no están publicadas); se abre desde el selector de tema`);
+      await page.locator('[data-material-tema]').first().click();
+      await page.locator('#material-contexto').waitFor();
+      await page.locator('#material-contexto select').first().selectOption(t);
+    }
+    const enlace = page.locator('#material-contexto [role="tabpanel"] a[href*="boe.es/buscar/act.php"]').first();
+    await enlace.waitFor({ timeout: 8000 }).catch(() => {});
+    const tit = await page.locator('#material-contexto [role="tabpanel"] h1, #material-contexto [role="tabpanel"] h2').first().innerText().catch(() => '');
+    log(`T${t}:`, tit.slice(0, 120));
+    check(`T${t}: esquema con enlaces al BOE`, (await enlace.count()) > 0 && (await page.locator('#material-contexto select').first().inputValue()) === t);
+    if (['13', '28', '32'].includes(t)) { await page.screenshot({ path: `${OUT}/0${n}-material-T${t}.png` }); n++; await axe(page, `material T${t}`); }
+    check(`T${t}: sin scroll horizontal`, (await page.evaluate(() => document.documentElement.scrollWidth)) <= 360);
+    await page.getByRole('button', { name: 'Volver a Tu progreso' }).click();
+    await page.locator('#material-contexto').waitFor({ state: 'detached' });
+  }
   await browser.close();
   const ok = res.every(Boolean);
   log(ok ? `TODO OK (${res.length})` : 'HAY FALLOS');

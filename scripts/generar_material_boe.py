@@ -13,7 +13,9 @@ La especificación (scripts/material/temaNN.json) fija la norma y los bloques de
 en orden del documento y ambos incluidos:
   {"boe": "BOE-A-…", "carpeta": "tema06", "prefijo": "lprl", "epigrafe": "…",
    "bloques": [{"titulo": "…", "desde": "ci", "hasta": "a4"}, …]}
-Opcional en un bloque: "apartados": ["2. ", "3. "] para quedarse solo con esos apartados de una sección.
+Opcional en un bloque: "apartados": ["2. ", "3. "] para quedarse solo con esos apartados de una sección, y
+"subtitulo": clase de párrafo que abre cada apartado (por defecto «centro_redonda»; el anexo II del
+RD 1215/1997 usa «centro_cursiva»).
 
 Salida en public/material/<carpeta>/:
   <prefijo>-NN-1-esquema.md   por bloque: rúbricas literales con enlace a cada precepto en el BOE
@@ -64,7 +66,7 @@ def cuerpo(b: dict, url: str) -> list[str]:
     return out
 
 
-def recortar(b: dict, apartados: list[str]) -> dict:
+def recortar(b: dict, apartados: list[str], subtitulo: str = "centro_redonda") -> dict:
     """Deja de un bloque largo (p. ej. una sección de anexo) solo los apartados pedidos por el epígrafe.
 
     Un apartado empieza en un subtítulo centrado cuyo texto empieza por uno de los prefijos dados
@@ -77,7 +79,7 @@ def recortar(b: dict, apartados: list[str]) -> dict:
         if p["clase"] in ("seccion", "anexo_num", "anexo_tit") and not out:
             out.append(p)
             continue
-        if p["clase"].startswith("centro_redonda"):
+        if p["clase"].startswith(subtitulo):
             dentro = any(p["texto"].startswith(a) for a in apartados)
         if dentro:
             out.append(p)
@@ -107,7 +109,7 @@ def main() -> None:
     for n, bl in enumerate(spec["bloques"], start=1):
         tramo = bloques[ids.index(bl["desde"]): ids.index(bl["hasta"]) + 1]
         if bl.get("apartados"):
-            tramo = [recortar(b, bl["apartados"]) for b in tramo]
+            tramo = [recortar(b, bl["apartados"], bl.get("subtitulo", "centro_redonda")) for b in tramo]
         # Encabezados sin texto propio (títulos, capítulos, secciones) son subtítulos; lo demás, preceptos.
         preceptos = [b for b in tramo if b["tipo"] == "precepto" or any(p["clase"] in TEXTO | TABLA for p in b["parrafos"])]
         slug = f"{spec['prefijo']}-{n:02d}"

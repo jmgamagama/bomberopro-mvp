@@ -1,0 +1,14 @@
+{
+ "boe": "BOE-A-2017-6606",
+ "version": "19/12/2025",
+ "epigrafe": "El agua. Caracteristicas termicas del agua. Procedimientos de actuacion con agua. Potencia del fuego y potencia extintora del agua. Sistema de abastecimiento de agua. Hidrantes, columnas secas, bocas de incendios equipadas. Tipos y sistemas de acoplamiento de mangueras. Tipos y principio de funcionamiento de lanzas. Accesorios para los medios de extincion. Monitor.\n",
+ "bloques": [
+  {
+   "id": "ripci10-01",
+   "titulo": "RIPCI, anexo I, sección 1.ª · Abastecimiento de agua, hidrantes, BIE y columna seca (apdos. 2, 3, 5 y 6)",
+   "preceptos": [
+    "s1-2"
+   ]
+  }
+ ]
+}

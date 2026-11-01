@@ -1,0 +1,24 @@
+{
+ "tema": 28,
+ "boe": "BOE-A-2001-11881",
+ "carpeta": "tema28",
+ "prefijo": "rd614",
+ "epigrafe": "Electricidad: definiciones. Intensidad. Diferencia de potencial. Resistencia y conductividad electrica. Centrales de generacion, lineas de transporte y distribucion en alta tension, subestaciones, lineas de distribucion en media tension, centros de transformacion, redes de distribucion en baja tension y acometidas, instalaciones de enlace. Equipo de proteccion personal, material de aislamiento y deteccion, distancias de seguridad en funcion de la tension, agentes extintores. Tecnicas y procedimientos de actuacion en intervenciones con riesgo electrico.\n",
+ "bloques": [
+  {
+   "titulo": "Real Decreto 614/2001 · Articulado (arts. 1–6)",
+   "desde": "a1",
+   "hasta": "a6"
+  },
+  {
+   "titulo": "Anexo I · Definiciones (zonas de peligro y de proximidad, distancias según la tensión)",
+   "desde": "ani",
+   "hasta": "ani"
+  },
+  {
+   "titulo": "Anexos II a VI · Trabajos sin tensión, en tensión, maniobras, proximidad y emplazamientos con riesgo de incendio o explosión",
+   "desde": "anii",
+   "hasta": "anvi"
+  }
+ ]
+}

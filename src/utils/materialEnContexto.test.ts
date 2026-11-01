@@ -25,6 +25,14 @@ describe('material en contexto: relación verificable fuente → bloque del mate
     expect(destinoMaterial(1, 'Constitución Española')).toEqual({ tema: 1 });
     expect(destinoMaterial(1, 'Constitución Española, arts. 1 y 2')).toEqual({ tema: 1 });
   });
+  it('temas nuevos: RD 773/1997 (T13), RD 614/2001 (T28), CTE Parte I (T32); DB SI y ADR → solo el tema', () => {
+    expect(destinoMaterial(13, 'RD 773/1997, Artículo 7. Utilización y mantenimiento. BOE-A-1997-12735: https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a7')?.bloque).toBe('rd773-01');
+    expect(destinoMaterial(28, 'RD 614/2001, anexo I, tabla 1. BOE-A-2001-11881: https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881#ani')?.bloque).toBe('rd614-02');
+    expect(destinoMaterial(32, 'CTE (RD 314/2006), Parte I, Artículo 11. BOE-A-2006-5515: https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515#a11')?.bloque).toBe('cte-02');
+    expect(destinoMaterial(32, 'CTE DB SI, SI 5, pág. 40. DB SI del CTE')).toEqual({ tema: 32 });
+    expect(destinoMaterial(25, 'ADR 2025, 1.2.1, «Grupo de embalaje», pág. 25. BOE-A-2025-77')).toEqual({ tema: 25 });
+    expect(destinoMaterial(28, 'REBT (RD 842/2002), Artículo 15. BOE-A-2002-18099: https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#a15')).toEqual({ tema: 28 });
+  });
   it('tema sin material → sin enlace', () => {
     expect(destinoMaterial(40, 'PT03 — PDF p. 23')).toBeNull();
     expect(destinoMaterial(null, T2)).toBeNull();

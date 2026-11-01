@@ -7,7 +7,7 @@
  *
  * Origen del material:
  *  - Tema 1 (piloto): scripts/generar_material.py (texto BOE) + esquema y desarrollo revisados a mano.
- *  - Temas 2, 3, 6, 7, 31 y 34: scripts/generar_material_boe.py scripts/material/temaNN.json (solo texto
+ *  - Temas 2, 3, 6, 7, 10, 12, 13, 22, 25, 28, 31, 32, 33 y 34: scripts/generar_material_boe.py scripts/material/temaNN.json (solo texto
  *    literal del BOE, limitado al epígrafe del anexo I). Sin desarrollo.
  * Para añadir un tema: genera sus ficheros y añade UNA entrada a MATERIAL_TEMAS. Los tests comprueban
  * que cada fichero citado existe.
@@ -176,6 +176,89 @@ export const MATERIAL_TEMAS: readonly MaterialTema[] = [
     bloques: [
       boe('ripci-01', 'Reglamento · Objeto y ámbito de aplicación (arts. 1–2)'),
       boe('ripci-02', 'Anexo I, sección 1.ª · Abastecimiento de agua, hidrantes, BIE y columna seca (apdos. 2, 3, 5 y 6)'),
+    ],
+  },
+  {
+    tema: 10,
+    nombre: "El agua · abastecimiento, hidrantes, columnas secas y BIE (RIPCI)",
+    carpeta: 'tema10',
+    textoOficial: { file: 'ripci10-texto-oficial.md', titulo: "Real Decreto 513/2017 · Texto consolidado (BOE)" },
+    fuentes: [{ titulo: "Real Decreto 513/2017, de 22 de mayo, por el que se aprueba el Reglamento de instalaciones de protección contra incendios", boe: 'BOE-A-2017-6606', url: boeUrl('BOE-A-2017-6606'), version: '19/12/2025' }],
+    alcance: "El epígrafe pide sistema de abastecimiento de agua, hidrantes, columnas secas y bocas de incendio equipadas: RIPCI, anexo I, sección 1.ª, apartados 2, 3, 5 y 6. El resto del tema (agua, lanzas, mangueras, monitor) no se apoya en una norma consolidada del BOE.",
+    bloques: [
+      boe('ripci10-01', "RIPCI, anexo I, sección 1.ª · Abastecimiento de agua, hidrantes, BIE y columna seca (apdos. 2, 3, 5 y 6)"),
+    ],
+  },
+  {
+    tema: 12,
+    nombre: "Extintores (RIPCI, anexo I)",
+    carpeta: 'tema12',
+    textoOficial: { file: 'ripci12-texto-oficial.md', titulo: "Real Decreto 513/2017 · Texto consolidado (BOE)" },
+    fuentes: [{ titulo: "Real Decreto 513/2017, de 22 de mayo, por el que se aprueba el Reglamento de instalaciones de protección contra incendios", boe: 'BOE-A-2017-6606', url: boeUrl('BOE-A-2017-6606'), version: '19/12/2025' }],
+    alcance: "El epígrafe pide extintores: identificación, emplazamiento y distribución, que regula el RIPCI, anexo I, sección 1.ª, apartado 4. Las normas UNE-EN 3-7 y UNE-EN 1866-1 no se publican en el BOE.",
+    bloques: [
+      boe('ripci12-01', "RIPCI, anexo I, sección 1.ª · Extintores de incendio (apdo. 4)"),
+    ],
+  },
+  {
+    tema: 13,
+    nombre: "Equipos de protección individual (RD 773/1997)",
+    carpeta: 'tema13',
+    textoOficial: { file: 'rd773-texto-oficial.md', titulo: "Real Decreto 773/1997 · Texto consolidado (BOE)" },
+    fuentes: [{ titulo: "Real Decreto 773/1997, de 30 de mayo, sobre disposiciones mínimas de seguridad y salud relativas a la utilización por los trabajadores de equipos de protección individual", boe: 'BOE-A-1997-12735', url: boeUrl('BOE-A-1997-12735'), version: '18/12/2025' }],
+    alcance: "El epígrafe pide la normativa, clasificación, uso y mantenimiento de los EPI: Real Decreto 773/1997, articulado y anexos. El Reglamento (UE) 2016/425 y las normas UNE de los EPI de bomberos no están en el BOE consolidado.",
+    bloques: [
+      boe('rd773-01', "Real Decreto 773/1997 · Articulado (arts. 1–10)"),
+      boe('rd773-02', "Real Decreto 773/1997 · Anexos I a IV (riesgos, tipos de EPI y actividades)"),
+    ],
+  },
+  {
+    tema: 22,
+    nombre: "Trabajos temporales en altura (RD 1215/1997, anexo II.4)",
+    carpeta: 'tema22',
+    textoOficial: { file: 'rd1215altura-texto-oficial.md', titulo: "Real Decreto 1215/1997 · Texto consolidado (BOE)" },
+    fuentes: [{ titulo: "Real Decreto 1215/1997, de 18 de julio, por el que se establecen las disposiciones mínimas de seguridad y salud para la utilización por los trabajadores de los equipos de trabajo", boe: 'BOE-A-1997-17824', url: boeUrl('BOE-A-1997-17824'), version: '18/12/2025' }],
+    alcance: "El epígrafe pide la normativa y el marco legal de los trabajos en altura: RD 1215/1997, anexo II, apartado 4 (añadido por el RD 2177/2004). El resto (material, nudos, poleas) es técnico, sin norma consolidada.",
+    bloques: [
+      boe('rd1215altura-01', "RD 1215/1997, anexo II · Trabajos temporales en altura (apdo. 4, añadido por el RD 2177/2004)"),
+    ],
+  },
+  {
+    tema: 25,
+    nombre: "Transporte de mercancías peligrosas por carretera (RD 97/2014)",
+    carpeta: 'tema25',
+    textoOficial: { file: 'rd97-texto-oficial.md', titulo: "Real Decreto 97/2014 · Texto consolidado (BOE)" },
+    fuentes: [{ titulo: "Real Decreto 97/2014, de 14 de febrero, por el que se regulan las operaciones de transporte de mercancías peligrosas por carretera en territorio español", boe: 'BOE-A-2014-2110', url: boeUrl('BOE-A-2014-2110'), version: '26/06/2026' }],
+    alcance: "El epígrafe pide la normativa y las normas de actuación en caso de siniestro: RD 97/2014, capítulos I y IV. La clasificación, etiquetas y códigos del ADR están en el propio ADR, que el BOE publica como acuerdo internacional sin texto consolidado.",
+    bloques: [
+      boe('rd97-01', "Capítulo I · Disposiciones generales y definiciones (arts. 1–3)"),
+      boe('rd97-02', "Capítulo IV · Normas de actuación en caso de avería o accidente (arts. 20–23)"),
+    ],
+  },
+  {
+    tema: 28,
+    nombre: "Riesgo eléctrico (RD 614/2001)",
+    carpeta: 'tema28',
+    textoOficial: { file: 'rd614-texto-oficial.md', titulo: "Real Decreto 614/2001 · Texto consolidado (BOE)" },
+    fuentes: [{ titulo: "Real Decreto 614/2001, de 8 de junio, sobre disposiciones mínimas para la protección de la salud y seguridad de los trabajadores frente al riesgo eléctrico", boe: 'BOE-A-2001-11881', url: boeUrl('BOE-A-2001-11881'), version: '18/12/2025' }],
+    alcance: "El epígrafe pide equipos, distancias de seguridad en función de la tensión y procedimientos de actuación con riesgo eléctrico: RD 614/2001, articulado y anexos I a VI. La parte de física y redes eléctricas no se apoya en una norma consolidada.",
+    bloques: [
+      boe('rd614-01', "Real Decreto 614/2001 · Articulado (arts. 1–6)"),
+      boe('rd614-02', "Anexo I · Definiciones (zonas de peligro y de proximidad, distancias según la tensión)"),
+      boe('rd614-03', "Anexos II a VI · Trabajos sin tensión, en tensión, maniobras, proximidad y emplazamientos con riesgo de incendio o explosión"),
+    ],
+  },
+  {
+    tema: 32,
+    nombre: "Código Técnico de la Edificación (RD 314/2006)",
+    carpeta: 'tema32',
+    textoOficial: { file: 'cte-texto-oficial.md', titulo: "Real Decreto 314/2006 · Texto consolidado (BOE)" },
+    fuentes: [{ titulo: "Real Decreto 314/2006, de 17 de marzo, por el que se aprueba el Código Técnico de la Edificación", boe: 'BOE-A-2006-5515', url: boeUrl('BOE-A-2006-5515'), version: '18/12/2025' }],
+    alcance: "El epígrafe pide objeto y ámbito y las exigencias básicas SI y SUA: CTE, Parte I, arts. 1–2, 11 y 12. Los documentos básicos DB SI y DB SUA (Parte II) no están en el texto consolidado del BOE, que solo los cita.",
+    bloques: [
+      boe('cte-01', "CTE, Parte I · Objeto y ámbito de aplicación (arts. 1–2)"),
+      boe('cte-02', "CTE, Parte I · Exigencias básicas de seguridad en caso de incendio, SI 1 a SI 6 (art. 11)"),
+      boe('cte-03', "CTE, Parte I · Exigencias básicas de seguridad de utilización y accesibilidad, SUA 1 a SUA 9 (art. 12)"),
     ],
   },
 ];
