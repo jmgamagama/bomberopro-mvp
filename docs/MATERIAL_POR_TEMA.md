@@ -15,7 +15,7 @@ parte de la norma que pide el epígrafe. Cuando el epígrafe se apoya en documen
 
 | Tema | Norma | Versión BOE | Alcance generado |
 |---|---|---|---|
-| 1 | Constitución (BOE-A-1978-31229) | 20/05/2026 | piloto: 6 bloques con 3 capas (`scripts/generar_material.py` + redacción revisada). **Ojo:** el BOE publica una actualización del 29/10/2026 (ver más abajo) |
+| 1 | Constitución (BOE-A-1978-31229) | 29/10/2026 | piloto: 6 bloques con 3 capas (`scripts/generar_material.py` + redacción revisada). Frente al 20/05/2026 solo cambian metadatos (ver más abajo) |
 | 2 | Estatuto de Autonomía de Extremadura (BOE-A-2011-1638) | 30/10/2026 | Tít. Preliminar, I y II (arts. 1–48) |
 | 3 | LBRL (BOE-A-1985-5392) | 05/10/2026 | Tít. III, organización y competencias (arts. 31–38) |
 | 6 | LPRL (BOE-A-1995-24292) | 23/10/2026 | caps. I–IV (arts. 1–32 bis) |
@@ -25,7 +25,7 @@ parte de la norma que pide el epígrafe. Cuando el epígrafe se apoya en documen
 | 13 | RD 773/1997, EPI (BOE-A-1997-12735) | 18/12/2025 | arts. 1–10 y anexos I–IV |
 | 22 | RD 1215/1997 (BOE-A-1997-17824) | 18/12/2025 | anexo II apdo. 4, trabajos temporales en altura (RD 2177/2004) |
 | 25 | RD 97/2014, mercancías peligrosas por carretera (BOE-A-2014-2110) | 26/06/2026 | cap. I (arts. 1–3) y cap. IV, actuación en caso de avería o accidente (arts. 20–23) |
-| 28 | RD 614/2001, riesgo eléctrico (BOE-A-2001-11881) | 18/12/2025 | arts. 1–6 y anexos I–VI (definiciones y distancias, trabajos sin/en tensión, maniobras, proximidad, emplazamientos con riesgo de incendio o explosión) |
+| 28 | RD 614/2001, riesgo eléctrico (BOE-A-2001-11881) | 18/12/2025 | arts. 1–6 y anexos I–VI (definiciones y distancias, trabajos sin/en tensión, maniobras, proximidad, emplazamientos con riesgo de incendio o explosión). **+ REBT, RD 842/2002 (BOE-A-2002-18099), 18/12/2025**, baja tensión, acometidas e instalaciones de enlace: Reglamento arts. 4, 8 y 15; ITC-BT-06, 07, 08 y 11 (redes y acometidas); ITC-BT-12 a 17 (instalaciones de enlace). Sin alta tensión (RD 337/2014, RD 223/2008) |
 | 31 | RD 1215/1997 (BOE-A-1997-17824) | 18/12/2025 | completo, con anexos I y II |
 | 32 | CTE, RD 314/2006 (BOE-A-2006-5515) | 18/12/2025 | Parte I: arts. 1–2 (objeto y ámbito), 11 (SI 1–6) y 12 (SUA 1–9) |
 | 33 | RIPCI, RD 513/2017 (BOE-A-2017-6606) | 19/12/2025 | arts. 1–2 y anexo I secc. 1.ª apdos. 2, 3, 5 y 6 |
@@ -36,7 +36,7 @@ parte de la norma que pide el epígrafe. Cuando el epígrafe se apoya en documen
 - **T10, T12:** el agua, lanzas, mangueras y monitor (T10), y las normas UNE-EN 3-7 y UNE-EN 1866-1 (T12), no son normas del BOE.
 - **T13:** el Reglamento (UE) 2016/425 está en el DOUE, no en el BOE consolidado. Las normas UNE de EPI de bomberos y las guías del INSST no son normas.
 - **T25:** la clasificación, los códigos de peligro y las etiquetas están en el ADR. El BOE lo publica como texto enmendado de los anejos A y B (p. ej. BOE-A-2025-77), sin versión consolidada en la API. Las fichas del tema citan el ADR, así que «Ver en el esquema» abre el tema sin resaltar.
-- **T28:** la parte de redes de baja tensión, acometidas e instalaciones de enlace está en el REBT (RD 842/2002, BOE-A-2002-18099, consolidado), y la de alta tensión en el RD 337/2014 y el RD 223/2008. No se han generado porque el material de un tema admite hoy una sola norma: los anclajes del BOE (#a1…) chocarían entre normas en `materialPreceptos.ts`. Hay que añadir antes el identificador BOE a cada bloque. Queda como siguiente paso.
+- **T28:** la parte de alta tensión (RD 337/2014 y RD 223/2008) no se ha generado: el encargo pedía solo baja tensión, acometidas e instalaciones de enlace (REBT, ya incluido). Las ITC-BT-09, 18 y 24, que citan algunas fichas, quedan fuera del epígrafe, así que esas fichas abren solo el tema.
 - **T32:** los documentos básicos DB SI y DB SUA (SI 4, SI 5, SUA 4, SUA 7) son la Parte II del CTE. El texto consolidado del BOE solo los cita, y su texto está en el portal del CTE (codigotecnico.org). Solo se ha generado la Parte I.
 
 ## Temas sin material porque su epígrafe no se apoya en una norma consolidada del BOE
@@ -72,8 +72,15 @@ parte de la norma que pide el epígrafe. Cuando el epígrafe se apoya en documen
   - El «Manual software de navegación S.O.S. Profesional» no tiene publicación oficial localizada.
 - **T40 · Procedimientos de trabajo (PT01 conducción, PT03 amianto).** Son documentos internos del CPEI (PDF firmados) sin publicación oficial localizada. No hay enlace ni esquema.
 
-## Constitución (T1): actualización del BOE pendiente
+## Constitución (T1): versión del 29/10/2026
 
-La API del BOE da para BOE-A-1978-31229 `fecha_actualizacion` 29/10/2026, y el material del T1 se generó con la del
-20/05/2026. El T1 es el piloto con desarrollo redactado a mano y queda fuera de esta pieza, así que no se ha regenerado.
-Hay que revisar qué cambió y regenerarlo con `scripts/generar_material.py`, con revisión humana del desarrollo.
+Se ha comparado bloque a bloque con la del 20/05/2026 (ver `docs/CE_2026-10-29.md`). Ningún texto cambia: los 210 bloques
+son iguales y `texto.xml` es idéntico byte a byte. Solo cambia la fecha de actualización. Se ha regenerado la versión, y el
+desarrollo, las fichas y los conceptos siguen igual.
+
+## Varias normas por tema
+
+Cada bloque guarda su identificador BOE: `boe` en la especificación (`scripts/material/temaNN.json`, si no, el del tema),
+en el `-indice.json`, en `materialTemas.ts` y en `materialPreceptos.ts`. Con eso, «Ver en el esquema» busca el ancla de
+una cita solo en los bloques de la norma citada. Hace falta porque el art. 4 del RD 614/2001 y el art. 4 del REBT tienen
+la misma ancla (`a4`). Un bloque puede tomar preceptos sueltos con `"ids"` en lugar de `desde`/`hasta`.

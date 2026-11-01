@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Comprueba con la API de datos abiertos del BOE que el material de cada tema usa la versión vigente.
 
-Para cada scripts/material/temaNN.json lee los metadatos de su norma en
+Para cada scripts/material/temaNN.json (y cada norma de sus bloques: un tema puede tener varias) y para la
+Constitución del T1 (generada con scripts/generar_material.py) lee los metadatos de la norma en
   https://www.boe.es/datosabiertos/api/legislacion-consolidada/id/<ID>/metadatos
 y exige: vigencia_agotada = N, estado_consolidacion = Finalizado y que la fecha_actualizacion del BOE
 sea la misma que la de data/fuentes/<ID>/meta.json (la descargada con scripts/fuente_boe.py).
@@ -36,10 +37,16 @@ def metadatos(boe_id: str) -> dict:
 def main() -> None:
     filas, errores = [], []
     specs = sorted(pathlib.Path("scripts/material").glob("tema*.json"))
-    vistos: dict[str, dict] = {}
+    pares: list[tuple[int, str]] = [(1, "BOE-A-1978-31229")]
     for f in specs:
         spec = json.loads(f.read_text(encoding="utf-8"))
-        boe_id = spec["boe"]
+        for b in [spec["boe"], *[bl["boe"] for bl in spec["bloques"] if bl.get("boe")]]:
+            if (spec["tema"], b) not in pares:
+                pares.append((spec["tema"], b))
+    pares.sort()
+    vistos: dict[str, dict] = {}
+    for tema, boe_id in pares:
+        spec = {"tema": tema}
         meta = json.loads((pathlib.Path("data/fuentes") / boe_id / "meta.json").read_text(encoding="utf-8"))
         api = vistos.setdefault(boe_id, metadatos(boe_id))
         local = meta["fecha_actualizacion_boe"]

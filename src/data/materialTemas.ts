@@ -21,6 +21,8 @@ export interface MaterialBloque {
   titulo: string;
   /** Ficheros por capa (relativos a la carpeta del tema). Ausente = esa capa no existe todavía. */
   capas: Partial<Record<CapaId, string>>;
+  /** Norma del bloque si no es la principal del tema (varias normas por tema; ver materialPreceptos.ts). */
+  boe?: string;
 }
 
 export interface FuenteTema {
@@ -70,7 +72,7 @@ export const MATERIAL_TEMAS: readonly MaterialTema[] = [
     carpeta: 'constitucion',
     piloto: true,
     textoOficial: { file: 'constitucion-espanola-texto-oficial.md', titulo: 'Constitución Española · Texto oficial (BOE)' },
-    fuentes: [{ titulo: 'Constitución Española', boe: 'BOE-A-1978-31229', url: boeUrl('BOE-A-1978-31229'), version: '20/05/2026' }],
+    fuentes: [{ titulo: 'Constitución Española', boe: 'BOE-A-1978-31229', url: boeUrl('BOE-A-1978-31229'), version: '29/10/2026' }],
     bloques: [
       ce('titulo-preliminar', 'Título Preliminar (arts. 1–9)'),
       ce('dignidad-espanoles-extranjeros', 'Dignidad, españoles y extranjeros (arts. 10–13)'),
@@ -237,15 +239,19 @@ export const MATERIAL_TEMAS: readonly MaterialTema[] = [
   },
   {
     tema: 28,
-    nombre: "Riesgo eléctrico (RD 614/2001)",
+    nombre: "Riesgo eléctrico (RD 614/2001 y REBT)",
     carpeta: 'tema28',
     textoOficial: { file: 'rd614-texto-oficial.md', titulo: "Real Decreto 614/2001 · Texto consolidado (BOE)" },
-    fuentes: [{ titulo: "Real Decreto 614/2001, de 8 de junio, sobre disposiciones mínimas para la protección de la salud y seguridad de los trabajadores frente al riesgo eléctrico", boe: 'BOE-A-2001-11881', url: boeUrl('BOE-A-2001-11881'), version: '18/12/2025' }],
-    alcance: "El epígrafe pide equipos, distancias de seguridad en función de la tensión y procedimientos de actuación con riesgo eléctrico: RD 614/2001, articulado y anexos I a VI. La parte de física y redes eléctricas no se apoya en una norma consolidada.",
+    fuentes: [{ titulo: "Real Decreto 614/2001, de 8 de junio, sobre disposiciones mínimas para la protección de la salud y seguridad de los trabajadores frente al riesgo eléctrico", boe: 'BOE-A-2001-11881', url: boeUrl('BOE-A-2001-11881'), version: '18/12/2025' },
+      { titulo: "Real Decreto 842/2002, de 2 de agosto, por el que se aprueba el Reglamento electrotécnico para baja tensión", boe: 'BOE-A-2002-18099', url: boeUrl('BOE-A-2002-18099'), version: '18/12/2025' }],
+    alcance: "El epígrafe pide equipos, distancias de seguridad en función de la tensión y procedimientos de actuación con riesgo eléctrico (RD 614/2001, articulado y anexos I a VI), y redes de distribución en baja tensión, acometidas e instalaciones de enlace (REBT: arts. 4, 8 y 15 e ITC-BT-06, 07, 08 y 11 a 17). La alta tensión (RD 337/2014, RD 223/2008) y la parte de física no se han generado.",
     bloques: [
       boe('rd614-01', "Real Decreto 614/2001 · Articulado (arts. 1–6)"),
       boe('rd614-02', "Anexo I · Definiciones (zonas de peligro y de proximidad, distancias según la tensión)"),
       boe('rd614-03', "Anexos II a VI · Trabajos sin tensión, en tensión, maniobras, proximidad y emplazamientos con riesgo de incendio o explosión"),
+      { ...boe('rd614-04', "REBT (RD 842/2002) · Reglamento: clasificación de las tensiones, redes de distribución y acometidas e instalaciones de enlace (arts. 4, 8 y 15)"), boe: 'BOE-A-2002-18099' },
+      { ...boe('rd614-05', "REBT · Redes de distribución en baja tensión y acometidas (ITC-BT-06, 07, 08 y 11)"), boe: 'BOE-A-2002-18099' },
+      { ...boe('rd614-06', "REBT · Instalaciones de enlace (ITC-BT-12 a 17)"), boe: 'BOE-A-2002-18099' },
     ],
   },
   {

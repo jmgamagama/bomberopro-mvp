@@ -140,6 +140,22 @@ async function comprobarDialogo(page, nombre, conResalte) {
     check(`T${t}: esquema con enlaces al BOE`, (await enlace.count()) > 0 && (await page.locator('#material-contexto select').first().inputValue()) === t);
     if (['13', '28', '32'].includes(t)) { await page.screenshot({ path: `${OUT}/0${n}-material-T${t}.png` }); n++; await axe(page, `material T${t}`); }
     check(`T${t}: sin scroll horizontal`, (await page.evaluate(() => document.documentElement.scrollWidth)) <= 360);
+    if (t === '28') {
+      // Varias normas por tema (feat/ce-2026-y-multinorma): los bloques del REBT enlazan a su propia norma.
+      const sel = page.getByLabel('Bloque');
+      for (const [id, cap] of [['rd614-04', '10-T28-rebt-reglamento'], ['rd614-06', '11-T28-rebt-enlace']]) {
+        await sel.selectOption(id);
+        const a = page.locator('#material-contexto [role="tabpanel"] a[href*="BOE-A-2002-18099#"]');
+        await a.first().waitFor({ timeout: 8000 }).catch(() => {});
+        const otra = await page.locator('#material-contexto [role="tabpanel"] a[href*="BOE-A-2001-11881#"]').count();
+        log(`T28 ${id}:`, await a.count(), 'enlaces al REBT;', otra, 'al RD 614/2001');
+        check(`T28 ${id}: enlaces al REBT y ninguno al RD 614/2001`, (await a.count()) > 0 && otra === 0);
+        await sel.evaluate((e) => e.scrollIntoView({ block: 'start' }));
+        await page.screenshot({ path: `${OUT}/${cap}.png` });
+        await axe(page, `T28 ${id}`);
+        check(`T28 ${id}: sin scroll horizontal`, (await page.evaluate(() => document.documentElement.scrollWidth)) <= 360);
+      }
+    }
     await page.getByRole('button', { name: 'Volver a Tu progreso' }).click();
     await page.locator('#material-contexto').waitFor({ state: 'detached' });
   }

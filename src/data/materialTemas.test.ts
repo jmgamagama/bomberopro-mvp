@@ -28,11 +28,14 @@ describe('registro de material por tema', () => {
     for (const n of [2, 3, 6, 7, 10, 12, 13, 22, 25, 28, 31, 32, 33, 34]) {
       const m = materialDeTema(n)!;
       expect(capasDisponibles(m), `T${n}`).toEqual(['esquema', 'completo']);
-      const indice = JSON.parse(readFileSync(`public/material/${m.carpeta}/${m.textoOficial!.file.replace('-texto-oficial.md', '-indice.json')}`, 'utf8'));
+      const indice: { boe: string; bloques: { id: string; boe: string; preceptos: string[] }[] } = JSON.parse(readFileSync(`public/material/${m.carpeta}/${m.textoOficial!.file.replace('-texto-oficial.md', '-indice.json')}`, 'utf8'));
       expect(indice.bloques.map((b: { id: string }) => b.id)).toEqual(m.bloques.map((b) => b.id));
       for (const b of indice.bloques) {
         const esq = readFileSync(`public/material/${m.carpeta}/${b.id}-1-esquema.md`, 'utf8');
-        for (const id of b.preceptos) expect(esq, `T${n} ${id}`).toContain(`act.php?id=${indice.boe}#${id})`);
+        for (const id of b.preceptos) expect(esq, `T${n} ${id}`).toContain(`act.php?id=${b.boe}#${id})`);
+        const reg = m.bloques.find((x) => x.id === b.id)!;
+        expect(reg.boe ?? indice.boe, `T${n} ${b.id}: norma del bloque`).toBe(b.boe);
+        expect(m.fuentes.some((f) => f.boe === b.boe), `T${n}: la norma ${b.boe} está en sus fuentes`).toBe(true);
       }
     }
   });

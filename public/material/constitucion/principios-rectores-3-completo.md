@@ -1,6 +1,6 @@
 # Principios rectores de la política social y económica (arts. 39–52) · Texto completo y conceptos
 
-Texto literal del BOE (BOE-A-1978-31229, actualización publicada el 20/05/2026). Debajo de cada artículo, los conceptos que BomberoPro te pregunta de él.
+Texto literal del BOE (BOE-A-1978-31229, actualización publicada el 29/10/2026). Debajo de cada artículo, los conceptos que BomberoPro te pregunta de él.
 
 ## Artículo 39
 
