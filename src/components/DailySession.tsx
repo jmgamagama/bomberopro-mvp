@@ -1,11 +1,12 @@
 import GuestSignupPrompt from './GuestSignupPrompt';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import AvisoGuardadoFichas from './AvisoGuardadoFichas';
-import { Flame, Play, Eye, EyeOff, CheckCircle2, ListOrdered, BarChart3, Lock } from 'lucide-react';
+import { Flame, Play, Eye, EyeOff, CheckCircle2, ListOrdered, BarChart3, Lock, HelpCircle, CalendarClock } from 'lucide-react';
 import {
   pickDailyRecallSession,
   loadDailyStreak,
   completeDailySession,
+  countDueTomorrow,
   summarizeSession,
   type DailyStreak,
 } from '../utils/dailySession';
@@ -32,6 +33,9 @@ import { loadReviewLog, measuredElapsedMs } from '../utils/recallReviewLog';
 import ExamDateField from './ExamDateField';
 import DailyMinutesField from './DailyMinutesField';
 import FuenteOficial from './FuenteOficial';
+import { INITIAL_QUESTIONS } from '../data/initialData';
+import { EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS } from '../utils/examScoring';
+import { formatPoints } from '../utils/formatNumber';
 
 interface DailySessionProps {
   /** Demo o sin cuenta: cambia el aviso de dónde se guarda el repaso. */
@@ -44,11 +48,13 @@ interface DailySessionProps {
   onOpenPlanes?: () => void;
   /** Invitado sin cuenta: al terminar, ofrecer guardar el progreso creando una cuenta. */
   onGuestSignup?: () => void;
+  /** Invitado: al terminar, siguiente paso del recorrido = simulacro de muestra (empieza directo). */
+  onTryExam?: () => void;
 }
 
 type Phase = 'intro' | 'study' | 'done' | 'stats';
 
-export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false, onOpenPlanes, demo = true, onGuestSignup }: DailySessionProps) {
+export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false, onOpenPlanes, demo = true, onGuestSignup, onTryExam }: DailySessionProps) {
   const plan = getPlan();
   const planesOn = isPlanesEnabled();
   const planSessionSize = getDailySessionSize(plan);
@@ -127,6 +133,8 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
     () => getVisibleTopics().filter((topic) => session.some((card) => card.topicId === topic.id)),
     [session],
   );
+  // Fin de sesión: cuántas fichas de hoy vuelven mañana (solo lectura del estado guardado).
+  const dueTomorrow = useMemo(() => countDueTomorrow(session, liveSrs), [session, liveSrs]);
   const progressLabel = session.length === 0 ? '0 / 0' : `${index + 1} / ${session.length}`;
 
   const startSession = () => {
@@ -425,6 +433,27 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
             <p className="text-4xl font-black text-orange-600">{streak.streakCount}</p>
             <p className="text-xs text-orange-700">días seguidos</p>
           </div>
+          <p className="mx-auto flex max-w-md items-start justify-center gap-2 text-sm text-slate-700" id="daily-session-manana">
+            <CalendarClock className="mt-0.5 h-4 w-4 shrink-0 text-orange-700" aria-hidden="true" />
+            <span>
+              {dueTomorrow > 0
+                ? <>Mañana te vuelven a tocar <strong>{dueTomorrow} {dueTomorrow === 1 ? 'ficha' : 'fichas'}</strong> de hoy. Vuelve para que no se te olviden y sume tu racha.</>
+                : 'Vuelve mañana para que sume tu racha.'}
+            </span>
+          </p>
+          {onTryExam && (
+            <aside aria-labelledby="daily-session-siguiente-titulo" id="daily-session-siguiente" className="mx-auto max-w-md space-y-2 rounded-2xl border border-orange-200 bg-orange-50 p-4 text-left">
+              <h3 id="daily-session-siguiente-titulo" className="text-base font-bold text-slate-900">Siguiente paso: ponte a prueba</h3>
+              <p className="text-sm text-slate-700">
+                Simulacro de muestra con {INITIAL_QUESTIONS.length} preguntas de 3 opciones y la puntuación del examen
+                ({formatPoints(EXAM_CORRECT_POINTS)} por acierto, {formatPoints(EXAM_INCORRECT_POINTS)} por fallo). Sin cuenta.
+              </p>
+              <button type="button" id="btn-daily-simulacro" onClick={onTryExam}
+                className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800">
+                <HelpCircle className="h-4 w-4" aria-hidden="true" /> Hacer el simulacro de muestra
+              </button>
+            </aside>
+          )}
           {onGuestSignup && <GuestSignupPrompt what="tu sesión de fichas" onSignup={onGuestSignup} />}
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <button

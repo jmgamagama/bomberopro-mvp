@@ -220,6 +220,20 @@ export function summarizeSession(session: RecallCard[], srs: SrsStore, date: Dat
   return out;
 }
 
+/**
+ * Cuántas fichas de la sesión vuelven a tocar mañana (vencen hoy o mañana) según el estado guardado.
+ * Solo lee el estado de repaso: no programa nada ni cambia el algoritmo (scheduleReview).
+ */
+export function countDueTomorrow(session: RecallCard[], srs: SrsStore, date: Date = new Date()): number {
+  const tomorrow = dayNumberFromKey(toLocalDateKey(date)) + 1;
+  let n = 0;
+  for (const card of session) {
+    const s = getCardSrs(srs, card.deckId, card.id);
+    if (s && s.due <= tomorrow) n++;
+  }
+  return n;
+}
+
 /** Selección por cuotas y rotación diaria (sin estado de repaso). */
 function pickRotation(
   pool: RecallCard[],

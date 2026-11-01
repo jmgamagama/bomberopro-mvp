@@ -28,6 +28,12 @@ const res = []; const check = (n, ok, d = '') => { res.push(ok); console.log(`${
   check('sesión diaria completada sin cuenta', await page.getByRole('heading', { name: 'Sesión completada' }).isVisible(), `(${fichas} fichas)`);
   check('oferta de guardar progreso tras la sesión', await page.getByRole('button', { name: /(crear cuenta|activar invitación) y guardar mi progreso/i }).isVisible());
   check('progreso de fichas en local (demo)', (await page.evaluate(() => localStorage.getItem('mira_recall_srs_v1:demo'))) !== null);
+  // Fin de sesión (01-nov-2026): «vuelve mañana» con cifra y el simulacro como siguiente paso, directo a la primera pregunta.
+  check('fin de sesión dice qué vuelve mañana', /vuelve mañana|mañana te vuelven a tocar \d+ fichas? de hoy/i.test(await page.locator('#daily-session-manana').innerText()));
+  check('fin de sesión sin scroll horizontal', (await sw()) <= 360, String(await sw()));
+  await page.getByRole('button', { name: 'Hacer el simulacro de muestra' }).click();
+  await page.getByText(/^Pregunta 1 de \d+$/).waitFor();
+  check('del fin de sesión al simulacro en un toque', true);
   await page.getByRole('navigation', { name: 'Navegación móvil' }).getByRole('button', { name: 'Inicio' }).click();
   // 3. Portada Badajoz 2026.
   const card = page.locator('#badajoz-2026');

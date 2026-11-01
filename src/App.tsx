@@ -1137,6 +1137,10 @@ export default function App() {
               onNavigateHome={() => handleNavigate('dashboard')}
               onOpenOrdenaPasos={() => handleNavigate('ordena_pasos')}
               onGuestSignup={supabase && !session ? handleDemoSignup : undefined}
+              onTryExam={isDemoMode || !session ? () => {
+                handleNavigate('mock_exam');
+                setMockAutoStart(true);
+              } : undefined}
             />
           )}
 
