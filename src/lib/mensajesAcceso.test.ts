@@ -23,10 +23,25 @@ describe('mensajes de la pantalla de entrada', () => {
     }
   });
 
-  it('el rechazo del trigger de invitación se explica como correo no invitado solo con el registro cerrado', () => {
-    const e = { status: 500, code: 'unexpected_failure', message: 'Database error saving new user' };
-    expect(mensajeErrorAcceso('crear', e, false).text).toMatch(/grupo piloto/);
-    expect(mensajeErrorAcceso('crear', e, true).text).not.toMatch(/grupo piloto/);
+  it('un error interno durante el alta no afirma si el correo está invitado', () => {
+    const errores = [
+      { status: 500, code: 'unexpected_failure', message: 'Database error saving new user' },
+      { status: 503, message: 'Service unavailable' },
+    ];
+    for (const e of errores) {
+      for (const registroAbierto of [true, false]) {
+        const mensaje = mensajeErrorAcceso('crear', e, registroAbierto).text;
+        expect(mensaje).toMatch(/inténtalo de nuevo más tarde/i);
+        expect(mensaje).not.toMatch(/no está en la lista|correo no invitado|grupo piloto/i);
+      }
+    }
+  });
+
+  it('el registro globalmente desactivado da una instrucción distinta de un fallo de servidor', () => {
+    expect(mensajeErrorAcceso('crear', { status: 422, code: 'signup_disabled' }, false).text)
+      .toMatch(/registro está cerrado/i);
+    expect(mensajeErrorAcceso('crear', { status: 422, code: 'signup_disabled' }, true).text)
+      .toMatch(/no se pueden crear cuentas/i);
   });
 
   it('contraseña corta, correo sin confirmar y límite de correos tienen su propio mensaje', () => {
