@@ -14,6 +14,11 @@
   "2": "normal: 3 opciones, formato del examen",
   "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
  },
+ "series": {
+  "mg": "faltas muy graves",
+  "g": "faltas graves",
+  "l": "faltas leves"
+ },
  "conceptos": [
   {
    "id": "RRI-a35-regimen",
@@ -124,7 +129,7 @@
    "prioridad": 1,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: incumplir el deber de fidelidad a la Constitución?",
-    "respuesta": "Falta muy grave (art. 35, n.º 1 de su lista)."
+    "respuesta": "Falta muy grave (art. 35, n.º 1 de las faltas muy graves)."
    },
    "cita": "incumplimiento del deber de fidelidad a la Constitución",
    "confundible_con": [],
@@ -172,7 +177,7 @@
    "prioridad": 1,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: discriminar por razón de raza, sexo o religión?",
-    "respuesta": "Falta muy grave (art. 35, n.º 2 de su lista)."
+    "respuesta": "Falta muy grave (art. 35, n.º 2 de las faltas muy graves)."
    },
    "cita": "discriminación por razón de raza, sexo, religión",
    "confundible_con": [],
@@ -220,7 +225,7 @@
    "prioridad": 1,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: no asistir a las llamadas por un siniestro?",
-    "respuesta": "Falta muy grave (art. 35, n.º 3 de su lista)."
+    "respuesta": "Falta muy grave (art. 35, n.º 3 de las faltas muy graves)."
    },
    "cita": "No asistir a las llamadas que se efectúen con motivo de un siniestro",
    "confundible_con": [
@@ -270,7 +275,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: adoptar acuerdos manifiestamente ilegales con perjuicio grave?",
-    "respuesta": "Falta muy grave (art. 35, n.º 4 de su lista)."
+    "respuesta": "Falta muy grave (art. 35, n.º 4 de las faltas muy graves)."
    },
    "cita": "acuerdos manifiestamente ilegales que causen perjuicio grave",
    "confundible_con": [
@@ -320,7 +325,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: utilizar indebidamente secretos oficiales?",
-    "respuesta": "Falta muy grave (art. 35, n.º 5 de su lista)."
+    "respuesta": "Falta muy grave (art. 35, n.º 5 de las faltas muy graves)."
    },
    "cita": "utilización indebida de secretos oficiales",
    "confundible_con": [],
@@ -368,7 +373,7 @@
    "prioridad": 1,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: estar intoxicado por ingerir voluntariamente alcohol?",
-    "respuesta": "Falta muy grave (art. 35, n.º 6 de su lista)."
+    "respuesta": "Falta muy grave (art. 35, n.º 6 de las faltas muy graves)."
    },
    "cita": "La notoria falta de rendimiento que comporte inhibición",
    "confundible_con": [
@@ -418,7 +423,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: usar sus facultades para influir en procesos electorales?",
-    "respuesta": "Falta muy grave (art. 35, n.º 7 de su lista)."
+    "respuesta": "Falta muy grave (art. 35, n.º 7 de las faltas muy graves)."
    },
    "cita": "violación de la neutralidad o independencia política",
    "confundible_con": [],
@@ -466,7 +471,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: incumplir las normas sobre incompatibilidades?",
-    "respuesta": "Falta muy grave (art. 35, n.º 8 de su lista)."
+    "respuesta": "Falta muy grave (art. 35, n.º 8 de las faltas muy graves)."
    },
    "cita": "El incumplimiento de las normas sobre incompatibilidades",
    "confundible_con": [
@@ -516,7 +521,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: obstaculizar el ejercicio de los derechos sindicales?",
-    "respuesta": "Falta muy grave (art. 35, n.º 9 de su lista)."
+    "respuesta": "Falta muy grave (art. 35, n.º 9 de las faltas muy graves)."
    },
    "cita": "obstaculización al ejercicio de las libertades publicas",
    "confundible_con": [],
@@ -564,7 +569,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: coartar el libre ejercicio del derecho de huelga?",
-    "respuesta": "Falta muy grave (art. 35, n.º 10 de su lista)."
+    "respuesta": "Falta muy grave (art. 35, n.º 10 de las faltas muy graves)."
    },
    "cita": "coartar el libre ejercicio del derecho de huelga",
    "confundible_con": [],
@@ -612,7 +617,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: hacer huelga quien la tenga prohibida por la Ley?",
-    "respuesta": "Falta muy grave (art. 35, n.º 11 de su lista)."
+    "respuesta": "Falta muy grave (art. 35, n.º 11 de las faltas muy graves)."
    },
    "cita": "La participación en huelgas",
    "confundible_con": [],
@@ -660,7 +665,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: no atender los servicios esenciales en caso de huelga?",
-    "respuesta": "Falta muy grave (art. 35, n.º 12 de su lista)."
+    "respuesta": "Falta muy grave (art. 35, n.º 12 de las faltas muy graves)."
    },
    "cita": "atender los servicios esenciales en caso de huelga",
    "confundible_con": [],
@@ -708,7 +713,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: limitar la libre expresión de pensamiento e ideas?",
-    "respuesta": "Falta muy grave (art. 35, n.º 13 de su lista)."
+    "respuesta": "Falta muy grave (art. 35, n.º 13 de las faltas muy graves)."
    },
    "cita": "Los actos limitativos de la libre expresión de pensamiento",
    "confundible_con": [],
@@ -756,7 +761,7 @@
    "prioridad": 1,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: haber sido sancionado por tres faltas graves en un año?",
-    "respuesta": "Falta muy grave (art. 35, n.º 14 de su lista)."
+    "respuesta": "Falta muy grave (art. 35, n.º 14 de las faltas muy graves)."
    },
    "cita": "tres faltas graves en un período de un año",
    "confundible_con": [
@@ -806,7 +811,7 @@
    "prioridad": 1,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: faltar a la obediencia debida a los superiores?",
-    "respuesta": "Falta grave (art. 35, n.º 1 de su lista)."
+    "respuesta": "Falta grave (art. 35, n.º 1 de las faltas graves)."
    },
    "cita": "La falta de obediencia debida a los superiores jerárquicos",
    "confundible_con": [],
@@ -854,7 +859,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: abusar de autoridad en el ejercicio del cargo?",
-    "respuesta": "Falta grave (art. 35, n.º 2 de su lista)."
+    "respuesta": "Falta grave (art. 35, n.º 2 de las faltas graves)."
    },
    "cita": "El abuso de autoridad en el ejercicio del cargo",
    "confundible_con": [],
@@ -902,7 +907,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: comerciar con prendas o efectos del Consorcio?",
-    "respuesta": "Falta grave (art. 35, n.º 3 de su lista)."
+    "respuesta": "Falta grave (art. 35, n.º 3 de las faltas graves)."
    },
    "cita": "conductas constitutivas de delito doloso",
    "confundible_con": [],
@@ -950,7 +955,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: tolerar faltas muy graves de los subordinados?",
-    "respuesta": "Falta grave (art. 35, n.º 4 de su lista)."
+    "respuesta": "Falta grave (art. 35, n.º 4 de las faltas graves)."
    },
    "cita": "La tolerancia de los superiores respecto de la comisión de faltas muy graves",
    "confundible_con": [],
@@ -998,7 +1003,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: tratar con grave desconsideración a los compañeros?",
-    "respuesta": "Falta grave (art. 35, n.º 5 de su lista)."
+    "respuesta": "Falta grave (art. 35, n.º 5 de las faltas graves)."
    },
    "cita": "La grave desconsideración con los superiores, compañeros y subordinados",
    "confundible_con": [],
@@ -1046,7 +1051,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: causar daños graves en el material del servicio?",
-    "respuesta": "Falta grave (art. 35, n.º 6 de su lista)."
+    "respuesta": "Falta grave (art. 35, n.º 6 de las faltas graves)."
    },
    "cita": "Causar daños graves en los locales, material o documentos",
    "confundible_con": [
@@ -1096,7 +1101,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: intervenir en un procedimiento con causa de abstención?",
-    "respuesta": "Falta grave (art. 35, n.º 7 de su lista)."
+    "respuesta": "Falta grave (art. 35, n.º 7 de las faltas graves)."
    },
    "cita": "causas de abstención legalmente señaladas",
    "confundible_con": [],
@@ -1144,7 +1149,7 @@
    "prioridad": 3,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: emitir informes manifiestamente ilegales que causen perjuicio?",
-    "respuesta": "Falta grave (art. 35, n.º 8 de su lista)."
+    "respuesta": "Falta grave (art. 35, n.º 8 de las faltas graves)."
    },
    "cita": "La emisión de informes y la adopción de acuerdos manifiestamente ilegales",
    "confundible_con": [
@@ -1194,7 +1199,7 @@
    "prioridad": 1,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: simular una enfermedad para no realizar el servicio?",
-    "respuesta": "Falta grave (art. 35, n.º 9 de su lista)."
+    "respuesta": "Falta grave (art. 35, n.º 9 de las faltas graves)."
    },
    "cita": "Simular enfermedades o impedimentos físicos",
    "confundible_con": [
@@ -1244,7 +1249,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: no guardar el sigilo debido sobre asuntos del cargo?",
-    "respuesta": "Falta grave (art. 35, n.º 10 de su lista)."
+    "respuesta": "Falta grave (art. 35, n.º 10 de las faltas graves)."
    },
    "cita": "No guardar el debido sigilo",
    "confundible_con": [],
@@ -1292,7 +1297,7 @@
    "prioridad": 3,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: incumplir plazos de procedimiento en materia de incompatibilidades?",
-    "respuesta": "Falta grave (art. 35, n.º 11 de su lista)."
+    "respuesta": "Falta grave (art. 35, n.º 11 de las faltas graves)."
    },
    "cita": "El incumplimiento de los plazos u otras disposiciones de procedimiento en materia de incompatibilidades",
    "confundible_con": [
@@ -1342,7 +1347,7 @@
    "prioridad": 1,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: incumplir la jornada, acumulado, al menos diez horas al mes?",
-    "respuesta": "Falta grave (art. 35, n.º 12 de su lista)."
+    "respuesta": "Falta grave (art. 35, n.º 12 de las faltas graves)."
    },
    "cita": "un mínimo de diez horas al mes",
    "confundible_con": [
@@ -1392,7 +1397,7 @@
    "prioridad": 1,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: la tercera falta injustificada de asistencia en tres meses?",
-    "respuesta": "Falta grave (art. 35, n.º 13 de su lista)."
+    "respuesta": "Falta grave (art. 35, n.º 13 de las faltas graves)."
    },
    "cita": "La tercera falta injustificada de asistencia en un periodo de tres meses",
    "confundible_con": [
@@ -1442,7 +1447,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: provocar altercados en los locales del Consorcio?",
-    "respuesta": "Falta grave (art. 35, n.º 14 de su lista)."
+    "respuesta": "Falta grave (art. 35, n.º 14 de las faltas graves)."
    },
    "cita": "la provocación o participación en altercados o disputas",
    "confundible_con": [],
@@ -1490,7 +1495,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: atentar gravemente contra la dignidad de los funcionarios?",
-    "respuesta": "Falta grave (art. 35, n.º 15 de su lista)."
+    "respuesta": "Falta grave (art. 35, n.º 15 de las faltas graves)."
    },
    "cita": "El atentado grave a la dignidad de los funcionarios",
    "confundible_con": [],
@@ -1538,7 +1543,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: faltar gravemente a la consideración con los ciudadanos?",
-    "respuesta": "Falta grave (art. 35, n.º 16 de su lista)."
+    "respuesta": "Falta grave (art. 35, n.º 16 de las faltas graves)."
    },
    "cita": "La grave falta de consideración con los ciudadanos",
    "confundible_con": [],
@@ -1586,7 +1591,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: evadir los sistemas de control de horarios?",
-    "respuesta": "Falta grave (art. 35, n.º 17 de su lista)."
+    "respuesta": "Falta grave (art. 35, n.º 17 de las faltas graves)."
    },
    "cita": "evadir los sistemas de control de horarios",
    "confundible_con": [],
@@ -1634,7 +1639,7 @@
    "prioridad": 1,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: la reiteración de tres faltas consideradas leves?",
-    "respuesta": "Falta grave (art. 35, n.º 18 de su lista)."
+    "respuesta": "Falta grave (art. 35, n.º 18 de las faltas graves)."
    },
    "cita": "La reiteración de tres faltas consideradas como leves",
    "confundible_con": [
@@ -1684,7 +1689,7 @@
    "prioridad": 1,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: presentarse al relevo sin la uniformidad adecuada?",
-    "respuesta": "Falta leve (art. 35, n.º 1 de su lista)."
+    "respuesta": "Falta leve (art. 35, n.º 1 de las faltas leves)."
    },
    "cita": "la presentación al relevo de turno sin la adecuada uniformidad",
    "confundible_con": [
@@ -1734,7 +1739,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: tratar con ligera incorrección al público?",
-    "respuesta": "Falta leve (art. 35, n.º 2 de su lista)."
+    "respuesta": "Falta leve (art. 35, n.º 2 de las faltas leves)."
    },
    "cita": "La ligera incorrección con el publico",
    "confundible_con": [],
@@ -1782,7 +1787,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: una falta de asistencia no repetida y sin justificar?",
-    "respuesta": "Falta leve (art. 35, n.º 3 de su lista)."
+    "respuesta": "Falta leve (art. 35, n.º 3 de las faltas leves)."
    },
    "cita": "Las faltas no repetidas de asistencia sin causa de justificada",
    "confundible_con": [
@@ -1832,7 +1837,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: incumplir la jornada de trabajo sin causa justificada?",
-    "respuesta": "Falta leve (art. 35, n.º 4 de su lista)."
+    "respuesta": "Falta leve (art. 35, n.º 4 de las faltas leves)."
    },
    "cita": "El incumplimiento de la jornada de trabajo sin causa justificada",
    "confundible_con": [
@@ -1882,7 +1887,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: incumplir el documento «cambio de turno»?",
-    "respuesta": "Falta leve (art. 35, n.º 5 de su lista)."
+    "respuesta": "Falta leve (art. 35, n.º 5 de las faltas leves)."
    },
    "cita": "El incumplimiento del documento “cambio de turno”",
    "confundible_con": [],
@@ -1930,7 +1935,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: faltas repetidas de puntualidad en el mismo mes?",
-    "respuesta": "Falta leve (art. 35, n.º 6 de su lista)."
+    "respuesta": "Falta leve (art. 35, n.º 6 de las faltas leves)."
    },
    "cita": "Las faltas repetidas de puntualidad dentro del mismo mes",
    "confundible_con": [],
@@ -1978,7 +1983,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: descuidar los locales sin causar graves perjuicios?",
-    "respuesta": "Falta leve (art. 35, n.º 7 de su lista)."
+    "respuesta": "Falta leve (art. 35, n.º 7 de las faltas leves)."
    },
    "cita": "El descuido en la conservación de los locales",
    "confundible_con": [
@@ -2028,7 +2033,7 @@
    "prioridad": 2,
    "tarjeta": {
     "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: incumplir sus deberes por negligencia excusable?",
-    "respuesta": "Falta leve (art. 35, n.º 8 de su lista)."
+    "respuesta": "Falta leve (art. 35, n.º 8 de las faltas leves)."
    },
    "cita": "el incumplimiento de sus deberes por negligencia o descuido excusables",
    "confundible_con": [],
