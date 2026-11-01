@@ -171,3 +171,23 @@ Decisión por ficha (las 59 que estaban ocultas):
 | `0522F2AB` | Según la Guía técnica de equipos de trabajo del INSST, ¿qué órgano de mando se aplica, por ejemplo, a las herramientas portátiles a motor? | Guía técnica de equipos de trabajo (INSST), Apéndice 3, puesta en marcha, pág. 137 | oculta: «órgano de mando sensitivo» no aparece en el RD 1644/2008; lo equivalente (2.2.1, no seguir funcionando al soltar los medios de prensión) ya está en la visible `6C278F90` |
 
 Para abrir más T15 haría falta que José acepte el INSST como fuente (NTP y guía técnica) o encontrar el contenido en otra norma BOE vigente; no se ha inventado texto.
+
+## feat/fichas-insst (01/11/2026): INSST aceptado como fuente oficial
+
+El propietario acepta el INSST como fuente oficial para **NTP 221, NTP 841, NTP 842 y la Guía técnica para la evaluación y prevención de los riesgos relativos a la utilización de los equipos de trabajo**. Se descargaron de insst.es el 01/11/2026 (los enlaces `…/ntp_221.pdf`, `…/841+web.pdf` y `…/842+web.pdf` devuelven la página de ficha; el PDF se baja con su enlace `?download=true`):
+
+| Documento | Edición en insst.es | sha256 |
+|---|---|---|
+| NTP 221 (1988) | PDF v2.0, mod. 10/11/2021, 9 págs. | `5ff922998231f7e6…` |
+| NTP 841 (2009) | PDF v1.0, mod. 21/08/2014, 6 págs. | `8655cc7af85ba0f2…` |
+| NTP 842 (2009) | PDF v1.0, mod. 21/08/2014, 4 págs. | `570baa4be106d84b…` |
+| Guía técnica equipos de trabajo | ed. septiembre 2021 (NIPO 118-21-028-6), PDF mod. 03/03/2026, 210 págs. | `ee8f65a04c846580…` |
+
+`verificar-fichas-literal.py` acepta ahora esos cuatro PDF (respuesta entera y seguida en la página citada o la siguiente, `--insst-dir`). Resultado: **las 56 fichas ocultas de T15 son literales y se abren**; 2 respuestas se ajustaron al texto exacto:
+
+- `017F0163` (NTP 841, pág. 5): «De –40°C a 100°C» → «–40°C a 100°C».
+- `E125DC96` (NTP 842, pág. 2): «La misma que para una eslinga de 3 ramales» → «La C.M.U. es la misma que para una eslinga de 3 ramales».
+
+Cada ficha cita su documento, apartado y página, y enlaza al PDF de insst.es (`#page=N`). T15: de 36 a **92 de 92** visibles. Total visible: de 2.627 a **2.683**.
+
+Siguen ocultas, porque su documento **no está en la aceptación**: T12 (5 fichas, INSST «Tema 33. El riesgo de incendio (I)», temario de oposición del INSST) y T28-lote02 (12 fichas, NTP 400). Se abrirían si el propietario acepta también esos documentos.

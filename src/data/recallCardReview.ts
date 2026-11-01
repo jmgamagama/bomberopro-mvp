@@ -33,6 +33,8 @@ export const OUT_OF_SYLLABUS_CARDS: Readonly<Record<string, readonly string[]>> 
     'CPEI-T33-OF-C279E68B', 'CPEI-T33-OF-12E30316', 'CPEI-T33-OF-714C9F36', 'CPEI-T33-OF-A942FBC2',
     'CPEI-T33-OF-0A02432D', 'CPEI-T33-OF-A5360729',
   ],
+  // T12 y T28-lote02 siguen ocultas tras feat/fichas-insst (01/11/2026): sus documentos (INSST, Tema 33 «El riesgo de incendio (I)»
+  // del temario de oposición, y NTP 400) no están entre los que el propietario aceptó (NTP 221, 841, 842 y Guía técnica de equipos de trabajo).
   'tema12': ['CPEI-T12-OF-01AA23CD', 'CPEI-T12-OF-A4DBE918', 'CPEI-T12-OF-591B1F12', 'CPEI-T12-OF-395A3760', 'CPEI-T12-OF-1464CEF3'],
   'tema28-lote02': [
     'CPEI-T28-OF-21518B3F', 'CPEI-T28-OF-887BC3C3', 'CPEI-T28-OF-7916E057', 'CPEI-T28-OF-D3CAD79A',
@@ -154,6 +156,22 @@ export const REVIEWED_CARDS_IN_PENDING_DECKS: Readonly<Record<string, readonly s
     'CPEI-T15-OF-BEC236DD',
     // T15: 3 más el 01/11/2026 (feat/t15-literal): recitadas de la NTP del INSST al literal del RD 1644/2008, anexo I (4.1.1.c, 4.1.2.5.e y 4.3.2).
     'CPEI-T15-OF-35B8860D', 'CPEI-T15-OF-3479E342', 'CPEI-T15-OF-92BB32EF',
+    // T15: 56 más el 01/11/2026 (feat/fichas-insst): el propietario acepta el INSST como fuente oficial (NTP 221, 841 y 842 y Guía técnica
+    // de equipos de trabajo). Cada respuesta cotejada al pie de la letra con el PDF vigente de insst.es en la página citada; 2 ajustadas al literal.
+    'CPEI-T15-OF-0B0F107B', 'CPEI-T15-OF-73BB14B7', 'CPEI-T15-OF-902D93F4', 'CPEI-T15-OF-CC79B8EE',
+    'CPEI-T15-OF-71A155FE', 'CPEI-T15-OF-0737B0B5', 'CPEI-T15-OF-23B6C874', 'CPEI-T15-OF-6C587402',
+    'CPEI-T15-OF-2B9FDAF8', 'CPEI-T15-OF-CD91EFB5', 'CPEI-T15-OF-E5726FB4', 'CPEI-T15-OF-4994AFC7',
+    'CPEI-T15-OF-E8751982', 'CPEI-T15-OF-F143D76B', 'CPEI-T15-OF-0D9851B4', 'CPEI-T15-OF-42DCD540',
+    'CPEI-T15-OF-B0304748', 'CPEI-T15-OF-850BE2CE', 'CPEI-T15-OF-8569E86B', 'CPEI-T15-OF-5F9A705D',
+    'CPEI-T15-OF-E5961FE2', 'CPEI-T15-OF-4C777475', 'CPEI-T15-OF-2555EADF', 'CPEI-T15-OF-F4933D12',
+    'CPEI-T15-OF-4D5A07C5', 'CPEI-T15-OF-814AA91A', 'CPEI-T15-OF-AEB0A262', 'CPEI-T15-OF-5EA945B5',
+    'CPEI-T15-OF-BB658607', 'CPEI-T15-OF-AE21858E', 'CPEI-T15-OF-C075A8BF', 'CPEI-T15-OF-4C4948A9',
+    'CPEI-T15-OF-485694A5', 'CPEI-T15-OF-017F0163', 'CPEI-T15-OF-2DD8F503', 'CPEI-T15-OF-AF5886EC',
+    'CPEI-T15-OF-F4298760', 'CPEI-T15-OF-DD456697', 'CPEI-T15-OF-E125DC96', 'CPEI-T15-OF-6702FD46',
+    'CPEI-T15-OF-2FC65666', 'CPEI-T15-OF-E6919B19', 'CPEI-T15-OF-A928C762', 'CPEI-T15-OF-10286E21',
+    'CPEI-T15-OF-55D7FA6E', 'CPEI-T15-OF-030BA7A7', 'CPEI-T15-OF-5B76FCFA', 'CPEI-T15-OF-D00F2860',
+    'CPEI-T15-OF-2420D310', 'CPEI-T15-OF-DC43B6B7', 'CPEI-T15-OF-A65305FF', 'CPEI-T15-OF-9F7281C1',
+    'CPEI-T15-OF-A1B0534A', 'CPEI-T15-OF-AF4C8CBB', 'CPEI-T15-OF-8629D9D7', 'CPEI-T15-OF-0522F2AB',
   ],
   // Embalses verificados con el Anuario de Aforos del CEDEX (río y municipio), 31/10/2026.
   'tema36-lote01': [
