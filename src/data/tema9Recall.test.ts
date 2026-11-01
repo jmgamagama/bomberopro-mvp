@@ -88,9 +88,9 @@ describe('tema 9 · hidráulica (fuentes oficiales)', () => {
     expect(byConcepto('presión mínima debe haber en los puntos de consumo')).toContain('100 kPa');
   });
 
-  it('se registra como mazo bajo demanda, pendiente de revisión', async () => {
+  it('se registra como mazo bajo demanda, pendiente, con sus 3 fichas literales visibles (01/11/2026)', async () => {
     expect(getRecallDeck('tema9').count).toBe(N);
     expect(getRecallDeck('tema9').revision).toBe('pendiente');
-    expect(await loadRecallDeckCards('tema9')).toBe(TEMA9_RECALL_CARDS);
+    expect(await loadRecallDeckCards('tema9')).toHaveLength(3);
   });
 });

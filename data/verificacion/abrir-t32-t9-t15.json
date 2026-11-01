@@ -1,0 +1,1368 @@
+{
+ "fecha": "2026-11-01",
+ "script": "scripts/verificar-fichas-literal.py",
+ "fuentes": {
+  "BOE": {
+   "BOE-A-2006-5515": "53729c2e1b96f1479e25fa7cb201f7f7ac193a8893c18546c7a74ab525a7803a",
+   "BOE-A-2017-6606": "fb8ff7a262a4d720db89f65ff6179175140d5cd67481f74f982a0a6fe71a0555",
+   "BOE-A-1997-17824": "04ce2f38d1bfcf016f7f612c8f4fcbd93160891526a79736ef8a4b89bc2ea00d",
+   "BOE-A-2002-18099": "5af64c671d16817b5bc28a6c2db50016145ab10a6bced9cd23e07c4b12251571",
+   "BOE-A-2008-16387": "8b9bf204c2b568ab59c4fbaded81c5efc5bb484fff1d2df2c61a9bc107aeb98c",
+   "BOE-A-2010-927": "73ff17917287c59074415f49caf3ceccfa09c100571044fa64fc67b8a25ce275",
+   "BOE-A-2015-9527": "0ba152cb7c575f65c4f55700a05b699d298f2a0823f930234a82835b2bcda621"
+  },
+  "CTE": {
+   "https://www.codigotecnico.org/pdf/Documentos/SI/DBSI.pdf": "0a2e78cd62471d9cc5cfe2efbc6aa39fdbad73c124aea7b039f9de96c141e105",
+   "https://www.codigotecnico.org/pdf/Documentos/SUA/DBSUA.pdf": "3cfb5bbb135e8f02faebd8b844e03e8947994c18d4c9e675a7d2aa37d1cd5958",
+   "https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf": "68df3caacc95f71aee2ec1ba7b2c65ae66155c21e3a8785521b8fdd4fd640d3b"
+  }
+ },
+ "mazos": {
+  "tema32": [
+   {
+    "id": "CPEI-T32-OF-3929CA9C",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-4167F46E",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-EC8884D4",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-F4EDD02C",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-A2A42DBD",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-9CA66B7A",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-D93373FD",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-179791D7",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-D2384186",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-105DB4C1",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-3599764C",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-07C5C6AA",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-4C76FC35",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-4E01499B",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-3F52B627",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-CFDA78FB",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-1FD543C1",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-3C9E503C",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-75CE996E",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-A83C8E40",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-F205C923",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-CA077B30",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-04DDC429",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-E14AF7C2",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-1D251EB1",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-CA75278E",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-BDAECA3F",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-F713CF8E",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-B1E619BE",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-45DC0575",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-A9202727",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-0D6A6C07",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-A3C5F3A0",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-38C64B2F",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-D474641E",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-94C63E37",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-87FA2B8F",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-F587D0EB",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T32-OF-C5F45DB6",
+    "estado": "ok",
+    "pagina": 32
+   },
+   {
+    "id": "CPEI-T32-OF-8E3F71D0",
+    "estado": "ok",
+    "pagina": 32
+   },
+   {
+    "id": "CPEI-T32-OF-059E7EC3",
+    "estado": "ok",
+    "pagina": 32
+   },
+   {
+    "id": "CPEI-T32-OF-D35F054A",
+    "estado": "ok",
+    "pagina": 32
+   },
+   {
+    "id": "CPEI-T32-OF-2B7AD772",
+    "estado": "ok",
+    "pagina": 33
+   },
+   {
+    "id": "CPEI-T32-OF-E93A4E14",
+    "estado": "ok",
+    "pagina": 33
+   },
+   {
+    "id": "CPEI-T32-OF-726914BC",
+    "estado": "ok",
+    "pagina": 33
+   },
+   {
+    "id": "CPEI-T32-OF-44319C5F",
+    "estado": "ok",
+    "pagina": 33
+   },
+   {
+    "id": "CPEI-T32-OF-06BE4873",
+    "estado": "ok",
+    "pagina": 33
+   },
+   {
+    "id": "CPEI-T32-OF-62463AB8",
+    "estado": "ok",
+    "pagina": 33
+   },
+   {
+    "id": "CPEI-T32-OF-327AFFA6",
+    "estado": "ok",
+    "pagina": 33
+   },
+   {
+    "id": "CPEI-T32-OF-15E1A7A9",
+    "estado": "ok",
+    "pagina": 34
+   },
+   {
+    "id": "CPEI-T32-OF-9D3F92FE",
+    "estado": "ok",
+    "pagina": 34
+   },
+   {
+    "id": "CPEI-T32-OF-E15F6AA4",
+    "estado": "ok",
+    "pagina": 35
+   },
+   {
+    "id": "CPEI-T32-OF-24002F62",
+    "estado": "ok",
+    "pagina": 35
+   },
+   {
+    "id": "CPEI-T32-OF-75F76413",
+    "estado": "ok",
+    "pagina": 35
+   },
+   {
+    "id": "CPEI-T32-OF-5C2D494F",
+    "estado": "ok",
+    "pagina": 35
+   },
+   {
+    "id": "CPEI-T32-OF-D8CEB504",
+    "estado": "ok",
+    "pagina": 36
+   },
+   {
+    "id": "CPEI-T32-OF-F9D8FE9E",
+    "estado": "ok",
+    "pagina": 36
+   },
+   {
+    "id": "CPEI-T32-OF-E4311B0B",
+    "estado": "ok",
+    "pagina": 36
+   },
+   {
+    "id": "CPEI-T32-OF-2AD372C2",
+    "estado": "ok",
+    "pagina": 36
+   },
+   {
+    "id": "CPEI-T32-OF-FD045505",
+    "estado": "ok",
+    "pagina": 36
+   },
+   {
+    "id": "CPEI-T32-OF-03F2B874",
+    "estado": "ok",
+    "pagina": 36
+   },
+   {
+    "id": "CPEI-T32-OF-ED3FA285",
+    "estado": "ok",
+    "pagina": 37
+   },
+   {
+    "id": "CPEI-T32-OF-41770E55",
+    "estado": "ok",
+    "pagina": 37
+   },
+   {
+    "id": "CPEI-T32-OF-61075721",
+    "estado": "ok",
+    "pagina": 37
+   },
+   {
+    "id": "CPEI-T32-OF-BC6762FA",
+    "estado": "ok",
+    "pagina": 37
+   },
+   {
+    "id": "CPEI-T32-OF-4A6E8860",
+    "estado": "ok",
+    "pagina": 37
+   },
+   {
+    "id": "CPEI-T32-OF-5951E519",
+    "estado": "ok",
+    "pagina": 37
+   },
+   {
+    "id": "CPEI-T32-OF-2EDA32C5",
+    "estado": "ok",
+    "pagina": 37
+   },
+   {
+    "id": "CPEI-T32-OF-34B455E9",
+    "estado": "ok",
+    "pagina": 37
+   },
+   {
+    "id": "CPEI-T32-OF-DE77B11F",
+    "estado": "ok",
+    "pagina": 21
+   },
+   {
+    "id": "CPEI-T32-OF-5C53881C",
+    "estado": "ok",
+    "pagina": 21
+   },
+   {
+    "id": "CPEI-T32-OF-C1AB43AB",
+    "estado": "ok",
+    "pagina": 21
+   },
+   {
+    "id": "CPEI-T32-OF-9A72BBA5",
+    "estado": "ok",
+    "pagina": 21
+   },
+   {
+    "id": "CPEI-T32-OF-9C698A38",
+    "estado": "ok",
+    "pagina": 21
+   },
+   {
+    "id": "CPEI-T32-OF-9B09A251",
+    "estado": "ok",
+    "pagina": 21
+   },
+   {
+    "id": "CPEI-T32-OF-FD1EF18E",
+    "estado": "ok",
+    "pagina": 21
+   },
+   {
+    "id": "CPEI-T32-OF-FECF8F0F",
+    "estado": "ok",
+    "pagina": 22
+   },
+   {
+    "id": "CPEI-T32-OF-7DEAB7CC",
+    "estado": "ok",
+    "pagina": 22
+   },
+   {
+    "id": "CPEI-T32-OF-FB152115",
+    "estado": "ok",
+    "pagina": 22
+   },
+   {
+    "id": "CPEI-T32-OF-F17DB4B7",
+    "estado": "ok",
+    "pagina": 22
+   },
+   {
+    "id": "CPEI-T32-OF-FDA66EFE",
+    "estado": "ok",
+    "pagina": 22
+   },
+   {
+    "id": "CPEI-T32-OF-D3FBFCEA",
+    "estado": "ok",
+    "pagina": 22
+   },
+   {
+    "id": "CPEI-T32-OF-22375610",
+    "estado": "ok",
+    "pagina": 22
+   },
+   {
+    "id": "CPEI-T32-OF-072D799C",
+    "estado": "ok",
+    "pagina": 22
+   },
+   {
+    "id": "CPEI-T32-OF-0588672F",
+    "estado": "ok",
+    "pagina": 27
+   },
+   {
+    "id": "CPEI-T32-OF-848B6251",
+    "estado": "ok",
+    "pagina": 27
+   },
+   {
+    "id": "CPEI-T32-OF-E7C2DE98",
+    "estado": "ok",
+    "pagina": 27
+   },
+   {
+    "id": "CPEI-T32-OF-A84BA795",
+    "estado": "ok",
+    "pagina": 27
+   },
+   {
+    "id": "CPEI-T32-OF-C4A6E2A6",
+    "estado": "ok",
+    "pagina": 27
+   },
+   {
+    "id": "CPEI-T32-OF-91017A6A",
+    "estado": "ok",
+    "pagina": 27
+   },
+   {
+    "id": "CPEI-T32-OF-6E9F6D23",
+    "estado": "ok",
+    "pagina": 27
+   }
+  ],
+  "tema9": [
+   {
+    "id": "CPEI-T09-OF-96E138CB",
+    "estado": "no_literal",
+    "motivo": "la respuesta no está literal en el bloque citado"
+   },
+   {
+    "id": "CPEI-T09-OF-0E62FDF1",
+    "estado": "no_literal",
+    "motivo": "la respuesta no está literal en el bloque citado"
+   },
+   {
+    "id": "CPEI-T09-OF-6E9C710E",
+    "estado": "no_literal",
+    "motivo": "la respuesta no está literal en el bloque citado"
+   },
+   {
+    "id": "CPEI-T09-OF-7FF3307F",
+    "estado": "no_literal",
+    "motivo": "la respuesta no está literal en el bloque citado"
+   },
+   {
+    "id": "CPEI-T09-OF-B70EA739",
+    "estado": "no_literal",
+    "motivo": "la respuesta no está literal en el bloque citado"
+   },
+   {
+    "id": "CPEI-T09-OF-30C5C610",
+    "estado": "no_literal",
+    "motivo": "la respuesta no está literal en el bloque citado"
+   },
+   {
+    "id": "CPEI-T09-OF-48B860EC",
+    "estado": "no_literal",
+    "motivo": "la respuesta no está literal en el bloque citado"
+   },
+   {
+    "id": "CPEI-T09-OF-3909180C",
+    "estado": "no_literal",
+    "motivo": "la respuesta no está literal en el bloque citado"
+   },
+   {
+    "id": "CPEI-T09-OF-B76CA198",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-E8EFF948",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-BDF2E465",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-546D4545",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-3D462C54",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-E4B6B464",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-BDE1EE3C",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-303FA8EC",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-598D0A9D",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-54865783",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-23AA9AFC",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-5963394C",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-BB7EEB96",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-0F2FD506",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-D493D3E9",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-377EBBDC",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-76FBE0B0",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-0B46FCC3",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-B4A1C5E5",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-DC6F3830",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-6B77B7C6",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-FD184979",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-33B3CFC6",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-0725F93D",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-3869B3CE",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-F2E0ACDA",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-42B59AF3",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-0890DF9A",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-75A2DDEF",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-90325772",
+    "estado": "no_literal",
+    "motivo": "la respuesta no está literal en la página citada",
+    "pagina": 91
+   },
+   {
+    "id": "CPEI-T09-OF-41460F53",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-B0BD161B",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-A83C1878",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-B1A1B860",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-E07CE23D",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-1F1511D5",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-023CCFB9",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-AAA67B45",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-F56CDA32",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-85B835F0",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-26003FD5",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-72891238",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-76DD3666",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-2A9527A7",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-22662AE4",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-978A7EB5",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-EAD133E1",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-F6E7F596",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-BB087623",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-31998641",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-559221D2",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-A899A5EA",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-2EF15657",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-84801374",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-1114F79B",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-73336BCB",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-CD08AC5B",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-748FB16E",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-F43FF55D",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-FA0F7876",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-74DB3340",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-3C1C8831",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-96375034",
+    "estado": "no_literal",
+    "motivo": "la respuesta no está literal en la página citada",
+    "pagina": 86
+   },
+   {
+    "id": "CPEI-T09-OF-25E9FCD4",
+    "estado": "no_literal",
+    "motivo": "la respuesta no está literal en la página citada",
+    "pagina": 86
+   },
+   {
+    "id": "CPEI-T09-OF-22150C8C",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-CAD9AB49",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-6D9E1818",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-A6682280",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T09-OF-20C37F4A",
+    "estado": "no_literal",
+    "motivo": "la respuesta no está literal en el bloque citado"
+   },
+   {
+    "id": "CPEI-T09-OF-A520E5DF",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T09-OF-87E4530F",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T09-OF-25A494F2",
+    "estado": "no_literal",
+    "motivo": "la respuesta no está literal en el bloque citado"
+   },
+   {
+    "id": "CPEI-T09-OF-B378FA6E",
+    "estado": "no_literal",
+    "motivo": "la respuesta no está literal en el bloque citado"
+   },
+   {
+    "id": "CPEI-T09-OF-B1BF79D7",
+    "estado": "no_literal",
+    "motivo": "la respuesta no está literal en la página citada",
+    "pagina": 83
+   },
+   {
+    "id": "CPEI-T09-OF-52A4DCD7",
+    "estado": "ok",
+    "pagina": 83
+   },
+   {
+    "id": "CPEI-T09-OF-D374F81F",
+    "estado": "no_literal",
+    "motivo": "la respuesta no está literal en la página citada",
+    "pagina": 91
+   }
+  ],
+  "tema15": [
+   {
+    "id": "CPEI-T15-OF-0B0F107B",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-73BB14B7",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-902D93F4",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-CC79B8EE",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-71A155FE",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-0737B0B5",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-23B6C874",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-6C587402",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-2B9FDAF8",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-CD91EFB5",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-3479E342",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-92BB32EF",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-E5726FB4",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-4994AFC7",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-E8751982",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-F143D76B",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-0D9851B4",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-42DCD540",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-B0304748",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-850BE2CE",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-8569E86B",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-5F9A705D",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-E5961FE2",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-4C777475",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-2555EADF",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-F4933D12",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-35B8860D",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-4D5A07C5",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-814AA91A",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-AEB0A262",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-5EA945B5",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-BB658607",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-AE21858E",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-C075A8BF",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-4C4948A9",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-485694A5",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-017F0163",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-2DD8F503",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-AF5886EC",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-F4298760",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-DD456697",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-E125DC96",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-6702FD46",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-2FC65666",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-E6919B19",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-A928C762",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-10286E21",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-55D7FA6E",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-030BA7A7",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-5B76FCFA",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-D00F2860",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-2420D310",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-DC43B6B7",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-A65305FF",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-9F7281C1",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-A1B0534A",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-AF4C8CBB",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-8629D9D7",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-0522F2AB",
+    "estado": "fuente_no_aceptada",
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+   },
+   {
+    "id": "CPEI-T15-OF-3B08563F",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-D2F1AA50",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-3AC3D004",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-C8C8BD7F",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-95FE950B",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-D1E5BD30",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-AD1717F5",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-6C278F90",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-ADD0E6E3",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-E3EFB95D",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-AEE721D0",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-6F85EBEB",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-6304DDC2",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-4094FF94",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-560C9B53",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-2105B2A5",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-95EAE040",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-D785F0EF",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-3AD9607F",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-7C351FE7",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-D1BCE0BC",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-3073440B",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-6E217486",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-64E41A28",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-AA6894F1",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-17905817",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-5CE69868",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-FF05DE16",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-1E65E692",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-1B4EBEAA",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-2D6D2074",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-A659887D",
+    "estado": "ok",
+    "motivo": ""
+   },
+   {
+    "id": "CPEI-T15-OF-BEC236DD",
+    "estado": "ok",
+    "motivo": ""
+   }
+  ]
+ }
+}
