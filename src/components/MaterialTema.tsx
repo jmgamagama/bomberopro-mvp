@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ArrowLeft, Download, ExternalLink, Loader2, CheckCircle2, MinusCircle } from 'lucide-react';
 import ConceptStudy from './ConceptStudy';
 import Skeleton from './Skeleton';
@@ -24,6 +24,10 @@ interface Props {
   tema?: number;
   /** Texto del botón de volver (por defecto, «Volver al inicio»). */
   volverLabel?: string;
+  /** Desde una ficha o un fallo (src/utils/materialEnContexto.ts): bloque y precepto a desplegar y resaltar. */
+  foco?: { bloque?: string; precepto?: string; etiqueta?: string };
+  /** Texto con el que se abrió desde el estudio («ficha» / «fallo»), para el aviso de arriba. */
+  origen?: string;
 }
 
 const TEMAS = Array.from({ length: 40 }, (_, i) => i + 1);
@@ -54,7 +58,7 @@ function Estado({ si, children }: { si: boolean; children: React.ReactNode }) {
   );
 }
 
-export default function MaterialTema({ userId, onExit, tema: temaInicial = 1, volverLabel = 'Volver al inicio' }: Props) {
+export default function MaterialTema({ userId, onExit, tema: temaInicial = 1, volverLabel = 'Volver al inicio', foco, origen }: Props) {
   const [tema, setTema] = useState(temaInicial);
   const nombres = useNombresTemas();
   const { resumen, listo } = useConceptSummary();
@@ -97,6 +101,13 @@ export default function MaterialTema({ userId, onExit, tema: temaInicial = 1, vo
         <ArrowLeft className="h-4 w-4" aria-hidden="true" /> {volverLabel}
       </button>
 
+      {origen && tema === temaInicial && (
+        <p className="mb-4 rounded-xl border border-[#1E3A5F] bg-white p-3 text-sm text-slate-800" data-testid="foco-material">
+          {foco?.bloque
+            ? <>Desde {origen}: {foco.etiqueta ?? 'su precepto'}, resaltado en su bloque.</>
+            : <>Desde {origen}: se abre el tema entero, porque su fuente no cita un artículo de este material que se pueda comprobar.</>}
+        </p>
+      )}
       <label className="mb-4 block text-sm font-semibold text-slate-700">
         Tema
         <select value={tema} onChange={(e) => { setTema(Number(e.target.value)); setEstudiando(false); }}
@@ -162,7 +173,7 @@ export default function MaterialTema({ userId, onExit, tema: temaInicial = 1, vo
       </div>
 
       {material
-        ? <div key={material.tema}><Capas material={material} /></div>
+        ? <div key={material.tema}><Capas material={material} foco={tema === temaInicial ? foco : undefined} /></div>
         : (
           <p className="mt-6 rounded-2xl border border-orange-200 bg-orange-50 p-4 text-sm text-slate-800" role="status">
             Este tema aún no tiene esquema, desarrollo ni texto oficial en la app.
@@ -190,8 +201,24 @@ function DescargaOficial({ material }: { material: Material }) {
   );
 }
 
-function Capas({ material }: { material: Material }) {
-  const [bloqueId, setBloqueId] = useState(material.bloques[0].id);
+/** Elemento del texto que corresponde al precepto: el enlace a su ancla del BOE o su encabezado/línea «Art. N». */
+export function buscarPrecepto(raiz: HTMLElement, precepto: string): HTMLElement | null {
+  const enlace = raiz.querySelector<HTMLElement>(`a[href$="#${precepto.replace(/[^a-z0-9-]/gi, "")}"]`);
+  if (enlace) return enlace.closest<HTMLElement>('li, h2, h3, h4, p') ?? enlace;
+  const m = /^a(\d+)(bis|ter|quater)?$/.exec(precepto);
+  if (!m) return null;
+  const n = `${m[1]}${m[2] ? ` ${m[2]}` : ''}`;
+  const re = new RegExp(`^Art(?:ículo|s?\\.)\\s*[\\d\\s,y]*?\\b${n}\\b(?![.]\\d)`, 'i');
+  for (const el of raiz.querySelectorAll<HTMLElement>('h2, h3, h4, li')) {
+    const t = (el.textContent ?? '').trim();
+    if (el.tagName === 'LI' ? new RegExp(`^${n}\\s`).test(t) : re.test(t)) return el;
+  }
+  return null;
+}
+
+function Capas({ material, foco }: { material: Material; foco?: Props['foco'] }) {
+  const inicial = material.bloques.find((b) => b.id === foco?.bloque) ?? material.bloques[0];
+  const [bloqueId, setBloqueId] = useState(inicial.id);
   const bloque = material.bloques.find((b) => b.id === bloqueId) ?? material.bloques[0];
   const primera = (CAPAS.find((c) => bloque.capas[c.id])?.id ?? 'esquema') as CapaId;
   const [capa, setCapa] = useState<CapaId>(primera);
@@ -200,6 +227,25 @@ function Capas({ material }: { material: Material }) {
   const [texto, setTexto] = useState<string | null>(null);
   const [error, setError] = useState(false);
   const [todas, setTodas] = useState(false);
+  const panel = useRef<HTMLDivElement>(null);
+  // Resaltado del precepto (solo en el bloque al que apunta el foco). Si el esquema no lo nombra, se pasa al texto oficial.
+  const [resalte, setResalte] = useState<'buscando' | 'ok' | 'no' | null>(foco?.precepto ? 'buscando' : null);
+  useEffect(() => {
+    if (!foco?.precepto || bloque.id !== foco.bloque || texto === null || !panel.current || resalte === 'ok' || resalte === 'no') return;
+    const el = buscarPrecepto(panel.current, foco.precepto);
+    if (el) {
+      el.setAttribute('data-resaltado', '');
+      el.classList.add('rounded', 'bg-orange-50', 'outline', 'outline-2', 'outline-[#C2410C]', 'outline-offset-2');
+      el.tabIndex = -1;
+      el.scrollIntoView?.({ block: 'center' });
+      el.focus?.({ preventScroll: true });
+      setResalte('ok');
+    } else if (capa !== 'completo' && bloque.capas.completo) {
+      setCapa('completo');
+    } else {
+      setResalte('no');
+    }
+  }, [texto, capa, bloque, foco, resalte]);
 
   useEffect(() => {
     let active = true;
@@ -263,7 +309,10 @@ function Capas({ material }: { material: Material }) {
                 {todas ? 'Ocultar respuestas' : 'Ver todas las respuestas'}
               </button>
             )}
-            {texto !== null && <div className="mt-2">{renderMarkdown(texto, { autoevaluacion: capa === 'completo', mostrarRespuestas: todas })}</div>}
+            {foco?.precepto && bloque.id === foco.bloque && resalte === 'no' && (
+              <p className="mt-2 text-xs text-slate-700">Este bloque contiene {foco.etiqueta ?? 'el precepto'}, pero el texto no lo nombra para resaltarlo.</p>
+            )}
+            {texto !== null && <div className="mt-2" ref={panel}>{renderMarkdown(texto, { autoevaluacion: capa === 'completo', mostrarRespuestas: todas })}</div>}
           </>
         )}
       </article>

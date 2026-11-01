@@ -35,6 +35,8 @@ import { planHoyDelDispositivo } from '../utils/planHoy';
 import { resumenSesionHoy } from '../utils/sesionHoy';
 import { rachaViva, unidadRacha } from '../utils/racha';
 import RecordatorioDiario from './RecordatorioDiario';
+import VerEnEsquema from './VerEnEsquema';
+import { temaNumero } from '../utils/materialEnContexto';
 import { sincronizarRecordatorio } from '../lib/recordatorio';
 import { quitarPrioridad } from '../utils/planDiario';
 import { INITIAL_QUESTIONS } from '../data/initialData';
@@ -405,6 +407,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
                 </p>
                 {current.answer}
               </div>
+              <VerEnEsquema tema={temaNumero(current.topicId)} fuente={current.fuente} origen="esta ficha" />
               {failedGrade !== null && (
                 <div role="alert" id="recall-save-error" className="space-y-2 rounded-xl border border-orange-200 bg-orange-50 p-3 text-sm text-orange-900">
                   <p>No se ha podido guardar tu respuesta en este dispositivo. La ficha sigue aquí.</p>

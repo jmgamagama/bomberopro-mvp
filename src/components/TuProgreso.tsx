@@ -5,6 +5,8 @@ import { INITIAL_QUESTIONS } from '../data/initialData';
 import { getAttempts } from '../utils/db';
 import { loadSrs, MASTERED_INTERVAL_DAYS } from '../utils/recallSrs';
 import { loadReviewLog } from '../utils/recallReviewLog';
+import { useAbrirMaterial } from './VerEnEsquema';
+import { materialDeTema } from '../data/materialTemas';
 import { etiquetaSemana, evolucionSemanal, mapaTemas, porcentaje, SEMANAS_EVOLUCION } from '../utils/progresoMapa';
 
 const miles = (n: number) => new Intl.NumberFormat('es-ES', { useGrouping: 'always' } as Intl.NumberFormatOptions).format(n);
@@ -23,6 +25,7 @@ export default function TuProgreso({ onNavigateHome, onOpenTopic, date }: {
   /** Para tests. */
   date?: Date;
 }) {
+  const abrirMaterial = useAbrirMaterial();
   const { temas, evo } = useMemo(() => {
     const srs = loadSrs();
     const at = intentos();
@@ -65,10 +68,17 @@ export default function TuProgreso({ onNavigateHome, onOpenTopic, date }: {
                 {miles(t.dominadas)} dominadas de {miles(t.total)} · {miles(t.vistas)} {t.vistas === 1 ? "vista" : "vistas"}
                 {t.testRespondidas > 0 ? ` · test: ${t.testAciertos}/${t.testRespondidas} aciertos` : ''}
               </p>
-              {onOpenTopic && (
-                <button type="button" onClick={() => onOpenTopic(t.id)} aria-label={`Estudiar el tema ${t.tema}`}
-                  className="mt-1 min-h-11 rounded-lg px-1 text-xs font-semibold text-[#1E3A5F] underline">Estudiar</button>
-              )}
+              <div className="flex flex-wrap gap-x-3">
+                {onOpenTopic && (
+                  <button type="button" onClick={() => onOpenTopic(t.id)} aria-label={`Estudiar el tema ${t.tema}`}
+                    className="mt-1 min-h-11 rounded-lg px-1 text-xs font-semibold text-[#1E3A5F] underline">Estudiar</button>
+                )}
+                {abrirMaterial && materialDeTema(t.tema) && (
+                  <button type="button" onClick={() => abrirMaterial({ tema: t.tema }, 'Tu progreso')} aria-label={`Material del tema ${t.tema}`}
+                    data-material-tema={t.tema}
+                    className="mt-1 min-h-11 rounded-lg px-1 text-xs font-semibold text-[#C2410C] underline">Material del tema</button>
+                )}
+              </div>
             </li>
           ))}
         </ul>
