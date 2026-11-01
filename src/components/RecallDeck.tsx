@@ -7,6 +7,7 @@ import { localDayNumber } from '../utils/localDate';
 import { classifyCard, loadSrs, RecallSaveError, recordRecallGrade, type RecallGrade, type SrsStore } from '../utils/recallSrs';
 import { measuredElapsedMs } from '../utils/recallReviewLog';
 import FuenteOficial from './FuenteOficial';
+import { solicitarAlmacenamientoPersistente } from '../lib/almacenamientoPersistente';
 
 interface RecallDeckProps {
   deck: RecallDeckData;
@@ -63,6 +64,10 @@ function RecallDeckViewer({
   useEffect(() => {
     shownAt.current = Date.now();
   }, [index]);
+  // Protege el progreso local del borrado automático del navegador (se pide una sola vez por sesión).
+  useEffect(() => {
+    void solicitarAlmacenamientoPersistente();
+  }, []);
   const total = cards.length;
   const card = cards[index];
   const loteNumber = deck.lote ? deck.lote.replace(/^lote/i, '') : undefined;
