@@ -32,7 +32,8 @@ const res = []; const check = (n, ok, d = '') => { res.push(ok); console.log(`${
   const progSesion = await page.locator('#guest-signup-progreso').innerText();
   check('guardar progreso dice cuántas fichas lleva', new RegExp(`^${fichas} fichas? repasadas?$`).test(progSesion), `(${progSesion})`);
   // Fin de sesión (01-nov-2026): «vuelve mañana» con cifra y el simulacro como siguiente paso, directo a la primera pregunta.
-  check('fin de sesión dice qué vuelve mañana', /vuelve mañana|mañana te vuelven a tocar \d+ fichas? de hoy/i.test(await page.locator('#daily-session-manana').innerText()));
+  const finManana = await page.locator('#daily-session-manana').innerText();
+  check('fin de sesión dice qué vuelve mañana', /vuelve mañana|mañana te vuelven a tocar \d+ fichas? de hoy/i.test(finManana));
   check('fin de sesión sin scroll horizontal', (await sw()) <= 360, String(await sw()));
   await page.getByRole('button', { name: 'Hacer el simulacro de muestra' }).click();
   await page.getByText(/^Pregunta 1 de \d+$/).waitFor();
@@ -41,9 +42,31 @@ const res = []; const check = (n, ok, d = '') => { res.push(ok); console.log(`${
   // 3. Portada Badajoz 2026.
   const card = page.locator('#badajoz-2026');
   await card.waitFor();
+  // Inicio del invitado (01-nov-2026): la sesión diaria arriba, con la misma cifra de mañana que el fin de sesión.
+  const hoyTxt = await page.locator('#sesion-hoy-texto').innerText();
+  const nFin = (finManana.match(/tocar (\d+) fichas?/) || [])[1];
+  check('inicio: sesión de hoy hecha y cuántas tocan mañana', /^Hoy ya has hecho tu sesión\./.test(hoyTxt) && (!nFin || hoyTxt.includes(`Mañana te tocan ${nFin} ficha`)), `(${hoyTxt})`);
   check('38 plazas y BOP nº 135', /38 plazas/.test(await card.innerText()) && /BOP de Badajoz nº 135, de 17\/07\/2026/.test(await card.innerText()));
   check('fecha pendiente de publicar', /pendiente de publicar/i.test(await card.innerText()));
   check('portada sin scroll horizontal', (await sw()) <= 360, String(await sw()));
+  // 3b. Vuelve al día siguiente (otra pestaña con el reloj +1 día, mismo dispositivo, antes de pulsar «guardar mi progreso»): Inicio dice cuántas fichas le tocan
+  //    y un toque lleva a la primera, sin pasar por «Más» (01-nov-2026).
+  const manana = await ctx.newPage();
+  await manana.clock.install({ time: new Date(Date.now() + 86400000) });
+  await manana.goto(BASE);
+  await manana.locator('#sesion-hoy').waitFor({ timeout: 15000 });
+  const txtManana = await manana.locator('#sesion-hoy-texto').innerText();
+  const nHoy = Number(((txtManana.match(/^Hoy te toca repasar ([\d.]+) fichas? que ya viste/) || [])[1] || '0').replace('.', ''));
+  check('al día siguiente, Inicio dice cuántas fichas tocan hoy', nHoy > 0 && (!nFin || nHoy === Number(nFin)), `(${txtManana})`);
+  const btn = manana.getByRole('button', { name: 'Seguir con la sesión diaria' });
+  const bb = await btn.boundingBox();
+  check('el botón de la sesión se ve sin hacer scroll', !!bb && bb.y + bb.height <= 740 - 64, bb ? String(Math.round(bb.y + bb.height)) : 'sin caja');
+  check('inicio sin scroll horizontal', (await manana.evaluate(() => document.documentElement.scrollWidth)) <= 360);
+  await manana.screenshot({ path: '/tmp/invitado-360-inicio-manana.png' });
+  await btn.click();
+  await manana.getByRole('button', { name: /mostrar respuesta/i }).waitFor();
+  check('de Inicio a la primera ficha en un toque', /^Recuerdo · 1 \/ \d+$/i.test(await manana.getByText(/^Recuerdo · 1 \/ \d+$/i).innerText()));
+  await manana.close();
   // 4. Simulacro completo con el banco público.
   await page.getByRole('navigation', { name: 'Navegación móvil' }).getByRole('button', { name: 'Simulacro' }).click();
   await page.getByRole('button', { name: /comenzar simulacro/i }).click();

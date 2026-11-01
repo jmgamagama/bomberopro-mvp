@@ -52,6 +52,7 @@ import { TrainCelebration } from './components/SessionCelebration';
 import Dashboard from './components/Dashboard';
 import TrainScreen from './components/TrainScreen';
 import Badajoz2026Card from './components/Badajoz2026Card';
+import SesionHoyCard from './components/SesionHoyCard';
 import { hasGuestSignupIntent, markGuestSignupIntent, markPreferLogin, migrateGuestProgress, prefersLogin } from './utils/guestProgress';
 import Skeleton from './components/Skeleton';
 import AppShell from './components/AppShell';
@@ -967,6 +968,14 @@ export default function App() {
             <button type="button" id="btn-my-reports" onClick={() => handleNavigate('my_reports')} className="mb-4 text-sm font-semibold text-indigo-700 underline">
               Mis reportes
             </button>
+          )}
+          {(isDemoMode || !session) && (
+            <SesionHoyCard
+              onOpen={(directo) => {
+                handleNavigate('sesion_diaria');
+                setDailyAutoStart(directo);
+              }}
+            />
           )}
           <Badajoz2026Card
             onOpenSupuestos={supuestosVisibles ? () => handleNavigate('supuestos') : undefined}

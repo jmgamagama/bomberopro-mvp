@@ -797,6 +797,18 @@ export function getVisibleTopic(id: string): RecallTopic | undefined {
   return getVisibleTopics().find((t) => t.id === id);
 }
 
+/**
+ * ¿Ve el usuario actual esta ficha? Misma regla que la vista del alumno al cargar un mazo (`viewFor`),
+ * pero sin cargar sus fichas: revisados sin las retiradas por estar fuera del epígrafe; en mazos
+ * pendientes, solo las revisadas una a una. Propietario / admin de revisión: todas.
+ */
+export function isCardVisible(deckId: string, cardId: string): boolean {
+  const deck = RECALL_DECKS.find((d) => d.id === deckId);
+  if (!deck) return false;
+  if (canSeePendingDecks()) return true;
+  return deck.revision === 'revisado' ? !isCardOutOfSyllabus(cardId) : isCardReviewedInPendingDeck(deckId, cardId);
+}
+
 /** Fichas visibles para el usuario actual. */
 export function getVisibleTotalCards(): number {
   return getVisibleDecks().reduce((sum, d) => sum + d.count, 0);
