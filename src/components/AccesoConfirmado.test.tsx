@@ -40,6 +40,26 @@ describe('AccesoConfirmado · restablecer contraseña', () => {
     expect(screen.getByRole('button', { name: 'Ir a Entrar' })).toBeInTheDocument();
   });
 
+  it('no afirma que se haya confirmado el correo si la invitación no dejó una sesión', () => {
+    render(<AccesoConfirmado retorno={{ tipo: 'invitacion' }} conSesion={false} onContinuar={vi.fn()} />);
+
+    expect(screen.getByRole('heading', { name: 'No se pudo abrir la invitación' })).toBeInTheDocument();
+    expect(screen.getByRole('alert')).toHaveTextContent(/no hemos podido iniciar tu sesión/i);
+    expect(screen.getByText(/pide al equipo que te envíe otra/i)).toBeInTheDocument();
+    expect(screen.queryByText(/tu correo está confirmado/i)).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Volver a Entrar' })).toBeInTheDocument();
+  });
+
+  it('no declara completada la recuperación si el enlace no dejó una sesión', () => {
+    render(<AccesoConfirmado retorno={{ tipo: 'recuperar' }} conSesion={false} onContinuar={vi.fn()} />);
+
+    expect(screen.getByRole('heading', { name: 'No se pudo abrir el enlace' })).toBeInTheDocument();
+    expect(screen.getByRole('alert')).toHaveTextContent(/no hemos podido validar el enlace/i);
+    expect(screen.getByText(/solicita otro/i)).toBeInTheDocument();
+    expect(screen.queryByText(/tu correo está confirmado/i)).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Volver a Entrar' })).toBeInTheDocument();
+  });
+
   it('guarda la contraseña nueva y deja continuar al estudio', async () => {
     updateUser.mockResolvedValue({ error: null });
     const onContinuar = vi.fn();
