@@ -18,6 +18,7 @@ import { EXAM_DURATION_SECONDS, formatExamTime, getRemainingExamSeconds } from '
 import StudentConsultation from './StudentConsultationModal';
 import GuestSignupPrompt from './GuestSignupPrompt';
 import FalloFichas from './FalloFichas';
+import InformeSimulacro from './InformeSimulacro';
 import { loadRecallPoolForPlan, type RecallCard } from '../data/recallCards';
 import { fichasRelacionadas } from '../utils/planDiario';
 import { trackFunnel } from '../lib/funnel';
@@ -746,6 +747,8 @@ export default function MockExam({
                 </ol>
               </section>
             )}
+
+            <InformeSimulacro byTopic={testResults.byTopic} fallos={testResults.failedQuestions} pool={recallPool} />
 
             {/* Topic Breakdown */}
             <div className="grid grid-cols-2 gap-3 max-w-md mx-auto pt-4 border-t border-slate-200 text-xs text-slate-600">

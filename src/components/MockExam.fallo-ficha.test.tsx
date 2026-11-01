@@ -53,4 +53,14 @@ describe('Resultado del simulacro: fallo → ficha', () => {
     expect(marcadas.length).toBeGreaterThan(0);
     expect(marcadas.every((k) => k.startsWith('tema1'))).toBe(true);
   });
+
+  it('el resultado trae «Tu dominio por tema» con los temas del simulacro y el plan de 7 días', async () => {
+    localStorage.clear();
+    const { container } = render_();
+    await hacerMuestra(container, () => 'mal');
+    expect(container.querySelector('[data-dominio="1"]')).toHaveTextContent('En este simulacro: 0 aciertos, 5 fallos de 5.');
+    await waitFor(() => expect(container.querySelectorAll('#plan7-dias li')).toHaveLength(7));
+    fireEvent.click(screen.getByRole('button', { name: /Añadir a «Tu plan de hoy»/ }));
+    expect(Object.keys(loadPrioridad()).length).toBeGreaterThan(0);
+  });
 });
