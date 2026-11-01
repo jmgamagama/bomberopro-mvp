@@ -681,6 +681,17 @@ export default function App() {
     void startTrainingSession(null, INITIAL_QUESTIONS);
   };
 
+  // «Seguir sin cuenta con mi progreso» (pantalla de acceso): vuelve al modo invitado sin empezar de cero.
+  // Sin sesión, el dueño del progreso local es la demo: se recargan sus respuestas guardadas (test y simulacro).
+  const handleContinueGuest = () => {
+    setLoginMode('entrar');
+    handleStartDemo(false);
+    if (!session) {
+      setAttempts(getAttempts());
+      setMemoryStates(getSafeMemoryStates());
+    }
+  };
+
   // Pantalla de acceso con la que se vuelve de la demo: «crear» si el alumno pulsa el botón de alta (textoAlta()).
   const [loginMode, setLoginMode] = useState<'entrar' | 'crear'>('entrar');
   // Vuelta desde un enlace del correo (cuenta activada, invitación, contraseña o enlace caducado).
@@ -767,7 +778,7 @@ export default function App() {
         {/* Si la sesión caduca a mitad de estudio, aquí se avisa de lo que sigue pendiente. */}
         <UpdateBanner />
         <SaveFailureBanner showIfPending />
-        <Suspense fallback={<Skeleton label="Cargando la pantalla de acceso…" className="p-6" />}><Login initialMode={loginMode} onStartDemo={() => { setLoginMode('entrar'); handleStartDemo(true); }} /></Suspense>
+        <Suspense fallback={<Skeleton label="Cargando la pantalla de acceso…" className="p-6" />}><Login initialMode={loginMode} onStartDemo={() => { setLoginMode('entrar'); handleStartDemo(true); }} onContinueGuest={handleContinueGuest} /></Suspense>
       </>
     );
   }
