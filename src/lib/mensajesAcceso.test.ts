@@ -65,6 +65,12 @@ describe('mensajes de la pantalla de entrada', () => {
     expect(interno).not.toMatch(/cuenta|usuario|registrado/i);
   });
 
+  it('el enlace de acceso no confirma si el correo tiene una cuenta', () => {
+    const mensaje = mensajeErrorEnlace({ status: 422, code: 'user_not_found' }, false).text;
+    expect(mensaje).toMatch(/necesitas una invitación/i);
+    expect(mensaje).not.toMatch(/no encontramos una cuenta|correo no registrado/i);
+  });
+
   it('lee el enlace de invitación y descarta correos mal formados', () => {
     expect(leerEnlaceInvitacion('?invitacion=1&email=%20Ana@Ejemplo.ES')).toEqual({ invitacion: true, email: 'ana@ejemplo.es' });
     expect(leerEnlaceInvitacion('?invitacion')).toEqual({ invitacion: true, email: '' });
