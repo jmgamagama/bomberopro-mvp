@@ -10,7 +10,7 @@ import { Question, ConfidenceLevel, Microconcept } from '../types';
 import { INITIAL_QUESTIONS } from '../data/initialData';
 import { supabase } from '../lib/supabase';
 import { formatDecimal, formatPoints } from '../utils/formatNumber';
-import { calculateExamScore, EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS, isExamPassed, scoreOutOfTen } from '../utils/examScoring';
+import { EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS, examScoreBreakdown, isExamPassed, scoreOutOfTen, type ExamScoreBreakdown } from '../utils/examScoring';
 import { arrangeBlueprint } from '../utils/examBlueprint';
 import { recommendTopic, summarizeByTopic, type TopicSummary } from '../utils/examReport';
 import { getVisibleTopic } from '../data/recallRegistry';
@@ -72,6 +72,41 @@ function isRedundantExplanation(f: FailedQuestion): boolean {
 /** Línea de la fórmula de las bases (BOP de Badajoz nº 135, de 17/07/2026). */
 export const EXAM_FORMULA_TEXT = `Fórmula de las bases (BOP de Badajoz nº 135, de 17/07/2026): ${formatPoints(EXAM_CORRECT_POINTS)} por acierto, ${formatPoints(EXAM_INCORRECT_POINTS)} por error y 0 en blanco.`;
 
+const plural = (n: number, uno: string, varios: string) => `${n} ${n === 1 ? uno : varios}`;
+
+/** «Fallos por tema: T35 (3), T1 (2).» con los temas del intento (orden de summarizeByTopic); null si no hay fallos. */
+export function fallosPorTemaTexto(byTopic: readonly TopicSummary[]): string | null {
+  const conFallos = byTopic.filter((t) => t.incorrect > 0);
+  if (conFallos.length === 0) return null;
+  return `Fallos por tema: ${conFallos.map((t) => `${t.numero != null ? `T${t.numero}` : t.titulo} (${t.incorrect})`).join(', ')}.`;
+}
+
+/**
+ * Cómo sale la nota (01-nov-2026): aciertos × +0,200 y fallos × −0,066, con las cifras del intento y
+ * la fórmula de examScoring.ts. Si la suma es negativa, se explica por qué la nota es 0.
+ */
+function NotaDesglose({ breakdown, correct, incorrect, blank, byTopic }: {
+  breakdown: ExamScoreBreakdown; correct: number; incorrect: number; blank: number; byTopic: readonly TopicSummary[];
+}) {
+  const fallos = fallosPorTemaTexto(byTopic);
+  return (
+    <section aria-labelledby="mock-desglose-title" id="mock-desglose" className="mx-auto max-w-md space-y-1 rounded-xl border border-slate-200 bg-slate-50 p-3 text-left text-sm text-slate-800">
+      <h4 id="mock-desglose-title" className="font-bold text-slate-900">Cómo sale tu nota</h4>
+      <ul className="space-y-0.5">
+        <li>{plural(correct, 'acierto', 'aciertos')} × {formatPoints(EXAM_CORRECT_POINTS)} = <strong>{formatPoints(breakdown.correctPoints)}</strong></li>
+        <li>{plural(incorrect, 'fallo', 'fallos')} × {formatPoints(EXAM_INCORRECT_POINTS)} = <strong>{formatPoints(breakdown.incorrectPoints)}</strong></li>
+        {blank > 0 && <li>{blank} en blanco = 0 (no restan)</li>}
+      </ul>
+      <p id="mock-desglose-total">
+        {breakdown.clampedToZero
+          ? <>Total: <strong>{formatPoints(breakdown.raw)}</strong>. Los fallos restan más de lo que suman los aciertos y la nota no baja de 0.</>
+          : <>Total: <strong>{formatDecimal(breakdown.raw, 3)}</strong> puntos.</>}
+      </p>
+      {fallos && <p id="mock-desglose-fallos" className="text-slate-700">{fallos}</p>}
+    </section>
+  );
+}
+
 export default function MockExam({
   microconcepts,
   onFinishExam,
@@ -110,6 +145,7 @@ export default function MockExam({
   const [testResults, setTestResults] = useState<{
     score: number;
     maxScore: number;
+    breakdown: ExamScoreBreakdown;
     passed: boolean;
     pct: number;
     avgTime: number;
@@ -266,8 +302,8 @@ export default function MockExam({
     const incorrectCount = officialResults.filter(r => r.answered && !r.correct).length;
     const blankCount = officialCount - correctCount - incorrectCount;
     
-    let score = calculateExamScore({ correct: correctCount, incorrect: incorrectCount });
-    score = Math.max(0, score); // minimum score 0
+    const breakdown = examScoreBreakdown({ correct: correctCount, incorrect: incorrectCount });
+    const score = breakdown.score; // la nota no baja de 0
     const maxScore = Math.round(officialCount * EXAM_CORRECT_POINTS * 1000) / 1000;
     const passed = isExamPassed(score, maxScore);
     const pct = Math.round((correctCount / officialCount) * 100);
@@ -287,6 +323,7 @@ export default function MockExam({
     setTestResults({
       score,
       maxScore,
+      breakdown,
       passed,
       pct,
       avgTime,
@@ -618,6 +655,14 @@ export default function MockExam({
                 <strong className="text-2xl sm:text-3xl font-extrabold text-indigo-600">{testResults.avgTime} s</strong>
               </div>
             </div>
+
+            <NotaDesglose
+              breakdown={testResults.breakdown}
+              correct={testResults.correctCount}
+              incorrect={testResults.incorrectCount}
+              blank={testResults.blankCount}
+              byTopic={testResults.byTopic}
+            />
 
             <p id="mock-formula" className="mx-auto max-w-md text-xs text-slate-600">{EXAM_FORMULA_TEXT}</p>
 
