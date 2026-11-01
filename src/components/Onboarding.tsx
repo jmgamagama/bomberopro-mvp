@@ -17,9 +17,10 @@ import { isPlanesEnabled } from '../config/features';
 import ExamDateField from './ExamDateField';
 import DailyMinutesField from './DailyMinutesField';
 import TopicSearch from './TopicSearch';
+import TemasEnPreparacion from './TemasEnPreparacion';
 import { matchesTopic } from '../utils/topicSearch';
 import { canAccessDeck, getDailySessionSize, getPlan, planSummary, PLAN_COPY } from '../utils/plan';
-import { getVisibleDecks, resumenFichasRevisadas } from '../data/recallRegistry';
+import { getTemasEnPreparacion, getVisibleDecks, resumenFichasRevisadas } from '../data/recallRegistry';
 
 /** Miles con punto también en 4 cifras («2.483»), como en el resto de textos del proyecto. */
 const formatMiles = (n: number) => new Intl.NumberFormat('es-ES', { useGrouping: 'always' } as Intl.NumberFormatOptions).format(n);
@@ -101,6 +102,7 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, c
       .filter(({ topics }) => topics.length > 0)
       .map(({ b, topics }) => ({ id: b.id, label: `${b.label} · ${b.topics.length} ${b.topics.length === 1 ? 'tema' : 'temas'}`, options: topics.map(toOption) })),
   ];
+  const enPreparacion = getTemasEnPreparacion();
   const totalTopics = getVisibleBloques().reduce((n, b) => n + b.topics.length, 0);
   const shownTopics = groups.reduce((n, g) => n + (g.id === ALL ? 0 : g.options.length), 0);
 
@@ -185,7 +187,7 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, c
       ) : (<>
       <fieldset className="space-y-2">
         <legend className="text-sm font-bold text-slate-800">¿Qué quieres repasar primero?</legend>
-        <TopicSearch id="onboarding-buscar-tema" value={query} onChange={setQuery} shown={shownTopics} total={totalTopics} />
+        <TopicSearch id="onboarding-buscar-tema" value={query} onChange={setQuery} shown={shownTopics} total={totalTopics} enPreparacion={enPreparacion} />
         <div className="space-y-3" role="radiogroup" aria-label="Tema para la sesión diaria">
           {groups.map((g) => (
             <div key={g.id} role="presentation" id={`onboarding-grupo-${g.id}`} className="space-y-2">
@@ -230,6 +232,7 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, c
             </div>
           ))}
         </div>
+        <TemasEnPreparacion id="onboarding-en-preparacion" temas={enPreparacion} />
       </fieldset>
 
       <div className="space-y-4 rounded-2xl border border-slate-200 bg-white p-3.5 sm:p-4">

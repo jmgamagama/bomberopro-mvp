@@ -641,21 +641,21 @@ export default function MockExam({
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-3 max-w-md mx-auto pt-4 border-t border-slate-200">
               <div>
                 <span className="block text-xs uppercase text-slate-600">Nota</span>
-                <strong className={`text-2xl sm:text-3xl font-extrabold ${testResults.passed ? 'text-emerald-600' : 'text-rose-600'}`}>
+                <strong className={`text-2xl sm:text-3xl font-extrabold ${testResults.passed ? 'text-emerald-700' : 'text-rose-600'}`}>
                   {formatDecimal(testResults.score)}
                 </strong>
                 <span className="text-sm text-slate-600"> de {formatDecimal(testResults.maxScore)}</span>
                 {testResults.maxScore !== 10 && (
                   <span className="block text-xs text-slate-600 mt-0.5">Equivale a {formatDecimal(scoreOutOfTen(testResults.score, testResults.maxScore), 1)} sobre 10</span>
                 )}
-                <span className={`block text-sm uppercase font-bold mt-0.5 ${testResults.passed ? 'text-emerald-600' : 'text-rose-600'}`}>
+                <span className={`block text-sm uppercase font-bold mt-0.5 ${testResults.passed ? 'text-emerald-700' : 'text-rose-600'}`}>
                   {testResults.passed ? '✓ Aprobado' : '✗ Suspenso'}
                 </span>
               </div>
               <div>
                 <span className="block text-xs uppercase text-slate-600">Aciertos / Fallos / Blancos</span>
                 <div className="text-xl sm:text-2xl font-bold flex items-center justify-center gap-1.5 mt-1">
-                  <span className="text-emerald-600" title="Aciertos">{testResults.correctCount}</span>
+                  <span className="text-emerald-700" title="Aciertos">{testResults.correctCount}</span>
                   <span className="text-slate-500 font-normal">/</span>
                   <span className="text-rose-600" title="Fallos">{testResults.incorrectCount}</span>
                   <span className="text-slate-500 font-normal">/</span>
@@ -755,16 +755,16 @@ export default function MockExam({
               <div className="bg-slate-50 p-2 rounded-lg border border-slate-200">
                 <span className="block text-xs uppercase text-slate-600 mb-1">Temas 1-34</span>
                 <div className="flex justify-between items-center px-1">
-                  <span className="text-emerald-600">{testResults.generalStats.correct} <CheckCircle2 className="w-3 h-3 inline" /></span>
-                  <span className="text-rose-600">{testResults.generalStats.incorrect} <XCircle className="w-3 h-3 inline" /></span>
+                  <span className="text-emerald-700">{testResults.generalStats.correct} <CheckCircle2 className="w-3 h-3 inline" /></span>
+                  <span className="text-rose-700">{testResults.generalStats.incorrect} <XCircle className="w-3 h-3 inline" /></span>
                   <span className="text-slate-600">{testResults.generalStats.blank} <span className="inline-block w-3 h-3 text-center">-</span></span>
                 </div>
               </div>
               <div className="bg-slate-50 p-2 rounded-lg border border-slate-200">
                 <span className="block text-xs uppercase text-slate-600 mb-1">Temas 35-40</span>
                 <div className="flex justify-between items-center px-1">
-                  <span className="text-emerald-600">{testResults.specificStats.correct} <CheckCircle2 className="w-3 h-3 inline" /></span>
-                  <span className="text-rose-600">{testResults.specificStats.incorrect} <XCircle className="w-3 h-3 inline" /></span>
+                  <span className="text-emerald-700">{testResults.specificStats.correct} <CheckCircle2 className="w-3 h-3 inline" /></span>
+                  <span className="text-rose-700">{testResults.specificStats.incorrect} <XCircle className="w-3 h-3 inline" /></span>
                   <span className="text-slate-600">{testResults.specificStats.blank} <span className="inline-block w-3 h-3 text-center">-</span></span>
                 </div>
               </div>

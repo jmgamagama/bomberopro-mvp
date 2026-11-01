@@ -3,8 +3,9 @@ import AvisoGuardadoFichas from './AvisoGuardadoFichas';
 import { Lock } from 'lucide-react';
 import RecallDeck from './RecallDeck';
 import TopicSearch from './TopicSearch';
+import TemasEnPreparacion from './TemasEnPreparacion';
 import { matchesTopic } from '../utils/topicSearch';
-import { canAccessTopic, getVisibleBloques, getVisibleDecks, getVisibleTopics, getVisibleTotalCards, type RecallDeck as RecallDeckData } from '../data/recallRegistry';
+import { canAccessTopic, getVisibleBloques, getVisibleDecks, getVisibleTopics, getVisibleTotalCards, getTemasEnPreparacion, type RecallDeck as RecallDeckData } from '../data/recallRegistry';
 import { isPlanesEnabled } from '../config/features';
 import { canAccessDeck, getPlan, pickDefaultDeck, PLAN_COPY } from '../utils/plan';
 
@@ -37,6 +38,7 @@ export default function RecallHub({ onNavigateHome, initialDeckId, onOpenPlanes,
   const RECALL_TOPICS = getVisibleTopics();
   const RECALL_BLOQUES = getVisibleBloques();
   const RECALL_TOTAL_CARDS = getVisibleTotalCards();
+  const enPreparacion = getTemasEnPreparacion();
   // Modo invitado: abre un tema accesible de T35-40 (procedimientos de Badajoz), no el tema 1.
   const firstAccessible = pickDefaultDeck(RECALL_DECKS, plan, demo) ?? RECALL_DECKS[0];
   const [deckId, setDeckId] = useState(() => {
@@ -69,7 +71,7 @@ export default function RecallHub({ onNavigateHome, initialDeckId, onOpenPlanes,
         {/* Temas agrupados por bloque (parte común / específica) en una cuadrícula compacta
             que salta de línea: sin scroll horizontal a 360 px y botones de al menos 44 px. */}
         <div className="mt-2">
-          <TopicSearch id="recall-buscar-tema" value={query} onChange={setQuery} shown={shownTopics} total={RECALL_TOPICS.length} />
+          <TopicSearch id="recall-buscar-tema" value={query} onChange={setQuery} shown={shownTopics} total={RECALL_TOPICS.length} enPreparacion={enPreparacion} />
         </div>
         <div role="tablist" aria-label="Temas de recuerdo" className="mt-2 space-y-2">
           {bloques.map((b) => (
@@ -106,6 +108,8 @@ export default function RecallHub({ onNavigateHome, initialDeckId, onOpenPlanes,
             </div>
           ))}
         </div>
+
+        <div className="mt-2"><TemasEnPreparacion id="recall-en-preparacion" temas={enPreparacion} /></div>
 
         {hasLotes && (
           <div className="mt-2 rounded-xl border border-slate-200 bg-slate-50/70 p-2" id="recall-lotes">

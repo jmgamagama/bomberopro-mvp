@@ -1,6 +1,6 @@
 import { CalendarClock, ClipboardList, MapPin } from 'lucide-react';
 import { CONVOCATORIA_CPEI_2026 as C } from '../data/convocatoria';
-import { getVisibleTopics } from '../data/recallRegistry';
+import { getTemasEnPreparacion, getVisibleTopics, TEMAS_TEMARIO } from '../data/recallRegistry';
 import { computeDeckProgress, loadSrs, sumProgress } from '../utils/recallSrs';
 import { localDayNumber } from '../utils/localDate';
 import { describeExamDate } from '../utils/examCountdown';
@@ -41,7 +41,7 @@ export default function Badajoz2026Card({ onOpenSupuestos, onOpenProgress, now =
         <h3 className="text-sm font-bold text-slate-800">
           Tu progreso por tema <span className="font-normal text-slate-600">· empezados {started.length} de {topics.length} temas con fichas</span>
         </h3>
-        <p className="mt-1 text-xs text-slate-600" id="badajoz-cobertura">De momento hay fichas de {topics.length} temas del temario; se irán añadiendo más.</p>
+        <p className="mt-1 text-xs text-slate-600" id="badajoz-cobertura">De momento hay fichas de {topics.length} de los {TEMAS_TEMARIO} temas del temario.{(() => { const p = getTemasEnPreparacion(); return p.length ? ` En preparación: ${p.map((t) => `T${t.tema}`).join(', ')}.` : ''; })()}</p>
         <ul className="mt-2 space-y-1.5" id="badajoz-progreso">
           {shown.map(({ topic, p }) => {
             const pct = p.total > 0 ? Math.round((p.seen / p.total) * 100) : 0;

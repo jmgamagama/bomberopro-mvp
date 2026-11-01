@@ -171,10 +171,17 @@ export default function MaterialTema({ userId, onExit, tema: temaInicial = 1, vo
         )}
 
         <div className="mt-4 flex flex-col gap-2 sm:flex-row">
-          <button type="button" onClick={() => setEstudiando(true)} disabled={topicId == null || disponibles === 0}
-            className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 font-bold text-white hover:bg-indigo-700 disabled:opacity-50">
-            {topicId === undefined ? <><Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> Cargando…</> : 'Estudiar los conceptos'}
-          </button>
+          {topicId !== undefined && (topicId == null || disponibles === 0) ? (
+            // Sin conceptos publicados no hay nada que abrir: un aviso honesto en vez de un botón apagado.
+            <p className="flex flex-1 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 py-3 text-sm font-bold text-slate-700" data-testid="conceptos-en-preparacion">
+              Conceptos en preparación
+            </p>
+          ) : (
+            <button type="button" onClick={() => setEstudiando(true)} disabled={topicId === undefined}
+              className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-indigo-600 py-3 font-bold text-white hover:bg-indigo-700 disabled:opacity-50">
+              {topicId === undefined ? <><Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" /> Cargando…</> : 'Estudiar los conceptos'}
+            </button>
+          )}
           {material?.textoOficial && <DescargaOficial material={material} />}
         </div>
         <p className="mt-2 text-xs text-slate-500" data-testid="recuento">
