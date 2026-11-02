@@ -5,11 +5,13 @@
 -- Ahora, para las preguntas NUEVAS de cada tema:
 --   · Nivel 1: siempre abierto.
 --   · Nivel 2: se abre cuando el alumno domina el 1 (en sus 10 últimas respuestas de nivel 1 del
---     tema, al menos 8 respondidas y >= 80 % de aciertos).
+--     tema, al menos 8 preguntas DISTINTAS —o todas las del nivel si hay menos de 8— y >= 80 % de aciertos).
 --   · Nivel 3: se abre cuando domina el 2 con el mismo criterio. Si en sus 5 últimas de nivel 3
---     (mínimo 3) acierta < 60 %, el nivel 3 se cierra: vuelve al 2 y, cuando lo domina otra vez con
---     respuestas más recientes, se reabre el 3.
---   · El nivel más bajo que le queda por ver en el tema siempre está abierto (temas sin nivel 1).
+--     (mínimo 3) acierta < 60 %, el nivel 3 se cierra: vuelve al 2 y se reabre cuando el alumno
+--     vuelve a dominar el 2 con respuestas POSTERIORES a su último fallo de nivel 3 (no hace falta
+--     rehacer el 3 y un acierto posterior en el 3 no vuelve a cerrarlo).
+--   · El nivel más bajo que EXISTE en el banco del tema siempre está abierto (temas sin nivel 1).
+--     Se mide sobre todo el banco, no sobre lo no visto: agotar los niveles bajos no salta la escalera.
 --   · Dentro de lo abierto, el nivel «frontera» (el más alto abierto) sale antes con más frecuencia y se mezcla con la base.
 -- No cambia: los repasos vencidos (review_queue), el reparto 70/30 de temas, el recorte a 3 opciones,
 -- las preguntas reportadas ni el formato de salida. Con CREATE OR REPLACE se conservan permisos.
@@ -62,21 +64,40 @@ BEGIN
   ),
   -- Últimas respuestas del alumno por tema y nivel (ventana de 10; 5 para detectar olvidos en N3).
   ultimas AS (
-    SELECT q.topic_id, coalesce(q.nivel, 1) AS nivel, a.acierto,
+    SELECT q.topic_id, q.id AS question_id, coalesce(q.nivel, 1) AS nivel, a.acierto, a.created_at,
            row_number() OVER (PARTITION BY q.topic_id, coalesce(q.nivel, 1) ORDER BY a.created_at DESC) AS rn
       FROM attempts a JOIN questions q ON q.id = a.question_id
      WHERE a.user_id = v_uid
   ),
-  dominio AS (
+  -- Tamaño del banco por tema y nivel: en niveles con menos de 8 preguntas basta con haberlas respondido todas.
+  banco AS (
+    SELECT b.topic_id, min(coalesce(b.nivel, 1)) AS niv_min,
+           count(*) FILTER (WHERE coalesce(b.nivel, 1) = 1) AS n1,
+           count(*) FILTER (WHERE coalesce(b.nivel, 1) = 2) AS n2
+      FROM base b GROUP BY b.topic_id
+  ),
+  -- Último fallo de N3 dentro de la ventana de 5: ancla del «episodio de olvido». Un acierto posterior de N3
+  -- no la mueve, así que la recuperación del N2 se conserva hasta que haya un nuevo fallo.
+  ult3 AS (SELECT u.topic_id, max(u.created_at) AS t3 FROM ultimas u WHERE u.nivel = 3 AND u.rn <= 5 AND NOT u.acierto GROUP BY u.topic_id),
+  dominio_raw AS (
     SELECT u.topic_id,
-      (count(*) FILTER (WHERE u.nivel = 1 AND u.rn <= 10) >= 8
+      (count(DISTINCT u.question_id) FILTER (WHERE u.nivel = 1 AND u.rn <= 10) >= LEAST(8, bq.n1)
         AND avg(u.acierto::int) FILTER (WHERE u.nivel = 1 AND u.rn <= 10) >= 0.8) AS domina1,
-      (count(*) FILTER (WHERE u.nivel = 2 AND u.rn <= 10) >= 8
+      (count(DISTINCT u.question_id) FILTER (WHERE u.nivel = 2 AND u.rn <= 10) >= LEAST(8, bq.n2)
         AND avg(u.acierto::int) FILTER (WHERE u.nivel = 2 AND u.rn <= 10) >= 0.8) AS domina2,
       -- Olvido en N3: en sus 5 últimas de nivel 3 (mínimo 3) acierta menos del 60 %.
       coalesce(count(*) FILTER (WHERE u.nivel = 3 AND u.rn <= 5) >= 3
-        AND avg(u.acierto::int) FILTER (WHERE u.nivel = 3 AND u.rn <= 5) < 0.6, false) AS olvida3
-      FROM ultimas u GROUP BY u.topic_id
+        AND avg(u.acierto::int) FILTER (WHERE u.nivel = 3 AND u.rn <= 5) < 0.6, false) AS falla3,
+      -- Recuperación: dominio del N2 solo con respuestas posteriores a su última de N3.
+      coalesce(count(DISTINCT u.question_id) FILTER (WHERE u.nivel = 2 AND u.rn <= 10 AND u.created_at > u3.t3) >= LEAST(8, bq.n2)
+        AND avg(u.acierto::int) FILTER (WHERE u.nivel = 2 AND u.rn <= 10 AND u.created_at > u3.t3) >= 0.8, false) AS recupera2
+      FROM ultimas u
+      JOIN banco bq ON bq.topic_id = u.topic_id
+      LEFT JOIN ult3 u3 ON u3.topic_id = u.topic_id
+     GROUP BY u.topic_id, bq.n1, bq.n2
+  ),
+  dominio AS (
+    SELECT r.topic_id, r.domina1, r.domina2, (r.falla3 AND NOT r.recupera2) AS olvida3 FROM dominio_raw r
   ),
   sin_ver AS (
     SELECT b.*, coalesce(b.nivel, 1) AS niv
@@ -84,8 +105,8 @@ BEGIN
      WHERE NOT EXISTS (SELECT 1 FROM review_queue rq WHERE rq.question_id = b.qid AND rq.user_id = v_uid)
        AND NOT EXISTS (SELECT 1 FROM user_question_state u WHERE u.question_id = b.qid AND u.user_id = v_uid)
   ),
-  -- Nivel más bajo que le queda por ver en cada tema: siempre está abierto.
-  base_tema AS (SELECT s.topic_id, min(s.niv) AS niv_min FROM sin_ver s GROUP BY s.topic_id),
+  -- Nivel más bajo que existe en el banco de cada tema: siempre está abierto (no depende de lo ya visto).
+  base_tema AS (SELECT bq.topic_id, bq.niv_min FROM banco bq),
   -- Escalera por tema: N1 siempre; N2 al dominar N1; N3 al dominar N2, salvo que esté olvidando
   -- el N3 (entonces vuelve al N2 hasta dominarlo de nuevo con respuestas más recientes).
   abiertas AS (

@@ -20,7 +20,7 @@ await db.exec(`
   create table review_queue (user_id uuid, question_id bigint, due_at timestamptz, step int);
   create table user_question_state (user_id uuid, question_id bigint, estado text);
   create table attempts (id bigserial primary key, user_id uuid, question_id bigint, acierto boolean, created_at timestamptz default now());
-  insert into topics values (1, 1, 1, 'Constitución'), (2, 1, 2, 'Solo nivel 2');
+  insert into topics values (1, 1, 1, 'Constitución'), (2, 1, 2, 'Solo nivel 2'), (3, 1, 3, 'Banco agotado'), (4, 1, 4, 'Banco pequeño'), (5, 1, 5, 'Mismo intento repetido');
 `);
 await db.exec(read('20_no_recortar_opciones_referenciales.sql').split('DO $$')[0]);
 const ops = JSON.stringify([{ letra: 'a', texto: 'x' }, { letra: 'b', texto: 'y' }, { letra: 'c', texto: 'z' }]);
@@ -31,6 +31,12 @@ for (const [base, nivel] of [[0, 1], [100, 2], [200, 3]]) {
   }
 }
 for (let i = 1; i <= 10; i++) await db.query(`insert into questions values ($1, 2, 'e', $2, 'a', 'x', 'f', 'publicada', 2)`, [300 + i, ops]);
+// Temas 3 y 4: 3 preguntas por nivel (ids 401-403 / 411-413 / 421-423 y 501-503 / 511-513 / 521-523).
+for (const [t, b] of [[3, 400], [4, 500], [5, 600]]) {
+  for (const [off, nivel] of [[0, 1], [10, 2], [20, 3]]) {
+    for (let i = 1; i <= 3; i++) await db.query(`insert into questions values ($1, $2, 'e', $3, 'a', 'x', 'f', 'publicada', $4)`, [b + off + i, t, ops, nivel]);
+  }
+}
 
 // Función de producción anterior (la del _down) y después la 50.
 await db.exec(read('50_sesion_por_niveles_down.sql'));
@@ -85,11 +91,31 @@ await responder(200, 3, 0);
 r = await niveles(1);
 assert.ok(r.N3 === 0 && r.N2 > 0, JSON.stringify(r));
 
-// 6) Vuelve a dominar el 2 con respuestas más recientes y acierta el 3: se reabre el 3.
+// 6) Vuelve a dominar el 2 con respuestas posteriores a su última de N3, SIN tocar el 3: se reabre el 3.
 await responder(120, 10, 10);
-await responder(203, 3, 3); // sus 5 últimas de N3: 3 aciertos de 5 = 60 % -> ya no «olvida»
 r = await niveles(1);
 assert.ok(r.N3 > 0, JSON.stringify(r));
+
+// 6a) Un acierto posterior en el N3 no vuelve a cerrarlo (la recuperación se ancla al último fallo).
+await responder(203, 1, 1);
+r = await niveles(1);
+assert.ok(r.N3 > 0, JSON.stringify(r));
+
+// 6b) Agotar los niveles bajos no salta la escalera: tema 3 con todo el N1 y N2 visto y fallado -> no sale N3.
+await responder(400, 3, 0);
+await responder(410, 3, 0);
+r = await niveles(3);
+assert.equal(r.N3, 0, JSON.stringify(r));
+
+// 6c) Banco pequeño (3 preguntas de N1): acertar las 3 basta para dominar el 1 y abrir el 2.
+await responder(500, 3, 3);
+r = await niveles(4);
+assert.ok(r.N2 > 0 && r.N3 === 0, JSON.stringify(r));
+
+// 6d) Repetir la misma pregunta de N1 no cuenta como cubrir un banco pequeño: sigue sin abrirse el 2.
+for (let k = 0; k < 3; k++) await db.query('insert into attempts(user_id, question_id, acierto) values ($1, 601, true)', [U]);
+r = await niveles(5);
+assert.ok(r.N1 > 0 && r.N2 === 0, JSON.stringify(r));
 
 // 7) Sin sesión iniciada: error.
 await db.exec(`set test.uid = ''`);
