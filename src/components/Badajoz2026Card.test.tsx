@@ -25,4 +25,17 @@ describe('Badajoz 2026', () => {
     expect(describeExamDate('2026-10-26', now)).toBe('El examen es hoy');
     expect(describeExamDate('fecha rara', now)).toMatch(/pendiente de publicar/);
   });
+
+  it('Inicio compacto: resumen global, 3 temas «para seguir» y el resto plegado', () => {
+    window.localStorage.clear();
+    render(<Badajoz2026Card />);
+    expect(screen.getByRole('heading', { name: 'Tu progreso' })).toBeInTheDocument();
+    expect(screen.getByRole('progressbar', { name: /progreso global: 0 %/i })).toBeInTheDocument();
+    expect(screen.getByText(/0 de \d+ fichas vistas/)).toBeInTheDocument();
+    const paraSeguir = document.getElementById('badajoz-para-seguir')!;
+    expect(paraSeguir.querySelectorAll('li')).toHaveLength(3);
+    const todos = document.getElementById('badajoz-todos') as HTMLDetailsElement;
+    expect(todos.open).toBe(false);
+    expect(todos.querySelectorAll('#badajoz-progreso li').length).toBeGreaterThan(3);
+  });
 });
