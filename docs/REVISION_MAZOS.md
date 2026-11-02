@@ -40,14 +40,14 @@ Visibles para el alumno: **804** de 3402 fichas.
 | `tema5` | 28 | pendiente | 0 | muestra de 20 de 28 revisada a mano | `/workspace/tema05_calidad.md` |
 | `tema6` | 94 | pendiente | 0 | muestra de 20 de 94 revisada a mano | `/workspace/tema06_calidad.md` |
 | `tema7` | 64 | pendiente | 0 | muestra de 20 de 64 revisada a mano | `/workspace/tema07_calidad.md` |
-| `tema8` | 25 | pendiente | 0 | muestra de 20 de 25 revisada a mano | `/workspace/tema08_calidad.md` |
+| `tema8` | 25 | revisado | 25 | 2 del RIPCI y 23 literales en la página citada de los Temas 33 y 41 del INSST (PDF vigentes de insst.es), 02/11/2026 | `docs/REVISION_INSST_LOTES_2026-11-02.md` |
 | `tema9` | 84 | pendiente | 0 | 84/84 revisadas a mano por el autor; falta revisión humana | `data/tema09/tema09_calidad.md` |
 | `tema10` | 34 | pendiente | 0 | muestra de 20 de 34 revisada a mano | `/workspace/tema10_calidad.md` |
 | `tema10-lote02` | 13 | revisado | 13 | 13/13 revisadas a mano | `/workspace/tema10_lote02_calidad.md` |
 | `tema12` | 21 | pendiente | 0 | muestra de 20 de 21 revisada a mano | `/workspace/tema12_calidad.md` |
-| `tema12-lote02` | 23 | pendiente | 0 | muestra de 20 de 23 revisada a mano | `/workspace/tema12_lote02_calidad.md` |
+| `tema12-lote02` | 23 | revisado | 23 | 23 de 23 literales en la página citada de las NTP 99 y 536 del INSST, 02/11/2026 | `docs/REVISION_INSST_LOTES_2026-11-02.md` |
 | `tema13` | 25 | pendiente | 0 | muestra de 20 de 25 revisada a mano | `/workspace/tema13_calidad.md` |
-| `tema13-lote02` | 47 | pendiente | 0 | muestra de 20 de 47 revisada a mano, 0 errores (huecos CEP, INSST) | `/workspace/tema13_lote02_calidad.md` |
+| `tema13-lote02` | 47 | revisado | 47 | 47 de 47 literales en la página citada (NTP 787, Guía técnica de EPI, fichas de selección y uso del INSST), 02/11/2026 | `docs/REVISION_INSST_LOTES_2026-11-02.md` |
 | `tema14` | 24 | pendiente | 0 | muestra de 20 de 24 revisada a mano | `/workspace/tema14_calidad.md` |
 | `tema15` | 92 | pendiente | 0 | muestra de 20 de 92 revisada a mano, 0 errores (huecos CEP: INSST, RD 1644/2008, RD 1215/1997, ITC-BT-40) | `/workspace/tema15_calidad.md` |
 | `tema16` | 48 | revisado | 48 | 48/48 revisadas ficha a ficha | `/workspace/tema16_calidad.md` |
@@ -57,7 +57,7 @@ Visibles para el alumno: **804** de 3402 fichas.
 | `tema21` | 42 | pendiente | 0 | muestra de 20 de 42 revisada a mano | `/workspace/tema21_calidad.md` |
 | `tema21-lote02` | 73 | pendiente | 0 | muestra de 20 de 73 revisada a mano, 0 errores (huecos CEP, manual DGT) | `/workspace/tema21_lote02_calidad.md` |
 | `tema22` | 33 | pendiente | 0 | muestra de 20 de 33 revisada a mano | `/workspace/tema22_calidad.md` |
-| `tema22-lote02` | 27 | pendiente | 0 | muestra de 20 de 27 revisada a mano | `/workspace/tema22_lote02_calidad.md` |
+| `tema22-lote02` | 27 | revisado | 27 | 27 de 27 literales en la página citada de las NTP 809, 843, 1170 y 1218 del INSST, 02/11/2026 | `docs/REVISION_INSST_LOTES_2026-11-02.md` |
 | `tema23` | 21 | pendiente | 0 | muestra de 20 de 21 revisada a mano | `/workspace/tema23_calidad.md` |
 | `tema23-lote02` | 23 | pendiente | 0 | 23 de 23 cotejadas con el texto oficial en dos pasadas, 0 errores; falta la revisión del propietario (áreas inundables: RDPH, RD 903/2010 y Directriz 2026) | `data/tema23/tema23_lote02_calidad.md` |
 | `tema24` | 19 | revisado | 19 | 19/19 revisadas a mano | `/workspace/tema24_calidad.md` |

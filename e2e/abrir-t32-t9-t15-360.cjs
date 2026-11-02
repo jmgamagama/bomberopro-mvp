@@ -30,7 +30,7 @@ async function axe(page, name) {
   for (const [t, n] of [['T9', 17], ['T15', 92], ['T32', 91]]) check(`${t}: ${n} fichas visibles`, tabs.includes(`${t}${n}`));
   const total = await page.getByText(/\d+ fichas de repaso/).first().innerText().catch(() => '');
   log('TOTAL:', total);
-  check('total de fichas: 2737', /2737 fichas de repaso/.test(total));
+  check('total de fichas: 2857', /2857 fichas de repaso/.test(total));
   let i = 1;
   for (const t of ['T32', 'T9', 'T15']) {
     const tab = tablist.getByRole('tab').filter({ has: page.locator('[aria-hidden="true"]', { hasText: new RegExp(`^${t}$`) }) }).first();

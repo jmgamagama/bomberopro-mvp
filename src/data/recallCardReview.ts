@@ -14,16 +14,9 @@
 export const OUT_OF_SYLLABUS_CARDS: Readonly<Record<string, readonly string[]>> = {
   // T12 (5) y T28-lote02 (12), antes aquí por fuente solo INSST, se abren el 01/11/2026 (feat/fichas-insst): el propietario acepta el
   // INSST en general; Tema 33 «El riesgo de incendio (I)» y NTP 400 cotejados al literal con los PDF vigentes de insst.es.
-  // Sin norma oficial (BOE/DOE/BOP) que respalde la respuesta: documentos técnicos del INSST (31/10/2026).
-  // T8: solo fuente INSST; las clases C y D se reescribieron contra el RIPCI (31/10/2026).
-  'tema8': [
-    'CPEI-T08-OF-16F2F066', 'CPEI-T08-OF-91F289AD', 'CPEI-T08-OF-5B548AE4', 'CPEI-T08-OF-56E9FF59',
-    'CPEI-T08-OF-E159B5F5', 'CPEI-T08-OF-FC925796', 'CPEI-T08-OF-A79F178A', 'CPEI-T08-OF-44E769FD',
-    'CPEI-T08-OF-103C15A5', 'CPEI-T08-OF-8BD47893', 'CPEI-T08-OF-B266B117', 'CPEI-T08-OF-6287D3B5',
-    'CPEI-T08-OF-852F8894', 'CPEI-T08-OF-2EC01104', 'CPEI-T08-OF-C02B24A7', 'CPEI-T08-OF-AF362425',
-    'CPEI-T08-OF-CA82C01C', 'CPEI-T08-OF-A9BCB495', 'CPEI-T08-OF-42858129', 'CPEI-T08-OF-E3377122',
-    'CPEI-T08-OF-E02CD674', 'CPEI-T08-OF-E2B5A638', 'CPEI-T08-OF-E6EB4A37',
-  ],
+  // T8 (23), antes aquí por fuente solo INSST (Tema 33 «El riesgo de incendio (I)» y Tema 41 «Explosiones» del temario del INSST),
+  // se abren el 02/11/2026 (feat/insst-lotes): 23 de 23 literales en la página citada del PDF vigente de insst.es
+  // (scripts/verificar-insst-lotes.py, data/verificacion/insst-lotes.json); 1 respuesta completada al literal (LIE).
   // T26: INSARAG aceptada como fuente oficial (31/10/2026); esta respuesta une dos viñetas del apdo. 6.2 y no es literal.
   'tema26': ['CPEI-T26-OF-46354134'],
   // T33-lote02: fuera del epígrafe (objeto y ámbito; abastecimiento, hidrantes, BIE y columnas secas), 31/10/2026.
@@ -137,6 +130,8 @@ export const REVIEWED_CARDS_IN_PENDING_DECKS: Readonly<Record<string, readonly s
     'CPEI-T09-OF-25E9FCD4', 'CPEI-T09-OF-20C37F4A', 'CPEI-T09-OF-A520E5DF', 'CPEI-T09-OF-87E4530F',
     'CPEI-T09-OF-25A494F2', 'CPEI-T09-OF-B378FA6E', 'CPEI-T09-OF-B1BF79D7', 'CPEI-T09-OF-52A4DCD7',
     'CPEI-T09-OF-D374F81F',
+    // T9: las 11 de la NTP 362 (INSST) siguen ocultas tras feat/insst-lotes (02/11/2026): la cita enlaza a la versión web, sin página;
+    // 9 no están literales en el PDF vigente (fórmulas y paráfrasis) y 2 sí lo están (págs. 3 y 4) pero sin página citada.
   ],
   'tema15': [
     'CPEI-T15-OF-3B08563F', 'CPEI-T15-OF-D2F1AA50', 'CPEI-T15-OF-3AC3D004', 'CPEI-T15-OF-C8C8BD7F',

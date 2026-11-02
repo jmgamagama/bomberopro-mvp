@@ -15,9 +15,9 @@ con esta rama salen **6**.
 | ~~37~~ | Plan de prevención del CPEI-Badajoz | `tema37` (37) | **Abierto en esta rama** (ver abajo). | El «mapa descargable» del epígrafe no aparece en el BOP. |
 
 Mazos sueltos que siguen ocultos dentro de temas ya visibles (no salen «En preparación» porque el tema tiene otro
-mazo publicado): `tema9` (17 de 84 visibles), `tema12-lote02`, `tema13-lote02`, `tema16-lote02`, `tema22-lote02`
-(fuentes INSST distintas de las NTP aceptadas el 01/11 o sin cotejar), `tema15` (36 + 56 INSST según
-recallCardReview.ts) y las fichas «fuera del epígrafe» de T8, T26, T33, T35, T36, T38 y T39.
+mazo publicado): `tema9` (17 de 84 visibles; las 11 de la NTP 362 siguen ocultas, ver docs/REVISION_INSST_LOTES_2026-11-02.md), `tema16-lote02`
+(sin cotejar; `tema12-lote02`, `tema13-lote02`, `tema22-lote02` y las 23 INSST de T8 se abren el 02/11/2026 en feat/insst-lotes), `tema15` (36 + 56 INSST según
+recallCardReview.ts) y las fichas «fuera del epígrafe» de T26, T33, T35, T36, T38 y T39.
 
 ## T37: por qué se elige y qué se ha hecho
 
