@@ -48,7 +48,7 @@ describe('INSST por lotes: se abren solo las fichas literales en la página cita
 
   it('cuántas se abren: T8 25 de 25, T9 17 de 84 (NTP 362 sigue oculta), T12-lote02 23, T13-lote02 47, T22-lote02 27', () => {
     expect((Object.keys(MAZOS) as Mazo[]).map(vistas)).toEqual([25, 17, 23, 47, 27]);
-    expect(getVisibleTotalCards()).toBe(2857);
+    expect(getVisibleTotalCards()).toBe(2878);
     expect(['tema8', 'tema12-lote02', 'tema13-lote02', 'tema22-lote02'].map(getDeckRevision)).toEqual(['revisado', 'revisado', 'revisado', 'revisado']);
     expect(getDeckRevision('tema9')).toBe('pendiente');
   });

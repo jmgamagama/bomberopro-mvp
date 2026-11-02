@@ -4,6 +4,7 @@ import { resolve } from 'node:path';
 import { TEMA32_RECALL_CARDS } from './tema32Recall';
 import { TEMA9_RECALL_CARDS } from './tema9Recall';
 import { TEMA15_RECALL_CARDS } from './tema15Recall';
+import { TEMA16_LOTE02_RECALL_CARDS } from './tema16Lote02Recall';
 import { getDeckRevision } from './recallReview';
 import { isCardVisible } from './recallRegistry';
 
@@ -12,7 +13,8 @@ const V = JSON.parse(readFileSync(resolve(__dirname, '../../data/verificacion/ab
   mazos: Record<string, { id: string; estado: string }[]>;
 };
 const MAZOS = { tema32: TEMA32_RECALL_CARDS, tema9: TEMA9_RECALL_CARDS, tema15: TEMA15_RECALL_CARDS } as const;
-const ACEPTADA = /https:\/\/www\.(boe\.es\/buscar\/act\.php\?id=BOE-A-\d{4}-\d+#[\w-]+|codigotecnico\.org\/pdf\/Documentos\/\w+\/DB\w+\.pdf#page=\d+|insst\.es\/documents\/94886\/\d+\/(ntp_221|841\+web|842\+web|Gu%C3%ADa\+t%C3%A9cnica\+para\+la\+evaluaci%C3%B3n\+y\+prevenci%C3%B3n\+de\+los\+riesgos\+relativos\+a\+la\+utilizaci%C3%B3n\+de\+los\+equipos\+de\+trabajo)\.pdf#page=\d+)/;
+const ACEPTADA = /https:\/\/(?:search\.itu\.int\/history\/HistoryDigitalCollectionDocLibrary\/1\.49\.48\.es\.301\.pdf#page=\d+|www\.(boe\.es\/buscar\/act\.php\?id=BOE-A-\d{4}-\d+#[\w-]+|codigotecnico\.org\/pdf\/Documentos\/\w+\/DB\w+\.pdf#page=\d+|insst\.es\/documents\/94886\/\d+\/(ntp_221|841\+web|842\+web|Gu%C3%ADa\+t%C3%A9cnica\+para\+la\+evaluaci%C3%B3n\+y\+prevenci%C3%B3n\+de\+los\+riesgos\+relativos\+a\+la\+utilizaci%C3%B3n\+de\+los\+equipos\+de\+trabajo)\.pdf#page=\d+))/;
+// UIT aceptada como fuente oficial por José (02/11/2026, feat/t16-abrir-uit): solo el Reglamento de Radiocomunicaciones, ed. 2024, vol. 1.
 // INSST aceptado como fuente oficial por el propietario (01/11/2026, feat/fichas-insst): solo NTP 221, 841 y 842 y Guía técnica de equipos de trabajo.
 
 describe('T32, T9 y T15: se abren solo las fichas literales con fuente aceptada', () => {
@@ -39,6 +41,16 @@ describe('T32, T9 y T15: se abren solo las fichas literales con fuente aceptada'
         expect(c.fuente).not.toMatch(/miteco|idae|eur-lex/i);
         if (/insst/i.test(c.fuente)) expect(c.fuente, c.id).toMatch(/^(NTP 221|NTP 841|NTP 842|Guía técnica de equipos de trabajo) \(INSST\)/);
       }
+    }
+  });
+  it('tema16-lote02 (UIT): las 21 visibles, «abierta» en data/verificacion/t16-lote02.json y con enlace al RR 2024 de itu.int', () => {
+    const T16 = JSON.parse(readFileSync(resolve(__dirname, '../../data/verificacion/t16-lote02.json'), 'utf8')) as { fichas: { id: string; estado: string }[] };
+    const estado = new Map(T16.fichas.map((x) => [x.id, x.estado]));
+    expect(TEMA16_LOTE02_RECALL_CARDS).toHaveLength(21);
+    for (const c of TEMA16_LOTE02_RECALL_CARDS) {
+      expect(isCardVisible('tema16-lote02', c.id), c.id).toBe(estado.get(c.id) === 'abierta');
+      expect(c.fuente, c.id).toMatch(ACEPTADA);
+      expect(c.fuente, c.id).toMatch(/^RR UIT 2024, (núm|cuadro|art)/);
     }
   });
 });

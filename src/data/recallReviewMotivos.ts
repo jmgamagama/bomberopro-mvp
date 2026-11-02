@@ -12,6 +12,7 @@ const revisado = (motivo: string, informe: string): DeckReview => ({ revision: '
 export const REVIEWED_DECKS: Readonly<Record<string, DeckReview>> = {
   'tema10-lote02': revisado('13 de 13 fichas revisadas a mano, 0 errores', 'tema10_lote02_calidad.md'),
   tema16: revisado('48 de 48 fichas revisadas ficha a ficha, 0 errores', 'tema16_calidad.md'),
+  'tema16-lote02': revisado('21 de 21 fichas literales en la página citada del Reglamento de Radiocomunicaciones de la UIT, edición de 2024, vol. 1 (arts. 1 y 2; PDF oficial de search.itu.int), aceptado como fuente oficial por José (02/11/2026)', 'docs/REVISION_T16_LOTE02_2026-11-02.md'),
   tema17: revisado('14 de 14 fichas revisadas a mano, 0 errores', 'tema17_calidad.md'),
   tema24: revisado('19 de 19 fichas revisadas a mano, 0 errores', 'tema24_calidad.md'),
   tema1: revisado('129 de 129 fichas cotejadas con el texto consolidado vigente BOE-A-1978-31229 (31/10/2026): respuesta literal o casi literal en el artículo citado, arts. 1-55 dentro del epígrafe', 'docs/REVISION_TEMAS_LEGALES_2026-10-31.md'),

@@ -1,12 +1,13 @@
 {
  "fecha": "2026-11-02",
  "script": "scripts/verificar-t16-lote02.py",
- "criterio": "respuesta entera y seguida en la página citada del PDF de la UIT (o siguiendo en la siguiente), tras normalizar; la UIT no es fuente aceptada, así que ninguna ficha se abre",
+ "criterio": "respuesta entera y seguida en la página citada del PDF de la UIT (o siguiendo en la siguiente), tras normalizar; la UIT es fuente aceptada desde el 02/11/2026, así que se abren las literales",
  "fuentes": {
   "RR2024_vol1": {
    "url": "https://search.itu.int/history/HistoryDigitalCollectionDocLibrary/1.49.48.es.301.pdf",
    "sha256": "4a7b2417fedf0a321872f445beda5a02d7f715265fd2fc8f1729cb93e259afec",
-   "aceptada": false
+   "aceptada": true,
+   "aceptada_por": "José, 02/11/2026"
   },
   "BOE-A-2026-15661": {
    "norma": "Orden TDF/732/2026, de 10 de julio, Cuadro Nacional de Atribución de Frecuencias (BOE nº 173, 17/07/2026)",
@@ -25,7 +26,7 @@
   "fichas": 21,
   "literal_rr": 21,
   "literal_boe": 5,
-  "abiertas": 0
+  "abiertas": 21
  },
  "fichas": [
   {
@@ -37,8 +38,8 @@
    "boe_literal": [
     "BOE-A-2022-10757"
    ],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   },
   {
    "id": "CPEI-T16-OF-BAB78D56",
@@ -47,8 +48,8 @@
    "rr": "literal",
    "pagina_rr": 18,
    "boe_literal": [],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   },
   {
    "id": "CPEI-T16-OF-184601F3",
@@ -57,8 +58,8 @@
    "rr": "literal",
    "pagina_rr": 18,
    "boe_literal": [],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   },
   {
    "id": "CPEI-T16-OF-C3813B15",
@@ -69,8 +70,8 @@
    "boe_literal": [
     "BOE-A-2022-10757"
    ],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   },
   {
    "id": "CPEI-T16-OF-E416C315",
@@ -79,8 +80,8 @@
    "rr": "literal",
    "pagina_rr": 19,
    "boe_literal": [],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   },
   {
    "id": "CPEI-T16-OF-48B8C97A",
@@ -91,8 +92,8 @@
    "boe_literal": [
     "BOE-A-2026-15661"
    ],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   },
   {
    "id": "CPEI-T16-OF-DFF2402C",
@@ -103,8 +104,8 @@
    "boe_literal": [
     "BOE-A-2026-15661"
    ],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   },
   {
    "id": "CPEI-T16-OF-CBEBAB08",
@@ -113,8 +114,8 @@
    "rr": "literal",
    "pagina_rr": 20,
    "boe_literal": [],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   },
   {
    "id": "CPEI-T16-OF-41ECE14A",
@@ -123,8 +124,8 @@
    "rr": "literal",
    "pagina_rr": 23,
    "boe_literal": [],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   },
   {
    "id": "CPEI-T16-OF-DDD8BF38",
@@ -133,8 +134,8 @@
    "rr": "literal",
    "pagina_rr": 24,
    "boe_literal": [],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   },
   {
    "id": "CPEI-T16-OF-BC7BA883",
@@ -143,8 +144,8 @@
    "rr": "literal",
    "pagina_rr": 24,
    "boe_literal": [],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   },
   {
    "id": "CPEI-T16-OF-B89B424C",
@@ -153,8 +154,8 @@
    "rr": "literal",
    "pagina_rr": 28,
    "boe_literal": [],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   },
   {
    "id": "CPEI-T16-OF-E435F115",
@@ -163,8 +164,8 @@
    "rr": "literal",
    "pagina_rr": 28,
    "boe_literal": [],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   },
   {
    "id": "CPEI-T16-OF-7617EBEF",
@@ -173,8 +174,8 @@
    "rr": "literal",
    "pagina_rr": 28,
    "boe_literal": [],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   },
   {
    "id": "CPEI-T16-OF-9C110C92",
@@ -183,8 +184,8 @@
    "rr": "literal",
    "pagina_rr": 28,
    "boe_literal": [],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   },
   {
    "id": "CPEI-T16-OF-9F233450",
@@ -193,8 +194,8 @@
    "rr": "literal",
    "pagina_rr": 28,
    "boe_literal": [],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   },
   {
    "id": "CPEI-T16-OF-6981A8E5",
@@ -203,8 +204,8 @@
    "rr": "literal",
    "pagina_rr": 36,
    "boe_literal": [],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   },
   {
    "id": "CPEI-T16-OF-4B99C946",
@@ -213,8 +214,8 @@
    "rr": "literal",
    "pagina_rr": 36,
    "boe_literal": [],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   },
   {
    "id": "CPEI-T16-OF-5955A3BD",
@@ -223,8 +224,8 @@
    "rr": "literal",
    "pagina_rr": 36,
    "boe_literal": [],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   },
   {
    "id": "CPEI-T16-OF-ECE94290",
@@ -235,8 +236,8 @@
    "boe_literal": [
     "BOE-A-2026-15661"
    ],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   },
   {
    "id": "CPEI-T16-OF-30A9D281",
@@ -245,8 +246,8 @@
    "rr": "literal",
    "pagina_rr": 36,
    "boe_literal": [],
-   "fuente_aceptada": false,
-   "estado": "oculta: cita la UIT (fuente no aceptada)"
+   "fuente_aceptada": true,
+   "estado": "abierta"
   }
  ]
 }
