@@ -72,9 +72,18 @@ describe('mensajes de la pantalla de entrada', () => {
   });
 
   it('lee la invitación sin tomar el correo de la URL', () => {
-    expect(leerEnlaceInvitacion('?invitacion=1&email=%20Ana@Ejemplo.ES')).toEqual({ invitacion: true, email: '' });
-    expect(leerEnlaceInvitacion('?invitacion')).toEqual({ invitacion: true, email: '' });
-    expect(leerEnlaceInvitacion('?email=sinarroba')).toEqual({ invitacion: false, email: '' });
-    expect(leerEnlaceInvitacion('')).toEqual({ invitacion: false, email: '' });
+    expect(leerEnlaceInvitacion('?invitacion=1&email=%20Ana@Ejemplo.ES')).toEqual({ invitacion: true, email: '', codigo: '' });
+    expect(leerEnlaceInvitacion('?invitacion')).toEqual({ invitacion: true, email: '', codigo: '' });
+    expect(leerEnlaceInvitacion('?email=sinarroba')).toEqual({ invitacion: false, email: '', codigo: '' });
+    expect(leerEnlaceInvitacion('')).toEqual({ invitacion: false, email: '', codigo: '' });
+  });
+});
+
+describe('leerEnlaceInvitacion · código de piloto', () => {
+  it('lee el código, lo limpia y lo trata como invitación', () => {
+    expect(leerEnlaceInvitacion('?codigo=PILOTO-2026')).toEqual({ invitacion: true, email: '', codigo: 'PILOTO-2026' });
+    expect(leerEnlaceInvitacion('?codigo=%20a%3Cb%3E%22c%20')).toEqual({ invitacion: true, email: '', codigo: 'abc' });
+    expect(leerEnlaceInvitacion('?codigo=' + 'x'.repeat(100)).codigo).toHaveLength(64);
+    expect(leerEnlaceInvitacion('?codigo=')).toEqual({ invitacion: false, email: '', codigo: '' });
   });
 });
