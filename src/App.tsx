@@ -59,6 +59,7 @@ import { AbrirMaterialContext, type AbrirMaterial } from './components/abrirMate
 import type { DestinoMaterial } from './utils/materialEnContexto';
 import { comprobarRecordatorio } from './lib/recordatorio';
 import { clearPreferLogin, hasGuestSignupIntent, markGuestSignupIntent, markPreferLogin, migrateGuestProgress, prefersLogin } from './utils/guestProgress';
+import { precargarTemas } from './lib/temasCache';
 import Skeleton from './components/Skeleton';
 import AppShell from './components/AppShell';
 
@@ -253,6 +254,24 @@ export default function App() {
 
     return () => { active = false; subscription.unsubscribe(); };
   }, []);
+
+  // Rendimiento: con la sesión resuelta y la app en reposo, se precargan el código y los datos de «Temas»
+  // para que al tocarlo ya estén (sin esperar a que baje el código y después los datos).
+  useEffect(() => {
+    if (loadingAuth) return;
+    const conCuenta = Boolean(session?.user?.id);
+    const precargar = () => {
+      void import('./components/StudyByTopic');
+      precargarTemas(conCuenta);
+    };
+    const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number; cancelIdleCallback?: (id: number) => void };
+    if (typeof w.requestIdleCallback === 'function') {
+      const id = w.requestIdleCallback(precargar, { timeout: 3000 });
+      return () => w.cancelIdleCallback?.(id);
+    }
+    const id = window.setTimeout(precargar, 1500);
+    return () => window.clearTimeout(id);
+  }, [loadingAuth, session?.user?.id]);
 
   // El progreso local pertenece a la cuenta con sesión (o a la demostración si no hay ninguna).
   // Se recarga al resolverse la sesión y al cambiar de cuenta.

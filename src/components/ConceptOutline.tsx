@@ -9,6 +9,7 @@ import { ChevronDown, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { DOCUMENTOS_OFICIALES } from '../data/fuentesOficiales';
 import Skeleton from './Skeleton';
+import { pedirResumen, resumenEnCache } from '../lib/temasCache';
 
 export interface OutlineConcept { id: string; pregunta: string; respuesta: string | null; preguntas: number; dominado: boolean }
 export interface OutlineApartado { apartado: string; total: number; dominados: number; preguntas: number; conceptos: OutlineConcept[] }
@@ -28,16 +29,17 @@ const plural = (n: number, uno: string, varios: string) => `${n} ${n === 1 ? uno
  * llegó bien: mientras carga (o si falla) no se puede afirmar que un tema no tenga conceptos.
  */
 export function useConceptSummary(): { resumen: Record<number, OutlineTema>; listo: boolean } {
-  const [estado, setEstado] = useState<{ resumen: Record<number, OutlineTema>; listo: boolean }>({ resumen: {}, listo: false });
+  // Rendimiento: arranca con lo último que llegó bien (si lo hay) y se actualiza por detrás (lib/temasCache).
+  const [estado, setEstado] = useState<{ resumen: Record<number, OutlineTema>; listo: boolean }>(() => {
+    const guardado = resumenEnCache();
+    return guardado ? { resumen: guardado, listo: true } : { resumen: {}, listo: false };
+  });
   useEffect(() => {
     let vivo = true;
     if (!supabase) return;
-    Promise.resolve(supabase.rpc('get_concept_outline'))
-      .then(({ data, error }) => {
-        if (!vivo || error || !Array.isArray(data)) return;
-        setEstado({ resumen: Object.fromEntries((data as OutlineTema[]).map((t) => [t.tema, t])), listo: true });
-      })
-      .catch(() => {});
+    void pedirResumen().then((datos) => {
+      if (vivo && datos) setEstado({ resumen: datos, listo: true });
+    });
     return () => { vivo = false; };
   }, []);
   return estado;

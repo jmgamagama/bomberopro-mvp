@@ -18,6 +18,7 @@ import { newStudySessionId, startStudySession, finishStudySession } from '../lib
 import TopicSearch from './TopicSearch';
 import { matchesTopic } from '../utils/topicSearch';
 import ConceptOutline, { ConceptCountBadge, useConceptSummary } from './ConceptOutline';
+import { pedirTemas, temasEnCache } from '../lib/temasCache';
 import Skeleton from './Skeleton';
 
 interface TopicOption {
@@ -34,10 +35,10 @@ interface StudyByTopicProps {
 }
 
 export default function StudyByTopic({ session, onNavigateHome, onOpenMaterial }: StudyByTopicProps) {
-  const [topics, setTopics] = useState<TopicOption[]>([]);
+  const [topics, setTopics] = useState<TopicOption[]>(() => (temasEnCache() ?? []) as TopicOption[]);
   const [selected, setSelected] = useState<number[]>([]);
   const [topicQuery, setTopicQuery] = useState('');
-  const [loadingTopics, setLoadingTopics] = useState(true);
+  const [loadingTopics, setLoadingTopics] = useState(() => temasEnCache() === null);
   // Recuentos reales de conceptos por tema y mapa de conceptos desplegable (migración 23).
   const { resumen: conceptSummary, listo: conceptSummaryListo } = useConceptSummary();
   const [outlineTema, setOutlineTema] = useState<number | null>(null);
@@ -57,17 +58,14 @@ export default function StudyByTopic({ session, onNavigateHome, onOpenMaterial }
   const [checkError, setCheckError] = useState<string | null>(null);
 
 useEffect(() => {
-  const loadTopics = async () => {
-    setLoadingTopics(true);
-    const { data, error } = await supabase
-    .from('topics')
-    .select('id,numero,nombre')
-    .eq('convocatoria_id', 1)
-    .order('numero');
-    if (!error && data) setTopics(data as TopicOption[]);
+  // Con lista guardada se pinta al instante; se actualiza por detrás (lib/temasCache).
+  let vivo = true;
+  void pedirTemas().then((data) => {
+    if (!vivo) return;
+    if (data) setTopics(data as TopicOption[]);
     setLoadingTopics(false);
-  };
-  loadTopics();
+  });
+  return () => { vivo = false; };
 }, []);
 
 const toggleTopic = (id: number) => {
