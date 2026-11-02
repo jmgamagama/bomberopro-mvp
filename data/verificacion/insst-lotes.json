@@ -1,0 +1,1775 @@
+{
+ "fecha": "2026-11-02",
+ "script": "scripts/verificar-insst-lotes.py",
+ "criterio": "respuesta entera y seguida en la página citada (o siguiendo en la siguiente) del PDF vigente de insst.es, tras normalizar; sin página citada no se abre",
+ "fuentes": {
+  "FSU05": {
+   "url": "https://www.insst.es/documents/94886/8739740/FSU+05+Filtros+%28rev.5%29.pdf",
+   "sha256": "5216ef781ce7faa8d7254b3207de7467c1194d13bb62c006807d910482178e4e"
+  },
+  "FSU_ERA": {
+   "url": "https://www.insst.es/documents/94886/8739740/Equipos+respiratorios+aislantes+%28rev.3%29.pdf",
+   "sha256": "80a083b82d1622b7570444641adb021c499b9dd58250df0c373e541e0c818c98"
+  },
+  "GUIA_EPI": {
+   "url": "https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+utilizaci%C3%B3n+por+los+trabajadores+de+equipos+de+protecci%C3%B3n+individual.pdf",
+   "sha256": "2d7eece56222cd214af07987ebe37c839e2709c9b47afcacf219320900cb088a"
+  },
+  "INSST_T33": {
+   "url": "https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i-",
+   "sha256": "13a7201e5d42a5bc9018f274e7c645aeb99242537f68d63f00f4b0b952ef0a2d"
+  },
+  "INSST_T41": {
+   "url": "https://www.insst.es/documents/d/portal-insst/tema-41-explosiones",
+   "sha256": "4382a6ca2a023bc77c7cef283d5b2e402f8040c88db78367283848ce75001f30"
+  },
+  "NTP099": {
+   "url": "https://www.insst.es/documents/94886/7888278/ntp_099.pdf",
+   "sha256": "be9a816ad7588a505f34a43caf9fba2f51a4bc354fe92b95bf90eab1e2f21ea8"
+  },
+  "NTP1170": {
+   "url": "https://www.insst.es/documents/94886/7789690/NTP+1170+Utilizaci%C3%B3n+de+EPI+en+trabajos+con+riesgo+de+ca%C3%ADda+de+altura.pdf",
+   "sha256": "4ea205148d12721ff1164c0ec2ffa4af9f39f3950f9764d25acfacda9f71abc0"
+  },
+  "NTP1218": {
+   "url": "https://www.insst.es/documents/d/portal-insst/ntp-1218-sistemas-de-proteccion-individual-contra-caidas-sistemas-anticaidas-ano-2025",
+   "sha256": "db3e20f6ea79f11367adfd4e2f9a5c90d1f8d081f0468210f43dff27ed61b45d"
+  },
+  "NTP362": {
+   "url": "https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+   "sha256": "eb02abf209abbbc8fde4aae47d52b3766deaa646d4b8fafb9980f3bfba4de2e0"
+  },
+  "NTP536": {
+   "url": "https://www.insst.es/documents/94886/7865585/ntp_536.pdf",
+   "sha256": "68d1b4033ba1c9aa680f06f1fbe7c79b2a343fa104f2c0b8f2a7fd84c006618a"
+  },
+  "NTP787": {
+   "url": "https://www.insst.es/documents/94886/7843381/787a.pdf",
+   "sha256": "e738100c759940db1b9eb61e75c5060468d8c6b8b14ac56bd46b35c00889464d"
+  },
+  "NTP809": {
+   "url": "https://www.insst.es/documents/94886/7843381/809+web.pdf",
+   "sha256": "b6d10a5645dcc6e0822fb3971ab11616eeeb9374a153817d62c5c8be4fe1d70c"
+  },
+  "NTP843": {
+   "url": "https://www.insst.es/documents/94886/7842059/843+web.pdf",
+   "sha256": "77d6067a63fe56832e4adb0baf7b8533d954951c9188350a095115a65fe012e2"
+  }
+ },
+ "mazos": {
+  "tema8": [
+   {
+    "id": "CPEI-T08-OF-16F2F066",
+    "concepto": "Según el INSST (tema «El riesgo de incendio»), ¿qué es la combustión?",
+    "respuesta": "Una reacción química de oxidación-reducción fuertemente exotérmica",
+    "fuente": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 1. INSST-T33, texto consolidado (últ. actualización 30/04/2025): https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i-#p01",
+    "estado": "ok",
+    "doc": "INSST_T33",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T08-OF-91F289AD",
+    "concepto": "Según el INSST (tema «El riesgo de incendio»), ¿cuál es el material oxidante más frecuente en la combustión?",
+    "respuesta": "El oxígeno",
+    "fuente": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 1. INSST-T33, texto consolidado (últ. actualización 30/04/2025): https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i-#p01",
+    "estado": "ok",
+    "doc": "INSST_T33",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T08-OF-5B548AE4",
+    "concepto": "Según el INSST (tema «El riesgo de incendio»), ¿cómo se llama la reacción cuya velocidad del frente de llamas es inferior a 1 m por segundo?",
+    "respuesta": "Combustión",
+    "fuente": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 2. INSST-T33, texto consolidado (últ. actualización 30/04/2025): https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i-#p02",
+    "estado": "ok",
+    "doc": "INSST_T33",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T08-OF-56E9FF59",
+    "concepto": "Según el INSST (tema «El riesgo de incendio»), ¿cómo se llama la reacción cuya velocidad del frente de llamas es superior a 1 m por segundo?",
+    "respuesta": "Deflagración",
+    "fuente": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 2. INSST-T33, texto consolidado (últ. actualización 30/04/2025): https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i-#p02",
+    "estado": "ok",
+    "doc": "INSST_T33",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T08-OF-E159B5F5",
+    "concepto": "Según el INSST (tema «El riesgo de incendio»), ¿cómo se llama la reacción cuya velocidad del frente de llamas es superior a la del sonido?",
+    "respuesta": "Detonación",
+    "fuente": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 2. INSST-T33, texto consolidado (últ. actualización 30/04/2025): https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i-#p02",
+    "estado": "ok",
+    "doc": "INSST_T33",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T08-OF-FC925796",
+    "concepto": "Según el INSST (tema «El riesgo de incendio»), ¿qué forma de transmisión del calor se produce por ondas electromagnéticas sin ningún soporte material?",
+    "respuesta": "Radiación",
+    "fuente": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 2. INSST-T33, texto consolidado (últ. actualización 30/04/2025): https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i-#p02",
+    "estado": "ok",
+    "doc": "INSST_T33",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T08-OF-A79F178A",
+    "concepto": "Según el INSST (tema «El riesgo de incendio»), ¿qué forma de transmisión del calor se produce por el movimiento de fluidos?",
+    "respuesta": "Convección",
+    "fuente": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 2. INSST-T33, texto consolidado (últ. actualización 30/04/2025): https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i-#p02",
+    "estado": "ok",
+    "doc": "INSST_T33",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T08-OF-44E769FD",
+    "concepto": "Según el INSST (tema «El riesgo de incendio»), ¿en qué concentración está presente el oxígeno en la atmósfera?",
+    "respuesta": "En un 21%",
+    "fuente": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 2. INSST-T33, texto consolidado (últ. actualización 30/04/2025): https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i-#p02",
+    "estado": "ok",
+    "doc": "INSST_T33",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T08-OF-103C15A5",
+    "concepto": "Según el INSST (tema «El riesgo de incendio»), ¿por debajo de qué contenido de oxígeno en el aire la combustión es imposible?",
+    "respuesta": "Por debajo del 15%",
+    "fuente": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 2. INSST-T33, texto consolidado (últ. actualización 30/04/2025): https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i-#p02",
+    "estado": "ok",
+    "doc": "INSST_T33",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T08-OF-8BD47893",
+    "concepto": "Según el INSST (tema «El riesgo de incendio»), ¿qué orígenes pueden tener los focos de la energía de activación?",
+    "respuesta": "De origen térmico, eléctrico, químico o mecánico",
+    "fuente": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 2. INSST-T33, texto consolidado (últ. actualización 30/04/2025): https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i-#p02",
+    "estado": "ok",
+    "doc": "INSST_T33",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T08-OF-B266B117",
+    "concepto": "Según el INSST (tema «El riesgo de incendio»), ¿qué cuarto elemento convierte el triángulo en «tetraedro del fuego»?",
+    "respuesta": "La reacción en cadena",
+    "fuente": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 3. INSST-T33, texto consolidado (últ. actualización 30/04/2025): https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i-#p03",
+    "estado": "ok",
+    "doc": "INSST_T33",
+    "pagina": 3
+   },
+   {
+    "id": "CPEI-T08-OF-6287D3B5",
+    "concepto": "Según el INSST (tema «El riesgo de incendio»), ¿cómo puede ser la propagación del incendio según su dirección?",
+    "respuesta": "De forma horizontal o vertical",
+    "fuente": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 3. INSST-T33, texto consolidado (últ. actualización 30/04/2025): https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i-#p03",
+    "estado": "ok",
+    "doc": "INSST_T33",
+    "pagina": 3
+   },
+   {
+    "id": "CPEI-T08-OF-852F8894",
+    "concepto": "Según el INSST (tema «El riesgo de incendio»), ¿a través de qué se produce la propagación vertical entre plantas?",
+    "respuesta": "A través de ventanas, conducciones de aire o huecos de ascensores",
+    "fuente": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 3. INSST-T33, texto consolidado (últ. actualización 30/04/2025): https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i-#p03",
+    "estado": "ok",
+    "doc": "INSST_T33",
+    "pagina": 3
+   },
+   {
+    "id": "CPEI-T08-OF-2EC01104",
+    "concepto": "Según el INSST (tema «El riesgo de incendio»), ¿qué norma se sigue para clasificar los fuegos según la naturaleza del combustible?",
+    "respuesta": "UNE-EN 2:1994/A1:2005",
+    "fuente": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 3. INSST-T33, texto consolidado (últ. actualización 30/04/2025): https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i-#p03",
+    "estado": "ok",
+    "doc": "INSST_T33",
+    "pagina": 3
+   },
+   {
+    "id": "CPEI-T08-OF-8DBF8D55",
+    "concepto": "Según el RIPCI (clases de fuego normalizadas, UNE-EN 2), ¿qué fuegos son de clase D?",
+    "respuesta": "Fuegos de metales",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.d). BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T08-OF-26C9E93E",
+    "concepto": "Según el RIPCI (clases de fuego normalizadas, UNE-EN 2), ¿qué fuegos son de clase C?",
+    "respuesta": "Fuegos de gases",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.c). BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T08-OF-C02B24A7",
+    "concepto": "Según el INSST (tema «El riesgo de incendio»), ¿qué ejemplos de combustible se dan para la clase F?",
+    "respuesta": "Grasas y aceites vegetales y animales",
+    "fuente": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 3. INSST-T33, texto consolidado (últ. actualización 30/04/2025): https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i-#p03",
+    "estado": "ok",
+    "doc": "INSST_T33",
+    "pagina": 3
+   },
+   {
+    "id": "CPEI-T08-OF-AF362425",
+    "concepto": "Según el INSST (tema «Explosiones»), ¿qué sustancias tienen capacidad para formar atmósferas explosivas?",
+    "respuesta": "Gases, líquidos inflamables y polvos combustibles",
+    "fuente": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 1. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p01",
+    "estado": "ok",
+    "doc": "INSST_T41",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T08-OF-CA82C01C",
+    "concepto": "Según el INSST (tema «Explosiones»), ¿cómo se clasifican las explosiones?",
+    "respuesta": "En deflagraciones y detonaciones",
+    "fuente": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 1. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p01",
+    "estado": "ok",
+    "doc": "INSST_T41",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T08-OF-A9BCB495",
+    "concepto": "Según el INSST (tema «Explosiones»), ¿a qué velocidad se propaga una deflagración?",
+    "respuesta": "A velocidad subsónica",
+    "fuente": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 1. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p01",
+    "estado": "ok",
+    "doc": "INSST_T41",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T08-OF-42858129",
+    "concepto": "Según el INSST (tema «Explosiones»), ¿a qué velocidad se propaga una detonación?",
+    "respuesta": "A velocidad supersónica",
+    "fuente": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 1. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p01",
+    "estado": "ok",
+    "doc": "INSST_T41",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T08-OF-E3377122",
+    "concepto": "Según el INSST (tema «Explosiones»), ¿qué efecto de la explosión resulta del impacto de objetos y fragmentos en el cuerpo?",
+    "respuesta": "Secundario",
+    "fuente": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 2. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p02",
+    "estado": "ok",
+    "doc": "INSST_T41",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T08-OF-E02CD674",
+    "concepto": "Según el INSST (tema «Explosiones»), ¿qué es el punto de inflamación?",
+    "respuesta": "La temperatura mínima, en condiciones normales de presión, a la cual se desprende la suficiente cantidad de vapores del líquido para que se produzca la inflamación mediante la aportación de un foco de ignición",
+    "fuente": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 5. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p05",
+    "estado": "ok",
+    "doc": "INSST_T41",
+    "pagina": 5
+   },
+   {
+    "id": "CPEI-T08-OF-E2B5A638",
+    "concepto": "Según el INSST (tema «Explosiones»), ¿qué es el Límite Inferior de Explosividad (LIE)?",
+    "respuesta": "La concentración de sustancia en el aire (expresada en porcentaje en volumen y/o en masa por unidad de volumen) por debajo de la cual la atmósfera no es explosiva",
+    "fuente": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 5. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p05",
+    "estado": "ok",
+    "doc": "INSST_T41",
+    "pagina": 5
+   },
+   {
+    "id": "CPEI-T08-OF-E6EB4A37",
+    "concepto": "Según el INSST (tema «Explosiones»), ¿qué es el Límite Superior de Explosividad (LSE)?",
+    "respuesta": "La concentración de sustancia en el aire por encima de la cual la atmósfera no es explosiva",
+    "fuente": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 5. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p05",
+    "estado": "ok",
+    "doc": "INSST_T41",
+    "pagina": 5
+   }
+  ],
+  "tema9": [
+   {
+    "id": "CPEI-T09-OF-96E138CB",
+    "concepto": "Según el RD 709/2015 de equipos a presión, ¿qué se entiende por «fluidos»?",
+    "respuesta": "Los gases, los líquidos y los vapores en fase pura o en mezclas. Un fluido podrá contener una suspensión de sólidos",
+    "fuente": "RD 709/2015 (equipos a presión), artículo 2.12. BOE-A-2015-9527, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2015-9527#a2",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-0E62FDF1",
+    "concepto": "Según el RD 709/2015 de equipos a presión, ¿respecto a qué se mide la «presión» y cómo se expresa el vacío?",
+    "respuesta": "La presión relativa a la presión atmosférica, es decir, la presión manométrica. En consecuencia, el vacío se expresa mediante un valor negativo",
+    "fuente": "RD 709/2015 (equipos a presión), artículo 2.7. BOE-A-2015-9527, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2015-9527#a2",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-6E9C710E",
+    "concepto": "Según el RD 2032/2009, ¿cuál es la unidad SI de la densidad (masa en volumen)?",
+    "respuesta": "Kilogramo por metro cúbico, kg/m3",
+    "fuente": "RD 2032/2009 (unidades legales de medida), anexo, capítulo II, tabla 2. BOE-A-2010-927, texto consolidado (últ. actualización 29/04/2020): https://www.boe.es/buscar/act.php?id=BOE-A-2010-927#cii",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-7FF3307F",
+    "concepto": "Según el RD 2032/2009, ¿cuál es la unidad SI de presión y a qué equivale en otras unidades SI?",
+    "respuesta": "El pascal (Pa), que equivale a un newton por metro cuadrado (N/m2)",
+    "fuente": "RD 2032/2009 (unidades legales de medida), anexo, capítulo II, tabla 3. BOE-A-2010-927, texto consolidado (últ. actualización 29/04/2020): https://www.boe.es/buscar/act.php?id=BOE-A-2010-927#cii",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-B70EA739",
+    "concepto": "Según el RD 2032/2009, ¿qué unidad SI corresponde a la viscosidad dinámica?",
+    "respuesta": "Pascal segundo, Pa s",
+    "fuente": "RD 2032/2009 (unidades legales de medida), anexo, capítulo II, tabla 4. BOE-A-2010-927, texto consolidado (últ. actualización 29/04/2020): https://www.boe.es/buscar/act.php?id=BOE-A-2010-927#cii",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-30C5C610",
+    "concepto": "Según el RD 2032/2009, ¿a cuánto equivale 1 bar en unidades SI?",
+    "respuesta": "1 bar = 0,1 MPa = 100 kPa",
+    "fuente": "RD 2032/2009 (unidades legales de medida), anexo, capítulo IV, tabla 8. BOE-A-2010-927, texto consolidado (últ. actualización 29/04/2020): https://www.boe.es/buscar/act.php?id=BOE-A-2010-927#civ",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-48B860EC",
+    "concepto": "Según el RD 2032/2009, ¿a cuánto equivale la atmósfera normal en bar y en pascales?",
+    "respuesta": "La atmósfera normal, igual a 1,013 25 bar o 101 325 Pa",
+    "fuente": "RD 2032/2009 (unidades legales de medida), anexo, capítulo IV, tabla 8, nota (a). BOE-A-2010-927, texto consolidado (últ. actualización 29/04/2020): https://www.boe.es/buscar/act.php?id=BOE-A-2010-927#civ",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-3909180C",
+    "concepto": "Según el RD 2032/2009, ¿a cuánto equivale un litro y qué símbolo se recomienda para evitar confusiones?",
+    "respuesta": "1 L = 1 dm3 = 10^-3 m3; se recomienda la «L» mayúscula para no confundir la letra l con la cifra 1",
+    "fuente": "RD 2032/2009 (unidades legales de medida), anexo, capítulo IV, tabla 6. BOE-A-2010-927, texto consolidado (últ. actualización 29/04/2020): https://www.boe.es/buscar/act.php?id=BOE-A-2010-927#civ",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-B76CA198",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿qué densidad y qué viscosidad dinámica se toman para el agua a 20 °C?",
+    "respuesta": "Densidad ρ = 1.000 kg/m3 y viscosidad dinámica μ = 0,001 Pa·s",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), apéndice I «Nomenclatura parte bombas», pág. 101. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=103",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-E8EFF948",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿en qué tres modos se presenta la energía mecánica del flujo en un punto?",
+    "respuesta": "Energía de presión (p/ρ), energía potencial (g·z) y energía cinética (v²/2)",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Ecuación de Bernoulli generalizada», pág. 11. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=13",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-BDF2E465",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se expresa en metros de columna de agua la «altura» de un punto del flujo?",
+    "respuesta": "H = p/(ρ·g) + z + v²/(2·g), en m c.a.",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Ecuación de Bernoulli generalizada», pág. 11. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=13",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-546D4545",
+    "concepto": "Según el ejemplo 2.2 de la guía técnica de bombas del IDAE, ¿qué diferencia de presión corresponde a 10 m de columna de agua?",
+    "respuesta": "Unos 98.100 Pa (ρ·g·h = 1.000 · 9,81 · 10): de 202.600 Pa en el punto bajo a 104.500 Pa diez metros más arriba",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1, ejemplo 2.2, pág. 12. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=14",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-3D462C54",
+    "concepto": "Según la guía técnica del IDAE, ¿cómo se calcula la presión dinámica de un fluido que circula a velocidad v?",
+    "respuesta": "pD = ½·ρ·v², en pascales: es la energía cinética del flujo expresada como presión",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte II, apdo. 2.1 «Ecuación de Bernoulli generalizada», pág. 65. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=67",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-E4B6B464",
+    "concepto": "Según la guía técnica del IDAE, ¿qué es la presión total de un flujo en un conducto?",
+    "respuesta": "La suma de la presión estática y la presión dinámica: pT = pE + pD",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte II, apdo. 2.1 «Ecuación de Bernoulli generalizada», pág. 65. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=67",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-BDE1EE3C",
+    "concepto": "Según la guía técnica del IDAE, en flujo ideal, ¿qué le ocurre a la presión estática cuando aumenta la velocidad del fluido?",
+    "respuesta": "Disminuye, porque la presión total (estática + dinámica) se mantiene constante y la dinámica aumenta",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte II, apdo. 2.2 «Flujo en conductos», ejemplo 2.2, pág. 67. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=69",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-303FA8EC",
+    "concepto": "Según la NTP 362 del INSST, ¿cómo se define el caudal volumétrico?",
+    "respuesta": "Como el producto de la velocidad del fluido por el área de la sección transversal del flujo: Qv = v·A",
+    "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Emisión de líquidos». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+    "estado": "no_literal",
+    "doc": "NTP362",
+    "motivo": "la respuesta no está literal en ninguna página del documento"
+   },
+   {
+    "id": "CPEI-T09-OF-598D0A9D",
+    "concepto": "Según la NTP 362 del INSST, ¿cómo se define el caudal másico?",
+    "respuesta": "Como el producto de la velocidad, el área de la sección transversal y la densidad del fluido: Qm = ρ·v·A",
+    "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Emisión de líquidos». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+    "estado": "no_literal",
+    "doc": "NTP362",
+    "motivo": "la respuesta no está literal en ninguna página del documento"
+   },
+   {
+    "id": "CPEI-T09-OF-54865783",
+    "concepto": "Según la NTP 362 del INSST, ¿qué expresión tiene la ecuación de Bernoulli y para qué tipo de flujo es válida?",
+    "respuesta": "p + ρ·g·h + ρ·v²/2 = constante; válida para flujo estacionario, no viscoso e incompresible, entre dos puntos de una línea de corriente",
+    "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+    "estado": "no_literal",
+    "doc": "NTP362",
+    "motivo": "la respuesta no está literal en ninguna página del documento"
+   },
+   {
+    "id": "CPEI-T09-OF-23AA9AFC",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿en qué consiste la hipótesis de flujo ideal?",
+    "respuesta": "En despreciar la influencia de la viscosidad: no hay rozamiento ni transformación de energía mecánica en energía térmica",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Flujo ideal en una instalación», pág. 12. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=14",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-5963394C",
+    "concepto": "Según la guía técnica de bombas del IDAE, en flujo ideal por un tubo, ¿qué le pasa a la energía mecánica del fluido entre dos puntos?",
+    "respuesta": "Se conserva: p1/(ρg) + z1 + v1²/(2g) = p2/(ρg) + z2 + v2²/(2g); solo cambia de una forma a otra",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Flujo ideal en una instalación», pág. 12. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=14",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-BB7EEB96",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se aplica la ecuación de Bernoulli al flujo real de una instalación?",
+    "respuesta": "Añadiendo un término de pérdidas: H1 = H2 + HL, siendo HL la suma de las pérdidas en tuberías y en accesorios",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Flujo real en una instalación», pág. 12. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=14",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-0F2FD506",
+    "concepto": "Según la NTP 362 del INSST, en un recipiente abierto a la atmósfera, ¿qué velocidad teórica de salida tiene un líquido por un orificio situado a una altura h bajo el nivel libre?",
+    "respuesta": "v = (2·g·h)^1/2 (la expresión general v = [2(ph − pa)/ρ + 2·g·h]^1/2 con ph = pa)",
+    "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+    "estado": "no_literal",
+    "doc": "NTP362",
+    "motivo": "la respuesta no está literal en ninguna página del documento"
+   },
+   {
+    "id": "CPEI-T09-OF-D493D3E9",
+    "concepto": "Según la NTP 362 del INSST, ¿qué expresión da el caudal másico que sale por un orificio de un recipiente a presión atmosférica?",
+    "respuesta": "Qm = Cd · A · ρ · (2·g·h)^1/2 (Cd: coeficiente de descarga; A: área del orificio; h: altura de líquido sobre el orificio)",
+    "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+    "estado": "no_literal",
+    "doc": "NTP362",
+    "motivo": "la respuesta no está literal en ninguna página del documento"
+   },
+   {
+    "id": "CPEI-T09-OF-377EBBDC",
+    "concepto": "Según la NTP 362 del INSST, ¿qué es el coeficiente de descarga Cd de un orificio?",
+    "respuesta": "La relación entre el caudal real que sale por el orificio y el teórico; Cd = Cv × Cc (coeficiente de velocidad por coeficiente de contracción)",
+    "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+    "estado": "no_literal",
+    "doc": "NTP362",
+    "motivo": "la respuesta no está literal en ninguna página del documento"
+   },
+   {
+    "id": "CPEI-T09-OF-76FBE0B0",
+    "concepto": "Según la NTP 362 del INSST, ¿qué coeficiente de descarga aproximado tiene un orificio de borde afilado y cuál una boquilla de borde redondeado?",
+    "respuesta": "Unos 0,62 el orificio de borde afilado y aproximadamente la unidad (1) la boquilla de borde redondeado",
+    "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+    "estado": "no_literal",
+    "doc": "NTP362",
+    "motivo": "la respuesta no está literal en ninguna página del documento"
+   },
+   {
+    "id": "CPEI-T09-OF-0B46FCC3",
+    "concepto": "Según la NTP 362 del INSST, ¿qué coeficiente de descarga aproximado tiene un tramo muy corto de tubería o una boquilla externa conectados a un recipiente?",
+    "respuesta": "Aproximadamente 0,81",
+    "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+    "estado": "sin_pagina",
+    "doc": "NTP362",
+    "motivo": "literal en la pág. 3, pero la cita no da página"
+   },
+   {
+    "id": "CPEI-T09-OF-B4A1C5E5",
+    "concepto": "Según la NTP 362 del INSST, ¿qué distancia horizontal x alcanza un chorro que sale horizontalmente con velocidad v desde una altura y sobre el suelo?",
+    "respuesta": "x = v · (2·y/g)^1/2 (de x = v·t e y = g·t²/2)",
+    "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en una tubería (alcance del chorro)». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+    "estado": "no_literal",
+    "doc": "NTP362",
+    "motivo": "la respuesta no está literal en ninguna página del documento"
+   },
+   {
+    "id": "CPEI-T09-OF-DC6F3830",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿con qué expresión se calculan las pérdidas de carga en tuberías (pérdidas primarias)?",
+    "respuesta": "HL = f · (L/D) · v²/(2g), donde f es el factor de fricción de Darcy (adimensional), L la longitud y D el diámetro interior",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Pérdidas en tuberías», pág. 12. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=14",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-6B77B7C6",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿qué ecuación puede emplearse para el factor de fricción en tuberías lisas?",
+    "respuesta": "La ecuación de Blasius: f = 0,316 · Re^-0,25",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Pérdidas en tuberías», pág. 12. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=14",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-FD184979",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿qué ecuación se emplea habitualmente para el factor de fricción en tuberías rugosas?",
+    "respuesta": "La de White-Colebrook, que depende de la rugosidad relativa ε/D y del número de Reynolds",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Pérdidas en tuberías», pág. 13. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=15",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-33B3CFC6",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se calcula el número de Reynolds del flujo en un tubo?",
+    "respuesta": "Re = ρ·v·D/μ (densidad, velocidad, diámetro interior y viscosidad dinámica); es adimensional",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Pérdidas en tuberías», pág. 13. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=15",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-0725F93D",
+    "concepto": "Según la NTP 362 del INSST, ¿para qué valores del número de Reynolds el flujo en tubería es generalmente laminar y para cuáles turbulento?",
+    "respuesta": "Laminar por debajo de unos 2000 y turbulento por encima de 4000; entre 2000 y 4000 está en transición",
+    "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en una tubería». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+    "estado": "no_literal",
+    "doc": "NTP362",
+    "motivo": "la respuesta no está literal en ninguna página del documento"
+   },
+   {
+    "id": "CPEI-T09-OF-3869B3CE",
+    "concepto": "Según la NTP 362 del INSST, ¿cuánto vale el factor de fricción en régimen laminar?",
+    "respuesta": "f = 64/Re",
+    "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en una tubería». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+    "estado": "sin_pagina",
+    "doc": "NTP362",
+    "motivo": "literal en la pág. 4, pero la cita no da página"
+   },
+   {
+    "id": "CPEI-T09-OF-F2E0ACDA",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se calculan las pérdidas de carga en accesorios como codos, tes o reducciones?",
+    "respuesta": "Proporcionalmente a la energía cinética del flujo: HL = κ·v²/(2g), con κ tomado de ecuaciones, tablas o curvas",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Pérdidas en accesorios», pág. 13. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=15",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-42B59AF3",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿qué significa expresar las pérdidas de un accesorio como «longitud equivalente»?",
+    "respuesta": "Darlas como la longitud de tubo que produce la misma pérdida: HL = f·(Leq/D)·v²/(2g)",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1 «Pérdidas en accesorios», pág. 13. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=15",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-0890DF9A",
+    "concepto": "Según la guía técnica de bombas del IDAE, en un circuito cerrado, ¿a qué se destina la energía que suministra la bomba?",
+    "respuesta": "Únicamente a vencer las pérdidas de presión (pérdidas de carga) del circuito",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.1, nota al ejemplo 2.3, pág. 13. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=15",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-75A2DDEF",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo varía la pérdida de carga de una instalación con el caudal?",
+    "respuesta": "Es proporcional al cuadrado del caudal (HL ∝ Q²): con el doble de caudal, cuatro veces más pérdida",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.1 «Curva característica de la instalación», pág. 32. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=34",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-90325772",
+    "concepto": "Según el CTE DB HS 4, ¿cómo pueden estimarse las pérdidas de carga localizadas de un tramo?",
+    "respuesta": "Podrán estimarse en un 20% al 30% de la producida sobre la longitud real del tramo o evaluarse a partir de los elementos de la instalación",
+    "fuente": "CTE DB HS 4 (suministro de agua), apartado 4.2.2 «Comprobación de la presión», pág. 91. CTE-DB-HS4, DB HS consolidado (14 de junio de 2022): https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf#page=91",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-41460F53",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿qué dos partes principales tienen las bombas rotodinámicas o turbomáquinas?",
+    "respuesta": "La parte móvil o rodete (impulsor) y la parte fija o estátor",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 1.2 «Elementos característicos de las bombas», pág. 6. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=8",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-B0BD161B",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿qué es la voluta de una bomba centrífuga y cuál es su misión?",
+    "respuesta": "Un canal de sección creciente que rodea al rodete y recoge el fluido; reduce su energía cinética para que pase a presión estática",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 1.2 «Elementos característicos de las bombas», pág. 7. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=9",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-A83C1878",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿qué tipos de bombas se citan con aplicación en equipos contra incendios?",
+    "respuesta": "Las bombas compactas o monobloc y las bombas de bancada u horizontales",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 1.4 «Tipos de bombas», pág. 8. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=10",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-B1A1B860",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se define la altura manométrica Hm que suministra una bomba?",
+    "respuesta": "Como el aumento de energía del fluido entre salida y entrada en metros: Hm = (ps − pe)/(ρg) + (zs − ze) + (vs² − ve²)/(2g)",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.2 «Balance de energía mecánica y rendimientos en bombas», pág. 13. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=15",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-E07CE23D",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿qué potencia útil recibe el fluido impulsado por una bomba?",
+    "respuesta": "Pf = ρ·g·Q·Hm (en W, con Q en m3/s y Hm en m)",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.2 «Balance de energía mecánica y rendimientos en bombas», pág. 14. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=16",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-1F1511D5",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿de qué tres rendimientos es producto el rendimiento total de una bomba?",
+    "respuesta": "Del hidráulico, el volumétrico y el orgánico (mecánico): ηT = ηh·ηv·ηo",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 2.2 «Balance de energía mecánica y rendimientos en bombas», pág. 14. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=16",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-023CCFB9",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿qué rendimiento tiene una bomba centrífuga que trabaja a caudal nulo?",
+    "respuesta": "Nulo: la potencia útil es 0 W (Q = 0), aunque la bomba sigue absorbiendo potencia en el eje (la mínima)",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.1, ejemplo 4.2, pág. 24. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=26",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-AAA67B45",
+    "concepto": "Según el Reglamento (UE) 547/2012, ¿qué es el punto de máximo rendimiento (BEP) de una bomba?",
+    "respuesta": "El punto de funcionamiento en el que la bomba consigue su eficiencia hidráulica máxima, medida con agua limpia fría",
+    "fuente": "Reglamento (UE) 547/2012 (bombas hidráulicas), anexo I, punto 3 (definiciones). UE-REG-547-2012, versión consolidada de 09/01/2017 (EUR-Lex): https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:02012R0547-20170109",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-F56CDA32",
+    "concepto": "¿Se aplica el Reglamento (UE) 547/2012 de diseño ecológico a las bombas destinadas únicamente a la lucha contra incendios?",
+    "respuesta": "No: quedan excluidas de su ámbito de aplicación",
+    "fuente": "Reglamento (UE) 547/2012 (bombas hidráulicas), artículo 1.2.b). UE-REG-547-2012, versión consolidada de 09/01/2017 (EUR-Lex): https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:02012R0547-20170109",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-85B835F0",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿qué es la cavitación?",
+    "respuesta": "La vaporización del líquido por la reducción local de la presión absoluta por debajo de su presión de vapor; las burbujas condensan bruscamente al llegar a zonas de alta presión",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3 «Cavitación», pág. 17. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=19",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-26003FD5",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿qué problemas produce la cavitación en una bomba?",
+    "respuesta": "Picado de los álabes del rotor (hasta su rotura), vibraciones que pueden deteriorar la bomba y disminución del incremento de presión y del rendimiento",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3 «Cavitación», pág. 17. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=19",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-72891238",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿en qué zona de la bomba se presenta la cavitación y de qué depende?",
+    "respuesta": "En la parte de baja presión, la cara cóncava de los álabes del rodete; depende de la máquina y también de la instalación",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.1 «Condición de cavitación», pág. 17. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=19",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-76DD3666",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿qué condición de presión evita la cavitación dentro de la bomba?",
+    "respuesta": "Que la presión mínima en el interior (px) esté por encima de la presión de vapor del líquido (pv): px > pv",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.1 «Condición de cavitación», pág. 17. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=19",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-2A9527A7",
+    "concepto": "Según la tabla 3.1 de la guía técnica de bombas del IDAE, ¿qué presión de vapor tiene el agua a 20 °C?",
+    "respuesta": "2.344,2 Pa, unos 0,24 m c.a.",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.1, tabla 3.1, pág. 18. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=20",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-22662AE4",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se define la altura neta positiva de aspiración (NPSH)?",
+    "respuesta": "NPSH = (pe − pv)/(ρ·g) + ve²/(2g): presión a la entrada menos presión de vapor, en metros, más la altura de velocidad a la entrada",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.3 «Altura neta positiva disponible y necesaria», pág. 19. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=21",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-978A7EB5",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿qué condición entre NPSH disponible y NPSH requerido evita la cavitación?",
+    "respuesta": "Que el NPSH disponible sea superior al requerido o necesario: NPSHD > NPSHr",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.3 «Altura neta positiva disponible y necesaria», pág. 20. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=22",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-EAD133E1",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo varía el NPSH requerido de una bomba con el caudal y quién lo facilita?",
+    "respuesta": "Aumenta con el caudal trasegado; lo dan los fabricantes en forma gráfica o tabulada",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.3 «Altura neta positiva disponible y necesaria», pág. 20. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=22",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-F6E7F596",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿de qué depende el NPSH disponible?",
+    "respuesta": "Únicamente de la instalación, no de la bomba",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 3.3 «Altura neta positiva disponible y necesaria», pág. 20. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=22",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-BB087623",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿qué muestran las curvas características de una bomba centrífuga y cómo se obtienen?",
+    "respuesta": "La dependencia de la altura manométrica, el rendimiento y la potencia absorbida con el caudal; las obtienen experimentalmente los fabricantes, generalmente según ISO 9906",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.1 «Curvas de funcionamiento de las bombas», pág. 23. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=25",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-31998641",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿qué cuatro curvas características suele tener una bomba y en qué condiciones se ensayan?",
+    "respuesta": "Q-H, Q-NPSHr, Q-rendimiento y Q-potencia; se obtienen en banco de pruebas a velocidad de giro constante, variando el caudal con la estrangulación de la impulsión",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.1 «Curvas de funcionamiento de las bombas», pág. 23. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=25",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-559221D2",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se determina el punto de funcionamiento de una instalación de bombeo?",
+    "respuesta": "Por la intersección de la curva característica de la bomba (descendente) con la curva de la instalación, gráficamente o igualando sus ecuaciones",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.2 «Punto de funcionamiento de la instalación», pág. 33. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=35",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-A899A5EA",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿cuál es el rango admisible de caudal de una bomba respecto a su caudal nominal?",
+    "respuesta": "Entre el 20 % y el 150 % del caudal nominal",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.2, rangos de funcionamiento, pág. 34. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=36",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-2EF15657",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿cuál es el rango óptimo de caudal de una bomba respecto a su caudal nominal?",
+    "respuesta": "Entre el 85 % y el 105 % del caudal nominal, con un rendimiento similar al máximo",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.2, rangos de funcionamiento, pág. 34. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=36",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-84801374",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿qué problema principal aparece si una bomba trabaja con muy poca resistencia hidráulica y caudal muy alto (más de 1,5 veces el nominal)?",
+    "respuesta": "La cavitación en el rodete (además de un rendimiento reducido)",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.2, rangos de funcionamiento, pág. 34. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=36",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-1114F79B",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿por qué es preferible seleccionar la bomba para un caudal algo inferior al nominal?",
+    "respuesta": "Porque lo habitual es sobreestimar las pérdidas de carga; así, ya instalada, la bomba trabajará cerca de su punto nominal",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.2 «Punto de funcionamiento de la instalación», pág. 34. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=36",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-73336BCB",
+    "concepto": "Según la guía técnica de bombas del IDAE, si por una instalación circula un 15 % más de caudal, ¿cuánto aumenta la potencia consumida por la bomba?",
+    "respuesta": "Un 50 %, porque las pérdidas crecen con Q² y la potencia con Q³ (1,15³ ≈ 1,52)",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.2 «Punto de funcionamiento de la instalación», pág. 35. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=37",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-CD08AC5B",
+    "concepto": "Según la guía técnica de bombas del IDAE, si se reduce a la mitad la velocidad de giro de una bomba, ¿qué ocurre con el caudal, la altura y la potencia?",
+    "respuesta": "El caudal se divide por 2, la altura por 4 y la potencia por 8 (Q ∝ n, H ∝ n², P ∝ n³)",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.3 «Comportamiento en otras condiciones de funcionamiento», pág. 27. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=29",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-748FB16E",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿cuándo se emplea principalmente el acoplamiento de bombas en serie?",
+    "respuesta": "Cuando una sola bomba no puede proporcionar la altura necesaria; el flujo pasa por la primera bomba y después por la segunda",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.2 «Acoplamientos serie y paralelo», pág. 24. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=26",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-F43FF55D",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se obtiene la curva característica de dos bombas acopladas en serie?",
+    "respuesta": "Sumando las alturas manométricas de cada bomba para un mismo caudal: Qserie = Q1 = Q2 y Hserie = H1 + H2",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.2 «Acoplamientos serie y paralelo», pág. 24. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=26",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-FA0F7876",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿cuándo se acoplan bombas en paralelo?",
+    "respuesta": "Cuando se quieren caudales elevados en circuitos con poca pérdida de carga; también para ajustar el caudal en circuitos de caudal variable",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.2 «Acoplamientos serie y paralelo», pág. 24. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=26",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-74DB3340",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo se obtiene la curva característica de dos bombas acopladas en paralelo?",
+    "respuesta": "Sumando los caudales de cada bomba para una misma altura manométrica: Qparal = Q1 + Q2 y Hparal = H1 = H2",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.2 «Acoplamientos serie y paralelo», pág. 25. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=27",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-3C1C8831",
+    "concepto": "Según la guía técnica de bombas del IDAE, al unir en paralelo dos bombas idénticas, ¿cuál es el punto nominal del conjunto?",
+    "respuesta": "El doble de caudal a la misma altura (2Q*, H*); la curva resultante es muy plana",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 4.2 «Acoplamientos serie y paralelo», pág. 25. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=27",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-96375034",
+    "concepto": "Según el CTE DB HS 4, ¿qué elementos tiene un grupo de presión convencional?",
+    "respuesta": "i) depósito auxiliar de alimentación, que evite la toma de agua directa por el equipo de bombeo; ii) equipo de bombeo, compuesto, como mínimo, de dos bombas de iguales prestaciones y funcionamiento alterno, montadas en paralelo; iii) depósitos de presión con membrana, conectados a dispositivos suficientes de valoración de los parámetros de presión de la instalación, para su puesta en marcha y parada automáticas",
+    "fuente": "CTE DB HS 4 (suministro de agua), apartado 3.2.1.5.1 «Sistemas de sobreelevación: grupos de presión», pág. 86. CTE-DB-HS4, DB HS consolidado (14 de junio de 2022): https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf#page=86",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-25E9FCD4",
+    "concepto": "Según el CTE DB HS 4, ¿cómo funciona un grupo de presión de accionamiento regulable o de caudal variable?",
+    "respuesta": "Podrá prescindir del depósito auxiliar de alimentación y contará con un variador de frecuencia que accionará las bombas manteniendo constante la presión de salida, independientemente del caudal solicitado o disponible",
+    "fuente": "CTE DB HS 4 (suministro de agua), apartado 3.2.1.5.1 «Sistemas de sobreelevación: grupos de presión», pág. 86. CTE-DB-HS4, DB HS consolidado (14 de junio de 2022): https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf#page=86",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-22150C8C",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿cómo actúa la regulación por estrangulamiento con una válvula en serie y es eficiente?",
+    "respuesta": "Introduce una pérdida localizada que cambia la curva de la instalación y reduce el caudal; es el método más empleado, pero no es energéticamente eficiente",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.3.1 «Regulación por estrangulamiento con válvula en serie», pág. 41. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=43",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-CAD9AB49",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿por qué no se debe estrangular la tubería de aspiración de una bomba?",
+    "respuesta": "Porque podría provocar cavitación; la estrangulación se sitúa siempre en la zona de presión (impulsión)",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.3.1 «Regulación por estrangulamiento con válvula en serie», pág. 41. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=43",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-6D9E1818",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿qué inconveniente tiene la regulación con válvula en by-pass?",
+    "respuesta": "Derrocha energía al bombear un caudal que luego se recircula: es el peor sistema de regulación desde el punto de vista energético",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.3.2 «Regulación por válvula en by-pass», pág. 42. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=44",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-A6682280",
+    "concepto": "Según la guía técnica de bombas del IDAE, ¿qué ventajas y límites tiene regular una bomba variando su velocidad de giro?",
+    "respuesta": "Es muy eficiente porque no añade pérdidas; el variador consume aproximadamente un 10 % y no es recomendable bajar del 50 % de la velocidad nominal",
+    "fuente": "IDAE, Guía técnica «Selección de equipos de transporte de fluidos» (2012), parte I, apdo. 5.3.3 «Regulación por variación del régimen de giro», pág. 42. IDAE-GUIA-BOMBAS, edición de junio de 2012: https://www.miteco.gob.es/content/dam/miteco/es/energia/files-1/Eficiencia/RITE/documentosreconocidosrite/Gu%C3%ADas%20t%C3%A9cnicas/Guia_Bombas_Ventiladores.pdf#page=44",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-20C37F4A",
+    "concepto": "Según el RIPCI, ¿de qué está formado un sistema de abastecimiento de agua contra incendios y qué debe asegurar?",
+    "respuesta": "Por un conjunto de fuentes de agua, equipos de impulsión y una red general de incendios destinada a asegurar, para uno o varios sistemas específicos de protección, el caudal y presión de agua necesarios durante el tiempo de autonomía requerido",
+    "fuente": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 2 «Sistemas de abastecimiento de agua contra incendios». BOE-A-2017-6606, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-A520E5DF",
+    "concepto": "Según el RIPCI, ¿para qué se exige una presión mínima de 500 kPa en la boca de salida de los hidrantes no destinados solo al llenado de camiones?",
+    "respuesta": "Para contrarrestar la pérdida de carga de las mangueras y lanzas durante la impulsión directa del agua sobre el incendio",
+    "fuente": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 3 «Sistemas de hidrantes contra incendios». BOE-A-2017-6606, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-87E4530F",
+    "concepto": "Según el RIPCI, ¿en qué unidades de presión y de caudal se expresa el coeficiente de flujo Kv de los hidrantes?",
+    "respuesta": "Presión en bar y caudal en m3/h",
+    "fuente": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 3 «Sistemas de hidrantes contra incendios». BOE-A-2017-6606, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-25A494F2",
+    "concepto": "Según el RIPCI, ¿qué presión máxima puede haber a la entrada de una BIE de manguera semirrígida o plana y por qué se limita?",
+    "respuesta": "Estará condicionada por las características técnicas del sistema (presión máxima de servicio) y por la maniobrabilidad de las mangueras durante su uso. En consecuencia, la presión máxima a la entrada de la BIE con manguera semirrígida o con manguera plana no deberá superar los 9 bar (900 kPa)",
+    "fuente": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 4 «Sistemas de bocas de incendio equipadas». BOE-A-2017-6606, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-B378FA6E",
+    "concepto": "Según el RIPCI, ¿qué presión dinámica mínima debe proporcionar la red en el orificio de salida de una BIE de alta presión?",
+    "respuesta": "Durante una hora como mínimo, en la hipótesis de funcionamiento simultáneo de las dos BIE hidráulicamente más desfavorables, una presión dinámica mínima de 3.450 kPa (35 kg/cm2)",
+    "fuente": "RIPCI (RD 513/2017), anexo I, sección 1.ª, apartado 4 «Sistemas de bocas de incendio equipadas». BOE-A-2017-6606, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-B1BF79D7",
+    "concepto": "Según el CTE DB HS 4, ¿qué presión mínima debe haber en los puntos de consumo?",
+    "respuesta": "a) 100 kPa para grifos comunes; b) 150 kPa para fluxores y calentadores",
+    "fuente": "CTE DB HS 4 (suministro de agua), apartado 2.1.3 «Condiciones mínimas de suministro», pág. 83. CTE-DB-HS4, DB HS consolidado (14 de junio de 2022): https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf#page=83",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-52A4DCD7",
+    "concepto": "Según el CTE DB HS 4, ¿qué presión no debe superarse en ningún punto de consumo?",
+    "respuesta": "500 kPa",
+    "fuente": "CTE DB HS 4 (suministro de agua), apartado 2.1.3 «Condiciones mínimas de suministro», pág. 83. CTE-DB-HS4, DB HS consolidado (14 de junio de 2022): https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf#page=83",
+    "estado": "no_insst"
+   },
+   {
+    "id": "CPEI-T09-OF-D374F81F",
+    "concepto": "Según el CTE DB HS 4, ¿entre qué velocidades de cálculo se dimensionan las tuberías de suministro de agua?",
+    "respuesta": "i) tuberías metálicas: entre 0,50 y 2,00 m/s; ii) tuberías termoplásticas y multicapas: entre 0,50 y 3,50 m/s",
+    "fuente": "CTE DB HS 4 (suministro de agua), apartado 4.2.1 «Dimensionado de los tramos», pág. 91. CTE-DB-HS4, DB HS consolidado (14 de junio de 2022): https://www.codigotecnico.org/pdf/Documentos/HS/DBHS.pdf#page=91",
+    "estado": "no_insst"
+   }
+  ],
+  "tema12-lote02": [
+   {
+    "id": "CPEI-T12-OF-0ED7A35D",
+    "concepto": "Según la NTP 99 del INSST, ¿qué cuatro factores deben coexistir para que un incendio se inicie o mantenga?",
+    "respuesta": "Combustible, Comburente (aire), Energía y Reacción en Cadena (radicales libres)",
+    "fuente": "NTP 99 (INSST), Año: 1984, pág. 1. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p01",
+    "estado": "ok",
+    "doc": "NTP099",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T12-OF-CBDAA5D2",
+    "concepto": "Según la NTP 99, ¿qué método de extinción actúa sobre el combustible?",
+    "respuesta": "ELIMINACIÓN",
+    "fuente": "NTP 99 (INSST), Año: 1984, pág. 1. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p01",
+    "estado": "ok",
+    "doc": "NTP099",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T12-OF-70D49CDD",
+    "concepto": "Según la NTP 99, ¿qué método de extinción actúa sobre el comburente?",
+    "respuesta": "SOFOCACIÓN",
+    "fuente": "NTP 99 (INSST), Año: 1984, pág. 1. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p01",
+    "estado": "ok",
+    "doc": "NTP099",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T12-OF-445E3B05",
+    "concepto": "Según la NTP 99, ¿qué método de extinción actúa sobre la energía?",
+    "respuesta": "ENFRIAMIENTO",
+    "fuente": "NTP 99 (INSST), Año: 1984, pág. 1. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p01",
+    "estado": "ok",
+    "doc": "NTP099",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T12-OF-4181E44A",
+    "concepto": "Según la NTP 99, ¿qué método de extinción actúa sobre la reacción en cadena?",
+    "respuesta": "INHIBICIÓN",
+    "fuente": "NTP 99 (INSST), Año: 1984, pág. 1. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p01",
+    "estado": "ok",
+    "doc": "NTP099",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T12-OF-ECE4AFB4",
+    "concepto": "Según la NTP 99, ¿cómo se elimina indirectamente el combustible?",
+    "respuesta": "Refrigerando los combustibles alrededor de la zona de fuego",
+    "fuente": "NTP 99 (INSST), Año: 1984, pág. 1. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p01",
+    "estado": "ok",
+    "doc": "NTP099",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T12-OF-EE7D57AE",
+    "concepto": "Según la NTP 99, ¿qué gases inertes se proyectan para sofocar por dilución de la mezcla?",
+    "respuesta": "N2 ó CO2",
+    "fuente": "NTP 99 (INSST), ● ●, pág. 2. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p02",
+    "estado": "ok",
+    "doc": "NTP099",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T12-OF-0D9C6C25",
+    "concepto": "Según la NTP 99, ¿cuál es prácticamente el único agente capaz de enfriar notablemente los fuegos?",
+    "respuesta": "El agua o su mezcla con aditivos",
+    "fuente": "NTP 99 (INSST), ● ●, pág. 2. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p02",
+    "estado": "ok",
+    "doc": "NTP099",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T12-OF-D2310CF7",
+    "concepto": "Según la NTP 99, ¿a qué atribuyen algunos autores el gran efecto extintor del polvo sobre las llamas?",
+    "respuesta": "A una inhibición física por la separación espacial de los radicales libres",
+    "fuente": "NTP 99 (INSST), ● ●, pág. 2. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p02",
+    "estado": "ok",
+    "doc": "NTP099",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T12-OF-304A472C",
+    "concepto": "Según la NTP 99, ¿en qué fase arden todos los combustibles?",
+    "respuesta": "En fase gas o vapor",
+    "fuente": "NTP 99 (INSST), ● ●, pág. 2. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p02",
+    "estado": "ok",
+    "doc": "NTP099",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T12-OF-833E5D10",
+    "concepto": "Según la NTP 99, ¿qué puede ocurrir al aplicar agua a chorro sobre fuegos tipo A con sólidos disgregados?",
+    "respuesta": "Pueden dispersar el incendio",
+    "fuente": "NTP 99 (INSST), Si se pretende la extinción o solo la protección de riesgos vecinos. La velocidad con que actuará (accionamiento manual o automático). El tamaño y tipo de riesgo. El valor del riesgo a proteger. La ubicación del riesgo. El posible daño a causar por el agente extintor en las instalaciones. El costo del equipo que posibilitará la extinción. Etc. De hecho el principio fundamental que guía al diseñador de una protección contra incendios es que, salvo incompatibilidades, la mayoría de los riesgos pueden extinguirse con la mayoría de agentes extintores, si se escoge la forma de aplicación adecuada, como queda reflejado en la tabla 1, incluida en la NBE-CPI-82 (1). Tabla 1:Adecuación de los extintores, pág. 3. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p03",
+    "estado": "ok",
+    "doc": "NTP099",
+    "pagina": 3
+   },
+   {
+    "id": "CPEI-T12-OF-C0FD5BBE",
+    "concepto": "Según la NTP 99, ¿por debajo de qué temperatura de inflamación es nula la efectividad del agua pulverizada en fuegos tipo B?",
+    "respuesta": "Inferior a 38ºC",
+    "fuente": "NTP 99 (INSST), Si se pretende la extinción o solo la protección de riesgos vecinos. La velocidad con que actuará (accionamiento manual o automático). El tamaño y tipo de riesgo. El valor del riesgo a proteger. La ubicación del riesgo. El posible daño a causar por el agente extintor en las instalaciones. El costo del equipo que posibilitará la extinción. Etc. De hecho el principio fundamental que guía al diseñador de una protección contra incendios es que, salvo incompatibilidades, la mayoría de los riesgos pueden extinguirse con la mayoría de agentes extintores, si se escoge la forma de aplicación adecuada, como queda reflejado en la tabla 1, incluida en la NBE-CPI-82 (1). Tabla 1:Adecuación de los extintores, pág. 3. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p03",
+    "estado": "ok",
+    "doc": "NTP099",
+    "pagina": 3
+   },
+   {
+    "id": "CPEI-T12-OF-C99A2CAA",
+    "concepto": "Según la NTP 99, ¿qué efectividad tiene el anhídrido carbónico en extinción con extintores?",
+    "respuesta": "Muy baja efectividad",
+    "fuente": "NTP 99 (INSST), Si se pretende la extinción o solo la protección de riesgos vecinos. La velocidad con que actuará (accionamiento manual o automático). El tamaño y tipo de riesgo. El valor del riesgo a proteger. La ubicación del riesgo. El posible daño a causar por el agente extintor en las instalaciones. El costo del equipo que posibilitará la extinción. Etc. De hecho el principio fundamental que guía al diseñador de una protección contra incendios es que, salvo incompatibilidades, la mayoría de los riesgos pueden extinguirse con la mayoría de agentes extintores, si se escoge la forma de aplicación adecuada, como queda reflejado en la tabla 1, incluida en la NBE-CPI-82 (1). Tabla 1:Adecuación de los extintores, pág. 3. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p03",
+    "estado": "ok",
+    "doc": "NTP099",
+    "pagina": 3
+   },
+   {
+    "id": "CPEI-T12-OF-0C7B138E",
+    "concepto": "Según la NTP 99, ¿en cuánto tiempo aproximado se consume el agente de un extintor portátil?",
+    "respuesta": "Unos 20 segundos",
+    "fuente": "NTP 99 (INSST), Si se pretende la extinción o solo la protección de riesgos vecinos. La velocidad con que actuará (accionamiento manual o automático). El tamaño y tipo de riesgo. El valor del riesgo a proteger. La ubicación del riesgo. El posible daño a causar por el agente extintor en las instalaciones. El costo del equipo que posibilitará la extinción. Etc. De hecho el principio fundamental que guía al diseñador de una protección contra incendios es que, salvo incompatibilidades, la mayoría de los riesgos pueden extinguirse con la mayoría de agentes extintores, si se escoge la forma de aplicación adecuada, como queda reflejado en la tabla 1, incluida en la NBE-CPI-82 (1). Tabla 1:Adecuación de los extintores, pág. 3. INSST-NTP099, texto consolidado (últ. actualización 1984): https://www.insst.es/documents/94886/7888278/ntp_099.pdf#p03",
+    "estado": "ok",
+    "doc": "NTP099",
+    "pagina": 3
+   },
+   {
+    "id": "CPEI-T12-OF-E0DE0CE4",
+    "concepto": "Según la NTP 536 del INSST, ¿qué masa máxima en funcionamiento tiene un extintor portátil?",
+    "respuesta": "Una masa igual o inferior a 20 kg",
+    "fuente": "NTP 536 (INSST), Año: 1999, pág. 1. INSST-NTP536, texto consolidado (últ. actualización 1999): https://www.insst.es/documents/94886/7865585/ntp_536.pdf#p01",
+    "estado": "ok",
+    "doc": "NTP536",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T12-OF-A96BAE5E",
+    "concepto": "Según la NTP 536, en los extintores de presión permanente con gas propelente, ¿qué permite reconocerlos?",
+    "respuesta": "Un manómetro indicador de la presión del gas impulsor",
+    "fuente": "NTP 536 (INSST), Año: 1999, pág. 1. INSST-NTP536, texto consolidado (últ. actualización 1999): https://www.insst.es/documents/94886/7865585/ntp_536.pdf#p01",
+    "estado": "ok",
+    "doc": "NTP536",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T12-OF-F86A4835",
+    "concepto": "Según la NTP 536, en los extintores de presión no permanente, ¿dónde va el agente impulsor?",
+    "respuesta": "Presurizado en un botellín instalado dentro o fuera del extintor",
+    "fuente": "NTP 536 (INSST), 1. Cuerpo del extintor 2. Agente extintor 3. Agente impulsor 4. Manómetro 5. Tubo sonda de salida, pág. 2. INSST-NTP536, texto consolidado (últ. actualización 1999): https://www.insst.es/documents/94886/7865585/ntp_536.pdf#p02",
+    "estado": "ok",
+    "doc": "NTP536",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T12-OF-CE0EB46F",
+    "concepto": "Según la NTP 536, ¿con qué periodicidad se realizan las pruebas de presión de la placa de diseño?",
+    "respuesta": "Periodicidad de cinco años",
+    "fuente": "NTP 536 (INSST), En la siguiente casilla se da la referencia del fabricante que cumple con las exigencias legales de la ITC-MIE-AP5 (ver referencias bibliográficas). En la próxima casilla se indica la marca de la entidad autorizada que ha intervenido para la homologación del aparato. Conjuntamente a esta marca se da la información sobre las características del continente del extintor y la norma seguida para homologar con los códigos correspondientes al aparato extintor. Todo lo anterior cumple con los mínimos exigidos por la ITC-MIE-AP5. A continuación viene la casilla con las referencias del distribuidor y otra última con las referencias del mantenedor y/o encargado. Todos ellos deben cumplir con las exigencias legales. En la Figura 4 se presenta un ejemplo de placa de diseño según normas. En ella se puede apreciar el nombre del organismo autonómico como autoridad competente para controlar las pruebas periódicas de presión. La casilla superior esta reservada para el número de registro. En la primera casilla de la izquierda se indica la presión de diseño o de timbre que corresponde a la presión máxima de servicio (en este caso 20kg/cm2), pág. 4. INSST-NTP536, texto consolidado (últ. actualización 1999): https://www.insst.es/documents/94886/7865585/ntp_536.pdf#p04",
+    "estado": "ok",
+    "doc": "NTP536",
+    "pagina": 4
+   },
+   {
+    "id": "CPEI-T12-OF-B9A778FE",
+    "concepto": "Según la NTP 536, ¿por qué la boquilla del extintor de CO2 es de material aislante?",
+    "respuesta": "Para evitar que la temperatura especialmente baja del gas licuado produzca quemaduras",
+    "fuente": "NTP 536 (INSST), En la siguiente casilla se da la referencia del fabricante que cumple con las exigencias legales de la ITC-MIE-AP5 (ver referencias bibliográficas). En la próxima casilla se indica la marca de la entidad autorizada que ha intervenido para la homologación del aparato. Conjuntamente a esta marca se da la información sobre las características del continente del extintor y la norma seguida para homologar con los códigos correspondientes al aparato extintor. Todo lo anterior cumple con los mínimos exigidos por la ITC-MIE-AP5. A continuación viene la casilla con las referencias del distribuidor y otra última con las referencias del mantenedor y/o encargado. Todos ellos deben cumplir con las exigencias legales. En la Figura 4 se presenta un ejemplo de placa de diseño según normas. En ella se puede apreciar el nombre del organismo autonómico como autoridad competente para controlar las pruebas periódicas de presión. La casilla superior esta reservada para el número de registro. En la primera casilla de la izquierda se indica la presión de diseño o de timbre que corresponde a la presión máxima de servicio (en este caso 20kg/cm2), pág. 4. INSST-NTP536, texto consolidado (últ. actualización 1999): https://www.insst.es/documents/94886/7865585/ntp_536.pdf#p04",
+    "estado": "ok",
+    "doc": "NTP536",
+    "pagina": 4
+   },
+   {
+    "id": "CPEI-T12-OF-4C52869C",
+    "concepto": "Según la NTP 536, ¿cuánto dura aproximadamente la descarga de un extintor según tipo y capacidad?",
+    "respuesta": "De 8 a 60 segundos",
+    "fuente": "NTP 536 (INSST), edificación mencionadas anteriormente. La eficacia mínima indicada en la NBE-CPI/96 es de 21A-113B para la mayoría de usos de los edificios. En esta misma norma es una referencia general que el número mínimo de extintores deberá ser el suficiente para que el recorrido real en cada planta desde cualquier origen de evacuación hasta un extintor no supere los quince metros, pág. 6. INSST-NTP536, texto consolidado (últ. actualización 1999): https://www.insst.es/documents/94886/7865585/ntp_536.pdf#p06",
+    "estado": "ok",
+    "doc": "NTP536",
+    "pagina": 6
+   },
+   {
+    "id": "CPEI-T12-OF-B6D3C647",
+    "concepto": "Según la NTP 536, ¿hacia dónde se dirige el chorro del extintor?",
+    "respuesta": "A la base de las llamas con movimiento de barrido",
+    "fuente": "NTP 536 (INSST), edificación mencionadas anteriormente. La eficacia mínima indicada en la NBE-CPI/96 es de 21A-113B para la mayoría de usos de los edificios. En esta misma norma es una referencia general que el número mínimo de extintores deberá ser el suficiente para que el recorrido real en cada planta desde cualquier origen de evacuación hasta un extintor no supere los quince metros, pág. 6. INSST-NTP536, texto consolidado (últ. actualización 1999): https://www.insst.es/documents/94886/7865585/ntp_536.pdf#p06",
+    "estado": "ok",
+    "doc": "NTP536",
+    "pagina": 6
+   },
+   {
+    "id": "CPEI-T12-OF-5D91D995",
+    "concepto": "Según la NTP 536, ¿qué distancia mínima al fuego debe dejarse al acercarse con un extintor?",
+    "respuesta": "Como mínimo un metro",
+    "fuente": "NTP 536 (INSST), 1. Descolgar el extintor asiéndolo por la maneta o asa fija que disponga y dejarlo sobre el suelo en posición vertical. 2. En caso de que el extintor posea manguera asirla por la boquilla para evitar la salida incontrolada del agente extintor. En caso de que el extintor fuese de CO2 llevar cuidado especial de asir la boquilla por la parte aislada destinada para ello y no dirigirla hacia las personas. 3. Comprobar en caso de que exista válvula o disco de seguridad que están en posición sin peligro de proyección de fluido hacia el usuario. 4. Quitar el pasador de seguridad tirando de su anilla. 5. Acercarse al fuego dejando como mínimo un metro de distancia hasta él. En caso de espacios abiertos acercarse en la dirección del viento. 6. Apretar la maneta y, en caso de que exista, apretar la palanca de accionamiento de la boquilla. Realizar una pequeña descarga de comprobación de salida del agente extintor. 7. Dirigir el chorro a la base de las llamas. 8. En el caso de incendios de líquidos proyectar superficialmente el agente extintor efectuando un barrido horizontal y evitando que la propia presión de impulsión pueda provocar el derrame incontrolado del producto en combustión. Avanzar gradualmente desde los extremos, pág. 7. INSST-NTP536, texto consolidado (últ. actualización 1999): https://www.insst.es/documents/94886/7865585/ntp_536.pdf#p07",
+    "estado": "ok",
+    "doc": "NTP536",
+    "pagina": 7
+   },
+   {
+    "id": "CPEI-T12-OF-01F5D69D",
+    "concepto": "Según la NTP 536, en espacios abiertos, ¿en qué dirección hay que acercarse al fuego?",
+    "respuesta": "En la dirección del viento",
+    "fuente": "NTP 536 (INSST), 1. Descolgar el extintor asiéndolo por la maneta o asa fija que disponga y dejarlo sobre el suelo en posición vertical. 2. En caso de que el extintor posea manguera asirla por la boquilla para evitar la salida incontrolada del agente extintor. En caso de que el extintor fuese de CO2 llevar cuidado especial de asir la boquilla por la parte aislada destinada para ello y no dirigirla hacia las personas. 3. Comprobar en caso de que exista válvula o disco de seguridad que están en posición sin peligro de proyección de fluido hacia el usuario. 4. Quitar el pasador de seguridad tirando de su anilla. 5. Acercarse al fuego dejando como mínimo un metro de distancia hasta él. En caso de espacios abiertos acercarse en la dirección del viento. 6. Apretar la maneta y, en caso de que exista, apretar la palanca de accionamiento de la boquilla. Realizar una pequeña descarga de comprobación de salida del agente extintor. 7. Dirigir el chorro a la base de las llamas. 8. En el caso de incendios de líquidos proyectar superficialmente el agente extintor efectuando un barrido horizontal y evitando que la propia presión de impulsión pueda provocar el derrame incontrolado del producto en combustión. Avanzar gradualmente desde los extremos, pág. 7. INSST-NTP536, texto consolidado (últ. actualización 1999): https://www.insst.es/documents/94886/7865585/ntp_536.pdf#p07",
+    "estado": "ok",
+    "doc": "NTP536",
+    "pagina": 7
+   }
+  ],
+  "tema13-lote02": [
+   {
+    "id": "CPEI-T13-OF-804BE724",
+    "concepto": "Según la NTP 787 del INSST, ¿cuál es el material filtrante de los filtros contra gases y vapores?",
+    "respuesta": "Carbón activo",
+    "fuente": "NTP 787 (INSST), Contra gases y vapores, pág. 1. INSST, NTP 787: Equipos de protección respiratoria: identificación de los filtros según sus tipos y clases (2008); texto íntegro oficial (2008): https://www.insst.es/documents/94886/7843381/787a.pdf#page=1",
+    "estado": "ok",
+    "doc": "NTP787",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T13-OF-A76048E9",
+    "concepto": "Según la NTP 787 del INSST, ¿contra qué protege el filtro tipo A?",
+    "respuesta": "Contra gases y vapores orgánicos con P.E. > 65 ºC",
+    "fuente": "NTP 787 (INSST), Contra gases y vapores, pág. 1. INSST, NTP 787: Equipos de protección respiratoria: identificación de los filtros según sus tipos y clases (2008); texto íntegro oficial (2008): https://www.insst.es/documents/94886/7843381/787a.pdf#page=1",
+    "estado": "ok",
+    "doc": "NTP787",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T13-OF-D1A18AF5",
+    "concepto": "Según la NTP 787 del INSST, ¿contra qué protege el filtro tipo AX?",
+    "respuesta": "Contra gases y vapores orgánicos con P.E. < 65 ºC",
+    "fuente": "NTP 787 (INSST), Contra gases y vapores, pág. 1. INSST, NTP 787: Equipos de protección respiratoria: identificación de los filtros según sus tipos y clases (2008); texto íntegro oficial (2008): https://www.insst.es/documents/94886/7843381/787a.pdf#page=1",
+    "estado": "ok",
+    "doc": "NTP787",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T13-OF-6AB5A4CF",
+    "concepto": "Según la NTP 787 del INSST, ¿contra qué protege el filtro tipo B?",
+    "respuesta": "Contra gases y vapores inorgánicos",
+    "fuente": "NTP 787 (INSST), Contra gases y vapores, pág. 1. INSST, NTP 787: Equipos de protección respiratoria: identificación de los filtros según sus tipos y clases (2008); texto íntegro oficial (2008): https://www.insst.es/documents/94886/7843381/787a.pdf#page=1",
+    "estado": "ok",
+    "doc": "NTP787",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T13-OF-C6B73CCB",
+    "concepto": "Según la NTP 787 del INSST, ¿contra qué protege el filtro tipo E?",
+    "respuesta": "Contra dióxido de azufre y vapores ácidos",
+    "fuente": "NTP 787 (INSST), Contra gases y vapores, pág. 1. INSST, NTP 787: Equipos de protección respiratoria: identificación de los filtros según sus tipos y clases (2008); texto íntegro oficial (2008): https://www.insst.es/documents/94886/7843381/787a.pdf#page=1",
+    "estado": "ok",
+    "doc": "NTP787",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T13-OF-9C9C2B90",
+    "concepto": "Según la NTP 787 del INSST, ¿contra qué protege el filtro tipo K?",
+    "respuesta": "Contra amoniaco y derivados orgánicos del amoniaco",
+    "fuente": "NTP 787 (INSST), Contra gases y vapores, pág. 1. INSST, NTP 787: Equipos de protección respiratoria: identificación de los filtros según sus tipos y clases (2008); texto íntegro oficial (2008): https://www.insst.es/documents/94886/7843381/787a.pdf#page=1",
+    "estado": "ok",
+    "doc": "NTP787",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T13-OF-C035BDF4",
+    "concepto": "Según la NTP 787 del INSST, ¿en cuántas clases según su capacidad se clasifican los filtros contra gases y vapores (salvo AX y SX)?",
+    "respuesta": "En tres clases",
+    "fuente": "NTP 787 (INSST), Contra gases y vapores, pág. 1. INSST, NTP 787: Equipos de protección respiratoria: identificación de los filtros según sus tipos y clases (2008); texto íntegro oficial (2008): https://www.insst.es/documents/94886/7843381/787a.pdf#page=1",
+    "estado": "ok",
+    "doc": "NTP787",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T13-OF-DD2765AB",
+    "concepto": "Según la NTP 787 del INSST, ¿qué contenido de oxígeno debe tener el ambiente para usar equipos filtrantes?",
+    "respuesta": "Como mínimo, un 17% en volumen de oxígeno",
+    "fuente": "NTP 787 (INSST), 2. Aplicación de los filtros, pág. 1. INSST, NTP 787: Equipos de protección respiratoria: identificación de los filtros según sus tipos y clases (2008); texto íntegro oficial (2008): https://www.insst.es/documents/94886/7843381/787a.pdf#page=1",
+    "estado": "ok",
+    "doc": "NTP787",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T13-OF-6D94AE06",
+    "concepto": "Según la NTP 787 del INSST, ¿de qué está constituido el material filtrante de los filtros contra partículas?",
+    "respuesta": "Un entramado de fibras plásticas el cual retiene al contaminante",
+    "fuente": "NTP 787 (INSST), Contra partículas y aerosoles, pág. 1. INSST, NTP 787: Equipos de protección respiratoria: identificación de los filtros según sus tipos y clases (2008); texto íntegro oficial (2008): https://www.insst.es/documents/94886/7843381/787a.pdf#page=1",
+    "estado": "ok",
+    "doc": "NTP787",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T13-OF-EEB5CEC5",
+    "concepto": "Según la NTP 787 del INSST, ¿qué eficacia tiene un filtro P-3?",
+    "respuesta": "Filtros de alta eficacia",
+    "fuente": "NTP 787 (INSST), Contra partículas y aerosoles, pág. 1. INSST, NTP 787: Equipos de protección respiratoria: identificación de los filtros según sus tipos y clases (2008); texto íntegro oficial (2008): https://www.insst.es/documents/94886/7843381/787a.pdf#page=1",
+    "estado": "ok",
+    "doc": "NTP787",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T13-OF-7D357C0E",
+    "concepto": "Según la NTP 787 del INSST, ¿cómo se denominan los filtros contra partículas, gases y vapores?",
+    "respuesta": "Se les denominan combinados",
+    "fuente": "NTP 787 (INSST), Contra partículas, gases y vapores, pág. 1. INSST, NTP 787: Equipos de protección respiratoria: identificación de los filtros según sus tipos y clases (2008); texto íntegro oficial (2008): https://www.insst.es/documents/94886/7843381/787a.pdf#page=1",
+    "estado": "ok",
+    "doc": "NTP787",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T13-OF-EF796766",
+    "concepto": "Según la NTP 787 del INSST, ¿contra qué protege el filtro especial tipo NO-P3?",
+    "respuesta": "Contra óxidos de nitrógeno",
+    "fuente": "NTP 787 (INSST), Contra partículas, gases y vapores, pág. 1. INSST, NTP 787: Equipos de protección respiratoria: identificación de los filtros según sus tipos y clases (2008); texto íntegro oficial (2008): https://www.insst.es/documents/94886/7843381/787a.pdf#page=1",
+    "estado": "ok",
+    "doc": "NTP787",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T13-OF-6CCB166D",
+    "concepto": "Según la NTP 787 del INSST, ¿contra qué protege el filtro especial tipo Hg-P3?",
+    "respuesta": "Contra mercurio",
+    "fuente": "NTP 787 (INSST), Contra partículas, gases y vapores, pág. 1. INSST, NTP 787: Equipos de protección respiratoria: identificación de los filtros según sus tipos y clases (2008); texto íntegro oficial (2008): https://www.insst.es/documents/94886/7843381/787a.pdf#page=1",
+    "estado": "ok",
+    "doc": "NTP787",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T13-OF-A2C5D297",
+    "concepto": "Según la NTP 787 del INSST, ¿cuál es el código de color de los filtros tipo A?",
+    "respuesta": "Marrón",
+    "fuente": "NTP 787 (INSST), 4. Marcado, tabla 1, pág. 2. INSST, NTP 787: Equipos de protección respiratoria: identificación de los filtros según sus tipos y clases (2008); texto íntegro oficial (2008): https://www.insst.es/documents/94886/7843381/787a.pdf#page=2",
+    "estado": "ok",
+    "doc": "NTP787",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T13-OF-5E2E281F",
+    "concepto": "Según la NTP 787 del INSST, ¿cuál es el código de color de los filtros tipo B?",
+    "respuesta": "Gris",
+    "fuente": "NTP 787 (INSST), 4. Marcado, tabla 1, pág. 2. INSST, NTP 787: Equipos de protección respiratoria: identificación de los filtros según sus tipos y clases (2008); texto íntegro oficial (2008): https://www.insst.es/documents/94886/7843381/787a.pdf#page=2",
+    "estado": "ok",
+    "doc": "NTP787",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T13-OF-823D1815",
+    "concepto": "Según la NTP 787 del INSST, ¿cuál es el código de color de los filtros tipo E?",
+    "respuesta": "Amarillo",
+    "fuente": "NTP 787 (INSST), 4. Marcado, tabla 1, pág. 2. INSST, NTP 787: Equipos de protección respiratoria: identificación de los filtros según sus tipos y clases (2008); texto íntegro oficial (2008): https://www.insst.es/documents/94886/7843381/787a.pdf#page=2",
+    "estado": "ok",
+    "doc": "NTP787",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T13-OF-0A7CCD76",
+    "concepto": "Según la NTP 787 del INSST, ¿cuál es el código de color de los filtros tipo K?",
+    "respuesta": "Verde",
+    "fuente": "NTP 787 (INSST), 4. Marcado, tabla 1, pág. 2. INSST, NTP 787: Equipos de protección respiratoria: identificación de los filtros según sus tipos y clases (2008); texto íntegro oficial (2008): https://www.insst.es/documents/94886/7843381/787a.pdf#page=2",
+    "estado": "ok",
+    "doc": "NTP787",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T13-OF-1DDEA2A2",
+    "concepto": "Según la NTP 787 del INSST, ¿qué particularidad tiene el filtro Hg-P3 en la tabla de marcado?",
+    "respuesta": "Duración máxima 50 horas",
+    "fuente": "NTP 787 (INSST), 4. Marcado, tabla 1, pág. 2. INSST, NTP 787: Equipos de protección respiratoria: identificación de los filtros según sus tipos y clases (2008); texto íntegro oficial (2008): https://www.insst.es/documents/94886/7843381/787a.pdf#page=2",
+    "estado": "ok",
+    "doc": "NTP787",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T13-OF-C36006EB",
+    "concepto": "Según la NTP 787 del INSST, ¿qué datos de caducidad deben figurar en el marcado de todos los filtros?",
+    "respuesta": "Año y mes de caducidad",
+    "fuente": "NTP 787 (INSST), 4. Marcado, pág. 2. INSST, NTP 787: Equipos de protección respiratoria: identificación de los filtros según sus tipos y clases (2008); texto íntegro oficial (2008): https://www.insst.es/documents/94886/7843381/787a.pdf#page=2",
+    "estado": "ok",
+    "doc": "NTP787",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T13-OF-00810BE1",
+    "concepto": "Según la ficha de selección y uso de filtros del INSST, ¿frente a qué riesgo se usan los filtros?",
+    "respuesta": "Inhalación de agentes químicos peligrosos presentes en la atmósfera del lugar de trabajo",
+    "fuente": "FSU 05 Filtros (INSST), 1. Riesgos, pág. 1. INSST, Ficha de selección y uso de EPI 05: Filtros (rev. 5, agosto 2025); texto íntegro oficial (rev. 5, agosto 2025): https://www.insst.es/documents/94886/8739740/FSU+05+Filtros+%28rev.5%29.pdf#page=1",
+    "estado": "ok",
+    "doc": "FSU05",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T13-OF-45FB9848",
+    "concepto": "Según la ficha de selección y uso de filtros del INSST, ¿qué indicación adicional debe llevar el filtro NO-P3?",
+    "respuesta": "“uso para una sola jornada” o el símbolo correspondiente",
+    "fuente": "FSU 05 Filtros (INSST), 4.1 Marcado en el filtro, pág. 2. INSST, Ficha de selección y uso de EPI 05: Filtros (rev. 5, agosto 2025); texto íntegro oficial (rev. 5, agosto 2025): https://www.insst.es/documents/94886/8739740/FSU+05+Filtros+%28rev.5%29.pdf#page=2",
+    "estado": "ok",
+    "doc": "FSU05",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T13-OF-FD2D568F",
+    "concepto": "Según la ficha de selección y uso de filtros del INSST, si el marcado no se imprime directamente en el filtro, ¿dónde debe figurar?",
+    "respuesta": "En una etiqueta con el código de color apropiado, fijada al cuerpo del filtro",
+    "fuente": "FSU 05 Filtros (INSST), 4.1 Marcado en el filtro, pág. 2. INSST, Ficha de selección y uso de EPI 05: Filtros (rev. 5, agosto 2025); texto íntegro oficial (rev. 5, agosto 2025): https://www.insst.es/documents/94886/8739740/FSU+05+Filtros+%28rev.5%29.pdf#page=2",
+    "estado": "ok",
+    "doc": "FSU05",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T13-OF-D0A61208",
+    "concepto": "Según la ficha de selección y uso de filtros del INSST, ¿cómo no debe considerarse un color plateado o ligeramente metalizado?",
+    "respuesta": "Como blanco o gris",
+    "fuente": "FSU 05 Filtros (INSST), 4.1 Marcado en el filtro, pág. 2. INSST, Ficha de selección y uso de EPI 05: Filtros (rev. 5, agosto 2025); texto íntegro oficial (rev. 5, agosto 2025): https://www.insst.es/documents/94886/8739740/FSU+05+Filtros+%28rev.5%29.pdf#page=2",
+    "estado": "ok",
+    "doc": "FSU05",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T13-OF-5B19F1C3",
+    "concepto": "Según la ficha de selección y uso de filtros del INSST, ¿qué marcado lleva el EPR que ha pasado todos los ensayos aplicables de resistencia mecánica?",
+    "respuesta": "El marcado “MS”",
+    "fuente": "FSU 05 Filtros (INSST), 4.2 Marcado en el conjunto motor-ventilador, pág. 3. INSST, Ficha de selección y uso de EPI 05: Filtros (rev. 5, agosto 2025); texto íntegro oficial (rev. 5, agosto 2025): https://www.insst.es/documents/94886/8739740/FSU+05+Filtros+%28rev.5%29.pdf#page=3",
+    "estado": "ok",
+    "doc": "FSU05",
+    "pagina": 3
+   },
+   {
+    "id": "CPEI-T13-OF-B1A7B7D9",
+    "concepto": "Según la ficha de selección y uso de equipos respiratorios aislantes del INSST, ¿frente a qué riesgo se usan?",
+    "respuesta": "Inhalación de atmósferas peligrosas",
+    "fuente": "FSU Equipos respiratorios aislantes (INSST), 1. Riesgo, pág. 1. INSST, Ficha de selección y uso de EPI: Equipos respiratorios aislantes (rev. 3, diciembre 2023); texto íntegro oficial (rev. 3, diciembre 2023): https://www.insst.es/documents/94886/8739740/Equipos+respiratorios+aislantes+%28rev.3%29.pdf#page=1",
+    "estado": "ok",
+    "doc": "FSU_ERA",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T13-OF-CA7C2605",
+    "concepto": "Según la ficha de selección y uso de equipos respiratorios aislantes del INSST, ¿qué disposición legal regula su diseño y fabricación?",
+    "respuesta": "Reglamento (UE) 2016/425 (artículo 5.3 RD 773/1997)",
+    "fuente": "FSU Equipos respiratorios aislantes (INSST), 2. Disposición legal, pág. 1. INSST, Ficha de selección y uso de EPI: Equipos respiratorios aislantes (rev. 3, diciembre 2023); texto íntegro oficial (rev. 3, diciembre 2023): https://www.insst.es/documents/94886/8739740/Equipos+respiratorios+aislantes+%28rev.3%29.pdf#page=1",
+    "estado": "ok",
+    "doc": "FSU_ERA",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T13-OF-90F2A63F",
+    "concepto": "Según la ficha de selección y uso de equipos respiratorios aislantes del INSST, ¿con qué letra se indica que un equipo de aire comprimido puede usarse con alto riesgo de inflamabilidad?",
+    "respuesta": "Indicado con la letra F",
+    "fuente": "FSU Equipos respiratorios aislantes (INSST), 4.3 Equipos aislantes de aire comprimido, pág. 1. INSST, Ficha de selección y uso de EPI: Equipos respiratorios aislantes (rev. 3, diciembre 2023); texto íntegro oficial (rev. 3, diciembre 2023): https://www.insst.es/documents/94886/8739740/Equipos+respiratorios+aislantes+%28rev.3%29.pdf#page=1",
+    "estado": "ok",
+    "doc": "FSU_ERA",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T13-OF-062EC015",
+    "concepto": "Según la ficha de selección y uso de equipos respiratorios aislantes del INSST, ¿qué flujo deben llevar marcado los equipos de aire fresco?",
+    "respuesta": "Flujo de aire mínimo",
+    "fuente": "FSU Equipos respiratorios aislantes (INSST), 4.2 Equipos aislantes de aire fresco, pág. 1. INSST, Ficha de selección y uso de EPI: Equipos respiratorios aislantes (rev. 3, diciembre 2023); texto íntegro oficial (rev. 3, diciembre 2023): https://www.insst.es/documents/94886/8739740/Equipos+respiratorios+aislantes+%28rev.3%29.pdf#page=1",
+    "estado": "ok",
+    "doc": "FSU_ERA",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T13-OF-59FDE9E4",
+    "concepto": "Según la ficha de selección y uso de equipos respiratorios aislantes del INSST, ¿en qué equipos debe advertir el fabricante del número máximo de usuarios conectados a una unidad móvil de aire?",
+    "respuesta": "En los equipos de aire comprimido",
+    "fuente": "FSU Equipos respiratorios aislantes (INSST), 5. Información del fabricante, pág. 2. INSST, Ficha de selección y uso de EPI: Equipos respiratorios aislantes (rev. 3, diciembre 2023); texto íntegro oficial (rev. 3, diciembre 2023): https://www.insst.es/documents/94886/8739740/Equipos+respiratorios+aislantes+%28rev.3%29.pdf#page=2",
+    "estado": "ok",
+    "doc": "FSU_ERA",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T13-OF-1488F884",
+    "concepto": "Según la ficha de selección y uso de equipos respiratorios aislantes del INSST, en los equipos de aire fresco o comprimido, ¿qué dato de la manguera debe dar el fabricante?",
+    "respuesta": "Longitud máxima de la manguera o del tubo",
+    "fuente": "FSU Equipos respiratorios aislantes (INSST), 5. Información del fabricante, pág. 2. INSST, Ficha de selección y uso de EPI: Equipos respiratorios aislantes (rev. 3, diciembre 2023); texto íntegro oficial (rev. 3, diciembre 2023): https://www.insst.es/documents/94886/8739740/Equipos+respiratorios+aislantes+%28rev.3%29.pdf#page=2",
+    "estado": "ok",
+    "doc": "FSU_ERA",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T13-OF-FA63D5D8",
+    "concepto": "Según la Guía técnica de EPI del INSST, ¿qué hacen los equipos filtrantes?",
+    "respuesta": "Purifican el aire ambiental a través de filtros o material filtrante capaces de retener los contaminantes",
+    "fuente": "Guía técnica de EPI (INSST), Apéndice 4.1, tipos de EPR, pág. 49. INSST, Guía técnica para la utilización por los trabajadores de equipos de protección individual (RD 773/1997), 2022; texto íntegro oficial (2022): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+utilizaci%C3%B3n+por+los+trabajadores+de+equipos+de+protecci%C3%B3n+individual.pdf#page=49",
+    "estado": "ok",
+    "doc": "GUIA_EPI",
+    "pagina": 49
+   },
+   {
+    "id": "CPEI-T13-OF-1579C9EC",
+    "concepto": "Según la Guía técnica de EPI del INSST, ¿cuáles son los dos componentes principales de los equipos filtrantes?",
+    "respuesta": "Filtro o material filtrante para purificar el aire y pieza facial para dirigir el aire purificado hacia la nariz y boca del usuario",
+    "fuente": "Guía técnica de EPI (INSST), Apéndice 4.1, tipos de EPR, pág. 49. INSST, Guía técnica para la utilización por los trabajadores de equipos de protección individual (RD 773/1997), 2022; texto íntegro oficial (2022): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+utilizaci%C3%B3n+por+los+trabajadores+de+equipos+de+protecci%C3%B3n+individual.pdf#page=49",
+    "estado": "ok",
+    "doc": "GUIA_EPI",
+    "pagina": 49
+   },
+   {
+    "id": "CPEI-T13-OF-2DC6DB3F",
+    "concepto": "Según la Guía técnica de EPI del INSST, ¿qué suministran los equipos aislantes?",
+    "respuesta": "Aire respirable procedente de una fuente externa no contaminada e independiente del medio ambiente contaminado",
+    "fuente": "Guía técnica de EPI (INSST), Apéndice 4.1, tipos de EPR, pág. 49. INSST, Guía técnica para la utilización por los trabajadores de equipos de protección individual (RD 773/1997), 2022; texto íntegro oficial (2022): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+utilizaci%C3%B3n+por+los+trabajadores+de+equipos+de+protecci%C3%B3n+individual.pdf#page=49",
+    "estado": "ok",
+    "doc": "GUIA_EPI",
+    "pagina": 49
+   },
+   {
+    "id": "CPEI-T13-OF-ACD19ED9",
+    "concepto": "Según la Guía técnica de EPI del INSST, ¿dónde tienen los equipos de aire fresco el extremo de la manguera de suministro?",
+    "respuesta": "Ubicado en el exterior de la atmósfera contaminada",
+    "fuente": "Guía técnica de EPI (INSST), Apéndice 4.1, tipos de EPR, pág. 49. INSST, Guía técnica para la utilización por los trabajadores de equipos de protección individual (RD 773/1997), 2022; texto íntegro oficial (2022): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+utilizaci%C3%B3n+por+los+trabajadores+de+equipos+de+protecci%C3%B3n+individual.pdf#page=49",
+    "estado": "ok",
+    "doc": "GUIA_EPI",
+    "pagina": 49
+   },
+   {
+    "id": "CPEI-T13-OF-8E528D2A",
+    "concepto": "Según la Guía técnica de EPI del INSST, ¿cómo se realiza el suministro de aire en los equipos de línea de aire comprimido?",
+    "respuesta": "Mediante una fuente de aire comprimido limpio y respirable",
+    "fuente": "Guía técnica de EPI (INSST), Apéndice 4.1, tipos de EPR, pág. 49. INSST, Guía técnica para la utilización por los trabajadores de equipos de protección individual (RD 773/1997), 2022; texto íntegro oficial (2022): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+utilizaci%C3%B3n+por+los+trabajadores+de+equipos+de+protecci%C3%B3n+individual.pdf#page=49",
+    "estado": "ok",
+    "doc": "GUIA_EPI",
+    "pagina": 49
+   },
+   {
+    "id": "CPEI-T13-OF-905B9BA8",
+    "concepto": "Según la Guía técnica de EPI del INSST, ¿cuál es la fuente de aire de los equipos autónomos?",
+    "respuesta": "Una botella a presión portada por el mismo usuario del equipo",
+    "fuente": "Guía técnica de EPI (INSST), Apéndice 4.1, tipos de EPR, pág. 49. INSST, Guía técnica para la utilización por los trabajadores de equipos de protección individual (RD 773/1997), 2022; texto íntegro oficial (2022): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+utilizaci%C3%B3n+por+los+trabajadores+de+equipos+de+protecci%C3%B3n+individual.pdf#page=49",
+    "estado": "ok",
+    "doc": "GUIA_EPI",
+    "pagina": 49
+   },
+   {
+    "id": "CPEI-T13-OF-6D65F277",
+    "concepto": "Según la Guía técnica de EPI del INSST, en equipos que basan su eficacia en la hermeticidad con la cara, ¿qué puede afectar a esa hermeticidad?",
+    "respuesta": "La presencia de vello facial, cicatrices, etc.",
+    "fuente": "Guía técnica de EPI (INSST), Apéndice 4.1, selección y uso, pág. 49. INSST, Guía técnica para la utilización por los trabajadores de equipos de protección individual (RD 773/1997), 2022; texto íntegro oficial (2022): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+utilizaci%C3%B3n+por+los+trabajadores+de+equipos+de+protecci%C3%B3n+individual.pdf#page=49",
+    "estado": "ok",
+    "doc": "GUIA_EPI",
+    "pagina": 49
+   },
+   {
+    "id": "CPEI-T13-OF-08A5059A",
+    "concepto": "Según la Guía técnica de EPI del INSST, ¿en qué atmósferas se debe evitar el uso de equipos filtrantes si no se garantiza aire respirable suficiente?",
+    "respuesta": "En atmósferas con posible deficiencia de oxígeno (por ejemplo, en espacios confinados)",
+    "fuente": "Guía técnica de EPI (INSST), Apéndice 4.1, selección y uso, pág. 49. INSST, Guía técnica para la utilización por los trabajadores de equipos de protección individual (RD 773/1997), 2022; texto íntegro oficial (2022): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+utilizaci%C3%B3n+por+los+trabajadores+de+equipos+de+protecci%C3%B3n+individual.pdf#page=49",
+    "estado": "ok",
+    "doc": "GUIA_EPI",
+    "pagina": 49
+   },
+   {
+    "id": "CPEI-T13-OF-CCD0A78C",
+    "concepto": "Según la Guía técnica de EPI del INSST, en adaptadores faciales de más de un filtro, ¿cómo se recambian los filtros?",
+    "respuesta": "Deberán recambiarse los dos al mismo tiempo",
+    "fuente": "Guía técnica de EPI (INSST), Apéndice 4.1, selección y uso, pág. 49. INSST, Guía técnica para la utilización por los trabajadores de equipos de protección individual (RD 773/1997), 2022; texto íntegro oficial (2022): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+utilizaci%C3%B3n+por+los+trabajadores+de+equipos+de+protecci%C3%B3n+individual.pdf#page=49",
+    "estado": "ok",
+    "doc": "GUIA_EPI",
+    "pagina": 49
+   },
+   {
+    "id": "CPEI-T13-OF-469E1B12",
+    "concepto": "Según la Guía técnica de EPI del INSST, en equipos con manguera para el aporte de aire, ¿qué manguera debe usarse siempre?",
+    "respuesta": "El tipo y longitudes de manguera con las que el equipo se haya puesto en el mercado",
+    "fuente": "Guía técnica de EPI (INSST), Apéndice 4.1, selección y uso, pág. 49. INSST, Guía técnica para la utilización por los trabajadores de equipos de protección individual (RD 773/1997), 2022; texto íntegro oficial (2022): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+utilizaci%C3%B3n+por+los+trabajadores+de+equipos+de+protecci%C3%B3n+individual.pdf#page=49",
+    "estado": "ok",
+    "doc": "GUIA_EPI",
+    "pagina": 49
+   },
+   {
+    "id": "CPEI-T13-OF-9EB606DC",
+    "concepto": "Según la Guía técnica de EPI del INSST, ¿quién establece el tiempo de uso de los EPR y su sustitución?",
+    "respuesta": "El empresario en función de la evaluación de riesgos",
+    "fuente": "Guía técnica de EPI (INSST), Apéndice 4.1, selección y uso, pág. 49. INSST, Guía técnica para la utilización por los trabajadores de equipos de protección individual (RD 773/1997), 2022; texto íntegro oficial (2022): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+utilizaci%C3%B3n+por+los+trabajadores+de+equipos+de+protecci%C3%B3n+individual.pdf#page=49",
+    "estado": "ok",
+    "doc": "GUIA_EPI",
+    "pagina": 49
+   },
+   {
+    "id": "CPEI-T13-OF-435339EE",
+    "concepto": "Según la Guía técnica de EPI del INSST, si el uso continuado causa incomodidad, ¿cuándo no deberá quitarse nunca la protección respiratoria?",
+    "respuesta": "Mientras exista riesgo de inhalación de una atmósfera peligrosa",
+    "fuente": "Guía técnica de EPI (INSST), Apéndice 4.1, selección y uso, pág. 49. INSST, Guía técnica para la utilización por los trabajadores de equipos de protección individual (RD 773/1997), 2022; texto íntegro oficial (2022): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+utilizaci%C3%B3n+por+los+trabajadores+de+equipos+de+protecci%C3%B3n+individual.pdf#page=49",
+    "estado": "ok",
+    "doc": "GUIA_EPI",
+    "pagina": 49
+   },
+   {
+    "id": "CPEI-T13-OF-1A910991",
+    "concepto": "Según la Guía técnica de EPI del INSST, en atmósferas potencialmente explosivas, ¿cómo hay que evaluar el EPR?",
+    "respuesta": "Como posible fuente de ignición",
+    "fuente": "Guía técnica de EPI (INSST), Apéndice 4.1, selección y uso, pág. 49. INSST, Guía técnica para la utilización por los trabajadores de equipos de protección individual (RD 773/1997), 2022; texto íntegro oficial (2022): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+utilizaci%C3%B3n+por+los+trabajadores+de+equipos+de+protecci%C3%B3n+individual.pdf#page=49",
+    "estado": "ok",
+    "doc": "GUIA_EPI",
+    "pagina": 49
+   },
+   {
+    "id": "CPEI-T13-OF-7BF83330",
+    "concepto": "Según la Guía técnica de EPI del INSST, en trabajos con amianto, ¿qué tiempo diario de uso de EPR no puede superarse?",
+    "respuesta": "Las 4 horas diarias",
+    "fuente": "Guía técnica de EPI (INSST), Apéndice 4.1, selección y uso, pág. 50. INSST, Guía técnica para la utilización por los trabajadores de equipos de protección individual (RD 773/1997), 2022; texto íntegro oficial (2022): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+utilizaci%C3%B3n+por+los+trabajadores+de+equipos+de+protecci%C3%B3n+individual.pdf#page=50",
+    "estado": "ok",
+    "doc": "GUIA_EPI",
+    "pagina": 50
+   },
+   {
+    "id": "CPEI-T13-OF-C02764D9",
+    "concepto": "Según la Guía técnica de EPI del INSST, ¿qué ejemplos de EPI complejos da para cuyo mantenimiento hay que atender a lo indicado por el fabricante?",
+    "respuesta": "Ciertos EPI contra caídas de altura o un equipo autónomo",
+    "fuente": "Guía técnica de EPI (INSST), Artículo 7, mantenimiento, pág. 22. INSST, Guía técnica para la utilización por los trabajadores de equipos de protección individual (RD 773/1997), 2022; texto íntegro oficial (2022): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+utilizaci%C3%B3n+por+los+trabajadores+de+equipos+de+protecci%C3%B3n+individual.pdf#page=22",
+    "estado": "ok",
+    "doc": "GUIA_EPI",
+    "pagina": 22
+   },
+   {
+    "id": "CPEI-T13-OF-6CE49240",
+    "concepto": "Según la Guía técnica de EPI del INSST, ¿qué ejemplo da de sistema de conexión que se considera EPI?",
+    "respuesta": "Una línea de aire que conecta un equipo de protección respiratoria a un compresor",
+    "fuente": "Guía técnica de EPI (INSST), Artículo 2, definición, pág. 9. INSST, Guía técnica para la utilización por los trabajadores de equipos de protección individual (RD 773/1997), 2022; texto íntegro oficial (2022): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+utilizaci%C3%B3n+por+los+trabajadores+de+equipos+de+protecci%C3%B3n+individual.pdf#page=9",
+    "estado": "ok",
+    "doc": "GUIA_EPI",
+    "pagina": 9
+   },
+   {
+    "id": "CPEI-T13-OF-CDDA93D4",
+    "concepto": "Según la Guía técnica de EPI del INSST, ¿qué puede suponer quitarse durante un corto periodo de tiempo un equipo de protección respiratoria?",
+    "respuesta": "Puede dar lugar a un decrecimiento de la protección total resultante",
+    "fuente": "Guía técnica de EPI (INSST), Artículo 7, utilización, pág. 20. INSST, Guía técnica para la utilización por los trabajadores de equipos de protección individual (RD 773/1997), 2022; texto íntegro oficial (2022): https://www.insst.es/documents/94886/203536/Gu%C3%ADa+t%C3%A9cnica+para+la+utilizaci%C3%B3n+por+los+trabajadores+de+equipos+de+protecci%C3%B3n+individual.pdf#page=20",
+    "estado": "ok",
+    "doc": "GUIA_EPI",
+    "pagina": 20
+   }
+  ],
+  "tema22-lote02": [
+   {
+    "id": "CPEI-T22-OF-BE9EEB24",
+    "concepto": "Según la NTP 1170 del INSST, ¿a partir de qué altura de caída se requiere protección contra caídas de altura?",
+    "respuesta": "Superior a 2 metros",
+    "fuente": "NTP 1170 (INSST), AÑO 2022, pág. 1. INSST-NTP1170, texto consolidado (últ. actualización 2022): https://www.insst.es/documents/94886/7789690/NTP+1170+Utilizaci%C3%B3n+de+EPI+en+trabajos+con+riesgo+de+ca%C3%ADda+de+altura.pdf#p01",
+    "estado": "ok",
+    "doc": "NTP1170",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T22-OF-FA028C3A",
+    "concepto": "Según la NTP 1170, ¿qué es la distancia de parada?",
+    "respuesta": "La distancia vertical recorrida por el cuerpo desde el inicio de la caída libre hasta la posición final de reposo",
+    "fuente": "NTP 1170 (INSST), 2, pág. 2. INSST-NTP1170, texto consolidado (últ. actualización 2022): https://www.insst.es/documents/94886/7789690/NTP+1170+Utilizaci%C3%B3n+de+EPI+en+trabajos+con+riesgo+de+ca%C3%ADda+de+altura.pdf#p02",
+    "estado": "ok",
+    "doc": "NTP1170",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T22-OF-3414029A",
+    "concepto": "Según la NTP 1170, ¿qué impacto máximo no deben superar los EPI contra caídas sobre la persona?",
+    "respuesta": "Los 6 kN",
+    "fuente": "NTP 1170 (INSST), 2, pág. 2. INSST-NTP1170, texto consolidado (últ. actualización 2022): https://www.insst.es/documents/94886/7789690/NTP+1170+Utilizaci%C3%B3n+de+EPI+en+trabajos+con+riesgo+de+ca%C3%ADda+de+altura.pdf#p02",
+    "estado": "ok",
+    "doc": "NTP1170",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T22-OF-67A74BA0",
+    "concepto": "Según la NTP 1170, ¿a qué hace referencia el factor de caída?",
+    "respuesta": "A la relación entre la distancia de caída y la longitud de la cuerda utilizada",
+    "fuente": "NTP 1170 (INSST), 2, pág. 2. INSST-NTP1170, texto consolidado (últ. actualización 2022): https://www.insst.es/documents/94886/7789690/NTP+1170+Utilizaci%C3%B3n+de+EPI+en+trabajos+con+riesgo+de+ca%C3%ADda+de+altura.pdf#p02",
+    "estado": "ok",
+    "doc": "NTP1170",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T22-OF-FFB1A6A1",
+    "concepto": "Según la NTP 1170, en factor de caída 0, ¿dónde está situado el punto de anclaje?",
+    "respuesta": "Por encima de la conexión al arnés",
+    "fuente": "NTP 1170 (INSST), 2, pág. 2. INSST-NTP1170, texto consolidado (últ. actualización 2022): https://www.insst.es/documents/94886/7789690/NTP+1170+Utilizaci%C3%B3n+de+EPI+en+trabajos+con+riesgo+de+ca%C3%ADda+de+altura.pdf#p02",
+    "estado": "ok",
+    "doc": "NTP1170",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T22-OF-6903D316",
+    "concepto": "Según la NTP 1170, en factor de caída 1, ¿dónde está situado el punto de anclaje?",
+    "respuesta": "A la misma altura de la conexión al arnés",
+    "fuente": "NTP 1170 (INSST), 2, pág. 2. INSST-NTP1170, texto consolidado (últ. actualización 2022): https://www.insst.es/documents/94886/7789690/NTP+1170+Utilizaci%C3%B3n+de+EPI+en+trabajos+con+riesgo+de+ca%C3%ADda+de+altura.pdf#p02",
+    "estado": "ok",
+    "doc": "NTP1170",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T22-OF-60FCDB21",
+    "concepto": "Según la NTP 1170, con factor de caída 2, ¿cuál es la distancia de caída?",
+    "respuesta": "El doble de la longitud de la conexión utilizada",
+    "fuente": "NTP 1170 (INSST), 2, pág. 2. INSST-NTP1170, texto consolidado (últ. actualización 2022): https://www.insst.es/documents/94886/7789690/NTP+1170+Utilizaci%C3%B3n+de+EPI+en+trabajos+con+riesgo+de+ca%C3%ADda+de+altura.pdf#p02",
+    "estado": "ok",
+    "doc": "NTP1170",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T22-OF-08BEB5A8",
+    "concepto": "Según la NTP 1170, ¿qué es el espacio libre de caída?",
+    "respuesta": "La altura mínima que debe existir para evitar que la persona pueda colisionar con el suelo o con otros elementos en caso de que sufriera una caída",
+    "fuente": "NTP 1170 (INSST), 2, pág. 2. INSST-NTP1170, texto consolidado (últ. actualización 2022): https://www.insst.es/documents/94886/7789690/NTP+1170+Utilizaci%C3%B3n+de+EPI+en+trabajos+con+riesgo+de+ca%C3%ADda+de+altura.pdf#p02",
+    "estado": "ok",
+    "doc": "NTP1170",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T22-OF-DBCDA942",
+    "concepto": "Según la NTP 1170, ¿con qué otro nombre se conoce el síndrome de compresión?",
+    "respuesta": "Síndrome ortostático",
+    "fuente": "NTP 1170 (INSST), 3 Notas Técnicas de Prevención, pág. 3. INSST-NTP1170, texto consolidado (últ. actualización 2022): https://www.insst.es/documents/94886/7789690/NTP+1170+Utilizaci%C3%B3n+de+EPI+en+trabajos+con+riesgo+de+ca%C3%ADda+de+altura.pdf#p03",
+    "estado": "ok",
+    "doc": "NTP1170",
+    "pagina": 3
+   },
+   {
+    "id": "CPEI-T22-OF-346A4658",
+    "concepto": "Según la NTP 1170, ¿qué trayectoria describe la caída cuando se trabaja alejado de la vertical del punto de anclaje?",
+    "respuesta": "Una trayectoria semicircular describiendo un péndulo",
+    "fuente": "NTP 1170 (INSST), 3 Notas Técnicas de Prevención, pág. 3. INSST-NTP1170, texto consolidado (últ. actualización 2022): https://www.insst.es/documents/94886/7789690/NTP+1170+Utilizaci%C3%B3n+de+EPI+en+trabajos+con+riesgo+de+ca%C3%ADda+de+altura.pdf#p03",
+    "estado": "ok",
+    "doc": "NTP1170",
+    "pagina": 3
+   },
+   {
+    "id": "CPEI-T22-OF-6B0759C1",
+    "concepto": "Según la NTP 1170, en trabajos en suspensión, ¿qué dos líneas se utilizan?",
+    "respuesta": "Una línea de trabajo y otra línea de seguridad",
+    "fuente": "NTP 1170 (INSST), 4, pág. 4. INSST-NTP1170, texto consolidado (últ. actualización 2022): https://www.insst.es/documents/94886/7789690/NTP+1170+Utilizaci%C3%B3n+de+EPI+en+trabajos+con+riesgo+de+ca%C3%ADda+de+altura.pdf#p04",
+    "estado": "ok",
+    "doc": "NTP1170",
+    "pagina": 4
+   },
+   {
+    "id": "CPEI-T22-OF-1597FE48",
+    "concepto": "Según la NTP 809, ¿cuántas clases de dispositivos de anclaje describe la UNE-EN 795?",
+    "respuesta": "Seis clases",
+    "fuente": "NTP 809 (INSST), Año: 2008, pág. 1. INSST-NTP809, texto consolidado (últ. actualización 2008): https://www.insst.es/documents/94886/7843381/809+web.pdf#p01",
+    "estado": "ok",
+    "doc": "NTP809",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T22-OF-C1A25F30",
+    "concepto": "Según la NTP 809, ¿qué es un punto de anclaje?",
+    "respuesta": "Un elemento al que puede estar sujeto un equipo de protección individual contra caídas",
+    "fuente": "NTP 809 (INSST), Año: 2008, pág. 1. INSST-NTP809, texto consolidado (últ. actualización 2008): https://www.insst.es/documents/94886/7843381/809+web.pdf#p01",
+    "estado": "ok",
+    "doc": "NTP809",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T22-OF-9F8C446E",
+    "concepto": "Según la NTP 809, ¿qué clases de dispositivos de anclaje se consideran EPI y llevan marcado CE?",
+    "respuesta": "Las clases B y E",
+    "fuente": "NTP 809 (INSST), 2 Notas Técnicas de Prevención, pág. 2. INSST-NTP809, texto consolidado (últ. actualización 2008): https://www.insst.es/documents/94886/7843381/809+web.pdf#p02",
+    "estado": "ok",
+    "doc": "NTP809",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T22-OF-184E4455",
+    "concepto": "Según la NTP 809, ¿qué resistencia mínima debe tener un dispositivo de anclaje de clase A1 en la dirección de la caída?",
+    "respuesta": "Superior a 10 kN",
+    "fuente": "NTP 809 (INSST), 2 Notas Técnicas de Prevención, pág. 2. INSST-NTP809, texto consolidado (últ. actualización 2008): https://www.insst.es/documents/94886/7843381/809+web.pdf#p02",
+    "estado": "ok",
+    "doc": "NTP809",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T22-OF-355B9E82",
+    "concepto": "Según la NTP 809, ¿para qué fijación están diseñados los dispositivos de anclaje de clase A2?",
+    "respuesta": "Una fijación sobre tejados inclinados",
+    "fuente": "NTP 809 (INSST), 2 Notas Técnicas de Prevención, pág. 2. INSST-NTP809, texto consolidado (últ. actualización 2008): https://www.insst.es/documents/94886/7843381/809+web.pdf#p02",
+    "estado": "ok",
+    "doc": "NTP809",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T22-OF-26A2327C",
+    "concepto": "Según la NTP 809, ¿cómo son los dispositivos de anclaje de clase B?",
+    "respuesta": "Provisionales y transportables",
+    "fuente": "NTP 809 (INSST), 3 Notas Técnicas de Prevención, pág. 3. INSST-NTP809, texto consolidado (últ. actualización 2008): https://www.insst.es/documents/94886/7843381/809+web.pdf#p03",
+    "estado": "ok",
+    "doc": "NTP809",
+    "pagina": 3
+   },
+   {
+    "id": "CPEI-T22-OF-D018E939",
+    "concepto": "Según la NTP 843, ¿qué desviación máxima respecto a la horizontal admite la línea de anclaje flexible de clase C?",
+    "respuesta": "No se desvía de la horizontal más de 15°",
+    "fuente": "NTP 843 (INSST), Año: 2009, pág. 1. INSST-NTP843, texto consolidado (últ. actualización 2009): https://www.insst.es/documents/94886/7842059/843+web.pdf#p01",
+    "estado": "ok",
+    "doc": "NTP843",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T22-OF-52312071",
+    "concepto": "Según la NTP 843, ¿son EPI los dispositivos de anclaje de clase C?",
+    "respuesta": "No se consideran EPI y no deben llevar marcado CE",
+    "fuente": "NTP 843 (INSST), Año: 2009, pág. 1. INSST-NTP843, texto consolidado (últ. actualización 2009): https://www.insst.es/documents/94886/7842059/843+web.pdf#p01",
+    "estado": "ok",
+    "doc": "NTP843",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T22-OF-988E2F1C",
+    "concepto": "Según la NTP 843, ¿qué es el anclaje de extremidad?",
+    "respuesta": "Elemento que conecta el extremo de la línea de anclaje a la estructura",
+    "fuente": "NTP 843 (INSST), Año: 2009, pág. 1. INSST-NTP843, texto consolidado (últ. actualización 2009): https://www.insst.es/documents/94886/7842059/843+web.pdf#p01",
+    "estado": "ok",
+    "doc": "NTP843",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T22-OF-DC5F1339",
+    "concepto": "Según la NTP 843, ¿qué permiten reducir los anclajes intermedios en caso de caída?",
+    "respuesta": "Reducir la flecha y la tensión de la línea",
+    "fuente": "NTP 843 (INSST), Año: 2009, pág. 1. INSST-NTP843, texto consolidado (últ. actualización 2009): https://www.insst.es/documents/94886/7842059/843+web.pdf#p01",
+    "estado": "ok",
+    "doc": "NTP843",
+    "pagina": 1
+   },
+   {
+    "id": "CPEI-T22-OF-2AA9DC94",
+    "concepto": "Según la NTP 1218 del INSST, ¿de qué tres componentes se compone un sistema anticaídas?",
+    "respuesta": "Un dispositivo de prensión del cuerpo, un sistema de conexión y un punto de anclaje",
+    "fuente": "NTP 1218 (INSST), 2 Notas Técnicas de Prevención, pág. 2. INSST-NTP1218, texto consolidado (últ. actualización 2025): https://www.insst.es/documents/d/portal-insst/ntp-1218-sistemas-de-proteccion-individual-contra-caidas-sistemas-anticaidas-ano-2025#p02",
+    "estado": "ok",
+    "doc": "NTP1218",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T22-OF-A170552C",
+    "concepto": "Según la NTP 1218, ¿cuál es el único dispositivo de prensión del cuerpo destinado a detener una caída?",
+    "respuesta": "El arnés anticaídas",
+    "fuente": "NTP 1218 (INSST), 2 Notas Técnicas de Prevención, pág. 2. INSST-NTP1218, texto consolidado (últ. actualización 2025): https://www.insst.es/documents/d/portal-insst/ntp-1218-sistemas-de-proteccion-individual-contra-caidas-sistemas-anticaidas-ano-2025#p02",
+    "estado": "ok",
+    "doc": "NTP1218",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T22-OF-41B3EEA5",
+    "concepto": "Según la NTP 1218, ¿dónde están situados los elementos de enganche anticaídas del arnés?",
+    "respuesta": "En la zona dorsal y/o pectoral",
+    "fuente": "NTP 1218 (INSST), 2 Notas Técnicas de Prevención, pág. 2. INSST-NTP1218, texto consolidado (últ. actualización 2025): https://www.insst.es/documents/d/portal-insst/ntp-1218-sistemas-de-proteccion-individual-contra-caidas-sistemas-anticaidas-ano-2025#p02",
+    "estado": "ok",
+    "doc": "NTP1218",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T22-OF-F8885754",
+    "concepto": "Según la NTP 1218, ¿puede usarse un equipo de amarre sin absorbedor de energía para detener la caída?",
+    "respuesta": "No se puede usar un equipo de amarre sin un absorbedor de energía",
+    "fuente": "NTP 1218 (INSST), 2 Notas Técnicas de Prevención, pág. 2. INSST-NTP1218, texto consolidado (últ. actualización 2025): https://www.insst.es/documents/d/portal-insst/ntp-1218-sistemas-de-proteccion-individual-contra-caidas-sistemas-anticaidas-ano-2025#p02",
+    "estado": "ok",
+    "doc": "NTP1218",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T22-OF-5A5AA928",
+    "concepto": "Según la NTP 1218, ¿qué norma regula los dispositivos anticaídas retráctiles?",
+    "respuesta": "UNE-EN 360:2023",
+    "fuente": "NTP 1218 (INSST), 2 Notas Técnicas de Prevención, pág. 2. INSST-NTP1218, texto consolidado (últ. actualización 2025): https://www.insst.es/documents/d/portal-insst/ntp-1218-sistemas-de-proteccion-individual-contra-caidas-sistemas-anticaidas-ano-2025#p02",
+    "estado": "ok",
+    "doc": "NTP1218",
+    "pagina": 2
+   },
+   {
+    "id": "CPEI-T22-OF-8D4B7453",
+    "concepto": "Según la NTP 1218, ¿qué norma regula los conectores?",
+    "respuesta": "UNE-EN 362:2005",
+    "fuente": "NTP 1218 (INSST), 3 Notas Técnicas de Prevención, pág. 3. INSST-NTP1218, texto consolidado (últ. actualización 2025): https://www.insst.es/documents/d/portal-insst/ntp-1218-sistemas-de-proteccion-individual-contra-caidas-sistemas-anticaidas-ano-2025#p03",
+    "estado": "ok",
+    "doc": "NTP1218",
+    "pagina": 3
+   }
+  ]
+ }
+}

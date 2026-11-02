@@ -17,14 +17,14 @@ Problemas detectados: **0**.
 | tema5 | pendiente | 28 | 100 % | 0 | `fc80511b9650598a` |  |
 | tema6 | revisado | 94 | 100 % | 0 | `4fd29b1f6e6f146b` |  |
 | tema7 | revisado | 64 | 100 % | 0 | `2bd953ad56a2fdc3` |  |
-| tema8 | revisado | 25 | 100 % | 0 | `775feee7881687b1` |  |
+| tema8 | revisado | 25 | 100 % | 0 | `12dfc9e8e3c283b3` |  |
 | tema9 | pendiente | 84 | 100 % | 0 | `481d0a4b586c9b6e` |  |
 | tema10 | revisado | 34 | 100 % | 0 | `f52036b2833262cf` |  |
 | tema10-lote02 | revisado | 13 | 100 % | 0 | `4dbd481541494ac3` |  |
 | tema12 | revisado | 21 | 100 % | 0 | `6cdecd270c4079b5` |  |
-| tema12-lote02 | pendiente | 23 | 100 % | 0 | `dee29796b90e5874` |  |
+| tema12-lote02 | revisado | 23 | 100 % | 0 | `31dec5e0b9c093a4` |  |
 | tema13 | revisado | 25 | 100 % | 0 | `876e7cc074a4b819` |  |
-| tema13-lote02 | pendiente | 47 | 100 % | 0 | `fb997e1f468503d0` |  |
+| tema13-lote02 | revisado | 47 | 100 % | 0 | `fb997e1f468503d0` |  |
 | tema14 | revisado | 24 | 100 % | 0 | `21120d7cc971c334` |  |
 | tema15 | pendiente | 92 | 100 % | 0 | `17289f984caed4f2` |  |
 | tema16 | revisado | 48 | 0 % | 0 | `6e058207cb7dd087` | sin enlace público |
@@ -34,7 +34,7 @@ Problemas detectados: **0**.
 | tema21 | pendiente | 42 | 100 % | 0 | `0d98869be8aec3c7` |  |
 | tema21-lote02 | pendiente | 73 | 100 % | 0 | `14c772aff03c5482` |  |
 | tema22 | revisado | 33 | 100 % | 0 | `4a7fbc8f71edcd76` |  |
-| tema22-lote02 | pendiente | 27 | 100 % | 0 | `5c1bd829625cfc84` |  |
+| tema22-lote02 | revisado | 27 | 100 % | 0 | `5c1bd829625cfc84` |  |
 | tema23 | revisado | 21 | 100 % | 0 | `4c6f711686cc4600` |  |
 | tema23-lote02 | revisado | 23 | 100 % | 0 | `e103c613e915b985` |  |
 | tema24 | revisado | 19 | 100 % | 0 | `664efe61a3312d95` |  |
