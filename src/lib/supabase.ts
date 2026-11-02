@@ -26,11 +26,7 @@ let loading = false;
 export function getSupabaseClient(): Promise<SupabaseClient> {
   if (!loading) {
     loading = true;
-    import('@supabase/supabase-js').then(({ createClient }) => resolveClient(createClient(supabaseUrl, supabaseAnonKey, {
-      // Flujo implícito a propósito: el enlace del correo funciona aunque se abra en otro navegador o
-      // dispositivo (PKCE exige el mismo navegador). detectSessionInUrl recoge #access_token y también ?code=.
-      auth: { flowType: 'implicit', detectSessionInUrl: true, persistSession: true, autoRefreshToken: true },
-    })), rejectClient);
+    import('@supabase/supabase-js').then(({ createClient }) => resolveClient(createClient(supabaseUrl, supabaseAnonKey)), rejectClient);
   }
   return clientReady;
 }
@@ -42,7 +38,7 @@ export function getSupabaseClient(): Promise<SupabaseClient> {
 export function hasStoredSession(): boolean {
   try {
     if (typeof location !== 'undefined' && /access_token=|refresh_token=|error_description=/.test(location.hash + location.search)) return true;
-    if (typeof location !== 'undefined' && /[?&](code|acceso)=/.test(location.search)) return true;
+    if (typeof location !== 'undefined' && /[?&]code=/.test(location.search)) return true;
     for (let i = 0; i < localStorage.length; i++) {
       const k = localStorage.key(i) ?? '';
       if (k.startsWith('sb-') && k.endsWith('-auth-token')) return true;
@@ -101,14 +97,6 @@ function createLazyClient(): SupabaseClient {
     signInWithOtp: lazyAuthCall('signInWithOtp'),
     signInWithPassword: lazyAuthCall('signInWithPassword'),
     signUp: lazyAuthCall('signUp'),
-    // Sin estas, la app llamaba a `undefined` (TypeError → «sin conexión»): reenviar confirmación,
-    // guardar la nueva contraseña tras el enlace de recuperación y entrar con Google/Apple.
-    resend: lazyAuthCall('resend'),
-    updateUser: lazyAuthCall('updateUser'),
-    resetPasswordForEmail: lazyAuthCall('resetPasswordForEmail'),
-    signInWithOAuth: lazyAuthCall('signInWithOAuth'),
-    exchangeCodeForSession: lazyAuthCall('exchangeCodeForSession'),
-    refreshSession: lazyAuthCall('refreshSession'),
     onAuthStateChange(cb: (...a: unknown[]) => void) {
       let cancelled = false;
       let real: { unsubscribe: () => void } | null = null;

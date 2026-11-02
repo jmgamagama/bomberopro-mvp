@@ -22,16 +22,3 @@ export function isRegistroAbierto(): boolean {
 export function textoAlta(): string {
   return isRegistroAbierto() ? 'Crear cuenta gratis' : 'Activar invitación';
 }
-
-/**
- * Proveedores OAuth. Apagados por defecto: Supabase responde `google: false, apple: false` en
- * /auth/v1/settings (comprobado el 2026-11-01). José los enciende cuando estén configurados en el
- * panel (docs/AUTH_CHECKLIST.md) con VITE_AUTH_GOOGLE=true / VITE_AUTH_APPLE=true y un nuevo build.
- */
-export function isGoogleAuthEnabled(): boolean {
-  return String(import.meta.env.VITE_AUTH_GOOGLE ?? '').toLowerCase() === 'true';
-}
-
-export function isAppleAuthEnabled(): boolean {
-  return String(import.meta.env.VITE_AUTH_APPLE ?? '').toLowerCase() === 'true';
-}

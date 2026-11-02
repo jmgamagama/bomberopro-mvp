@@ -86,38 +86,6 @@ export function mensajeErrorEnlace(e: ErrorAuth, registroAbierto: boolean): Mens
   return { text: 'No hemos podido enviar el enlace. Revisa el correo escrito e inténtalo de nuevo.' };
 }
 
-/** Error al empezar el acceso con Google o Apple (antes de salir hacia el proveedor). */
-export function mensajeErrorOAuth(provider: 'google' | 'apple', e: ErrorAuth): MensajeAcceso {
-  const nombre = provider === 'google' ? 'Google' : 'Apple';
-  if (e.code === 'provider_disabled' || e.code === 'validation_failed' || msg(e).includes('provider is not enabled')) {
-    return { text: `El acceso con ${nombre} aún no está disponible. Entra con tu correo y contraseña.` };
-  }
-  if (e.status === 429) return { text: 'Demasiados intentos seguidos. Espera un minuto y vuelve a intentarlo.' };
-  return { text: `No hemos podido abrir ${nombre}. Inténtalo de nuevo o entra con tu correo.` };
-}
-
-/** Error al guardar la contraseña nueva (pantalla del enlace de recuperación o invitación). */
-export function mensajeErrorNuevaContrasena(e: ErrorAuth): string {
-  if (e.code === 'same_password') return 'Esa ya es tu contraseña actual. Elige una distinta.';
-  if (e.code === 'weak_password' || msg(e).includes('password should be')) return 'La contraseña necesita al menos 6 caracteres.';
-  if (e.code === 'session_not_found' || e.code === 'session_expired' || e.status === 401 || e.status === 403 || msg(e).includes('session missing')) {
-    return 'El enlace ha caducado mientras elegías la contraseña. Vuelve a «Entrar», pulsa «He olvidado la contraseña» y usa el correo nuevo.';
-  }
-  if (e.status === 429) return 'Demasiados intentos seguidos. Espera un minuto y vuelve a intentarlo.';
-  return 'No hemos podido guardar la contraseña. Prueba con otra distinta.';
-}
-
-/** Texto de la pantalla «Este enlace ya no funciona» según el código que devuelve Supabase. */
-export function explicarErrorRetorno(codigo: string): string {
-  if (codigo.startsWith('oauth_')) {
-    return 'No se ha completado el acceso con Google o Apple (quizá lo cancelaste). Vuelve a intentarlo o entra con tu correo.';
-  }
-  if (codigo === 'otp_expired') {
-    return 'El enlace ha caducado o ya se usó. Cada enlace sirve una sola vez y durante un tiempo limitado.';
-  }
-  return 'Puede que ya lo hayas usado (por ejemplo, si ya activaste tu cuenta) o que haya caducado. Cada enlace sirve una sola vez y durante un tiempo limitado.';
-}
-
 export const SIN_CONEXION = 'No hay conexión con BomberoPro. Comprueba tu internet e inténtalo de nuevo.';
 
 /** Lee el enlace de invitación: /?invitacion=1&email=ana@ejemplo.es */

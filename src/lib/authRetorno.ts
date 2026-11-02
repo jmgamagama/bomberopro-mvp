@@ -8,7 +8,7 @@
  * antes de crear el cliente (src/lib/supabase.ts importa este archivo primero).
  */
 
-export type TipoRetornoOk = 'registro' | 'invitacion' | 'recuperar' | 'enlace' | 'oauth';
+export type TipoRetornoOk = 'registro' | 'invitacion' | 'recuperar' | 'enlace';
 export type RetornoAuth = { tipo: TipoRetornoOk } | { tipo: 'error'; codigo: string };
 
 /** Parámetro que la app añade a emailRedirectTo para saber de qué correo viene el alumno. */
@@ -26,7 +26,6 @@ const TIPOS_APP: Record<string, TipoRetornoOk> = {
   registro: 'registro',
   enlace: 'enlace',
   recuperar: 'recuperar',
-  oauth: 'oauth',
 };
 
 /** Lee la URL de vuelta. Devuelve null si no viene de un enlace de correo. */
@@ -41,8 +40,7 @@ export function leerRetornoAuth(href: string): RetornoAuth | null {
   const query = url.searchParams;
 
   const codigo = hash.get('error_code') || query.get('error_code') || hash.get('error') || query.get('error');
-  // Vuelta de Google/Apple con error (p. ej. el alumno canceló): se distingue del enlace caducado.
-  if (codigo) return { tipo: 'error', codigo: query.get(PARAM_ACCESO) === 'oauth' ? `oauth_${codigo}` : codigo };
+  if (codigo) return { tipo: 'error', codigo };
 
   if (hash.get('access_token')) {
     const tipo = TIPOS_SUPABASE[hash.get('type') ?? ''];
@@ -53,30 +51,8 @@ export function leerRetornoAuth(href: string): RetornoAuth | null {
 }
 
 /** URL a la que debe volver el alumno desde el correo (mismo dominio en el que está la app). */
-export function urlRetornoAuth(tipo: 'registro' | 'enlace' | 'recuperar' | 'oauth', origin = baseRetorno()): string {
-  return `${origin.replace(/\/+$/, '')}/?${PARAM_ACCESO}=${tipo}`;
-}
-
-/**
- * Dominio de vuelta: el origen actual si es http(s) (producción, previews, localhost); si no
- * (app empaquetada, file://…), VITE_SITE_URL. Supabase solo acepta los que estén en Redirect URLs;
- * si no está, manda a la Site URL (docs/AUTH_CHECKLIST.md).
- */
-export function baseRetorno(
-  origin: string = typeof window === 'undefined' ? '' : window.location.origin,
-  siteUrl: string = String(import.meta.env.VITE_SITE_URL ?? ''),
-): string {
-  if (/^https?:\/\//.test(origin)) return origin;
-  return siteUrl || 'https://bomberopro-mvp.vercel.app';
-}
-
-/** Marca «estoy cambiando la contraseña» (evento PASSWORD_RECOVERY de supabase-js). */
-export function marcarRecuperacionPendiente(): void {
-  try {
-    window.sessionStorage.setItem(CLAVE_PENDIENTE, 'recuperar');
-  } catch {
-    // Sin almacenamiento: la pantalla sigue abierta mientras no se recargue.
-  }
+export function urlRetornoAuth(tipo: 'registro' | 'enlace' | 'recuperar', origin = window.location.origin): string {
+  return `${origin}/?${PARAM_ACCESO}=${tipo}`;
 }
 
 /** Quita de la barra de direcciones los restos del enlace (?acceso=…, #error=…). */

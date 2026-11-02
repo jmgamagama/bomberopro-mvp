@@ -32,7 +32,7 @@ import { MAX_VALID_RESPONSE_SECONDS } from './utils/activeTimer';
 
 import type { AccountErrorsState } from './components/AccountErrorPanel';
 const AccesoConfirmado = lazy(() => import('./components/AccesoConfirmado'));
-import { retornoAuthInicial, limpiarUrlRetornoAuth, marcarRecuperacionPendiente, type RetornoAuth } from './lib/authRetorno';
+import { retornoAuthInicial, limpiarUrlRetornoAuth } from './lib/authRetorno';
 import { fetchKeyless } from './lib/secureQuestions';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer, toLevelInt } from './lib/saveAttemptToServer';
@@ -246,14 +246,8 @@ export default function App() {
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, session) => {
+    } = supabase.auth.onAuthStateChange((_event, session) => {
       receivedAuthEvent = true;
-      // Enlace de recuperación (también con ?code= / PKCE, sin #type=recovery en la URL): abre
-      // siempre «Elige tu nueva contraseña».
-      if (event === 'PASSWORD_RECOVERY') {
-        marcarRecuperacionPendiente();
-        setRetornoAuth({ tipo: 'recuperar' });
-      }
       acceptSession(session);
     });
 
@@ -735,16 +729,10 @@ export default function App() {
   const [loginMode, setLoginMode] = useState<'entrar' | 'crear'>('entrar');
   // Vuelta desde un enlace del correo (cuenta activada, invitación, contraseña o enlace caducado).
   // «Entrar con enlace» no necesita pantalla: el alumno pasa directo a la app.
-  // Google/Apple con éxito tampoco: se entra directo (si falló o no hay sesión, se explica).
-  const [retornoAuth, setRetornoAuth] = useState<RetornoAuth | null>(() => (retornoAuthInicial?.tipo === 'enlace' ? null : retornoAuthInicial));
+  const [retornoAuth, setRetornoAuth] = useState(() => (retornoAuthInicial?.tipo === 'enlace' ? null : retornoAuthInicial));
   useEffect(() => {
-    if (loadingAuth) return;
-    if (retornoAuthInicial?.tipo === 'enlace') limpiarUrlRetornoAuth();
-    if (retornoAuthInicial?.tipo === 'oauth' && session?.user?.id) {
-      limpiarUrlRetornoAuth();
-      setRetornoAuth((r) => (r?.tipo === 'oauth' ? null : r));
-    }
-  }, [loadingAuth, session?.user?.id]);
+    if (!loadingAuth && retornoAuthInicial?.tipo === 'enlace') limpiarUrlRetornoAuth();
+  }, [loadingAuth]);
 
   const handleDemoSignup = () => {
     trackFunnel('demo_signup_click');
@@ -771,16 +759,9 @@ export default function App() {
       handleExitDemo();
       return;
     }
-    if (!supabase) return;
-    // Cerrar sesión no puede quedarse a medias: si el servidor no responde (sin red, token ya
-    // caducado), se cierra al menos en este dispositivo.
-    try {
-      const { error } = (await supabase.auth.signOut()) ?? {};
-      if (error) await supabase.auth.signOut({ scope: 'local' });
-    } catch {
-      try { await supabase.auth.signOut({ scope: 'local' }); } catch { /* sin cliente */ }
+    if (supabase) {
+      await supabase.auth.signOut();
     }
-    setSession(null);
   };
 
   if (loadingAuth || autoGuestPending) {
@@ -811,7 +792,7 @@ export default function App() {
     ...(planesEnabled ? [{ key: 'planes', label: 'Planes', detail: 'Opciones de acceso.', Icon: Sparkles, target: 'planes' as Screen }] : []),
   ];
 
-  if (retornoAuth && supabase && !isDemoMode && !(retornoAuth.tipo === 'oauth' && session?.user?.id)) {
+  if (retornoAuth && supabase && !isDemoMode) {
     return (
       <>
         <UpdateBanner />
