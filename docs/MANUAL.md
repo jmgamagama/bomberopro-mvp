@@ -1,8 +1,8 @@
 # MANUAL — solo lo que puede hacer JM (una acción por línea; al resolverse, se borra)
 Formato: [prioridad 1-3] Acción | Dónde exacto | Minutos | Qué desbloquea
 
+[1] Aprobar paquete de lanzamiento | Leer [docs/LANZAMIENTO.md](https://github.com/jmgamagama/bomberopro-mvp/blob/claude/estado-manual/docs/LANZAMIENTO.md) y responder «aprobado» en el chat (solo cuando las 3 pruebas en staging estén hechas) | 10 | Aplica 43, 46, 47, 48, 49 y 50 en producción y publica el tema 5.
 [1] Configurar correo propio: SMTP de Gmail con contraseña de aplicación (recomendado; deliverability suficiente para 10 alumnos) y poner la URL del sitio https://bomberopro-mvp.vercel.app | Supabase producción → Authentication → Emails → SMTP Settings; y Authentication → URL Configuration | 15 | Que los alumnos reciban el correo de confirmación. Sin esto nadie nuevo puede entrar.
-[1] Contestar el aviso de Supabase en el hilo «Decidir PR 153 o 179 para check_answer», o pegar /mnt/project-files/revisiones/check-answer/ensayo-staging-39-47.sql en Supabase staging → SQL Editor (debe terminar con el error RESULTADO_OK, que deshace todo) | Hilo o SQL Editor de staging | 2 | Ensayo en staging de las migraciones 39 y 47.
 [1] Pegar y ejecutar el ensayo de la #194 (debe terminar con el error RESULTADO_OK, que deshace todo) | Supabase staging → SQL Editor, archivo `/mnt/project-files/revisiones/194/ensayo-staging-43-46.sql` | 2 | Permite incluir la #194 (124 preguntas con error fuera de circulación) en el paquete de lanzamiento.
 [1] Probar como alumno con tu cuenta tras recargar: Entrenar, Por temas, Errores y Simulacro | https://bomberopro-mvp.vercel.app | 10 | Confirma el flujo completo del alumno (única prueba real pendiente).
 [1] Activar «Confirm email» y «Prevent use of leaked passwords» | Supabase producción → Authentication → Sign In / Providers → Email, y Attack Protection | 3 | Evita altas con correo ajeno y contraseñas filtradas.

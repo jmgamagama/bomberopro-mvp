@@ -7,16 +7,16 @@
 
 ## En producción (observado)
 - main = `ea6160a`; despliegue en verde. 11.319 preguntas publicadas, 20 cuentas.
-- Migraciones hasta la 45 salvo 41 y 43 (ver abajo). Simulacro sin preguntas de 2 opciones (mig. 40): 0 en 40 simulacros, 55 por examen, sin clave en la respuesta.
+- Migraciones hasta la 45 (verificado 02/11); faltan 43, 46, 47, 48, 49, 50. `main` ya trae su código (#194, #209, #215, #218 fusionadas 02/11). Simulacro sin preguntas de 2 opciones (mig. 40): 0 en 40 simulacros, 55 por examen, sin clave en la respuesta.
 - Release de seguridad #203 (mig. 38, 39, 45): corrección en servidor.
-- Registro **abierto**: la mig. 41 no está aplicada.
+- Registro **abierto** (la mig. 48 no está aplicada en producción).
 
 ## En staging
-- Desfasado: faltan 30, 31, 33, 34, 39, 45, 41 y 47. Mig. 40 y 38 aplicadas (38: 31/10, huellas iguales a producción). 39 y 47 sin aplicar por falta de confirmación de Supabase.
+- Tiene 38, 39, 40, 42, 44, 45 y 47 (47 aplicada 02/11). Faltan 43, 46, 48, 49 y 50 (y 30, 31, 33, 34 históricas).
 
 ## En curso
-- #183 cerrada 1/11; la sustituye #215 (mig. 48, borrador; CI inestable, sin aplicar). Antes: #183 registro por invitación (borrador): staging bloqueado por una confirmación de Supabase al crear el disparador en `auth.users` (ver MANUAL).
-- #194: lista salvo el ensayo en staging (guion en `/mnt/project-files/revisiones/194/`). Niveles 1-2-3: motores 48 y 49 probados en local, sin aplicar. #153 y #179 cerradas el 31/10; tope de 150/día aplazado hasta que haya plan de pago. #209 (límite en conceptos, mig. 47).
+- #194, #209, #215 y #218 fusionadas el 02/11 (código en `main`, migraciones sin aplicar en producción). Faltan en staging los ensayos de 43/46 y 48 y aplicar 49/50 (ver MANUAL).
+- #153 y #179 cerradas el 31/10; tope de 150/día aplazado hasta que haya plan de pago. Tema 5: #212 (borrador) antes del contenido de arts. 17-22.
 - Tema 5 (RRI CPEI): en producción solo el art. 1 en borrador (invisible); arts. 1-22 van en el paquete (fila 6).
 - Paquete de lanzamiento: `docs/LANZAMIENTO.md` (esqueleto).
 
