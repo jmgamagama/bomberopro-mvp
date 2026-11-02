@@ -8,7 +8,7 @@ Para cada ficha de los mazos configurados lee la URL de su campo `fuente` y:
     data/fuentes/<ID>/bloques.json (descargado con scripts/fuente_boe.py).
   - CTE (codigotecnico.org/pdf/Documentos/.../<DB>.pdf#page=N): busca la respuesta en el texto de la
     página N del PDF oficial (pdftotext, con y sin -layout); se admite que siga en la página N+1.
-  - INSST (insst.es/documents/.../<pdf>#page=N), NTP 221, 400, 841 y 842, Guía técnica de equipos de trabajo y Tema 33 del temario del INSST (#pNN),
+  - INSST (insst.es/documents/.../<pdf>#page=N), NTP 221, 362, 400, 841 y 842, Guía técnica de equipos de trabajo y Tema 33 del temario del INSST (#pNN),
     aceptadas como fuente oficial por el propietario (feat/fichas-insst, 01/11/2026): como el CTE, la respuesta
     en la página N del PDF oficial descargado de insst.es (se admite que siga en la N+1).
   - UIT (search.itu.int/.../1.49.48.es.301.pdf#page=N), Reglamento de Radiocomunicaciones, ed. 2024, vol. 1, aceptado
@@ -37,6 +37,7 @@ MAZOS = {
 }
 UIT = {'1.49.48.es.301.pdf': 'RR2024_vol1'}  # RR de la UIT, ed. 2024, vol. 1 (PDF oficial en español)
 INSST = {'ntp_221.pdf': 'NTP221', '841+web.pdf': 'NTP841', '842+web.pdf': 'NTP842', 'ntp_400.pdf': 'NTP400',
+         'ntp_362.pdf': 'NTP362',  # T9 (feat/t9-ntp362, 02/11/2026): PDF vigente de la NTP 362, con página
          'tema-33-el-riesgo-de-incendio-i-': 'INSST_T33',
          'Gu%C3%ADa+t%C3%A9cnica+para+la+evaluaci%C3%B3n+y+prevenci%C3%B3n+de+los+riesgos+relativos+a+la+utilizaci%C3%B3n+de+los+equipos+de+trabajo.pdf': 'GUIA_ET'}
 PDFS = {'DBSI': 'SI/DBSI.pdf', 'DBSUA': 'SUA/DBSUA.pdf', 'DBHS': 'HS/DBHS.pdf'}

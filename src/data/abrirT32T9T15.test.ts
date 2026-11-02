@@ -13,9 +13,10 @@ const V = JSON.parse(readFileSync(resolve(__dirname, '../../data/verificacion/ab
   mazos: Record<string, { id: string; estado: string }[]>;
 };
 const MAZOS = { tema32: TEMA32_RECALL_CARDS, tema9: TEMA9_RECALL_CARDS, tema15: TEMA15_RECALL_CARDS } as const;
-const ACEPTADA = /https:\/\/(?:search\.itu\.int\/history\/HistoryDigitalCollectionDocLibrary\/1\.49\.48\.es\.301\.pdf#page=\d+|www\.(boe\.es\/buscar\/act\.php\?id=BOE-A-\d{4}-\d+#[\w-]+|codigotecnico\.org\/pdf\/Documentos\/\w+\/DB\w+\.pdf#page=\d+|insst\.es\/documents\/94886\/\d+\/(ntp_221|841\+web|842\+web|Gu%C3%ADa\+t%C3%A9cnica\+para\+la\+evaluaci%C3%B3n\+y\+prevenci%C3%B3n\+de\+los\+riesgos\+relativos\+a\+la\+utilizaci%C3%B3n\+de\+los\+equipos\+de\+trabajo)\.pdf#page=\d+))/;
+const ACEPTADA = /https:\/\/(?:search\.itu\.int\/history\/HistoryDigitalCollectionDocLibrary\/1\.49\.48\.es\.301\.pdf#page=\d+|www\.(boe\.es\/buscar\/act\.php\?id=BOE-A-\d{4}-\d+#[\w-]+|codigotecnico\.org\/pdf\/Documentos\/\w+\/DB\w+\.pdf#page=\d+|insst\.es\/documents\/94886\/\d+\/(ntp_221|ntp_362|841\+web|842\+web|Gu%C3%ADa\+t%C3%A9cnica\+para\+la\+evaluaci%C3%B3n\+y\+prevenci%C3%B3n\+de\+los\+riesgos\+relativos\+a\+la\+utilizaci%C3%B3n\+de\+los\+equipos\+de\+trabajo)\.pdf#page=\d+))/;
 // UIT aceptada como fuente oficial por José (02/11/2026, feat/t16-abrir-uit): solo el Reglamento de Radiocomunicaciones, ed. 2024, vol. 1.
-// INSST aceptado como fuente oficial por el propietario (01/11/2026, feat/fichas-insst): solo NTP 221, 841 y 842 y Guía técnica de equipos de trabajo.
+// INSST aceptado como fuente oficial por el propietario (01/11/2026, feat/fichas-insst): NTP 221, 841 y 842 y Guía técnica de equipos de trabajo;
+// NTP 362 (T9) desde el 02/11/2026 (feat/t9-ntp362), con el PDF vigente de insst.es y página.
 
 describe('T32, T9 y T15: se abren solo las fichas literales con fuente aceptada', () => {
   it.each(Object.keys(MAZOS))('%s: la verificación cubre todas sus fichas', (m) => {
@@ -23,9 +24,9 @@ describe('T32, T9 y T15: se abren solo las fichas literales con fuente aceptada'
     expect(getDeckRevision(m)).toBe(m === 'tema32' ? 'revisado' : 'pendiente');
     expect(V.mazos[m].map((x) => x.id).sort()).toEqual(MAZOS[m as keyof typeof MAZOS].map((c) => c.id).sort());
   });
-  it('cuántas se abren: T32 91 de 91, T9 17 de 84, T15 92 de 92', () => {
+  it('cuántas se abren: T32 91 de 91, T9 25 de 84, T15 92 de 92', () => {
     const vistas = (m: keyof typeof MAZOS) => MAZOS[m].filter((c) => isCardVisible(m, c.id)).length;
-    expect([vistas('tema32'), vistas('tema9'), vistas('tema15')]).toEqual([91, 17, 92]);
+    expect([vistas('tema32'), vistas('tema9'), vistas('tema15')]).toEqual([91, 25, 92]);
   });
   it.each(Object.keys(MAZOS))('%s: visible ⇔ «ok» en la comprobación literal, con cita y enlace a BOE, CTE o INSST aceptado', (m) => {
     const estado = new Map(V.mazos[m].map((x) => [x.id, x.estado]));
@@ -39,7 +40,7 @@ describe('T32, T9 y T15: se abren solo las fichas literales con fuente aceptada'
     for (const [m, cards] of Object.entries(MAZOS)) {
       for (const c of cards.filter((x) => isCardVisible(m, x.id))) {
         expect(c.fuente).not.toMatch(/miteco|idae|eur-lex/i);
-        if (/insst/i.test(c.fuente)) expect(c.fuente, c.id).toMatch(/^(NTP 221|NTP 841|NTP 842|Guía técnica de equipos de trabajo) \(INSST\)/);
+        if (/insst/i.test(c.fuente)) expect(c.fuente, c.id).toMatch(/^(NTP 221|NTP 362|NTP 841|NTP 842|Guía técnica de equipos de trabajo) \(INSST\)/);
       }
     }
   });

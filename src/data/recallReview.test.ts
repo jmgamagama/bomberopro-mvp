@@ -69,7 +69,7 @@ describe('vista del alumno', () => {
   it('no ve los mazos pendientes en ningún listado', () => {
     expect(canSeePendingDecks()).toBe(false);
     expect(getVisibleDecks().map((d) => d.id).sort()).toEqual([...PUBLICADOS].sort());
-    expect(getVisibleTotalCards()).toBe(2878);
+    expect(getVisibleTotalCards()).toBe(2886);
     expect(getVisibleTopics().map((t) => t.id)).toEqual(['tema1', 'tema2', 'tema3', 'tema4', 'tema6', 'tema7', 'tema8', 'tema9', 'tema10', 'tema12', 'tema13', 'tema14', 'tema15', 'tema16', 'tema17', 'tema20', 'tema22', 'tema23', 'tema24', 'tema26', 'tema27', 'tema28', 'tema29', 'tema30', 'tema31', 'tema32', 'tema33', 'tema34', 'tema35', 'tema36', 'tema37', 'tema38', 'tema39', 'tema40']);
     expect(getVisibleBloques().map((b) => b.id)).toEqual(['comun', 'especifica']);
     // T16: lote 1 y, desde el 02/11/2026 (UIT aceptada), lote 2.
@@ -84,7 +84,7 @@ describe('vista del alumno', () => {
 
   it('la sesión diaria solo toma fichas de mazos revisados', async () => {
     const pool = await loadRecallPoolForPlan();
-    expect(pool).toHaveLength(2878);
+    expect(pool).toHaveLength(2886);
     expect(pool.every((c) => c.revision === 'revisado')).toBe(true);
     expect(new Set(pool.map((c) => c.deckId))).toEqual(new Set(PUBLICADOS));
   });

@@ -41,7 +41,7 @@ Visibles para el alumno: **804** de 3402 fichas.
 | `tema6` | 94 | pendiente | 0 | muestra de 20 de 94 revisada a mano | `/workspace/tema06_calidad.md` |
 | `tema7` | 64 | pendiente | 0 | muestra de 20 de 64 revisada a mano | `/workspace/tema07_calidad.md` |
 | `tema8` | 25 | revisado | 25 | 2 del RIPCI y 23 literales en la página citada de los Temas 33 y 41 del INSST (PDF vigentes de insst.es), 02/11/2026 | `docs/REVISION_INSST_LOTES_2026-11-02.md` |
-| `tema9` | 84 | pendiente | 0 | 84/84 revisadas a mano por el autor; falta revisión humana | `data/tema09/tema09_calidad.md` |
+| `tema9` | 84 | pendiente | 25 sueltas | 84/84 revisadas a mano por el autor; 25 visibles literales (BOE, CTE y, desde el 02/11/2026, 8 de la NTP 362 con página del PDF de insst.es) | `data/tema09/tema09_calidad.md`, `docs/REVISION_T9_NTP362_2026-11-02.md` |
 | `tema10` | 34 | pendiente | 0 | muestra de 20 de 34 revisada a mano | `/workspace/tema10_calidad.md` |
 | `tema10-lote02` | 13 | revisado | 13 | 13/13 revisadas a mano | `/workspace/tema10_lote02_calidad.md` |
 | `tema12` | 21 | pendiente | 0 | muestra de 20 de 21 revisada a mano | `/workspace/tema12_calidad.md` |

@@ -38,7 +38,7 @@ describe('tema16-lote02 · cotejo con el RR de la UIT (fuente aceptada el 02/11/
     expect(getDeckRevision('tema16-lote02')).toBe('revisado');
     expect(REVIEWED_DECKS['tema16-lote02']?.informe).toBe('docs/REVISION_T16_LOTE02_2026-11-02.md');
     expect(TEMA16_LOTE02_RECALL_CARDS.filter((c) => isCardVisible('tema16-lote02', c.id))).toHaveLength(21);
-    expect(getVisibleTotalCards()).toBe(2878);
+    expect(getVisibleTotalCards()).toBe(2886);
   });
 });
 

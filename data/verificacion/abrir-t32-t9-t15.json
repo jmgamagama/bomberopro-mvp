@@ -22,7 +22,8 @@
    "NTP842": "570baa4be106d84bd82d9d6f478d34a2f71ac03b91abdf9e4e93c14173701c7b",
    "GUIA_ET": "ee8f65a04c8465807c78d7083492db5bd9c57fc2f96cc151e6be2fab4327f8df",
    "NTP400": "461d79591829e8a08ad33e4f1207e40e3a0822a081f5bba469f058a2e4bec4f8",
-   "INSST_T33": "13a7201e5d42a5bc9018f274e7c645aeb99242537f68d63f00f4b0b952ef0a2d"
+   "INSST_T33": "13a7201e5d42a5bc9018f274e7c645aeb99242537f68d63f00f4b0b952ef0a2d",
+   "NTP362": "eb02abf209abbbc8fde4aae47d52b3766deaa646d4b8fafb9980f3bfba4de2e0"
   }
  },
  "mazos": {
@@ -521,147 +522,139 @@
    {
     "id": "CPEI-T09-OF-B76CA198",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-E8EFF948",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-BDF2E465",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-546D4545",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-3D462C54",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-E4B6B464",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-BDE1EE3C",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-303FA8EC",
-    "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "estado": "ok"
    },
    {
     "id": "CPEI-T09-OF-598D0A9D",
-    "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "estado": "ok"
    },
    {
     "id": "CPEI-T09-OF-54865783",
-    "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "estado": "ok"
    },
    {
     "id": "CPEI-T09-OF-23AA9AFC",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-5963394C",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-BB7EEB96",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-0F2FD506",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-D493D3E9",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-377EBBDC",
-    "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "estado": "ok"
    },
    {
     "id": "CPEI-T09-OF-76FBE0B0",
-    "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "estado": "ok"
    },
    {
     "id": "CPEI-T09-OF-0B46FCC3",
-    "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "estado": "ok"
    },
    {
     "id": "CPEI-T09-OF-B4A1C5E5",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-DC6F3830",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-6B77B7C6",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-FD184979",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-33B3CFC6",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-0725F93D",
-    "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "estado": "ok"
    },
    {
     "id": "CPEI-T09-OF-3869B3CE",
-    "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "estado": "ok"
    },
    {
     "id": "CPEI-T09-OF-F2E0ACDA",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-42B59AF3",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-0890DF9A",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-75A2DDEF",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-90325772",
@@ -671,162 +664,162 @@
    {
     "id": "CPEI-T09-OF-41460F53",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-B0BD161B",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-A83C1878",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-B1A1B860",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-E07CE23D",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-1F1511D5",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-023CCFB9",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-AAA67B45",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-F56CDA32",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-85B835F0",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-26003FD5",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-72891238",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-76DD3666",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-2A9527A7",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-22662AE4",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-978A7EB5",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-EAD133E1",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-F6E7F596",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-BB087623",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-31998641",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-559221D2",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-A899A5EA",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-2EF15657",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-84801374",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-1114F79B",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-73336BCB",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-CD08AC5B",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-748FB16E",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-F43FF55D",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-FA0F7876",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-74DB3340",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-3C1C8831",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-96375034",
@@ -841,22 +834,22 @@
    {
     "id": "CPEI-T09-OF-22150C8C",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-CAD9AB49",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-6D9E1818",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-A6682280",
     "estado": "fuente_no_aceptada",
-    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSARAG"
+    "motivo": "fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT"
    },
    {
     "id": "CPEI-T09-OF-20C37F4A",
@@ -1856,5 +1849,6 @@
  "t9_literal": "2026-11-01: 14 respuestas reescritas al literal (feat/t9-literal); 2 siguen ocultas",
  "t15_literal": "2026-11-01: 3 fichas recitadas al literal del RD 1644/2008 (feat/t15-literal); 56 siguen ocultas (fuente INSST sin texto equivalente en una norma BOE vigente, o ya cubierto por otra ficha visible)",
  "fichas_insst": "2026-11-01: INSST aceptado como fuente oficial (NTP 221, 841, 842 y Guía técnica de equipos de trabajo); 56 fichas de T15 cotejadas al literal con los PDF vigentes de insst.es, 2 respuestas ajustadas al literal (feat/fichas-insst)",
- "fichas_insst_2": "2026-11-01: INSST aceptado en general; T12 (5, Tema 33 «El riesgo de incendio (I)») y T28-lote02 (12, NTP 400) cotejadas al literal con los PDF vigentes de insst.es, 17 de 17 ok sin cambios (feat/fichas-insst)"
+ "fichas_insst_2": "2026-11-01: INSST aceptado en general; T12 (5, Tema 33 «El riesgo de incendio (I)») y T28-lote02 (12, NTP 400) cotejadas al literal con los PDF vigentes de insst.es, 17 de 17 ok sin cambios (feat/fichas-insst)",
+ "t9_ntp362": "2026-11-02 (feat/t9-ntp362): 8 de las 11 de la NTP 362 citan el PDF vigente de insst.es con página y son literales; 3 fórmulas siguen ocultas"
 }
