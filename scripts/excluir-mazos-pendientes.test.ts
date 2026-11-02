@@ -16,7 +16,7 @@ describe('excluir mazos pendientes del build', () => {
     const pending = pendingDeckModules(registry);
     const expected = RECALL_DECKS.filter((d) => d.revision !== 'revisado');
     expect(pending.size).toBe(expected.length);
-    expect(expected.reduce((n, d) => n + d.count, 0)).toBe(1323);
+    expect(expected.reduce((n, d) => n + d.count, 0)).toBe(965);
     expect([...pending].some((m) => /^tema40Recall$/.test(m))).toBe(false);
   });
   it('el stub conserva las exportaciones sin ninguna ficha', () => {
@@ -33,6 +33,7 @@ describe('excluir mazos pendientes del build', () => {
     const m = /export const TEMA36_LOTE01_RECALL_CARDS = (\[.*\]);/.exec(stub);
     const ids = (JSON.parse(m![1]) as { id: string }[]).map((c) => c.id);
     expect(ids.sort()).toEqual([...keep].sort());
-    expect(stub).not.toMatch(/CPEI-T36-S01-2A0B8D8C18/);
+    // Ficha no revisada del lote 01 (código INE de Aceuchal, fuera del epígrafe): no va en el stub.
+    expect(stub).not.toMatch(/CPEI-T36-S02-734D640EE3/);
   });
 });

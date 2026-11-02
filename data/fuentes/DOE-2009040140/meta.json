@@ -1,0 +1,16 @@
+{
+ "id": "DOE-2009040140",
+ "titulo": "Plan Especial de Protección Civil ante el Riesgo Sísmico de la Comunidad Autónoma de Extremadura (PLASISMEX)",
+ "pdf": "https://www.juntaex.es/documents/77055/406857/01_PLASISMEX+%281%29.pdf",
+ "pdf_doe": "https://doe.juntaex.es/pdfs/doe/2009/1110o/09040140.pdf",
+ "publicacion": "Decreto 127/2009, de 5 de junio (DOE n.º 111, de 11/06/2009)",
+ "version": "PDF del plan de 21/02/2013",
+ "comprobado": "01/11/2026",
+ "busqueda": "El DOE publica solo el decreto; el texto del plan sale del PDF publicado en juntaex.es. Ficha ELI del decreto en doe.juntaex.es: solo la versión original publicada, sin versiones consolidadas ni modificaciones. Búsqueda de un decreto posterior que actualice o derogue el PLASISMEX: ninguno localizado. La Directriz Básica de terremotos (Orden INT/1069/2026, BOE-A-2026-21145) da cuatro años para adaptar los planes; el PLASISMEX aún no se ha adaptado. El PDF de juntaex.es es el mismo fichero (sha256) con el que se hicieron las fichas.",
+ "identificador": "DOE-2009040140",
+ "origen": "doe",
+ "url": "https://www.juntaex.es/documents/77055/406857/01_PLASISMEX+%281%29.pdf",
+ "sha256_pdf": "3d0168b4204a357e6ea5d2bc91385c302878a5619af534bccff4dfa2bcc995ef",
+ "n_bloques": 44,
+ "extraido": "2026-11-01"
+}

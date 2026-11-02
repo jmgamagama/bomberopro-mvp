@@ -15,7 +15,7 @@ export const TEMA34_LOTE03_RECALL_META = {
   "lote": "lote03",
   "title": "Tema 34 · RD 164/2025 (RSCIEI), lote 3: requisitos constructivos (anexo II), extinción automática y control de humos (anexo III, 7 y 8) y zonas particulares (anexo IV)",
   "count": 35,
-  "source": "Fase 5 · texto consolidado BOE-A-2025-7190 (reglamento, anexos II, III apdos. 7-8 y IV; últ. act. 20/12/2025)"
+  "source": "Fase 5 · texto consolidado BOE-A-2025-7190 (reglamento, anexos II, III apdos. 7-8 y IV; sin modificaciones; publicado el 10/04/2025)"
 } as const;
 
 export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
@@ -24,7 +24,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 10,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿qué se considera fachada accesible?",
     "respuesta": "Aquellas que dispongan de huecos que permitan el acceso desde el exterior al personal de los Servicios de Extinción de Incendios y Salvamento",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, I.a). BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, I.a). BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, I.a)",
     "apartado": "Anexo II: definiciones y ubicaciones"
   },
@@ -33,7 +33,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 20,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿qué elementos constituyen la estructura portante de un edificio?",
     "respuesta": "Forjados, vigas, soportes y estructura principal y secundaria de cubierta",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, I.b). BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, I.b). BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, I.b)",
     "apartado": "Anexo II: definiciones y ubicaciones"
   },
@@ -42,7 +42,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 30,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿en qué configuración no se permite, salvo excepciones, ubicar sectores de riesgo intrínseco alto?",
     "respuesta": "En configuraciones de tipo AV",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, III.a). BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, III.a). BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, III.a)",
     "apartado": "Anexo II: definiciones y ubicaciones"
   },
@@ -51,7 +51,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 40,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿cuántas salidas alternativas debe tener un sector de riesgo intrínseco alto de más de 50 m2?",
     "respuesta": "Al menos, dos salidas alternativas",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, 3.1.1.a). BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, 3.1.1.a). BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, 3.1.1.a)",
     "apartado": "Anexo II: evacuación"
   },
@@ -60,7 +60,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 50,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿cuánto pueden incrementarse los recorridos de evacuación en sectores con extinción automática basada en agua?",
     "respuesta": "Un 25 %",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, 3.1.2, nota 4.a). BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, 3.1.2, nota 4.a). BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, 3.1.2, nota 4.a)",
     "apartado": "Anexo II: evacuación"
   },
@@ -69,7 +69,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 60,
     "concepto": "Según el RSCIEI (RD 164/2025), con el incremento de hasta el 100 % de los recorridos, ¿qué máximo no pueden superar?",
     "respuesta": "Un máximo de 90 metros",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, 3.1.2, nota 4.c). BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, 3.1.2, nota 4.c). BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, 3.1.2, nota 4.c)",
     "apartado": "Anexo II: evacuación"
   },
@@ -78,7 +78,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 70,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿qué anchura mínima deben tener los pasillos de evacuación?",
     "respuesta": "No debe ser inferior a 1 metro",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, 3.2. BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, 3.2. BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, 3.2",
     "apartado": "Anexo II: evacuación"
   },
@@ -87,7 +87,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 80,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿qué anchura mínima deben tener las puertas y pasos de evacuación?",
     "respuesta": "Como mínimo, de 80 cm",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, 3.2. BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, 3.2. BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, 3.2",
     "apartado": "Anexo II: evacuación"
   },
@@ -96,7 +96,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 90,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿qué anchura mínima libre deben tener en tramos rectos los viales de aproximación del SEIS?",
     "respuesta": "5 metros",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, 1.2.1.a). BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, 1.2.1.a). BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, 1.2.1.a)",
     "apartado": "Anexo II: aproximación y accesibilidad SEIS"
   },
@@ -105,7 +105,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 100,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿qué altura mínima libre o gálibo deben tener los viales de aproximación?",
     "respuesta": "4,5 metros",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, 1.2.1.b). BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, 1.2.1.b). BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, 1.2.1.b)",
     "apartado": "Anexo II: aproximación y accesibilidad SEIS"
   },
@@ -114,7 +114,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 110,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿qué capacidad portante debe tener el vial de aproximación?",
     "respuesta": "20 kN/m2",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, 1.2.1.c). BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, 1.2.1.c). BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, 1.2.1.c)",
     "apartado": "Anexo II: aproximación y accesibilidad SEIS"
   },
@@ -123,7 +123,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 120,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿qué edificios industriales deben disponer de espacio de maniobra para vehículos del SEIS?",
     "respuesta": "Los edificios con una superficie ocupada en planta superior a 1.000 m2 o con una altura de evacuación descendente mayor que 9 metros",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, 1.3.1. BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, 1.3.1. BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, 1.3.1",
     "apartado": "Anexo II: aproximación y accesibilidad SEIS"
   },
@@ -132,7 +132,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 130,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿qué anchura mínima libre debe tener el espacio de maniobra?",
     "respuesta": "6 metros",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, 1.3.1.a). BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, 1.3.1.a). BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, 1.3.1.a)",
     "apartado": "Anexo II: aproximación y accesibilidad SEIS"
   },
@@ -141,7 +141,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 140,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿qué separación máxima del vehículo del SEIS a la fachada se admite en el espacio de maniobra?",
     "respuesta": "15 metros",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, 1.3.1.c). BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, 1.3.1.c). BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, 1.3.1.c)",
     "apartado": "Anexo II: aproximación y accesibilidad SEIS"
   },
@@ -150,7 +150,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 150,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿qué pendiente máxima puede tener el espacio de maniobra?",
     "respuesta": "10 %",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, 1.3.1.e). BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, 1.3.1.e). BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, 1.3.1.e)",
     "apartado": "Anexo II: aproximación y accesibilidad SEIS"
   },
@@ -159,7 +159,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 160,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿qué resistencia al punzonamiento debe tener el suelo del espacio de maniobra?",
     "respuesta": "100 kN sobre 20 cm Ø",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, 1.3.1.f). BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, 1.3.1.f). BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, 1.3.1.f)",
     "apartado": "Anexo II: aproximación y accesibilidad SEIS"
   },
@@ -168,7 +168,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 170,
     "concepto": "Según el RSCIEI (RD 164/2025), si el edificio tiene columna seca, ¿a qué distancia de cada conexión debe poder acceder la autobomba?",
     "respuesta": "A menos de 18 metros",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, 1.3.4. BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, 1.3.4. BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, 1.3.4",
     "apartado": "Anexo II: aproximación y accesibilidad SEIS"
   },
@@ -177,7 +177,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 180,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿qué radio mínimo tiene la zona circular de cambio de sentido en vías sin salida de más de 20 m?",
     "respuesta": "Radio igual o mayor a 9 metros",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, 1.3.5. BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, 1.3.5. BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, 1.3.5",
     "apartado": "Anexo II: aproximación y accesibilidad SEIS"
   },
@@ -186,7 +186,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 190,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿qué altura máxima puede tener el alféizar de los huecos de una fachada accesible?",
     "respuesta": "No sea mayor que 1,20 metros",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, 2.1.a). BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, 2.1.a). BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, 2.1.a)",
     "apartado": "Anexo II: aproximación y accesibilidad SEIS"
   },
@@ -195,7 +195,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 200,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿qué distancia máxima puede haber entre ejes de dos huecos consecutivos de fachada accesible?",
     "respuesta": "No debe exceder de 25 metros",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, 2.1.b). BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, 2.1.b). BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, 2.1.b)",
     "apartado": "Anexo II: aproximación y accesibilidad SEIS"
   },
@@ -204,7 +204,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 210,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿qué porcentaje mínimo del perímetro de la planta debe tener la fachada accesible?",
     "respuesta": "No debe ser inferior al 15 %",
-    "fuente": "RD 164/2025 (RSCIEI), anexo II, 2.2. BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
+    "fuente": "RD 164/2025 (RSCIEI), anexo II, 2.2. BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-2",
     "localizacion": "RD 164/2025 (RSCIEI), anexo II, 2.2",
     "apartado": "Anexo II: aproximación y accesibilidad SEIS"
   },
@@ -213,7 +213,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 220,
     "concepto": "Según el RSCIEI (RD 164/2025), en actividades de fabricación en configuración AV, ¿desde qué superficie se exigen rociadores en sectores de riesgo medio?",
     "respuesta": "Superficie construida de 500 m2 o superior",
-    "fuente": "RD 164/2025 (RSCIEI), anexo III, 7.1.1. BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-3",
+    "fuente": "RD 164/2025 (RSCIEI), anexo III, 7.1.1. BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-3",
     "localizacion": "RD 164/2025 (RSCIEI), anexo III, 7.1.1",
     "apartado": "Anexo III: extinción automática"
   },
@@ -222,7 +222,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 230,
     "concepto": "Según el RSCIEI (RD 164/2025), en almacenamiento en configuración AV, ¿desde qué superficie se exigen rociadores en sectores de riesgo medio?",
     "respuesta": "Superficie construida de 300 m2 o superior",
-    "fuente": "RD 164/2025 (RSCIEI), anexo III, 7.1.1. BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-3",
+    "fuente": "RD 164/2025 (RSCIEI), anexo III, 7.1.1. BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-3",
     "localizacion": "RD 164/2025 (RSCIEI), anexo III, 7.1.1",
     "apartado": "Anexo III: extinción automática"
   },
@@ -231,7 +231,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 240,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿cuándo se instalarán sistemas de agua pulverizada?",
     "respuesta": "Cuando por la configuración, contenido, proceso y ubicación del riesgo sea necesario refrigerar partes de este para asegurar la estabilidad de su estructura y evitar los efectos del calor de radiación emitido por otro riesgo cercano",
-    "fuente": "RD 164/2025 (RSCIEI), anexo III, 7.2. BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-3",
+    "fuente": "RD 164/2025 (RSCIEI), anexo III, 7.2. BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-3",
     "localizacion": "RD 164/2025 (RSCIEI), anexo III, 7.2",
     "apartado": "Anexo III: extinción automática"
   },
@@ -240,7 +240,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 250,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿en qué recintos se instalarán preferentemente sistemas de extinción por agentes gaseosos?",
     "respuesta": "Recintos dedicados a albergar equipos eléctricos o electrónicos, centros de cálculo, bancos de datos, centros de control o medida y análogos",
-    "fuente": "RD 164/2025 (RSCIEI), anexo III, 7.5. BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-3",
+    "fuente": "RD 164/2025 (RSCIEI), anexo III, 7.5. BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-3",
     "localizacion": "RD 164/2025 (RSCIEI), anexo III, 7.5",
     "apartado": "Anexo III: extinción automática"
   },
@@ -249,7 +249,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 260,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿cuándo solo se podrán instalar sistemas de extinción por agentes gaseosos?",
     "respuesta": "Cuando quede garantizada la seguridad y la evacuación de las personas",
-    "fuente": "RD 164/2025 (RSCIEI), anexo III, 7.5. BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-3",
+    "fuente": "RD 164/2025 (RSCIEI), anexo III, 7.5. BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-3",
     "localizacion": "RD 164/2025 (RSCIEI), anexo III, 7.5",
     "apartado": "Anexo III: extinción automática"
   },
@@ -258,7 +258,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 270,
     "concepto": "Según el RSCIEI (RD 164/2025), en fabricación, ¿desde qué superficie se exige control de humos y calor en sectores de riesgo alto?",
     "respuesta": "Superficie construida ≥ 1.000 m2",
-    "fuente": "RD 164/2025 (RSCIEI), anexo III, 8.2. BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-3",
+    "fuente": "RD 164/2025 (RSCIEI), anexo III, 8.2. BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-3",
     "localizacion": "RD 164/2025 (RSCIEI), anexo III, 8.2",
     "apartado": "Anexo III: control de humos y calor"
   },
@@ -267,7 +267,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 280,
     "concepto": "Según el RSCIEI (RD 164/2025), en almacenamiento, ¿desde qué superficie se exige control de humos y calor en sectores de riesgo alto?",
     "respuesta": "Superficie construida ≥ 800 m2",
-    "fuente": "RD 164/2025 (RSCIEI), anexo III, 8.2. BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-3",
+    "fuente": "RD 164/2025 (RSCIEI), anexo III, 8.2. BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-3",
     "localizacion": "RD 164/2025 (RSCIEI), anexo III, 8.2",
     "apartado": "Anexo III: control de humos y calor"
   },
@@ -276,7 +276,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 290,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿qué se entiende por «superficie aerodinámica»?",
     "respuesta": "La resultante de multiplicar la superficie neta del hueco practicado en la cubierta o tabique, por un «coeficiente de descarga»",
-    "fuente": "RD 164/2025 (RSCIEI), anexo III, 8.4. BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-3",
+    "fuente": "RD 164/2025 (RSCIEI), anexo III, 8.4. BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-3",
     "localizacion": "RD 164/2025 (RSCIEI), anexo III, 8.4",
     "apartado": "Anexo III: control de humos y calor"
   },
@@ -285,7 +285,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 300,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿qué clasificación deben tener los extractores de la ventilación forzada simplificada?",
     "respuesta": "F400 120",
-    "fuente": "RD 164/2025 (RSCIEI), anexo III, 8.4. BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-3",
+    "fuente": "RD 164/2025 (RSCIEI), anexo III, 8.4. BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-3",
     "localizacion": "RD 164/2025 (RSCIEI), anexo III, 8.4",
     "apartado": "Anexo III: control de humos y calor"
   },
@@ -294,7 +294,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 310,
     "concepto": "Según el RSCIEI (RD 164/2025), en la ventilación forzada simplificada, ¿quién activa manualmente la aportación mecánica de aire?",
     "respuesta": "El SEIS",
-    "fuente": "RD 164/2025 (RSCIEI), anexo III, 8.4. BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-3",
+    "fuente": "RD 164/2025 (RSCIEI), anexo III, 8.4. BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-3",
     "localizacion": "RD 164/2025 (RSCIEI), anexo III, 8.4",
     "apartado": "Anexo III: control de humos y calor"
   },
@@ -303,7 +303,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 320,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿qué es un sistema de almacenaje autoportante?",
     "respuesta": "Sistema diseñado para soportar tanto la carga de la mercancía almacenada como también las paredes o cubierta, actuando como parte de la estructura del edificio",
-    "fuente": "RD 164/2025 (RSCIEI), anexo IV, 1.1. BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-4",
+    "fuente": "RD 164/2025 (RSCIEI), anexo IV, 1.1. BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-4",
     "localizacion": "RD 164/2025 (RSCIEI), anexo IV, 1.1",
     "apartado": "Anexo IV: zonas con condiciones particulares"
   },
@@ -312,7 +312,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 330,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿qué es un paso elevado?",
     "respuesta": "Sistema de almacenamiento que dispone de uno o varios niveles transitables superiores que permiten acceder a la estantería en toda su altura",
-    "fuente": "RD 164/2025 (RSCIEI), anexo IV, 2.1.a). BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-4",
+    "fuente": "RD 164/2025 (RSCIEI), anexo IV, 2.1.a). BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-4",
     "localizacion": "RD 164/2025 (RSCIEI), anexo IV, 2.1.a)",
     "apartado": "Anexo IV: zonas con condiciones particulares"
   },
@@ -321,7 +321,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 340,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿por debajo de qué temperatura de funcionamiento no es preceptiva la BIE en el interior de una cámara frigorífica?",
     "respuesta": "Inferiores a 4°C",
-    "fuente": "RD 164/2025 (RSCIEI), anexo IV, 5.2.a). BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-4",
+    "fuente": "RD 164/2025 (RSCIEI), anexo IV, 5.2.a). BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-4",
     "localizacion": "RD 164/2025 (RSCIEI), anexo IV, 5.2.a)",
     "apartado": "Anexo IV: zonas con condiciones particulares"
   },
@@ -330,7 +330,7 @@ export const TEMA34_LOTE03_RECALL_CARDS: Tema34RecallCard[] = [
     "orden": 350,
     "concepto": "Según el RSCIEI (RD 164/2025), ¿a partir de qué superficie se instalan rociadores en los recintos frigoríficos (medida alternativa)?",
     "respuesta": "A partir de 500 m2 de superficie",
-    "fuente": "RD 164/2025 (RSCIEI), anexo IV, 5.2.c).ii. BOE-A-2025-7190, texto consolidado (últ. actualización 20/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-4",
+    "fuente": "RD 164/2025 (RSCIEI), anexo IV, 5.2.c).ii. BOE-A-2025-7190, texto consolidado (sin modificaciones; publicado el 10/04/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2025-7190#ai-4",
     "localizacion": "RD 164/2025 (RSCIEI), anexo IV, 5.2.c).ii",
     "apartado": "Anexo IV: zonas con condiciones particulares"
   }

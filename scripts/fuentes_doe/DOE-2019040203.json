@@ -1,0 +1,72 @@
+{
+ "id": "DOE-2019040203",
+ "titulo": "Plan Territorial de Protección Civil de la Comunidad Autónoma de Extremadura (PLATERCAEX)",
+ "pdf": "https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf",
+ "pdf_doe": "https://doe.juntaex.es/pdfs/doe/2019/2470o/19040203.pdf",
+ "publicacion": "Decreto 187/2019, de 15 de octubre (DOE n.º 247, de 26/12/2019)",
+ "version": "PDF del plan de 31/01/2020",
+ "claves": [
+  "Decreto 187/2019"
+ ],
+ "busqueda": "El decreto (art. único.2) remite el texto íntegro del plan a la web oficial de la Dirección General de Protección Civil y Emergencias; el texto sale de ese PDF. Ficha ELI del decreto en doe.juntaex.es: solo la versión original publicada, sin versiones consolidadas ni modificaciones. Búsqueda de un decreto posterior que actualice el PLATERCAEX: ninguno publicado (la Junta anunció en octubre de 2026 que lo revisará). El PDF de juntaex.es es el mismo fichero (sha256) con el que se hicieron las fichas.",
+ "margen_izquierdo": 100,
+ "capitulo": "^CAP[ÍI]TULO ([IVX]+)\\b",
+ "tablas": [
+  {
+   "pagina": 27,
+   "desde": 420
+  },
+  {
+   "pagina": 48,
+   "desde": 130
+  },
+  {
+   "pagina": 49
+  },
+  {
+   "pagina": 50
+  }
+ ],
+ "tramos": [
+  {
+   "paginas": [
+    6,
+    8
+   ],
+   "secciones": [
+    "I.1",
+    "I.2"
+   ],
+   "fin": "I.3"
+  },
+  {
+   "paginas": [
+    27,
+    58
+   ],
+   "secciones": [
+    "IV.1",
+    "IV.2",
+    "IV.2.1",
+    "IV.3",
+    "IV.3.1",
+    "IV.3.2",
+    "IV.3.3",
+    "IV.3.4",
+    "IV.3.5",
+    "V.1",
+    "V.2",
+    "V.2.1",
+    "V.3",
+    "V.4",
+    "V.4.1",
+    "V.4.2",
+    "V.4.3",
+    "V.4.4",
+    "V.5"
+   ],
+   "fin": "V.6"
+  }
+ ],
+ "comprobado": "01/11/2026"
+}

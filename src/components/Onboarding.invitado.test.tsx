@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import Onboarding from './Onboarding';
 import { planSummary, PLAN_LIMITS } from '../utils/plan';
-import { getVisibleTopics } from '../data/recallRegistry';
+import { getVisibleTopics, getVisibleTotalCards, resumenFichasRevisadas } from '../data/recallRegistry';
 import { getPreferredDeckId } from '../utils/studyPreferences';
 import { getDailyMinutes } from '../utils/studyPlan';
 
@@ -50,5 +50,27 @@ describe('Bienvenida del invitado', () => {
   it('el resumen sale de PLAN_LIMITS', () => {
     expect(planSummary('free')).toContain(`${PLAN_LIMITS.free.dailySessionSize} fichas al día`);
     expect(planSummary('pro')).toContain(`${PLAN_LIMITS.pro.dailySessionSize} fichas al día`);
+  });
+
+  it('mensaje de valor con las cifras reales del registro (fichas revisadas y temas visibles)', () => {
+    render(<Onboarding onStart={() => {}} onSkip={() => {}} />);
+    const { fichas, temas } = resumenFichasRevisadas();
+    // Para un alumno (sin acceso a mazos pendientes) coincide con lo que ve en la app.
+    expect(fichas).toBe(getVisibleTotalCards());
+    expect(temas).toBe(getVisibleTopics().length);
+    const valor = document.getElementById('onboarding-valor')!;
+    const miles = new Intl.NumberFormat('es-ES', { useGrouping: 'always' } as Intl.NumberFormatOptions).format(fichas);
+    expect(valor).toHaveTextContent(`${miles} fichas revisadas de ${temas} temas`);
+    expect(valor).toHaveTextContent(/fuente oficial/);
+    expect(valor).toHaveTextContent('Empiezas sin cuenta.');
+    // Sin precios ni promesas de plan (pendiente de decisión).
+    expect(valor.textContent).not.toMatch(/€|gratis|pro\b/i);
+  });
+
+  it('con cuenta no dice «sin cuenta»', () => {
+    render(<Onboarding onStart={() => {}} onSkip={() => {}} cuenta />);
+    const valor = document.getElementById('onboarding-valor')!;
+    expect(valor).toHaveTextContent(/fichas revisadas de \d+ temas/);
+    expect(valor).not.toHaveTextContent(/sin cuenta/i);
   });
 });

@@ -39,7 +39,7 @@ describe('tema 8 · fase 2 (texto oficial consolidado)', () => {
 
   it('se registra como mazo bajo demanda', async () => {
     expect(getRecallDeck('tema8').count).toBe(25);
-    // Solo 2 fichas (clases C y D, RIPCI); las 23 del INSST se filtran al cargar (recallCardReview.ts).
-    expect(await loadRecallDeckCards('tema8')).toHaveLength(2);
+    // Desde el 02/11/2026 (feat/insst-lotes) se ven las 25: 2 del RIPCI y 23 literales del INSST (insstLotes.test.ts).
+    expect(await loadRecallDeckCards('tema8')).toHaveLength(25);
   });
 });

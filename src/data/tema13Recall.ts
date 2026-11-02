@@ -14,7 +14,7 @@ export const TEMA13_RECALL_META = {
   "tema": 13,
   "title": "Tema 13 · Equipos de protección individual: RD 773/1997 y Reglamento (UE) 2016/425",
   "count": 25,
-  "source": "Fase 3 · RD 773/1997 (BOE-A-1997-12735, últ. act. 18/12/2025) y Reglamento (UE) 2016/425 (EUR-Lex)"
+  "source": "Fase 3 · RD 773/1997 (BOE-A-1997-12735, últ. act. publicada 08/12/2021) y Reglamento (UE) 2016/425 (EUR-Lex)"
 } as const;
 
 export const TEMA13_RECALL_CARDS: Tema13RecallCard[] = [
@@ -23,7 +23,7 @@ export const TEMA13_RECALL_CARDS: Tema13RecallCard[] = [
     "orden": 10,
     "concepto": "Según el RD 773/1997, ¿qué establece este real decreto?",
     "respuesta": "Las disposiciones mínimas de seguridad y de salud para la elección, utilización por los trabajadores en el trabajo y mantenimiento de los equipos de protección individual",
-    "fuente": "RD 773/1997, Artículo 1. Objeto, art. 1.1. BOE-A-1997-12735, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a1",
+    "fuente": "RD 773/1997, Artículo 1. Objeto, art. 1.1. BOE-A-1997-12735, texto consolidado (últ. actualización publicada el 08/12/2021): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a1",
     "localizacion": "RD 773/1997, Artículo 1. Objeto, art. 1.1",
     "apartado": "Normativa y obligaciones"
   },
@@ -32,7 +32,7 @@ export const TEMA13_RECALL_CARDS: Tema13RecallCard[] = [
     "orden": 20,
     "concepto": "Según el RD 773/1997, ¿qué se entiende por «equipo de protección individual»?",
     "respuesta": "Cualquier equipo destinado a ser llevado o sujetado por el trabajador para que le proteja de uno o varios riesgos que puedan amenazar su seguridad o su salud, así como cualquier complemento o accesorio destinado a tal fin",
-    "fuente": "RD 773/1997, Artículo 2. Definición de «equipo de protección individual», art. 2.1. BOE-A-1997-12735, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a2",
+    "fuente": "RD 773/1997, Artículo 2. Definición de «equipo de protección individual», art. 2.1. BOE-A-1997-12735, texto consolidado (últ. actualización publicada el 08/12/2021): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a2",
     "localizacion": "RD 773/1997, Artículo 2. Definición de «equipo de protección individual», art. 2.1",
     "apartado": "Normativa y obligaciones"
   },
@@ -41,7 +41,7 @@ export const TEMA13_RECALL_CARDS: Tema13RecallCard[] = [
     "orden": 30,
     "concepto": "Según el RD 773/1997, ¿qué equipos de servicios de emergencia quedan excluidos de la definición de EPI?",
     "respuesta": "Los equipos de los servicios de socorro y salvamento",
-    "fuente": "RD 773/1997, Artículo 2. Definición de «equipo de protección individual», art. 2.2.b). BOE-A-1997-12735, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a2",
+    "fuente": "RD 773/1997, Artículo 2. Definición de «equipo de protección individual», art. 2.2.b). BOE-A-1997-12735, texto consolidado (últ. actualización publicada el 08/12/2021): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a2",
     "localizacion": "RD 773/1997, Artículo 2. Definición de «equipo de protección individual», art. 2.2.b)",
     "apartado": "Normativa y obligaciones"
   },
@@ -50,7 +50,7 @@ export const TEMA13_RECALL_CARDS: Tema13RecallCard[] = [
     "orden": 40,
     "concepto": "Según el RD 773/1997, ¿en qué condiciones económicas debe proporcionar el empresario los EPI?",
     "respuesta": "Proporcionar gratuitamente a los trabajadores los equipos de protección individual que deban utilizar, reponiéndolos cuando resulte necesario",
-    "fuente": "RD 773/1997, Artículo 3. Obligaciones generales del empresario, art. 3.c). BOE-A-1997-12735, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a3",
+    "fuente": "RD 773/1997, Artículo 3. Obligaciones generales del empresario, art. 3.c). BOE-A-1997-12735, texto consolidado (últ. actualización publicada el 08/12/2021): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a3",
     "localizacion": "RD 773/1997, Artículo 3. Obligaciones generales del empresario, art. 3.c)",
     "apartado": "Normativa y obligaciones"
   },
@@ -59,7 +59,7 @@ export const TEMA13_RECALL_CARDS: Tema13RecallCard[] = [
     "orden": 50,
     "concepto": "Según el RD 773/1997, ¿cuándo deben utilizarse los EPI?",
     "respuesta": "Cuando existan riesgos para la seguridad o salud de los trabajadores que no hayan podido evitarse o limitarse suficientemente por medios técnicos de protección colectiva o mediante medidas, métodos o procedimientos de organización del trabajo",
-    "fuente": "RD 773/1997, Artículo 4. Criterios para el empleo de los equipos de protección individual, art. 4. BOE-A-1997-12735, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a4",
+    "fuente": "RD 773/1997, Artículo 4. Criterios para el empleo de los equipos de protección individual, art. 4. BOE-A-1997-12735, texto consolidado (últ. actualización publicada el 08/12/2021): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a4",
     "localizacion": "RD 773/1997, Artículo 4. Criterios para el empleo de los equipos de protección individual, art. 4",
     "apartado": "Normativa y obligaciones"
   },
@@ -68,7 +68,7 @@ export const TEMA13_RECALL_CARDS: Tema13RecallCard[] = [
     "orden": 60,
     "concepto": "Según el RD 773/1997, ¿en qué documentación se hará constar la necesidad de utilizar EPI?",
     "respuesta": "En la documentación prevista en el artículo 23 de la Ley de Prevención de Riesgos Laborales",
-    "fuente": "RD 773/1997, Artículo 4. Criterios para el empleo de los equipos de protección individual, art. 4. BOE-A-1997-12735, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a4",
+    "fuente": "RD 773/1997, Artículo 4. Criterios para el empleo de los equipos de protección individual, art. 4. BOE-A-1997-12735, texto consolidado (últ. actualización publicada el 08/12/2021): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a4",
     "localizacion": "RD 773/1997, Artículo 4. Criterios para el empleo de los equipos de protección individual, art. 4",
     "apartado": "Normativa y obligaciones"
   },
@@ -77,7 +77,7 @@ export const TEMA13_RECALL_CARDS: Tema13RecallCard[] = [
     "orden": 70,
     "concepto": "Según el RD 773/1997, ¿qué requisito deben cumplir varios EPI utilizados simultáneamente por riesgos múltiples?",
     "respuesta": "Deberán ser compatibles entre sí y mantener su eficacia en relación con el riesgo o riesgos correspondientes",
-    "fuente": "RD 773/1997, Artículo 5. Condiciones que deben reunir los equipos de protección individual, art. 5.2. BOE-A-1997-12735, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a5",
+    "fuente": "RD 773/1997, Artículo 5. Condiciones que deben reunir los equipos de protección individual, art. 5.2. BOE-A-1997-12735, texto consolidado (últ. actualización publicada el 08/12/2021): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a5",
     "localizacion": "RD 773/1997, Artículo 5. Condiciones que deben reunir los equipos de protección individual, art. 5.2",
     "apartado": "Normativa y obligaciones"
   },
@@ -86,7 +86,7 @@ export const TEMA13_RECALL_CARDS: Tema13RecallCard[] = [
     "orden": 80,
     "concepto": "Según el RD 773/1997, ¿qué anexo contiene el esquema indicativo de riesgos en relación con las partes del cuerpo?",
     "respuesta": "En el anexo I",
-    "fuente": "RD 773/1997, Artículo 6. Elección de los equipos de protección individual, art. 6.1.a). BOE-A-1997-12735, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a6",
+    "fuente": "RD 773/1997, Artículo 6. Elección de los equipos de protección individual, art. 6.1.a). BOE-A-1997-12735, texto consolidado (últ. actualización publicada el 08/12/2021): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a6",
     "localizacion": "RD 773/1997, Artículo 6. Elección de los equipos de protección individual, art. 6.1.a)",
     "apartado": "Normativa y obligaciones"
   },
@@ -95,7 +95,7 @@ export const TEMA13_RECALL_CARDS: Tema13RecallCard[] = [
     "orden": 90,
     "concepto": "Según el RD 773/1997, ¿de acuerdo con qué se efectúan la utilización, almacenamiento, mantenimiento, limpieza y reparación de los EPI?",
     "respuesta": "De acuerdo con las instrucciones del fabricante",
-    "fuente": "RD 773/1997, Artículo 7. Utilización y mantenimiento de los equipos de protección individual, art. 7.1. BOE-A-1997-12735, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a7",
+    "fuente": "RD 773/1997, Artículo 7. Utilización y mantenimiento de los equipos de protección individual, art. 7.1. BOE-A-1997-12735, texto consolidado (últ. actualización publicada el 08/12/2021): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a7",
     "localizacion": "RD 773/1997, Artículo 7. Utilización y mantenimiento de los equipos de protección individual, art. 7.1",
     "apartado": "Uso y mantenimiento"
   },
@@ -104,7 +104,7 @@ export const TEMA13_RECALL_CARDS: Tema13RecallCard[] = [
     "orden": 100,
     "concepto": "Según el RD 773/1997, ¿en función de qué se determina el tiempo durante el cual debe llevarse un EPI?",
     "respuesta": "La gravedad del riesgo; el tiempo o frecuencia de exposición al riesgo; las condiciones del puesto de trabajo; las prestaciones del propio equipo; los riesgos adicionales derivados de la propia utilización del equipo que no hayan podido evitarse",
-    "fuente": "RD 773/1997, Artículo 7. Utilización y mantenimiento de los equipos de protección individual, art. 7.2. BOE-A-1997-12735, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a7",
+    "fuente": "RD 773/1997, Artículo 7. Utilización y mantenimiento de los equipos de protección individual, art. 7.2. BOE-A-1997-12735, texto consolidado (últ. actualización publicada el 08/12/2021): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a7",
     "localizacion": "RD 773/1997, Artículo 7. Utilización y mantenimiento de los equipos de protección individual, art. 7.2",
     "apartado": "Uso y mantenimiento"
   },
@@ -113,7 +113,7 @@ export const TEMA13_RECALL_CARDS: Tema13RecallCard[] = [
     "orden": 110,
     "concepto": "Según el RD 773/1997, ¿a qué tipo de uso están destinados, en principio, los EPI?",
     "respuesta": "A un uso personal",
-    "fuente": "RD 773/1997, Artículo 7. Utilización y mantenimiento de los equipos de protección individual, art. 7.3. BOE-A-1997-12735, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a7",
+    "fuente": "RD 773/1997, Artículo 7. Utilización y mantenimiento de los equipos de protección individual, art. 7.3. BOE-A-1997-12735, texto consolidado (últ. actualización publicada el 08/12/2021): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a7",
     "localizacion": "RD 773/1997, Artículo 7. Utilización y mantenimiento de los equipos de protección individual, art. 7.3",
     "apartado": "Uso y mantenimiento"
   },
@@ -122,7 +122,7 @@ export const TEMA13_RECALL_CARDS: Tema13RecallCard[] = [
     "orden": 120,
     "concepto": "Según el RD 773/1997, ¿cómo deben proporcionarse preferentemente las instrucciones de uso y mantenimiento de los EPI?",
     "respuesta": "Preferentemente por escrito",
-    "fuente": "RD 773/1997, Artículo 8. Obligaciones en materia de información y formación, art. 8.2. BOE-A-1997-12735, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a8",
+    "fuente": "RD 773/1997, Artículo 8. Obligaciones en materia de información y formación, art. 8.2. BOE-A-1997-12735, texto consolidado (últ. actualización publicada el 08/12/2021): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a8",
     "localizacion": "RD 773/1997, Artículo 8. Obligaciones en materia de información y formación, art. 8.2",
     "apartado": "Uso y mantenimiento"
   },
@@ -131,7 +131,7 @@ export const TEMA13_RECALL_CARDS: Tema13RecallCard[] = [
     "orden": 130,
     "concepto": "Según el RD 773/1997, ¿cuándo organizará el empresario especialmente sesiones de entrenamiento con EPI?",
     "respuesta": "Cuando se requiera la utilización simultánea de varios equipos de protección individual que por su especial complejidad así lo haga necesario",
-    "fuente": "RD 773/1997, Artículo 8. Obligaciones en materia de información y formación, art. 8.3. BOE-A-1997-12735, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a8",
+    "fuente": "RD 773/1997, Artículo 8. Obligaciones en materia de información y formación, art. 8.3. BOE-A-1997-12735, texto consolidado (últ. actualización publicada el 08/12/2021): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a8",
     "localizacion": "RD 773/1997, Artículo 8. Obligaciones en materia de información y formación, art. 8.3",
     "apartado": "Uso y mantenimiento"
   },
@@ -140,7 +140,7 @@ export const TEMA13_RECALL_CARDS: Tema13RecallCard[] = [
     "orden": 140,
     "concepto": "Según el RD 773/1997, ¿dónde debe colocar el trabajador el EPI después de su utilización?",
     "respuesta": "En el lugar indicado para ello",
-    "fuente": "RD 773/1997, Artículo 10. Obligaciones de los trabajadores, art. 10.b). BOE-A-1997-12735, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a10",
+    "fuente": "RD 773/1997, Artículo 10. Obligaciones de los trabajadores, art. 10.b). BOE-A-1997-12735, texto consolidado (últ. actualización publicada el 08/12/2021): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a10",
     "localizacion": "RD 773/1997, Artículo 10. Obligaciones de los trabajadores, art. 10.b)",
     "apartado": "Uso y mantenimiento"
   },
@@ -149,7 +149,7 @@ export const TEMA13_RECALL_CARDS: Tema13RecallCard[] = [
     "orden": 150,
     "concepto": "Según el RD 773/1997, ¿a quién debe informar el trabajador de cualquier defecto o daño apreciado en el EPI?",
     "respuesta": "A su superior jerárquico directo",
-    "fuente": "RD 773/1997, Artículo 10. Obligaciones de los trabajadores, art. 10.c). BOE-A-1997-12735, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a10",
+    "fuente": "RD 773/1997, Artículo 10. Obligaciones de los trabajadores, art. 10.c). BOE-A-1997-12735, texto consolidado (últ. actualización publicada el 08/12/2021): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#a10",
     "localizacion": "RD 773/1997, Artículo 10. Obligaciones de los trabajadores, art. 10.c)",
     "apartado": "Uso y mantenimiento"
   },
@@ -158,7 +158,7 @@ export const TEMA13_RECALL_CARDS: Tema13RecallCard[] = [
     "orden": 160,
     "concepto": "Según el RD 773/1997, ¿qué organismo elabora la Guía técnica no vinculante sobre utilización de EPI?",
     "respuesta": "El Instituto Nacional de Seguridad e Higiene en el Trabajo",
-    "fuente": "RD 773/1997, Disposición final primera. Guía técnica, disp. final 1.ª. BOE-A-1997-12735, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#dfprimera",
+    "fuente": "RD 773/1997, Disposición final primera. Guía técnica, disp. final 1.ª. BOE-A-1997-12735, texto consolidado (últ. actualización publicada el 08/12/2021): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#dfprimera",
     "localizacion": "RD 773/1997, Disposición final primera. Guía técnica, disp. final 1.ª",
     "apartado": "Uso y mantenimiento"
   },
@@ -167,7 +167,7 @@ export const TEMA13_RECALL_CARDS: Tema13RecallCard[] = [
     "orden": 170,
     "concepto": "Según el RD 773/1997, ¿qué dos grandes tipos de equipos de protección respiratoria recoge el anexo II además de los de autorrescate y buceo?",
     "respuesta": "Equipos filtrantes; equipos aislantes, incluyendo aquellos con suministro de aire",
-    "fuente": "RD 773/1997, anexo II. BOE-A-1997-12735, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#anii",
+    "fuente": "RD 773/1997, anexo II. BOE-A-1997-12735, texto consolidado (últ. actualización publicada el 08/12/2021): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#anii",
     "localizacion": "RD 773/1997, anexo II",
     "apartado": "Tipos de EPI y protección respiratoria"
   },
@@ -176,7 +176,7 @@ export const TEMA13_RECALL_CARDS: Tema13RecallCard[] = [
     "orden": 180,
     "concepto": "Según el RD 773/1997, ¿contra qué protegen los equipos filtrantes de protección respiratoria?",
     "respuesta": "Partículas, Gases, Partículas y gases, Aerosoles sólidos o líquidos",
-    "fuente": "RD 773/1997, anexo II. BOE-A-1997-12735, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#anii",
+    "fuente": "RD 773/1997, anexo II. BOE-A-1997-12735, texto consolidado (últ. actualización publicada el 08/12/2021): https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735#anii",
     "localizacion": "RD 773/1997, anexo II",
     "apartado": "Tipos de EPI y protección respiratoria"
   },

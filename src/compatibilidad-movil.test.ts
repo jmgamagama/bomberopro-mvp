@@ -37,7 +37,7 @@ describe('compatibilidad móvil', () => {
     const barra = app.match(/aria-label="Navegación móvil"\s*className="([^"]+)"/);
     expect(barra).not.toBeNull();
     const zBarra = zIndex(barra![1]);
-    for (const archivo of ['src/components/StudentConsultationModal.tsx', 'src/components/ReportQuestionButton.tsx']) {
+    for (const archivo of ['src/components/StudentConsultationDialog.tsx', 'src/components/ReportQuestionButton.tsx']) {
       const fondo = leer(archivo).match(/className="(fixed inset-0 [^"]+)"/);
       expect(fondo, archivo).not.toBeNull();
       expect(zIndex(fondo![1]), archivo).toBeGreaterThan(zBarra);

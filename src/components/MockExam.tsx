@@ -10,13 +10,17 @@ import { Question, ConfidenceLevel, Microconcept } from '../types';
 import { INITIAL_QUESTIONS } from '../data/initialData';
 import { supabase } from '../lib/supabase';
 import { formatDecimal, formatPoints } from '../utils/formatNumber';
-import { calculateExamScore, EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS, isExamPassed, scoreOutOfTen } from '../utils/examScoring';
+import { EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS, examScoreBreakdown, isExamPassed, scoreOutOfTen, type ExamScoreBreakdown } from '../utils/examScoring';
 import { arrangeBlueprint } from '../utils/examBlueprint';
 import { recommendTopic, summarizeByTopic, type TopicSummary } from '../utils/examReport';
 import { getVisibleTopic } from '../data/recallRegistry';
 import { EXAM_DURATION_SECONDS, formatExamTime, getRemainingExamSeconds } from '../utils/examTimer';
 import StudentConsultation from './StudentConsultationModal';
 import GuestSignupPrompt from './GuestSignupPrompt';
+import FalloFichas from './FalloFichas';
+import InformeSimulacro from './InformeSimulacro';
+import { loadRecallPoolForPlan, type RecallCard } from '../data/recallCards';
+import { fichasRelacionadas } from '../utils/fichasRelacionadas';
 import { trackFunnel } from '../lib/funnel';
 import { countAnswerChange } from '../utils/attempt';
 import { optionLetter, shuffleAllOptions } from '../utils/shuffleOptions';
@@ -72,6 +76,41 @@ function isRedundantExplanation(f: FailedQuestion): boolean {
 /** Línea de la fórmula de las bases (BOP de Badajoz nº 135, de 17/07/2026). */
 export const EXAM_FORMULA_TEXT = `Fórmula de las bases (BOP de Badajoz nº 135, de 17/07/2026): ${formatPoints(EXAM_CORRECT_POINTS)} por acierto, ${formatPoints(EXAM_INCORRECT_POINTS)} por error y 0 en blanco.`;
 
+const plural = (n: number, uno: string, varios: string) => `${n} ${n === 1 ? uno : varios}`;
+
+/** «Fallos por tema: T35 (3), T1 (2).» con los temas del intento (orden de summarizeByTopic); null si no hay fallos. */
+export function fallosPorTemaTexto(byTopic: readonly TopicSummary[]): string | null {
+  const conFallos = byTopic.filter((t) => t.incorrect > 0);
+  if (conFallos.length === 0) return null;
+  return `Fallos por tema: ${conFallos.map((t) => `${t.numero != null ? `T${t.numero}` : t.titulo} (${t.incorrect})`).join(', ')}.`;
+}
+
+/**
+ * Cómo sale la nota (01-nov-2026): aciertos × +0,200 y fallos × −0,066, con las cifras del intento y
+ * la fórmula de examScoring.ts. Si la suma es negativa, se explica por qué la nota es 0.
+ */
+function NotaDesglose({ breakdown, correct, incorrect, blank, byTopic }: {
+  breakdown: ExamScoreBreakdown; correct: number; incorrect: number; blank: number; byTopic: readonly TopicSummary[];
+}) {
+  const fallos = fallosPorTemaTexto(byTopic);
+  return (
+    <section aria-labelledby="mock-desglose-title" id="mock-desglose" className="mx-auto max-w-md space-y-1 rounded-xl border border-slate-200 bg-slate-50 p-3 text-left text-sm text-slate-800">
+      <h4 id="mock-desglose-title" className="font-bold text-slate-900">Cómo sale tu nota</h4>
+      <ul className="space-y-0.5">
+        <li>{plural(correct, 'acierto', 'aciertos')} × {formatPoints(EXAM_CORRECT_POINTS)} = <strong>{formatPoints(breakdown.correctPoints)}</strong></li>
+        <li>{plural(incorrect, 'fallo', 'fallos')} × {formatPoints(EXAM_INCORRECT_POINTS)} = <strong>{formatPoints(breakdown.incorrectPoints)}</strong></li>
+        {blank > 0 && <li>{blank} en blanco = 0 (no restan)</li>}
+      </ul>
+      <p id="mock-desglose-total">
+        {breakdown.clampedToZero
+          ? <>Total: <strong>{formatPoints(breakdown.raw)}</strong>. Los fallos restan más de lo que suman los aciertos y la nota no baja de 0.</>
+          : <>Total: <strong>{formatDecimal(breakdown.raw, 3)}</strong> puntos.</>}
+      </p>
+      {fallos && <p id="mock-desglose-fallos" className="text-slate-700">{fallos}</p>}
+    </section>
+  );
+}
+
 export default function MockExam({
   microconcepts,
   onFinishExam,
@@ -102,6 +141,14 @@ export default function MockExam({
   const [totalElapsedTime, setTotalElapsedTime] = useState(0);
   const [remainingTime, setRemainingTime] = useState(EXAM_DURATION_SECONDS);
   const hasExamInProgress = examStarted && !examFinished;
+  // Fichas para enlazar cada fallo con las suyas (se cargan al ver el resultado).
+  const [recallPool, setRecallPool] = useState<RecallCard[]>([]);
+  useEffect(() => {
+    if (!examFinished) return;
+    let alive = true;
+    loadRecallPoolForPlan().then((p) => alive && setRecallPool(p), () => undefined);
+    return () => { alive = false; };
+  }, [examFinished]);
   const finishStartedRef = useRef(false);
   const answerChangesRef = useRef<Record<string, number>>({});
   const resultsSummaryRef = useRef<HTMLDivElement>(null);
@@ -110,6 +157,7 @@ export default function MockExam({
   const [testResults, setTestResults] = useState<{
     score: number;
     maxScore: number;
+    breakdown: ExamScoreBreakdown;
     passed: boolean;
     pct: number;
     avgTime: number;
@@ -266,8 +314,8 @@ export default function MockExam({
     const incorrectCount = officialResults.filter(r => r.answered && !r.correct).length;
     const blankCount = officialCount - correctCount - incorrectCount;
     
-    let score = calculateExamScore({ correct: correctCount, incorrect: incorrectCount });
-    score = Math.max(0, score); // minimum score 0
+    const breakdown = examScoreBreakdown({ correct: correctCount, incorrect: incorrectCount });
+    const score = breakdown.score; // la nota no baja de 0
     const maxScore = Math.round(officialCount * EXAM_CORRECT_POINTS * 1000) / 1000;
     const passed = isExamPassed(score, maxScore);
     const pct = Math.round((correctCount / officialCount) * 100);
@@ -287,6 +335,7 @@ export default function MockExam({
     setTestResults({
       score,
       maxScore,
+      breakdown,
       passed,
       pct,
       avgTime,
@@ -592,21 +641,21 @@ export default function MockExam({
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-3 max-w-md mx-auto pt-4 border-t border-slate-200">
               <div>
                 <span className="block text-xs uppercase text-slate-600">Nota</span>
-                <strong className={`text-2xl sm:text-3xl font-extrabold ${testResults.passed ? 'text-emerald-600' : 'text-rose-600'}`}>
+                <strong className={`text-2xl sm:text-3xl font-extrabold ${testResults.passed ? 'text-emerald-700' : 'text-rose-600'}`}>
                   {formatDecimal(testResults.score)}
                 </strong>
                 <span className="text-sm text-slate-600"> de {formatDecimal(testResults.maxScore)}</span>
                 {testResults.maxScore !== 10 && (
                   <span className="block text-xs text-slate-600 mt-0.5">Equivale a {formatDecimal(scoreOutOfTen(testResults.score, testResults.maxScore), 1)} sobre 10</span>
                 )}
-                <span className={`block text-sm uppercase font-bold mt-0.5 ${testResults.passed ? 'text-emerald-600' : 'text-rose-600'}`}>
+                <span className={`block text-sm uppercase font-bold mt-0.5 ${testResults.passed ? 'text-emerald-700' : 'text-rose-600'}`}>
                   {testResults.passed ? '✓ Aprobado' : '✗ Suspenso'}
                 </span>
               </div>
               <div>
                 <span className="block text-xs uppercase text-slate-600">Aciertos / Fallos / Blancos</span>
                 <div className="text-xl sm:text-2xl font-bold flex items-center justify-center gap-1.5 mt-1">
-                  <span className="text-emerald-600" title="Aciertos">{testResults.correctCount}</span>
+                  <span className="text-emerald-700" title="Aciertos">{testResults.correctCount}</span>
                   <span className="text-slate-500 font-normal">/</span>
                   <span className="text-rose-600" title="Fallos">{testResults.incorrectCount}</span>
                   <span className="text-slate-500 font-normal">/</span>
@@ -618,6 +667,14 @@ export default function MockExam({
                 <strong className="text-2xl sm:text-3xl font-extrabold text-indigo-600">{testResults.avgTime} s</strong>
               </div>
             </div>
+
+            <NotaDesglose
+              breakdown={testResults.breakdown}
+              correct={testResults.correctCount}
+              incorrect={testResults.incorrectCount}
+              blank={testResults.blankCount}
+              byTopic={testResults.byTopic}
+            />
 
             <p id="mock-formula" className="mx-auto max-w-md text-xs text-slate-600">{EXAM_FORMULA_TEXT}</p>
 
@@ -639,7 +696,7 @@ export default function MockExam({
                   {rec && recTopic && onStudyTopic && (
                     <button type="button" id="btn-mock-study-topic" onClick={() => onStudyTopic(recTopic.id)}
                       className="min-h-11 w-full rounded-xl border border-amber-300 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-amber-100">
-                      Repasar las fichas del tema {rec.numero}
+                      Estudiar ahora las fichas del tema {rec.numero}
                     </button>
                   )}
                 </section>
@@ -684,27 +741,30 @@ export default function MockExam({
                       {f.explanation && !isRedundantExplanation(f) && <p className="text-slate-700">{f.explanation}</p>}
                       {f.cita && <blockquote className="border-l-4 border-indigo-600 bg-slate-50 px-2 py-1 text-slate-700">«{f.cita}»</blockquote>}
                       {f.fuente && <p className="text-xs text-slate-600">Fuente: {f.fuente}</p>}
+                      <FalloFichas id={f.id} tema={f.tema?.numero} fuente={f.fuente} fichas={fichasRelacionadas(f, recallPool)} onOpenFichas={onStudyTopic} />
                     </li>
                   ))}
                 </ol>
               </section>
             )}
 
+            <InformeSimulacro byTopic={testResults.byTopic} fallos={testResults.failedQuestions} pool={recallPool} />
+
             {/* Topic Breakdown */}
             <div className="grid grid-cols-2 gap-3 max-w-md mx-auto pt-4 border-t border-slate-200 text-xs text-slate-600">
               <div className="bg-slate-50 p-2 rounded-lg border border-slate-200">
                 <span className="block text-xs uppercase text-slate-600 mb-1">Temas 1-34</span>
                 <div className="flex justify-between items-center px-1">
-                  <span className="text-emerald-600">{testResults.generalStats.correct} <CheckCircle2 className="w-3 h-3 inline" /></span>
-                  <span className="text-rose-600">{testResults.generalStats.incorrect} <XCircle className="w-3 h-3 inline" /></span>
+                  <span className="text-emerald-700">{testResults.generalStats.correct} <CheckCircle2 className="w-3 h-3 inline" /></span>
+                  <span className="text-rose-700">{testResults.generalStats.incorrect} <XCircle className="w-3 h-3 inline" /></span>
                   <span className="text-slate-600">{testResults.generalStats.blank} <span className="inline-block w-3 h-3 text-center">-</span></span>
                 </div>
               </div>
               <div className="bg-slate-50 p-2 rounded-lg border border-slate-200">
                 <span className="block text-xs uppercase text-slate-600 mb-1">Temas 35-40</span>
                 <div className="flex justify-between items-center px-1">
-                  <span className="text-emerald-600">{testResults.specificStats.correct} <CheckCircle2 className="w-3 h-3 inline" /></span>
-                  <span className="text-rose-600">{testResults.specificStats.incorrect} <XCircle className="w-3 h-3 inline" /></span>
+                  <span className="text-emerald-700">{testResults.specificStats.correct} <CheckCircle2 className="w-3 h-3 inline" /></span>
+                  <span className="text-rose-700">{testResults.specificStats.incorrect} <XCircle className="w-3 h-3 inline" /></span>
                   <span className="text-slate-600">{testResults.specificStats.blank} <span className="inline-block w-3 h-3 text-center">-</span></span>
                 </div>
               </div>

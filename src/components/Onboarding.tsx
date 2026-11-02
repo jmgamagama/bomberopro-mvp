@@ -17,9 +17,13 @@ import { isPlanesEnabled } from '../config/features';
 import ExamDateField from './ExamDateField';
 import DailyMinutesField from './DailyMinutesField';
 import TopicSearch from './TopicSearch';
+import TemasEnPreparacion from './TemasEnPreparacion';
 import { matchesTopic } from '../utils/topicSearch';
 import { canAccessDeck, getDailySessionSize, getPlan, planSummary, PLAN_COPY } from '../utils/plan';
-import { getVisibleDecks } from '../data/recallRegistry';
+import { getTemasEnPreparacion, getVisibleDecks, resumenFichasRevisadas } from '../data/recallRegistry';
+
+/** Miles con punto también en 4 cifras («2.483»), como en el resto de textos del proyecto. */
+const formatMiles = (n: number) => new Intl.NumberFormat('es-ES', { useGrouping: 'always' } as Intl.NumberFormatOptions).format(n);
 
 interface OnboardingProps {
   /** El opositor pulsó «Empezar sesión diaria»: abrir la sesión ya en la primera ficha. */
@@ -45,6 +49,7 @@ const ALL = 'todos';
  */
 export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, cuenta = false }: OnboardingProps) {
   const plan = getPlan();
+  const resumen = resumenFichasRevisadas();
   const showPlans = isPlanesEnabled() && plan === 'free';
   const planCards = getVisibleDecks().filter((d) => canAccessDeck(d.id, plan)).reduce((n, d) => n + d.count, 0);
   const [choice, setChoice] = useState<string>(() => {
@@ -97,6 +102,7 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, c
       .filter(({ topics }) => topics.length > 0)
       .map(({ b, topics }) => ({ id: b.id, label: `${b.label} · ${b.topics.length} ${b.topics.length === 1 ? 'tema' : 'temas'}`, options: topics.map(toOption) })),
   ];
+  const enPreparacion = getTemasEnPreparacion();
   const totalTopics = getVisibleBloques().reduce((n, b) => n + b.topics.length, 0);
   const shownTopics = groups.reduce((n, g) => n + (g.id === ALL ? 0 : g.options.length), 0);
 
@@ -108,6 +114,11 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, c
           <h1 id="onboarding-title" className="mt-0.5 text-xl font-black leading-tight text-slate-900 sm:text-2xl">
             Prepara tu oposición a {C.plaza} del {C.organismo}
           </h1>
+          {/* Valor en una línea, con las cifras reales de lo que ve este alumno (mazos revisados del registro). */}
+          <p id="onboarding-valor" className="mt-1 text-[13px] leading-snug text-slate-700 sm:text-sm">
+            <strong className="text-slate-900">{formatMiles(resumen.fichas)} fichas revisadas de {resumen.temas} temas</strong>, cada una con su fuente oficial, y simulacro con la puntuación del examen.
+            {!cuenta && ' Empiezas sin cuenta.'}
+          </p>
         </div>
         <button
           type="button"
@@ -176,7 +187,7 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, c
       ) : (<>
       <fieldset className="space-y-2">
         <legend className="text-sm font-bold text-slate-800">¿Qué quieres repasar primero?</legend>
-        <TopicSearch id="onboarding-buscar-tema" value={query} onChange={setQuery} shown={shownTopics} total={totalTopics} />
+        <TopicSearch id="onboarding-buscar-tema" value={query} onChange={setQuery} shown={shownTopics} total={totalTopics} enPreparacion={enPreparacion} />
         <div className="space-y-3" role="radiogroup" aria-label="Tema para la sesión diaria">
           {groups.map((g) => (
             <div key={g.id} role="presentation" id={`onboarding-grupo-${g.id}`} className="space-y-2">
@@ -221,6 +232,7 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, c
             </div>
           ))}
         </div>
+        <TemasEnPreparacion id="onboarding-en-preparacion" temas={enPreparacion} />
       </fieldset>
 
       <div className="space-y-4 rounded-2xl border border-slate-200 bg-white p-3.5 sm:p-4">
