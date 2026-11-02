@@ -51,7 +51,7 @@ Visibles para el alumno: **804** de 3402 fichas.
 | `tema14` | 24 | pendiente | 0 | muestra de 20 de 24 revisada a mano | `/workspace/tema14_calidad.md` |
 | `tema15` | 92 | pendiente | 0 | muestra de 20 de 92 revisada a mano, 0 errores (huecos CEP: INSST, RD 1644/2008, RD 1215/1997, ITC-BT-40) | `/workspace/tema15_calidad.md` |
 | `tema16` | 48 | revisado | 48 | 48/48 revisadas ficha a ficha | `/workspace/tema16_calidad.md` |
-| `tema16-lote02` | 21 | pendiente | 0 | muestra de 20 de 21 revisada a mano | `/workspace/tema16_lote02_calidad.md` |
+| `tema16-lote02` | 21 | pendiente | 0 | 21 de 21 literales en el RR de la UIT (ed. 2024), pero la UIT no es fuente aceptada: falta decisión de José, 02/11/2026 | `docs/REVISION_T16_LOTE02_2026-11-02.md` |
 | `tema17` | 14 | revisado | 14 | 14/14 revisadas a mano | `/workspace/tema17_calidad.md` |
 | `tema20` | 24 | pendiente | 0 | muestra de 20 de 24 revisada a mano | `/workspace/tema20_calidad.md` |
 | `tema21` | 42 | pendiente | 0 | muestra de 20 de 42 revisada a mano | `/workspace/tema21_calidad.md` |
