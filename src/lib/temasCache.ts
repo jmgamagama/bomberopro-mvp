@@ -114,10 +114,20 @@ export function pedirResumen(): Promise<ResumenTemas | null> {
   return p;
 }
 
+/** ¿Conviene gastar datos por adelantado? No con «Ahorro de datos» ni con conexiones 2G. */
+export function puedePrecargar(): boolean {
+  const c = typeof navigator === 'undefined' ? undefined : (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+  if (!c) return true;
+  if (c.saveData) return false;
+  return c.effectiveType !== 'slow-2g' && c.effectiveType !== '2g';
+}
+
 /** Precarga en reposo (al resolverse la sesión): cuando el alumno toque «Temas», ya está todo. */
-export function precargarTemas(conCuenta: boolean): void {
+export function precargarTemas(conCuenta: boolean): boolean {
+  if (!puedePrecargar()) return false;
   void pedirTemas();
   if (conCuenta) void pedirResumen();
+  return true;
 }
 
 /** Solo para pruebas. */

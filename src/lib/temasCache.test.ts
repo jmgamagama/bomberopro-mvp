@@ -10,7 +10,7 @@ vi.mock('./supabase', () => ({
   },
 }));
 
-import { CLAVE_RESUMEN, CLAVE_TEMAS, pedirResumen, pedirTemas, reiniciarTemasCacheParaPruebas, resumenEnCache, temasEnCache } from './temasCache';
+import { CLAVE_RESUMEN, CLAVE_TEMAS, pedirResumen, pedirTemas, precargarTemas, puedePrecargar, reiniciarTemasCacheParaPruebas, resumenEnCache, temasEnCache } from './temasCache';
 import { resetLocalDataOwnerForTests, setLocalDataOwner } from '../utils/localOwner';
 
 const tema = (numero: number) => ({ id: numero, numero, nombre: `Tema ${numero}` });
@@ -83,5 +83,21 @@ describe('caché de «Temas»', () => {
     rpc.mockResolvedValueOnce({ data: null, error: { message: 'x' } });
     expect(await pedirResumen()).toBeNull();
     expect(resumenEnCache()).not.toBeNull();
+  });
+
+  it('no precarga con «Ahorro de datos» ni en 2G, y sí en una conexión normal', () => {
+    const poner = (c: unknown) => Object.defineProperty(navigator, 'connection', { value: c, configurable: true });
+    order.mockResolvedValue({ data: [tema(1)], error: null });
+    poner({ saveData: true, effectiveType: '4g' });
+    expect(puedePrecargar()).toBe(false);
+    expect(precargarTemas(true)).toBe(false);
+    poner({ saveData: false, effectiveType: '2g' });
+    expect(puedePrecargar()).toBe(false);
+    poner({ saveData: false, effectiveType: '4g' });
+    expect(puedePrecargar()).toBe(true);
+    expect(precargarTemas(false)).toBe(true);
+    expect(order).toHaveBeenCalledTimes(1);
+    poner(undefined);
+    expect(puedePrecargar()).toBe(true);
   });
 });

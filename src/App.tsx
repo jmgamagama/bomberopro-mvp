@@ -261,8 +261,8 @@ export default function App() {
     if (loadingAuth) return;
     const conCuenta = Boolean(session?.user?.id);
     const precargar = () => {
-      void import('./components/StudyByTopic');
-      precargarTemas(conCuenta);
+      // Con «Ahorro de datos» o 2G no se precarga nada: «Temas» seguirá funcionando al tocarlo.
+      if (precargarTemas(conCuenta)) void import('./components/StudyByTopic');
     };
     const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number; cancelIdleCallback?: (id: number) => void };
     if (typeof w.requestIdleCallback === 'function') {

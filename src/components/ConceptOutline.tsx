@@ -10,6 +10,7 @@ import { supabase } from '../lib/supabase';
 import { DOCUMENTOS_OFICIALES } from '../data/fuentesOficiales';
 import Skeleton from './Skeleton';
 import { pedirResumen, resumenEnCache } from '../lib/temasCache';
+import { getLocalDataOwner } from '../utils/localOwner';
 
 export interface OutlineConcept { id: string; pregunta: string; respuesta: string | null; preguntas: number; dominado: boolean }
 export interface OutlineApartado { apartado: string; total: number; dominados: number; preguntas: number; conceptos: OutlineConcept[] }
@@ -29,20 +30,27 @@ const plural = (n: number, uno: string, varios: string) => `${n} ${n === 1 ? uno
  * llegó bien: mientras carga (o si falla) no se puede afirmar que un tema no tenga conceptos.
  */
 export function useConceptSummary(): { resumen: Record<number, OutlineTema>; listo: boolean } {
-  // Rendimiento: arranca con lo último que llegó bien (si lo hay) y se actualiza por detrás (lib/temasCache).
-  const [estado, setEstado] = useState<{ resumen: Record<number, OutlineTema>; listo: boolean }>(() => {
-    const guardado = resumenEnCache();
-    return guardado ? { resumen: guardado, listo: true } : { resumen: {}, listo: false };
-  });
+  // Rendimiento: los recuentos salen al instante de lo último que llegó bien (lib/temasCache) y se actualizan
+  // por detrás. Pero `listo` SOLO es true con una respuesta actual: con datos guardados no se afirma que un
+  // tema «solo tenga tests» (podría haberse publicado un concepto después, o la red haber fallado).
+  const [estado, setEstado] = useState<{ dueno: string; resumen: Record<number, OutlineTema>; listo: boolean }>(() => ({
+    dueno: getLocalDataOwner(),
+    resumen: resumenEnCache() ?? {},
+    listo: false,
+  }));
   useEffect(() => {
     let vivo = true;
     if (!supabase) return;
+    // La respuesta es de quien pidió: si mientras tanto cambia la cuenta, no se mezcla con la nueva.
+    const dueno = getLocalDataOwner();
     void pedirResumen().then((datos) => {
-      if (vivo && datos) setEstado({ resumen: datos, listo: true });
+      if (vivo && datos && getLocalDataOwner() === dueno) setEstado({ dueno, resumen: datos, listo: true });
     });
     return () => { vivo = false; };
   }, []);
-  return estado;
+  // Si cambia la cuenta con la pantalla abierta, nunca se enseñan los datos de la anterior.
+  if (estado.dueno !== getLocalDataOwner()) return { resumen: {}, listo: false };
+  return { resumen: estado.resumen, listo: estado.listo };
 }
 
 /** Con `listo` y sin recuento, el tema no tiene conceptos: solo se practica con tests. */
