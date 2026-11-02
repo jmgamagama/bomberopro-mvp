@@ -252,7 +252,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       lote: 'lote03',
       title: "Tema 34 · RD 164/2025 (RSCIEI), lote 3: requisitos constructivos (anexo II), extinción automática y control de humos (anexo III, 7 y 8) y zonas particulares (anexo IV)",
       count: 35,
-      source: "Fase 5 · texto consolidado BOE-A-2025-7190 (reglamento, anexos II, III apdos. 7-8 y IV; últ. act. 20/12/2025)",
+      source: "Fase 5 · texto consolidado BOE-A-2025-7190 (reglamento, anexos II, III apdos. 7-8 y IV; sin modificaciones; publicado el 10/04/2025)",
     },
     load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema34Lote03Recall').then((m) => m.TEMA34_LOTE03_RECALL_CARDS),
   },
@@ -261,7 +261,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       tema: 28,
       title: "Tema 28 · Electricidad: riesgo eléctrico, redes y procedimientos (RD 614/2001, REBT y RLAT)",
       count: 29,
-      source: "Fase 4 · RD 614/2001 (BOE-A-2001-11881) y REBT (BOE-A-2002-18099), últ. act. 18/12/2025; RD 223/2008 (BOE-A-2008-5269), últ. act. 19/12/2025",
+      source: "Fase 4 · RD 614/2001 (BOE-A-2001-11881) y REBT (BOE-A-2002-18099), sin modificaciones; publicado el 21/06/2001; RD 223/2008 (BOE-A-2008-5269), últ. act. publicada 03/09/2025",
     },
     load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema28Recall').then((m) => m.TEMA28_RECALL_CARDS),
   },
@@ -270,7 +270,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       tema: 12,
       title: "Tema 12 · Mecanismos de extinción, agentes y extintores (RIPCI e INSST)",
       count: 21,
-      source: "Fase 4 · RD 513/2017, RIPCI (BOE-A-2017-6606), últ. act. 19/12/2025; INSST, tema «El riesgo de incendio (I)» (v. abril 2025)",
+      source: "Fase 4 · RD 513/2017, RIPCI (BOE-A-2017-6606), últ. act. publicada 03/09/2025; INSST, tema «El riesgo de incendio (I)» (v. abril 2025)",
     },
     load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema12Recall').then((m) => m.TEMA12_RECALL_CARDS),
   },
@@ -279,7 +279,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       tema: 10,
       title: "Tema 10 · Abastecimiento de agua, hidrantes, BIE y columnas secas (RIPCI)",
       count: 34,
-      source: "Fase 4 · RD 513/2017, RIPCI (BOE-A-2017-6606), últ. act. 19/12/2025, anexo I sección 1.ª",
+      source: "Fase 4 · RD 513/2017, RIPCI (BOE-A-2017-6606), últ. act. publicada 03/09/2025, anexo I sección 1.ª",
     },
     load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema10Recall').then((m) => m.TEMA10_RECALL_CARDS),
   },
@@ -306,7 +306,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       tema: 14,
       title: "Tema 14 · Vehículos prioritarios y de servicios auxiliares: RGC, RGV y RD 159/2021",
       count: 24,
-      source: "Fase 3 · RGC (BOE-A-2003-23514) y RGV (BOE-A-1999-1826), últ. act. 01/10/2026; RD 159/2021 (BOE-A-2021-4194), últ. act. 20/12/2025",
+      source: "Fase 3 · RGC (BOE-A-2003-23514) y RGV (BOE-A-1999-1826), últ. act. publicada 26/06/2026; RD 159/2021 (BOE-A-2021-4194), últ. act. publicada 21/12/2022",
     },
     load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema14Recall').then((m) => m.TEMA14_RECALL_CARDS),
   },
@@ -334,7 +334,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       tema: 23,
       title: "Tema 23 · Inundaciones: Plan Estatal de Protección Civil ante el Riesgo de Inundaciones",
       count: 21,
-      source: "Fase 3 · texto consolidado BOE-A-2011-14277 (Plan Estatal de Inundaciones; últ. act. 19/12/2025)",
+      source: "Fase 3 · texto consolidado BOE-A-2011-14277 (Plan Estatal de Inundaciones; últ. act. publicada 03/01/2020)",
     },
     load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema23Recall').then((m) => m.TEMA23_RECALL_CARDS),
   },
@@ -343,7 +343,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       tema: 24,
       title: "Tema 24 · Marco legal: RD 630/2013, Catálogo español de especies exóticas invasoras",
       count: 19,
-      source: "Fase 3 · texto consolidado BOE-A-2013-8565 (RD 630/2013; últ. act. 19/12/2025)",
+      source: "Fase 3 · texto consolidado BOE-A-2013-8565 (RD 630/2013; últ. act. publicada 19/10/2026)",
     },
     load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema24Recall').then((m) => m.TEMA24_RECALL_CARDS),
   },
@@ -379,7 +379,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       tema: 13,
       title: "Tema 13 · Equipos de protección individual: RD 773/1997 y Reglamento (UE) 2016/425",
       count: 25,
-      source: "Fase 3 · RD 773/1997 (BOE-A-1997-12735, últ. act. 18/12/2025) y Reglamento (UE) 2016/425 (EUR-Lex)",
+      source: "Fase 3 · RD 773/1997 (BOE-A-1997-12735, últ. act. publicada 08/12/2021) y Reglamento (UE) 2016/425 (EUR-Lex)",
     },
     load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema13Recall').then((m) => m.TEMA13_RECALL_CARDS),
   },
@@ -406,7 +406,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       tema: 22,
       title: "Tema 22 · Trabajos temporales en altura: RD 1215/1997, anexo II.4",
       count: 33,
-      source: "Fase 3 · texto consolidado BOE-A-1997-17824 (RD 1215/1997, anexo II.4; últ. act. 18/12/2025)",
+      source: "Fase 3 · texto consolidado BOE-A-1997-17824 (RD 1215/1997, anexo II.4; últ. act. publicada 13/11/2004)",
     },
     load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema22Recall').then((m) => m.TEMA22_RECALL_CARDS),
   },
@@ -434,7 +434,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       lote: 'lote02',
       title: "Tema 34 · RD 164/2025 (RSCIEI), lote 2: instalaciones de protección activa (anexo III)",
       count: 39,
-      source: "Fase 3 · texto consolidado BOE-A-2025-7190 (reglamento, anexo III; últ. act. 20/12/2025)",
+      source: "Fase 3 · texto consolidado BOE-A-2025-7190 (reglamento, anexo III; sin modificaciones; publicado el 10/04/2025)",
     },
     load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema34Lote02Recall').then((m) => m.TEMA34_LOTE02_RECALL_CARDS),
   },
@@ -444,7 +444,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       lote: 'lote01',
       title: "Tema 34 · RD 164/2025 (RSCIEI), lote 1: articulado y caracterización (anexo I)",
       count: 58,
-      source: "Fase 3 · texto consolidado BOE-A-2025-7190 (reglamento, arts. 1-18 y anexo I; últ. act. 20/12/2025)",
+      source: "Fase 3 · texto consolidado BOE-A-2025-7190 (reglamento, arts. 1-18 y anexo I; sin modificaciones; publicado el 10/04/2025)",
     },
     load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema34Lote01Recall').then((m) => m.TEMA34_LOTE01_RECALL_CARDS),
   },
@@ -792,14 +792,60 @@ export function getVisibleBloques(): readonly RecallBloque[] {
   return canSeePendingDecks() ? RECALL_BLOQUES : REVIEWED_BLOQUES;
 }
 
+/** Número de temas del temario oficial (Bases, BOP de Badajoz nº 135, 17/07/2026): del 1 al 40. */
+export const TEMAS_TEMARIO = 40;
+
+export interface TemaEnPreparacion {
+  tema: number;
+  /** Nombre que ya usa la app para ese tema (solo si tiene mazo registrado); si no, vacío. */
+  name: string;
+}
+
+/**
+ * Temas del temario que el usuario actual NO ve porque aún no tienen fichas revisadas.
+ * Se muestran como «En preparación», sin botón: no hay nada que abrir.
+ */
+export function getTemasEnPreparacion(): readonly TemaEnPreparacion[] {
+  const visibles = new Set(getVisibleTopics().map((t) => t.tema));
+  const out: TemaEnPreparacion[] = [];
+  for (let tema = 1; tema <= TEMAS_TEMARIO; tema++) {
+    if (visibles.has(tema)) continue;
+    out.push({ tema, name: RECALL_TOPICS.find((t) => t.tema === tema)?.name ?? '' });
+  }
+  return out;
+}
+
 /** Tema visible por id (`tema36`) o `undefined` si no existe o no se publica. */
 export function getVisibleTopic(id: string): RecallTopic | undefined {
   return getVisibleTopics().find((t) => t.id === id);
 }
 
+/**
+ * ¿Ve el usuario actual esta ficha? Misma regla que la vista del alumno al cargar un mazo (`viewFor`),
+ * pero sin cargar sus fichas: revisados sin las retiradas por estar fuera del epígrafe; en mazos
+ * pendientes, solo las revisadas una a una. Propietario / admin de revisión: todas.
+ */
+export function isCardVisible(deckId: string, cardId: string): boolean {
+  const deck = RECALL_DECKS.find((d) => d.id === deckId);
+  if (!deck) return false;
+  if (canSeePendingDecks()) return true;
+  return deck.revision === 'revisado' ? !isCardOutOfSyllabus(cardId) : isCardReviewedInPendingDeck(deckId, cardId);
+}
+
 /** Fichas visibles para el usuario actual. */
 export function getVisibleTotalCards(): number {
   return getVisibleDecks().reduce((sum, d) => sum + d.count, 0);
+}
+
+/**
+ * Cifras del mensaje de valor: solo fichas con revisión completa (lo que ve cualquier alumno;
+ * coincide con getVisibleTotalCards() salvo para el propietario, que también ve mazos pendientes).
+ */
+export function resumenFichasRevisadas(): { fichas: number; temas: number } {
+  return {
+    fichas: REVIEWED_RECALL_DECKS.reduce((n, d) => n + d.count, 0),
+    temas: new Set(REVIEWED_RECALL_DECKS.map((d) => d.topicId)).size,
+  };
 }
 
 export function getRecallDeck(id: string): RecallDeck {

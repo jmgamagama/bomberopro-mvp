@@ -26,6 +26,18 @@ const BASE = process.env.BASE_URL || 'http://127.0.0.1:4174';
   await scan('ficha');
   await page.getByRole('button', { name: /mostrar respuesta/i }).click();
   await scan('ficha_respuesta');
+  // Fin de la sesión diaria (01-nov-2026): «vuelve mañana» y el simulacro como siguiente paso.
+  for (let i = 0; i < 40; i++) {
+    const done = page.getByRole('heading', { name: 'Sesión completada' });
+    if (await done.isVisible()) break;
+    const show = page.getByRole('button', { name: /mostrar respuesta/i });
+    if (await show.isVisible()) await show.click();
+    await page.getByRole('group', { name: '¿La sabías?' }).getByRole('button').first().click();
+    await Promise.race([page.getByRole('button', { name: /mostrar respuesta/i }).waitFor(), done.waitFor()]);
+  }
+  await page.locator('#daily-session-siguiente').waitFor();
+  await scan('fin_sesion');
+  await page.screenshot({ path: '/tmp/axe-fin-sesion.png', fullPage: true });
   await nav.getByRole('button', { name: 'Inicio' }).click(); await page.locator('#badajoz-2026').waitFor();
   await scan('portada');
   await nav.getByRole('button', { name: 'Simulacro' }).click();
@@ -48,6 +60,14 @@ const BASE = process.env.BASE_URL || 'http://127.0.0.1:4174';
   const planes = page.getByRole('button', { name: /^Planes/ }).first();
   await nav.getByRole('button', { name: 'Más' }).click();
   if (await planes.count()) { await planes.click(); await scan('planes'); }
+  // Inicio del invitado que vuelve al día siguiente (01-nov-2026): tarjeta «Tu sesión diaria» con fichas para hoy.
+  const manana = await ctx.newPage();
+  await manana.clock.install({ time: new Date(Date.now() + 86400000) });
+  await manana.goto(BASE);
+  await manana.locator('#sesion-hoy').waitFor({ timeout: 15000 });
+  await manana.waitForTimeout(400);
+  const am = await new AxeBuilder({ page: manana }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']).analyze();
+  res.inicio_manana = am.violations.filter((v) => ['serious', 'critical'].includes(v.impact)).map((v) => ({ id: v.id, n: v.nodes.length, ej: v.nodes.slice(0, 3).map((x) => x.target.join(' ')) }));
   const all = res;
   const graves = Object.entries(all).flatMap(([k, vs]) => vs.map((v) => `${k}: ${v.id} (${v.n}) ${v.ej.join(' | ')}`));
   console.log(graves.length ? graves.join('\n') : 'sin violaciones serious/critical');

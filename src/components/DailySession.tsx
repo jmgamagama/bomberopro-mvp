@@ -1,9 +1,8 @@
 import GuestSignupPrompt from './GuestSignupPrompt';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import AvisoGuardadoFichas from './AvisoGuardadoFichas';
-import { Flame, Play, Eye, EyeOff, CheckCircle2, ListOrdered, BarChart3, Lock } from 'lucide-react';
+import { Flame, Play, Eye, EyeOff, CheckCircle2, ListOrdered, BarChart3, Lock, HelpCircle, CalendarClock } from 'lucide-react';
 import {
-  pickDailyRecallSession,
   loadDailyStreak,
   completeDailySession,
   summarizeSession,
@@ -32,6 +31,17 @@ import { loadReviewLog, measuredElapsedMs } from '../utils/recallReviewLog';
 import ExamDateField from './ExamDateField';
 import DailyMinutesField from './DailyMinutesField';
 import FuenteOficial from './FuenteOficial';
+import { planHoyDelDispositivo } from '../utils/planHoy';
+import { resumenSesionHoy } from '../utils/sesionHoy';
+import { rachaViva, unidadRacha } from '../utils/racha';
+import RecordatorioDiario from './RecordatorioDiario';
+import VerEnEsquema from './VerEnEsquema';
+import { temaNumero } from '../utils/materialEnContexto';
+import { sincronizarRecordatorio } from '../lib/recordatorio';
+import { quitarPrioridad } from '../utils/planDiario';
+import { INITIAL_QUESTIONS } from '../data/initialData';
+import { EXAM_CORRECT_POINTS, EXAM_INCORRECT_POINTS } from '../utils/examScoring';
+import { formatPoints } from '../utils/formatNumber';
 
 interface DailySessionProps {
   /** Demo o sin cuenta: cambia el aviso de dónde se guarda el repaso. */
@@ -44,11 +54,13 @@ interface DailySessionProps {
   onOpenPlanes?: () => void;
   /** Invitado sin cuenta: al terminar, ofrecer guardar el progreso creando una cuenta. */
   onGuestSignup?: () => void;
+  /** Invitado: al terminar, siguiente paso del recorrido = simulacro de muestra (empieza directo). */
+  onTryExam?: () => void;
 }
 
 type Phase = 'intro' | 'study' | 'done' | 'stats';
 
-export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false, onOpenPlanes, demo = true, onGuestSignup }: DailySessionProps) {
+export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false, onOpenPlanes, demo = true, onGuestSignup, onTryExam }: DailySessionProps) {
   const plan = getPlan();
   const planesOn = isPlanesEnabled();
   const planSessionSize = getDailySessionSize(plan);
@@ -103,15 +115,11 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
   const preferredTopicRaw = preferredDeckId ? getVisibleTopic(preferredDeckId) : undefined;
   const preferredTopic = preferredTopicRaw && canAccessTopic(preferredTopicRaw, plan) ? preferredTopicRaw : undefined;
   const effectivePreferred = preferredTopic?.id ?? null;
+  // Misma selección que «Tu plan de hoy» del Inicio (src/utils/planHoy.ts): prioridades de mañana,
+  // tema con más fallos recientes si no se eligió uno, y el reparto de pickDailyRecallSession.
   const session = useMemo(
-    () =>
-      pool
-        ? pickDailyRecallSession(pool, sessionSize, undefined, {
-            preferredDeckId: effectivePreferred,
-            srs: srsSnapshot,
-            finalStretch,
-          })
-        : [],
+    () => (pool ? planHoyDelDispositivo(pool, { size: sessionSize, srs: srsSnapshot, preferredDeckId: effectivePreferred }).cards : []),
+    // finalStretch se lee dentro; se mantiene como dependencia para recalcular si cambia la fecha.
     [effectivePreferred, finalStretch, pool, sessionSize, srsSnapshot],
   );
   const mix = useMemo(() => summarizeSession(session, srsSnapshot), [session, srsSnapshot]);
@@ -127,6 +135,9 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
     () => getVisibleTopics().filter((topic) => session.some((card) => card.topicId === topic.id)),
     [session],
   );
+  // Fin de sesión: cuántas fichas de hoy vuelven mañana (solo lectura del estado guardado).
+  // Misma cifra que «Tu plan de hoy» del Inicio (resumenSesionHoy: todo lo que toca mañana, incluidas las prioridades).
+  const dueTomorrow = useMemo(() => resumenSesionHoy(new Date(), liveSrs).manana, [liveSrs]);
   const progressLabel = session.length === 0 ? '0 / 0' : `${index + 1} / ${session.length}`;
 
   const startSession = () => {
@@ -150,6 +161,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
     if (current?.deckId) {
       try {
         recordRecallGrade(current.deckId, current.id, grade, new Date(), measuredElapsedMs(shownAt.current));
+        quitarPrioridad(current.deckId, current.id);
       } catch (err) {
         if (!(err instanceof RecallSaveError)) throw err;
         setFailedGrade(grade);
@@ -170,6 +182,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
     if (index + 1 >= session.length) {
       const nextStreak = completeDailySession();
       setStreak(nextStreak);
+      sincronizarRecordatorio();
       setPhase('done');
       return;
     }
@@ -299,8 +312,8 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
             </div>
             <div className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
               <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-slate-500">Racha</span>
-              <span className="text-3xl font-extrabold text-orange-600">{streak.streakCount}</span>
-              <span className="mt-1 block text-[10px] text-slate-500">días seguidos</span>
+              <span className="text-3xl font-extrabold text-orange-600" id="daily-session-racha-intro">{rachaViva(streak)}</span>
+              <span className="mt-1 block text-[10px] text-slate-500">{unidadRacha(rachaViva(streak))}</span>
             </div>
           </div>
 
@@ -394,6 +407,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
                 </p>
                 {current.answer}
               </div>
+              <VerEnEsquema tema={temaNumero(current.topicId)} fuente={current.fuente} origen="esta ficha" />
               {failedGrade !== null && (
                 <div role="alert" id="recall-save-error" className="space-y-2 rounded-xl border border-orange-200 bg-orange-50 p-3 text-sm text-orange-900">
                   <p>No se ha podido guardar tu respuesta en este dispositivo. La ficha sigue aquí.</p>
@@ -422,9 +436,31 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
           </p>
           <div className="mx-auto max-w-xs rounded-2xl border border-orange-100 bg-orange-50 p-4">
             <p className="text-[10px] font-bold uppercase tracking-wider text-orange-700">Racha</p>
-            <p className="text-4xl font-black text-orange-600">{streak.streakCount}</p>
-            <p className="text-xs text-orange-700">días seguidos</p>
+            <p className="text-4xl font-black text-orange-600" id="daily-session-racha">{rachaViva(streak)}</p>
+            <p className="text-xs text-orange-700">{unidadRacha(rachaViva(streak))}</p>
           </div>
+          <p className="mx-auto flex max-w-md items-start justify-center gap-2 text-sm text-slate-700" id="daily-session-manana">
+            <CalendarClock className="mt-0.5 h-4 w-4 shrink-0 text-orange-700" aria-hidden="true" />
+            <span>
+              {dueTomorrow > 0
+                ? <>Mañana te tocan <strong>{dueTomorrow} {dueTomorrow === 1 ? 'ficha' : 'fichas'}</strong>. Vuelve para que no se te olviden y sume tu racha.</>
+                : 'Vuelve mañana para que sume tu racha.'}
+            </span>
+          </p>
+          <RecordatorioDiario idPrefix="recordatorio-fin" />
+          {onTryExam && (
+            <aside aria-labelledby="daily-session-siguiente-titulo" id="daily-session-siguiente" className="mx-auto max-w-md space-y-2 rounded-2xl border border-orange-200 bg-orange-50 p-4 text-left">
+              <h3 id="daily-session-siguiente-titulo" className="text-base font-bold text-slate-900">Siguiente paso: ponte a prueba</h3>
+              <p className="text-sm text-slate-700">
+                Simulacro de muestra con {INITIAL_QUESTIONS.length} preguntas de 3 opciones y la puntuación del examen
+                ({formatPoints(EXAM_CORRECT_POINTS)} por acierto, {formatPoints(EXAM_INCORRECT_POINTS)} por fallo). Sin cuenta.
+              </p>
+              <button type="button" id="btn-daily-simulacro" onClick={onTryExam}
+                className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-orange-700 px-4 py-2 text-sm font-bold text-white hover:bg-orange-800">
+                <HelpCircle className="h-4 w-4" aria-hidden="true" /> Hacer el simulacro de muestra
+              </button>
+            </aside>
+          )}
           {onGuestSignup && <GuestSignupPrompt what="tu sesión de fichas" onSignup={onGuestSignup} />}
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <button

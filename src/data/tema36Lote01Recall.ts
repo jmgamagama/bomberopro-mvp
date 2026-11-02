@@ -24,8 +24,8 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
     "orden": 10,
     "concepto": "¿Cuál es la capital de la provincia?",
     "respuesta": "Badajoz.",
-    "fuente": "IGN: Nomenclátor Geográfico de Municipios y Entidades de Población",
-    "localizacion": "tabla 2859 / Nomenclátor",
+    "fuente": "IGN: Nomenclátor Geográfico Básico de España (NGBE)",
+    "localizacion": "NGBE 2721311: «Badajoz», tipo «Capital de provincia», nombre oficial (WFS NGBE del IGN, consultado el 31/10/2026)",
     "apartado": "Marco"
   },
   {
@@ -58,10 +58,10 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
   {
     "id": "CPEI-T36-S01-73F24B915A",
     "orden": 50,
-    "concepto": "¿Qué fuente decide la denominación oficial y georreferenciada?",
-    "respuesta": "El Nomenclátor Geográfico de Municipios y Entidades de Población del IGN.",
-    "fuente": "IGN: Nomenclátor Geográfico de Municipios y Entidades de Población",
-    "localizacion": "tabla 2859 / Nomenclátor",
+    "concepto": "Según el Real Decreto 1545/2007, ¿qué registro recoge las denominaciones oficiales referenciadas geográficamente que deben utilizarse en la cartografía oficial?",
+    "respuesta": "El Nomenclátor Geográfico Nacional.",
+    "fuente": "Real Decreto 1545/2007, de 23 de noviembre, por el que se regula el Sistema Cartográfico Nacional (BOE-A-2007-20556)",
+    "localizacion": "art. 23.1: «El Nomenclátor Geográfico Nacional es un registro dinámico de información que recoge las denominaciones oficiales referenciadas geográficamente que deben utilizarse en la cartografía oficial»",
     "apartado": "Marco"
   },
   {
@@ -706,10 +706,10 @@ export const TEMA36_LOTE01_RECALL_CARDS: Tema36Lote01RecallCard[] = [
   {
     "id": "CPEI-T36-S06-290EA56D14",
     "orden": 3620,
-    "concepto": "¿Dónde se localiza Laguna de La Albuera?",
-    "respuesta": "complejo lagunar de La Albuera.",
-    "fuente": "SITEX: centro de descargas y cartografía de Extremadura",
-    "localizacion": "SIN VERIFICAR (sin artículo ni página): hidrografía y cartografía oficial",
+    "concepto": "¿Dónde se localiza el Complejo Lagunar de La Albuera, humedal Ramsar de la provincia de Badajoz?",
+    "respuesta": "En los términos municipales de La Albuera, Badajoz, Torre de Miguel Sesmero y Nogales: siete lagunas naturales y cuatro charcas artificiales (1.878,31 ha).",
+    "fuente": "Resolución de 18/12/2002 de la D. G. de Conservación de la Naturaleza (Acuerdo del Consejo de Ministros de 15/11/2002, inclusión en la Lista Ramsar), BOE nº 14, 16/01/2003, BOE-A-2003-989",
+    "localizacion": "anexo, «Ficha sintética descriptiva: Complejo Lagunar de La Albuera» (municipios, superficie y descripción), p. 2013",
     "apartado": "Laguna de La Albuera"
   },
   {

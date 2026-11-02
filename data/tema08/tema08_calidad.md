@@ -5,7 +5,7 @@
 ## Fuente
 
 - INSST, Temas específicos del proceso selectivo de Titulados Superiores, Tema 33 (v. abril 2025) — INSST-T33, texto consolidado del BOE, última actualización/versión 30/04/2025: https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i- (copia en /workspace/fuentes_oficiales/tema08/)
-- INSST, Temas específicos del proceso selectivo, Tema 12 Explosiones — INSST-T12-EXPLOSIONES, texto consolidado del BOE, última actualización/versión 22/03/2026: https://www.insst.es/documents/d/portal-insst/tema-41-explosiones (copia en /workspace/fuentes_oficiales/tema08/)
+- INSST, Temas específicos del proceso selectivo de Titulados Superiores, Tema 41 «Explosiones» (v. enero 2026) — INSST-T12-EXPLOSIONES, texto consolidado del BOE, última actualización/versión 22/03/2026: https://www.insst.es/documents/d/portal-insst/tema-41-explosiones (copia en /workspace/fuentes_oficiales/tema08/)
 
 ## Resultado
 

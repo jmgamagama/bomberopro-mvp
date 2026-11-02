@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect, useLayoutEffect, useRef, lazy, Suspense } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef, useCallback, lazy, Suspense } from 'react';
 import { Brain, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles, ClipboardList, Menu } from 'lucide-react';
 import { trackFunnel } from './lib/funnel';
 import { getVisibleSupuestos } from './data/supuestos/supuestosRegistry';
@@ -31,7 +31,7 @@ import { getAdaptiveQuestion, processAttempt, getAdaptiveDailySession, createNew
 import { MAX_VALID_RESPONSE_SECONDS } from './utils/activeTimer';
 
 import type { AccountErrorsState } from './components/AccountErrorPanel';
-import AccesoConfirmado from './components/AccesoConfirmado';
+const AccesoConfirmado = lazy(() => import('./components/AccesoConfirmado'));
 import { retornoAuthInicial, limpiarUrlRetornoAuth } from './lib/authRetorno';
 import { fetchKeyless } from './lib/secureQuestions';
 import { supabase } from './lib/supabase';
@@ -48,11 +48,18 @@ import { setLocalDataOwner } from './utils/localOwner';
 import { cargarSupuestosCuenta } from './lib/privateSupuestos';
 import { shuffleAllOptions } from './utils/shuffleOptions';
 import { newStudySessionId, startStudySession, finishStudySession } from './lib/studySession';
-import { TrainCelebration } from './components/SessionCelebration';
+const TrainCelebration = lazy(() => import('./components/SessionCelebration').then((m) => ({ default: m.TrainCelebration })));
 import Dashboard from './components/Dashboard';
-import TrainScreen from './components/TrainScreen';
+// rendimiento-2 (01/11/2026): fuera del JS inicial; ya van dentro de un <Suspense> (o se envuelven aquí).
+const TrainScreen = lazy(() => import('./components/TrainScreen'));
 import Badajoz2026Card from './components/Badajoz2026Card';
-import { hasGuestSignupIntent, markGuestSignupIntent, markPreferLogin, migrateGuestProgress, prefersLogin } from './utils/guestProgress';
+import SesionHoyCard from './components/SesionHoyCard';
+import RecordatorioDiario from './components/RecordatorioDiario';
+import { AbrirMaterialContext, type AbrirMaterial } from './components/abrirMaterial';
+import type { DestinoMaterial } from './utils/materialEnContexto';
+import { comprobarRecordatorio } from './lib/recordatorio';
+import { clearPreferLogin, hasGuestSignupIntent, markGuestSignupIntent, markPreferLogin, migrateGuestProgress, prefersLogin } from './utils/guestProgress';
+import { precargarTemas } from './lib/temasCache';
 import Skeleton from './components/Skeleton';
 import AppShell from './components/AppShell';
 
@@ -75,13 +82,15 @@ const MyReports = lazy(() => import('./components/MyReports'));
 const AccountErrorPanel = lazy(() => import('./components/AccountErrorPanel'));
 const ConceptStudy = lazy(() => import('./components/ConceptStudy'));
 const MaterialConstitucion = lazy(() => import('./components/MaterialConstitucion'));
+const MaterialTemaPantalla = lazy(() => import('./components/MaterialTema'));
 const RecallHub = lazy(() => import('./components/RecallHub'));
 const DailySession = lazy(() => import('./components/DailySession'));
 const OrdenaPasos = lazy(() => import('./components/OrdenaPasos'));
 const SupuestosPracticos = lazy(() => import('./components/SupuestosPracticos'));
 import Onboarding from './components/Onboarding';
-import { MATERIAL_TEMAS } from './data/materialTemas';
+import { TEMAS_CON_MATERIAL } from './data/materialTemasIndice';
 const Planes = lazy(() => import('./components/Planes'));
+const TuProgreso = lazy(() => import('./components/TuProgreso'));
 
 const SCREEN_TITLES = {
   dashboard: 'Inicio',
@@ -101,6 +110,7 @@ const SCREEN_TITLES = {
   ordena_pasos: 'Ordena los pasos',
   supuestos: 'Supuestos prácticos',
   mas: 'Más',
+  progreso: 'Tu progreso',
 } as const;
 
   const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds: number | null, modo: 'adaptativo' | 'simulacro' = 'adaptativo', nivel: unknown = 1, sessionId: string | null = null) => {
@@ -124,7 +134,7 @@ const SCREEN_TITLES = {
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
-    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes' | 'mas'
+    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes' | 'mas' | 'progreso'
   >(() => (hasCompletedOnboarding() ? (isSupuestosHash() ? 'supuestos' : 'dashboard') : 'onboarding'));
   // Página de planes: solo con VITE_FEATURE_PLANES=true (por defecto no aparece nada).
   const planesEnabled = isPlanesEnabled();
@@ -182,6 +192,27 @@ export default function App() {
   const trainingSessionOpened = useRef(false);
   const trainingSessionFinished = useRef(false);
 
+  // Material en contexto (01/11/2026): «Ver en el esquema del tema» abre el material ENCIMA de la pantalla
+  // actual, que sigue montada (la sesión, el simulacro o «Tu progreso» no se pierden al volver).
+  const [materialFoco, setMaterialFoco] = useState<{ d: DestinoMaterial; origen: string; volverA: HTMLElement | null } | null>(null);
+  const abrirMaterial = useCallback<AbrirMaterial>((d, origen) => {
+    setMaterialFoco({ d, origen, volverA: document.activeElement instanceof HTMLElement ? document.activeElement : null });
+  }, []);
+  const cerrarMaterial = () => {
+    const v = materialFoco?.volverA;
+    setMaterialFoco(null);
+    window.setTimeout(() => v?.focus(), 0);
+  };
+  const dialogoMaterial = useRef<HTMLDivElement>(null);
+  useEffect(() => { if (materialFoco) dialogoMaterial.current?.focus(); }, [materialFoco]);
+
+  // Recordatorio diario con la app abierta: comprobación cada minuto, sin pedir permisos.
+  useEffect(() => {
+    void comprobarRecordatorio();
+    const t = window.setInterval(() => { void comprobarRecordatorio(); }, 60_000);
+    return () => window.clearInterval(t);
+  }, []);
+
   useEffect(() => {
     document.title = `${SCREEN_TITLES[currentScreen]} | BomberoPro`;
   }, [currentScreen]);
@@ -223,6 +254,24 @@ export default function App() {
 
     return () => { active = false; subscription.unsubscribe(); };
   }, []);
+
+  // Rendimiento: con la sesión resuelta y la app en reposo, se precargan el código y los datos de «Temas»
+  // para que al tocarlo ya estén (sin esperar a que baje el código y después los datos).
+  useEffect(() => {
+    if (loadingAuth) return;
+    const conCuenta = Boolean(session?.user?.id);
+    const precargar = () => {
+      void import('./components/StudyByTopic');
+      precargarTemas(conCuenta);
+    };
+    const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number; cancelIdleCallback?: (id: number) => void };
+    if (typeof w.requestIdleCallback === 'function') {
+      const id = w.requestIdleCallback(precargar, { timeout: 3000 });
+      return () => w.cancelIdleCallback?.(id);
+    }
+    const id = window.setTimeout(precargar, 1500);
+    return () => window.clearTimeout(id);
+  }, [loadingAuth, session?.user?.id]);
 
   // El progreso local pertenece a la cuenta con sesión (o a la demostración si no hay ninguna).
   // Se recarga al resolverse la sesión y al cambiar de cuenta.
@@ -341,7 +390,7 @@ export default function App() {
 
   // Handle switching screens
   const handleNavigate = (
-    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes' | 'mas'
+    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes' | 'mas' | 'progreso'
   ) => {
     if (screen === 'planes') trackFunnel('planes_view');
     setDailyAutoStart(false);
@@ -681,6 +730,20 @@ export default function App() {
     void startTrainingSession(null, INITIAL_QUESTIONS);
   };
 
+  // «Seguir sin cuenta con mi progreso» (pantalla de acceso): vuelve al modo invitado sin empezar de cero.
+  // Sin sesión, el dueño del progreso local es la demo: se recargan sus respuestas guardadas (test y simulacro).
+  // Es una elección explícita: se quita la marca de «prefiere el acceso» para que al volver entre directo a su
+  // progreso. En un equipo compartido basta con «Salir» en la franja del modo invitado, que vuelve a poner la marca.
+  const handleContinueGuest = () => {
+    setLoginMode('entrar');
+    handleStartDemo(false);
+    if (!session) {
+      clearPreferLogin();
+      setAttempts(getAttempts());
+      setMemoryStates(getSafeMemoryStates());
+    }
+  };
+
   // Pantalla de acceso con la que se vuelve de la demo: «crear» si el alumno pulsa el botón de alta (textoAlta()).
   const [loginMode, setLoginMode] = useState<'entrar' | 'crear'>('entrar');
   // Vuelta desde un enlace del correo (cuenta activada, invitación, contraseña o enlace caducado).
@@ -731,7 +794,7 @@ export default function App() {
   const estudiarScreen: Screen = conceptOwner ? 'concept_t40' : 'train';
   const MAS_SCREENS: Screen[] = ['mas', 'errors', 'forgetting_curve', 'recuerdo', 'sesion_diaria', 'ordena_pasos', 'today_training', 'supuestos', 'my_reports', 'planes', 'constitucion'];
   const mobileTabs: { key: string; label: string; Icon: typeof LayoutDashboard; target: Screen; active: Screen[] }[] = [
-    { key: 'inicio', label: 'Inicio', Icon: LayoutDashboard, target: 'dashboard', active: ['dashboard'] },
+    { key: 'inicio', label: 'Inicio', Icon: LayoutDashboard, target: 'dashboard', active: ['dashboard', 'progreso'] },
     { key: 'estudiar', label: 'Estudiar', Icon: Target, target: estudiarScreen, active: ['concept_t40', 'train'] },
     { key: 'temas', label: 'Temas', Icon: BookOpen, target: 'study_by_topic', active: ['study_by_topic'] },
     { key: 'simulacro', label: 'Simulacro', Icon: HelpCircle, target: 'mock_exam', active: ['mock_exam'] },
@@ -752,11 +815,13 @@ export default function App() {
     return (
       <>
         <UpdateBanner />
-        <AccesoConfirmado
-          retorno={retornoAuth}
-          conSesion={!!session?.user?.id}
-          onContinuar={() => { limpiarUrlRetornoAuth(); setLoginMode('entrar'); setRetornoAuth(null); }}
-        />
+        <Suspense fallback={<Skeleton label="Cargando…" className="p-6" />}>
+          <AccesoConfirmado
+            retorno={retornoAuth}
+            conSesion={!!session?.user?.id}
+            onContinuar={() => { limpiarUrlRetornoAuth(); setLoginMode('entrar'); setRetornoAuth(null); }}
+          />
+        </Suspense>
       </>
     );
   }
@@ -767,13 +832,25 @@ export default function App() {
         {/* Si la sesión caduca a mitad de estudio, aquí se avisa de lo que sigue pendiente. */}
         <UpdateBanner />
         <SaveFailureBanner showIfPending />
-        <Suspense fallback={<Skeleton label="Cargando la pantalla de acceso…" className="p-6" />}><Login initialMode={loginMode} onStartDemo={() => { setLoginMode('entrar'); handleStartDemo(true); }} /></Suspense>
+        <Suspense fallback={<Skeleton label="Cargando la pantalla de acceso…" className="p-6" />}><Login initialMode={loginMode} onStartDemo={() => { setLoginMode('entrar'); handleStartDemo(true); }} onContinueGuest={handleContinueGuest} /></Suspense>
       </>
     );
   }
 
   return (
+    <AbrirMaterialContext.Provider value={abrirMaterial}>
     <div className="min-h-screen bg-fondo flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
+      {materialFoco && (
+        <div ref={dialogoMaterial} tabIndex={-1} role="dialog" aria-modal="true" aria-label={`Material del tema ${materialFoco.d.tema}`}
+          id="material-contexto" className="fixed inset-0 z-[60] overflow-y-auto bg-fondo px-4 pb-8 pt-4 outline-none">
+          <Suspense fallback={<Skeleton label="Cargando el material…" />}>
+            <MaterialTemaPantalla userId={session?.user?.id ?? 'demo'} tema={materialFoco.d.tema} onExit={cerrarMaterial}
+              volverLabel={materialFoco.origen === 'Tu progreso' ? 'Volver a Tu progreso' : materialFoco.origen === 'este fallo' ? 'Volver al resultado' : 'Volver a la ficha'}
+              foco={materialFoco.d} origen={materialFoco.origen === 'Tu progreso' ? undefined : materialFoco.origen} />
+          </Suspense>
+        </div>
+      )}
+      <div className="contents" inert={materialFoco ? true : undefined}>
       <UpdateBanner />
       <SaveFailureBanner />
       <SaveStatus />
@@ -945,7 +1022,7 @@ export default function App() {
               className="mb-6 flex w-full items-center justify-between gap-4 rounded-2xl border border-indigo-200 bg-white p-5 text-left shadow-sm hover:bg-indigo-50"
             >
               <span>
-                <span className="block text-xs font-bold uppercase tracking-wider text-indigo-600">Material por tema · Temas {MATERIAL_TEMAS.map((m) => m.tema).sort((a, b) => a - b).join(', ')}</span>
+                <span className="block text-xs font-bold uppercase tracking-wider text-indigo-600">Material por tema · Temas {TEMAS_CON_MATERIAL.join(', ')}</span>
                 <span className="mt-1 block text-lg font-bold text-slate-900">Esquema, texto oficial y fuentes</span>
                 <span className="mt-0.5 block text-sm text-slate-600">Elige un tema: verás qué material tiene, el enlace a su norma oficial y sus conceptos para estudiar.</span>
               </span>
@@ -957,9 +1034,18 @@ export default function App() {
               Mis reportes
             </button>
           )}
+          <SesionHoyCard
+            preguntasPendientes={pendingCount}
+            onOpenPreguntas={() => handleNavigate('today_training')}
+            onOpen={(directo) => {
+              handleNavigate('sesion_diaria');
+              setDailyAutoStart(directo);
+            }}
+          />
+          <RecordatorioDiario idPrefix="recordatorio-inicio" />
           <Badajoz2026Card
             onOpenSupuestos={supuestosVisibles ? () => handleNavigate('supuestos') : undefined}
-            onOpenProgress={() => handleNavigate('recuerdo')}
+            onOpenProgress={() => handleNavigate('progreso')}
           />
           <Dashboard
             remoteProgress={conceptOwner ? remoteConcepts.state : undefined}
@@ -1126,6 +1212,17 @@ export default function App() {
               onNavigateHome={() => handleNavigate('dashboard')}
               onOpenOrdenaPasos={() => handleNavigate('ordena_pasos')}
               onGuestSignup={supabase && !session ? handleDemoSignup : undefined}
+              onTryExam={isDemoMode || !session ? () => {
+                handleNavigate('mock_exam');
+                setMockAutoStart(true);
+              } : undefined}
+            />
+          )}
+
+          {currentScreen === 'progreso' && (
+            <TuProgreso
+              onNavigateHome={() => handleNavigate('dashboard')}
+              onOpenTopic={(topicId) => { handleNavigate('recuerdo'); setRecallTarget(topicId); }}
             />
           )}
 
@@ -1216,6 +1313,8 @@ export default function App() {
           </div>
         </div>
       </footer>
+      </div>
     </div>
+    </AbrirMaterialContext.Provider>
   );
 }

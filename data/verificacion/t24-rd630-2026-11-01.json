@@ -1,0 +1,167 @@
+{
+ "norma": "BOE-A-2013-8565",
+ "titulo": "Real Decreto 630/2013, de 2 de agosto, por el que se regula el Catálogo español de especies exóticas invasoras",
+ "consultado": "2026-11-01",
+ "fuentes": [
+  "https://www.boe.es/datosabiertos/api/legislacion-consolidada/id/BOE-A-2013-8565/texto",
+  "https://www.boe.es/datosabiertos/api/legislacion-consolidada/id/BOE-A-2013-8565/analisis",
+  "https://www.boe.es/buscar/act.php?id=BOE-A-2013-8565"
+ ],
+ "ultima_actualizacion_publicada": "19/10/2026",
+ "norma_modificadora": "Orden TED/1096/2026, de 6 de octubre (BOE-A-2026-21770), art. 2: modifica el anexo; en vigor el 20/10/2026",
+ "captura_anterior": {
+  "fecha_actualizacion_xml": "20251219T174450Z",
+  "ultima_actualizacion_publicada": "12/05/2025 (Orden TED/452/2025)",
+  "sha256_texto": "e992ff07060891b55f264edc44f99f1a3036b293904dce0abc5ca9177505dafe"
+ },
+ "captura_nueva": {
+  "fecha_actualizacion_xml": "20261019T121717Z",
+  "sha256_texto": "8befbd7127a502ba8ee91927c8582bac7be19398a4cd58c91fdb9edda8a072a3"
+ },
+ "bloques_cambiados": [
+  "an"
+ ],
+ "cambios_en_anexo": [
+  "Se añaden: Axonopus fissifolius (gramalote); Hydrocharis L. salvo H. morsus-ranae; Paspalum notatum; Paspalum vaginatum; Stenotaphrum secundatum; Crematogaster castanea; Messor cephalotes.",
+  "Colubridae sensu lato: con excepción de Macroprotodon mauritanicus y Natrix maura en Mallorca y Menorca y de Zamenis scalaris en Menorca; ámbito pasa de «Canarias, Ibiza y Formentera» a «Canarias y todo el archipiélago balear».",
+  "Sus scrofa var. domestica: nueva nota de alcance (mascotas, medio natural y núcleos zoológicos; no explotaciones agrarias); nombre común «Cerdo vietnamita, incluyendo sus híbridos y los denominados «minipigs»».",
+  "Filas de Vespa orientalis y Vespa spp. (especies no europeas): sin cambios."
+ ],
+ "fichas": [
+  {
+   "id": "CPEI-T24-OF-B672BB81",
+   "bloque_boe": "a2",
+   "respuesta": "Especie exótica que se introduce o establece en un ecosistema o hábitat natural o seminatural, y que es un agente de cambio y amenaza para la diversidad biológica nativa, ya sea por su comportamiento invasor, o por el riesgo de contaminación genética",
+   "literal_en_texto_vigente": true,
+   "bloque_cambiado_19_10_2026": false
+  },
+  {
+   "id": "CPEI-T24-OF-B7070939",
+   "bloque_boe": "a2",
+   "respuesta": "Proceso tendente a la eliminación de toda la población de una especie",
+   "literal_en_texto_vigente": true,
+   "bloque_cambiado_19_10_2026": false
+  },
+  {
+   "id": "CPEI-T24-OF-BD257391",
+   "bloque_boe": "a2",
+   "respuesta": "Reducir su área de distribución, limitar su abundancia y densidad o impedir su dispersión",
+   "literal_en_texto_vigente": true,
+   "bloque_cambiado_19_10_2026": false
+  },
+  {
+   "id": "CPEI-T24-OF-DD554E51",
+   "bloque_boe": "a2",
+   "respuesta": "La existente dentro de su área de distribución y de dispersión natural",
+   "literal_en_texto_vigente": true,
+   "bloque_cambiado_19_10_2026": false
+  },
+  {
+   "id": "CPEI-T24-OF-8EA176E8",
+   "bloque_boe": "a2",
+   "respuesta": "El movimiento por acción humana, voluntaria o accidental, de una especie fuera de su área de distribución natural",
+   "literal_en_texto_vigente": true,
+   "bloque_cambiado_19_10_2026": false,
+   "nota": "El BOE dice «Introducción: se refiere al movimiento por acción humana, voluntaria o accidental, de una especie fuera de su área de distribución natural»; la ficha solo cambia «al» por «El». Art. 2 sin cambios desde la captura; se deja igual que se aprobó."
+  },
+  {
+   "id": "CPEI-T24-OF-6D7D304C",
+   "bloque_boe": "a2",
+   "respuesta": "Espécimen animal de procedencia doméstica, que está establecido y se mueve libremente en el medio natural y no vive ni se cría bajo tutela, manejo ni supervisión de las personas",
+   "literal_en_texto_vigente": true,
+   "bloque_cambiado_19_10_2026": false
+  },
+  {
+   "id": "CPEI-T24-OF-F4A1A715",
+   "bloque_boe": "a2",
+   "respuesta": "Especie exótica que podría convertirse en invasora en España",
+   "literal_en_texto_vigente": true,
+   "bloque_cambiado_19_10_2026": false
+  },
+  {
+   "id": "CPEI-T24-OF-982CD433",
+   "bloque_boe": "a3",
+   "respuesta": "En el anexo",
+   "literal_en_texto_vigente": true,
+   "bloque_cambiado_19_10_2026": false
+  },
+  {
+   "id": "CPEI-T24-OF-1994E3E4",
+   "bloque_boe": "a4",
+   "respuesta": "Las especies exóticas para las que exista información científica y técnica que indique que constituyen una amenaza grave para las especies autóctonas, los hábitats o los ecosistemas, la agronomía o para los recursos económicos asociados al uso del patrimonio natural",
+   "literal_en_texto_vigente": true,
+   "bloque_cambiado_19_10_2026": false
+  },
+  {
+   "id": "CPEI-T24-OF-36DCCD67",
+   "bloque_boe": "a5",
+   "respuesta": "El Ministerio para la Transición Ecológica",
+   "literal_en_texto_vigente": true,
+   "bloque_cambiado_19_10_2026": false
+  },
+  {
+   "id": "CPEI-T24-OF-EDD0147F",
+   "bloque_boe": "a7",
+   "respuesta": "La prohibición genérica de su posesión, transporte, tráfico y comercio de ejemplares vivos, de sus restos o propágulos",
+   "literal_en_texto_vigente": true,
+   "bloque_cambiado_19_10_2026": false
+  },
+  {
+   "id": "CPEI-T24-OF-3564DBDF",
+   "bloque_boe": "a7",
+   "respuesta": "Por razones de investigación, salud o seguridad de las personas, o con fines de control o erradicación",
+   "literal_en_texto_vigente": true,
+   "bloque_cambiado_19_10_2026": false
+  },
+  {
+   "id": "CPEI-T24-OF-86B0F9BE",
+   "bloque_boe": "a7",
+   "respuesta": "No podrán ser devueltos al medio natural",
+   "literal_en_texto_vigente": true,
+   "bloque_cambiado_19_10_2026": false
+  },
+  {
+   "id": "CPEI-T24-OF-CE2FCB7F",
+   "bloque_boe": "an",
+   "respuesta": "Vespa orientalis",
+   "literal_en_texto_vigente": true,
+   "bloque_cambiado_19_10_2026": true
+  },
+  {
+   "id": "CPEI-T24-OF-C7CC94CF",
+   "bloque_boe": "an",
+   "respuesta": "Vespa spp. (especies no europeas)",
+   "literal_en_texto_vigente": true,
+   "bloque_cambiado_19_10_2026": true
+  },
+  {
+   "id": "CPEI-T24-OF-8817CF0D",
+   "bloque_boe": "a10",
+   "respuesta": "Las prioridades determinadas por la gravedad de la amenaza y el grado de dificultad previsto para su erradicación",
+   "literal_en_texto_vigente": true,
+   "bloque_cambiado_19_10_2026": false
+  },
+  {
+   "id": "CPEI-T24-OF-B3560F3A",
+   "bloque_boe": "a14",
+   "respuesta": "La Red de Alerta para la vigilancia de especies exóticas invasoras",
+   "literal_en_texto_vigente": true,
+   "bloque_cambiado_19_10_2026": false
+  },
+  {
+   "id": "CPEI-T24-OF-38F29B9F",
+   "bloque_boe": "a14",
+   "respuesta": "Redes de alerta temprana",
+   "literal_en_texto_vigente": true,
+   "bloque_cambiado_19_10_2026": false
+  },
+  {
+   "id": "CPEI-T24-OF-89EA473C",
+   "bloque_boe": "a18",
+   "respuesta": "Al régimen sancionador previsto en la Ley 42/2007, de 13 de diciembre",
+   "literal_en_texto_vigente": true,
+   "bloque_cambiado_19_10_2026": false
+  }
+ ],
+ "resultado": "19 de 19 correctas en el texto vigente (18 al pie de la letra y 1 con «al»→«El», art. 2 sin cambios); 0 ocultas; solo cambia la fecha citada"
+}

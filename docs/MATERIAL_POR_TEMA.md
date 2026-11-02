@@ -1,19 +1,64 @@
-# Material por tema (esquema y texto oficial): estado y temas sin norma consolidada
+# Material por tema (esquema y texto oficial): estado de los 40 temas
 
-Actualizado el 31/10/2026. El material se genera con `scripts/generar_material_boe.py scripts/material/temaNN.json`.
-Solo usa el texto consolidado del BOE (`scripts/fuente_boe.py`, API de datos abiertos), recortado al epígrafe del
-anexo I (BOP de Badajoz n.º 135, 17/07/2026). No genera la capa «desarrollo»: esa capa la redacta una persona.
+Actualizado el 01/11/2026. El material se genera con `scripts/generar_material_boe.py scripts/material/temaNN.json`.
+Usa el texto consolidado del BOE (y, desde el 01/11/2026, el PDF oficial de las normas del DOE de T20, T29 y T30: `docs/MATERIAL_DOE.md`) (`scripts/fuente_boe.py`, API de datos abiertos), recortado al epígrafe del
+anexo I (BOP de Badajoz n.º 135, 17/07/2026; `data/temario/cpei-badajoz-2026-anexo1.md`). No genera la capa
+«desarrollo»: esa capa la redacta una persona. La vigencia se comprueba con `python3 scripts/verificar_vigencia_boe.py`
+(resultado en `docs/VIGENCIA_MATERIAL_BOE.md`).
+
+Criterio para generar un tema: su epígrafe cita una norma, o pide algo («hidrantes», «distancias de seguridad en función
+de la tensión», «normativa de los EPI»…) que regula una norma concreta con texto consolidado en el BOE. Se genera solo la
+parte de la norma que pide el epígrafe. Cuando el epígrafe se apoya en documentos que no están en el BOE consolidado
+(normas UNE, DOUE, DOE, BOP, guías del INSST, documentos internos), no se genera nada y se deja anotado abajo.
+
+## Temas con material
 
 | Tema | Norma | Versión BOE | Alcance generado |
 |---|---|---|---|
-| 1 | Constitución (BOE-A-1978-31229) | 20/05/2026 | piloto: 6 bloques con 3 capas (`scripts/generar_material.py` + redacción revisada) |
+| 1 | Constitución (BOE-A-1978-31229) | 29/10/2026 | piloto: 6 bloques con 3 capas (`scripts/generar_material.py` + redacción revisada). Frente al 20/05/2026 solo cambian metadatos (ver más abajo) |
 | 2 | Estatuto de Autonomía de Extremadura (BOE-A-2011-1638) | 30/10/2026 | Tít. Preliminar, I y II (arts. 1–48) |
 | 3 | LBRL (BOE-A-1985-5392) | 05/10/2026 | Tít. III, organización y competencias (arts. 31–38) |
 | 6 | LPRL (BOE-A-1995-24292) | 23/10/2026 | caps. I–IV (arts. 1–32 bis) |
 | 7 | Ley 8/2011 de Extremadura (BOE-A-2011-6651) | 19/12/2025 | Tít. Preliminar, Tít. II y Tít. IV cap. II |
+| 10 | RIPCI, RD 513/2017 (BOE-A-2017-6606) | 19/12/2025 | anexo I secc. 1.ª apdos. 2, 3, 5 y 6 (abastecimiento de agua, hidrantes, BIE, columna seca) |
+| 12 | RIPCI, RD 513/2017 (BOE-A-2017-6606) | 19/12/2025 | anexo I secc. 1.ª apdo. 4 (extintores: clasificación, emplazamiento y distribución) |
+| 13 | RD 773/1997, EPI (BOE-A-1997-12735) | 18/12/2025 | arts. 1–10 y anexos I–IV |
+| 20 | Plan INFOEX, Decreto 132/2022 (DOE-2022040193, texto consolidado del DOE) | DOE, últ. modif. 05/11/2024; comprobado a mano el 01/11/2026 | caps. II–VII (arts. 4–20). El epígrafe no cita norma: se genera la que citan las fichas del tema. Ver `docs/MATERIAL_DOE.md` |
+| 22 | RD 1215/1997 (BOE-A-1997-17824) | 18/12/2025 | anexo II apdo. 4, trabajos temporales en altura (RD 2177/2004) |
+| 25 | RD 97/2014, mercancías peligrosas por carretera (BOE-A-2014-2110) | 26/06/2026 | cap. I (arts. 1–3) y cap. IV, actuación en caso de avería o accidente (arts. 20–23) |
+| 28 | RD 614/2001, riesgo eléctrico (BOE-A-2001-11881) | 18/12/2025 | arts. 1–6 y anexos I–VI (definiciones y distancias, trabajos sin/en tensión, maniobras, proximidad, emplazamientos con riesgo de incendio o explosión). **+ REBT, RD 842/2002 (BOE-A-2002-18099), 18/12/2025**, baja tensión, acometidas e instalaciones de enlace: Reglamento arts. 4, 8 y 15; ITC-BT-06, 07, 08 y 11 (redes y acometidas); ITC-BT-12 a 17 (instalaciones de enlace). Sin alta tensión (RD 337/2014, RD 223/2008) |
+| 29 | PLATERCAEX, Decreto 187/2019 (DOE-2019040203; texto del plan en el PDF oficial de la Junta, al que remite el decreto) | PDF de 31/01/2020; comprobado a mano el 01/11/2026 | caps. I (I.1–I.2), IV (IV.1–IV.3.5) y V (V.1–V.5) |
+| 30 | INUNCAEX, Decreto 39/2025 (DOE-2025040069); TRANSCAEX, Decreto 189/2019 (DOE-2019040205); RADIOCAEX, Decreto 200/2019 (DOE-2019040206); PLASISMEX, Decreto 127/2009 (DOE-2009040140). Texto de cada plan en el PDF oficial de la Junta | comprobado a mano el 01/11/2026 | definición y objetivos, estructura y organización, operatividad de cada plan (INUNCAEX cap. I §2, IV y V; TRANSCAEX 1.1–1.2, 4 y 5; RADIOCAEX 1.3, 3 y 4; PLASISMEX 1.2, 3 y 4) |
 | 31 | RD 1215/1997 (BOE-A-1997-17824) | 18/12/2025 | completo, con anexos I y II |
+| 32 | CTE, RD 314/2006 (BOE-A-2006-5515) | 18/12/2025 | Parte I: arts. 1–2 (objeto y ámbito), 11 (SI 1–6) y 12 (SUA 1–9) |
 | 33 | RIPCI, RD 513/2017 (BOE-A-2017-6606) | 19/12/2025 | arts. 1–2 y anexo I secc. 1.ª apdos. 2, 3, 5 y 6 |
 | 34 | RD 164/2025 (BOE-A-2025-7190) | 20/12/2025 | completo, con anexos I–V |
+
+## Lo que falta en los temas con material (no se inventa)
+
+- **T10, T12:** el agua, lanzas, mangueras y monitor (T10), y las normas UNE-EN 3-7 y UNE-EN 1866-1 (T12), no son normas del BOE.
+- **T13:** el Reglamento (UE) 2016/425 está en el DOUE, no en el BOE consolidado. Las normas UNE de EPI de bomberos y las guías del INSST no son normas.
+- **T25:** la clasificación, los códigos de peligro y las etiquetas están en el ADR. El BOE lo publica como texto enmendado de los anejos A y B (p. ej. BOE-A-2025-77), sin versión consolidada en la API. Las fichas del tema citan el ADR, así que «Ver en el esquema» abre el tema sin resaltar.
+- **T28:** la parte de alta tensión (RD 337/2014 y RD 223/2008) no se ha generado: el encargo pedía solo baja tensión, acometidas e instalaciones de enlace (REBT, ya incluido). Las ITC-BT-09, 18 y 24, que citan algunas fichas, quedan fuera del epígrafe, así que esas fichas abren solo el tema.
+- **T20, T29, T30 (DOE):** las tablas, figuras y organigramas no se copian: se remite a su página del PDF. Quedan fuera del recorte la introducción del PLATERCAEX, el cap. I §4 del INUNCAEX y el 1.3 del PLASISMEX (ámbito): las 4 fichas que los citan abren solo el tema.
+- **T32:** los documentos básicos DB SI y DB SUA (SI 4, SI 5, SUA 4, SUA 7) son la Parte II del CTE. El texto consolidado del BOE solo los cita, y su texto está en el portal del CTE (codigotecnico.org). Solo se ha generado la Parte I.
+
+## Temas sin material porque su epígrafe no se apoya en una norma consolidada del BOE
+
+| Tema | Por qué |
+|---|---|
+| 4 | Estructura orgánica de la Diputación de Badajoz: el epígrafe no cita norma y no hay ninguna en el BOE consolidado (es organización provincial). |
+| 5 | Organigrama y Reglamento de Régimen Interno del CPEI: BOP de Badajoz (`data/fuentes/BOP-BA-2012-5370`), no en el BOE. |
+| 8, 9, 11 | Teoría del fuego, hidráulica y espumas: contenido técnico sin norma (las UNE no son del BOE). |
+| 14 | Vehículos contra incendios: normas UNE-EN 1846, no BOE. |
+| 15, 16 | Material de rescate y comunicaciones: técnico; el código ICAO no es una norma del BOE. |
+| 17, 18 | Socorrismo e incendios estructurales: técnico. |
+| 19 | Excluido por encargo. |
+| 21, 23 | Accidentes de tráfico e inundaciones: el epígrafe no cita norma (contenido técnico y operativo). |
+| 24 | Himenópteros: pide «marco legal» sin citar norma; no se elige una por nuestra cuenta (la vespa velutina figura en el Catálogo de especies exóticas invasoras, RD 630/2013, pero el epígrafe no lo dice). Pendiente de que JM confirme. |
+| 26 | Guías INSARAG (ONU): no es una norma del BOE. |
+| 27 | Construcción y patología: técnico. |
+| 35–40 | Ver la sección siguiente. |
 
 ## Temas 35-40 sin esquema generado (no se inventa nada)
 
@@ -29,3 +74,16 @@ anexo I (BOP de Badajoz n.º 135, 17/07/2026). No genera la capa «desarrollo»:
   - El BOP no está en el BOE ni en el DOE, así que este método no lo cubre. Se enlaza como fuente.
   - El «Manual software de navegación S.O.S. Profesional» no tiene publicación oficial localizada.
 - **T40 · Procedimientos de trabajo (PT01 conducción, PT03 amianto).** Son documentos internos del CPEI (PDF firmados) sin publicación oficial localizada. No hay enlace ni esquema.
+
+## Constitución (T1): versión del 29/10/2026
+
+Se ha comparado bloque a bloque con la del 20/05/2026 (ver `docs/CE_2026-10-29.md`). Ningún texto cambia: los 210 bloques
+son iguales y `texto.xml` es idéntico byte a byte. Solo cambia la fecha de actualización. Se ha regenerado la versión, y el
+desarrollo, las fichas y los conceptos siguen igual.
+
+## Varias normas por tema
+
+Cada bloque guarda su identificador BOE: `boe` en la especificación (`scripts/material/temaNN.json`, si no, el del tema),
+en el `-indice.json`, en `materialTemas.ts` y en `materialPreceptos.ts`. Con eso, «Ver en el esquema» busca el ancla de
+una cita solo en los bloques de la norma citada. Hace falta porque el art. 4 del RD 614/2001 y el art. 4 del REBT tienen
+la misma ancla (`a4`). Un bloque puede tomar preceptos sueltos con `"ids"` en lugar de `desde`/`hasta`.

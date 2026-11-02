@@ -12,33 +12,26 @@
  * Dudosas (se mantienen, a decidir por JM): audit/fuera-de-epigrafe-dudosas.md.
  */
 export const OUT_OF_SYLLABUS_CARDS: Readonly<Record<string, readonly string[]>> = {
-  // Sin norma oficial (BOE/DOE/BOP) que respalde la respuesta: documentos técnicos del INSST (31/10/2026).
-  // T8: solo fuente INSST; las clases C y D se reescribieron contra el RIPCI (31/10/2026).
-  'tema8': [
-    'CPEI-T08-OF-16F2F066', 'CPEI-T08-OF-91F289AD', 'CPEI-T08-OF-5B548AE4', 'CPEI-T08-OF-56E9FF59',
-    'CPEI-T08-OF-E159B5F5', 'CPEI-T08-OF-FC925796', 'CPEI-T08-OF-A79F178A', 'CPEI-T08-OF-44E769FD',
-    'CPEI-T08-OF-103C15A5', 'CPEI-T08-OF-8BD47893', 'CPEI-T08-OF-B266B117', 'CPEI-T08-OF-6287D3B5',
-    'CPEI-T08-OF-852F8894', 'CPEI-T08-OF-2EC01104', 'CPEI-T08-OF-C02B24A7', 'CPEI-T08-OF-AF362425',
-    'CPEI-T08-OF-CA82C01C', 'CPEI-T08-OF-A9BCB495', 'CPEI-T08-OF-42858129', 'CPEI-T08-OF-E3377122',
-    'CPEI-T08-OF-E02CD674', 'CPEI-T08-OF-E2B5A638', 'CPEI-T08-OF-E6EB4A37',
-  ],
-  // T27-lote02: CTE (DB en codigotecnico.org, sin texto consolidado en el BOE): pendiente de decisión (31/10/2026).
-  'tema27-lote02': [
-    'CPEI-T27-OF-3938C9A0', 'CPEI-T27-OF-D979423C', 'CPEI-T27-OF-88D635D3', 'CPEI-T27-OF-9C9FACDE',
-    'CPEI-T27-OF-9272BC3C', 'CPEI-T27-OF-0B1D51A7', 'CPEI-T27-OF-132DE91C', 'CPEI-T27-OF-1614B2EE',
-    'CPEI-T27-OF-1A696694', 'CPEI-T27-OF-6EC302E1', 'CPEI-T27-OF-65EDE57A', 'CPEI-T27-OF-F7D688E1',
-    'CPEI-T27-OF-EB5C7272', 'CPEI-T27-OF-8B2177D5', 'CPEI-T27-OF-CE31FC22', 'CPEI-T27-OF-10D6931A',
-    'CPEI-T27-OF-D864BE9B', 'CPEI-T27-OF-5E3563A1', 'CPEI-T27-OF-659927A1', 'CPEI-T27-OF-99BFE4DF',
-    'CPEI-T27-OF-4E3DFE96', 'CPEI-T27-OF-9A27EB2D',
-  ],
-  'tema12': ['CPEI-T12-OF-01AA23CD', 'CPEI-T12-OF-A4DBE918', 'CPEI-T12-OF-591B1F12', 'CPEI-T12-OF-395A3760', 'CPEI-T12-OF-1464CEF3'],
-  'tema28-lote02': [
-    'CPEI-T28-OF-21518B3F', 'CPEI-T28-OF-887BC3C3', 'CPEI-T28-OF-7916E057', 'CPEI-T28-OF-D3CAD79A',
-    'CPEI-T28-OF-AAD97119', 'CPEI-T28-OF-9BC8BC24', 'CPEI-T28-OF-C1C27976', 'CPEI-T28-OF-54CF5404',
-    'CPEI-T28-OF-3D6693BE', 'CPEI-T28-OF-E6962F89', 'CPEI-T28-OF-A5F36376', 'CPEI-T28-OF-CA271CF9',
+  // T12 (5) y T28-lote02 (12), antes aquí por fuente solo INSST, se abren el 01/11/2026 (feat/fichas-insst): el propietario acepta el
+  // INSST en general; Tema 33 «El riesgo de incendio (I)» y NTP 400 cotejados al literal con los PDF vigentes de insst.es.
+  // T8 (23), antes aquí por fuente solo INSST (Tema 33 «El riesgo de incendio (I)» y Tema 41 «Explosiones» del temario del INSST),
+  // se abren el 02/11/2026 (feat/insst-lotes): 23 de 23 literales en la página citada del PDF vigente de insst.es
+  // (scripts/verificar-insst-lotes.py, data/verificacion/insst-lotes.json); 1 respuesta completada al literal (LIE).
+  // T26: INSARAG aceptada como fuente oficial (31/10/2026); esta respuesta une dos viñetas del apdo. 6.2 y no es literal.
+  'tema26': ['CPEI-T26-OF-46354134'],
+  // T33-lote02: fuera del epígrafe (objeto y ámbito; abastecimiento, hidrantes, BIE y columnas secas), 31/10/2026.
+  'tema33-lote02': [
+    'CPEI-T33-OF-12C38A2E', 'CPEI-T33-OF-8BECA542', 'CPEI-T33-OF-D3DE288E', 'CPEI-T33-OF-74F4524A',
+    'CPEI-T33-OF-C058A1AD', 'CPEI-T33-OF-3FFEFD83', 'CPEI-T33-OF-F8358585', 'CPEI-T33-OF-880AFB06',
+    'CPEI-T33-OF-F8BED3D7', 'CPEI-T33-OF-54B394D7', 'CPEI-T33-OF-27C6669B', 'CPEI-T33-OF-A2ED2AEE',
+    'CPEI-T33-OF-818C7871', 'CPEI-T33-OF-288169CE', 'CPEI-T33-OF-2204FAF6', 'CPEI-T33-OF-2F67DFE7',
+    'CPEI-T33-OF-C279E68B', 'CPEI-T33-OF-12E30316', 'CPEI-T33-OF-714C9F36', 'CPEI-T33-OF-A942FBC2',
+    'CPEI-T33-OF-0A02432D', 'CPEI-T33-OF-A5360729',
   ],
   'tema35': ['CPEI-T35-S01-D003AEE18E', 'CPEI-T35-S01-400B30628A'],
+  // T36-lote01: S03-887722957A es una ficha meta (cómo se generaron las 165 fichas de límites), no contenido del epígrafe; se retira (01/11/2026).
   'tema36-lote01': [
+    'CPEI-T36-S03-887722957A',
     'CPEI-T36-S02-734D640EE3', 'CPEI-T36-S02-6090DF251C', 'CPEI-T36-S02-B08849E3E1', 'CPEI-T36-S02-9A8D6DB432',
     'CPEI-T36-S02-64ABC67D70', 'CPEI-T36-S02-7C73BF41ED', 'CPEI-T36-S02-0037BF95E9', 'CPEI-T36-S02-71A23AB595',
     'CPEI-T36-S02-F26BE13AAA', 'CPEI-T36-S02-C8D4A7B9F0', 'CPEI-T36-S02-A1DB66F378', 'CPEI-T36-S02-7117FFA23D',
@@ -127,6 +120,52 @@ export function outOfSyllabusCount(deckId: string): number {
  * El alumno solo ve estas fichas del mazo; el resto sigue oculto hasta que se revise el lote entero.
  */
 export const REVIEWED_CARDS_IN_PENDING_DECKS: Readonly<Record<string, readonly string[]>> = {
+  // T9 y T15 (01/11/2026, docs/REVISION_T32_T9_T15.md): comprobadas al pie de la letra con su fuente vigente.
+  // T9: RIPCI (BOE-A-2017-6606) y CTE DB HS 4 (codigotecnico.org). T15: RD 1644/2008, RD 1215/1997 y REBT ITC-BT-40 (BOE).
+  // El resto sigue oculto: fuente INSST, IDAE/MITECO o EUR-Lex (no aceptadas), o respuesta no literal.
+  // T9: 14 más el 01/11/2026 (feat/t9-literal): respuesta reescrita al fragmento literal del RD 709/2015, RD 2032/2009, RIPCI o DB HS 4.
+  'tema9': [
+    'CPEI-T09-OF-96E138CB', 'CPEI-T09-OF-0E62FDF1', 'CPEI-T09-OF-6E9C710E', 'CPEI-T09-OF-B70EA739',
+    'CPEI-T09-OF-30C5C610', 'CPEI-T09-OF-48B860EC', 'CPEI-T09-OF-90325772', 'CPEI-T09-OF-96375034',
+    'CPEI-T09-OF-25E9FCD4', 'CPEI-T09-OF-20C37F4A', 'CPEI-T09-OF-A520E5DF', 'CPEI-T09-OF-87E4530F',
+    'CPEI-T09-OF-25A494F2', 'CPEI-T09-OF-B378FA6E', 'CPEI-T09-OF-B1BF79D7', 'CPEI-T09-OF-52A4DCD7',
+    'CPEI-T09-OF-D374F81F',
+    // T9: 8 de las 11 de la NTP 362 (INSST) se abren el 02/11/2026 (feat/t9-ntp362): citan el PDF vigente de insst.es con página
+    // (págs. 2-4) y la respuesta es literal (6 reescritas al texto del PDF; scripts/verificar-t9-ntp362.py, data/verificacion/t9-ntp362.json).
+    'CPEI-T09-OF-303FA8EC', 'CPEI-T09-OF-598D0A9D', 'CPEI-T09-OF-54865783', 'CPEI-T09-OF-377EBBDC',
+    'CPEI-T09-OF-76FBE0B0', 'CPEI-T09-OF-0B46FCC3', 'CPEI-T09-OF-0725F93D', 'CPEI-T09-OF-3869B3CE',
+    // Siguen ocultas 3 (0F2FD506, D493D3E9, B4A1C5E5): en el PDF solo están como fórmulas cuyo exponente (1/2, -1) sale como texto
+    // plano en la capa de texto; no hay un literal fiable que responda a la pregunta.
+  ],
+  'tema15': [
+    'CPEI-T15-OF-3B08563F', 'CPEI-T15-OF-D2F1AA50', 'CPEI-T15-OF-3AC3D004', 'CPEI-T15-OF-C8C8BD7F',
+    'CPEI-T15-OF-95FE950B', 'CPEI-T15-OF-D1E5BD30', 'CPEI-T15-OF-AD1717F5', 'CPEI-T15-OF-6C278F90',
+    'CPEI-T15-OF-ADD0E6E3', 'CPEI-T15-OF-E3EFB95D', 'CPEI-T15-OF-AEE721D0', 'CPEI-T15-OF-6F85EBEB',
+    'CPEI-T15-OF-6304DDC2', 'CPEI-T15-OF-4094FF94', 'CPEI-T15-OF-560C9B53', 'CPEI-T15-OF-2105B2A5',
+    'CPEI-T15-OF-95EAE040', 'CPEI-T15-OF-D785F0EF', 'CPEI-T15-OF-3AD9607F', 'CPEI-T15-OF-7C351FE7',
+    'CPEI-T15-OF-D1BCE0BC', 'CPEI-T15-OF-3073440B', 'CPEI-T15-OF-6E217486', 'CPEI-T15-OF-64E41A28',
+    'CPEI-T15-OF-AA6894F1', 'CPEI-T15-OF-17905817', 'CPEI-T15-OF-5CE69868', 'CPEI-T15-OF-FF05DE16',
+    'CPEI-T15-OF-1E65E692', 'CPEI-T15-OF-1B4EBEAA', 'CPEI-T15-OF-2D6D2074', 'CPEI-T15-OF-A659887D',
+    'CPEI-T15-OF-BEC236DD',
+    // T15: 3 más el 01/11/2026 (feat/t15-literal): recitadas de la NTP del INSST al literal del RD 1644/2008, anexo I (4.1.1.c, 4.1.2.5.e y 4.3.2).
+    'CPEI-T15-OF-35B8860D', 'CPEI-T15-OF-3479E342', 'CPEI-T15-OF-92BB32EF',
+    // T15: 56 más el 01/11/2026 (feat/fichas-insst): el propietario acepta el INSST como fuente oficial (NTP 221, 841 y 842 y Guía técnica
+    // de equipos de trabajo). Cada respuesta cotejada al pie de la letra con el PDF vigente de insst.es en la página citada; 2 ajustadas al literal.
+    'CPEI-T15-OF-0B0F107B', 'CPEI-T15-OF-73BB14B7', 'CPEI-T15-OF-902D93F4', 'CPEI-T15-OF-CC79B8EE',
+    'CPEI-T15-OF-71A155FE', 'CPEI-T15-OF-0737B0B5', 'CPEI-T15-OF-23B6C874', 'CPEI-T15-OF-6C587402',
+    'CPEI-T15-OF-2B9FDAF8', 'CPEI-T15-OF-CD91EFB5', 'CPEI-T15-OF-E5726FB4', 'CPEI-T15-OF-4994AFC7',
+    'CPEI-T15-OF-E8751982', 'CPEI-T15-OF-F143D76B', 'CPEI-T15-OF-0D9851B4', 'CPEI-T15-OF-42DCD540',
+    'CPEI-T15-OF-B0304748', 'CPEI-T15-OF-850BE2CE', 'CPEI-T15-OF-8569E86B', 'CPEI-T15-OF-5F9A705D',
+    'CPEI-T15-OF-E5961FE2', 'CPEI-T15-OF-4C777475', 'CPEI-T15-OF-2555EADF', 'CPEI-T15-OF-F4933D12',
+    'CPEI-T15-OF-4D5A07C5', 'CPEI-T15-OF-814AA91A', 'CPEI-T15-OF-AEB0A262', 'CPEI-T15-OF-5EA945B5',
+    'CPEI-T15-OF-BB658607', 'CPEI-T15-OF-AE21858E', 'CPEI-T15-OF-C075A8BF', 'CPEI-T15-OF-4C4948A9',
+    'CPEI-T15-OF-485694A5', 'CPEI-T15-OF-017F0163', 'CPEI-T15-OF-2DD8F503', 'CPEI-T15-OF-AF5886EC',
+    'CPEI-T15-OF-F4298760', 'CPEI-T15-OF-DD456697', 'CPEI-T15-OF-E125DC96', 'CPEI-T15-OF-6702FD46',
+    'CPEI-T15-OF-2FC65666', 'CPEI-T15-OF-E6919B19', 'CPEI-T15-OF-A928C762', 'CPEI-T15-OF-10286E21',
+    'CPEI-T15-OF-55D7FA6E', 'CPEI-T15-OF-030BA7A7', 'CPEI-T15-OF-5B76FCFA', 'CPEI-T15-OF-D00F2860',
+    'CPEI-T15-OF-2420D310', 'CPEI-T15-OF-DC43B6B7', 'CPEI-T15-OF-A65305FF', 'CPEI-T15-OF-9F7281C1',
+    'CPEI-T15-OF-A1B0534A', 'CPEI-T15-OF-AF4C8CBB', 'CPEI-T15-OF-8629D9D7', 'CPEI-T15-OF-0522F2AB',
+  ],
   // Embalses verificados con el Anuario de Aforos del CEDEX (río y municipio), 31/10/2026.
   'tema36-lote01': [
     'CPEI-T36-S06-92E86A0B31', 'CPEI-T36-S06-203D362D2B', 'CPEI-T36-S06-1602493A86',
@@ -147,6 +186,12 @@ export const REVIEWED_CARDS_IN_PENDING_DECKS: Readonly<Record<string, readonly s
     'CPEI-T36-S04-51C8483765',
     // Tramos de población: literal del temario (BOP de Badajoz nº 135, 17/07/2026, anexo I, Tema 36).
     'CPEI-T36-S01-419C97CE9B',
+    // Capital: NGBE del IGN, entidad 2721311 «Badajoz», tipo «Capital de provincia», nombre oficial (WFS NGBE, 31/10/2026).
+    'CPEI-T36-S01-2A0B8D8C18',
+    // Denominaciones oficiales georreferenciadas: reescrita al literal del art. 23.1 del RD 1545/2007 (BOE-A-2007-20556), 31/10/2026.
+    'CPEI-T36-S01-73F24B915A',
+    // Complejo Lagunar de La Albuera: ficha sintética del anexo de la Resolución de 18/12/2002 (Ramsar), BOE-A-2003-989, p. 2013; sitio Ramsar ES049/1256 aún en la lista del MITECO (10/2025). 01/11/2026.
+    'CPEI-T36-S06-290EA56D14',
     // INE, tabla 2859 (Badajoz, cifras definitivas a 1/1/2025), descargada el 31/10/2026: las 21 poblaciones de más de 5.000 hab. coinciden, igual que la fecha y el código provincial 06.
     'CPEI-T36-S02-7CA46DB703', 'CPEI-T36-S02-581F657A32', 'CPEI-T36-S02-9A0E3EB510', 'CPEI-T36-S02-62A9FE3183',
     'CPEI-T36-S02-0A4022A679', 'CPEI-T36-S02-BE491A4A28', 'CPEI-T36-S02-69ABD4A739', 'CPEI-T36-S02-57A7367B23',

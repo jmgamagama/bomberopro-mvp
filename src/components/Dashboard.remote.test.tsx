@@ -16,29 +16,29 @@ describe('progreso remoto del panel', () => {
     expect(screen.queryByText('999')).not.toBeInTheDocument();
     expect(screen.queryByText(/Meta de hoy/i)).not.toBeInTheDocument();
   });
-  it('un fallo ofrece reintento sin sustituir datos remotos por locales', () => {
+  it('un fallo ofrece reintento sin sustituir datos remotos por locales', async () => {
     const retry = vi.fn();
     render(<Dashboard {...props} remoteProgress={{ status: 'error' }} onRetryProgress={retry} />);
-    expect(screen.getByRole('alert')).toHaveTextContent('No se ha podido cargar');
+    expect(await screen.findByRole('alert')).toHaveTextContent('No se ha podido cargar');
     fireEvent.click(screen.getByRole('button', { name: 'Reintentar' }));
     expect(retry).toHaveBeenCalledOnce();
     expect(screen.queryByText('999')).not.toBeInTheDocument();
   });
-  it('muestra distribución remota y convierte fracción en porcentaje', () => {
+  it('muestra distribución remota y convierte fracción en porcentaje', async () => {
     render(<Dashboard {...props} remoteProgress={{ status: 'ready', data }} />);
-    expect(screen.getByText('703')).toBeInTheDocument();
+    expect(await screen.findByText('703')).toBeInTheDocument();
     expect(screen.getByText('698')).toBeInTheDocument();
     expect(screen.getByText('37%')).toBeInTheDocument();
     expect(screen.queryByText(/Índice de confianza/i)).not.toBeInTheDocument();
     expect(screen.queryByText('999')).not.toBeInTheDocument();
   });
-  it('trata catálogo vacío sin presentar dominio cero', () => {
+  it('trata catálogo vacío sin presentar dominio cero', async () => {
     render(<Dashboard {...props} remoteProgress={{ status: 'ready', data: { ...data, total: 0, dominio_ponderado: null } }} />);
-    expect(screen.getByText(/Todavía no hay conceptos disponibles/)).toBeInTheDocument();
+    expect(await screen.findByText(/Todavía no hay conceptos disponibles/)).toBeInTheDocument();
     expect(screen.queryByText('0%')).not.toBeInTheDocument();
   });
-  it('dominio desconocido se muestra como Sin datos', () => {
+  it('dominio desconocido se muestra como Sin datos', async () => {
     render(<Dashboard {...props} remoteProgress={{ status: 'ready', data: { ...data, dominio_ponderado: null } }} />);
-    expect(screen.getByText('Sin datos')).toBeInTheDocument();
+    expect(await screen.findByText('Sin datos')).toBeInTheDocument();
   });
 });

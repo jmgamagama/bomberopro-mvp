@@ -4,16 +4,25 @@ import { trackFunnel } from '../lib/funnel';
 import { isRegistroAbierto, textoAlta } from '../config/features';
 import { urlRetornoAuth } from '../lib/authRetorno';
 import {
-  leerEnlaceInvitacion, mensajeErrorAcceso, mensajeErrorEnlace, SIN_CONEXION,
+  leerEnlaceInvitacion, mensajeErrorAcceso, mensajeErrorEnlace, mensajeErrorRecuperacion, SIN_CONEXION,
   type MensajeAcceso, type ModoAcceso,
 } from '../lib/mensajesAcceso';
-import { Lock, Loader2, Flame, ScrollText, Timer, Brain, ArrowRight, BookOpen, Eye, EyeOff, MailCheck } from 'lucide-react';
+import { describeGuestProgress, guestProgressSummary, hasGuestSignupIntent, markGuestSignupIntent } from '../utils/guestProgress';
+import { Lock, Loader2, Flame, ScrollText, Timer, Brain, ArrowRight, BookOpen, Eye, EyeOff, MailCheck, Save } from 'lucide-react';
 
 interface LoginProps {
   onStartDemo?: () => void;
   /** Pestaña inicial: «crear» cuando el alumno viene de la demo pulsando el botón de alta. */
   initialMode?: ModoAcceso;
+  /**
+   * Volver al modo invitado sin empezar de cero (a la pantalla de inicio, con sus fichas y simulacros).
+   * Solo se ofrece si en este dispositivo hay progreso guardado sin cuenta.
+   */
+  onContinueGuest?: () => void;
 }
+
+/** Se mantiene la exportación para quien la importe desde aquí; vive en utils/guestProgress. */
+export { describeGuestProgress };
 
 type Aviso = (MensajeAcceso & { type: 'success' | 'error' }) | null;
 
@@ -25,10 +34,16 @@ const PUNTOS_CONFIANZA = [
 
 /**
  * Pantalla de entrada. Con el piloto cerrado (por defecto) el alta es «Activar invitación».
- * Enlace directo para invitados: /?invitacion=1&email=correo — abre esa pestaña con el correo escrito.
+ * Enlace para invitados: /?invitacion=1. El alumno escribe el mismo correo al que recibió la invitación.
  */
-export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProps = {}) {
+export default function Login({ onStartDemo, initialMode = 'entrar', onContinueGuest }: LoginProps = {}) {
   const abierto = isRegistroAbierto();
+  // Progreso de invitado en este dispositivo (se lee una vez; no sale del dispositivo).
+  const [progresoInvitado] = useState(() => (onContinueGuest ? guestProgressSummary() : { fichas: 0, respuestas: 0 }));
+  const hayProgresoInvitado = progresoInvitado.fichas + progresoInvitado.respuestas > 0;
+  // Pasar ese progreso a la cuenta exige un gesto explícito (equipos compartidos): viene marcado si
+  // el alumno pulsó «… y guardar mi progreso»; si no, puede pedirlo aquí.
+  const [pasarProgreso, setPasarProgreso] = useState(() => hasGuestSignupIntent());
   const [enlace] = useState(() => leerEnlaceInvitacion(typeof window === 'undefined' ? '' : window.location.search));
   const [email, setEmail] = useState(enlace.email);
   const [password, setPassword] = useState('');
@@ -69,17 +84,14 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
         if (result.error) {
           setMessage({ type: 'error', ...mensajeErrorAcceso('crear', result.error, abierto) });
           focusEmail();
-        } else if (!result.data.session && result.data.user && result.data.user.identities?.length === 0) {
-          // Supabase no da error si el correo ya tiene cuenta: devuelve un usuario sin identidades.
-          setMode('entrar');
-          setPassword('');
-          setMessage({ type: 'success', text: 'Ya tienes cuenta con este correo. Escribe tu contraseña y pulsa «Entrar».' });
-          passwordInputRef.current?.focus();
         } else if (!result.data.session) {
+          // Supabase puede devolver un usuario ficticio sin error cuando el correo ya existe.
+          // Mantener el mismo mensaje evita revelar qué direcciones tienen una cuenta.
           setEnviadoA(correo());
+          setPassword('');
           setMessage({
             type: 'success',
-            text: `Te hemos enviado un correo a ${correo()}. Ábrelo en este mismo dispositivo y pulsa el botón del correo: entrarás directamente. Si en 2 minutos no está, mira en Spam o Promociones.`,
+            text: `Si ${correo()} puede activar una cuenta, recibirás los pasos por correo. Si ya tienes cuenta, entra desde «Ya tengo cuenta». Revisa también Spam o Promociones.`,
             accion: 'reenviar',
           });
         }
@@ -98,7 +110,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
     }
   };
 
-  // Acceso sin contraseña: enlace de un solo uso al correo. Sirve para "he olvidado la contraseña".
+  // Acceso sin contraseña: opción distinta al restablecimiento de contraseña.
   const handleMagicLink = async () => {
     if (!email.trim()) {
       setMessage({ type: 'error', text: 'Escribe primero tu correo y vuelve a pulsar.' });
@@ -115,6 +127,31 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
       setMessage(error
         ? { type: 'error', ...mensajeErrorEnlace(error, abierto) }
         : { type: 'success', text: `Te hemos enviado un enlace a ${correo()}. Ábrelo desde este móvil para entrar sin contraseña.` });
+    } catch {
+      setMessage({ type: 'error', text: SIN_CONEXION });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handlePasswordReset = async () => {
+    if (!email.trim()) {
+      setMessage({ type: 'error', text: 'Escribe primero tu correo y vuelve a pulsar.' });
+      focusEmail();
+      return;
+    }
+    setLoading(true);
+    setMessage(null);
+    try {
+      const { error } = await supabase!.auth.resetPasswordForEmail(correo(), {
+        redirectTo: urlRetornoAuth('recuperar'),
+      });
+      setMessage(error
+        ? { type: 'error', ...mensajeErrorRecuperacion(error) }
+        : {
+            type: 'success',
+            text: `Si ${correo()} tiene una cuenta, recibirá un correo con los pasos para cambiar la contraseña. Revisa también Spam o Promociones.`,
+          });
     } catch {
       setMessage({ type: 'error', text: SIN_CONEXION });
     } finally {
@@ -210,6 +247,36 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
       </header>
 
       <main className="max-w-md mx-auto px-5 pt-4 pb-[calc(2rem+env(safe-area-inset-bottom))]">
+        {onContinueGuest && hayProgresoInvitado && (
+          <section aria-labelledby="titulo-progreso-invitado" id="login-progreso-invitado" className="mb-5 space-y-2 rounded-2xl border border-indigo-200 bg-indigo-50 p-4">
+            <h3 id="titulo-progreso-invitado" className="text-base font-bold text-slate-900">Tu progreso sin cuenta</h3>
+            <p className="text-sm text-slate-700">
+              En este dispositivo tienes {describeGuestProgress(progresoInvitado)} sin cuenta.
+            </p>
+            {pasarProgreso ? (
+              <p id="login-progreso-se-pasa" role="status" className="text-sm font-semibold text-slate-800">
+                Al entrar o activar tu cuenta en este dispositivo, lo pasamos a tu cuenta sin borrar nada de lo que ya tenga.
+              </p>
+            ) : (
+              <button
+                type="button"
+                id="btn-login-pasar-progreso"
+                onClick={() => { markGuestSignupIntent(); setPasarProgreso(true); }}
+                className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-indigo-300 bg-white px-4 py-2 text-sm font-bold text-indigo-700 hover:bg-indigo-100"
+              >
+                <Save className="h-4 w-4" aria-hidden="true" /> Pasarlo a mi cuenta al entrar
+              </button>
+            )}
+            <button
+              type="button"
+              id="btn-login-seguir-invitado"
+              onClick={onContinueGuest}
+              className="min-h-11 w-full text-sm font-bold text-indigo-700 underline underline-offset-2 hover:text-indigo-800"
+            >
+              Seguir sin cuenta con mi progreso
+            </button>
+          </section>
+        )}
         {onStartDemo && (
           <div className="pb-5 mb-5 border-b border-slate-200 text-center space-y-2">
             <button
@@ -334,14 +401,24 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
           </button>
 
           {mode === 'entrar' && (
-            <button
-              type="button"
-              onClick={handleMagicLink}
-              disabled={loading}
-              className="w-full min-h-11 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline underline-offset-2"
-            >
-              He olvidado la contraseña
-            </button>
+            <div className="space-y-1">
+              <button
+                type="button"
+                onClick={handlePasswordReset}
+                disabled={loading}
+                className="w-full min-h-11 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline underline-offset-2"
+              >
+                He olvidado la contraseña
+              </button>
+              <button
+                type="button"
+                onClick={handleMagicLink}
+                disabled={loading}
+                className="w-full min-h-11 text-sm font-semibold text-slate-600 hover:text-slate-900 underline underline-offset-2"
+              >
+                Entrar con enlace sin contraseña
+              </button>
+            </div>
           )}
         </form>
         )}

@@ -1,0 +1,4013 @@
+[
+ {
+  "id": "s-i-2",
+  "tipo": "precepto",
+  "numero": "I.2",
+  "titulo": "2.- OBJETIVO Y FUNCIONES BÁSICAS",
+  "pagina": 10,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=10",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "2.- OBJETIVO Y FUNCIONES BÁSICAS"
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "2.1.- Introducción",
+    "pagina": 10
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Plan Especial de Protección Civil de Riesgo de Inundaciones para la Comunidad Autónoma de Extremadura (INUNCAEX) se redacta de acuerdo con lo establecido en el apartado 3.4 de la Directriz Básica de Planificación de Protección Civil ante riesgo de inundaciones.",
+    "pagina": 10
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "2.2.- Objetivos",
+    "pagina": 10
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Plan Especial de Protección Civil de Riesgo de Inundaciones para la Comunidad Autónoma de Extremadura (INUNCAEX) establece la organización y procedimientos de actuación de los recursos y servicios cuya titularidad corresponde a la Comunidad Autónoma y los que puedan ser asignados al mismo tiempo por otras Administraciones Públicas y de otros pertenecientes a entidades públicas o privadas. Todo ello con el objeto de hacer frente a las emergencias por riesgo de inundaciones, dentro del ámbito territorial de Extremadura.",
+    "pagina": 10
+   },
+   {
+    "clase": "tabla",
+    "texto": "",
+    "pagina": 10,
+    "hasta": 10,
+    "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=10"
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "2.3.- Funciones básicas",
+    "pagina": 11
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Son funciones básicas del Plan Especial de Protección Civil de Riesgo de Inundaciones para la Comunidad Autónoma de Extremadura (INUNCAEX):",
+    "pagina": 11
+   },
+   {
+    "clase": "parrafo",
+    "texto": "a) Concretar la estructura organizativa y los procedimientos para la intervención en emergencias por inundaciones, dentro del territorio de la Comunidad Autónoma que corresponda.",
+    "pagina": 11
+   },
+   {
+    "clase": "parrafo",
+    "texto": "b) Prever los mecanismos y procedimientos de coordinación con el Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, para garantizar su adecuada integración.",
+    "pagina": 11
+   },
+   {
+    "clase": "parrafo",
+    "texto": "c) Establecer los sistemas de articulación con las organizaciones de las Administraciones Locales de su ámbito territorial y definir criterios de planificación para los Planes de Actuación de ámbito Local de las mismas.",
+    "pagina": 11
+   },
+   {
+    "clase": "parrafo",
+    "texto": "d) Precisar la zonificación del territorio en función del riesgo de inundaciones, delimitar áreas según posibles requerimientos de intervención para protección de la población y localizar la infraestructura física de previsible utilización en las operaciones de emergencia.",
+    "pagina": 11
+   },
+   {
+    "clase": "parrafo",
+    "texto": "e) Especificar procedimientos de información a la población.",
+    "pagina": 11
+   },
+   {
+    "clase": "parrafo",
+    "texto": "f) Prever el procedimiento de catalogación de medios y recursos específicos a disposición de las actuaciones previstas.",
+    "pagina": 11
+   }
+  ]
+ },
+ {
+  "id": "s-iv-1",
+  "tipo": "precepto",
+  "numero": "IV.1",
+  "titulo": "1.- INTRODUCCIÓN",
+  "pagina": 309,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=309",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "1.- INTRODUCCIÓN"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La Ley 17/2015 define la Protección Civil como un servicio público que protege a las personas y bienes garantizando una respuesta adecuada ante los distintos tipos de emergencias y catástrofes originadas por causas naturales o derivadas de la acción humana, sea ésta accidental o intencionada. La Administración de la Comunidad Autónoma cuenta con un papel principal en la organización y desarrollo de la Protección Civil a todos los niveles territoriales en Extremadura.",
+    "pagina": 309
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Para dar plena operatividad al presente Plan Especial de Protección Civil ante emergencias por INUNDACIONES (INUNCAEX) es indispensable establecer la estructura operativa de dirección, así como de los grupos llamados a intervenir en cada situación de emergencia, y al mismo tiempo configurar la composición y funciones específicas de los mismos.",
+    "pagina": 309
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El organigrama tiene la estructura siguiente:",
+    "pagina": 309
+   },
+   {
+    "clase": "tabla",
+    "texto": "",
+    "pagina": 309,
+    "hasta": 309,
+    "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=309"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La estructura cuenta con dos entramados básicos:",
+    "pagina": 310
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• ESTRUCTURA DE DIRECCIÓN Y DE COORDINACIÓN - CECOP/CECOPI",
+    "pagina": 310
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• ESTRUCTURA OPERATIVA",
+    "pagina": 310
+   }
+  ]
+ },
+ {
+  "id": "s-iv-2",
+  "tipo": "precepto",
+  "numero": "IV.2",
+  "titulo": "2.- ESTRUCTURA DE DIRECCIÓN Y COORDINACIÓN",
+  "pagina": 310,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=310",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "2.- ESTRUCTURA DE DIRECCIÓN Y COORDINACIÓN"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La estructura diseñada tiene por objeto ser capaz de atender la diversidad de situaciones de emergencia que puedan presentarse y poder planificar una labor preventiva. El organigrama previsto permite llevar a cabo un trabajo con carácter regular periódicamente, cuyo fundamento es la coordinación de todos los servicios intervinientes.",
+    "pagina": 310
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La estructura de Dirección y Coordinación engloba a:",
+    "pagina": 310
+   },
+   {
+    "clase": "parrafo",
+    "texto": "1. La Dirección del Plan",
+    "pagina": 310
+   },
+   {
+    "clase": "parrafo",
+    "texto": "2. El Comité de Dirección / Comité de Dirección Integrado",
+    "pagina": 310
+   },
+   {
+    "clase": "parrafo",
+    "texto": "3. El Comité Técnico Asesor",
+    "pagina": 310
+   },
+   {
+    "clase": "parrafo",
+    "texto": "4. El Gabinete de Información",
+    "pagina": 310
+   }
+  ]
+ },
+ {
+  "id": "s-iv-2-1",
+  "tipo": "precepto",
+  "numero": "IV.2.1",
+  "titulo": "2.1.- DIRECCIÓN DEL PLAN Y DIRECCIÓN DE LA EMERGENCIA",
+  "pagina": 310,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=310",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "2.1.- DIRECCIÓN DEL PLAN Y DIRECCIÓN DE LA EMERGENCIA"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La Dirección del Plan recae en el/la Titular de la Consejería con competencias en materia de Protección Civil y Emergencias en Extremadura, a fecha de diciembre de 2024 el Consejero de Presidencia, Interior y Dialogo Social. Bajo su mando recae la Dirección del Plan y la Dirección de la Emergencia. Es la persona responsable de la Dirección única y Coordinación del INUNCAEX, en todas las situaciones en las que el INUNCAEX sea activado, salvo en situación 3, en la que la Dirección del Plan recae en titular del Ministerio del Interior al declararse el interés nacional de la emergencia. Cuenta con el apoyo del Comité de Dirección, que podrá ser Integrado, y del Comité Técnico Asesor para la toma de decisiones. La Dirección del Plan podrá delegar todas o alguna de sus funciones en el Director/a General correspondiente con funciones en Protección Civil, u otras autoridades de él dependientes, excepto en los casos en que sea declarado Interés Nacional.",
+    "pagina": 310
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La dirección de la persona titular de la Consejería con competencias en Protección Civil prevalece sobre el ejercicio de las funciones directivas de cualquier autoridad pública territorial u otros directores/as o responsables de planes de Ámbito Inferior en la Comunidad Autónoma de Extremadura. Esta capacidad directiva implica la coordinación del ejercicio de las competencias del resto de autoridades y directores de planes, quienes conservan la gestión de los servicios y autoridades propias. Las atribuciones de mando único se entienden sin perjuicio de la dependencia funcional y orgánica de los servicios intervinientes, que actuarán bajo la dirección de sus mandos naturales.",
+    "pagina": 310
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Las Funciones Principales de la Dirección del Plan son las siguientes:",
+    "pagina": 311
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Declarar la activación del Plan especial ante inundaciones y activar los mecanismos y procedimientos de respuesta del INUNCAEX ante cada situación de emergencia.",
+    "pagina": 311
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Declarar las fases de emergencia y situaciones para la gestión de emergencias a propuesta de los sistemas de previsión de peligro de inundaciones establecidos en el capítulo V del Plan.",
+    "pagina": 311
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Dirigir y coordinar las actuaciones tendentes al control de la emergencia dentro del ámbito territorial de Extremadura.",
+    "pagina": 311
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Constituir cuando corresponda el CECOP/I.",
+    "pagina": 311
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Solicitar los medios y recursos extraordinarios ante una emergencia.",
+    "pagina": 311
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Determinar, con el apoyo del Comité de Dirección y el Comité Técnico Asesor, la parte de la estructura organizativa que se activa en cada una de las situaciones, la estrategia general de las operaciones, y en cada momento, las actuaciones más convenientes para hacer frente a la emergencia y para la aplicación de las medidas de protección a la población, al medio ambiente, a los bienes y al personal adscrito al Plan.",
+    "pagina": 311
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Notificar a las demás autoridades la existencia de sucesos que puedan producir daños a las personas y bienes.",
+    "pagina": 311
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Informar a la población del desarrollo de la emergencia y sobre las medidas de autoprotección a tomar.",
+    "pagina": 311
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Garantizar la información sobre la emergencia, a los medios de comunicación social y a las Entidades de las distintas administraciones.",
+    "pagina": 311
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Proporcionar a las restantes Administraciones afectadas por la emergencia la información precisa para asegurar su correcta participación en el Plan.",
+    "pagina": 311
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Garantizar el enlace con planes estatales, facilitando la información sobre las distintas situaciones operativas y los riesgos que de los mismos puedan derivarse para la población y los bienes, con objeto de permitir que la organización del Plan Estatal disponga de una adecuada información en aquellos casos en que sea necesaria su intervención como apoyo.",
+    "pagina": 311
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Determinar la desmovilización de los medios y recursos desplazados ante una emergencia una vez cumplida su función.",
+    "pagina": 311
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Declarar el final de la emergencia y desactivar el Plan.",
+    "pagina": 311
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Cuando la emergencia sea declarada de interés nacional la dirección y la coordinación de las actuaciones corresponderá a la Administración General del Estado. En este caso el CECOP actuará como Centro de Coordinación Operativa Integrada (CECOPI), y el Comité de Dirección pasará a ser un Comité de Dirección Integrado.",
+    "pagina": 311
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Como Funciones Complementarias, el/la Director/a del INUNCAEX asume las siguientes:",
+    "pagina": 312
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Nombrar los distintos responsables del Comité Asesor.",
+    "pagina": 312
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Asegurar la implantación, mantenimiento y revisión del Plan Especial.",
+    "pagina": 312
+   }
+  ]
+ },
+ {
+  "id": "s-iv-2-2",
+  "tipo": "precepto",
+  "numero": "IV.2.2",
+  "titulo": "2.2.- COMITÉ DE DIRECCIÓN",
+  "pagina": 312,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=312",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "2.2.- COMITÉ DE DIRECCIÓN"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Comité de Dirección es el órgano auxiliar de dirección y toma de decisiones del Plan siendo su función auxiliar a la Dirección del Plan.",
+    "pagina": 312
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Comité de Dirección estará constituido por:",
+    "pagina": 312
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Titulares de las Consejerías con competencia en la materia o por la persona en quien el/la titular delegue.",
+    "pagina": 312
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• El/la Director/a General competente en materia de Protección Civil y Emergencias.",
+    "pagina": 312
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• El /la Director/a del Centro de Atención de Urgencias y Emergencias 112.",
+    "pagina": 312
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Presidente/a de la Federación de Municipios y Provincias de Extremadura o persona en quien delegue.",
+    "pagina": 312
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Personal competente de la Diputación de las áreas donde se produzca la emergencia pueda afectar a este riesgo.",
+    "pagina": 312
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Este Comité será dirigido por el/la Director/a General con competencias en materia de Protección Civil y Emergencias y coordinado por el /la Director/a del Centro de Atención de Urgencias y Emergencias 112. Una vez convocado se ubicarán en el CECOP, que se establece en las instalaciones del Centro de Atención de Urgencias y Emergencias 112 de Extremadura, en Mérida, en el lugar habilitado para ello. Cuando así lo decida la Dirección del Plan, se podrán incorporar a este Comité de Dirección, quienes ostenten las Alcaldías, o personas en las que éstas deleguen, de los municipios afectados por la emergencia.",
+    "pagina": 312
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Comité de Dirección podrá asimismo estar formado por el/la Delegado/a del Gobierno, o persona a quien designe, cuando así lo estime la Dirección del Plan en situación 1, en situación 2 siempre que intervengan medios de la Administración del Estado no asignados al Plan y siempre en situación 3, al ser declarado el interés nacional, momento a partir del cual pasará a ser un Comité de Dirección Integrado. Declarada la emergencia de Situación 1, para una mejor cooperación y coordinación de las actuaciones de los Servicios y Organismos de la Administración del Estado, el/la Delegado/a del Gobierno podrá formar parte del Comité de Dirección cuando así lo decida la Dirección del Plan. Pasando el Comité de Dirección a ser Integrado tras la incorporación, del/la Delegado/a del Gobierno.",
+    "pagina": 312
+   },
+   {
+    "clase": "parrafo",
+    "texto": "En Situación 2 la presencia del/la Delegado/a del Gobierno en el Comité de Dirección Integrado tiene además la finalidad de mantenerse Informado/a de la evolución del suceso y de las medidas adoptadas en previsión que una evolución desfavorable requiera la declaración de la Situación 3, al ser declarada como emergencia de interés nacional.",
+    "pagina": 312
+   }
+  ]
+ },
+ {
+  "id": "s-iv-2-3",
+  "tipo": "precepto",
+  "numero": "IV.2.3",
+  "titulo": "2.3.- COMITÉ TÉCNICO ASESOR",
+  "pagina": 313,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=313",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "2.3.- COMITÉ TÉCNICO ASESOR"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La misión fundamental del Comité Técnico Asesor es asesorar a la Dirección del Plan en la ejecución de sus funciones ya sea en relación a las actuaciones en situación de emergencia como en lo referente a la operatividad del Plan. Este comité se reunirá con todos sus miembros o parte de ellos, conforme a la convocatoria realizada por el/la Directora/a del Plan de acuerdo con las necesidades de cada momento, en función de la situación de la emergencia, disponiendo del CECOP/I como centro de operaciones. El Comité Técnico Asesor está compuesto por los siguientes cargos:",
+    "pagina": 313
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Representantes de la Comisión Regional de Protección Civil de Extremadura.",
+    "pagina": 313
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Responsable del Servicio competente en materia de Protección Civil.",
+    "pagina": 313
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Representantes designados por la Administración del Estado.",
+    "pagina": 313
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Responsables de los Grupos de Acción.",
+    "pagina": 313
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Representante de la Confederación Hidrográfica afectada.",
+    "pagina": 313
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Jefes/as de Servicio competentes de las Consejerías que tengan relación con la emergencia a afrontar o persona en quien delegue.",
+    "pagina": 313
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Expertos/as cuya presencia se estime necesaria por el Comité de Dirección en la gestión de la emergencia.",
+    "pagina": 313
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Técnicos/as de la Secretaría General de Interior, Emergencias y Protección Civil y Emergencias que la Dirección del Plan considere necesarios.",
+    "pagina": 313
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Representante de la Federación de Municipios y Provincias de Extremadura (FEMPEX).",
+    "pagina": 313
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Representante de la Delegación del Gobierno en Extremadura.",
+    "pagina": 313
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Representante del Centro Meteorológico Territorial.",
+    "pagina": 313
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Representante de la Unidad Militar de Emergencias (UME).",
+    "pagina": 313
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Jefe del Gabinete de Información.",
+    "pagina": 313
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Este Comité será dirigido por el/la Director/a General competente en materia de Protección Civil y Emergencias y coordinado por la persona responsable del Servicio competente en materia de Protección Civil.",
+    "pagina": 313
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La función principal del Comité Técnico Asesor es analizar y valorar la situación para asesorar y asistir a la Dirección del Plan en todo aquello que proceda para la resolución de la emergencia. Las funciones de los integrantes de este grupo estarán en función de las demandas de asesoramiento que realice la Dirección del Plan, bien directamente o a través del Comité de Dirección.",
+    "pagina": 313
+   }
+  ]
+ },
+ {
+  "id": "s-iv-2-4",
+  "tipo": "precepto",
+  "numero": "IV.2.4",
+  "titulo": "2.4.- GABINETE DE INFORMACIÓN",
+  "pagina": 314,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=314",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "2.4.- GABINETE DE INFORMACIÓN"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Dependiendo directamente de la Dirección del Plan, se constituirá el Gabinete de Información. A través de dicho Gabinete, se supervisará y canalizará toda la información a los medios de comunicación social durante y después de la emergencia. La información a la población se considerará parte esencial en la gestión de una emergencia y se realizará a través de un único portavoz oficial.",
+    "pagina": 314
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La persona responsable del Gabinete de Información será el/la responsable de la Dirección General Comunicación y Relaciones Informativas de la Junta de Extremadura, pudiendo asumir las funciones el gabinete de prensa de la Consejería con competencia en Protección Civil.",
+    "pagina": 314
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Gabinete de Información se convoca durante todo el tiempo que la Dirección del Plan estime necesario y puede apoyarse en gabinetes de prensa de entidades locales, mancomunidades, diputaciones afectadas y gabinete de prensa de la Delegación del Gobierno.",
+    "pagina": 314
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La difusión de las comunicaciones públicas se realizará a través de los dispositivos previstos en la estructura administrativa en materia de comunicación establecida por el Gobierno de Comunidad Autónoma de Extremadura.",
+    "pagina": 314
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Con la finalidad de conseguir una unidad de información se considerará únicamente como información fidedigna y contrastada aquella facilitada directamente por el Gabinete de Información.",
+    "pagina": 314
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Cuando la situación de emergencia así lo requiera, se desplazará a algunos de sus miembros al Puesto de Mando Avanzado constituido en las cercanías de la zona de la emergencia, pero en zona segura, con el objeto de coordinar la información en esa zona.",
+    "pagina": 314
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Las funciones del Gabinete de Información son las siguientes:",
+    "pagina": 314
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Difundir las órdenes, consignas y recomendaciones dictadas por el Comité de Dirección del Plan, a través de los medios de comunicación social previstos en el Plan",
+    "pagina": 314
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Centralizar, coordinar y preparar la información general sobre la emergencia, de acuerdo con la Dirección del Plan, y facilitarla a los medios de comunicación social una vez aprobada por la Dirección del Plan.",
+    "pagina": 314
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Supervisar que la información que se transmite a la población a través de los medios de comunicación es la adecuada para una situación de emergencia (clara, coherente, concisa...).",
+    "pagina": 314
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Informar sobre la emergencia a cuantas personas u organismos lo soliciten. principalmente a los medios de comunicación y a las personas afectadas por la emergencia.",
+    "pagina": 314
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Preparar la intervención de autoridades en cualquier momento de la emergencia, para informar a la opinión pública siempre y cuando esta intervención esté autorizada por la Dirección del Plan.",
+    "pagina": 315
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Atender a los medios de prensa.",
+    "pagina": 315
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Coordinar la información con los diferentes gabinetes de prensa de la Administración General del Estado y de las Administraciones Locales.",
+    "pagina": 315
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Difundir a través de los medios de comunicación social los avisos a la población definidos para que se adopten, si fuera necesario, medidas de autoprotección.",
+    "pagina": 315
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Informar de los teléfonos y puntos de información e inscripción, si procede, previsto para los voluntarios que deseen colaborar durante una situación de emergencia.",
+    "pagina": 315
+   }
+  ]
+ },
+ {
+  "id": "s-iv-2-5",
+  "tipo": "precepto",
+  "numero": "IV.2.5",
+  "titulo": "2.5.- CECOP/CECOPI",
+  "pagina": 315,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=315",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "2.5.- CECOP/CECOPI"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El CECOP es el órgano de coordinación, control y seguimiento de todas las operaciones de la emergencia, siendo el centro de unión entre la Dirección del INUNCAEX y los Servicios Operativos. Es además el centro permanente de comunicaciones e información en emergencias.",
+    "pagina": 315
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El CECOP funciona como CECOPI (Centro de Coordinación Operativa Integrado) cuando la situación de la emergencia requiera la integración en éste de mandos de otras administraciones tanto para la dirección y coordinación de la emergencia como para la transferencia de responsabilidades.",
+    "pagina": 315
+   },
+   {
+    "clase": "parrafo",
+    "texto": "En el CECOP se integran:",
+    "pagina": 315
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• La Dirección del Plan.",
+    "pagina": 315
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• El Comité de Dirección / Comité de Dirección Integrado.",
+    "pagina": 315
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• El Comité Técnico Asesor.",
+    "pagina": 315
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• El Gabinete de Información.",
+    "pagina": 315
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Personal de Operación del 112.",
+    "pagina": 315
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La persona responsable del CECOP/I será el/la Director/a del Centro de Atención de Urgencias y Emergencias 112 como centro coordinador de emergencias ayudando a la Dirección del Plan en el proceso de toma de decisiones y en el traslado y materialización de las órdenes.",
+    "pagina": 315
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El CECOP/I está instalado en el Centro de Atención de Urgencias y Emergencias de Extremadura 112 de la Comunidad Autónoma de Extremadura, en Mérida, donde se dispone de los medios y recursos necesarios para ejercer las funciones de coordinación, control, seguimiento, comunicación y centralización de la información necesaria para la gestión de la emergencia.",
+    "pagina": 315
+   },
+   {
+    "clase": "parrafo",
+    "texto": "En el CECOP/I se prevén las siguientes dependencias:",
+    "pagina": 315
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Despacho de la Dirección del Plan",
+    "pagina": 316
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Sala del Comité de Dirección",
+    "pagina": 316
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Sala del Comité Técnico Asesor",
+    "pagina": 316
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Sala del Gabinete de Información",
+    "pagina": 316
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Sala de Coordinación Operativa del 112",
+    "pagina": 316
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Área Plataforma Tecnológica 112 La infraestructura del CECOP/I deberá ser la apropiada para que se ejerzan en el mismo las siguientes funciones:",
+    "pagina": 316
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Ejecutar las actuaciones encomendadas por la Dirección del Plan y coordinar, controlar y realizar el seguimiento de todas las actuaciones para la atención de la emergencia.",
+    "pagina": 316
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Recibir la notificación de la emergencia y, si procede, siempre con el acuerdo de la Dirección del Plan, realizar los avisos de activación del Plan.",
+    "pagina": 316
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Ser el centro de la red de comunicaciones que permite las funciones de información, mando y control.",
+    "pagina": 316
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Efectuar la coordinación entre planes a distintos niveles.",
+    "pagina": 316
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Gestionar durante la emergencia los medios y recursos.",
+    "pagina": 316
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• De acuerdo con el Gabinete de Información, transmitir información a las distintas Administraciones y autoridades.",
+    "pagina": 316
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Asegurar que se realice la notificación, lo antes posible, al ayuntamiento o ayuntamientos afectados, tanto en caso de accidentes como de otros sucesos con efectos perceptibles capaces de causar alarma en el exterior y coordinar con ellos las actuaciones en su propio municipio manteniendo contacto con los/las alcaldes/as de los municipios afectados.",
+    "pagina": 316
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Servir de enlace con el Puesto de Mando Avanzado (PMA) y el CECOPAL.",
+    "pagina": 316
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Centro de Coordinación Operativa Integrado (CECOPI) se constituirá a partir del CECOP, con la incorporación del Delegado/a del Gobierno en la Comunidad Autónoma de Extremadura.",
+    "pagina": 316
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Cuando por motivo de emergencia, se haya calificado la situación operativa del Plan como 2 y así lo solicite la Dirección del Plan y, en todo caso, cuando la situación sea declarada de interés nacional, es decir situación 3, el CECOP pasara a denominarse CECOP/I, y el Comité de Dirección pasará a ser un Comité de Dirección Integrado.",
+    "pagina": 316
+   }
+  ]
+ },
+ {
+  "id": "s-iv-3",
+  "tipo": "precepto",
+  "numero": "IV.3",
+  "titulo": "3.- ESTRUCTURA OPERATIVA",
+  "pagina": 317,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=317",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "3.- ESTRUCTURA OPERATIVA"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "En el INUNCAEX se integran de forma coordinada y bajo una dirección única (principio del mando único), los servicios operativos ordinarios y extraordinarios de todos los servicios de emergencia y que están constituidos con carácter permanente y con unas funciones determinadas.",
+    "pagina": 317
+   }
+  ]
+ },
+ {
+  "id": "s-iv-3-1",
+  "tipo": "precepto",
+  "numero": "IV.3.1",
+  "titulo": "3.1.- PUESTO DE MANDO AVANZADO (PMA)",
+  "pagina": 317,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=317",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "3.1.- PUESTO DE MANDO AVANZADO (PMA)"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Se establece en las proximidades del lugar de la emergencia el Puesto de Mando Avanzado (PMA) constituido por la persona responsable de cada uno de los grupos de acción (Grupo de Intervención, Grupo de Apoyo Técnico, Grupo Sanitario, Grupo de Seguridad, Grupo de Logística y Grupo Psicosocial y la persona responsable de coordinar el PMA que será un/a Jefe/a de Sala como experto/a en coordinación en Protección Civil y Emergencias designado/a por la Dirección del Plan quien será el máximo representante de la Dirección del Plan en el lugar de la emergencia canalizando la información entre el lugar de la emergencia y el CECOP/I.",
+    "pagina": 317
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Cuando la emergencia afecte a un territorio que englobe a varias comunidades autónomas previéndose la utilización de medios de titularidad estatal, habrá que designar un Puesto de Mando Integrado de la emergencia.",
+    "pagina": 317
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Las funciones del PMA son las siguientes:",
+    "pagina": 317
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Coordinar y dirigir las actuaciones de todos los grupos de acción que intervienen en la emergencia en la zona afectada “in situ” conforme a las instrucciones de la Dirección del Plan, para lo cual remitirán a éste información exhaustiva sobre la evolución del riesgo o calamidad.",
+    "pagina": 317
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Estar en contacto permanente con el CECOP/I.",
+    "pagina": 317
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Informar a la Dirección del Plan de las medidas propuestas y de la evolución de la emergencia",
+    "pagina": 317
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Delimitar las Zonas de intervención, de alerta, de socorro y base.",
+    "pagina": 317
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Solicitar al CECOP/I los medios que sean necesarios en la Zona de Intervención.",
+    "pagina": 317
+   }
+  ]
+ },
+ {
+  "id": "s-iv-3-2",
+  "tipo": "precepto",
+  "numero": "IV.3.2",
+  "titulo": "3.2.- CENTRO DE COORDINACIÓN OPERATIVA MUNICIPAL (CECOPAL)",
+  "pagina": 317,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=317",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "3.2.- CENTRO DE COORDINACIÓN OPERATIVA MUNICIPAL (CECOPAL)"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Es el centro desde donde se apoyan a nivel municipal las acciones determinadas por la Dirección del Plan, velando por la buena coordinación de los medios y recursos municipales integrados en él y la colaboración en la difusión de las medidas de autoprotección recomendadas a la población, así como de cualquier otra recomendada por la Dirección del Plan.",
+    "pagina": 317
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Se dispondrá de un CECOPAL donde se reunirá el Comité de Emergencias Municipal, bajo la dirección del Alcalde/sa con la representación de los máximos responsables del Servicio de Protección Civil, Policía Local y otros Cuerpos y Servicios del Ayuntamiento.",
+    "pagina": 318
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Este centro tendrá que mantenerse permanentemente en comunicación con el Comité de Dirección. Las funciones del CECOPAL son las siguientes:",
+    "pagina": 318
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Velar por la buena coordinación de los medios y recursos municipales integrados en el Plan.",
+    "pagina": 318
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Colaborar en la difusión y aplicación de las medidas de protección a la población.",
+    "pagina": 318
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Mantener informado al CECOP/I sobre la repercusión real de la emergencia en el municipio.",
+    "pagina": 318
+   }
+  ]
+ },
+ {
+  "id": "s-iv-3-3",
+  "tipo": "precepto",
+  "numero": "IV.3.3",
+  "titulo": "3.3.- COORDINADOR/A DE MEDIOS",
+  "pagina": 318,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=318",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "3.3.- COORDINADOR/A DE MEDIOS"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La persona destinada a ser Coordinador/a de medios será quien ejerza la Jefatura de Sala del Centro Coordinador de Emergencias 1.1.2. de Extremadura designado/a por la Dirección del Plan, pudiendo ser auxiliado por el personal que éste considere necesario.",
+    "pagina": 318
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Su función primordial es facilitar los medios solicitados por el CECOP/I para que lleguen a los grupos de acción o a las Entidades Locales. El procedimiento para esta decisión está basado fundamentalmente, en la evaluación de los daños producidos y en la información recibida de los grupos de acción desde la emergencia.",
+    "pagina": 318
+   }
+  ]
+ },
+ {
+  "id": "s-iv-3-4",
+  "tipo": "precepto",
+  "numero": "IV.3.4",
+  "titulo": "3.4.- GRUPOS DE ACCIÓN",
+  "pagina": 318,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=318",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "3.4.- GRUPOS DE ACCIÓN"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Las actuaciones previstas en el Plan Territorial de Protección Civil de la Comunidad de Extremadura serán ejecutadas por seis grupos de acción:",
+    "pagina": 318
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Grupo de Intervención",
+    "pagina": 318
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Grupo de Apoyo Técnico",
+    "pagina": 318
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Grupo Sanitario",
+    "pagina": 318
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Grupo de Seguridad",
+    "pagina": 318
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Grupo de Logística",
+    "pagina": 318
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Grupo Psicosocial Se consideran grupos de acción al conjunto de servicios y personas que intervienen desde los primeros momentos en el lugar de emergencia, están encargados de los servicios operativos ordinarios y ejecutan las actuaciones de protección, intervención, socorro y reparadoras previstas en el Plan Territorial de Protección Civil de la Comunidad de Extremadura.",
+    "pagina": 318
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Constituyen la base para la organización de los grupos de acción los servicios operativos ordinarios comunes a todos los tipos de emergencias constituidos con carácter permanente y con funciones específicas. El personal de cualquier administración que opere directamente en el lugar del riesgo o calamidad debe actuar integrado en los tipos de grupos de acción que se prevén en el Plan. Son los grupos actuantes en las emergencias, organizados, con la preparación, la experiencia y los medios materiales pertinentes para hacer frente a la emergencia de forma coordinada y de acuerdo con las funciones que tienen encomendadas.",
+    "pagina": 319
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Cada grupo actúa siempre bajo la coordinación de una sola jefatura. Los componentes de los diferentes grupos de acción que se encuentren actuando en el lugar de la emergencia, lo harán bajo las órdenes de su superior jerárquico inmediato. Estas órdenes emanan de los mandos correspondientes ubicados en el Puesto de Mando Avanzado y siempre supeditadas a la Dirección del Plan.",
+    "pagina": 319
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Los grupos de acción se constituyen con los medios y recursos propios de la Administración Autonómica, los asignados por otras Administraciones Publicas y los dependientes de otras entidades públicas o privadas, con los cuales se organiza la intervención directa en la emergencia.",
+    "pagina": 319
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Para organizar los grupos de acción se establecerán los necesarios Protocolos, Convenios o Acuerdos con los organismos y entidades participantes, tanto para concretar sus misiones, como para la asignación, a los mismos, de los medios humanos y materiales necesarios.",
+    "pagina": 319
+   },
+   {
+    "clase": "parrafo",
+    "texto": "A continuación, se señalan la estructura, composición y funciones de los mismos.",
+    "pagina": 319
+   }
+  ]
+ },
+ {
+  "id": "s-iv-3-4-1",
+  "tipo": "precepto",
+  "numero": "IV.3.4.1",
+  "titulo": "3.4.1.- GRUPO DE INTERVENCIÓN",
+  "pagina": 319,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=319",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "3.4.1.- GRUPO DE INTERVENCIÓN"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Este grupo ejecuta las medidas de intervención que tienen por objeto eliminar, reducir o controlar directamente los efectos de la emergencia, combatiendo la causa que la produce, así como actuando sobre aquellos puntos críticos donde concurren circunstancias que facilitan su evolución o propagación. El Grupo de Intervención está integrado por:",
+    "pagina": 319
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Servicios de Extinción de Incendios y Salvamento.",
+    "pagina": 319
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Técnicos/as y profesionales especialistas en función de la emergencia.",
+    "pagina": 319
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La persona responsable del Grupo de Intervención en el Comité Técnico Asesor, será el/la responsable del Servicio de Extinción de Incendios y Salvamento de la zona afectada por la emergencia. El Grupo de Intervención estará dirigido en el PMA por el Mando del Servicio de Extinción de Incendios y Salvamento que está en la zona de la emergencia o aquella otra designada por el/la Directora/a del Plan en función de la emergencia.",
+    "pagina": 319
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Las funciones del Grupo de Intervención son las siguientes:",
+    "pagina": 320
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Reconocimiento y evaluación de posibles riesgos asociados en el área de intervención.",
+    "pagina": 320
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Combatir la emergencia y los posibles riesgos asociados, auxiliar a las víctimas y aplicar las medidas de protección más urgentes, desde los primeros instantes de la emergencia.",
+    "pagina": 320
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Búsqueda, rescate y salvamento de personas heridas, sepultadas o aisladas.",
+    "pagina": 320
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Eliminar, reducir y controlar las causas y los efectos del siniestro.",
+    "pagina": 320
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Determinar la zona inicial de rescate y salvamento y las prioridades de actuación.",
+    "pagina": 320
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Colaborar con el personal sanitario en el traslado de los posibles afectados por el accidente situados en el Área de Intervención hasta al Puesto de Asistencia Médica Avanzada desplazado a la zona.",
+    "pagina": 320
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Colaboración con otros grupos de acción para adoptar medidas de protección a la población.",
+    "pagina": 320
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Dar facilidades a otros grupos de acción especializados en sus tareas dentro del área de intervención.",
+    "pagina": 320
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Primera evaluación de la situación de los servicios básicos en la zona afectada, daños en el servicio viario e infraestructuras de transporte.",
+    "pagina": 320
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Vigilar la posibilidad de resurgimiento de riesgos latentes una vez controlada la emergencia y después de la misma.",
+    "pagina": 320
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Emitir los informes oportunos cuando le sean requeridos por la Dirección del Plan sobre los daños producidos, riesgos asociados, etc.",
+    "pagina": 320
+   }
+  ]
+ },
+ {
+  "id": "s-iv-3-4-2",
+  "tipo": "precepto",
+  "numero": "IV.3.4.2",
+  "titulo": "3.4.2.- GRUPO DE APOYO TÉCNICO",
+  "pagina": 320,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=320",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "3.4.2.- GRUPO DE APOYO TÉCNICO"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Este grupo tiene como misión proponer las medidas para controlar la causa que desencadena la situación de emergencia, así como evaluar las consecuencias producidas, realizar un seguimiento que permita predecir la evolución de la emergencia y/o de la situación de riesgo y proponer las actuaciones necesarias para la rehabilitación de los servicios básicos que hayan resultado afectados.",
+    "pagina": 320
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Grupo de Apoyo Técnico está integrado por:",
+    "pagina": 320
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Personal Técnico de las Consejerías con competencias afectadas en función del tipo de emergencia.",
+    "pagina": 320
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Personal técnico de ingeniería civil de las Diputaciones Provinciales.",
+    "pagina": 320
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Personal técnico o asignado al efecto de distintas compañías de servicios y suministros de la Comunidad Autónoma de Extremadura (electricidad, aguas, telefónica, gas natural).",
+    "pagina": 320
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Personal técnico de las Confederaciones Hidrográficas de la Comunidad Autónoma de Extremadura.",
+    "pagina": 320
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Personal técnico cualificado de los Ayuntamientos afectados por la emergencia.",
+    "pagina": 321
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Expertos/as que guarden relación con la emergencia que sean requeridos.",
+    "pagina": 321
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Personal técnico de Alerta2.",
+    "pagina": 321
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Las funciones del Grupo de Apoyo Técnico son las siguientes:",
+    "pagina": 321
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Determinar las medidas de carácter corrector de ingeniería civil necesarias en cada emergencia para hacer frente, controlar o aminorar las consecuencias de los riesgos.",
+    "pagina": 321
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Evaluar la seguridad de las edificaciones e infraestructuras afectadas por el suceso catastrófico.",
+    "pagina": 321
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Priorizar las medidas necesarias para la rehabilitación de los servicios esenciales y básicos para la población.",
+    "pagina": 321
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Evaluar y valorar la necesidad de equipos especiales de trabajo y equipamiento necesarios para llevar a cabo las medidas anteriores definiendo las misiones concretas de cada uno de los equipos especiales de trabajo en la zona de operaciones o intervención.",
+    "pagina": 321
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Efectuar el seguimiento técnico de la emergencia y de sus acciones.",
+    "pagina": 321
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Transmitir a la Dirección del Plan, a través del PMA, los datos sobre la situación, los daños producidos o los que pudieran producirse, de las necesidades que se presenten en la evolución de la emergencia y la viabilidad de las operaciones a realizar, así como las prioridades en la rehabilitación de los servicios públicos y suministros esenciales para la población.",
+    "pagina": 321
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Realizar el seguimiento y análisis de los parámetros que provocan la alerta y/o prever las zonas, bienes y/o población que se pudiera ver afectada en base a la evaluación de la acción generadora y de sus posibles consecuencias.",
+    "pagina": 321
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Evaluar la situación y establecer predicciones y asesoramiento sobre su posible evolución y sus consecuencias en base a las informaciones existentes de la zona afectada.",
+    "pagina": 321
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La persona responsable del Grupo de Apoyo Técnico en el Comité Técnico Asesor, será quien designe la Dirección del Plan, en función de la Emergencia.",
+    "pagina": 321
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Grupo de Apoyo Técnico estará dirigido en el PMA por un Técnico/a de la Secretaría General de Interior, Emergencias y Protección Civil asignado por la Secretaría General con la formación y experiencia más adecuadas al tipo de situación.",
+    "pagina": 321
+   }
+  ]
+ },
+ {
+  "id": "s-iv-3-4-3",
+  "tipo": "precepto",
+  "numero": "IV.3.4.3",
+  "titulo": "3.4.3.- GRUPO SANITARIO",
+  "pagina": 321,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=321",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "3.4.3.- GRUPO SANITARIO"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Grupo Sanitario es el encargado de gestionar los recursos sanitarios necesarios, prestar asistencia sanitaria \"in situ\", coordinar la evacuación de los pacientes y heridos y ejecutar las medidas de protección y socorro a la población.",
+    "pagina": 321
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Grupo Sanitario está integrado por:",
+    "pagina": 321
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Los medios y recursos del Servicio Extremeño de Salud.",
+    "pagina": 321
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Los medios y recursos sanitarios de la Consejería con competencias en salud y servicios sanitarios.",
+    "pagina": 322
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Cruz Roja y otras asociaciones (DYA, etc.).",
+    "pagina": 322
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Representantes del Servicio de Interior y Protección Civil con cualificación técnico- sanitaria adecuada a cada nivel de intervención.",
+    "pagina": 322
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Los servicios asistenciales privados ubicados en la Comunidad Autónoma de Extremadura entendiendo por servicios asistenciales el conjunto de medios, integrado tanto por personal sanitario como por centros hospitalarios o por unidades móviles para el transporte de heridos. La persona responsable en el Comité Técnico Asesor del Grupo Sanitario será el/la Director/a Gerente del SES o la persona en quien delegue.",
+    "pagina": 322
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Grupo Sanitario estará dirigido en el PMA por la persona responsable del Servicio Extremeño de Salud (SES) designada por el/la Gerente del Área de Salud correspondiente o por el/la Director/a Gerente del SES.",
+    "pagina": 322
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Las funciones del Grupo Sanitario son:",
+    "pagina": 322
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Movilizar los recursos sanitarios necesarios (Atención Primaria, Transporte Sanitario, Atención Especializada).",
+    "pagina": 322
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Establecer el puesto de Asistencia Médica Avanzada (PAMA) desplazado a la zona.",
+    "pagina": 322
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Prestar asistencia sanitaria “in situ” a las víctimas: Triage, Estabilización, Alta, Traslado.",
+    "pagina": 322
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Clasificar a los heridos, estabilizarlos y decidir el traslado a Centros Sanitarios.",
+    "pagina": 322
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Coordinar la evacuación de los pacientes a los distintos Centros Hospitalarios.",
+    "pagina": 322
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Colaborar con el Grupo de Intervención.",
+    "pagina": 322
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Proporcionar asistencia sanitaria de emergencia y de urgencia a los afectados por la emergencia abarcando toda la cadena asistencial, ordenado la prioridad de la atención y el traslado de los heridos.",
+    "pagina": 322
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Colaborar con los otros grupos en la adopción de las restantes medidas de protección a la población.",
+    "pagina": 322
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Registro de las víctimas.",
+    "pagina": 322
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Organización de la infraestructura de recepción de víctimas a los distintos centros hospitalarios.",
+    "pagina": 322
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Emitir informes para la Dirección del Plan sobre el estado de las víctimas consecuencia de la emergencia.",
+    "pagina": 322
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Proponer a la Dirección del Plan las medidas sanitarias preventivas, y en su caso ejecutarlas.",
+    "pagina": 322
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Informar a la Dirección del Plan a través del PMA de los aspectos sanitarios de la emergencia y plantear las actuaciones posibles.",
+    "pagina": 322
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Controlar las condiciones sanitarias en los casos en que la emergencia tenga consecuencias sobre la salud por contaminación de las aguas, etc.",
+    "pagina": 323
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Inspeccionar el estado de salud de la población evacuada en los albergues de emergencia, evaluar y determinar las necesidades sanitarias de los mismos y coordinar con el Grupo de Logística, el avituallamiento de los productos esenciales: agua, alimentos, medicamentos.",
+    "pagina": 323
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Vigilar los riesgos latentes que afecten a la salud y vida de la población, una vez controlada la emergencia.",
+    "pagina": 323
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Suministrar los fármacos necesarios a la población afectada.",
+    "pagina": 323
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El CECOP/CECOPI con la información recibida del Grupo Sanitario, a través de su representante en el Comité de Dirección, coordina a los centros asistenciales necesarios para recibir a todos los heridos que se vayan evacuando.",
+    "pagina": 323
+   }
+  ]
+ },
+ {
+  "id": "s-iv-3-4-4",
+  "tipo": "precepto",
+  "numero": "IV.3.4.4",
+  "titulo": "3.4.4.- GRUPO DE SEGURIDAD",
+  "pagina": 323,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=323",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "3.4.4.- GRUPO DE SEGURIDAD"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Este grupo es el encargado de asegurar que las operaciones en caso de emergencia se desarrollen en las mejores condiciones de seguridad y orden, teniendo como prioridad la salvaguarda de las personas implicadas en la emergencia y de los demás grupos de acción.",
+    "pagina": 323
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Grupo de Seguridad está integrado por:",
+    "pagina": 323
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Cuerpos y Fuerzas de Seguridad del Estado.",
+    "pagina": 323
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Policías Locales de las poblaciones afectadas.",
+    "pagina": 323
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La persona responsable en el Comité Técnico Asesor del Grupo de Seguridad será el mando natural que ostente la competencia en la zona afectada por la emergencia, según se expone en la Ley Orgánica 2/1986 de Fuerzas y Cuerpos de Seguridad y en la Ley 7/2017, de 1 de agosto, de Coordinación de Policías Locales de Extremadura.",
+    "pagina": 323
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Grupo de Seguridad estará dirigido en el PMA por quien designe el mando natural que ostente la competencia en la zona afectada por la emergencia, según se expone en la Ley Orgánica 2/1986 de Fuerzas y Cuerpos de Seguridad y en la Ley 7/2017, de 1 de agosto, de Coordinación de Policías Locales de Extremadura.",
+    "pagina": 323
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Las funciones del Grupo de Seguridad son:",
+    "pagina": 323
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Garantizar el orden público y la seguridad ciudadana.",
+    "pagina": 323
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Control de accesos y señalización de las áreas de actuación, acordonamiento del área de intervención.",
+    "pagina": 323
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Garantizar la seguridad de los bienes y evitar el saqueo en la zona afectada si fuera necesario.",
+    "pagina": 323
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Regular y ordenar el tráfico, estableciendo rutas alternativas, para facilitar las operaciones de evacuación.",
+    "pagina": 324
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Prever los posibles lugares y casos en los que se pueda producir un aumento de tráfico a consecuencia de la emergencia para su regulación.",
+    "pagina": 324
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Colaborar en la evacuación, en especial de personas en situación de peligro inminente, con el Grupo de Logística.",
+    "pagina": 324
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Colaboración en el rescate y salvamento de víctimas con el Grupo de Intervención.",
+    "pagina": 324
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Apoyo para la difusión de avisos a la población cuando sea necesario.",
+    "pagina": 324
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Identificar a heridos y fallecidos, a través de las instituciones médicas y judiciales correspondientes.",
+    "pagina": 324
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Ejecutar las órdenes de expropiación temporal y/o movilización de los recursos privados dispuestos por la Dirección del Plan.",
+    "pagina": 324
+   }
+  ]
+ },
+ {
+  "id": "s-iv-3-4-5",
+  "tipo": "precepto",
+  "numero": "IV.3.4.5",
+  "titulo": "3.4.5.- GRUPO DE LOGÍSTICA",
+  "pagina": 324,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=324",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "3.4.5.- GRUPO DE LOGÍSTICA"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Este grupo tiene como misión la provisión de todos los equipamientos y suministros necesarios para las actividades de los demás grupos de acción. Las principales acciones de apoyo logístico son el abastecimiento y transporte y, en general, todo lo relacionado con el área logística.",
+    "pagina": 324
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Grupo de Logística está integrado por:",
+    "pagina": 324
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Técnicos/as de la Secretaría General de Interior, Emergencias y Protección Civil y Emergencias que la Dirección del Plan considere necesarios.",
+    "pagina": 324
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Responsables de las compañías suministradoras de servicios esenciales y gestoras de infraestructuras básicas.",
+    "pagina": 324
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Personal de las Consejerías con competencias en infraestructuras, medio ambiente, sanidad y política social.",
+    "pagina": 324
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Cruz Roja Española.",
+    "pagina": 324
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Organizaciones no Gubernamentales.",
+    "pagina": 324
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Equipos de voluntarios/as de diversas asociaciones y agrupaciones locales de voluntarios de protección civil.",
+    "pagina": 324
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La persona responsable en el Comité Técnico Asesor del Grupo de Logística será el Responsable del Servicio competente en materia de Protección Civil o quien designe la Secretaría General de Interior, Emergencias y Protección Civil.",
+    "pagina": 324
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La persona responsable de este grupo será un/a Técnico/a de la Secretaría General de Interior, Emergencias y Protección Civil designado por la Secretaría General con la formación y experiencia más adecuadas al tipo de situación.",
+    "pagina": 325
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Grupo de Logística estará en contacto a través del PMA con el Centro de Coordinación Operativa Municipal (CECOPAL) en su caso por si resultaran insuficientes los recursos municipales. Las funciones del Grupo de Logística son las siguientes:",
+    "pagina": 325
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Facilitar el abastecimiento de carburantes, transportes y víveres a los grupos actuantes.",
+    "pagina": 325
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Suministro de equipos para la iluminación en los trabajos nocturnos.",
+    "pagina": 325
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Atender a la población aislada.",
+    "pagina": 325
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Apoyar a los sistemas de transmisiones existentes en el Plan con el uso de unidades móviles.",
+    "pagina": 325
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Colaborar en dar avisos a la población.",
+    "pagina": 325
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Suministro de producto básicos necesarios para el abastecimiento y ayuda a la población afectada en el siniestro (alimentos, agua, ropa, etc.).",
+    "pagina": 325
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Establecer en la zona de operaciones los centros de distribución que sean necesarios para atender a los distintos grupos de acción como a la población afectada.",
+    "pagina": 325
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Organizar la evacuación, el transporte y el albergue de la población afectada en caso de ser necesaria la evacuación estableciendo los puntos de reunión de los evacuados para organizar su traslado a los albergues de emergencia.",
+    "pagina": 325
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Abastecer a la población evacuada en los albergues de emergencia.",
+    "pagina": 325
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Organizar y gestionar los albergues, así como suministrarles el equipamiento y víveres necesarios mientras dure la estancia en estos.",
+    "pagina": 325
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Gestionar el control de todas las personas desplazadas de sus lugares de residencia por los efectos de la emergencia.",
+    "pagina": 325
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Garantizar el funcionamiento adecuado de todos los medios a emplear en la neutralización de la emergencia: vehículos, equipos de intervención, transmisiones, etc.",
+    "pagina": 325
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Colaboración con el/la Coordinador/a de medios en la evaluación de necesidades para las operaciones y, en los daños producidos por la catástrofe, para determinar los equipamientos y suministros necesarios para atender a la población.",
+    "pagina": 325
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Garantizar la retirada de los residuos almacenados y su posterior tratamiento.",
+    "pagina": 325
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Proponer medidas y actuaciones a seguir en la fase de rehabilitación.",
+    "pagina": 325
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Informar a la Dirección del Plan a través del PMA sobre las operaciones en curso y la viabilidad de las que se programen emitiendo los informes que sean necesarios.",
+    "pagina": 325
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Gestionar la incorporación de los equipos especiales de trabajo al Grupo de Intervención que determine la Dirección del Plan con el apoyo del Comité Técnico Asesor.",
+    "pagina": 326
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Gestionar y coordinar la incorporación del voluntariado civil: transporte, alojamiento, etc.",
+    "pagina": 326
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Asesorar a voluntarios/as y demás profesionales sin experiencia que integran este grupo sobre las pautas y directrices a seguir en estos casos para dar un correcto apoyo psicológico a las víctimas. Cuando la Dirección del Plan considere necesario prestar atención de carácter social y/o psicológico a la población afectada, se integran en este grupo personal de apoyo social y/o psicológico de la Comunidad Autónoma de Extremadura y pertenecientes a otras entidades de carácter social cuyas funciones serán:",
+    "pagina": 326
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Aplicación de medidas de protección social, para apoyar y resolver las diferentes situaciones de desamparo personal y/o colectivo que sufren las víctimas de un suceso catastrófico.",
+    "pagina": 326
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Prestar atención psicológica tanto a víctimas directas como indirectas (familiares, amigos, etc.) con el fin de minimizar el impacto emocional.",
+    "pagina": 326
+   }
+  ]
+ },
+ {
+  "id": "s-iv-3-4-6",
+  "tipo": "precepto",
+  "numero": "IV.3.4.6",
+  "titulo": "3.4.6.- GRUPO PSICOSOCIAL",
+  "pagina": 326,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=326",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "3.4.6.- GRUPO PSICOSOCIAL"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Este grupo tiene como objetivo la atención psicológica y social de los afectados por la emergencia y sus familiares, así como la organización de los trabajos de filiación ante posibles medidas de información, confinamiento o evacuación y albergue.",
+    "pagina": 326
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Grupo de Psicosocial está integrado por:",
+    "pagina": 326
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Personal con formación específica en emergencias designado en los convenios suscritos a tales efectos entre los colegios profesionales y la Consejería con competencias en materia de protección civil y emergencias, es decir, trabajadores sociales y psicólogos.",
+    "pagina": 326
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Equipos de Respuesta Inmediata en Emergencias (ERIE) de Cruz Roja Española.",
+    "pagina": 326
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La persona responsable en el Comité Técnico Asesor del Grupo de Psicosocial será el responsable del Servicio competente en materia de Protección Civil o quien designe la Secretaría General de Interior, Emergencias y Protección Civil.",
+    "pagina": 326
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La persona responsable de este grupo en al PMA será la misma persona que ostente la Jefatura del Grupo de Logística o quien la Secretaría General de Interior, Emergencias y Protección Civil designe. Las funciones del Grupo de Psicosocial son las siguientes:",
+    "pagina": 326
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Prestar atención social y psicológica a los afectados por la emergencia, a sus familiares y allegados y en su caso, a cualquiera de los intervinientes.",
+    "pagina": 326
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Asesorar a voluntarios/as y demás profesionales sin experiencia sobre las pautas y directrices a seguir en estos casos para dar un correcto apoyo psicológico a las víctimas.",
+    "pagina": 326
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Llevar el control sobre los datos de filiación, estado y ubicación de las personas desplazadas y albergadas en los centros de acogida.",
+    "pagina": 327
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Obtener y facilitar toda la información relativa a posibles afectados, facilitando los contactos familiares y la localización de personas.",
+    "pagina": 327
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Atender al alojamiento y primeras necesidades y llevar el control de la población desplazada.",
+    "pagina": 327
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Facilitar la atención adecuada a las personas con necesidades especiales.",
+    "pagina": 327
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• En los Centros de Acogida atender a los evacuados, identificarlos y valorar su situación.",
+    "pagina": 327
+   }
+  ]
+ },
+ {
+  "id": "s-iv-3-5",
+  "tipo": "precepto",
+  "numero": "IV.3.5",
+  "titulo": "3.5.- VOLUNTARIADO",
+  "pagina": 327,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=327",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "3.5.- VOLUNTARIADO"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La participación ciudadana constituye un fundamento esencial de colaboración de la sociedad en el sistema de Protección Civil. Se entiende por voluntario/a aquel colaborador/a que, de forma voluntaria y altruista, sin ánimo de lucro, ni personal ni corporativo, personalmente o mediante las organizaciones de las que forman parte, realice una actividad a iniciativa propia o a petición de las Autoridades. Los voluntarios/as de protección civil intervendrán en la emergencia previa autorización de la persona responsable del Puesto de Mando Avanzado (PMA). La adscripción a los distintos grupos de acción será determinada igualmente por el/la Coordinador/a del PMA en función de su formación y capacitación, estando siempre estos voluntarios/as a las órdenes de la persona responsable de la Jefatura de grupo asignado.",
+    "pagina": 327
+   }
+  ]
+ },
+ {
+  "id": "s-v-1",
+  "tipo": "precepto",
+  "numero": "V.1",
+  "titulo": "1.- INTRODUCCIÓN",
+  "pagina": 332,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=332",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "1.- INTRODUCCIÓN"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La operatividad incluye todos aquellos procedimientos y medidas de actuación planificadas previamente en función de la gravedad y el ámbito territorial afectado, mediante los que se valora la necesidad de activar y desactivar el INUNCAEX describiendo los medios y recursos a movilizar para lo cual se han de considerar diversos niveles de actuación en función de la situación y las fases de la emergencia.",
+    "pagina": 332
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Está basada en los siguientes puntos:",
+    "pagina": 332
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Sistemas de previsión del peligro de inundaciones.",
+    "pagina": 332
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Establecimiento de las fases y situaciones de emergencia.",
+    "pagina": 332
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Interfase entre planes.",
+    "pagina": 332
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Notificaciones.",
+    "pagina": 332
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Procedimientos de Actuación del Plan.",
+    "pagina": 332
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Medidas que constituyen la operatividad del Plan.",
+    "pagina": 332
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Guías de respuesta en forma de Fichas de Actuación.",
+    "pagina": 332
+   }
+  ]
+ },
+ {
+  "id": "s-v-2",
+  "tipo": "precepto",
+  "numero": "V.2",
+  "titulo": "2.- SISTEMAS DE PREVISIÓN DEL PELIGRO DE INUNDACIONES",
+  "pagina": 332,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=332",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "2.- SISTEMAS DE PREVISIÓN DEL PELIGRO DE INUNDACIONES"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Los sistemas de previsión y alerta del peligro de inundaciones del presente Plan se alimentan de la información procedente de los orígenes que se detallan:",
+    "pagina": 332
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Plan Nacional de Predicción y Vigilancia de Fenómenos Meteorológicos Adversos (Meteoalerta) de AEMET.",
+    "pagina": 332
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Sistema Europeo de Alerta sobre Inundaciones (EFAS).",
+    "pagina": 332
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Sistema de previsión de inundaciones SPIDA.",
+    "pagina": 332
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Sistemas de avisos del estado de presas y embalses.",
+    "pagina": 332
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Sistemas de Información Hidrológica y redes de aforos, gestionadas por las Confederaciones Hidrográficas.",
+    "pagina": 332
+   },
+   {
+    "clase": "parrafo",
+    "texto": "A continuación, se presentan los umbrales de adversidad a considerar en la activación del presente Plan Especial ante riesgo de inundaciones.",
+    "pagina": 332
+   }
+  ]
+ },
+ {
+  "id": "s-v-2-1",
+  "tipo": "precepto",
+  "numero": "V.2.1",
+  "titulo": "2.1.- Umbrales de adversidad del Plan Nacional de Predicción y Vigilancia de Fenómenos Meteorológicos Adversos (Meteoalerta)",
+  "pagina": 332,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=332",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "2.1.- Umbrales de adversidad del Plan Nacional de Predicción y Vigilancia de Fenómenos Meteorológicos Adversos (Meteoalerta)"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Plan Nacional de Predicción y Vigilancia de Fenómenos Meteorológicos Adversos (Meteoalerta), pretende facilitar a todos los ciudadanos y a las instituciones públicas, muy singularmente a las autoridades de Protección Civil, la mejor y más actualizada información posible sobre el peligro de los fenómenos meteorológicos adversos que se prevean, con un adelanto de hasta 72 horas, así como mantener una información puntual de la evolución de los mismos, una vez que se ha iniciado su desarrollo.",
+    "pagina": 332
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Meteoalerta establece los fenómenos que se consideran adversos, así como las cantidades o intensidades de sus variables meteorológicas asociadas no solamente inusuales desde el punto de vista climatológico, sino también lo suficientemente adversas como para que puedan afectar seriamente a la población, en función de su exposición y vulnerabilidad.",
+    "pagina": 333
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Con el fin de ofrecer la información más adecuada posible y en armonía con los criterios europeos comunes, se contemplan tres niveles básicos de aviso en función de su peligrosidad. Su significado y las recomendaciones generales a la población de cada uno de ellos son los siguientes:",
+    "pagina": 333
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Amarillo: El peligro es bajo, pero los bienes y la población vulnerables o en zonas expuestas al FMA podrían sufrir algunos impactos.",
+    "pagina": 333
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Recomendación: ESTÉ ATENTO. Manténgase informado de la predicción meteorológica más actualizada. Se pueden producir daños moderados a personas y bienes, especialmente aquellos vulnerables o en zonas expuestas al fenómeno.",
+    "pagina": 333
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Naranja: El peligro es importante. Los bienes y la población vulnerables o en zonas expuestas podrían sufrir impactos graves.",
+    "pagina": 333
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Recomendación: ESTÉ PREPARADO. Tome precauciones y manténgase informado de la predicción meteorológica más actualizada. Se pueden producir daños graves a personas y bienes, especialmente aquellos vulnerables o en zonas expuestas al fenómeno.",
+    "pagina": 333
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Rojo: El peligro es extraordinario. Los bienes y la población vulnerables o en zonas expuestas podrían sufrir impactos muy graves o catastróficos.",
+    "pagina": 333
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Recomendación: Tome medidas preventivas y ACTÚE según las indicaciones de las autoridades. Manténgase informado de la predicción meteorológica más actualizada. No viaje salvo que sea estrictamente necesario. Se pueden producir daños muy graves o catastróficos a personas y bienes, especialmente aquellos vulnerables o en zonas expuestas al fenómeno.",
+    "pagina": 333
+   },
+   {
+    "clase": "parrafo",
+    "texto": "En la web de AEMET puede encontrarse la definición detallada de todos los umbrales: https://www.aemet.es/documentos/es/eltiempo/prediccion/avisos/plan_meteoalerta/METEO",
+    "pagina": 334
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "ALERTA_ANX1_Umbrales_y_niveles_de_aviso.pdf",
+    "pagina": 334
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Destacando en Extremadura los que siguen:",
+    "pagina": 334
+   },
+   {
+    "clase": "tabla",
+    "texto": "",
+    "pagina": 334,
+    "hasta": 334,
+    "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=334"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Tabla 1: Umbrales de riesgo por lluvias de AEMET en Extremadura",
+    "pagina": 334
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Cabe recordar que las zonas en las que se discretizan los avisos de Meteoalerta en Extremadura son las que se detallan a continuación:",
+    "pagina": 334
+   },
+   {
+    "clase": "tabla",
+    "texto": "",
+    "pagina": 334,
+    "hasta": 334,
+    "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=334"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Siguiendo la zonificación de la propia AEMET, estos niveles equivalen aproximadamente a los siguientes períodos de retorno de precipitación:",
+    "pagina": 335
+   },
+   {
+    "clase": "tabla",
+    "texto": "",
+    "pagina": 335,
+    "hasta": 335,
+    "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=335"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Tabla 3: Periodos de retorno aproximados asociados a los umbrales de riesgo por lluvias de AEMET en Extremadura",
+    "pagina": 335
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Se observa que en las comarcas más montañosas (particularmente en la Sierra de Gredos) los niveles de alerta corresponden con lluvias notablemente más frecuentes que en las comarcas con menor pluviometría.",
+    "pagina": 335
+   }
+  ]
+ },
+ {
+  "id": "s-v-2-2",
+  "tipo": "precepto",
+  "numero": "V.2.2",
+  "titulo": "2.2.- Notificación de inundaciones repentinas del EFAS",
+  "pagina": 335,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=335",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "2.2.- Notificación de inundaciones repentinas del EFAS"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Servicio de Gestión de Emergencias - Inundaciones de Copernicus (CEMS-Flood) incluye dos servicios operativos, ambos operados por ECMWF, que tiene la responsabilidad de ejecutar los pronósticos, postprocesar y alojar las plataformas de",
+    "pagina": 335
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "sistemas de información asociadas.",
+    "pagina": 335
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Entre estos servicios se encuentra EFAS, que es el Sistema Europeo de Alerta sobre Inundaciones. Está operativo desde 2012 en colaboración con varias organizaciones europeas responsables de producir y proporcionar información sobre inundaciones. EFAS proporciona, entre otros productos, mapas de probabilidades de inundaciones con hasta 15 días de antelación, perspectivas de caudales estacionales con hasta 3 meses de antelación y riesgo de inundaciones repentinas (Flash Flood Risk).",
+    "pagina": 335
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La SGIEPC como miembro de EFAS participa de los pronósticos ofrecidos por el servicio de la agencia Copernicus y mejora sus previsiones con calibrado de los eventos a posteriori. Entre los servicios ofrecidos, el que más interés tiene para la SGEIPC es la EFAS FLASH FLOOD NOTIFICATION (notificación de inundaciones repentinas). Este tipo de aviso consiste en el envío de una notificación de inundación repentina del EFAS al socio del EFAS afectado si la probabilidad de superar el período de retorno de cinco años del indicador ERIC es igual o superior al 30 %, siempre y cuando el evento de inundación ocurra en las siguientes 48 horas. ERIC es el indicador numérico de inundaciones repentinas basado en la predicción meteorológica.",
+    "pagina": 335
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El indicador de inundaciones repentinas del ERIC se genera comparando la escorrentía superficial prevista acumulada en la cuenca aguas arriba con un umbral de referencia. Se basa en los pronósticos de precipitación y humedad del suelo del conjunto COSMO-LEPS de 20 miembros del modelo hidrológico LISFLOOD y proporciona indicadores para los próximos 5 días para cuencas de menos de 2.000 km² .",
+    "pagina": 336
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Figura 1: Cadena de modelización de indicadores de inundaciones repentinas de ERIC.",
+    "pagina": 336
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Existen dos productos ERIC:",
+    "pagina": 336
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Puntos de notificación (capas de “puntos de notificación ERIC”): puntos en la red fluvial (donde la zona de captación es <= 2.000 km²) donde es posible que se produzcan inundaciones repentinas. Los triángulos ampliados resaltan dónde la probabilidad del pronóstico de inundaciones repentinas durante los próximos 5 días cumple con ciertos criterios:",
+    "pagina": 336
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Se pronostica que la probabilidad de exceder un período de retorno de 5 años de la magnitud de la escorrentía superficial será mayor o igual al 30%.",
+    "pagina": 336
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• El tiempo de espera para cumplir el criterio anterior es <= 48 horas en una región para la que exista un socio de EFAS.",
+    "pagina": 336
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Área afectada (“Área afectada por ERIC”): red fluvial que contribuye a cada punto de notificación de ERIC, es decir, áreas en riesgo de inundaciones repentinas (“Área afectada por ERIC”) Figura 2: Ejemplo de un aviso de inundación repentina en la cuenca del Guadiana, con zonas de afección e intensidad por colores.",
+    "pagina": 336
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Cada triángulo que se muestra en el visor contiene, además de una serie de metadatos geográficos acerca del punto de notificación, un hidrograma que permite realizar una predicción sobre la posibilidad de inundación en esa ubicación. El hidrograma muestra el periodo de retorno de la escorrentía superficial acumulada para los próximos 5 días, teniendo en cuenta los valores del ensemble de 20 modelos NWP (Numerical Weather Prediction) de COSMO-LEPS en intervalos de 6 horas.",
+    "pagina": 337
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La línea continua del hidrograma muestra el comportamiento medio que se observa en los distintos modelos para los siguientes 5 días, proporcionando información acerca de cuándo se espera que se produzca el mayor riesgo de inundación y, por tanto, cuándo se debe prestar especial atención.",
+    "pagina": 337
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Figura 3: Ejemplo de hidrograma",
+    "pagina": 338
+   },
+   {
+    "clase": "parrafo",
+    "texto": "En el anterior gráfico se muestra un ejemplo del hidrograma anteriormente comentado. En este hidrograma se observa una Alerta de desbordamiento de cauce de río con probabilidad de 56% sobre periodo de retorno de 20 años, con temporización entre los días 19 y 20 de octubre de 2023 en las vegas bajas del Guadiana. En esas fechas se produjeron importantes lluvias en la tarde del día 19 que afectaron a las zonas aledañas a los cauces de los ríos Gévora y Zapatón que obligaron a establecer una situación operativa en INUNCAEX.",
+    "pagina": 338
+   },
+   {
+    "clase": "parrafo",
+    "texto": "A efectos susceptibles de provocar inundaciones, es decir, cuando los niveles de los ríos sean altos se activarán los umbrales de adversidad que se definen a continuación.",
+    "pagina": 338
+   },
+   {
+    "clase": "tabla",
+    "texto": "",
+    "pagina": 338,
+    "hasta": 338,
+    "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=338"
+   }
+  ]
+ },
+ {
+  "id": "s-v-2-3",
+  "tipo": "precepto",
+  "numero": "V.2.3",
+  "titulo": "2.3.- Umbrales de adversidad por inundaciones registradas por SPIDA",
+  "pagina": 339,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=339",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "2.3.- Umbrales de adversidad por inundaciones registradas por SPIDA"
+   }
+  ]
+ },
+ {
+  "id": "s-v-2-3-1",
+  "tipo": "precepto",
+  "numero": "V.2.3.1",
+  "titulo": "2.3.1.- Presentación del sistema SPIDA",
+  "pagina": 339,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=339",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "2.3.1.- Presentación del sistema SPIDA"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Sistema de Predicción Inteligente de Inundaciones (SPIDA) es un sistema complejo desarrollado y gestionado por el centro Alerta2 de la Universidad de Extremadura, que se encarga por un lado, de la monitorización y análisis en tiempo real de datos procedentes de diversos instrumentos de medida pertenecientes principalmente a Sistemas Automáticos de Información Hidrológica de las Confederaciones Hidrográficas del Tajo y del Guadiana y a la propia red de estaciones aforométricas del sistema SPIDA, junto con información meteorológica complementaria procedente principalmente de la Red de Vigilancia Radiológica de Extremadura (RVRA) y la Agencia Estatal de Meteorología (AEMET). En base a este análisis, y siguiendo el protocolo establecido entre la Secretaría General de Interior, Emergencias y Protección Civil de la Junta de Extremadura y el centro Alerta2, realiza la generación de avisos y alertas a los agentes encargados de la Protección Civil ante situaciones anómalas y de riesgo, en base a los límites que se establecen para cada cuenca, a raíz de los estudios estadísticos y empíricos realizados (figuras 1 y 2).",
+    "pagina": 339
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Figura 4: Esquema del modelo de interconexión de SPIDA.",
+    "pagina": 339
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Figura 5: Pantalla principal de la aplicación SPIDA.",
+    "pagina": 340
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Un aspecto importante del sistema SPIDA, es la gestión y mantenimiento autónomo de la red de estaciones de aforo y meteorología propias del sistema, las cuales se encuentran instaladas en localizaciones con riesgo de inundación y que no están vigiladas por estaciones de los SAIHs de las Confederaciones del Tajo y del Guadiana. Dichas localizaciones se reflejan en la tabla que sigue.",
+    "pagina": 341
+   },
+   {
+    "clase": "parrafo",
+    "texto": "COORDENADAS UTM H30",
+    "pagina": 341
+   },
+   {
+    "clase": "tabla",
+    "texto": "",
+    "pagina": 341,
+    "hasta": 341,
+    "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=341"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Las predicciones suministradas por AEMET se cumplimentan con productos procedentes de imágenes satélite que permiten caracterizar y modificar, en los modelos, parámetros biofísicos tales como el estado de la vegetación, la humedad del suelo y alteraciones antropogénicas, entre otros aspectos que cambian la respuesta de las cuencas ante la lluvia.",
+    "pagina": 342
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El proyecto SPIDA, por tanto, define umbrales de aviso tanto por precipitaciones como por caudales extraordinarios en las estaciones pluviométricas, meteorológicas y los aforos en las cuencas del río Tajo a su paso por Extremadura, zona en la que se han generado modelos hidrológicos e hidráulicos que permiten predecir el comportamiento de dichos eventos anómalos a partir de las predicciones del modelo HIRLAM suministrado por AEMET en el momento en que se recibe, y generar pre-avisos a los entes de Protección Civil con vistas a permitir una mejor respuesta en términos de eficacia y rapidez. Estos pre-avisos se realizan conforme al Protocolo que se establezca entre la Secretaría General de Interior, Emergencias y Protección Civil y el Centro Alerta2, que en función de la gravedad de la predicción, podrá llegar a proponer la activación del INUNCAEX en su Fase de Alerta, activando todos los medios técnicos y humanos adscritos a la Red SPIDA, que realizarán a partir de ese momento el seguimiento de la situación. Adicionalmente, los modelos realizados permiten generar simulaciones históricas con diferentes periodos de retorno, que muestran las poblaciones e infraestructuras afectadas por las inundaciones, facilitando la revisión de los Planes de Autoprotección (PAU), Planes de Emergencia Municipales (PEMU) y Planes Generales Municipales urbanísticos (PGM), así como detectar aquellos puntos negros en los que se observa peligro, pero que no existen instrumentos de medida para controlar lluvias y caudales y de esta forma prevenir daños a la población.",
+    "pagina": 342
+   }
+  ]
+ },
+ {
+  "id": "s-v-2-3-2",
+  "tipo": "precepto",
+  "numero": "V.2.3.2",
+  "titulo": "2.3.2.- Umbrales de adversidad por inundaciones registradas por SPIDA.",
+  "pagina": 342,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=342",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "2.3.2.- Umbrales de adversidad por inundaciones registradas por SPIDA."
+   },
+   {
+    "clase": "parrafo",
+    "texto": "A efectos susceptibles de provocar inundaciones, es decir, cuando los niveles de los ríos sean altos se activarán los umbrales de adversidad que se definen a continuación, tomando como base la zonificación territorial de la Directriz Básica de Planificación de Protección Civil ante el Riesgo de Inundaciones. Los niveles que activan las distintas fases de este procedimiento están en continuo proceso de actualización, de conformidad con los estudios realizados por la Universidad de Extremadura, a través de su Servicio de Apoyo a la Investigación LARUEX (Laboratorio de Radiactividad de la Universidad de Extremadura).",
+    "pagina": 342
+   },
+   {
+    "clase": "tabla",
+    "texto": "",
+    "pagina": 343,
+    "hasta": 343,
+    "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=343"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Tabla 5: Umbrales de adversidad por inundaciones.",
+    "pagina": 343
+   }
+  ]
+ },
+ {
+  "id": "s-v-2-4",
+  "tipo": "precepto",
+  "numero": "V.2.4",
+  "titulo": "2.4.- Umbrales del estado de presas y embalses",
+  "pagina": 343,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=343",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "2.4.- Umbrales del estado de presas y embalses"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Los Planes de Emergencia de presas establecerán 4 situaciones definidas como escenarios de seguridad y de peligro de rotura de presas, para el establecimiento de las normas y procedimientos de comunicación e información con los organismos públicos implicados en la gestión de la emergencia.",
+    "pagina": 343
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Escenario 0 de control de la seguridad: Las condiciones existentes y las previsiones, aconsejan una intensificación de la vigilancia y el control de la Presa, no requiriéndose la puesta en práctica de medias de intervención para la reducción del riesgo.",
+    "pagina": 343
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Escenario 1 de aplicación de medidas correctoras: Se han producido acontecimientos que de no aplicarse medidas de corrección (técnicas de explotación, desembalse, etc.), podrían ocasionar peligro de avería grave o de rotura de la presa, si bien la situación puede solventarse con seguridad mediante la aplicación de las medidas previstas y los medios disponibles. Ante este escenario, se declarará la Fase de Alerta y Seguimiento por la cual se intensificarán las labores de seguimiento del plan y se informará del escenario a las localidades potencialmente afectadas. Escenario 2 “excepcional”: Existe peligro de rotura o avería grave de la presa y no puede asegurarse con certeza que pueda ser controlado mediante la aplicación de las medidas y los medios disponibles.",
+    "pagina": 343
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Ante este escenario, se declarará la Situación 1 de la Fase de Emergencia del presente Plan Especial, si bien en función de las características de la emergencia puede implicar la activación de otra situación.",
+    "pagina": 343
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Escenario 3 “límite”: La probabilidad de rotura de la presa es elevada o ésta ya ha comenzado, resultando prácticamente inevitable que se produzca la onda de avenida generada por dicha rotura.",
+    "pagina": 344
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Ante este escenario, se declarará la Situación 2 de la Fase de Emergencia del presente Plan Especial.",
+    "pagina": 344
+   }
+  ]
+ },
+ {
+  "id": "s-v-2-5",
+  "tipo": "precepto",
+  "numero": "V.2.5",
+  "titulo": "2.5.- Umbrales derivados de los desembalses de presas",
+  "pagina": 344,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=344",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "2.5.- Umbrales derivados de los desembalses de presas"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Se activarán los umbrales de adversidad que se definen en la tabla 5 del presente capítulo (coincidentes con los resultantes de inundaciones registradas por SPIDA), tomando como base la zonificación territorial de la Directriz Básica de Planificación de Protección Civil ante el Riesgo de Inundaciones. Los caudales de desembalse que activan las distintas fases de este procedimiento se definirán para cada núcleo urbano en cuestión.",
+    "pagina": 344
+   }
+  ]
+ },
+ {
+  "id": "s-v-2-6",
+  "tipo": "precepto",
+  "numero": "V.2.6",
+  "titulo": "2.6.- Umbrales derivados de los Sistemas de Información Hidrológica de las Confederaciones Hidrográficas",
+  "pagina": 344,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=344",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "2.6.- Umbrales derivados de los Sistemas de Información Hidrológica de las Confederaciones Hidrográficas"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "A efectos susceptibles de provocar inundaciones, es decir, cuando los niveles de los ríos sean altos se activarán los umbrales de adversidad que se definen en la tabla 5 del presente capítulo (coincidentes con los resultantes de inundaciones registradas por SPIDA), tomando como base la zonificación territorial de la Directriz Básica de Planificación de Protección Civil ante el Riesgo de Inundaciones. Los niveles que activan las distintas fases de este procedimiento se definirán para cada núcleo urbano en cuestión.",
+    "pagina": 344
+   }
+  ]
+ },
+ {
+  "id": "s-v-3",
+  "tipo": "precepto",
+  "numero": "V.3",
+  "titulo": "3.- VIGILANCIA Y MONITORIZACIÓN DE REDES DE ALERTA TEMPRANA",
+  "pagina": 344,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=344",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "3.- VIGILANCIA Y MONITORIZACIÓN DE REDES DE ALERTA TEMPRANA"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "En ocasiones pueden producirse previsiones de potenciales emergencias no manifestadas, pero que dadas las circunstancias y en caso de una evolución desfavorable, es posible que se desencadenen y den lugar a inundaciones. Estas previsiones de potenciales emergencias no manifestadas pueden provenir de notificaciones sobre predicciones meteorológicas de precipitaciones intensas, avisos del estado de presas (comunicados de escenarios incidentales) u otras causas de las contempladas en el apartado 2.1. de la Directriz que puedan ocasionar riesgo de inundaciones y se prolongará con el seguimiento de los sucesos que posteriormente se desarrollen hasta que del análisis de su evolución se concluya que la inundación es inminente, o bien determine la vuelta a la normalidad. Ante estas circunstancias se realiza una monitorización continuada de las Redes de Alerta Temprana disponibles con el objetivo de recabar la mayor información posible del evento futuro.",
+    "pagina": 344
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "Esta monitorización se producirá:",
+    "pagina": 345
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Siempre que se produzca un aviso meteorológico amarillo por precipitaciones por",
+    "pagina": 345
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "parte de AEMET.",
+    "pagina": 345
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Siempre que se produzca una Notificación de inundaciones repentinas del EFAS que implique probabilidad superior al 50% de desbordamiento de cauces sobre periodo",
+    "pagina": 345
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "de retorno de 5 años.",
+    "pagina": 345
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Cuando se declare el nivel amarillo en algún núcleo de población de resultas de los datos de los Sistemas de Información Hidrológica y redes de aforos, gestionadas por las Confederaciones Hidrográficas, el sistema de previsión de inundaciones SPIDA o",
+    "pagina": 345
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "la comunicación de desembalses de presas.",
+    "pagina": 345
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Siempre que se declare el escenario de control de la seguridad o “Escenario 0”, de",
+    "pagina": 345
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "acuerdo con el Plan de Emergencia de una presa.",
+    "pagina": 345
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El objetivo general de esta monitorización es disponer de la mayor información posible que permita una respuesta rápida de las autoridades y servicios implicados en el plan correspondiente en caso de que se activen la fase de alerta o la fase de emergencia.",
+    "pagina": 345
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Esta vigilancia también implica:",
+    "pagina": 345
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Análisis permanente de la situación.",
+    "pagina": 345
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Activación de los medios técnicos y humanos adscritos a la Red SPIDA (Sistema Inteligente de Predicción y Detección de Alertas de Inundaciones) que realizarán la monitorización de la situación.",
+    "pagina": 345
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Comunicación de la información que pueda ser relevante, tanto a los municipios afectados, servicios actuantes como a la población.",
+    "pagina": 345
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Movimientos de acercamiento o de resituación de efectivos.",
+    "pagina": 345
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Comprobación de los procedimientos, medios y recursos susceptibles de ser necesarios en la fase de alerta y seguimiento o en fase de emergencia.",
+    "pagina": 345
+   }
+  ]
+ },
+ {
+  "id": "s-v-4",
+  "tipo": "precepto",
+  "numero": "V.4",
+  "titulo": "4.- FASES Y SITUACIONES OPERATIVAS. ACTIVACIÓN DEL PLAN",
+  "pagina": 346,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=346",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "4.- FASES Y SITUACIONES OPERATIVAS. ACTIVACIÓN DEL PLAN"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La Norma Básica determina la necesidad de establecer Fases y Situaciones operativas en concordancia con las medidas de protección que deben adoptarse y los correspondientes procedimientos de actuación que constituyen la base operativa del Plan.",
+    "pagina": 346
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La activación del INUNCAEX es la acción de poner en marcha el Plan por la autoridad competente y contempla una serie de supuestos de actuación en relación a la naturaleza, tiempo y lugar donde deba ser aplicado, en función de las fases y situación de la emergencia. Para hacer frente a la emergencia y realizar una buena respuesta operativa se establecen en cada fase y situación modalidades en su aplicación en función de:",
+    "pagina": 346
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Cada situación operativa contemplada.",
+    "pagina": 346
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• De la evolución del suceso.",
+    "pagina": 346
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• De la afectación territorial concreta, que pueden determinar la activación del plan para una zona específica o abarcando la totalidad del territorio.",
+    "pagina": 346
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El INUNCAEX contempla las siguientes fases:",
+    "pagina": 346
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Fase de alerta y seguimiento.",
+    "pagina": 346
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Fase de emergencia.",
+    "pagina": 346
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Fase de recuperación.",
+    "pagina": 346
+   }
+  ]
+ },
+ {
+  "id": "s-v-4-1",
+  "tipo": "precepto",
+  "numero": "V.4.1",
+  "titulo": "4.1.- FASE DE ALERTA Y SEGUIMIENTO",
+  "pagina": 346,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=346",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "4.1.- FASE DE ALERTA Y SEGUIMIENTO"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Esta fase constituye el modo ordinario de funcionamiento de los Servicios de Protección Civil y tendrá su inicio cuando del análisis de parámetros meteorológicos e hidrológicos, o el aviso del estado de presas, se concluya que pueden producirse inundaciones o se disponga de informaciones relativas a que ésta ya se ha comenzado con daños muy localizados. Esta fase no requiere la movilización de recursos de intervención, o una mínima movilización para hacer frente a esos daños muy localizados, y en la que, en ocasiones, puede precisarse la toma de medidas concretas para la protección y autoprotección de la población. En esta situación no se activa el INUNCAEX y corresponde a la Situación Operativa 0.",
+    "pagina": 346
+   },
+   {
+    "clase": "parrafo",
+    "texto": "SITUACIÓN 0: Los datos meteorológicos e hidrológicos, los informes del estado de las presas, las lecturas de los sensores de la red SPIDA o los Sistemas de Información Hidrológica y redes de aforos, gestionadas por las Confederaciones Hidrográficas permiten prever la inminencia de inundaciones en el ámbito del Plan, con peligro para personas y bienes.",
+    "pagina": 346
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La fase de alerta y seguimiento se activará, en particular:",
+    "pagina": 347
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Siempre que se produzca un aviso meteorológico naranja por precipitaciones por",
+    "pagina": 347
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "parte de AEMET.",
+    "pagina": 347
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Siempre que se produzca una Notificación de inundaciones repentinas del EFAS que implique probabilidad superior al 50% de desbordamiento de cauces sobre periodo",
+    "pagina": 347
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "de retorno de 20 años.",
+    "pagina": 347
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Cuando se declare el nivel naranja en algún núcleo de población de resultas de los datos de los Sistemas de Información Hidrológica y redes de aforos, gestionadas por las Confederaciones Hidrográficas, el sistema de previsión de inundaciones SPIDA o",
+    "pagina": 347
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "la comunicación de desembalses de presas.",
+    "pagina": 347
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Siempre que se declare el escenario de aplicación de medidas correctoras o “Escenario 1”, de acuerdo con el Plan de Emergencia de una presa.",
+    "pagina": 347
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La fase de alerta y seguimiento del INUNCAEX implica las acciones contempladas en la vigilancia y monitorización de Redes de Alerta Temprana, y, además:",
+    "pagina": 347
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Seguimiento permanente de la situación.",
+    "pagina": 347
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Activación de los medios técnicos y humanos adscritos a la Red SPIDA que realizarán el seguimiento de la situación, debiendo informar del estado de la misma a la Secretaría General de Interior, Emergencias y Protección Civil y al propio Centro de Atención de Urgencias y Emergencias de Extremadura.",
+    "pagina": 347
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Comunicación de la información que pueda ser relevante, tanto a los municipios afectados, servicios actuantes como a la población.",
+    "pagina": 347
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Activación del Plan de Actuación Local.",
+    "pagina": 347
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Pueden movilizarse parte de los medios del Plan Especial de Emergencias ante Inundaciones para realizar funciones de apoyo, aviso a los grupos de acción o preparar medidas de protección.",
+    "pagina": 347
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• En esta situación puede realizarse un preaviso de convocatoria, si se estima oportuno, del Comité Técnico Asesor.",
+    "pagina": 347
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Las acciones de esta situación pueden revestir gran importancia pues en ella radica el concepto preventivo de las acciones que puedan llegar a necesitarse en niveles posteriores.",
+    "pagina": 347
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La declaración de la fase de alerta y seguimiento se realizará por el/la Director/a del Plan, a propuesta Jefe/a del Servicio competente en materia de Protección Civil de la Junta de Extremadura y/o del Jefe de Sala y/o Director/a del Centro Coordinador de Emergencias de Extremadura a partir de las informaciones recibidas.",
+    "pagina": 347
+   }
+  ]
+ },
+ {
+  "id": "s-v-4-2",
+  "tipo": "precepto",
+  "numero": "V.4.2",
+  "titulo": "4.2.- FASE DE EMERGENCIA",
+  "pagina": 348,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=348",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "4.2.- FASE DE EMERGENCIA"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "En esta fase ya se han producido daños o incidentes que precisan de la intervención de servicios activados por el Centro de Atención de Urgencias y Emergencias de Extremadura. Esta intervención va más allá del simple seguimiento de la situación, haciéndose precisas intervenciones directas para evitar el incremento de los daños.",
+    "pagina": 348
+   },
+   {
+    "clase": "parrafo",
+    "texto": "También quedan incluidas en esta fase aquellos escenarios que la gravedad de las previsiones haga preciso la adopción de medidas extraordinarias, tales como la interrupción de servicios públicos, requisa de medios, privación de derechos... Todo ello, aunque aún no se haya producido la situación de emergencia.",
+    "pagina": 348
+   },
+   {
+    "clase": "parrafo",
+    "texto": "En la fase de emergencia se establecen tres situaciones operativas:",
+    "pagina": 348
+   },
+   {
+    "clase": "parrafo",
+    "texto": "SITUACIÓN 1: Se han producido inundaciones en zonas localizadas, cuya atención puede quedar asegurada mediante el empleo de los medios y recursos disponibles en las zonas afectadas.",
+    "pagina": 348
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "Se activará, en particular:",
+    "pagina": 348
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Siempre que se produzca un aviso meteorológico rojo por precipitaciones por parte",
+    "pagina": 348
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "de AEMET.",
+    "pagina": 348
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Siempre que se produzca una Notificación de inundaciones repentinas del EFAS que implique probabilidad superior al 66% de desbordamiento de cauces sobre periodo",
+    "pagina": 348
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "de retorno de 20 años.",
+    "pagina": 348
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Cuando se declare el nivel rojo en algún núcleo de población de resultas de los datos de los Sistemas de Información Hidrológica y redes de aforos, gestionadas por las Confederaciones Hidrográficas, el sistema de previsión de inundaciones SPIDA o la",
+    "pagina": 348
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "comunicación de desembalses de presas.",
+    "pagina": 348
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Siempre que se declare el escenario excepcional o “Escenario 2”, de acuerdo con el",
+    "pagina": 348
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "Plan de Emergencia de una presa.",
+    "pagina": 348
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Requieren una respuesta por parte del INUNCAEX para su control y coordinación, control hidrometeorológico y de presas, seguimiento de la alerta y predicción meteorológica, intervenciones de los grupos de acción del Plan Especial y adopción de medidas de protección a la población. Esta respuesta puede ser de activación total o parcial del Plan Especial en función del ámbito territorial afectado y de la gravedad de la situación.",
+    "pagina": 348
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Se constituye el Comité Asesor y Gabinete de Información.",
+    "pagina": 348
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Se constituye el CECOP y se informa a las distintas administraciones.",
+    "pagina": 348
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Se mantiene la activación de medios y acciones de la fase de alerta y seguimiento, junto a la emisión de informes de seguimiento que a requerimiento de Protección Civil pudieran ser actualizados a cada hora.",
+    "pagina": 349
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La declaración de la fase de emergencia en Situación 1, se realizará por el/la Director/a del Plan, a propuesta del Director/a General competente en materia de Protección Civil y Emergencias, a propuesta del Jefe/a del Servicio competente en materia de Protección Civil de la Junta de Extremadura y/o Director/a del Centro Coordinador de Emergencias de Extremadura a partir de las informaciones recibidas.",
+    "pagina": 349
+   },
+   {
+    "clase": "parrafo",
+    "texto": "SITUACIÓN 2: Emergencias en la que se ha producido una inundación, que por su naturaleza o gravedad y/o extensión territorial del riesgo, sobrepasen las posibilidades de respuesta de la Administración Local y Provincial o aún sin producirse esta última circunstancia los datos pluviométricos e hidrológicos, las predicciones meteorológicas los informes del estado de las presas y las lecturas de los sensores de la Red SPIDA y las modelizaciones que de ellas se deriven, permiten prever una extensión o agravación significativa de aquellas, siendo posible que surja la necesidad de solicitar el concurso de los medios y recursos del Estado.",
+    "pagina": 349
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Se activará, en particular, siempre que se declare el escenario límite o “Escenario 3”, de",
+    "pagina": 349
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "acuerdo con el Plan de Emergencia de una presa.",
+    "pagina": 349
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Se mantiene la activación de medios de la situación 1 y la emisión de informes de seguimiento, que a requerimiento de Protección civil pudieran ser actualizados a cada hora.",
+    "pagina": 349
+   },
+   {
+    "clase": "parrafo",
+    "texto": "En este caso la declaración de la fase de emergencia en Situación 2, se realizará por el Director/a del Plan, a partir de las informaciones recibidas. A partir de ese momento, la dirección y coordinación de las actuaciones corresponde al Director/a del INUNCAEX.",
+    "pagina": 349
+   },
+   {
+    "clase": "parrafo",
+    "texto": "SITUACIÓN 3: Emergencias en las que esté presente el interés nacional conforme a lo previsto en la Norma Básica de Protección Civil.",
+    "pagina": 349
+   },
+   {
+    "clase": "parrafo",
+    "texto": "En esta situación, la Dirección del Plan Especial de Emergencias ante Inundaciones, se integrará en los órganos correspondientes del Plan Estatal de Protección Civil ante el Riesgo de Inundaciones.",
+    "pagina": 349
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El Director/a del INUNCAEX, siguiendo las directrices del Director/a del Plan Estatal de Protección Civil ante el Riesgo de Inundaciones, conservará la coordinación de los medios propios y asignados contemplados en el Plan, ejerciendo como representante de la Comunidad Autónoma en el Comité Estatal de Coordinación y Dirección (CECOD).",
+    "pagina": 349
+   }
+  ]
+ },
+ {
+  "id": "s-v-4-3",
+  "tipo": "precepto",
+  "numero": "V.4.3",
+  "titulo": "4.3.- FASE DE RECUPERACIÓN",
+  "pagina": 350,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=350",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "4.3.- FASE DE RECUPERACIÓN"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La emergencia ha sido dada por finalizada sin que existan significativas posibilidades de su reactivación. Es consecutiva a la de emergencia, aunque puede coincidir con esta cuando las actuaciones sean compatibles con la intervención, y se prolonga hasta el restablecimiento de los servicios básicos en la zona afectada por la emergencia.",
+    "pagina": 350
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Esta fase queda implícitamente activada en el momento en el que se desactiva la fase de emergencia en cualquiera de sus situaciones y se prolongará hasta el establecimiento de las condiciones previas a la que dio lugar a la emergencia y vuelta a la normalidad en la zona afectada por la misma.",
+    "pagina": 350
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La fase de recuperación del INUNCAEX implica:",
+    "pagina": 350
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Trabajos de atención a las víctimas, realojo de las mismas, apoyo psicológico, atención sanitaria, etc. actuaciones que deben haber comenzado desde los primeros momentos de la emergencia si bien en esta fase se afrontan una vez controlado el foco de la misma y eliminado el riesgo.",
+    "pagina": 350
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Análisis crítico de lo acontecido, tanto en los aspectos relacionados con el análisis de riesgos como en lo referente a la gestión realizada de la emergencia.",
+    "pagina": 350
+   }
+  ]
+ },
+ {
+  "id": "s-v-4-4",
+  "tipo": "precepto",
+  "numero": "V.4.4",
+  "titulo": "4.4.- Asignación de medios a cada situación operativa",
+  "pagina": 350,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=350",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "4.4.- Asignación de medios a cada situación operativa"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Con el objetivo de dar una respuesta rápida y proporcionada frente a la emergencia, se asignan los siguientes medios a cada una de las situaciones operativas:",
+    "pagina": 350
+   },
+   {
+    "clase": "parrafo",
+    "texto": "FASE DE ALERTA Y SEGUIMIENTO",
+    "pagina": 350
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• En esta fase, correspondiente a una situación operativa 0, no se requiere la movilización de recursos de intervención o, si se han producido pequeños daños muy localizados, se realiza una movilización de medios municipales.",
+    "pagina": 350
+   },
+   {
+    "clase": "parrafo",
+    "texto": "FASE DE EMERGENCIA",
+    "pagina": 350
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• En situación operativa 1 se requiere la movilización de medios propios adscritos al Plan.",
+    "pagina": 350
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• En situación operativa 2 se puede requerir, además de los medios propios adscritos al Plan, la asistencia de medios de otras Administraciones Públicas no adscritos al Plan, o movilizables por otras Administraciones Públicas, en particular de otras Comunidades Autónomas o de la Administración General del Estado.",
+    "pagina": 350
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• En situación operativa 3, que se corresponde con las emergencias de interés nacional, se requiere movilización, además de los medios propios adscritos al Plan, de los medios de otras Comunidades Autónomas y/o medios estatales.",
+    "pagina": 350
+   },
+   {
+    "clase": "parrafo",
+    "texto": "EXTREMADURA",
+    "pagina": 351
+   }
+  ]
+ },
+ {
+  "id": "s-v-4-5",
+  "tipo": "precepto",
+  "numero": "V.4.5",
+  "titulo": "4.5.- Resumen de situaciones, activaciones y flujograma en emergencias.",
+  "pagina": 351,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=351",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "4.5.- Resumen de situaciones, activaciones y flujograma en emergencias."
+   },
+   {
+    "clase": "tabla",
+    "texto": "",
+    "pagina": 351,
+    "hasta": 352,
+    "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=351"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "GRÁFICO 2: FLUJOGRAMA DEL PLAN ESPECIAL.",
+    "pagina": 352
+   }
+  ]
+ },
+ {
+  "id": "s-v-5",
+  "tipo": "precepto",
+  "numero": "V.5",
+  "titulo": "5.- ESTABLECIMIENTO DE LA INTERFASE",
+  "pagina": 353,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=353",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "5.- ESTABLECIMIENTO DE LA INTERFASE"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Se entiende por INTERFASE, el conjunto de procedimientos operativos comunes que, entre diferentes planes, aseguren la integración y la perfecta coordinación y traspaso de mando de uno y otro plan.",
+    "pagina": 353
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Cada una de las actuaciones que contempla el Plan Especial de Inundaciones, determina una modalidad de aplicación. En función de éstas, los Planes de distinto nivel Territorial se articulan de la siguiente forma:",
+    "pagina": 353
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Nivel de planificación local, mancomunidad, comarcal.",
+    "pagina": 353
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Dando respuesta a la emergencia de ámbito local o municipal por el propio municipio, la activación y desactivación de esta fase corresponde al Alcalde/sa (o Autoridad competente supramunicipal). La CAEX a través del Plan Especial de Inundaciones realiza funciones de seguimiento para garantizar, cuando así sea necesario, la prestación de los apoyos correspondientes. Este nivel es propio de la fase de alerta y seguimiento (situación 0).",
+    "pagina": 353
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Interfase con el INUNCAEX. Nivel de Comunidad Autónoma.",
+    "pagina": 353
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Se considera la transferencia o asunción de funciones por parte de la Comunidad Autónoma en los siguientes supuestos:",
+    "pagina": 353
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Cuando lo solicite el Director/a del Plan de Emergencia Local, en el momento en que la emergencia supere el ámbito territorial o los medios disponibles en el municipio no sean suficientes.",
+    "pagina": 353
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Cuando el Director/a del Plan de Comunidad Autónoma lo estime necesario según la evolución de los acontecimientos.",
+    "pagina": 353
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Cuando no exista ningún plan de nivel inferior. Situación de emergencia 1 y 2.",
+    "pagina": 353
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "Interfase con el Plan estatal. Nivel Estatal.",
+    "pagina": 353
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Se transfiere el control de la emergencia en los siguientes supuestos:",
+    "pagina": 353
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Cuando el Ministerio del Interior declare la emergencia de interés Nacional.",
+    "pagina": 353
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Cuando el Director/a del Plan de Comunidad Autónoma lo solicite.",
+    "pagina": 353
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Según se especifica en el epígrafe 6.2.3 del PLEGEM, cuando la emergencia de interés nacional se haya decretado se constituirá un Comité de Dirección Autonómico para Extremadura, los representantes de la Administración de la Comunidad Autónoma para este comité serán los designados como Comité de Dirección en el presente Plan. Igualmente, en el anterior supuesto se integrará al Comité Estatal de Coordinación y Dirección (CECOD) al Director de INUNCAEX y al Delegado/a del Gobierno en Extremadura.",
+    "pagina": 353
+   }
+  ]
+ },
+ {
+  "id": "s-v-6",
+  "tipo": "precepto",
+  "numero": "V.6",
+  "titulo": "6.- NOTIFICACIONES",
+  "pagina": 354,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=354",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "6.- NOTIFICACIONES"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Con objeto que el INUNCAEX pueda ser plenamente operativo en el menor tiempo posible, se establece al Centro de Atención de Urgencias y Emergencias 112 de Extremadura como único canal obligatorio de aviso inmediato ante cualquier incidente o situación de emergencia que sea detectada por:",
+    "pagina": 354
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Policía Nacional, Guardia Civil, Policía local, Bomberos u otros servicios, si son éstos los primeros que tienen conocimiento del suceso.",
+    "pagina": 354
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Cualquier otra persona que observe la situación de emergencia o accidente.",
+    "pagina": 354
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La notificación o acción de comunicar y transmitir la noticia de la previsión de ocurrencia de una emergencia, o la difusión a las autoridades oportunas de la declaración de una de las situaciones de emergencia contempladas se realizará a las siguientes autoridades:",
+    "pagina": 354
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• En la fase de alerta y seguimiento la notificación a la Dirección del Plan se efectuará de acuerdo con el riesgo que la origine y su ámbito según los protocolos establecidos en el Centro de Atención de Urgencias y Emergencias 112 de Extremadura.",
+    "pagina": 354
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• En fase de emergencia será notificado a la Dirección del Plan, Presidencia de la CAEX, Delegación del Gobierno en Extremadura y al resto de Autoridades y responsables que puedan proporcionar medios humanos y/o materiales al Plan.",
+    "pagina": 354
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Además de las notificaciones a las autoridades afectadas o llamadas a intervenir, las distintas fases y situaciones deben ser comunicadas a la ciudadanía, servicios e instituciones que pudieran verse afectados o cuya colaboración sea precisa en la gestión del incidente. Todo ello a fin de inducir un estado de atención y vigilancia sobre las circunstancias que provocan, o pueden provocar, la situación de riesgo, llevar a cabo las tareas de preparación con objeto disminuir los tiempos de respuesta para una rápida intervención, mantenerse atento a la recepción de nuevas informaciones y tomar medidas de protección ante el riesgo o suceso catastrófico.",
+    "pagina": 354
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Por último, en las situaciones operativas 1 y 2 de la fase de emergencia se realizará una notificación de emergencia al Centro Nacional de Seguimiento y Coordinación de Emergencias (CENEM), utilizando el Centro de Atención de Urgencias y Emergencias 112 de Extremadura como canal para dicha notificación.",
+    "pagina": 354
+   }
+  ]
+ },
+ {
+  "id": "s-v-7",
+  "tipo": "precepto",
+  "numero": "V.7",
+  "titulo": "7.- PROCEDIMIENTO DE ACTUACIÓN DEL PLAN",
+  "pagina": 355,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=355",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "7.- PROCEDIMIENTO DE ACTUACIÓN DEL PLAN"
+   }
+  ]
+ },
+ {
+  "id": "s-v-7-1",
+  "tipo": "precepto",
+  "numero": "V.7.1",
+  "titulo": "7.1.- ACTUACIÓN PRIMEROS MOMENTOS EMERGENCIA",
+  "pagina": 355,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=355",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "7.1.- ACTUACIÓN PRIMEROS MOMENTOS EMERGENCIA"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "En los primeros momentos de la emergencia y hasta la activación completa del plan, se realizarán los siguientes pasos:",
+    "pagina": 355
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Recibida la primera llamada de alerta en el Centro de Atención de Urgencias y Emergencias 112 de Extremadura, se recabará la información más completa posible.",
+    "pagina": 355
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Una vez identificada la situación de emergencia con las informaciones recibidas y verificada la misma se realizarán las siguientes acciones:",
+    "pagina": 355
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Notificar a los servicios de emergencia más próximos al lugar del accidente la existencia y características del mismo.",
+    "pagina": 355
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Informar a la Dirección del Plan.",
+    "pagina": 355
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Notificar a los Directores/as de los PEMUs de los TT.MM. afectados y/o Alcaldes/as. Si las circunstancias así lo indicasen se procederá a declarar formalmente la aplicación del Plan de un modo parcial o de un modo total en función de la situación. Se notifica la aplicación del Plan al Presidente de la CAEX, al Delegado del Gobierno y al resto de Autoridades y responsables que puedan proporcionar medios humanos y/o materiales al Plan. Inmediatamente se convoca el Comité de Dirección.",
+    "pagina": 355
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Si se trata de emergencia en situación 2 el INUNCAEX se activa en su totalidad pudiendo si las circunstancias de agravamiento de la emergencia así lo indicasen pasar a situación 3 y transferir la responsabilidad al nivel estatal.",
+    "pagina": 355
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La Dirección del Plan y el Comité de Dirección analizan y evalúan la situación, con el objetivo de planificar y concretar las acciones a ejecutar en cada una de las situaciones, analizando los distintos escenarios y consecuencias del suceso para acercarse lo más posible a la realidad en su planteamiento operativo.",
+    "pagina": 355
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Para hacer frente a la emergencia y planificar qué operaciones, cómo y cuándo realizarlas se han de:",
+    "pagina": 355
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Analizar el escenario y situación.",
+    "pagina": 355
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Evaluar las consecuencias.",
+    "pagina": 355
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Establecer el Puesto de Mando Avanzado",
+    "pagina": 355
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Definir la delimitación de la zona de operaciones, estableciendo las áreas de intervención, socorro y base.",
+    "pagina": 355
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Determinar las medidas de intervención, protección, socorro y reparadoras a adoptar.",
+    "pagina": 355
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Determinar los medios y recursos a emplear",
+    "pagina": 355
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Alertar y convocar al personal adscrito al Plan Determinadas estas operaciones, se constituirá en el lugar más apropiado el Puesto de Mando Avanzado (PMA), el cual será la base de coordinación de todos los medios que se encuentren frente a la emergencia y se desplazarán al lugar del accidente los primeros recursos de Intervención y la persona responsable del Puesto de Mando Avanzado. Además, se realizarán cuantas actuaciones por parte del CECOP/I crea conveniente la Dirección del Plan con el asesoramiento correspondiente. Asimismo, cada uno de los Grupos de Acción ajustará su actuación conforme a los procedimientos de actuación establecidos para cada una de las situaciones previstas.",
+    "pagina": 356
+   }
+  ]
+ },
+ {
+  "id": "s-v-7-2",
+  "tipo": "precepto",
+  "numero": "V.7.2",
+  "titulo": "7.2.- SEGUIMIENTO DEL DESARROLLO DEL SUCESO",
+  "pagina": 356,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=356",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "7.2.- SEGUIMIENTO DEL DESARROLLO DEL SUCESO"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Las actividades que se desarrollarán en la evolución de la emergencia son las siguientes:",
+    "pagina": 356
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Dirección y ejecución de las actuaciones planificadas.",
+    "pagina": 356
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Control de los recursos operativos disponibles a fin de optimizar la eficacia y coordinación de sus acciones.",
+    "pagina": 356
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Movilización de recursos complementarios.",
+    "pagina": 356
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Control y seguimiento de las actuaciones y responsabilidades de los grupos de acción",
+    "pagina": 356
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Información a los organismos actuantes.",
+    "pagina": 356
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Emisión de comunicados a los medios de información.",
+    "pagina": 356
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Los/las responsables de los distintos grupos de acción a través de la persona responsable de coordinar el PMA aconsejarán a la Dirección del Plan sobre las medidas necesarias en cada momento.",
+    "pagina": 356
+   }
+  ]
+ },
+ {
+  "id": "s-v-7-3",
+  "tipo": "precepto",
+  "numero": "V.7.3",
+  "titulo": "7.3.- FIN DE LA EMERGENCIA",
+  "pagina": 356,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=356",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "7.3.- FIN DE LA EMERGENCIA"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Cuando los integrantes de los grupos de acción, y más en concreto el grupo de intervención, informen al PMA que la emergencia ha sido suprimida, el PMA notificará este hecho a la Dirección del Plan través del CECOP/I.",
+    "pagina": 356
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La Dirección del Plan con el asesoramiento del Comité Técnico Asesor, dará por finalizada la emergencia, procediendo a desactivar el Plan a través del CECOP/I, que transmitirá el aviso a todas las entidades implicadas. Las actividades a realizar a partir de este momento son las siguientes:",
+    "pagina": 356
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Retirada de operativos.",
+    "pagina": 356
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Repliegue de recursos.",
+    "pagina": 356
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Realización de medidas preventivas complementarias a adoptar.",
+    "pagina": 357
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Evaluación final del siniestro.",
+    "pagina": 357
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Elaboración de informes y estadísticas.",
+    "pagina": 357
+   },
+   {
+    "clase": "parrafo",
+    "texto": "En función de la localización y tipología de la emergencia es posible que se produzca una desactivación progresiva del INUNCAEX. En este caso se mantendría activado el Plan ya que la situación no es lo suficientemente estable como para declarar el fin de la emergencia y su consiguiente paso a la fase de recuperación por varios motivos: ante el riesgo de posibles repeticiones de la emergencia, por lo complicado de las labores de recuperación o por la necesidad de mantener recursos extraordinarios hasta la recuperación de los servicios básicos.",
+    "pagina": 357
+   }
+  ]
+ },
+ {
+  "id": "s-v-7-4",
+  "tipo": "precepto",
+  "numero": "V.7.4",
+  "titulo": "7.4.- RECUPERACIÓN",
+  "pagina": 357,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=357",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "7.4.- RECUPERACIÓN"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Fase consecutiva a la de fin de la emergencia que se prolongará hasta el establecimiento de las condiciones previas a la que dio lugar a la emergencia y vuelta a la normalidad en la zona afectada por la misma.",
+    "pagina": 357
+   }
+  ]
+ },
+ {
+  "id": "s-v-8",
+  "tipo": "precepto",
+  "numero": "V.8",
+  "titulo": "8.- MEDIDAS DE OPERATIVIDAD DEL PLAN",
+  "pagina": 357,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=357",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "8.- MEDIDAS DE OPERATIVIDAD DEL PLAN"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Las medidas que constituyen la operatividad van dirigidas a la protección de las personas, bienes y medio ambiente. Se consideran medidas de protección los procedimientos, actuaciones y medios previstos en el presente Plan Especial (INUNCAEX), con el fin de evitar o atenuar las consecuencias de las inundaciones y los riesgos derivados.",
+    "pagina": 357
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Constituyen la operatividad del INUNCAEX las siguientes medidas:",
+    "pagina": 357
+   }
+  ]
+ },
+ {
+  "id": "s-v-8-1",
+  "tipo": "precepto",
+  "numero": "V.8.1",
+  "titulo": "8.1.- MEDIDAS DE PROTECCIÓN",
+  "pagina": 357,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=357",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "8.1.- MEDIDAS DE PROTECCIÓN"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Medidas de protección a la población, considerándose como mínimo los siguientes:",
+    "pagina": 357
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Control de accesos.",
+    "pagina": 357
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Avisos a la población afectada.",
+    "pagina": 357
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Confinamiento en lugares de seguridad y/o alejamiento.",
+    "pagina": 357
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Evacuación en sus distintas variantes.",
+    "pagina": 357
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Asistencia Sanitaria.",
+    "pagina": 357
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Seguridad Ciudadana.",
+    "pagina": 357
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Medidas de protección a los bienes, procurando:",
+    "pagina": 357
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Su protección de bienes de interés",
+    "pagina": 357
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Evitar que se generen riesgos asociados.",
+    "pagina": 358
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Medidas de socorro: Hacen referencia al control y mitigación de daños teniendo como premisa más importante las situaciones que representen una amenaza para la vida y salud de las personas:",
+    "pagina": 358
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Búsqueda, rescate y salvamento.",
+    "pagina": 358
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Primeros auxilios.",
+    "pagina": 358
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Evacuación (transporte sanitario).",
+    "pagina": 358
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Clasificación, control y evacuación de afectados a fines de asistencia sanitaria y social.",
+    "pagina": 358
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Asistencia sanitaria primaria.",
+    "pagina": 358
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Albergue de emergencia.",
+    "pagina": 358
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Abastecimiento. De equipamientos y suministros necesarios para atender a la población afectada.",
+    "pagina": 358
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Regulación del tráfico.",
+    "pagina": 358
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Establecimiento de la red de transmisiones.",
+    "pagina": 358
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Medidas de intervención para controlar y neutralizar el agente que provoca el riesgo o la catástrofe.",
+    "pagina": 358
+   }
+  ]
+ },
+ {
+  "id": "s-v-8-1-1",
+  "tipo": "precepto",
+  "numero": "V.8.1.1",
+  "titulo": "8.1.1.- SISTEMAS DE AVISOS E INFORMACIÓN A LA POBLACIÓN",
+  "pagina": 358,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=358",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "8.1.1.- SISTEMAS DE AVISOS E INFORMACIÓN A LA POBLACIÓN"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Es el derecho de las personas y comunidades a la información y participación en las decisiones que puedan afectar a sus vidas, propiedades y a todo aquello que les resulte valioso. Este derecho de información se refiere a los riesgos que afectan a la zona donde habitan y sobre la situación de emergencia (antes, durante y después de que ésta se produzca).",
+    "pagina": 358
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Se trata de una obligación de las Autoridades y tiene como resultado, además de cumplir una obligación, la participación consciente de la población en la emergencia.",
+    "pagina": 358
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Sin embargo, no se debe olvidar que una comunicación de riesgos mal gestionada puede provocar el efecto contrario al deseado, y llevar a una situación de desconfianza, generando incluso en ocasiones un pánico que ocasionaría peores consecuencias que la propia emergencia. Para que la comunicación de riesgos consiga una población bien informada, hay que plantearse siempre tres cuestiones:",
+    "pagina": 358
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "De qué se debe informar.",
+    "pagina": 358
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Características de los riesgos a que están expuestos.",
+    "pagina": 358
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Medidas adoptadas para evitarlos o minimizarlos.",
+    "pagina": 358
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Medidas a tomar por la población en caso de que el riesgo se materialice.",
+    "pagina": 358
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "Cómo se debe informar.",
+    "pagina": 359
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Conocimiento del núcleo o núcleos de población a quien va a ir dirigida la información, para a partir de este punto elaborar correctamente el “cómo”.",
+    "pagina": 359
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "Cuándo se debe informar.",
+    "pagina": 359
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• En el momento considerado adecuado para evitar una catástrofe o minimizar sus efectos, ni demasiado pronto, para evitar situaciones de pánico innecesarias ni después que la noticia ya haya transcendido a la población y está haya sentido los efectos de la emergencia.",
+    "pagina": 359
+   },
+   {
+    "clase": "parrafo",
+    "texto": "En la información proporcionada durante la emergencia (y cuyo responsable es el Director/a del Plan Especial de Inundaciones, INUNCAEX), se deben tener muy claros los siguientes objetivos:",
+    "pagina": 359
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Centralizar, coordinar y preparar toda la información a difundir por el Gabinete de Información, tras estudiar junto con el Consejo Asesor la información de los Grupos de Predicción y Vigilancia (GPV), de los sistemas de información hidrológica de la Confederación del Tajo y del Guadiana y de los comunicados del estado de las presas.",
+    "pagina": 359
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Dar solamente noticias contrastadas, evitando rumores, informaciones incongruentes o contradictorias.",
+    "pagina": 359
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Los medios para transmitir los mensajes serán:",
+    "pagina": 359
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Notificación a teléfonos móviles mediante sistema ES-ALERT.",
+    "pagina": 359
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Emisoras de radio local y las de más audiencia en la zona.",
+    "pagina": 359
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Emisoras de televisión.",
+    "pagina": 359
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Sistemas de megafonía local fija y/o móvil a través de las fuerzas de orden público municipales.",
+    "pagina": 359
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Paneles y carteles anunciadores de las zonas de peligro.",
+    "pagina": 359
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Información a través de otros Organismos e Instituciones a través de sus canales de información, de los comunicados difundidos por el Gabinete de Información del Plan y elaborados por la Dirección del Plan Especial.",
+    "pagina": 359
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Internet, a través de la página Web oficial de la Junta de Extremadura y la del Centro 1.1.2",
+    "pagina": 359
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• SMS, cuentas oficiales de redes sociales, o cualquier canal oficial que garantice una rapidez y veracidad en la información.",
+    "pagina": 359
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Avisos específicos en residencias de ancianos, colegios, hospitales, cárceles, campings y zonas de afluencia turística.",
+    "pagina": 359
+   }
+  ]
+ },
+ {
+  "id": "s-v-8-1-2",
+  "tipo": "precepto",
+  "numero": "V.8.1.2",
+  "titulo": "8.1.2.- MEDIDAS DE AUTOPROTECCIÓN PERSONAL",
+  "pagina": 360,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=360",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "8.1.2.- MEDIDAS DE AUTOPROTECCIÓN PERSONAL"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Se entiende por autoprotección personal un conjunto de actuaciones y medidas, generalmente de alcance de cualquier ciudadano, con el fin de contrarrestar los efectos adversos de una emergencia.",
+    "pagina": 360
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Estas medidas constituyen un complemento esencial de las restantes medidas de protección, y deberá procederse a su divulgación en la fase de implantación del INUNCAEX.",
+    "pagina": 360
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Las principales medidas de autoprotección son:",
+    "pagina": 360
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "- Riesgo de inundación en viviendas:",
+    "pagina": 360
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Revisar el tejado y bajantes de agua, así como la cuneta o acequia próxima a las viviendas, evitando toda acumulación de escombros, hojas, tierra, etc.",
+    "pagina": 360
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Almacenar agua y alimentos para unos cinco días. Proveerse de un equipo de emergencia para cocinar.",
+    "pagina": 360
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Tener preparados una linterna con pilas de repuesto, una radio de pilas, un pequeño botiquín de primeros auxilios y aquellos medicamentos que se usen habitualmente.",
+    "pagina": 360
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Retirar del exterior de las casas muebles y objetos que puedan ser arrastrados por las aguas. Colocar todos los productos tóxicos (herbicidas, insecticidas, etc.) fuera del alcance del agua. Poner los bienes y objetos de valor en los puntos más altos de la vivienda. Guardar el coche en el garaje o lugar cerrado, siempre que no sea susceptible de inundación.",
+    "pagina": 360
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Sintonizar las emisoras de radio locales, televisión, para estar informado sobre la posibilidad de lluvias intensas o avenidas.",
+    "pagina": 360
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Seguir las normas sanitarias y de higiene, dictadas por las Autoridades, en la limpieza y en la alimentación. No beber agua de la red si se encuentra contaminada a consecuencia de las inundaciones.",
+    "pagina": 360
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Prestar atención a los corrimientos de tierra, socavones, sumideros, cables de conducción eléctrica flojos o derribados y, en general, a todos los objetos caídos.",
+    "pagina": 360
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Traslado a lugar seguro si se observa alguna posibilidad de inundación repentina en la zona, mudarse inmediatamente a un lugar más seguro, notificar a las Autoridades el peligro a través del teléfono 112.",
+    "pagina": 360
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Localizar los puntos más altos de la zona donde se encuentre, subir a ellos en caso de posible riada.",
+    "pagina": 360
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Llevar muebles y objetos al piso superior (si se dispone de tiempo). Desconectar los aparatos o equipos eléctricos, pero no los toque si está mojado o pisando agua.",
+    "pagina": 360
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Para abandonar la vivienda, coser las tarjetas de identificación a los integrantes del grupo familiar, y coger su documentación, botiquín, alimentos, ropa de abrigo, objetos valiosos poco voluminosos, linterna y una radio de pilas (si se dispone de tiempo).",
+    "pagina": 361
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Efectuar una inspección previa, una vez que ha pasado la emergencia por si existiera riesgo de derrumbamiento, grietas, deformaciones en los muros, etc. Colaborar en las tareas de desescombro y limpieza (si lo requieren las Autoridades del Plan).",
+    "pagina": 361
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "- Riesgo de inundación en carretera:",
+    "pagina": 361
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Al emprender un viaje atender a las informaciones de las emisoras de radio locales, informarse de la situación meteorológica. Evitar viajar de noche. Conducir con prudencia y comprobar el funcionamiento de los frenos periódicamente.",
+    "pagina": 361
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• No cruzar en automóvil, las carreteras inundadas o puentes ocultos por las aguas, aunque se conozca perfectamente el trazado. Para conducir por zona inundada, hacerlo muy lentamente y en primera marcha, para evitar en lo posible que el motor se moje y llegue a pararse.",
+    "pagina": 361
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Tener en cuenta que los frenos funcionan mal con las ruedas todavía empapadas después de atravesar un terreno inundado.",
+    "pagina": 361
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Abandonar el coche e ir a zonas más altas si el agua llega por encima del eje del vehículo, o más arriba de las rodillas. Si no se pueden abrir las puertas, salir por las ventanillas sin pérdida de tiempo.",
+    "pagina": 361
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Prestar atención a los corrimientos de tierra, socavones, cables de conducción eléctrica y en general a todos los objetos caídos.",
+    "pagina": 361
+   },
+   {
+    "clase": "centro_negrita",
+    "texto": "- Riesgo por fuertes tormentas:",
+    "pagina": 361
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Las lluvias torrenciales pueden producir rápidamente grandes avenidas donde sólo se encuentra el lecho seco de un río o barranco. También puede originar una subida del nivel del agua en un estrecho canal, o detrás de una barrera que luego puede dejar paso a un torrente de agua que lo arrase todo a su paso.",
+    "pagina": 361
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• En época de tormentas no salir de acampada o al acampar alejarse del fondo de los valles, torrenteras y canales o ríos. Por otra parte, la liberación de cargas eléctricas acumuladas en las nubes puede ser especialmente peligrosa en terreno elevado o cuando las personas son el objeto más alto.",
+    "pagina": 361
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Al viajar por carretera detenerse en sitios con suficiente visibilidad en ambos sentidos, fuera de la calzada y del arcén si fuera posible, dejando las luces de cruce encendidas. Pasada la tormenta extremar las precauciones en la conducción. En el casco urbano ponga especial atención si no funcionan los semáforos.",
+    "pagina": 361
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Durante una tormenta eléctrica, mantenerse apartado de la cresta de las montañas, de los árboles altos y de las rocas grandes y aisladas. Uno de los mejores lugares para refugiarse es el vehículo con las ventanillas cerradas y las antenas bajadas, o en el interior de una cueva profunda con un mínimo de 1 m. por cada lado. No se refugie en la boca de una cueva o debajo de una roca saliente en terreno montañoso.",
+    "pagina": 362
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Alejarse de los terrenos deportivos, aparcamientos, campos abiertos y maquinaria agrícola. Es peligroso correr cuando hay tormentas.",
+    "pagina": 362
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• No llevar objetos metálicos cuando haya una tormenta eléctrica, alejarse de las estructuras metálicas, vallas y postes o tendidos de conducción eléctrica.",
+    "pagina": 362
+   }
+  ]
+ },
+ {
+  "id": "s-v-8-1-3",
+  "tipo": "precepto",
+  "numero": "V.8.1.3",
+  "titulo": "8.1.3.- MEDIDAS DE AUXILIO Y SOCORRO",
+  "pagina": 362,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=362",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "8.1.3.- MEDIDAS DE AUXILIO Y SOCORRO"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Las medidas de auxilio y socorro se aplican en el momento de la emergencia a la población directamente afectada por las inundaciones. Los medios y recursos a utilizar se movilizan de forma automática e inmediata. Entre otras son las siguientes:",
+    "pagina": 362
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Búsqueda, rescate y salvamento.",
+    "pagina": 362
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Evacuación en zonas aisladas por el agua.",
+    "pagina": 362
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Atención sanitaria de urgencia.",
+    "pagina": 362
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Clasificación y control de los damnificados para asistencia social y apoyo psicológico.",
+    "pagina": 362
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Albergue y abastecimiento de emergencia.",
+    "pagina": 362
+   }
+  ]
+ },
+ {
+  "id": "s-v-8-1-4",
+  "tipo": "precepto",
+  "numero": "V.8.1.4",
+  "titulo": "8.1.4.- CONFINAMIENTO",
+  "pagina": 362,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=362",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "8.1.4.- CONFINAMIENTO"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El confinamiento consiste en el refugio de la población en sus propios domicilios, o en otros edificios o recintos próximos en el momento de anunciarse la adopción de esta medida. Esta medida es la más aconsejable cuando:",
+    "pagina": 362
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La emergencia es súbita e inesperada.",
+    "pagina": 362
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• El riesgo residual es de corta duración.",
+    "pagina": 362
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Afecta a mucha población.",
+    "pagina": 362
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Existe una falta de entrenamiento e información de la población en evacuaciones.",
+    "pagina": 362
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• No existen rutas de evacuación, las zonas son de muy difícil acceso.",
+    "pagina": 362
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Mediante el confinamiento, la población queda protegida del arrastre de las aguas, de los desprendimientos y de los posibles movimientos de tierras.",
+    "pagina": 362
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Esta medida debe complementarse con medidas de autoprotección personal; medidas sencillas que pueden ser llevadas a la práctica por la propia población.",
+    "pagina": 363
+   }
+  ]
+ },
+ {
+  "id": "s-v-8-1-5",
+  "tipo": "precepto",
+  "numero": "V.8.1.5",
+  "titulo": "8.1.5.- ALEJAMIENTO",
+  "pagina": 363,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=363",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "8.1.5.- ALEJAMIENTO"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "El alejamiento es el traslado de la población desde posiciones expuestas a lugares seguros, generalmente poco distantes, utilizando sus propios medios. La decisión será tomada por el Director/a del Plan.",
+    "pagina": 363
+   }
+  ]
+ },
+ {
+  "id": "s-v-8-1-6",
+  "tipo": "precepto",
+  "numero": "V.8.1.6",
+  "titulo": "8.1.6.- EVACUACIÓN",
+  "pagina": 363,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=363",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "8.1.6.- EVACUACIÓN"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La evacuación es un proceso de traslado de un colectivo desde su lugar habitual de residencia hasta otro con garantías de seguridad frente al riesgo materializado, pero que a veces puede resultar desconocido para la población evacuada. Se trata de una medida definitiva, que se justifica únicamente si el peligro al que está expuesta la población es grande. En todos los casos, el/la alcalde/sa coordinará la evacuación en su municipio.",
+    "pagina": 363
+   },
+   {
+    "clase": "parrafo",
+    "texto": "En ocasiones, la evacuación y alejamiento pueden resultar contraproducentes en caso de dispersión de gases o vapores tóxicos, ya que las personas evacuadas pueden estar expuestas al paso del penacho tóxico, y por lo tanto sometidas a concentraciones mayores que las que recibirían en situación de confinamiento.",
+    "pagina": 363
+   },
+   {
+    "clase": "parrafo",
+    "texto": "A la hora de decidir sobre la conveniencia o no de realizar una evacuación se tendrán en cuenta y valorarán las ventajas e inconvenientes.",
+    "pagina": 363
+   },
+   {
+    "clase": "parrafo",
+    "texto": "o Las ventajas de la evacuación son:",
+    "pagina": 363
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Distanciamiento de la población de la zona de inundación. Las condiciones óptimas se producen cuando se da el alejamiento antes de la causa que provoca la catástrofe. Es decir, cuando el sistema de alerta temprana es capaz de predecir con anticipación la inundación y puede realizarse la evacuación libre del peligro.",
+    "pagina": 363
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Facilidad de actuaciones de los Grupos de Acción, que se ven así libres del comportamiento de personas incontroladas.",
+    "pagina": 363
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Facilidad de la atención a la población afectada. Facilidad de abastecimiento.",
+    "pagina": 363
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Mejores condiciones higiénicas (las zonas afectadas suelen ser focos infecciosos)",
+    "pagina": 363
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Menor riesgo residual.",
+    "pagina": 363
+   },
+   {
+    "clase": "parrafo",
+    "texto": "o Los inconvenientes de realizar la evacuación:",
+    "pagina": 363
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Respuesta negativa de la población ante algo impuesto.",
+    "pagina": 363
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Riesgos inherentes a la propia evacuación (movilización, transporte, …)",
+    "pagina": 363
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Posible efecto multiplicador de la catástrofe.",
+    "pagina": 364
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Inseguridad ciudadana y desprotección de la zona abandonada (robos,",
+    "pagina": 364
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• actos vandálicos, saqueos, …)",
+    "pagina": 364
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Riesgos en grupos críticos (enfermos, niños, ancianos, …).",
+    "pagina": 364
+   },
+   {
+    "clase": "parrafo",
+    "texto": "PLANIFICACIÓN DE UNA EVACUACIÓN Para planificar una evacuación se tendrán en cuenta las siguientes recomendaciones:",
+    "pagina": 364
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Asignar el personal encargado de la evacuación.",
+    "pagina": 364
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Informar a la población de la medida adoptada y las normas a seguir para realizarla de forma ordenada y eficaz.",
+    "pagina": 364
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Habilitar vías de acceso para el traslado de los evacuados. Es recomendable que estas vías se declaren de uso exclusivo para este fin, para evitar aglomeraciones.",
+    "pagina": 364
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Movilizar medios de transporte para el traslado colectivo, si así se decide.",
+    "pagina": 364
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Movilizar ambulancias u otros medios de transporte especiales para la evacuación de impedidos.",
+    "pagina": 364
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Seleccionar los centros de concentración del personal que será evacuado.",
+    "pagina": 364
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Estos centros deberán estar alejados de instalaciones y zonas de riesgo y situados en lugares de fácil acceso a los medios de transporte. En general, los centros de concentración más idóneos suelen ser las estaciones de autobuses y de ferrocarril (por su facilidad de comunicaciones) o instalaciones a cobijo, como pueden ser pabellones de deportes, salones o naves municipales,…etc.",
+    "pagina": 364
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Seleccionar y acondicionar los centros de albergue donde se instalará a la población evacuada.",
+    "pagina": 364
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Programar el plan de actuación de regreso a los hogares al final de la emergencia.",
+    "pagina": 364
+   },
+   {
+    "clase": "parrafo",
+    "texto": "PECULIARIDADES A TENER EN CUENTA",
+    "pagina": 364
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Identificación de los evacuados. Se centralizará la gestión de los datos personales de forma que la localización e información de los evacuados sea rápida y fiable. Se protegerán los datos recogidos de forma que no puedan ser utilizados para otros fines.",
+    "pagina": 364
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• En grandes evacuaciones la clasificación y el control de los afectados se harán en el Área Base de Recepción Social (ABRS) antes de proceder a su redistribución en albergues o realojamiento en hogares privados.",
+    "pagina": 364
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• La decisión de la evacuación y las condiciones en las que se va a efectuar vendrá determinada por multitud de factores entre los que hay que considerar el número de personas, los itinerarios elegidos, las condiciones meteorológicas reinantes (viento, lluvia, niebla, etc.), el nivel de preparación de la población, si es de día o de noche, si es invierno o verano, si es festivo o laborable, etc. La decisión la tomará el Director/a del Plan apoyado por el Comité de Dirección y el Comité Técnico Asesor.",
+    "pagina": 365
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Debe preverse el control y salvaguarda de los bienes ante el desvalijamiento, asaltos, saqueos o pillaje.",
+    "pagina": 365
+   }
+  ]
+ },
+ {
+  "id": "s-v-8-1-7",
+  "tipo": "precepto",
+  "numero": "V.8.1.7",
+  "titulo": "8.1.7.- ALBERGUE",
+  "pagina": 365,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=365",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "8.1.7.- ALBERGUE"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Los albergues son los centros previstos para dar cobijo a los evacuados durante la emergencia. Deben reunir unas condiciones que permitan la convivencia de un número alto de personas y habrán de contar con una serie de dependencias, como son:",
+    "pagina": 365
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Área de abastecimiento (alimentos, agua, mantas, abrigos, calefacción)",
+    "pagina": 365
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Área de sanidad (primeros auxilios, servicios sanitarios)",
+    "pagina": 365
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Área de higiene (servicios y aseos en nº suficiente)",
+    "pagina": 365
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Área de asistencia social (información al público, comunicaciones)",
+    "pagina": 365
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Área de gestión y control (control de realojamiento) Otra opción muy adecuada es distribuir a los evacuados en alojamientos de familiares, conocidos, vecinos no afectados o población en general lo más cerca posible de su lugar de residencia habitual al que tengan progresivas facilidades de acceso, para que se produzca el traslado a los sitios originarios lo antes posible.",
+    "pagina": 365
+   }
+  ]
+ },
+ {
+  "id": "s-v-8-1-8",
+  "tipo": "precepto",
+  "numero": "V.8.1.8",
+  "titulo": "8.1.8. MEDIDAS DE PROTECCIÓN A LOS ANIMALES.",
+  "pagina": 365,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=365",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "8.1.8. MEDIDAS DE PROTECCIÓN A LOS ANIMALES."
+   },
+   {
+    "clase": "parrafo",
+    "texto": "La Ley 10/2019, de 11 de abril, de protección civil y de gestión de emergencias de la Comunidad Autónoma de Extremadura, en sus artículos 4.1 e), 15.2, 15.3 y 23, marca la protección ante cualquier emergencia de los animales, junto con personas y bienes. Por tanto, la protección de los mismos se llevará a cabo de forma coordinada con el personal de las Consejerías con competencias en Ganadería, Política Forestal y Sanidad y los Colegios Veterinarios y Organizaciones no Gubernamentales con las que se colabore, junto con los equipos de personal voluntario de asociaciones y agrupaciones con conocimientos en el manejo de animales.",
+    "pagina": 365
+   }
+  ]
+ },
+ {
+  "id": "s-v-8-1-9",
+  "tipo": "precepto",
+  "numero": "V.8.1.9",
+  "titulo": "8.1.9. MEDIDAS DE PROTECCIÓN DEL PATRIMONIO HISTÓRICO-ARTÍSTICO Y CULTURAL",
+  "pagina": 366,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=366",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "8.1.9. MEDIDAS DE PROTECCIÓN DEL PATRIMONIO HISTÓRICO-ARTÍSTICO Y CULTURAL"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Durante las situaciones de emergencia se prestará especial atención a los bienes encuadrados dentro del patrimonio histórico artístico y cultural: monumentos, museos, edificios de interés cultural, bibliotecas, etc.",
+    "pagina": 366
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Se tratará de rescatar o salvaguardar los bienes de mayor valor o importancia, bien sean materiales o culturales.",
+    "pagina": 366
+   },
+   {
+    "clase": "parrafo",
+    "texto": "En otros casos, será necesario aplicar medidas protectoras a bienes que no tengan un interés especial, pero que su deterioro puede ser origen de nuevos riesgos que contribuyan a aumentar los daños ya producidos.",
+    "pagina": 366
+   },
+   {
+    "clase": "parrafo",
+    "texto": "En caso de evacuación debe de preverse el control y salvaguarda de los bienes ante desvalijamiento, asaltos o pillaje, siendo estos cometidos o funciones del Grupo de Seguridad. Sera función del comité técnico asesor apoyados por el grupo de apoyo técnico, decidir las medidas a adoptar en función del tipo de bienes y los medios y recursos disponibles para aplicar las medidas de protección correspondientes, pudiéndose apoyar en protocolos o guías de actuación existentes.",
+    "pagina": 366
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Los objetivos a cumplir de las medidas de protección a los bienes serán:",
+    "pagina": 366
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Efectuar un primer análisis y evaluación de los daños.",
+    "pagina": 366
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Puesta en marcha de los protocolos o guías de actuación existentes.",
+    "pagina": 366
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Movilización de medios y recursos disponibles para aplicar las medidas de protección establecidas por el comité técnico asesor.",
+    "pagina": 366
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Organizar las medidas de urgencia para la salvaguarda de los bienes culturales.",
+    "pagina": 366
+   }
+  ]
+ },
+ {
+  "id": "s-v-8-2",
+  "tipo": "precepto",
+  "numero": "V.8.2",
+  "titulo": "8.2.- MEDIDAS DE PROTECCIÓN DEL MEDIO AMBIENTE",
+  "pagina": 366,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=366",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "8.2.- MEDIDAS DE PROTECCIÓN DEL MEDIO AMBIENTE"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Como consecuencia de una inundación se pueden producir importantes daños al medio ambiente, por lo que las medidas más importantes a tener en cuenta para controlar estos posibles efectos son las siguientes:",
+    "pagina": 366
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Controlar la red de agua potable frente a roturas de depósitos y estaciones de bombeo, así como en la red de distribución, planeando alternativas al suministro de agua potable, así como aumentar la vigilancia en los análisis de potabilidad del agua.",
+    "pagina": 366
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Vigilar que no se produzcan desbordamientos en la red urbana de saneamiento y levantamientos de las tapas del alcantarillado mediante la eliminación de obstáculos y la limpieza del alcantarillado.",
+    "pagina": 367
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Coordinar con los Planes de Emergencia de la red de gas frente a anegamientos de las instalaciones de almacenamiento y roturas en la red urbana de distribución.",
+    "pagina": 367
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Coordinar con los Planes de Emergencia en instalaciones de riesgo.",
+    "pagina": 367
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Industrias con riesgo químico: anegamiento de las instalaciones y vertidos de sustancias químicas y contaminantes al agua.",
+    "pagina": 367
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Depósitos de gas y otros combustibles: daños en las estructuras.",
+    "pagina": 367
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Gasoducto: peligro de explosión por rotura de las canalizaciones.",
+    "pagina": 367
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Controlar el vertido de sustancias tóxicas en los cauces naturales, en el lecho de lagos, lagunas, embalses o charcas, y en el subsuelo.",
+    "pagina": 367
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Controlar la emisión de contaminantes a la atmósfera alterando gravemente la calidad del aire.",
+    "pagina": 367
+   },
+   {
+    "clase": "parrafo",
+    "texto": "• Proteger las zonas anegables donde se encuentren monumentos nacionales u otros elementos del Patrimonio Histórico Artístico o paisajístico ubicados en el territorio. Las medidas pertinentes en caso de accidente que puedan producir contaminación de las aguas o de la atmósfera, serán tomadas por los técnicos de la Consejería de Medio Ambiente de la Junta de Extremadura en colaboración con las Confederaciones Hidrográficas.",
+    "pagina": 367
+   }
+  ]
+ },
+ {
+  "id": "s-v-8-3",
+  "tipo": "precepto",
+  "numero": "V.8.3",
+  "titulo": "8.3.- MEDIDAS REPARADORAS Y DE INGENIERÍA CIVIL",
+  "pagina": 367,
+  "url": "https://www.juntaex.es/documents/77055/406857/INUNCAEX_2024.pdf#page=367",
+  "parrafos": [
+   {
+    "clase": "articulo",
+    "texto": "8.3.- MEDIDAS REPARADORAS Y DE INGENIERÍA CIVIL"
+   },
+   {
+    "clase": "parrafo",
+    "texto": "Son medidas destinadas a la rehabilitación de los servicios públicos esenciales, cuando su carencia constituya una situación de emergencia o perturbe el desarrollo de las operaciones. Los pasos a seguir se encuadran en los siguientes:",
+    "pagina": 367
+   },
+   {
+    "clase": "parrafo",
+    "texto": "1. Valoración de daños materiales.",
+    "pagina": 367
+   },
+   {
+    "clase": "parrafo",
+    "texto": "2. Limpieza y retirada de escombros.",
+    "pagina": 367
+   },
+   {
+    "clase": "parrafo",
+    "texto": "3. Búsqueda de Sistemas alternativos de suministro de agua, electricidad, etc.",
+    "pagina": 367
+   },
+   {
+    "clase": "parrafo",
+    "texto": "4. Restablecimiento de los servicios esenciales de comunicaciones, accesos, etc.",
+    "pagina": 367
+   },
+   {
+    "clase": "parrafo",
+    "texto": "5. Medidas de Ingeniería Civil y Reparadoras para protección de las infraestructuras básicas y servicios esenciales.",
+    "pagina": 367
+   },
+   {
+    "clase": "parrafo",
+    "texto": "6. Reparación de edificios afectados (reparación de cornisas, apuntalamiento de muros, etc.).",
+    "pagina": 367
+   }
+  ]
+ }
+]

@@ -5,15 +5,16 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-const { signUp, signInWithPassword, signInWithOtp, resend } = vi.hoisted(() => ({
+const { signUp, signInWithPassword, signInWithOtp, resetPasswordForEmail, resend } = vi.hoisted(() => ({
   signUp: vi.fn(),
   signInWithPassword: vi.fn(),
   signInWithOtp: vi.fn(),
+  resetPasswordForEmail: vi.fn(),
   resend: vi.fn(),
 }));
 
 vi.mock('../lib/supabase', () => ({
-  supabase: { auth: { signUp, signInWithPassword, signInWithOtp, resend } },
+  supabase: { auth: { signUp, signInWithPassword, signInWithOtp, resetPasswordForEmail, resend } },
 }));
 
 import Login from './Login';
@@ -29,6 +30,7 @@ describe('Login', () => {
     signUp.mockReset();
     signInWithPassword.mockReset();
     signInWithOtp.mockReset();
+    resetPasswordForEmail.mockReset();
     resend.mockReset();
   });
   afterEach(() => {
@@ -82,7 +84,7 @@ describe('Login', () => {
     await user.click(screen.getByRole('button', { name: /^activar invitación$/i }));
     await fillAndSubmit(user);
 
-    expect(await screen.findByRole('status')).toHaveTextContent(/te hemos enviado un correo/i);
+    expect(await screen.findByRole('status')).toHaveTextContent(/recibirás los pasos por correo/i);
     expect(screen.queryByRole('alert')).not.toBeInTheDocument();
   });
 
@@ -167,39 +169,44 @@ describe('Login', () => {
       expect(screen.queryByText('Grupo piloto')).not.toBeInTheDocument();
     });
 
-    it('el enlace de invitación abre «Activar invitación» con el correo escrito y lo quita de la barra', () => {
+    it('el enlace genérico abre «Activar invitación» y elimina de la URL cualquier correo antiguo', () => {
       window.history.replaceState(null, '', '/?invitacion=1&email=Ana%40Ejemplo.es');
       render(<Login />);
       expect(screen.getByRole('button', { name: 'Activar invitación', pressed: true })).toBeInTheDocument();
-      expect(screen.getByLabelText(/correo electrónico/i)).toHaveValue('ana@ejemplo.es');
-      expect(screen.getByLabelText(/^contraseña$/i)).toHaveFocus();
+      expect(screen.getByLabelText(/correo electrónico/i)).toHaveValue('');
+      expect(screen.getByLabelText(/correo electrónico/i)).toHaveFocus();
       expect(window.location.search).toBe('');
     });
 
-    it('un correo no invitado recibe un mensaje claro, sin jerga técnica', async () => {
+    it('un error interno de registro recibe un mensaje neutral, sin revelar el estado de invitación', async () => {
       signUp.mockResolvedValue({ data: { session: null, user: null }, error: { status: 500, code: 'unexpected_failure', message: 'Database error saving new user' } });
       const user = userEvent.setup();
       render(<Login />);
       await user.click(screen.getByRole('button', { name: 'Activar invitación' }));
       await fillAndSubmit(user, 'otro@ejemplo.es');
       const alerta = await screen.findByRole('alert');
-      expect(alerta).toHaveTextContent(/no está en la lista del grupo piloto/i);
-      expect(alerta).not.toHaveTextContent(/database|error/i);
+      expect(alerta).toHaveTextContent(/no hemos podido completar el alta/i);
+      expect(alerta).toHaveTextContent(/contacta con el equipo/i);
+      expect(alerta).not.toHaveTextContent(/lista del grupo piloto|no está invitado|database|error/i);
     });
 
-    it('si el correo ya tenía cuenta, pasa a «Entrar» con el correo puesto', async () => {
+    it('no revela si el correo ya tenía cuenta y permite pasar a «Entrar»', async () => {
       signUp.mockResolvedValue({ data: { session: null, user: { id: '1', identities: [] } }, error: null });
       const user = userEvent.setup();
       render(<Login />);
       await user.click(screen.getByRole('button', { name: 'Activar invitación' }));
       await fillAndSubmit(user);
-      expect(await screen.findByRole('status')).toHaveTextContent(/ya tienes cuenta/i);
+      const aviso = await screen.findByRole('status');
+      expect(aviso).toHaveTextContent(/si ana@example\.com puede activar una cuenta/i);
+      expect(aviso).not.toHaveTextContent(/ya tienes cuenta con este correo/i);
+      expect(screen.getByRole('button', { name: 'Activar invitación', pressed: true })).toBeInTheDocument();
+      await user.click(screen.getByRole('button', { name: 'Ya tengo cuenta' }));
       expect(screen.getByRole('button', { name: 'Ya tengo cuenta', pressed: true })).toBeInTheDocument();
       expect(screen.getByLabelText(/correo electrónico/i)).toHaveValue('ana@example.com');
       expect(screen.getByLabelText(/^contraseña$/i)).toHaveValue('');
     });
 
-    it('tras activar, dice a qué correo ha llegado el enlace y permite reenviarlo', async () => {
+    it('tras solicitar el alta, explica el siguiente paso sin afirmar si la cuenta ya existía', async () => {
       signUp.mockResolvedValue({ data: { session: null, user: { id: '1', identities: [{ id: 'i' }] } }, error: null });
       resend.mockResolvedValue({ data: {}, error: null });
       const user = userEvent.setup();
@@ -207,7 +214,10 @@ describe('Login', () => {
       await user.click(screen.getByRole('button', { name: 'Activar invitación' }));
       await fillAndSubmit(user, ' Ana@Example.com ');
       expect(signUp).toHaveBeenCalledWith(expect.objectContaining({ email: 'ana@example.com' }));
-      expect(await screen.findByRole('status')).toHaveTextContent(/ana@example\.com/);
+      const aviso = await screen.findByRole('status');
+      expect(aviso).toHaveTextContent(/ana@example\.com/);
+      expect(aviso).toHaveTextContent(/si .* puede activar una cuenta/i);
+      expect(aviso).not.toHaveTextContent(/te hemos enviado un correo/i);
       await user.click(screen.getByRole('button', { name: 'Reenviar el correo' }));
       expect(resend).toHaveBeenCalledWith({ type: 'signup', email: 'ana@example.com', options: { emailRedirectTo: expect.stringContaining('/?acceso=registro') } });
       expect(await screen.findByRole('status')).toHaveTextContent(/vuelto a enviar/i);
@@ -247,14 +257,30 @@ describe('Login', () => {
       expect(screen.getByRole('button', { name: 'Activar invitación', pressed: true })).toBeInTheDocument();
     });
 
-    it('«He olvidado la contraseña» sin cuenta explica que hay que activar la invitación', async () => {
+    it('solicita el restablecimiento de contraseña y ofrece un mensaje que no revela si hay cuenta', async () => {
+      resetPasswordForEmail.mockResolvedValue({ data: {}, error: null });
+      const user = userEvent.setup();
+      render(<Login />);
+      await user.type(screen.getByLabelText(/correo electrónico/i), 'ANA@ejemplo.es');
+      await user.click(screen.getByRole('button', { name: 'He olvidado la contraseña' }));
+      expect(resetPasswordForEmail).toHaveBeenCalledWith('ana@ejemplo.es', {
+        redirectTo: expect.stringContaining('/?acceso=recuperar'),
+      });
+      const aviso = await screen.findByRole('status');
+      expect(aviso).toHaveTextContent(/si ana@ejemplo\.es tiene una cuenta/i);
+      expect(aviso).toHaveTextContent(/cambiar la contraseña/i);
+    });
+
+    it('permite pedir un enlace distinto sin revelar si el correo tiene cuenta', async () => {
       signInWithOtp.mockResolvedValue({ data: {}, error: { status: 422, code: 'otp_disabled', message: 'Signups not allowed for otp' } });
       const user = userEvent.setup();
       render(<Login />);
       await user.type(screen.getByLabelText(/correo electrónico/i), 'nuevo@ejemplo.es');
-      await user.click(screen.getByRole('button', { name: 'He olvidado la contraseña' }));
+      await user.click(screen.getByRole('button', { name: 'Entrar con enlace sin contraseña' }));
       expect(signInWithOtp).toHaveBeenCalledWith({ email: 'nuevo@ejemplo.es', options: { shouldCreateUser: false, emailRedirectTo: expect.stringContaining('/?acceso=enlace') } });
-      expect(await screen.findByRole('alert')).toHaveTextContent(/activa antes tu invitación/i);
+      const alerta = await screen.findByRole('alert');
+      expect(alerta).toHaveTextContent(/necesitas una invitación/i);
+      expect(alerta).not.toHaveTextContent(/no encontramos una cuenta/i);
     });
 
     it('el ojo muestra y oculta la contraseña', async () => {

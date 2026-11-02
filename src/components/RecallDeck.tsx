@@ -8,6 +8,7 @@ import { classifyCard, loadSrs, RecallSaveError, recordRecallGrade, type RecallG
 import { measuredElapsedMs } from '../utils/recallReviewLog';
 import FuenteOficial from './FuenteOficial';
 import { solicitarAlmacenamientoPersistente } from '../lib/almacenamientoPersistente';
+import VerEnEsquema from './VerEnEsquema';
 
 interface RecallDeckProps {
   deck: RecallDeckData;
@@ -182,6 +183,7 @@ function RecallDeckViewer({
                   Localización: {card.localizacion}
                 </p>
               )}
+              <VerEnEsquema tema={deck.tema} fuente={card.fuente} origen="esta ficha" className="mt-2" />
             </div>
             {failedGrade !== null && (
               <div role="alert" id="recall-save-error" className="space-y-2 rounded-xl border border-orange-200 bg-orange-50 p-3 text-sm text-orange-900">

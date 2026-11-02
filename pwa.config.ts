@@ -39,6 +39,10 @@ function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&');
 }
 
+/** Ficheros del material del temario (mismo origen): se guardan al verlos para poder abrirlos sin conexión. */
+export const MATERIAL_URL_PATTERN = /\/material\/[^?#]+\.(?:md|json)(?:[?#].*)?$/;
+export const MATERIAL_CACHE = 'material-visto';
+
 /** Rutas que nunca deben resolverse con el index.html cacheado. */
 // La landing estática se sirve tal cual, sin el shell de la app.
 export const NAVIGATE_FALLBACK_DENYLIST = [/^\/api\//, /^\/auth\//, /^\/rest\//, /^\/functions\//, /^\/oposiciones-bombero-badajoz-2026\//];
@@ -74,12 +78,28 @@ export function buildPwaOptions(supabaseUrl?: string): Partial<VitePWAOptions> {
       navigateFallback: '/index.html',
       navigateFallbackDenylist: NAVIGATE_FALLBACK_DENYLIST,
       cleanupOutdatedCaches: true,
+      // Recordatorio diario opcional (Periodic Background Sync, sin servidor): public/recordatorio-sw.js.
+      importScripts: ['/recordatorio-sw.js'],
       clientsClaim: true,
       skipWaiting: true,
-      runtimeCaching: networkOnlyPatterns.map((urlPattern) => ({
-        urlPattern,
-        handler: 'NetworkOnly' as const,
-      })),
+      runtimeCaching: [
+        ...networkOnlyPatterns.map((urlPattern) => ({
+          urlPattern,
+          handler: 'NetworkOnly' as const,
+        })),
+        // Material del temario (public/material, no precacheado: ~1 MB). Con red se pide siempre a la red,
+        // igual que antes; lo ya visto queda guardado y se puede abrir sin conexión (feat/rendimiento-2).
+        {
+          urlPattern: MATERIAL_URL_PATTERN,
+          handler: 'NetworkFirst' as const,
+          options: {
+            cacheName: MATERIAL_CACHE,
+            networkTimeoutSeconds: 10,
+            expiration: { maxEntries: 400 },
+            cacheableResponse: { statuses: [200] },
+          },
+        },
+      ],
     },
     devOptions: { enabled: false },
   };
