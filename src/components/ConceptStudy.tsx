@@ -442,6 +442,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
               {item.motivo === 'ESCALERA' ? 'Vuelve a practicar este concepto'
                 : item.motivo === 'VERIFICAR' ? 'Dijiste que lo sabías: compruébalo'
                 : item.motivo === 'ERROR_RECIENTE' ? 'Lo fallaste hace poco'
+                : item.motivo === 'BAJA_NIVEL' ? 'Afianza la base de este apartado'
                 : item.motivo === 'REPASO_VENCIDO' ? 'Repaso' : 'Comprueba lo aprendido'}
             </p>
             <h2 className="mt-2 text-lg font-bold text-slate-900">{item.question}</h2>
