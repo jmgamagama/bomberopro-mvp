@@ -14,6 +14,7 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import type { Plugin } from 'vite';
 import { getDeckRevision } from '../src/data/recallReview';
+import { REVIEWED_CARDS_IN_PENDING_DECKS } from '../src/data/recallCardReview';
 
 /** Extrae de recallRegistry.ts el par (id de mazo → módulo) de cada entrada de DECK_SOURCES. */
 export function deckModulesFromRegistry(source: string): { deckId: string; module: string }[] {
@@ -34,6 +35,28 @@ export function pendingDeckModules(source: string): Set<string> {
   return new Set(deckModulesFromRegistry(source).filter((d) => getDeckRevision(d.deckId) !== 'revisado').map((d) => d.module));
 }
 
+/** Mazo pendiente (por módulo) → ids de sus fichas revisadas sueltas, que sí viajan en el bundle. */
+export function partialDeckModules(source: string): Map<string, readonly string[]> {
+  return new Map(
+    deckModulesFromRegistry(source)
+      .filter((d) => getDeckRevision(d.deckId) !== 'revisado' && REVIEWED_CARDS_IN_PENDING_DECKS[d.deckId]?.length)
+      .map((d) => [d.module, REVIEWED_CARDS_IN_PENDING_DECKS[d.deckId]]),
+  );
+}
+
+/** Stub parcial: mismas exportaciones, y en el array de fichas SOLO las revisadas sueltas. */
+export function partialStubFor(original: string, keep: readonly string[]): string {
+  const ids = new Set(keep);
+  const names = [...original.matchAll(/export const (\w+)/g)].map((m) => m[1]);
+  return names.map((n) => {
+    if (!/CARDS$/.test(n)) return `export const ${n} = {};`;
+    const start = original.indexOf('= [', original.indexOf(`export const ${n}`)) + 2;
+    const end = original.indexOf('\n];', start);
+    const cards = (JSON.parse(original.slice(start, end + 2)) as { id: string }[]).filter((c) => ids.has(c.id));
+    return `export const ${n} = ${JSON.stringify(cards)};`;
+  }).join('\n') + '\n';
+}
+
 /** Código del stub: mismas exportaciones, sin fichas. */
 export function stubFor(original: string): string {
   const names = [...original.matchAll(/export const (\w+)/g)].map((m) => m[1]);
@@ -44,19 +67,23 @@ export function excluirMazosPendientes(opts: { include?: boolean; root?: string 
   const root = opts.root ?? process.cwd();
   const dataDir = path.join(root, 'src', 'data');
   let pending = new Set<string>();
+  let partial = new Map<string, readonly string[]>();
   return {
     name: 'bomberopro-excluir-mazos-pendientes',
     apply: 'build',
     enforce: 'pre',
     buildStart() {
-      pending = opts.include ? new Set() : pendingDeckModules(readFileSync(path.join(dataDir, 'recallRegistry.ts'), 'utf8'));
+      const registry = readFileSync(path.join(dataDir, 'recallRegistry.ts'), 'utf8');
+      pending = opts.include ? new Set() : pendingDeckModules(registry);
+      partial = opts.include ? new Map() : partialDeckModules(registry);
     },
     load(id) {
       const file = id.split('?')[0];
       if (path.dirname(file) !== dataDir) return null;
       const mod = path.basename(file).replace(/\.tsx?$/, '');
       if (!pending.has(mod)) return null;
-      return stubFor(readFileSync(file, 'utf8'));
+      const keep = partial.get(mod);
+      return keep ? partialStubFor(readFileSync(file, 'utf8'), keep) : stubFor(readFileSync(file, 'utf8'));
     },
   };
 }

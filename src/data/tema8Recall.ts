@@ -147,19 +147,19 @@ export const TEMA8_RECALL_CARDS: Tema8RecallCard[] = [
   {
     "id": "CPEI-T08-OF-8DBF8D55",
     "orden": 150,
-    "concepto": "Según el INSST (tema «El riesgo de incendio»), ¿qué naturaleza de combustible corresponde a la clase D?",
-    "respuesta": "Metales",
-    "fuente": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 3. INSST-T33, texto consolidado (últ. actualización 30/04/2025): https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i-#p03",
-    "localizacion": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 3",
+    "concepto": "Según el RIPCI (clases de fuego normalizadas, UNE-EN 2), ¿qué fuegos son de clase D?",
+    "respuesta": "Fuegos de metales",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.d). BOE-A-2017-6606, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.d)",
     "apartado": "Clasificación de los fuegos"
   },
   {
     "id": "CPEI-T08-OF-26C9E93E",
     "orden": 160,
-    "concepto": "Según el INSST (tema «El riesgo de incendio»), ¿qué naturaleza de combustible corresponde a la clase C?",
-    "respuesta": "Gases",
-    "fuente": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 3. INSST-T33, texto consolidado (últ. actualización 30/04/2025): https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i-#p03",
-    "localizacion": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 3",
+    "concepto": "Según el RIPCI (clases de fuego normalizadas, UNE-EN 2), ¿qué fuegos son de clase C?",
+    "respuesta": "Fuegos de gases",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.c). BOE-A-2017-6606, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.c)",
     "apartado": "Clasificación de los fuegos"
   },
   {

@@ -5,6 +5,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, Play, CheckCircle2, XCircle } from 'lucide-react';
 import { Question } from '../types';
+import { materialDeTema } from '../data/materialTemas';
 import { supabase } from '../lib/supabase';
 import { saveAttemptToServer, toLevelInt } from '../lib/saveAttemptToServer';
 import StudentConsultation from './StudentConsultationModal';
@@ -14,7 +15,10 @@ import { checkAnswer, describeCheckError, fetchKeyless, withRevealedKey } from '
 import { useActiveTimer } from '../hooks/useActiveTimer';
 import { validResponseMs } from '../utils/activeTimer';
 import { newStudySessionId, startStudySession, finishStudySession } from '../lib/studySession';
+import TopicSearch from './TopicSearch';
+import { matchesTopic } from '../utils/topicSearch';
 import ConceptOutline, { ConceptCountBadge, useConceptSummary } from './ConceptOutline';
+import Skeleton from './Skeleton';
 
 interface TopicOption {
   id: number;
@@ -25,11 +29,14 @@ interface TopicOption {
 interface StudyByTopicProps {
   session: any;
   onNavigateHome: () => void;
+  /** Abre «Material por tema» en ese tema (solo se muestra el botón si el tema tiene material). */
+  onOpenMaterial?: (tema: number) => void;
 }
 
-export default function StudyByTopic({ session, onNavigateHome }: StudyByTopicProps) {
+export default function StudyByTopic({ session, onNavigateHome, onOpenMaterial }: StudyByTopicProps) {
   const [topics, setTopics] = useState<TopicOption[]>([]);
   const [selected, setSelected] = useState<number[]>([]);
+  const [topicQuery, setTopicQuery] = useState('');
   const [loadingTopics, setLoadingTopics] = useState(true);
   // Recuentos reales de conceptos por tema y mapa de conceptos desplegable (migración 23).
   const { resumen: conceptSummary, listo: conceptSummaryListo } = useConceptSummary();
@@ -172,9 +179,14 @@ if (!started) {
              h('h1', { className: 'text-2xl font-bold text-slate-900 mb-2' }, 'Estudio por Temas'),
              h('p', { className: 'text-slate-600 mb-6' }, 'Elige uno o varios temas para practicar preguntas centradas en ese contenido.'),
              loadingTopics
-             ? h('p', { className: 'text-slate-500' }, 'Cargando temas...')
+             ? h(Skeleton, { label: 'Cargando temas...', block: false, lines: 5 })
+             : h('div', { className: 'mb-3' },
+                 h(TopicSearch, { id: 'por-temas-buscar-tema', value: topicQuery, onChange: setTopicQuery, shown: topics.filter(t => matchesTopic(topicQuery, t.numero, t.nombre)).length, total: topics.length })
+               ),
+             loadingTopics
+             ? null
              : h('div', { className: 'grid grid-cols-1 gap-2 mb-6' },
-                 topics.map(t => h('div', { key: t.id, className: 'space-y-2' },
+                 topics.filter(t => matchesTopic(topicQuery, t.numero, t.nombre)).map(t => h('div', { key: t.id, className: 'space-y-2' },
                    h('div', {
                      className: 'flex items-center gap-2 p-3 rounded-lg border ' + (selected.includes(t.id) ? 'border-indigo-600 bg-indigo-50' : 'border-slate-200 bg-white')
                    },
@@ -190,6 +202,12 @@ if (!started) {
                          h(ConceptCountBadge, { tema: conceptSummary[t.numero], listo: conceptSummaryListo })
                        )
                      ),
+                     onOpenMaterial && materialDeTema(t.numero) ? h('button', {
+                       type: 'button',
+                       onClick: () => onOpenMaterial(t.numero),
+                       'aria-label': 'Material del tema ' + t.numero,
+                       className: 'shrink-0 min-h-11 rounded-lg border border-orange-300 px-3 text-xs font-semibold text-orange-700 hover:bg-orange-50'
+                     }, 'Material') : null,
                      conceptSummary[t.numero] ? h('button', {
                        type: 'button',
                        'aria-expanded': outlineTema === t.numero,
@@ -278,7 +296,8 @@ return h('div', { className: 'min-h-screen bg-fondo p-4' },
                  answer === currentQuestion.correct_answer
                  ? h(CheckCircle2, { className: 'text-green-500 shrink-0', size: 18 })
                  : h(XCircle, { className: 'text-red-500 shrink-0', size: 18 }),
-                 h('span', null, currentQuestion.explanation)
+                 h('span', null, currentQuestion.explanation,
+                   currentQuestion.cita ? h('span', { className: 'block mt-1 text-slate-500', 'data-testid': 'cita-literal' }, `Cita literal: «${currentQuestion.cita}»`) : null)
                  )
              : null
              ),

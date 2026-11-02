@@ -28,6 +28,7 @@ import ReportQuestionButton from './ReportQuestionButton';
 import { startStudySession, finishStudySession } from '../lib/studySession';
 import SessionCelebration from './SessionCelebration';
 import { useStudyStreak } from '../lib/streak';
+import FuenteOficial from './FuenteOficial';
 
 interface Props {
   userId: string;
@@ -81,6 +82,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
   ownerRef.current = userId;
   const [pendingSave, setPendingSave] = useState(0);
   const [rejectedSave, setRejectedSave] = useState(0);
+  const [limitNotice, setLimitNotice] = useState<string | null>(null);
   const [volatileSaveFailure, setVolatileSaveFailure] = useState(false);
   const [stats, setStats] = useState({ tests: 0, aciertos: 0, nuevos: 0 });
   const [calibracion, setCalibracion] = useState<string | null>(null);
@@ -183,6 +185,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
       if (ownerRef.current !== owner) return false;
       setPendingSave(r.pending);
       setRejectedSave(r.rejected);
+      setLimitNotice(r.limitNotice ?? null);
       if (r.storageUnavailable && !r.saved) setVolatileSaveFailure(true);
       if (r.saved) void refreshProgress();
       return r.saved || (!r.storageUnavailable && r.pending > 0);
@@ -241,6 +244,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
       if (ownerRef.current !== owner || sessionEpoch.current !== epoch) return;
       setPendingSave(r.pending);
       setRejectedSave(r.rejected);
+      setLimitNotice(r.limitNotice ?? null);
       if (r.storageUnavailable && !r.saved) setVolatileSaveFailure(true);
       if (r.saved && isConceptAnswerFeedback(r.data)) {
         setTestFeedback(r.data);
@@ -323,7 +327,9 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
         {rejectedSave} respuestas no se pudieron registrar. Se conservan en este dispositivo para revisión.
       </p>}
       {pendingSave > rejectedSave && !volatileSaveFailure && <p role="status" className="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-900">
-        {pendingSave - rejectedSave} respuestas pendientes de confirmar. Se reintentará el envío al recuperar la conexión.
+        {limitNotice
+          ? <>{limitNotice} Tu respuesta queda guardada en este dispositivo y se corregirá entonces.</>
+          : <>{pendingSave - rejectedSave} respuestas pendientes de confirmar. Se reintentará el envío al recuperar la conexión.</>}
       </p>}
     </>
   );
@@ -389,7 +395,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
   const source = (
     <p className="mt-3 flex items-start gap-2 rounded-lg bg-slate-50 px-3 py-2 text-xs text-slate-600">
       <BookOpen className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />
-      <span>Fuente: {item.fuente}{item.pagina ? `, página ${item.pagina}` : ''}</span>
+      <span>Fuente: <FuenteOficial fuente={item.fuente} extra={item.pagina ? `, página ${item.pagina}` : ''} /></span>
     </p>
   );
 
@@ -436,6 +442,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
               {item.motivo === 'ESCALERA' ? 'Vuelve a practicar este concepto'
                 : item.motivo === 'VERIFICAR' ? 'Dijiste que lo sabías: compruébalo'
                 : item.motivo === 'ERROR_RECIENTE' ? 'Lo fallaste hace poco'
+                : item.motivo === 'BAJA_NIVEL' ? 'Afianza la base de este apartado'
                 : item.motivo === 'REPASO_VENCIDO' ? 'Repaso' : 'Comprueba lo aprendido'}
             </p>
             <h2 className="mt-2 text-lg font-bold text-slate-900">{item.question}</h2>

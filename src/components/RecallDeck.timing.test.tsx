@@ -9,23 +9,32 @@ import { getRecallDeck } from '../data/recallRegistry';
 import { loadReviewLog } from '../utils/recallReviewLog';
 import { resetLocalDataOwnerForTests, setLocalDataOwner } from '../utils/localOwner';
 
-let now = 1_000_000;
+// Reloj falso solo para Date (Date.now y new Date): el tiempo por ficha y el día del repaso no
+// dependen del reloj real ni de la carga de la máquina. Los temporizadores siguen siendo reales
+// para que userEvent y findBy* funcionen igual.
+const START = new Date('2026-10-15T10:00:00Z').getTime();
+let now = START;
 beforeEach(() => {
   window.localStorage.clear();
   resetLocalDataOwnerForTests();
   setLocalDataOwner(null);
-  now = 1_000_000;
-  vi.spyOn(Date, 'now').mockImplementation(() => now);
+  now = START;
+  vi.useFakeTimers({ toFake: ['Date'], now });
 });
-afterEach(() => resetLocalDataOwnerForTests());
+afterEach(() => {
+  vi.useRealTimers();
+  resetLocalDataOwnerForTests();
+});
 
 describe('RecallDeck · tiempo por ficha', () => {
-  it('guarda el tiempo válido y descarta toques rápidos y pausas largas', async () => {
+  it('guarda el tiempo válido y descarta toques rápidos y pausas largas', { timeout: 20_000 }, async () => {
     const user = userEvent.setup();
     render(<RecallDeck deck={getRecallDeck('tema40')} onNavigateHome={vi.fn()} />);
-    await screen.findByText(/Ficha 1 de 213/);
+    // El mazo del tema 40 se importa de forma diferida: margen amplio si la máquina va cargada.
+    await screen.findByText(/Ficha 1 de 213/, undefined, { timeout: 10_000 });
     const grade = async (ms: number) => {
       now += ms;
+      vi.setSystemTime(now);
       await user.click(screen.getByRole('button', { name: /Mostrar respuesta/i }));
       await user.click(screen.getByRole('button', { name: /La sabía/ }));
     };

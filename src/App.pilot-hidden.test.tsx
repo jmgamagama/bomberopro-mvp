@@ -17,13 +17,13 @@ describe('piloto del artículo 1 oculto', () => {
     expect(screen.queryByText(/piloto pendiente de revisión/i)).toBeNull();
   });
 
-  it('"Temas" en demostración no abre el piloto: explica que requiere cuenta', async () => {
+  it('"Temas" en demostración no abre el piloto: abre las fichas por tema con progreso local', async () => {
     const user = userEvent.setup();
     render(<App />);
     await user.click((await screen.findAllByRole('button', { name: 'Temas' }))[0]);
     expect(screen.queryByRole('heading', { name: 'Lee el artículo completo' })).toBeNull();
     expect(screen.queryByText('Pregunta 1 de 15')).toBeNull();
-    expect(screen.getByRole('heading', { name: 'Estudio por temas' })).toBeInTheDocument();
-    expect(screen.getByText(/requiere una cuenta/i)).toBeInTheDocument();
+    expect(await screen.findByText(/fichas de repaso/i)).toBeInTheDocument();
+    expect(screen.queryByText(/requiere una cuenta/i)).toBeNull();
   });
 });

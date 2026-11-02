@@ -1,0 +1,354 @@
+/** Tema 37 · Plan de prevención del CPEI-Badajoz (BOP nº 117, 22/06/2026, anuncio 2242/2026). Fichas literales con página. Pendiente de revisión. */
+
+export type Tema37RecallCard = {
+  id: string;
+  orden: number;
+  concepto: string;
+  respuesta: string;
+  fuente: string;
+  localizacion: string;
+  apartado: string;
+};
+
+export const TEMA37_RECALL_META = {
+  tema: 37,
+  title: 'Tema 37 · Plan de prevención de riesgos laborales del CPEI-Badajoz',
+  count: 37,
+  source: 'BOP de Badajoz nº 117, 22/06/2026, anuncio 2242/2026 (aprobación definitiva), fichas literales con página',
+} as const;
+
+export const TEMA37_RECALL_CARDS: Tema37RecallCard[] = [
+  {
+    "id": "CPEI-T37-L01-483A14417B",
+    "orden": 10,
+    "concepto": "Según el Plan de prevención del CPEI, ¿cuántas personas trabajadoras tiene el CPEI?",
+    "respuesta": "Número personas trabajadoras: 320",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 4 de 77, apartado 1.1",
+    "apartado": "1.1"
+  },
+  {
+    "id": "CPEI-T37-L01-CDF284A587",
+    "orden": 20,
+    "concepto": "¿Cuál es el domicilio social del CPEI según su Plan de prevención?",
+    "respuesta": "Domicilio social: CT de Cáceres, s/n",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 4 de 77, apartado 1.1",
+    "apartado": "1.1"
+  },
+  {
+    "id": "CPEI-T37-L01-500E0CEAF2",
+    "orden": 30,
+    "concepto": "¿En cuántas zonas operativas y áreas de influencia se ha zonificado el ámbito territorial del CPEI-Badajoz?",
+    "respuesta": "El ámbito territorial del CPEI-Badajoz se ha zonificado en 4 grandes zonas operativas que conforman 9 áreas de influencia",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 5 de 77, apartado 1.2",
+    "apartado": "1.2"
+  },
+  {
+    "id": "CPEI-T37-L01-6C588F5614",
+    "orden": 40,
+    "concepto": "¿Cuántos parques consorciados y parques rurales agrupados (PRAs) componen las áreas de influencia del CPEI?",
+    "respuesta": "tres parques consorciados y 6 parques rurales agrupados (en adelante, PRAs)",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 5 de 77, apartado 1.2",
+    "apartado": "1.2"
+  },
+  {
+    "id": "CPEI-T37-L01-D34387E88F",
+    "orden": 50,
+    "concepto": "Según el Plan de prevención, ¿qué son los parques consorciados y los PRAs?",
+    "respuesta": "Los parques consorciados al igual que los PRAs, son unidades básicas de intervención",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 5 de 77, apartado 1.2",
+    "apartado": "1.2"
+  },
+  {
+    "id": "CPEI-T37-L01-D0F145F036",
+    "orden": 60,
+    "concepto": "¿Qué mando presencial dirige el operativo todos los días del año y qué papel tiene?",
+    "respuesta": "contará con almenos con un Jefe de Guardia presencial (sargento de guardia o superior), responsable máximo de la toma de decisiones.",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 5 de 77, apartado 1.2",
+    "apartado": "1.2"
+  },
+  {
+    "id": "CPEI-T37-L01-4660EB2EC9",
+    "orden": 70,
+    "concepto": "¿Qué parques forman el PRA Puebla - Alburquerque (zona 1)?",
+    "respuesta": "Pra Puebla - Alburquerque Parque Puebla de la Calzada",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 5 de 77, apartado 1.2",
+    "apartado": "1.2"
+  },
+  {
+    "id": "CPEI-T37-L01-A597CC01FF",
+    "orden": 80,
+    "concepto": "¿Qué parques forman el PRA Castuera-Herrera (zona 2)?",
+    "respuesta": "PRA Castuera-Herrera Parque Castuera",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 5 de 77, apartado 1.2",
+    "apartado": "1.2"
+  },
+  {
+    "id": "CPEI-T37-L01-91DD951A0A",
+    "orden": 90,
+    "concepto": "¿Qué parque consorciado encabeza la zona 4?",
+    "respuesta": "Zona 4 Parque Consorciado de Almendralejo",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 5 de 77, apartado 1.2",
+    "apartado": "1.2"
+  },
+  {
+    "id": "CPEI-T37-L01-D406082F14",
+    "orden": 100,
+    "concepto": "¿En qué fecha se celebró la mesa de negociación que acordó la reordenación de efectivos del consorcio?",
+    "respuesta": "El consorcio, en mesa de negociación celebrada el 19/02/2025",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 5 de 77, apartado 1.2",
+    "apartado": "1.2"
+  },
+  {
+    "id": "CPEI-T37-L01-C3728D6BCF",
+    "orden": 110,
+    "concepto": "Según la RPT del Plan de prevención, ¿cuántos sargentos de guardia hay?",
+    "respuesta": "Seis sargentos de guardia.",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 6 de 77, apartado 1.2",
+    "apartado": "1.2"
+  },
+  {
+    "id": "CPEI-T37-L01-771FEF55AC",
+    "orden": 120,
+    "concepto": "Según la RPT del Plan de prevención, ¿cuántos cabos hay y cuántos por parque?",
+    "respuesta": "75 Cabos (5 por cada parque).",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 6 de 77, apartado 1.2",
+    "apartado": "1.2"
+  },
+  {
+    "id": "CPEI-T37-L01-56365177FD",
+    "orden": 130,
+    "concepto": "Según la RPT, ¿cuántos bomberos hay en el parque de Mérida?",
+    "respuesta": "32 Bomberos en el parque de Mérida.",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 6 de 77, apartado 1.2",
+    "apartado": "1.2"
+  },
+  {
+    "id": "CPEI-T37-L01-AB388EE01D",
+    "orden": 140,
+    "concepto": "Según la RPT, ¿cuántos bomberos hay en el parque de Don Benito-Villanueva?",
+    "respuesta": "28 Bomberos en el parque de Don Benito-Villanueva.",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 6 de 77, apartado 1.2",
+    "apartado": "1.2"
+  },
+  {
+    "id": "CPEI-T37-L01-6C4088B90F",
+    "orden": 150,
+    "concepto": "Según la RPT, ¿cuántos bomberos hay en el parque de Almendralejo?",
+    "respuesta": "20 Bomberos en el parque de Almendralejo.",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 6 de 77, apartado 1.2",
+    "apartado": "1.2"
+  },
+  {
+    "id": "CPEI-T37-L01-C151DF43CC",
+    "orden": 160,
+    "concepto": "Según la RPT, ¿cuántos emisoristas hay?",
+    "respuesta": "6 Emisoristas.",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 6 de 77, apartado 1.2",
+    "apartado": "1.2"
+  },
+  {
+    "id": "CPEI-T37-L01-C8E1E40405",
+    "orden": 170,
+    "concepto": "¿Qué figura gestiona cada área operativa (PRA o parque consorciado)?",
+    "respuesta": "dispone de un Jefe de Parque, como figura gestora de la unidad Básica de Intervención.",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 6 de 77, apartado 1.2",
+    "apartado": "1.2"
+  },
+  {
+    "id": "CPEI-T37-L01-40F3383848",
+    "orden": 180,
+    "concepto": "¿Cuál es la actividad del CPEI según el apartado 1.3 del Plan?",
+    "respuesta": "tiene como actividad la extinción de incendios.",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 7 de 77, apartado 1.3",
+    "apartado": "1.3"
+  },
+  {
+    "id": "CPEI-T37-L01-753B8AE620",
+    "orden": 190,
+    "concepto": "¿Cuánto se invirtió en EPI's en 2025 según el Plan de prevención?",
+    "respuesta": "EPI's 1.049.764,75",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 8 de 77, apartado 2.2",
+    "apartado": "2.2"
+  },
+  {
+    "id": "CPEI-T37-L01-F2F0FBB5E1",
+    "orden": 200,
+    "concepto": "¿Cuánto se destinó a formación en 2025 según el Plan de prevención?",
+    "respuesta": "Formación 150.621,10",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 8 de 77, apartado 2.2",
+    "apartado": "2.2"
+  },
+  {
+    "id": "CPEI-T37-L01-00C4B7D3F4",
+    "orden": 210,
+    "concepto": "¿Por qué no es posible determinar los recursos económicos específicos de prevención?",
+    "respuesta": "se realizan a través de contratos administrativas en los que se integran actuaciones generales de mantenimiento, suministros, etc.",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 8 de 77, apartado 2.2",
+    "apartado": "2.2"
+  },
+  {
+    "id": "CPEI-T37-L01-9F1F12E841",
+    "orden": 220,
+    "concepto": "¿Qué modalidad preventiva ha adoptado el CPEI y con qué entidad?",
+    "respuesta": "Servicio de prevención ajeno Quirónprevención",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 9 de 77, apartado 3.1",
+    "apartado": "3.1"
+  },
+  {
+    "id": "CPEI-T37-L01-F538ECE49A",
+    "orden": 230,
+    "concepto": "¿Cómo define el Plan el Comité de Seguridad y Salud?",
+    "respuesta": "órgano paritario y colegiado de participación destinado a la consulta regular y periódica de las actuaciones de la empresa en materia de prevención de riesgos.",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 9 de 77, apartado 3.2",
+    "apartado": "3.2"
+  },
+  {
+    "id": "CPEI-T37-L01-9A5D5EC13D",
+    "orden": 240,
+    "concepto": "¿Cuándo se revisará la evaluación de riesgos según el Plan de prevención?",
+    "respuesta": "La evaluación de riesgos se revisará cuando cambien las condiciones de trabajo y/o se hayan detectado daños a la salud de las personas trabajadoras.",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 10 de 77, apartado 5",
+    "apartado": "5"
+  },
+  {
+    "id": "CPEI-T37-L01-F942E84C27",
+    "orden": 250,
+    "concepto": "¿Qué consideración tiene la modificación de procedimientos e instrucciones respecto de la evaluación de riesgos?",
+    "respuesta": "la modificación de procedimientos e instrucciones, se considerará actualización de la propia evaluación",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 10 de 77, apartado 5",
+    "apartado": "5"
+  },
+  {
+    "id": "CPEI-T37-L01-D7E329E9F1",
+    "orden": 260,
+    "concepto": "¿Qué artículo de la Ley 31/1995 cita el Plan para las medidas de emergencia?",
+    "respuesta": "Cumpliendo con lo recogido en el artículo 20 de la Ley 31/1995",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 10 de 77, apartado 6",
+    "apartado": "6"
+  },
+  {
+    "id": "CPEI-T37-L01-D76C4278D5",
+    "orden": 270,
+    "concepto": "¿Pueden renunciar los puestos operativos del CPEI al reconocimiento médico?",
+    "respuesta": "todos los puestos operativos del CPEI tienen la obligatoriedad de realizarse el reconocimiento médico, sin posibilidad de renuncia",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 11 de 77, apartado 7",
+    "apartado": "7"
+  },
+  {
+    "id": "CPEI-T37-L01-AE8FEF6B82",
+    "orden": 280,
+    "concepto": "¿Qué analizará el consorcio de cada bombero/a de nuevo ingreso?",
+    "respuesta": "El consorcio, analizará la experiencia previa de cada bombero/a de nuevo ingreso, con objeto de adecuar el Plan Formativo",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 11 de 77, apartado 8",
+    "apartado": "8"
+  },
+  {
+    "id": "CPEI-T37-L01-67FF18856D",
+    "orden": 290,
+    "concepto": "¿Qué lugar ocupan los equipos de protección individual entre las medidas preventivas según el Plan?",
+    "respuesta": "La utilización de equipos de protección individual será el último recurso",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 13 de 77, apartado 15",
+    "apartado": "15"
+  },
+  {
+    "id": "CPEI-T37-L01-EA2029C1E1",
+    "orden": 300,
+    "concepto": "¿Con qué documento se distribuyen los productos químicos a las personas trabajadoras usuarias?",
+    "respuesta": "Los productos químicos se distribuirán a las personas trabajadoras usuarias junto con la FDS.",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 13 de 77, apartado 17",
+    "apartado": "17"
+  },
+  {
+    "id": "CPEI-T37-L01-7271D8B878",
+    "orden": 310,
+    "concepto": "¿Qué real decreto desarrolla los supuestos de presencia de recurso preventivo citados en el Plan?",
+    "respuesta": "desarrollados por el Real Decreto 604/2006",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 13 de 77, apartado 18",
+    "apartado": "18"
+  },
+  {
+    "id": "CPEI-T37-L01-B948F3EA76",
+    "orden": 320,
+    "concepto": "Activada una intervención, ¿quién asume las funciones de recurso preventivo en el CPEI?",
+    "respuesta": "será el Jefe de Turno quien asuma las fuciones de recurso preventivo.",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 14 de 77, apartado 18",
+    "apartado": "18"
+  },
+  {
+    "id": "CPEI-T37-L01-5B81822606",
+    "orden": 330,
+    "concepto": "¿Se hace nombramiento nominal de recurso preventivo en el CPEI?",
+    "respuesta": "Por este motivo no se realiza nombramieno nominal de recurso preventivo",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 14 de 77, apartado 18",
+    "apartado": "18"
+  },
+  {
+    "id": "CPEI-T37-L01-7D157E96D9",
+    "orden": 340,
+    "concepto": "¿Qué formación preventiva básica tiene todo el operativo del CPEI?",
+    "respuesta": "disponiendo todo el operativo de Formación de Nivel Básico de 50 horas",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 14 de 77, apartado 18",
+    "apartado": "18"
+  },
+  {
+    "id": "CPEI-T37-L01-1C358542AD",
+    "orden": 350,
+    "concepto": "¿Cuál es el orden del Mando Responsable de Intervención (MRI)?",
+    "respuesta": "El orden será Jefe de Turno, Jefe de Guardia, Suboficial, Oficial.",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 14 de 77, apartado 18",
+    "apartado": "18"
+  },
+  {
+    "id": "CPEI-T37-L01-1DAF4DA16A",
+    "orden": 360,
+    "concepto": "¿Qué función de interlocución tiene el Jefe/a de Servicio de Planificación, Organización y Seguimiento?",
+    "respuesta": "Coordinar la interlocución con el Servicio de Prevención Ajeno (SPA).",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 15 de 77, apartado Anexo II",
+    "apartado": "Anexo II"
+  },
+  {
+    "id": "CPEI-T37-L01-423B47B0B7",
+    "orden": 370,
+    "concepto": "¿Quién autoriza el uso de equipos tras la comunicación del Jefe/a de Servicio de Formación?",
+    "respuesta": "Proceder a la autorización del uso de equipos una vez recibida la comunicación por parte del Jefe/a de",
+    "fuente": "Plan de prevención de riesgos laborales del CPEI, aprobación definitiva: BOP de Badajoz nº 117, de 22/06/2026, anuncio 2242/2026",
+    "localizacion": "BOP nº 117, anuncio 2242/2026, página 16 de 77, apartado Anexo II",
+    "apartado": "Anexo II"
+  }
+];

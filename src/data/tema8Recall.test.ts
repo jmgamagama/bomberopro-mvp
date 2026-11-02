@@ -30,7 +30,7 @@ describe('tema 8 · fase 2 (texto oficial consolidado)', () => {
   });
 
   it('cada ficha cita norma, artículo y enlace oficial; sin duplicados ni respuesta en la pregunta', () => {
-    expect(TEMA8_RECALL_CARDS.every((c) => /INSST\-T33|INSST\-T12\-EXPLOSIONES/.test(c.fuente) && /https:\/\/([a-z]+\.)?(boe\.es|doe\.juntaex\.es|juntaex\.es|codigotecnico\.org|unocha\.org|dgt\.es|insst\.es|dip-badajoz\.es|miteco\.gob\.es|eur-lex\.europa\.eu|itu\.int)/.test(c.fuente))).toBe(true);
+    expect(TEMA8_RECALL_CARDS.every((c) => /INSST\-T33|INSST\-T12\-EXPLOSIONES|BOE\-A\-2017\-6606/.test(c.fuente) && /https:\/\/([a-z]+\.)?(boe\.es|doe\.juntaex\.es|juntaex\.es|codigotecnico\.org|unocha\.org|dgt\.es|insst\.es|dip-badajoz\.es|miteco\.gob\.es|eur-lex\.europa\.eu|itu\.int)/.test(c.fuente))).toBe(true);
     expect(TEMA8_RECALL_CARDS.every((c) => c.id.startsWith('CPEI-T08-OF-') && c.concepto.includes('?'))).toBe(true);
     expect(new Set(TEMA8_RECALL_CARDS.map((c) => c.id)).size).toBe(TEMA8_RECALL_CARDS.length);
     expect(new Set(TEMA8_RECALL_CARDS.map((c) => c.concepto)).size).toBe(TEMA8_RECALL_CARDS.length);
@@ -39,6 +39,7 @@ describe('tema 8 · fase 2 (texto oficial consolidado)', () => {
 
   it('se registra como mazo bajo demanda', async () => {
     expect(getRecallDeck('tema8').count).toBe(25);
-    expect(await loadRecallDeckCards('tema8')).toBe(TEMA8_RECALL_CARDS);
+    // Solo 2 fichas (clases C y D, RIPCI); las 23 del INSST se filtran al cargar (recallCardReview.ts).
+    expect(await loadRecallDeckCards('tema8')).toHaveLength(2);
   });
 });

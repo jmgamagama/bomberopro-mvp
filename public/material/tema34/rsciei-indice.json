@@ -1,0 +1,101 @@
+{
+ "boe": "BOE-A-2025-7190",
+ "version": "20/12/2025",
+ "epigrafe": "Real Decreto 164/2025, de 4 de marzo, por el que se aprueba el Reglamento de seguridad contra incendios en los establecimientos industriales.",
+ "bloques": [
+  {
+   "id": "rsciei-01",
+   "titulo": "Real Decreto 164/2025 · Artículo único y disposiciones",
+   "preceptos": [
+    "au",
+    "da",
+    "dt",
+    "dt-2",
+    "dt-3",
+    "dt-4",
+    "dt-5",
+    "dt-6",
+    "dt-7",
+    "dt-8",
+    "dd",
+    "df",
+    "df-2",
+    "df-3",
+    "df-4",
+    "df-5",
+    "df-6",
+    "df-7",
+    "df-8",
+    "df-9",
+    "df-10",
+    "df-11",
+    "df-12"
+   ]
+  },
+  {
+   "id": "rsciei-02",
+   "titulo": "Reglamento · Capítulos I y II · Disposiciones generales y requisitos",
+   "preceptos": [
+    "a1",
+    "a2",
+    "a3",
+    "a4",
+    "a5",
+    "a6",
+    "a7",
+    "a8",
+    "a9"
+   ]
+  },
+  {
+   "id": "rsciei-03",
+   "titulo": "Reglamento · Capítulos III a VI · Puesta en servicio, inspecciones, actuación y sanciones",
+   "preceptos": [
+    "a1-2",
+    "a1-3",
+    "a1-4",
+    "a1-5",
+    "a1-6",
+    "a1-7",
+    "a1-8",
+    "a1-9",
+    "a1-10"
+   ]
+  },
+  {
+   "id": "rsciei-04",
+   "titulo": "Anexo I · Caracterización de los establecimientos industriales",
+   "preceptos": [
+    "ai"
+   ]
+  },
+  {
+   "id": "rsciei-05",
+   "titulo": "Anexo II · Requisitos constructivos",
+   "preceptos": [
+    "ai-2"
+   ]
+  },
+  {
+   "id": "rsciei-06",
+   "titulo": "Anexo III · Requisitos dotacionales de instalaciones de protección contra incendios",
+   "preceptos": [
+    "ai-3"
+   ]
+  },
+  {
+   "id": "rsciei-07",
+   "titulo": "Anexo IV · Zonas con condiciones particulares",
+   "preceptos": [
+    "ai-4"
+   ]
+  },
+  {
+   "id": "rsciei-08",
+   "titulo": "Anexo V · Normas UNE y otras reconocidas",
+   "preceptos": [
+    "av"
+   ]
+  }
+ ]
+}

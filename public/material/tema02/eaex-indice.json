@@ -1,0 +1,91 @@
+{
+ "boe": "BOE-A-2011-1638",
+ "version": "30/10/2026",
+ "epigrafe": "El Estatuto de Autonomia de Extremadura: Disposiciones generales. Derechos, deberes y principios rectores. Las competencias de la Comunidad Autonoma de Extremadura. Las instituciones de Extremadura.",
+ "bloques": [
+  {
+   "id": "eaex-01",
+   "titulo": "Título Preliminar · Capítulo I · Disposiciones generales (arts. 1–5)",
+   "preceptos": [
+    "a1",
+    "a2",
+    "a3",
+    "a4",
+    "a5"
+   ]
+  },
+  {
+   "id": "eaex-02",
+   "titulo": "Título Preliminar · Capítulo II · Derechos, deberes y principios rectores (arts. 6–7)",
+   "preceptos": [
+    "a6",
+    "a7"
+   ]
+  },
+  {
+   "id": "eaex-03",
+   "titulo": "Título I · Competencias de la Comunidad Autónoma (arts. 8–14)",
+   "preceptos": [
+    "a8",
+    "a9",
+    "a10",
+    "a11",
+    "a12",
+    "a13",
+    "a14"
+   ]
+  },
+  {
+   "id": "eaex-04",
+   "titulo": "Título II · Instituciones: Asamblea y Presidente (arts. 15–30)",
+   "preceptos": [
+    "a15",
+    "a16",
+    "a17",
+    "a18",
+    "a19",
+    "a20",
+    "a21",
+    "a22",
+    "a23",
+    "a24",
+    "a25",
+    "a26",
+    "a27",
+    "a28",
+    "a29",
+    "a30"
+   ]
+  },
+  {
+   "id": "eaex-05",
+   "titulo": "Título II · Instituciones: Junta y Administración (arts. 31–39)",
+   "preceptos": [
+    "a31",
+    "a32",
+    "a33",
+    "a34",
+    "a35",
+    "a36",
+    "a37",
+    "a38",
+    "a39"
+   ]
+  },
+  {
+   "id": "eaex-06",
+   "titulo": "Título II · Instituciones: control de los poderes y otras instituciones (arts. 40–48)",
+   "preceptos": [
+    "a40",
+    "a41",
+    "a42",
+    "a43",
+    "a44",
+    "a45",
+    "a46",
+    "a47",
+    "a48"
+   ]
+  }
+ ]
+}

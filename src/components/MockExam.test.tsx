@@ -101,6 +101,19 @@ describe('MockExam', () => {
     expect(onFinishExam).toHaveBeenCalledOnce();
     expect(onFinishExam.mock.calls[0][0][0]).toMatchObject({ answerChanges: 2 });
     expect(onFinishExam.mock.calls[0][0][1]).toMatchObject({ answerChanges: 0 });
+
+    // Nota en español (coma, ≤ 2 decimales), fórmula de las bases y fallos con su clave, explicación y fuente.
+    expect(summary).not.toHaveAccessibleDescription(/\d\.\d/);
+    expect(container.querySelector('#mock-formula')).toHaveTextContent('BOP de Badajoz nº 135, de 17/07/2026): +0,200 por acierto, −0,066 por error y 0 en blanco.');
+    const fallos = container.querySelectorAll('#mock-fallos li');
+    const falladas = onFinishExam.mock.calls[0][0].filter((r: any) => !r.correct);
+    expect(fallos).toHaveLength(falladas.length);
+    if (falladas.length > 0) {
+      const q = served.find(x => x.id === falladas[0].questionId)!;
+      expect(fallos[0]).toHaveTextContent(`Correcta: ${q.correct_answer}`);
+      if (!q.explanation.startsWith('Ficha:')) expect(fallos[0]).toHaveTextContent(q.explanation);
+      if (q.fuente) expect(fallos[0]).toHaveTextContent(`Fuente: ${q.fuente}`);
+    }
   });
 
   it('sin sesión (demo) no pide el banco real al servidor: usa la muestra local y lo dice', async () => {
@@ -108,8 +121,9 @@ describe('MockExam', () => {
     (supabase.rpc as any).mockClear();
     render(<MockExam microconcepts={INITIAL_MICROCONCEPTS} onFinishExam={vi.fn()} onNavigateHome={vi.fn()} />);
     await user.click(screen.getByRole('button', { name: /comenzar simulacro/i }));
-    expect(await screen.findByText(/pregunta 1 de 10/i)).toBeInTheDocument();
-    expect(supabase.rpc).not.toHaveBeenCalled();
+    expect(await screen.findByText(new RegExp(`pregunta 1 de ${INITIAL_QUESTIONS.length}`, "i"))).toBeInTheDocument();
+    // Solo la medición anónima del embudo (migración 37); nunca el banco real.
+    expect((supabase.rpc as any).mock.calls.every((c: unknown[]) => c[0] === 'log_funnel_event')).toBe(true);
     expect(screen.getByRole('note').textContent).toMatch(/muestra/i);
   });
 
@@ -119,7 +133,7 @@ describe('MockExam', () => {
     (supabase.rpc as any).mockResolvedValue({ data: null, error: { code: '42501', message: 'permission denied' } });
     render(<MockExam microconcepts={INITIAL_MICROCONCEPTS} onFinishExam={vi.fn()} onNavigateHome={vi.fn()} useServerQuestions />);
     await user.click(screen.getByRole('button', { name: /comenzar simulacro/i }));
-    expect(await screen.findByText(/pregunta 1 de 10/i)).toBeInTheDocument();
+    expect(await screen.findByText(new RegExp(`pregunta 1 de ${INITIAL_QUESTIONS.length}`, "i"))).toBeInTheDocument();
     expect(screen.getByRole('note').textContent).toMatch(/muestra/i);
   });
 });

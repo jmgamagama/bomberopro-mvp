@@ -1,0 +1,2071 @@
+{
+ "norma": "BOP-BA-2012-5370",
+ "documento": "RRI-CPEI",
+ "nombre_norma": "Reglamento de Régimen Interno del CPEI de Badajoz",
+ "abreviatura": "RRI CPEI",
+ "hash_prefijo": "RRI",
+ "tema": 5,
+ "tema_nombre": "El organigrama del CPEI de Badajoz. El Reglamento de Régimen Interno del CPEI de Badajoz",
+ "bloque_temario": "Caps. I-II (arts. 1-12): disposiciones generales y personal",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto único vigente publicado en el BOP de Badajoz n.º 149, de 06/08/2012)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "RRI-a1-1-caracter",
+   "bloque": "a1",
+   "apartado": "1",
+   "orden": 10,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 1.1 del RRI del CPEI, ¿qué carácter tiene el servicio del Consorcio?",
+    "respuesta": "Es un servicio de carácter público civil."
+   },
+   "cita": "es un servicio de carácter público civil",
+   "confundible_con": [
+    "RRI-a1-1-mision"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el Reglamento de Régimen Interno del CPEI, ¿el servicio del Consorcio es de carácter civil?",
+     "opciones": [
+      "Sí, es un servicio público civil",
+      "No, es un servicio público militar"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.1: el Consorcio «es un servicio de carácter público civil»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "¿Cómo define el art. 1.1 del Reglamento de Régimen Interno del CPEI de Badajoz la naturaleza del Consorcio?",
+     "opciones": [
+      "Como un servicio de carácter público civil",
+      "Como un cuerpo de carácter público militar",
+      "Como un servicio privado concertado"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.1: «es un servicio de carácter público civil»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 1.1 del Reglamento de Régimen Interno del CPEI, ¿qué afirmación es correcta?",
+     "opciones": [
+      "Es un servicio público civil, constituido al amparo de la Ley 7/1985",
+      "Es un cuerpo público militarizado, adscrito a Protección Civil",
+      "Es un servicio civil de gestión privada, sin Estatutos propios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.1: servicio de carácter público civil, constituido al amparo del art. 87 de la Ley 7/1985 y regido por sus Estatutos."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a1-1-mision",
+   "bloque": "a1",
+   "apartado": "1",
+   "orden": 20,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 1.1 del RRI del CPEI, ¿cuál es la misión del Consorcio?",
+    "respuesta": "El auxilio, rescate, salvamento y la protección contra incendios y demás peligros de accidentes, y ejercer la prevención mediante estudios, informes y asesoramiento."
+   },
+   "cita": "tiene como misión el auxilio, rescate, salvamento y la protección contra incendios",
+   "confundible_con": [
+    "RRI-a3-funciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1.1 del Reglamento de Régimen Interno del CPEI, ¿forma parte de la misión del Consorcio ejercer la prevención?",
+     "opciones": [
+      "Sí, mediante estudios, informes y asesoramiento",
+      "No, su misión se limita a extinguir incendios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.1: la misión incluye «ejercer la prevención a través de los estudios, informes y asesoramiento que permitan evitar riesgos»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1.1 del Reglamento de Régimen Interno del CPEI, la misión del Consorcio es:",
+     "opciones": [
+      "El auxilio, rescate, salvamento y protección contra incendios y otros peligros",
+      "La vigilancia del orden público y del tráfico en las vías provinciales",
+      "La extinción de incendios forestales, de forma exclusiva"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.1: «tiene como misión el auxilio, rescate, salvamento y la protección contra incendios y demás peligros de accidentes…»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 1.1 del Reglamento de Régimen Interno del CPEI, ¿a través de qué ejerce el Consorcio la prevención?",
+     "opciones": [
+      "De los estudios, informes y asesoramiento",
+      "De la imposición de sanciones a los titulares",
+      "De la concesión de licencias de actividad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.1: ejerce «la prevención a través de los estudios, informes y asesoramiento que permitan evitar riesgos»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a1-1-art87",
+   "bloque": "a1",
+   "apartado": "1",
+   "orden": 30,
+   "tipo": "dato",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 1.1 del RRI del CPEI, ¿al amparo de qué norma está constituido el Consorcio?",
+    "respuesta": "Del artículo 87 de la Ley 7/1985, de 2 de abril, Reguladora de las Bases de Régimen Local."
+   },
+   "cita": "constituido al amparo de lo establecido en el artículo 87 de la Ley 7/1985",
+   "confundible_con": [
+    "RRI-a1-2-regimen"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el Reglamento de Régimen Interno del CPEI, ¿al amparo de qué ley está constituido el Consorcio?",
+     "opciones": [
+      "La Ley 7/1985, Reguladora de las Bases de Régimen Local",
+      "La Ley 31/1995, de Prevención de Riesgos Laborales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.1: constituido al amparo del art. 87 de la Ley 7/1985, Reguladora de las Bases de Régimen Local."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1.1 del Reglamento de Régimen Interno del CPEI, el Consorcio se constituye al amparo de:",
+     "opciones": [
+      "El artículo 87 de la Ley 7/1985",
+      "El artículo 25 de la Ley 7/1985",
+      "El artículo 36 de la Ley 7/1985"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.1: «constituido al amparo de lo establecido en el artículo 87 de la Ley 7/1985»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 1.1 del Reglamento de Régimen Interno del CPEI, además de por sus Estatutos, ¿cómo se rige el Consorcio?",
+     "opciones": [
+      "Por la demás normativa que resulte de aplicación",
+      "Solo por los acuerdos de cada ayuntamiento",
+      "Solo por el convenio colectivo del personal"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.1: «se rige por lo dispuesto en sus Estatutos y demás normativa que resulte de aplicación»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a1-2-regimen",
+   "bloque": "a1",
+   "apartado": "2",
+   "orden": 40,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 1.2 del RRI del CPEI, ¿por qué se rigen la prestación del servicio, su organización y el régimen del personal?",
+    "respuesta": "Por los Estatutos del propio Consorcio y las disposiciones del Reglamento."
+   },
+   "cita": "se rigen por los Estatutos del propio Consorcio y las disposiciones del presente Reglamento",
+   "confundible_con": [
+    "RRI-a10-estructura"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1.2 del Reglamento de Régimen Interno del CPEI, ¿el régimen del personal adscrito se rige por los Estatutos del Consorcio y el Reglamento?",
+     "opciones": [
+      "Sí, por ambos",
+      "No, solo por el convenio de cada ayuntamiento"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.2: se rigen «por los Estatutos del propio Consorcio y las disposiciones del presente Reglamento»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1.2 del Reglamento de Régimen Interno del CPEI, los derechos y deberes de los usuarios del servicio se rigen por:",
+     "opciones": [
+      "Los Estatutos del Consorcio y este Reglamento",
+      "Las ordenanzas fiscales de cada municipio",
+      "El Plan Territorial de Protección Civil"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.2: las modalidades de prestación, los derechos y deberes de sus usuarios, la organización y el régimen del personal se rigen por los Estatutos y el Reglamento."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 1.2 del Reglamento de Régimen Interno del CPEI, ¿qué materia NO menciona entre las que se rigen por los Estatutos y el Reglamento?",
+     "opciones": [
+      "Las tarifas por servicios a particulares",
+      "Los derechos y deberes de los usuarios",
+      "El régimen del personal adscrito"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.2 cita las modalidades de prestación, los derechos y deberes de los usuarios, la organización y funcionamiento y el régimen del personal; no habla de tarifas."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a1-3-principios",
+   "bloque": "a1",
+   "apartado": "3",
+   "orden": 50,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 1.3 del RRI del CPEI, ¿a qué principios se ajusta la actuación del Consorcio?",
+    "respuesta": "A los principios de celeridad, oportunidad y proporcionalidad en el uso de los medios, con respeto a los ciudadanos y a sus derechos y libertades fundamentales."
+   },
+   "cita": "se ajustará a los principios de celeridad, oportunidad y proporcionalidad",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1.3 del Reglamento de Régimen Interno del CPEI, ¿es la proporcionalidad un principio de actuación del Consorcio?",
+     "opciones": [
+      "Sí, junto a la celeridad y la oportunidad",
+      "No, solo lo son la jerarquía y la disciplina"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.3: principios de «celeridad, oportunidad y proporcionalidad»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1.3 del Reglamento de Régimen Interno del CPEI, la actuación del Consorcio se ajustará a los principios de:",
+     "opciones": [
+      "Celeridad, oportunidad y proporcionalidad",
+      "Jerarquía, disciplina y eficacia",
+      "Gratuidad, universalidad y eficiencia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.3: «celeridad, oportunidad y proporcionalidad en el uso de los medios exigidos por las circunstancias de la intervención»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 1.3 del Reglamento de Régimen Interno del CPEI, ¿a qué se refiere el principio de proporcionalidad?",
+     "opciones": [
+      "Al uso de los medios exigidos por las circunstancias de la intervención",
+      "A la graduación de la sanción que corresponde a cada falta del personal",
+      "Al reparto de los costes del servicio entre los municipios consorciados"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.3: los principios se aplican «en el uso de los medios exigidos por las circunstancias de la intervención»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a1-4-facultades",
+   "bloque": "a1",
+   "apartado": "4",
+   "orden": 60,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 1.4 del RRI del CPEI, en situaciones de siniestro o calamidad colectiva, ¿qué puede hacer el Consorcio?",
+    "respuesta": "Imponer prestaciones personales e intervenir u ocupar todo tipo de bienes, conforme a la legislación del Estado en materia de protección civil."
+   },
+   "cita": "encontrándose facultado aquel en tales supuestos para la imposición de prestaciones personales",
+   "confundible_con": [
+    "RRI-a1-5-obligatorio"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1.4 del Reglamento de Régimen Interno del CPEI, ¿se consideran justificadas sus intervenciones en caso de calamidad colectiva?",
+     "opciones": [
+      "Sí, en todo caso",
+      "No, solo si el afectado las solicita por escrito"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.4: «se entenderán justificadas, en todo caso, cuando existieran situaciones de siniestro o calamidad colectiva…»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1.4 del Reglamento de Régimen Interno del CPEI, ante un siniestro con riesgo inminente para las personas, el Consorcio está facultado para:",
+     "opciones": [
+      "Imponer prestaciones personales y ocupar bienes",
+      "Imponer multas a los propietarios afectados",
+      "Expropiar los bienes de forma definitiva"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.4: facultado para la imposición de prestaciones personales e intervenir u ocupar todo tipo de bienes conforme a la legislación estatal de protección civil."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 1.4 del Reglamento de Régimen Interno del CPEI, ¿con arreglo a qué legislación puede el Consorcio intervenir u ocupar bienes?",
+     "opciones": [
+      "La legislación del Estado en materia de protección civil",
+      "Las ordenanzas municipales de cada localidad",
+      "La normativa autonómica de expropiación forzosa"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.4: «de conformidad con lo establecido en la legislación del Estado en materia de protección civil»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a1-5-obligatorio",
+   "bloque": "a1",
+   "apartado": "5",
+   "orden": 70,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 1.5 del RRI del CPEI, ¿qué carácter tienen la reclamación y el uso del Consorcio por los ciudadanos?",
+    "respuesta": "Carácter obligatorio: toda persona, incluso el menor de edad o el incapacitado, tiene derecho y, en su caso, la obligación de recabar su actuación."
+   },
+   "cita": "se declararán de carácter obligatorio",
+   "confundible_con": [
+    "RRI-a1-4-facultades"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1.5 del Reglamento de Régimen Interno del CPEI, ¿puede un menor de edad recabar la actuación del Consorcio?",
+     "opciones": [
+      "Sí, toda persona tiene ese derecho",
+      "No, solo los mayores de edad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.5: «toda persona, incluso el menor de edad o el incapacitado, tiene derecho y, en su caso, la obligación de recabar la actuación del Consorcio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1.5 del Reglamento de Régimen Interno del CPEI, la reclamación y el uso del Consorcio por los ciudadanos tienen carácter:",
+     "opciones": [
+      "Obligatorio",
+      "Voluntario",
+      "Subsidiario"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.5: por su carácter de servicio esencial, la reclamación y el uso «se declararán de carácter obligatorio»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 1.5 del Reglamento de Régimen Interno del CPEI, ¿por qué vías puede recabarse la actuación del Consorcio en un siniestro?",
+     "opciones": [
+      "Directamente o a través de los servicios de coordinación de emergencias",
+      "Solo a través del ayuntamiento del municipio afectado",
+      "Solo mediante solicitud escrita dirigida a la Presidencia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.5: «ya sea directamente o través de los servicios públicos para la coordinación de emergencias»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a1-6-falsas-alarmas",
+   "bloque": "a1",
+   "apartado": "6",
+   "orden": 80,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 1.6 del RRI del CPEI, ¿qué hará el Consorcio ante el uso fraudulento de sus servicios?",
+    "respuesta": "Adoptar medidas para evitarlo y ejercer acciones contra los responsables de falsas alarmas para exigirles responsabilidades."
+   },
+   "cita": "ejerciendo las pertinentes acciones para la persecución de los responsables de eventuales falsas alarmas",
+   "confundible_con": [
+    "RRI-a1-5-obligatorio"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 1.6 del Reglamento de Régimen Interno del CPEI, ¿puede el Consorcio actuar contra los responsables de falsas alarmas?",
+     "opciones": [
+      "Sí, para exigirles responsabilidades",
+      "No, las falsas alarmas no tienen consecuencias"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.6: ejercerá las acciones para la persecución de los responsables de falsas alarmas, para exigirles responsabilidades."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 1.6 del Reglamento de Régimen Interno del CPEI, ante el uso fraudulento de sus servicios, el Consorcio:",
+     "opciones": [
+      "Ejercerá acciones contra los responsables de falsas alarmas",
+      "Dejará de atender las llamadas que procedan de ese municipio",
+      "Cobrará siempre una tasa fija a la persona que haya llamado"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.6: adoptará medidas y ejercerá «las pertinentes acciones para la persecución de los responsables de eventuales falsas alarmas»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 1.6 del Reglamento de Régimen Interno del CPEI, ¿con qué fin persigue el Consorcio a los autores de falsas alarmas?",
+     "opciones": [
+      "Exigirles las responsabilidades a que hubiera lugar",
+      "Retirarles el derecho a recabar sus servicios",
+      "Inscribirlos en el registro de entidades con medios propios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 1.6: «con el fin de exigir a los mismos las responsabilidades a que hubiera lugar»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a2-1-ambito",
+   "bloque": "a2",
+   "apartado": "1",
+   "orden": 90,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 2.1 del RRI del CPEI, ¿a qué municipios se extiende la actuación del Consorcio?",
+    "respuesta": "A los municipios de la provincia no obligados a prestar estos servicios y a los obligados que hayan suscrito convenio con el Consorcio."
+   },
+   "cita": "que no se encuentren directamente obligados a la prestación de los servicios de protección civil, prevención y extinción de incendios",
+   "confundible_con": [
+    "RRI-a2-2-colaboracion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.1 del Reglamento de Régimen Interno del CPEI, ¿actúa el Consorcio en municipios obligados a prestar el servicio?",
+     "opciones": [
+      "Sí, si han suscrito convenio con el Consorcio",
+      "No, nunca en esos municipios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.1: también en los obligados que «hubieran suscrito el correspondiente convenio de colaboración y cooperación con el Consorcio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.1 del Reglamento de Régimen Interno del CPEI, la actuación del Consorcio se extiende a los municipios de la provincia:",
+     "opciones": [
+      "No obligados a prestar el servicio y obligados con convenio",
+      "Obligados a prestar el servicio, aunque no haya convenio",
+      "De más de 20.000 habitantes, con o sin convenio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.1: municipios no obligados conforme a la normativa de Régimen Local y obligados que hayan suscrito convenio."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 2.1 del Reglamento de Régimen Interno del CPEI, un municipio obligado a mantener el servicio sin convenio con el Consorcio:",
+     "opciones": [
+      "No está incluido en su ámbito de actuación",
+      "Está incluido, porque el servicio es obligatorio",
+      "Está incluido solo en los meses de verano"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.1: los municipios obligados solo entran en el ámbito si han suscrito convenio con el Consorcio."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a2-2-colaboracion",
+   "bloque": "a2",
+   "apartado": "2",
+   "orden": 100,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 2.2 del RRI del CPEI, ¿qué puede articular el Consorcio con Administraciones no integradas en él?",
+    "respuesta": "Instrumentos de colaboración recíproca para prestar los servicios que constituyen la causa de su constitución."
+   },
+   "cita": "podrá articular instrumentos de colaboración recíproca",
+   "confundible_con": [
+    "RRI-a2-1-ambito"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.2 del Reglamento de Régimen Interno del CPEI, ¿puede colaborar el Consorcio con Administraciones no integradas en él?",
+     "opciones": [
+      "Sí, con instrumentos de colaboración recíproca",
+      "No, solo con las entidades consorciadas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.2: «podrá articular instrumentos de colaboración recíproca con otras Administraciones o entidades públicas no integradas»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.2 del Reglamento de Régimen Interno del CPEI, con otras entidades públicas no integradas, el Consorcio podrá articular:",
+     "opciones": [
+      "Instrumentos de colaboración recíproca",
+      "Cesiones definitivas del servicio",
+      "Relaciones de dependencia jerárquica"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.2: «instrumentos de colaboración recíproca»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 2.2 del Reglamento de Régimen Interno del CPEI, ¿con quién puede articular el Consorcio instrumentos de colaboración recíproca?",
+     "opciones": [
+      "Con Administraciones o entidades públicas no integradas en él",
+      "Solo con empresas privadas que tengan medios propios",
+      "Solo con los municipios ya obligados por convenio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.2: «con otras Administraciones o entidades públicas no integradas en el Consorcio»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a2-3-envio",
+   "bloque": "a2",
+   "apartado": "3",
+   "orden": 110,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 2.3 del RRI del CPEI, ¿quién puede ordenar el envío de efectivos a otra parte del territorio nacional y en qué caso?",
+    "respuesta": "El Presidente del Consorcio u órgano con la facultad delegada, previa petición, ante un siniestro que por su magnitud sea catástrofe o calamidad pública."
+   },
+   "cita": "podrá ordenar el envío de efectivos y material del mismo a cualquier parte del territorio nacional",
+   "confundible_con": [
+    "RRI-a2-4-expedicion",
+    "RRI-a5-presidente"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.3 del Reglamento de Régimen Interno del CPEI, ¿puede el Consorcio enviar efectivos fuera de la provincia?",
+     "opciones": [
+      "Sí, a cualquier parte del territorio nacional",
+      "No, solo dentro de la provincia de Badajoz"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.3: puede ordenarse el envío «a cualquier parte del territorio nacional» ante catástrofe o calamidad pública."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.3 del Reglamento de Régimen Interno del CPEI, ¿quién puede ordenar el envío de efectivos a una catástrofe en otra comunidad autónoma?",
+     "opciones": [
+      "El Presidente del Consorcio u órgano con la facultad delegada",
+      "El Jefe de Parque más cercano a la zona afectada",
+      "El responsable de guardia de la zona correspondiente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.3: «el Presidente del Consorcio u órgano que tuviera delegada tal facultad podrá ordenar el envío»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 2.3 del Reglamento de Régimen Interno del CPEI, ¿qué forma debe tener la petición para enviar efectivos a una catástrofe?",
+     "opciones": [
+      "Basta una petición, sin formalidad alguna",
+      "Una solicitud escrita del Gobierno de la nación",
+      "Un convenio previo firmado con el Consorcio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.3: «previa petición cursada a tal efecto y sin formalidad alguna» del Gobierno o de la autoridad de protección civil."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a2-4-expedicion",
+   "bloque": "a2",
+   "apartado": "4",
+   "orden": 120,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 2.4 del RRI del CPEI, en un envío a otra parte del territorio, ¿bajo qué dirección actúan las dotaciones?",
+    "respuesta": "Bajo la dirección inmediata de sus mandos naturales; el jefe de la expedición cumple las instrucciones de la autoridad que dirige allí las tareas."
+   },
+   "cita": "actuarán bajo la dirección inmediata de sus mandos naturales",
+   "confundible_con": [
+    "RRI-a2-3-envio"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.4 del Reglamento de Régimen Interno del CPEI, en un envío fuera de su ámbito, ¿quién dirige de forma inmediata a las dotaciones?",
+     "opciones": [
+      "Sus mandos naturales",
+      "El alcalde de la localidad afectada"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.4: las dotaciones «actuarán bajo la dirección inmediata de sus mandos naturales»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.4 del Reglamento de Régimen Interno del CPEI, el funcionario de superior categoría que esté al frente de la expedición:",
+     "opciones": [
+      "Cumplirá las instrucciones de la autoridad que dirija allí las tareas",
+      "Asumirá la dirección de todas las tareas que se realicen en el lugar",
+      "Solo obedecerá las órdenes que le dé el Presidente del Consorcio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.4: cumplirá las instrucciones de la autoridad que tenga encomendada la dirección de las tareas para el restablecimiento de la normalidad."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 2.4 del Reglamento de Régimen Interno del CPEI, ¿qué puede hacer el jefe de la expedición respecto a las instrucciones de la autoridad que dirige allí las tareas?",
+     "opciones": [
+      "Formular observaciones técnicas para usar mejor los medios",
+      "Negarse a cumplirlas si no las da por escrito su Presidente",
+      "Sustituirlas por las de su propio protocolo de actuación"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.4: puede «formular, no obstante, las observaciones técnicas orientadas para la mejor utilización de medios materiales y recursos humanos»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a2-5-medios-propios",
+   "bloque": "a2",
+   "apartado": "5",
+   "orden": 130,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 2.5 del RRI del CPEI, ¿está obligado el Consorcio a actuar en establecimientos con medios y personal propios contra el fuego?",
+    "respuesta": "No, salvo que el siniestro sobrepase su capacidad de respuesta eficaz o haya riesgo de propagación a colindantes con intranquilidad ciudadana."
+   },
+   "cita": "el Consorcio no estará obligado a actuar en los siniestros",
+   "confundible_con": [
+    "RRI-a2-5-registro"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.5 del Reglamento de Régimen Interno del CPEI, en una empresa con medios y personal propios contra el fuego, ¿está siempre obligado a actuar el Consorcio?",
+     "opciones": [
+      "No, salvo en los casos excepcionales previstos",
+      "Sí, en todos los siniestros"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.5: el Consorcio no estará obligado a actuar, salvo que se sobrepase su capacidad de respuesta o exista riesgo de propagación."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.5 del Reglamento de Régimen Interno del CPEI, en un establecimiento con medios propios contra el fuego, el Consorcio actuará:",
+     "opciones": [
+      "Si la magnitud del siniestro sobrepasa la capacidad de esos medios",
+      "Solo si el titular del establecimiento paga previamente el servicio",
+      "Siempre, y con prioridad sobre los medios propios del establecimiento"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.5: salvo que «la magnitud del siniestro sobrepase la capacidad de respuesta eficaz de los elementos disponibles»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 2.5 del Reglamento de Régimen Interno del CPEI, ¿qué supuesto obliga a actuar en un establecimiento con medios propios aunque estos sean suficientes?",
+     "opciones": [
+      "Riesgo de propagación a colindantes con intranquilidad ciudadana",
+      "Que el siniestro se produzca en horario nocturno o en día festivo",
+      "Que el establecimiento afectado sea de titularidad pública"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.5: riesgo de propagación a fincas o edificios colindantes y situación de intranquilidad ciudadana que conlleve alteración del orden público."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a2-5-registro",
+   "bloque": "a2",
+   "apartado": "5",
+   "orden": 140,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 2.5 del RRI del CPEI, ¿puede el CPEI llevar un registro de las entidades con medios propios contra el fuego?",
+    "respuesta": "Sí, a título informativo y con la aquiescencia de las propias entidades."
+   },
+   "cita": "con la aquiescencia de los mismos",
+   "confundible_con": [
+    "RRI-a2-5-medios-propios"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 2.5 del Reglamento de Régimen Interno del CPEI, ¿puede el CPEI registrar a las empresas con medios propios contra el fuego?",
+     "opciones": [
+      "Sí, a título informativo y con su aquiescencia",
+      "No, el Reglamento lo prohíbe"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.5: «A título informativo, el C.P.E.I., podrá llevar un registro detallado… con la aquiescencia de los mismos»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 2.5 del Reglamento de Régimen Interno del CPEI, el registro de entidades con medios propios contra el fuego tiene carácter:",
+     "opciones": [
+      "Informativo",
+      "Sancionador",
+      "Obligatorio para todas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.5: se lleva «a título informativo» y con la aquiescencia de las entidades."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 2.5 del Reglamento de Régimen Interno del CPEI, ¿qué requisito exige el registro de entidades con medios propios contra el fuego?",
+     "opciones": [
+      "La aquiescencia de las propias entidades",
+      "La autorización previa del Consejo de Administración",
+      "La inscripción en el registro industrial autonómico"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 2.5: el registro se lleva «con la aquiescencia de los mismos»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a3-funciones",
+   "bloque": "a3",
+   "apartado": "",
+   "orden": 150,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 3 del RRI del CPEI, ¿qué funciones tiene el Consorcio además de la lucha contra el fuego?",
+    "respuesta": "Salvamento de personas y bienes; prevención e investigación; colaboración en Seguridad Ciudadana y Protección Civil; e intercambio técnico con otros servicios."
+   },
+   "cita": "El Consorcio tiene como funciones además de la lucha contra el fuego",
+   "confundible_con": [
+    "RRI-a1-1-mision",
+    "RRI-a4-funciones-ajenas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3 del Reglamento de Régimen Interno del CPEI, ¿es la lucha contra el fuego la única función del Consorcio?",
+     "opciones": [
+      "No, tiene además otras funciones",
+      "Sí, es su única función"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3: «El Consorcio tiene como funciones además de la lucha contra el fuego» el salvamento, la prevención e investigación, la colaboración y el intercambio técnico."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3 del Reglamento de Régimen Interno del CPEI, además de la lucha contra el fuego, es función del Consorcio:",
+     "opciones": [
+      "Mantener un sistema de prevención e investigación",
+      "Recaudar las tasas municipales por los servicios",
+      "Conceder las licencias de apertura de locales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.2: «Mantener un eficaz sistema de prevención e investigación»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas tareas NO figura entre las funciones del Consorcio del art. 3 de su Reglamento de Régimen Interno?",
+     "opciones": [
+      "Resolver los expedientes sancionadores municipales",
+      "Atender al salvamento de personas y bienes",
+      "Mantener intercambio técnico con otros servicios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.2.a) solo prevé «propuestas de iniciación de expedientes sancionadores», no resolverlos."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a3-1-salvamento",
+   "bloque": "a3",
+   "apartado": "1",
+   "orden": 160,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.1 del RRI del CPEI, ¿en qué siniestros atiende el Consorcio al salvamento de personas y bienes?",
+    "respuesta": "En todos los siniestros que se produzcan dentro de su ámbito de actuación."
+   },
+   "cita": "Atender al salvamento de personas y bienes",
+   "confundible_con": [
+    "RRI-a3-funciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.1 del Reglamento de Régimen Interno del CPEI, ¿es función del Consorcio el salvamento de bienes, además del de personas?",
+     "opciones": [
+      "Sí, de personas y bienes",
+      "No, solo de personas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.1: «Atender al salvamento de personas y bienes»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.1 del Reglamento de Régimen Interno del CPEI, el Consorcio atiende al salvamento de personas y bienes en:",
+     "opciones": [
+      "Todos los siniestros dentro de su ámbito de actuación",
+      "Solo los incendios declarados en zona urbana",
+      "Solo los siniestros con víctimas mortales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.1: «en todos aquellos siniestros que se produzcan dentro de su ámbito de actuación»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 3.1 del Reglamento de Régimen Interno del CPEI, ¿en qué términos atiende el Consorcio al salvamento?",
+     "opciones": [
+      "Los del Reglamento, los Estatutos y la demás normativa aplicable",
+      "Los que fije cada ayuntamiento en su ordenanza propia",
+      "Los que pacten las aseguradoras de los bienes afectados"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.1: «en los términos previstos en el presente Reglamento y en los Estatutos del Consorcio y demás normativa que resulte de aplicación»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a3-2-investigacion",
+   "bloque": "a3",
+   "apartado": "2",
+   "orden": 170,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.2.a) del RRI del CPEI, ¿qué incluye la inspección y estudio de los siniestros?",
+    "respuesta": "Emitir informes técnicos sobre sus posibles causas, proponer medidas correctoras y proponer la iniciación de expedientes sancionadores."
+   },
+   "cita": "La inspección y el estudio de los siniestros ocurridos",
+   "confundible_con": [
+    "RRI-a3-2-divulgacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.2 del Reglamento de Régimen Interno del CPEI, ¿forma parte de sus funciones estudiar los siniestros ocurridos?",
+     "opciones": [
+      "Sí, con informes técnicos sobre sus causas",
+      "No, corresponde solo a la policía judicial"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.2.a): «La inspección y el estudio de los siniestros ocurridos, emitiendo los informes técnicos razonados sobre sus posibles causas»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.2.a) del Reglamento de Régimen Interno del CPEI, en el estudio de los siniestros el Consorcio emite:",
+     "opciones": [
+      "Informes técnicos razonados sobre sus posibles causas",
+      "Resoluciones sancionadoras contra los responsables",
+      "Valoraciones económicas para las aseguradoras"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.2.a): emite «los informes técnicos razonados sobre sus posibles causas, proponiendo las medidas correctoras»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 3.2.a) del Reglamento de Régimen Interno del CPEI, ante incumplimientos de las Ordenanzas, ¿qué puede hacer el Consorcio?",
+     "opciones": [
+      "Proponer la iniciación de expedientes sancionadores",
+      "Imponer directamente las sanciones que procedan",
+      "Clausurar el establecimiento hasta su corrección"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.2.a): realiza «propuestas de iniciación de expedientes sancionadores»; no sanciona ni clausura."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a3-2-divulgacion",
+   "bloque": "a3",
+   "apartado": "2",
+   "orden": 180,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.2 del RRI del CPEI, ¿qué medios de prevención, además del estudio de siniestros, menciona?",
+    "respuesta": "Las asistencias técnicas con informe sobre medidas de seguridad y las campañas de divulgación sobre las materias de su competencia."
+   },
+   "cita": "El desarrollo de campañas de divulgación sobre las materias de su competencia",
+   "confundible_con": [
+    "RRI-a3-2-investigacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.2 del Reglamento de Régimen Interno del CPEI, ¿hace el Consorcio campañas de divulgación?",
+     "opciones": [
+      "Sí, sobre las materias de su competencia",
+      "No, la divulgación no es función suya"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.2.c): «El desarrollo de campañas de divulgación sobre las materias de su competencia»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.2.c) del Reglamento de Régimen Interno del CPEI, las campañas de divulgación buscan un mayor conocimiento ciudadano de:",
+     "opciones": [
+      "La normativa contra incendios y las funciones del C.P.E.I.",
+      "Las tasas que cobra el Consorcio por cada servicio",
+      "Los procesos selectivos de acceso al Consorcio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.2.c): «para un mayor conocimiento ciudadano de la normativa contra incendios y de las funciones y misiones del C.P.E.I.»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 3.2.b) del Reglamento de Régimen Interno del CPEI, en las asistencias técnicas que se le encomienden, el Consorcio:",
+     "opciones": [
+      "Emite informe sobre medidas de seguridad y prevención",
+      "Otorga la licencia de primera ocupación del edificio",
+      "Realiza el proyecto de las instalaciones contra incendios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.2.b): «con emisión de informe sobre las medidas de seguridad, prevención de incendios aconsejables y, en su caso, exigibles»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a3-3-seguridad-ciudadana",
+   "bloque": "a3",
+   "apartado": "3",
+   "orden": 190,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.3 del RRI del CPEI, ¿afecta la colaboración en Seguridad Ciudadana y Protección Civil a la relación jerárquica de sus componentes?",
+    "respuesta": "No, salvo lo dispuesto en la Ley Reguladora de los Estados de Alarma, Excepción o Sitio."
+   },
+   "cita": "salvo lo dispuesto en la Ley Reguladora de los Estados de Alarma, Excepción o Sitio",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.3 del Reglamento de Régimen Interno del CPEI, ¿colabora el Consorcio en misiones de Protección Civil?",
+     "opciones": [
+      "Sí, sin afectar a su relación orgánica y jerárquica",
+      "No, Protección Civil es ajena al Consorcio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.3: colabora en misiones de Seguridad Ciudadana y Protección Civil sin que ello afecte a la relación orgánica y jerárquica."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.3 del Reglamento de Régimen Interno del CPEI, la colaboración en Seguridad Ciudadana no afecta a la relación jerárquica de sus componentes, salvo lo dispuesto en:",
+     "opciones": [
+      "La Ley de los Estados de Alarma, Excepción o Sitio",
+      "La Ley Reguladora de las Bases del Régimen Local",
+      "La Ley de Prevención de Riesgos Laborales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.3: «salvo lo dispuesto en la Ley Reguladora de los Estados de Alarma, Excepción o Sitio»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 3.3 del Reglamento de Régimen Interno del CPEI, al colaborar con otras organizaciones en Seguridad Ciudadana, los componentes del C.P.E.I.:",
+     "opciones": [
+      "Mantienen, como regla, su relación orgánica y jerárquica",
+      "Pasan a depender siempre del cuerpo policial actuante",
+      "Quedan bajo el mando del alcalde de la localidad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.3: la colaboración se hace «sin que ello afecte a la relación orgánica y jerárquica de los componentes del C.P.E.I.», salvo estados de alarma, excepción o sitio."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a3-4-intercambio",
+   "bloque": "a3",
+   "apartado": "4",
+   "orden": 200,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 3.4 del RRI del CPEI, ¿con quién mantiene el Consorcio intercambio técnico?",
+    "respuesta": "Con otros servicios de extinción, laboratorios de investigación, instituciones y organismos nacionales y extranjeros."
+   },
+   "cita": "Mantener el necesario intercambio técnico con otros servicios de Extinción",
+   "confundible_con": [
+    "RRI-a3-funciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 3.4 del Reglamento de Régimen Interno del CPEI, ¿puede el Consorcio mantener intercambio técnico con organismos extranjeros?",
+     "opciones": [
+      "Sí, nacionales y extranjeros",
+      "No, solo con organismos nacionales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.4: intercambio técnico con «instituciones y organismos nacionales y extranjeros»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 3.4 del Reglamento de Régimen Interno del CPEI, el intercambio técnico se mantiene, entre otros, con:",
+     "opciones": [
+      "Otros servicios de extinción y laboratorios de investigación",
+      "Las empresas proveedoras de vehículos y equipos",
+      "Los colegios profesionales de arquitectos e ingenieros"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.4: «con otros servicios de Extinción, laboratorios de investigación, instituciones y organismos nacionales y extranjeros»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 3.4 del Reglamento de Régimen Interno del CPEI, ¿cómo califica el intercambio técnico con otros servicios?",
+     "opciones": [
+      "Necesario",
+      "Excepcional",
+      "Voluntario"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 3.4: «Mantener el necesario intercambio técnico con otros servicios de Extinción…»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a4-funciones-ajenas",
+   "bloque": "a4",
+   "apartado": "",
+   "orden": 210,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 4 del RRI del CPEI, ¿pueden utilizarse los componentes del Consorcio para funciones no previstas, como podar árboles o recoger animales?",
+    "respuesta": "No, salvo en casos excepcionales y previa autorización de sus mandos naturales."
+   },
+   "cita": "salvo en casos excepcionales y previa autorización de sus mandos naturales",
+   "confundible_con": [
+    "RRI-a3-funciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 4 del Reglamento de Régimen Interno del CPEI, ¿puede usarse a los bomberos, como norma, para podar árboles?",
+     "opciones": [
+      "No, salvo casos excepcionales y con autorización",
+      "Sí, siempre que lo pida un particular"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4: no podrán ser utilizados para funciones como la poda de árboles, salvo en casos excepcionales y previa autorización de sus mandos naturales."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 4 del Reglamento de Régimen Interno del CPEI, para usar a los componentes del Consorcio en funciones no específicas hace falta:",
+     "opciones": [
+      "Caso excepcional y autorización previa de sus mandos naturales",
+      "Solicitud escrita del particular y pago de la tasa",
+      "Acuerdo del pleno del ayuntamiento afectado"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4: «salvo en casos excepcionales y previa autorización de sus mandos naturales»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas tareas cita el art. 4 del Reglamento de Régimen Interno del CPEI como ejemplo de función no específica del Consorcio?",
+     "opciones": [
+      "La apertura de puertas en horario comercial",
+      "El salvamento de personas en un siniestro",
+      "El intercambio técnico con otros servicios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 4 cita poda de árboles, quitar carteles, desatascos en lugares particulares, recogida de animales y apertura de puertas en horario comercial."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a5-presidente",
+   "bloque": "a5",
+   "apartado": "",
+   "orden": 220,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 5 del RRI del CPEI, ¿bajo la autoridad de quién actúa el Consorcio y en quién puede delegar?",
+    "respuesta": "Bajo la superior autoridad y dependencia directa del Presidente, que puede delegar en los Vicepresidentes o en otro componente del Consejo de Administración."
+   },
+   "cita": "bajo la superior autoridad y dependencia directa del Presidente del Consorcio Provincial de Badajoz",
+   "confundible_con": [
+    "RRI-a2-3-envio"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 5 del Reglamento de Régimen Interno del CPEI, ¿de quién depende directamente el Consorcio?",
+     "opciones": [
+      "Del Presidente del Consorcio",
+      "Del Jefe de Parque más antiguo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5: actúa «bajo la superior autoridad y dependencia directa del Presidente del Consorcio Provincial de Badajoz»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 5 del Reglamento de Régimen Interno del CPEI, el Consorcio actúa bajo la superior autoridad y dependencia directa de:",
+     "opciones": [
+      "El Presidente del Consorcio Provincial",
+      "El Gerente del Consorcio",
+      "El Delegado del Gobierno en Extremadura"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5: del Presidente del Consorcio Provincial de Badajoz."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 5 del Reglamento de Régimen Interno del CPEI, ¿en quién puede delegar el Presidente sus funciones?",
+     "opciones": [
+      "En los Vicepresidentes o en otro componente del Consejo",
+      "Solo en el Gerente, sin posibilidad de otra delegación",
+      "En cualquier Jefe de Parque que esté de guardia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 5: puede delegar «en los Vicepresidentes del Consejo de Administración o en cualquier otro componente del Consejo de Administración»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a6-1-personal",
+   "bloque": "a6",
+   "apartado": "1",
+   "orden": 230,
+   "tipo": "lista",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 6.1 del RRI del CPEI, ¿qué personal integra el Consorcio?",
+    "respuesta": "Funcionarios de carrera adscritos por las entidades consorciadas; personal laboral fijo o temporal; personal eventual de confianza o asesoramiento; y funcionarios de carrera o interinos propios o adscritos."
+   },
+   "cita": "El personal laboral fijo o temporal del propio Consorcio.",
+   "confundible_con": [
+    "RRI-a6-1-adscripcion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 6.1 del Reglamento de Régimen Interno del CPEI, ¿puede el Consorcio tener personal laboral temporal?",
+     "opciones": [
+      "Sí, fijo o temporal",
+      "No, solo personal funcionario"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.1.b): «El personal laboral fijo o temporal del propio Consorcio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 6.1 del Reglamento de Régimen Interno del CPEI, ¿qué personal NO figura entre los que integran el Consorcio?",
+     "opciones": [
+      "Los bomberos voluntarios",
+      "El personal eventual de confianza",
+      "Los funcionarios interinos propios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.1 cita funcionarios adscritos, laborales, eventuales y funcionarios de carrera o interinos; los voluntarios no tienen relación laboral (art. 48)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 6.1 del Reglamento de Régimen Interno del CPEI, el personal eventual del propio Consorcio es el:",
+     "opciones": [
+      "De confianza o asesoramiento especial",
+      "Contratado para campañas de verano",
+      "Procedente de las bolsas de trabajo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.1.c): «El personal eventual de confianza o asesoramiento especial del propio Consorcio»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a6-1-adscripcion",
+   "bloque": "a6",
+   "apartado": "1",
+   "orden": 240,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 6.1.a) del RRI del CPEI, ¿en qué situación quedan los funcionarios de las entidades consorciadas adscritos al Consorcio?",
+    "respuesta": "En servicio activo, como funcionarios en la Administración de origen."
+   },
+   "cita": "permaneciendo en la situación de servicio activo, como funcionarios en la Administración de origen",
+   "confundible_con": [
+    "RRI-a6-1-personal"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 6.1.a) del Reglamento de Régimen Interno del CPEI, el funcionario adscrito por una entidad consorciada, ¿sigue en servicio activo en su Administración de origen?",
+     "opciones": [
+      "Sí",
+      "No, pasa a excedencia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.1.a): permanece «en la situación de servicio activo, como funcionarios en la Administración de origen»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 6.1.a) del Reglamento de Régimen Interno del CPEI, los funcionarios de las entidades consorciadas se adscriben a los puestos del Consorcio mediante:",
+     "opciones": [
+      "La reasignación de efectivos",
+      "Un concurso de méritos abierto",
+      "La libre designación"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.1.a): «mediante el procedimiento de reasignación de efectivos»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 6.1.a) del Reglamento de Régimen Interno del CPEI, ¿a través de qué instrumento se fijan los puestos a los que se adscribe ese personal?",
+     "opciones": [
+      "La relación de puestos de trabajo del Consorcio",
+      "El convenio colectivo de cada entidad consorciada",
+      "La oferta de empleo público de la Diputación"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.1.a): se adscribe «a los puestos que tuviera establecidos el Consorcio, a través de su relación de puestos de trabajo»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a6-2-categorias",
+   "bloque": "a6",
+   "apartado": "2",
+   "orden": 250,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 6.2 del RRI del CPEI, ¿en qué categorías se estructura, de mayor a menor, el personal de la clase S.P.E.I.?",
+    "respuesta": "Oficial, Suboficial, Sargento, Cabo y Conductor Mecánico Bombero."
+   },
+   "cita": "se estructura en las siguientes categorías jerarquizadas por el orden que se expresa",
+   "confundible_con": [
+    "RRI-a6-2-escala",
+    "RRI-a9-promocion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 6.2 del Reglamento de Régimen Interno del CPEI, ¿qué categoría es superior?",
+     "opciones": [
+      "Suboficial",
+      "Sargento"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.2: orden jerárquico Oficial, Suboficial, Sargento, Cabo y Conductor Mecánico Bombero."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 6.2 del Reglamento de Régimen Interno del CPEI, ¿cuál es el orden jerárquico correcto de las categorías, de mayor a menor?",
+     "opciones": [
+      "Oficial, Suboficial, Sargento, Cabo, Conductor Mecánico Bombero",
+      "Suboficial, Oficial, Cabo, Sargento, Conductor Mecánico Bombero",
+      "Oficial, Sargento, Suboficial, Cabo, Conductor Mecánico Bombero"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.2: «Oficial. Suboficial. Sargento. Cabo. Conductor Mecánico Bombero»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 6.2 del Reglamento de Régimen Interno del CPEI, ¿qué categoría está inmediatamente por encima del Cabo?",
+     "opciones": [
+      "Sargento",
+      "Suboficial",
+      "Oficial"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.2: el orden es Oficial, Suboficial, Sargento, Cabo y Conductor Mecánico Bombero; sobre el Cabo está el Sargento."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a6-2-escala",
+   "bloque": "a6",
+   "apartado": "2",
+   "orden": 260,
+   "tipo": "dato",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 6.2 del RRI del CPEI, ¿en qué escala, subescala y clase se integra el personal operativo?",
+    "respuesta": "Escala de Administración Especial, subescala de Servicios Especiales, clase S.P.E.I."
+   },
+   "cita": "escala de Administración Especial, subescala de Servicios Especiales, clase S.P.E.I.",
+   "confundible_con": [
+    "RRI-a6-2-categorias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 6.2 del Reglamento de Régimen Interno del CPEI, ¿en qué escala se integra el personal de la clase S.P.E.I.?",
+     "opciones": [
+      "Administración Especial",
+      "Administración General"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.2: «escala de Administración Especial, subescala de Servicios Especiales, clase S.P.E.I.»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 6.2 del Reglamento de Régimen Interno del CPEI, el personal operativo se integra en la subescala de:",
+     "opciones": [
+      "Servicios Especiales",
+      "Técnica de Administración",
+      "Auxiliar de Servicios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.2: subescala de Servicios Especiales, clase S.P.E.I."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 6.2 del Reglamento de Régimen Interno del CPEI, ¿qué combinación de escala, subescala y clase es la correcta?",
+     "opciones": [
+      "Administración Especial, Servicios Especiales, S.P.E.I.",
+      "Administración General, Servicios Especiales, S.P.E.I.",
+      "Administración Especial, Técnica, Extinción"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.2: escala de Administración Especial, subescala de Servicios Especiales, clase S.P.E.I."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a6-3-emisorista",
+   "bloque": "a6",
+   "apartado": "3",
+   "orden": 270,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 6.3 del RRI del CPEI, ¿qué personal se considera integrante de los servicios operativos aunque no figure en las categorías del art. 6.2?",
+    "respuesta": "El personal que presta servicios como Oficial Emisorista o asimilado."
+   },
+   "cita": "el personal que presta servicios como Oficial Emisorista",
+   "confundible_con": [
+    "RRI-a6-2-categorias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 6.3 del Reglamento de Régimen Interno del CPEI, ¿el Oficial Emisorista forma parte de los servicios operativos?",
+     "opciones": [
+      "Sí, se incardina en su estructura jerárquica",
+      "No, es personal administrativo ajeno a ellos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.3: se consideran integrantes de los servicios operativos quienes prestan servicios como Oficial Emisorista o asimilado."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 6.3 del Reglamento de Régimen Interno del CPEI, se incardina en la estructura jerárquica de los servicios operativos el personal que presta servicios como:",
+     "opciones": [
+      "Oficial Emisorista o asimilado",
+      "Técnico de prevención de riesgos",
+      "Administrativo de los parques"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.3: «el personal que presta servicios como Oficial Emisorista o asimiliado» [sic]."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 6.3 del Reglamento de Régimen Interno del CPEI, respecto a las categorías del art. 6.2, el Oficial Emisorista:",
+     "opciones": [
+      "No figura en ellas, pero se integra en los servicios operativos",
+      "Es la categoría superior a la de Oficial",
+      "Equivale a la categoría de Cabo a todos los efectos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 6.3: «No obstante lo establecido en el párrafo que antecede», se integra en los servicios operativos y en su estructura jerárquica."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a7-1-practicas",
+   "bloque": "a7",
+   "apartado": "1",
+   "orden": 280,
+   "tipo": "cifra",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 7.1 del RRI del CPEI, ¿qué se exige para el ingreso definitivo en el Consorcio?",
+    "respuesta": "Superar pruebas físicas y teórico-prácticas, acreditar la aptitud psicofísica con reconocimiento médico y superar un periodo de prácticas de tres meses."
+   },
+   "cita": "la superación de un periodo de prácticas de tres meses de duración",
+   "confundible_con": [
+    "RRI-a7-1-curso"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 7.1 del Reglamento de Régimen Interno del CPEI, ¿cuánto dura el periodo de prácticas para el ingreso definitivo?",
+     "opciones": [
+      "Tres meses",
+      "Seis meses"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 7.1: «un periodo de prácticas de tres meses de duración»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 7.1 del Reglamento de Régimen Interno del CPEI, para el ingreso definitivo es requisito imprescindible:",
+     "opciones": [
+      "El reconocimiento médico de aptitud y tres meses de prácticas",
+      "Un año de prácticas y una entrevista personal",
+      "Seis meses de prácticas y el permiso de conducir C+E"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 7.1: reconocimiento médico de aptitud psicofísica y superación de un periodo de prácticas de tres meses."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 7.1 del Reglamento de Régimen Interno del CPEI, ¿qué pruebas deben superarse para el ingreso definitivo?",
+     "opciones": [
+      "Pruebas físicas y teórico-prácticas",
+      "Solo pruebas teóricas tipo test",
+      "Pruebas físicas y una entrevista"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 7.1: «la superación de las correspondientes pruebas de carácter físico y teórico-prácticas de demostración de conocimientos»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a7-1-curso",
+   "bloque": "a7",
+   "apartado": "1",
+   "orden": 290,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 7.1 del RRI del CPEI, ¿qué reciben los efectivos de nuevo ingreso al inicio del periodo de prácticas?",
+    "respuesta": "Un curso de formación de recepción obligatoria."
+   },
+   "cita": "un curso de formación de recepción obligatoria",
+   "confundible_con": [
+    "RRI-a7-1-practicas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 7.1 del Reglamento de Régimen Interno del CPEI, ¿es obligatorio el curso de formación del nuevo ingreso?",
+     "opciones": [
+      "Sí, de recepción obligatoria",
+      "No, es voluntario"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 7.1: los efectivos de nuevo ingreso reciben «un curso de formación de recepción obligatoria»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 7.1 del Reglamento de Régimen Interno del CPEI, el curso de formación de recepción obligatoria se recibe:",
+     "opciones": [
+      "Al inicio del período de prácticas",
+      "Al final del período de prácticas",
+      "Tras el primer año de servicio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 7.1: «al inicio del período de prácticas un curso de formación de recepción obligatoria»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 7.1 del Reglamento de Régimen Interno del CPEI, ¿quiénes deben recibir el curso de formación de recepción obligatoria?",
+     "opciones": [
+      "Todos los efectivos de nuevo ingreso",
+      "Solo quienes ascienden por promoción interna",
+      "Solo el personal laboral temporal"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 7.1: «Todos los efectivos de nuevo ingreso recibirán además al inicio del período de prácticas un curso de formación»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a7-2-bolsas",
+   "bloque": "a7",
+   "apartado": "2",
+   "orden": 300,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 7.2 del RRI del CPEI, ¿cómo se cubren temporalmente las necesidades de personal?",
+    "respuesta": "Preferentemente con las bolsas de trabajo propias, con prioridad para la de la última convocatoria de plazas permanentes; cabe convocatoria específica o, excepcionalmente, los servicios públicos de empleo."
+   },
+   "cita": "ocupará lugar preferente y prioritario la que proceda de la última convocatoria",
+   "confundible_con": [
+    "RRI-a7-1-practicas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 7.2 del Reglamento de Régimen Interno del CPEI, ¿la cobertura temporal se atiende preferentemente con bolsas de trabajo?",
+     "opciones": [
+      "Sí, con sus bolsas o listas de espera",
+      "No, con contratación directa sin bolsa"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 7.2: «se atenderá preferentemente a través de las bolsas de trabajo o listas de espera que el Consorcio tenga establecidas como propias»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 7.2 del Reglamento de Régimen Interno del CPEI, entre las bolsas de trabajo ocupa lugar preferente la que procede de:",
+     "opciones": [
+      "La última convocatoria para plazas permanentes",
+      "La convocatoria con más aspirantes aprobados",
+      "La bolsa más antigua que siga vigente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 7.2: ocupa lugar preferente y prioritario «la que proceda de la última convocatoria que se hubiera realizado para la cobertura de necesidades de personal de carácter permanente»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 7.2 del Reglamento de Régimen Interno del CPEI, ¿con qué carácter puede recurrir el Consorcio a los servicios públicos de empleo?",
+     "opciones": [
+      "Excepcional",
+      "Preferente",
+      "Ordinario"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 7.2: podrá «recurrir excepcionalmente a los servicios públicos de empleo»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a8-cese",
+   "bloque": "a8",
+   "apartado": "",
+   "orden": 310,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 8 del RRI del CPEI, ¿qué causa de cese añade al régimen general?",
+    "respuesta": "La separación de la Administración Pública titular de la relación de servicios."
+   },
+   "cita": "constituirá causa de cese al servicio del Consorcio la separación del mismo de la Administración Pública titular de la relación de servicios",
+   "confundible_con": [
+    "RRI-a6-1-adscripcion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 8 del Reglamento de Régimen Interno del CPEI, ¿el cese se rige por la normativa laboral y de función pública?",
+     "opciones": [
+      "Sí",
+      "No, solo por el propio Reglamento"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8: «El cese en el Consorcio se producirá de conformidad con lo establecido en la normativa laboral y de función pública»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 8 del Reglamento de Régimen Interno del CPEI, además de las causas generales, es causa de cese en el Consorcio:",
+     "opciones": [
+      "La separación de la Administración titular de la relación",
+      "El traslado voluntario a otro parque del Consorcio",
+      "El paso a la situación de segunda actividad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8: constituye causa de cese «la separación del mismo de la Administración Pública titular de la relación de servicios»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 8 del Reglamento de Régimen Interno del CPEI, un funcionario adscrito que deja de pertenecer a su Administración titular:",
+     "opciones": [
+      "Cesa también al servicio del Consorcio",
+      "Sigue en el Consorcio como personal laboral",
+      "Pasa a la segunda actividad en el Consorcio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 8: la separación de la Administración Pública titular de la relación de servicios es causa de cese en el Consorcio."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a9-promocion",
+   "bloque": "a9",
+   "apartado": "",
+   "orden": 320,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 9 del RRI del CPEI, ¿entre quiénes se produce la promoción interna?",
+    "respuesta": "Entre los miembros del Consorcio que ocupen plaza del orden inmediato inferior, según el art. 6.2."
+   },
+   "cita": "entre los miembros del Consorcio provincial que ocupen plaza del orden inmediato inferior",
+   "confundible_con": [
+    "RRI-a6-2-categorias",
+    "RRI-a9-traslado"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 9 del Reglamento de Régimen Interno del CPEI, ¿a qué equivale la promoción interna?",
+     "opciones": [
+      "A los ascensos",
+      "A los traslados entre parques"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9: «La promoción interna (ascensos)…»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 9 del Reglamento de Régimen Interno del CPEI, a la promoción interna a Sargento pueden acceder los miembros que ocupen plaza de:",
+     "opciones": [
+      "Cabo",
+      "Conductor Mecánico Bombero",
+      "Suboficial"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9: se produce entre quienes ocupen plaza del orden inmediato inferior según el art. 6.2; bajo el Sargento está el Cabo."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 9 del Reglamento de Régimen Interno del CPEI, ¿quién puede promocionar a Suboficial?",
+     "opciones": [
+      "Quien ocupe plaza de Sargento",
+      "Quien ocupe plaza de Cabo",
+      "Cualquier miembro con diez años de servicio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9 y 6.2: la promoción es desde el orden inmediato inferior; bajo el Suboficial está el Sargento."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a9-traslado",
+   "bloque": "a9",
+   "apartado": "",
+   "orden": 330,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 9 del RRI del CPEI, ¿qué se desarrolla antes de resolver las convocatorias de la oferta de empleo público?",
+    "respuesta": "El correspondiente concurso de traslado."
+   },
+   "cita": "se desarrollará el correspondiente concurso de traslado",
+   "confundible_con": [
+    "RRI-a9-promocion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 9 del Reglamento de Régimen Interno del CPEI, ¿hay concurso de traslado antes de resolver la oferta de empleo público?",
+     "opciones": [
+      "Sí, con carácter previo",
+      "No, el traslado se hace después"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9: «Con carácter previo a la resolución de las convocatorias derivadas de la oferta de empleo público se desarrollará el correspondiente concurso de traslado»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 9 del Reglamento de Régimen Interno del CPEI, el concurso de traslado se desarrolla:",
+     "opciones": [
+      "Antes de resolver las convocatorias de la oferta de empleo",
+      "Después de que tomen posesión los nuevos funcionarios",
+      "Solo cuando lo pidan los representantes sindicales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9: con carácter previo a la resolución de las convocatorias derivadas de la oferta de empleo público."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 9 del Reglamento de Régimen Interno del CPEI, ¿qué procedimiento precede a la resolución de las convocatorias de la oferta de empleo público?",
+     "opciones": [
+      "El concurso de traslado",
+      "La promoción interna",
+      "La segunda actividad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 9: «se desarrollará el correspondiente concurso de traslado»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a10-estructura",
+   "bloque": "a10",
+   "apartado": "",
+   "orden": 340,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 10 del RRI del CPEI, ¿qué determina la estructura organizativa del Consorcio?",
+    "respuesta": "Los Estatutos del Consorcio y los acuerdos y resoluciones aprobados por los órganos competentes."
+   },
+   "cita": "serán los que se determinen en los Estatutos del mismo",
+   "confundible_con": [
+    "RRI-a1-2-regimen"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 10 del Reglamento de Régimen Interno del CPEI, ¿la estructura organizativa la determinan los Estatutos del Consorcio?",
+     "opciones": [
+      "Sí, junto con los acuerdos de los órganos competentes",
+      "No, la fija cada Jefe de Parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 10: la estructura organizativa será la que se determine «en los Estatutos del mismo y en los acuerdos y resoluciones aprobados por los órganos competentes»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 10 del Reglamento de Régimen Interno del CPEI, los departamentos y unidades del Consorcio y sus funciones serán los que determinen:",
+     "opciones": [
+      "Los Estatutos y los acuerdos de los órganos competentes",
+      "El convenio colectivo y los sindicatos del Consorcio",
+      "Las ordenanzas de los municipios con parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 10: «los que se determinen en los Estatutos del mismo y en los acuerdos y resoluciones aprobados por los órganos competentes para ello»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 10 del Reglamento de Régimen Interno del CPEI, ¿qué contenido remite a los Estatutos y a los acuerdos de los órganos competentes?",
+     "opciones": [
+      "Los departamentos, unidades y sus funciones",
+      "Las categorías jerárquicas del personal",
+      "Las faltas y sanciones del personal"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 10: la estructura, los departamentos y unidades y sus funciones; las categorías están en el art. 6.2 y las faltas en el art. 35."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a11-1-finalidad",
+   "bloque": "a11",
+   "apartado": "1",
+   "orden": 350,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 11.1 del RRI del CPEI, ¿para qué establece la dirección la segunda actividad?",
+    "respuesta": "Para garantizar una adecuada actitud [sic] psicofísica de los componentes y una buena prestación del servicio, conforme a las disponibilidades del servicio."
+   },
+   "cita": "establece la situación especial de la segunda actividad",
+   "confundible_con": [
+    "RRI-a11-2-horario"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 11.1 del Reglamento de Régimen Interno del CPEI, ¿quién establece la situación especial de segunda actividad?",
+     "opciones": [
+      "La dirección del C.P.E.I.",
+      "El propio trabajador, a su elección"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11.1: «La dirección del C.P.E.I.… establece la situación especial de la segunda actividad»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 11.1 del Reglamento de Régimen Interno del CPEI, la segunda actividad tiene como finalidad:",
+     "opciones": [
+      "Garantizar una adecuada actitud psicofísica del personal",
+      "Premiar la antigüedad de los mandos del Consorcio",
+      "Sancionar faltas leves sin pérdida de empleo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11.1: «al objeto de garantizar una adecuada actitud [sic] psicofísica de los componentes del Consorcio, para una buena prestación de los servicios»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 11.1 del Reglamento de Régimen Interno del CPEI, ¿con qué límite se establece la segunda actividad?",
+     "opciones": [
+      "Conforme a las disponibilidades del servicio",
+      "Sin límite, para todo el que la solicite",
+      "Solo para mayores de sesenta años"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11.1: se establece «conforme a las disponibilidades del servicio»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a11-2-horario",
+   "bloque": "a11",
+   "apartado": "2",
+   "orden": 360,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 11.2 del RRI del CPEI, ¿quién puede pasar a segunda actividad y en qué horario desarrolla sus funciones?",
+    "respuesta": "Quien tenga presuntamente disminuida su capacidad para el servicio ordinario; sus funciones se desarrollan preferentemente en horario de mañana."
+   },
+   "cita": "citadas funciones se desarrollarán preferentemente en horario de mañana",
+   "confundible_con": [
+    "RRI-a11-1-finalidad",
+    "RRI-a12-tipos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 11.2 del Reglamento de Régimen Interno del CPEI, ¿en qué horario se desarrollan preferentemente las funciones de segunda actividad?",
+     "opciones": [
+      "De mañana",
+      "De noche"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11.2: «citadas funciones se desarrollarán preferentemente en horario de mañana»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 11.2 del Reglamento de Régimen Interno del CPEI, puede pasar a segunda actividad el miembro del C.P.E.I. que:",
+     "opciones": [
+      "Tenga presuntamente disminuida su capacidad para el servicio",
+      "Haya cumplido veinte años de servicio en el Consorcio",
+      "Haya sido sancionado por una falta grave"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11.2: «Cuando un miembro del C.P.E.I., tenga presuntamente disminuida su capacidad para cumplir el servicio ordinario»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 11.2 del Reglamento de Régimen Interno del CPEI, ¿qué normativa, además del Reglamento, regula el procedimiento de paso a segunda actividad?",
+     "opciones": [
+      "La de prevención de riesgos laborales del Consorcio",
+      "La de régimen disciplinario de los funcionarios",
+      "La de la Seguridad Social sobre incapacidad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11.2: por el procedimiento del Reglamento «y demás normativa que en materia de prevención de riesgos laborales tuviera establecidas el Consorcio»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a11-3-plazas",
+   "bloque": "a11",
+   "apartado": "3",
+   "orden": 370,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 11.3 del RRI del CPEI, ¿cómo se determina el número de plazas de segunda actividad?",
+    "respuesta": "Lo determina el C.P.E.I., previa negociación con las secciones sindicales, a través de la relación de puestos de trabajo."
+   },
+   "cita": "determinará el número de plazas disponibles para la segunda actividad, a través de la relación de puestos de trabajo",
+   "confundible_con": [
+    "RRI-a11-1-finalidad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 11.3 del Reglamento de Régimen Interno del CPEI, ¿se negocia con los sindicatos el número de plazas de segunda actividad?",
+     "opciones": [
+      "Sí, previa negociación con las secciones sindicales",
+      "No, lo fija el Presidente sin negociación"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11.3: el C.P.E.I., «previa negociación con las secciones sindicales legitimadas», determina el número de plazas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 11.3 del Reglamento de Régimen Interno del CPEI, el número de plazas de segunda actividad se determina a través de:",
+     "opciones": [
+      "La relación de puestos de trabajo",
+      "La oferta anual de empleo público",
+      "El cuadrante mensual de guardias"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11.3: «a través de la relación de puestos de trabajo»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 11.3 del Reglamento de Régimen Interno del CPEI, ¿con quién se negocia el número de plazas de segunda actividad?",
+     "opciones": [
+      "Las secciones sindicales legitimadas representadas",
+      "El comité de seguridad y salud de cada parque",
+      "Los ayuntamientos donde radican los parques"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11.3: «previa negociación con las secciones sindicales legitimadas para actuar en el ámbito del representadas en el Consorcio»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a11-4-retribucion",
+   "bloque": "a11",
+   "apartado": "4",
+   "orden": 380,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 11.4 del RRI del CPEI, ¿tiene efectos retributivos el paso a segunda actividad?",
+    "respuesta": "No, el paso a la segunda actividad no tiene efectos retributivos."
+   },
+   "cita": "El paso a la segunda actividad no tendrá efectos retributivos.",
+   "confundible_con": [
+    "RRI-a11-1-finalidad"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 11.4 del Reglamento de Régimen Interno del CPEI, ¿cambia el sueldo al pasar a segunda actividad?",
+     "opciones": [
+      "No, no tiene efectos retributivos",
+      "Sí, se reduce a la mitad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11.4: «El paso a la segunda actividad no tendrá efectos retributivos»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 11.4 del Reglamento de Régimen Interno del CPEI, el paso a la segunda actividad:",
+     "opciones": [
+      "No tendrá efectos retributivos",
+      "Supondrá una reducción del complemento",
+      "Dará derecho a un complemento específico"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11.4: no tiene efectos retributivos."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 11 del Reglamento de Régimen Interno del CPEI, ¿qué afirmación sobre la segunda actividad es correcta?",
+     "opciones": [
+      "No tiene efectos retributivos",
+      "Se desarrolla preferentemente de noche",
+      "La fija cada Jefe de Parque sin negociación"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 11.4: sin efectos retributivos; art. 11.2: preferentemente de mañana; art. 11.3: plazas negociadas con las secciones sindicales."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a12-tipos",
+   "bloque": "a12",
+   "apartado": "",
+   "orden": 390,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 12 del RRI del CPEI, ¿qué tipos de funciones puede desempeñar el personal en segunda actividad?",
+    "respuesta": "De apoyo técnico, de administración general y de mantenimiento y vigilancia, según su capacidad."
+   },
+   "cita": "dependerá de su capacidad y podrán ser",
+   "confundible_con": [
+    "RRI-a11-2-horario",
+    "RRI-a12-apoyo-tecnico"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 12 del Reglamento de Régimen Interno del CPEI, ¿puede el personal en segunda actividad hacer funciones de administración general?",
+     "opciones": [
+      "Sí",
+      "No, solo de vigilancia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 12.b): «De administración general: Atender a las comunicaciones, tramitación y cumplimentación de diversos documentos»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 12 del Reglamento de Régimen Interno del CPEI, las funciones de segunda actividad pueden ser:",
+     "opciones": [
+      "De apoyo técnico, de administración general y de mantenimiento y vigilancia",
+      "De mando operativo, de formación y de conducción de vehículos",
+      "De apoyo técnico, de mando de dotación y de conducción"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 12: a) apoyo técnico; b) administración general; c) mantenimiento y vigilancia."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 12 del Reglamento de Régimen Interno del CPEI, ¿de qué depende la función concreta del personal en segunda actividad?",
+     "opciones": [
+      "De su capacidad",
+      "De su antigüedad",
+      "De su categoría"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 12: las funciones «dependerá de su capacidad y podrán ser» de apoyo técnico, administración general o mantenimiento y vigilancia."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a12-apoyo-tecnico",
+   "bloque": "a12",
+   "apartado": "",
+   "orden": 400,
+   "tipo": "lista",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 12.a) del RRI del CPEI, ¿qué incluyen las funciones de apoyo técnico en segunda actividad?",
+    "respuesta": "Inspección, prevención, formación, apoyo auxiliar en las intervenciones del personal operativo y cualquier otra que encomiende la dirección."
+   },
+   "cita": "Ejerciendo funciones de inspección, prevención, formación, apoyo auxiliar en las intervenciones del personal operativo",
+   "confundible_con": [
+    "RRI-a12-tipos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 12.a) del Reglamento de Régimen Interno del CPEI, ¿incluye el apoyo técnico tareas de formación?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 12.a): «Ejerciendo funciones de inspección, prevención, formación…»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 12.a) del Reglamento de Régimen Interno del CPEI, en segunda actividad de apoyo técnico el personal puede ejercer funciones de:",
+     "opciones": [
+      "Inspección, prevención y formación",
+      "Mando de la dotación en el siniestro",
+      "Conducción de vehículos en emergencia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 12.a): inspección, prevención, formación y apoyo auxiliar en las intervenciones."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 12 del Reglamento de Régimen Interno del CPEI, el apoyo auxiliar en las intervenciones del personal operativo es una función de:",
+     "opciones": [
+      "Apoyo técnico",
+      "Administración general",
+      "Mantenimiento y vigilancia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 12.a): el apoyo técnico incluye el «apoyo auxiliar en las intervenciones del personal operativo»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a12-nocturno",
+   "bloque": "a12",
+   "apartado": "",
+   "orden": 410,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 12.c) del RRI del CPEI, ¿qué hace el personal de segunda actividad de mantenimiento y vigilancia cuando la dotación sale?",
+    "respuesta": "Vigila el parque; de noche abre y cierra las puertas de salida de los vehículos y coopera a su regreso en el repostado de agua y la limpieza del material."
+   },
+   "cita": "será el encargado de abrir y cerrar las puertas de salida de los vehículos",
+   "confundible_con": [
+    "RRI-a12-tipos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 12.c) del Reglamento de Régimen Interno del CPEI, si permanece en el parque mientras la dotación acude a una intervención, ¿qué funciones hace?",
+     "opciones": [
+      "De vigilancia",
+      "De mando de la dotación"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 12.c): «En caso de permanecer en el parque cuando los componentes del operativo acudan a una intervención hará funciones de vigilancia»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 12.c) del Reglamento de Régimen Interno del CPEI, en horario nocturno, cuando la dotación sale a un siniestro, el personal de segunda actividad que queda en el parque:",
+     "opciones": [
+      "Abre y cierra las puertas de salida de los vehículos",
+      "Acompaña a la dotación como conductor de reserva",
+      "Asume la jefatura del parque hasta el regreso"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 12.c): «será el encargado de abrir y cerrar las puertas de salida de los vehículos»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 12.c) del Reglamento de Régimen Interno del CPEI, ¿en qué tareas coopera de noche el personal de segunda actividad al regreso de la dotación?",
+     "opciones": [
+      "Repostado de agua y limpieza del material",
+      "Redacción del parte de intervención",
+      "Revisión médica del personal interviniente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 12.c): «permaneciendo atento al regreso de la dotación para cooperar en los trabajos de repostado de agua, limpieza del material»."
+    }
+   ]
+  }
+ ]
+}

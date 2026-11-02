@@ -95,17 +95,28 @@ export function loadSrs(): SrsStore {
   }
 }
 
-export function saveSrs(store: SrsStore): void {
+/** Guarda el estado. Devuelve false si el almacenamiento está lleno o bloqueado (nunca lanza). */
+export function saveSrs(store: SrsStore): boolean {
   const s = storage();
-  if (!s) return;
+  if (!s) return false;
   const d: Record<string, Record<string, Packed>> = {};
   for (const [deckId, cards] of Object.entries(store)) {
     for (const [cardId, state] of Object.entries(cards)) (d[deckId] ??= {})[cardId] = pack(state);
   }
   try {
     writeOwned(SRS_STORAGE_KEY, JSON.stringify({ v: 1, d }));
+    return true;
   } catch {
-    // Almacenamiento lleno o bloqueado: el repaso sigue funcionando en esta sesión.
+    // Almacenamiento lleno o bloqueado: quien llama decide (recordRecallGrade avisa para reintentar).
+    return false;
+  }
+}
+
+/** El guardado local de una autoevaluación ha fallado: no se ha registrado nada; se puede reintentar. */
+export class RecallSaveError extends Error {
+  constructor() {
+    super('No se pudo guardar la autoevaluación en este dispositivo.');
+    this.name = 'RecallSaveError';
   }
 }
 
@@ -117,7 +128,23 @@ export function getCardSrs(store: SrsStore, deckId: string | undefined, cardId: 
  * Calcula el nuevo estado de una ficha tras autoevaluarla el día `today`.
  * Repasar antes de su fecha solo actualiza contadores (y castiga el fallo), sin alargar el intervalo.
  */
+/** Comprueba que un estado tiene la forma y los rangos que admite el almacenamiento. */
+export function isValidCardSrs(s: unknown): s is CardSrs {
+  if (typeof s !== 'object' || s === null) return false;
+  const c = s as Record<string, unknown>;
+  const ints = ['interval', 'due', 'reps', 'correct', 'wrong', 'lastReview'] as const;
+  if (!ints.every((k) => isInt(c[k]))) return false;
+  if (typeof c.ease !== 'number' || !Number.isFinite(c.ease) || c.ease < MIN_EASE) return false;
+  const v = c as unknown as CardSrs;
+  if (v.interval < 0 || v.reps < 0 || v.correct < 0 || v.wrong < 0) return false;
+  return v.lastGrade === 0 || v.lastGrade === 1 || v.lastGrade === 2;
+}
+
 export function scheduleReview(prev: CardSrs | undefined, grade: RecallGrade, today: number): CardSrs {
+  // Entradas inválidas: se rechazan en vez de guardar un estado corrupto (no cambia el cálculo).
+  if (grade !== GRADE_AGAIN && grade !== GRADE_HARD && grade !== GRADE_GOOD) throw new RangeError(`Nota no válida: ${String(grade)}`);
+  if (!isInt(today)) throw new RangeError(`Día no válido: ${String(today)}`);
+  if (prev !== undefined && !isValidCardSrs(prev)) throw new RangeError('Estado de la ficha no válido');
   const base: CardSrs = prev ?? {
     interval: 0,
     ease: INITIAL_EASE,
@@ -163,6 +190,9 @@ export function previewInterval(prev: CardSrs | undefined, grade: RecallGrade, t
 
 /**
  * Guarda la autoevaluación de una ficha y devuelve su nuevo estado.
+ * Lanza RecallSaveError si no se pudo guardar el estado: no se escribe nada (ni estado ni registro), así
+ * que reintentar no cuenta la nota dos veces. Si el estado se guarda pero falla el registro
+ * (appendReviewLog no lanza), la nota cuenta una sola vez y no hay reintento.
  * `elapsedMs` (opcional): tiempo desde que se mostró la ficha; solo va al registro local.
  */
 export function recordRecallGrade(
@@ -177,7 +207,7 @@ export function recordRecallGrade(
   const prev = store[deckId]?.[cardId];
   const next = scheduleReview(prev, grade, today);
   (store[deckId] ??= {})[cardId] = next;
-  saveSrs(store);
+  if (!saveSrs(store)) throw new RecallSaveError();
   // Registro local para medir el recuerdo diferido (./recallReviewLog); no altera la programación.
   appendReviewLog(deckId, cardId, grade, today, prev?.lastReview, elapsedMs);
   return next;

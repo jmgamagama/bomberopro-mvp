@@ -507,8 +507,8 @@ function PreguntaView({ numero, pregunta: p, respuesta, corregida, acierto, auto
       <fieldset className="min-w-0 space-y-3" disabled={corregida}>
         <legend className="text-sm font-semibold leading-snug text-slate-800 break-words">
           <span className="mr-1 text-orange-600">{numero}.</span>
-          {p.tipo === 'calculo' && <span className="mr-1 rounded bg-sky-100 px-1.5 text-[11px] font-bold text-sky-800">Cálculo</span>}
-          {p.tipo === 'desarrollo' && <span className="mr-1 rounded bg-violet-100 px-1.5 text-[11px] font-bold text-violet-800">Desarrollo</span>}
+          {p.tipo === 'calculo' && <span className="mr-1 rounded bg-indigo-100 px-1.5 text-[11px] font-bold text-indigo-800">Cálculo</span>}
+          {p.tipo === 'desarrollo' && <span className="mr-1 rounded bg-indigo-100 px-1.5 text-[11px] font-bold text-indigo-800">Desarrollo</span>}
           {p.enunciado}
         </legend>
 
@@ -586,8 +586,8 @@ function PreguntaView({ numero, pregunta: p, respuesta, corregida, acierto, auto
         <div className="mt-3 space-y-2 border-t border-slate-100 pt-3 text-sm">
           {p.tipo === 'desarrollo' ? (
             <>
-              <div className="rounded-xl bg-violet-50 p-3 text-slate-800">
-                <p className="text-xs font-semibold text-violet-900">Respuesta modelo</p>
+              <div className="rounded-xl bg-indigo-50 p-3 text-slate-800">
+                <p className="text-xs font-semibold text-indigo-900">Respuesta modelo</p>
                 <p className="mt-1 whitespace-pre-line break-words">{p.respuestaModelo}</p>
               </div>
               <div className="flex flex-wrap items-center gap-2" role="group" aria-label={`Autoevaluación de la pregunta ${numero}`}>
@@ -623,8 +623,8 @@ function PreguntaView({ numero, pregunta: p, respuesta, corregida, acierto, auto
             </p>
           )}
           {p.tipo === 'calculo' && (p.formula || p.pasos.length > 0) && (
-            <div className="rounded-xl bg-sky-50 p-3 text-slate-700">
-              {p.formula && <p className="text-xs font-semibold text-sky-900">Fórmula: {p.formula}</p>}
+            <div className="rounded-xl bg-indigo-50 p-3 text-slate-700">
+              {p.formula && <p className="text-xs font-semibold text-indigo-900">Fórmula: {p.formula}</p>}
               {p.pasos.length > 0 && (
                 <ol className="mt-2 list-decimal space-y-1 pl-5 text-xs">
                   {p.pasos.map((paso, i) => (
