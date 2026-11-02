@@ -33,6 +33,7 @@ import { MAX_VALID_RESPONSE_SECONDS } from './utils/activeTimer';
 import type { AccountErrorsState } from './components/AccountErrorPanel';
 const AccesoConfirmado = lazy(() => import('./components/AccesoConfirmado'));
 import { retornoAuthInicial, limpiarUrlRetornoAuth } from './lib/authRetorno';
+import { leerEnlaceInvitacion } from './lib/mensajesAcceso';
 import { fetchKeyless } from './lib/secureQuestions';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer, toLevelInt } from './lib/saveAttemptToServer';
@@ -77,6 +78,8 @@ const ErrorPanel = lazy(() => import('./components/ErrorPanel'));
 const ForgettingCurve = lazy(() => import('./components/ForgettingCurve'));
 const MockExam = lazy(() => import('./components/MockExam'));
 const Login = lazy(() => import('./components/Login'));
+// Quien abre un enlace de invitación (?invitacion o ?codigo) aterriza en «crear cuenta», no en modo invitado.
+const llegaPorInvitacion = typeof window !== 'undefined' && leerEnlaceInvitacion(window.location.search).invitacion;
 const StudyByTopic = lazy(() => import('./components/StudyByTopic'));
 const MyReports = lazy(() => import('./components/MyReports'));
 const AccountErrorPanel = lazy(() => import('./components/AccountErrorPanel'));
@@ -705,7 +708,7 @@ export default function App() {
   // La pantalla de acceso solo aparece si el alumno la pide o ya tuvo sesión en este navegador.
   // Build de prueba sin VITE_SUPABASE_* (VITE_GUEST_SIN_BACKEND=true): también entra como invitado (demo local).
   const autoGuestDone = useRef(false);
-  const autoGuestPending = !loadingAuth && !session && (!!supabase || GUEST_SIN_BACKEND) && !isDemoMode && !prefersLogin() && !retornoAuthInicial && !autoGuestDone.current;
+  const autoGuestPending = !loadingAuth && !session && (!!supabase || GUEST_SIN_BACKEND) && !isDemoMode && !prefersLogin() && !llegaPorInvitacion && !retornoAuthInicial && !autoGuestDone.current;
   useEffect(() => {
     if (!autoGuestPending) return;
     autoGuestDone.current = true;
