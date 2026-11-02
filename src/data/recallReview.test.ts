@@ -24,7 +24,7 @@ import {
   setRevisionViewer,
 } from '../utils/revisionAccess';
 
-const PUBLICADOS = ['tema1', 'tema9', 'tema15', 'tema32', 'tema2', 'tema3', 'tema4', 'tema6', 'tema7', 'tema8', 'tema10', 'tema10-lote02', 'tema12', 'tema12-lote02', 'tema13', 'tema13-lote02', 'tema14', 'tema16', 'tema17', 'tema20', 'tema22', 'tema22-lote02', 'tema23', 'tema23-lote02', 'tema24', 'tema26', 'tema27', 'tema27-lote02', 'tema28', 'tema28-lote02', 'tema29', 'tema30', 'tema31', 'tema33', 'tema33-lote02', 'tema34-lote01', 'tema34-lote02', 'tema34-lote03', 'tema35', 'tema36-lote01', 'tema36-lote02', 'tema36-lote03', 'tema36-lote04', 'tema36-lote05', 'tema36-lote06', 'tema36-lote07', 'tema36-lote08', 'tema37', 'tema38', 'tema39', 'tema40'];
+const PUBLICADOS = ['tema1', 'tema9', 'tema15', 'tema32', 'tema2', 'tema3', 'tema4', 'tema6', 'tema7', 'tema8', 'tema10', 'tema10-lote02', 'tema12', 'tema12-lote02', 'tema13', 'tema13-lote02', 'tema14', 'tema16', 'tema16-lote02', 'tema17', 'tema20', 'tema22', 'tema22-lote02', 'tema23', 'tema23-lote02', 'tema24', 'tema26', 'tema27', 'tema27-lote02', 'tema28', 'tema28-lote02', 'tema29', 'tema30', 'tema31', 'tema33', 'tema33-lote02', 'tema34-lote01', 'tema34-lote02', 'tema34-lote03', 'tema35', 'tema36-lote01', 'tema36-lote02', 'tema36-lote03', 'tema36-lote04', 'tema36-lote05', 'tema36-lote06', 'tema36-lote07', 'tema36-lote08', 'tema37', 'tema38', 'tema39', 'tema40'];
 
 beforeEach(() => {
   window.localStorage.clear();
@@ -51,7 +51,7 @@ describe('estado de revisión por mazo', () => {
   it('solo 35, 38, 39, 40 y los mazos revisados ficha a ficha están «revisado»', () => {
     expect(REVIEWED_RECALL_DECKS.map((d) => d.id).sort()).toEqual([...PUBLICADOS].sort());
     expect(getDeckRevision('tema36-lote01')).toBe('pendiente');
-    expect(getDeckRevision('tema16-lote02')).toBe('pendiente'); // muestra de 20 de 21
+    expect(getDeckRevision('tema16-lote02')).toBe('revisado'); // 21 de 21 literales en el RR UIT 2024, aceptado el 02/11/2026
     // T9 y T15 siguen pendientes; desde el 01/11/2026 se ven solo sus fichas literales de BOE/CTE (abrirT32T9T15.test.ts).
     expect(getDeckRevision('tema9')).toBe('pendiente');
     // Mazos de los huecos del temario CEP (fuentes oficiales gratuitas): pendientes hasta revisión manual.
@@ -69,11 +69,11 @@ describe('vista del alumno', () => {
   it('no ve los mazos pendientes en ningún listado', () => {
     expect(canSeePendingDecks()).toBe(false);
     expect(getVisibleDecks().map((d) => d.id).sort()).toEqual([...PUBLICADOS].sort());
-    expect(getVisibleTotalCards()).toBe(2857);
+    expect(getVisibleTotalCards()).toBe(2878);
     expect(getVisibleTopics().map((t) => t.id)).toEqual(['tema1', 'tema2', 'tema3', 'tema4', 'tema6', 'tema7', 'tema8', 'tema9', 'tema10', 'tema12', 'tema13', 'tema14', 'tema15', 'tema16', 'tema17', 'tema20', 'tema22', 'tema23', 'tema24', 'tema26', 'tema27', 'tema28', 'tema29', 'tema30', 'tema31', 'tema32', 'tema33', 'tema34', 'tema35', 'tema36', 'tema37', 'tema38', 'tema39', 'tema40']);
     expect(getVisibleBloques().map((b) => b.id)).toEqual(['comun', 'especifica']);
-    // Tema con lotes mixtos: solo su lote revisado.
-    expect(getVisibleTopic('tema16')!.decks.map((d) => d.id)).toEqual(['tema16']);
+    // T16: lote 1 y, desde el 02/11/2026 (UIT aceptada), lote 2.
+    expect(getVisibleTopic('tema16')!.decks.map((d) => d.id)).toEqual(['tema16', 'tema16-lote02']);
     expect(getVisibleTopic('tema10')!.count).toBe(47);
     // T36: lotes 01 a 08, y de ellos solo las fichas revisadas sueltas (recallCardReview.ts).
     expect(getVisibleTopic('tema36')!.decks.map((d) => d.id)).toEqual(['tema36-lote01', 'tema36-lote02', 'tema36-lote03', 'tema36-lote04', 'tema36-lote05', 'tema36-lote06', 'tema36-lote07', 'tema36-lote08']);
@@ -84,7 +84,7 @@ describe('vista del alumno', () => {
 
   it('la sesión diaria solo toma fichas de mazos revisados', async () => {
     const pool = await loadRecallPoolForPlan();
-    expect(pool).toHaveLength(2857);
+    expect(pool).toHaveLength(2878);
     expect(pool.every((c) => c.revision === 'revisado')).toBe(true);
     expect(new Set(pool.map((c) => c.deckId))).toEqual(new Set(PUBLICADOS));
   });

@@ -1,4 +1,20 @@
-# Tema 16, lote 02 (`tema16-lote02`): cotejo y decisión pendiente (feat/t16-lote02, 02/11/2026)
+# Tema 16, lote 02 (`tema16-lote02`): cotejo y apertura (feat/t16-lote02 y feat/t16-abrir-uit, 02/11/2026)
+
+## Actualización (feat/t16-abrir-uit, 02/11/2026): se abren las 21
+
+José acepta el **Reglamento de Radiocomunicaciones de la UIT** (ed. 2024, PDF oficial de itu.int) como fuente oficial. Se abren las
+**21** fichas tal cual (sin cambiar preguntas ni respuestas): cada una cita el documento («RR UIT 2024»), el número o cuadro
+(núm. 1.3-1.127, cuadro del núm. 2.1), la página y el enlace `https://search.itu.int/history/HistoryDigitalCollectionDocLibrary/1.49.48.es.301.pdf#page=N`.
+
+- `scripts/verificar-fichas-literal.py` admite la UIT (solo ese PDF del RR 2024) y coteja `tema16-lote02`: 21 «ok».
+- `scripts/verificar-t16-lote02.py` regenerado: `aceptada: true`, 21 abiertas (`data/verificacion/t16-lote02.json`).
+- `src/data/abrirT32T9T15.test.ts`: la UIT entra en la expresión de fuentes aceptadas y se comprueba que las 21 visibles la citan.
+- Mazo `tema16-lote02` revisado (`recallReview.ts`, `recallReviewMotivos.ts`). **Total visible 2.857 → 2.878** (T16: 48 → 69).
+- Las 3 fichas del T22-lote02 sobre las clases de la UNE-EN 795 (1997) **no se cambian**: las NTP 1170 y 1218 (INSST) solo citan
+  la UNE-EN 795:2012 por su título, sin describir sus tipos; la UNE no es de libre acceso, así que no hay fuente aceptada para
+  comprobar el texto vigente. Siguen visibles tal cual (citan la NTP 809, literal).
+
+El resto de este documento es el cotejo original, cuando la UIT aún no era fuente aceptada.
 
 **Resultado: no se abre ninguna ficha.** Las 21 fichas citan el **Reglamento de Radiocomunicaciones de la UIT (RR), edición de
 2024, Volumen 1** (PDF oficial de search.itu.int). La UIT no está entre las fuentes aceptadas (boletines oficiales BOE/DOE/BOP,
@@ -103,7 +119,7 @@ acceso y no se puede cotejar su texto actual.
 
 | Id | URL | Aceptada | sha256 |
 |---|---|---|---|
-| RR2024_vol1 | https://search.itu.int/history/HistoryDigitalCollectionDocLibrary/1.49.48.es.301.pdf | no (UIT) | `4a7b2417fedf0a32…` |
+| RR2024_vol1 | https://search.itu.int/history/HistoryDigitalCollectionDocLibrary/1.49.48.es.301.pdf | sí (UIT, desde el 02/11/2026) | `4a7b2417fedf0a32…` |
 | BOE-A-2026-15661 | https://www.boe.es/buscar/act.php?id=BOE-A-2026-15661 | sí (BOE) | texto XML `6618e0d1e31e7b7b…` |
 | BOE-A-2022-10757 | https://www.boe.es/buscar/act.php?id=BOE-A-2022-10757 | sí (BOE) | texto XML `0ef99fee54d12191…` |
 | NTP 809 | https://www.insst.es/documents/94886/7843381/809+web.pdf | sí (INSST) | ver docs/REVISION_INSST_LOTES_2026-11-02.md |

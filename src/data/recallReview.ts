@@ -28,6 +28,7 @@ export interface DeckReview {
 export const MAZOS_REVISADOS: ReadonlySet<string> = new Set([
   'tema10-lote02',
   'tema16',
+  'tema16-lote02',
   'tema17',
   'tema24',
   'tema1',

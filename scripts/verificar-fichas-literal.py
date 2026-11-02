@@ -11,6 +11,8 @@ Para cada ficha de los mazos configurados lee la URL de su campo `fuente` y:
   - INSST (insst.es/documents/.../<pdf>#page=N), NTP 221, 400, 841 y 842, Guía técnica de equipos de trabajo y Tema 33 del temario del INSST (#pNN),
     aceptadas como fuente oficial por el propietario (feat/fichas-insst, 01/11/2026): como el CTE, la respuesta
     en la página N del PDF oficial descargado de insst.es (se admite que siga en la N+1).
+  - UIT (search.itu.int/.../1.49.48.es.301.pdf#page=N), Reglamento de Radiocomunicaciones, ed. 2024, vol. 1, aceptado
+    como fuente oficial por José (feat/t16-abrir-uit, 02/11/2026): la respuesta en la página N del PDF oficial (o en la N+1).
   - Cualquier otra fuente (otros documentos del INSST, IDAE/MITECO, EUR-Lex…): no aceptada, la ficha sigue oculta.
 La respuesta tiene que aparecer ENTERA y seguida tras normalizar (minúsculas, sin tildes, comillas ni
 puntuación). No hay coincidencia difusa: lo que no cuadra al pie de la letra queda oculto.
@@ -31,7 +33,9 @@ MAZOS = {
     'tema32': 'src/data/tema32Recall.ts',
     'tema9': 'src/data/tema9Recall.ts',
     'tema15': 'src/data/tema15Recall.ts',
+    'tema16-lote02': 'src/data/tema16Lote02Recall.ts',
 }
+UIT = {'1.49.48.es.301.pdf': 'RR2024_vol1'}  # RR de la UIT, ed. 2024, vol. 1 (PDF oficial en español)
 INSST = {'ntp_221.pdf': 'NTP221', '841+web.pdf': 'NTP841', '842+web.pdf': 'NTP842', 'ntp_400.pdf': 'NTP400',
          'tema-33-el-riesgo-de-incendio-i-': 'INSST_T33',
          'Gu%C3%ADa+t%C3%A9cnica+para+la+evaluaci%C3%B3n+y+prevenci%C3%B3n+de+los+riesgos+relativos+a+la+utilizaci%C3%B3n+de+los+equipos+de+trabajo.pdf': 'GUIA_ET'}
@@ -80,7 +84,8 @@ def pagina(pdf_dir: pathlib.Path, db: str, n: int) -> str:
     return '\n'.join(out)
 
 
-def verificar(c: dict, pdf_dir: pathlib.Path, insst_dir: pathlib.Path = pathlib.Path('/workspace/fuentes_insst')) -> dict:
+def verificar(c: dict, pdf_dir: pathlib.Path, insst_dir: pathlib.Path = pathlib.Path('/workspace/fuentes_insst'),
+              uit_dir: pathlib.Path = pathlib.Path('/workspace/fuentes_t16_lote02')) -> dict:
     f = c['fuente']
     r = {'id': c['id'], 'concepto': c['concepto'], 'respuesta': c['respuesta'], 'fuente': f}
     resp = norm(c['respuesta'])
@@ -117,19 +122,28 @@ def verificar(c: dict, pdf_dir: pathlib.Path, insst_dir: pathlib.Path = pathlib.
         if resp in norm(pagina(d, db, n) + '\n' + pagina(d, db, n + 1)):
             return r | {'estado': 'ok', 'origen': 'INSST', 'doc': db, 'pagina': n, 'nota': f'sigue en la pág. {n + 1}'}
         return r | {'estado': 'no_literal', 'origen': 'INSST', 'doc': db, 'pagina': n, 'motivo': 'la respuesta no está literal en la página citada'}
-    return r | {'estado': 'fuente_no_aceptada', 'motivo': 'fuente fuera de BOE/DOE/BOP/CTE/INSARAG'}
+    m = re.search(r'https://search\.itu\.int/history/HistoryDigitalCollectionDocLibrary/([\w.]+\.pdf)#page=(\d+)', f)
+    if m and m.group(1) in UIT:
+        db, n = UIT[m.group(1)], int(m.group(2))
+        if resp in norm(pagina(uit_dir, db, n)):
+            return r | {'estado': 'ok', 'origen': 'UIT', 'doc': db, 'pagina': n}
+        if resp in norm(pagina(uit_dir, db, n) + '\n' + pagina(uit_dir, db, n + 1)):
+            return r | {'estado': 'ok', 'origen': 'UIT', 'doc': db, 'pagina': n, 'nota': f'sigue en la pág. {n + 1}'}
+        return r | {'estado': 'no_literal', 'origen': 'UIT', 'doc': db, 'pagina': n, 'motivo': 'la respuesta no está literal en la página citada'}
+    return r | {'estado': 'fuente_no_aceptada', 'motivo': 'fuente fuera de BOE/DOE/BOP/CTE/INSST/INSARAG/UIT'}
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument('--pdf-dir', default='/workspace/fuentes_abrir')
     ap.add_argument('--insst-dir', default='/workspace/fuentes_insst')
+    ap.add_argument('--uit-dir', default='/workspace/fuentes_t16_lote02')
     ap.add_argument('--json', default='')
     a = ap.parse_args()
     pdf_dir = pathlib.Path(a.pdf_dir)
     todo = {}
     for mazo, ts in MAZOS.items():
-        res = [verificar(c, pdf_dir, pathlib.Path(a.insst_dir)) for c in fichas(ROOT / ts)]
+        res = [verificar(c, pdf_dir, pathlib.Path(a.insst_dir), pathlib.Path(a.uit_dir)) for c in fichas(ROOT / ts)]
         todo[mazo] = res
         cuenta: dict[str, int] = {}
         for x in res:

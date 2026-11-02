@@ -2,8 +2,8 @@
 """Cotejo LITERAL del mazo oculto `tema16-lote02` (feat/t16-lote02, 02/11/2026). Solo lectura.
 
 Las 21 fichas citan el Reglamento de Radiocomunicaciones de la UIT (RR), edición de 2024, vol. 1 (PDF de search.itu.int).
-La UIT NO está entre las fuentes aceptadas (BOE/DOE/BOP, INSST, INSARAG, codigotecnico.org): este script NO abre nada,
-solo deja constancia de:
+José aceptó la UIT como fuente oficial el 02/11/2026 (feat/t16-abrir-uit): se abren las fichas literales en la página
+citada (el script sigue siendo de solo lectura; la apertura está en src/data/recallReview.ts). Deja constancia de:
 
   1. si cada respuesta está ENTERA y seguida en la página citada del PDF oficial de la UIT (#page=N; se admite que siga en
      la N+1), con la misma normalización que scripts/verificar-fichas-literal.py (sin coincidencia difusa);
@@ -79,23 +79,24 @@ def main() -> int:
             r['rr'] = 'no_literal'
         r['pagina_rr'] = n
         r['boe_literal'] = [i for i, t in boe.items() if resp in t]
-        r['fuente_aceptada'] = False
-        r['estado'] = 'oculta: cita la UIT (fuente no aceptada)'
+        r['fuente_aceptada'] = True
+        r['estado'] = 'abierta' if r['rr'].startswith('literal') else 'oculta: no literal'
         res.append(r)
         print(f"{r['id']}  RR p.{n}: {r['rr']:<10}  BOE: {', '.join(r['boe_literal']) or '-'}")
     lit = sum(r['rr'].startswith('literal') for r in res)
     alt = sum(bool(r['boe_literal']) for r in res)
-    print(f'{len(res)} fichas · literales en el RR: {lit} · con literal en el BOE: {alt} · abiertas: 0')
+    abiertas = sum(r['estado'] == 'abierta' for r in res)
+    print(f'{len(res)} fichas · literales en el RR: {lit} · con literal en el BOE: {alt} · abiertas: {abiertas}')
     if a.json:
         fuentes = {'RR2024_vol1': {'url': RR_URL, 'sha256': hashlib.sha256((d / 'RR2024_vol1.pdf').read_bytes()).hexdigest(),
-                                   'aceptada': False}}
+                                   'aceptada': True, 'aceptada_por': 'José, 02/11/2026'}}
         for i, nombre in BOE.items():
             fuentes[i] = {'norma': nombre, 'url': f'https://www.boe.es/buscar/act.php?id={i}', 'aceptada': True,
                           'sha256_texto_xml': hashlib.sha256((d / f'{i}.xml').read_bytes()).hexdigest()}
         out = {'fecha': '2026-11-02', 'script': 'scripts/verificar-t16-lote02.py',
                'criterio': 'respuesta entera y seguida en la página citada del PDF de la UIT (o siguiendo en la siguiente), tras '
-                           'normalizar; la UIT no es fuente aceptada, así que ninguna ficha se abre',
-               'fuentes': fuentes, 'resumen': {'fichas': len(res), 'literal_rr': lit, 'literal_boe': alt, 'abiertas': 0},
+                           'normalizar; la UIT es fuente aceptada desde el 02/11/2026, así que se abren las literales',
+               'fuentes': fuentes, 'resumen': {'fichas': len(res), 'literal_rr': lit, 'literal_boe': alt, 'abiertas': abiertas},
                'fichas': res}
         pathlib.Path(a.json).write_text(json.dumps(out, ensure_ascii=False, indent=1) + '\n', encoding='utf8')
     return 0
