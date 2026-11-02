@@ -26,6 +26,20 @@ describe('RecallDeck · teclado y guardado', () => {
     if (first.localizacion) expect(document.querySelector('#recall-card-localizacion')).toHaveTextContent(first.localizacion);
   });
 
+  it('da prioridad a revelar la respuesta antes de ofrecer el avance', async () => {
+    const user = userEvent.setup();
+    render(<Tema40Recall onNavigateHome={vi.fn()} />);
+    await screen.findByText(/Ficha 1 de 213/);
+    const reveal = screen.getByRole('button', { name: /Mostrar respuesta/i });
+    const next = screen.getByRole('button', { name: 'Siguiente' });
+    expect(reveal).toHaveClass('bg-indigo-700');
+    expect(next).not.toHaveClass('bg-indigo-700');
+
+    await user.click(reveal);
+    expect(screen.getByRole('button', { name: /Ocultar respuesta/i })).not.toHaveClass('bg-indigo-700');
+    expect(next).toHaveClass('bg-indigo-700');
+  });
+
   it('si falla el guardado local: muestra el error, no pasa de ficha y el reintento guarda y avanza', async () => {
     const user = userEvent.setup();
     render(<Tema40Recall onNavigateHome={vi.fn()} />);
@@ -36,8 +50,10 @@ describe('RecallDeck · teclado y guardado', () => {
       throw new DOMException('lleno', 'QuotaExceededError');
     });
     await user.click(within(screen.getByRole('group', { name: '¿La sabías?' })).getByRole('button', { name: /^La sabía/ }));
-    expect(screen.getByRole('alert')).toHaveTextContent('No se ha podido guardar');
+    expect(screen.getByRole('alert')).toHaveTextContent('almacenamiento local está lleno');
     expect(screen.getByText(/Ficha 1 de 213/)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Siguiente' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: /Ocultar respuesta/i })).toBeDisabled();
     expect(document.querySelector('#recall-grade-saved')).not.toHaveTextContent('Guardado');
     expect(screen.getByText(TEMA40_RECALL_CARDS[0].respuesta)).toBeInTheDocument();
     spy.mockImplementation(realSet);
