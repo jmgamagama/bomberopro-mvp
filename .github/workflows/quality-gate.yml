@@ -57,4 +57,5 @@ jobs:
           node supabase/tests/carga_conceptos.pglite.mjs
           node supabase/tests/vinculos.pglite.mjs
           node supabase/tests/vinculos_rri_cpei.pglite.mjs
+          node supabase/tests/registro_48.pglite.mjs
           node supabase/tests/simulacro_40.pglite.mjs

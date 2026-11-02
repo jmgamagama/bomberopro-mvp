@@ -8,6 +8,7 @@
  */
 import { supabase } from './supabase';
 import { newAttemptKey } from './saveAttemptToServer';
+import { describeCheckError, isAnswerLimitError } from './secureQuestions';
 
 export const PILOT_TOPIC_ID = 40;
 /** null = sesión mezclada con todos los temas preparados (migración 13). */
@@ -68,6 +69,13 @@ const QUEUE_KEY = 'bomberopro:concept-events:v1';
 let sending: Promise<unknown> = Promise.resolve();
 const confirmations = new Map<string, string>();
 const feedbackCache = new Map<string, unknown>();
+/** Último aviso de límite de correcciones por usuario (migración 47). Se borra al guardar una respuesta. */
+const limitNotices = new Map<string, string>();
+
+/** Aviso para el alumno si el servidor frenó una corrección por el límite; null si no. */
+export function conceptLimitNotice(userId: string): string | null {
+  return limitNotices.get(userId) ?? null;
+}
 const confirmationKey = (userId: string, id: string) => `${userId}:${id}`;
 let lockUnavailable = false;
 export function supportsCrossTabCoordination(): boolean {
@@ -146,7 +154,7 @@ export function rejectedConceptEvents(userId: string): number {
   return readQueue().filter(p => p.userId === userId && p.rejected).length;
 }
 
-async function send(userId: string, event: ConceptEvent): Promise<{ ok: boolean; permanent?: boolean; data?: any }> {
+async function send(userId: string, event: ConceptEvent): Promise<{ ok: boolean; permanent?: boolean; data?: any; limit?: string }> {
   if (!supabase) return { ok: false };
   try {
     const { data: auth, error: authError } = await supabase.auth.getSession();
@@ -169,6 +177,8 @@ async function send(userId: string, event: ConceptEvent): Promise<{ ok: boolean;
       : base;
     const { data, error } = await supabase.rpc(rpcName, args)
       .setHeader('Authorization', `Bearer ${auth.session.access_token}`);
+    // Límite de correcciones (P0429): no es permanente; la respuesta queda en cola y se envía más tarde.
+    if (error && isAnswerLimitError(error)) return { ok: false, limit: describeCheckError(error) };
     if (error) return { ok: false, permanent: isPermanentError((error as any).code) };
     const status = (data as any)?.status;
     return { ok: status === 'saved' || status === 'duplicate', data };
@@ -182,6 +192,8 @@ async function flush(userId: string): Promise<number> {
   const batch = readQueue().filter(p => p.userId === userId && !p.rejected);
   for (const item of batch) {
     const res = await send(userId, item.event);
+    if (res.limit) limitNotices.set(userId, res.limit);
+    else if (res.ok) limitNotices.delete(userId);
     await mutateQueue(current => {
       const matches = (p: PendingEvent) => p.userId === userId &&
         p.event.p_client_event_id === item.event.p_client_event_id &&
@@ -219,6 +231,14 @@ export function flushConceptEvents(userId: string): Promise<number> {
 export async function recordConceptEvent(
   userId: string,
   event: Omit<ConceptEvent, 'p_client_event_id'> & { p_client_event_id?: string },
+): Promise<{ saved: boolean; data?: any; pending: number; rejected: number; storageUnavailable?: boolean; limitNotice?: string | null }> {
+  const r = await recordConceptEventInner(userId, event);
+  return { ...r, limitNotice: conceptLimitNotice(userId) };
+}
+
+async function recordConceptEventInner(
+  userId: string,
+  event: Omit<ConceptEvent, 'p_client_event_id'> & { p_client_event_id?: string },
 ): Promise<{ saved: boolean; data?: any; pending: number; rejected: number; storageUnavailable?: boolean }> {
   const full: ConceptEvent = { ...event, p_client_event_id: event.p_client_event_id ?? newAttemptKey() };
   const conflict = await mutateQueue(queue => {
@@ -242,6 +262,8 @@ export async function recordConceptEvent(
         return { saved: false, pending: pendingConceptEvents(userId) + 1, rejected: rejectedConceptEvents(userId), storageUnavailable: true };
       }
       const res = await send(userId, full);
+      if (res.limit) limitNotices.set(userId, res.limit);
+      else if (res.ok) limitNotices.delete(userId);
       return { saved: res.ok, data: res.data, pending: res.ok ? 0 : 1, rejected: rejectedConceptEvents(userId), storageUnavailable: true };
     });
   }

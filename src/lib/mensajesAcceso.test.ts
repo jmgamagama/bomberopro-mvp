@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { leerEnlaceInvitacion, mensajeErrorAcceso, mensajeErrorEnlace } from './mensajesAcceso';
+import { leerEnlaceInvitacion, mensajeErrorAcceso, mensajeErrorEnlace, mensajeErrorRecuperacion } from './mensajesAcceso';
 
 describe('mensajes de la pantalla de entrada', () => {
   const jerga = /database|error|supabase|otp|status|500|422/i;
@@ -23,10 +23,32 @@ describe('mensajes de la pantalla de entrada', () => {
     }
   });
 
-  it('el rechazo del trigger de invitación se explica como correo no invitado solo con el registro cerrado', () => {
-    const e = { status: 500, code: 'unexpected_failure', message: 'Database error saving new user' };
-    expect(mensajeErrorAcceso('crear', e, false).text).toMatch(/grupo piloto/);
-    expect(mensajeErrorAcceso('crear', e, true).text).not.toMatch(/grupo piloto/);
+  it('un error interno durante el alta no afirma si el correo está invitado', () => {
+    const errores = [
+      { status: 500, code: 'unexpected_failure', message: 'Database error saving new user' },
+      { status: 503, message: 'Service unavailable' },
+    ];
+    for (const e of errores) {
+      for (const registroAbierto of [true, false]) {
+        const mensaje = mensajeErrorAcceso('crear', e, registroAbierto).text;
+        expect(mensaje).toMatch(/inténtalo de nuevo más tarde/i);
+        expect(mensaje).not.toMatch(/no está en la lista|correo no invitado|grupo piloto/i);
+      }
+    }
+  });
+
+  it('un conflicto de alta no confirma que el correo ya tenga una cuenta', () => {
+    const mensaje = mensajeErrorAcceso('crear', { status: 422, code: 'user_already_exists' }, false);
+    expect(mensaje.text).not.toMatch(/ya tienes cuenta con este correo/i);
+    expect(mensaje.text).toMatch(/si ya tienes una/i);
+    expect(mensaje.accion).toBeUndefined();
+  });
+
+  it('el registro globalmente desactivado da una instrucción distinta de un fallo de servidor', () => {
+    expect(mensajeErrorAcceso('crear', { status: 422, code: 'signup_disabled' }, false).text)
+      .toMatch(/registro está cerrado/i);
+    expect(mensajeErrorAcceso('crear', { status: 422, code: 'signup_disabled' }, true).text)
+      .toMatch(/no se pueden crear cuentas/i);
   });
 
   it('contraseña corta, correo sin confirmar y límite de correos tienen su propio mensaje', () => {
@@ -35,8 +57,22 @@ describe('mensajes de la pantalla de entrada', () => {
     expect(mensajeErrorAcceso('crear', { status: 429, code: 'over_email_send_rate_limit' }, false).text).toMatch(/varios correos/);
   });
 
-  it('lee el enlace de invitación y descarta correos mal formados', () => {
-    expect(leerEnlaceInvitacion('?invitacion=1&email=%20Ana@Ejemplo.ES')).toEqual({ invitacion: true, email: 'ana@ejemplo.es' });
+  it('los errores del restablecimiento no revelan si el correo tiene una cuenta', () => {
+    expect(mensajeErrorRecuperacion({ status: 429, code: 'over_email_send_rate_limit' }).text)
+      .toMatch(/espera unos minutos/i);
+    const interno = mensajeErrorRecuperacion({ status: 500, code: 'unexpected_failure' }).text;
+    expect(interno).toMatch(/inténtalo de nuevo más tarde/i);
+    expect(interno).not.toMatch(/cuenta|usuario|registrado/i);
+  });
+
+  it('el enlace de acceso no confirma si el correo tiene una cuenta', () => {
+    const mensaje = mensajeErrorEnlace({ status: 422, code: 'user_not_found' }, false).text;
+    expect(mensaje).toMatch(/necesitas una invitación/i);
+    expect(mensaje).not.toMatch(/no encontramos una cuenta|correo no registrado/i);
+  });
+
+  it('lee la invitación sin tomar el correo de la URL', () => {
+    expect(leerEnlaceInvitacion('?invitacion=1&email=%20Ana@Ejemplo.ES')).toEqual({ invitacion: true, email: '' });
     expect(leerEnlaceInvitacion('?invitacion')).toEqual({ invitacion: true, email: '' });
     expect(leerEnlaceInvitacion('?email=sinarroba')).toEqual({ invitacion: false, email: '' });
     expect(leerEnlaceInvitacion('')).toEqual({ invitacion: false, email: '' });
