@@ -76,7 +76,7 @@ describe('tema 9 · hidráulica (fuentes oficiales)', () => {
     // Unidades: potencia útil ρ·g·Q·H en W (kg/m3 · m/s2 · m3/s · m = kg·m2/s3 = W).
     expect(rho * g * 0.01 * 10).toBeCloseTo(981, 6);
     // Coeficiente de descarga: Cd = Cv·Cc ≤ 1; valores típicos 0,62 / 0,81 / 1.
-    expect(byConcepto('orificio de borde afilado')).toMatch(/0,62.*\(1\)/);
+    expect(byConcepto('orificio de borde afilado')).toMatch(/0,62.*la unidad/);
     expect(byConcepto('tramo muy corto de tubería')).toBe('Aproximadamente 0,81');
     // Reynolds: laminar < 2000, turbulento > 4000; f laminar = 64/Re.
     expect(byConcepto('laminar y para cuáles turbulento')).toMatch(/2000.*4000/);
@@ -90,9 +90,9 @@ describe('tema 9 · hidráulica (fuentes oficiales)', () => {
     expect(byConcepto('presión mínima debe haber en los puntos de consumo')).toContain('100 kPa');
   });
 
-  it('se registra como mazo bajo demanda, pendiente, con sus 17 fichas literales visibles (01/11/2026)', async () => {
+  it('se registra como mazo bajo demanda, pendiente, con sus 25 fichas literales visibles (17 el 01/11/2026 y 8 de la NTP 362 el 02/11/2026)', async () => {
     expect(getRecallDeck('tema9').count).toBe(N);
     expect(getRecallDeck('tema9').revision).toBe('pendiente');
-    expect(await loadRecallDeckCards('tema9')).toHaveLength(17);
+    expect(await loadRecallDeckCards('tema9')).toHaveLength(25);
   });
 });

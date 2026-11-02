@@ -36,7 +36,7 @@
    "sha256": "db3e20f6ea79f11367adfd4e2f9a5c90d1f8d081f0468210f43dff27ed61b45d"
   },
   "NTP362": {
-   "url": "https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+   "url": "https://www.insst.es/documents/94886/7875530/ntp_362.pdf",
    "sha256": "eb02abf209abbbc8fde4aae47d52b3766deaa646d4b8fafb9980f3bfba4de2e0"
   },
   "NTP536": {
@@ -389,29 +389,29 @@
    {
     "id": "CPEI-T09-OF-303FA8EC",
     "concepto": "Según la NTP 362 del INSST, ¿cómo se define el caudal volumétrico?",
-    "respuesta": "Como el producto de la velocidad del fluido por el área de la sección transversal del flujo: Qv = v·A",
-    "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Emisión de líquidos». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
-    "estado": "no_literal",
+    "respuesta": "Es el producto de la velocidad v del fluido por el área A de la sección transversal del flujo",
+    "fuente": "NTP 362 (INSST), «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Emisión de líquidos», pág. 2. INSST-NTP362, PDF oficial de insst.es (1995): https://www.insst.es/documents/94886/7875530/ntp_362.pdf#page=2",
+    "estado": "ok",
     "doc": "NTP362",
-    "motivo": "la respuesta no está literal en ninguna página del documento"
+    "pagina": 2
    },
    {
     "id": "CPEI-T09-OF-598D0A9D",
     "concepto": "Según la NTP 362 del INSST, ¿cómo se define el caudal másico?",
-    "respuesta": "Como el producto de la velocidad, el área de la sección transversal y la densidad del fluido: Qm = ρ·v·A",
-    "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Emisión de líquidos». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
-    "estado": "no_literal",
+    "respuesta": "Es el producto de la velocidad v del fluido por el área A de la sección transversal y por la densidad ρ del fluido",
+    "fuente": "NTP 362 (INSST), «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Emisión de líquidos», pág. 2. INSST-NTP362, PDF oficial de insst.es (1995): https://www.insst.es/documents/94886/7875530/ntp_362.pdf#page=2",
+    "estado": "ok",
     "doc": "NTP362",
-    "motivo": "la respuesta no está literal en ninguna página del documento"
+    "pagina": 2
    },
    {
     "id": "CPEI-T09-OF-54865783",
-    "concepto": "Según la NTP 362 del INSST, ¿qué expresión tiene la ecuación de Bernoulli y para qué tipo de flujo es válida?",
-    "respuesta": "p + ρ·g·h + ρ·v²/2 = constante; válida para flujo estacionario, no viscoso e incompresible, entre dos puntos de una línea de corriente",
-    "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
-    "estado": "no_literal",
+    "concepto": "Según la NTP 362 del INSST, ¿para qué tipo de flujo es válida la ecuación de Bernoulli?",
+    "respuesta": "Es válida para un flujo estacionario, no viscoso e incompresible y se cumple en dos puntos cualesquiera de una línea de corriente",
+    "fuente": "NTP 362 (INSST), «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente», pág. 2. INSST-NTP362, PDF oficial de insst.es (1995): https://www.insst.es/documents/94886/7875530/ntp_362.pdf#page=2",
+    "estado": "ok",
     "doc": "NTP362",
-    "motivo": "la respuesta no está literal en ninguna página del documento"
+    "pagina": 2
    },
    {
     "id": "CPEI-T09-OF-23AA9AFC",
@@ -455,29 +455,29 @@
    {
     "id": "CPEI-T09-OF-377EBBDC",
     "concepto": "Según la NTP 362 del INSST, ¿qué es el coeficiente de descarga Cd de un orificio?",
-    "respuesta": "La relación entre el caudal real que sale por el orificio y el teórico; Cd = Cv × Cc (coeficiente de velocidad por coeficiente de contracción)",
-    "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
-    "estado": "no_literal",
+    "respuesta": "La relación entre el caudal real que sale por un orificio y el teórico. Puede expresarse también en función de Cv y de Cc, es decir Cd = Cv x Cc",
+    "fuente": "NTP 362 (INSST), «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente», pág. 3. INSST-NTP362, PDF oficial de insst.es (1995): https://www.insst.es/documents/94886/7875530/ntp_362.pdf#page=3",
+    "estado": "ok",
     "doc": "NTP362",
-    "motivo": "la respuesta no está literal en ninguna página del documento"
+    "pagina": 3
    },
    {
     "id": "CPEI-T09-OF-76FBE0B0",
     "concepto": "Según la NTP 362 del INSST, ¿qué coeficiente de descarga aproximado tiene un orificio de borde afilado y cuál una boquilla de borde redondeado?",
-    "respuesta": "Unos 0,62 el orificio de borde afilado y aproximadamente la unidad (1) la boquilla de borde redondeado",
-    "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
-    "estado": "no_literal",
+    "respuesta": "Aproximadamente 0,62 para un orificio de borde afilado y la unidad para una boquilla de borde redondeado",
+    "fuente": "NTP 362 (INSST), «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente», pág. 3. INSST-NTP362, PDF oficial de insst.es (1995): https://www.insst.es/documents/94886/7875530/ntp_362.pdf#page=3",
+    "estado": "ok",
     "doc": "NTP362",
-    "motivo": "la respuesta no está literal en ninguna página del documento"
+    "pagina": 3
    },
    {
     "id": "CPEI-T09-OF-0B46FCC3",
     "concepto": "Según la NTP 362 del INSST, ¿qué coeficiente de descarga aproximado tiene un tramo muy corto de tubería o una boquilla externa conectados a un recipiente?",
     "respuesta": "Aproximadamente 0,81",
-    "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
-    "estado": "sin_pagina",
+    "fuente": "NTP 362 (INSST), «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente», pág. 3. INSST-NTP362, PDF oficial de insst.es (1995): https://www.insst.es/documents/94886/7875530/ntp_362.pdf#page=3",
+    "estado": "ok",
     "doc": "NTP362",
-    "motivo": "literal en la pág. 3, pero la cita no da página"
+    "pagina": 3
    },
    {
     "id": "CPEI-T09-OF-B4A1C5E5",
@@ -519,20 +519,20 @@
    {
     "id": "CPEI-T09-OF-0725F93D",
     "concepto": "Según la NTP 362 del INSST, ¿para qué valores del número de Reynolds el flujo en tubería es generalmente laminar y para cuáles turbulento?",
-    "respuesta": "Laminar por debajo de unos 2000 y turbulento por encima de 4000; entre 2000 y 4000 está en transición",
-    "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en una tubería». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
-    "estado": "no_literal",
+    "respuesta": "Para valores de Re menores que aproximadamente 2000 el flujo es generalmente laminar y para valores superiores a 4000 el flujo es generalmente turbulento",
+    "fuente": "NTP 362 (INSST), «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en una tubería», pág. 4. INSST-NTP362, PDF oficial de insst.es (1995): https://www.insst.es/documents/94886/7875530/ntp_362.pdf#page=4",
+    "estado": "ok",
     "doc": "NTP362",
-    "motivo": "la respuesta no está literal en ninguna página del documento"
+    "pagina": 4
    },
    {
     "id": "CPEI-T09-OF-3869B3CE",
     "concepto": "Según la NTP 362 del INSST, ¿cuánto vale el factor de fricción en régimen laminar?",
     "respuesta": "f = 64/Re",
-    "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en una tubería». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
-    "estado": "sin_pagina",
+    "fuente": "NTP 362 (INSST), «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en una tubería», pág. 4. INSST-NTP362, PDF oficial de insst.es (1995): https://www.insst.es/documents/94886/7875530/ntp_362.pdf#page=4",
+    "estado": "ok",
     "doc": "NTP362",
-    "motivo": "literal en la pág. 4, pero la cita no da página"
+    "pagina": 4
    },
    {
     "id": "CPEI-T09-OF-F2E0ACDA",

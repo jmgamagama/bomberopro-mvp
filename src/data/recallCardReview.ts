@@ -130,8 +130,12 @@ export const REVIEWED_CARDS_IN_PENDING_DECKS: Readonly<Record<string, readonly s
     'CPEI-T09-OF-25E9FCD4', 'CPEI-T09-OF-20C37F4A', 'CPEI-T09-OF-A520E5DF', 'CPEI-T09-OF-87E4530F',
     'CPEI-T09-OF-25A494F2', 'CPEI-T09-OF-B378FA6E', 'CPEI-T09-OF-B1BF79D7', 'CPEI-T09-OF-52A4DCD7',
     'CPEI-T09-OF-D374F81F',
-    // T9: las 11 de la NTP 362 (INSST) siguen ocultas tras feat/insst-lotes (02/11/2026): la cita enlaza a la versión web, sin página;
-    // 9 no están literales en el PDF vigente (fórmulas y paráfrasis) y 2 sí lo están (págs. 3 y 4) pero sin página citada.
+    // T9: 8 de las 11 de la NTP 362 (INSST) se abren el 02/11/2026 (feat/t9-ntp362): citan el PDF vigente de insst.es con página
+    // (págs. 2-4) y la respuesta es literal (6 reescritas al texto del PDF; scripts/verificar-t9-ntp362.py, data/verificacion/t9-ntp362.json).
+    'CPEI-T09-OF-303FA8EC', 'CPEI-T09-OF-598D0A9D', 'CPEI-T09-OF-54865783', 'CPEI-T09-OF-377EBBDC',
+    'CPEI-T09-OF-76FBE0B0', 'CPEI-T09-OF-0B46FCC3', 'CPEI-T09-OF-0725F93D', 'CPEI-T09-OF-3869B3CE',
+    // Siguen ocultas 3 (0F2FD506, D493D3E9, B4A1C5E5): en el PDF solo están como fórmulas cuyo exponente (1/2, -1) sale como texto
+    // plano en la capa de texto; no hay un literal fiable que responda a la pregunta.
   ],
   'tema15': [
     'CPEI-T15-OF-3B08563F', 'CPEI-T15-OF-D2F1AA50', 'CPEI-T15-OF-3AC3D004', 'CPEI-T15-OF-C8C8BD7F',

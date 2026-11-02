@@ -46,9 +46,9 @@ describe('INSST por lotes: se abren solo las fichas literales en la página cita
     }
   });
 
-  it('cuántas se abren: T8 25 de 25, T9 17 de 84 (NTP 362 sigue oculta), T12-lote02 23, T13-lote02 47, T22-lote02 27', () => {
-    expect((Object.keys(MAZOS) as Mazo[]).map(vistas)).toEqual([25, 17, 23, 47, 27]);
-    expect(getVisibleTotalCards()).toBe(2878);
+  it('cuántas se abren: T8 25 de 25, T9 25 de 84 (8 de la NTP 362 abiertas el 02/11/2026), T12-lote02 23, T13-lote02 47, T22-lote02 27', () => {
+    expect((Object.keys(MAZOS) as Mazo[]).map(vistas)).toEqual([25, 25, 23, 47, 27]);
+    expect(getVisibleTotalCards()).toBe(2886);
     expect(['tema8', 'tema12-lote02', 'tema13-lote02', 'tema22-lote02'].map(getDeckRevision)).toEqual(['revisado', 'revisado', 'revisado', 'revisado']);
     expect(getDeckRevision('tema9')).toBe('pendiente');
   });
@@ -66,12 +66,12 @@ describe('INSST por lotes: se abren solo las fichas literales en la página cita
     }
   });
 
-  it('T9: las 11 de la NTP 362 siguen ocultas (9 no literales, 2 literales pero sin página citada)', () => {
+  it('T9: de las 11 de la NTP 362, 8 se abren con página citada (feat/t9-ntp362) y 3 fórmulas siguen ocultas', () => {
     const insst = V.mazos.tema9.filter((x) => x.estado !== 'no_insst');
     expect(insst).toHaveLength(11);
-    expect(insst.filter((x) => x.estado === 'no_literal')).toHaveLength(9);
-    expect(insst.filter((x) => x.estado === 'sin_pagina').map((x) => x.id).sort()).toEqual(['CPEI-T09-OF-0B46FCC3', 'CPEI-T09-OF-3869B3CE']);
-    for (const x of insst) expect(isCardVisible('tema9', x.id)).toBe(false);
+    expect(insst.filter((x) => x.estado === 'ok')).toHaveLength(8);
+    expect(insst.filter((x) => x.estado === 'no_literal').map((x) => x.id).sort()).toEqual(['CPEI-T09-OF-0F2FD506', 'CPEI-T09-OF-B4A1C5E5', 'CPEI-T09-OF-D493D3E9']);
+    for (const x of insst) expect(isCardVisible('tema9', x.id)).toBe(x.estado === 'ok');
   });
 
   it('respuestas ajustadas al literal del PDF', () => {

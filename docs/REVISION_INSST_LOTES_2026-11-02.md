@@ -31,6 +31,9 @@ puntuación). Sin coincidencia difusa. Sin página citada, la ficha no se abre.
 
 ## Siguen ocultas (T9, NTP 362)
 
+> **Actualización 02/11/2026 (feat/t9-ntp362):** 8 de estas 11 se abren citando el PDF vigente con página y con la respuesta
+> reescrita al literal; siguen ocultas 3 fórmulas (0F2FD506, D493D3E9, B4A1C5E5). Ver `docs/REVISION_T9_NTP362_2026-11-02.md`.
+
 La cita enlaza a la versión web de la NTP 362, sin página. Se buscaron en todo el PDF vigente:
 
 | Id | Motivo |
