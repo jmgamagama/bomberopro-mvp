@@ -4,7 +4,7 @@ import { trackFunnel } from '../lib/funnel';
 import { isRegistroAbierto, textoAlta } from '../config/features';
 import { urlRetornoAuth } from '../lib/authRetorno';
 import {
-  leerEnlaceInvitacion, mensajeErrorAcceso, mensajeErrorEnlace, SIN_CONEXION,
+  leerEnlaceInvitacion, mensajeErrorAcceso, mensajeErrorEnlace, mensajeErrorRecuperacion, SIN_CONEXION,
   type MensajeAcceso, type ModoAcceso,
 } from '../lib/mensajesAcceso';
 import { Lock, Loader2, Flame, ScrollText, Timer, Brain, ArrowRight, BookOpen, Eye, EyeOff, MailCheck } from 'lucide-react';
@@ -25,7 +25,7 @@ const PUNTOS_CONFIANZA = [
 
 /**
  * Pantalla de entrada. Con el piloto cerrado (por defecto) el alta es «Activar invitación».
- * Enlace directo para invitados: /?invitacion=1&email=correo — abre esa pestaña con el correo escrito.
+ * Enlace para invitados: /?invitacion=1. El alumno escribe el mismo correo al que recibió la invitación.
  */
 export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProps = {}) {
   const abierto = isRegistroAbierto();
@@ -69,17 +69,14 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
         if (result.error) {
           setMessage({ type: 'error', ...mensajeErrorAcceso('crear', result.error, abierto) });
           focusEmail();
-        } else if (!result.data.session && result.data.user && result.data.user.identities?.length === 0) {
-          // Supabase no da error si el correo ya tiene cuenta: devuelve un usuario sin identidades.
-          setMode('entrar');
-          setPassword('');
-          setMessage({ type: 'success', text: 'Ya tienes cuenta con este correo. Escribe tu contraseña y pulsa «Entrar».' });
-          passwordInputRef.current?.focus();
         } else if (!result.data.session) {
+          // Supabase puede devolver un usuario ficticio sin error cuando el correo ya existe.
+          // Mantener el mismo mensaje evita revelar qué direcciones tienen una cuenta.
           setEnviadoA(correo());
+          setPassword('');
           setMessage({
             type: 'success',
-            text: `Te hemos enviado un correo a ${correo()}. Ábrelo en este mismo dispositivo y pulsa el botón del correo: entrarás directamente. Si en 2 minutos no está, mira en Spam o Promociones.`,
+            text: `Si ${correo()} puede activar una cuenta, recibirás los pasos por correo. Si ya tienes cuenta, entra desde «Ya tengo cuenta». Revisa también Spam o Promociones.`,
             accion: 'reenviar',
           });
         }
@@ -98,7 +95,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
     }
   };
 
-  // Acceso sin contraseña: enlace de un solo uso al correo. Sirve para "he olvidado la contraseña".
+  // Acceso sin contraseña: opción distinta al restablecimiento de contraseña.
   const handleMagicLink = async () => {
     if (!email.trim()) {
       setMessage({ type: 'error', text: 'Escribe primero tu correo y vuelve a pulsar.' });
@@ -115,6 +112,31 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
       setMessage(error
         ? { type: 'error', ...mensajeErrorEnlace(error, abierto) }
         : { type: 'success', text: `Te hemos enviado un enlace a ${correo()}. Ábrelo desde este móvil para entrar sin contraseña.` });
+    } catch {
+      setMessage({ type: 'error', text: SIN_CONEXION });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handlePasswordReset = async () => {
+    if (!email.trim()) {
+      setMessage({ type: 'error', text: 'Escribe primero tu correo y vuelve a pulsar.' });
+      focusEmail();
+      return;
+    }
+    setLoading(true);
+    setMessage(null);
+    try {
+      const { error } = await supabase!.auth.resetPasswordForEmail(correo(), {
+        redirectTo: urlRetornoAuth('recuperar'),
+      });
+      setMessage(error
+        ? { type: 'error', ...mensajeErrorRecuperacion(error) }
+        : {
+            type: 'success',
+            text: `Si ${correo()} tiene una cuenta, recibirá un correo con los pasos para cambiar la contraseña. Revisa también Spam o Promociones.`,
+          });
     } catch {
       setMessage({ type: 'error', text: SIN_CONEXION });
     } finally {
@@ -334,14 +356,24 @@ export default function Login({ onStartDemo, initialMode = 'entrar' }: LoginProp
           </button>
 
           {mode === 'entrar' && (
-            <button
-              type="button"
-              onClick={handleMagicLink}
-              disabled={loading}
-              className="w-full min-h-11 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline underline-offset-2"
-            >
-              He olvidado la contraseña
-            </button>
+            <div className="space-y-1">
+              <button
+                type="button"
+                onClick={handlePasswordReset}
+                disabled={loading}
+                className="w-full min-h-11 text-sm font-bold text-indigo-600 hover:text-indigo-800 underline underline-offset-2"
+              >
+                He olvidado la contraseña
+              </button>
+              <button
+                type="button"
+                onClick={handleMagicLink}
+                disabled={loading}
+                className="w-full min-h-11 text-sm font-semibold text-slate-600 hover:text-slate-900 underline underline-offset-2"
+              >
+                Entrar con enlace sin contraseña
+              </button>
+            </div>
           )}
         </form>
         )}
