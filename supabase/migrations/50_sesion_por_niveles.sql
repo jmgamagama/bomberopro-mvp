@@ -5,11 +5,11 @@
 -- Ahora, para las preguntas NUEVAS de cada tema:
 --   · Nivel 1: siempre abierto.
 --   · Nivel 2: se abre cuando el alumno domina el 1 (en sus 10 últimas respuestas de nivel 1 del
---     tema, al menos 8 —o todas las preguntas del nivel si hay menos de 8— y >= 80 % de aciertos).
+--     tema, al menos 8 preguntas DISTINTAS —o todas las del nivel si hay menos de 8— y >= 80 % de aciertos).
 --   · Nivel 3: se abre cuando domina el 2 con el mismo criterio. Si en sus 5 últimas de nivel 3
 --     (mínimo 3) acierta < 60 %, el nivel 3 se cierra: vuelve al 2 y se reabre cuando el alumno
---     vuelve a dominar el 2 con respuestas POSTERIORES a su última de nivel 3 (no hace falta
---     rehacer el 3 para reabrirlo).
+--     vuelve a dominar el 2 con respuestas POSTERIORES a su último fallo de nivel 3 (no hace falta
+--     rehacer el 3 y un acierto posterior en el 3 no vuelve a cerrarlo).
 --   · El nivel más bajo que EXISTE en el banco del tema siempre está abierto (temas sin nivel 1).
 --     Se mide sobre todo el banco, no sobre lo no visto: agotar los niveles bajos no salta la escalera.
 --   · Dentro de lo abierto, el nivel «frontera» (el más alto abierto) sale antes con más frecuencia y se mezcla con la base.
@@ -64,7 +64,7 @@ BEGIN
   ),
   -- Últimas respuestas del alumno por tema y nivel (ventana de 10; 5 para detectar olvidos en N3).
   ultimas AS (
-    SELECT q.topic_id, coalesce(q.nivel, 1) AS nivel, a.acierto, a.created_at,
+    SELECT q.topic_id, q.id AS question_id, coalesce(q.nivel, 1) AS nivel, a.acierto, a.created_at,
            row_number() OVER (PARTITION BY q.topic_id, coalesce(q.nivel, 1) ORDER BY a.created_at DESC) AS rn
       FROM attempts a JOIN questions q ON q.id = a.question_id
      WHERE a.user_id = v_uid
@@ -76,18 +76,20 @@ BEGIN
            count(*) FILTER (WHERE coalesce(b.nivel, 1) = 2) AS n2
       FROM base b GROUP BY b.topic_id
   ),
-  ult3 AS (SELECT u.topic_id, max(u.created_at) AS t3 FROM ultimas u WHERE u.nivel = 3 GROUP BY u.topic_id),
+  -- Último fallo de N3 dentro de la ventana de 5: ancla del «episodio de olvido». Un acierto posterior de N3
+  -- no la mueve, así que la recuperación del N2 se conserva hasta que haya un nuevo fallo.
+  ult3 AS (SELECT u.topic_id, max(u.created_at) AS t3 FROM ultimas u WHERE u.nivel = 3 AND u.rn <= 5 AND NOT u.acierto GROUP BY u.topic_id),
   dominio_raw AS (
     SELECT u.topic_id,
-      (count(*) FILTER (WHERE u.nivel = 1 AND u.rn <= 10) >= LEAST(8, bq.n1)
+      (count(DISTINCT u.question_id) FILTER (WHERE u.nivel = 1 AND u.rn <= 10) >= LEAST(8, bq.n1)
         AND avg(u.acierto::int) FILTER (WHERE u.nivel = 1 AND u.rn <= 10) >= 0.8) AS domina1,
-      (count(*) FILTER (WHERE u.nivel = 2 AND u.rn <= 10) >= LEAST(8, bq.n2)
+      (count(DISTINCT u.question_id) FILTER (WHERE u.nivel = 2 AND u.rn <= 10) >= LEAST(8, bq.n2)
         AND avg(u.acierto::int) FILTER (WHERE u.nivel = 2 AND u.rn <= 10) >= 0.8) AS domina2,
       -- Olvido en N3: en sus 5 últimas de nivel 3 (mínimo 3) acierta menos del 60 %.
       coalesce(count(*) FILTER (WHERE u.nivel = 3 AND u.rn <= 5) >= 3
         AND avg(u.acierto::int) FILTER (WHERE u.nivel = 3 AND u.rn <= 5) < 0.6, false) AS falla3,
       -- Recuperación: dominio del N2 solo con respuestas posteriores a su última de N3.
-      coalesce(count(*) FILTER (WHERE u.nivel = 2 AND u.rn <= 10 AND u.created_at > u3.t3) >= LEAST(8, bq.n2)
+      coalesce(count(DISTINCT u.question_id) FILTER (WHERE u.nivel = 2 AND u.rn <= 10 AND u.created_at > u3.t3) >= LEAST(8, bq.n2)
         AND avg(u.acierto::int) FILTER (WHERE u.nivel = 2 AND u.rn <= 10 AND u.created_at > u3.t3) >= 0.8, false) AS recupera2
       FROM ultimas u
       JOIN banco bq ON bq.topic_id = u.topic_id
