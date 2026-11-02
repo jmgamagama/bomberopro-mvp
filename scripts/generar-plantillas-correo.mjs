@@ -10,7 +10,7 @@ const NARANJA = '#C2410C';
 const FONDO = '#FAF8F5';
 const TEXTO = '#1F2937';
 const SUAVE = '#4B5563';
-const APP = 'https://bomberopro-mvp.vercel.app';
+const APP = 'https://bomberopro.com';
 const LOGO = `${APP}/icons/icon-192.png`;
 const FUENTE = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
 
