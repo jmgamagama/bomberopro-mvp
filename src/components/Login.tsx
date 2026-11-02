@@ -60,7 +60,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
   useEffect(() => {
     if (!enlace.invitacion && !enlace.email) return;
     const url = new URL(window.location.href);
-    ['invitacion', 'invitación', 'email'].forEach(k => url.searchParams.delete(k));
+    ['invitacion', 'invitación', 'email', 'codigo'].forEach(k => url.searchParams.delete(k));
     window.history.replaceState(window.history.state, '', url.pathname + url.search + url.hash);
     if (enlace.email) passwordInputRef.current?.focus();
   }, [enlace]);
@@ -79,7 +79,10 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
         const result = await supabase!.auth.signUp({
           email: correo(),
           password,
-          options: { emailRedirectTo: urlRetornoAuth('registro') },
+          options: {
+            emailRedirectTo: urlRetornoAuth('registro'),
+            ...(enlace.codigo ? { data: { codigo_piloto: enlace.codigo } } : {}),
+          },
         });
         if (result.error) {
           setMessage({ type: 'error', ...mensajeErrorAcceso('crear', result.error, abierto) });
