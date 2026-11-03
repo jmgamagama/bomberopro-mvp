@@ -25,3 +25,6 @@ Los principios se dirigen a los poderes públicos regionales. Para repasarlos, a
 - Art. 6 reconoce derechos/deberes; art. 7 fija principios para orientar políticas públicas.
 - El art. 7 contiene veinte apartados. Usa las agrupaciones como mapa y conserva el orden y la formulación de cada apartado al estudiar la norma.
 - Señales características del texto: despoblación rural, dehesa, agua, igualdad efectiva, discapacidad, juventud, Portugal e Iberoamérica.
+
+## Referencias oficiales por artículo
+[Art. 6](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a6) · [Art. 7](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a7)
