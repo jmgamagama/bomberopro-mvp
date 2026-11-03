@@ -38,7 +38,7 @@ Los PDF de juntaex.es se descargaron de nuevo el 01/11/2026. Son el mismo ficher
 - **Búsqueda de decretos posteriores** que actualicen o deroguen cada plan: no se ha localizado ninguno.
   - El Decreto 39/2025 deroga el 188/2019, que era el INUNCAEX anterior.
   - La Junta anunció en octubre de 2026 que revisará los planes.
-  - Para el PLASISMEX, la Directriz Básica de terremotos (Orden INT/1069/2026, BOE-A-2026-21145) da cuatro años para adaptarlo.
+  - Para el PLASISMEX, la [Orden INT/1069/2026 (BOE-A-2026-21145)](https://www.boe.es/eli/es/o/2026/10/07/int1069), publicada el 10/10/2026 y efectiva desde el 11/10/2026, sustituye la Directriz sísmica de 1995 y establece que los planes se adapten en cuatro años; el PDF de PLASISMEX consultado aún hace referencia a la Directriz anterior.
 - `python3 scripts/verificar_vigencia_boe.py` lista estas normas como «comprobado a mano» (no pueden pasar por la API del BOE). La tabla está en `docs/VIGENCIA_MATERIAL_BOE.md`.
 - Lo que se buscó, por norma, está en `busqueda` de `scripts/fuentes_doe/<ID>.json`, y la pantalla lo muestra.
 
