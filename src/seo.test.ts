@@ -26,6 +26,30 @@ describe('SEO y landing Badajoz 2026', () => {
     expect(landingHtml('https://ejemplo.test')).toContain('rel="canonical"');
     expect(JSON.parse(jsonLd())['@graph'][0].url).toBeUndefined();
   });
+  it('metadatos sociales: og:image, og:url y twitter:card summary_large_image (issue #229)', () => {
+    // Without VITE_SITE_URL the og:image is a relative path, never absent
+    const noUrl = landingHtml();
+    expect(noUrl).toContain('property="og:image"');
+    expect(noUrl).toContain('content="/og-image.png"');
+    expect(noUrl).toContain('name="twitter:card" content="summary_large_image"');
+    // With VITE_SITE_URL the og:image becomes an absolute URL
+    const withUrl = landingHtml('https://bomberopro.com');
+    expect(withUrl).toContain('property="og:url"');
+    expect(withUrl).toContain('content="https://bomberopro.com/oposiciones-bombero-badajoz-2026/"');
+    expect(withUrl).toContain('property="og:image" content="https://bomberopro.com/og-image.png"');
+    expect(withUrl).toContain('name="twitter:card" content="summary_large_image"');
+  });
+  it('public/og-image.png existe, es 1200x630 y pesa ≤ 300 KB (issue #229)', async () => {
+    const { readFileSync, statSync } = await import('node:fs');
+    const buf = readFileSync(new URL('../public/og-image.png', import.meta.url));
+    // PNG header + IHDR width/height at fixed offsets
+    expect(buf.subarray(1, 4).toString('ascii')).toBe('PNG');
+    const width = buf.readUInt32BE(16);
+    const height = buf.readUInt32BE(20);
+    expect(width).toBe(1200);
+    expect(height).toBe(630);
+    expect(statSync(new URL('../public/og-image.png', import.meta.url)).size).toBeLessThanOrEqual(300 * 1024);
+  });
 });
 
 describe('shell crítico', () => {

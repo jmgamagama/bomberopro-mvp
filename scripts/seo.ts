@@ -53,7 +53,7 @@ function headMeta(siteUrl: string | undefined, page: 'app' | 'landing'): string 
   return [
     url ? `<link rel="canonical" href="${esc(url)}" />` : '',
     url ? `<meta property="og:url" content="${esc(url)}" />` : '',
-    siteUrl ? `<meta property="og:image" content="${esc(siteUrl.replace(/\/$/, ''))}/icons/icon-512.png" />` : '',
+    siteUrl ? `<meta property="og:image" content="${esc(siteUrl.replace(/\/$/, ''))}/og-image.png" />` : '<meta property="og:image" content="/og-image.png" />',
     `<script type="application/ld+json">${jsonLd(siteUrl, page)}</script>`,
   ].filter(Boolean).join('\n    ');
 }
@@ -73,7 +73,7 @@ export function landingHtml(siteUrl?: string): string {
 <meta property="og:site_name" content="BomberoPro" />
 <meta property="og:title" content="${esc(SEO_TITLE)}" />
 <meta property="og:description" content="${esc(SEO_DESCRIPTION)}" />
-<meta name="twitter:card" content="summary" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png" />
 <link rel="manifest" href="/manifest.webmanifest" />
 ${headMeta(siteUrl, 'landing')}
