@@ -39,20 +39,88 @@ def low(s: str) -> str:
 
 
 def apartados(bloque: dict) -> dict[str, str]:
-    """{'1': texto, '2': texto} o {'': texto} si el artículo no tiene apartados numerados."""
+    """{'1': texto, '2': texto} o {'': texto} si el artículo no tiene apartados numerados.
+
+    Si la numeración vuelve a empezar dentro del artículo (p. ej. RRI CPEI art. 35: faltas muy
+    graves 1-14, graves 1-18 y leves 1-8), cada serie lleva un prefijo sacado de su encabezado
+    («* Son faltas muy graves:» -> «mg», «* Se consideran faltas graves:» -> «g»), o «s2», «s3»…
+    si no lo hay. Así ninguna serie pisa a otra: «mg3», «g3», «l3»."""
     body = [p["texto"] for p in bloque["parrafos"] if p["clase"] in ("parrafo", "parrafo_2")]
+    nums = [int(m.group(1)) for t in body if (m := re.match(r"^(\d+)\.\s+", t))]
+    reinicia = any(b <= a for a, b in zip(nums, nums[1:]))
     out: dict[str, str] = {}
     cur = None
+    prefijo, serie, ultimo, encabezado = "", 0, 0, None
     for t in body:
         m = re.match(r"^(\d+)\.\s+(.*)$", t)
         if m:
-            cur = m.group(1)
+            n = int(m.group(1))
+            if reinicia and (serie == 0 or n <= ultimo):
+                serie += 1
+                prefijo = _prefijo(encabezado, serie)
+            ultimo = n
+            cur = f"{prefijo}{n}"
             out[cur] = m.group(2)
-        elif cur is not None:
-            out[cur] += " " + t  # letras a), b)… u otros párrafos del mismo apartado
+            encabezado = None
         else:
-            out[""] = (out.get("", "") + " " + t).strip()
+            if reinicia and t.lstrip().startswith("*"):
+                encabezado = t
+            if cur is not None:
+                out[cur] += " " + t  # letras a), b)… u otros párrafos del mismo apartado
+            else:
+                out[""] = (out.get("", "") + " " + t).strip()
     return out
+
+
+_VACIAS = {"se", "son", "consideran", "faltas", "de", "la", "las", "los", "el", "y"}
+
+
+def _prefijo(encabezado: str | None, serie: int) -> str:
+    if encabezado:
+        palabras = re.findall(r"\w+", encabezado.lower())
+        ini = "".join(w[0] for w in palabras if w not in _VACIAS)
+        if ini:
+            return ini
+    return f"s{serie}"
+def texto_bloque(bloque: dict) -> str:
+    """Texto completo de un precepto (con sus numeraciones), para comprobar citas literales."""
+    return " ".join(p["texto"] for p in bloque["parrafos"] if p.get("clase") in ("parrafo", "parrafo_2"))
+
+
+def rango_encabezado(i: str) -> int | None:
+    """Título (0), capítulo (1) o sección (2), según el id del encabezado en bloques.json."""
+    return {"t": 0, "c": 1, "s": 2}.get(i[:1])
+
+
+def ubicaciones(bloques: list[dict]) -> dict[str, list[str]]:
+    """Cadena de encabezados oficiales (título, capítulo, sección) de cada precepto, según el orden del BOE."""
+    pila: list[tuple[int, str]] = []
+    out: dict[str, list[str]] = {}
+    for b in bloques:
+        if b.get("tipo") == "encabezado" and rango_encabezado(b["id"]) is not None:
+            r = rango_encabezado(b["id"])
+            pila = [x for x in pila if x[0] < r] + [(r, b["id"])]
+        elif b.get("tipo") == "precepto":
+            out[b["id"]] = [x[1] for x in pila]
+    return out
+
+
+def errores_respaldo(tag: str, q: dict, boe: dict, ubic: dict) -> list[str]:
+    """Respaldo de una pregunta cuyo dato no está en su artículo: citas literales de otros preceptos
+    de la misma norma o la ubicación oficial (título, capítulo, sección) de un precepto."""
+    errs = []
+    for r in q.get("respaldo", []):
+        art = r.get("articulo")
+        if art not in boe:
+            errs.append(f"{tag}: respaldo con precepto inexistente '{art}'")
+            continue
+        if "cita" in r and norm(r["cita"]) not in norm(texto_bloque(boe[art])):
+            errs.append(f"{tag}: la cita del respaldo no es literal de {boe[art]['titulo']}")
+        if "ubicacion" in r and r["ubicacion"] != ubic.get(art):
+            errs.append(f"{tag}: ubicación {r['ubicacion']} incorrecta para {boe[art]['titulo']} (es {ubic.get(art)})")
+        if "cita" not in r and "ubicacion" not in r:
+            errs.append(f"{tag}: respaldo sin cita ni ubicación")
+    return errs
 
 
 def main() -> int:
@@ -64,7 +132,9 @@ def main() -> int:
     data = json.loads(path.read_text(encoding="utf-8"))
     # La fuente es la norma del propio fichero (por defecto, la Constitución).
     fuente = pathlib.Path(f"data/fuentes/{data['norma']}/bloques.json") if data.get("norma") else FUENTE
-    boe = {b["id"]: b for b in json.loads(fuente.read_text(encoding="utf-8"))}
+    lista_boe = json.loads(fuente.read_text(encoding="utf-8"))
+    boe = {b["id"]: b for b in lista_boe}
+    ubic = ubicaciones(lista_boe)
     conceptos = data["conceptos"]
     errores: list[str] = []
     avisos: list[str] = []
@@ -111,6 +181,11 @@ def main() -> int:
                 errores.append(f"{tag}: {len(ops)} opciones, se esperaban {want}")
             if len({low(o) for o in ops}) != len(ops):
                 errores.append(f"{tag}: opciones repetidas")
+            # Cita propia de la pregunta (cuando el dato preguntado no está en la cita del concepto):
+            # debe ser literal del mismo artículo (auditoría 26/10/2026, citas desalineadas).
+            if q.get("cita") and norm(q["cita"]) not in norm(" ".join(aps.values())):
+                errores.append(f"{tag}: la cita de la pregunta no es literal del art. {c['bloque'][1:]}")
+            errores.extend(errores_respaldo(tag, q, boe, ubic))
             if not (0 <= q["correcta"] < len(ops)):
                 errores.append(f"{tag}: índice de correcta fuera de rango")
                 continue

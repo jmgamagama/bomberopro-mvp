@@ -147,19 +147,19 @@ export const TEMA8_RECALL_CARDS: Tema8RecallCard[] = [
   {
     "id": "CPEI-T08-OF-8DBF8D55",
     "orden": 150,
-    "concepto": "Según el INSST (tema «El riesgo de incendio»), ¿qué naturaleza de combustible corresponde a la clase D?",
-    "respuesta": "Metales",
-    "fuente": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 3. INSST-T33, texto consolidado (últ. actualización 30/04/2025): https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i-#p03",
-    "localizacion": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 3",
+    "concepto": "Según el RIPCI (clases de fuego normalizadas, UNE-EN 2), ¿qué fuegos son de clase D?",
+    "respuesta": "Fuegos de metales",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.d). BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.d)",
     "apartado": "Clasificación de los fuegos"
   },
   {
     "id": "CPEI-T08-OF-26C9E93E",
     "orden": 160,
-    "concepto": "Según el INSST (tema «El riesgo de incendio»), ¿qué naturaleza de combustible corresponde a la clase C?",
-    "respuesta": "Gases",
-    "fuente": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 3. INSST-T33, texto consolidado (últ. actualización 30/04/2025): https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i-#p03",
-    "localizacion": "INSST, Tema 33 «El riesgo de incendio (I)», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. abril 2025, pág. 3",
+    "concepto": "Según el RIPCI (clases de fuego normalizadas, UNE-EN 2), ¿qué fuegos son de clase C?",
+    "respuesta": "Fuegos de gases",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.c). BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.c)",
     "apartado": "Clasificación de los fuegos"
   },
   {
@@ -176,8 +176,8 @@ export const TEMA8_RECALL_CARDS: Tema8RecallCard[] = [
     "orden": 180,
     "concepto": "Según el INSST (tema «Explosiones»), ¿qué sustancias tienen capacidad para formar atmósferas explosivas?",
     "respuesta": "Gases, líquidos inflamables y polvos combustibles",
-    "fuente": "INSST, Tema 12 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 1. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p01",
-    "localizacion": "INSST, Tema 12 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 1",
+    "fuente": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 1. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p01",
+    "localizacion": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 1",
     "apartado": "Explosiones e inflamabilidad"
   },
   {
@@ -185,8 +185,8 @@ export const TEMA8_RECALL_CARDS: Tema8RecallCard[] = [
     "orden": 190,
     "concepto": "Según el INSST (tema «Explosiones»), ¿cómo se clasifican las explosiones?",
     "respuesta": "En deflagraciones y detonaciones",
-    "fuente": "INSST, Tema 12 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 1. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p01",
-    "localizacion": "INSST, Tema 12 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 1",
+    "fuente": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 1. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p01",
+    "localizacion": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 1",
     "apartado": "Explosiones e inflamabilidad"
   },
   {
@@ -194,8 +194,8 @@ export const TEMA8_RECALL_CARDS: Tema8RecallCard[] = [
     "orden": 200,
     "concepto": "Según el INSST (tema «Explosiones»), ¿a qué velocidad se propaga una deflagración?",
     "respuesta": "A velocidad subsónica",
-    "fuente": "INSST, Tema 12 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 1. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p01",
-    "localizacion": "INSST, Tema 12 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 1",
+    "fuente": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 1. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p01",
+    "localizacion": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 1",
     "apartado": "Explosiones e inflamabilidad"
   },
   {
@@ -203,8 +203,8 @@ export const TEMA8_RECALL_CARDS: Tema8RecallCard[] = [
     "orden": 210,
     "concepto": "Según el INSST (tema «Explosiones»), ¿a qué velocidad se propaga una detonación?",
     "respuesta": "A velocidad supersónica",
-    "fuente": "INSST, Tema 12 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 1. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p01",
-    "localizacion": "INSST, Tema 12 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 1",
+    "fuente": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 1. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p01",
+    "localizacion": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 1",
     "apartado": "Explosiones e inflamabilidad"
   },
   {
@@ -212,8 +212,8 @@ export const TEMA8_RECALL_CARDS: Tema8RecallCard[] = [
     "orden": 220,
     "concepto": "Según el INSST (tema «Explosiones»), ¿qué efecto de la explosión resulta del impacto de objetos y fragmentos en el cuerpo?",
     "respuesta": "Secundario",
-    "fuente": "INSST, Tema 12 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 2. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p02",
-    "localizacion": "INSST, Tema 12 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 2",
+    "fuente": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 2. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p02",
+    "localizacion": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 2",
     "apartado": "Explosiones e inflamabilidad"
   },
   {
@@ -221,17 +221,17 @@ export const TEMA8_RECALL_CARDS: Tema8RecallCard[] = [
     "orden": 230,
     "concepto": "Según el INSST (tema «Explosiones»), ¿qué es el punto de inflamación?",
     "respuesta": "La temperatura mínima, en condiciones normales de presión, a la cual se desprende la suficiente cantidad de vapores del líquido para que se produzca la inflamación mediante la aportación de un foco de ignición",
-    "fuente": "INSST, Tema 12 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 5. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p05",
-    "localizacion": "INSST, Tema 12 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 5",
+    "fuente": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 5. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p05",
+    "localizacion": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 5",
     "apartado": "Explosiones e inflamabilidad"
   },
   {
     "id": "CPEI-T08-OF-E2B5A638",
     "orden": 240,
     "concepto": "Según el INSST (tema «Explosiones»), ¿qué es el Límite Inferior de Explosividad (LIE)?",
-    "respuesta": "La concentración de sustancia en el aire por debajo de la cual la atmósfera no es explosiva",
-    "fuente": "INSST, Tema 12 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 5. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p05",
-    "localizacion": "INSST, Tema 12 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 5",
+    "respuesta": "La concentración de sustancia en el aire (expresada en porcentaje en volumen y/o en masa por unidad de volumen) por debajo de la cual la atmósfera no es explosiva",
+    "fuente": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 5. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p05",
+    "localizacion": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 5",
     "apartado": "Explosiones e inflamabilidad"
   },
   {
@@ -239,8 +239,8 @@ export const TEMA8_RECALL_CARDS: Tema8RecallCard[] = [
     "orden": 250,
     "concepto": "Según el INSST (tema «Explosiones»), ¿qué es el Límite Superior de Explosividad (LSE)?",
     "respuesta": "La concentración de sustancia en el aire por encima de la cual la atmósfera no es explosiva",
-    "fuente": "INSST, Tema 12 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 5. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p05",
-    "localizacion": "INSST, Tema 12 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 5",
+    "fuente": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 5. INSST-T12-EXPLOSIONES, texto consolidado (últ. actualización 22/03/2026): https://www.insst.es/documents/d/portal-insst/tema-41-explosiones#p05",
+    "localizacion": "INSST, Tema 41 «Explosiones», Temas específicos del Proceso Selectivo para ingreso en la Escala de Titulados Superiores del Instituto Nacional de Seguridad e Higiene en el Trabajo, O.A., M.P. (INSST). Parte 2: “Seguridad en el trabajo”. V. enero 2026, pág. 5",
     "apartado": "Explosiones e inflamabilidad"
   }
 ];

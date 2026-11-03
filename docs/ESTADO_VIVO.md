@@ -1,35 +1,37 @@
 # Estado vivo — BomberoPro (fuente única de verdad)
 
 > Todo chat/agente lee este fichero primero y lo actualiza al cerrar (máx. 60 líneas; lo viejo va a `docs/ESTADO_PROYECTO.md`, que es histórico).
-> Última actualización: 2026-10-31 (Claude). Si tiene más de 7 días, desconfía y verifica en producción.
+> Última actualización: 2026-11-02 (Claude, comprobado en producción, Supabase y GitHub). Si tiene más de 7 días, desconfía y verifica.
 
 ## Entornos
-- Repo `jmgamagama/bomberopro-mvp` (main protegida: PR + check «Lint, build and test»; Vercel despliega al fusionar).
-- Producción: `bomberopro-mvp.vercel.app` (`bomberopro.com` devolvía 502 el 31/10). Supabase producción `yndoaprnpkjqiggeyefz`; staging `fxhvgvehhekqeqpkxtrm` (desfasado: faltan 30, 31, 33, 34, 38, 39, 45).
-- Cambios de BD: staging → test → producción (skill `bomberopro-cambio-seguro`). Fusionar a main y aplicar migraciones en producción exige aprobación explícita de JM. Plan de despliegue de referencia: `docs/DESPLIEGUE_SEGURIDAD_2026-10-30.md`.
-- Examen: CPEI Badajoz 2026, BOP Badajoz nº 135 (anuncio 2843/2026): 50+5 reserva, 3 opciones, 60 min, +0,200/−0,066/0, 30 % de temas 35-40.
+- Repo `jmgamagama/bomberopro-mvp` (main protegida: PR + check «Lint, build and test»; Vercel despliega al fusionar). **El repositorio es público**: pasarlo a privado (regla 7: material del CPEI solo en privado).
+- Supabase producción `yndoaprnpkjqiggeyefz`; staging `fxhvgvehhekqeqpkxtrm`. Cambios: staging → test → producción, con «sí» escrito de JM (skill `bomberopro-cambio-seguro`).
+- Producción sirve `cb958b0` (#219: 34 temas, 2.886 fichas, recorrido del alumno, material por tema). Vercel: proyecto `bomberopro-mvp`; `bomberopro.com` da 502 (sin asignar).
+- Examen: CPEI Badajoz 2026, BOP nº 135 (anuncio 2843/2026): 50+5 reserva, 3 opciones, 60 min, +0,200/−0,066/0, 30 % de temas 35-40. Fecha sin publicar.
 
-## Hecho y verificado (29-31/10/2026)
-- Release de seguridad #203: migraciones 38, 39 y 45 aplicadas en producción el 30/10 (05:28-05:39 UTC). Las 4 RPC antiguas que devolvían la clave ya no son ejecutables por clientes; las 6 nuevas solo por `authenticated`. Verificado: consultas de permisos y bundle publicado (solo llama a las v2). `users_app` NO tiene columna `plan` (las 38/39 lo toleran con `_user_plan()`).
-- Fusionados el 31/10: #185 (menú único, columna de lectura 4xl), #176 (paleta), #178 (este estado), #201, #202, #204 y #205 (cronómetro de tiempo activo).
-- Cronómetro (#205): solo cuenta con la pestaña visible; válido de 0 a 120 s, fuera es `null` (sin dato; nunca 0). Sin cambios de BD.
+## Base de datos (comprobado el 02/11)
+- Producción tiene aplicadas las migraciones hasta la 45 y la **48** (registro solo por invitación). **Sin aplicar:** 37 (embudo ampliado), 43 y 46 (#194), 47 (#209), 49 y 50 (#218; la #220 corrige la 50 antes de aplicarla).
+- Registro **cerrado**: lista de invitados **vacía** (0), 21 cuentas. Auth: correo propio por Gmail (SMTP), «Confirm email» activado, URL del sitio correcta. «Prevent leaked passwords» exige plan Pro (no activado).
+- Staging: 48 aplicada y probada; el resto sin verificar.
+
+## Verificado con cuenta de prueba (02/11)
+- Registro → correo de confirmación → cuenta activa → sesión «Estudiar hoy» guardada en la cuenta (10 conceptos, 22 eventos).
+- Pendiente de probar con cuenta: Entrenar, Por temas, Errores y Simulacro.
+
+## Rendimiento
+- «Temas» tarda ~1,15 s en producción (medido): 10 archivos + 2 llamadas, que arrancan al tocar. La base de datos responde en ~15 ms caliente (578 ms la primera vez). Caché y precarga en la PR #221.
 
 ## Abierto (dueño → siguiente acción)
-1. JM → prueba de alumno con tu cuenta tras recargar: Entrenar, Por temas, Errores, Simulacro (aún no confirmada); incluye la escalera de niveles (mig. 32).
-2. JM → Supabase Auth: activar «Prevent use of leaked passwords» (puede requerir plan Pro).
-3. JM → Vercel > Domains: revisar por qué `bomberopro.com` da 502.
-4. Claude → cerrar el «oráculo»: `check_answer` devuelve la clave aunque falles (límite 300/h, 1.500/día). Revisar #153 (sesiones verificables) como base.
-5. JM + Claude → decidir #153 vs #179 (embudo de invitado + mig. 37 + arreglos B-H4/H6; hay que rebasarlo).
-6. Claude → fase 2 del tiempo: tiempo de estudio por sesión y tema (migración en `study_sessions`); fase 3: por concepto.
-7. JM → decidir cuándo desplegar #194 (retirar 124 preguntas, mig. 43/46) y #183 (registro por invitación, mig. 41).
-8. JM → decisión de negocio: no hay plan en el servidor; el tope de 150 preguntas/día del plan gratis no se aplica.
-9. Claude → igualar staging con producción antes de la próxima migración.
-10. JM + Claude → triaje de PRs viejos: #167 (CI roto), #103 (238 ficheros), #82, #98, #104, #107, #108, #117, #136.
-11. Claude → PR de `claude/herramientas-bloques` + `*_calidad.md`; enlazar preguntas antiguas con conceptos (hoy 17,5 %).
-12. JM → enlace Drive del Plan de Prevención CPEI (tema 37) y URL del BOP nº 135 (`convocatorias` filas 1 y 3: `borrador`, `bases_url` NULL); temas 38-40 sin documento original.
+1. JM → fusionar #216 (almacenamiento persistente) y #221 (rendimiento de «Temas»), ambas con CI en verde.
+2. JM → hacer privado el repositorio; cambiar la contraseña de aplicación de Gmail (se pegó en un chat); dar los correos de los 10 alumnos (Claude los añade a `piloto_invitados` en Supabase, nunca al repo).
+3. JM → decidir: tema 37, ficha CPEI-T39-SPE-006, distractores del simulacro de invitado, fuentes INSST, 8 fichas de T33-lote02 abiertas por criterio propio, 165 códigos INE del T36.
+4. Claude → plan por usuario (fases B y C del embudo): hoy `getPlan()` es global; el invitado ve T35-T40 completos (incluye T38-T40, material interno del CPEI). Depende del punto 2.
+5. Claude → correo de confirmación en español, botón «Entrar» visible en modo invitado, vista previa al compartir el enlace (og:image), logo único.
+6. Claude → aplicar 43, 46, 47, 49 y 50 en staging y, con «sí» de JM, en producción (orden y guardas en la #218).
+7. JM → limpiar PRs: 17 abiertas, 9 de octubre sin actividad (#82, #98, #103, #104, #107, #108, #117, #136, #167) y duplicadas (#210, #211).
 
 ## Decisiones cerradas (no reabrir sin dato nuevo)
-- Paleta A «Brasa y Noche»; estado = icono + texto + contorno, relleno sólido solo en acciones.
+- Paleta A «Brasa y Noche»; estado = icono + texto + contorno, relleno sólido solo en acciones. Marca: gota azul marino, blanca y amarilla en todas partes.
 - WhatsApp como tutor IA descartado (restricciones Meta 2026); Telegram o app de Claude.
-- Diseño: columna de lectura estrecha (4xl) + espaciado compacto en móvil; el estudio manda sobre el aire (JM 31/10).
-- Cronómetro: pequeño y ocultable, solo en Entrenamiento; tiempo activo con tope de 120 s; horas de estudio visibles al alumno (JM 31/10).
+- Piloto cerrado a 10 alumnos con lista de invitados; google/Apple fuera hasta configurar el proveedor (auth-solida retirada del paquete del 02/11).
+- Éxito del piloto (fijado antes de empezar): 8/10 activan en 24 h; 5/10 estudian el día 3; ≥3 sesiones por alumno la primera semana; <1 error de contenido por cada 100 fichas.

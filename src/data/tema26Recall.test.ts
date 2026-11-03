@@ -39,6 +39,7 @@ describe('tema 26 · fase 2 (texto oficial consolidado)', () => {
 
   it('se registra como mazo bajo demanda', async () => {
     expect(getRecallDeck('tema26').count).toBe(60);
-    expect(await loadRecallDeckCards('tema26')).toBe(TEMA26_RECALL_CARDS);
+    // La ficha no literal del apdo. 6.2 se filtra al cargar (recallCardReview.ts).
+    expect(await loadRecallDeckCards('tema26')).toHaveLength(59);
   });
 });

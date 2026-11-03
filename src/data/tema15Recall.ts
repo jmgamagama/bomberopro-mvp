@@ -111,19 +111,19 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
   {
     "id": "CPEI-T15-OF-3479E342",
     "orden": 110,
-    "concepto": "Según la NTP 221 del INSST, ¿por qué elemento viene determinada la capacidad de carga de una eslinga?",
-    "respuesta": "Por la de su elemento más débil",
-    "fuente": "NTP 221 (INSST), Capacidad de carga, pág. 5. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=5",
-    "localizacion": "NTP 221 (INSST), Capacidad de carga, pág. 5",
+    "concepto": "Según el anexo I del RD 1644/2008, ¿qué se tiene en cuenta para determinar la carga máxima de utilización de una eslinga de hilos múltiples?",
+    "respuesta": "El coeficiente de utilización del hilo más débil, el número de hilos y un factor de reducción que dependerá de la configuración de eslingado",
+    "fuente": "RD 1644/2008, anexo I, 4.1.2.5.e. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "localizacion": "RD 1644/2008, anexo I, 4.1.2.5.e",
     "apartado": "Eslingas y accesorios de elevación"
   },
   {
     "id": "CPEI-T15-OF-92BB32EF",
     "orden": 120,
-    "concepto": "Según la NTP 221 del INSST, ¿dónde debe estar marcada la capacidad de carga máxima?",
-    "respuesta": "En la eslinga, en lugar bien visible",
-    "fuente": "NTP 221 (INSST), Capacidad de carga, pág. 5. INSST, NTP 221: Eslingas de cables de acero (1988); texto íntegro oficial (1988): https://www.insst.es/documents/94886/7882308/ntp_221.pdf#page=5",
-    "localizacion": "NTP 221 (INSST), Capacidad de carga, pág. 5",
+    "concepto": "Según el anexo I del RD 1644/2008, ¿dónde deben colocarse las indicaciones de un accesorio de elevación, como su carga máxima de utilización?",
+    "respuesta": "En un lugar en el que no puedan desaparecer por causa del desgaste ni pongan en peligro la resistencia del accesorio",
+    "fuente": "RD 1644/2008, anexo I, 4.3.2. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "localizacion": "RD 1644/2008, anexo I, 4.3.2",
     "apartado": "Eslingas y accesorios de elevación"
   },
   {
@@ -255,10 +255,10 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
   {
     "id": "CPEI-T15-OF-35B8860D",
     "orden": 270,
-    "concepto": "Según la NTP 841 del INSST, ¿qué es el coeficiente de utilización (o de seguridad)?",
-    "respuesta": "Relación aritmética entre la carga mínima de rotura garantizada por el fabricante y la carga máxima de utilización marcada sobre la eslinga",
-    "fuente": "NTP 841 (INSST), Términos y definiciones, pág. 2. INSST, NTP 841: Eslingas textiles (I) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/841+web.pdf#page=2",
-    "localizacion": "NTP 841 (INSST), Términos y definiciones, pág. 2",
+    "concepto": "Según el anexo I del RD 1644/2008, ¿qué es el «coeficiente de utilización»?",
+    "respuesta": "Relación aritmética entre la carga que un elemento puede soportar, garantizada por el fabricante o su representante autorizado, y la carga máxima de utilización marcada en el elemento",
+    "fuente": "RD 1644/2008, anexo I, 4.1.1.c. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "localizacion": "RD 1644/2008, anexo I, 4.1.1.c",
     "apartado": "Eslingas y accesorios de elevación"
   },
   {
@@ -346,7 +346,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "id": "CPEI-T15-OF-017F0163",
     "orden": 370,
     "concepto": "Según la NTP 841 del INSST, ¿en qué rango de temperaturas son adecuadas las eslingas de poliéster y poliamida?",
-    "respuesta": "De –40°C a 100°C",
+    "respuesta": "–40°C a 100°C",
     "fuente": "NTP 841 (INSST), Temperatura, pág. 5. INSST, NTP 841: Eslingas textiles (I) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/841+web.pdf#page=5",
     "localizacion": "NTP 841 (INSST), Temperatura, pág. 5",
     "apartado": "Eslingas y accesorios de elevación"
@@ -391,7 +391,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "id": "CPEI-T15-OF-E125DC96",
     "orden": 420,
     "concepto": "Según la NTP 842 del INSST, ¿qué C.M.U. tiene una eslinga de 4 ramales?",
-    "respuesta": "La misma que para una eslinga de 3 ramales",
+    "respuesta": "La C.M.U. es la misma que para una eslinga de 3 ramales",
     "fuente": "NTP 842 (INSST), Carga máxima de utilización, pág. 2. INSST, NTP 842: Eslingas textiles (II) (2009); texto íntegro oficial (2009): https://www.insst.es/documents/94886/7842059/842+web.pdf#page=2",
     "localizacion": "NTP 842 (INSST), Carga máxima de utilización, pág. 2",
     "apartado": "Eslingas y accesorios de elevación"
@@ -554,7 +554,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 600,
     "concepto": "Según el RD 1644/2008, ¿qué es una «máquina»?",
     "respuesta": "Conjunto de partes o componentes vinculados entre sí, de los cuales al menos uno es móvil, asociados para una aplicación determinada, provisto o destinado a estar provisto de un sistema de accionamiento distinto de la fuerza humana o animal, aplicada directamente",
-    "fuente": "RD 1644/2008, Artículo 2. Definiciones, art. 2.2.a. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#a2",
+    "fuente": "RD 1644/2008, Artículo 2. Definiciones, art. 2.2.a. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#a2",
     "localizacion": "RD 1644/2008, Artículo 2. Definiciones, art. 2.2.a",
     "apartado": "Máquinas y herramientas portátiles"
   },
@@ -563,7 +563,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 610,
     "concepto": "Según el RD 1644/2008, ¿qué es una «cuasi máquina»?",
     "respuesta": "Conjunto que constituye casi una máquina, pero que no puede realizar por sí solo una aplicación determinada",
-    "fuente": "RD 1644/2008, Artículo 2. Definiciones, art. 2.2.g. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#a2",
+    "fuente": "RD 1644/2008, Artículo 2. Definiciones, art. 2.2.g. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#a2",
     "localizacion": "RD 1644/2008, Artículo 2. Definiciones, art. 2.2.g",
     "apartado": "Máquinas y herramientas portátiles"
   },
@@ -572,7 +572,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 620,
     "concepto": "Según el RD 1644/2008, ¿qué es un «accesorio de elevación»?",
     "respuesta": "Componente o equipo que no es parte integrante de la máquina de elevación, que permita la prensión de la carga",
-    "fuente": "RD 1644/2008, Artículo 2. Definiciones, art. 2.2.d. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#a2",
+    "fuente": "RD 1644/2008, Artículo 2. Definiciones, art. 2.2.d. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#a2",
     "localizacion": "RD 1644/2008, Artículo 2. Definiciones, art. 2.2.d",
     "apartado": "Eslingas y accesorios de elevación"
   },
@@ -581,7 +581,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 630,
     "concepto": "Según el RD 1644/2008, ¿qué elementos se consideran también accesorios de elevación?",
     "respuesta": "Las eslingas y sus componentes",
-    "fuente": "RD 1644/2008, Artículo 2. Definiciones, art. 2.2.d. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#a2",
+    "fuente": "RD 1644/2008, Artículo 2. Definiciones, art. 2.2.d. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#a2",
     "localizacion": "RD 1644/2008, Artículo 2. Definiciones, art. 2.2.d",
     "apartado": "Eslingas y accesorios de elevación"
   },
@@ -590,7 +590,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 640,
     "concepto": "Según el anexo IV del RD 1644/2008, ¿qué sierras para la madera figuran entre las máquinas con procedimiento especial de evaluación?",
     "respuesta": "Sierras portátiles de cadena para trabajar la madera",
-    "fuente": "RD 1644/2008, anexo IV, punto 8. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#aniv",
+    "fuente": "RD 1644/2008, anexo IV, punto 8. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#aniv",
     "localizacion": "RD 1644/2008, anexo IV, punto 8",
     "apartado": "Máquinas y herramientas portátiles"
   },
@@ -599,7 +599,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 650,
     "concepto": "Según el anexo III del RD 1644/2008, ¿qué dimensión vertical mínima deben tener los elementos del marcado CE?",
     "respuesta": "No podrá ser inferior a 5 mm",
-    "fuente": "RD 1644/2008, anexo III. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#aniii",
+    "fuente": "RD 1644/2008, anexo III. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#aniii",
     "localizacion": "RD 1644/2008, anexo III",
     "apartado": "Máquinas y herramientas portátiles"
   },
@@ -608,7 +608,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 660,
     "concepto": "Según el anexo I del RD 1644/2008, ¿qué fecha debe marcarse en cada máquina?",
     "respuesta": "El año en el que finaliza el proceso de fabricación",
-    "fuente": "RD 1644/2008, anexo I, 1.7.3. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "fuente": "RD 1644/2008, anexo I, 1.7.3. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
     "localizacion": "RD 1644/2008, anexo I, 1.7.3",
     "apartado": "Máquinas y herramientas portátiles"
   },
@@ -617,7 +617,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 670,
     "concepto": "Según el anexo I del RD 1644/2008, ¿qué riesgos no deben presentar las máquinas portátiles al soltar los medios de prensión?",
     "respuesta": "Riesgos de puesta en marcha intempestiva ni de seguir funcionando después de que el operador haya soltado los medios de prensión",
-    "fuente": "RD 1644/2008, anexo I, 2.2.1. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "fuente": "RD 1644/2008, anexo I, 2.2.1. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
     "localizacion": "RD 1644/2008, anexo I, 2.2.1",
     "apartado": "Máquinas y herramientas portátiles"
   },
@@ -626,7 +626,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 680,
     "concepto": "Según el anexo I del RD 1644/2008, ¿a partir de qué valor se indica en el manual el total de vibraciones mano-brazo de una máquina portátil?",
     "respuesta": "Cuando excedan de 2,5 m/s2",
-    "fuente": "RD 1644/2008, anexo I, 2.2.1.1. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "fuente": "RD 1644/2008, anexo I, 2.2.1.1. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
     "localizacion": "RD 1644/2008, anexo I, 2.2.1.1",
     "apartado": "Máquinas y herramientas portátiles"
   },
@@ -635,7 +635,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 690,
     "concepto": "Según el anexo I del RD 1644/2008, como regla general, ¿qué coeficiente de utilización tiene la combinación de cable y terminación?",
     "respuesta": "Dicho coeficiente será igual a 5",
-    "fuente": "RD 1644/2008, anexo I, 4.1.2.5. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "fuente": "RD 1644/2008, anexo I, 4.1.2.5. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
     "localizacion": "RD 1644/2008, anexo I, 4.1.2.5",
     "apartado": "Eslingas y accesorios de elevación"
   },
@@ -644,7 +644,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 700,
     "concepto": "Según el anexo I del RD 1644/2008, ¿qué requisito de eslabón deben cumplir las cadenas soldadas de las máquinas de elevación?",
     "respuesta": "Del tipo de eslabones cortos",
-    "fuente": "RD 1644/2008, anexo I, 4.1.2.5. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "fuente": "RD 1644/2008, anexo I, 4.1.2.5. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
     "localizacion": "RD 1644/2008, anexo I, 4.1.2.5",
     "apartado": "Eslingas y accesorios de elevación"
   },
@@ -653,7 +653,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 710,
     "concepto": "Según el anexo I del RD 1644/2008, ¿qué coeficiente de utilización tienen como regla general los cables o abrazaderas de fibras textiles?",
     "respuesta": "Será igual a 7 siempre y cuando los materiales empleados sean de excelente calidad comprobada",
-    "fuente": "RD 1644/2008, anexo I, 4.1.2.5. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "fuente": "RD 1644/2008, anexo I, 4.1.2.5. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
     "localizacion": "RD 1644/2008, anexo I, 4.1.2.5",
     "apartado": "Eslingas y accesorios de elevación"
   },
@@ -662,7 +662,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 720,
     "concepto": "Según el anexo I del RD 1644/2008, como regla general, ¿qué coeficiente de utilización tienen los elementos metálicos de una eslinga?",
     "respuesta": "Dicho coeficiente será igual a 4",
-    "fuente": "RD 1644/2008, anexo I, 4.1.2.5. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "fuente": "RD 1644/2008, anexo I, 4.1.2.5. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
     "localizacion": "RD 1644/2008, anexo I, 4.1.2.5",
     "apartado": "Eslingas y accesorios de elevación"
   },
@@ -671,7 +671,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 730,
     "concepto": "Según el anexo I del RD 1644/2008, si el marcado de un accesorio de elevación es físicamente imposible, ¿dónde deben figurar sus indicaciones?",
     "respuesta": "En una placa u otro medio equivalente y estar firmemente fijadas al accesorio",
-    "fuente": "RD 1644/2008, anexo I, 4.3.2. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "fuente": "RD 1644/2008, anexo I, 4.3.2. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
     "localizacion": "RD 1644/2008, anexo I, 4.3.2",
     "apartado": "Eslingas y accesorios de elevación"
   },
@@ -680,7 +680,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 740,
     "concepto": "Según el anexo I del RD 1644/2008, ¿qué coeficiente debe indicar el folleto de instrucciones de cada accesorio de elevación?",
     "respuesta": "El coeficiente de prueba estática utilizado",
-    "fuente": "RD 1644/2008, anexo I, 4.4.1. BOE-A-2008-16387, texto consolidado (últ. actualización 01/06/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
+    "fuente": "RD 1644/2008, anexo I, 4.4.1. BOE-A-2008-16387, texto consolidado (últ. actualización 10/04/2026): https://www.boe.es/buscar/act.php?id=BOE-A-2008-16387#ani",
     "localizacion": "RD 1644/2008, anexo I, 4.4.1",
     "apartado": "Eslingas y accesorios de elevación"
   },
@@ -743,7 +743,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 810,
     "concepto": "Según la ITC-BT-40 del REBT, ¿qué se entiende por instalaciones generadoras?",
     "respuesta": "Las destinadas a transformar cualquier tipo de energía no eléctrica en energía eléctrica",
-    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 1. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 1. BOE-A-2002-18099, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
     "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 1",
     "apartado": "Generadores eléctricos"
   },
@@ -752,7 +752,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 820,
     "concepto": "Según la ITC-BT-40 del REBT, ¿qué son las instalaciones generadoras aisladas?",
     "respuesta": "Aquellas en las que no puede existir conexión eléctrica alguna con la Red de Distribución Pública",
-    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 2.a. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 2.a. BOE-A-2002-18099, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
     "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 2.a",
     "apartado": "Generadores eléctricos"
   },
@@ -761,7 +761,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 830,
     "concepto": "Según la ITC-BT-40 del REBT, ¿qué son las instalaciones generadoras asistidas?",
     "respuesta": "Aquellas en las que existe una conexión con la Red de Distribución Pública, pero sin que los generadores puedan estar trabajando en paralelo con ella",
-    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 2.b. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 2.b. BOE-A-2002-18099, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
     "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 2.b",
     "apartado": "Generadores eléctricos"
   },
@@ -770,7 +770,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 840,
     "concepto": "Según la ITC-BT-40 del REBT, ¿qué son las instalaciones generadoras interconectadas?",
     "respuesta": "Las que están trabajando normalmente en paralelo con la Red de Distribución Pública",
-    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 2.c. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 2.c. BOE-A-2002-18099, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
     "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 2.c",
     "apartado": "Generadores eléctricos"
   },
@@ -779,7 +779,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 850,
     "concepto": "Según la ITC-BT-40 del REBT, ¿cómo deben estar los locales donde están instalados los motores térmicos?",
     "respuesta": "Suficientemente ventilados",
-    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 3. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 3. BOE-A-2002-18099, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
     "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 3",
     "apartado": "Generadores eléctricos"
   },
@@ -788,7 +788,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 860,
     "concepto": "Según la ITC-BT-40 del REBT, ¿de qué material serán los conductos de salida de los gases de combustión?",
     "respuesta": "De material incombustible",
-    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 3. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 3. BOE-A-2002-18099, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
     "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 3",
     "apartado": "Generadores eléctricos"
   },
@@ -797,7 +797,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 870,
     "concepto": "Según la ITC-BT-40 del REBT, ¿qué protecciones deben incorporar los generadores portátiles?",
     "respuesta": "Las protecciones generales contra sobreintensidades y contactos directos e indirectos necesarios para la instalación que alimenten",
-    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 4.1. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 4.1. BOE-A-2002-18099, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
     "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 4.1",
     "apartado": "Generadores eléctricos"
   },
@@ -806,7 +806,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 880,
     "concepto": "Según la ITC-BT-40 del REBT, en las instalaciones asistidas, ¿qué debe impedir el sistema de conmutación?",
     "respuesta": "El acoplamiento simultáneo a ambas fuentes de alimentación",
-    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 4.2. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 4.2. BOE-A-2002-18099, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
     "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 4.2",
     "apartado": "Generadores eléctricos"
   },
@@ -815,7 +815,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 890,
     "concepto": "Según la ITC-BT-40 del REBT, ¿qué generadores pueden realizar maniobras de transferencia de carga sin corte?",
     "respuesta": "Los generadores de potencia superior a 100 kVA",
-    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 4.2. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 4.2. BOE-A-2002-18099, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
     "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 4.2",
     "apartado": "Generadores eléctricos"
   },
@@ -824,7 +824,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 900,
     "concepto": "Según la ITC-BT-40 del REBT, ¿para qué intensidad deben dimensionarse los cables de conexión?",
     "respuesta": "Para una intensidad no inferior al 125% de la máxima intensidad del generador",
-    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 5. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 5. BOE-A-2002-18099, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
     "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 5",
     "apartado": "Generadores eléctricos"
   },
@@ -833,7 +833,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 910,
     "concepto": "Según la ITC-BT-40 del REBT, si trabajan varios generadores en paralelo en una instalación aislada, ¿cómo se conecta a tierra la unión de sus neutros?",
     "respuesta": "En un solo punto",
-    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 8.2.1. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 8.2.1. BOE-A-2002-18099, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
     "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 8.2.1",
     "apartado": "Generadores eléctricos"
   },
@@ -842,7 +842,7 @@ export const TEMA15_RECALL_CARDS: Tema15RecallCard[] = [
     "orden": 920,
     "concepto": "Según la ITC-BT-40 del REBT, ¿cuándo se consideran independientes dos redes de tierra?",
     "respuesta": "Cuando el paso de la corriente máxima de defecto por una de ellas, no provoca en la otra diferencias de tensión, respecto a la tierra de referencia, superiores a 50 V",
-    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 8.2.1. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
+    "fuente": "REBT (RD 842/2002), ITC-BT-40, apdo. 8.2.1. BOE-A-2002-18099, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-40",
     "localizacion": "REBT (RD 842/2002), ITC-BT-40, apdo. 8.2.1",
     "apartado": "Generadores eléctricos"
   }

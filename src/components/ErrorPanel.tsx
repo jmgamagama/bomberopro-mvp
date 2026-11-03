@@ -4,6 +4,7 @@
  */
 
 import React from 'react';
+import { conceptTopicLabel } from '../utils/conceptLabels';
 import { AlertTriangle, Play, RefreshCw, Sparkles, BookOpen, Skull, CheckCircle2 } from 'lucide-react';
 import { MemoryState, Microconcept, Question } from '../types';
 
@@ -46,9 +47,9 @@ export default function ErrorPanel({
             <AlertTriangle className="w-5 h-5" />
           </div>
           <div>
-            <h2 className="text-xl font-bold text-slate-800">Saneamiento de Errores Críticos</h2>
+            <h2 className="text-xl font-bold text-slate-800">Errores críticos</h2>
             <p className="text-xs text-slate-500">
-              Detector cognitivo de brechas de memoria y falsos dominios. Ataca estos puntos prioritariamente.
+              Lo que has fallado, empezando por lo que creías saber. Repásalo primero.
             </p>
           </div>
         </div>
@@ -84,9 +85,9 @@ export default function ErrorPanel({
                     id={`error-card-${state.microconcept_id}`}
                   >
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="text-xs font-bold text-slate-700 font-mono">{state.microconcept_id}</span>
+                      <span className="text-xs font-bold text-slate-700">{conceptTopicLabel(state.microconcept_id, questions)}</span>
                       <span className="text-xs font-semibold text-rose-600 bg-rose-50 border border-rose-100 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                        Falso Dominio
+                        Falso dominio
                       </span>
                     </div>
 
@@ -96,7 +97,7 @@ export default function ErrorPanel({
                     </p>
 
                     <p className="text-xs text-slate-500 leading-normal">
-                      <strong>Diagnóstico de Oposición:</strong> Creías que dominabas este punto (marcaste confianza Alta) pero cometiste un error en la pregunta literal. Es sumamente peligroso para el examen.
+                      <strong>Diagnóstico:</strong> Creías que dominabas este punto (marcaste confianza Alta) pero cometiste un error en la pregunta literal. Es sumamente peligroso para el examen.
                     </p>
 
                     <div className="pt-2 flex flex-col items-start gap-3 border-t border-slate-100 sm:flex-row sm:items-center sm:justify-between">
@@ -151,9 +152,9 @@ export default function ErrorPanel({
                     id={`weak-card-${state.microconcept_id}`}
                   >
                     <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="text-xs font-bold text-slate-700 font-mono">{state.microconcept_id}</span>
+                      <span className="text-xs font-bold text-slate-700">{conceptTopicLabel(state.microconcept_id, questions)}</span>
                       <span className="text-xs font-semibold text-amber-600 bg-amber-50 border border-amber-100 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                        Débil ({state.recent_errors_count} fallos)
+                        Débil ({state.recent_errors_count} {state.recent_errors_count === 1 ? 'fallo' : 'fallos'})
                       </span>
                     </div>
 

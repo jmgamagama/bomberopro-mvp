@@ -1,0 +1,253 @@
+{
+ "fecha": "2026-11-02",
+ "script": "scripts/verificar-t16-lote02.py",
+ "criterio": "respuesta entera y seguida en la página citada del PDF de la UIT (o siguiendo en la siguiente), tras normalizar; la UIT es fuente aceptada desde el 02/11/2026, así que se abren las literales",
+ "fuentes": {
+  "RR2024_vol1": {
+   "url": "https://search.itu.int/history/HistoryDigitalCollectionDocLibrary/1.49.48.es.301.pdf",
+   "sha256": "4a7b2417fedf0a321872f445beda5a02d7f715265fd2fc8f1729cb93e259afec",
+   "aceptada": true,
+   "aceptada_por": "José, 02/11/2026"
+  },
+  "BOE-A-2026-15661": {
+   "norma": "Orden TDF/732/2026, de 10 de julio, Cuadro Nacional de Atribución de Frecuencias (BOE nº 173, 17/07/2026)",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2026-15661",
+   "aceptada": true,
+   "sha256_texto_xml": "6618e0d1e31e7b7b6412f829f6330ab9a4804a26202264de4cd40e6685f5ea52"
+  },
+  "BOE-A-2022-10757": {
+   "norma": "Ley 11/2022, de 28 de junio, General de Telecomunicaciones",
+   "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2022-10757",
+   "aceptada": true,
+   "sha256_texto_xml": "0ef99fee54d12191c7295d87d0cb994a9baf300c16f2d83770193c7d3abe11c1"
+  }
+ },
+ "resumen": {
+  "fichas": 21,
+  "literal_rr": 21,
+  "literal_boe": 5,
+  "abiertas": 21
+ },
+ "fichas": [
+  {
+   "id": "CPEI-T16-OF-7BE04C6C",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿qué es la telecomunicación?",
+   "respuesta": "Toda transmisión, emisión o recepción de signos, señales, escritos, imágenes, sonidos o informaciones de cualquier naturaleza por hilo, radioelectricidad, medios ópticos u otros sistemas electromagnéticos",
+   "rr": "literal",
+   "pagina_rr": 18,
+   "boe_literal": [
+    "BOE-A-2022-10757"
+   ],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  },
+  {
+   "id": "CPEI-T16-OF-BAB78D56",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿qué significa el término general «radio»?",
+   "respuesta": "Término general que se aplica al empleo de las ondas radioeléctricas",
+   "rr": "literal",
+   "pagina_rr": 18,
+   "boe_literal": [],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  },
+  {
+   "id": "CPEI-T16-OF-184601F3",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿por debajo de qué frecuencia se fijan convencionalmente las ondas radioeléctricas?",
+   "respuesta": "Por debajo de 3 000 GHz",
+   "rr": "literal",
+   "pagina_rr": 18,
+   "boe_literal": [],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  },
+  {
+   "id": "CPEI-T16-OF-C3813B15",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿cómo se propagan las ondas radioeléctricas u ondas hertzianas?",
+   "respuesta": "Se propagan por el espacio sin guía artificial",
+   "rr": "literal",
+   "pagina_rr": 18,
+   "boe_literal": [
+    "BOE-A-2022-10757"
+   ],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  },
+  {
+   "id": "CPEI-T16-OF-E416C315",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿qué es la radiogoniometría?",
+   "respuesta": "Radiodeterminación que utiliza la recepción de ondas radioeléctricas para determinar la dirección de una estación o de un objeto",
+   "rr": "literal",
+   "pagina_rr": 19,
+   "boe_literal": [],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  },
+  {
+   "id": "CPEI-T16-OF-48B8C97A",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿qué es el servicio fijo?",
+   "respuesta": "Servicio de radiocomunicación entre puntos fijos determinados",
+   "rr": "literal",
+   "pagina_rr": 19,
+   "boe_literal": [
+    "BOE-A-2026-15661"
+   ],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  },
+  {
+   "id": "CPEI-T16-OF-DFF2402C",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿qué es el servicio móvil?",
+   "respuesta": "Servicio de radiocomunicación entre estaciones móviles y estaciones terrestres o entre estaciones móviles",
+   "rr": "literal",
+   "pagina_rr": 20,
+   "boe_literal": [
+    "BOE-A-2026-15661"
+   ],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  },
+  {
+   "id": "CPEI-T16-OF-CBEBAB08",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿qué es el servicio móvil terrestre?",
+   "respuesta": "Servicio móvil entre estaciones de base y estaciones móviles terrestres o entre estaciones móviles terrestres",
+   "rr": "literal",
+   "pagina_rr": 20,
+   "boe_literal": [],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  },
+  {
+   "id": "CPEI-T16-OF-41ECE14A",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿qué es una estación?",
+   "respuesta": "Uno o más transmisores o receptores, o una combinación de transmisores y receptores, incluyendo las instalaciones accesorias, necesarios para asegurar un servicio de radiocomunicación",
+   "rr": "literal",
+   "pagina_rr": 23,
+   "boe_literal": [],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  },
+  {
+   "id": "CPEI-T16-OF-DDD8BF38",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿qué es una estación móvil?",
+   "respuesta": "Estación del servicio móvil destinada a ser utilizada en movimiento o mientras esté detenida en puntos no determinados",
+   "rr": "literal",
+   "pagina_rr": 24,
+   "boe_literal": [],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  },
+  {
+   "id": "CPEI-T16-OF-BC7BA883",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿qué es una estación de base?",
+   "respuesta": "Estación terrestre del servicio móvil terrestre",
+   "rr": "literal",
+   "pagina_rr": 24,
+   "boe_literal": [],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  },
+  {
+   "id": "CPEI-T16-OF-B89B424C",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿qué es la explotación símplex?",
+   "respuesta": "Modo de explotación que permite transmitir alternativamente, en uno u otro sentido de un canal de telecomunicación, por ejemplo, mediante control manual",
+   "rr": "literal",
+   "pagina_rr": 28,
+   "boe_literal": [],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  },
+  {
+   "id": "CPEI-T16-OF-E435F115",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿en qué consiste la explotación dúplex?",
+   "respuesta": "Simultáneamente en los dos sentidos de un canal de telecomunicación",
+   "rr": "literal",
+   "pagina_rr": 28,
+   "boe_literal": [],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  },
+  {
+   "id": "CPEI-T16-OF-7617EBEF",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿qué es la explotación semidúplex?",
+   "respuesta": "Modo de explotación símplex en un extremo del circuito de telecomunicación y de explotación dúplex en el otro",
+   "rr": "literal",
+   "pagina_rr": 28,
+   "boe_literal": [],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  },
+  {
+   "id": "CPEI-T16-OF-9C110C92",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿cuántas frecuencias requieren por lo general la explotación dúplex y la semidúplex?",
+   "respuesta": "Requieren el empleo de dos frecuencias",
+   "rr": "literal",
+   "pagina_rr": 28,
+   "boe_literal": [],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  },
+  {
+   "id": "CPEI-T16-OF-9F233450",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿con cuántas frecuencias puede hacerse la explotación símplex?",
+   "respuesta": "Con una o dos frecuencias",
+   "rr": "literal",
+   "pagina_rr": 28,
+   "boe_literal": [],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  },
+  {
+   "id": "CPEI-T16-OF-6981A8E5",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿qué gama de frecuencias corresponde a la banda VHF?",
+   "respuesta": "30 a 300 MHz",
+   "rr": "literal",
+   "pagina_rr": 36,
+   "boe_literal": [],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  },
+  {
+   "id": "CPEI-T16-OF-4B99C946",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿qué gama de frecuencias corresponde a la banda UHF?",
+   "respuesta": "300 a 3 000 MHz",
+   "rr": "literal",
+   "pagina_rr": 36,
+   "boe_literal": [],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  },
+  {
+   "id": "CPEI-T16-OF-5955A3BD",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿qué gama de frecuencias corresponde a la banda HF?",
+   "respuesta": "3 a 30 MHz",
+   "rr": "literal",
+   "pagina_rr": 36,
+   "boe_literal": [],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  },
+  {
+   "id": "CPEI-T16-OF-ECE94290",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿cómo se denominan, en la subdivisión métrica, las ondas de la banda VHF?",
+   "respuesta": "Ondas métricas",
+   "rr": "literal",
+   "pagina_rr": 36,
+   "boe_literal": [
+    "BOE-A-2026-15661"
+   ],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  },
+  {
+   "id": "CPEI-T16-OF-30A9D281",
+   "concepto": "Según el Reglamento de Radiocomunicaciones de la UIT, ¿cómo se denominan, en la subdivisión métrica, las ondas de la banda UHF?",
+   "respuesta": "Ondas decimétricas",
+   "rr": "literal",
+   "pagina_rr": 36,
+   "boe_literal": [],
+   "fuente_aceptada": true,
+   "estado": "abierta"
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "id": "DOE-2019040205",
+ "titulo": "Plan Especial de Protección Civil de la Comunidad Autónoma de Extremadura sobre transportes de mercancías peligrosas por carretera y ferrocarril (TRANSCAEX)",
+ "pdf": "https://www.juntaex.es/documents/77055/406857/TRANSCAEX.pdf",
+ "pdf_doe": "https://doe.juntaex.es/pdfs/doe/2019/2470o/19040205.pdf",
+ "publicacion": "Decreto 189/2019, de 15 de octubre (DOE n.º 247, de 26/12/2019)",
+ "version": "PDF del plan de 25/03/2019",
+ "comprobado": "01/11/2026",
+ "busqueda": "El decreto (art. único.2) remite el texto íntegro del plan a la web oficial de la Dirección General de Protección Civil y Emergencias; el texto sale de ese PDF. Ficha ELI del decreto en doe.juntaex.es: solo la versión original publicada, sin versiones consolidadas ni modificaciones. Búsqueda de un decreto posterior que actualice o derogue el TRANSCAEX: ninguno localizado. El PDF de juntaex.es es el mismo fichero (sha256) con el que se hicieron las fichas.",
+ "identificador": "DOE-2019040205",
+ "origen": "doe",
+ "url": "https://www.juntaex.es/documents/77055/406857/TRANSCAEX.pdf",
+ "sha256_pdf": "89538c8a2e75031a841980f64214fd5f98f8aac3fe602339b72370b7ea4341a4",
+ "n_bloques": 56,
+ "extraido": "2026-11-01"
+}

@@ -43,7 +43,7 @@ export default function OrdenaPasos({ onNavigateHome, onBackToDaily }: OrdenaPas
       {phase === 'pick' && (
         <section className="space-y-5 rounded-2xl border border-slate-100 bg-white p-6 shadow-sm sm:p-8">
           <div className="flex items-start gap-3">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-violet-50 text-violet-600">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600">
               <ListOrdered className="h-6 w-6" aria-hidden="true" />
             </div>
             <div>
@@ -65,7 +65,7 @@ export default function OrdenaPasos({ onNavigateHome, onBackToDaily }: OrdenaPas
                   <button
                     type="button"
                     onClick={() => startDrill(card)}
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-left transition hover:border-violet-200 hover:bg-violet-50"
+                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-left transition hover:border-indigo-200 hover:bg-indigo-50"
                   >
                     <span className="block text-sm font-semibold text-slate-800">{card.titulo}</span>
                     <span className="mt-1 block text-[11px] text-slate-500">
@@ -93,7 +93,7 @@ export default function OrdenaPasos({ onNavigateHome, onBackToDaily }: OrdenaPas
       {phase === 'drill' && active && (
         <section className="space-y-5 rounded-2xl border border-slate-100 bg-white p-6 shadow-sm sm:p-8">
           <div>
-            <p className="text-xs font-bold uppercase tracking-wider text-violet-600">Ordena los pasos</p>
+            <p className="text-xs font-bold uppercase tracking-wider text-indigo-600">Ordena los pasos</p>
             <h2 className="mt-1 text-lg font-bold text-slate-800">{active.titulo}</h2>
             <p className="mt-1 text-[11px] text-slate-500">Fuente: {active.fuente}</p>
           </div>
@@ -104,7 +104,7 @@ export default function OrdenaPasos({ onNavigateHome, onBackToDaily }: OrdenaPas
                 key={`${active.id}-${idx}-${paso.slice(0, 24)}`}
                 className="flex items-start gap-2 rounded-xl border border-slate-200 bg-slate-50 p-3"
               >
-                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-violet-100 text-xs font-bold text-violet-700">
+                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-indigo-100 text-xs font-bold text-indigo-700">
                   {idx + 1}
                 </span>
                 <p className="flex-1 text-sm leading-snug text-slate-800">{paso}</p>
@@ -137,7 +137,7 @@ export default function OrdenaPasos({ onNavigateHome, onBackToDaily }: OrdenaPas
               type="button"
               id="btn-check-pasos"
               onClick={checkOrder}
-              className="min-h-11 rounded-xl bg-violet-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-violet-700"
+              className="min-h-11 rounded-xl bg-indigo-600 px-5 py-2.5 text-sm font-bold text-white hover:bg-indigo-700"
             >
               Comprobar orden
             </button>
@@ -192,7 +192,7 @@ export default function OrdenaPasos({ onNavigateHome, onBackToDaily }: OrdenaPas
             <button
               type="button"
               onClick={() => setPhase('pick')}
-              className="min-h-11 rounded-xl bg-violet-600 px-4 py-2 text-sm font-semibold text-white hover:bg-violet-700"
+              className="min-h-11 rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-700"
             >
               Otra ficha
             </button>

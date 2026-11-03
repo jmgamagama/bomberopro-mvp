@@ -1,0 +1,98 @@
+{
+ "id": "DOE-2019040205",
+ "titulo": "Plan Especial de Protección Civil de la Comunidad Autónoma de Extremadura sobre transportes de mercancías peligrosas por carretera y ferrocarril (TRANSCAEX)",
+ "pdf": "https://www.juntaex.es/documents/77055/406857/TRANSCAEX.pdf",
+ "pdf_doe": "https://doe.juntaex.es/pdfs/doe/2019/2470o/19040205.pdf",
+ "publicacion": "Decreto 189/2019, de 15 de octubre (DOE n.º 247, de 26/12/2019)",
+ "version": "PDF del plan de 25/03/2019",
+ "claves": [
+  "Decreto 189/2019"
+ ],
+ "busqueda": "El decreto (art. único.2) remite el texto íntegro del plan a la web oficial de la Dirección General de Protección Civil y Emergencias; el texto sale de ese PDF. Ficha ELI del decreto en doe.juntaex.es: solo la versión original publicada, sin versiones consolidadas ni modificaciones. Búsqueda de un decreto posterior que actualice o derogue el TRANSCAEX: ninguno localizado. El PDF de juntaex.es es el mismo fichero (sha256) con el que se hicieron las fichas.",
+ "capitulo": "^(?:\\d\\.)?CAP[ÍI]TULO ([IVX]+)\\b",
+ "tramos": [
+  {
+   "paginas": [
+    8,
+    13
+   ],
+   "secciones": [
+    "1.1",
+    "1.2"
+   ],
+   "fin": "1.3"
+  },
+  {
+   "paginas": [
+    127,
+    150
+   ],
+   "secciones": [
+    "4.1",
+    "4.2",
+    "4.3",
+    "4.3.1",
+    "4.3.2",
+    "4.3.3",
+    "4.3.4",
+    "4.3.5",
+    "4.4",
+    "4.4.1",
+    "4.4.2",
+    "4.4.3",
+    "4.4.4",
+    "4.4.4.1",
+    "4.4.4.2",
+    "4.4.4.3",
+    "4.4.4.4",
+    "4.4.4.5",
+    "4.4.4.6",
+    "4.5"
+   ]
+  },
+  {
+   "paginas": [
+    151,
+    186
+   ],
+   "secciones": [
+    "5.1",
+    "5.2",
+    "5.3",
+    "5.3.1",
+    "5.3.2",
+    "5.4",
+    "5.4.1",
+    "5.4.2",
+    "5.4.3",
+    "5.4.3.1",
+    "5.4.3.2",
+    "5.4.3.3",
+    "5.5",
+    "5.5.1",
+    "5.5.2",
+    "5.5.3",
+    "5.5.4",
+    "5.5.5",
+    "5.6",
+    "5.7",
+    "5.7.1",
+    "5.7.1.1",
+    "5.7.1.2",
+    "5.7.1.3",
+    "5.7.1.4",
+    "5.7.1.5",
+    "5.7.1.6",
+    "5.7.1.7",
+    "5.7.2",
+    "5.7.3",
+    "5.8",
+    "5.8.1",
+    "5.8.2",
+    "5.8.3"
+   ],
+   "fin": "6.1"
+  }
+ ],
+ "comprobado": "01/11/2026"
+}

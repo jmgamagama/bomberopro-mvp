@@ -122,7 +122,7 @@ export const TEMA33_LOTE02_RECALL_CARDS: Tema33Lote02RecallCard[] = [
     "id": "CPEI-T33-OF-054DF2E1",
     "orden": 120,
     "concepto": "Según la tabla I del anexo II del RIPCI, en las BIE, ¿qué se comprueba cada tres meses además de su señalización y accesibilidad?",
-    "respuesta": "La presión, por lectura del manómetro, y que todos los componentes (lanza, válvula, manguera…) no presentan daños aparentes y están en buen estado",
+    "respuesta": "La presión, por lectura del manómetro, y que todos los componentes (lanza, válvula, manguera…) no presentan muestras aparentes de daños y están en buen estado",
     "fuente": "RD 513/2017 (RIPCI), anexo II, tabla I, BIE (cada tres meses). BOE-A-2017-6606, texto consolidado (últ. actualización 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-3",
     "localizacion": "RD 513/2017 (RIPCI), anexo II, tabla I, BIE (cada tres meses)",
     "apartado": "Tabla I: mantenimiento trimestral y semestral (RIPCI, anexo II)"

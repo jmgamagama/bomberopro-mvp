@@ -1,6 +1,6 @@
 # Real Decreto 1215/1997, de 18 de julio, por el que se establecen las disposiciones mínimas de seguridad y salud para la utilización por los trabajadores de los equipos de trabajo
 
-Texto consolidado del BOE (BOE-A-1997-17824). Última actualización publicada por el BOE: 18/12/2025.
+Texto consolidado del BOE (BOE-A-1997-17824). Última actualización publicada por el BOE: 13/11/2004.
 Fuente: https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824
 Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
 

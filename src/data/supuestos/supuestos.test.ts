@@ -16,7 +16,7 @@ import {
   leerUltimosResultados,
   parseNumeroUsuario,
 } from './supuestosCorreccion';
-import { REVIEWED_DECKS } from '../recallReview';
+import { REVIEWED_DECKS } from '../recallReviewMotivos';
 import { setRevisionViewer } from '../../utils/revisionAccess';
 import type { PreguntaCalculo, Supuesto } from './supuestosTypes';
 

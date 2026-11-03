@@ -56,7 +56,24 @@
             "Capítulo cuarto del Título I (garantías)."
           ],
           "correcta": 0,
-          "explicacion": "El Capítulo tercero (arts. 39 a 52) recoge los principios rectores de la política social y económica."
+          "explicacion": "El Capítulo tercero (arts. 39 a 52) recoge los principios rectores de la política social y económica.",
+          "respaldo": [
+            {
+              "articulo": "a39",
+              "ubicacion": [
+                "ti",
+                "ctercero"
+              ]
+            },
+            {
+              "articulo": "a38",
+              "ubicacion": [
+                "ti",
+                "csegundo",
+                "s2"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -96,6 +113,7 @@
             "Menores de edad."
           ],
           "correcta": 0,
+          "cita": "Los poderes públicos aseguran, asimismo, la protección integral de los hijos, iguales éstos ante la ley con independencia de su filiación, y de las madres, cualquiera que sea su estado civil.",
           "explicacion": "Art. 39.2 CE."
         },
         {
@@ -107,6 +125,7 @@
             "Desde su inscripción en el Registro Civil."
           ],
           "correcta": 0,
+          "cita": "Los poderes públicos aseguran, asimismo, la protección integral de los hijos, iguales éstos ante la ley con independencia de su filiación, y de las madres, cualquiera que sea su estado civil.",
           "explicacion": "Art. 39.2 CE: «iguales éstos ante la ley con independencia de su filiación»."
         }
       ]
@@ -158,6 +177,7 @@
             "Solo durante su minoría de edad, sin excepción."
           ],
           "correcta": 0,
+          "cita": "Los padres deben prestar asistencia de todo orden a los hijos habidos dentro o fuera del matrimonio, durante su minoría de edad y en los demás casos en que legalmente proceda.",
           "explicacion": "Art. 39.3 CE."
         }
       ]
@@ -243,6 +263,7 @@
             "La economía de mercado."
           ],
           "correcta": 0,
+          "cita": "Los poderes públicos promoverán las condiciones favorables para el progreso social y económico y para una distribución de la renta regional y personal más equitativa, en el marco de una política de estabilidad económica.",
           "explicacion": "Art. 40.1 CE: «en el marco de una política de estabilidad económica». La economía de mercado es el marco de la libertad de empresa (art. 38)."
         },
         {
@@ -293,6 +314,7 @@
             "El salario mínimo interprofesional y los permisos por cuidado de hijos."
           ],
           "correcta": 0,
+          "cita": "Asimismo, los poderes públicos fomentarán una política que garantice la formación y readaptación profesionales; velarán por la seguridad e higiene en el trabajo y garantizarán el descanso necesario, mediante la limitación de la jornada laboral, las vacaciones periódicas retribuidas y la promoción de centros adecuados.",
           "explicacion": "Art. 40.2 CE: el descanso necesario se garantiza «mediante la limitación de la jornada laboral, las vacaciones periódicas retribuidas y la promoción de centros adecuados»."
         },
         {
@@ -332,6 +354,7 @@
             "privado y voluntario"
           ],
           "correcta": 0,
+          "cita": "Los poderes públicos mantendrán un régimen público de Seguridad Social para todos los ciudadanos, que garantice la asistencia y prestaciones sociales suficientes ante situaciones de necesidad, especialmente en caso de desempleo.",
           "explicacion": "Art. 41 CE."
         },
         {
@@ -391,6 +414,7 @@
             "Civiles y familiares."
           ],
           "correcta": 0,
+          "cita": "El Estado velará especialmente por la salvaguardia de los derechos económicos y sociales de los trabajadores españoles en el extranjero y orientará su política hacia su retorno.",
           "explicacion": "Art. 42 CE."
         },
         {
@@ -441,7 +465,20 @@
             "Los derechos y deberes de los ciudadanos de la Sección 2.ª."
           ],
           "correcta": 0,
-          "explicacion": "El art. 43 está en el Capítulo tercero (principios rectores). Por eso, según el art. 53.3, solo puede alegarse ante la jurisdicción ordinaria según las leyes que lo desarrollen."
+          "explicacion": "El art. 43 está en el Capítulo tercero (principios rectores). Por eso, según el art. 53.3, solo puede alegarse ante la jurisdicción ordinaria según las leyes que lo desarrollen.",
+          "respaldo": [
+            {
+              "articulo": "a43",
+              "ubicacion": [
+                "ti",
+                "ctercero"
+              ]
+            },
+            {
+              "articulo": "a53",
+              "cita": "Sólo podrán ser alegados ante la Jurisdicción ordinaria de acuerdo con lo que dispongan las leyes que los desarrollen."
+            }
+          ]
         },
         {
           "nivel": 3,
@@ -543,6 +580,7 @@
             "La práctica del deporte profesional."
           ],
           "correcta": 0,
+          "cita": "Asimismo facilitarán la adecuada utilización del ocio.",
           "explicacion": "Art. 43.3 CE: «Asimismo facilitarán la adecuada utilización del ocio»."
         },
         {
@@ -630,7 +668,7 @@
           "enunciado": "Según el art. 44.2 CE, los poderes públicos promoverán la ciencia y la investigación científica y técnica en beneficio del…",
           "opciones": [
             "interés general",
-            "sector privado"
+            "sector privado empresarial"
           ],
           "correcta": 0,
           "explicacion": "Art. 44.2 CE."
@@ -734,6 +772,7 @@
             "los recursos energéticos"
           ],
           "correcta": 0,
+          "cita": "Los poderes públicos velarán por la utilización racional de todos los recursos naturales, con el fin de proteger y mejorar la calidad de la vida y defender y restaurar el medio ambiente, apoyándose en la indispensable solidaridad colectiva.",
           "explicacion": "Art. 45.2 CE."
         },
         {
@@ -756,6 +795,7 @@
             "Asegurar la autosuficiencia de recursos y el desarrollo del medio rural."
           ],
           "correcta": 0,
+          "cita": "Los poderes públicos velarán por la utilización racional de todos los recursos naturales, con el fin de proteger y mejorar la calidad de la vida y defender y restaurar el medio ambiente, apoyándose en la indispensable solidaridad colectiva.",
           "explicacion": "Art. 45.2 CE."
         }
       ]
@@ -846,6 +886,7 @@
             "Solo el declarado Bien de Interés Cultural por ley."
           ],
           "correcta": 0,
+          "cita": "Los poderes públicos garantizarán la conservación y promoverán el enriquecimiento del patrimonio histórico, cultural y artístico de los pueblos de España y de los bienes que lo integran, cualquiera que sea su régimen jurídico y su titularidad.",
           "explicacion": "Art. 46 CE."
         },
         {
@@ -857,6 +898,7 @@
             "Tutelarán su acceso y fomentarán su difusión."
           ],
           "correcta": 0,
+          "cita": "Los poderes públicos garantizarán la conservación y promoverán el enriquecimiento del patrimonio histórico, cultural y artístico de los pueblos de España y de los bienes que lo integran, cualquiera que sea su régimen jurídico y su titularidad.",
           "explicacion": "Art. 46 CE: «garantizarán la conservación y promoverán el enriquecimiento»."
         }
       ]
@@ -1034,6 +1076,7 @@
             "especialmente protegidos"
           ],
           "correcta": 0,
+          "cita": "Los poderes públicos impulsarán las políticas que garanticen la plena autonomía personal y la inclusión social de las personas con discapacidad, en entornos universalmente accesibles.",
           "explicacion": "Art. 49.2 CE."
         },
         {
@@ -1056,6 +1099,7 @@
             "La atención especializada y el amparo especial de las personas con discapacidad."
           ],
           "correcta": 0,
+          "cita": "Los poderes públicos impulsarán las políticas que garanticen la plena autonomía personal y la inclusión social de las personas con discapacidad, en entornos universalmente accesibles.",
           "explicacion": "Art. 49.2 CE vigente. «Previsión, tratamiento, rehabilitación e integración» es la redacción anterior a la reforma de 2024."
         }
       ]
@@ -1081,7 +1125,7 @@
           "enunciado": "Según el art. 50 CE, las pensiones de la tercera edad serán adecuadas y…",
           "opciones": [
             "periódicamente actualizadas",
-            "fijas e iguales para todos"
+            "fijas e iguales para todos los pensionistas"
           ],
           "correcta": 0,
           "explicacion": "Art. 50 CE."
@@ -1095,6 +1139,7 @@
             "Vivienda, transporte y alimentación."
           ],
           "correcta": 0,
+          "cita": "Asimismo, y con independencia de las obligaciones familiares, promoverán su bienestar mediante un sistema de servicios sociales que atenderán sus problemas específicos de salud, vivienda, cultura y ocio.",
           "explicacion": "Art. 50 CE."
         },
         {
@@ -1106,6 +1151,7 @@
             "Gestionado por la Seguridad Social."
           ],
           "correcta": 0,
+          "cita": "Asimismo, y con independencia de las obligaciones familiares, promoverán su bienestar mediante un sistema de servicios sociales que atenderán sus problemas específicos de salud, vivienda, cultura y ocio.",
           "explicacion": "Art. 50 CE: «Asimismo, y con independencia de las obligaciones familiares, promoverán su bienestar…»."
         }
       ]
@@ -1306,7 +1352,23 @@
             "Título Preliminar."
           ],
           "correcta": 0,
-          "explicacion": "El Capítulo tercero abarca los arts. 39 a 52."
+          "explicacion": "El Capítulo tercero abarca los arts. 39 a 52.",
+          "respaldo": [
+            {
+              "articulo": "a52",
+              "ubicacion": [
+                "ti",
+                "ctercero"
+              ]
+            },
+            {
+              "articulo": "a53",
+              "ubicacion": [
+                "ti",
+                "ccuarto"
+              ]
+            }
+          ]
         }
       ]
     }

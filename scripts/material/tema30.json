@@ -1,0 +1,78 @@
+{
+ "tema": 30,
+ "boe": "DOE-2025040069",
+ "carpeta": "tema30",
+ "prefijo": "planes",
+ "epigrafe": "Planes Especiales de Proteccion civil en la CAEX. INUNCAEX, TRANSCAEX, RADIOCAEX y PLASISMEX: Definicion, objetivos. Estructura y organizacion. Operatividad.\n",
+ "bloques": [
+  {
+   "titulo": "INUNCAEX (Decreto 39/2025) · Objetivo y funciones básicas (cap. I, 2)",
+   "desde": "s-i-2",
+   "hasta": "s-i-2"
+  },
+  {
+   "titulo": "INUNCAEX · Estructura y organización (cap. IV, 1–3.5)",
+   "desde": "s-iv-1",
+   "hasta": "s-iv-3-5"
+  },
+  {
+   "titulo": "INUNCAEX · Operatividad (cap. V, 1–8.3)",
+   "desde": "s-v-1",
+   "hasta": "s-v-8-3"
+  },
+  {
+   "titulo": "TRANSCAEX (Decreto 189/2019) · Definición y objetivos (1.1–1.2)",
+   "boe": "DOE-2019040205",
+   "desde": "s-1-1",
+   "hasta": "s-1-2"
+  },
+  {
+   "titulo": "TRANSCAEX · Estructura y organización (cap. 4)",
+   "boe": "DOE-2019040205",
+   "desde": "s-4-1",
+   "hasta": "s-4-5"
+  },
+  {
+   "titulo": "TRANSCAEX · Operatividad (cap. 5)",
+   "boe": "DOE-2019040205",
+   "desde": "s-5-1",
+   "hasta": "s-5-8-3"
+  },
+  {
+   "titulo": "RADIOCAEX (Decreto 200/2019) · Definición y objetivos (1.3)",
+   "boe": "DOE-2019040206",
+   "desde": "s-1-3",
+   "hasta": "s-1-3"
+  },
+  {
+   "titulo": "RADIOCAEX · Estructura, organización y funciones (cap. 3)",
+   "boe": "DOE-2019040206",
+   "desde": "cap-3",
+   "hasta": "s-3-4"
+  },
+  {
+   "titulo": "RADIOCAEX · Operatividad (cap. 4)",
+   "boe": "DOE-2019040206",
+   "desde": "cap-4",
+   "hasta": "s-4-5"
+  },
+  {
+   "titulo": "PLASISMEX · Definición, objeto y funciones (1.2)",
+   "boe": "DOE-2009040140",
+   "desde": "s-1-2",
+   "hasta": "s-1-2"
+  },
+  {
+   "titulo": "PLASISMEX · Estructura y organización (3)",
+   "boe": "DOE-2009040140",
+   "desde": "s-3",
+   "hasta": "s-3-3-2-5"
+  },
+  {
+   "titulo": "PLASISMEX · Operatividad (4)",
+   "boe": "DOE-2009040140",
+   "desde": "s-4",
+   "hasta": "s-4-4-4"
+  }
+ ]
+}

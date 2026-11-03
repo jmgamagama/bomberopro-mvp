@@ -82,8 +82,8 @@ export function withRevealedKey(q: Question, check: AnswerCheck): Question {
   return { ...q, correct_answer: check.correctAnswer ?? '', explanation: check.explanation ?? '' };
 }
 
-/** Límites de corrección del servidor (migración 39). Deben coincidir con _answer_check_limits(). */
-export const ANSWER_CHECK_LIMITS = { perHour: 300, perDay: 1500, freeDistinctPerDay: 150 } as const;
+/** Límites de corrección del servidor (migración 47, antes 39). Deben coincidir con _answer_check_limits(). */
+export const ANSWER_CHECK_LIMITS = { perHour: 300, perDay: 600, freeDistinctPerDay: 150 } as const;
 
 /** ¿Es un rechazo por límite de correcciones (SQLSTATE P0429)? */
 export function isAnswerLimitError(err: unknown): boolean {

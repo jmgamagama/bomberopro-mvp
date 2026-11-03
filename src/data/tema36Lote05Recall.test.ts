@@ -7,6 +7,7 @@ import { TEMA36_LOTE03_RECALL_CARDS } from './tema36Lote03Recall';
 import { TEMA36_LOTE04_RECALL_CARDS } from './tema36Lote04Recall';
 import { TEMA36_LOTE05_RECALL_CARDS, TEMA36_LOTE05_RECALL_META } from './tema36Lote05Recall';
 import { getRecallDeck, loadRecallDeckCards } from './recallRegistry';
+import { isCardReviewedInPendingDeck } from './recallCardReview';
 
 const fichasJson = JSON.parse(
   readFileSync(resolve(__dirname, '../../data/tema36/fichas_lote05_50.json'), 'utf-8'),
@@ -63,6 +64,7 @@ describe('tema 36 lote 05 (Usagre → Zarza-Capilla)', () => {
     expect(deck.count).toBe(50);
     expect(deck.topicId).toBe('tema36');
     expect(deck.loteLabel).toBe('Lote 5');
-    expect(await loadRecallDeckCards(deck.id)).toBe(TEMA36_LOTE05_RECALL_CARDS);
+    // El alumno solo ve las fichas revisadas sueltas (poblaciones verificadas con el INE).
+    expect(await loadRecallDeckCards(deck.id)).toEqual(TEMA36_LOTE05_RECALL_CARDS.filter((c) => isCardReviewedInPendingDeck(deck.id, c.id)));
   });
 });

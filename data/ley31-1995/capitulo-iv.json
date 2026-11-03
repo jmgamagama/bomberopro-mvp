@@ -100,6 +100,7 @@
       "Los riesgos a que están expuestos los trabajadores y su distribución."
      ],
      "correcta": 2,
+     "cita": "Los trabajadores designados deberán tener la capacidad necesaria, disponer del tiempo y de los medios precisos y ser suficientes en número, teniendo en cuenta el tamaño de la empresa, así como los riesgos a que están expuestos los trabajadores y su distribución en la misma, con el alcance que se determine en las disposiciones a que se refiere la letra e) del apartado 1 del artículo 6 de la presente Ley.",
      "explicacion": "Art. 30.2: tamaño de la empresa, riesgos y su distribución."
     },
     {
@@ -111,6 +112,7 @@
       "Informar de sus actuaciones a la autoridad laboral cada mes."
      ],
      "correcta": 0,
+     "cita": "Los trabajadores a que se refiere el párrafo anterior colaborarán entre sí y, en su caso, con los servicios de prevención.",
      "explicacion": "Art. 30.2 párr. 2: colaboran entre sí y con los servicios de prevención."
     }
    ]
@@ -189,6 +191,7 @@
       "Total publicidad"
      ],
      "correcta": 0,
+     "cita": "Los trabajadores a que se refieren los párrafos anteriores deberán guardar sigilo profesional sobre la información relativa a la empresa a la que tuvieran acceso como consecuencia del desempeño de sus funciones.",
      "explicacion": "Art. 30.4 párr. 3: sigilo profesional."
     },
     {
@@ -200,6 +203,7 @@
       "68 del Estatuto de los Trabajadores, letras a), b) y c)."
      ],
      "correcta": 2,
+     "cita": "En ejercicio de esta función, dichos trabajadores gozarán, en particular, de las garantías que para los representantes de los trabajadores establecen las letras a), b) y c) del artículo 68 y el apartado 4 del artículo 56 del texto refundido de la Ley del Estatuto de los Trabajadores.",
      "explicacion": "Art. 30.4 párr. 1: letras a), b) y c) del art. 68 y apartado 4 del art. 56 del ET."
     },
     {
@@ -211,6 +215,7 @@
       "A los miembros de los servicios de prevención ajenos concertados con la empresa contratante."
      ],
      "correcta": 0,
+     "cita": "Esta garantía alcanzará también a los trabajadores integrantes del servicio de prevención",
      "explicacion": "Art. 30.4 párr. 2: integrantes del servicio de prevención propio constituido."
     }
    ]
@@ -250,6 +255,7 @@
       "Un único centro de trabajo."
      ],
      "correcta": 2,
+     "cita": "La misma posibilidad se reconoce al empresario que, cumpliendo tales requisitos, ocupe hasta 25 trabajadores, siempre y cuando la empresa disponga de un único centro de trabajo.",
      "explicacion": "Art. 30.5: hasta 25 trabajadores con un único centro de trabajo."
     },
     {
@@ -261,6 +267,7 @@
       "Haber sido designado expresamente para ello por los delegados de prevención de la empresa."
      ],
      "correcta": 0,
+     "cita": "En las empresas de hasta diez trabajadores, el empresario podrá asumir personalmente las funciones señaladas en el apartado 1, siempre que desarrolle de forma habitual su actividad en el centro de trabajo y tenga la capacidad necesaria, en función de los riesgos a que estén expuestos los trabajadores y la peligrosidad de las actividades, con el alcance que se determine en las disposiciones a que se refiere el artículo 6.1.e) de esta Ley.",
      "explicacion": "Art. 30.5: actividad habitual en el centro y capacidad necesaria."
     }
    ]
@@ -311,6 +318,7 @@
       "A los que hubieran concertado el servicio de prevención con una entidad especializada ajena."
      ],
      "correcta": 0,
+     "cita": "El empresario que no hubiere concertado el Servicio de prevención con una entidad especializada ajena a la empresa deberá someter su sistema de prevención al control de una auditoría o evaluación externa, en los términos que reglamentariamente se determinen.",
      "explicacion": "Art. 30.6: quien no concierta servicio ajeno."
     }
    ]
@@ -361,6 +369,7 @@
       "Se archiva el procedimiento sin efectos para el interesado."
      ],
      "correcta": 0,
+     "cita": "El vencimiento del plazo máximo del procedimiento de autorización sin haberse notificado resolución expresa al interesado permitirá entender desestimada la solicitud por silencio administrativo, con el objeto de garantizar una adecuada protección de los trabajadores.",
      "explicacion": "Art. 30.7: silencio desestimatorio para garantizar la protección de los trabajadores."
     }
    ]
@@ -400,6 +409,7 @@
       "Cuando sea necesario."
      ],
      "correcta": 2,
+     "cita": "servicios de prevención propios o ajenos a la empresa, que colaborarán cuando sea necesario",
      "explicacion": "Art. 31.1: colaboran cuando sea necesario."
     },
     {
@@ -411,6 +421,7 @@
       "El presupuesto anual que cada Administración destine a gastos de personal y formación."
      ],
      "correcta": 0,
+     "cita": "Para el establecimiento de estos servicios en las Administraciones públicas se tendrá en cuenta su estructura organizativa y la existencia, en su caso, de ámbitos sectoriales y descentralizados.",
      "explicacion": "Art. 31.1 párr. 2: estructura organizativa y ámbitos sectoriales y descentralizados."
     }
    ]
@@ -450,6 +461,7 @@
       "Sus representantes y a los órganos de representación especializados."
      ],
      "correcta": 2,
+     "cita": "Se entenderá como servicio de prevención el conjunto de medios humanos y materiales necesarios para realizar las actividades preventivas a fin de garantizar la adecuada protección de la seguridad y la salud de los trabajadores, asesorando y asistiendo para ello al empresario, a los trabajadores y a sus representantes y a los órganos de representación especializados.",
      "explicacion": "Art. 31.2: empresario, trabajadores, representantes y órganos de representación especializados."
     },
     {
@@ -461,6 +473,7 @@
       "La dirección efectiva de la política preventiva y de la organización de la empresa."
      ],
      "correcta": 0,
+     "cita": "Para el ejercicio de sus funciones, el empresario deberá facilitar a dicho servicio el acceso a la información y documentación a que se refiere el apartado 3 del artículo anterior.",
      "explicacion": "Art. 31.2: información y documentación del art. 30.3."
     }
    ]
@@ -486,9 +499,10 @@
      "enunciado": "Según el art. 31.3 LPRL, el servicio de prevención asesora entre otras materias sobre la vigilancia de la:",
      "opciones": [
       "Salud de los trabajadores",
-      "Producción de la empresa"
+      "Productividad de la empresa"
      ],
      "correcta": 0,
+     "cita": "f) La vigilancia de la salud de los trabajadores en relación con los riesgos derivados del trabajo.",
      "explicacion": "Art. 31.3.f): vigilancia de la salud en relación con los riesgos del trabajo."
     },
     {
@@ -511,6 +525,7 @@
       "El propio empresario sin necesidad de formación."
      ],
      "correcta": 0,
+     "cita": "Si la empresa no llevara a cabo las actividades preventivas con recursos propios, la asunción de las funciones respecto de las materias descritas en este apartado sólo podrá hacerse por un servicio de prevención ajeno.",
      "explicacion": "Art. 31.3 párr. 2: sin recursos propios, solo un servicio de prevención ajeno."
     }
    ]
@@ -550,6 +565,7 @@
       "La distribución de riesgos en la empresa."
      ],
      "correcta": 2,
+     "cita": "Distribución de riesgos en la empresa",
      "explicacion": "Art. 31.4: tamaño de la empresa, tipos de riesgo y distribución de riesgos."
     },
     {
@@ -561,6 +577,7 @@
       "Únicamente los recursos económicos que la empresa asigne cada año a la actividad preventiva."
      ],
      "correcta": 0,
+     "cita": "Para ello, la formación, especialidad, capacitación, dedicación y número de componentes de estos servicios, así como sus recursos técnicos, deberán ser suficientes y adecuados a las actividades preventivas a desarrollar, en función de las siguientes circunstancias:",
      "explicacion": "Art. 31.4: formación, especialidad, capacitación, dedicación, número y recursos técnicos."
     }
    ]
@@ -611,6 +628,7 @@
       "Un aval bancario cuya cuantía fije el límite máximo de la responsabilidad del servicio de prevención."
      ],
      "correcta": 0,
+     "cita": "Entre estos requisitos, las entidades especializadas deberán suscribir una póliza de seguro que cubra su responsabilidad en la cuantía que se determine reglamentariamente y sin que aquella constituya el límite de la responsabilidad del servicio.",
      "explicacion": "Art. 31.5 párr. 2: póliza de seguro, cuantía reglamentaria, sin ser límite de responsabilidad."
     }
    ]
@@ -650,6 +668,7 @@
       "Una adecuada protección de los trabajadores."
      ],
      "correcta": 2,
+     "cita": "El vencimiento del plazo máximo del procedimiento de acreditación sin haberse notificado resolución expresa al interesado permitirá entender desestimada la solicitud por silencio administrativo, con el objeto de garantizar una adecuada protección de los trabajadores.",
      "explicacion": "Art. 31.6: finalidad de protección adecuada de los trabajadores."
     },
     {
@@ -711,6 +730,7 @@
       "Con cargo al fondo de reserva de contingencias profesionales."
      ],
      "correcta": 0,
+     "cita": "Las Mutuas Colaboradoras con la Seguridad Social no podrán desarrollar las funciones correspondientes a los servicios de prevención ajenos, ni participar con cargo a su patrimonio histórico en el capital social de una sociedad mercantil en cuyo objeto figure la actividad de prevención.",
      "explicacion": "Art. 32: patrimonio histórico."
     }
    ]
@@ -739,6 +759,7 @@
       "La Inspección de Trabajo y Seguridad Social"
      ],
      "correcta": 1,
+     "cita": "c) Cuando la necesidad de dicha presencia sea requerida por la Inspección de Trabajo y Seguridad Social, si las circunstancias del caso así lo exigieran debido a las condiciones de trabajo detectadas.",
      "explicacion": "Art. 32 bis.1.c): requerimiento de la Inspección de Trabajo y Seguridad Social."
     },
     {
@@ -750,6 +771,7 @@
       "La concurrencia de operaciones diversas que se desarrollan sucesiva o simultáneamente."
      ],
      "correcta": 2,
+     "cita": "a) Cuando los riesgos puedan verse agravados o modificados en el desarrollo del proceso o la actividad, por la concurrencia de operaciones diversas que se desarrollan sucesiva o simultáneamente y que hagan preciso el control de la correcta aplicación de los métodos de trabajo.",
      "explicacion": "Art. 32 bis.1.a): concurrencia de operaciones diversas sucesivas o simultáneas."
     },
     {
@@ -761,6 +783,7 @@
       "Las que se desarrollen en empresas de menos de diez trabajadores."
      ],
      "correcta": 0,
+     "cita": "b) Cuando se realicen actividades o procesos que reglamentariamente sean considerados como peligrosos o con riesgos especiales.",
      "explicacion": "Art. 32 bis.1.b): actividades peligrosas o con riesgos especiales por vía reglamentaria."
     }
    ]
@@ -789,6 +812,7 @@
       "De la Inspección de Trabajo"
      ],
      "correcta": 0,
+     "cita": "b) Uno o varios miembros del servicio de prevención propio de la empresa.",
      "explicacion": "Art. 32 bis.2.b): miembros del servicio de prevención propio."
     },
     {
@@ -811,7 +835,21 @@
       "Un miembro de un servicio de prevención ajeno concertado."
      ],
      "correcta": 0,
-     "explicacion": "Art. 32 bis.2: designados, servicio propio y servicios ajenos concertados; el delegado de prevención no figura."
+     "explicacion": "Art. 32 bis.2: designados, servicio propio y servicios ajenos concertados; el delegado de prevención no figura.",
+     "respaldo": [
+      {
+       "articulo": "a32bis",
+       "cita": "a) Uno o varios trabajadores designados de la empresa."
+      },
+      {
+       "articulo": "a32bis",
+       "cita": "b) Uno o varios miembros del servicio de prevención propio de la empresa."
+      },
+      {
+       "articulo": "a32bis",
+       "cita": "c) Uno o varios miembros del o los servicios de prevención ajenos concertados por la empresa."
+      }
+     ]
     }
    ]
   },
@@ -904,13 +942,14 @@
     },
     {
      "nivel": 3,
-     "enunciado": "¿Qué deben mantener estos trabajadores según el art. 32 bis.4 LPRL?",
+     "enunciado": "Según el art. 32 bis.4 LPRL, ¿qué deben mantener los trabajadores asignados a la presencia preventiva que no forman parte del servicio de prevención propio ni son trabajadores designados?",
      "opciones": [
       "La necesaria colaboración con los recursos preventivos del empresario.",
       "Su independencia total respecto de los recursos preventivos.",
       "La comunicación solo con la Inspección de Trabajo."
      ],
      "correcta": 0,
+     "cita": "En este supuesto, tales trabajadores deberán mantener la necesaria colaboración con los recursos preventivos del empresario.",
      "explicacion": "Art. 32 bis.4 párr. 2: colaboración con los recursos preventivos."
     }
    ]

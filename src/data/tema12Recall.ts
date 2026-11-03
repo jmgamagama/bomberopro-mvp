@@ -14,7 +14,7 @@ export const TEMA12_RECALL_META = {
   "tema": 12,
   "title": "Tema 12 · Mecanismos de extinción, agentes y extintores (RIPCI e INSST)",
   "count": 21,
-  "source": "Fase 4 · RD 513/2017, RIPCI (BOE-A-2017-6606), últ. act. 19/12/2025; INSST, tema «El riesgo de incendio (I)» (v. abril 2025)"
+  "source": "Fase 4 · RD 513/2017, RIPCI (BOE-A-2017-6606), últ. act. publicada 03/09/2025; INSST, tema «El riesgo de incendio (I)» (v. abril 2025)"
 } as const;
 
 export const TEMA12_RECALL_CARDS: Tema12RecallCard[] = [
@@ -68,7 +68,7 @@ export const TEMA12_RECALL_CARDS: Tema12RecallCard[] = [
     "orden": 60,
     "concepto": "Según el RIPCI, ¿qué es un extintor de incendio?",
     "respuesta": "Un equipo que contiene un agente extintor, que puede proyectarse y dirigirse sobre un fuego, por la acción de una presión interna",
-    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.1. BOE-A-2017-6606, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.1. BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.1",
     "apartado": "Extintores portátiles y móviles"
   },
@@ -77,7 +77,7 @@ export const TEMA12_RECALL_CARDS: Tema12RecallCard[] = [
     "orden": 70,
     "concepto": "Según el RIPCI, ¿cómo puede producirse la presión interna del extintor?",
     "respuesta": "Por una compresión previa permanente o mediante la liberación de un gas auxiliar",
-    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.1. BOE-A-2017-6606, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.1. BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.1",
     "apartado": "Extintores portátiles y móviles"
   },
@@ -86,7 +86,7 @@ export const TEMA12_RECALL_CARDS: Tema12RecallCard[] = [
     "orden": 80,
     "concepto": "Según el RIPCI, ¿qué masa máxima en condiciones de funcionamiento tiene un extintor portátil?",
     "respuesta": "Una masa igual o inferior a 20 kg",
-    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.1.a). BOE-A-2017-6606, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.1.a). BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.1.a)",
     "apartado": "Extintores portátiles y móviles"
   },
@@ -95,7 +95,7 @@ export const TEMA12_RECALL_CARDS: Tema12RecallCard[] = [
     "orden": 90,
     "concepto": "Según el RIPCI, ¿qué es un extintor móvil?",
     "respuesta": "Diseñado para ser transportado y accionado a mano, está montado sobre ruedas y tiene una masa total de más de 20 kg",
-    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.1.b). BOE-A-2017-6606, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.1.b). BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.1.b)",
     "apartado": "Extintores portátiles y móviles"
   },
@@ -104,7 +104,7 @@ export const TEMA12_RECALL_CARDS: Tema12RecallCard[] = [
     "orden": 100,
     "concepto": "Según el RIPCI, ¿qué real decreto rige las características de los extintores como equipos a presión?",
     "respuesta": "Real Decreto 709/2015",
-    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.2. BOE-A-2017-6606, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.2. BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.2",
     "apartado": "Extintores portátiles y móviles"
   },
@@ -113,7 +113,7 @@ export const TEMA12_RECALL_CARDS: Tema12RecallCard[] = [
     "orden": 110,
     "concepto": "Según el RIPCI, ¿qué normas deben justificar los extintores portátiles mediante certificación?",
     "respuesta": "UNE-EN 3-7 y UNE-EN 3-10",
-    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.3. BOE-A-2017-6606, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.3. BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.3",
     "apartado": "Extintores portátiles y móviles"
   },
@@ -122,7 +122,7 @@ export const TEMA12_RECALL_CARDS: Tema12RecallCard[] = [
     "orden": 120,
     "concepto": "Según el RIPCI, ¿qué norma deben cumplir los extintores móviles?",
     "respuesta": "UNE-EN 1866-1",
-    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.3. BOE-A-2017-6606, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.3. BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.3",
     "apartado": "Extintores portátiles y móviles"
   },
@@ -131,7 +131,7 @@ export const TEMA12_RECALL_CARDS: Tema12RecallCard[] = [
     "orden": 130,
     "concepto": "Según el RIPCI, ¿entre qué alturas debe quedar la parte superior del extintor sobre el suelo?",
     "respuesta": "Entre 80 cm y 120 cm",
-    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.4. BOE-A-2017-6606, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.4. BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.4",
     "apartado": "Extintores portátiles y móviles"
   },
@@ -140,7 +140,7 @@ export const TEMA12_RECALL_CARDS: Tema12RecallCard[] = [
     "orden": 140,
     "concepto": "Según el RIPCI, ¿qué recorrido máximo horizontal hasta un extintor no debe superarse desde un origen de evacuación?",
     "respuesta": "15 m",
-    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.4. BOE-A-2017-6606, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.4. BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.4",
     "apartado": "Extintores portátiles y móviles"
   },
@@ -149,7 +149,7 @@ export const TEMA12_RECALL_CARDS: Tema12RecallCard[] = [
     "orden": 150,
     "concepto": "Según el RIPCI, ¿dónde se situarán preferentemente los extintores?",
     "respuesta": "Sobre soportes fijados a paramentos verticales",
-    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.4. BOE-A-2017-6606, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.4. BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.4",
     "apartado": "Extintores portátiles y móviles"
   },
@@ -158,7 +158,7 @@ export const TEMA12_RECALL_CARDS: Tema12RecallCard[] = [
     "orden": 160,
     "concepto": "Según el RIPCI, ¿qué norma establece las clases de fuego normalizadas?",
     "respuesta": "UNE-EN 2",
-    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5. BOE-A-2017-6606, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5. BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5",
     "apartado": "Agentes extintores"
   },
@@ -167,7 +167,7 @@ export const TEMA12_RECALL_CARDS: Tema12RecallCard[] = [
     "orden": 170,
     "concepto": "Según el RIPCI, ¿qué fuegos son de clase A?",
     "respuesta": "Fuegos de materiales sólidos, generalmente de naturaleza orgánica, cuya combinación se realiza normalmente con la formación de brasas",
-    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.a). BOE-A-2017-6606, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.a). BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.a)",
     "apartado": "Agentes extintores"
   },
@@ -176,7 +176,7 @@ export const TEMA12_RECALL_CARDS: Tema12RecallCard[] = [
     "orden": 180,
     "concepto": "Según el RIPCI, ¿qué fuegos son de clase B?",
     "respuesta": "Fuegos de líquidos o de sólidos licuables",
-    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.b). BOE-A-2017-6606, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.b). BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.b)",
     "apartado": "Agentes extintores"
   },
@@ -185,7 +185,7 @@ export const TEMA12_RECALL_CARDS: Tema12RecallCard[] = [
     "orden": 190,
     "concepto": "Según el RIPCI, ¿qué fuegos son de clase F?",
     "respuesta": "Fuegos derivados de la utilización de ingredientes para cocinar (aceites y grasas vegetales o animales) en los aparatos de cocina",
-    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.e). BOE-A-2017-6606, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.e). BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.5.e)",
     "apartado": "Agentes extintores"
   },
@@ -194,7 +194,7 @@ export const TEMA12_RECALL_CARDS: Tema12RecallCard[] = [
     "orden": 200,
     "concepto": "Según el RIPCI, ¿qué requieren los generadores de aerosoles para poder usarse como extintores, además de cumplir el RD 1381/2009?",
     "respuesta": "Una evaluación técnica favorable de la idoneidad para su uso previsto",
-    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.6. BOE-A-2017-6606, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.6. BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.6",
     "apartado": "Extintores portátiles y móviles"
   },
@@ -203,7 +203,7 @@ export const TEMA12_RECALL_CARDS: Tema12RecallCard[] = [
     "orden": 210,
     "concepto": "Según el RIPCI, si el extintor está dentro de un armario, ¿dónde se coloca su señalización?",
     "respuesta": "Inmediatamente junto al armario, y no sobre la superficie del mismo",
-    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.7. BOE-A-2017-6606, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
+    "fuente": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.7. BOE-A-2017-6606, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2",
     "localizacion": "RIPCI (RD 513/2017), Sección 1.ª Protección activa contra incendios, anexo I, 1.ª, 4.7",
     "apartado": "Extintores portátiles y móviles"
   }

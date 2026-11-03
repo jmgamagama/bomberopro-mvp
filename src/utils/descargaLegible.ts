@@ -24,7 +24,7 @@ function escapar(s: string): string {
 export async function markdownAHtml(markdown: string, titulo: string): Promise<string> {
   const { renderToStaticMarkup } = await import('react-dom/server');
   const cuerpo = renderToStaticMarkup(createElement('div', null, renderMarkdown(markdown)));
-  return `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapar(titulo)}</title><style>${ESTILO}</style></head><body>${cuerpo}<p class="pie">BomberoPro · bomberopro-mvp.vercel.app · Para guardarlo en PDF: menú del navegador → Imprimir → Guardar como PDF.</p></body></html>`;
+  return `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapar(titulo)}</title><style>${ESTILO}</style></head><body>${cuerpo}<p class="pie">BomberoPro · bomberopro.com · Para guardarlo en PDF: menú del navegador → Imprimir → Guardar como PDF.</p></body></html>`;
 }
 
 /** Descarga un .md del material como .html legible. */

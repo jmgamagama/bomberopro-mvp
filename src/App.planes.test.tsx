@@ -30,7 +30,8 @@ describe('planes con la bandera desactivada', () => {
     const tablist = await openRecuerdo(user);
     expect(screen.queryByRole('button', { name: /Planes/ })).toBeNull();
     expect(within(tablist).queryAllByRole('tab', { name: /\(Pro\)/ })).toHaveLength(0);
-    expect(within(tablist).getByRole('tab', { name: new RegExp(`^${RECALL_TOPICS[0].shortLabel} ·`) })).toHaveAttribute('aria-selected', 'true');
+    // Invitado: se abre por defecto un tema accesible de T35-40 (el 40), igual que en «Temas».
+    expect(within(tablist).getByRole('tab', { name: new RegExp(`^${RECALL_TOPICS.find((t) => t.id === 'tema40')!.shortLabel} ·`) })).toHaveAttribute('aria-selected', 'true');
 
     await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-mas')!);
     await user.click(document.querySelector<HTMLButtonElement>('#mas-sesion_diaria')!);
