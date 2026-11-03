@@ -1,6 +1,6 @@
 # Vigencia y fechas del material por tema (API y página oficial del BOE)
 
-Fechas API de la descarga local (01/11/2026) y fechas de última actualización publicada contrastadas en la página consolidada oficial el 03/11/2026. La fecha API identifica la marca de actualización de metadatos y no se presenta como fecha de publicación. «API coincide» compara `fecha_actualizacion` con `fecha_actualizacion_boe`; «BOE coincide» compara la fecha publicada en `act.php` con `fecha_actualizacion_publicada` de `meta.json`.
+Marca de actualización y estado de vigencia verificados con la API el 01/11/2026; fechas de última actualización publicada contrastadas en la página consolidada oficial el 03/11/2026. La fecha API identifica la marca de actualización de metadatos y no se presenta como fecha de publicación. «API coincide» compara `fecha_actualizacion` con `fecha_actualizacion_boe`; «BOE coincide» compara la fecha publicada en `act.php` con `fecha_actualizacion_publicada` de `meta.json`.
 
 | Tema | Norma | Marca de actualización API | Última actualización publicada en BOE | Vigencia agotada | Consolidación | API coincide | BOE coincide |
 |---|---|---|---|---|---|---|---|
