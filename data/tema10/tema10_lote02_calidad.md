@@ -4,8 +4,8 @@
 
 ## Fuente
 
-- INSST, NTP 420: Instalaciones de abastecimiento de agua contra incendios (1996) — INSST-NTP420, texto consolidado del BOE, última actualización/versión 1996: https://www.insst.es/documents/94886/7871500/ntp_420.pdf (copia en /workspace/fuentes_oficiales/tema10/)
-- INSST, NTP 1035: Bocas de incendio equipadas (BIE): utilización (2015) — INSST-NTP1035, texto consolidado del BOE, última actualización/versión 2015: https://www.insst.es/documents/94886/7803791/NTP+1035.pdf (copia en /workspace/fuentes_oficiales/tema10/)
+- INSST, NTP 420: Instalaciones de abastecimiento de agua contra incendios (1997) — documento técnico de buenas prácticas del INSST, no disposición normativa. Sus recomendaciones no son obligatorias salvo que las incorpore una norma vigente: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/12-serie-ntp-numeros-401-a-435-ano-1997/ntp-420-instalaciones-de-abastecimiento-de-agua-contra-incendios
+- INSST, NTP 1035: Bocas de incendio equipadas (BIE): utilización (2015) — documento técnico de buenas prácticas del INSST, no disposición normativa. Sus recomendaciones no son obligatorias salvo que las incorpore una norma vigente: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/30-serie-ntp-numeros-1031-a-1065-ano-2015/ntp-1.035-bocas-de-incendio-equipadas-bie-utilizacion
 
 ## Resultado
 
@@ -19,7 +19,7 @@
 
 ## Comprobación automática
 
-- La respuesta aparece en el artículo/bloque citado del texto consolidado (coincidencia normalizada sin tildes ni puntuación o difusa ≥ 0,85 por ventana de palabras).
+- En las fichas normativas se comprueba el artículo o bloque citado del texto consolidado; en las fichas basadas en NTP, el apartado citado del documento oficial del INSST. La coincidencia automática normaliza tildes y puntuación o acepta similitud difusa ≥ 0,85 por ventana de palabras.
 - Se descartan: vacías, bloque inexistente, truncadas (final en preposición/artículo, coma, «…», paréntesis abierto), respuesta dentro de la pregunta (o ≥ 80 % de sus palabras), preguntas duplicadas, no formuladas como pregunta y preguntas que copian el comienzo de la respuesta.
 
 ## Muestra revisada a mano
