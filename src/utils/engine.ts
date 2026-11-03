@@ -365,12 +365,12 @@ export function getAdaptiveQuestion(
   const scoredQuestions = questions.map(q => {
     const state = memoryStates[q.microconcept_id];
     let priorityScore = 0;
-    let reason = 'Entrenamiento general';
+    let reason = 'Práctica';
 
-    if (!state) {
-      // New microconcept question
+    // Sin estado o sin ningún repaso hecho: es nueva para el alumno (no «vencida»).
+    if (!state || !state.last_review) {
       priorityScore = 50;
-      reason = 'Microconcepto nuevo para estudio';
+      reason = 'Pregunta nueva para ti';
     } else {
       const isOverdue = state.next_review ? new Date(state.next_review) <= now : true;
       const isFalseDomain = state.status === 'Falso dominio';
@@ -385,23 +385,23 @@ export function getAdaptiveQuestion(
       // Priority building rules
       if (isFalseDomain) {
         priorityScore += 100;
-        reason = '⚠️ Falso dominio activo (Repaso urgente)';
+        reason = 'Repaso urgente: la fallaste estando seguro';
       } else if (isOverdue) {
         priorityScore += 80;
-        reason = '⏰ Próximo repaso vencido (Repetición espaciada)';
+        reason = 'Toca repasarla hoy';
       } else if (r < 0.50) {
         priorityScore += 70;
-        reason = '📉 Olvido muy probable (Recuperabilidad baja)';
+        reason = 'Se te está olvidando';
       } else if (r < 0.75) {
         priorityScore += 40;
-        reason = '⚠️ Riesgo de olvido (Recuperabilidad media)';
+        reason = 'Empieza a olvidarse';
       } else if (state.recent_errors_count > 0) {
         priorityScore += 30;
-        reason = '🔄 Refuerzo de errores recientes';
+        reason = 'Refuerzo de un fallo reciente';
       } else {
         // Consolidated but pending maintenance
         priorityScore += (100 - state.mastery_score) * 0.2;
-        reason = '🔧 Mantenimiento de concepto';
+        reason = 'Repaso para no olvidarla';
       }
     }
 

@@ -1,0 +1,54 @@
+/* Brasa y Noche — tokens de diseño (variante A). NO está conectado a la app.
+   Contrastes calculados con WCAG 2.x (ver README.md). Regla de uso:
+   - Relleno sólido = acción (botón). Contorno + icono + texto = estado (correcto/error/pendiente).
+   - Nunca comunicar un estado solo con color (ver simulación de daltonismo en README.md). */
+:root {
+  /* Escala primaria (brasa) */
+  --primary-50:#FAF0EC; --primary-100:#F5E1D8; --primary-200:#EBC2B1; --primary-300:#E0A086; --primary-400:#D47A55;
+  --primary-500:#CB5C2E; --primary-600:#C2410C; --primary-700:#A1370D; --primary-800:#842F0D; --primary-900:#66260E;
+  /* Escala acento (noche) */
+  --accent-50:#EDEFF2; --accent-100:#DBDFE5; --accent-200:#B7C0CC; --accent-300:#8E9CAF; --accent-400:#62758F;
+  --accent-500:#3E5675; --accent-600:#1E3A5F; --accent-700:#1B3251; --accent-800:#182A44; --accent-900:#142237;
+
+  /* Modo claro */
+  --bg:#FAF8F5; --surface:#FFFFFF; --border:#E7E5E4; --border-strong:#78716C;
+  --text:#1C1917; --text-2:#57534E;
+  --btn:#C2410C; --btn-text:#FFFFFF; --btn-hover:#A1370D; --btn-pressed:#842F0D;
+  --btn-disabled-bg:#E7E5E4; --btn-disabled-text:#78716C;
+  --hdr:#1E3A5F; --hdr-text:#FFFFFF; --hdr-border:transparent;
+  --link:#C2410C; --focus:#1E3A5F;
+  --ok:#047857; --ok-bg:#ECFDF5; --err:#B91C1C; --err-bg:#FEF2F2; --pen:#B45309; --pen-bg:#FFFBEB;
+  --fs-min:0.8125rem; /* 13px: mínimo para texto */
+  --hdr-h:64px;
+}
+/* Modo oscuro (se aplica con [data-theme=dark] o, sin atributo, con prefers-color-scheme) */
+:root[data-theme="dark"] {
+  --bg:#14171D; --surface:#1F242D; --border:#333B47; --border-strong:#7A8494;
+  --text:#ECE9E6; --text-2:#A8A29E;
+  --btn:#FB923C; --btn-text:#1C1917; --btn-hover:#FDBA74; --btn-pressed:#F97316;
+  --btn-disabled-bg:#2A303A; --btn-disabled-text:#78716C;
+  --hdr:#22385A; --hdr-text:#ECE9E6; --hdr-border:#4A5A73; /* el header no se distingue del fondo solo por color (1,5:1): lleva borde */
+  --link:#FB923C; --focus:#FB923C;
+  --ok:#34D399; --ok-bg:#0F2A22; --err:#F87171; --err-bg:#2D1517; --pen:#FBBF24; --pen-bg:#2B2210;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:#14171D; --surface:#1F242D; --border:#333B47; --border-strong:#7A8494;
+    --text:#ECE9E6; --text-2:#A8A29E;
+    --btn:#FB923C; --btn-text:#1C1917; --btn-hover:#FDBA74; --btn-pressed:#F97316;
+    --btn-disabled-bg:#2A303A; --btn-disabled-text:#78716C;
+    --hdr:#22385A; --hdr-text:#ECE9E6; --hdr-border:#4A5A73;
+    --link:#FB923C; --focus:#FB923C;
+    --ok:#34D399; --ok-bg:#0F2A22; --err:#F87171; --err-bg:#2D1517; --pen:#FBBF24; --pen-bg:#2B2210;
+  }
+}
+
+/* Estados de componentes */
+.btn { background:var(--btn); color:var(--btn-text); border:0; border-radius:10px; padding:12px 18px; font:600 1rem/1.2 system-ui; min-height:44px; cursor:pointer; }
+.btn:hover { background:var(--btn-hover); }
+.btn:active { background:var(--btn-pressed); }
+.btn:disabled, .btn[aria-disabled="true"] { background:var(--btn-disabled-bg); color:var(--btn-disabled-text); cursor:not-allowed; }
+:focus-visible { outline:3px solid var(--focus); outline-offset:2px; }
+.field { border:1.5px solid var(--border-strong); background:var(--surface); color:var(--text); border-radius:10px; }
+.state { white-space:nowrap; display:inline-flex; gap:6px; align-items:center; font-size:var(--fs-min); font-weight:600; padding:2px 8px; border:1.5px solid currentColor; border-radius:999px; }
+.state--ok { color:var(--ok); background:var(--ok-bg); } .state--err { color:var(--err); background:var(--err-bg); } .state--pen { color:var(--pen); background:var(--pen-bg); }

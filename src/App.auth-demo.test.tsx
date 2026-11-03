@@ -22,7 +22,7 @@ const {
   signInWithPassword: vi.fn(() => Promise.resolve({ data: { session: null }, error: null })),
   signUp: vi.fn(() => Promise.resolve({ data: { session: null }, error: null })),
   signOut: vi.fn(() => Promise.resolve({ error: null })),
-  rpcMock: vi.fn(() => Promise.resolve({ data: null, error: null })),
+  rpcMock: vi.fn((..._args: unknown[]) => Promise.resolve({ data: null, error: null })),
 }));
 
 vi.mock('./utils/db', async importOriginal => {
@@ -59,6 +59,9 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     saveAttempt.mockClear();
     saveMemoryState.mockClear();
     rpcMock.mockClear();
+    // Estos casos parten de la pantalla de acceso (alumno que ya la pidió). El primer uso sin
+    // cuenta entra directo como invitado: ver App.guest-first.test.tsx.
+    window.localStorage.setItem('bomberopro:prefer-login:v1', '1');
   });
 
   it('permite recorrer una primera sesión de estudio en demo, salir y reingresar sin arrastrar progreso en memoria ni persistir datos', async () => {
@@ -66,23 +69,18 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     render(<App />);
 
     // 1. Pantalla de Login inicial
-    expect(await screen.findByRole('heading', { name: /mira bomberopro/i })).toBeInTheDocument();
-    const demoButton = screen.getByRole('button', { name: /probar sin cuenta/i });
+    expect(await screen.findByRole('heading', { name: /^bomberopro$/i })).toBeInTheDocument();
+    const demoButton = screen.getByRole('button', { name: /prueba 15 preguntas/i });
     expect(demoButton).toBeInTheDocument();
 
     // 2. Iniciar demostración
     await user.click(demoButton);
 
     // Entra a la aplicación en modo demo
-    expect(await screen.findByRole('region', { name: /aviso de modo demostración/i })).toBeInTheDocument();
-    expect(screen.getByRole('region', { name: /aviso de modo demostración/i })).toHaveTextContent(/modo demostración.*no se guarda nada/i);
+    expect(await screen.findByRole('region', { name: /aviso de modo invitado/i })).toBeInTheDocument();
+    expect(screen.getByRole('region', { name: /aviso de modo invitado/i })).toHaveTextContent(/modo invitado.*tu progreso se guarda en este/i);
 
-    // Ve el Dashboard inicial sin intentos previos
-    expect(screen.getByRole('button', { name: /entrenar ahora/i })).toBeInTheDocument();
-
-    // 3. Comenzar primera sesión de estudio
-    await user.click(screen.getByRole('button', { name: /entrenar ahora/i }));
-
+    // 3. La demo abre directamente las preguntas de prueba (sin pasar por el inicio ni la bienvenida)
     // Carga la primera pregunta de estudio (Art. 1.1)
     const questionText = await screen.findByText(/según el artículo 1\.1 de la constitución/i);
     expect(questionText).toBeInTheDocument();
@@ -101,23 +99,21 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     // VERIFICACIÓN CLAVE: Sin persistencia a localStorage ni llamadas a Supabase RPC
     expect(saveAttempt).not.toHaveBeenCalled();
     expect(saveMemoryState).not.toHaveBeenCalled();
-    expect(rpcMock).not.toHaveBeenCalled();
+    // Solo se permite el evento anónimo del embudo (migración 22); nada de estudio va al servidor.
+    expect(rpcMock.mock.calls.filter(([fn]) => fn !== 'log_funnel_event')).toEqual([]);
 
     // 5. Salir de la demostración
-    await user.click(screen.getByRole('button', { name: /salir de la demo/i }));
+    await user.click(screen.getByRole('button', { name: /entrar con tu cuenta/i }));
 
     // Regresa limpiamente a la pantalla de Login
-    expect(await screen.findByRole('heading', { name: /mira bomberopro/i })).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: /^bomberopro$/i })).toBeInTheDocument();
 
     // 6. Reingreso a la demo: comprobar que no quedan datos ni progreso arrastrado
-    const reEnterDemoBtn = screen.getByRole('button', { name: /probar sin cuenta/i });
+    const reEnterDemoBtn = screen.getByRole('button', { name: /prueba 15 preguntas/i });
     await user.click(reEnterDemoBtn);
 
     // Nuevamente en Dashboard demo
-    expect(await screen.findByRole('region', { name: /aviso de modo demostración/i })).toBeInTheDocument();
-
-    // Entrar de nuevo a Entrenar Ahora
-    await user.click(screen.getByRole('button', { name: /entrenar ahora/i }));
+    expect(await screen.findByRole('region', { name: /aviso de modo invitado/i })).toBeInTheDocument();
 
     // Se presenta una sesión fresca desde la primera pregunta
     expect(await screen.findByText(/según el artículo 1\.1 de la constitución/i)).toBeInTheDocument();
@@ -131,6 +127,19 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     // Sin escrituras persistentes ni llamadas remotas en ningún momento
     expect(saveAttempt).not.toHaveBeenCalled();
     expect(saveMemoryState).not.toHaveBeenCalled();
-    expect(rpcMock).not.toHaveBeenCalled();
+    // Solo se permite el evento anónimo del embudo (migración 22); nada de estudio va al servidor.
+    expect(rpcMock.mock.calls.filter(([fn]) => fn !== 'log_funnel_event')).toEqual([]);
+  });
+
+  it('desde la demo, «Activar invitación» abre el alta de cuenta', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+    await user.click(await screen.findByRole('button', { name: /prueba 15 preguntas/i }));
+    await user.click(await screen.findByRole('button', { name: 'Activar invitación' }));
+    expect(await screen.findByRole('button', { name: 'Activar mi cuenta' })).toBeInTheDocument();
+    const eventos = rpcMock.mock.calls.filter(([fn]) => fn === 'log_funnel_event').map(([, args]) => (args as { p_event: string }).p_event);
+    expect(eventos).toEqual(['demo_start', 'demo_signup_click']);
+    expect(screen.getByRole('button', { name: 'Activar invitación', pressed: true })).toBeInTheDocument();
+    expect(saveAttempt).not.toHaveBeenCalled();
   });
 });

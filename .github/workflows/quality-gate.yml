@@ -32,6 +32,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Preview environment isolation
+        run: npx vitest run scripts/check-preview-isolation.test.mjs --configLoader runner
+
+      - name: Migraciones sin números repetidos
+        run: node scripts/check-migrations.mjs
+
       - name: Lint
         run: npm run lint
 
@@ -45,3 +51,11 @@ jobs:
         run: |
           npm i --no-save @electric-sql/pglite
           node supabase/tests/concept_engine.pglite.mjs
+          node supabase/tests/concept_answer_secure.pglite.mjs
+          node supabase/tests/escalera.pglite.mjs
+          node supabase/tests/escalera_32.pglite.mjs
+          node supabase/tests/carga_conceptos.pglite.mjs
+          node supabase/tests/vinculos.pglite.mjs
+          node supabase/tests/vinculos_rri_cpei.pglite.mjs
+          node supabase/tests/registro_48.pglite.mjs
+          node supabase/tests/simulacro_40.pglite.mjs

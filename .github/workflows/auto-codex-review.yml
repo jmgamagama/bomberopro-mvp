@@ -45,11 +45,14 @@ jobs:
       - name: Ejecutar Codex CLI en modo review
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        continue-on-error: true  # el CLI/clave pueden no estar disponibles: no debe poner en rojo el PR
         run: |
+          if [ -z "$OPENAI_API_KEY" ]; then echo "Sin OPENAI_API_KEY: se omite la review automática."; exit 0; fi
           npm install -g @openai/codex-cli
           codex review --diff-only --output review-comments.md
 
       - name: Publicar comentarios de Codex en el PR
+        if: hashFiles('review-comments.md') != ''
         uses: actions/github-script@v7
         with:
           script: |

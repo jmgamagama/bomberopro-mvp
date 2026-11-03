@@ -1,0 +1,276 @@
+{
+ "boe": "DOE-2025040069",
+ "version": "01/11/2026",
+ "epigrafe": "Planes Especiales de Proteccion civil en la CAEX. INUNCAEX, TRANSCAEX, RADIOCAEX y PLASISMEX: Definicion, objetivos. Estructura y organizacion. Operatividad.\n",
+ "normas": [
+  {
+   "boe": "DOE-2025040069",
+   "version": "01/11/2026"
+  },
+  {
+   "boe": "DOE-2019040205",
+   "version": "01/11/2026"
+  },
+  {
+   "boe": "DOE-2019040206",
+   "version": "01/11/2026"
+  },
+  {
+   "boe": "DOE-2009040140",
+   "version": "01/11/2026"
+  }
+ ],
+ "bloques": [
+  {
+   "id": "planes-01",
+   "titulo": "INUNCAEX (Decreto 39/2025) · Objetivo y funciones básicas (cap. I, 2)",
+   "boe": "DOE-2025040069",
+   "preceptos": [
+    "s-i-2"
+   ]
+  },
+  {
+   "id": "planes-02",
+   "titulo": "INUNCAEX · Estructura y organización (cap. IV, 1–3.5)",
+   "boe": "DOE-2025040069",
+   "preceptos": [
+    "s-iv-1",
+    "s-iv-2",
+    "s-iv-2-1",
+    "s-iv-2-2",
+    "s-iv-2-3",
+    "s-iv-2-4",
+    "s-iv-2-5",
+    "s-iv-3",
+    "s-iv-3-1",
+    "s-iv-3-2",
+    "s-iv-3-3",
+    "s-iv-3-4",
+    "s-iv-3-4-1",
+    "s-iv-3-4-2",
+    "s-iv-3-4-3",
+    "s-iv-3-4-4",
+    "s-iv-3-4-5",
+    "s-iv-3-4-6",
+    "s-iv-3-5"
+   ]
+  },
+  {
+   "id": "planes-03",
+   "titulo": "INUNCAEX · Operatividad (cap. V, 1–8.3)",
+   "boe": "DOE-2025040069",
+   "preceptos": [
+    "s-v-1",
+    "s-v-2",
+    "s-v-2-1",
+    "s-v-2-2",
+    "s-v-2-3",
+    "s-v-2-3-1",
+    "s-v-2-3-2",
+    "s-v-2-4",
+    "s-v-2-5",
+    "s-v-2-6",
+    "s-v-3",
+    "s-v-4",
+    "s-v-4-1",
+    "s-v-4-2",
+    "s-v-4-3",
+    "s-v-4-4",
+    "s-v-4-5",
+    "s-v-5",
+    "s-v-6",
+    "s-v-7",
+    "s-v-7-1",
+    "s-v-7-2",
+    "s-v-7-3",
+    "s-v-7-4",
+    "s-v-8",
+    "s-v-8-1",
+    "s-v-8-1-1",
+    "s-v-8-1-2",
+    "s-v-8-1-3",
+    "s-v-8-1-4",
+    "s-v-8-1-5",
+    "s-v-8-1-6",
+    "s-v-8-1-7",
+    "s-v-8-1-8",
+    "s-v-8-1-9",
+    "s-v-8-2",
+    "s-v-8-3"
+   ]
+  },
+  {
+   "id": "planes-04",
+   "titulo": "TRANSCAEX (Decreto 189/2019) · Definición y objetivos (1.1–1.2)",
+   "boe": "DOE-2019040205",
+   "preceptos": [
+    "s-1-1",
+    "s-1-2"
+   ]
+  },
+  {
+   "id": "planes-05",
+   "titulo": "TRANSCAEX · Estructura y organización (cap. 4)",
+   "boe": "DOE-2019040205",
+   "preceptos": [
+    "s-4-1",
+    "s-4-2",
+    "s-4-3",
+    "s-4-3-1",
+    "s-4-3-2",
+    "s-4-3-3",
+    "s-4-3-4",
+    "s-4-3-5",
+    "s-4-4",
+    "s-4-4-1",
+    "s-4-4-2",
+    "s-4-4-3",
+    "s-4-4-4",
+    "s-4-4-4-1",
+    "s-4-4-4-2",
+    "s-4-4-4-3",
+    "s-4-4-4-4",
+    "s-4-4-4-5",
+    "s-4-4-4-6",
+    "s-4-5"
+   ]
+  },
+  {
+   "id": "planes-06",
+   "titulo": "TRANSCAEX · Operatividad (cap. 5)",
+   "boe": "DOE-2019040205",
+   "preceptos": [
+    "s-5-1",
+    "s-5-2",
+    "s-5-3",
+    "s-5-3-1",
+    "s-5-3-2",
+    "s-5-4",
+    "s-5-4-1",
+    "s-5-4-2",
+    "s-5-4-3",
+    "s-5-4-3-1",
+    "s-5-4-3-2",
+    "s-5-4-3-3",
+    "s-5-5",
+    "s-5-5-1",
+    "s-5-5-2",
+    "s-5-5-3",
+    "s-5-5-4",
+    "s-5-5-5",
+    "s-5-6",
+    "s-5-7",
+    "s-5-7-1",
+    "s-5-7-1-1",
+    "s-5-7-1-2",
+    "s-5-7-1-3",
+    "s-5-7-1-4",
+    "s-5-7-1-5",
+    "s-5-7-1-6",
+    "s-5-7-1-7",
+    "s-5-7-2",
+    "s-5-7-3",
+    "s-5-8",
+    "s-5-8-1",
+    "s-5-8-2",
+    "s-5-8-3"
+   ]
+  },
+  {
+   "id": "planes-07",
+   "titulo": "RADIOCAEX (Decreto 200/2019) · Definición y objetivos (1.3)",
+   "boe": "DOE-2019040206",
+   "preceptos": [
+    "s-1-3"
+   ]
+  },
+  {
+   "id": "planes-08",
+   "titulo": "RADIOCAEX · Estructura, organización y funciones (cap. 3)",
+   "boe": "DOE-2019040206",
+   "preceptos": [
+    "s-3-1",
+    "s-3-2",
+    "s-3-3",
+    "s-3-4"
+   ]
+  },
+  {
+   "id": "planes-09",
+   "titulo": "RADIOCAEX · Operatividad (cap. 4)",
+   "boe": "DOE-2019040206",
+   "preceptos": [
+    "s-4-1",
+    "s-4-2",
+    "s-4-3",
+    "s-4-4",
+    "s-4-5"
+   ]
+  },
+  {
+   "id": "planes-10",
+   "titulo": "PLASISMEX · Definición, objeto y funciones (1.2)",
+   "boe": "DOE-2009040140",
+   "preceptos": [
+    "s-1-2"
+   ]
+  },
+  {
+   "id": "planes-11",
+   "titulo": "PLASISMEX · Estructura y organización (3)",
+   "boe": "DOE-2009040140",
+   "preceptos": [
+    "s-3",
+    "s-3-1",
+    "s-3-1-1",
+    "s-3-2",
+    "s-3-2-1",
+    "s-3-2-2",
+    "s-3-2-3",
+    "s-3-2-4",
+    "s-3-2-5",
+    "s-3-3",
+    "s-3-3-1",
+    "s-3-3-2",
+    "s-3-3-2-1",
+    "s-3-3-2-2",
+    "s-3-3-2-3",
+    "s-3-3-2-4",
+    "s-3-3-2-5"
+   ]
+  },
+  {
+   "id": "planes-12",
+   "titulo": "PLASISMEX · Operatividad (4)",
+   "boe": "DOE-2009040140",
+   "preceptos": [
+    "s-4",
+    "s-4-1",
+    "s-4-1-1",
+    "s-4-1-2",
+    "s-4-1-3",
+    "s-4-1-3-1",
+    "s-4-1-3-2",
+    "s-4-1-3-3",
+    "s-4-1-3-4",
+    "s-4-1-4",
+    "s-4-2",
+    "s-4-2-1",
+    "s-4-2-2",
+    "s-4-2-3",
+    "s-4-2-4",
+    "s-4-3",
+    "s-4-3-1",
+    "s-4-3-2",
+    "s-4-3-3",
+    "s-4-3-4",
+    "s-4-3-5",
+    "s-4-4",
+    "s-4-4-1",
+    "s-4-4-2",
+    "s-4-4-3",
+    "s-4-4-4"
+   ]
+  }
+ ]
+}

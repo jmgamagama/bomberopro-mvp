@@ -1,0 +1,403 @@
+{
+ "descripcion": "Preguntas YA publicadas en producción (tema 1) sobre los arts. 53-55 CE (y las que no citan artículo), revisadas una a una contra el texto consolidado del BOE (act. 20/05/2026) el 28/10/2026. accion: vincular, corregir, retirar_duplicada (se despublica con registro; el motivo indica si además tenía un error), fuera_temario, reubicar.",
+ "motivo_registro": "revisión arts. 53-55 CE contra BOE act. 20/05/2026 (28/10/2026)",
+ "revisado_por": "Claude (revisión manual contra el BOE); pendiente de aprobación de JM",
+ "preguntas": [
+  {
+   "question_id": 967,
+   "accion": "corregir",
+   "concepto": "CE-a53-1-vinculacion",
+   "nivel": 2,
+   "motivo": "La opción c «A todos los poderes del Estado» es casi sinónima de la correcta y la hace discutible.",
+   "cambios": {
+    "opcion": {
+     "letra": "c",
+     "texto": "Solo a las Cortes Generales"
+    }
+   }
+  },
+  {
+   "question_id": 968,
+   "accion": "vincular",
+   "concepto": "CE-a53-1-art161",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 969,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Las opciones a y b solo cambian «artículo 15» por «artículo 14», y el art. 15 también está protegido (Sección primera): la a es defendible. La cubren 6182 y las nuevas del concepto CE-a53-2-ambito."
+  },
+  {
+   "question_id": 970,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "«La actuación del Estado» es casi equivalente a la correcta y lleva la opción referencial «Ninguna vale». Duplicada de la 4763."
+  },
+  {
+   "question_id": 971,
+   "accion": "vincular",
+   "concepto": "CE-a53-3-alegacion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4763,
+   "accion": "vincular",
+   "concepto": "CE-a53-3-informaran",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4774,
+   "accion": "vincular",
+   "concepto": "CE-a53-2-amparo",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6182,
+   "accion": "vincular",
+   "concepto": "CE-a53-2-ambito",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 8206,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 4763."
+  },
+  {
+   "question_id": 8218,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 4774."
+  },
+  {
+   "question_id": 8223,
+   "accion": "vincular",
+   "concepto": "CE-a53-2-preferencia-sumariedad",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 8241,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 6182; además, la opción «15 al 29» puede parecer correcta a quien piense solo en la Sección primera."
+  },
+  {
+   "question_id": 8242,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Usa la opción referencial «Las dos anteriores» y su explicación sitúa el art. 161.1.a) en el art. 53.2 (está en el 53.1). Duplicada de la 967 y la 968."
+  },
+  {
+   "question_id": 8257,
+   "accion": "vincular",
+   "concepto": "CE-a53-1-vinculacion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 881,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 4786; lleva la opción referencial «Ninguna vale» y un distractor sin sentido («Real Decreto del Congreso»)."
+  },
+  {
+   "question_id": 882,
+   "accion": "vincular",
+   "concepto": "CE-a54-alto-comisionado",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 883,
+   "accion": "corregir",
+   "concepto": "CE-a54-supervision",
+   "nivel": 2,
+   "motivo": "La opción a «Los poderes públicos» no concuerda con el enunciado («¿ante quién…?») y desentona con el resto.",
+   "cambios": {
+    "opcion": {
+     "letra": "a",
+     "texto": "Al Consejo General del Poder Judicial"
+    }
+   }
+  },
+  {
+   "question_id": 4786,
+   "accion": "vincular",
+   "concepto": "CE-a54-ley-organica",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6183,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 882."
+  },
+  {
+   "question_id": 8234,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "La opción d («Es nombrado por las Cortes Generales para la defensa de los derechos… del Título I») también es cierta según el art. 54: dos correctas. Duplicada de la 4786."
+  },
+  {
+   "question_id": 8236,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 4786; el distractor «ley orgánica del Congreso de los Diputados» confunde más de lo que enseña."
+  },
+  {
+   "question_id": 889,
+   "accion": "corregir",
+   "concepto": "CE-a55-1-estados",
+   "nivel": 2,
+   "motivo": "La opción c «Ambas son correctas» es referencial y depende del orden y del recorte de opciones.",
+   "cambios": {
+    "opcion": {
+     "letra": "c",
+     "texto": "El derecho de huelga (art. 28.2)"
+    }
+   }
+  },
+  {
+   "question_id": 890,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "ERROR: la opción a (plazo de la prisión provisional, art. 17.4) también es suspendible, porque el art. 55.1 incluye el art. 17 entero; «Ambas son correctas» sería defendible. La cubren las nuevas del concepto CE-a55-1-lista-20-21."
+  },
+  {
+   "question_id": 979,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Mismo error que la 890 (el art. 17.4 también es suspendible) y duplicada de ella."
+  },
+  {
+   "question_id": 891,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Ambigua: la opción a (art. 17.3) sí puede suspenderse en el estado de sitio, y el enunciado dice «excepción o de sitio»; «Ambas son correctas» sería defendible."
+  },
+  {
+   "question_id": 972,
+   "accion": "vincular",
+   "concepto": "CE-a55-1-no-suspendibles",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 973,
+   "accion": "vincular",
+   "concepto": "CE-a55-2-garantias",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 974,
+   "accion": "vincular",
+   "concepto": "CE-a55-2-responsabilidad",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 981,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "ERROR: pregunta por lo que puede «limitarse» en el estado de alarma, y la Ley Orgánica 4/1981 sí permite limitar la circulación; la opción a es defendible. Además usa la opción referencial «Ambas»."
+  },
+  {
+   "question_id": 982,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 889 (estado de alarma) con opción referencial «Ambas son correctas»."
+  },
+  {
+   "question_id": 984,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "ERROR: la opción correcta afirma que el art. 17.4 (habeas corpus) no es suspendible «en ningún estado», pero el art. 55.1 incluye el art. 17 entero (salvo el 17.3 en el estado de excepción)."
+  },
+  {
+   "question_id": 986,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 889 (estado de alarma) con opción referencial «Ambas son correctas»."
+  },
+  {
+   "question_id": 987,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 889 (estado de alarma) con opción referencial «Ambas son correctas»."
+  },
+  {
+   "question_id": 4772,
+   "accion": "vincular",
+   "concepto": "CE-a55-1-excepcion-17-3",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4778,
+   "accion": "vincular",
+   "concepto": "CE-a55-2-garantias",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4792,
+   "accion": "vincular",
+   "concepto": "CE-a55-1-lista-17-19",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6184,
+   "accion": "vincular",
+   "concepto": "CE-a55-1-no-suspendibles",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 8215,
+   "accion": "vincular",
+   "concepto": "CE-a55-1-excepcion-17-3",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 8222,
+   "accion": "vincular",
+   "concepto": "CE-a55-1-no-suspendibles",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 8224,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 4778; «autorización judicial» y «resolución judicial» son casi sinónimos de la correcta."
+  },
+  {
+   "question_id": 8232,
+   "accion": "vincular",
+   "concepto": "CE-a55-2-derechos",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 8243,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 4792; su explicación cita la negociación colectiva (37.1), que no aparece entre las opciones."
+  },
+  {
+   "question_id": 8250,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 6184 (derecho de asociación)."
+  },
+  {
+   "question_id": 880,
+   "accion": "reubicar",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Pregunta por la rúbrica del Capítulo IV. Se vinculará al concepto de estructura del Título I cuando se prepare el art. 10 y la estructura del título."
+  },
+  {
+   "question_id": 884,
+   "accion": "reubicar",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Pregunta por la rúbrica del Capítulo V. Igual que la 880."
+  },
+  {
+   "question_id": 6811,
+   "accion": "fuera_temario",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Trata del plazo del estado de excepción (Ley Orgánica 4/1981 y art. 116.3 CE), fuera del epígrafe del tema 1 de Badajoz (arts. 1-55). Mal clasificada por la cita «art. 13» de la ley orgánica."
+  },
+  {
+   "question_id": 1210,
+   "accion": "fuera_temario",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Título III CE (Cortes Generales): fuera del epígrafe del tema 1 de Badajoz (arts. 1-55)."
+  },
+  {
+   "question_id": 1420,
+   "accion": "fuera_temario",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Título VIII CE (organización territorial): fuera del epígrafe del tema 1 de Badajoz."
+  },
+  {
+   "question_id": 8265,
+   "accion": "fuera_temario",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Título II CE (la Corona, arts. 56-65): fuera del epígrafe del tema 1 de Badajoz."
+  },
+  {
+   "question_id": 8340,
+   "accion": "fuera_temario",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Título III CE (Cortes Generales): fuera del epígrafe del tema 1 de Badajoz."
+  },
+  {
+   "question_id": 8420,
+   "accion": "fuera_temario",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Título VI CE (Poder Judicial): fuera del epígrafe del tema 1 de Badajoz."
+  },
+  {
+   "question_id": 8477,
+   "accion": "fuera_temario",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Título IX CE (Tribunal Constitucional): fuera del epígrafe del tema 1 de Badajoz."
+  },
+  {
+   "question_id": 8478,
+   "accion": "fuera_temario",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Título IX CE (Tribunal Constitucional): fuera del epígrafe del tema 1 de Badajoz."
+  },
+  {
+   "question_id": 8480,
+   "accion": "fuera_temario",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Título IX CE (Tribunal Constitucional): fuera del epígrafe del tema 1 de Badajoz."
+  }
+ ]
+}

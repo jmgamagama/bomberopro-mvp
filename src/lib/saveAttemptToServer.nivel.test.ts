@@ -17,6 +17,12 @@ describe('nivel enviado al servidor', () => {
     expect(p.p_nivel).toBe(1);
     expect(p.p_tiempo_ms).toBe(16281);
   });
+  it('un tiempo sin medición fiable se envía como null, nunca como 0', () => {
+    const base = { p_client_attempt_id: 'k', p_user_id: 'u', p_question_id: 1, p_acierto: true, p_respuesta: 'x', p_modo: 'adaptativo', p_session_id: null, p_nivel: 1, p_confidence: null };
+    expect(normalizeParams({ ...base, p_tiempo_ms: null }).p_tiempo_ms).toBeNull();
+    expect(normalizeParams({ ...base, p_tiempo_ms: NaN }).p_tiempo_ms).toBeNull();
+    expect(normalizeParams({ ...base, p_tiempo_ms: 0 }).p_tiempo_ms).toBe(0);
+  });
 });
 
 import { classifyError } from './saveAttemptToServer';

@@ -1,0 +1,602 @@
+{
+ "descripcion": "Preguntas YA publicadas en producción (tema 1) que citan los arts. 1-9 CE, revisadas una a una contra el texto consolidado del BOE (act. 20/05/2026) el 17/10/2026. accion: vincular (se liga al concepto y se fija su nivel), corregir (se liga y se corrige lo indicado), retirar_duplicada (se despublica, con registro), fuera_temario (no es del tema 1 de Badajoz), reubicar (se vinculará en otra fase).",
+ "revisado_por": "Claude (revisión manual contra el BOE); pendiente de aprobación de JM",
+ "preguntas": [
+  {
+   "question_id": 808,
+   "accion": "vincular",
+   "concepto": "CE-a1-1-estado",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4732,
+   "accion": "vincular",
+   "concepto": "CE-a1-1-estado",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 865,
+   "accion": "vincular",
+   "concepto": "CE-a1-1-valores",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 6898,
+   "accion": "vincular",
+   "concepto": "CE-a1-1-valores",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 8199,
+   "accion": "vincular",
+   "concepto": "CE-a1-1-valores",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 905,
+   "accion": "vincular",
+   "concepto": "CE-a1-2-soberania",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 6899,
+   "accion": "vincular",
+   "concepto": "CE-a1-2-soberania",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 8184,
+   "accion": "corregir",
+   "concepto": "CE-a1-2-soberania",
+   "nivel": 2,
+   "motivo": "La opción correcta decía «Ninguna es correcta (es el artículo 1)»: delataba la respuesta.",
+   "cambios": {
+    "opciones": [
+     {
+      "letra": "a",
+      "texto": "En el artículo 2"
+     },
+     {
+      "letra": "b",
+      "texto": "En el artículo 1"
+     },
+     {
+      "letra": "c",
+      "texto": "En el artículo 3"
+     },
+     {
+      "letra": "d",
+      "texto": "En el artículo 5"
+     }
+    ],
+    "correcta": "b"
+   }
+  },
+  {
+   "question_id": 8191,
+   "accion": "vincular",
+   "concepto": "CE-a1-2-soberania",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 910,
+   "accion": "vincular",
+   "concepto": "CE-a1-3-forma",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6900,
+   "accion": "vincular",
+   "concepto": "CE-a1-3-forma",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 8183,
+   "accion": "vincular",
+   "concepto": "CE-a1-3-forma",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4750,
+   "accion": "vincular",
+   "concepto": "CE-a2-autonomia",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 6901,
+   "accion": "vincular",
+   "concepto": "CE-a2-autonomia",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 8177,
+   "accion": "corregir",
+   "concepto": "CE-a2-autonomia",
+   "nivel": 3,
+   "motivo": "Un distractor llevaba la nota «(omitiendo su reconocimiento)», que delataba que es falso y, sin ella, quedaba incompleto pero no falso. Se sustituye por un distractor claramente falso.",
+   "cambios": {
+    "opcion": {
+     "letra": "b",
+     "texto": "La Constitución se fundamenta en la indisoluble unidad de la Nación española y reconoce el derecho a la autodeterminación de las nacionalidades y regiones que la integran"
+    }
+   }
+  },
+  {
+   "question_id": 830,
+   "accion": "vincular",
+   "concepto": "CE-a2-unidad",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 4743,
+   "accion": "vincular",
+   "concepto": "CE-a2-unidad",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 835,
+   "accion": "vincular",
+   "concepto": "CE-a3-1-castellano",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 921,
+   "accion": "vincular",
+   "concepto": "CE-a3-1-castellano",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4716,
+   "accion": "vincular",
+   "concepto": "CE-a3-1-castellano",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4730,
+   "accion": "vincular",
+   "concepto": "CE-a3-1-castellano",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6902,
+   "accion": "vincular",
+   "concepto": "CE-a3-1-castellano",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 859,
+   "accion": "vincular",
+   "concepto": "CE-a3-2-cooficiales",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4752,
+   "accion": "vincular",
+   "concepto": "CE-a3-2-cooficiales",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 8179,
+   "accion": "vincular",
+   "concepto": "CE-a3-2-cooficiales",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 870,
+   "accion": "vincular",
+   "concepto": "CE-a3-3-modalidades",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 8200,
+   "accion": "vincular",
+   "concepto": "CE-a3-3-modalidades",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 932,
+   "accion": "vincular",
+   "concepto": "CE-a4-1-bandera",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 4734,
+   "accion": "vincular",
+   "concepto": "CE-a4-1-bandera",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6903,
+   "accion": "vincular",
+   "concepto": "CE-a4-1-bandera",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 798,
+   "accion": "vincular",
+   "concepto": "CE-a4-2-banderas-ccaa",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 901,
+   "accion": "vincular",
+   "concepto": "CE-a4-2-banderas-ccaa",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 896,
+   "accion": "vincular",
+   "concepto": "CE-a5-capital",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4755,
+   "accion": "vincular",
+   "concepto": "CE-a5-capital",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6904,
+   "accion": "vincular",
+   "concepto": "CE-a5-capital",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 8186,
+   "accion": "vincular",
+   "concepto": "CE-a5-capital",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 832,
+   "accion": "vincular",
+   "concepto": "CE-a6-partidos-funciones",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 4724,
+   "accion": "vincular",
+   "concepto": "CE-a6-partidos-funciones",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 876,
+   "accion": "vincular",
+   "concepto": "CE-a6-partidos-regimen",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4723,
+   "accion": "vincular",
+   "concepto": "CE-a6-partidos-regimen",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 855,
+   "accion": "corregir",
+   "concepto": "CE-a7-sindicatos-funciones",
+   "nivel": 2,
+   "motivo": "La correcta («A la defensa y promoción de sus intereses») no era literal; se sustituye por el texto del art. 7.",
+   "cambios": {
+    "opcion": {
+     "letra": "b",
+     "texto": "A la defensa y promoción de los intereses económicos y sociales que les son propios"
+    }
+   }
+  },
+  {
+   "question_id": 878,
+   "accion": "corregir",
+   "concepto": "CE-a7-sindicatos-funciones",
+   "nivel": 3,
+   "motivo": "El enunciado empezaba con una nota interna «AVISO DE FUENTE…» visible para el alumno.",
+   "cambios": {
+    "enunciado": "Según el artículo 7 CE, ¿a qué contribuyen los sindicatos de trabajadores y las asociaciones empresariales?"
+   }
+  },
+  {
+   "question_id": 4735,
+   "accion": "vincular",
+   "concepto": "CE-a7-sindicatos-funciones",
+   "nivel": 2,
+   "motivo": "La fuente decía «art. 6»; es del art. 7."
+  },
+  {
+   "question_id": 8193,
+   "accion": "vincular",
+   "concepto": "CE-a7-sindicatos-funciones",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4738,
+   "accion": "vincular",
+   "concepto": "CE-a7-sindicatos-regimen",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 8185,
+   "accion": "vincular",
+   "concepto": "CE-a7-sindicatos-regimen",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 842,
+   "accion": "vincular",
+   "concepto": "CE-a8-1-composicion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4715,
+   "accion": "vincular",
+   "concepto": "CE-a8-1-composicion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 846,
+   "accion": "vincular",
+   "concepto": "CE-a8-1-mision",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 4740,
+   "accion": "vincular",
+   "concepto": "CE-a8-1-mision",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6905,
+   "accion": "vincular",
+   "concepto": "CE-a8-1-mision",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 8190,
+   "accion": "vincular",
+   "concepto": "CE-a8-1-mision",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 848,
+   "accion": "vincular",
+   "concepto": "CE-a8-2-ley-organica",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 850,
+   "accion": "vincular",
+   "concepto": "CE-a8-2-ley-organica",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 8197,
+   "accion": "vincular",
+   "concepto": "CE-a8-2-ley-organica",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 804,
+   "accion": "vincular",
+   "concepto": "CE-a9-1-sujecion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4727,
+   "accion": "vincular",
+   "concepto": "CE-a9-1-sujecion",
+   "nivel": 3,
+   "motivo": "Abarca el art. 9 completo (incluye un distractor del art. 10)."
+  },
+  {
+   "question_id": 8178,
+   "accion": "vincular",
+   "concepto": "CE-a9-1-sujecion",
+   "nivel": 3,
+   "motivo": "Abarca los tres apartados del art. 9 («Todas las anteriores»)."
+  },
+  {
+   "question_id": 8181,
+   "accion": "vincular",
+   "concepto": "CE-a9-1-sujecion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 811,
+   "accion": "vincular",
+   "concepto": "CE-a9-2-igualdad-real",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 868,
+   "accion": "vincular",
+   "concepto": "CE-a9-2-igualdad-real",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 900,
+   "accion": "vincular",
+   "concepto": "CE-a9-2-igualdad-real",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 902,
+   "accion": "vincular",
+   "concepto": "CE-a9-2-igualdad-real",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 951,
+   "accion": "vincular",
+   "concepto": "CE-a9-2-igualdad-real",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 4751,
+   "accion": "vincular",
+   "concepto": "CE-a9-2-igualdad-real",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6906,
+   "accion": "vincular",
+   "concepto": "CE-a9-2-igualdad-real",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 954,
+   "accion": "vincular",
+   "concepto": "CE-a9-3-arbitrariedad",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 873,
+   "accion": "vincular",
+   "concepto": "CE-a9-3-principios",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 909,
+   "accion": "vincular",
+   "concepto": "CE-a9-3-principios",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 4686,
+   "accion": "vincular",
+   "concepto": "CE-a9-3-principios",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4718,
+   "accion": "vincular",
+   "concepto": "CE-a9-3-principios",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 6907,
+   "accion": "vincular",
+   "concepto": "CE-a9-3-principios",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 8196,
+   "accion": "vincular",
+   "concepto": "CE-a9-3-principios",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 950,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 804."
+  },
+  {
+   "question_id": 952,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 873."
+  },
+  {
+   "question_id": 4717,
+   "accion": "reubicar",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Es del art. 10 (Título I), no del 9. Se vinculará al concepto del art. 10 en la fase del Título I."
+  },
+  {
+   "question_id": 6813,
+   "accion": "fuera_temario",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Trata del estado de alarma (Ley Orgánica 4/1981 y art. 116 CE), no del art. 4 CE; está fuera del epígrafe del tema 1 de Badajoz. Mal clasificada por la cita «Ley Orgánica 4/1981»."
+  },
+  {
+   "question_id": 7541,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 4717 (art. 10)."
+  },
+  {
+   "question_id": 7551,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 4727."
+  },
+  {
+   "question_id": 7554,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 4730 (mismo enunciado y opciones)."
+  }
+ ]
+}

@@ -1,5 +1,7 @@
 # Estado del proyecto — BomberoPro / MIRA
 
+> **Histórico.** El estado actual está en `docs/ESTADO_VIVO.md` y la organización de chats en `docs/OPERACION.md`.
+
 Última actualización: 2026-07-23, por Codex.
 
 ## Repositorio

@@ -4,10 +4,8 @@ import '../test/setup';
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
-import StudentConsultation, {
-  StudentConsultationModal,
-  CONSULTATION_REASONS,
-} from './StudentConsultationModal';
+import StudentConsultation from './StudentConsultationModal';
+import { StudentConsultationModal, CONSULTATION_REASONS } from './StudentConsultationDialog';
 
 describe('StudentConsultationModal', () => {
   it('no se muestra cuando isOpen es false', () => {
@@ -80,6 +78,20 @@ describe('StudentConsultationModal', () => {
     expect(href).toContain('Tengo dudas sobre los artículos 2 y 3.');
   });
 
+  it('mantiene abierto el borrador si el alumno pulsa el enlace de correo', async () => {
+    const user = userEvent.setup();
+    const onClose = vi.fn();
+    render(<StudentConsultationModal isOpen onClose={onClose} context="Tema 3" />);
+
+    const note = screen.getByPlaceholderText(/escribe brevemente tu duda/i);
+    await user.type(note, 'Necesito aclarar la cuestión 4.');
+    await user.click(screen.getByRole('link', { name: /abrir correo con asunto preparado/i }));
+
+    expect(onClose).not.toHaveBeenCalled();
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/escribe brevemente tu duda/i)).toHaveValue('Necesito aclarar la cuestión 4.');
+  });
+
   it('permite cerrar el diálogo mediante botón de cerrar, cancelar y tecla Escape', async () => {
     const user = userEvent.setup();
     const onClose = vi.fn();
@@ -115,7 +127,8 @@ describe('StudentConsultation componente contenedor', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 
     await user.click(screen.getByRole('button', { name: /consultar al equipo/i }));
-    expect(screen.getByRole('dialog')).toBeInTheDocument();
+    // El diálogo va en su propio chunk (rendimiento-2): aparece en cuanto se descarga.
+    expect(await screen.findByRole('dialog')).toBeInTheDocument();
   });
 
   it('renderiza la variante button, abre el modal y devuelve el foco al cerrarse con Escape', async () => {
@@ -126,7 +139,7 @@ describe('StudentConsultation componente contenedor', () => {
     expect(button).toBeInTheDocument();
 
     await user.click(button);
-    expect(screen.getByRole('dialog')).toBeInTheDocument();
+    expect(await screen.findByRole('dialog')).toBeInTheDocument();
 
     // Pulsar Escape para cerrar
     fireEvent.keyDown(window, { key: 'Escape' });

@@ -4,11 +4,18 @@
  */
 
 import React, { useState, useEffect, useRef } from 'react';
+import { formatArticle, conceptTopicLabel } from '../utils/conceptLabels';
+import { formatDecimal } from '../utils/formatNumber';
 import { Brain, Sparkles, ChevronRight, CheckCircle2, XCircle, AlertTriangle, HelpCircle, RefreshCw, ArrowLeft, Clock } from 'lucide-react';
 import { Question, ConfidenceLevel, MemoryState, Microconcept } from '../types';
 import { countAnswerChange } from '../utils/attempt';
+import { describeTimer, validResponseSeconds, MAX_VALID_RESPONSE_SECONDS, TARGET_RESPONSE_SECONDS } from '../utils/activeTimer';
+import { useActiveTimer } from '../hooks/useActiveTimer';
+import { optionLetter } from '../utils/shuffleOptions';
 import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
+import { supabase } from '../lib/supabase';
+import { checkAnswer, describeCheckError, type AnswerCheck } from '../lib/secureQuestions';
 
 interface TrainScreenProps {
   question: Question | null;
@@ -22,8 +29,11 @@ interface TrainScreenProps {
     microconceptId: string,
     answer: string,
     confidence: ConfidenceLevel,
-    responseTime: number,
-    answerChanges: number
+    /** Segundos de tiempo ACTIVO de respuesta; null si no es una medición fiable (más de 2 min). */
+    responseTime: number | null,
+    answerChanges: number,
+    /** Acierto decidido por el servidor (check_answer) si la pregunta llegó sin clave. */
+    serverCorrect?: boolean
   ) => {
     feedbackTitle: string;
     feedbackMessage: string;
@@ -52,11 +62,25 @@ export default function TrainScreen({
   const [selectedConfidence, setSelectedConfidence] = useState<ConfidenceLevel | null>(null);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
-  const [startTime, setStartTime] = useState<number>(0);
-  const [timeTaken, setTimeTaken] = useState<number>(0);
-  const [elapsedSeconds, setElapsedSeconds] = useState(0);
+  // Mientras el servidor corrige no se puede cambiar de opción: la corrección y lo que se ve irían a distinta respuesta.
+  const [isChecking, setIsChecking] = useState(false);
+  // Cronómetro de tiempo ACTIVO: se pausa con la pestaña oculta, mientras el servidor corrige y al responder.
+  const timer = useActiveTimer(question?.id, { running: !isAnswered && !isChecking, display: true });
+  const [timerVisible, setTimerVisible] = useState<boolean>(() => {
+    try { return window.localStorage.getItem('bomberopro_timer_visible') !== 'false'; } catch { return true; }
+  });
+  const toggleTimer = () => {
+    setTimerVisible(v => {
+      try { window.localStorage.setItem('bomberopro_timer_visible', String(!v)); } catch { /* sin almacenamiento */ }
+      return !v;
+    });
+  };
   const [answerChanges, setAnswerChanges] = useState(0);
   const feedbackRef = useRef<HTMLDivElement>(null);
+  // C2: clave y explicación recibidas del servidor DESPUÉS de responder.
+  const [revealed, setRevealed] = useState<AnswerCheck | null>(null);
+  const [checkError, setCheckError] = useState<string | null>(null);
+  const checkingRef = useRef(false);
 
   // Feedback states
   const [feedback, setFeedback] = useState<{
@@ -66,25 +90,18 @@ export default function TrainScreen({
     updatedState: MemoryState | null;
   } | null>(null);
 
-  // Start timer on question load
+  // Reinicio al cargar una pregunta
   useEffect(() => {
-    setStartTime(Date.now());
     setSelectedConfidence(null);
     setSelectedAnswer(null);
     setIsAnswered(false);
     setAnswerChanges(0);
     setFeedback(null);
-    setElapsedSeconds(0);
+    setRevealed(null);
+    setCheckError(null);
+    setIsChecking(false);
+    checkingRef.current = false;
   }, [question?.id]);
-
-  // Live-updating chronometer while the question is unanswered
-  useEffect(() => {
-    if (isAnswered || !startTime) return;
-    const interval = setInterval(() => {
-      setElapsedSeconds(Math.floor((Date.now() - startTime) / 1000));
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [startTime, isAnswered]);
 
   useEffect(() => {
     if (feedback) feedbackRef.current?.focus();
@@ -110,7 +127,7 @@ export default function TrainScreen({
             onClick={onNavigateHome}
             className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl transition text-sm"
           >
-            Volver al Dashboard
+            Volver al inicio
           </button>
           <StudentConsultation
             variant="button"
@@ -125,23 +142,31 @@ export default function TrainScreen({
   const relatedConcept = microconcepts.find(mc => mc.id === question.microconcept_id);
   const currentState = memoryStates[question.microconcept_id];
 
-  const formatElapsed = (totalSeconds: number) => {
-    const m = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
-    const s = (totalSeconds % 60).toString().padStart(2, '0');
-    return `${m}:${s}`;
-  };
-
-  const displayedSeconds = isAnswered ? timeTaken : elapsedSeconds;
-  const isWithinTarget = displayedSeconds < 15;
+  const timerView = describeTimer(timer.elapsedMs);
 
   // Auditoría UX móvil (11-oct-2026): responder costaba 3 toques (opción, confianza, confirmar) y
   // «Confirmar» quedaba fuera de la pantalla. Ahora tocar el nivel de seguridad corrige la respuesta.
-  const handleSubmit = (confidenceChoice: ConfidenceLevel | null = selectedConfidence) => {
-    if (!selectedAnswer || !confidenceChoice || isAnswered) return;
+  const handleSubmit = async (confidenceChoice: ConfidenceLevel | null = selectedConfidence) => {
+    if (!selectedAnswer || !confidenceChoice || isAnswered || checkingRef.current) return;
+    checkingRef.current = true;
+    setIsChecking(true);
     setSelectedConfidence(confidenceChoice);
 
-    const elapsed = Math.round((Date.now() - startTime) / 1000);
-    setTimeTaken(elapsed);
+    // Se mide antes de esperar al servidor: la red no cuenta como tiempo del alumno.
+    const elapsed = validResponseSeconds(timer.getElapsedMs());
+    let check: AnswerCheck;
+    try {
+      check = await checkAnswer(supabase, question, selectedAnswer);
+    } catch (err) {
+      console.error('No se pudo corregir la respuesta:', err);
+      setCheckError(describeCheckError(err));
+      checkingRef.current = false;
+      setIsChecking(false);
+      return;
+    }
+    setCheckError(null);
+    setIsChecking(false);
+    setRevealed(check);
     setIsAnswered(true);
 
     const result = onAnswer(
@@ -150,7 +175,8 @@ export default function TrainScreen({
       selectedAnswer,
       confidenceChoice,
       elapsed,
-      answerChanges
+      answerChanges,
+      check.correct
     );
 
     setFeedback({
@@ -200,24 +226,21 @@ export default function TrainScreen({
   const feedbackStyles = getFeedbackStyles();
 
   return (
-    <div className="space-y-6" id="train-container">
-      {/* Train Header Navigation */}
-      <div className="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between" id="train-header-row">
+    <div className="space-y-4 sm:space-y-6" id="train-container">
+      {/* En el móvil todo cabe en una fila para que la pregunta y sus opciones se vean sin bajar. */}
+      <div className="flex flex-wrap items-center justify-between gap-2 sm:gap-3" id="train-header-row">
         <button
           id="btn-back-to-dash"
           onClick={onNavigateHome}
+          aria-label="Volver al inicio"
           className="min-h-11 -ml-1 px-1 flex items-center gap-1 text-sm font-semibold text-slate-600 hover:text-slate-900 transition"
         >
-          <ArrowLeft className="w-4 h-4" />
-          Volver al Dashboard
+          <ArrowLeft className="w-4 h-4" aria-hidden="true" />
+          <span className="sm:hidden">Inicio</span>
+          <span className="hidden sm:inline">Volver al inicio</span>
         </button>
 
         <div className="flex items-center gap-2 flex-wrap">
-          {/* Adaptive reason badge */}
-          <span className="px-3 py-1 bg-indigo-50 text-indigo-600 border border-indigo-100 text-xs font-semibold rounded-full flex items-center gap-1.5 shadow-sm font-mono">
-            <Sparkles className="w-3.5 h-3.5 animate-pulse text-indigo-500" />
-            MIRA: {selectionReason}
-          </span>
           <StudentConsultation
             variant="button"
             context={`Entrenamiento: ${relatedConcept ? `Art. ${relatedConcept.article}` : 'Pregunta adaptativa'}`}
@@ -228,30 +251,34 @@ export default function TrainScreen({
       </div>
 
       {/* Session progress counter */}
-      {sessionTotal > 0 && (
-        <div className="space-y-1.5" id="train-session-progress">
-          <div className="flex items-center justify-between text-sm text-slate-600 font-mono">
-            <span>Pregunta {sessionCurrent} de {sessionTotal}</span>
-            <span>Sesión de hoy</span>
-          </div>
+      <div className="space-y-1.5" id="train-session-progress">
+        <div className="flex flex-wrap items-center justify-between gap-x-2 gap-y-1 text-sm text-slate-600">
+          {sessionTotal > 0 ? <span className="shrink-0">Pregunta {sessionCurrent} de {sessionTotal}</span> : <span />}
+          {/* Por qué sale esta pregunta */}
+          <span className="px-2.5 py-0.5 bg-indigo-50 text-indigo-600 border border-indigo-100 text-xs font-semibold rounded-full flex items-center gap-1.5">
+            <Sparkles className="w-3.5 h-3.5 shrink-0 text-indigo-500" aria-hidden="true" />
+            <span>{selectionReason}</span>
+          </span>
+        </div>
+        {sessionTotal > 0 && (
           <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
             <div
               className="h-full bg-indigo-600 transition-all duration-300"
               style={{ width: `${Math.min((sessionCurrent / sessionTotal) * 100, 100)}%` }}
             />
           </div>
-        </div>
-      )}
+        )}
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6" id="train-split-layout">
         {/* Left main column: Question and interaction */}
         <div className="lg:col-span-2 space-y-6">
           <div className="p-4 sm:p-6 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-4">
             {/* Question metadata */}
-            <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between text-xs text-slate-600 font-mono">
-              <span>Nivel: {question.level} — {question.type.replace('_', ' ')}</span>
-              {currentState && (
-                <span>Dominio previo: {currentState.mastery_score}%</span>
+            <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between text-xs text-slate-600">
+              <span>Dificultad {String(question.level).replace(/^N/, '')} de 3</span>
+              {currentState && currentState.mastery_score > 0 && (
+                <span>Lo dominabas al {currentState.mastery_score}%</span>
               )}
             </div>
 
@@ -264,7 +291,7 @@ export default function TrainScreen({
             <div className="space-y-2.5">
               {question.options?.map((option, idx) => {
                 const isSelected = selectedAnswer === option;
-                const isCorrect = option === question.correct_answer;
+                const isCorrect = option === (revealed?.correctAnswer ?? question.correct_answer);
 
                 // Bordes ≥3:1 con el fondo (slate-500 = 4,8:1); el estado no depende solo del color.
                 let optionStyle = 'border-slate-500 bg-white hover:bg-slate-50 text-slate-800';
@@ -284,7 +311,7 @@ export default function TrainScreen({
                   <button
                     key={idx}
                     id={`train-option-${idx}`}
-                    disabled={isAnswered}
+                    disabled={isAnswered || isChecking}
                     aria-pressed={isSelected}
                     onClick={() => {
                       setAnswerChanges(current => current + countAnswerChange(selectedAnswer, option));
@@ -299,7 +326,7 @@ export default function TrainScreen({
                     }}
                     className={`w-full min-h-12 text-left px-4 py-3 text-base rounded-xl border transition flex items-center justify-between gap-2 leading-snug ${optionStyle}`}
                   >
-                    <span>{option}</span>
+                    <span><span className="font-bold mr-1" aria-hidden="true">{optionLetter(idx)})</span>{option}</span>
                     {!isAnswered && isSelected && <CheckCircle2 className="w-5 h-5 text-indigo-600 flex-shrink-0" aria-hidden="true" />}
                     {isAnswered && isCorrect && <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" aria-label="Correcta" />}
                     {isAnswered && isSelected && !isCorrect && <XCircle className="w-5 h-5 text-rose-600 flex-shrink-0" aria-label="Tu respuesta, incorrecta" />}
@@ -309,6 +336,9 @@ export default function TrainScreen({
             </div>
 
             {/* Confidence Selection Widget - MANDATORY BEFORE ANSWERING */}
+            {checkError && !isAnswered && (
+              <p role="alert" id="train-check-error" className="text-sm text-rose-800 bg-rose-50 border border-rose-300 rounded-xl p-3">{checkError}</p>
+            )}
             {!isAnswered && (
               <div className="pt-3 border-t border-slate-200 space-y-2 scroll-mb-28 md:scroll-mb-4" id="confidence-selector">
                 <p id="confidence-label" className="text-sm font-semibold text-slate-700">
@@ -327,8 +357,8 @@ export default function TrainScreen({
                       key={level}
                       type="button"
                       id={`conf-btn-${level}`}
-                      disabled={!selectedAnswer}
-                      onClick={() => handleSubmit(level)}
+                      disabled={!selectedAnswer || isChecking}
+                      onClick={() => { void handleSubmit(level); }}
                       className="min-h-14 px-1 py-2 rounded-xl border border-slate-500 bg-white text-slate-800 hover:bg-slate-50 transition flex flex-col items-center justify-center gap-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <span className="text-base font-bold">{label}</span>
@@ -362,7 +392,12 @@ export default function TrainScreen({
 
               <div className="p-3 bg-white/70 rounded-xl border border-white text-base text-slate-800 space-y-1">
                 <p className="font-semibold text-slate-800">Soporte y justificación legal:</p>
-                <p>{question.explanation}</p>
+                <p>{revealed?.explanation ?? question.explanation}</p>
+                {question.cita && (
+                  <p className="text-sm text-slate-600" data-testid="cita-literal">
+                    Cita literal: «{question.cita}»
+                  </p>
+                )}
               </div>
               <button
                 type="button"
@@ -383,17 +418,17 @@ export default function TrainScreen({
           {/* Concept Profile Card */}
           {relatedConcept && (
             <div className="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm space-y-4">
-              <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wider font-mono">
-                Microconcepto Relacionado
+              <h4 className="text-xs font-bold text-slate-600 uppercase tracking-wider">
+                Concepto relacionado
               </h4>
 
               <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold font-mono px-2 py-0.5 bg-slate-100 text-slate-600 rounded">
-                    {relatedConcept.id}
+                <div className="flex items-center justify-between gap-2">
+                  <span className="min-w-0 text-xs font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">
+                    {conceptTopicLabel(relatedConcept.id, question ? [question] : null)}
                   </span>
-                  <span className="text-xs font-semibold text-indigo-600">
-                    Artículo {relatedConcept.article}
+                  <span className="shrink-0 whitespace-nowrap text-xs font-semibold text-indigo-600">
+                    {formatArticle(relatedConcept.article)}
                   </span>
                 </div>
                 <p className="text-xs text-slate-800 font-serif leading-relaxed italic bg-slate-50 p-2.5 rounded-lg">
@@ -404,27 +439,27 @@ export default function TrainScreen({
               {/* Memory metrics panel */}
               {feedback && feedback.updatedState && (
                 <div className="space-y-3 pt-3 border-t border-slate-100 animation-fade-in">
-                  <h5 className="text-xs font-bold text-slate-600 uppercase tracking-wider font-mono">
+                  <h5 className="text-xs font-bold text-slate-600 uppercase tracking-wider">
                     Impacto en Memoria Cognitiva
                   </h5>
 
                   <div className="grid grid-cols-2 gap-2 text-center">
                     <div className="p-2.5 bg-indigo-50/50 rounded-xl border border-indigo-500/10">
-                      <span className="text-xs text-slate-600 block font-mono">Dominio Real</span>
+                      <span className="text-xs text-slate-600 block">Dominio Real</span>
                       <span className="text-lg font-bold text-indigo-700">{feedback.updatedState.mastery_score}%</span>
                     </div>
                     <div className="p-2.5 bg-indigo-50/50 rounded-xl border border-indigo-500/10">
-                      <span className="text-xs text-slate-600 block font-mono">Estabilidad (S)</span>
+                      <span className="text-xs text-slate-600 block">Estabilidad (S)</span>
                       <span className="text-lg font-bold text-indigo-700">
                         {feedback.updatedState.memory_stability < 1
                           ? `${Math.round(feedback.updatedState.memory_stability * 24 * 60)} min`
-                          : `${feedback.updatedState.memory_stability.toFixed(1)} días`
+                          : `${formatDecimal(feedback.updatedState.memory_stability, 1)} días`
                         }
                       </span>
                     </div>
                   </div>
 
-                  <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100 text-xs text-slate-500 flex justify-between items-center font-mono">
+                  <div className="p-2.5 bg-slate-50 rounded-xl border border-slate-100 text-xs text-slate-500 flex justify-between items-center">
                     <span>Próximo Repaso:</span>
                     <span className="font-semibold text-slate-700">
                       {feedback.updatedState.next_review ? new Date(feedback.updatedState.next_review).toLocaleString('es-ES', {
@@ -441,32 +476,41 @@ export default function TrainScreen({
             </div>
           )}
 
-          {/* Time Warning Box */}
-          <div className="p-5 bg-indigo-900 text-indigo-100 rounded-2xl space-y-3 border border-indigo-950">
-            <h5 className="text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-1.5">
-              <Clock className={`w-4 h-4 ${!isAnswered ? 'animate-spin-slow' : ''}`} />
-              Cronómetro de Automatización
-            </h5>
-
-            <div className="flex flex-wrap items-center justify-between gap-2" id="automation-timer">
-              <span
-                className={`text-3xl font-black font-mono tabular-nums ${
-                  !isAnswered && !isWithinTarget ? 'text-amber-300' : 'text-white'
-                }`}
+          {/* Tiempo de respuesta: indicador pequeño y ocultable (solo cuenta el tiempo activo, hasta 2 min) */}
+          <div id="automation-timer" className="px-4 py-3 bg-white border border-slate-200 rounded-2xl space-y-2">
+            <div className="flex items-center justify-between gap-2">
+              <h5 className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1.5">
+                <Clock className="w-4 h-4" aria-hidden="true" />
+                Tiempo
+              </h5>
+              <button
+                type="button"
+                onClick={toggleTimer}
+                aria-pressed={timerVisible}
+                className="min-h-8 px-2 text-xs font-semibold text-indigo-700 hover:text-indigo-900 underline underline-offset-2"
               >
-                {formatElapsed(displayedSeconds)}
-              </span>
-              <span
-                className={`text-xs font-bold uppercase tracking-wider px-2 py-1 rounded-full ${
-                  isWithinTarget ? 'bg-emerald-500/20 text-emerald-300' : 'bg-amber-500/20 text-amber-300'
-                }`}
-              >
-                {isWithinTarget ? 'En objetivo' : 'Fuera de objetivo'}
-              </span>
+                {timerVisible ? 'Ocultar' : 'Mostrar'}
+              </button>
             </div>
-
-            <p className="text-xs text-indigo-200">
-              El tiempo de respuesta es una señal orientativa. Responder rápido no demuestra recuerdo a largo plazo: necesitamos comprobarlo en repasos separados en el tiempo.
+            {timerVisible && (
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <span
+                  className={`text-xl font-black tabular-nums ${timerView.state === 'en-objetivo' ? 'text-slate-800' : 'text-amber-700'}`}
+                  aria-label={`Tiempo de respuesta: ${timerView.text}`}
+                >
+                  {timerView.text}
+                </span>
+                <span
+                  className={`text-xs font-bold px-2 py-1 rounded-full ${
+                    timerView.state === 'en-objetivo' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'
+                  }`}
+                >
+                  {timerView.state === 'en-objetivo' ? `En objetivo (${TARGET_RESPONSE_SECONDS} s)` : timerView.state === 'fuera-de-objetivo' ? 'Fuera de objetivo' : 'Sin medir'}
+                </span>
+              </div>
+            )}
+            <p className="text-xs text-slate-600">
+              Solo cuenta el tiempo con la pantalla activa y hasta {MAX_VALID_RESPONSE_SECONDS / 60} min; más allá no se mide. Responder rápido no demuestra recuerdo a largo plazo: lo comprobamos en repasos separados en el tiempo.
             </p>
           </div>
         </div>

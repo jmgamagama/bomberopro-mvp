@@ -35,6 +35,8 @@ Documentar resultados y limitaciones reales. Para documentación aislada, revisa
 - No cargar datos en Supabase de producción ni modificar el esquema sin comprobar el contrato real, usar entorno de prueba y preparar una recuperación.
 - No exponer la clave `service_role` en el frontend, commits, registros o artefactos. Mantenerla solo en ejecución de servidor segura.
 - Mantener los IDs externos de preguntas separados de los IDs numéricos internos usados por RPC e intentos, salvo migración revisada.
+- Fichas de recuerdo: `src/data/recallAudit.test.ts` exige fuente, localización, ids únicos y enlaces solo de dominios oficiales. Si cambias un mazo revisado, ejecuta `npm run auditar:fichas` y explica el cambio en el PR (la versión del mazo cambia en `docs/AUDITORIA_FICHAS.md`). No añadas dominios a `OFFICIAL_DOMAINS` sin comprobar que son oficiales.
+- Los datos de estudio locales (`mira_*:<userId|demo>`) no salen del dispositivo. Enviarlos al servidor o añadir analítica exige una migración nueva revisada, consentimiento y actualizar `docs/legal/` (borradores sin revisión legal).
 
 ## PR
 Título breve con alcance. Describir qué cambió, por qué, cómo se comprobó y los riesgos pendientes. No fusionar automáticamente cambios que afecten datos, evaluación, selección adaptativa o visibilidad del banco de preguntas.
@@ -44,3 +46,9 @@ Título breve con alcance. Describir qué cambió, por qué, cómo se comprobó 
 - Para migraciones, SQL, RLS, índices o funciones PostgreSQL, aplicar `supabase-postgres-best-practices` cuando esté instalada y comprobar las migraciones reales. Nunca sustituye las pruebas ni la revisión.
 - Codex y Antigravity comparten `.agents/skills/` y Claude Code `.claude/skills/`; mantener idéntica la skill editorial mediante `node scripts/check-editorial-skills.mjs`.
 - Consultar `docs/SKILLS_MULTIAGENTE.md` antes de instalar o actualizar skills externas. No actualizar automáticamente ni sobrescribir las skills propias.
+
+## Migraciones y bases de datos (regla común, desde 18/10/2026)
+- Antes de crear una migración, mirar `supabase/migrations` en `main` y usar el **siguiente número libre**. La comprobación `scripts/check-migrations.mjs` (CI) rechaza números repetidos.
+- Si dos PR abiertos usan el mismo número, renumera el que se fusione después y avisa en ambos PR.
+- **Staging solo recibe SQL que está en un PR**; producción solo SQL ya fusionado en `main` y con aprobación escrita de JM.
+- Toda migración lleva su `_down.sql`. Los cambios de datos registran el valor anterior en `qa_changes_20260923`; nunca se borran preguntas, se despublican.

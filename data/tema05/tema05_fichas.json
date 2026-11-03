@@ -1,0 +1,489 @@
+{
+ "tema": 5,
+ "titulo": "Tema 5 · Reglamento de Régimen Interno del CPEI de Badajoz",
+ "epigrafe_bop": "El organigrama del CPEI de Badajoz. El Reglamento de Régimen Interno del CPEI de Badajoz.",
+ "normas": [
+  {
+   "id": "BOP Badajoz nº 149",
+   "norma": "Reglamento de Régimen Interno del CPEI de Badajoz (BOP nº 149, anuncio 5370/2012)",
+   "url": "https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06",
+   "ultima_actualizacion": "texto único vigente publicado en el BOP nº 149 de 06/08/2012",
+   "tipo": "texto consolidado del BOE"
+  }
+ ],
+ "estado": "cargado",
+ "propuestas": 32,
+ "entran_tras_filtro": 28,
+ "descartadas": [
+  {
+   "norma": "RRI",
+   "bloque": "a1",
+   "apartado": "art. 1.1",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿al amparo de qué artículo de la Ley 7/1985 está constituido el Consorcio?",
+   "respuesta": "Artículo 87 de la Ley 7/1985",
+   "motivo": "respuesta dentro de la pregunta"
+  },
+  {
+   "norma": "RRI",
+   "bloque": "a11",
+   "apartado": "art. 11.2",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿en qué horario se desarrollarán preferentemente las funciones de segunda actividad?",
+   "respuesta": "Preferentemente en horario de mañana",
+   "motivo": "respuesta dentro de la pregunta"
+  },
+  {
+   "norma": "RRI",
+   "bloque": "a12",
+   "apartado": "art. 12",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿qué tipos de funciones puede desempeñar el personal en segunda actividad?",
+   "respuesta": "De apoyo técnico; de administración general; de mantenimiento y vigilancia",
+   "motivo": "respuesta no localizada en el artículo citado (score 0.50)"
+  },
+  {
+   "norma": "RRI",
+   "bloque": "a25",
+   "apartado": "art. 25",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿en qué tres categorías se clasifican los parques de bomberos?",
+   "respuesta": "Parque Central; Parque Comarcal; Parque Local",
+   "motivo": "respuesta no localizada en el artículo citado (score 0.60)"
+  }
+ ],
+ "cobertura": {
+  "Reglamento de Régimen Interno (disposiciones generales, personal, normas de servicio, parques, deberes y faltas)": "cubierto (texto de 2012; no he localizado modificaciones posteriores publicadas en el BOP)",
+  "Organigrama del CPEI": "PENDIENTE: solo existe como gráfico (2022) en la web, sin texto oficial publicado en el BOP"
+ },
+ "muestra_revisada": [
+  {
+   "id": "CPEI-T05-OF-4224381F",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿quién tiene consideración de superior jerárquico además del nombrado en propiedad?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T05-OF-95FD43CD",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿en qué documento quedan reflejadas todas las salidas a siniestro?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T05-OF-A725EE63",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿cuál es la misión del Consorcio?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T05-OF-0DE76ED4",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿cuánto dura el periodo de prácticas para el ingreso definitivo?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T05-OF-428921B1",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿cuándo pueden usarse los componentes del Consorcio para funciones no especificadas como poda de árboles o recogida de animales?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T05-OF-9D770298",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿qué parques tienen la categoría de Parque Central?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T05-OF-706EE140",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿qué carácter tiene el servicio del Consorcio?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T05-OF-4B366A43",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿qué personal se considera integrante de los servicios operativos aunque no figure en esas categorías?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T05-OF-BE97510E",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿entre qué miembros se produce la promoción interna?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T05-OF-F1FE2097",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿qué recibirán los efectivos de nuevo ingreso al inicio del período de prácticas?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T05-OF-96EAE2F6",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿qué señales deben hacer funcionar los vehículos del Consorcio cuando acuden a un siniestro?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T05-OF-FB96497E",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿qué parques tienen la categoría de Parque Local?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T05-OF-833F5EC4",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿de qué sector depende el Parque Local?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T05-OF-4CA113DF",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿cuáles son las categorías jerarquizadas del personal de la clase S.P.E.I.?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T05-OF-CA50F14F",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿cómo se define el parque de bomberos?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T05-OF-D90FAC00",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿qué índice de riesgo tiene el Parque Central?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T05-OF-9E003B4A",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿quién cubre las ausencias de los Jefes de Parque superiores a 10 días?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T05-OF-A4D919C1",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿bajo la supervisión de quién quedan los vehículos del Consorcio?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T05-OF-DE06A62F",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿cuántos parques de bomberos tiene la provincia de Badajoz según el reglamento?",
+   "veredicto": "OK",
+   "nota": ""
+  },
+  {
+   "id": "CPEI-T05-OF-F46477F3",
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿con qué periodicidad se somete el personal del CPEI a revisión médica?",
+   "veredicto": "OK",
+   "nota": ""
+  }
+ ],
+ "errores_muestra": 0,
+ "pct_errores_muestra": 0.0,
+ "fichas": [
+  {
+   "id": "CPEI-T05-OF-706EE140",
+   "orden": 10,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿qué carácter tiene el servicio del Consorcio?",
+   "respuesta": "Un servicio de carácter público civil",
+   "fuente": "RRI del CPEI, 1. El Consorcio provincial para la prestación del servicio de Prevención y Extinción de Incendios en el ámbito de la provincia de Badajoz, es un servicio de carácter público civil y tiene como misión el auxilio, rescate, salvamento y la protección contra incendios y demás peligros de accidentes que amenacen la seguridad de las personas y sus bienes, así como ejercer la prevención a través de los estudios, informes y asesoramiento que permitan evitar riesgos, todo ello de acuerdo con lo dispuesto en la legislación vigente. El Consorcio se encuentra constituido al amparo de lo establecido en el artículo 87 de la Ley 7/1985, de dos de abril, Reguladora de las Bases de Régimen Local y se rige por lo dispuesto en sus Estatutos y demás normativa que resulte de aplicación, art. 1.1. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a1",
+   "localizacion": "RRI del CPEI, 1. El Consorcio provincial para la prestación del servicio de Prevención y Extinción de Incendios en el ámbito de la provincia de Badajoz, es un servicio de carácter público civil y tiene como misión el auxilio, rescate, salvamento y la protección contra incendios y demás peligros de accidentes que amenacen la seguridad de las personas y sus bienes, así como ejercer la prevención a través de los estudios, informes y asesoramiento que permitan evitar riesgos, todo ello de acuerdo con lo dispuesto en la legislación vigente. El Consorcio se encuentra constituido al amparo de lo establecido en el artículo 87 de la Ley 7/1985, de dos de abril, Reguladora de las Bases de Régimen Local y se rige por lo dispuesto en sus Estatutos y demás normativa que resulte de aplicación, art. 1.1",
+   "apartado": "Disposiciones generales",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a1"
+  },
+  {
+   "id": "CPEI-T05-OF-A725EE63",
+   "orden": 20,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿cuál es la misión del Consorcio?",
+   "respuesta": "El auxilio, rescate, salvamento y la protección contra incendios y demás peligros de accidentes que amenacen la seguridad de las personas y sus bienes",
+   "fuente": "RRI del CPEI, 1. El Consorcio provincial para la prestación del servicio de Prevención y Extinción de Incendios en el ámbito de la provincia de Badajoz, es un servicio de carácter público civil y tiene como misión el auxilio, rescate, salvamento y la protección contra incendios y demás peligros de accidentes que amenacen la seguridad de las personas y sus bienes, así como ejercer la prevención a través de los estudios, informes y asesoramiento que permitan evitar riesgos, todo ello de acuerdo con lo dispuesto en la legislación vigente. El Consorcio se encuentra constituido al amparo de lo establecido en el artículo 87 de la Ley 7/1985, de dos de abril, Reguladora de las Bases de Régimen Local y se rige por lo dispuesto en sus Estatutos y demás normativa que resulte de aplicación, art. 1.1. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a1",
+   "localizacion": "RRI del CPEI, 1. El Consorcio provincial para la prestación del servicio de Prevención y Extinción de Incendios en el ámbito de la provincia de Badajoz, es un servicio de carácter público civil y tiene como misión el auxilio, rescate, salvamento y la protección contra incendios y demás peligros de accidentes que amenacen la seguridad de las personas y sus bienes, así como ejercer la prevención a través de los estudios, informes y asesoramiento que permitan evitar riesgos, todo ello de acuerdo con lo dispuesto en la legislación vigente. El Consorcio se encuentra constituido al amparo de lo establecido en el artículo 87 de la Ley 7/1985, de dos de abril, Reguladora de las Bases de Régimen Local y se rige por lo dispuesto en sus Estatutos y demás normativa que resulte de aplicación, art. 1.1",
+   "apartado": "Disposiciones generales",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a1"
+  },
+  {
+   "id": "CPEI-T05-OF-022352B3",
+   "orden": 30,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿a qué municipios se extiende la actuación del Consorcio?",
+   "respuesta": "A aquellos municipios de la provincia de Badajoz que no se encuentren directamente obligados a la prestación de los servicios de protección civil, prevención y extinción de incendios",
+   "fuente": "RRI del CPEI, 1. La actuación del Consorcio se extenderá a aquellos municipios de la provincia de Badajoz que no se encuentren directamente obligados a la prestación de los servicios de protección civil, prevención y extinción de incendios conforme a lo previsto en la normativa sobre Régimen Local y a aquellos otros que, aún estando obligados al mantenimiento de tales servicios, hubieran suscrito el correspondiente convenio de colaboración y cooperación con el Consorcio en los términos que se contemplan en los Estatutos del mismo, art. 2.1. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a2",
+   "localizacion": "RRI del CPEI, 1. La actuación del Consorcio se extenderá a aquellos municipios de la provincia de Badajoz que no se encuentren directamente obligados a la prestación de los servicios de protección civil, prevención y extinción de incendios conforme a lo previsto en la normativa sobre Régimen Local y a aquellos otros que, aún estando obligados al mantenimiento de tales servicios, hubieran suscrito el correspondiente convenio de colaboración y cooperación con el Consorcio en los términos que se contemplan en los Estatutos del mismo, art. 2.1",
+   "apartado": "Disposiciones generales",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a2"
+  },
+  {
+   "id": "CPEI-T05-OF-428921B1",
+   "orden": 40,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿cuándo pueden usarse los componentes del Consorcio para funciones no especificadas como poda de árboles o recogida de animales?",
+   "respuesta": "En casos excepcionales y previa autorización de sus mandos naturales",
+   "fuente": "RRI del CPEI, Los componentes del Consorciono podrán ser utilizados, salvo en casos excepcionales y previa autorización de sus mandos naturales, para realizar funciones no especificadas en los artículos anteriores, tales como: poda de árboles, quitar carteles o letreros, desatascos en lugares particulares, recogida de animales, apertura de puertas en horario comercial, etc, art. 4. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a4",
+   "localizacion": "RRI del CPEI, Los componentes del Consorciono podrán ser utilizados, salvo en casos excepcionales y previa autorización de sus mandos naturales, para realizar funciones no especificadas en los artículos anteriores, tales como: poda de árboles, quitar carteles o letreros, desatascos en lugares particulares, recogida de animales, apertura de puertas en horario comercial, etc, art. 4",
+   "apartado": "Disposiciones generales",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a4"
+  },
+  {
+   "id": "CPEI-T05-OF-C647EFE3",
+   "orden": 50,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿bajo qué autoridad actúa el Consorcio?",
+   "respuesta": "Bajo la superior autoridad y dependencia directa del Presidente del Consorcio Provincial de Badajoz",
+   "fuente": "RRI del CPEI, El Consorcio actuará bajo la superior autoridad y dependencia directa del Presidente del Consorcio Provincial de Badajoz, cuyas funciones podrá delegar en los Vicepresidentes del Consejo de Administración o en cualquier otro componente del Consejo de Administración en los términos previstos en los Estatutos del Consorcio y demás normativa aplicable, art. 5. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a5",
+   "localizacion": "RRI del CPEI, El Consorcio actuará bajo la superior autoridad y dependencia directa del Presidente del Consorcio Provincial de Badajoz, cuyas funciones podrá delegar en los Vicepresidentes del Consejo de Administración o en cualquier otro componente del Consejo de Administración en los términos previstos en los Estatutos del Consorcio y demás normativa aplicable, art. 5",
+   "apartado": "Disposiciones generales",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a5"
+  },
+  {
+   "id": "CPEI-T05-OF-783277F5",
+   "orden": 60,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿en qué escala, subescala y clase se integra el personal operativo?",
+   "respuesta": "Escala de Administración Especial, subescala de Servicios Especiales, clase S.P.E.I.",
+   "fuente": "RRI del CPEI, 1. El personal del Consorcio estará integrado por:, art. 6.2. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a6",
+   "localizacion": "RRI del CPEI, 1. El personal del Consorcio estará integrado por:, art. 6.2",
+   "apartado": "Personal y categorías",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a6"
+  },
+  {
+   "id": "CPEI-T05-OF-4CA113DF",
+   "orden": 70,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿cuáles son las categorías jerarquizadas del personal de la clase S.P.E.I.?",
+   "respuesta": "Oficial. Suboficial. Sargento. Cabo. Conductor Mecánico Bombero",
+   "fuente": "RRI del CPEI, 1. El personal del Consorcio estará integrado por:, art. 6.2. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a6",
+   "localizacion": "RRI del CPEI, 1. El personal del Consorcio estará integrado por:, art. 6.2",
+   "apartado": "Personal y categorías",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a6"
+  },
+  {
+   "id": "CPEI-T05-OF-4B366A43",
+   "orden": 80,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿qué personal se considera integrante de los servicios operativos aunque no figure en esas categorías?",
+   "respuesta": "El personal que presta servicios como Oficial Emisorista o asimiliado",
+   "fuente": "RRI del CPEI, 1. El personal del Consorcio estará integrado por:, art. 6.3. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a6",
+   "localizacion": "RRI del CPEI, 1. El personal del Consorcio estará integrado por:, art. 6.3",
+   "apartado": "Personal y categorías",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a6"
+  },
+  {
+   "id": "CPEI-T05-OF-0DE76ED4",
+   "orden": 90,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿cuánto dura el periodo de prácticas para el ingreso definitivo?",
+   "respuesta": "Tres meses de duración",
+   "fuente": "RRI del CPEI, Ingreso y cese en el Consorcio, art. 7.1. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a7",
+   "localizacion": "RRI del CPEI, Ingreso y cese en el Consorcio, art. 7.1",
+   "apartado": "Personal y categorías",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a7"
+  },
+  {
+   "id": "CPEI-T05-OF-F1FE2097",
+   "orden": 100,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿qué recibirán los efectivos de nuevo ingreso al inicio del período de prácticas?",
+   "respuesta": "Un curso de formación de recepción obligatoria",
+   "fuente": "RRI del CPEI, Ingreso y cese en el Consorcio, art. 7.1. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a7",
+   "localizacion": "RRI del CPEI, Ingreso y cese en el Consorcio, art. 7.1",
+   "apartado": "Personal y categorías",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a7"
+  },
+  {
+   "id": "CPEI-T05-OF-BE97510E",
+   "orden": 110,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿entre qué miembros se produce la promoción interna?",
+   "respuesta": "Entre los miembros del Consorcio provincial que ocupen plaza del orden inmediato inferior",
+   "fuente": "RRI del CPEI, El cese en el Consorcio se producirá de conformidad con lo establecido en la normativa laboral y de función pública. No obstante y además de las causas generales de extinción de la relación de servicios prevista en citada normativa, constituirá causa de cese al servicio del Consorcio la separación del mismo de la Administración Pública titular de la relación de servicios, art. 9. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a8",
+   "localizacion": "RRI del CPEI, El cese en el Consorcio se producirá de conformidad con lo establecido en la normativa laboral y de función pública. No obstante y además de las causas generales de extinción de la relación de servicios prevista en citada normativa, constituirá causa de cese al servicio del Consorcio la separación del mismo de la Administración Pública titular de la relación de servicios, art. 9",
+   "apartado": "Personal y categorías",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a8"
+  },
+  {
+   "id": "CPEI-T05-OF-4224381F",
+   "orden": 120,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿quién tiene consideración de superior jerárquico además del nombrado en propiedad?",
+   "respuesta": "Quien accidentalmente desempeñe tal función",
+   "fuente": "RRI del CPEI, Principios generales, art. 13.3. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a13",
+   "localizacion": "RRI del CPEI, Principios generales, art. 13.3",
+   "apartado": "Normas de servicio",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a13"
+  },
+  {
+   "id": "CPEI-T05-OF-F30E7C9A",
+   "orden": 130,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿qué obligación tiene el personal libre de guardia que sea localizado?",
+   "respuesta": "Estará obligado a asistir a los siniestros para los que sea requerido o tenga conocimiento",
+   "fuente": "RRI del CPEI, Principios generales, art. 13.4. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a13",
+   "localizacion": "RRI del CPEI, Principios generales, art. 13.4",
+   "apartado": "Normas de servicio",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a13"
+  },
+  {
+   "id": "CPEI-T05-OF-F925F181",
+   "orden": 140,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿cuántos asuntos ha de tratar cada comunicación oficial?",
+   "respuesta": "Cada comunicación ha de tratar un solo asunto",
+   "fuente": "RRI del CPEI, Para la redacción y formación material de la correspondencia y documentos oficiales, se observarán las siguientes reglas, art. 20.a). BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a20",
+   "localizacion": "RRI del CPEI, Para la redacción y formación material de la correspondencia y documentos oficiales, se observarán las siguientes reglas, art. 20.a)",
+   "apartado": "Normas de servicio",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a20"
+  },
+  {
+   "id": "CPEI-T05-OF-95FD43CD",
+   "orden": 150,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿en qué documento quedan reflejadas todas las salidas a siniestro?",
+   "respuesta": "En el “parte de intervención”",
+   "fuente": "RRI del CPEI, 1. En cada parque los responsables de la guardia darán parte verbal inmediato a sus respectivos superiores de las novedades que se vayan produciendo referidas al personal, material o cualquier otra circunstancia relevante, art. 22.3. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a22",
+   "localizacion": "RRI del CPEI, 1. En cada parque los responsables de la guardia darán parte verbal inmediato a sus respectivos superiores de las novedades que se vayan produciendo referidas al personal, material o cualquier otra circunstancia relevante, art. 22.3",
+   "apartado": "Normas de servicio",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a22"
+  },
+  {
+   "id": "CPEI-T05-OF-CA50F14F",
+   "orden": 160,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿cómo se define el parque de bomberos?",
+   "respuesta": "El conjunto de servicios comunes que con autonomía funcional, cubre los riesgos de determinada área a nivel de primera intervención",
+   "fuente": "RRI del CPEI, Se define como parque el conjunto de servicios comunes que con autonomía funcional, cubre los riesgos de determinada área a nivel de primera intervención, art. 25. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a25",
+   "localizacion": "RRI del CPEI, Se define como parque el conjunto de servicios comunes que con autonomía funcional, cubre los riesgos de determinada área a nivel de primera intervención, art. 25",
+   "apartado": "Parques de bomberos",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a25"
+  },
+  {
+   "id": "CPEI-T05-OF-D90FAC00",
+   "orden": 170,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿qué índice de riesgo tiene el Parque Central?",
+   "respuesta": "Un índice de riesgo alto",
+   "fuente": "RRI del CPEI, Se define como parque el conjunto de servicios comunes que con autonomía funcional, cubre los riesgos de determinada área a nivel de primera intervención, art. 25. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a25",
+   "localizacion": "RRI del CPEI, Se define como parque el conjunto de servicios comunes que con autonomía funcional, cubre los riesgos de determinada área a nivel de primera intervención, art. 25",
+   "apartado": "Parques de bomberos",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a25"
+  },
+  {
+   "id": "CPEI-T05-OF-9D770298",
+   "orden": 180,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿qué parques tienen la categoría de Parque Central?",
+   "respuesta": "Los parques de Bomberos de Mérida y Don Benito-Villanueva de la Serena",
+   "fuente": "RRI del CPEI, Se define como parque el conjunto de servicios comunes que con autonomía funcional, cubre los riesgos de determinada área a nivel de primera intervención, art. 25. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a25",
+   "localizacion": "RRI del CPEI, Se define como parque el conjunto de servicios comunes que con autonomía funcional, cubre los riesgos de determinada área a nivel de primera intervención, art. 25",
+   "apartado": "Parques de bomberos",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a25"
+  },
+  {
+   "id": "CPEI-T05-OF-FB96497E",
+   "orden": 190,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿qué parques tienen la categoría de Parque Local?",
+   "respuesta": "Los parques de Bomberos de Azuaga, Fregenal de la Sierra y Hornachos",
+   "fuente": "RRI del CPEI, Se define como parque el conjunto de servicios comunes que con autonomía funcional, cubre los riesgos de determinada área a nivel de primera intervención, art. 25. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a25",
+   "localizacion": "RRI del CPEI, Se define como parque el conjunto de servicios comunes que con autonomía funcional, cubre los riesgos de determinada área a nivel de primera intervención, art. 25",
+   "apartado": "Parques de bomberos",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a25"
+  },
+  {
+   "id": "CPEI-T05-OF-833F5EC4",
+   "orden": 200,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿de qué sector depende el Parque Local?",
+   "respuesta": "Dependerá del sector de un Parque Comarcal",
+   "fuente": "RRI del CPEI, Se define como parque el conjunto de servicios comunes que con autonomía funcional, cubre los riesgos de determinada área a nivel de primera intervención, art. 25. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a25",
+   "localizacion": "RRI del CPEI, Se define como parque el conjunto de servicios comunes que con autonomía funcional, cubre los riesgos de determinada área a nivel de primera intervención, art. 25",
+   "apartado": "Parques de bomberos",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a25"
+  },
+  {
+   "id": "CPEI-T05-OF-DE06A62F",
+   "orden": 210,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿cuántos parques de bomberos tiene la provincia de Badajoz según el reglamento?",
+   "respuesta": "Los quince parques de Bomberos",
+   "fuente": "RRI del CPEI, Se define como parque el conjunto de servicios comunes que con autonomía funcional, cubre los riesgos de determinada área a nivel de primera intervención, art. 25. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a25",
+   "localizacion": "RRI del CPEI, Se define como parque el conjunto de servicios comunes que con autonomía funcional, cubre los riesgos de determinada área a nivel de primera intervención, art. 25",
+   "apartado": "Parques de bomberos",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a25"
+  },
+  {
+   "id": "CPEI-T05-OF-9E003B4A",
+   "orden": 220,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿quién cubre las ausencias de los Jefes de Parque superiores a 10 días?",
+   "respuesta": "El personal del parque que ostentara la más alta graduación",
+   "fuente": "RRI del CPEI, a) Las ausencias de los Jefes de Parques por un periodo superior a 10 días serán cubiertas, con carácter general, por el personal del parque que ostentara la más alta graduación, como cometido específico de sus funciones, y en caso de haber varios de la misma graduación sobre aquel que designara la Presidencia, a propuesta de la Gerencia. Durante el periodo que el sustituto tuviera desempeñando las referidas funciones tendrá derecho a percibir la compensación económica que legalmente le corresponda, art. 26.a). BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a26",
+   "localizacion": "RRI del CPEI, a) Las ausencias de los Jefes de Parques por un periodo superior a 10 días serán cubiertas, con carácter general, por el personal del parque que ostentara la más alta graduación, como cometido específico de sus funciones, y en caso de haber varios de la misma graduación sobre aquel que designara la Presidencia, a propuesta de la Gerencia. Durante el periodo que el sustituto tuviera desempeñando las referidas funciones tendrá derecho a percibir la compensación económica que legalmente le corresponda, art. 26.a)",
+   "apartado": "Parques de bomberos",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a26"
+  },
+  {
+   "id": "CPEI-T05-OF-0AC50611",
+   "orden": 230,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿con qué antelación mínima debe confeccionar el Jefe de Parque los cuadrantes mensuales de servicio?",
+   "respuesta": "Una antelación mínima de tres meses",
+   "fuente": "RRI del CPEI, Por la Dirección se marcarán todas aquellas normas que sean necesarias para el funcionamiento interno y de convivencia de los parques, en especial los horarios y las actividades a desarrollar, de acuerdo con lo determinado en este reglamento, art. 29. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a29",
+   "localizacion": "RRI del CPEI, Por la Dirección se marcarán todas aquellas normas que sean necesarias para el funcionamiento interno y de convivencia de los parques, en especial los horarios y las actividades a desarrollar, de acuerdo con lo determinado en este reglamento, art. 29",
+   "apartado": "Parques de bomberos",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a29"
+  },
+  {
+   "id": "CPEI-T05-OF-F46477F3",
+   "orden": 240,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿con qué periodicidad se somete el personal del CPEI a revisión médica?",
+   "respuesta": "Anualmente",
+   "fuente": "RRI del CPEI, 1. Todo el personal del C.P.E.I. se someterá anualmente a revisión médica en el centro que oportunamente se disponga. Dicho reconocimiento médico anual tendrá carácter obligatorio y limitado a la constatación de que el estado de salud del empleado le permite desempeñar sus funciones sin riesgos para sí o sus compañeros. El alcance y finalidad del reconocimiento y el tratamiento de la información derivada del mismo se determinará previo informe del Comité de Salud Laboral, art. 31.1. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a31",
+   "localizacion": "RRI del CPEI, 1. Todo el personal del C.P.E.I. se someterá anualmente a revisión médica en el centro que oportunamente se disponga. Dicho reconocimiento médico anual tendrá carácter obligatorio y limitado a la constatación de que el estado de salud del empleado le permite desempeñar sus funciones sin riesgos para sí o sus compañeros. El alcance y finalidad del reconocimiento y el tratamiento de la información derivada del mismo se determinará previo informe del Comité de Salud Laboral, art. 31.1",
+   "apartado": "Deberes y régimen disciplinario",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a31"
+  },
+  {
+   "id": "CPEI-T05-OF-A4D919C1",
+   "orden": 250,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿bajo la supervisión de quién quedan los vehículos del Consorcio?",
+   "respuesta": "De los mecánicos-conductores-bomberos y de sus superiores jerárquicos inmediatos",
+   "fuente": "RRI del CPEI, El material del Consorcio únicamente podrá ser utilizado por su propio personal y para los fines de aquel, salvo autorización expresa del Jefe de Parque o superior jerárquico de este, quedando aquel bajo la responsabilidad expresa de la persona que lo autorizó. En particular los vehículos quedarán bajo la supervisión de los mecánicos-conductores-bomberos y de sus superiores jerárquicos inmediatos, art. 32. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a32",
+   "localizacion": "RRI del CPEI, El material del Consorcio únicamente podrá ser utilizado por su propio personal y para los fines de aquel, salvo autorización expresa del Jefe de Parque o superior jerárquico de este, quedando aquel bajo la responsabilidad expresa de la persona que lo autorizó. En particular los vehículos quedarán bajo la supervisión de los mecánicos-conductores-bomberos y de sus superiores jerárquicos inmediatos, art. 32",
+   "apartado": "Deberes y régimen disciplinario",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a32"
+  },
+  {
+   "id": "CPEI-T05-OF-96EAE2F6",
+   "orden": 260,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿qué señales deben hacer funcionar los vehículos del Consorcio cuando acuden a un siniestro?",
+   "respuesta": "Las señales luminosas y acústicas",
+   "fuente": "RRI del CPEI, El material del Consorcio únicamente podrá ser utilizado por su propio personal y para los fines de aquel, salvo autorización expresa del Jefe de Parque o superior jerárquico de este, quedando aquel bajo la responsabilidad expresa de la persona que lo autorizó. En particular los vehículos quedarán bajo la supervisión de los mecánicos-conductores-bomberos y de sus superiores jerárquicos inmediatos, art. 32. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a32",
+   "localizacion": "RRI del CPEI, El material del Consorcio únicamente podrá ser utilizado por su propio personal y para los fines de aquel, salvo autorización expresa del Jefe de Parque o superior jerárquico de este, quedando aquel bajo la responsabilidad expresa de la persona que lo autorizó. En particular los vehículos quedarán bajo la supervisión de los mecánicos-conductores-bomberos y de sus superiores jerárquicos inmediatos, art. 32",
+   "apartado": "Deberes y régimen disciplinario",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a32"
+  },
+  {
+   "id": "CPEI-T05-OF-64C128B8",
+   "orden": 270,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿cómo se califican las faltas del personal del CPEI?",
+   "respuesta": "Como leves, graves o muy graves",
+   "fuente": "RRI del CPEI, Régimen disciplinario del personal del C.P.E.I. Faltas, art. 35. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a35",
+   "localizacion": "RRI del CPEI, Régimen disciplinario del personal del C.P.E.I. Faltas, art. 35",
+   "apartado": "Deberes y régimen disciplinario",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a35"
+  },
+  {
+   "id": "CPEI-T05-OF-EEFB075E",
+   "orden": 280,
+   "concepto": "Según el Reglamento de Régimen Interno del CPEI de Badajoz, ¿qué departamentos pondrá en funcionamiento el CPEI para la profesionalización?",
+   "respuesta": "Los Departamentos de Prevención, Formación y Control de Siniestros",
+   "fuente": "RRI del CPEI, El C.P.E.I. pondrá en funcionamiento los Departamentos de Prevención, Formación y Control de Siniestros con el objeto de conseguir la mejor preparación y evaluación, tanto física como formativa en general, relativa a la consecución de la máxima profesionalización del Consorcio y por ende de todos y cada uno de los miembros del C.P.E.I. Asimismo, se creará un Departamento de Asuntos Generales a los efectos de control y gestión del Servicio y un Departamento de análisis de procedimientos y protocolos de intervención, art. 42. BOP Badajoz nº 149, texto consolidado (últ. actualización texto único vigente publicado en el BOP nº 149 de 06/08/2012): https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06#a42",
+   "localizacion": "RRI del CPEI, El C.P.E.I. pondrá en funcionamiento los Departamentos de Prevención, Formación y Control de Siniestros con el objeto de conseguir la mejor preparación y evaluación, tanto física como formativa en general, relativa a la consecución de la máxima profesionalización del Consorcio y por ende de todos y cada uno de los miembros del C.P.E.I. Asimismo, se creará un Departamento de Asuntos Generales a los efectos de control y gestión del Servicio y un Departamento de análisis de procedimientos y protocolos de intervención, art. 42",
+   "apartado": "Deberes y régimen disciplinario",
+   "norma": "BOP Badajoz nº 149",
+   "bloque_boe": "a42"
+  }
+ ]
+}

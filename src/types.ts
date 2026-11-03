@@ -69,6 +69,8 @@ export interface Question {
   explanation: string;
   // Nuevos campos según Decision 2 (alineado con pipeline)
   fuente?: string;
+  /** Cita literal de la norma (BOE) que respalda la respuesta; se muestra tras corregir. */
+  cita?: string;
   version_convocatoria?: string;
   tema?: {
     numero: number;
@@ -87,6 +89,8 @@ export interface Attempt {
   correct: boolean;
   confidence: ConfidenceLevel;
   response_time_seconds: number;
+  /** false si el tiempo no fue una medición fiable (más de 2 min activos): no entra en medias. Ausente = válido. */
+  response_time_valid?: boolean;
   answer_changes: number;
   created_at: string; // ISO string
 }

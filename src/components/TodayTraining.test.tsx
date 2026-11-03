@@ -27,14 +27,14 @@ describe('TodayTraining', () => {
     expect(screen.queryByRole('button', { name: /comenzar sesión/i })).not.toBeInTheDocument();
   });
 
-  it('muestra una recuperación clara y permite reintentar o volver al dashboard', async () => {
+  it('muestra una recuperación clara y permite reintentar o Volver al inicio', async () => {
     const user = userEvent.setup();
     const { props } = renderTraining({ questions: [], error: 'RPC no disponible' });
     expect(screen.getByText(/comprueba tu conexión/i)).toBeInTheDocument();
     expect(screen.queryByText('RPC no disponible')).not.toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /reintentar/i }));
     expect(props.onRetry).toHaveBeenCalledOnce();
-    await user.click(screen.getByRole('button', { name: /volver al dashboard/i }));
+    await user.click(screen.getByRole('button', { name: /Volver al inicio/i }));
     expect(props.onNavigateHome).toHaveBeenCalledOnce();
   });
 

@@ -1,6 +1,6 @@
 import { normalizeSpacedEvidence } from './engine';
 import { describe, expect, it } from 'vitest';
-import { calculateRetrievability, getRetrievabilityRisk, getAdaptiveDailySession, createNewMemoryState, processAttempt } from './engine';
+import { calculateRetrievability, getRetrievabilityRisk, getAdaptiveDailySession, createNewMemoryState, processAttempt, getAdaptiveQuestion } from './engine';
 import { Question, MemoryState } from '../types';
 
 describe('calculateRetrievability', () => {
@@ -246,5 +246,21 @@ describe('spaced guard legacy view and uncertain answers', () => {
     expect(result.mastery_score).toBeLessThanOrEqual(85);
     expect(result.memory_stability).toBeLessThanOrEqual(1);
     expect(Date.parse(result.next_review!)).toBeLessThanOrEqual(now.getTime() + 86400000);
+  });
+});
+
+describe('motivo de la pregunta elegida (lo ve el alumno)', () => {
+  const q = { id: 'q1', microconcept_id: 'mc1' } as unknown as Parameters<typeof getAdaptiveQuestion>[0][number];
+
+  it('un concepto nunca repasado es «nueva», no «repaso vencido»', () => {
+    const r = getAdaptiveQuestion([q], { mc1: createNewMemoryState('mc1') }, new Date());
+    expect(r?.reason).toBe('Pregunta nueva para ti');
+  });
+
+  it('un repaso vencido se explica sin jerga', () => {
+    const state = { ...createNewMemoryState('mc1'), last_review: '2026-01-01T00:00:00Z', next_review: '2026-01-02T00:00:00Z', memory_stability: 1000 };
+    const r = getAdaptiveQuestion([q], { mc1: state }, new Date('2026-01-03T00:00:00Z'));
+    expect(r?.reason).toBe('Toca repasarla hoy');
+    expect(r?.reason).not.toMatch(/espaciada|recuperabilidad|microconcepto/i);
   });
 });
