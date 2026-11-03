@@ -25,3 +25,6 @@ Tres artículos separan las competencias propias de la Diputación, las que reci
 - Umbrales de art. 36: menos de **1.000** (secretaría e intervención), **5.000** (residuos) y **20.000** (prevención y extinción de incendios, si el municipio no lo presta).
 - Separa competencia provincial propia (art. 36) de competencia delegada (art. 37).
 - El servicio de incendios no se transfiere de forma automática: la Diputación lo asume cuando el municipio de menos de 20.000 habitantes no procede a prestarlo.
+
+## Referencias oficiales por artículo
+[Art. 36](https://www.boe.es/buscar/act.php?id=BOE-A-1985-5392#a36) · [Art. 37](https://www.boe.es/buscar/act.php?id=BOE-A-1985-5392#a37) · [Art. 38](https://www.boe.es/buscar/act.php?id=BOE-A-1985-5392#a38)
