@@ -15,7 +15,7 @@ parte de la norma que pide el epígrafe. Cuando el epígrafe se apoya en documen
 
 La app organiza el estudio en **Esquema → Desarrollo → Texto oficial**, además de enlazar y permitir descargar la fuente oficial. El tercer panel contiene un extracto literal limitado al epígrafe del temario; no equivale al texto íntegro de la norma. La norma íntegra se ofrece por separado cuando está disponible.
 
-A 03/11/2026 hay material registrado para **18 de los 40 temas**. El Tema 1 es el único con las tres capas en sus seis bloques; los otros 17 tienen esquema y extracto normativo, pero todavía no desarrollo registrado en la app. Hay borradores separados para T2, T3, T6, T7, T10, T12, T13, T22, T31, T32 y T33 (seis, dos, cuatro, tres, uno, uno, uno, uno, tres, tres y dos bloques, respectivamente; 27 documentos), pendientes de revisión humana, que no se computan como capas publicadas. Los 22 temas restantes están pendientes de material estructurado por las razones documentales que se detallan abajo.
+A 03/11/2026 hay material registrado para **18 de los 40 temas**. El Tema 1 es el único con las tres capas en sus seis bloques; los otros 17 tienen esquema y extracto normativo, pero todavía no desarrollo registrado en la app. Hay 35 borradores de desarrollo, pendientes de revisión humana, distribuidos entre T2 (6), T3 (2), T6 (4), T7 (3), T10 (1), T12 (1), T13 (1), T22 (1), T31 (3), T32 (3), T33 (2) y T34 (8). Los borradores cubren los alcances parciales descritos en el estándar; no se computan como capas publicadas. Los 22 temas restantes están pendientes de material estructurado por las razones documentales que se detallan abajo.
 
 El Tema 1 sirve como patrón de secuencia pedagógica y desglose por artículos. Se ha afinado la tercera capa para que contenga solo norma literal: las preguntas de repaso pertenecen al estudio de conceptos y no deben mezclarse con una fuente jurídica. El estándar ampliado está en [ESTANDAR_MATERIAL_TEMAS.md](ESTANDAR_MATERIAL_TEMAS.md).
 
@@ -40,7 +40,7 @@ El Tema 1 sirve como patrón de secuencia pedagógica y desglose por artículos.
 | 31 | RD 1215/1997 (BOE-A-1997-17824) | 13/11/2004 | completo, con anexos I y II |
 | 32 | CTE, RD 314/2006 (BOE-A-2006-5515) | 15/06/2022 | Parte I: arts. 1–2 (objeto y ámbito), 11 (SI 1–6) y 12 (SUA 1–9) |
 | 33 | RIPCI, RD 513/2017 (BOE-A-2017-6606) | 03/09/2025 | arts. 1–2 y anexo I secc. 1.ª apdos. 2, 3, 5 y 6 |
-| 34 | RD 164/2025 (BOE-A-2025-7190) | 10/04/2025 | completo, con anexos I–V |
+| 34 | RD 164/2025 (BOE-A-2025-7190) | 10/04/2025 | ocho bloques: artículo y disposiciones, capítulos I–VI y anexos I–V; el extracto sustituye 24 tablas por avisos y menciona 25 figuras no reproducidas, pendientes de cotejo con el PDF oficial |
 
 ## Lo que falta en los temas con material (no se inventa)
 
