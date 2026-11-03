@@ -31,3 +31,6 @@ Cinco artículos presentan la identidad institucional, el territorio, quién tie
 - Distingue condición política (art. 3.1–2) de reconocimiento de identidad en el exterior (art. 3.3).
 - Efectos extraterritoriales de actos no significan cambio de límites (art. 2).
 - Bandera: verde–blanco–negro; mayoría de dos tercios para la ley sobre escudo e himno; capital: Mérida.
+
+## Referencias oficiales por artículo
+[Art. 1](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a1) · [Art. 2](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a2) · [Art. 3](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a3) · [Art. 4](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a4) · [Art. 5](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a5)
