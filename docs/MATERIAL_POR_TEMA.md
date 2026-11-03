@@ -1,7 +1,7 @@
 # Material de estudio por tema: cobertura, capas y fuentes
 
 Actualizado el 03/11/2026. El material se genera con `scripts/generar_material_boe.py scripts/material/temaNN.json`.
-Usa el texto consolidado del BOE (y, desde el 01/11/2026, el PDF oficial de las normas del DOE de T20, T29 y T30: `docs/MATERIAL_DOE.md`) (`scripts/fuente_boe.py`: API de datos abiertos para vigencia y página consolidada oficial para su fecha publicada), recortado al epígrafe del
+Usa el texto consolidado del BOE (para T7, acompañado por la publicación original en el DOE; y, desde el 01/11/2026, por los PDF oficiales de T20, T29 y T30: `docs/MATERIAL_DOE.md`) (`scripts/fuente_boe.py`: API de datos abiertos para vigencia y página consolidada oficial para su fecha publicada), recortado al epígrafe del
 anexo I (BOP de Badajoz n.º 135, 17/07/2026; `data/temario/cpei-badajoz-2026-anexo1.md`). El generador no crea la capa
 «desarrollo»; se añade solo cuando una persona la redacta y revisa. La vigencia se comprueba con `python3 scripts/verificar_vigencia_boe.py`
 (resultado en `docs/VIGENCIA_MATERIAL_BOE.md`).
@@ -15,7 +15,7 @@ parte de la norma que pide el epígrafe. Cuando el epígrafe se apoya en documen
 
 La app organiza el estudio en **Esquema → Desarrollo → Texto oficial**, además de enlazar y permitir descargar la fuente oficial. El tercer panel contiene un extracto literal limitado al epígrafe del temario; no equivale al texto íntegro de la norma. La norma íntegra se ofrece por separado cuando está disponible.
 
-A 03/11/2026 hay material registrado para **18 de los 40 temas**. El Tema 1 es el único con las tres capas en sus seis bloques; los otros 17 tienen esquema y extracto normativo, pero todavía no desarrollo registrado en la app. Hay borradores separados para T2, T3 y T6 (seis, dos y cuatro bloques, respectivamente), pendientes de revisión humana, que no se computan como capas publicadas. Los 22 temas restantes están pendientes de material estructurado por las razones documentales que se detallan abajo.
+A 03/11/2026 hay material registrado para **18 de los 40 temas**. El Tema 1 es el único con las tres capas en sus seis bloques; los otros 17 tienen esquema y extracto normativo, pero todavía no desarrollo registrado en la app. Hay borradores separados para T2, T3, T6 y T7 (seis, dos, cuatro y tres bloques, respectivamente), pendientes de revisión humana, que no se computan como capas publicadas. Los 22 temas restantes están pendientes de material estructurado por las razones documentales que se detallan abajo.
 
 El Tema 1 sirve como patrón de secuencia pedagógica y desglose por artículos. Se ha afinado la tercera capa para que contenga solo norma literal: las preguntas de repaso pertenecen al estudio de conceptos y no deben mezclarse con una fuente jurídica. El estándar ampliado está en [ESTANDAR_MATERIAL_TEMAS.md](ESTANDAR_MATERIAL_TEMAS.md).
 
@@ -27,7 +27,7 @@ El Tema 1 sirve como patrón de secuencia pedagógica y desglose por artículos.
 | 2 | Estatuto de Autonomía de Extremadura (BOE-A-2011-1638) | 29/01/2011 | Tít. Preliminar, I y II (arts. 1–48) |
 | 3 | LBRL (BOE-A-1985-5392) | 03/10/2026 | Tít. III, organización y competencias (arts. 31–38) |
 | 6 | LPRL (BOE-A-1995-24292) | 09/04/2026 | caps. I–IV (arts. 1–32 bis) |
-| 7 | Ley 8/2011 de Extremadura (BOE-A-2011-6651) | 25/03/2011 | Tít. Preliminar, Tít. II y Tít. IV cap. II |
+| 7 | Ley 8/2011 de Extremadura (DOE n.º 59; BOE-A-2011-6651) | 25/03/2011 (publicación original DOE y última actualización consolidada BOE) | Tít. Preliminar, Tít. II y Tít. IV cap. II |
 | 10 | RIPCI, RD 513/2017 (BOE-A-2017-6606) | 03/09/2025 | anexo I secc. 1.ª apdos. 2, 3, 5 y 6 (abastecimiento de agua, hidrantes, BIE, columna seca) |
 | 12 | RIPCI, RD 513/2017 (BOE-A-2017-6606) | 03/09/2025 | anexo I secc. 1.ª apdo. 4 (extintores: clasificación, emplazamiento y distribución) |
 | 13 | RD 773/1997, EPI (BOE-A-1997-12735) | 08/12/2021 | arts. 1–10 y anexos I–IV |
