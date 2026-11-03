@@ -15,7 +15,7 @@ parte de la norma que pide el epígrafe. Cuando el epígrafe se apoya en documen
 
 La app organiza el estudio en **Esquema → Desarrollo → Texto oficial**, además de enlazar y permitir descargar la fuente oficial. El tercer panel contiene un extracto literal limitado al epígrafe del temario; no equivale al texto íntegro de la norma. La norma íntegra se ofrece por separado cuando está disponible.
 
-A 03/11/2026 hay material registrado para **18 de los 40 temas**. El Tema 1 es el único con las tres capas en sus seis bloques; los otros 17 tienen esquema y extracto normativo, pero todavía no desarrollo. Los 22 temas restantes están pendientes de material estructurado por las razones documentales que se detallan abajo. La falta de capa no se completa con redacción automática.
+A 03/11/2026 hay material registrado para **18 de los 40 temas**. El Tema 1 es el único con las tres capas en sus seis bloques; los otros 17 tienen esquema y extracto normativo, pero todavía no desarrollo registrado en la app. Hay borradores separados para T2 y T3, pendientes de revisión humana, que no se computan como capas publicadas. Los 22 temas restantes están pendientes de material estructurado por las razones documentales que se detallan abajo.
 
 El Tema 1 sirve como patrón de secuencia pedagógica y desglose por artículos. Se ha afinado la tercera capa para que contenga solo norma literal: las preguntas de repaso pertenecen al estudio de conceptos y no deben mezclarse con una fuente jurídica. El estándar ampliado está en [ESTANDAR_MATERIAL_TEMAS.md](ESTANDAR_MATERIAL_TEMAS.md).
 
