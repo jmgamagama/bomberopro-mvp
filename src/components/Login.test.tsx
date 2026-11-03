@@ -178,6 +178,20 @@ describe('Login', () => {
       expect(window.location.search).toBe('');
     });
 
+    it('oculta la demo durante la activación y mientras el alumno revisa su correo', async () => {
+      window.history.replaceState(null, '', '/?invitacion=1');
+      signUp.mockResolvedValue({ data: { session: null, user: { id: '1', identities: [{ id: 'i' }] } }, error: null });
+      const onStartDemo = vi.fn();
+      const user = userEvent.setup();
+      render(<Login onStartDemo={onStartDemo} />);
+
+      expect(screen.queryByRole('button', { name: /prueba 15 preguntas/i })).not.toBeInTheDocument();
+      await fillAndSubmit(user);
+      expect(await screen.findByRole('heading', { name: 'Revisa tu correo' })).toBeInTheDocument();
+      expect(screen.queryByRole('button', { name: /prueba 15 preguntas/i })).not.toBeInTheDocument();
+      expect(onStartDemo).not.toHaveBeenCalled();
+    });
+
     it('un error interno de registro recibe un mensaje neutral, sin revelar el estado de invitación', async () => {
       signUp.mockResolvedValue({ data: { session: null, user: null }, error: { status: 500, code: 'unexpected_failure', message: 'Database error saving new user' } });
       const user = userEvent.setup();
