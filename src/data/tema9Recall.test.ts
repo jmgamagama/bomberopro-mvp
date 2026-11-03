@@ -51,7 +51,9 @@ describe('tema 9 · hidráulica (fuentes oficiales)', () => {
     const rho = 1000; // kg/m3, agua a 20 °C
     const g = 9.81; // m/s2
     // 1 bar = 0,1 MPa = 100 kPa = 10^5 Pa; atmósfera normal 101 325 Pa = 1,013 25 bar.
-    expect(byConcepto('1 bar')).toContain('100 000 Pa');
+    // Respuesta literal del RD 2032/2009 (tabla 8), sin el «105 Pa» que el BOE escribe sin superíndice.
+    expect(byConcepto('1 bar')).toBe('1 bar = 0,1 MPa = 100 kPa');
+    expect(0.1e6).toBe(100e3);
     expect(101325 / 1e5).toBeCloseTo(1.01325, 10);
     expect(byConcepto('atmósfera normal')).toContain('101 325 Pa');
     // 10 m de columna de agua: ρ·g·h = 98 100 Pa = 202 600 − 104 500 Pa.
@@ -74,7 +76,7 @@ describe('tema 9 · hidráulica (fuentes oficiales)', () => {
     // Unidades: potencia útil ρ·g·Q·H en W (kg/m3 · m/s2 · m3/s · m = kg·m2/s3 = W).
     expect(rho * g * 0.01 * 10).toBeCloseTo(981, 6);
     // Coeficiente de descarga: Cd = Cv·Cc ≤ 1; valores típicos 0,62 / 0,81 / 1.
-    expect(byConcepto('orificio de borde afilado')).toMatch(/0,62.*\(1\)/);
+    expect(byConcepto('orificio de borde afilado')).toMatch(/0,62.*la unidad/);
     expect(byConcepto('tramo muy corto de tubería')).toBe('Aproximadamente 0,81');
     // Reynolds: laminar < 2000, turbulento > 4000; f laminar = 64/Re.
     expect(byConcepto('laminar y para cuáles turbulento')).toMatch(/2000.*4000/);
@@ -88,9 +90,9 @@ describe('tema 9 · hidráulica (fuentes oficiales)', () => {
     expect(byConcepto('presión mínima debe haber en los puntos de consumo')).toContain('100 kPa');
   });
 
-  it('se registra como mazo bajo demanda, pendiente de revisión', async () => {
+  it('se registra como mazo bajo demanda, pendiente, con sus 25 fichas literales visibles (17 el 01/11/2026 y 8 de la NTP 362 el 02/11/2026)', async () => {
     expect(getRecallDeck('tema9').count).toBe(N);
     expect(getRecallDeck('tema9').revision).toBe('pendiente');
-    expect(await loadRecallDeckCards('tema9')).toBe(TEMA9_RECALL_CARDS);
+    expect(await loadRecallDeckCards('tema9')).toHaveLength(25);
   });
 });

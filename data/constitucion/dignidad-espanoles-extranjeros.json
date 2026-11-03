@@ -57,7 +57,17 @@
             "Los derechos inviolables inherentes a la persona."
           ],
           "correcta": 0,
-          "explicacion": "La igualdad real y efectiva aparece en el art. 9.2 como tarea de los poderes públicos; el art. 10.1 cita la dignidad, los derechos inviolables, el libre desarrollo de la personalidad, el respeto a la ley y a los derechos de los demás."
+          "explicacion": "La igualdad real y efectiva aparece en el art. 9.2 como tarea de los poderes públicos; el art. 10.1 cita la dignidad, los derechos inviolables, el libre desarrollo de la personalidad, el respeto a la ley y a los derechos de los demás.",
+          "respaldo": [
+            {
+              "articulo": "a10",
+              "cita": "La dignidad de la persona, los derechos inviolables que le son inherentes, el libre desarrollo de la personalidad, el respeto a la ley y a los derechos de los demás son fundamento del orden político y de la paz social."
+            },
+            {
+              "articulo": "a9",
+              "cita": "Corresponde a los poderes públicos promover las condiciones para que la libertad y la igualdad del individuo y de los grupos en que se integra sean reales y efectivas"
+            }
+          ]
         }
       ]
     },
@@ -208,6 +218,7 @@
             "Los españoles de origen solo pueden perder la nacionalidad por resolución judicial firme."
           ],
           "correcta": 0,
+          "cita": "En estos mismos países, aun cuando no reconozcan a sus ciudadanos un derecho recíproco, podrán naturalizarse los españoles sin perder su nacionalidad de origen.",
           "explicacion": "El art. 11.2 habla solo de los españoles «de origen», y para ellos no admite privación alguna."
         }
       ]
@@ -247,6 +258,7 @@
             "Solo si residen en ellos durante al menos diez años."
           ],
           "correcta": 0,
+          "cita": "En estos mismos países, aun cuando no reconozcan a sus ciudadanos un derecho recíproco, podrán naturalizarse los españoles sin perder su nacionalidad de origen.",
           "explicacion": "Art. 11.3 CE: «aun cuando no reconozcan a sus ciudadanos un derecho recíproco»."
         },
         {
@@ -281,7 +293,7 @@
           "enunciado": "Según el art. 12 CE, los españoles son mayores de edad a los…",
           "opciones": [
             "dieciocho años",
-            "veintiún años"
+            "veintiún años cumplidos"
           ],
           "correcta": 0,
           "explicacion": "Art. 12 CE: a los dieciocho años."
@@ -306,7 +318,13 @@
             "Se aplica solo a efectos electorales."
           ],
           "correcta": 0,
-          "explicacion": "El art. 12 fija directamente los dieciocho años, sin remitirse a ninguna ley."
+          "explicacion": "El art. 12 fija directamente los dieciocho años, sin remitirse a ninguna ley.",
+          "respaldo": [
+            {
+              "articulo": "a12",
+              "cita": "Los españoles son mayores de edad a los dieciocho años."
+            }
+          ]
         }
       ]
     },
@@ -446,6 +464,7 @@
             "Cuando lo solicite un Estado miembro de la Unión Europea."
           ],
           "correcta": 0,
+          "cita": "La extradición sólo se concederá en cumplimiento de un tratado o de la ley, atendiendo al principio de reciprocidad.",
           "explicacion": "Art. 13.3 CE."
         },
         {

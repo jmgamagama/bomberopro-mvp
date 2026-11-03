@@ -21,21 +21,56 @@ export interface DeckReview {
   informe: string;
 }
 
-const revisado = (motivo: string, informe: string): DeckReview => ({ revision: 'revisado', motivo, informe });
-
-/** Mazos con revisión completa. El resto queda «pendiente de revisión». */
-export const REVIEWED_DECKS: Readonly<Record<string, DeckReview>> = {
-  'tema10-lote02': revisado('13 de 13 fichas revisadas a mano, 0 errores', 'tema10_lote02_calidad.md'),
-  tema16: revisado('48 de 48 fichas revisadas ficha a ficha, 0 errores', 'tema16_calidad.md'),
-  tema17: revisado('14 de 14 fichas revisadas a mano, 0 errores', 'tema17_calidad.md'),
-  tema24: revisado('19 de 19 fichas revisadas a mano, 0 errores', 'tema24_calidad.md'),
-  tema35: revisado('revisión completa por decisión del propietario', 'tema35_calidad.md'),
-  tema38: revisado('revisión completa por decisión del propietario', 'tema38_cambios.md'),
-  tema39: revisado('revisión completa por decisión del propietario', 'tema39_cambios.md'),
-  tema40: revisado('revisión completa por decisión del propietario', 'tema40_validacion.md'),
-};
+/**
+ * Mazos con revisión completa. El resto queda «pendiente de revisión». El motivo y el informe de cada uno están en
+ * recallReviewMotivos.ts (`REVIEWED_DECKS`); un test comprueba que esta lista y aquel registro coinciden.
+ */
+export const MAZOS_REVISADOS: ReadonlySet<string> = new Set([
+  'tema10-lote02',
+  'tema16',
+  'tema16-lote02',
+  'tema17',
+  'tema24',
+  'tema1',
+  'tema2',
+  'tema3',
+  'tema6',
+  'tema7',
+  'tema31',
+  'tema34-lote01',
+  'tema34-lote02',
+  'tema34-lote03',
+  'tema10',
+  'tema22',
+  'tema22-lote02',
+  'tema14',
+  'tema28',
+  'tema12',
+  'tema12-lote02',
+  'tema28-lote02',
+  'tema33',
+  'tema23',
+  'tema13',
+  'tema13-lote02',
+  'tema4',
+  'tema20',
+  'tema23-lote02',
+  'tema29',
+  'tema30',
+  'tema8',
+  'tema32',
+  'tema26',
+  'tema27',
+  'tema27-lote02',
+  'tema33-lote02',
+  'tema35',
+  'tema37',
+  'tema38',
+  'tema39',
+  'tema40',
+]);
 
 /** Estado de revisión de un mazo (`pendiente` si no consta revisión completa). */
 export function getDeckRevision(deckId: string): RecallRevision {
-  return REVIEWED_DECKS[deckId]?.revision ?? 'pendiente';
+  return MAZOS_REVISADOS.has(deckId) ? 'revisado' : 'pendiente';
 }

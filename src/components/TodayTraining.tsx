@@ -65,7 +65,7 @@ export default function TodayTraining({ questions, isLoading, error, onRetry, on
                 className="w-full sm:w-auto px-8 py-4 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-300 text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 mx-auto"
               >
                 <Play className="w-5 h-5 fill-current" />
-                Comenzar Sesión Automática
+                Comenzar sesión automática
               </button>
             </div>
           </>

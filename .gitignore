@@ -12,3 +12,4 @@ coverage/
 content/
 supabase/migrations/*_datos_*.sql
 pwa-capturas/
+__pycache__/

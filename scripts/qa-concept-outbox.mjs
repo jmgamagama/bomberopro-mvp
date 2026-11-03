@@ -3,7 +3,7 @@ import { randomBytes } from 'node:crypto';
 import { spawn, spawnSync } from 'node:child_process';
 import { writeFile } from 'node:fs/promises';
 
-const production = 'https://bomberopro-mvp.vercel.app';
+const production = 'https://bomberopro.com';
 const html = await (await fetch(production)).text();
 const asset = html.match(/src="([^"]+\.js)"/)?.[1];
 if (!asset) throw new Error('Production asset missing');

@@ -4,7 +4,8 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { setRevisionViewer } from '../utils/revisionAccess';
 import Tema36Lote01Recall from './Tema36Lote01Recall';
 import { TEMA36_LOTE01_RECALL_CARDS, TEMA36_LOTE01_RECALL_META } from '../data/tema36Lote01Recall';
 
@@ -13,6 +14,17 @@ const fichasJson = JSON.parse(
 ) as {
   fichas: Array<{ id: string; concepto: string; respuesta: string; fuente: string }>;
 };
+
+// El lote sigue pendiente: el alumno solo ve sus fichas revisadas sueltas. Aquí se prueba el lote completo,
+// como lo ve el propietario.
+beforeEach(() => {
+  vi.stubEnv('VITE_REVISION_OWNERS', 'owner-uuid');
+  setRevisionViewer({ id: 'owner-uuid' });
+});
+afterEach(() => {
+  setRevisionViewer(null);
+  vi.unstubAllEnvs();
+});
 
 describe('Tema36Lote01Recall', () => {
   it('carga exactamente 78 fichas del tema 36 lote 01 desde el JSON limpio', () => {

@@ -24,7 +24,7 @@ export const TEMA35_RECALL_CARDS: Tema35RecallCard[] = [
     "concepto": "¿Qué contiene el Catálogo de la Red de Carreteras de Extremadura?",
     "respuesta": "La titularidad, categoría y denominación de las carreteras.",
     "fuente": "Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura",
-    "localizacion": "preámbulo/anexo",
+    "localizacion": "artículo único y anexo, columnas clave/denominación/categoría (DOE n.º 103, 29/05/2008, pp. 14494-14500)",
     "apartado": "Conceptos rectores"
   },
   {
@@ -33,7 +33,7 @@ export const TEMA35_RECALL_CARDS: Tema35RecallCard[] = [
     "concepto": "¿Qué norma aprueba el catálogo autonómico usado como base?",
     "respuesta": "El Decreto 98/2008, de 23 de mayo.",
     "fuente": "Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura",
-    "localizacion": "preámbulo/anexo",
+    "localizacion": "encabezado y artículo único (DOE n.º 103, 29/05/2008, p. 14494)",
     "apartado": "Conceptos rectores"
   },
   {
@@ -42,7 +42,7 @@ export const TEMA35_RECALL_CARDS: Tema35RecallCard[] = [
     "concepto": "¿Qué prefijo identifica las carreteras autonómicas extremeñas?",
     "respuesta": "EX.",
     "fuente": "Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura",
-    "localizacion": "preámbulo/anexo",
+    "localizacion": "anexo, columna «Clave» (DOE n.º 103, 29/05/2008, pp. 14496-14500)",
     "apartado": "Conceptos rectores"
   },
   {
@@ -51,7 +51,7 @@ export const TEMA35_RECALL_CARDS: Tema35RecallCard[] = [
     "concepto": "¿Qué tres categorías ordinarias emplea el catálogo?",
     "respuesta": "Red básica, red intercomarcal y red local.",
     "fuente": "Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura",
-    "localizacion": "preámbulo/anexo",
+    "localizacion": "anexo, columna «Categoría»: básica, intercomarcal y local, además de autovía autonómica (DOE n.º 103, 29/05/2008, pp. 14496-14500)",
     "apartado": "Conceptos rectores"
   },
   {
@@ -60,7 +60,7 @@ export const TEMA35_RECALL_CARDS: Tema35RecallCard[] = [
     "concepto": "¿Qué prefijo identifica las carreteras provinciales de Badajoz?",
     "respuesta": "BA.",
     "fuente": "Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura",
-    "localizacion": "preámbulo/anexo",
+    "localizacion": "SIN VERIFICAR: no consta en el Decreto 98/2008 (DOE n.º 103); fuente pendiente",
     "apartado": "Conceptos rectores"
   },
   {
@@ -68,8 +68,8 @@ export const TEMA35_RECALL_CARDS: Tema35RecallCard[] = [
     "orden": 60,
     "concepto": "¿Qué administración es titular de A y N de la Red de Carreteras del Estado?",
     "respuesta": "La Administración General del Estado, a través del ministerio competente en carreteras.",
-    "fuente": "Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura",
-    "localizacion": "preámbulo/anexo",
+    "fuente": "Ley 37/2015, de 29 de septiembre, de carreteras (BOE-A-2015-10439)",
+    "localizacion": "art. 4.1 y anexo II (Catálogo de la Red de Carreteras del Estado)",
     "apartado": "Conceptos rectores"
   },
   {
@@ -78,7 +78,7 @@ export const TEMA35_RECALL_CARDS: Tema35RecallCard[] = [
     "concepto": "¿Qué carreteras estatales estructuran principalmente Badajoz?",
     "respuesta": "A-5, A-66 y A-43; se complementan con N-430, N-432, N-435 y N-630, entre otras.",
     "fuente": "Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura",
-    "localizacion": "preámbulo/anexo",
+    "localizacion": "SIN VERIFICAR: no consta en el Decreto 98/2008 (DOE n.º 103); fuente pendiente",
     "apartado": "Conceptos rectores"
   },
   {
@@ -1365,7 +1365,7 @@ export const TEMA35_RECALL_CARDS: Tema35RecallCard[] = [
     "concepto": "¿Qué secuencia debe aplicarse para localizar un siniestro por carretera?",
     "respuesta": "Identificar titularidad y clave → sentido e hitos → punto kilométrico → acceso seguro → parque/zona operativa → ruta alternativa.",
     "fuente": "Mapa Oficial de Carreteras del Estado 2026",
-    "localizacion": "criterio operativo de lectura cartográfica",
+    "localizacion": "SIN VERIFICAR: criterio operativo, sin localización en el Mapa Oficial",
     "apartado": "Método de lectura"
   },
 ];

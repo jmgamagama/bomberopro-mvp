@@ -1,0 +1,39 @@
+{
+ "tema": 2,
+ "boe": "BOE-A-2011-1638",
+ "carpeta": "tema02",
+ "prefijo": "eaex",
+ "epigrafe": "El Estatuto de Autonomia de Extremadura: Disposiciones generales. Derechos, deberes y principios rectores. Las competencias de la Comunidad Autonoma de Extremadura. Las instituciones de Extremadura.",
+ "bloques": [
+  {
+   "titulo": "Título Preliminar · Capítulo I · Disposiciones generales (arts. 1–5)",
+   "desde": "tpreliminar",
+   "hasta": "a5"
+  },
+  {
+   "titulo": "Título Preliminar · Capítulo II · Derechos, deberes y principios rectores (arts. 6–7)",
+   "desde": "cii",
+   "hasta": "a7"
+  },
+  {
+   "titulo": "Título I · Competencias de la Comunidad Autónoma (arts. 8–14)",
+   "desde": "ti",
+   "hasta": "a14"
+  },
+  {
+   "titulo": "Título II · Instituciones: Asamblea y Presidente (arts. 15–30)",
+   "desde": "tii",
+   "hasta": "a30"
+  },
+  {
+   "titulo": "Título II · Instituciones: Junta y Administración (arts. 31–39)",
+   "desde": "ciii",
+   "hasta": "a39"
+  },
+  {
+   "titulo": "Título II · Instituciones: control de los poderes y otras instituciones (arts. 40–48)",
+   "desde": "civ",
+   "hasta": "a48"
+  }
+ ]
+}

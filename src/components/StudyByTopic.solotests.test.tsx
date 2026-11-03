@@ -11,6 +11,7 @@ vi.mock('./StudentConsultationModal', () => ({ default: () => null }));
 vi.mock('./ReportQuestionButton', () => ({ default: () => null }));
 
 import StudyByTopic from './StudyByTopic';
+import { reiniciarTemasCacheParaPruebas } from '../lib/temasCache';
 
 const temas = [
   { id: 6, numero: 6, nombre: 'Ley 31/1995 PRL' },
@@ -19,6 +20,9 @@ const temas = [
 
 describe('StudyByTopic · Solo tests', () => {
   beforeEach(() => {
+    // La caché de «Temas» conserva lo último que llegó bien: cada prueba parte de cero.
+    window.localStorage.clear();
+    reiniciarTemasCacheParaPruebas();
     rpc.mockReset();
     from.mockReset();
     from.mockReturnValue({

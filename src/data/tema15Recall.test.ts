@@ -39,6 +39,8 @@ describe('tema 15 · fase 2 (texto oficial consolidado)', () => {
 
   it('se registra como mazo bajo demanda', async () => {
     expect(getRecallDeck('tema15').count).toBe(92);
-    expect(await loadRecallDeckCards('tema15')).toBe(TEMA15_RECALL_CARDS);
+    expect(getRecallDeck('tema15').revision).toBe('pendiente');
+    // Pendiente, pero desde el 01/11/2026 se ven las 92: 36 literales de BOE y 56 literales del INSST (NTP 221, 841, 842 y Guía técnica de equipos de trabajo), aceptado como fuente oficial (feat/fichas-insst).
+    expect(await loadRecallDeckCards('tema15')).toHaveLength(92);
   });
 });

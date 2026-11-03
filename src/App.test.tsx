@@ -54,7 +54,7 @@ describe('App navigation', () => {
     expect(within(mobileNavigation).getByRole('button', { name: 'Simulacro' })).toHaveAttribute('aria-current', 'page');
     expect(inicio).not.toHaveAttribute('aria-current');
 
-    fireEvent.click(screen.getByRole('button', { name: 'Ir al inicio' }));
+    fireEvent.click(screen.getByRole('button', { name: 'BomberoPro, ir al inicio' }));
     expect(inicio).toHaveAttribute('aria-current', 'page');
     expect(document.title).toBe('Inicio | BomberoPro');
 

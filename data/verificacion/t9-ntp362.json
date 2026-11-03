@@ -1,0 +1,104 @@
+{
+ "fecha": "2026-11-02",
+ "script": "scripts/verificar-t9-ntp362.py",
+ "fuente": {
+  "doc": "NTP362",
+  "titulo": "NTP 362: Fugas en recipientes y conducciones: emisión en fase líquida",
+  "pdf": "https://www.insst.es/documents/94886/7875530/ntp_362.pdf",
+  "web": "https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+  "sha256": "eb02abf209abbbc8fde4aae47d52b3766deaa646d4b8fafb9980f3bfba4de2e0",
+  "paginas": 10,
+  "descargado": "2026-11-02T10:59+01:00"
+ },
+ "criterio": "respuesta entera y seguida en la página citada (o siguiendo en la siguiente) del PDF vigente de insst.es, tras normalizar; las fórmulas con exponentes aplanados en la capa de texto no se abren",
+ "fichas": [
+  {
+   "id": "CPEI-T09-OF-303FA8EC",
+   "concepto": "Según la NTP 362 del INSST, ¿cómo se define el caudal volumétrico?",
+   "respuesta": "Es el producto de la velocidad v del fluido por el área A de la sección transversal del flujo",
+   "fuente": "NTP 362 (INSST), «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Emisión de líquidos», pág. 2. INSST-NTP362, PDF oficial de insst.es (1995): https://www.insst.es/documents/94886/7875530/ntp_362.pdf#page=2",
+   "estado": "abierta",
+   "pagina": 2
+  },
+  {
+   "id": "CPEI-T09-OF-598D0A9D",
+   "concepto": "Según la NTP 362 del INSST, ¿cómo se define el caudal másico?",
+   "respuesta": "Es el producto de la velocidad v del fluido por el área A de la sección transversal y por la densidad ρ del fluido",
+   "fuente": "NTP 362 (INSST), «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Emisión de líquidos», pág. 2. INSST-NTP362, PDF oficial de insst.es (1995): https://www.insst.es/documents/94886/7875530/ntp_362.pdf#page=2",
+   "estado": "abierta",
+   "pagina": 2
+  },
+  {
+   "id": "CPEI-T09-OF-54865783",
+   "concepto": "Según la NTP 362 del INSST, ¿para qué tipo de flujo es válida la ecuación de Bernoulli?",
+   "respuesta": "Es válida para un flujo estacionario, no viscoso e incompresible y se cumple en dos puntos cualesquiera de una línea de corriente",
+   "fuente": "NTP 362 (INSST), «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente», pág. 2. INSST-NTP362, PDF oficial de insst.es (1995): https://www.insst.es/documents/94886/7875530/ntp_362.pdf#page=2",
+   "estado": "abierta",
+   "pagina": 2
+  },
+  {
+   "id": "CPEI-T09-OF-0F2FD506",
+   "concepto": "Según la NTP 362 del INSST, en un recipiente abierto a la atmósfera, ¿qué velocidad teórica de salida tiene un líquido por un orificio situado a una altura h bajo el nivel libre?",
+   "respuesta": "v = (2·g·h)^1/2 (la expresión general v = [2(ph − pa)/ρ + 2·g·h]^1/2 con ph = pa)",
+   "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+   "estado": "oculta",
+   "motivo": "pág. 3: la velocidad teórica solo está como fórmula «v2 = [2 (ph - pa) ρ -1 + 2 gh]1/2»; el subíndice 2, el exponente -1 y la raíz (1/2) salen como texto plano y la forma (2gh)^1/2 para ph = pa no está escrita para la velocidad"
+  },
+  {
+   "id": "CPEI-T09-OF-D493D3E9",
+   "concepto": "Según la NTP 362 del INSST, ¿qué expresión da el caudal másico que sale por un orificio de un recipiente a presión atmosférica?",
+   "respuesta": "Qm = Cd · A · ρ · (2·g·h)^1/2 (Cd: coeficiente de descarga; A: área del orificio; h: altura de líquido sobre el orificio)",
+   "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+   "estado": "oculta",
+   "motivo": "pág. 3: la expresión solo está como fórmula «Qm = Cd Aρ(2gh)1/2»; el exponente 1/2 sale como texto plano («(2gh)1/2») y no es un literal fiable para el alumno"
+  },
+  {
+   "id": "CPEI-T09-OF-377EBBDC",
+   "concepto": "Según la NTP 362 del INSST, ¿qué es el coeficiente de descarga Cd de un orificio?",
+   "respuesta": "La relación entre el caudal real que sale por un orificio y el teórico. Puede expresarse también en función de Cv y de Cc, es decir Cd = Cv x Cc",
+   "fuente": "NTP 362 (INSST), «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente», pág. 3. INSST-NTP362, PDF oficial de insst.es (1995): https://www.insst.es/documents/94886/7875530/ntp_362.pdf#page=3",
+   "estado": "abierta",
+   "pagina": 3
+  },
+  {
+   "id": "CPEI-T09-OF-76FBE0B0",
+   "concepto": "Según la NTP 362 del INSST, ¿qué coeficiente de descarga aproximado tiene un orificio de borde afilado y cuál una boquilla de borde redondeado?",
+   "respuesta": "Aproximadamente 0,62 para un orificio de borde afilado y la unidad para una boquilla de borde redondeado",
+   "fuente": "NTP 362 (INSST), «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente», pág. 3. INSST-NTP362, PDF oficial de insst.es (1995): https://www.insst.es/documents/94886/7875530/ntp_362.pdf#page=3",
+   "estado": "abierta",
+   "pagina": 3
+  },
+  {
+   "id": "CPEI-T09-OF-0B46FCC3",
+   "concepto": "Según la NTP 362 del INSST, ¿qué coeficiente de descarga aproximado tiene un tramo muy corto de tubería o una boquilla externa conectados a un recipiente?",
+   "respuesta": "Aproximadamente 0,81",
+   "fuente": "NTP 362 (INSST), «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en un recipiente», pág. 3. INSST-NTP362, PDF oficial de insst.es (1995): https://www.insst.es/documents/94886/7875530/ntp_362.pdf#page=3",
+   "estado": "abierta",
+   "pagina": 3
+  },
+  {
+   "id": "CPEI-T09-OF-B4A1C5E5",
+   "concepto": "Según la NTP 362 del INSST, ¿qué distancia horizontal x alcanza un chorro que sale horizontalmente con velocidad v desde una altura y sobre el suelo?",
+   "respuesta": "x = v · (2·y/g)^1/2 (de x = v·t e y = g·t²/2)",
+   "fuente": "INSST, NTP 362 «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en una tubería (alcance del chorro)». INSST-NTP362, versión web del INSST, serie 1995: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/10-serie-ntp-numeros-331-a-365-ano-1995/ntp-362-fugas-en-recipientes-y-conducciones-emision-en-fase-liquida",
+   "estado": "oculta",
+   "motivo": "págs. 6-7: el alcance solo está como fórmula «x = v (2y/g)1/2» (exponente 1/2 aplanado) y la fórmula de y está como «y = gt2/2» (t al cuadrado aplanado); no hay literal fiable"
+  },
+  {
+   "id": "CPEI-T09-OF-0725F93D",
+   "concepto": "Según la NTP 362 del INSST, ¿para qué valores del número de Reynolds el flujo en tubería es generalmente laminar y para cuáles turbulento?",
+   "respuesta": "Para valores de Re menores que aproximadamente 2000 el flujo es generalmente laminar y para valores superiores a 4000 el flujo es generalmente turbulento",
+   "fuente": "NTP 362 (INSST), «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en una tubería», pág. 4. INSST-NTP362, PDF oficial de insst.es (1995): https://www.insst.es/documents/94886/7875530/ntp_362.pdf#page=4",
+   "estado": "abierta",
+   "pagina": 4
+  },
+  {
+   "id": "CPEI-T09-OF-3869B3CE",
+   "concepto": "Según la NTP 362 del INSST, ¿cuánto vale el factor de fricción en régimen laminar?",
+   "respuesta": "f = 64/Re",
+   "fuente": "NTP 362 (INSST), «Fugas en recipientes y conducciones: emisión en fase líquida», apartado «Fuga en una tubería», pág. 4. INSST-NTP362, PDF oficial de insst.es (1995): https://www.insst.es/documents/94886/7875530/ntp_362.pdf#page=4",
+   "estado": "abierta",
+   "pagina": 4
+  }
+ ]
+}

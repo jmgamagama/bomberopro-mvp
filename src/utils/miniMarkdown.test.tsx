@@ -58,4 +58,12 @@ describe('renderMarkdown (material propio)', () => {
     const c = html(readFileSync('public/material/constitucion/titulo-preliminar-2-desarrollo.md', 'utf8'));
     expect(c.querySelectorAll('[data-trampa]').length).toBeGreaterThanOrEqual(4);
   });
+  it('enlaces [texto](https://…) a fuentes oficiales; otros esquemas no se enlazan', () => {
+    const { container } = render(<div>{renderMarkdown('- [Artículo 1. Objeto](https://www.boe.es/buscar/act.php?id=BOE-A-1995-24292#a1)\n\n[x](javascript:alert(1))')}</div>);
+    const a = container.querySelectorAll('a');
+    expect(a).toHaveLength(1);
+    expect(a[0].getAttribute('href')).toBe('https://www.boe.es/buscar/act.php?id=BOE-A-1995-24292#a1');
+    expect(a[0].getAttribute('rel')).toContain('noopener');
+    expect(container.textContent).toContain('[x](javascript:alert(1))');
+  });
 });

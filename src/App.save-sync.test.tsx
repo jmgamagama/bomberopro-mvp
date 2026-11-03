@@ -144,12 +144,12 @@ describe('guardado pendiente con la aplicación completa', () => {
     fireEvent.click(document.querySelector('#mas-today_training')!);
     await waitFor(() => expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe('1'));
     fireEvent.click(screen.getByRole('button', { name: /comenzar sesión automática/i }));
-    expect(screen.getByRole('heading', { name: questionA.question })).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: questionA.question })).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: questionA.correct_answer }));
     fireEvent.click(document.querySelector('#conf-btn-alta')!);
     await screen.findByRole('button', { name: /siguiente pregunta/i });
     fireEvent.click(document.querySelector('#nav-btn-inicio')!);
-    fireEvent.click(screen.getByRole('button', { name: /practicar preguntas/i }));
+    fireEvent.click(await screen.findByRole('button', { name: /practicar preguntas/i }));
     await waitFor(() => expect(resolveSecond).toBeTypeOf('function'));
 
     getSession.mockResolvedValue({ data: { session: next === 'B' ? account('B') : null }, error: null });
@@ -165,7 +165,7 @@ describe('guardado pendiente con la aplicación completa', () => {
     expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe(expectedCount);
     fireEvent.click(screen.getByRole('button', { name: /comenzar sesión automática/i }));
     expect(screen.queryByRole('heading', { name: questionA.question })).not.toBeInTheDocument();
-    if (next === 'B') expect(screen.getByRole('heading', { name: questionB.question })).toBeInTheDocument();
+    if (next === 'B') expect(await screen.findByRole('heading', { name: questionB.question })).toBeInTheDocument();
   });
 
   it('renovar el token de la misma cuenta no cancela su sesión de preguntas', async () => {

@@ -6,7 +6,11 @@
 import { Microconcept, Question } from '../types';
 
 export const INITIAL_TOPICS = [
-  { id: 'T-CE', name: 'Constitución Española - Título Preliminar' }
+  { id: 'T-CE', name: 'Constitución Española - Título Preliminar' },
+  { id: 'T35', name: 'Tema 35 · Red de carreteras de Extremadura (provincia de Badajoz)' },
+  { id: 'T38', name: 'Tema 38 · ITF CPEI: horario, vestuario/EPIs y limpieza de EPIs' },
+  { id: 'T39', name: 'Tema 39 · Protocolo de movilización CPEI + SOS operativo + SOS personal' },
+  { id: 'T40', name: 'Tema 40 · Procedimientos de trabajo CPEI-Badajoz' }
 ];
 
 export const INITIAL_MICROCONCEPTS: Microconcept[] = [
@@ -59,134 +63,143 @@ export const INITIAL_MICROCONCEPTS: Microconcept[] = [
     difficulty: 'baja',
     confusion_risk: 'medio',
     type: 'forma política'
+  },
+  {
+    id: "CPEI-T35-S01-D067024BDE",
+    topic_id: 'T35',
+    article: "Decreto 98/2008, anexo",
+    text: "¿Qué tres categorías ordinarias emplea el catálogo? Red básica, red intercomarcal y red local.",
+    explanation: "Ficha revisada del tema 35. Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — anexo, columna «Categoría»: básica, intercomarcal y local, además de autovía autonómica (DOE n.º 103, 29/05/2008, pp. 14496-14500).",
+    difficulty: 'media',
+    confusion_risk: 'medio',
+    type: 'dato literal'
+  },
+  {
+    id: "CPEI-T35-S01-57F9BFBC83",
+    topic_id: 'T35',
+    article: "Ley 37/2015, art. 4.1",
+    text: "¿Qué administración es titular de A y N de la Red de Carreteras del Estado? La Administración General del Estado, a través del ministerio competente en carreteras.",
+    explanation: "Ficha revisada del tema 35. Fuente: Ley 37/2015, de 29 de septiembre, de carreteras (BOE-A-2015-10439) — art. 4.1 y anexo II (Catálogo de la Red de Carreteras del Estado).",
+    difficulty: 'media',
+    confusion_risk: 'medio',
+    type: 'dato literal'
+  },
+  {
+    id: "CPEI-T35-S03-99DDF8B8E0",
+    topic_id: 'T35',
+    article: "Decreto 98/2008, anexo",
+    text: "¿Cuál es el itinerario de la EX-100? Cáceres–Badajoz",
+    explanation: "Ficha revisada del tema 35. Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — Decreto 98/2008, anexo.",
+    difficulty: 'media',
+    confusion_risk: 'medio',
+    type: 'dato literal'
+  },
+  {
+    id: "CPEI-T38-HOR-010",
+    topic_id: 'T38',
+    article: "PDF p. 3",
+    text: "Según el resumen del horario diario, ¿en qué franja se revisan vehículos, herramientas y material colectivo? De 8:30 a 9:45.",
+    explanation: "Ficha revisada del tema 38. Fuente: ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020) — PDF p. 3.",
+    difficulty: 'media',
+    confusion_risk: 'medio',
+    type: 'dato literal'
+  },
+  {
+    id: "CPEI-T38-HOR-034",
+    topic_id: 'T38',
+    article: "PDF p. 7",
+    text: "Según la ITF Horario, ¿qué puede suponer un retraso injustificado y/o la acumulación de retrasos injustificados? La consideración de falta grave.",
+    explanation: "Ficha revisada del tema 38. Fuente: ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020) — PDF p. 7.",
+    difficulty: 'media',
+    confusion_risk: 'medio',
+    type: 'dato literal'
+  },
+  {
+    id: "CPEI-T39-MOV-089",
+    topic_id: 'T39',
+    article: "PDF p. 26",
+    text: "Para deletrear, ¿qué código fonético se utiliza? El código fonético internacional ICAO.",
+    explanation: "Ficha revisada del tema 39. Fuente: Protocolo de movilización ante siniestros CPEI Badajoz (BOP Badajoz n.º 224, anuncio 4899/2025, 24/11/2025; 34 págs.; incluye protocolo de radiocomunicaciones y anexo SOS) — PDF p. 26.",
+    difficulty: 'media',
+    confusion_risk: 'medio',
+    type: 'dato literal'
+  },
+  {
+    id: "CPEI-T39-SOP-005",
+    topic_id: 'T39',
+    article: "PDF p. 5",
+    text: "¿Para qué sirve el icono Servicios/Ruta en el móvil? Para recibir en el teléfono el punto de intervención.",
+    explanation: "Ficha revisada del tema 39. Fuente: Uso y manejo de la plataforma SOS — Módulo operativo (manual bomberos nuevo ingreso; PDF Drive FUENTE_OFICIAL_SOS_Operativo.pdf, 47 págs.) — PDF p. 5.",
+    difficulty: 'media',
+    confusion_risk: 'medio',
+    type: 'dato literal'
+  },
+  {
+    id: "CPEI-T40-PT03-081",
+    topic_id: 'T40',
+    article: "PDF p. 23 (Hoja 16)",
+    text: "¿Cuál es el número de emergencias de la línea telefónica propia del CPEI? 085.",
+    explanation: "Ficha revisada del tema 40. Fuente: PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023) — PDF p. 23 (Hoja 16).",
+    difficulty: 'media',
+    confusion_risk: 'medio',
+    type: 'dato literal'
+  },
+  {
+    id: "CPEI-T40-PT03-053",
+    topic_id: 'T40',
+    article: "PDF p. 17 (Hoja 10)",
+    text: "¿Cuál es la dotación mínima en una intervención afectada por posible amianto friable? 2 binomios.",
+    explanation: "Ficha revisada del tema 40. Fuente: PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023) — PDF p. 17 (Hoja 10).",
+    difficulty: 'media',
+    confusion_risk: 'medio',
+    type: 'dato literal'
+  },
+  {
+    id: "CPEI-T40-PT03-168",
+    topic_id: 'T40',
+    article: "PDF p. 43 (Hoja 36)",
+    text: "¿Qué almacén de repuesto de urgencia atiende a los parques de Villafranca y Hornachos? Almendralejo.",
+    explanation: "Ficha revisada del tema 40. Fuente: PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023) — PDF p. 43 (Hoja 36).",
+    difficulty: 'media',
+    confusion_risk: 'medio',
+    type: 'dato literal'
   }
 ];
 
+/**
+ * Banco público local (simulacro de invitado y demo): 15 preguntas de 3 opciones (como las bases).
+ * - 10 de los temas 35-40 (2026-10-28), creadas a partir de fichas YA REVISADAS
+ *   (src/data/recallReview.ts: tema35, tema38, tema39, tema40; el 36 está pendiente y el 37 sin contenido).
+ *   Reparto: T35 ×3, T38 ×2, T39 ×2, T40 ×3. La correcta es literal de la ficha y lleva su fuente;
+ *   ningún distractor es más largo que la correcta (src/data/initialData.test.ts lo comprueba).
+ * - 5 del artículo 1 de la Constitución (tema 1), una por microconcepto.
+ */
 export const INITIAL_QUESTIONS: Question[] = [
-  // MC-ART1-001 (España se constituye en un Estado social y democrático de Derecho)
   {
     id: 'Q-ART1-001-N1',
     microconcept_id: 'MC-ART1-001',
     level: 'N1',
     type: 'test_literal',
     question: 'Según el Artículo 1.1 de la Constitución, España se constituye en un:',
-    options: [
-      'Estado social y democrático de Derecho',
-      'Estado democrático y social de Derecho',
-      'Estado social, de derecho y democrático',
-      'Estado de Derecho constitucional y social'
-    ],
+    options: ["Estado social y democrático de Derecho", "Estado democrático y social de Derecho", "Estado social y liberal de Derecho"],
     correct_answer: 'Estado social y democrático de Derecho',
-    explanation: 'El artículo 1.1 establece textualmente que España se constituye en un "Estado social y democrático de Derecho" en este preciso orden.'
+    explanation: 'El artículo 1.1 establece textualmente que España se constituye en un "Estado social y democrático de Derecho" en este preciso orden.',
+    fuente: "Constitución Española, art. 1.1",
+    cita: "España se constituye en un Estado social y democrático de Derecho, que propugna como valores superiores de su ordenamiento jurídico la libertad, la justicia, la igualdad y el pluralismo político.",
+    tema: { numero: 1, titulo: "La Constitución Española de 1978" }
   },
-  {
-    id: 'Q-ART1-001-N2',
-    microconcept_id: 'MC-ART1-001',
-    level: 'N2',
-    type: 'test_confusion',
-    question: '¿Qué adjetivos definen exactamente al Estado español en el primer párrafo del Artículo 1 de la Constitución?',
-    options: [
-      'Social, democrático y de Derecho',
-      'Libre, representativo y soberano',
-      'Constitucional, monárquico y parlamentario',
-      'Democrático, descentralizado y de Derecho'
-    ],
-    correct_answer: 'Social, democrático y de Derecho',
-    explanation: 'La fórmula exacta de la Constitución Española es "social y democrático de Derecho".'
-  },
-  {
-    id: 'Q-ART1-001-N3',
-    microconcept_id: 'MC-ART1-001',
-    level: 'N3',
-    type: 'completar_huecos',
-    question: 'Completa la fórmula del Artículo 1.1: "España se constituye en un Estado ________ y democrático de ________."',
-    options: [
-      'social / Derecho',
-      'constitucional / justicia',
-      'federal / soberanía',
-      'autonómico / legalidad'
-    ],
-    correct_answer: 'social / Derecho',
-    explanation: 'Los términos textuales omitidos son "social" (primer hueco) y "Derecho" (segundo hueco).'
-  },
-
-  // MC-ART1-002 (Valores superiores)
   {
     id: 'Q-ART1-002-N1',
     microconcept_id: 'MC-ART1-002',
     level: 'N1',
     type: 'test_literal',
     question: 'Según el artículo 1.1 de la Constitución Española, ¿cuáles son los valores superiores de su ordenamiento jurídico?',
-    options: [
-      'La libertad, la justicia, la igualdad y el pluralismo político.',
-      'La libertad, la seguridad, la igualdad y la democracia.',
-      'La justicia, la solidaridad, la igualdad y la autonomía.',
-      'La legalidad, la libertad, la igualdad y la soberanía nacional.'
-    ],
+    options: ["La libertad, la justicia, la igualdad y la soberanía nacional.", "La libertad, la justicia, la igualdad y el pluralismo político.", "La justicia, la solidaridad, la igualdad y la autonomía."],
     correct_answer: 'La libertad, la justicia, la igualdad y el pluralismo político.',
-    explanation: 'El artículo 1.1 cita de forma explícita e inequívoca estos cuatro valores superiores: libertad, justicia, igualdad y pluralismo político.'
-  },
-  {
-    id: 'Q-ART1-002-N2',
-    microconcept_id: 'MC-ART1-002',
-    level: 'N2',
-    type: 'pregunta_trampa',
-    question: '¿Cuál de los siguientes NO es un valor superior del ordenamiento jurídico español enumerado en el Artículo 1.1?',
-    options: [
-      'La seguridad jurídica',
-      'La justicia',
-      'La igualdad',
-      'El pluralismo político'
-    ],
-    correct_answer: 'La seguridad jurídica',
-    explanation: 'Aunque la seguridad jurídica está protegida en el Artículo 9.3, no forma parte de los "valores superiores del ordenamiento jurídico" enumerados en el Artículo 1.1.'
-  },
-  {
-    id: 'Q-ART1-002-N3',
-    microconcept_id: 'MC-ART1-002',
-    level: 'N3',
-    type: 'discriminacion',
-    question: 'Identifique la afirmación correcta respecto a los valores superiores consagrados en el Artículo 1.1 de la Constitución:',
-    options: [
-      'El pluralismo político es un valor superior, mientras que la democracia no se cita literalmente como tal.',
-      'La solidaridad interterritorial se incluye entre estos cuatro valores fundamentales.',
-      'La paz social es el cuarto valor superior junto a la libertad, justicia e igualdad.',
-      'El ordenamiento jurídico propugna como valores superiores únicamente la libertad y la igualdad social.'
-    ],
-    correct_answer: 'El pluralismo político es un valor superior, mientras que la democracia no se cita literalmente como tal.',
-    explanation: 'Exacto. El cuarto valor es "pluralismo político". La palabra "democracia" o "paz social" no aparece en esa lista taxativa.'
-  },
-
-  // MC-ART1-003 (Soberanía nacional pueblo español)
-  {
-    id: 'Q-ART1-003-N1',
-    microconcept_id: 'MC-ART1-003',
-    level: 'N1',
-    type: 'verdadero_falso',
-    question: '¿Es verdadero o falso que la soberanía nacional reside en las Cortes Generales como representantes legítimos?',
-    options: [
-      'Falso, reside en el pueblo español.',
-      'Verdadero, según el artículo 1.2.',
-      'Falso, reside en la Corona de España.',
-      'Verdadero, compartida con el pueblo español.'
-    ],
-    correct_answer: 'Falso, reside en el pueblo español.',
-    explanation: 'La soberanía nacional reside exclusivamente en el "pueblo español". Las Cortes Generales lo representan, pero no reside en ellas.'
-  },
-  {
-    id: 'Q-ART1-003-N2',
-    microconcept_id: 'MC-ART1-003',
-    level: 'N2',
-    type: 'test_confusion',
-    question: 'Complete textualmente según el Artículo 1.2: "La soberanía nacional reside en ________, del que emanan los poderes del Estado."',
-    options: [
-      'el pueblo español',
-      'la Nación española',
-      'el Estado democrático',
-      'los ciudadanos con derecho a voto'
-    ],
-    correct_answer: 'el pueblo español',
-    explanation: 'La soberanía nacional reside "en el pueblo español", no "en los ciudadanos" ni "en la Nación española". El rigor literal es máximo.'
+    explanation: 'El artículo 1.1 cita de forma explícita e inequívoca estos cuatro valores superiores: libertad, justicia, igualdad y pluralismo político.',
+    fuente: "Constitución Española, art. 1.1",
+    cita: "España se constituye en un Estado social y democrático de Derecho, que propugna como valores superiores de su ordenamiento jurídico la libertad, la justicia, la igualdad y el pluralismo político.",
+    tema: { numero: 1, titulo: "La Constitución Española de 1978" }
   },
   {
     id: 'Q-ART1-003-N3',
@@ -194,107 +207,167 @@ export const INITIAL_QUESTIONS: Question[] = [
     level: 'N3',
     type: 'pregunta_inversa',
     question: 'Si afirmamos que "del pueblo español emanan los poderes del Estado", ¿qué principio fundamental consagrado en el Artículo 1.2 sustenta directamente esta afirmación?',
-    options: [
-      'Que la soberanía nacional reside en el pueblo español.',
-      'La constitución de un Estado social de Derecho.',
-      'La asunción de la Monarquía parlamentaria como forma política.',
-      'El principio de legalidad de los órganos del Estado.'
-    ],
+    options: ["La constitución de un Estado social de Derecho.", "El principio de legalidad y de jerarquía de los órganos del Estado.", "Que la soberanía nacional reside en el pueblo español."],
     correct_answer: 'Que la soberanía nacional reside en el pueblo español.',
-    explanation: 'El Artículo 1.2 conecta conceptualmente la soberanía del pueblo con el hecho de que de él emanen los poderes estatales.'
+    explanation: 'El Artículo 1.2 conecta conceptualmente la soberanía del pueblo con el hecho de que de él emanen los poderes estatales.',
+    fuente: "Constitución Española, art. 1.2",
+    cita: "La soberanía nacional reside en el pueblo español, del que emanan los poderes del Estado.",
+    tema: { numero: 1, titulo: "La Constitución Española de 1978" }
   },
-
-  // MC-ART1-004 (Emanación de poderes)
   {
     id: 'Q-ART1-004-N1',
     microconcept_id: 'MC-ART1-004',
     level: 'N1',
     type: 'test_literal',
     question: 'Según la Constitución Española, ¿de dónde emanan los poderes del Estado?',
-    options: [
-      'Del pueblo español',
-      'De la Constitución y de las Leyes',
-      'De la Corona y el Parlamento',
-      'Del poder legislativo nacional'
-    ],
+    options: ["Del Estado español", "Del pueblo español", "De la Constitución"],
     correct_answer: 'Del pueblo español',
-    explanation: 'El artículo 1.2 concluye: "...del que [el pueblo español] emanan los poderes del Estado".'
+    explanation: 'El artículo 1.2 concluye: "...del que [el pueblo español] emanan los poderes del Estado".',
+    fuente: "Constitución Española, art. 1.2",
+    cita: "La soberanía nacional reside en el pueblo español, del que emanan los poderes del Estado.",
+    tema: { numero: 1, titulo: "La Constitución Española de 1978" }
   },
-  {
-    id: 'Q-ART1-004-N2',
-    microconcept_id: 'MC-ART1-004',
-    level: 'N2',
-    type: 'test_confusion',
-    question: '¿Qué emana directamente del pueblo español según el Artículo 1.2 de la Constitución?',
-    options: [
-      'Los poderes del Estado',
-      'La soberanía de las autonomías',
-      'El poder judicial independiente',
-      'Las leyes orgánicas del Estado'
-    ],
-    correct_answer: 'Los poderes del Estado',
-    explanation: 'Emanan exactamente "los poderes del Estado".'
-  },
-  {
-    id: 'Q-ART1-004-N3',
-    microconcept_id: 'MC-ART1-004',
-    level: 'N3',
-    type: 'discriminacion',
-    question: 'Analice la frase: "La soberanía reside en el Estado y de él emanan los poderes del pueblo". ¿Es constitucionalmente correcta?',
-    options: [
-      'No, es totalmente al revés: la soberanía reside en el pueblo español, y del pueblo emanan los poderes del Estado.',
-      'Sí, es correcta conforme al Artículo 1.2.',
-      'No, porque los poderes del Estado emanan de la Corona, no del Estado.',
-      'Sí, pues el Estado y el pueblo son términos equivalentes en derecho constitucional.'
-    ],
-    correct_answer: 'No, es totalmente al revés: la soberanía reside en el pueblo español, y del pueblo emanan los poderes del Estado.',
-    explanation: 'La relación causal constitucional es clara: el pueblo español ostenta la soberanía y de este emanan los poderes públicos.'
-  },
-
-  // MC-ART1-005 (Forma política)
   {
     id: 'Q-ART1-005-N1',
     microconcept_id: 'MC-ART1-005',
     level: 'N1',
     type: 'test_literal',
     question: 'Según el Artículo 1.3 de la Constitución, ¿cuál es la forma política del Estado español?',
-    options: [
-      'La Monarquía parlamentaria',
-      'La Monarquía constitucional',
-      'La República parlamentaria',
-      'La Democracia parlamentaria'
-    ],
+    options: ["La República parlamentaria", "La Monarquía democrática", "La Monarquía parlamentaria"],
     correct_answer: 'La Monarquía parlamentaria',
-    explanation: 'El texto dice de manera literal e inequívoca: "La forma política del Estado español es la Monarquía parlamentaria."'
+    explanation: 'El texto dice de manera literal e inequívoca: "La forma política del Estado español es la Monarquía parlamentaria."',
+    fuente: "Constitución Española, art. 1.3",
+    cita: "La forma política del Estado español es la Monarquía parlamentaria.",
+    tema: { numero: 1, titulo: "La Constitución Española de 1978" }
   },
+  // Tema 35 · ficha CPEI-T35-S01-D067024BDE (revisada)
   {
-    id: 'Q-ART1-005-N2',
-    microconcept_id: 'MC-ART1-005',
-    level: 'N2',
-    type: 'test_confusion',
-    question: 'En un examen de oposición, un enunciado indica que la forma de gobierno es una "Monarquía representativa y demócrata". Según la precisión literal de la Constitución, este enunciado es:',
-    options: [
-      'Incorrecto, ya que la Constitución define textualmente la forma política como "Monarquía parlamentaria".',
-      'Correcto, son términos sinónimos reconocidos por el Tribunal Constitucional.',
-      'Parcialmente correcto, ya que solo falta añadir que es de carácter social.',
-      'Incorrecto, la forma política de España es el "Estado de Derecho".'
-    ],
-    correct_answer: 'Incorrecto, ya que la Constitución define textualmente la forma política como "Monarquía parlamentaria".',
-    explanation: 'En las oposiciones el rigor literal es estricto. La única fórmula correcta y textual en el Artículo 1.3 es "Monarquía parlamentaria".'
+    id: "Q-CPEI-T35-S01-D067024BDE",
+    microconcept_id: "CPEI-T35-S01-D067024BDE",
+    level: 'N1',
+    type: 'test_literal',
+    question: "Según el Decreto 98/2008, ¿qué tres categorías ordinarias emplea el catálogo de carreteras de Extremadura?",
+    options: ["Red básica, red complementaria y red local.", "Red básica, red intercomarcal y red local.", "Red estatal, red regional y red local."],
+    correct_answer: "Red básica, red intercomarcal y red local.",
+    explanation: "Ficha: «Red básica, red intercomarcal y red local.» Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — anexo, columna «Categoría»: básica, intercomarcal y local, además de autovía autonómica (DOE n.º 103, 29/05/2008, pp. 14496-14500).",
+    fuente: "Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — anexo, columna «Categoría»: básica, intercomarcal y local, además de autovía autonómica (DOE n.º 103, 29/05/2008, pp. 14496-14500)",
+    tema: { numero: 35, titulo: "Red de carreteras de Extremadura (provincia de Badajoz)" }
   },
+  // Tema 35 · ficha CPEI-T35-S01-57F9BFBC83 (revisada)
   {
-    id: 'Q-ART1-005-N3',
-    microconcept_id: 'MC-ART1-005',
-    level: 'N3',
-    type: 'pregunta_inversa',
-    question: '¿Qué aspecto del Estado español define exactamente el Artículo 1.3 cuando nombra a la "Monarquía parlamentaria"?',
-    options: [
-      'La forma política del Estado español',
-      'La soberanía nacional compartida',
-      'Los valores superiores del ordenamiento',
-      'El modelo de división territorial'
-    ],
-    correct_answer: 'La forma política del Estado español',
-    explanation: 'El Artículo 1.3 reza: "La forma política del Estado español es..." por lo que define específicamente la "forma política".'
+    id: "Q-CPEI-T35-S01-57F9BFBC83",
+    microconcept_id: "CPEI-T35-S01-57F9BFBC83",
+    level: 'N1',
+    type: 'test_literal',
+    question: "¿Qué administración es titular de las carreteras A y N de la Red de Carreteras del Estado?",
+    options: ["La Junta de Extremadura, a través de su consejería competente en materia de carreteras.", "La Administración General del Estado, a través del ministerio competente en carreteras.", "Las Diputaciones Provinciales, a través de sus servicios provinciales de vías y obras."],
+    correct_answer: "La Administración General del Estado, a través del ministerio competente en carreteras.",
+    explanation: "Ficha: «La Administración General del Estado, a través del ministerio competente en carreteras.» Fuente: Ley 37/2015, de 29 de septiembre, de carreteras (BOE-A-2015-10439) — art. 4.1 y anexo II (Catálogo de la Red de Carreteras del Estado).",
+    fuente: "Ley 37/2015, de 29 de septiembre, de carreteras (BOE-A-2015-10439) — art. 4.1 y anexo II (Catálogo de la Red de Carreteras del Estado)",
+    tema: { numero: 35, titulo: "Red de carreteras de Extremadura (provincia de Badajoz)" }
+  },
+  // Tema 35 · ficha CPEI-T35-S03-99DDF8B8E0 (revisada)
+  {
+    id: "Q-CPEI-T35-S03-99DDF8B8E0",
+    microconcept_id: "CPEI-T35-S03-99DDF8B8E0",
+    level: 'N1',
+    type: 'test_literal',
+    question: "Según el catálogo del Decreto 98/2008, ¿cuál es el itinerario de la EX-100?",
+    options: ["Cáceres–Badajoz", "Mérida–Guareña", "Olivenza–Cheles"],
+    correct_answer: "Cáceres–Badajoz",
+    explanation: "Ficha: «Cáceres–Badajoz» Fuente: Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — Decreto 98/2008, anexo.",
+    fuente: "Decreto 98/2008, catálogo de carreteras de la Junta de Extremadura — Decreto 98/2008, anexo",
+    tema: { numero: 35, titulo: "Red de carreteras de Extremadura (provincia de Badajoz)" }
+  },
+  // Tema 38 · ficha CPEI-T38-HOR-010 (revisada)
+  {
+    id: "Q-CPEI-T38-HOR-010",
+    microconcept_id: "CPEI-T38-HOR-010",
+    level: 'N1',
+    type: 'test_literal',
+    question: "Según el resumen del horario diario de la ITF Horario de actividades, ¿en qué franja se revisan vehículos, herramientas y material colectivo?",
+    options: ["De 7:30 a 8:30.", "De 8:30 a 9:45.", "De 9:00 a 9:45."],
+    correct_answer: "De 8:30 a 9:45.",
+    explanation: "Ficha: «De 8:30 a 9:45.» Fuente: ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020) — PDF p. 3.",
+    fuente: "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020) — PDF p. 3",
+    tema: { numero: 38, titulo: "ITF CPEI: horario, vestuario/EPIs y limpieza de EPIs" }
+  },
+  // Tema 38 · ficha CPEI-T38-HOR-034 (revisada)
+  {
+    id: "Q-CPEI-T38-HOR-034",
+    microconcept_id: "CPEI-T38-HOR-034",
+    level: 'N1',
+    type: 'test_literal',
+    question: "Según la ITF Horario de actividades, ¿qué puede suponer un retraso injustificado y/o la acumulación de retrasos injustificados?",
+    options: ["La consideración de falta muy grave.", "Una amonestación por escrito.", "La consideración de falta grave."],
+    correct_answer: "La consideración de falta grave.",
+    explanation: "Ficha: «La consideración de falta grave.» Fuente: ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020) — PDF p. 7.",
+    fuente: "ITF Horario de actividades, edición 2 (29/06/2022; fecha original 21/06/2020) — PDF p. 7",
+    tema: { numero: 38, titulo: "ITF CPEI: horario, vestuario/EPIs y limpieza de EPIs" }
+  },
+  // Tema 39 · ficha CPEI-T39-MOV-089 (revisada)
+  {
+    id: "Q-CPEI-T39-MOV-089",
+    microconcept_id: "CPEI-T39-MOV-089",
+    level: 'N1',
+    type: 'test_literal',
+    question: "Según el protocolo de radiocomunicaciones del CPEI, para deletrear, ¿qué código fonético se utiliza?",
+    options: ["El código fonético internacional ICAO.", "El alfabeto fonético propio del CPEI de Badajoz.", "El código Morse internacional."],
+    correct_answer: "El código fonético internacional ICAO.",
+    explanation: "Ficha: «El código fonético internacional ICAO.» Fuente: Protocolo de movilización ante siniestros CPEI Badajoz (BOP Badajoz n.º 224, anuncio 4899/2025, 24/11/2025; 34 págs.; incluye protocolo de radiocomunicaciones y anexo SOS) — PDF p. 26.",
+    fuente: "Protocolo de movilización ante siniestros CPEI Badajoz (BOP Badajoz n.º 224, anuncio 4899/2025, 24/11/2025; 34 págs.; incluye protocolo de radiocomunicaciones y anexo SOS) — PDF p. 26",
+    tema: { numero: 39, titulo: "Protocolo de movilización CPEI + SOS operativo + SOS personal" }
+  },
+  // Tema 39 · ficha CPEI-T39-SOP-005 (revisada). Sustituye a SPE-010 (SOS Módulo de personal, fuera del epígrafe del tema 39).
+  {
+    id: "Q-CPEI-T39-SOP-005",
+    microconcept_id: "CPEI-T39-SOP-005",
+    level: 'N1',
+    type: 'test_literal',
+    question: "Según el manual del módulo operativo de SOS, ¿para qué sirve el icono Servicios/Ruta en el móvil?",
+    options: ["Para enviar al CPEI la posición del vehículo.", "Para recibir en el teléfono el punto de intervención.", "Para consultar el historial de intervenciones del parque."],
+    correct_answer: "Para recibir en el teléfono el punto de intervención.",
+    explanation: "Ficha: «Para recibir en el teléfono el punto de intervención.» Fuente: Uso y manejo de la plataforma SOS — Módulo operativo (manual bomberos nuevo ingreso; PDF Drive FUENTE_OFICIAL_SOS_Operativo.pdf, 47 págs.) — PDF p. 5.",
+    fuente: "Uso y manejo de la plataforma SOS — Módulo operativo (manual bomberos nuevo ingreso; PDF Drive FUENTE_OFICIAL_SOS_Operativo.pdf, 47 págs.) — PDF p. 5",
+    tema: { numero: 39, titulo: "Protocolo de movilización CPEI + SOS operativo + SOS personal" }
+  },
+  // Tema 40 · ficha CPEI-T40-PT03-081 (revisada)
+  {
+    id: "Q-CPEI-T40-PT03-081",
+    microconcept_id: "CPEI-T40-PT03-081",
+    level: 'N1',
+    type: 'test_literal',
+    question: "Según el PT03, ¿cuál es el número de emergencias de la línea telefónica propia del CPEI?",
+    options: ["112", "080", "085"],
+    correct_answer: "085",
+    explanation: "Ficha: «085.» Fuente: PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023) — PDF p. 23 (Hoja 16).",
+    fuente: "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023) — PDF p. 23 (Hoja 16)",
+    tema: { numero: 40, titulo: "Procedimientos de trabajo CPEI-Badajoz" }
+  },
+  // Tema 40 · ficha CPEI-T40-PT03-053 (revisada)
+  {
+    id: "Q-CPEI-T40-PT03-053",
+    microconcept_id: "CPEI-T40-PT03-053",
+    level: 'N1',
+    type: 'test_literal',
+    question: "Según el PT03, ¿cuál es la dotación mínima en una intervención afectada por posible amianto friable?",
+    options: ["2 binomios", "1 binomio", "3 binomios"],
+    correct_answer: "2 binomios",
+    explanation: "Ficha: «2 binomios.» Fuente: PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023) — PDF p. 17 (Hoja 10).",
+    fuente: "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023) — PDF p. 17 (Hoja 10)",
+    tema: { numero: 40, titulo: "Procedimientos de trabajo CPEI-Badajoz" }
+  },
+  // Tema 40 · ficha CPEI-T40-PT03-168 (revisada)
+  {
+    id: "Q-CPEI-T40-PT03-168",
+    microconcept_id: "CPEI-T40-PT03-168",
+    level: 'N1',
+    type: 'test_literal',
+    question: "Según el PT03, ¿qué almacén de repuesto de urgencia atiende a los parques de Villafranca y Hornachos?",
+    options: ["Don Benito", "Almendralejo", "Llerena"],
+    correct_answer: "Almendralejo",
+    explanation: "Ficha: «Almendralejo.» Fuente: PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023) — PDF p. 43 (Hoja 36).",
+    fuente: "PT03 Procedimiento de trabajo con amianto, edición 2 (30/05/2023) — PDF p. 43 (Hoja 36)",
+    tema: { numero: 40, titulo: "Procedimientos de trabajo CPEI-Badajoz" }
   }
 ];

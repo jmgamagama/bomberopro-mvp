@@ -39,6 +39,7 @@ describe('tema 33 · lote02 · fase 2 (texto oficial consolidado)', () => {
 
   it('se registra como mazo bajo demanda', async () => {
     expect(getRecallDeck('tema33-lote02').count).toBe(30);
-    expect(await loadRecallDeckCards('tema33-lote02')).toBe(TEMA33_LOTE02_RECALL_CARDS);
+    // Solo las 8 dentro del epígrafe (BIE, hidrantes, columnas secas, abastecimiento); el resto se filtra al cargar (recallCardReview.ts).
+    expect(await loadRecallDeckCards('tema33-lote02')).toHaveLength(8);
   });
 });

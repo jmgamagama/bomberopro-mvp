@@ -17,12 +17,14 @@ Reglas:
   * Idempotente: concepto por id; pregunta por hash_dedupe = 'CE:<concepto>:N<nivel>'. Volver a cargar
     actualiza el texto sin duplicar ni cambiar el id de la pregunta (los intentos ya hechos siguen ligados).
   * El tema se resuelve por (convocatoria_id = 1, numero = tema), nunca por id fijo.
+  * Si una pregunta tiene «cita» propia, se añade a su explicación («Cita literal: «…».»).
   * La letra de la correcta se asigna con un barajado determinista (sha256), no siempre la «a».
 """
 from __future__ import annotations
 
 import hashlib
 import json
+import re
 import pathlib
 import subprocess
 import sys
@@ -36,6 +38,43 @@ def q(s: str | None) -> str:
 
 def arr(xs: list[str]) -> str:
     return "ARRAY[" + ",".join(q(x) for x in xs) + "]::text[]" if xs else "'{}'::text[]"
+
+
+def texto_encabezado(b: dict) -> str:
+    """«TÍTULO I (De los derechos y deberes fundamentales)» o «Sección 2.ª De los …», tal cual en el BOE."""
+    ps = [x["texto"] for x in b["parrafos"]]
+    return f"{ps[0]} ({ps[1]})" if len(ps) > 1 else ps[0]
+
+
+def texto_respaldo(p: dict, boe: dict | None, abrev: str) -> str:
+    """Respaldo comprobado por el validador: citas literales de otros preceptos y ubicación oficial."""
+    if not boe or not p.get("respaldo"):
+        return ""
+    partes = []
+    for r in p["respaldo"]:
+        b = boe.get(r["articulo"])
+        if not b:
+            continue
+        nombre = re.match(r"(Artículo \d+(?: bis)?)", b["titulo"] or "")
+        nombre = (nombre.group(1) if nombre else b["titulo"]).replace("Artículo", "Art.")
+        if "cita" in r:
+            partes.append(f"{nombre} {abrev}: «{r['cita']}».")
+        if "ubicacion" in r:
+            cadena = " › ".join(texto_encabezado(boe[i]) for i in r["ubicacion"] if i in boe)
+            partes.append(f"Ubicación del {nombre.lower()} {abrev}: {cadena}.")
+    return " ".join(partes)
+
+
+def explicacion_con_cita(p: dict, boe: dict | None = None, abrev: str = "CE") -> str:
+    """La tabla questions no tiene columna «cita»: la cita propia de la pregunta (literal del BOE,
+    comprobada por el validador) se añade al final de la explicación para que llegue a la base de datos.
+    Si la pregunta no tiene cita propia, o la explicación ya la contiene, la explicación no cambia."""
+    exp = p["explicacion"]
+    cita = (p.get("cita") or "").strip()
+    if cita and cita not in exp:
+        exp = f"{exp.rstrip()} Cita literal: «{cita}»."
+    extra = texto_respaldo(p, boe, abrev)
+    return f"{exp.rstrip()} {extra}" if extra else exp
 
 
 def sql_compacto(filas_c: list[dict], filas_q: list[dict], doc: str, est_c: str, est_q: str, origen: str) -> list[str]:
@@ -91,15 +130,25 @@ def main() -> int:
     nombre = d.get("nombre_norma", "Constitución Española")
     abrev = d.get("abreviatura", "CE")
     prefijo = d.get("hash_prefijo", "CE")
+    boe = {b["id"]: b for b in json.loads(pathlib.Path(f"data/fuentes/{fuente_id}/bloques.json").read_text(encoding="utf-8"))}
     meta = json.loads(pathlib.Path(f"data/fuentes/{fuente_id}/meta.json").read_text(encoding="utf-8"))
-    fecha = meta["fecha_actualizacion_boe"][:8]
-    fecha_txt = f"{fecha[6:8]}/{fecha[4:6]}/{fecha[0:4]}"
+    fecha_iso = meta.get("fecha_actualizacion_publicada")
+    if meta.get("boletin"):
+        referencia_fuente = meta["boletin"]
+    elif fecha_iso:
+        fecha_txt = f"{fecha_iso[8:10]}/{fecha_iso[5:7]}/{fecha_iso[:4]}"
+        referencia_fuente = f"última actualización publicada el {fecha_txt}"
+    else:
+        # Compatibilidad con fuentes heredadas aún no migradas: no presentar la marca API como fecha de publicación.
+        fecha_api = meta.get("fecha_actualizacion_boe", "")[:8]
+        fecha_api_txt = f"{fecha_api[6:8]}/{fecha_api[4:6]}/{fecha_api[:4]}" if len(fecha_api) == 8 else "sin fecha"
+        referencia_fuente = f"metadatos de la API del BOE (no es fecha de publicación): {fecha_api_txt}"
     tema = int(d["tema"])
     est_c = "publicado" if estado == "publicado" else "borrador"
     est_q = "publicada" if estado == "publicado" else "borrador"
 
     out = [f"-- Generado por scripts/cargar_conceptos.py desde {path} (estado {estado}).",
-           f"-- Texto oficial: {fuente_id}, actualización BOE {fecha_txt}, sha256 {meta['sha256_texto_xml'][:12]}…",
+           f"-- Texto oficial: {fuente_id}, {referencia_fuente}, sha256 {meta['sha256_texto_xml'][:12]}…",
            "BEGIN;"]
     if crear_tema:
         out.append(f"INSERT INTO public.topics (convocatoria_id, numero, nombre) SELECT 1, {tema}, " + q(d.get('tema_nombre', 'Constitución Española')) + " "
@@ -116,8 +165,14 @@ def main() -> int:
     for c in d["conceptos"]:
         art = c["bloque"][1:].replace("bis", " bis")
         ref = f"{art}.{c['apartado']}" if c["apartado"] else art
+        # Listas que reinician numeración dentro de un artículo (p. ej. «mg3» en el art. 35 del RRI del CPEI):
+        # el fichero da el nombre de cada serie en «series» y se muestra «Art. 35 (faltas muy graves, n.º 3)».
+        if (m := re.fullmatch(r"([a-z]+)(\d+)", c["apartado"])) and m.group(1) in d.get("series", {}):
+            ref = f"{art} ({d['series'][m.group(1)]}, n.º {m.group(2)})"
         apartado = f"{d['bloque_temario'].split(' (')[0]} · Art. {ref}"
-        fuente = f"{nombre}, art. {ref} ({fuente_id}, texto consolidado, act. {fecha_txt})"
+        # Normas del BOP (meta.json con «boletin»): se cita el boletín, no un «texto consolidado» del BOE.
+        fuente = (f"{nombre}, art. {ref} ({meta['boletin']})" if meta.get("boletin")
+                  else f"{nombre}, art. {ref} ({fuente_id}, texto consolidado, act. {fecha_txt})")
         filas_c.append({"id": c["id"], "apartado": apartado, "orden": c["orden"], "pregunta": c["tarjeta"]["pregunta"],
                         "respuesta": c["tarjeta"]["respuesta"], "fuente": fuente, "cita": c["cita"], "tipo": c["tipo"],
                         "prioridad": c["prioridad"], "confundible_con": c.get("confundible_con", [])})
@@ -139,19 +194,25 @@ def main() -> int:
             opciones = [{"letra": letras[j], "texto": p["opciones"][i]} for j, i in enumerate(orden)]
             correcta = letras[orden.index(p["correcta"])]
             ops = json.dumps(opciones, ensure_ascii=False)
-            fuente_n = f"Art. {ref} {abrev} (texto consolidado BOE {fuente_id}, act. {fecha_txt})" if abrev != "CE" else f"Art. {ref} CE (texto consolidado BOE, act. {fecha_txt})"
+            explicacion = explicacion_con_cita(p, boe, abrev)
+            if meta.get("boletin"):
+                fuente_n = f"Art. {ref} {abrev} ({meta['boletin']})"
+            elif abrev != "CE":
+                fuente_n = f"Art. {ref} {abrev} (texto consolidado BOE {fuente_id}, act. {fecha_txt})"
+            else:
+                fuente_n = f"Art. {ref} CE (texto consolidado BOE, act. {fecha_txt})"
             filas_q.append({"hash": hd, "enunciado": p["enunciado"], "opciones": opciones, "correcta": correcta,
-                            "explicacion": p["explicacion"], "fuente_normativa": fuente_n, "nivel": p["nivel"],
+                            "explicacion": explicacion, "fuente_normativa": fuente_n, "nivel": p["nivel"],
                             "concept_id": c["id"]})
             out.append(
                 "UPDATE public.questions SET enunciado = " + q(p["enunciado"]) + ", opciones = " + q(ops) + "::jsonb, "
-                f"correcta = {q(correcta)}, explicacion = {q(p['explicacion'])}, fuente_normativa = {q(fuente_n)}, "
+                f"correcta = {q(correcta)}, explicacion = {q(explicacion)}, fuente_normativa = {q(fuente_n)}, "
                 f"nivel = {p['nivel']}, concept_id = {q(c['id'])}, estado = {q(est_q)}, topic_id = (SELECT id FROM _tema) "
                 f"WHERE hash_dedupe = {q(hd)};")
             out.append(
                 "INSERT INTO public.questions (topic_id, enunciado, opciones, correcta, explicacion, fuente_normativa, "
                 "estado, nivel, origen_tipo, origen_archivo, concept_id, hash_dedupe) "
-                f"SELECT id, {q(p['enunciado'])}, {q(ops)}::jsonb, {q(correcta)}, {q(p['explicacion'])}, {q(fuente_n)}, "
+                f"SELECT id, {q(p['enunciado'])}, {q(ops)}::jsonb, {q(correcta)}, {q(explicacion)}, {q(fuente_n)}, "
                 f"{q(est_q)}, {p['nivel']}, 'propio', {q(str(path))}, {q(c['id'])}, {q(hd)} FROM _tema "
                 f"WHERE NOT EXISTS (SELECT 1 FROM public.questions WHERE hash_dedupe = {q(hd)});")
     if compacto:

@@ -5,7 +5,7 @@
 import { createHash } from 'node:crypto';
 import { writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { RECALL_DECKS, loadRecallDeckCards } from '../src/data/recallRegistry';
+import { RECALL_DECKS, loadRawRecallDeckCards } from '../src/data/recallRegistry';
 import { auditDeck, canonicalDeckContent, DECKS_SIN_ENLACE } from '../src/data/recallAudit';
 import { SUPUESTOS } from '../src/data/supuestos/supuestosData';
 import { getDeckRevision } from '../src/data/recallReview';
@@ -18,7 +18,7 @@ async function main() {
   const rows: string[] = [];
   let problems = 0;
   for (const deck of RECALL_DECKS) {
-    const cards = await loadRecallDeckCards(deck.id);
+    const cards = await loadRawRecallDeckCards(deck.id);
     const a = auditDeck(deck.id, deck.count, cards, ids);
     problems += a.problems.length;
     const link = cards.length ? `${Math.round((a.withLink / cards.length) * 100)} %` : '—';

@@ -1,6 +1,6 @@
 # Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales
 
-Texto consolidado del BOE (BOE-A-1995-24292). Última actualización publicada por el BOE: 23/10/2026.
+Texto consolidado del BOE (BOE-A-1995-24292). Última actualización publicada por el BOE: 09/04/2026.
 Fuente: https://www.boe.es/buscar/act.php?id=BOE-A-1995-24292
 Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
 

@@ -11,7 +11,7 @@ Escribe en data/fuentes/<ID>/:
   texto.xml        respuesta original del BOE (sin tocar), para auditoría
   bloques.json     cada bloque (encabezado o artículo) con su versión VIGENTE
   texto.md         texto legible para descargar (es texto oficial, de libre uso)
-  meta.json        id, url, fecha de última actualización del BOE, fecha de descarga, sha256
+  meta.json        id, URL, marca API, fecha publicada en el BOE, fecha de descarga, sha256
 
 Por qué así: el contenido de BomberoPro se ancla a este fichero, no a copias sueltas.
 Si el BOE publica una actualización, cambia el sha256 y el workflow abre un PR.
@@ -23,11 +23,61 @@ import datetime as dt
 import hashlib
 import json
 import pathlib
+import re
 import sys
 import urllib.request
 import xml.etree.ElementTree as ET
+from html.parser import HTMLParser
 
 API = "https://www.boe.es/datosabiertos/api/legislacion-consolidada/id/{id}/{part}"
+ACT = "https://www.boe.es/buscar/act.php?id={id}"
+FECHA_PUBLICADA_RE = re.compile(
+    r"Última actualización\s*,?\s*publicada el\s*(\d{2}/\d{2}/\d{4})",
+    re.IGNORECASE,
+)
+
+
+class _TextoHTML(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.partes: list[str] = []
+
+    def handle_data(self, data: str) -> None:
+        self.partes.append(data)
+
+
+def parse_fecha_actualizacion_publicada(html: str) -> str:
+    """Devuelve la fecha indicada en el encabezado consolidado (YYYY-MM-DD)."""
+    parser = _TextoHTML()
+    parser.feed(html)
+    texto = re.sub(r"\s+", " ", " ".join(parser.partes))
+    encabezado = re.search(
+        r'Texto consolidado\s*:\s*[«"]?\s*Última actualización\s*,?\s*publicada el\s*(\d{2}/\d{2}/\d{4})',
+        texto,
+        re.IGNORECASE,
+    )
+    coincidencia = encabezado or FECHA_PUBLICADA_RE.search(texto)
+    if not coincidencia:
+        raise SystemExit("No se encontró la última actualización publicada en la página consolidada del BOE")
+    try:
+        return dt.datetime.strptime(coincidencia.group(1), "%d/%m/%Y").date().isoformat()
+    except ValueError as exc:
+        raise SystemExit(f"Fecha publicada no válida: {coincidencia.group(1)}") from exc
+
+
+def consultar_fecha_actualizacion_publicada(norma: str) -> str:
+    """Consulta la página oficial de legislación consolidada y devuelve su fecha publicada."""
+    req = urllib.request.Request(ACT.format(id=norma), headers={
+        "Accept": "text/html",
+        "Accept-Language": "es",
+        "User-Agent": "BomberoPro-fuentes/1.0 (+https://bomberopro.com)",
+    })
+    with urllib.request.urlopen(req, timeout=60) as r:
+        if r.status != 200:
+            raise SystemExit(f"BOE devolvió HTTP {r.status} al consultar legislación consolidada")
+        charset = r.headers.get_content_charset() or "utf-8"
+        html = r.read().decode(charset, errors="replace")
+    return parse_fecha_actualizacion_publicada(html)
 
 
 def get(norma: str, part: str) -> bytes:
@@ -73,6 +123,7 @@ def main() -> None:
     if m is None:
         raise SystemExit("Respuesta de metadatos sin <metadatos>: revisar formato de la API")
     fecha_act = (m.findtext("fecha_actualizacion") or "").strip()
+    fecha_publicada = consultar_fecha_actualizacion_publicada(norma)
     titulo = (m.findtext("titulo") or "").strip()
 
     raw = get(norma, "texto")
@@ -115,9 +166,9 @@ def main() -> None:
     (out / "texto.xml").write_bytes(raw)
     (out / "bloques.json").write_text(json.dumps(bloques, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
-    fecha_txt = f"{fecha_act[6:8]}/{fecha_act[4:6]}/{fecha_act[0:4]}" if len(fecha_act) >= 8 else "desconocida"
+    fecha_txt = dt.date.fromisoformat(fecha_publicada).strftime("%d/%m/%Y")
     md = [f"# {titulo.rstrip('.') or norma}", "",
-          f"Texto consolidado del BOE ({norma}). Última actualización publicada por el BOE: {fecha_txt}.",
+          f"Texto consolidado del BOE ({norma}). Última actualización publicada en la versión consolidada: {fecha_txt}.",
           f"Fuente: https://www.boe.es/buscar/act.php?id={norma}",
           "Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.", ""]
     for b in bloques:
@@ -140,6 +191,7 @@ def main() -> None:
         "titulo": titulo,
         "url": f"https://www.boe.es/buscar/act.php?id={norma}",
         "fecha_actualizacion_boe": fecha_act,
+        "fecha_actualizacion_publicada": fecha_publicada,
         "descargado": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
         "sha256_texto_xml": hashlib.sha256(raw).hexdigest(),
         "n_bloques": len(bloques),

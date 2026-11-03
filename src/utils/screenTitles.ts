@@ -1,7 +1,6 @@
 /**
- * Nombre de cada pantalla: se usa en el título de la pestaña, en el anuncio del lector de pantalla,
- * en el menú y en el encabezado de la propia pantalla. Un test (screenTitles.test.ts) comprueba que
- * no se separen: si renombras una pantalla, cámbialo aquí y en su encabezado.
+ * Nombre canónico de cada pantalla: título de pestaña, anuncio y encabezado visible.
+ * Mantener los nombres alineados con la navegación; la prueba screenTitles.test.ts lo comprueba.
  */
 export const SCREEN_TITLES = {
   dashboard: 'Inicio',
@@ -12,7 +11,7 @@ export const SCREEN_TITLES = {
   today_training: 'Entrenamiento de hoy',
   study_by_topic: 'Temas',
   concept_t40: 'Estudiar hoy',
-  constitucion: 'Constitución · Título Preliminar',
+  constitucion: 'Material por tema',
   my_reports: 'Mis reportes',
   recuerdo: 'Recuerdo',
   sesion_diaria: 'Sesión diaria',
@@ -21,4 +20,5 @@ export const SCREEN_TITLES = {
   ordena_pasos: 'Ordena los pasos',
   supuestos: 'Supuestos prácticos',
   mas: 'Más',
+  progreso: 'Tu progreso',
 } as const;
