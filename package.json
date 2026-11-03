@@ -12,6 +12,7 @@
         "lint": "tsc --noEmit",
         "test": "vitest run --configLoader runner",
         "auditar:fichas": "vite-node scripts/auditar-fichas.ts",
+        "auditar:bundle-pendiente": "vite-node scripts/auditar-bundle-pendiente.ts",
         "material:preceptos": "vite-node scripts/generar-preceptos-material.ts",
     "cobertura:simulacro": "vite-node scripts/cobertura-simulacro.ts"
     },

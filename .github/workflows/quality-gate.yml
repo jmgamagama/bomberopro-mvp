@@ -44,6 +44,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Audit unpublished recall cards in public build
+        run: npm run auditar:bundle-pendiente
+
       - name: Test
         run: npm run test
 
