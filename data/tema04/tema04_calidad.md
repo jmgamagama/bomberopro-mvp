@@ -4,7 +4,14 @@
 
 ## Fuente
 
-- Acuerdo de reorganización de la estructura orgánica de la Diputación de Badajoz (BOP nº 206, anuncio 4611/2025) — BOP Badajoz nº 206, anuncio oficial del BOP, última actualización/versión BOP nº 206 de 29/10/2025, copia del anuncio en el portal de transparencia de la Diputación: https://transparencia.dip-badajoz.es/download/332/equipo-de-gobierno/21026/diputacion-de-badajoz-b-o-p-no-206-anuncio-4611_2025-miercoles-29-de-octubre-de-2025-acuerdo-adoptado-por-el-pleno-de-la-corporacion-provincial-en-sesion-ordinaria-del-dia-29-d.pdf (copia en /workspace/fuentes_oficiales/tema04/)
+- Acuerdo de reorganización de la estructura orgánica de la Diputación de Badajoz, aprobado por el Pleno el 29/10/2025 y publicado en el BOP n.º 206, anuncio 4611/2025: https://transparencia.dip-badajoz.es/download/332/equipo-de-gobierno/21026/diputacion-de-badajoz-b-o-p-no-206-anuncio-4611_2025-miercoles-29-de-octubre-de-2025-acuerdo-adoptado-por-el-pleno-de-la-corporacion-provincial-en-sesion-ordinaria-del-dia-29-d.pdf (copia en /workspace/fuentes_oficiales/tema04/). Es un acuerdo publicado en el BOP, no un acuerdo del BOP citado.
+
+## Auditoría de fuentes y versión (03/11/2026)
+
+- La página central del [organigrama oficial](https://www2.dip-badajoz.es/diputacion/organigrama/index.php) consultada el 03/11/2026 muestra las denominaciones principales de las áreas y los entes provinciales.
+- La página oficial de [Áreas Funcionales del Área de Desarrollo Rural, Reto Demográfico y Turismo](https://desarrollorural.dip-badajoz.es/areas-funcionales) (pie de página 2026) enumera seis puestos, servicios y unidades, mientras que el apartado 1.7 del BOP n.º 206/2025 enumera tres entradas (Dirección y dos servicios). No se ha localizado una publicación formal posterior que permita reconciliar ambas listas.
+- Las 28 fichas existentes se basan en el acuerdo de 2025; el informe de calidad documenta una muestra manual de 20, con cero errores. La revisión de mazos mantiene T4 pendiente de revisión humana completa. No se han cambiado fichas ni datos de producción.
+- Los nuevos documentos de esquema, desarrollo y extracto son borradores externos a la app. El extracto reproduce el BOP y no se presenta como una lista actual exhaustiva. Antes de integrar contenido, confirmar el detalle organizativo con una fuente oficial vigente o mediante cotejo humano.
 
 ## Resultado
 
@@ -16,11 +23,11 @@
 - Áreas funcionales (1.0 a 1.10): cubierto (denominaciones y rasgos principales)
 - Servicios y unidades de cada área: parcial (selección)
 - Organismos autónomos, patronato y consorcios (OAR, PROMEDIO, CPEI, RESTAURA, Escuela de Tauromaquia): cubierto
-- Organigrama gráfico de la web: no usado (no es texto publicado en el BOP)
+- Organigrama oficial: no usado para generar estas fichas; consultado después para contraste de nombres principales. La página actual del Área de Desarrollo Rural enumera más unidades que el apartado 1.7 del BOP.
 
 ## Comprobación automática
 
-- La respuesta aparece en el artículo/bloque citado del texto consolidado (coincidencia normalizada sin tildes ni puntuación o difusa ≥ 0,85 por ventana de palabras).
+- La respuesta aparece en el artículo/bloque citado del acuerdo del BOP citado (coincidencia normalizada sin tildes ni puntuación o difusa ≥ 0,85 por ventana de palabras).
 - Se descartan: vacías, bloque inexistente, truncadas (final en preposición/artículo, coma, «…», paréntesis abierto), respuesta dentro de la pregunta (o ≥ 80 % de sus palabras), preguntas duplicadas, no formuladas como pregunta y preguntas que copian el comienzo de la respuesta.
 
 ### Descartes
