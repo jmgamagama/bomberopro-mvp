@@ -2,7 +2,7 @@
 
 Texto consolidado del BOE (BOE-A-2017-6606, última actualización publicada el 03/09/2025). [Fuente oficial](https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606). La consolidación facilita la consulta y tiene carácter informativo; para fines jurídicos debe consultarse la publicación oficial.
 
-**Mapa del bloque:** los apartados 2, 3, 5 y 6 regulan el abastecimiento, los hidrantes, las BIE y las columnas secas. Cada nombre enlaza con el texto oficial del BOE.
+**Mapa del bloque:** los apartados 2, 3, 5 y 6 regulan el abastecimiento, los hidrantes, las BIE y las columnas secas. El enlace de la rúbrica abre la sección correspondiente del texto consolidado del BOE.
 
 - [Sección 1.ª Protección activa contra incendios](https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606#s1-2)
   - **2. Sistemas de abastecimiento de agua contra incendios** — fuentes, equipos de impulsión y red deben asegurar caudal, presión y autonomía; como regla, el diseño sigue la UNE 23500.
