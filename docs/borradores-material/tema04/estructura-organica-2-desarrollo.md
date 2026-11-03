@@ -54,7 +54,7 @@ Su objetivo es formar al personal público y apoyar políticas de capacitación,
 
 El área reúne actuaciones de desarrollo rural, lucha contra la despoblación y promoción turística. El acuerdo destaca la sostenibilidad, los recursos endógenos, la actividad agroganadera, el turismo provincial y la concertación con municipios.
 
-**Ojo con el listado:** el texto enumera el Servicio de Coordinación de Desarrollo Rural y el Servicio de Reto Demográfico; no identifica en esa relación un servicio con el nombre «Turismo», aunque atribuye competencias turísticas al área. No hay que completar esa lista por inferencia.
+**Ojo con el listado:** el acuerdo de 2025 enumera el Servicio de Coordinación de Desarrollo Rural y el Servicio de Reto Demográfico, además de la Dirección. La página oficial del área (pie de página 2026) publica una estructura distinta: Dirección de Área; Servicio de Planificación Estratégica de Desarrollo Rural y Sostenibilidad Turística; Servicio de Administración General; Servicio de Reto Demográfico; Servicio de Desarrollo Rural, Agricultura y Ganadería; y Oficina de Promoción Turística. No se ha localizado una publicación formal posterior que explique la diferencia. Las fuentes quedan separadas; no se presenta ninguna de las dos listas como versión definitiva actual hasta confirmar cuál aplica al temario.
 
 ### 1.8 · Sostenibilidad Ambiental, Energía y Territorio Verde
 
@@ -88,9 +88,11 @@ El apartado 2.8 asigna a la Presidencia, a través de la Comisión de seguimient
 
 ## 4. Comprobación con el organigrama oficial
 
-La página oficial consultada el 03/11/2026 muestra las 11 áreas con las denominaciones principales del acuerdo y presenta el CPEI y PROMEDIO como consorcios, además del OAR, RESTAURA y el Patronato de la Escuela de Tauromaquia. Esta comprobación respalda los nombres principales a esa fecha.
+La página central del [organigrama oficial](https://www2.dip-badajoz.es/diputacion/organigrama/index.php), consultada el 03/11/2026, muestra las 11 áreas por sus denominaciones principales y presenta el CPEI y PROMEDIO como consorcios, además del OAR, RESTAURA y el Patronato de la Escuela de Tauromaquia. Esto respalda esos nombres, pero no verifica las listas de unidades.
 
-La página de organigrama no reemplaza el BOP como fuente de las listas detalladas de servicios. Tampoco convierte el acuerdo de 2025 en un texto consolidado. Si la Diputación publica una reorganización posterior, deberá cotejarse antes de usar nombres o adscripciones como actuales.
+Además, la página oficial específica del [Área de Desarrollo Rural, Reto Demográfico y Turismo](https://desarrollorural.dip-badajoz.es/areas-funcionales) (pie de página 2026) muestra seis puestos, servicios y unidades, frente a las tres entradas (Dirección y dos servicios) del BOP n.º 206/2025. Sus nombres públicos son: Servicio de Planificación Estratégica de Desarrollo Rural y Sostenibilidad Turística; Servicio de Administración General; Servicio de Reto Demográfico; Servicio de Desarrollo Rural, Agricultura y Ganadería; y Oficina de Promoción Turística, además de la Dirección de Área. No se ha localizado una publicación formal posterior que reconcilie ambas estructuras.
+
+Por tanto, el BOP n.º 206/2025 es la fuente para el extracto literal del acuerdo y la página específica es evidencia oficial de una estructura pública distinta en 2026. El material no debe presentar una lista exhaustiva actual hasta confirmar el alcance de la diferencia. La página web tampoco convierte el acuerdo de 2025 en un texto consolidado.
 
 ## Trampas de examen
 
@@ -108,3 +110,4 @@ La página de organigrama no reemplaza el BOP como fuente de las listas detallad
 - [Organigrama oficial de la Diputación](https://www2.dip-badajoz.es/diputacion/organigrama/index.php), consultado el 03/11/2026.
 - Epígrafe del Tema 4: BOP de Badajoz n.º 135, 17/07/2026.
 - Borrador didáctico pendiente de revisión humana. No está registrado en la app.
+- Pendiente de conciliar la lista de unidades de T4.1.7 y cotejar las relaciones de servicios de las demás áreas antes de registrarlas en la app.
