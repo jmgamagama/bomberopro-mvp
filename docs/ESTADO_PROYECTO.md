@@ -80,4 +80,3 @@ PR #53 (bridging de #47/#48 a main) seguia fallando el CI incluso reejecutando l
 - Hecho el 26/10: migración 34 (59 «Las dos anteriores»), letras A/B/C en UI (#175), acceso anónimo a `questions` cerrado y 35 preguntas apartadas (#177, migraciones 35-36), PR #166 aplicada (10 a borrador).
 - Contenido nuevo en producción (según el chat «Auditoría material bomberos Drive», sin verificar desde la app): temas 2, 3, 7, 31, 33, 34 → 275 conceptos / 825 preguntas.
 - Decisión aplazada: reparto de opciones/relabel global (por la cola de respuestas offline).
-
