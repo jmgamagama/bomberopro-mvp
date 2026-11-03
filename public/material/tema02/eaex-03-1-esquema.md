@@ -28,3 +28,6 @@ Siete artículos explican el marco general, las funciones competenciales, las fa
 - Primero identifica la función: exclusiva (art. 9), desarrollo y ejecución (art. 10) o ejecución (art. 11).
 - «Exclusiva» no elimina los títulos estatales previstos en la Constitución.
 - El art. 12 trata de normas de la UE y tratados; el art. 14 establece una orientación de actualización, no una nueva lista de competencias.
+
+## Referencias oficiales por artículo
+[Art. 8](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a8) · [Art. 9](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a9) · [Art. 10](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a10) · [Art. 11](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a11) · [Art. 12](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a12) · [Art. 13](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a13) · [Art. 14](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a14)
