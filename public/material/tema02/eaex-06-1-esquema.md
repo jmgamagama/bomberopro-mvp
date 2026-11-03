@@ -23,3 +23,6 @@ El bloque une publicidad y control de la actividad autonómica con cuatro instit
 - DOE: publicación de referencia de las normas autonómicas; el art. 40 también prevé la publicación en el BOE para leyes y normas con rango legal.
 - No confundas control de constitucionalidad, control contencioso-administrativo y control externo de cuentas.
 - Sedes: Consultivo–Badajoz; Cuentas–Cáceres; Consejo Económico y Social–Mérida; Personero–Plasencia.
+
+## Referencias oficiales por artículo
+[Art. 40](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a40) · [Art. 41](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a41) · [Art. 42](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a42) · [Art. 43](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a43) · [Art. 44](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a44) · [Art. 45](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a45) · [Art. 46](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a46) · [Art. 47](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a47) · [Art. 48](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a48)
