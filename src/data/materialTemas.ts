@@ -32,7 +32,7 @@ export interface FuenteTema {
   url: string;
   /** Identificador BOE si lo hay. */
   boe?: string;
-  /** Fecha de la versión consolidada descargada (dd/mm/aaaa). */
+  /** Fecha de la última actualización publicada en el BOE (dd/mm/aaaa). */
   version?: string;
   /**
    * Norma del DOE (sin API de vigencia): de dónde sale el texto y qué se comprobó a mano. Si está, `boe` es un
@@ -239,7 +239,7 @@ export const MATERIAL_TEMAS: readonly MaterialTema[] = [
     nombre: "Transporte de mercancías peligrosas por carretera (RD 97/2014)",
     carpeta: 'tema25',
     textoOficial: { file: 'rd97-texto-oficial.md', titulo: "Real Decreto 97/2014 · Texto consolidado (BOE)" },
-    fuentes: [{ titulo: "Real Decreto 97/2014, de 14 de febrero, por el que se regulan las operaciones de transporte de mercancías peligrosas por carretera en territorio español", boe: 'BOE-A-2014-2110', url: boeUrl('BOE-A-2014-2110'), version: '26/06/2026' }],
+    fuentes: [{ titulo: "Real Decreto 97/2014, de 14 de febrero, por el que se regulan las operaciones de transporte de mercancías peligrosas por carretera en territorio español", boe: 'BOE-A-2014-2110', url: boeUrl('BOE-A-2014-2110'), version: '04/12/2024' }],
     alcance: "El epígrafe pide la normativa y las normas de actuación en caso de siniestro: RD 97/2014, capítulos I y IV. La clasificación, etiquetas y códigos del ADR están en el propio ADR, que el BOE publica como acuerdo internacional sin texto consolidado.",
     bloques: [
       boe('rd97-01', "Capítulo I · Disposiciones generales y definiciones (arts. 1–3)"),

@@ -1,6 +1,6 @@
 # REBT · Instalaciones de enlace (ITC-BT-12 a 17) · Esquema
 
-Texto consolidado del BOE (BOE-A-2002-18099, última actualización publicada el 18/12/2025). Fuente oficial: [Real Decreto 842/2002, de 2 de agosto, por el que se aprueba el Reglamento electrotécnico para baja tensión](https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099). Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
+Texto consolidado del BOE (BOE-A-2002-18099, última actualización publicada el 03/09/2025). Fuente oficial: [Real Decreto 842/2002, de 2 de agosto, por el que se aprueba el Reglamento electrotécnico para baja tensión](https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099). Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
 
 6 preceptos. Cada rúbrica (literal) enlaza con el BOE.
 

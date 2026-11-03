@@ -14,7 +14,7 @@ Fecha: 17/10/2026. Autor del contenido: Claude. Estado: **borrador, pendiente de
 | Tarjetas | 24 (una por concepto) |
 | Preguntas nuevas | 72 (3 por concepto: fácil de 2 opciones, normal y difícil de 3) |
 | Preguntas existentes revisadas | 80 (69 se vinculan, 4 se corrigen y vinculan, 5 duplicadas, 1 fuera de temario, 1 se reubica en el art. 10) |
-| Material | esquema, desarrollo y texto completo con conceptos; texto oficial completo descargable |
+| Material | esquema y desarrollo didácticos; extracto normativo literal por bloque; fuente oficial completa descargable por separado |
 
 ## Comprobaciones
 1. **Validador automático** (`scripts/validar_conceptos.py`): cada cita es literal del apartado del BOE que dice citar; todos los apartados tienen concepto; un nivel de cada; 2 o 3 opciones según nivel; sin opciones repetidas; la correcta no aparece en el enunciado; la correcta no es la opción claramente más larga (se corrigieron 10 casos). Resultado: **OK**.

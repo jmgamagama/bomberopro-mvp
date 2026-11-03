@@ -1,6 +1,6 @@
 # REBT · Redes de distribución en baja tensión y acometidas (ITC-BT-06, 07, 08 y 11) · Texto oficial
 
-Texto consolidado del BOE (BOE-A-2002-18099, última actualización publicada el 18/12/2025). Fuente oficial: [Real Decreto 842/2002, de 2 de agosto, por el que se aprueba el Reglamento electrotécnico para baja tensión](https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099). Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
+Texto consolidado del BOE (BOE-A-2002-18099, última actualización publicada el 03/09/2025). Fuente oficial: [Real Decreto 842/2002, de 2 de agosto, por el que se aprueba el Reglamento electrotécnico para baja tensión](https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099). Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
 
 ### ITC-BT-06 · REDES AÉREAS PARA DISTRIBUCIÓN EN BAJA TENSIÓN
 

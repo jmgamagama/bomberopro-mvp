@@ -1,6 +1,6 @@
 # CTE, Parte I · Exigencias básicas de seguridad de utilización y accesibilidad, SUA 1 a SUA 9 (art. 12) · Texto oficial
 
-Texto consolidado del BOE (BOE-A-2006-5515, última actualización publicada el 18/12/2025). Fuente oficial: [Real Decreto 314/2006, de 17 de marzo, por el que se aprueba el Código Técnico de la Edificación](https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515). Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
+Texto consolidado del BOE (BOE-A-2006-5515, última actualización publicada el 15/06/2022). Fuente oficial: [Real Decreto 314/2006, de 17 de marzo, por el que se aprueba el Código Técnico de la Edificación](https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515). Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
 
 ### Artículo 12. Exigencias básicas de seguridad de utilización y accesibilidad (SUA)
 

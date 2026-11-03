@@ -1,6 +1,6 @@
 # Real Decreto 773/1997 · Articulado (arts. 1–10) · Esquema
 
-Texto consolidado del BOE (BOE-A-1997-12735, última actualización publicada el 18/12/2025). Fuente oficial: [Real Decreto 773/1997, de 30 de mayo, sobre disposiciones mínimas de seguridad y salud relativas a la utilización por los trabajadores de equipos de protección individual](https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735). Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
+Texto consolidado del BOE (BOE-A-1997-12735, última actualización publicada el 08/12/2021). Fuente oficial: [Real Decreto 773/1997, de 30 de mayo, sobre disposiciones mínimas de seguridad y salud relativas a la utilización por los trabajadores de equipos de protección individual](https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735). Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
 
 10 preceptos. Cada rúbrica (literal) enlaza con el BOE.
 

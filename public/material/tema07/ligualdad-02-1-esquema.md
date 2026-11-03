@@ -1,6 +1,6 @@
 # Título II · Integración de la perspectiva de género en las políticas públicas · Esquema
 
-Texto consolidado del BOE (BOE-A-2011-6651, última actualización publicada el 19/12/2025). Fuente oficial: [Ley 8/2011, de 23 de marzo, de Igualdad entre mujeres y hombres y contra la violencia de género en Extremadura](https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651). Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
+Texto consolidado del BOE (BOE-A-2011-6651, última actualización publicada el 25/03/2011). Fuente oficial: [Ley 8/2011, de 23 de marzo, de Igualdad entre mujeres y hombres y contra la violencia de género en Extremadura](https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651). Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
 
 12 preceptos. Cada rúbrica (literal) enlaza con el BOE.
 
