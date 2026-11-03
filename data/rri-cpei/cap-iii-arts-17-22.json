@@ -1,0 +1,2585 @@
+{
+ "norma": "BOP-BA-2012-5370",
+ "documento": "RRI-CPEI",
+ "nombre_norma": "Reglamento de Régimen Interno del CPEI de Badajoz",
+ "abreviatura": "RRI CPEI",
+ "hash_prefijo": "RRI",
+ "tema": 5,
+ "tema_nombre": "El organigrama del CPEI de Badajoz. El Reglamento de Régimen Interno del CPEI de Badajoz",
+ "bloque_temario": "Cap. III (arts. 17-22): instrucciones, circulares, impresos, partes y correspondencia",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto único vigente publicado en el BOP de Badajoz n.º 149, de 06/08/2012)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "conceptos": [
+  {
+   "id": "RRI-a17-1-instrucciones",
+   "bloque": "a17",
+   "apartado": "1",
+   "orden": 550,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.1 del RRI del CPEI, ¿qué son las «instrucciones»?",
+    "respuesta": "Normas internas, codificadas como tales, que establecen pautas o criterios de actuación generales para las unidades."
+   },
+   "cita": "normas internas, codificadas como tales, dirigidas a establecer pautas o criterios de actuación generales",
+   "confundible_con": [
+    "RRI-a17-2-circulares",
+    "RRI-a17-3-ordenes"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.1 del Reglamento de Régimen Interno del CPEI, ¿las instrucciones establecen criterios de actuación generales?",
+     "opciones": [
+      "Sí, son normas internas de carácter general",
+      "No, se refieren a un solo supuesto concreto"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.1: instrucciones son normas internas «dirigidas a establecer pautas o criterios de actuación generales»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.1 del Reglamento de Régimen Interno del CPEI, las normas internas codificadas que establecen pautas o criterios de actuación generales son:",
+     "opciones": [
+      "Las órdenes de servicio",
+      "Las instrucciones",
+      "Las circulares"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.1: esa es la definición de «instrucciones»; las circulares recuerdan o aclaran normas y las órdenes de servicio se refieren a un supuesto concreto."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 17 del Reglamento de Régimen Interno del CPEI, ¿qué rasgo distingue a las instrucciones de las órdenes de servicio?",
+     "opciones": [
+      "Las instrucciones fijan criterios generales; las órdenes, un supuesto concreto",
+      "Las instrucciones son siempre verbales; las órdenes, siempre escritas",
+      "Las instrucciones las firma el Jefe de Parque; las órdenes, el Gerente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.1 y 17.3: instrucciones = pautas o criterios generales; órdenes de servicio = reglas para un supuesto determinado concreto."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a17-2-circulares",
+   "bloque": "a17",
+   "apartado": "2",
+   "orden": 560,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.2 del RRI del CPEI, ¿qué son las «circulares»?",
+    "respuesta": "Comunicaciones internas codificadas, dirigidas a las unidades dependientes de quien las redacta, para recordar, aclarar, interpretar o aplicar disposiciones o normas internas."
+   },
+   "cita": "encaminadas a recordar la aplicación de determinadas disposiciones legales o normas internas",
+   "confundible_con": [
+    "RRI-a17-1-instrucciones",
+    "RRI-a17-3-ordenes"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.2 del Reglamento de Régimen Interno del CPEI, ¿sirven las circulares para recordar la aplicación de normas internas?",
+     "opciones": [
+      "No, solo para sancionar al personal",
+      "Sí, y también para aclararlas o interpretarlas"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.2: las circulares están «encaminadas a recordar la aplicación de determinadas disposiciones legales o normas internas, o a aclarar, interpretar o aplicar las mismas»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.2 del Reglamento de Régimen Interno del CPEI, las comunicaciones internas codificadas encaminadas a recordar o aclarar disposiciones o normas internas son:",
+     "opciones": [
+      "Las circulares",
+      "Las instrucciones",
+      "Los partes"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.2: definición de «circulares»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 17.2 del Reglamento de Régimen Interno del CPEI, ¿a quién se dirigen las circulares?",
+     "opciones": [
+      "A todos los ciudadanos de los municipios consorciados",
+      "A las unidades dependientes de quien las redacta",
+      "Solo a los miembros del Consejo de Administración"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.2: las circulares van «dirigidas a las unidades dependientes de quien las redacta»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a17-3-ordenes",
+   "bloque": "a17",
+   "apartado": "3",
+   "orden": 570,
+   "tipo": "definicion",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.3 del RRI del CPEI, ¿qué son las órdenes de servicio?",
+    "respuesta": "Reglas de actuación u órdenes para un supuesto determinado concreto, dirigidas a una unidad jerárquicamente inferior de quien las redacta."
+   },
+   "cita": "órdenes especificadas para un supuesto determinado concreto",
+   "confundible_con": [
+    "RRI-a17-1-instrucciones",
+    "RRI-a17-15-orden-forma"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.3 del Reglamento de Régimen Interno del CPEI, ¿las órdenes de servicio se refieren a un supuesto concreto?",
+     "opciones": [
+      "No, establecen criterios generales",
+      "Sí, a un supuesto determinado concreto"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.3: son «reglas de actuación u órdenes especificadas para un supuesto determinado concreto»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.3 del Reglamento de Régimen Interno del CPEI, las órdenes de servicio se dirigen a:",
+     "opciones": [
+      "Una unidad jerárquicamente inferior de quien las redacta",
+      "Cualquier unidad, sea cual sea su posición jerárquica",
+      "Los superiores jerárquicos de quien las redacta"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.3: «se dirigen a una unidad jerárquicamente inferior de quien las redacta»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 17 del Reglamento de Régimen Interno del CPEI, una regla de actuación para un supuesto concreto dirigida a una unidad inferior es:",
+     "opciones": [
+      "Una circular de general conocimiento",
+      "Una instrucción interna codificada",
+      "Una orden de servicio"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 17.3: definición de orden de servicio."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a17-4-formato",
+   "bloque": "a17",
+   "apartado": "4",
+   "orden": 580,
+   "tipo": "lista",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.4 del RRI del CPEI, ¿qué apartados incluye el formato estándar de las instrucciones?",
+    "respuesta": "La exposición de motivos, las instrucciones propiamente dichas y las consideraciones finales."
+   },
+   "cita": "Las instrucciones tendrán un formato estándar",
+   "confundible_con": [
+    "RRI-a17-5-motivos",
+    "RRI-a17-6-finales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.4 del Reglamento de Régimen Interno del CPEI, ¿tienen las instrucciones un formato estándar?",
+     "opciones": [
+      "Sí, con tres apartados",
+      "No, su formato es totalmente libre"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.4: «Las instrucciones tendrán un formato estándar» con exposición de motivos, instrucciones propiamente dichas y consideraciones finales."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.4 del Reglamento de Régimen Interno del CPEI, el formato estándar de las instrucciones incluye:",
+     "opciones": [
+      "Antecedentes de hecho, hechos probados y fallo",
+      "Exposición de motivos, instrucciones y consideraciones finales",
+      "Preámbulo, articulado, disposiciones y anexos técnicos"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.4: a) exposición de motivos; b) las instrucciones propiamente dichas; c) consideraciones finales."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 17.4 del Reglamento de Régimen Interno del CPEI, ¿qué apartado NO forma parte del formato estándar de las instrucciones?",
+     "opciones": [
+      "La exposición de motivos",
+      "Las consideraciones finales",
+      "El régimen sancionador"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 17.4 solo cita exposición de motivos, instrucciones propiamente dichas y consideraciones finales."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a17-5-motivos",
+   "bloque": "a17",
+   "apartado": "5",
+   "orden": 590,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.5 del RRI del CPEI, ¿qué se indica en la exposición de motivos de una instrucción?",
+    "respuesta": "De forma extractada, las razones de su redacción, los antecedentes, la legislación específica, las interrelaciones con otras normas o circulares y los aspectos fundamentales."
+   },
+   "cita": "se indicarán extractadamente las razones de su redacción",
+   "confundible_con": [
+    "RRI-a17-6-finales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.5 del Reglamento de Régimen Interno del CPEI, ¿se indican en la exposición de motivos las razones de redacción de la instrucción?",
+     "opciones": [
+      "No, se indican en las consideraciones finales",
+      "Sí, de forma extractada"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.5: en el primer apartado «se indicarán extractadamente las razones de su redacción»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.5 del Reglamento de Régimen Interno del CPEI, en la exposición de motivos de una instrucción se indican, entre otros:",
+     "opciones": [
+      "Los antecedentes y la legislación específica que afecta",
+      "La fecha de entrada en vigor y las normas derogadas",
+      "Los destinatarios y el registro de entrada"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.5: razones, antecedentes, legislación específica, interrelaciones con otras normas y aspectos fundamentales."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 17 del Reglamento de Régimen Interno del CPEI, la fecha de entrada en vigor de una instrucción figura en:",
+     "opciones": [
+      "La exposición de motivos",
+      "Las consideraciones finales",
+      "Las instrucciones propiamente dichas"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.6: las consideraciones finales recogen la fecha de entrada en vigor; la exposición de motivos (art. 17.5) recoge razones y antecedentes."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a17-6-finales",
+   "bloque": "a17",
+   "apartado": "6",
+   "orden": 600,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.6 del RRI del CPEI, ¿qué recogen las «consideraciones finales» de una instrucción?",
+    "respuesta": "El ámbito de aplicación, la fecha de entrada en vigor y las normas o circulares internas que resulten modificadas o derogadas."
+   },
+   "cita": "información sobre el ámbito de aplicación, la fecha de entrada en vigor",
+   "confundible_con": [
+    "RRI-a17-5-motivos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.6 del Reglamento de Régimen Interno del CPEI, ¿recogen las consideraciones finales la fecha de entrada en vigor?",
+     "opciones": [
+      "Sí, en todo caso",
+      "No, nunca"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.6: recogerá «en todo caso» el ámbito de aplicación, la fecha de entrada en vigor y las normas modificadas o derogadas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.6 del Reglamento de Régimen Interno del CPEI, las consideraciones finales de una instrucción recogen:",
+     "opciones": [
+      "Las razones de su redacción y sus antecedentes",
+      "El ámbito de aplicación, la entrada en vigor y lo derogado",
+      "El nombre de cada destinatario y su firma de recibí"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.6: ámbito de aplicación, fecha de entrada en vigor y normas o circulares internas modificadas o derogadas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 17.6 del Reglamento de Régimen Interno del CPEI, ¿dónde se indican las normas internas que una instrucción deroga?",
+     "opciones": [
+      "En las consideraciones finales",
+      "En la exposición de motivos",
+      "En el registro general de entrada"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.6: las consideraciones finales recogen las normas o circulares internas que resulten modificadas o derogadas."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a17-7-firma-instrucciones",
+   "bloque": "a17",
+   "apartado": "7",
+   "orden": 610,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.7 del RRI del CPEI, ¿quién firma o da el visto bueno a las instrucciones?",
+    "respuesta": "El Gerente del Consorcio; además, deben especificar los colectivos destinatarios."
+   },
+   "cita": "irán firmadas o con el visto bueno del Gerente del Consorcio",
+   "confundible_con": [
+    "RRI-a17-8-circulares-formato",
+    "RRI-a17-11-modificaciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.7 del Reglamento de Régimen Interno del CPEI, ¿quién firma o da el visto bueno a las instrucciones?",
+     "opciones": [
+      "El Gerente del Consorcio",
+      "El Jefe de Parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.7: «irán firmadas o con el visto bueno del Gerente del Consorcio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.7 del Reglamento de Régimen Interno del CPEI, las instrucciones irán firmadas o con el visto bueno de:",
+     "opciones": [
+      "El Presidente del Consorcio",
+      "El Suboficial de guardia",
+      "El Gerente del Consorcio"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 17.7: del Gerente del Consorcio."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 17.7 del Reglamento de Régimen Interno del CPEI, además de la firma o visto bueno del Gerente, las instrucciones deben:",
+     "opciones": [
+      "Publicarse en el BOP de Badajoz",
+      "Especificar los colectivos destinatarios",
+      "Aprobarse por el Consejo de Administración"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.7: «Especificarán lo [sic] colectivos destinatarios de las mismas»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a17-8-circulares-formato",
+   "bloque": "a17",
+   "apartado": "8",
+   "orden": 620,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.8 del RRI del CPEI, ¿qué formato tienen las circulares y quién las firma?",
+    "respuesta": "Texto libre dentro de un modelo estándar; van codificadas, firmadas por el Gerente e indican expresamente los destinatarios."
+   },
+   "cita": "Las circulares tendrán texto libre pero dentro de un modelo estándar",
+   "confundible_con": [
+    "RRI-a17-7-firma-instrucciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.8 del Reglamento de Régimen Interno del CPEI, ¿tienen las circulares texto libre?",
+     "opciones": [
+      "Sí, dentro de un modelo estándar",
+      "No, siguen el formato de tres apartados"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.8: «Las circulares tendrán texto libre pero dentro de un modelo estándar»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.8 del Reglamento de Régimen Interno del CPEI, las circulares van firmadas por:",
+     "opciones": [
+      "El Jefe de Parque que las redacta",
+      "El Gerente",
+      "El Presidente"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.8: irán «codificadas, firmadas por el Gerente»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 17.8 del Reglamento de Régimen Interno del CPEI, ¿qué afirmación sobre las circulares es correcta?",
+     "opciones": [
+      "Tienen el mismo formato de tres apartados que las instrucciones",
+      "No necesitan indicar a quién van dirigidas",
+      "Van codificadas e indican de modo expreso los destinatarios"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 17.8: texto libre dentro de un modelo estándar, codificadas, firmadas por el Gerente y con indicación expresa de los destinatarios."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a17-9-bloque-unico",
+   "bloque": "a17",
+   "apartado": "9",
+   "orden": 630,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.9 del RRI del CPEI, ¿cómo se ordenan y codifican las instrucciones y las circulares?",
+    "respuesta": "Sin división por sectores ni materias: un solo bloque de instrucciones y otro de circulares, con código correlativo según la fecha de implantación y sendos registros."
+   },
+   "cita": "Solo habrá un bloque de instrucciones internas del Consorcio y otro de circulares",
+   "confundible_con": [
+    "RRI-a17-10-registro",
+    "RRI-a18-7-bloque-impresos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.9 del Reglamento de Régimen Interno del CPEI, ¿se dividen las instrucciones por materias?",
+     "opciones": [
+      "Sí, una serie por cada materia",
+      "No, hay un solo bloque de instrucciones"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.9: «no se practicará división alguna por sectores, materias o cualquier otro criterio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.9 del Reglamento de Régimen Interno del CPEI, a las instrucciones y circulares se les asigna un código:",
+     "opciones": [
+      "Correlativo según su fecha de implantación",
+      "Distinto según el parque que las emite",
+      "Por materias, con una letra para cada sector"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.9: «se asignará un código correlativo según su fecha de implantación»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 17.9 del Reglamento de Régimen Interno del CPEI, ¿cuántos registros se llevan de instrucciones y circulares?",
+     "opciones": [
+      "Uno distinto en cada parque del Consorcio",
+      "Uno solo, común para ambos instrumentos",
+      "Uno para instrucciones y otro para circulares"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 17.9: un bloque de instrucciones y otro de circulares, «de los que se llevarán sendos registros»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a17-10-registro",
+   "bloque": "a17",
+   "apartado": "10",
+   "orden": 640,
+   "tipo": "lista",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.10 del RRI del CPEI, ¿qué información contiene cada asiento del registro de instrucciones y circulares?",
+    "respuesta": "Código, título, fecha del documento y de su entrada en vigor, destinatarios y, en su caso, fecha de derogación."
+   },
+   "cita": "Cada asiento en los registros contendrá la siguiente información",
+   "confundible_con": [
+    "RRI-a17-9-bloque-unico"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.10 del Reglamento de Régimen Interno del CPEI, ¿figura el título de la instrucción en su asiento de registro?",
+     "opciones": [
+      "No",
+      "Sí"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.10: el asiento contiene código, título, fechas, destinatarios y fecha de derogación."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.10 del Reglamento de Régimen Interno del CPEI, cada asiento del registro de instrucciones y circulares contiene, entre otros datos:",
+     "opciones": [
+      "El código, el título y los destinatarios",
+      "El nombre de quien firmó el recibí",
+      "El coste de su elaboración"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.10: código, título, fecha del documento y de entrada en vigor, destinatarios y fecha de derogación."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 17.10 del Reglamento de Régimen Interno del CPEI, ¿qué dato se anota en el asiento solo «en su caso»?",
+     "opciones": [
+      "La fecha de derogación",
+      "El código de la instrucción",
+      "Los destinatarios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.10.e): «Fecha de su derogación, en su caso»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a17-11-modificaciones",
+   "bloque": "a17",
+   "apartado": "11",
+   "orden": 650,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.11 del RRI del CPEI, ¿pueden modificarse parcialmente instrucciones y circulares sin derogarlas?",
+    "respuesta": "Sí, con modificaciones de formato estándar, codificadas, registradas y firmadas por el Gerente."
+   },
+   "cita": "Podrán practicarse modificaciones parciales de las instrucciones y circulares sin derogar estas",
+   "confundible_con": [
+    "RRI-a17-7-firma-instrucciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.11 del Reglamento de Régimen Interno del CPEI, ¿pueden modificarse parcialmente las circulares sin derogarlas?",
+     "opciones": [
+      "Sí",
+      "No, hay que derogarlas y dictar otras"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.11: «Podrán practicarse modificaciones parciales de las instrucciones y circulares sin derogar estas»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.11 del Reglamento de Régimen Interno del CPEI, las modificaciones parciales de instrucciones y circulares van firmadas por:",
+     "opciones": [
+      "El Jefe de Parque",
+      "El Gerente",
+      "El Presidente"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.11: «codificadas, registradas y firmadas por el Gerente»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 17.11 del Reglamento de Régimen Interno del CPEI, ¿qué requisitos tienen las modificaciones parciales de instrucciones y circulares?",
+     "opciones": [
+      "Basta con comunicarlas de forma verbal al personal",
+      "Solo necesitan publicarse en el tablón de anuncios",
+      "Formato estándar, código, registro y firma del Gerente"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 17.11: «también de formato estándar, codificadas, registradas y firmadas por el Gerente»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a17-12-recibi",
+   "bloque": "a17",
+   "apartado": "12",
+   "orden": 660,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.12 del RRI del CPEI, ¿cómo se hacen llegar las instrucciones y quién lo hace con el personal desplazado?",
+    "respuesta": "A cada destinatario, recabando su «recibí»; con el personal desplazado lo hacen los sargentos jefes de parque, que custodian los justificantes hasta entregarlos en las oficinas centrales."
+   },
+   "cita": "la realizarán los sargentos jefes de parque",
+   "confundible_con": [
+    "RRI-a17-17-recibi-orden"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.12 del Reglamento de Régimen Interno del CPEI, ¿debe recabarse el «recibí» de los destinatarios de una instrucción?",
+     "opciones": [
+      "Sí",
+      "No, basta con publicarla"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.12: las instrucciones se harán llegar a cada destinatario, «debiendo recabarse de estos el “recibí”»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.12 del Reglamento de Régimen Interno del CPEI, el «recibí» de las instrucciones dirigidas al personal desplazado lo recaban:",
+     "opciones": [
+      "Los emisoristas de la CECOB",
+      "Los sargentos jefes de parque",
+      "Los oficiales de zona"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.12: «la realizarán los sargentos jefes de parque, quienes custodiarán los correspondientes documentos acreditativos»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 17.12 del Reglamento de Régimen Interno del CPEI, ¿hasta cuándo custodian los sargentos jefes de parque los justificantes de recibí?",
+     "opciones": [
+      "Hasta su entrega en las oficinas centrales",
+      "Hasta que la instrucción sea derogada",
+      "Durante un plazo fijo de un año"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.12: los custodian «hasta su entrega en las oficinas centrales»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a17-13-tablon",
+   "bloque": "a17",
+   "apartado": "13",
+   "orden": 670,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.13 del RRI del CPEI, ¿qué criterio se sigue con las circulares no catalogadas «de general conocimiento»?",
+    "respuesta": "El mismo que con las instrucciones (art. 17.12): se hacen llegar a cada destinatario recabando su «recibí». El apartado menciona como medio de divulgación exclusivo los tablones de anuncio."
+   },
+   "cita": "El mismo criterio de actuación se seguirá con las circulares que no estén catalogadas",
+   "confundible_con": [
+    "RRI-a17-12-recibi",
+    "RRI-a17-17-recibi-orden"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.13 del Reglamento de Régimen Interno del CPEI, ¿se sigue con las circulares no catalogadas «de general conocimiento» el mismo criterio de actuación que con las instrucciones?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.13: «El mismo criterio de actuación se seguirá con las circulares que no estén catalogadas como “de general conocimiento”»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.13 del Reglamento de Régimen Interno del CPEI, ¿qué medio de divulgación exclusiva menciona el apartado?",
+     "opciones": [
+      "El Boletín Oficial de la Provincia",
+      "Los tablones de anuncio",
+      "El correo certificado al domicilio"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.13: «se divulgarán exclusivamente mediante los tablones de anuncio»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 17 del Reglamento de Régimen Interno del CPEI, las circulares no catalogadas «de general conocimiento» siguen el mismo criterio de actuación que:",
+     "opciones": [
+      "Las instrucciones, con entrega y recibí del destinatario",
+      "Las órdenes de servicio, con recibí opcional",
+      "La correspondencia, con asiento en el Registro General"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.13 remite al criterio del 17.12 (instrucciones): entrega a cada destinatario recabando su «recibí»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a17-14-superiores",
+   "bloque": "a17",
+   "apartado": "14",
+   "orden": 680,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.14 del RRI del CPEI, ¿a quién más se dirige una instrucción o circular destinada a un operario o colectivo?",
+    "respuesta": "A sus superiores jerárquicos, en su caso, y a los responsables de las dependencias que por razón de sus funciones deban conocerla."
+   },
+   "cita": "se dirigirá también a sus superiores jerárquicos",
+   "confundible_con": [
+    "RRI-a17-18-orden-superiores"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.14 del Reglamento de Régimen Interno del CPEI, ¿se envía también a los superiores del operario la instrucción dirigida a él?",
+     "opciones": [
+      "No, solo al operario",
+      "Sí, en su caso"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.14: «se dirigirá también a sus superiores jerárquicos, en su caso»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.14 del Reglamento de Régimen Interno del CPEI, la circular dirigida a un colectivo de operarios se dirige también a:",
+     "opciones": [
+      "Los representantes sindicales de ese colectivo de operarios",
+      "Todos los parques y dependencias del Consorcio, sin distinción",
+      "Sus superiores y los responsables de las dependencias que deban conocerla"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 17.14: a sus superiores jerárquicos y a los responsables de las dependencias que por razón de sus funciones deban conocerla."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 17.14 del Reglamento de Régimen Interno del CPEI, ¿qué responsables de dependencias reciben también una instrucción dirigida a operarios?",
+     "opciones": [
+      "Los que por razón de sus funciones deban conocerla",
+      "Solo los responsables de las oficinas centrales",
+      "Todos los responsables de dependencias, sin excepción"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.14: «los responsables de las dependencias que por razón de las materias objeto de sus funciones deban conocerla»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a17-15-orden-forma",
+   "bloque": "a17",
+   "apartado": "15",
+   "orden": 690,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.15 del RRI del CPEI, ¿cómo pueden ser las órdenes de servicio?",
+    "respuesta": "Verbales o escritas, preferentemente escritas, salvo las dadas durante las intervenciones en siniestros y las relativas a operaciones habituales conocidas."
+   },
+   "cita": "debiendo adoptar preferentemente esta última forma",
+   "confundible_con": [
+    "RRI-a17-3-ordenes",
+    "RRI-a19-2-verbales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.15 del Reglamento de Régimen Interno del CPEI, ¿pueden ser verbales las órdenes de servicio?",
+     "opciones": [
+      "Sí, aunque preferentemente serán escritas",
+      "No, siempre deben ser escritas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.15: «podrán ser verbales o escritas, debiendo adoptar preferentemente esta última forma»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.15 del Reglamento de Régimen Interno del CPEI, las órdenes de servicio adoptarán preferentemente la forma:",
+     "opciones": [
+      "Verbal",
+      "Escrita",
+      "Telefónica"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.15: preferentemente escrita."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 17.15 del Reglamento de Régimen Interno del CPEI, ¿qué órdenes de servicio no tienen por qué darse por escrito?",
+     "opciones": [
+      "Las dirigidas a varios parques del Consorcio a la vez",
+      "Las que fijan pautas o criterios generales de actuación",
+      "Las dadas a subordinados durante la intervención en un siniestro"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 17.15: salvo las que se dicten en el desarrollo de las intervenciones en siniestros y las relativas a operaciones habituales conocidas."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a17-16-orden-escrita",
+   "bloque": "a17",
+   "apartado": "16",
+   "orden": 700,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.16 del RRI del CPEI, ¿qué formato tienen las órdenes de servicio escritas?",
+    "respuesta": "Texto y formato totalmente libres, con el encabezamiento «orden de servicio» seguido del autor, el destinatario y la fecha."
+   },
+   "cita": "su texto y formato serán totalmente libres",
+   "confundible_con": [
+    "RRI-a17-8-circulares-formato"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.16 del Reglamento de Régimen Interno del CPEI, ¿tienen formato libre las órdenes de servicio escritas?",
+     "opciones": [
+      "No, siguen un impreso normalizado",
+      "Sí, texto y formato libres"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.16: «su texto y formato serán totalmente libres»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.16 del Reglamento de Régimen Interno del CPEI, las órdenes de servicio escritas deben llevar como encabezamiento:",
+     "opciones": [
+      "«Instrucción», seguida de su código correlativo y su fecha",
+      "«Circular», seguida de su número de registro y destinatarios",
+      "«Orden de servicio», con autor, destinatario y fecha"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 17.16: «debe constar como encabezamiento “orden de servicio”, seguido de la identificación del autor, del destinatario y la fecha»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 17.16 del Reglamento de Régimen Interno del CPEI, ¿qué dato NO exige el encabezamiento de una orden de servicio escrita?",
+     "opciones": [
+      "El código de registro",
+      "La identificación del autor",
+      "La fecha"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.16: exige «orden de servicio», autor, destinatario y fecha; no exige código (a diferencia de instrucciones y circulares)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a17-17-recibi-orden",
+   "bloque": "a17",
+   "apartado": "17",
+   "orden": 710,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.17 del RRI del CPEI, ¿es obligatorio recabar el «recibí» de una orden de servicio?",
+    "respuesta": "Es opcional para quien dicta la orden, pero obligatorio para el destinatario si se le requiere."
+   },
+   "cita": "será una decisión opcional para el que dicta la orden",
+   "confundible_con": [
+    "RRI-a17-12-recibi"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.17 del Reglamento de Régimen Interno del CPEI, ¿debe el destinatario firmar el recibí de una orden de servicio si se le pide?",
+     "opciones": [
+      "Sí, es obligatorio si se le requiere",
+      "No, nunca está obligado"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.17: es «obligatorio para aquel en el caso de que se le requiera»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.17 del Reglamento de Régimen Interno del CPEI, recabar el recibí de una orden de servicio es, para quien la dicta:",
+     "opciones": [
+      "Obligatorio",
+      "Opcional",
+      "Prohibido"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.17: «será una decisión opcional para el que dicta la orden»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 17 del Reglamento de Régimen Interno del CPEI, ¿en qué documento es opcional recabar el recibí?",
+     "opciones": [
+      "En las instrucciones",
+      "En las circulares que no son de general conocimiento",
+      "En las órdenes de servicio"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 17.17: en las órdenes de servicio es opcional para quien las dicta; en las instrucciones (17.12) y en esas circulares (17.13) debe recabarse."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a17-18-orden-superiores",
+   "bloque": "a17",
+   "apartado": "18",
+   "orden": 720,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.18 del RRI del CPEI, ¿a quién más se comunica una orden escrita dirigida a un destinatario?",
+    "respuesta": "A los superiores jerárquicos del destinatario que dependan del emisor."
+   },
+   "cita": "implicará comunicarla también a los superiores jerárquicos de este que dependan de emisor",
+   "confundible_con": [
+    "RRI-a17-14-superiores"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.18 del Reglamento de Régimen Interno del CPEI, ¿se comunica una orden escrita también a superiores del destinatario?",
+     "opciones": [
+      "Sí, a los que dependan del emisor",
+      "No, solo al destinatario"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.18: implica comunicarla «también a los superiores jerárquicos de este que dependan de emisor»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.18 del Reglamento de Régimen Interno del CPEI, comunicar una orden escrita también a los superiores del destinatario que dependan del emisor:",
+     "opciones": [
+      "Se aplica igual que en las instrucciones y circulares",
+      "Solo rige para las órdenes de servicio verbales",
+      "Solo rige si el destinatario lo solicita por escrito"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.18: «Al igual que en las instrucciones y circulares», la orden escrita se comunica también a esos superiores."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 17.18 del Reglamento de Régimen Interno del CPEI, ¿qué superiores del destinatario deben conocer la orden escrita?",
+     "opciones": [
+      "Solo el Gerente, como superior de todos",
+      "Todos ellos, dependan o no del emisor",
+      "Los que dependan del emisor de la orden"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 17.18: solo los superiores jerárquicos del destinatario «que dependan de emisor»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a17-19-instruccion-especifica",
+   "bloque": "a17",
+   "apartado": "19",
+   "orden": 730,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 17.19 del RRI del CPEI, ¿dónde se concretan los detalles de redacción, tramitación y control de instrucciones, circulares, órdenes e impresos?",
+    "respuesta": "En una instrucción específica."
+   },
+   "cita": "deberán concretarse en una instrucción específica",
+   "confundible_con": [
+    "RRI-a17-1-instrucciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 17.19 del Reglamento de Régimen Interno del CPEI, ¿dónde se concretan los detalles de tramitación de instrucciones y circulares?",
+     "opciones": [
+      "En una instrucción específica",
+      "En el propio Reglamento"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 17.19: «deberán concretarse en una instrucción específica»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 17.19 del Reglamento de Régimen Interno del CPEI, los detalles sobre la tramitación y control de instrucciones, circulares, órdenes e impresos se concretan en:",
+     "opciones": [
+      "Una orden de servicio",
+      "Una circular",
+      "Una instrucción específica"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 17.19: en una instrucción específica."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 17.19 del Reglamento de Régimen Interno del CPEI, la instrucción específica sobre redacción y tramitación abarca también:",
+     "opciones": [
+      "Los partes verbales de guardia",
+      "Los impresos normalizados",
+      "La correspondencia de carácter personal"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 17.19: incluye «los impresos normalizados objeto del siguiente artículo»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a18-1-impreso",
+   "bloque": "a18",
+   "apartado": "1",
+   "orden": 740,
+   "tipo": "definicion",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 18.1 del RRI del CPEI, ¿qué es un impreso normalizado?",
+    "respuesta": "Un modelo de informe, parte, comunicación u otro documento, aplicable de forma general para redactar los documentos concretos de su ámbito."
+   },
+   "cita": "Se denomina impreso normalizado a un modelo de informe, parte, comunicación",
+   "confundible_con": [
+    "RRI-a19-3-partes-escritos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 18.1 del Reglamento de Régimen Interno del CPEI, ¿es el impreso normalizado un modelo aplicable de forma general?",
+     "opciones": [
+      "Sí",
+      "No, sirve para un solo documento"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.1: modelo de documento «aplicable de forma general para la redacción de los documentos concretos objeto de su ámbito»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 18.1 del Reglamento de Régimen Interno del CPEI, un modelo de informe, parte o comunicación aplicable de forma general se denomina:",
+     "opciones": [
+      "Circular",
+      "Impreso normalizado",
+      "Orden de servicio"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 18.1: definición de impreso normalizado."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 18.1 del Reglamento de Régimen Interno del CPEI, ¿para qué sirve un impreso normalizado?",
+     "opciones": [
+      "Para redactar los documentos concretos de su ámbito",
+      "Para derogar instrucciones anteriores",
+      "Para registrar la correspondencia externa"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.1: se aplica «para la redacción de los documentos concretos objeto de su ámbito»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a18-2-preceptivo",
+   "bloque": "a18",
+   "apartado": "2",
+   "orden": 750,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 18.2 del RRI del CPEI, ¿qué documentos deben normalizarse y es obligatorio usar los impresos?",
+    "respuesta": "Todos los documentos de tramitación habitual; según se implanten, su uso es preceptivo."
+   },
+   "cita": "su utilización será preceptiva",
+   "confundible_con": [
+    "RRI-a18-1-impreso"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 18.2 del Reglamento de Régimen Interno del CPEI, una vez implantado un impreso normalizado, ¿es obligatorio usarlo?",
+     "opciones": [
+      "No, es voluntario",
+      "Sí, es preceptivo"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 18.2: «su utilización será preceptiva»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 18.2 del Reglamento de Régimen Interno del CPEI, deberán normalizarse:",
+     "opciones": [
+      "Solo los partes de intervención en siniestros",
+      "Todos los documentos de tramitación habitual",
+      "Solo la correspondencia con remitentes externos"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 18.2: «todos los tipos de documentos de tramitación habitual en el Consorcio»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 18.2 del Reglamento de Régimen Interno del CPEI, ¿desde cuándo es preceptivo usar cada impreso normalizado?",
+     "opciones": [
+      "Según se vaya implantando",
+      "Desde la aprobación del Reglamento",
+      "Desde que lo apruebe el Pleno"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.2: «según se vayan implantando, su utilización será preceptiva»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a18-3-instrucciones-impreso",
+   "bloque": "a18",
+   "apartado": "3",
+   "orden": 760,
+   "tipo": "lista",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 18.3 del RRI del CPEI, ¿qué información incluyen las instrucciones de cada impreso normalizado?",
+    "respuesta": "Ámbito de aplicación, usuarios, notas aclaratorias, otras consideraciones y fecha de entrada en vigor."
+   },
+   "cita": "Los impresos normalizados irán codificados",
+   "confundible_con": [
+    "RRI-a17-10-registro"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 18.3 del Reglamento de Régimen Interno del CPEI, ¿van codificados los impresos normalizados?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.3: «Los impresos normalizados irán codificados»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 18.3 del Reglamento de Régimen Interno del CPEI, las instrucciones de cada impreso normalizado incluyen, entre otros datos:",
+     "opciones": [
+      "El coste de impresión y la tirada prevista",
+      "El ámbito de aplicación y los usuarios",
+      "La firma del Presidente y del Secretario"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 18.3: ámbito de aplicación, usuarios, notas aclaratorias, otras consideraciones y fecha de entrada en vigor."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 18.3 del Reglamento de Régimen Interno del CPEI, en las instrucciones del impreso, las «notas aclaratorias» son:",
+     "opciones": [
+      "La explicación de las notas de llamada",
+      "La relación de normas derogadas",
+      "Las firmas de los superiores intermedios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.3.c): «Notas aclaratorias (explicación de las notas de llamada)»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a18-4-oficio",
+   "bloque": "a18",
+   "apartado": "4",
+   "orden": 770,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 18.4 del RRI del CPEI, ¿cómo se implanta un nuevo impreso normalizado?",
+    "respuesta": "Como las instrucciones y circulares, mediante un oficio de remisión normalizado con los colectivos destinatarios, firmado o con el visto bueno del Gerente."
+   },
+   "cita": "usando para ello un modelo de oficio de remisión",
+   "confundible_con": [
+    "RRI-a18-5-red"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 18.4 del Reglamento de Régimen Interno del CPEI, ¿se implanta un nuevo impreso con un oficio de remisión?",
+     "opciones": [
+      "No, basta con publicarlo en el BOP",
+      "Sí, también normalizado"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 18.4: se usa «un modelo de oficio de remisión, también normalizado»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 18.4 del Reglamento de Régimen Interno del CPEI, el oficio de remisión de un nuevo impreso va firmado o con el visto bueno de:",
+     "opciones": [
+      "El Gerente",
+      "El Jefe de Parque",
+      "El Suboficial"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.4: «Dicho oficio irá firmado o con el visto bueno del Gerente»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 18.4 del Reglamento de Régimen Interno del CPEI, ¿qué debe constar expresamente en el oficio de remisión de un nuevo impreso?",
+     "opciones": [
+      "La exposición de motivos",
+      "Los colectivos destinatarios",
+      "El coste del impreso"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 18.4: el oficio debe hacer constar «expresamente los colectivos destinatarios del nuevo impreso»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a18-5-red",
+   "bloque": "a18",
+   "apartado": "5",
+   "orden": 780,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 18.5 del RRI del CPEI, si el impreso se puede ver e imprimir por la red, ¿qué sustituye al oficio de remisión?",
+    "respuesta": "Una comunicación a los destinatarios avisando de la entrada en vigor del nuevo impreso, con las mismas características y efectos que el oficio."
+   },
+   "cita": "el oficio de remisión se sustituirá por una comunicación a los destinatarios",
+   "confundible_con": [
+    "RRI-a18-4-oficio",
+    "RRI-a18-6-cumplimentar"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 18.5 del Reglamento de Régimen Interno del CPEI, si el impreso está en la red, ¿se sigue necesitando el oficio de remisión?",
+     "opciones": [
+      "Sí, siempre",
+      "No, se sustituye por una comunicación"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 18.5: «el oficio de remisión se sustituirá por una comunicación a los destinatarios»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 18.5 del Reglamento de Régimen Interno del CPEI, la comunicación que sustituye al oficio de remisión tiene:",
+     "opciones": [
+      "Menos efectos que el oficio de remisión",
+      "Efectos meramente informativos, no vinculantes",
+      "Las mismas características y efectos que el oficio"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 18.5: «de las mismas características y con los mismos efectos que el oficio»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 18.5 del Reglamento de Régimen Interno del CPEI, ¿cuándo se sustituye el oficio de remisión por una comunicación?",
+     "opciones": [
+      "Cuando se pueda ver e imprimir el impreso por la red",
+      "Cuando el impreso deba implantarse con urgencia",
+      "Cuando lo solicite expresamente el Jefe de Parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.5: «En el caso de que se tenga acceso a través de la red a visualizar e imprimir el impreso»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a18-6-cumplimentar",
+   "bloque": "a18",
+   "apartado": "6",
+   "orden": 790,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 18.6 del RRI del CPEI, si el impreso puede cumplimentarse por la red, ¿qué opción se usa?",
+    "respuesta": "Esa será la opción preferente."
+   },
+   "cita": "ésta será la opción preferente a utilizar",
+   "confundible_con": [
+    "RRI-a18-5-red"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 18.6 del Reglamento de Régimen Interno del CPEI, si se pueden rellenar por la red los campos del impreso, ¿es la opción preferente?",
+     "opciones": [
+      "Sí",
+      "No, se prefiere el papel"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.6: «ésta será la opción preferente a utilizar»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 18.6 del Reglamento de Régimen Interno del CPEI, cuando el usuario puede cumplimentar por la red los campos variables de un impreso:",
+     "opciones": [
+      "Debe hacerlo en papel y escanearlo",
+      "Debe pedir autorización al Gerente",
+      "Esa es la opción preferente"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 18.6: es la opción preferente."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 18.6 del Reglamento de Régimen Interno del CPEI, ¿qué puede cumplimentar el usuario a través de la red?",
+     "opciones": [
+      "Los campos variables del impreso",
+      "Las instrucciones de aplicación del impreso",
+      "El código del impreso"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.6: «tenga opción a través de la red a cumplimentar los campos variables del impreso»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a18-7-bloque-impresos",
+   "bloque": "a18",
+   "apartado": "7",
+   "orden": 800,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 18.7 del RRI del CPEI, ¿cómo se ordenan y codifican los impresos normalizados?",
+    "respuesta": "Un solo bloque sin división por materias, con código correlativo según la fecha de implementación y un registro."
+   },
+   "cita": "sólo habrá un bloque de impresos normalizados del Consorcio",
+   "confundible_con": [
+    "RRI-a17-9-bloque-unico"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 18.7 del Reglamento de Régimen Interno del CPEI, ¿se dividen los impresos normalizados por materias?",
+     "opciones": [
+      "Sí",
+      "No, hay un solo bloque"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 18.7: un solo bloque «sin división alguna por materia o cualquier otro criterio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 18.7 del Reglamento de Régimen Interno del CPEI, el código de los impresos normalizados es:",
+     "opciones": [
+      "Correlativo según su fecha de implementación",
+      "Distinto en cada parque que lo utilice",
+      "Asignado por materias, con una letra por sector"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 18.7: «un código correlativo según su fecha de implementación»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 18.7 del Reglamento de Régimen Interno del CPEI, ¿se lleva registro de los impresos normalizados?",
+     "opciones": [
+      "No, basta con el código correlativo asignado a cada impreso",
+      "Solo de los impresos cuyo título incluya el término «Parte»",
+      "Sí, con campos semejantes a los de instrucciones y circulares"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 18.7: se llevará «un registro con campos de información semejantes» a los de instrucciones y circulares."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a19-1-parte",
+   "bloque": "a19",
+   "apartado": "1",
+   "orden": 810,
+   "tipo": "definicion",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.1 del RRI del CPEI, ¿qué se entiende por «parte»?",
+    "respuesta": "Escrito, ordinariamente breve, enviado por cualquier medio para dar aviso o noticia urgente; y, en general, cualquier comunicación transmitida por cualquier medio (acepciones de la RAE)."
+   },
+   "cita": "ordinariamente breve",
+   "confundible_con": [
+    "RRI-a19-2-verbales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.1 del Reglamento de Régimen Interno del CPEI, ¿es el parte, ordinariamente, un escrito breve?",
+     "opciones": [
+      "Sí",
+      "No, es siempre extenso"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.1: «escrito, ordinariamente breve, que por cualquier medio se envía a alguien para darle aviso o noticia urgente»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.1 del Reglamento de Régimen Interno del CPEI, ¿de dónde toma el Reglamento las acepciones del término «parte»?",
+     "opciones": [
+      "Del Estatuto Básico del Empleado Público",
+      "Del diccionario de la R.A.E.",
+      "De la Ley de Protección Civil"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.1: «Ambas acepciones, recogidas en el diccionario de la R.A.E.»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 19.1 del Reglamento de Régimen Interno del CPEI, el parte es un escrito que se envía para:",
+     "opciones": [
+      "Solicitar un permiso o licencia",
+      "Proponer una sanción disciplinaria",
+      "Dar aviso o noticia urgente"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 19.1: «para darle aviso o noticia urgente»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a19-2-verbales",
+   "bloque": "a19",
+   "apartado": "2",
+   "orden": 820,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.2 del RRI del CPEI, ¿cómo pueden ser los partes y para qué se usan los verbales?",
+    "respuesta": "Verbales o escritos; los verbales son siempre el medio para comunicar al superior cualquier incidencia relevante o urgente, sin perjuicio de formalizarla después por escrito."
+   },
+   "cita": "Los partes podrán ser verbales o escritos",
+   "confundible_con": [
+    "RRI-a22-1-novedades",
+    "RRI-a17-15-orden-forma"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.2 del Reglamento de Régimen Interno del CPEI, ¿pueden los partes ser verbales?",
+     "opciones": [
+      "Sí, verbales o escritos",
+      "No, siempre escritos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.2: «Los partes podrán ser verbales o escritos»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.2 del Reglamento de Régimen Interno del CPEI, para comunicar al superior una incidencia relevante o urgente se usará siempre:",
+     "opciones": [
+      "El parte escrito",
+      "El parte verbal",
+      "La circular"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.2: los partes verbales «serán siempre el medio para comunicar al superior jerárquico que corresponda cualquier incidencia relevante»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 19.2 del Reglamento de Régimen Interno del CPEI, tras comunicar verbalmente una incidencia urgente:",
+     "opciones": [
+      "Ya no puede ponerse por escrito",
+      "Debe repetirse al Gerente en persona",
+      "Puede formalizarse después en informe escrito"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 19.2: «sin perjuicio de que, posteriormente y en los casos que procedan, se formalicen en informe escrito»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a19-3-partes-escritos",
+   "bloque": "a19",
+   "apartado": "3",
+   "orden": 830,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.3 del RRI del CPEI, ¿qué documentos se catalogan como partes escritos?",
+    "respuesta": "Solo los cumplimentados en impresos normalizados cuyo título recoja expresamente el término «Parte»."
+   },
+   "cita": "sólo a aquellos cumplimentados en los correspondientes impresos normalizados",
+   "confundible_con": [
+    "RRI-a18-1-impreso"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.3 del Reglamento de Régimen Interno del CPEI, ¿es parte escrito cualquier nota escrita?",
+     "opciones": [
+      "Sí",
+      "No, solo los impresos normalizados titulados «Parte»"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.3: solo los cumplimentados en impresos normalizados cuyo título recoja expresamente «Parte»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.3 del Reglamento de Régimen Interno del CPEI, se catalogan como partes escritos solo los cumplimentados en:",
+     "opciones": [
+      "Impresos normalizados cuyo título incluya «Parte»",
+      "Cualquier papel firmado por el Jefe de Parque",
+      "El libro de registro del parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.3: impresos normalizados cuyo título recoja expresamente el término «Parte»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 19.3 del Reglamento de Régimen Interno del CPEI, un informe escrito en texto libre, ¿es un parte escrito?",
+     "opciones": [
+      "Sí, siempre que lo firme un mando del servicio",
+      "No, porque no está en un impreso normalizado titulado «Parte»",
+      "Sí, siempre que se remita a través del Registro General"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.3: solo son partes escritos los impresos normalizados titulados «Parte»; el texto libre es un informe (art. 19.12)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a19-4-intermedios",
+   "bloque": "a19",
+   "apartado": "4",
+   "orden": 840,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.4 del RRI del CPEI, ¿qué papel tienen los mandos intermedios en la tramitación de los partes?",
+    "respuesta": "Salvo especial urgencia, firman o dejan constancia de su conocimiento y pueden añadir apreciaciones, pero nunca paralizar ni desviar el parte."
+   },
+   "cita": "en ningún caso podrán paralizar ni desviar su destino",
+   "confundible_con": [
+    "RRI-a19-14-informes-intermedios"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.4 del Reglamento de Régimen Interno del CPEI, ¿puede un mando intermedio paralizar un parte?",
+     "opciones": [
+      "No, en ningún caso",
+      "Sí, si no está de acuerdo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.4: «en ningún caso podrán paralizar ni desviar su destino»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.4 del Reglamento de Régimen Interno del CPEI, las personas situadas jerárquicamente entre el autor y el destinatario de un parte:",
+     "opciones": [
+      "Pueden desviarlo a otro destinatario",
+      "Deben suscribirlo o constar su conocimiento",
+      "No intervienen en su tramitación"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.4: «irán siempre suscritos, o bien constar el conocimiento, de las personas situadas jerárquicamente entre el autor y el destinatario»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 19.4 del Reglamento de Régimen Interno del CPEI, ¿qué pueden hacer los mandos intermedios con un parte?",
+     "opciones": [
+      "Incorporar sus apreciaciones o propuestas",
+      "Retenerlo hasta resolver el asunto",
+      "Sustituirlo por un parte propio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.4: «podrán incorporar sus propias apreciaciones, propuestas o informaciones»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a19-5-tipos",
+   "bloque": "a19",
+   "apartado": "5",
+   "orden": 850,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.5 del RRI del CPEI, ¿cuáles son los partes del Consorcio?",
+    "respuesta": "Parte de asistencia y revisiones, de régimen interno, de incidencias, de intervención y de prácticas."
+   },
+   "cita": "los partes del Consorcio serán los siguientes",
+   "confundible_con": [
+    "RRI-a19-6-asistencia",
+    "RRI-a19-8-incidencias",
+    "RRI-a19-9-intervencion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.5 del Reglamento de Régimen Interno del CPEI, ¿es el parte de prácticas uno de los partes del Consorcio?",
+     "opciones": [
+      "No",
+      "Sí"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.5: asistencia y revisiones, régimen interno, incidencias, intervención y prácticas."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.5 del Reglamento de Régimen Interno del CPEI, ¿cuántos partes enumera el Reglamento?",
+     "opciones": [
+      "Tres",
+      "Cinco",
+      "Siete"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.5 enumera cinco: asistencia y revisiones, régimen interno, incidencias, intervención y prácticas."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estos partes NO figura en la lista del art. 19.5 del Reglamento de Régimen Interno del CPEI?",
+     "opciones": [
+      "Parte de incidencias",
+      "Parte de régimen interno",
+      "Parte de bajas médicas"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 19.5: asistencia y revisiones, régimen interno, incidencias, intervención y prácticas; no hay parte de bajas médicas."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a19-6-asistencia",
+   "bloque": "a19",
+   "apartado": "6",
+   "orden": 860,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.6 del RRI del CPEI, ¿quién firma el parte de asistencia y revisiones?",
+    "respuesta": "El responsable del turno al inicio de la guardia, el responsable saliente en el relevo y el Jefe de Parque antes de remitirlo."
+   },
+   "cita": "será firmado también por el responsable saliente de guardia en el momento del relevo",
+   "confundible_con": [
+    "RRI-a19-7-regimen-interno"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.6 del Reglamento de Régimen Interno del CPEI, ¿quién empieza a elaborar el parte de asistencia y revisiones al inicio del turno?",
+     "opciones": [
+      "El Gerente",
+      "El responsable del turno"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.6: «el responsable del mismo firmará e irá elaborando el parte de asistencia y revisiones»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.6 del Reglamento de Régimen Interno del CPEI, en el relevo, el parte de asistencia y revisiones lo firma también:",
+     "opciones": [
+      "El responsable saliente de guardia",
+      "El emisorista de la CECOB",
+      "El conductor de primera salida"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.6: «será firmado también por el responsable saliente de guardia en el momento del relevo»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 19.6 del Reglamento de Régimen Interno del CPEI, ¿qué recoge el parte de asistencia y revisiones?",
+     "opciones": [
+      "Las maniobras de prácticas realizadas durante la guardia",
+      "La asistencia del personal y las revisiones de vehículos y material",
+      "La información de la movilización de recursos en un siniestro"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.6: la asistencia del personal de guardia y las revisiones a vehículos, equipos y material del parque."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a19-7-regimen-interno",
+   "bloque": "a19",
+   "apartado": "7",
+   "orden": 870,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.7 del RRI del CPEI, ¿qué recoge el parte de régimen interno?",
+    "respuesta": "Las incidencias de la jornada en el parque: ausencias e incorporaciones, accidentes y averías, insuficiencias, movimiento y kilómetros de vehículos, visitas y otras."
+   },
+   "cita": "movimiento interno y kms recorridos por los vehículos del parque",
+   "confundible_con": [
+    "RRI-a19-6-asistencia",
+    "RRI-a19-8-incidencias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.7 del Reglamento de Régimen Interno del CPEI, ¿recoge el parte de régimen interno las visitas al parque?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.7: incluye las «visitas realizadas al parque de bomberos»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.7 del Reglamento de Régimen Interno del CPEI, en el parte de régimen interno se indican, entre otros datos:",
+     "opciones": [
+      "Las ausencias y/o incorporaciones del personal de guardia",
+      "Las sanciones disciplinarias impuestas al personal",
+      "Las calificaciones de las pruebas físicas del personal"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.7: entre las incidencias figuran las «ausencias y/o incorporaciones del personal de guardia»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 19.7 del Reglamento de Régimen Interno del CPEI, ¿quién debe suscribir el parte de régimen interno antes de remitirlo?",
+     "opciones": [
+      "El emisorista de la CECOB",
+      "El Jefe de Parque",
+      "El Gerente del Consorcio"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.7: «deberá ser suscrito por el Jefe de Parque antes de remitirlo a sus superiores jerárquicos»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a19-8-incidencias",
+   "bloque": "a19",
+   "apartado": "8",
+   "orden": 880,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.8 del RRI del CPEI, ¿quién elabora y quién suscribe el parte de incidencias?",
+    "respuesta": "Lo elabora el Emisorista en la CECOB y lo suscribe un Suboficial; recoge la movilización de recursos en la atención a un siniestro."
+   },
+   "cita": "suscrito por un Suboficial del Consorcio",
+   "confundible_con": [
+    "RRI-a19-9-intervencion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.8 del Reglamento de Régimen Interno del CPEI, ¿dónde se elabora el parte de incidencias?",
+     "opciones": [
+      "En la Central de Comunicaciones (CECOB)",
+      "En el lugar del siniestro"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.8: lo elabora «el Emisorísta en la Central de Comunicaciones de Bomberos del Consorcio (CECOB)»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.8 del Reglamento de Régimen Interno del CPEI, el parte de incidencias recoge la información generada por:",
+     "opciones": [
+      "La movilización de recursos en la atención a un siniestro",
+      "Las maniobras de prácticas del personal operativo",
+      "Las ausencias e incorporaciones del personal de guardia"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.8: «Recoge toda la información generada por la movilización de los recursos materiales y humanos del Consorcio en la atención a un siniestro»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 19 del Reglamento de Régimen Interno del CPEI, ¿qué parte recoge la información de la movilización de recursos en un siniestro y lo elabora el Emisorista?",
+     "opciones": [
+      "El parte de intervención",
+      "El parte de régimen interno",
+      "El parte de incidencias"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 19.8: el parte de incidencias; el de intervención (19.9) lo hace el Jefe de la Intervención."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a19-9-intervencion",
+   "bloque": "a19",
+   "apartado": "9",
+   "orden": 890,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.9 del RRI del CPEI, ¿quién hace el parte de intervención y cuándo?",
+    "respuesta": "El Jefe de la Intervención, inmediatamente tras regresar al parque y antes de acabar su turno; si intervienen varios parques, en un único parte."
+   },
+   "cita": "inmediatamente después del regreso del parque y antes de la finalización de su turno de trabajo",
+   "confundible_con": [
+    "RRI-a19-8-incidencias",
+    "RRI-a22-3-salidas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.9 del Reglamento de Régimen Interno del CPEI, ¿quién informa mediante el parte de intervención?",
+     "opciones": [
+      "El Jefe de la Intervención",
+      "El emisorista de la CECOB"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.9: «el Jefe de la Intervención (superior jerárquico que haya dirigido la intervención) informará»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.9 del Reglamento de Régimen Interno del CPEI, el parte de intervención se hace:",
+     "opciones": [
+      "En las 48 horas siguientes al siniestro",
+      "Tras regresar al parque y antes de acabar el turno",
+      "Al inicio del siguiente turno de guardia"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.9: «inmediatamente después del regreso del parque y antes de la finalización de su turno de trabajo»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 19.9 del Reglamento de Régimen Interno del CPEI, si en un siniestro intervienen dotaciones de varios parques:",
+     "opciones": [
+      "Cada parque hace su propio parte",
+      "Solo informa el parque que llegó primero",
+      "Se hace un único parte de intervención"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 19.9: el Jefe de la Intervención recaba la información de todas las dotaciones «e incluirlas en un único parte de intervención»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a19-10-practicas",
+   "bloque": "a19",
+   "apartado": "10",
+   "orden": 900,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.10 del RRI del CPEI, ¿qué es el parte de prácticas y quién lo firma?",
+    "respuesta": "Informa de las maniobras del personal operativo; lo firma el superior que las realizó, lo suscribe el Jefe de Parque y lo revisan periódicamente sus superiores."
+   },
+   "cita": "informa de las maniobras realizadas por el personal operativo",
+   "confundible_con": [
+    "RRI-a19-6-asistencia"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.10 del Reglamento de Régimen Interno del CPEI, ¿qué recoge el parte de prácticas?",
+     "opciones": [
+      "Las maniobras realizadas por el personal operativo",
+      "Las averías de los vehículos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.10: «el documento en el que se informa de las maniobras realizadas por el personal operativo»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.10 del Reglamento de Régimen Interno del CPEI, el parte de prácticas debe ser suscrito por:",
+     "opciones": [
+      "El Gerente del Consorcio",
+      "El Jefe de Parque",
+      "El emisorista de la CECOB"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.10: «Deberá ser suscrito por el Jefe de Parque y revisado por sus superiores jerárquicos periódicamente»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 19.10 del Reglamento de Régimen Interno del CPEI, ¿qué datos se cumplimentan en el parte de prácticas?",
+     "opciones": [
+      "Título, resumen de la maniobra, material y personal",
+      "Kilómetros recorridos, combustible consumido y averías",
+      "Hora de aviso, hora de salida y hora de llegada al siniestro"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.10: título de la práctica, breve resumen de la maniobra, material utilizado y personal que la ha llevado a cabo."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a19-11-aclaracion",
+   "bloque": "a19",
+   "apartado": "11",
+   "orden": 910,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.11 del RRI del CPEI, ¿qué ocurre si los mandos piden aclarar o ampliar un parte?",
+    "respuesta": "Debe cumplirse, sin limitarse a repetir lo ya expuesto."
+   },
+   "cita": "sin limitarse a una repetición de lo ya expuesto",
+   "confundible_con": [
+    "RRI-a19-4-intermedios"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.11 del Reglamento de Régimen Interno del CPEI, ¿basta con repetir el parte si un mando pide ampliarlo?",
+     "opciones": [
+      "No, hay que aclarar o ampliar de verdad",
+      "Sí"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.11: deberá cumplirse, «sin limitarse a una repetición de lo ya expuesto»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.11 del Reglamento de Régimen Interno del CPEI, la petición de aclaración o ampliación de un parte por los mandos:",
+     "opciones": [
+      "Es voluntaria para el autor",
+      "Debe cumplirse, sin repetir lo ya expuesto",
+      "Solo se atiende si la pide el Gerente"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.11: «deberá cumplirse, sin limitarse a una repetición de lo ya expuesto»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 19.11 del Reglamento de Régimen Interno del CPEI, ¿quién puede pedir la aclaración o ampliación de un parte?",
+     "opciones": [
+      "Los mandos del servicio",
+      "Solo el Presidente",
+      "Cualquier ciudadano afectado"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.11: «Por los mandos del servicio se podrá recabar aclaración y/o ampliación del contenido de los partes»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a19-12-informes",
+   "bloque": "a19",
+   "apartado": "12",
+   "orden": 920,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.12 del RRI del CPEI, ¿qué requisitos tienen los informes y comunicaciones no normalizadas?",
+    "respuesta": "Llevan como título el «asunto extractado», van fechados y firmados con pie de firma del autor e indican los destinatarios."
+   },
+   "cita": "irán fechadas, firmadas y con el pie de firma del autor",
+   "confundible_con": [
+    "RRI-a20-reglas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.12 del Reglamento de Régimen Interno del CPEI, ¿deben ir fechados los informes no normalizados?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.12: «irán fechadas, firmadas y con el pie de firma del autor»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.12 del Reglamento de Régimen Interno del CPEI, los informes no normalizados llevan como encabezamiento o título:",
+     "opciones": [
+      "El código del impreso",
+      "El «asunto extractado»",
+      "La palabra «Parte»"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.12: «llevarán siempre como encabezamiento o título el “asunto extractado”»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 19.12 del Reglamento de Régimen Interno del CPEI, ¿qué NO se exige a una comunicación no normalizada?",
+     "opciones": [
+      "Un código correlativo de registro",
+      "La firma y el pie de firma del autor",
+      "La indicación de los destinatarios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.12 exige asunto extractado, fecha, firma, pie de firma y destinatarios; no exige código."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a19-13-jefes-parque",
+   "bloque": "a19",
+   "apartado": "13",
+   "orden": 930,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.13 del RRI del CPEI, ¿qué comunican los Jefes de Parque mediante informes a sus superiores?",
+    "respuesta": "Toda la información que genere su parque y deba conocerse y resolverse: necesidades materiales, averías de camiones, herramientas e instalaciones y novedades de régimen interno."
+   },
+   "cita": "los Jefes de Parque comunicaran toda la información que genere su parque",
+   "confundible_con": [
+    "RRI-a19-7-regimen-interno"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.13 del Reglamento de Régimen Interno del CPEI, ¿comunican los Jefes de Parque las averías de los camiones?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.13: comunican «necesidades materiales, averías de camiones, herramientas e instalaciones, novedades de régimen interno»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.13 del Reglamento de Régimen Interno del CPEI, los Jefes de Parque comunican a sus superiores:",
+     "opciones": [
+      "Solo las intervenciones en siniestros de su zona",
+      "La información que genere su parque y deba transmitirse",
+      "Solo las bajas médicas y ausencias del personal"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.13: «toda la información que genere su parque y que deba ser transmitida a sus superiores jerárquicos»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 19.13 del Reglamento de Régimen Interno del CPEI, ¿con qué fin se comunica a los superiores la información del parque?",
+     "opciones": [
+      "Para su información y resolución lo antes posible",
+      "Para archivarla en el expediente al final del año",
+      "Para publicarla en el tablón de anuncios del parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.13: «para su información y llevar a cabo su resolución lo antes posible»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a19-14-informes-intermedios",
+   "bloque": "a19",
+   "apartado": "14",
+   "orden": 940,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.14 del RRI del CPEI, ¿deben los informes pasar por los superiores intermedios?",
+    "respuesta": "Sí, con su conformidad o al menos su conocimiento, como los partes, salvo especial urgencia o que se hagan a petición del destinatario."
+   },
+   "cita": "salvo razones de especial urgencia o que se realicen a petición de este",
+   "confundible_con": [
+    "RRI-a19-4-intermedios"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.14 del Reglamento de Régimen Interno del CPEI, ¿deben conocer los superiores intermedios los informes, salvo excepciones?",
+     "opciones": [
+      "No, nunca",
+      "Sí"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.14: cumplen el requisito del punto 4 (conformidad o conocimiento de los intermedios), salvo excepciones."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.14 del Reglamento de Régimen Interno del CPEI, un informe puede no pasar por los superiores intermedios cuando:",
+     "opciones": [
+      "Lo realice un Cabo o un Sargento del parque",
+      "Haya especial urgencia o lo pida el destinatario",
+      "Trate sobre el material o los vehículos del parque"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.14: «salvo razones de especial urgencia o que se realicen a petición de este»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 19.14 del Reglamento de Régimen Interno del CPEI, ¿a qué apartado del mismo artículo remite el requisito de conformidad de los superiores intermedios?",
+     "opciones": [
+      "Al punto 11",
+      "Al punto 9",
+      "Al punto 4"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 19.14: «Cumplirán el mismo requisito indicado en el punto 4 de este artículo»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a19-15-correspondencia",
+   "bloque": "a19",
+   "apartado": "15",
+   "orden": 950,
+   "tipo": "definicion",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.15 del RRI del CPEI, ¿qué se denomina «correspondencia»?",
+    "respuesta": "Los escritos recibidos de remitentes externos y los redactados en el Consorcio para destinatarios externos, sobre asuntos relacionados con sus funciones o actividades."
+   },
+   "cita": "a los escritos o comunicaciones recibidos en el CPEI de remitentes externos",
+   "confundible_con": [
+    "RRI-a19-16-excluida"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.15 del Reglamento de Régimen Interno del CPEI, ¿son correspondencia los escritos recibidos de remitentes externos?",
+     "opciones": [
+      "Sí, si tratan asuntos del Consorcio",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.15: escritos recibidos de remitentes externos y redactados para destinatarios externos, relacionados con sus funciones."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.15 del Reglamento de Régimen Interno del CPEI, la «correspondencia» comprende:",
+     "opciones": [
+      "Los partes internos que se intercambian los parques del Consorcio",
+      "Los escritos con remitentes o destinatarios externos sobre asuntos del Consorcio",
+      "Las circulares que la Gerencia dirige a las unidades del Consorcio"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.15: escritos de remitentes externos o para destinatarios externos, relacionados con las funciones o actividades del Consorcio."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 19.15 del Reglamento de Régimen Interno del CPEI, un escrito entre dos parques del Consorcio:",
+     "opciones": [
+      "Es correspondencia en todo caso",
+      "Es correspondencia solo si va firmado",
+      "No es correspondencia, porque no es externo"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 19.15: la correspondencia exige remitente o destinatario externo."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a19-16-excluida",
+   "bloque": "a19",
+   "apartado": "16",
+   "orden": 960,
+   "tipo": "lista",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.16 del RRI del CPEI, ¿qué se excluye del concepto de correspondencia?",
+    "respuesta": "La correspondencia personal de los trabajadores, la publicidad comercial y los documentos sin autor o remitente y sin destino expreso en una unidad del Consorcio."
+   },
+   "cita": "La documentación comercial publicitaria",
+   "confundible_con": [
+    "RRI-a19-15-correspondencia"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.16 del Reglamento de Régimen Interno del CPEI, ¿es correspondencia la publicidad comercial?",
+     "opciones": [
+      "No, está excluida",
+      "Sí"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.16.b): se excluye «La documentación comercial publicitaria»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.16 del Reglamento de Régimen Interno del CPEI, se excluye del término correspondencia:",
+     "opciones": [
+      "El escrito de un ayuntamiento al Consorcio",
+      "La correspondencia personal dirigida a un trabajador",
+      "El oficio de otro servicio de bomberos"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.16.a): la correspondencia de carácter personal con destino a cualquier trabajador."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 19.16 del Reglamento de Régimen Interno del CPEI, un catálogo sin firma del remitente ni destino expreso en una unidad del Consorcio:",
+     "opciones": [
+      "Es correspondencia de entrada",
+      "Debe registrarse en el Registro General",
+      "Queda excluido del término correspondencia"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 19.16.c): se excluye lo que no venga suscrito por su autor y con destino expreso en alguna unidad."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a19-17-registro-general",
+   "bloque": "a19",
+   "apartado": "17",
+   "orden": 970,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 19.17 del RRI del CPEI, ¿dónde se asienta la correspondencia de entrada y salida?",
+    "respuesta": "En el Registro General del Consorcio, cumpliendo los requisitos de la legislación vigente."
+   },
+   "cita": "objeto de su asiento en le Registro General del Consorcio",
+   "confundible_con": [
+    "RRI-a17-10-registro"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 19.17 del Reglamento de Régimen Interno del CPEI, ¿se registra la correspondencia de salida?",
+     "opciones": [
+      "No, solo la de entrada",
+      "Sí, la de entrada y la de salida"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.17: «Toda correspondencia de entrada o de salida será objeto de su asiento en le [sic] Registro General»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 19.17 del Reglamento de Régimen Interno del CPEI, ¿qué correspondencia se asienta en el Registro General del Consorcio?",
+     "opciones": [
+      "Toda, tanto la de entrada como la de salida",
+      "Solo la de entrada procedente de otras administraciones",
+      "Solo la de salida que firme el Gerente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 19.17: «Toda correspondencia de entrada o de salida será objeto de su asiento en le [sic] Registro General del Consorcio»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 19.17 del Reglamento de Régimen Interno del CPEI, ¿qué requisitos se cumplen en el asiento de la correspondencia?",
+     "opciones": [
+      "Los que fije cada Jefe de Parque",
+      "Los de la legislación vigente",
+      "Los del parte de régimen interno"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 19.17: «se cumplirán todos los requisitos establecidos al efecto en la legislación vigente»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a20-reglas",
+   "bloque": "a20",
+   "apartado": "",
+   "orden": 980,
+   "tipo": "lista",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 20 del RRI del CPEI, ¿qué reglas se siguen al redactar correspondencia y documentos oficiales?",
+    "respuesta": "Un solo asunto por comunicación; dirigirlas a la autoridad correspondiente; antefirma con identificación personal concreta y exacta; informes terminantes y breves."
+   },
+   "cita": "Cada comunicación ha de tratar un solo asunto",
+   "confundible_con": [
+    "RRI-a19-12-informes",
+    "RRI-a20-firma"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 20 del Reglamento de Régimen Interno del CPEI, ¿cuántos asuntos debe tratar cada comunicación?",
+     "opciones": [
+      "Uno solo",
+      "Los que sean necesarios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20.a): «Cada comunicación ha de tratar un solo asunto»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 20 del Reglamento de Régimen Interno del CPEI, las comunicaciones deben dirigirse a:",
+     "opciones": [
+      "La autoridad correspondiente",
+      "Siempre al Gerente, sea cual sea el asunto",
+      "Siempre al Presidente del Consorcio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20.b): «Las comunicaciones deben dirigirse a la autoridad correspondiente»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 20 del Reglamento de Régimen Interno del CPEI, ¿cómo deben ser los informes?",
+     "opciones": [
+      "Extensos y detallados en todo caso, sin límite",
+      "Verbales siempre que sea posible, para ganar tiempo",
+      "Terminantes y breves, con clara exposición del asunto"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 20.d): «Los informes deben ser terminantes y breves, sin perjuicio de la clara exposición del asunto»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a20-1-peticiones",
+   "bloque": "a20",
+   "apartado": "1",
+   "orden": 990,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 20.1 del RRI del CPEI, ¿qué hacen los responsables con las peticiones de su personal?",
+    "respuesta": "Darles curso reglamentario sin dilación, con el informe correspondiente si procede."
+   },
+   "cita": "darán, sin dilación, curso reglamentario a cuantas peticiones o instancias formule el personal a su cargo",
+   "confundible_con": [
+    "RRI-a19-4-intermedios"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 20.1 del Reglamento de Régimen Interno del CPEI, ¿pueden los responsables retener las instancias de su personal?",
+     "opciones": [
+      "No, deben darles curso sin dilación",
+      "Sí, si no están de acuerdo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20.1: «darán, sin dilación, curso reglamentario a cuantas peticiones o instancias formule el personal a su cargo»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 20.1 del Reglamento de Régimen Interno del CPEI, las peticiones del personal se cursan:",
+     "opciones": [
+      "Solo si el responsable las aprueba",
+      "Sin dilación, con informe si procede",
+      "En el plazo máximo de un mes"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 20.1: sin dilación, «acompañadas del correspondiente informe, si procede»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 20.1 del Reglamento de Régimen Interno del CPEI, ¿cuándo acompaña el responsable un informe a la instancia de su subordinado?",
+     "opciones": [
+      "Si procede",
+      "Nunca",
+      "Siempre, sin excepción"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20.1: «acompañadas del correspondiente informe, si procede»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a20-firma",
+   "bloque": "a20",
+   "apartado": "2",
+   "orden": 1000,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 20 del RRI del CPEI, ¿quién firma los documentos y qué requisito tienen para salir del Consorcio?",
+    "respuesta": "Los firma su autor material o informante; ninguno sale sin el enterado, conforme o visto bueno del responsable o su sustituto."
+   },
+   "cita": "deberá ir firmado por su autor material o informante",
+   "confundible_con": [
+    "RRI-a20-reglas",
+    "RRI-a20-libros"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 20 del Reglamento de Régimen Interno del CPEI, ¿quién firma un informe?",
+     "opciones": [
+      "Su autor material o informante",
+      "Siempre el Gerente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20: «Todo documento, comunicación o informe deberá ir firmado por su autor material o informante»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 20 del Reglamento de Régimen Interno del CPEI, ningún documento oficial sale del Consorcio sin:",
+     "opciones": [
+      "La firma del Presidente del Consorcio",
+      "El enterado, conforme o visto bueno del responsable",
+      "El sello del Registro General de la Diputación"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 20: sin «el enterado, conforme y visto bueno, según el caso, del responsable o quien lo sustituya»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 20.2 del Reglamento de Régimen Interno del CPEI, ¿de qué se responsabilizan quienes cumplimentan los informes?",
+     "opciones": [
+      "De la autenticidad de los datos",
+      "De su publicación en el tablón",
+      "De su archivo definitivo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20.2: «responsabilizándose de la autenticidad de los datos que en ellos se consignen»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a20-libros",
+   "bloque": "a20",
+   "apartado": "2",
+   "orden": 1010,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 20 del RRI del CPEI, ¿qué libros llevan las dependencias y quién los diligencia?",
+    "respuesta": "Los que exija su cometido, al día, con los asuntos tramitados y las instrucciones, partes y comunicaciones; los diligencia el Gerente."
+   },
+   "cita": "los libros serán diligenciados por el Gerente del Consorcio",
+   "confundible_con": [
+    "RRI-a20-firma"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 20 del Reglamento de Régimen Interno del CPEI, ¿deben llevarse al día los libros de las dependencias?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20: «Todas las oficinas o dependencias del Servicio llevarán al día los libros que su cometido o especialidad exijan»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 20 del Reglamento de Régimen Interno del CPEI, los libros de las dependencias los diligencia:",
+     "opciones": [
+      "El Jefe de Parque",
+      "El Gerente del Consorcio",
+      "El Secretario del Consejo"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 20: «los libros serán diligenciados por el Gerente del Consorcio»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 20 del Reglamento de Régimen Interno del CPEI, ¿qué se expresa en la diligencia de los libros?",
+     "opciones": [
+      "La fecha de inicio, los folios numerados y su objeto",
+      "El nombre de todos los usuarios autorizados",
+      "El coste de los libros y su proveedor"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 20: «con expresión de la fecha en que se comiencen los folios numerados de que consten y el objeto a que se dediquen»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a21-expediente",
+   "bloque": "a21",
+   "apartado": "",
+   "orden": 1020,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 21 del RRI del CPEI, ¿qué es el expediente profesional y qué pasa con los informes sin resolución?",
+    "respuesta": "La Dirección abre uno a cada miembro con su filiación, datos e historial; los informes o partes sin resolución se archivan en expedientes separados, con aviso y libre acceso del interesado."
+   },
+   "cita": "la Dirección abrirá un expediente profesional",
+   "confundible_con": [
+    "RRI-a19-12-informes"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 21 del Reglamento de Régimen Interno del CPEI, ¿tiene cada miembro del Consorcio un expediente profesional?",
+     "opciones": [
+      "Sí, lo abre la Dirección",
+      "No, solo los mandos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 21: «Para cada miembro del Consorcio, la Dirección abrirá un expediente profesional»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 21 del Reglamento de Régimen Interno del CPEI, los informes o partes que no dan lugar a resolución:",
+     "opciones": [
+      "Se destruyen",
+      "Se archivan en expedientes separados",
+      "Se incorporan al expediente profesional"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 21: «se archivarán en expedientes separados previa resolución que así lo indique»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 21 del Reglamento de Régimen Interno del CPEI, respecto a los expedientes separados, el interesado:",
+     "opciones": [
+      "Tiene libre acceso a su información",
+      "No puede consultarlos",
+      "Solo accede con permiso del Presidente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 21: «dando cuenta a los interesados y teniendo libre acceso a la información que obren en los mismos»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a22-1-novedades",
+   "bloque": "a22",
+   "apartado": "1",
+   "orden": 1030,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 22.1 del RRI del CPEI, ¿cómo comunican los responsables de la guardia las novedades del parque?",
+    "respuesta": "Con parte verbal inmediato a sus superiores, ampliado por escrito cuando sea preciso dejar constancia."
+   },
+   "cita": "darán parte verbal inmediato a sus respectivos superiores",
+   "confundible_con": [
+    "RRI-a19-2-verbales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 22.1 del Reglamento de Régimen Interno del CPEI, ¿qué parte dan de inmediato los responsables de la guardia sobre las novedades?",
+     "opciones": [
+      "Verbal",
+      "Escrito semanal"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.1: «darán parte verbal inmediato a sus respectivos superiores»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 22.1 del Reglamento de Régimen Interno del CPEI, el parte verbal de novedades se amplía por escrito:",
+     "opciones": [
+      "Siempre, sin ninguna excepción, al final de cada turno",
+      "Para constancia de las informaciones que se consideren precisas",
+      "Nunca, porque basta con el parte verbal"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 22.1: «El parte verbal se ampliará por escrito para constancia de aquellas informaciones que así se consideren precisas»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 22.1 del Reglamento de Régimen Interno del CPEI, ¿sobre qué novedades se da parte verbal inmediato?",
+     "opciones": [
+      "Solo sobre los accidentes sufridos por el personal",
+      "Personal, material o cualquier circunstancia relevante",
+      "Solo sobre las averías de los vehículos del parque"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 22.1: novedades «referidas al personal, material o cualquier otra circunstancia relevante»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a22-2-visitas",
+   "bloque": "a22",
+   "apartado": "2",
+   "orden": 1040,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 22.2 del RRI del CPEI, ¿cuándo deben darse informaciones por la visita al parque?",
+    "respuesta": "Siempre que el parque sea visitado por miembros del Consejo de Administración."
+   },
+   "cita": "siempre que el parque sea visitado por miembros del Consejo de Administración",
+   "confundible_con": [
+    "RRI-a19-7-regimen-interno"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 22.2 del Reglamento de Régimen Interno del CPEI, ¿se informa cuando visitan el parque miembros del Consejo de Administración?",
+     "opciones": [
+      "No",
+      "Sí, siempre"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 22.2: «Se deberán dar las correspondientes informaciones siempre que el parque sea visitado por miembros del Consejo de Administración»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 22.2 del Reglamento de Régimen Interno del CPEI, se deben dar las correspondientes informaciones cuando el parque es visitado por:",
+     "opciones": [
+      "Cualquier ciudadano o asociación vecinal",
+      "Miembros del Consejo de Administración",
+      "Alumnos de colegios en visita didáctica"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 22.2: miembros del Consejo de Administración."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 22 del Reglamento de Régimen Interno del CPEI, la visita de miembros del Consejo de Administración a un parque:",
+     "opciones": [
+      "Obliga a dar las informaciones correspondientes",
+      "Debe autorizarla previamente el Jefe de Parque",
+      "No requiere ninguna información por parte del parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.2: siempre que el parque sea visitado por miembros del Consejo se darán las informaciones correspondientes."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a22-3-salidas",
+   "bloque": "a22",
+   "apartado": "3",
+   "orden": 1050,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 22.3 del RRI del CPEI, ¿dónde quedan reflejadas las salidas a siniestro?",
+    "respuesta": "Todas en el «parte de intervención», con los aspectos que determine el impreso."
+   },
+   "cita": "De todas las salidas a siniestro quedarán reflejado",
+   "confundible_con": [
+    "RRI-a19-9-intervencion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 22.3 del Reglamento de Régimen Interno del CPEI, ¿quedan reflejadas todas las salidas a siniestro?",
+     "opciones": [
+      "Sí, en el parte de intervención",
+      "No, solo las de más de una hora"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 22.3: «De todas las salidas a siniestro quedarán reflejado [sic] en el “parte de intervención”»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 22.3 del Reglamento de Régimen Interno del CPEI, las salidas a siniestro quedan reflejadas en:",
+     "opciones": [
+      "El parte de prácticas",
+      "El parte de intervención",
+      "El parte de asistencia y revisiones"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 22.3: en el parte de intervención."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 22.3 del Reglamento de Régimen Interno del CPEI, ¿qué aspectos de la salida se concretan en el parte de intervención?",
+     "opciones": [
+      "Los que decida libremente el bombero",
+      "Solo la hora de regreso",
+      "Los que se determinen en el parte impreso"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 22.3: «debiendo concretarse aquellos aspectos que se determinen en el parte impreso a tal efecto»."
+    }
+   ]
+  }
+ ]
+}

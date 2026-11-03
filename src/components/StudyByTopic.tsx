@@ -5,12 +5,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { ArrowLeft, Play, CheckCircle2, XCircle } from 'lucide-react';
 import { Question } from '../types';
+import { materialDeTema } from '../data/materialTemas';
 import { supabase } from '../lib/supabase';
 import { saveAttemptToServer, toLevelInt } from '../lib/saveAttemptToServer';
 import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
 import { shuffleAllOptions } from '../utils/shuffleOptions';
+import { checkAnswer, describeCheckError, fetchKeyless, withRevealedKey } from '../lib/secureQuestions';
+import { useActiveTimer } from '../hooks/useActiveTimer';
+import { validResponseMs } from '../utils/activeTimer';
 import { newStudySessionId, startStudySession, finishStudySession } from '../lib/studySession';
+import TopicSearch from './TopicSearch';
+import { matchesTopic } from '../utils/topicSearch';
+import ConceptOutline, { ConceptCountBadge, useConceptSummary } from './ConceptOutline';
+import { pedirTemas, temasEnCache } from '../lib/temasCache';
+import Skeleton from './Skeleton';
 
 interface TopicOption {
   id: number;
@@ -21,37 +30,42 @@ interface TopicOption {
 interface StudyByTopicProps {
   session: any;
   onNavigateHome: () => void;
+  /** Abre «Material por tema» en ese tema (solo se muestra el botón si el tema tiene material). */
+  onOpenMaterial?: (tema: number) => void;
 }
 
-export default function StudyByTopic({ session, onNavigateHome }: StudyByTopicProps) {
-  const [topics, setTopics] = useState<TopicOption[]>([]);
+export default function StudyByTopic({ session, onNavigateHome, onOpenMaterial }: StudyByTopicProps) {
+  const [topics, setTopics] = useState<TopicOption[]>(() => (temasEnCache() ?? []) as TopicOption[]);
   const [selected, setSelected] = useState<number[]>([]);
-  const [loadingTopics, setLoadingTopics] = useState(true);
+  const [topicQuery, setTopicQuery] = useState('');
+  const [loadingTopics, setLoadingTopics] = useState(() => temasEnCache() === null);
+  // Recuentos reales de conceptos por tema y mapa de conceptos desplegable (migración 23).
+  const { resumen: conceptSummary, listo: conceptSummaryListo } = useConceptSummary();
+  const [outlineTema, setOutlineTema] = useState<number | null>(null);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [started, setStarted] = useState(false);
   const [loadingQuestions, setLoadingQuestions] = useState(false);
   const [idx, setIdx] = useState(0);
   const [answer, setAnswer] = useState('');
-  const [confidence, setConfidence] = useState('');
   const [answered, setAnswered] = useState(false);
-  const [startTime, setStartTime] = useState(0);
+  // Tiempo ACTIVO de la pregunta (se pausa con la pestaña oculta y al responder; ver utils/activeTimer).
+  const timer = useActiveTimer(`${started}-${idx}`, { running: started && !answered });
   const [correctCount, setCorrectCount] = useState(0);
   // Sesión de estudio en curso (para medir sesiones terminadas). null si no hay cuenta.
   const sessionIdRef = useRef<string | null>(null);
   const finishedRef = useRef(false);
+  const answeringRef = useRef(false);
+  const [checkError, setCheckError] = useState<string | null>(null);
 
 useEffect(() => {
-  const loadTopics = async () => {
-    setLoadingTopics(true);
-    const { data, error } = await supabase
-    .from('topics')
-    .select('id,numero,nombre')
-    .eq('convocatoria_id', 1)
-    .order('numero');
-    if (!error && data) setTopics(data as TopicOption[]);
+  // Con lista guardada se pinta al instante; se actualiza por detrás (lib/temasCache).
+  let vivo = true;
+  void pedirTemas().then((data) => {
+    if (!vivo) return;
+    if (data) setTopics(data as TopicOption[]);
     setLoadingTopics(false);
-  };
-  loadTopics();
+  });
+  return () => { vivo = false; };
 }, []);
 
 const toggleTopic = (id: number) => {
@@ -61,14 +75,17 @@ const toggleTopic = (id: number) => {
 const startStudy = async () => {
   if (selected.length === 0) return;
   setLoadingQuestions(true);
-  const { data, error } = await supabase.rpc('get_topic_study_questions', {
-    p_user_id: session?.user?.id,
-    p_topic_ids: selected,
-    p_limit: 20
-  });
-  if (!error && data) {
+  // C2: preguntas SIN clave; se corrigen una a una con check_answer.
+  let data: Question[] | null = null;
+  try {
+    data = await fetchKeyless(supabase, 'get_topic_questions_v2', { p_topic_ids: selected, p_limit: 10 });
+  } catch (err) {
+    console.error('No se pudieron cargar las preguntas del tema:', err);
+  }
+  if (data) {
     setQuestions(shuffleAllOptions(data as Question[]));
     finishedRef.current = false;
+    answeringRef.current = false;
     sessionIdRef.current = session?.user?.id ? newStudySessionId() : null;
     if (sessionIdRef.current) {
       void startStudySession(sessionIdRef.current, 'estudio_por_temas', selected, (data as Question[]).length);
@@ -76,7 +93,6 @@ const startStudy = async () => {
     setStarted(true);
     setIdx(0);
     setCorrectCount(0);
-    setStartTime(Date.now());
   }
   setLoadingQuestions(false);
 };
@@ -91,32 +107,48 @@ useEffect(() => {
   }
 }, [started, idx, questions.length]);
 
-const confirmAnswer = async () => {
-  if (!currentQuestion || !answer) return;
-  const isCorrect = answer === currentQuestion.correct_answer;
+const confirmAnswer = async (chosen: string) => {
+  // Un toque responde. El ref evita guardar dos veces si se pulsa rápido dos opciones.
+  if (!currentQuestion || !chosen || answered || answeringRef.current) return;
+  answeringRef.current = true;
+  setAnswer(chosen);
+  // Se mide antes de esperar al servidor; más de 2 min activos = sin dato (null).
+  const responseMs = validResponseMs(timer.getElapsedMs());
+  let isCorrect = false;
+  try {
+    const check = await checkAnswer(supabase, currentQuestion, chosen);
+    isCorrect = check.correct;
+    const answeredIdx = idx;
+    setQuestions(prev => prev.map((q, i) => (i === answeredIdx ? withRevealedKey(q, check) : q)));
+  } catch (err) {
+    console.error('No se pudo corregir la respuesta:', err);
+    setCheckError(describeCheckError(err));
+    setAnswer('');
+    answeringRef.current = false;
+    return;
+  }
+  setCheckError(null);
   if (isCorrect) setCorrectCount(c => c + 1);
   setAnswered(true);
-  const responseTimeMs = Date.now() - startTime;
   if (supabase && session?.user?.id) {
     await saveAttemptToServer({
       p_user_id: session.user.id,
       p_question_id: Number(currentQuestion.id),
       p_acierto: isCorrect,
-      p_respuesta: answer,
-      p_tiempo_ms: responseTimeMs,
+      p_respuesta: chosen,
+      p_tiempo_ms: responseMs,
       p_modo: 'estudio_por_temas',
       p_session_id: sessionIdRef.current,
       p_nivel: toLevelInt(currentQuestion.level),
-      p_confidence: confidence || null
+      p_confidence: null
     });
   }
 };
 
 const nextQuestion = () => {
+  answeringRef.current = false;
   setAnswer('');
-  setConfidence('');
   setAnswered(false);
-  setStartTime(Date.now());
   setIdx(i => i + 1);
 };
 
@@ -130,7 +162,7 @@ const restart = () => {
 const h = React.createElement;
 
 if (!started) {
-  return h('div', { className: 'min-h-screen bg-slate-50 p-4' },
+  return h('div', { className: 'min-h-screen bg-fondo p-4' },
            h('div', { className: 'max-w-2xl mx-auto' },
              h('div', { className: 'flex items-center justify-between mb-4' },
                h('button', { onClick: onNavigateHome, className: 'flex items-center gap-2 text-slate-600' },
@@ -142,28 +174,52 @@ if (!started) {
                  defaultReason: 'Temario y estudio',
                })
              ),
-             h('h1', { className: 'text-2xl font-bold text-slate-900 mb-2' }, 'Estudio por Temas'),
+             h('h1', { className: 'text-2xl font-bold text-slate-900 mb-2' }, 'Temas'),
              h('p', { className: 'text-slate-600 mb-6' }, 'Elige uno o varios temas para practicar preguntas centradas en ese contenido.'),
              loadingTopics
-             ? h('p', { className: 'text-slate-500' }, 'Cargando temas...')
+             ? h(Skeleton, { label: 'Cargando temas...', block: false, lines: 5 })
+             : h('div', { className: 'mb-3' },
+                 h(TopicSearch, { id: 'por-temas-buscar-tema', value: topicQuery, onChange: setTopicQuery, shown: topics.filter(t => matchesTopic(topicQuery, t.numero, t.nombre)).length, total: topics.length })
+               ),
+             loadingTopics
+             ? null
              : h('div', { className: 'grid grid-cols-1 gap-2 mb-6' },
-                 topics.map(t => h('label', {
-                   key: t.id,
-                   className: 'flex items-center gap-3 p-3 rounded-lg border cursor-pointer ' + (selected.includes(t.id) ? 'border-orange-500 bg-orange-50' : 'border-slate-200 bg-white')
-                 },
-                                   h('input', {
-                                     type: 'checkbox',
-                                     checked: selected.includes(t.id),
-                                     onChange: () => toggleTopic(t.id),
-                                     className: 'w-4 h-4'
-                                   }),
-                                   h('span', { className: 'text-sm text-slate-800' }, 'Tema ' + t.numero + '. ' + t.nombre)
-                                   ))
+                 topics.filter(t => matchesTopic(topicQuery, t.numero, t.nombre)).map(t => h('div', { key: t.id, className: 'space-y-2' },
+                   h('div', {
+                     className: 'flex items-center gap-2 p-3 rounded-lg border ' + (selected.includes(t.id) ? 'border-indigo-600 bg-indigo-50' : 'border-slate-200 bg-white')
+                   },
+                     h('label', { className: 'flex flex-1 items-center gap-3 cursor-pointer' },
+                       h('input', {
+                         type: 'checkbox',
+                         checked: selected.includes(t.id),
+                         onChange: () => toggleTopic(t.id),
+                         className: 'w-4 h-4'
+                       }),
+                       h('span', { className: 'flex flex-col' },
+                         h('span', { className: 'text-sm text-slate-800' }, 'Tema ' + t.numero + '. ' + t.nombre),
+                         h(ConceptCountBadge, { tema: conceptSummary[t.numero], listo: conceptSummaryListo })
+                       )
+                     ),
+                     onOpenMaterial && materialDeTema(t.numero) ? h('button', {
+                       type: 'button',
+                       onClick: () => onOpenMaterial(t.numero),
+                       'aria-label': 'Material del tema ' + t.numero,
+                       className: 'shrink-0 min-h-11 rounded-lg border border-orange-300 px-3 text-xs font-semibold text-orange-700 hover:bg-orange-50'
+                     }, 'Material') : null,
+                     conceptSummary[t.numero] ? h('button', {
+                       type: 'button',
+                       'aria-expanded': outlineTema === t.numero,
+                       onClick: () => setOutlineTema(outlineTema === t.numero ? null : t.numero),
+                       className: 'shrink-0 min-h-11 px-3 text-xs font-semibold text-indigo-700 underline'
+                     }, outlineTema === t.numero ? 'Ocultar' : 'Ver conceptos') : null
+                   ),
+                   outlineTema === t.numero ? h(ConceptOutline, { tema: t.numero }) : null
+                 ))
                  ),
              h('button', {
                onClick: startStudy,
                disabled: selected.length === 0 || loadingQuestions,
-               className: 'w-full flex items-center justify-center gap-2 bg-orange-500 text-white py-3 rounded-lg font-semibold disabled:opacity-50'
+               className: 'w-full flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-lg font-semibold disabled:opacity-50'
              },
                h(Play, { size: 18 }), ' ' + (loadingQuestions ? 'Cargando...' : 'Empezar (' + selected.length + ' tema' + (selected.length === 1 ? '' : 's') + ')')
                )
@@ -172,28 +228,28 @@ if (!started) {
 }
 
 if (started && questions.length === 0) {
-  return h('div', { className: 'min-h-screen bg-slate-50 p-4 flex items-center justify-center' },
+  return h('div', { className: 'min-h-screen bg-fondo p-4 flex items-center justify-center' },
            h('div', { className: 'text-center' },
              h('p', { className: 'text-slate-600 mb-4' }, 'No hay preguntas disponibles para los temas seleccionados.'),
-             h('button', { onClick: restart, className: 'text-orange-600 font-semibold' }, 'Volver a elegir temas')
+             h('button', { onClick: restart, className: 'text-indigo-700 font-semibold' }, 'Volver a elegir temas')
              )
            );
 }
 
 if (idx >= questions.length) {
-  return h('div', { className: 'min-h-screen bg-slate-50 p-4 flex items-center justify-center' },
+  return h('div', { className: 'min-h-screen bg-fondo p-4 flex items-center justify-center' },
            h('div', { className: 'max-w-md w-full text-center bg-white rounded-xl p-6 shadow' },
              h('h2', { className: 'text-xl font-bold text-slate-900 mb-2' }, 'Sesión completada'),
              h('p', { className: 'text-slate-600 mb-4' }, 'Acertaste ' + correctCount + ' de ' + questions.length + ' preguntas.'),
              h('div', { className: 'flex gap-2' },
-               h('button', { onClick: restart, className: 'flex-1 bg-orange-500 text-white py-2 rounded-lg font-semibold' }, 'Elegir otros temas'),
+               h('button', { onClick: restart, className: 'flex-1 bg-indigo-600 text-white py-2 rounded-lg font-semibold' }, 'Elegir otros temas'),
                h('button', { onClick: onNavigateHome, className: 'flex-1 bg-slate-200 text-slate-800 py-2 rounded-lg font-semibold' }, 'Inicio')
                )
              )
            );
 }
 
-return h('div', { className: 'min-h-screen bg-slate-50 p-4' },
+return h('div', { className: 'min-h-screen bg-fondo p-4' },
          h('div', { className: 'max-w-2xl mx-auto' },
            h('div', { className: 'flex items-center justify-between mb-4' },
              h('button', { onClick: onNavigateHome, className: 'flex items-center gap-2 text-slate-600' },
@@ -209,6 +265,9 @@ return h('div', { className: 'min-h-screen bg-slate-50 p-4' },
                h(ReportQuestionButton, { questionId: currentQuestion.id, onReported: nextQuestion })
              )
            ),
+           checkError
+           ? h('p', { role: 'alert', id: 'topic-check-error', className: 'mb-3 p-3 rounded-lg border border-rose-300 bg-rose-50 text-rose-900 text-sm' }, checkError)
+           : null,
            h('div', { className: 'bg-white rounded-xl p-5 shadow mb-4' },
              h('p', { className: 'text-slate-900 font-medium mb-4' }, currentQuestion.question),
              h('div', { className: 'flex flex-col gap-2' },
@@ -220,11 +279,11 @@ return h('div', { className: 'min-h-screen bg-slate-50 p-4' },
                    if (isCorrectOpt) cls = 'border-green-500 bg-green-50';
                    else if (isSelected) cls = 'border-red-500 bg-red-50';
                  } else if (isSelected) {
-                   cls = 'border-orange-500 bg-orange-50';
+                   cls = 'border-indigo-600 bg-indigo-50';
                  }
                  return h('button', {
                    key: i,
-                   onClick: () => { if (!answered) setAnswer(opt); },
+                   onClick: () => { void confirmAnswer(opt); },
                    disabled: answered,
                    className: 'text-left p-3 rounded-lg border ' + cls
                  }, opt);
@@ -235,37 +294,17 @@ return h('div', { className: 'min-h-screen bg-slate-50 p-4' },
                  answer === currentQuestion.correct_answer
                  ? h(CheckCircle2, { className: 'text-green-500 shrink-0', size: 18 })
                  : h(XCircle, { className: 'text-red-500 shrink-0', size: 18 }),
-                 h('span', null, currentQuestion.explanation)
+                 h('span', null, currentQuestion.explanation,
+                   currentQuestion.cita ? h('span', { className: 'block mt-1 text-slate-500', 'data-testid': 'cita-literal' }, `Cita literal: «${currentQuestion.cita}»`) : null)
                  )
              : null
              ),
-           !answered && answer
-           ? h('div', { className: 'bg-white rounded-xl p-4 shadow mb-4' },
-               h('p', { className: 'text-sm font-semibold text-slate-700 mb-2' }, '¿Cómo de seguro estás?'),
-               h('div', { className: 'grid grid-cols-3 gap-2', role: 'radiogroup', 'aria-label': 'Seguridad de tu respuesta' },
-                 [['alta', 'Lo sé'], ['media', 'Creo que sí'], ['baja', 'Me la juego']].map(([value, label]) =>
-                   h('button', {
-                     key: value,
-                     type: 'button',
-                     role: 'radio',
-                     'aria-checked': confidence === value,
-                     onClick: () => setConfidence(value as any),
-                     className: 'py-2 rounded-lg border text-sm font-semibold ' +
-                       (confidence === value ? 'border-orange-500 bg-orange-50 text-orange-700' : 'border-slate-200 text-slate-600')
-                   }, label))
-               )
-             )
-           : null,
-           !answered
+           answered
            ? h('button', {
-             onClick: confirmAnswer,
-             disabled: !answer || !confidence,
-             className: 'w-full bg-orange-500 text-white py-3 rounded-lg font-semibold disabled:opacity-50'
-           }, 'Confirmar respuesta')
-           : h('button', {
              onClick: nextQuestion,
              className: 'w-full bg-slate-900 text-white py-3 rounded-lg font-semibold'
-           }, 'Siguiente')
+           }, idx + 1 >= questions.length ? 'Ver resultado' : 'Siguiente')
+           : null
            )
          );
 }

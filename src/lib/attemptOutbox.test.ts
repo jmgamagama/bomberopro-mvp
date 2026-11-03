@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { beforeEach, describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   bumpTries,
   countAllPending,
@@ -32,6 +32,7 @@ const make = (key: string, user: string, createdAt: string): PendingAttempt => (
 
 describe('attemptOutbox', () => {
   beforeEach(() => window.localStorage.clear());
+  afterEach(() => vi.restoreAllMocks());
 
   it('encolar la misma clave dos veces no la duplica', () => {
     expect(enqueuePending(make('k1', 'u1', '2026-10-03T10:00:00.000Z'))).toBe(true);
@@ -89,5 +90,32 @@ describe('attemptOutbox', () => {
     const kept = JSON.parse(window.localStorage.getItem('bomberopro:rejected-attempts:v1:u1') || '[]');
     expect(kept).toHaveLength(50);
     expect(kept[0].key).toBe('k10');
+  });
+
+  it('no pierde una respuesta si otra pestaña escribe tras el mismo snapshot vacío', () => {
+    // Reproduce la carrera de Codex (discussion_r4182756992): dos pestañas leen []
+    // y la última escritura no debe pisar la entrada de la otra.
+    // Simulación: en la releída previa a escribir, inyectamos lo que escribió la otra pestaña.
+    const storeKey = 'bomberopro:pending-attempts:v1:u1';
+    const realGetItem = Storage.prototype.getItem;
+    const realSetItem = Storage.prototype.setItem;
+    let queueReads = 0;
+
+    vi.spyOn(Storage.prototype, 'getItem').mockImplementation(function (this: Storage, key: string) {
+      if (key === storeKey) {
+        queueReads += 1;
+        if (queueReads === 2) {
+          realSetItem.call(
+            this,
+            storeKey,
+            JSON.stringify([make('tab-b', 'u1', '2026-10-03T09:00:00.000Z')])
+          );
+        }
+      }
+      return realGetItem.call(this, key);
+    });
+
+    expect(enqueuePending(make('tab-a', 'u1', '2026-10-03T10:00:00.000Z'))).toBe(true);
+    expect(readPending('u1').map(e => e.key).sort()).toEqual(['tab-a', 'tab-b']);
   });
 });

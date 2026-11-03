@@ -1,0 +1,929 @@
+{
+ "descripcion": "Preguntas YA publicadas en producción (tema 1) sobre los arts. 14-29 CE, revisadas una a una contra el texto consolidado del BOE (act. 20/05/2026) el 29/10/2026. accion: vincular, corregir, retirar_duplicada (se despublica con registro; el motivo indica si además tenía un error).",
+ "motivo_registro": "revisión arts. 14-29 CE contra BOE act. 20/05/2026 (29/10/2026)",
+ "revisado_por": "Claude (revisión manual contra el BOE), con el OK general de JM del 28/10/2026",
+ "preguntas": [
+  {
+   "question_id": 799,
+   "accion": "vincular",
+   "concepto": "CE-a20-4-limites",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 800,
+   "accion": "vincular",
+   "concepto": "CE-a18-1-honor",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 807,
+   "accion": "vincular",
+   "concepto": "CE-a20-3-medios-publicos",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 809,
+   "accion": "vincular",
+   "concepto": "CE-a27-5-programacion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 813,
+   "accion": "corregir",
+   "concepto": "CE-a27-5-programacion",
+   "nivel": 2,
+   "motivo": "La opción c «Ambas son correctas» es referencial: depende del orden y del recorte de opciones.",
+   "cambios": {
+    "opcion": {
+     "letra": "c",
+     "texto": "Una red de centros exclusivamente públicos"
+    }
+   }
+  },
+  {
+   "question_id": 816,
+   "accion": "vincular",
+   "concepto": "CE-a16-1-libertad-ideologica",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 823,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 956; además la correcta era claramente la más larga."
+  },
+  {
+   "question_id": 824,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 955, con opción referencial «Ambas son correctas»."
+  },
+  {
+   "question_id": 826,
+   "accion": "corregir",
+   "concepto": "CE-a20-3-medios-publicos",
+   "nivel": 3,
+   "motivo": "La opción c «Los poderes públicos» es casi sinónima de «cualquier ente público» y hace discutible la pregunta.",
+   "cambios": {
+    "opcion": {
+     "letra": "c",
+     "texto": "Las Cortes Generales"
+    }
+   }
+  },
+  {
+   "question_id": 836,
+   "accion": "corregir",
+   "concepto": "CE-a22-2-ilegales",
+   "nivel": 2,
+   "motivo": "La opción c «Ninguna es correcta» es referencial.",
+   "cambios": {
+    "opcion": {
+     "letra": "c",
+     "texto": "Las que no tengan una estructura interna democrática"
+    }
+   }
+  },
+  {
+   "question_id": 843,
+   "accion": "corregir",
+   "concepto": "CE-a20-3-medios-publicos",
+   "nivel": 3,
+   "motivo": "La opción c «Ambas valen» es referencial.",
+   "cambios": {
+    "opcion": {
+     "letra": "c",
+     "texto": "El pluralismo territorial de las Comunidades Autónomas"
+    }
+   }
+  },
+  {
+   "question_id": 847,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 6170, con opción referencial «Ninguna es correcta»."
+  },
+  {
+   "question_id": 849,
+   "accion": "corregir",
+   "concepto": "CE-a15-vida-integridad",
+   "nivel": 2,
+   "motivo": "La opción c «Ninguna es correcta» es referencial.",
+   "cambios": {
+    "opcion": {
+     "letra": "c",
+     "texto": "La integridad personal y familiar, sin que se pueda someter a torturas o trato degradante"
+    }
+   }
+  },
+  {
+   "question_id": 852,
+   "accion": "vincular",
+   "concepto": "CE-a27-10-universidades",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 854,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 6154 y la 4731; enunciado confuso («queda sin abolir textualmente»)."
+  },
+  {
+   "question_id": 856,
+   "accion": "corregir",
+   "concepto": "CE-a16-2-no-declarar",
+   "nivel": 3,
+   "motivo": "La opción d «Ninguna es correcta» es referencial.",
+   "cambios": {
+    "opcion": {
+     "letra": "d",
+     "texto": "Su ideología, afiliación política o creencias"
+    }
+   }
+  },
+  {
+   "question_id": 858,
+   "accion": "corregir",
+   "concepto": "CE-a22-5-prohibidas",
+   "nivel": 3,
+   "motivo": "Las opciones c «Más de una es correcta» y d «Ninguna es correcta» son referenciales.",
+   "cambios": {
+    "opcion": [
+     {
+      "letra": "c",
+      "texto": "Las que no se inscriban en el registro"
+     },
+     {
+      "letra": "d",
+      "texto": "Las de carácter político"
+     }
+    ]
+   }
+  },
+  {
+   "question_id": 863,
+   "accion": "vincular",
+   "concepto": "CE-a27-1-educacion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 871,
+   "accion": "vincular",
+   "concepto": "CE-a17-2-72-horas",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 879,
+   "accion": "vincular",
+   "concepto": "CE-a27-3-formacion-religiosa",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 893,
+   "accion": "vincular",
+   "concepto": "CE-a19-residencia-circulacion",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 894,
+   "accion": "vincular",
+   "concepto": "CE-a19-residencia-circulacion",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 897,
+   "accion": "vincular",
+   "concepto": "CE-a14-igualdad",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 903,
+   "accion": "vincular",
+   "concepto": "CE-a20-2-censura",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 906,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Ambigua: «carácter oficial» es casi sinónimo de «carácter estatal». La cubren la 4737 y la 6156."
+  },
+  {
+   "question_id": 913,
+   "accion": "corregir",
+   "concepto": "CE-a27-4-basica",
+   "nivel": 2,
+   "motivo": "La opción c «Ambas son correctas» es referencial.",
+   "cambios": {
+    "opcion": {
+     "letra": "c",
+     "texto": "Voluntaria y gratuita"
+    }
+   }
+  },
+  {
+   "question_id": 916,
+   "accion": "corregir",
+   "concepto": "CE-a21-2-manifestaciones",
+   "nivel": 2,
+   "motivo": "La opción c «Ninguna es correcta» es referencial.",
+   "cambios": {
+    "opcion": {
+     "letra": "c",
+     "texto": "Cuando la autoridad considere que dificultan el tráfico"
+    }
+   }
+  },
+  {
+   "question_id": 918,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "La correcta es la opción referencial «Más de una es correcta». La cubren la 4744 y las nuevas del art. 20.1."
+  },
+  {
+   "question_id": 920,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 6164; opciones mal construidas («otros», «resolución legal»)."
+  },
+  {
+   "question_id": 923,
+   "accion": "corregir",
+   "concepto": "CE-a17-4-habeas-corpus",
+   "nivel": 3,
+   "motivo": "La opción b «detenida ilegítimamente» es casi sinónima de la correcta («ilegalmente») y la hace discutible.",
+   "cambios": {
+    "opcion": {
+     "letra": "b",
+     "texto": "Para poner a disposición judicial a toda persona condenada en rebeldía"
+    }
+   }
+  },
+  {
+   "question_id": 925,
+   "accion": "vincular",
+   "concepto": "CE-a27-8-inspeccion",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 928,
+   "accion": "vincular",
+   "concepto": "CE-a27-6-creacion-centros",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 930,
+   "accion": "vincular",
+   "concepto": "CE-a27-7-control-gestion",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 935,
+   "accion": "vincular",
+   "concepto": "CE-a27-2-objeto",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 936,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 6166, con opción referencial «Ninguna es correcta»."
+  },
+  {
+   "question_id": 937,
+   "accion": "vincular",
+   "concepto": "CE-a20-4-limites",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 942,
+   "accion": "vincular",
+   "concepto": "CE-a27-9-ayudas",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 945,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 4719, con opción referencial «Más de una es correcta»."
+  },
+  {
+   "question_id": 946,
+   "accion": "vincular",
+   "concepto": "CE-a17-1-libertad-seguridad",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 947,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "La correcta es la opción referencial «Más de una es correcta». Duplicada de la 4728 y la 6168."
+  },
+  {
+   "question_id": 948,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 6158 y la 4753, con opción referencial «Ninguna es correcta»."
+  },
+  {
+   "question_id": 949,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 8201, con dos opciones referenciales."
+  },
+  {
+   "question_id": 953,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 863."
+  },
+  {
+   "question_id": 955,
+   "accion": "vincular",
+   "concepto": "CE-a27-1-educacion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 956,
+   "accion": "vincular",
+   "concepto": "CE-a27-2-objeto",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 957,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 935."
+  },
+  {
+   "question_id": 960,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 813."
+  },
+  {
+   "question_id": 961,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 809."
+  },
+  {
+   "question_id": 963,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 930, con opción referencial."
+  },
+  {
+   "question_id": 4719,
+   "accion": "corregir",
+   "concepto": "CE-a21-1-reunion",
+   "nivel": 3,
+   "motivo": "La explicación incluía una nota interna («Verificado contra fuente oficial»).",
+   "cambios": {
+    "explicacion": "El art. 21.1 CE dice literalmente: «Se reconoce el derecho de reunión pacífica y sin armas». No usa el verbo «garantizar», que sí aparece, por ejemplo, en el art. 18.1."
+   }
+  },
+  {
+   "question_id": 4720,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Ambigua: «resolución judicial debidamente motivada» también es defendible (las resoluciones judiciales se motivan). La cubre la 6164."
+  },
+  {
+   "question_id": 4721,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Ambigua: la opción c («no necesitará autorización previa») es cierta para el derecho de asociación, aunque el art. 22 no lo diga. La cubre la 7545."
+  },
+  {
+   "question_id": 4726,
+   "accion": "vincular",
+   "concepto": "CE-a17-1-libertad-seguridad",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 4728,
+   "accion": "vincular",
+   "concepto": "CE-a24-2-parentesco",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4731,
+   "accion": "corregir",
+   "concepto": "CE-a15-pena-muerte",
+   "nivel": 3,
+   "motivo": "La explicación decía que una «reforma de 1995» cambió el art. 15 y eliminó una excepción del estado de sitio: falso, el art. 15 nunca se ha reformado y no menciona el estado de sitio.",
+   "cambios": {
+    "explicacion": "La redacción del art. 15 CE no ha cambiado: abole la pena de muerte «salvo lo que puedan disponer las leyes penales militares para tiempos de guerra». No menciona el estado de sitio. (La Ley Orgánica 11/1995 la suprimió también en tiempo de guerra, pero el texto constitucional conserva la salvedad.)"
+   }
+  },
+  {
+   "question_id": 4733,
+   "accion": "vincular",
+   "concepto": "CE-a18-1-honor",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4736,
+   "accion": "vincular",
+   "concepto": "CE-a16-2-no-declarar",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 4737,
+   "accion": "vincular",
+   "concepto": "CE-a16-3-aconfesionalidad",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4741,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 6162, con opción referencial «Las dos anteriores son correctas»."
+  },
+  {
+   "question_id": 4744,
+   "accion": "vincular",
+   "concepto": "CE-a20-1-expresion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4745,
+   "accion": "vincular",
+   "concepto": "CE-a17-4-habeas-corpus",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4746,
+   "accion": "corregir",
+   "concepto": "CE-a16-1-libertad-ideologica",
+   "nivel": 3,
+   "motivo": "La opción c decía «intervención judicial» en lugar de «resolución judicial»: casi sinónimo, la hacía discutible.",
+   "cambios": {
+    "opcion": {
+     "letra": "c",
+     "texto": "El domicilio es inviolable y ninguna entrada o registro podrá hacerse en él sin consentimiento del titular o autorización gubernativa, salvo en caso de flagrante delito"
+    },
+    "explicacion": "La b es la redacción literal del art. 16.1 CE. La a es falsa: el art. 15 mantiene la salvedad de las leyes penales militares para tiempos de guerra. La c también: el art. 18.2 exige consentimiento del titular o resolución judicial, no autorización gubernativa."
+   }
+  },
+  {
+   "question_id": 4748,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 6165 y la 916."
+  },
+  {
+   "question_id": 4749,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "La correcta es la opción referencial «Todas son correctas». La cubren la 6160 y la 6161."
+  },
+  {
+   "question_id": 4753,
+   "accion": "vincular",
+   "concepto": "CE-a17-3-detenido",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 4754,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 897 y la 6153."
+  },
+  {
+   "question_id": 4756,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 858, con opción referencial."
+  },
+  {
+   "question_id": 4757,
+   "accion": "corregir",
+   "concepto": "CE-a17-2-72-horas",
+   "nivel": 2,
+   "motivo": "La explicación incluía una nota interna sobre versiones de academias.",
+   "cambios": {
+    "explicacion": "El art. 17.2 CE combina dos límites: el tiempo estrictamente necesario para las averiguaciones y, en todo caso, un máximo de setenta y dos horas."
+   }
+  },
+  {
+   "question_id": 4759,
+   "accion": "vincular",
+   "concepto": "CE-a18-4-informatica",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 4770,
+   "accion": "vincular",
+   "concepto": "CE-a25-1-legalidad-penal",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4771,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "La correcta es la opción referencial «Las tres anteriores». La cubren las nuevas del concepto CE-a25-2-preso."
+  },
+  {
+   "question_id": 4775,
+   "accion": "vincular",
+   "concepto": "CE-a28-1-sindicacion",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 4783,
+   "accion": "vincular",
+   "concepto": "CE-a27-7-control-gestion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4788,
+   "accion": "vincular",
+   "concepto": "CE-a29-1-peticion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 4794,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 6170."
+  },
+  {
+   "question_id": 4795,
+   "accion": "vincular",
+   "concepto": "CE-a27-6-creacion-centros",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6153,
+   "accion": "vincular",
+   "concepto": "CE-a14-igualdad",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6154,
+   "accion": "vincular",
+   "concepto": "CE-a15-pena-muerte",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6155,
+   "accion": "vincular",
+   "concepto": "CE-a16-1-libertad-ideologica",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6156,
+   "accion": "vincular",
+   "concepto": "CE-a16-3-aconfesionalidad",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6157,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 871."
+  },
+  {
+   "question_id": 6158,
+   "accion": "vincular",
+   "concepto": "CE-a17-3-detenido",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6159,
+   "accion": "vincular",
+   "concepto": "CE-a17-4-habeas-corpus",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6160,
+   "accion": "vincular",
+   "concepto": "CE-a18-2-domicilio",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6161,
+   "accion": "vincular",
+   "concepto": "CE-a18-3-comunicaciones",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6162,
+   "accion": "vincular",
+   "concepto": "CE-a19-residencia-circulacion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6163,
+   "accion": "vincular",
+   "concepto": "CE-a20-2-censura",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6164,
+   "accion": "vincular",
+   "concepto": "CE-a20-5-secuestro",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6165,
+   "accion": "vincular",
+   "concepto": "CE-a21-2-manifestaciones",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6166,
+   "accion": "vincular",
+   "concepto": "CE-a22-3-registro",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6167,
+   "accion": "vincular",
+   "concepto": "CE-a23-2-acceso-cargos",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6168,
+   "accion": "vincular",
+   "concepto": "CE-a24-2-parentesco",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6169,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 4770."
+  },
+  {
+   "question_id": 6170,
+   "accion": "vincular",
+   "concepto": "CE-a25-2-reinsercion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6171,
+   "accion": "vincular",
+   "concepto": "CE-a25-3-administracion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6172,
+   "accion": "vincular",
+   "concepto": "CE-a26-tribunales-honor",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6173,
+   "accion": "vincular",
+   "concepto": "CE-a27-3-formacion-religiosa",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6174,
+   "accion": "vincular",
+   "concepto": "CE-a28-1-sindicacion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 6175,
+   "accion": "vincular",
+   "concepto": "CE-a29-1-peticion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 7543,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 4719."
+  },
+  {
+   "question_id": 7544,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 4720 (misma ambigüedad «debidamente motivada»)."
+  },
+  {
+   "question_id": 7545,
+   "accion": "vincular",
+   "concepto": "CE-a22-1-asociacion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 8176,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "La correcta es la opción referencial «Todas las anteriores son correctas». La cubren la 6160 y la 6161."
+  },
+  {
+   "question_id": 8180,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 4753."
+  },
+  {
+   "question_id": 8182,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 897 y la 6153."
+  },
+  {
+   "question_id": 8187,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 858, con opción referencial."
+  },
+  {
+   "question_id": 8188,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "La correcta es la opción referencial «Las dos anteriores son correctas». Duplicada de la 4757."
+  },
+  {
+   "question_id": 8192,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 4759."
+  },
+  {
+   "question_id": 8194,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 4726 y la 946."
+  },
+  {
+   "question_id": 8198,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Ambigua: la opción a «Resolución judicial motivada» también es defendible. La cubre la 6164."
+  },
+  {
+   "question_id": 8201,
+   "accion": "vincular",
+   "concepto": "CE-a24-2-garantias",
+   "nivel": 3,
+   "motivo": ""
+  },
+  {
+   "question_id": 8203,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Ambigua: la opción c (asistencia de abogado en diligencias policiales y judiciales) es casi literal del art. 17.3 y también es «correcta según el art. 17»."
+  },
+  {
+   "question_id": 8213,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 4770."
+  },
+  {
+   "question_id": 8217,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Ambigua: la opción b (la Administración militar puede imponer sanciones privativas de libertad) es cierta en la práctica, aunque el art. 25 no lo diga. La cubre la 6171."
+  },
+  {
+   "question_id": 8219,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "La correcta es la opción referencial «Las dos anteriores son correctas». Duplicada de la 4775 y la 6174."
+  },
+  {
+   "question_id": 8229,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 4783."
+  },
+  {
+   "question_id": 8237,
+   "accion": "vincular",
+   "concepto": "CE-a29-1-peticion",
+   "nivel": 2,
+   "motivo": ""
+  },
+  {
+   "question_id": 8246,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "La correcta es la opción referencial «Las dos anteriores son correctas». Duplicada de la 6170."
+  },
+  {
+   "question_id": 8247,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 4795."
+  },
+  {
+   "question_id": 8252,
+   "accion": "retirar_duplicada",
+   "concepto": null,
+   "nivel": null,
+   "motivo": "Duplicada de la 6172."
+  }
+ ]
+}

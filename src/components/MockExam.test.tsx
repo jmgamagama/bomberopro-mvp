@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import '../test/setup';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
 import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from '../data/initialData';
@@ -39,6 +39,9 @@ describe('MockExam', () => {
     });
 
     expect(container.querySelector('#exam-intro-card')).toHaveClass('p-5', 'sm:p-8');
+    expect(screen.getByText(/siguiendo la estructura indicada en las bases de CPEI Badajoz/i)).toBeInTheDocument();
+    expect(screen.getByText(/no son preguntas oficiales de exámenes anteriores/i)).toBeInTheDocument();
+    expect(screen.queryByText(/Blueprint oficial/i)).not.toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: /comenzar simulacro/i }));
     
     // Esperar a que pase el loading state
@@ -50,7 +53,7 @@ describe('MockExam', () => {
     await user.click(screen.getByRole('button', { name: /^siguiente/i }));
     expect(screen.getByText(/pregunta 2 de/i)).toBeInTheDocument();
 
-    await user.click(screen.getByRole('button', { name: /volver al dashboard/i }));
+    await user.click(screen.getByRole('button', { name: /Volver al inicio/i }));
     expect(onNavigateHome).toHaveBeenCalledOnce();
   });
 
@@ -66,10 +69,14 @@ describe('MockExam', () => {
     );
 
     // Mock the RPC call to return INITIAL_QUESTIONS
-    (supabase.rpc as any).mockResolvedValue({
-      data: INITIAL_QUESTIONS.slice(0, 10),
-      error: null
-    });
+    // C2: el servidor entrega las preguntas sin clave (get_exam_questions_v2) y corrige con grade_exam.
+    const served = INITIAL_QUESTIONS.slice(0, 10);
+    (supabase.rpc as any).mockImplementation((fn: string, args: any) => Promise.resolve(fn === 'grade_exam'
+      ? { data: { detalle: args.p_answers.map((a: any) => {
+          const q = served.find(x => x.id === a.question_id)!;
+          return { question_id: a.question_id, acierto: a.respuesta === q.correct_answer, correct_answer: q.correct_answer, explanation: q.explanation };
+        }) }, error: null }
+      : { data: served, error: null }));
 
     fireEvent.click(screen.getByRole('button', { name: /comenzar simulacro/i }));
 
@@ -87,13 +94,26 @@ describe('MockExam', () => {
       fireEvent.click(screen.getByRole('button', { name: index === 9 ? /finalizar examen/i : /^siguiente/i }));
     }
 
-    const summary = screen.getByRole('status');
-    expect(summary).toHaveFocus();
-    expect(summary).toHaveAccessibleName(/simulacro completado/i);
+    const summary = await screen.findByRole('status');
+    await waitFor(() => expect(summary).toHaveFocus());
+    expect(summary).toHaveAccessibleName(/simulacro terminado/i);
     expect(summary).toHaveAccessibleDescription(/nota .* acierto .* tiempo medio/i);
     expect(onFinishExam).toHaveBeenCalledOnce();
     expect(onFinishExam.mock.calls[0][0][0]).toMatchObject({ answerChanges: 2 });
     expect(onFinishExam.mock.calls[0][0][1]).toMatchObject({ answerChanges: 0 });
+
+    // Nota en español (coma, ≤ 2 decimales), fórmula de las bases y fallos con su clave, explicación y fuente.
+    expect(summary).not.toHaveAccessibleDescription(/\d\.\d/);
+    expect(container.querySelector('#mock-formula')).toHaveTextContent('BOP de Badajoz nº 135, de 17/07/2026): +0,200 por acierto, −0,066 por error y 0 en blanco.');
+    const fallos = container.querySelectorAll('#mock-fallos > ol > li');
+    const falladas = onFinishExam.mock.calls[0][0].filter((r: any) => !r.correct);
+    expect(fallos).toHaveLength(falladas.length);
+    if (falladas.length > 0) {
+      const q = served.find(x => x.id === falladas[0].questionId)!;
+      expect(fallos[0]).toHaveTextContent(`Correcta: ${q.correct_answer}`);
+      if (!q.explanation.startsWith('Ficha:')) expect(fallos[0]).toHaveTextContent(q.explanation);
+      if (q.fuente) expect(fallos[0]).toHaveTextContent(`Fuente: ${q.fuente}`);
+    }
   });
 
   it('sin sesión (demo) no pide el banco real al servidor: usa la muestra local y lo dice', async () => {
@@ -101,8 +121,9 @@ describe('MockExam', () => {
     (supabase.rpc as any).mockClear();
     render(<MockExam microconcepts={INITIAL_MICROCONCEPTS} onFinishExam={vi.fn()} onNavigateHome={vi.fn()} />);
     await user.click(screen.getByRole('button', { name: /comenzar simulacro/i }));
-    expect(await screen.findByText(/pregunta 1 de 10/i)).toBeInTheDocument();
-    expect(supabase.rpc).not.toHaveBeenCalled();
+    expect(await screen.findByText(new RegExp(`pregunta 1 de ${INITIAL_QUESTIONS.length}`, "i"))).toBeInTheDocument();
+    // Solo la medición anónima del embudo (migración 37); nunca el banco real.
+    expect((supabase.rpc as any).mock.calls.every((c: unknown[]) => c[0] === 'log_funnel_event')).toBe(true);
     expect(screen.getByRole('note').textContent).toMatch(/muestra/i);
   });
 
@@ -112,7 +133,7 @@ describe('MockExam', () => {
     (supabase.rpc as any).mockResolvedValue({ data: null, error: { code: '42501', message: 'permission denied' } });
     render(<MockExam microconcepts={INITIAL_MICROCONCEPTS} onFinishExam={vi.fn()} onNavigateHome={vi.fn()} useServerQuestions />);
     await user.click(screen.getByRole('button', { name: /comenzar simulacro/i }));
-    expect(await screen.findByText(/pregunta 1 de 10/i)).toBeInTheDocument();
+    expect(await screen.findByText(new RegExp(`pregunta 1 de ${INITIAL_QUESTIONS.length}`, "i"))).toBeInTheDocument();
     expect(screen.getByRole('note').textContent).toMatch(/muestra/i);
   });
 });

@@ -11,6 +11,33 @@ export function calculateExamScore({ correct, incorrect }: ExamScoreInput): numb
   return Math.round(score * 1000) / 1000;
 }
 
+export interface ExamScoreBreakdown {
+  /** Puntos que suman los aciertos (aciertos × +0,200). */
+  correctPoints: number;
+  /** Puntos que restan los fallos (fallos × −0,066), negativo o 0. */
+  incorrectPoints: number;
+  /** Suma de la fórmula antes de aplicar el mínimo de 0. */
+  raw: number;
+  /** Nota que se muestra: la suma, sin bajar de 0. */
+  score: number;
+  /** true si la suma era negativa y la nota se quedó en 0. */
+  clampedToZero: boolean;
+}
+
+const round3 = (n: number) => Math.round(n * 1000) / 1000;
+
+/** Cómo sale la nota del simulacro con la fórmula de las bases (misma cuenta que calculateExamScore). */
+export function examScoreBreakdown({ correct, incorrect }: ExamScoreInput): ExamScoreBreakdown {
+  const raw = calculateExamScore({ correct, incorrect });
+  return {
+    correctPoints: round3(correct * EXAM_CORRECT_POINTS),
+    incorrectPoints: round3(incorrect * EXAM_INCORRECT_POINTS) || 0,
+    raw,
+    score: Math.max(0, raw),
+    clampedToZero: raw < 0,
+  };
+}
+
 /**
  * Aprobado = al menos la mitad de la puntuación máxima posible. En el examen real (50 preguntas,
  * máximo 10) equivale a 5,0. Antes se exigía 5,0 fijo, así que un simulacro corto (10 preguntas,

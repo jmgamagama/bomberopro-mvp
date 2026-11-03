@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Brasa y Noche — maqueta</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+ body{margin:0;background:var(--bg);color:var(--text);font:1rem/1.5 system-ui,sans-serif}
+ header{height:var(--hdr-h);background:var(--hdr);color:var(--hdr-text);border-bottom:1px solid var(--hdr-border);display:flex;align-items:center;justify-content:space-between;padding:0 16px}
+ header b{font-size:1.05rem} header span{font-size:var(--fs-min)}
+ main{max-width:560px;margin:0 auto;padding:16px;display:grid;gap:16px}
+ .card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px}
+ .meta{color:var(--text-2);font-size:var(--fs-min)}
+ .opt{display:flex;gap:10px;width:100%;text-align:left;margin-top:8px;padding:12px;border:1.5px solid var(--border-strong);border-radius:10px;background:var(--surface);color:var(--text);font:inherit;min-height:44px;cursor:pointer}
+ .opt b{min-width:1.4em}
+ .opt.ok{border-color:var(--ok);background:var(--ok-bg)} .opt.err{border-color:var(--err);background:var(--err-bg)}
+ .src{border-left:4px solid var(--border-strong);padding-left:10px;color:var(--text-2);font-size:var(--fs-min)}
+ .big{font-size:2.5rem;font-weight:700}
+ .row{display:flex;gap:8px;flex-wrap:wrap} h2{margin:0 0 8px;font-size:1.1rem}
+ .bar{height:10px;background:var(--border);border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;width:78%;background:var(--btn)}
+</style></head><body>
+<header><b>BomberoPro</b><span>CPEI Badajoz 2026 · Simulacro</span></header>
+<main>
+ <section class="card" aria-labelledby="q">
+  <div class="row meta"><span>Pregunta 12 de 50</span><span>·</span><span>Tiempo: 41:20 de 60:00</span></div>
+  <h2 id="q">Pregunta de ejemplo (datos ficticios)</h2>
+  <p>¿Cuál de las siguientes afirmaciones sobre el ejemplo es correcta?</p>
+  <button class="opt"><b aria-hidden="true">A)</b>Primera opción de ejemplo</button>
+  <button class="opt err"><b aria-hidden="true">B)</b>Segunda opción (elegida) <span class="state state--err" style="margin-left:auto">✕ Incorrecta</span></button>
+  <button class="opt ok"><b aria-hidden="true">C)</b>Las dos anteriores son correctas… <span class="state state--ok" style="margin-left:auto">✓ Correcta</span></button>
+  <div class="row" style="margin-top:12px"><button class="btn">Siguiente</button><button class="btn" disabled>Finalizar</button><span class="state state--pen">● Sin responder</span></div>
+ </section>
+ <section class="card"><h2>Explicación</h2>
+  <p>Texto explicativo de ejemplo.</p>
+  <p class="src">Fuente: <i>norma de ejemplo, art. X</i> (cita exacta, línea de fuente real en la app).</p></section>
+ <section class="card"><h2>Resultado del simulacro</h2>
+  <div class="big">7,3 <span class="meta">/ 10</span></div>
+  <p class="meta">39 aciertos · 7 errores · 4 en blanco (+0,200 / −0,066 / 0). Aprobado: 5,0 sobre 10.</p>
+  <div class="bar" role="img" aria-label="78 % de aciertos"><i></i></div>
+  <p class="meta">Ejemplo ficticio — Calibración: dijiste «seguro» en 20 preguntas y acertaste 18 (90 %).</p>
+  <span class="state state--ok">✓ Aprobado</span></section>
+</main></body></html>

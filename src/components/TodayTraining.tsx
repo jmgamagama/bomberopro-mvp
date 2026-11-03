@@ -21,7 +21,7 @@ export default function TodayTraining({ questions, isLoading, error, onRetry, on
         </div>
         
         <div className="space-y-2">
-          <h2 className="text-2xl font-black text-slate-800 tracking-tight">Entrenamiento de Hoy</h2>
+          <h2 className="text-2xl font-black text-slate-800 tracking-tight">Entrenamiento de hoy</h2>
           <p className="text-slate-500 max-w-md mx-auto leading-relaxed text-sm">
             Hemos preparado tu sesión basándonos en tu curva de olvido actual y los temas que necesitas consolidar. El algoritmo de selección se encarga de todo.
           </p>
@@ -47,11 +47,11 @@ export default function TodayTraining({ questions, isLoading, error, onRetry, on
           <>
             <div className="grid grid-cols-2 gap-4 max-w-sm mx-auto my-8">
               <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                <span className="text-[10px] uppercase font-bold text-slate-400 block mb-1 tracking-wider">Preguntas</span>
+                <span className="text-[10px] uppercase font-bold text-slate-500 block mb-1 tracking-wider">Preguntas</span>
                 <span className="text-3xl font-extrabold text-indigo-600">{questions.length}</span>
               </div>
               <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
-                <span className="text-[10px] uppercase font-bold text-slate-400 block mb-1 tracking-wider">Tiempo est.</span>
+                <span className="text-[10px] uppercase font-bold text-slate-500 block mb-1 tracking-wider">Tiempo est.</span>
                 <span className="text-3xl font-extrabold text-slate-700 flex items-center justify-center gap-1">
                   ~{Math.max(1, Math.round((questions.length * 15) / 60))} <span className="text-sm font-semibold">min</span>
                 </span>
@@ -65,7 +65,7 @@ export default function TodayTraining({ questions, isLoading, error, onRetry, on
                 className="w-full sm:w-auto px-8 py-4 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-300 text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 mx-auto"
               >
                 <Play className="w-5 h-5 fill-current" />
-                Comenzar Sesión Automática
+                Comenzar sesión automática
               </button>
             </div>
           </>
@@ -74,19 +74,19 @@ export default function TodayTraining({ questions, isLoading, error, onRetry, on
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
           <button
             onClick={onNavigateHome}
-            className="text-xs font-semibold text-slate-400 hover:text-slate-600 transition"
+            className="text-xs font-semibold text-slate-500 hover:text-slate-600 transition"
           >
-            Volver al Dashboard
+            Volver al inicio
           </button>
           <span className="hidden sm:inline text-slate-300 text-xs" aria-hidden="true">•</span>
           <StudentConsultation
             variant="link"
-            context="Entrenamiento de Hoy"
+            context="Entrenamiento de hoy"
             defaultReason="Tarjetas y repasos"
           />
         </div>
         
-        <p className="text-[10px] text-slate-400 flex items-center justify-center gap-1.5 mt-4">
+        <p className="text-[10px] text-slate-500 flex items-center justify-center gap-1.5 mt-4">
           <Sparkles className="w-3.5 h-3.5" />
           Estas son las preguntas seleccionadas para esta sesión.
         </p>

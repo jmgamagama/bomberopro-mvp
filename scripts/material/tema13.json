@@ -1,0 +1,19 @@
+{
+ "tema": 13,
+ "boe": "BOE-A-1997-12735",
+ "carpeta": "tema13",
+ "prefijo": "rd773",
+ "epigrafe": "Equipos de proteccion individual para bomberos: normativa, caracteristicas, recomendaciones de uso y mantenimiento. Clasificacion de los equipos de proteccion individual. Equipos de proteccion respiratoria (EPR). Normas basicas de actuacion con los Equipos de Respiracion Autonoma. Consejos de uso, mantenimiento y conservacion de los EPR.\n",
+ "bloques": [
+  {
+   "titulo": "Real Decreto 773/1997 · Articulado (arts. 1–10)",
+   "desde": "a1",
+   "hasta": "a10"
+  },
+  {
+   "titulo": "Real Decreto 773/1997 · Anexos I a IV (riesgos, tipos de EPI y actividades)",
+   "desde": "ani",
+   "hasta": "aniv"
+  }
+ ]
+}

@@ -1,0 +1,26 @@
+name: audit-legacy-export
+on:
+  pull_request:
+    paths:
+      - 'supabase/migrations/26_close_legacy_preparer_export*.sql'
+      - 'supabase/tests/legacy_export.pglite.mjs'
+      - 'supabase/tests/fixtures/**'
+      - '.github/workflows/audit-legacy-export.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  postgres-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated Postgres runtime
+        run: npm install --prefix "$RUNNER_TEMP/audit-runtime" --no-save --ignore-scripts @electric-sql/pglite@0.5.11
+      - name: Test migration and rollback with fixtures
+        run: NODE_PATH="$RUNNER_TEMP/audit-runtime/node_modules" node supabase/tests/legacy_export.pglite.mjs
+      - name: Validate migration numbers
+        run: node scripts/check-migrations.mjs

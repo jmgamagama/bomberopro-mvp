@@ -1,7 +1,7 @@
 import { pathToFileURL } from 'node:url';
 import { loadEnv } from 'vite';
 
-export function validateDeploymentEnv(env) {
+export function validateDeploymentEnv(env, context = {}) {
   const url = env.VITE_SUPABASE_URL?.trim();
   const key = env.VITE_SUPABASE_ANON_KEY?.trim();
   const missing = [];
@@ -16,6 +16,15 @@ export function validateDeploymentEnv(env) {
     throw new Error('Despliegue detenido: VITE_SUPABASE_URL debe ser una URL HTTP(S) sin credenciales.');
   }
 
+  // En Preview solo se permite staging. Una URL válida no prueba aislamiento.
+  if (context.VERCEL_ENV === 'preview') {
+    const parsed = new URL(url);
+    if (parsed.origin !== 'https://fxhvgvehhekqeqpkxtrm.supabase.co' ||
+        parsed.pathname !== '/' || parsed.search || parsed.hash) {
+      throw new Error('Despliegue detenido: Preview requiere exclusivamente Supabase staging.');
+    }
+  }
+
   let role;
   try { role = JSON.parse(Buffer.from(key.split('.')[1], 'base64url').toString()).role; } catch { /* Puede ser una clave publicable, no JWT. */ }
   if (key.startsWith('sb_secret_') || role === 'service_role') {
@@ -26,7 +35,7 @@ export function validateDeploymentEnv(env) {
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   try {
     // Igual que vite build: .env, .env.local, .env.production y variables del proceso.
-    validateDeploymentEnv(loadEnv('production', process.cwd(), 'VITE_'));
+    validateDeploymentEnv(loadEnv('production', process.cwd(), 'VITE_'), process.env);
   } catch (error) {
     console.error(error.message); // Solo nombres y descripción; nunca los valores.
     process.exitCode = 1;

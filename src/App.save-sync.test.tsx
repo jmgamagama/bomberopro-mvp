@@ -2,8 +2,8 @@
 //
 // Con la aplicación completa: T40-04 (sesión caducada) y reenvío tras volver a iniciar sesión.
 
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { act, fireEvent, render, screen, waitFor, cleanup } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import './test/setup';
 
 const { getSession, onAuthStateChange, rpcMock } = vi.hoisted(() => ({
@@ -43,6 +43,8 @@ const pending = (user: string) => ({
   },
 });
 
+afterEach(cleanup);
+
 describe('guardado pendiente con la aplicación completa', () => {
   beforeEach(() => {
     window.localStorage.clear();
@@ -52,6 +54,22 @@ describe('guardado pendiente con la aplicación completa', () => {
     rpcMock.mockImplementation((fn: string) =>
       Promise.resolve(fn === 'record_attempt_v2' ? { data: { status: 'saved', attempt_id: 1 }, error: null } : { data: [], error: null })
     );
+  });
+
+  it('un error del selector no llama al exportador antiguo y permite reintentar', async () => {
+    getSession.mockResolvedValue({ data: { session: { user: { id: 'user-1' } } }, error: null });
+    let requests=0;
+    rpcMock.mockImplementation((fn: string) => Promise.resolve(fn === 'get_study_session_v2'
+      ? ++requests === 1 ? {data: null,error:{message:'Fallo temporal del selector'}} : {data: INITIAL_QUESTIONS.slice(0,1),error:null}
+      : {data:[],error:null}));
+    render(<App />);
+    await waitFor(() => expect(requests).toBe(1));
+    fireEvent.click(document.querySelector('#nav-btn-mas')!);
+    fireEvent.click(document.querySelector('#mas-today_training')!);
+    expect(await screen.findByText('No se pudo cargar la sesión')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: /reintentar/i }));
+    await waitFor(() => expect(requests).toBe(2));
+    expect(rpcMock.mock.calls.some(call=>call[0]==='get_preparer_session_questions')).toBe(false);
   });
 
   it('con la sesión caducada, la pantalla de acceso avisa de lo pendiente (el aviso no desaparece con la pantalla)', async () => {
@@ -82,7 +100,7 @@ describe('guardado pendiente con la aplicación completa', () => {
     const account = (id: string) => ({ user: { id } });
     getSession.mockResolvedValue({ data: { session: account('A') }, error: null });
     const resolvers: Array<(result: { data: typeof INITIAL_QUESTIONS; error: null }) => void> = [];
-    rpcMock.mockImplementation((fn: string) => fn === 'get_study_session'
+    rpcMock.mockImplementation((fn: string) => fn === 'get_study_session_v2'
       ? new Promise(resolve => resolvers.push(resolve))
       : Promise.resolve({ data: { status: 'saved', attempt_id: 1 }, error: null }));
 
@@ -92,7 +110,8 @@ describe('guardado pendiente con la aplicación completa', () => {
     await waitFor(() => expect(resolvers).toHaveLength(2));
     expect(getProgressOwner()).toBe('B');
     await act(async () => resolvers[1]({ data: INITIAL_QUESTIONS.slice(0, 2), error: null }));
-    fireEvent.click(document.querySelector('#nav-btn-study')!);
+    fireEvent.click(document.querySelector('#nav-btn-mas')!);
+    fireEvent.click(document.querySelector('#mas-today_training')!);
     expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe('2');
 
     await act(async () => resolvers[0]({ data: INITIAL_QUESTIONS.slice(0, 1), error: null }));
@@ -111,7 +130,9 @@ describe('guardado pendiente con la aplicación completa', () => {
     let sessionCalls = 0;
     let resolveSecond!: (result: { data: typeof INITIAL_QUESTIONS; error: null }) => void;
     rpcMock.mockImplementation((fn: string) => {
-      if (fn !== 'get_study_session') return Promise.resolve({ data: { status: 'saved', attempt_id: 1 }, error: null });
+      // C2: la sesión llega sin clave y la respuesta se corrige en el servidor.
+      if (fn === 'check_answer') return Promise.resolve({ data: { acierto: true, correct_answer: questionA.correct_answer, explanation: '' }, error: null });
+      if (fn !== 'get_study_session_v2') return Promise.resolve({ data: { status: 'saved', attempt_id: 1 }, error: null });
       sessionCalls += 1;
       if (sessionCalls === 2) return new Promise(resolve => { resolveSecond = resolve; });
       return Promise.resolve({ data: [sessionCalls === 1 ? questionA : questionB], error: null });
@@ -119,29 +140,32 @@ describe('guardado pendiente con la aplicación completa', () => {
 
     render(<App />);
     await waitFor(() => expect(sessionCalls).toBe(1));
-    fireEvent.click(document.querySelector('#nav-btn-study')!);
+    fireEvent.click(document.querySelector('#nav-btn-mas')!);
+    fireEvent.click(document.querySelector('#mas-today_training')!);
     await waitFor(() => expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe('1'));
     fireEvent.click(screen.getByRole('button', { name: /comenzar sesión automática/i }));
-    expect(screen.getByRole('heading', { name: questionA.question })).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: questionA.question })).toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: questionA.correct_answer }));
     fireEvent.click(document.querySelector('#conf-btn-alta')!);
-    fireEvent.click(document.querySelector('#nav-btn-dashboard')!);
-    fireEvent.click(screen.getByRole('button', { name: /entrenar ahora/i }));
+    await screen.findByRole('button', { name: /siguiente pregunta/i });
+    fireEvent.click(document.querySelector('#nav-btn-inicio')!);
+    fireEvent.click(await screen.findByRole('button', { name: /practicar preguntas/i }));
     await waitFor(() => expect(resolveSecond).toBeTypeOf('function'));
 
     getSession.mockResolvedValue({ data: { session: next === 'B' ? account('B') : null }, error: null });
     await act(async () => authChanged?.(next === 'B' ? 'SIGNED_IN' : 'SIGNED_OUT', next === 'B' ? account('B') : null));
-    if (next === 'demo') fireEvent.click(await screen.findByRole('button', { name: /probar sin cuenta/i }));
+    if (next === 'demo') fireEvent.click(await screen.findByRole('button', { name: /prueba 15 preguntas/i }));
     const expectedCount = next === 'B' ? '1' : String(INITIAL_QUESTIONS.length);
 
     // Resolver antes de navegar: la invalidación debe venir de la cuenta/demo,
     // no de abandonar la pantalla de entrenamiento.
     await act(async () => resolveSecond({ data: [questionA, { ...questionA, id: '102' }], error: null }));
-    fireEvent.click(document.querySelector('#nav-btn-study')!);
+    fireEvent.click(document.querySelector('#nav-btn-mas')!);
+    fireEvent.click(document.querySelector('#mas-today_training')!);
     expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe(expectedCount);
     fireEvent.click(screen.getByRole('button', { name: /comenzar sesión automática/i }));
     expect(screen.queryByRole('heading', { name: questionA.question })).not.toBeInTheDocument();
-    if (next === 'B') expect(screen.getByRole('heading', { name: questionB.question })).toBeInTheDocument();
+    if (next === 'B') expect(await screen.findByRole('heading', { name: questionB.question })).toBeInTheDocument();
   });
 
   it('renovar el token de la misma cuenta no cancela su sesión de preguntas', async () => {
@@ -153,15 +177,16 @@ describe('guardado pendiente con la aplicación completa', () => {
     const account = () => ({ user: { id: 'A' } });
     getSession.mockResolvedValue({ data: { session: account() }, error: null });
     let resolveQuestions!: (result: { data: typeof INITIAL_QUESTIONS; error: null }) => void;
-    rpcMock.mockImplementation((fn: string) => fn === 'get_study_session'
+    rpcMock.mockImplementation((fn: string) => fn === 'get_study_session_v2'
       ? new Promise(resolve => { resolveQuestions = resolve; })
       : Promise.resolve({ data: { status: 'saved', attempt_id: 1 }, error: null }));
 
     render(<App />);
     await waitFor(() => expect(resolveQuestions).toBeTypeOf('function'));
     await act(async () => authChanged?.('TOKEN_REFRESHED', account()));
-    expect(rpcMock.mock.calls.filter(call => call[0] === 'get_study_session')).toHaveLength(1);
+    expect(rpcMock.mock.calls.filter(call => call[0] === 'get_study_session_v2')).toHaveLength(1);
     await act(async () => resolveQuestions({ data: INITIAL_QUESTIONS.slice(0, 1), error: null }));
-    fireEvent.click(document.querySelector('#nav-btn-study')!);
+    fireEvent.click(document.querySelector('#nav-btn-mas')!);
+    fireEvent.click(document.querySelector('#mas-today_training')!);
     expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe('1');
   });});

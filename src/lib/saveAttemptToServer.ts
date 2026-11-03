@@ -29,7 +29,8 @@ export interface SaveAttemptParams {
   p_question_id: number;
   p_acierto: boolean;
   p_respuesta: string | null;
-  p_tiempo_ms: number;
+  /** Milisegundos de tiempo activo de respuesta; null si no hubo una medición fiable. */
+  p_tiempo_ms: number | null;
   p_modo: string;
   p_session_id: string | null;
   p_nivel: number;
@@ -115,7 +116,8 @@ export function normalizeParams(params: SaveAttemptParams): SaveAttemptParams {
   return {
     ...params,
     p_nivel: toLevelInt(params.p_nivel),
-    p_tiempo_ms: Number.isFinite(params.p_tiempo_ms) ? Math.round(params.p_tiempo_ms) : 0,
+    // Un tiempo no válido se envía como null (desconocido), nunca como 0 (que parecería «instantáneo»).
+    p_tiempo_ms: typeof params.p_tiempo_ms === 'number' && Number.isFinite(params.p_tiempo_ms) ? Math.round(params.p_tiempo_ms) : null,
   };
 }
 

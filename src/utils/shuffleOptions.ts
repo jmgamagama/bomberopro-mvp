@@ -19,6 +19,16 @@ const POSITIONAL = /(anteriores|ambas|las dos|\b[a-d]\)?\s+(y|e|o)\s+[a-d]\b|res
 export const hasPositionalOptions = (options: string[]): boolean =>
   options.some(o => POSITIONAL.test(o));
 
+/**
+ * Letra que se muestra delante de cada opción (A, B, C…), como en el examen en papel.
+ *
+ * Por qué: hay preguntas cuyas opciones dicen «A y B son correctas». Sin letras en pantalla
+ * el alumno no sabe a qué opciones se refieren. Esas preguntas no se barajan
+ * (ver `hasPositionalOptions`) y el servidor las sirve ordenadas por letra, así que la
+ * posición en pantalla coincide con la letra que citan.
+ */
+export const optionLetter = (index: number): string => String.fromCharCode(65 + index);
+
 export function shuffleArray<T>(items: T[], random: () => number = Math.random): T[] {
   const out = [...items];
   for (let i = out.length - 1; i > 0; i--) {

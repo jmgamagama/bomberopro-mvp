@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { calculateExamScore, isExamPassed, scoreOutOfTen } from './examScoring';
+import { calculateExamScore, examScoreBreakdown, isExamPassed, scoreOutOfTen } from './examScoring';
 
 describe('calculateExamScore', () => {
   it('awards 0.200 points for each correct answer', () => {
@@ -42,5 +42,32 @@ describe('scoreOutOfTen', () => {
     expect(scoreOutOfTen(2, 2)).toBe(10);
     expect(scoreOutOfTen(1.302, 2)).toBe(6.5);
     expect(scoreOutOfTen(-0.4, 2)).toBe(0);
+  });
+});
+
+describe('examScoreBreakdown (cómo sale la nota, 01-nov-2026)', () => {
+  it('separa lo que suman los aciertos y lo que restan los fallos', () => {
+    expect(examScoreBreakdown({ correct: 5, incorrect: 5 })).toEqual({
+      correctPoints: 1, incorrectPoints: -0.33, raw: 0.67, score: 0.67, clampedToZero: false,
+    });
+  });
+
+  it('si los fallos restan más que los aciertos, la nota se queda en 0 y lo indica', () => {
+    const b = examScoreBreakdown({ correct: 3, incorrect: 12 });
+    expect(b).toEqual({ correctPoints: 0.6, incorrectPoints: -0.792, raw: -0.192, score: 0, clampedToZero: true });
+  });
+
+  it('coincide siempre con calculateExamScore (misma fórmula, sin otra cuenta)', () => {
+    for (let c = 0; c <= 50; c += 7) {
+      for (let i = 0; i + c <= 50; i += 9) {
+        const b = examScoreBreakdown({ correct: c, incorrect: i });
+        expect(b.raw).toBe(calculateExamScore({ correct: c, incorrect: i }));
+        expect(b.score).toBe(Math.max(0, b.raw));
+      }
+    }
+  });
+
+  it('sin fallos no da −0', () => {
+    expect(Object.is(examScoreBreakdown({ correct: 2, incorrect: 0 }).incorrectPoints, 0)).toBe(true);
   });
 });

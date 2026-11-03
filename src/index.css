@@ -1,5 +1,41 @@
 @import "tailwindcss";
 
+/* Variante A de color (elegida por JM): azul marino, naranja de acento y fondo cálido.
+   Las pantallas siguen usando las clases indigo-* / orange-*; aquí se redefine su escala, así que
+   cambiar la marca es tocar solo estas variables. */
+:root {
+  --bp-azul: #1E3A5F;
+  --bp-naranja: #C2410C;
+  --bp-fondo: #FAF8F5;
+}
+
+@theme {
+  --color-indigo-50: #EEF3F9;
+  --color-indigo-100: #DCE6F2;
+  --color-indigo-200: #BDD0E6;
+  --color-indigo-300: #8FAECF;
+  --color-indigo-400: #5C85B3;
+  --color-indigo-500: #3A6494;
+  --color-indigo-600: var(--bp-azul);
+  --color-indigo-700: #182F4D;
+  --color-indigo-800: #12243B;
+  --color-indigo-900: #0C1A2B;
+  --color-indigo-950: #07101B;
+
+  --color-orange-600: var(--bp-naranja);
+  --color-orange-700: #9A340A;
+
+  --color-fondo: var(--bp-fondo);
+
+  /* slate-500 de Tailwind (#62748e) da 4,49:1 sobre el fondo cálido: no llega al 4,5:1 de WCAG AA.
+     Se oscurece un punto para que los textos secundarios pasen sobre el fondo y las tarjetas tintadas. */
+  --color-slate-500: #5a6b82;
+}
+
+body {
+  background-color: var(--bp-fondo);
+}
+
 @layer base {
   :focus-visible {
     outline: 3px solid var(--color-indigo-500);
@@ -23,4 +59,22 @@
    cuando no cabe entera en su línea. */
 #mira-app-root {
   overflow-wrap: anywhere;
+}
+
+/* Compatibilidad móvil (28-oct-2026).
+   - El modo oscuro forzado de Chrome y Samsung Internet en Android invertía los colores de la
+     app (no tiene tema oscuro propio). «only light» le dice al navegador que no lo aplique.
+   - iPhone amplía la página al tocar un campo con letra de menos de 16 px y no la devuelve a su
+     tamaño. En pantallas táctiles todos los campos de texto usan al menos 16 px. Va fuera de
+     @layer para ganar a las clases text-xs/text-sm de Tailwind. */
+:root {
+  color-scheme: only light;
+}
+
+@media (pointer: coarse) {
+  input:not([type='checkbox']):not([type='radio']):not([type='range']):not([type='button']):not([type='submit']),
+  select,
+  textarea {
+    font-size: max(16px, 1em);
+  }
 }

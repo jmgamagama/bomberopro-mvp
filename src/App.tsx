@@ -3,8 +3,15 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
-import { Brain, GraduationCap, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut } from 'lucide-react';
+import React, { useState, useEffect, useLayoutEffect, useRef, useCallback, lazy, Suspense } from 'react';
+import { Brain, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles, ClipboardList, Menu } from 'lucide-react';
+import { trackFunnel } from './lib/funnel';
+import { getVisibleSupuestos } from './data/supuestos/supuestosRegistry';
+import { SUPUESTOS_PRIVADOS_EVENT, contarSupuestosPrivados } from './data/supuestos/supuestosPrivados';
+
+/** Enlace directo a la pantalla de supuestos (p. ej. para importar los privados la primera vez). */
+const SUPUESTOS_HASH = '#supuestos';
+const isSupuestosHash = () => typeof window !== 'undefined' && window.location.hash === SUPUESTOS_HASH;
 import { INITIAL_MICROCONCEPTS, INITIAL_QUESTIONS } from './data/initialData';
 import { MemoryState, Question, ConfidenceLevel, Attempt } from './types';
 import {
@@ -21,25 +28,44 @@ import {
   getTimeOffset
 } from './utils/db';
 import { getAdaptiveQuestion, processAttempt, getAdaptiveDailySession, createNewMemoryState, normalizeSpacedEvidence } from './utils/engine';
+import { MAX_VALID_RESPONSE_SECONDS } from './utils/activeTimer';
+import { SCREEN_TITLES } from './utils/screenTitles';
 
-import Dashboard from './components/Dashboard';
-import TodayTraining from './components/TodayTraining';
-import TrainScreen from './components/TrainScreen';
-import ErrorPanel from './components/ErrorPanel';
-import ForgettingCurve from './components/ForgettingCurve';
-import MockExam from './components/MockExam';
-import Login from './components/Login';
-import StudyByTopic from './components/StudyByTopic';
+import type { AccountErrorsState } from './components/AccountErrorPanel';
+const AccesoConfirmado = lazy(() => import('./components/AccesoConfirmado'));
+import { retornoAuthInicial, limpiarUrlRetornoAuth } from './lib/authRetorno';
+import { leerEnlaceInvitacion } from './lib/mensajesAcceso';
+import { fetchKeyless } from './lib/secureQuestions';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer, toLevelInt } from './lib/saveAttemptToServer';
 import UpdateBanner from './components/UpdateBanner';
-import MyReports from './components/MyReports';
-import ConceptStudy from './components/ConceptStudy';
 import SaveFailureBanner from './components/SaveFailureBanner';
+import { hasCompletedOnboarding } from './utils/onboarding';
+import { isPlanesEnabled, textoAlta } from './config/features';
 import SaveStatus from './components/SaveStatus';
+import { useRemoteConceptProgress } from './lib/useRemoteConceptProgress';
 import { useAttemptSync } from './lib/useAttemptSync';
+import { setRevisionViewer } from './utils/revisionAccess';
+import { setLocalDataOwner } from './utils/localOwner';
+import { cargarSupuestosCuenta } from './lib/privateSupuestos';
 import { shuffleAllOptions } from './utils/shuffleOptions';
 import { newStudySessionId, startStudySession, finishStudySession } from './lib/studySession';
+const TrainCelebration = lazy(() => import('./components/SessionCelebration').then((m) => ({ default: m.TrainCelebration })));
+import Dashboard from './components/Dashboard';
+// rendimiento-2 (01/11/2026): fuera del JS inicial; ya van dentro de un <Suspense> (o se envuelven aquí).
+const TrainScreen = lazy(() => import('./components/TrainScreen'));
+import Badajoz2026Card from './components/Badajoz2026Card';
+import SesionHoyCard from './components/SesionHoyCard';
+import RecordatorioDiario from './components/RecordatorioDiario';
+import { AbrirMaterialContext, type AbrirMaterial } from './components/abrirMaterial';
+import type { DestinoMaterial } from './utils/materialEnContexto';
+import { comprobarRecordatorio } from './lib/recordatorio';
+import { clearPreferLogin, hasGuestSignupIntent, markGuestSignupIntent, markPreferLogin, migrateGuestProgress, prefersLogin } from './utils/guestProgress';
+import { precargarTemas } from './lib/temasCache';
+import Skeleton from './components/Skeleton';
+import AppShell from './components/AppShell';
+
+const GUEST_SIN_BACKEND = import.meta.env.VITE_GUEST_SIN_BACKEND === 'true';
 
 // Normalize only the in-memory view; preserve the original local history for recovery.
 const getSafeMemoryStates = (): Record<string, MemoryState> => {
@@ -47,19 +73,30 @@ const getSafeMemoryStates = (): Record<string, MemoryState> => {
   return Object.fromEntries(Object.entries(getMemoryStates()).map(([id, state]) => [id, normalizeSpacedEvidence(state, now)]));
 };
 
-const SCREEN_TITLES = {
-  dashboard: 'Dashboard',
-  train: 'Entrenamiento',
-  errors: 'Errores críticos',
-  forgetting_curve: 'Curva de olvido',
-  mock_exam: 'Simulacro',
-  today_training: 'Entrenamiento de hoy',
-  study_by_topic: 'Estudio por Temas',
-  concept_t40: 'Estudiar hoy',
-  my_reports: 'Mis reportes',
-} as const;
+// Pantallas de recuerdo: se cargan bajo demanda para no meter todos los mazos en el bundle inicial.
+const TodayTraining = lazy(() => import('./components/TodayTraining'));
+const ErrorPanel = lazy(() => import('./components/ErrorPanel'));
+const ForgettingCurve = lazy(() => import('./components/ForgettingCurve'));
+const MockExam = lazy(() => import('./components/MockExam'));
+const Login = lazy(() => import('./components/Login'));
+// Quien abre un enlace de invitación (?invitacion o ?codigo) aterriza en «crear cuenta», no en modo invitado.
+const llegaPorInvitacion = typeof window !== 'undefined' && leerEnlaceInvitacion(window.location.search).invitacion;
+const StudyByTopic = lazy(() => import('./components/StudyByTopic'));
+const MyReports = lazy(() => import('./components/MyReports'));
+const AccountErrorPanel = lazy(() => import('./components/AccountErrorPanel'));
+const ConceptStudy = lazy(() => import('./components/ConceptStudy'));
+const MaterialConstitucion = lazy(() => import('./components/MaterialConstitucion'));
+const MaterialTemaPantalla = lazy(() => import('./components/MaterialTema'));
+const RecallHub = lazy(() => import('./components/RecallHub'));
+const DailySession = lazy(() => import('./components/DailySession'));
+const OrdenaPasos = lazy(() => import('./components/OrdenaPasos'));
+const SupuestosPracticos = lazy(() => import('./components/SupuestosPracticos'));
+import Onboarding from './components/Onboarding';
+import { TEMAS_CON_MATERIAL } from './data/materialTemasIndice';
+const Planes = lazy(() => import('./components/Planes'));
+const TuProgreso = lazy(() => import('./components/TuProgreso'));
 
-  const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds, modo: 'adaptativo' | 'simulacro' = 'adaptativo', nivel: unknown = 1, sessionId: string | null = null) => {
+  const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds: number | null, modo: 'adaptativo' | 'simulacro' = 'adaptativo', nivel: unknown = 1, sessionId: string | null = null) => {
       if (!supabase || !userId) return;
       const numericQuestionId = Number(questionId);
       if (!Number.isFinite(numericQuestionId)) return;
@@ -69,7 +106,8 @@ const SCREEN_TITLES = {
             p_question_id: numericQuestionId,
             p_acierto: isCorrect,
             p_respuesta: answer,
-            p_tiempo_ms: Math.round(responseTimeSeconds * 1000),
+            // null = sin dato fiable: no se guarda un tiempo inventado.
+            p_tiempo_ms: responseTimeSeconds === null ? null : Math.round(responseTimeSeconds * 1000),
             p_modo: modo,
             p_session_id: sessionId,
             p_nivel: toLevelInt(nivel),
@@ -79,18 +117,35 @@ const SCREEN_TITLES = {
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
-    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'my_reports'
-  >('dashboard');
+    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes' | 'mas' | 'progreso'
+  >(() => (hasCompletedOnboarding() ? (isSupuestosHash() ? 'supuestos' : 'dashboard') : 'onboarding'));
+  // Página de planes: solo con VITE_FEATURE_PLANES=true (por defecto no aparece nada).
+  const planesEnabled = isPlanesEnabled();
+  const openPlanes = planesEnabled ? () => handleNavigate('planes') : undefined;
+  // La bienvenida abre la sesión diaria directamente en la primera ficha.
+  const [dailyAutoStart, setDailyAutoStart] = useState(false);
+  const [mockAutoStart, setMockAutoStart] = useState(false);
+  const [recallTarget, setRecallTarget] = useState<string | undefined>(undefined);
+  // Material por tema: tema abierto y pantalla a la que vuelve («Estudio por temas» o el inicio).
+  const [materialTema, setMaterialTema] = useState<{ tema: number; vuelta: 'dashboard' | 'study_by_topic' }>({ tema: 1, vuelta: 'dashboard' });
 
   const [memoryStates, setMemoryStates] = useState<Record<string, MemoryState>>({});
+  // «Errores críticos» con cuenta: fallos guardados en el servidor (migración 42).
+  const [accountErrors, setAccountErrors] = useState<AccountErrorsState>({ status: 'loading' });
+  const accountErrorsRequest = useRef(0);
   const [attempts, setAttempts] = useState<Attempt[]>([]);
   const [activeConceptId, setActiveConceptId] = useState<string | null>(null);
   
   // Supabase Auth and Data state
   const [session, setSession] = useState<any>(null);
   const [isDemoMode, setIsDemoMode] = useState(false);
+  const demoFirstAnswerTracked = useRef(false);
   // Reenvía las respuestas pendientes al haber sesión y al recuperar la conexión.
   useAttemptSync(session?.user?.id);
+  const conceptOwner = session?.user?.id && !isDemoMode ? session.user.id : null;
+  // El recuento de repasos se pide en todas las pantallas menos durante el estudio por conceptos:
+  // así, al salir del estudio, el botón «Repasar (N)» se recalcula con lo que ya se ha repasado.
+  const remoteConcepts = useRemoteConceptProgress(conceptOwner, currentScreen !== 'concept_t40');
   const [dbQuestions, setDbQuestions] = useState<Question[]>(INITIAL_QUESTIONS);
   const [dbQuestionsLoading, setDbQuestionsLoading] = useState(false);
   const [dbQuestionsError, setDbQuestionsError] = useState<string | null>(null);
@@ -107,6 +162,8 @@ export default function App() {
   // Number of questions already answered in the current training session (resets each time a
   // fresh session is started), used to render the "Pregunta X de Y" progress indicator.
   const [sessionAnsweredCount, setSessionAnsweredCount] = useState(0);
+  // Aciertos de la sesión actual (para la pantalla de celebración final).
+  const [sessionCorrectCount, setSessionCorrectCount] = useState(0);
   const [sessionQuestionPool, setSessionQuestionPool] = useState<Question[]>([]);
   const [sessionCompleted, setSessionCompleted] = useState(false);
   const answeredQuestionIds = useRef<Set<string>>(new Set());
@@ -117,6 +174,27 @@ export default function App() {
   const trainingSessionId = useRef<string>(newStudySessionId());
   const trainingSessionOpened = useRef(false);
   const trainingSessionFinished = useRef(false);
+
+  // Material en contexto (01/11/2026): «Ver en el esquema del tema» abre el material ENCIMA de la pantalla
+  // actual, que sigue montada (la sesión, el simulacro o «Tu progreso» no se pierden al volver).
+  const [materialFoco, setMaterialFoco] = useState<{ d: DestinoMaterial; origen: string; volverA: HTMLElement | null } | null>(null);
+  const abrirMaterial = useCallback<AbrirMaterial>((d, origen) => {
+    setMaterialFoco({ d, origen, volverA: document.activeElement instanceof HTMLElement ? document.activeElement : null });
+  }, []);
+  const cerrarMaterial = () => {
+    const v = materialFoco?.volverA;
+    setMaterialFoco(null);
+    window.setTimeout(() => v?.focus(), 0);
+  };
+  const dialogoMaterial = useRef<HTMLDivElement>(null);
+  useEffect(() => { if (materialFoco) dialogoMaterial.current?.focus(); }, [materialFoco]);
+
+  // Recordatorio diario con la app abierta: comprobación cada minuto, sin pedir permisos.
+  useEffect(() => {
+    void comprobarRecordatorio();
+    const t = window.setInterval(() => { void comprobarRecordatorio(); }, 60_000);
+    return () => window.clearInterval(t);
+  }, []);
 
   useEffect(() => {
     document.title = `${SCREEN_TITLES[currentScreen]} | BomberoPro`;
@@ -160,22 +238,55 @@ export default function App() {
     return () => { active = false; subscription.unsubscribe(); };
   }, []);
 
+  // Rendimiento: con la sesión resuelta y la app en reposo, se precargan el código y los datos de «Temas»
+  // para que al tocarlo ya estén (sin esperar a que baje el código y después los datos).
+  useEffect(() => {
+    if (loadingAuth) return;
+    const conCuenta = Boolean(session?.user?.id);
+    const precargar = () => {
+      void import('./components/StudyByTopic');
+      precargarTemas(conCuenta);
+    };
+    const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number; cancelIdleCallback?: (id: number) => void };
+    if (typeof w.requestIdleCallback === 'function') {
+      const id = w.requestIdleCallback(precargar, { timeout: 3000 });
+      return () => w.cancelIdleCallback?.(id);
+    }
+    const id = window.setTimeout(precargar, 1500);
+    return () => window.clearTimeout(id);
+  }, [loadingAuth, session?.user?.id]);
+
   // El progreso local pertenece a la cuenta con sesión (o a la demostración si no hay ninguna).
   // Se recarga al resolverse la sesión y al cambiar de cuenta.
   useLayoutEffect(() => {
     if (loadingAuth) return;
     const userId = session?.user?.id ?? null;
+    // Embudo: el invitado que pidió crear cuenta conserva su progreso (fichas, racha, simulacro).
+    if (userId) {
+      markPreferLogin();
+      const wasGuest = hasGuestSignupIntent();
+      migrateGuestProgress(userId);
+      if (wasGuest) trackFunnel('signup_complete');
+    }
     const request = ++questionsRequest.current;
     trainingRequest.current += 1;
     setProgressOwner(userId);
+    setRevisionViewer({ id: userId, email: session?.user?.email ?? null });
+    setLocalDataOwner(userId);
+    // Supuestos privados de la cuenta en Supabase (solo su dueño; si falla, en silencio).
+    void cargarSupuestosCuenta(userId);
     setMemoryStates(getSafeMemoryStates());
     setAttempts(getAttempts());
     setShowLegacyImport(canImportLegacyProgress());
+    // Los errores de la cuenta anterior no se muestran nunca a la siguiente.
+    accountErrorsRequest.current += 1;
+    setAccountErrors({ status: 'loading' });
     answeredQuestionIds.current = new Set();
     setActiveQuestion(null);
     setActiveReason('');
     setSessionQuestionPool([]);
     setSessionAnsweredCount(0);
+    setSessionCorrectCount(0);
     setSessionCompleted(false);
     sessionCompletedRef.current = false;
     setDbQuestions(userId ? [] : INITIAL_QUESTIONS);
@@ -188,13 +299,27 @@ export default function App() {
   // tema según el peso en el examen. El orden que devuelve se respeta tal cual.
   const loadServerSession = async (): Promise<Question[]> => {
     if (!supabase) return [];
-    const res = await supabase.rpc('get_study_session', { p_limit: 20 });
-    if (!res.error) return shuffleAllOptions((res.data ?? []) as Question[]);
-    // Compatibilidad: si la función nueva no existiera, se usa la anterior.
-    console.error('get_study_session error, se usa la selección anterior:', res.error);
-    const old = await supabase.rpc('get_preparer_session_questions', { p_limit: 100 });
-    if (old.error) throw old.error;
-    return shuffleAllOptions(getAdaptiveDailySession(old.data ?? [], getSafeMemoryStates(), 20));
+    // C2 (migración 38): la sesión llega SIN clave; TrainScreen corrige con check_answer.
+    // Fail closed: nunca volver al exportador heredado cuando falla el motor seguro.
+    return shuffleAllOptions(await fetchKeyless(supabase, 'get_study_session_v2', { p_limit: 10 }));
+  };
+
+  // Preguntas que el alumno tiene falladas ahora (conceptos y banco), mismo formato que la sesión.
+  const loadAccountErrors = async () => {
+    const request = ++accountErrorsRequest.current;
+    const owner = authUserId.current;
+    setAccountErrors({ status: 'loading' });
+    try {
+      if (!supabase) throw new Error('backend_not_configured');
+      // Migración 45: llegan SIN clave; TrainScreen corrige con check_answer.
+      const questions = await fetchKeyless(supabase, 'get_error_session_v2', { p_limit: 50 });
+      if (request !== accountErrorsRequest.current || owner !== authUserId.current) return;
+      setAccountErrors({ status: 'ready', questions });
+    } catch (err) {
+      if (request !== accountErrorsRequest.current || owner !== authUserId.current) return;
+      console.error('No se pudieron cargar los errores:', err);
+      setAccountErrors({ status: 'error' });
+    }
   };
 
   const fetchQuestions = async (request: number) => {
@@ -235,7 +360,9 @@ export default function App() {
     }).length;
   };
 
-  const pendingCount = getPendingReviewsCount();
+  const pendingCount = conceptOwner
+    ? (remoteConcepts.state.status === 'ready' ? remoteConcepts.state.data?.vencidos ?? 0 : 0)
+    : getPendingReviewsCount();
 
   // Pool of questions backing the current training session (the full adaptive daily session,
   // or the subset for a single targeted microconcept), used to render session progress.
@@ -246,8 +373,12 @@ export default function App() {
 
   // Handle switching screens
   const handleNavigate = (
-    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'my_reports'
+    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes' | 'mas' | 'progreso'
   ) => {
+    if (screen === 'planes') trackFunnel('planes_view');
+    setDailyAutoStart(false);
+    setMockAutoStart(false);
+    setRecallTarget(undefined);
     setCurrentScreen(screen);
     
     // Clear targeted concept constraints when returning to general study or exiting train screen
@@ -255,6 +386,8 @@ export default function App() {
       trainingRequest.current += 1;
       setActiveConceptId(null);
     }
+
+    if (screen === 'errors' && session?.user?.id && !isDemoMode) void loadAccountErrors();
 
     // If entering the general train screen, generate the first adaptive question
     if (screen === 'train') {
@@ -264,6 +397,31 @@ export default function App() {
   };
 
   const serverMode = Boolean(session?.user?.id) && !isDemoMode;
+  // Si la cuenta cambia con «Tus errores» abierto, se cargan los de la cuenta nueva.
+  useEffect(() => {
+    if (currentScreen === 'errors' && serverMode) void loadAccountErrors();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [session?.user?.id]);
+  // Re-render al importar/borrar supuestos privados (también desde otra pestaña) y enlace #supuestos.
+  const [, setSupuestosPrivadosVersion] = useState(0);
+  useEffect(() => {
+    const refrescar = () => setSupuestosPrivadosVersion((v) => v + 1);
+    const onHash = () => {
+      if (isSupuestosHash() && hasCompletedOnboarding()) setCurrentScreen('supuestos');
+    };
+    window.addEventListener(SUPUESTOS_PRIVADOS_EVENT, refrescar);
+    window.addEventListener('storage', refrescar);
+    window.addEventListener('hashchange', onHash);
+    return () => {
+      window.removeEventListener(SUPUESTOS_PRIVADOS_EVENT, refrescar);
+      window.removeEventListener('storage', refrescar);
+      window.removeEventListener('hashchange', onHash);
+    };
+  }, []);
+  // «Supuestos» solo aparece en el menú si hay alguno visible (los pendientes, solo propietario/admin)
+  // o si el usuario ha importado supuestos privados en este dispositivo (cuenta actual).
+  const supuestosVisibles = getVisibleSupuestos().length > 0 || contarSupuestosPrivados() > 0;
+  // Con 9 entradas en la barra móvil (360 px → ~39 px por botón) las etiquetas bajan a 10 px para no solaparse.
 
   // Auditoría UX móvil (11-oct-2026): al cambiar de pantalla o de pregunta se conservaba el
   // desplazamiento anterior y el test se abría con el enunciado fuera de la pantalla.
@@ -276,14 +434,16 @@ export default function App() {
     }
   }, [currentScreen, activeQuestion?.id]);
 
-  const startTrainingSession = async (targetId: string | null) => {
+  const startTrainingSession = async (targetId: string | null, fixedPool?: Question[]) => {
     const request = ++trainingRequest.current;
     const owner = authUserId.current;
     const isCurrentRequest = () => request === trainingRequest.current && owner === authUserId.current;
     let source = dbQuestions;
     // Cada sesión nueva pide una sesión nueva al servidor, para no repetir las mismas 20
     // y para incluir los repasos que hayan vencido desde la última vez.
-    if (serverMode && !targetId && sessionCompletedRef.current) {
+    if (fixedPool) {
+      source = fixedPool;
+    } else if (serverMode && !targetId && sessionCompletedRef.current) {
       try {
         source = await loadServerSession();
         if (!isCurrentRequest()) return;
@@ -295,17 +455,22 @@ export default function App() {
     }
     if (!isCurrentRequest()) return;
     sessionCompletedRef.current = false;
-    const pool = (targetId
+    // Las opciones se barajan al montar cada sesión, venga del servidor o de la demo: las 15
+    // preguntas de la demo tienen la correcta siempre en la primera posición y sin barajar el
+    // alumno veía la A correcta en todas. La corrección compara por texto, así que el orden no
+    // cambia qué respuesta es la buena.
+    const pool = shuffleAllOptions<Question>((targetId
       ? source.filter(q => q.microconcept_id === targetId)
       : source).filter((question, index, questions) =>
       questions.findIndex(candidate => candidate.id === question.id) === index
-    );
+    ));
     answeredQuestionIds.current = new Set();
     trainingSessionId.current = newStudySessionId();
     trainingSessionOpened.current = false;
     trainingSessionFinished.current = false;
     setSessionQuestionPool(pool);
     setSessionAnsweredCount(0);
+    setSessionCorrectCount(0);
     setSessionCompleted(false);
     prepareNextAdaptiveQuestion(pool, isDemoMode ? memoryStates : getSafeMemoryStates());
   };
@@ -318,7 +483,8 @@ export default function App() {
     // Con cuenta manda el orden del servidor; en la demo, el motor local.
     const selected = serverMode
       ? (candidateQuestions[0]
-          ? { question: candidateQuestions[0], reason: (candidateQuestions[0] as any).motivo === 'repaso' ? 'Repaso programado' : 'Pregunta nueva' }
+          ? { question: candidateQuestions[0], reason: (candidateQuestions[0] as any).motivo === 'repaso' ? 'Repaso programado'
+              : (candidateQuestions[0] as any).motivo === 'error' ? 'La fallaste: repásala' : 'Pregunta nueva' }
           : null)
       : getAdaptiveQuestion(candidateQuestions, states, now);
     if (selected) {
@@ -351,20 +517,24 @@ export default function App() {
     microconceptId: string,
     answer: string,
     confidence: ConfidenceLevel,
-    responseTime: number,
-    answerChanges: number
+    responseTime: number | null,
+    answerChanges: number,
+    serverCorrect?: boolean
   ) => {
     const now = getCurrentDate();
     answeredQuestionIds.current.add(questionId);
-    const isCorrect = (sessionQuestionPool.find(q => q.id === questionId)
-      ?? dbQuestions.find(q => q.id === questionId))?.correct_answer === answer;
+    // C2: si la pregunta llegó sin clave, el acierto lo decide el servidor (check_answer).
+    const isCorrect = serverCorrect ?? ((sessionQuestionPool.find(q => q.id === questionId)
+      ?? dbQuestions.find(q => q.id === questionId))?.correct_answer === answer);
 
     // Load current memory state
     const currentStates = isDemoMode ? memoryStates : getSafeMemoryStates();
         const currentState = currentStates[microconceptId] || createNewMemoryState(microconceptId);
 
     // Compute updated values via core cognitive engine
-    const result = processAttempt(currentState, isCorrect, confidence, responseTime, now);
+    // Sin dato fiable de tiempo: el motor lo trata como una respuesta lenta (sin bonus de velocidad ni penalización).
+    const engineSeconds = responseTime ?? MAX_VALID_RESPONSE_SECONDS;
+    const result = processAttempt(currentState, isCorrect, confidence, engineSeconds, now);
 
     const newAttempt: Attempt = {
       id: `att-${Date.now()}`,
@@ -374,19 +544,26 @@ export default function App() {
       answer_user: answer,
       correct: isCorrect,
       confidence,
-      response_time_seconds: responseTime,
+      response_time_seconds: engineSeconds,
+      response_time_valid: responseTime !== null,
       answer_changes: answerChanges,
       created_at: now.toISOString()
     };
 
     if (isDemoMode) {
       // In read-only demo mode: update only React state in memory without persistence or network calls
+      // (solo se anota, de forma anónima, que el visitante respondió su primera pregunta: migración 22).
+      if (!demoFirstAnswerTracked.current && !session) {
+        demoFirstAnswerTracked.current = true;
+        trackFunnel('demo_first_answer');
+      }
       setMemoryStates(prev => ({
         ...prev,
         [microconceptId]: result.updatedState
       }));
       setAttempts(prev => [newAttempt, ...prev]);
       setSessionAnsweredCount(prev => prev + 1);
+      if (isCorrect) setSessionCorrectCount(prev => prev + 1);
     } else {
       // Save to local database
       saveMemoryState(result.updatedState);
@@ -404,6 +581,7 @@ export default function App() {
       setMemoryStates(updatedStates);
       setAttempts(getAttempts());
       setSessionAnsweredCount(prev => prev + 1);
+      if (isCorrect) setSessionCorrectCount(prev => prev + 1);
     }
 
     return {
@@ -497,6 +675,7 @@ export default function App() {
     setAttempts([]);
     setMemoryStates({});
     setSessionAnsweredCount(0);
+    setSessionCorrectCount(0);
     setSessionQuestionPool([]);
     setSessionCompleted(false);
     answeredQuestionIds.current = new Set();
@@ -505,15 +684,69 @@ export default function App() {
     setActiveConceptId(null);
   };
 
-  const handleStartDemo = () => {
+  // Primer uso sin cuenta: se entra directamente como invitado (sin muro de registro).
+  // La pantalla de acceso solo aparece si el alumno la pide o ya tuvo sesión en este navegador.
+  // Build de prueba sin VITE_SUPABASE_* (VITE_GUEST_SIN_BACKEND=true): también entra como invitado (demo local).
+  const autoGuestDone = useRef(false);
+  const autoGuestPending = !loadingAuth && !session && (!!supabase || GUEST_SIN_BACKEND) && !isDemoMode && !prefersLogin() && !llegaPorInvitacion && !retornoAuthInicial && !autoGuestDone.current;
+  useEffect(() => {
+    if (!autoGuestPending) return;
+    autoGuestDone.current = true;
+    trackFunnel('landing_view');
+    handleStartDemo();
+  }, [autoGuestPending]);
+
+  // Primer uso automático (invitado): bienvenida/inicio. Botón «Prueba 15 preguntas» del acceso: directo a las preguntas.
+  const handleStartDemo = (directo = false) => {
     resetDemoState();
+    demoFirstAnswerTracked.current = false;
+    if (!session) trackFunnel('demo_start');
     setIsDemoMode(true);
     setDbQuestions(INITIAL_QUESTIONS);
-    setCurrentScreen('dashboard');
+    if (!directo) {
+      setCurrentScreen(hasCompletedOnboarding() ? 'dashboard' : 'onboarding');
+      return;
+    }
+    // La entrada promete «Prueba 15 preguntas»: la demo abre directamente esas preguntas.
+    setDailyAutoStart(false);
+    setCurrentScreen('train');
+    void startTrainingSession(null, INITIAL_QUESTIONS);
+  };
+
+  // «Seguir sin cuenta con mi progreso» (pantalla de acceso): vuelve al modo invitado sin empezar de cero.
+  // Sin sesión, el dueño del progreso local es la demo: se recargan sus respuestas guardadas (test y simulacro).
+  // Es una elección explícita: se quita la marca de «prefiere el acceso» para que al volver entre directo a su
+  // progreso. En un equipo compartido basta con «Salir» en la franja del modo invitado, que vuelve a poner la marca.
+  const handleContinueGuest = () => {
+    setLoginMode('entrar');
+    handleStartDemo(false);
+    if (!session) {
+      clearPreferLogin();
+      setAttempts(getAttempts());
+      setMemoryStates(getSafeMemoryStates());
+    }
+  };
+
+  // Pantalla de acceso con la que se vuelve de la demo: «crear» si el alumno pulsa el botón de alta (textoAlta()).
+  const [loginMode, setLoginMode] = useState<'entrar' | 'crear'>('entrar');
+  // Vuelta desde un enlace del correo (cuenta activada, invitación, contraseña o enlace caducado).
+  // «Entrar con enlace» no necesita pantalla: el alumno pasa directo a la app.
+  const [retornoAuth, setRetornoAuth] = useState(() => (retornoAuthInicial?.tipo === 'enlace' ? null : retornoAuthInicial));
+  useEffect(() => {
+    if (!loadingAuth && retornoAuthInicial?.tipo === 'enlace') limpiarUrlRetornoAuth();
+  }, [loadingAuth]);
+
+  const handleDemoSignup = () => {
+    trackFunnel('demo_signup_click');
+    markGuestSignupIntent();
+    setLoginMode('crear');
+    handleExitDemo();
   };
 
   const handleExitDemo = () => {
     resetDemoState();
+    // Quien sale de la demo quiere la pantalla de acceso: no se le vuelve a mandar a invitado.
+    if (!session) markPreferLogin();
     // If an authenticated user exists, restore real data from storage
     if (session) {
       setMemoryStates(getSafeMemoryStates());
@@ -533,17 +766,46 @@ export default function App() {
     }
   };
 
-  if (loadingAuth) {
+  if (loadingAuth || autoGuestPending) {
     return (
-      <div
-        className="min-h-screen bg-slate-50 flex items-center justify-center font-sans"
-        role="status"
-        aria-live="polite"
-        aria-busy="true"
-      >
-        <div className="animate-spin w-8 h-8 border-4 border-indigo-200 border-t-indigo-600 rounded-full" aria-hidden="true"></div>
-        <span className="sr-only">Comprobando tu sesión...</span>
-      </div>
+      <AppShell label="Comprobando tu sesión..." />
+    );
+  }
+
+  // Navegación única (móvil, tableta y escritorio): 5 secciones. Lo menos usado vive en «Más» para no abrumar al alumno.
+  type Screen = typeof currentScreen;
+  const estudiarScreen: Screen = conceptOwner ? 'concept_t40' : 'train';
+  const MAS_SCREENS: Screen[] = ['mas', 'errors', 'forgetting_curve', 'recuerdo', 'sesion_diaria', 'ordena_pasos', 'today_training', 'supuestos', 'my_reports', 'planes', 'constitucion'];
+  const mobileTabs: { key: string; label: string; Icon: typeof LayoutDashboard; target: Screen; active: Screen[] }[] = [
+    { key: 'inicio', label: 'Inicio', Icon: LayoutDashboard, target: 'dashboard', active: ['dashboard', 'progreso'] },
+    { key: 'estudiar', label: 'Estudiar', Icon: Target, target: estudiarScreen, active: ['concept_t40', 'train'] },
+    { key: 'temas', label: 'Temas', Icon: BookOpen, target: 'study_by_topic', active: ['study_by_topic'] },
+    { key: 'simulacro', label: 'Simulacro', Icon: HelpCircle, target: 'mock_exam', active: ['mock_exam'] },
+    { key: 'mas', label: 'Más', Icon: Menu, target: 'mas', active: MAS_SCREENS },
+  ];
+  const masItems: { key: string; label: string; detail: string; Icon: typeof LayoutDashboard; target: Screen }[] = [
+    { key: 'errors', label: 'Errores críticos', detail: 'Repasa lo que has fallado.', Icon: AlertTriangle, target: 'errors' },
+    { key: 'recuerdo', label: 'Recuerdo', detail: 'Tarjetas para memorizar datos clave.', Icon: Layers, target: 'recuerdo' },
+    { key: 'sesion_diaria', label: 'Sesión diaria', detail: 'Fichas con tiempo fijo al día.', Icon: Flame, target: 'sesion_diaria' },
+    { key: 'today_training', label: 'Entrenamiento de hoy', detail: 'Preguntas pendientes de repaso.', Icon: Target, target: 'today_training' },
+    { key: 'forgetting_curve', label: 'Curva de olvido', detail: 'Qué se te está olvidando.', Icon: BarChart2, target: 'forgetting_curve' },
+    ...(supuestosVisibles ? [{ key: 'supuestos', label: 'Casos prácticos', detail: 'Supuestos del segundo ejercicio.', Icon: ClipboardList, target: 'supuestos' as Screen }] : []),
+    ...(!isDemoMode && session?.user?.id ? [{ key: 'my_reports', label: 'Mis reportes', detail: 'Errores que has avisado en preguntas.', Icon: HelpCircle, target: 'my_reports' as Screen }] : []),
+    ...(planesEnabled ? [{ key: 'planes', label: 'Planes', detail: 'Opciones de acceso.', Icon: Sparkles, target: 'planes' as Screen }] : []),
+  ];
+
+  if (retornoAuth && supabase && !isDemoMode) {
+    return (
+      <>
+        <UpdateBanner />
+        <Suspense fallback={<Skeleton label="Cargando…" className="p-6" />}>
+          <AccesoConfirmado
+            retorno={retornoAuth}
+            conSesion={!!session?.user?.id}
+            onContinuar={() => { limpiarUrlRetornoAuth(); setLoginMode('entrar'); setRetornoAuth(null); }}
+          />
+        </Suspense>
+      </>
     );
   }
 
@@ -553,19 +815,31 @@ export default function App() {
         {/* Si la sesión caduca a mitad de estudio, aquí se avisa de lo que sigue pendiente. */}
         <UpdateBanner />
         <SaveFailureBanner showIfPending />
-        <Login onStartDemo={handleStartDemo} />
+        <Suspense fallback={<Skeleton label="Cargando la pantalla de acceso…" className="p-6" />}><Login initialMode={loginMode} onStartDemo={() => { setLoginMode('entrar'); handleStartDemo(true); }} onContinueGuest={handleContinueGuest} /></Suspense>
       </>
     );
   }
 
   return (
-    <div className="min-h-screen bg-slate-50/50 flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
+    <AbrirMaterialContext.Provider value={abrirMaterial}>
+    <div className="min-h-dvh bg-fondo flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
+      {materialFoco && (
+        <div ref={dialogoMaterial} tabIndex={-1} role="dialog" aria-modal="true" aria-label={`Material del tema ${materialFoco.d.tema}`}
+          id="material-contexto" className="fixed inset-0 z-[60] overflow-y-auto bg-fondo px-4 pb-8 pt-4 outline-none">
+          <Suspense fallback={<Skeleton label="Cargando el material…" />}>
+            <MaterialTemaPantalla userId={session?.user?.id ?? 'demo'} tema={materialFoco.d.tema} onExit={cerrarMaterial}
+              volverLabel={materialFoco.origen === 'Tu progreso' ? 'Volver a Tu progreso' : materialFoco.origen === 'este fallo' ? 'Volver al resultado' : 'Volver a la ficha'}
+              foco={materialFoco.d} origen={materialFoco.origen === 'Tu progreso' ? undefined : materialFoco.origen} />
+          </Suspense>
+        </div>
+      )}
+      <div className="contents" inert={materialFoco ? true : undefined}>
       <UpdateBanner />
       <SaveFailureBanner />
       <SaveStatus />
       {session && !isDemoMode && showLegacyImport && (
         <div role="region" aria-label="Progreso antiguo" className="border-b border-indigo-200 bg-indigo-50 px-4 py-3 text-sm text-slate-800">
-          <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
+          <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-between gap-3">
             <p>Hay progreso antiguo en este navegador sin cuenta identificada. Si es tuyo, puedes copiarlo a esta cuenta; no se borrará el original.</p>
             <button type="button" onClick={handleImportLegacyProgress} className="rounded-lg bg-indigo-700 px-3 py-2 font-semibold text-white">
               Importar mi progreso
@@ -576,26 +850,42 @@ export default function App() {
       {isDemoMode && (
         <div
           role="region"
-          aria-label="Aviso de modo demostración"
+          aria-label="Aviso de modo invitado"
           className="bg-amber-400 text-slate-950 px-3 sm:px-4 py-1.5 text-sm font-semibold shadow-xs"
         >
-          <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
-            <div className="flex items-center gap-2 text-left">
+          {/* En el móvil cabe en una sola fila: cada píxel de alto deja ver antes la pregunta. */}
+          <div className="max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-x-2 gap-y-1">
+            <div className="flex min-w-0 items-center gap-2 text-left">
               <span className="hidden sm:block w-2 h-2 rounded-full bg-amber-900 animate-pulse shrink-0" aria-hidden="true" />
-              <span>
-                <strong><span className="sm:hidden">Demo</span><span className="hidden sm:inline">Modo demostración</span></strong>
-                <span className="sm:hidden">: no se guarda nada.</span>
-                <span className="hidden sm:inline"> (Solo lectura): Explorando una primera sesión de estudio sin cuenta ni persistencia de datos.</span>
+              <span className="text-xs leading-tight sm:text-sm">
+                <strong>Modo invitado</strong>
+                <span className="sm:hidden">: tu progreso se guarda en este dispositivo.</span>
+                <span className="hidden sm:inline">: tu progreso se guarda en este dispositivo.</span>
               </span>
             </div>
-            <button
-              type="button"
-              id="btn-exit-demo"
-              onClick={handleExitDemo}
-              className="min-h-11 px-2.5 py-1 bg-slate-950 hover:bg-slate-800 text-white rounded-lg text-sm font-bold transition shrink-0 cursor-pointer"
-            >
-              Salir de la demo
-            </button>
+            <div className="flex items-center gap-2 shrink-0">
+              {supabase && !session && (
+                <button
+                  type="button"
+                  id="btn-demo-signup"
+                  onClick={handleDemoSignup}
+                  className="min-h-11 px-2 py-1 text-slate-950 underline underline-offset-2 text-sm font-semibold cursor-pointer"
+                >
+                  {textoAlta()}
+                </button>
+              )}
+              {supabase && !session && (
+                <button
+                  type="button"
+                  id="btn-exit-demo"
+                  onClick={handleExitDemo}
+                  aria-label="Entrar con tu cuenta"
+                  className="min-h-11 px-2 py-1 text-slate-950 underline underline-offset-2 text-sm font-semibold cursor-pointer"
+                >
+                  Entrar
+                </button>
+              )}
+            </div>
           </div>
         </div>
       )}
@@ -610,119 +900,75 @@ export default function App() {
       </p>
 
       {/* Top Main Navigation Bar */}
-      {/* En el móvil la cabecera no es fija: ya hay barra inferior fija y cada píxel cuenta. */}
-      <header className="relative md:sticky md:top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm" id="mira-header">
-        <div className="max-w-6xl mx-auto px-4 min-h-14 py-1.5 md:py-0 md:h-16 flex flex-wrap items-center justify-between gap-2">
+      {/* Hasta 1024 px (móvil y tableta) la cabecera no es fija: ya hay barra inferior fija y cada píxel cuenta. */}
+      <header className="relative lg:sticky lg:top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 shadow-sm" id="mira-header">
+        <div className="max-w-4xl mx-auto px-4 min-h-14 py-1.5 lg:min-h-16 flex flex-wrap items-center justify-between gap-2">
           <button
             type="button"
-            aria-label="Ir al dashboard"
+            aria-label="BomberoPro, ir al inicio"
             className="flex min-h-11 min-w-0 items-center gap-2.5 cursor-pointer text-left"
             onClick={() => handleNavigate('dashboard')}
             id="brand-logo"
           >
-            <div className="p-2 bg-indigo-600 text-white rounded-xl shadow-md shadow-indigo-100">
-              <GraduationCap className="w-5 h-5" aria-hidden="true" />
+            <div className="p-2 bg-orange-600 text-white rounded-xl shadow-md shadow-orange-100">
+              <Flame className="w-5 h-5" aria-hidden="true" />
             </div>
             <div>
-              <span className="text-base font-black tracking-tight text-slate-950 uppercase flex flex-wrap items-center gap-1.5">
-                MIRA <span className="text-xs bg-indigo-50 border border-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded font-bold tracking-wider">BOMBEROPRO</span>
+              <span className="text-base font-black tracking-tight text-slate-950">
+                BomberoPro
               </span>
-              <p className="hidden sm:block text-xs text-slate-600 font-medium tracking-wide">Aprendizaje Adaptativo de Oposición</p>
             </div>
           </button>
 
+          {/* Escritorio: las mismas 5 secciones que la barra inferior del móvil (mobileTabs), con los
+              mismos nombres y destinos. Lo demás vive en «Más» en todos los dispositivos. */}
           <nav
             aria-label="Navegación principal"
-            className="hidden md:flex items-center gap-1"
+            className="hidden lg:flex items-center gap-1"
             id="mira-nav-items"
           >
-            <button
-              id="nav-btn-dashboard"
-              onClick={() => handleNavigate('dashboard')}
-              aria-current={currentScreen === 'dashboard' ? 'page' : undefined}
-              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'dashboard' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <LayoutDashboard className="w-4 h-4" aria-hidden="true" />
-              Dashboard
-            </button>
-            <button
-              id="nav-btn-study"
-              onClick={() => handleNavigate('today_training')}
-              aria-current={currentScreen === 'today_training' ? 'page' : undefined}
-              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'today_training' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <Target className="w-4 h-4" aria-hidden="true" />
-              Entrenamiento de Hoy
-            </button>
-            <button
-              id="nav-btn-errors"
-              onClick={() => handleNavigate('errors')}
-              aria-current={currentScreen === 'errors' ? 'page' : undefined}
-              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'errors' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <AlertTriangle className="w-4 h-4" aria-hidden="true" />
-              Errores Críticos
-            </button>
-            <button
-              id="nav-btn-forgetting"
-              onClick={() => handleNavigate('forgetting_curve')}
-              aria-current={currentScreen === 'forgetting_curve' ? 'page' : undefined}
-              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'forgetting_curve' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <BarChart2 className="w-4 h-4" aria-hidden="true" />
-              Curva de Olvido
-            </button>
-            <button
-              id="nav-btn-exam"
-              onClick={() => handleNavigate('mock_exam')}
-              aria-current={currentScreen === 'mock_exam' ? 'page' : undefined}
-              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'mock_exam' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-            >
-              <HelpCircle className="w-4 h-4" aria-hidden="true" />
-              Simulacro
-            </button>
-            <button
-              id="nav-btn-study-topic"
-              onClick={() => handleNavigate('study_by_topic')}
-              aria-current={currentScreen === 'study_by_topic' ? 'page' : undefined}
-              className={`px-3.5 py-2 text-xs font-semibold rounded-lg transition flex items-center gap-1.5 ${
-                currentScreen === 'study_by_topic' ? 'bg-indigo-50 text-indigo-600' : 'text-slate-500 hover:bg-slate-50 hover:text-slate-800'
-              }`}
-              >
-            <BookOpen className="w-4 h-4" aria-hidden="true" />
-            Por Temas
-            </button>
+            {mobileTabs.map(({ key, label, Icon, target, active }) => {
+              const isActive = active.includes(currentScreen);
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  id={`nav-btn-${key}`}
+                  aria-current={isActive ? 'page' : undefined}
+                  onClick={() => handleNavigate(target)}
+                  className={`min-h-11 px-3 py-2 text-sm font-semibold rounded-lg transition flex items-center gap-2 ${
+                    isActive ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                  }`}
+                >
+                  <Icon className="w-4 h-4" aria-hidden="true" />
+                  {label}
+                </button>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-2">
-            {pendingCount > 0 && currentScreen !== 'train' && (
+            {pendingCount > 0 && currentScreen !== 'train' && currentScreen !== 'concept_t40' && currentScreen !== 'onboarding' && (
               <button
                 id="btn-quick-train"
-                onClick={() => handleNavigate('train')}
+                onClick={() => handleNavigate(conceptOwner ? 'concept_t40' : 'train')}
                 className="min-h-11 px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-bold transition flex items-center gap-1 shadow"
               >
                 Repasar ({pendingCount})
               </button>
             )}
+            {/* En la demo ya está «Salir» en la franja amarilla: no lo repetimos aquí. */}
+            {!isDemoMode && (
             <button
               onClick={handleLogout}
-              aria-label="Cerrar sesión"
+              aria-label={isDemoMode ? 'Salir de la demostración' : 'Salir (cerrar sesión)'}
               className="min-h-11 min-w-11 px-2.5 py-1.5 text-slate-600 hover:text-red-600 hover:bg-red-50 rounded-lg text-xs font-semibold transition flex items-center justify-center gap-1"
-              title="Cerrar sesión"
+              title={isDemoMode ? 'Salir de la demostración' : 'Cerrar sesión'}
             >
               <LogOut className="w-4 h-4" aria-hidden="true" />
               <span>Salir</span>
             </button>
+            )}
           </div>
         </div>
       </header>
@@ -731,8 +977,9 @@ export default function App() {
       <main
         id="main-content"
         tabIndex={-1}
-        className="flex-1 max-w-6xl w-full mx-auto px-4 pt-8 pb-24 md:py-8"
+        className="flex-1 max-w-4xl w-full mx-auto px-4 pt-4 pb-[calc(5rem+env(safe-area-inset-bottom))] lg:py-8"
       >
+        <Suspense fallback={<Skeleton label="Cargando la pantalla…" />}>
         {currentScreen === 'dashboard' && (
           <>
           {!isDemoMode && session?.user?.id && supabase && (
@@ -743,7 +990,7 @@ export default function App() {
               className="mb-6 flex w-full items-center justify-between gap-4 rounded-2xl bg-indigo-600 p-5 text-left text-white shadow-md hover:bg-indigo-700"
             >
               <span>
-                <span className="block text-xs font-bold uppercase tracking-wider text-indigo-200">Temas 35, 39 y 40</span>
+                <span className="block text-xs font-bold uppercase tracking-wider text-indigo-200">Todos tus temas preparados</span>
                 <span className="mt-1 block text-lg font-bold">Estudiar hoy</span>
                 <span className="mt-0.5 block text-sm text-indigo-100">BomberoPro mezcla los temas y decide qué repasar hoy para que no se te olvide.</span>
               </span>
@@ -751,11 +998,41 @@ export default function App() {
             </button>
           )}
           {!isDemoMode && session?.user?.id && supabase && (
+            <button
+              type="button"
+              id="btn-constitucion"
+              onClick={() => { setMaterialTema({ tema: 1, vuelta: 'dashboard' }); handleNavigate('constitucion'); }}
+              className="mb-6 flex w-full items-center justify-between gap-4 rounded-2xl border border-indigo-200 bg-white p-5 text-left shadow-sm hover:bg-indigo-50"
+            >
+              <span>
+                <span className="block text-xs font-bold uppercase tracking-wider text-indigo-600">Material por tema · Temas {TEMAS_CON_MATERIAL.join(', ')}</span>
+                <span className="mt-1 block text-lg font-bold text-slate-900">Esquema, texto oficial y fuentes</span>
+                <span className="mt-0.5 block text-sm text-slate-600">Elige un tema: verás qué material tiene, el enlace a su norma oficial y sus conceptos para estudiar.</span>
+              </span>
+              <span className="shrink-0 rounded-xl bg-indigo-600 px-4 py-2 text-sm font-bold text-white">Abrir</span>
+            </button>
+          )}
+          {!isDemoMode && session?.user?.id && supabase && (
             <button type="button" id="btn-my-reports" onClick={() => handleNavigate('my_reports')} className="mb-4 text-sm font-semibold text-indigo-700 underline">
               Mis reportes
             </button>
           )}
+          <SesionHoyCard
+            preguntasPendientes={pendingCount}
+            onOpenPreguntas={() => handleNavigate('today_training')}
+            onOpen={(directo) => {
+              handleNavigate('sesion_diaria');
+              setDailyAutoStart(directo);
+            }}
+          />
+          <RecordatorioDiario idPrefix="recordatorio-inicio" />
+          <Badajoz2026Card
+            onOpenSupuestos={supuestosVisibles ? () => handleNavigate('supuestos') : undefined}
+            onOpenProgress={() => handleNavigate('progreso')}
+          />
           <Dashboard
+            remoteProgress={conceptOwner ? remoteConcepts.state : undefined}
+            onRetryProgress={() => { void remoteConcepts.refresh(); }}
             memoryStates={memoryStates}
             attempts={attempts}
             microconcepts={INITIAL_MICROCONCEPTS}
@@ -769,6 +1046,10 @@ export default function App() {
 
         {currentScreen === 'my_reports' && session?.user?.id && !isDemoMode && (
           <MyReports onExit={() => handleNavigate('dashboard')} />
+        )}
+
+        {currentScreen === 'constitucion' && session?.user?.id && !isDemoMode && (
+          <MaterialConstitucion key={materialTema.tema} userId={session.user.id} tema={materialTema.tema} onExit={() => handleNavigate(materialTema.vuelta)} volverLabel={materialTema.vuelta === 'study_by_topic' ? 'Volver a Estudio por temas' : undefined} />
         )}
 
         {currentScreen === 'concept_t40' && session?.user?.id && !isDemoMode && (
@@ -790,20 +1071,15 @@ export default function App() {
         )}
 
         {currentScreen === 'train' && sessionCompleted && (
-          <section className="p-8 text-center bg-white border border-emerald-100 rounded-2xl shadow-sm space-y-4" role="status" aria-live="polite">
-            <h2 className="text-xl font-bold text-slate-800">Sesión completada</h2>
-            <p className="text-sm text-slate-600">Has respondido {sessionAnsweredCount} de {sessionTotal} preguntas {activeConceptId ? 'de este microconcepto' : 'de la sesión de hoy'}.</p>
-            <p className="text-sm text-slate-600">{isDemoMode
-              ? 'En la demostración este progreso no se guarda. Puedes volver al inicio o probar otra sesión.'
-              : 'Tus respuestas se han guardado en este dispositivo. Puedes volver mañana para iniciar una nueva sesión.'}</p>
-            <button
-              type="button"
-              onClick={() => handleNavigate('dashboard')}
-              className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm"
-            >
-              Volver al Dashboard
-            </button>
-          </section>
+          <TrainCelebration
+            answered={sessionAnsweredCount}
+            correct={sessionCorrectCount}
+            total={sessionTotal}
+            isDemoMode={isDemoMode}
+            loggedIn={!!session?.user?.id}
+            onSignup={handleDemoSignup}
+            onHome={() => handleNavigate('dashboard')}
+          />
         )}
 
         {currentScreen === 'train' && !sessionCompleted && sessionTotal === 0 && (
@@ -813,7 +1089,7 @@ export default function App() {
               ? `No hay preguntas disponibles para el microconcepto ${activeConceptId} en esta sesión.`
               : 'No hay preguntas disponibles para esta sesión.'}</p>
             <button type="button" onClick={() => handleNavigate('dashboard')} className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm">
-              Volver al Dashboard
+              Volver al inicio
             </button>
           </section>
         )}
@@ -836,7 +1112,23 @@ export default function App() {
           />
         )}
 
-        {currentScreen === 'errors' && (
+        {currentScreen === 'errors' && serverMode && (
+          <AccountErrorPanel
+            state={accountErrors}
+            onRetry={() => { void loadAccountErrors(); }}
+            onStart={() => {
+              if (accountErrors.status !== 'ready' || accountErrors.questions.length === 0) return;
+              setDailyAutoStart(false);
+              setActiveConceptId(null);
+              setCurrentScreen('train');
+              void startTrainingSession(null, accountErrors.questions);
+            }}
+            onStudy={() => handleNavigate(estudiarScreen)}
+            onNavigateHome={() => handleNavigate('dashboard')}
+          />
+        )}
+
+        {currentScreen === 'errors' && !serverMode && (
           <ErrorPanel
             memoryStates={memoryStates}
             microconcepts={INITIAL_MICROCONCEPTS}
@@ -860,110 +1152,152 @@ export default function App() {
             onFinishExam={handleFinishExam}
             onNavigateHome={() => handleNavigate('dashboard')}
             useServerQuestions={!!session && !isDemoMode}
+            onGuestSignup={supabase && !session ? handleDemoSignup : undefined}
+            autoStart={mockAutoStart}
+            onStudyTopic={(topicId) => { handleNavigate('recuerdo'); setRecallTarget(topicId); }}
           />
         )}
 
+          {currentScreen === 'onboarding' && (
+            <Onboarding
+              cuenta={Boolean(conceptOwner)}
+              onStart={() => {
+                // Con cuenta: Tema 1 piloto (revisado, guardado en la cuenta). Sin cuenta: sesión de fichas.
+                if (conceptOwner) {
+                  handleNavigate('constitucion');
+                  return;
+                }
+                handleNavigate('sesion_diaria');
+                setDailyAutoStart(true);
+              }}
+              onSkip={() => handleNavigate('dashboard')}
+              onTryExam={isDemoMode || !session ? () => {
+                handleNavigate('mock_exam');
+                setMockAutoStart(true);
+              } : undefined}
+              onOpenPlanes={planesEnabled ? () => handleNavigate('planes') : undefined}
+            />
+          )}
+
+          {planesEnabled && currentScreen === 'planes' && (
+            <Planes onNavigateHome={() => handleNavigate('dashboard')} />
+          )}
+
+          {currentScreen === 'recuerdo' && (
+            <RecallHub key={recallTarget ?? 'recuerdo'} initialDeckId={recallTarget} demo={isDemoMode || !session} onNavigateHome={() => handleNavigate('dashboard')} onOpenPlanes={openPlanes} />
+          )}
+
+          {currentScreen === 'sesion_diaria' && (
+            <DailySession
+              demo={isDemoMode || !session}
+              autoStart={dailyAutoStart}
+              onOpenPlanes={openPlanes}
+              onNavigateHome={() => handleNavigate('dashboard')}
+              onOpenOrdenaPasos={() => handleNavigate('ordena_pasos')}
+              onGuestSignup={supabase && !session ? handleDemoSignup : undefined}
+              onTryExam={isDemoMode || !session ? () => {
+                handleNavigate('mock_exam');
+                setMockAutoStart(true);
+              } : undefined}
+            />
+          )}
+
+          {currentScreen === 'progreso' && (
+            <TuProgreso
+              onNavigateHome={() => handleNavigate('dashboard')}
+              onOpenTopic={(topicId) => { handleNavigate('recuerdo'); setRecallTarget(topicId); }}
+            />
+          )}
+
+          {currentScreen === 'supuestos' && (
+            <SupuestosPracticos onNavigateHome={() => handleNavigate('dashboard')} />
+          )}
+
+          {currentScreen === 'ordena_pasos' && (
+            <OrdenaPasos
+              onNavigateHome={() => handleNavigate('dashboard')}
+              onBackToDaily={() => handleNavigate('sesion_diaria')}
+            />
+          )}
+
         {currentScreen === 'study_by_topic' && (isDemoMode || !supabase) && (
-          <section aria-label="Estudio por temas no disponible en la demostración" className="rounded-xl border border-slate-200 bg-white p-6">
-            <h2 className="text-lg font-bold text-slate-900">Estudio por temas</h2>
-            <p className="mt-2 text-sm text-slate-600">Esta función guarda tu progreso y requiere una cuenta. Crea una cuenta o inicia sesión para usarla.</p>
-            <button type="button" className="mt-4 rounded-lg bg-indigo-700 px-4 py-2 font-semibold text-white" onClick={() => handleNavigate('dashboard')}>Volver al inicio</button>
+          <section aria-label="Estudiar por temas" className="space-y-3">
+            <RecallHub demo onNavigateHome={() => handleNavigate('dashboard')} onOpenPlanes={openPlanes} />
           </section>
         )}
         {currentScreen === 'study_by_topic' && !isDemoMode && !!supabase && (
         <StudyByTopic
           session={session}
           onNavigateHome={() => handleNavigate('dashboard')}
+          onOpenMaterial={(tema) => { setMaterialTema({ tema, vuelta: 'study_by_topic' }); handleNavigate('constitucion'); }}
           />
         )}
+        {currentScreen === 'mas' && (
+          <section aria-labelledby="mas-title" className="mx-auto max-w-lg space-y-3">
+            <h2 id="mas-title" className="text-xl font-bold text-slate-900">Más herramientas</h2>
+            <ul className="space-y-2">
+              {masItems.map(({ key, label, detail, Icon, target }) => (
+                <li key={key}>
+                  <button
+                    type="button"
+                    id={`mas-${key}`}
+                    onClick={() => handleNavigate(target)}
+                    className="flex w-full min-h-14 items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 text-left hover:bg-slate-50"
+                  >
+                    <Icon className="h-5 w-5 shrink-0 text-indigo-600" aria-hidden="true" />
+                    <span>
+                      <span className="block font-semibold text-slate-900">{label}</span>
+                      <span className="block text-sm text-slate-600">{detail}</span>
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+      </Suspense>
       </main>
 
+      {currentScreen !== 'onboarding' && (
       <nav
         aria-label="Navegación móvil"
-        className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_18px_rgba(15,23,42,0.08)] backdrop-blur-md md:hidden"
+        className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-4px_18px_rgba(15,23,42,0.08)] backdrop-blur-md lg:hidden"
       >
-        <div className="mx-auto grid max-w-lg grid-cols-6 px-1">
-          <button
-            type="button"
-            aria-current={currentScreen === 'dashboard' ? 'page' : undefined}
-            onClick={() => handleNavigate('dashboard')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
-              currentScreen === 'dashboard' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
-            }`}
-          >
-            <LayoutDashboard className="h-5 w-5" aria-hidden="true" />
-            Inicio
-          </button>
-          <button
-            type="button"
-            aria-current={currentScreen === 'today_training' ? 'page' : undefined}
-            onClick={() => handleNavigate('today_training')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
-              currentScreen === 'today_training' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
-            }`}
-          >
-            <Target className="h-5 w-5" aria-hidden="true" />
-            Hoy
-          </button>
-          <button
-            type="button"
-            aria-current={currentScreen === 'errors' ? 'page' : undefined}
-            onClick={() => handleNavigate('errors')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
-              currentScreen === 'errors' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
-            }`}
-          >
-            <AlertTriangle className="h-5 w-5" aria-hidden="true" />
-            Errores
-          </button>
-          <button
-            type="button"
-            aria-current={currentScreen === 'forgetting_curve' ? 'page' : undefined}
-            onClick={() => handleNavigate('forgetting_curve')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
-              currentScreen === 'forgetting_curve' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
-            }`}
-          >
-            <BarChart2 className="h-5 w-5" aria-hidden="true" />
-            Curva
-          </button>
-          <button
-            type="button"
-            aria-current={currentScreen === 'mock_exam' ? 'page' : undefined}
-            onClick={() => handleNavigate('mock_exam')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
-              currentScreen === 'mock_exam' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
-            }`}
-          >
-            <HelpCircle className="h-5 w-5" aria-hidden="true" />
-            Simulacro
-          </button>
-          <button
-            type="button"
-            aria-current={currentScreen === 'study_by_topic' ? 'page' : undefined}
-            onClick={() => handleNavigate('study_by_topic')}
-            className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap [overflow-wrap:normal] ${
-              currentScreen === 'study_by_topic' ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
-            }`}
-            >
-          <BookOpen className="h-5 w-5" aria-hidden="true" />
-          Temas
-          </button>
+        <div className="mx-auto grid max-w-lg grid-cols-5 px-1">
+          {mobileTabs.map(({ key, label, Icon, target, active }) => {
+            const isActive = active.includes(currentScreen);
+            return (
+              <button
+                key={key}
+                type="button"
+                id={`mobile-tab-${key}`}
+                aria-current={isActive ? 'page' : undefined}
+                onClick={() => handleNavigate(target)}
+                className={`flex min-h-16 flex-col items-center justify-center gap-1 rounded-lg px-0.5 py-2 text-xs font-semibold tracking-tight whitespace-nowrap ${
+                  isActive ? 'bg-indigo-50 text-indigo-700' : 'text-slate-600'
+                }`}
+              >
+                <Icon className="h-5 w-5" aria-hidden="true" />
+                {label}
+              </button>
+            );
+          })}
         </div>
       </nav>
+      )}
 
       {/* Footer Branding Area */}
-      <footer className="border-t border-slate-100 py-6 bg-white text-slate-600 text-xs mt-12" id="mira-footer">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+      {/* En móvil y tableta la barra inferior es fija: el pie deja su alto (4 rem + zona segura) para no quedar tapado. */}
+      <footer className="border-t border-slate-100 pt-6 pb-[calc(5.5rem+env(safe-area-inset-bottom))] lg:pb-6 bg-white text-slate-600 text-xs mt-12" id="mira-footer">
+        <div className="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <p className="font-semibold text-slate-600">MIRA — Método de Aprendizaje Adaptativo para Oposiciones</p>
-            <p className="text-xs text-slate-600 mt-0.5">Basado en Microconceptos, Interrogación activa, Repetición espaciada y Aseguramiento del dominio real.</p>
-          </div>
-          <div className="flex items-center gap-4">
-            <span className="font-mono text-xs">v1.0 (PROTOTIPO SEGURO LOCAL)</span>
+            <p className="font-semibold text-slate-600">BomberoPro — Oposición CPEI Badajoz</p>
+            <p className="text-xs text-slate-600 mt-0.5">Estudio por conceptos, preguntas de test y repaso espaciado.</p>
           </div>
         </div>
       </footer>
+      </div>
     </div>
+    </AbrirMaterialContext.Provider>
   );
 }
