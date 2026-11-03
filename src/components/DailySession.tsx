@@ -396,7 +396,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
               type="button"
               id="btn-reveal-recall"
               onClick={() => setRevealed(true)}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-slate-800 px-4 py-3 font-semibold text-white hover:bg-slate-900"
+              className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#1b365d] px-4 py-3 font-semibold text-white shadow-sm transition hover:bg-[#152b4d] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1b365d] focus-visible:ring-offset-2"
             >
               <Eye className="h-4 w-4" aria-hidden="true" />
               Mostrar respuesta

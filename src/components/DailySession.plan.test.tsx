@@ -18,6 +18,12 @@ beforeEach(() => {
 afterEach(() => resetLocalDataOwnerForTests());
 
 describe('DailySession con el plan de hoy', () => {
+  it('destaca Mostrar respuesta como acción principal institucional y accesible', async () => {
+    render(<DailySession autoStart onNavigateHome={vi.fn()} onOpenOrdenaPasos={vi.fn()} />);
+    const revelar = await screen.findByRole('button', { name: /Mostrar respuesta/ });
+    expect(revelar).toHaveClass('bg-[#1b365d]', 'min-h-12', 'focus-visible:ring-2');
+  });
+
   it('empieza por la ficha marcada ayer con «Repasar estas fichas»', async () => {
     const pool = await loadRecallPoolForPlan();
     const objetivo = pool[pool.length - 1];
