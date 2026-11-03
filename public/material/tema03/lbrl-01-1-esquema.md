@@ -28,3 +28,6 @@ Seis preceptos definen la función de la Provincia y ordenan la Diputación: ór
 - Personal directivo: regla A1 y excepción reglamentaria justificada por las funciones.
 - No confundas las atribuciones del Pleno con las del Presidente ni los límites de delegación de los arts. 33 y 34.
 - Junta de Gobierno: máximo un tercio del número legal de diputados.
+
+## Referencias oficiales por artículo
+[Art. 31](https://www.boe.es/buscar/act.php?id=BOE-A-1985-5392#a31) · [Art. 32](https://www.boe.es/buscar/act.php?id=BOE-A-1985-5392#a32) · [Art. 32bis](https://www.boe.es/buscar/act.php?id=BOE-A-1985-5392#a32bis) · [Art. 33](https://www.boe.es/buscar/act.php?id=BOE-A-1985-5392#a33) · [Art. 34](https://www.boe.es/buscar/act.php?id=BOE-A-1985-5392#a34) · [Art. 35](https://www.boe.es/buscar/act.php?id=BOE-A-1985-5392#a35)
