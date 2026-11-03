@@ -2,7 +2,7 @@
 
 Extracto literal de las denominaciones de áreas, los puestos directivos, servicios y unidades enumerados en el artículo 1, y de las denominaciones y naturaleza de los entes recogidos en el artículo 2. Fuente: acuerdo del Pleno publicado en el [BOP de Badajoz n.º 206, anuncio 4611/2025, de 29/10/2025](https://transparencia.dip-badajoz.es/download/332/equipo-de-gobierno/21026/diputacion-de-badajoz-b-o-p-no-206-anuncio-4611_2025-miercoles-29-de-octubre-de-2025-acuerdo-adoptado-por-el-pleno-de-la-corporacion-provincial-en-sesion-ordinaria-del-dia-29-d.pdf).
 
-**Alcance del extracto:** incluye las denominaciones y relaciones que responden al epígrafe. No reproduce la exposición de motivos ni el detalle completo de las funciones de cada área y ente. La [página oficial del organigrama](https://www2.dip-badajoz.es/diputacion/organigrama/index.php) consultada el 03/11/2026 se ofrece como contraste de las denominaciones principales, no como sustituto del BOP.
+**Alcance del extracto:** incluye las denominaciones y relaciones del acuerdo que responden al epígrafe. No reproduce la exposición de motivos ni el detalle completo de las funciones de cada área y ente. La [página oficial del organigrama](https://www2.dip-badajoz.es/diputacion/organigrama/index.php), consultada el 03/11/2026, contrasta las denominaciones principales, no sustituye al BOP. La [página oficial del Área de Desarrollo Rural, Reto Demográfico y Turismo](https://desarrollorural.dip-badajoz.es/areas-funcionales) (pie de página 2026) publica más unidades que el apartado 1.7 reproducido aquí; mientras no se reconcilien las fuentes, este extracto no es una lista certificada como actual.
 
 ## Artículo 1 · Áreas funcionales de la Diputación de Badajoz
 
@@ -185,4 +185,4 @@ Extracto literal de las denominaciones de áreas, los puestos directivos, servic
 
 > La Presidencia de la Diputación, a través de la Comisión de seguimiento de la II Estrategia de Desarrollo Sostenible, establecerá los mecanismos de coordinación, seguimiento y evaluación de la contribución de los consorcios y organismos autónomos a los objetivos estratégicos provinciales.
 
-**Nota de fidelidad:** se conservan las denominaciones y la puntuación de la publicación en lo sustantivo; el BOP presenta alguna errata tipográfica en los encabezados. El texto íntegro oficial, sus páginas y el contexto de cada apartado están en el enlace de fuente anterior.
+**Nota de fidelidad y versión:** se conservan las denominaciones del acuerdo del BOP; el encabezado 2.6 presenta la grafía «OAPLU_ RESTAURA». El extracto de 1.7 reproduce la relación publicada en 2025 y no incorpora las unidades adicionales de la página oficial del área en 2026. El texto íntegro, las páginas y el contexto están en el enlace de fuente anterior. No mostrarlo como una relación exhaustiva actual hasta resolver la discrepancia.
