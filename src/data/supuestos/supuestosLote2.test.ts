@@ -5,7 +5,8 @@
 import { describe, expect, it } from 'vitest';
 import { SUPUESTOS_LOTE2, FUENTES_LOTE2_VERIFICADAS } from './supuestosLote2';
 import { auditSupuestos, tipoFuente } from './supuestosAudit';
-import { getDeckRevision, REVIEWED_DECKS } from '../recallReview';
+import { getDeckRevision } from '../recallReview';
+import { REVIEWED_DECKS } from '../recallReviewMotivos';
 import type { PreguntaCalculo, PreguntaTest } from './supuestosTypes';
 
 const G = 9.81;

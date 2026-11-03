@@ -24,7 +24,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 10,
     "concepto": "Según la ITC-BT-09 del REBT, ¿qué instalaciones de iluminación se excluyen de su ámbito cuando son completamente autónomas?",
     "respuesta": "La instalación para la iluminación de fuentes y piscinas y las de los semáforos y las balizas",
-    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 1. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
+    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 1. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
     "localizacion": "REBT (RD 842/2002), ITC-BT-09, apdo. 1",
     "apartado": "Alumbrado público (ITC-BT-09)"
   },
@@ -33,7 +33,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 20,
     "concepto": "Según la ITC-BT-09 del REBT, ¿dónde finaliza la acometida del alumbrado exterior?",
     "respuesta": "En la caja general de protección",
-    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 2. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
+    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 2. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
     "localizacion": "REBT (RD 842/2002), ITC-BT-09, apdo. 2",
     "apartado": "Alumbrado público (ITC-BT-09)"
   },
@@ -42,7 +42,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 30,
     "concepto": "Según la ITC-BT-09 del REBT, ¿cuál es la máxima caída de tensión admitida entre el origen y cualquier punto de la instalación?",
     "respuesta": "Menor o igual que 3%",
-    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 3. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
+    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 3. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
     "localizacion": "REBT (RD 842/2002), ITC-BT-09, apdo. 3",
     "apartado": "Alumbrado público (ITC-BT-09)"
   },
@@ -51,7 +51,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 40,
     "concepto": "Según la ITC-BT-09 del REBT, ¿cuál es como máximo el umbral de desconexión de los interruptores diferenciales del cuadro de alumbrado?",
     "respuesta": "Como máximo de 300 mA",
-    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 4. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
+    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 4. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
     "localizacion": "REBT (RD 842/2002), ITC-BT-09, apdo. 4",
     "apartado": "Alumbrado público (ITC-BT-09)"
   },
@@ -60,7 +60,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 50,
     "concepto": "Según la ITC-BT-09 del REBT, con diferenciales de 300 mA, ¿qué resistencia de puesta a tierra máxima se admite en la puesta en servicio?",
     "respuesta": "Como máximo de 30 Ω",
-    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 4. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
+    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 4. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
     "localizacion": "REBT (RD 842/2002), ITC-BT-09, apdo. 4",
     "apartado": "Alumbrado público (ITC-BT-09)"
   },
@@ -69,7 +69,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 60,
     "concepto": "Según la ITC-BT-09 del REBT, si el alumbrado se acciona con interruptores horarios o fotoeléctricos, ¿qué otro interruptor debe haber?",
     "respuesta": "Un interruptor manual que permita el accionamiento del sistema, con independencia de los dispositivos citados",
-    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 4. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
+    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 4. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
     "localizacion": "REBT (RD 842/2002), ITC-BT-09, apdo. 4",
     "apartado": "Alumbrado público (ITC-BT-09)"
   },
@@ -78,7 +78,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 70,
     "concepto": "Según la ITC-BT-09 del REBT, ¿a qué altura debe estar la puerta de acceso del cuadro de protección, medida y control?",
     "respuesta": "A una altura comprendida entre 2m y 0,3 m",
-    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 4. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
+    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 4. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
     "localizacion": "REBT (RD 842/2002), ITC-BT-09, apdo. 4",
     "apartado": "Alumbrado público (ITC-BT-09)"
   },
@@ -87,7 +87,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 80,
     "concepto": "Según la ITC-BT-09 del REBT, ¿qué tensión asignada deben tener los cables de las redes de alimentación?",
     "respuesta": "Tensión asignada de 0,6/1 kV",
-    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 5.1. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
+    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 5.1. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
     "localizacion": "REBT (RD 842/2002), ITC-BT-09, apdo. 5.1",
     "apartado": "Alumbrado público (ITC-BT-09)"
   },
@@ -96,7 +96,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 90,
     "concepto": "Según la ITC-BT-09 del REBT, ¿a qué profundidad mínima van enterrados los tubos de las redes subterráneas?",
     "respuesta": "A una profundidad mínima de 0,4 m del nivel del suelo medidos desde la cota inferior del tubo",
-    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 5.2.1. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
+    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 5.2.1. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
     "localizacion": "REBT (RD 842/2002), ITC-BT-09, apdo. 5.2.1",
     "apartado": "Alumbrado público (ITC-BT-09)"
   },
@@ -105,7 +105,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 100,
     "concepto": "Según la ITC-BT-09 del REBT, en los cruzamientos de calzadas, ¿cómo irá la canalización?",
     "respuesta": "Además de entubada, irá hormigonada y se instalará como mínimo un tubo de reserva",
-    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 5.2.1. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
+    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 5.2.1. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
     "localizacion": "REBT (RD 842/2002), ITC-BT-09, apdo. 5.2.1",
     "apartado": "Alumbrado público (ITC-BT-09)"
   },
@@ -114,7 +114,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 110,
     "concepto": "Según la ITC-BT-09 del REBT, ¿con qué coeficiente de seguridad se dimensionan los soportes frente a las solicitaciones mecánicas?",
     "respuesta": "Con un coeficiente de seguridad no inferior a 2,5",
-    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 6.1. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
+    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 6.1. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
     "localizacion": "REBT (RD 842/2002), ITC-BT-09, apdo. 6.1",
     "apartado": "Alumbrado público (ITC-BT-09)"
   },
@@ -123,7 +123,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 120,
     "concepto": "Según la ITC-BT-09 del REBT, ¿cuál es la altura mínima de las luminarias suspendidas sobre el nivel del suelo?",
     "respuesta": "La altura mínima sobre el nivel del suelo será de 6 m",
-    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 7.2. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
+    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 7.2. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
     "localizacion": "REBT (RD 842/2002), ITC-BT-09, apdo. 7.2",
     "apartado": "Alumbrado público (ITC-BT-09)"
   },
@@ -132,7 +132,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 130,
     "concepto": "Según la ITC-BT-09 del REBT, ¿a qué altura mínima se montan los equipos eléctricos exteriores de los puntos de luz?",
     "respuesta": "A una altura mínima de 2,5 m sobre el nivel del suelo",
-    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 8. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
+    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 8. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
     "localizacion": "REBT (RD 842/2002), ITC-BT-09, apdo. 8",
     "apartado": "Alumbrado público (ITC-BT-09)"
   },
@@ -141,7 +141,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 140,
     "concepto": "Según la ITC-BT-09 del REBT, ¿qué clase deben tener las luminarias?",
     "respuesta": "Las luminarias serán de Clase I o de Clase II",
-    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 9. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
+    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 9. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
     "localizacion": "REBT (RD 842/2002), ITC-BT-09, apdo. 9",
     "apartado": "Alumbrado público (ITC-BT-09)"
   },
@@ -150,7 +150,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 150,
     "concepto": "Según la ITC-BT-09 del REBT, ¿qué partes metálicas del mobiliario urbano próximo al alumbrado deben ponerse a tierra?",
     "respuesta": "Las que estén a una distancia inferior a 2 m de las partes metálicas de la instalación de alumbrado exterior y que sean susceptibles de ser tocadas simultáneamente",
-    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 9. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
+    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 9. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
     "localizacion": "REBT (RD 842/2002), ITC-BT-09, apdo. 9",
     "apartado": "Alumbrado público (ITC-BT-09)"
   },
@@ -159,7 +159,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 160,
     "concepto": "Según la ITC-BT-09 del REBT, ¿qué tensión de contacto no debe producirse en las partes metálicas accesibles del alumbrado exterior?",
     "respuesta": "Tensiones de contacto mayores de 24 V",
-    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 10. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
+    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 10. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
     "localizacion": "REBT (RD 842/2002), ITC-BT-09, apdo. 10",
     "apartado": "Alumbrado público (ITC-BT-09)"
   },
@@ -168,7 +168,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 170,
     "concepto": "Según la ITC-BT-09 del REBT, ¿cada cuántos soportes de luminarias se instala como mínimo un electrodo de puesta a tierra?",
     "respuesta": "Cada 5 soportes de luminarias, y siempre en el primero y en el último soporte de cada línea",
-    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 10. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
+    "fuente": "REBT (RD 842/2002), ITC-BT-09, apdo. 10. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-9",
     "localizacion": "REBT (RD 842/2002), ITC-BT-09, apdo. 10",
     "apartado": "Alumbrado público (ITC-BT-09)"
   },
@@ -177,7 +177,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 180,
     "concepto": "Según la ITC-BT-18 del REBT, ¿con qué objeto se establecen principalmente las puestas a tierra?",
     "respuesta": "Con objeto de limitar la tensión que, con respecto a tierra, puedan presentar en un momento dado las masas metálicas, asegurar la actuación de las protecciones y eliminar o disminuir el riesgo que supone una avería en los materiales eléctricos utilizados",
-    "fuente": "REBT (RD 842/2002), ITC-BT-18, apdo. 1. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-18",
+    "fuente": "REBT (RD 842/2002), ITC-BT-18, apdo. 1. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-18",
     "localizacion": "REBT (RD 842/2002), ITC-BT-18, apdo. 1",
     "apartado": "Puesta a tierra (ITC-BT-18)"
   },
@@ -186,7 +186,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 190,
     "concepto": "Según la ITC-BT-18 del REBT, ¿cómo se define la puesta o conexión a tierra?",
     "respuesta": "La unión eléctrica directa, sin fusibles ni protección alguna, de una parte del circuito eléctrico o de una parte conductora no perteneciente al mismo mediante una toma de tierra con un electrodo o grupos de electrodos enterrados en el suelo",
-    "fuente": "REBT (RD 842/2002), ITC-BT-18, apdo. 2. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-18",
+    "fuente": "REBT (RD 842/2002), ITC-BT-18, apdo. 2. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-18",
     "localizacion": "REBT (RD 842/2002), ITC-BT-18, apdo. 2",
     "apartado": "Puesta a tierra (ITC-BT-18)"
   },
@@ -195,7 +195,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 200,
     "concepto": "Según la ITC-BT-18 del REBT, ¿a qué profundidad mínima se entierran las tomas de tierra?",
     "respuesta": "La profundidad nunca será inferior a 0,50 m",
-    "fuente": "REBT (RD 842/2002), ITC-BT-18, apdo. 3.1. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-18",
+    "fuente": "REBT (RD 842/2002), ITC-BT-18, apdo. 3.1. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-18",
     "localizacion": "REBT (RD 842/2002), ITC-BT-18, apdo. 3.1",
     "apartado": "Puesta a tierra (ITC-BT-18)"
   },
@@ -204,7 +204,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 210,
     "concepto": "Según la ITC-BT-18 del REBT, ¿qué canalizaciones no deben utilizarse como tomas de tierra por razones de seguridad?",
     "respuesta": "Las canalizaciones metálicas de otros servicios (agua, líquidos o gases inflamables, calefacción central, etc.)",
-    "fuente": "REBT (RD 842/2002), ITC-BT-18, apdo. 3.1. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-18",
+    "fuente": "REBT (RD 842/2002), ITC-BT-18, apdo. 3.1. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-18",
     "localizacion": "REBT (RD 842/2002), ITC-BT-18, apdo. 3.1",
     "apartado": "Puesta a tierra (ITC-BT-18)"
   },
@@ -213,7 +213,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 220,
     "concepto": "Según la ITC-BT-18 del REBT, ¿para qué sirven los conductores de protección?",
     "respuesta": "Para unir eléctricamente las masas de una instalación a ciertos elementos con el fin de asegurar la protección contra contactos indirectos",
-    "fuente": "REBT (RD 842/2002), ITC-BT-18, apdo. 3.4. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-18",
+    "fuente": "REBT (RD 842/2002), ITC-BT-18, apdo. 3.4. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-18",
     "localizacion": "REBT (RD 842/2002), ITC-BT-18, apdo. 3.4",
     "apartado": "Puesta a tierra (ITC-BT-18)"
   },
@@ -222,7 +222,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 230,
     "concepto": "Según la ITC-BT-18 del REBT, ¿qué tensión de contacto máxima puede dar lugar cualquier masa en local o emplazamiento conductor?",
     "respuesta": "24 V en local o emplazamiento conductor",
-    "fuente": "REBT (RD 842/2002), ITC-BT-18, apdo. 9. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-18",
+    "fuente": "REBT (RD 842/2002), ITC-BT-18, apdo. 9. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-18",
     "localizacion": "REBT (RD 842/2002), ITC-BT-18, apdo. 9",
     "apartado": "Puesta a tierra (ITC-BT-18)"
   },
@@ -231,7 +231,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 240,
     "concepto": "Según la ITC-BT-18 del REBT, fuera de los locales conductores, ¿qué tensión de contacto máxima puede dar cualquier masa?",
     "respuesta": "50 V en los demás casos",
-    "fuente": "REBT (RD 842/2002), ITC-BT-18, apdo. 9. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-18",
+    "fuente": "REBT (RD 842/2002), ITC-BT-18, apdo. 9. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-18",
     "localizacion": "REBT (RD 842/2002), ITC-BT-18, apdo. 9",
     "apartado": "Puesta a tierra (ITC-BT-18)"
   },
@@ -240,7 +240,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 250,
     "concepto": "Según la ITC-BT-18 del REBT, ¿de qué depende la resistencia de un electrodo?",
     "respuesta": "De sus dimensiones, de su forma y de la resistividad del terreno en el que se establece",
-    "fuente": "REBT (RD 842/2002), ITC-BT-18, apdo. 9. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-18",
+    "fuente": "REBT (RD 842/2002), ITC-BT-18, apdo. 9. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-18",
     "localizacion": "REBT (RD 842/2002), ITC-BT-18, apdo. 9",
     "apartado": "Puesta a tierra (ITC-BT-18)"
   },
@@ -249,7 +249,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 260,
     "concepto": "Según la ITC-BT-18 del REBT, ¿con qué frecuencia mínima se comprueba la instalación de puesta a tierra y en qué época?",
     "respuesta": "Al menos anualmente, en la época en la que el terreno esté mas seco",
-    "fuente": "REBT (RD 842/2002), ITC-BT-18, apdo. 12. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-18",
+    "fuente": "REBT (RD 842/2002), ITC-BT-18, apdo. 12. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-18",
     "localizacion": "REBT (RD 842/2002), ITC-BT-18, apdo. 12",
     "apartado": "Puesta a tierra (ITC-BT-18)"
   },
@@ -258,7 +258,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 270,
     "concepto": "Según la ITC-BT-18 del REBT, donde el terreno no favorece la conservación de los electrodos, ¿cada cuánto se ponen al descubierto para examinarlos?",
     "respuesta": "Al menos una vez cada cinco años",
-    "fuente": "REBT (RD 842/2002), ITC-BT-18, apdo. 12. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-18",
+    "fuente": "REBT (RD 842/2002), ITC-BT-18, apdo. 12. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-18",
     "localizacion": "REBT (RD 842/2002), ITC-BT-18, apdo. 12",
     "apartado": "Puesta a tierra (ITC-BT-18)"
   },
@@ -267,7 +267,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 280,
     "concepto": "Según la ITC-BT-24 del REBT, ¿cómo se realiza la protección contra contactos directos e indirectos a la vez?",
     "respuesta": "Mediante la utilización de muy baja tensión de seguridad MBTS",
-    "fuente": "REBT (RD 842/2002), ITC-BT-24, apdo. 2. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-24",
+    "fuente": "REBT (RD 842/2002), ITC-BT-24, apdo. 2. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-24",
     "localizacion": "REBT (RD 842/2002), ITC-BT-24, apdo. 2",
     "apartado": "Contactos directos e indirectos (ITC-BT-24)"
   },
@@ -276,7 +276,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 290,
     "concepto": "Según la ITC-BT-24 del REBT, ¿en qué consiste la protección contra contactos directos?",
     "respuesta": "En tomar las medidas destinadas a proteger las personas contra los peligros que pueden derivarse de un contacto con las partes activas de los materiales eléctricos",
-    "fuente": "REBT (RD 842/2002), ITC-BT-24, apdo. 3. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-24",
+    "fuente": "REBT (RD 842/2002), ITC-BT-24, apdo. 3. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-24",
     "localizacion": "REBT (RD 842/2002), ITC-BT-24, apdo. 3",
     "apartado": "Contactos directos e indirectos (ITC-BT-24)"
   },
@@ -285,7 +285,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 300,
     "concepto": "Según la ITC-BT-24 del REBT, ¿qué productos no se consideran aislamiento suficiente frente a contactos directos?",
     "respuesta": "Las pinturas, barnices, lacas y productos similares",
-    "fuente": "REBT (RD 842/2002), ITC-BT-24, apdo. 3.1. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-24",
+    "fuente": "REBT (RD 842/2002), ITC-BT-24, apdo. 3.1. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-24",
     "localizacion": "REBT (RD 842/2002), ITC-BT-24, apdo. 3.1",
     "apartado": "Contactos directos e indirectos (ITC-BT-24)"
   },
@@ -294,7 +294,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 310,
     "concepto": "Según la ITC-BT-24 del REBT, por convenio, ¿qué altura limita el volumen de accesibilidad?",
     "respuesta": "La altura que limita el volumen es 2,5 m",
-    "fuente": "REBT (RD 842/2002), ITC-BT-24, apdo. 3.4. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-24",
+    "fuente": "REBT (RD 842/2002), ITC-BT-24, apdo. 3.4. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-24",
     "localizacion": "REBT (RD 842/2002), ITC-BT-24, apdo. 3.4",
     "apartado": "Contactos directos e indirectos (ITC-BT-24)"
   },
@@ -303,7 +303,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 320,
     "concepto": "Según la ITC-BT-24 del REBT, ¿qué corriente diferencial asignada deben tener los diferenciales para reconocerse como protección complementaria frente a contactos directos?",
     "respuesta": "Inferior o igual a 30 mA",
-    "fuente": "REBT (RD 842/2002), ITC-BT-24, apdo. 3.5. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-24",
+    "fuente": "REBT (RD 842/2002), ITC-BT-24, apdo. 3.5. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-24",
     "localizacion": "REBT (RD 842/2002), ITC-BT-24, apdo. 3.5",
     "apartado": "Contactos directos e indirectos (ITC-BT-24)"
   },
@@ -312,7 +312,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 330,
     "concepto": "Según la ITC-BT-24 del REBT, ¿cuál es la tensión límite convencional en condiciones normales?",
     "respuesta": "Igual a 50 V, valor eficaz en corriente alterna",
-    "fuente": "REBT (RD 842/2002), ITC-BT-24, apdo. 4.1. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-24",
+    "fuente": "REBT (RD 842/2002), ITC-BT-24, apdo. 4.1. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-24",
     "localizacion": "REBT (RD 842/2002), ITC-BT-24, apdo. 4.1",
     "apartado": "Contactos directos e indirectos (ITC-BT-24)"
   },
@@ -321,7 +321,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 340,
     "concepto": "Según la ITC-BT-24 del REBT, en los esquemas TN-C, ¿qué dispositivos de protección no pueden utilizarse?",
     "respuesta": "Dispositivos de protección de corriente diferencial-residual",
-    "fuente": "REBT (RD 842/2002), ITC-BT-24, apdo. 4.1.1. BOE-A-2002-18099, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-24",
+    "fuente": "REBT (RD 842/2002), ITC-BT-24, apdo. 4.1.1. BOE-A-2002-18099, texto consolidado (últ. actualización publicada el 03/09/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099#ib-24",
     "localizacion": "REBT (RD 842/2002), ITC-BT-24, apdo. 4.1.1",
     "apartado": "Contactos directos e indirectos (ITC-BT-24)"
   },
@@ -330,7 +330,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 350,
     "concepto": "Según el RD 337/2014 de alta tensión, ¿qué se considera alta tensión?",
     "respuesta": "Toda tensión nominal superior a 1 kV",
-    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 1. BOE-A-2014-6084, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
+    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 1. BOE-A-2014-6084, texto consolidado (últ. actualización publicada el 01/10/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
     "localizacion": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 1",
     "apartado": "Alta tensión: centros de transformación y subestaciones (RD 337/2014)"
   },
@@ -339,7 +339,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 360,
     "concepto": "Según el RD 337/2014 de alta tensión, ¿qué es una central eléctrica?",
     "respuesta": "Lugar y conjunto de instalaciones, incluidas las construcciones de obra civil y edificios necesarios, utilizadas directa e indirectamente para la producción de energía eléctrica",
-    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 8. BOE-A-2014-6084, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
+    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 8. BOE-A-2014-6084, texto consolidado (últ. actualización publicada el 01/10/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
     "localizacion": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 8",
     "apartado": "Alta tensión: centros de transformación y subestaciones (RD 337/2014)"
   },
@@ -348,7 +348,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 370,
     "concepto": "Según el RD 337/2014 de alta tensión, ¿qué es un centro de transformación?",
     "respuesta": "Instalación que comprende uno o varios transformadores, aparamenta de alta tensión y de baja tensión, conexiones y elementos auxiliares, para suministrar energía en BT a partir de una red de AT o viceversa",
-    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 9. BOE-A-2014-6084, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
+    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 9. BOE-A-2014-6084, texto consolidado (últ. actualización publicada el 01/10/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
     "localizacion": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 9",
     "apartado": "Alta tensión: centros de transformación y subestaciones (RD 337/2014)"
   },
@@ -357,7 +357,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 380,
     "concepto": "Según el RD 337/2014 de alta tensión, ¿qué instalaciones quedan excluidas de la definición de subestación?",
     "respuesta": "Quedan excluidos de esta definición los centros de transformación",
-    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 72. BOE-A-2014-6084, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
+    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 72. BOE-A-2014-6084, texto consolidado (últ. actualización publicada el 01/10/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
     "localizacion": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 72",
     "apartado": "Alta tensión: centros de transformación y subestaciones (RD 337/2014)"
   },
@@ -366,7 +366,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 390,
     "concepto": "Según el RD 337/2014 de alta tensión, ¿a qué se destina una subestación de maniobra?",
     "respuesta": "Es la destinada a la conexión entre dos o más circuitos y su maniobra",
-    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 73. BOE-A-2014-6084, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
+    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 73. BOE-A-2014-6084, texto consolidado (últ. actualización publicada el 01/10/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
     "localizacion": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 73",
     "apartado": "Alta tensión: centros de transformación y subestaciones (RD 337/2014)"
   },
@@ -375,7 +375,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 400,
     "concepto": "Según el RD 337/2014 de alta tensión, ¿cuál es la finalidad principal de una subestación móvil?",
     "respuesta": "El socorro temporal de la red de alta tensión ante contingencias o situaciones especiales de servicio",
-    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 75. BOE-A-2014-6084, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
+    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 75. BOE-A-2014-6084, texto consolidado (últ. actualización publicada el 01/10/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
     "localizacion": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 75",
     "apartado": "Alta tensión: centros de transformación y subestaciones (RD 337/2014)"
   },
@@ -384,7 +384,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 410,
     "concepto": "Según el RD 337/2014 de alta tensión, ¿qué asegura un seccionador en posición abierto?",
     "respuesta": "Una distancia de seccionamiento que satisface unas condiciones especificas de aislamiento",
-    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 67. BOE-A-2014-6084, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
+    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 67. BOE-A-2014-6084, texto consolidado (últ. actualización publicada el 01/10/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
     "localizacion": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 67",
     "apartado": "Alta tensión: centros de transformación y subestaciones (RD 337/2014)"
   },
@@ -393,7 +393,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 420,
     "concepto": "Según el RD 337/2014 de alta tensión, ¿qué es capaz de interrumpir un interruptor automático además de lo que hace un interruptor?",
     "respuesta": "Corrientes en condiciones anormales especificadas del circuito, tales como las del cortocircuito",
-    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 43. BOE-A-2014-6084, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
+    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 43. BOE-A-2014-6084, texto consolidado (últ. actualización publicada el 01/10/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
     "localizacion": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 43",
     "apartado": "Alta tensión: centros de transformación y subestaciones (RD 337/2014)"
   },
@@ -402,7 +402,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 430,
     "concepto": "Según el RD 337/2014 de alta tensión, ¿qué es la tensión de paso?",
     "respuesta": "Es la parte de la tensión a tierra que aparece en caso de un defecto a tierra entre dos puntos del terreno separados un metro",
-    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 82. BOE-A-2014-6084, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
+    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 82. BOE-A-2014-6084, texto consolidado (últ. actualización publicada el 01/10/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
     "localizacion": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 82",
     "apartado": "Alta tensión: centros de transformación y subestaciones (RD 337/2014)"
   },
@@ -411,7 +411,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 440,
     "concepto": "Según el RD 337/2014 de alta tensión, ¿qué es la tensión de contacto?",
     "respuesta": "Es la fracción de la tensión de puesta a tierra que puede ser puenteada por una persona entre la mano y un punto del terreno situado a un metro de separación o entre ambas manos",
-    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 79. BOE-A-2014-6084, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
+    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 79. BOE-A-2014-6084, texto consolidado (últ. actualización publicada el 01/10/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
     "localizacion": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 79",
     "apartado": "Alta tensión: centros de transformación y subestaciones (RD 337/2014)"
   },
@@ -420,7 +420,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 450,
     "concepto": "Según el RD 337/2014 de alta tensión, al calcular la tensión de paso aplicada, ¿en cuánto se estima la resistencia del cuerpo humano?",
     "respuesta": "En 1000 ohmios",
-    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 83. BOE-A-2014-6084, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
+    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 83. BOE-A-2014-6084, texto consolidado (últ. actualización publicada el 01/10/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
     "localizacion": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 83",
     "apartado": "Alta tensión: centros de transformación y subestaciones (RD 337/2014)"
   },
@@ -429,7 +429,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 460,
     "concepto": "Según el RD 337/2014 de alta tensión, ¿para qué se hace la puesta a tierra de protección?",
     "respuesta": "A fin de proteger a las personas contra contactos con tensiones peligrosas",
-    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 55. BOE-A-2014-6084, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
+    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 55. BOE-A-2014-6084, texto consolidado (últ. actualización publicada el 01/10/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
     "localizacion": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 55",
     "apartado": "Alta tensión: centros de transformación y subestaciones (RD 337/2014)"
   },
@@ -438,7 +438,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 470,
     "concepto": "Según el RD 337/2014 de alta tensión, ¿qué es la zona de protección?",
     "respuesta": "Es el espacio comprendido entre los límites de los lugares accesibles, por un lado, y los elementos que se encuentran bajo tensión, por otro",
-    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 97. BOE-A-2014-6084, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
+    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 97. BOE-A-2014-6084, texto consolidado (últ. actualización publicada el 01/10/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
     "localizacion": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 97",
     "apartado": "Alta tensión: centros de transformación y subestaciones (RD 337/2014)"
   },
@@ -447,7 +447,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 480,
     "concepto": "Según el RD 337/2014 de alta tensión, ¿qué hace un transformador para distribución?",
     "respuesta": "Transforma un sistema de corrientes en Alta Tensión en otro en Baja Tensión",
-    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 96. BOE-A-2014-6084, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
+    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 96. BOE-A-2014-6084, texto consolidado (últ. actualización publicada el 01/10/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir",
     "localizacion": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 01, def. 96",
     "apartado": "Alta tensión: centros de transformación y subestaciones (RD 337/2014)"
   },
@@ -456,7 +456,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 490,
     "concepto": "Según el RD 337/2014 de alta tensión, en instalaciones de interior, ¿a partir de qué cantidad de dieléctrico líquido en un aparato o transformador hace falta foso de recogida?",
     "respuesta": "Más de 50 litros de dieléctrico líquido",
-    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 14, apdo. 5.1.a. BOE-A-2014-6084, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir-14",
+    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 14, apdo. 5.1.a. BOE-A-2014-6084, texto consolidado (últ. actualización publicada el 01/10/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir-14",
     "localizacion": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 14, apdo. 5.1.a",
     "apartado": "Alta tensión: centros de transformación y subestaciones (RD 337/2014)"
   },
@@ -465,7 +465,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 500,
     "concepto": "Según el RD 337/2014 de alta tensión, si no es obligatorio un sistema fijo, ¿qué extintor mínimo se coloca en una instalación de alta tensión de interior?",
     "respuesta": "Como mínimo un extintor de eficacia mínima 89B",
-    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 14, apdo. 5.1.b.1. BOE-A-2014-6084, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir-14",
+    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 14, apdo. 5.1.b.1. BOE-A-2014-6084, texto consolidado (últ. actualización publicada el 01/10/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir-14",
     "localizacion": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 14, apdo. 5.1.b.1",
     "apartado": "Alta tensión: centros de transformación y subestaciones (RD 337/2014)"
   },
@@ -474,7 +474,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 510,
     "concepto": "Según el RD 337/2014 de alta tensión, ¿a qué distancia máxima de una instalación de alta tensión de interior debe colocarse el extintor móvil?",
     "respuesta": "A una distancia no superior a 15 metros de la misma",
-    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 14, apdo. 5.1.b.1. BOE-A-2014-6084, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir-14",
+    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 14, apdo. 5.1.b.1. BOE-A-2014-6084, texto consolidado (últ. actualización publicada el 01/10/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir-14",
     "localizacion": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 14, apdo. 5.1.b.1",
     "apartado": "Alta tensión: centros de transformación y subestaciones (RD 337/2014)"
   },
@@ -483,7 +483,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 520,
     "concepto": "Según el RD 337/2014 de alta tensión, si la instalación está en un edificio destinado a otros usos, ¿qué eficacia mínima debe tener el extintor?",
     "respuesta": "La eficacia será como mínimo 21A-113B",
-    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 14, apdo. 5.1.b.1. BOE-A-2014-6084, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir-14",
+    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 14, apdo. 5.1.b.1. BOE-A-2014-6084, texto consolidado (últ. actualización publicada el 01/10/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir-14",
     "localizacion": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 14, apdo. 5.1.b.1",
     "apartado": "Alta tensión: centros de transformación y subestaciones (RD 337/2014)"
   },
@@ -492,7 +492,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 530,
     "concepto": "Según el RD 337/2014 de alta tensión, ¿cuántos extintores debe llevar en sus vehículos el personal itinerante de mantenimiento?",
     "respuesta": "Dos extintores de eficacia mínima 89B",
-    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 14, apdo. 5.1.b.1. BOE-A-2014-6084, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir-14",
+    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 14, apdo. 5.1.b.1. BOE-A-2014-6084, texto consolidado (últ. actualización publicada el 01/10/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir-14",
     "localizacion": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 14, apdo. 5.1.b.1",
     "apartado": "Alta tensión: centros de transformación y subestaciones (RD 337/2014)"
   },
@@ -501,7 +501,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 540,
     "concepto": "Según el RD 337/2014 de alta tensión, al elegir los extintores de una instalación de alta tensión de exterior, ¿qué se tendrá en cuenta?",
     "respuesta": "Si van a ser usados en instalaciones en tensión o no",
-    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 15, apdo. 6.1. BOE-A-2014-6084, texto consolidado (últ. actualización 19/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir-15",
+    "fuente": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 15, apdo. 6.1. BOE-A-2014-6084, texto consolidado (últ. actualización publicada el 01/10/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084#ir-15",
     "localizacion": "RD 337/2014 (alta tensión), INSTRUCCIÓN TÉCNICA COMPLEMENTARIA ITC-RAT 15, apdo. 6.1",
     "apartado": "Alta tensión: centros de transformación y subestaciones (RD 337/2014)"
   },
@@ -510,7 +510,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 550,
     "concepto": "Según el RD 614/2001, ¿qué operaciones pueden realizarse en tensión cuando su naturaleza así lo exija?",
     "respuesta": "Las maniobras, mediciones, ensayos y verificaciones",
-    "fuente": "RD 614/2001, Artículo 4. Técnicas y procedimientos de trabajo, art. 4.4.a. BOE-A-2001-11881, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881#a4",
+    "fuente": "RD 614/2001, Artículo 4. Técnicas y procedimientos de trabajo, art. 4.4.a. BOE-A-2001-11881, texto consolidado (sin modificaciones; publicado el 21/06/2001): https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881#a4",
     "localizacion": "RD 614/2001, Artículo 4. Técnicas y procedimientos de trabajo, art. 4.4.a",
     "apartado": "Riesgo eléctrico en el trabajo (RD 614/2001)"
   },
@@ -519,7 +519,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 560,
     "concepto": "Según el RD 614/2001, ¿cuál es el último paso del proceso de reposición de la tensión?",
     "respuesta": "El cierre de los circuitos para reponer la tensión",
-    "fuente": "RD 614/2001, anexo II.A.2. BOE-A-2001-11881, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881#anii",
+    "fuente": "RD 614/2001, anexo II.A.2. BOE-A-2001-11881, texto consolidado (sin modificaciones; publicado el 21/06/2001): https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881#anii",
     "localizacion": "RD 614/2001, anexo II.A.2",
     "apartado": "Riesgo eléctrico en el trabajo (RD 614/2001)"
   },
@@ -528,7 +528,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 570,
     "concepto": "Según el RD 614/2001, durante un trabajo sin tensión, ¿desde cuándo se considera de nuevo en tensión la parte de la instalación afectada?",
     "respuesta": "Desde el momento en que se suprima una de las medidas inicialmente adoptadas para realizar el trabajo sin tensión en condiciones de seguridad",
-    "fuente": "RD 614/2001, anexo II.A.2. BOE-A-2001-11881, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881#anii",
+    "fuente": "RD 614/2001, anexo II.A.2. BOE-A-2001-11881, texto consolidado (sin modificaciones; publicado el 21/06/2001): https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881#anii",
     "localizacion": "RD 614/2001, anexo II.A.2",
     "apartado": "Riesgo eléctrico en el trabajo (RD 614/2001)"
   },
@@ -537,7 +537,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 580,
     "concepto": "Según el RD 614/2001, antes de manipular en el interior de un motor eléctrico o generador, ¿qué debe comprobarse sobre la protección contra incendios?",
     "respuesta": "Que la protección contra incendios está bloqueada",
-    "fuente": "RD 614/2001, anexo II.B.4. BOE-A-2001-11881, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881#anii",
+    "fuente": "RD 614/2001, anexo II.B.4. BOE-A-2001-11881, texto consolidado (sin modificaciones; publicado el 21/06/2001): https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881#anii",
     "localizacion": "RD 614/2001, anexo II.B.4",
     "apartado": "Riesgo eléctrico en el trabajo (RD 614/2001)"
   },
@@ -546,7 +546,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 590,
     "concepto": "Según el RD 614/2001, en emplazamientos con atmósfera explosiva, ¿qué trabajos quedan prohibidos salvo con instalaciones y equipos concebidos para ello?",
     "respuesta": "La realización de trabajos u operaciones (cambio de lámparas, fusibles, etc.) en tensión",
-    "fuente": "RD 614/2001, anexo VI.A.1. BOE-A-2001-11881, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881#anvi",
+    "fuente": "RD 614/2001, anexo VI.A.1. BOE-A-2001-11881, texto consolidado (sin modificaciones; publicado el 21/06/2001): https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881#anvi",
     "localizacion": "RD 614/2001, anexo VI.A.1",
     "apartado": "Riesgo eléctrico en el trabajo (RD 614/2001)"
   },
@@ -555,7 +555,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 600,
     "concepto": "Según el RD 614/2001, si se produce un incendio en un emplazamiento con riesgo de incendio o explosión, ¿en qué casos no se desconectan las partes afectadas de la instalación?",
     "respuesta": "Salvo que sea necesario dejarlas en tensión para actuar contra el incendio, o que la desconexión conlleve peligros potencialmente más graves que los que pueden derivarse del propio incendio",
-    "fuente": "RD 614/2001, anexo VI.A.2. BOE-A-2001-11881, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881#anvi",
+    "fuente": "RD 614/2001, anexo VI.A.2. BOE-A-2001-11881, texto consolidado (sin modificaciones; publicado el 21/06/2001): https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881#anvi",
     "localizacion": "RD 614/2001, anexo VI.A.2",
     "apartado": "Riesgo eléctrico en el trabajo (RD 614/2001)"
   },
@@ -564,7 +564,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 610,
     "concepto": "Según el RD 614/2001, ¿qué trabajadores realizan los trabajos que deban hacerse en una atmósfera explosiva?",
     "respuesta": "Trabajadores cualificados",
-    "fuente": "RD 614/2001, anexo VI.A.3. BOE-A-2001-11881, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881#anvi",
+    "fuente": "RD 614/2001, anexo VI.A.3. BOE-A-2001-11881, texto consolidado (sin modificaciones; publicado el 21/06/2001): https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881#anvi",
     "localizacion": "RD 614/2001, anexo VI.A.3",
     "apartado": "Riesgo eléctrico en el trabajo (RD 614/2001)"
   },
@@ -573,7 +573,7 @@ export const TEMA28_LOTE02_RECALL_CARDS: Tema28RecallCard[] = [
     "orden": 620,
     "concepto": "Según el RD 614/2001, ¿qué conexión se hace de los materiales susceptibles de adquirir carga electrostática?",
     "respuesta": "Conexión a tierra, y entre sí cuando sea necesario",
-    "fuente": "RD 614/2001, anexo VI.B.2. BOE-A-2001-11881, texto consolidado (últ. actualización 18/12/2025): https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881#anvi",
+    "fuente": "RD 614/2001, anexo VI.B.2. BOE-A-2001-11881, texto consolidado (sin modificaciones; publicado el 21/06/2001): https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881#anvi",
     "localizacion": "RD 614/2001, anexo VI.B.2",
     "apartado": "Riesgo eléctrico en el trabajo (RD 614/2001)"
   },

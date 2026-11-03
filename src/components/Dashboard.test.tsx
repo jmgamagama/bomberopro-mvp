@@ -61,7 +61,7 @@ describe('Dashboard', () => {
     expect(onReset).toHaveBeenCalledOnce();
   });
 
-  it('muestra la tarjeta de consulta pedagógica y permite abrir el diálogo de ayuda', () => {
+  it('muestra la tarjeta de consulta pedagógica y permite abrir el diálogo de ayuda', async () => {
     renderDashboard();
 
     expect(screen.getByText('¿Dudas en tu preparación?')).toBeInTheDocument();
@@ -69,7 +69,7 @@ describe('Dashboard', () => {
     expect(consultButton).toBeInTheDocument();
 
     fireEvent.click(consultButton);
-    expect(screen.getByRole('dialog')).toBeInTheDocument();
+    expect(await screen.findByRole('dialog')).toBeInTheDocument();
     expect(screen.getByText(/el equipo revisará tu consulta de forma personalizada/i)).toBeInTheDocument();
   });
 
@@ -91,6 +91,6 @@ describe('Dashboard', () => {
       />,
     );
     // (10 + 20) / 2 = 15 s; con la medición no fiable (120 s) saldría 50 s.
-    expect(screen.getByText('15.0s')).toBeInTheDocument();
+    expect(screen.getByText('15 s')).toBeInTheDocument();
   });
 });

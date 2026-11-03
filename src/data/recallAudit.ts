@@ -45,6 +45,7 @@ export const DECKS_SIN_ENLACE: Readonly<Record<string, string>> = {
   tema38: 'instrucciones técnicas (ITF) del CPEI citadas por edición y página',
   tema39: 'protocolo de movilización (BOP Badajoz 224/2025) y manuales SOS del CPEI citados sin enlace',
   tema40: 'procedimientos de trabajo (PT) del CPEI citados por edición y página',
+  tema37: 'Plan de prevención del CPEI citado por BOP nº 117, anuncio 2242/2026, y página',
 };
 
 const URL_RE = /https?:\/\/[^\s)·,;"'<>]+/g;

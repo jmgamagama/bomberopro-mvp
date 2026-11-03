@@ -23,13 +23,13 @@ y vuelve a generarlas (no edites los .html a mano).
 ## Configuración en el panel (primero staging, luego producción)
 
 Staging = `fxhvgvehhekqeqpkxtrm` (lo usan las vistas previas de Vercel `*-bombero-pro.vercel.app`).
-Producción = `yndoaprnpkjqiggeyefz` (`https://bomberopro-mvp.vercel.app`).
+Producción = `yndoaprnpkjqiggeyefz` (`https://bomberopro.com`).
 
 1. **Authentication → URL Configuration**
    - Staging: Site URL `http://localhost:3000` (solo se usa si falta la URL de vuelta; no poner la de
      producción, que usa otra base de datos); Redirect URLs `https://*-bombero-pro.vercel.app/**` y
      `http://localhost:3000/**`.
-   - Producción: Site URL `https://bomberopro-mvp.vercel.app`; Redirect URLs `https://bomberopro-mvp.vercel.app/**`.
+   - Producción: Site URL `https://bomberopro.com`; Redirect URLs `https://bomberopro.com/**`.
 2. **Authentication → Emails → SMTP Settings**: activar SMTP propio (ver abajo). Sin él, Supabase solo
    entrega a los miembros del equipo del proyecto (`email_address_not_authorized`) y muy pocos por hora.
 3. **Authentication → Emails → Templates**: en cada una de las 4 plantillas, pegar el asunto y el HTML.

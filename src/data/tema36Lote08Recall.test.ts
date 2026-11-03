@@ -73,7 +73,8 @@ describe('tema 36 lote 08 (Puebla del Maestre → Zarza-Capilla)', () => {
     expect(deck.count).toBe(55);
     expect(deck.topicId).toBe('tema36');
     expect(deck.loteLabel).toBe('Lote 8');
-    expect(await loadRecallDeckCards(deck.id)).toBe(TEMA36_LOTE08_RECALL_CARDS);
+    // Lote revisado ficha a ficha entero: el alumno ve todas sus fichas.
+    expect(await loadRecallDeckCards(deck.id)).toEqual(TEMA36_LOTE08_RECALL_CARDS);
   });
 
   it('con el lote 08 los límites cubren los 165 municipios una vez y son simétricos', () => {

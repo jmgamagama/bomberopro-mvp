@@ -3,7 +3,7 @@
     "tema": 36,
     "lote": "lote02",
     "titulo": "Municipios restantes (INE + población ≤5.000): Acedera → Esparragosa de Lares",
-    "count": 79,
+    "count": 80,
     "source": "tema36_fichas.json + tema36_lotes.json"
   },
   "fichas": [
@@ -721,6 +721,17 @@
       "subtema": "S02",
       "apartado": "Cordobilla de Lácara",
       "tipo_unidad": "identificación"
+    },
+    {
+      "id": "CPEI-T36-S02-1545BE119A",
+      "orden": 825,
+      "concepto": "¿Qué población oficial tenía Cordobilla de Lácara a 1 de enero de 2025 y en qué tramo del temario se clasifica?",
+      "respuesta": "815 habitantes; hasta 5.000 habitantes.",
+      "fuente": "INE: población por municipios y sexo, Badajoz",
+      "localizacion": "tabla 2859, columna Total 2025",
+      "subtema": "S02",
+      "apartado": "Cordobilla de Lácara",
+      "tipo_unidad": "cifra/clasificación"
     },
     {
       "id": "CPEI-T36-S02-7AE70F9C4A",

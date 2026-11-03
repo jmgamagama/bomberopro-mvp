@@ -94,7 +94,7 @@ export const TEMA40_RECALL_CARDS: Tema40RecallCard[] = [
     "id": "CPEI-T40-S03-4C70FFDCA2",
     "orden": 90,
     "concepto": "¿De qué factores depende la velocidad adecuada?",
-    "respuesta": "Estado de la vía, meteorología, diseño/estado del vehículo y destreza/conocimiento del conductor.",
+    "respuesta": "Estado de la vía, condiciones meteorológicas, tipo de vehículo (diseño y estado) y destreza y conocimiento del vehículo por parte del conductor.",
     "fuente": "PT01 Procedimiento de trabajo: conducción de vehículos CPEI, edición 1",
     "localizacion": "página 12",
     "apartado": "PT01 conducción"
@@ -157,7 +157,7 @@ export const TEMA40_RECALL_CARDS: Tema40RecallCard[] = [
     "id": "CPEI-T40-S04-3CCAAFEF58",
     "orden": 160,
     "concepto": "¿Cómo se desciende con circulación en movimiento?",
-    "respuesta": "Con el vehículo detenido, por el lado derecho cuando sea posible, y aplicando siempre el freno de estacionamiento antes de abandonar el puesto.",
+    "respuesta": "Con el vehículo parado y por el lado derecho, para evitar un arrollamiento; en todo caso se emplea el freno de estacionamiento antes de abandonar el puesto de conducción.",
     "fuente": "PT01 Procedimiento de trabajo: conducción de vehículos CPEI, edición 1",
     "localizacion": "página 16",
     "apartado": "PT01 conducción"
@@ -229,7 +229,7 @@ export const TEMA40_RECALL_CARDS: Tema40RecallCard[] = [
     "id": "CPEI-T40-S05-4952D3AC3A",
     "orden": 240,
     "concepto": "¿Qué se evalúa antes de transitar terreno no consistente?",
-    "respuesta": "Tracción disponible, riesgo de atrapamiento, características del vehículo y técnicas/relaciones de marcha adecuadas.",
+    "respuesta": "La posibilidad de carencia de tracción y de atrapamiento del vehículo.",
     "fuente": "PT01 Procedimiento de trabajo: conducción de vehículos CPEI, edición 1",
     "localizacion": "página 19",
     "apartado": "PT01 conducción"

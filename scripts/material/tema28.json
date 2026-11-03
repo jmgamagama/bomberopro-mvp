@@ -1,0 +1,49 @@
+{
+ "tema": 28,
+ "boe": "BOE-A-2001-11881",
+ "carpeta": "tema28",
+ "prefijo": "rd614",
+ "epigrafe": "Electricidad: definiciones. Intensidad. Diferencia de potencial. Resistencia y conductividad electrica. Centrales de generacion, lineas de transporte y distribucion en alta tension, subestaciones, lineas de distribucion en media tension, centros de transformacion, redes de distribucion en baja tension y acometidas, instalaciones de enlace. Equipo de proteccion personal, material de aislamiento y deteccion, distancias de seguridad en funcion de la tension, agentes extintores. Tecnicas y procedimientos de actuacion en intervenciones con riesgo electrico.\n",
+ "bloques": [
+  {
+   "titulo": "Real Decreto 614/2001 · Articulado (arts. 1–6)",
+   "desde": "a1",
+   "hasta": "a6"
+  },
+  {
+   "titulo": "Anexo I · Definiciones (zonas de peligro y de proximidad, distancias según la tensión)",
+   "desde": "ani",
+   "hasta": "ani"
+  },
+  {
+   "titulo": "Anexos II a VI · Trabajos sin tensión, en tensión, maniobras, proximidad y emplazamientos con riesgo de incendio o explosión",
+   "desde": "anii",
+   "hasta": "anvi"
+  },
+  {
+   "titulo": "REBT (RD 842/2002) · Reglamento: clasificación de las tensiones, redes de distribución y acometidas e instalaciones de enlace (arts. 4, 8 y 15)",
+   "boe": "BOE-A-2002-18099",
+   "ids": [
+    "a4",
+    "a8",
+    "a1-7"
+   ]
+  },
+  {
+   "titulo": "REBT · Redes de distribución en baja tensión y acometidas (ITC-BT-06, 07, 08 y 11)",
+   "boe": "BOE-A-2002-18099",
+   "ids": [
+    "ib-6",
+    "ib-7",
+    "ib-8",
+    "ib-11"
+   ]
+  },
+  {
+   "titulo": "REBT · Instalaciones de enlace (ITC-BT-12 a 17)",
+   "boe": "BOE-A-2002-18099",
+   "desde": "ib-12",
+   "hasta": "ib-17"
+  }
+ ]
+}

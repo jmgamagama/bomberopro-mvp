@@ -4,8 +4,11 @@ import type { RecallDeck as RecallDeckData, RecallSourceCard } from '../data/rec
 import { useRecallDeckCards } from '../hooks/useRecallDeckCards';
 import RecallGradeButtons, { formatInterval } from './RecallGradeButtons';
 import { localDayNumber } from '../utils/localDate';
-import { classifyCard, loadSrs, recordRecallGrade, type RecallGrade, type SrsStore } from '../utils/recallSrs';
+import { classifyCard, loadSrs, RecallSaveError, recordRecallGrade, type RecallGrade, type SrsStore } from '../utils/recallSrs';
 import { measuredElapsedMs } from '../utils/recallReviewLog';
+import FuenteOficial from './FuenteOficial';
+import { solicitarAlmacenamientoPersistente } from '../lib/almacenamientoPersistente';
+import VerEnEsquema from './VerEnEsquema';
 
 interface RecallDeckProps {
   deck: RecallDeckData;
@@ -55,6 +58,7 @@ function RecallDeckViewer({
   const [revealed, setRevealed] = useState(false);
   const [srs, setSrs] = useState<SrsStore>(() => loadSrs());
   const [lastSaved, setLastSaved] = useState<string | null>(null);
+  const [saveError, setSaveError] = useState<string | null>(null);
   // Índice de la última ficha ya autoevaluada (evita contar dos veces un doble toque al final).
   const [finalGraded, setFinalGraded] = useState<number | null>(null);
   // Momento en que se mostró la ficha actual: tiempo por ficha para la sesión por minutos.
@@ -62,6 +66,10 @@ function RecallDeckViewer({
   useEffect(() => {
     shownAt.current = Date.now();
   }, [index]);
+  // Protege el progreso local del borrado automático del navegador (se pide una sola vez por sesión).
+  useEffect(() => {
+    void solicitarAlmacenamientoPersistente();
+  }, []);
   const total = cards.length;
   const card = cards[index];
   const loteNumber = deck.lote ? deck.lote.replace(/^lote/i, '') : undefined;
@@ -82,12 +90,33 @@ function RecallDeckViewer({
     setIndex(clamped);
     setRevealed(false);
     setFinalGraded(null);
+    setFailedGrade(null);
+    setSaveError(null);
   };
 
+  const [saving, setSaving] = useState(false);
+  const [failedGrade, setFailedGrade] = useState<RecallGrade | null>(null);
   const grade = (g: RecallGrade) => {
-    if (finalGraded === index) return;
+    if (finalGraded === index || saving) return;
+    setSaving(true);
+    setSaveError(null);
+    let next;
+    try {
+      next = recordRecallGrade(deck.id, card.id, g, new Date(), measuredElapsedMs(shownAt.current));
+    } catch (err) {
+      // Guardado local fallido: la ficha se queda, se avisa y se puede reintentar.
+      if (err instanceof RecallSaveError) setSaveError(err.message);
+      else {
+        console.error(err);
+        setSaveError('No se pudo guardar el progreso en este dispositivo. La ficha sigue aquí; puedes reintentar.');
+      }
+      setFailedGrade(g);
+      setSaving(false);
+      return;
+    }
+    setFailedGrade(null);
+    setSaving(false);
     if (index + 1 >= total) setFinalGraded(index);
-    const next = recordRecallGrade(deck.id, card.id, g, new Date(), measuredElapsedMs(shownAt.current));
     setSrs(loadSrs());
     setLastSaved(
       index + 1 >= total
@@ -136,9 +165,9 @@ function RecallDeckViewer({
           >
             {statusLabel}
           </span>
-          <span className="rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-semibold text-indigo-700">
-            {card.apartado || `Tema ${deck.tema}`}
-            {card.localizacion ? ` · ${card.localizacion}` : ''}
+          <span className="inline-flex min-w-0 max-w-full flex-wrap items-center gap-x-1 rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-semibold text-indigo-700">
+            <span className="min-w-0 break-words">{card.apartado || `Tema ${deck.tema}`}</span>
+            {card.localizacion && <span className="shrink-0 whitespace-nowrap">· {card.localizacion}</span>}
           </span>
         </div>
 
@@ -147,23 +176,39 @@ function RecallDeckViewer({
           <h2 className="mt-1 text-lg font-bold leading-snug break-words sm:text-xl">{card.concepto}</h2>
         </div>
 
-        {revealed ? (
-          <>
-            <div className="rounded-xl border border-emerald-100 bg-emerald-50/60 p-4">
-              <p className="text-xs font-semibold uppercase tracking-wide text-emerald-800">Respuesta</p>
-              <p className="mt-1 whitespace-pre-wrap break-words text-[17px] leading-relaxed text-slate-900">{card.respuesta}</p>
-            </div>
-            <div className="rounded-xl border border-amber-100 bg-amber-50/70 p-4">
-              <p className="text-xs font-semibold uppercase tracking-wide text-amber-900">Fuente</p>
-              <p className="mt-1 break-words text-sm font-medium text-slate-900">{card.fuente}</p>
-            </div>
-            {finalGraded === index ? null : <RecallGradeButtons state={cardState} today={today} onGrade={grade} />}
-          </>
-        ) : (
-          <p className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-4 text-sm text-slate-600">
-            Respuesta y fuente ocultas. Pulsa «Mostrar respuesta» para verlas.
-          </p>
-        )}
+        <div className="min-h-24 space-y-4">
+          {revealed ? (
+            <>
+              <div className="rounded-xl border border-emerald-100 bg-emerald-50/60 p-4">
+                <p className="text-xs font-semibold uppercase tracking-wide text-emerald-800">Respuesta</p>
+                <p className="mt-1 whitespace-pre-wrap break-words text-[17px] leading-relaxed text-slate-900">{card.respuesta}</p>
+              </div>
+              <div className="rounded-xl border border-amber-100 bg-amber-50/70 p-4">
+                <p className="text-xs font-semibold uppercase tracking-wide text-amber-900">Fuente</p>
+                <p className="mt-1 break-words text-sm font-medium text-slate-900"><FuenteOficial fuente={card.fuente} /></p>
+                {card.localizacion && (
+                  <p className="mt-1 break-words text-sm text-slate-700" id="recall-card-localizacion">
+                    Localización: {card.localizacion}
+                  </p>
+                )}
+                <VerEnEsquema tema={deck.tema} fuente={card.fuente} origen="esta ficha" className="mt-2" />
+              </div>
+              {failedGrade !== null && (
+                <div role="alert" id="recall-save-error" className="space-y-2 rounded-xl border border-orange-200 bg-orange-50 p-3 text-sm text-orange-900">
+                  <p>{saveError ?? 'No se pudo guardar el progreso en este dispositivo. La ficha sigue aquí; puedes reintentar.'}</p>
+                  <button type="button" onClick={() => grade(failedGrade)} className="min-h-11 rounded-xl bg-slate-900 px-4 py-2 font-semibold text-white hover:bg-slate-800">
+                    Reintentar guardado
+                  </button>
+                </div>
+              )}
+              {finalGraded === index ? null : <RecallGradeButtons state={cardState} today={today} onGrade={grade} disabled={saving || failedGrade !== null} />}
+            </>
+          ) : (
+            <p className="flex min-h-24 items-center rounded-xl border border-dashed border-slate-300 bg-slate-50 p-4 text-sm text-slate-600">
+              Respuesta y fuente ocultas. Pulsa «Mostrar respuesta» para verlas.
+            </p>
+          )}
+        </div>
 
         <p aria-live="polite" className="min-h-4 text-xs font-medium text-emerald-700" id="recall-grade-saved">
           {lastSaved}
@@ -173,7 +218,8 @@ function RecallDeckViewer({
           <button
             type="button"
             onClick={() => setRevealed((v) => !v)}
-            className="col-span-2 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border px-4 py-2 text-sm font-semibold hover:bg-slate-50"
+            disabled={failedGrade !== null}
+            className={`col-span-2 inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border px-4 py-2 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-50 ${revealed ? 'border-slate-200 text-slate-700 hover:bg-slate-50' : 'border-indigo-700 bg-indigo-700 text-white hover:bg-indigo-800'}`}
           >
             {revealed ? <EyeOff className="h-4 w-4" aria-hidden="true" /> : <Eye className="h-4 w-4" aria-hidden="true" />}
             {revealed ? 'Ocultar respuesta' : 'Mostrar respuesta'}
@@ -181,7 +227,7 @@ function RecallDeckViewer({
           <button
             type="button"
             onClick={() => go(index - 1)}
-            disabled={index === 0}
+            disabled={index === 0 || failedGrade !== null}
             className="inline-flex min-h-11 items-center justify-center gap-1 rounded-lg border px-4 py-2 text-sm font-semibold hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
           >
             <ChevronLeft className="h-4 w-4" aria-hidden="true" />
@@ -190,8 +236,8 @@ function RecallDeckViewer({
           <button
             type="button"
             onClick={() => go(index + 1)}
-            disabled={index >= total - 1}
-            className="inline-flex min-h-11 items-center justify-center gap-1 rounded-lg bg-indigo-700 px-4 py-2 text-sm font-semibold text-white hover:bg-indigo-800 disabled:cursor-not-allowed disabled:opacity-40"
+            disabled={index >= total - 1 || failedGrade !== null}
+            className={`inline-flex min-h-11 items-center justify-center gap-1 rounded-lg border px-4 py-2 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-40 ${revealed && index < total - 1 && failedGrade === null ? 'border-indigo-700 bg-indigo-700 text-white hover:bg-indigo-800' : 'border-slate-200 text-slate-700 hover:bg-slate-50'}`}
           >
             Siguiente
             <ChevronRight className="h-4 w-4" aria-hidden="true" />

@@ -69,7 +69,7 @@ No se han usado: libro CEP, material interno del CPEI, academias, /workspace/pri
 | 15 | CPEI-T09-OF-BDE1EE3C | Según la guía técnica del IDAE, en flujo ideal, ¿qué le ocurre a la presión estática cuando aumenta la velocidad del fluido? | OK | se usa solo la conclusión general; el ejemplo numérico de la guía tiene una incoherencia de diámetros |
 | 16 | CPEI-T09-OF-303FA8EC | Según la NTP 362 del INSST, ¿cómo se define el caudal volumétrico? | OK |  |
 | 17 | CPEI-T09-OF-598D0A9D | Según la NTP 362 del INSST, ¿cómo se define el caudal másico? | OK |  |
-| 18 | CPEI-T09-OF-54865783 | Según la NTP 362 del INSST, ¿qué expresión tiene la ecuación de Bernoulli y para qué tipo de flujo es válida? | OK |  |
+| 18 | CPEI-T09-OF-54865783 | Según la NTP 362 del INSST, ¿para qué tipo de flujo es válida la ecuación de Bernoulli? | OK |  |
 | 19 | CPEI-T09-OF-23AA9AFC | Según la guía técnica de bombas del IDAE, ¿en qué consiste la hipótesis de flujo ideal? | OK |  |
 | 20 | CPEI-T09-OF-5963394C | Según la guía técnica de bombas del IDAE, en flujo ideal por un tubo, ¿qué le pasa a la energía mecánica del fluido entre dos puntos? | OK |  |
 | 21 | CPEI-T09-OF-BB7EEB96 | Según la guía técnica de bombas del IDAE, ¿cómo se aplica la ecuación de Bernoulli al flujo real de una instalación? | OK |  |

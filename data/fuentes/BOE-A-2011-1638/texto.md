@@ -1,6 +1,6 @@
 # Ley Orgánica 1/2011, de 28 de enero, de reforma del Estatuto de Autonomía de la Comunidad Autónoma de Extremadura
 
-Texto consolidado del BOE (BOE-A-2011-1638). Última actualización publicada por el BOE: 21/10/2026.
+Texto consolidado del BOE (BOE-A-2011-1638). Última actualización publicada por el BOE: 30/10/2026.
 Fuente: https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638
 Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
 

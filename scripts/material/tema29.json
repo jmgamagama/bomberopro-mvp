@@ -1,0 +1,29 @@
+{
+ "tema": 29,
+ "boe": "DOE-2019040203",
+ "carpeta": "tema29",
+ "prefijo": "platercaex",
+ "epigrafe": "Plan Territorial de Proteccion civil en la CAEX. PLATERCAEX: Objetivo del plan. Alcance del plan, Estructura del plan, Estructura operativa, Operatividad.\n",
+ "bloques": [
+  {
+   "titulo": "PLATERCAEX · Objetivo y alcance del plan (cap. I, I.1–I.2)",
+   "desde": "cap-i",
+   "hasta": "s-i-2"
+  },
+  {
+   "titulo": "PLATERCAEX · Estructura organizativa: organigrama y estructura de dirección y coordinación (cap. IV, IV.1–IV.2)",
+   "desde": "cap-iv",
+   "hasta": "s-iv-2-1"
+  },
+  {
+   "titulo": "PLATERCAEX · Estructura operativa (cap. IV, IV.3)",
+   "desde": "s-iv-3",
+   "hasta": "s-iv-3-5"
+  },
+  {
+   "titulo": "PLATERCAEX · Operatividad (cap. V, V.1–V.5)",
+   "desde": "cap-v",
+   "hasta": "s-v-5"
+  }
+ ]
+}

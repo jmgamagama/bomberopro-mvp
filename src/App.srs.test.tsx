@@ -36,9 +36,9 @@ describe('autoevaluación y repaso espaciado', () => {
     await user.click(screen.getByRole('button', { name: /Mostrar respuesta/ }));
     const group = screen.getByRole('group', { name: '¿La sabías?' });
     expect(within(group).getAllByRole('button').map((b) => b.textContent)).toEqual([
-      'No la sabíamañana',
-      'Dudosamañana',
-      'La sabíamañana',
+      'No la sabía · próximo repaso:mañana',
+      'Dudosa · próximo repaso:mañana',
+      'La sabía · próximo repaso:mañana',
     ]);
     await user.click(within(group).getByRole('button', { name: /^La sabía/ }));
     expect(screen.getByText(/Recuerdo · 2 \/ 30/)).toBeInTheDocument();

@@ -4,6 +4,8 @@ interface RecallGradeButtonsProps {
   state: CardSrs | undefined;
   today: number;
   onGrade: (grade: RecallGrade) => void;
+  /** Mientras se guarda, los botones no responden (evita dobles notas). */
+  disabled?: boolean;
 }
 
 export function formatInterval(days: number): string {
@@ -20,7 +22,7 @@ const BUTTONS: { grade: RecallGrade; label: string; className: string }[] = [
 ];
 
 /** Autoevaluación tras ver la respuesta: tres botones grandes con la fecha del próximo repaso. */
-export default function RecallGradeButtons({ state, today, onGrade }: RecallGradeButtonsProps) {
+export default function RecallGradeButtons({ state, today, onGrade, disabled = false }: RecallGradeButtonsProps) {
   return (
     <div className="space-y-1.5" role="group" aria-label="¿La sabías?">
       <p className="text-xs font-semibold text-slate-600">¿La sabías?</p>
@@ -32,11 +34,13 @@ export default function RecallGradeButtons({ state, today, onGrade }: RecallGrad
               key={grade}
               type="button"
               id={`btn-grade-${grade}`}
-              aria-label={`${label} (próximo repaso ${hint})`}
               onClick={() => onGrade(grade)}
-              className={`flex min-h-14 flex-col items-center justify-center rounded-xl border px-1 py-2 text-sm font-bold leading-tight transition ${className}`}
+              disabled={disabled}
+              aria-disabled={disabled}
+              className={`flex disabled:cursor-wait disabled:opacity-60 min-h-14 flex-col items-center justify-center rounded-xl border px-1 py-2 text-sm font-bold leading-tight transition ${className}`}
             >
               <span>{label}</span>
+              <span className="sr-only"> · próximo repaso:</span>
               <span className="mt-0.5 text-[11px] font-medium opacity-80">{hint}</span>
             </button>
           );

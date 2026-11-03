@@ -1,0 +1,43 @@
+{
+ "id": "DOE-2022040193",
+ "titulo": "Decreto 132/2022, de 26 de octubre, por el que se aprueba el Plan de Lucha contra Incendios Forestales de Extremadura (Plan INFOEX)",
+ "pdf": "https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf",
+ "pdf_doe": "https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193.pdf",
+ "publicacion": "DOE n.º 210, de 02/11/2022; modificado por el Decreto 136/2024, de 29 de octubre (DOE n.º 215, de 05/11/2024)",
+ "version": "texto consolidado del DOE (última modificación publicada el 05/11/2024)",
+ "claves": [
+  "Decreto 132/2022"
+ ],
+ "busqueda": "Ficha ELI del decreto en doe.juntaex.es: la versión consolidada vigente es la de 05/11/2024 (Decreto 136/2024) y no hay otra posterior. Búsqueda de decretos posteriores que modifiquen el Plan INFOEX: ninguno localizado.",
+ "notas": true,
+ "capitulo": "^CAP[ÍI]TULO ([IVX]+)$",
+ "tramos": [
+  {
+   "paginas": [
+    2,
+    10
+   ],
+   "secciones": [
+    "Artículo 4",
+    "Artículo 5",
+    "Artículo 6",
+    "Artículo 7",
+    "Artículo 8",
+    "Artículo 9",
+    "Artículo 10",
+    "Artículo 11",
+    "Artículo 12",
+    "Artículo 13",
+    "Artículo 14",
+    "Artículo 15",
+    "Artículo 16",
+    "Artículo 17",
+    "Artículo 18",
+    "Artículo 19",
+    "Artículo 20"
+   ],
+   "fin": "Artículo 21"
+  }
+ ],
+ "comprobado": "01/11/2026"
+}
