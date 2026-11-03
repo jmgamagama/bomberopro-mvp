@@ -1,15 +1,23 @@
-# Material por tema (esquema y texto oficial): estado de los 40 temas
+# Material de estudio por tema: cobertura, capas y fuentes
 
 Actualizado el 01/11/2026. El material se genera con `scripts/generar_material_boe.py scripts/material/temaNN.json`.
 Usa el texto consolidado del BOE (y, desde el 01/11/2026, el PDF oficial de las normas del DOE de T20, T29 y T30: `docs/MATERIAL_DOE.md`) (`scripts/fuente_boe.py`, API de datos abiertos), recortado al epígrafe del
-anexo I (BOP de Badajoz n.º 135, 17/07/2026; `data/temario/cpei-badajoz-2026-anexo1.md`). No genera la capa
-«desarrollo»: esa capa la redacta una persona. La vigencia se comprueba con `python3 scripts/verificar_vigencia_boe.py`
+anexo I (BOP de Badajoz n.º 135, 17/07/2026; `data/temario/cpei-badajoz-2026-anexo1.md`). El generador no crea la capa
+«desarrollo»; se añade solo cuando una persona la redacta y revisa. La vigencia se comprueba con `python3 scripts/verificar_vigencia_boe.py`
 (resultado en `docs/VIGENCIA_MATERIAL_BOE.md`).
 
 Criterio para generar un tema: su epígrafe cita una norma, o pide algo («hidrantes», «distancias de seguridad en función
 de la tensión», «normativa de los EPI»…) que regula una norma concreta con texto consolidado en el BOE. Se genera solo la
 parte de la norma que pide el epígrafe. Cuando el epígrafe se apoya en documentos que no están en el BOE consolidado
 (normas UNE, DOUE, DOE, BOP, guías del INSST, documentos internos), no se genera nada y se deja anotado abajo.
+
+## Capas y cobertura actual
+
+La app organiza el estudio en **Esquema → Desarrollo → Texto oficial**, además de enlazar y permitir descargar la fuente oficial. El tercer panel contiene un extracto literal limitado al epígrafe del temario; no equivale al texto íntegro de la norma. La norma íntegra se ofrece por separado cuando está disponible.
+
+A 01/11/2026 hay material registrado para **18 de los 40 temas**. El Tema 1 es el único con las tres capas en sus seis bloques; los otros 17 tienen esquema y extracto normativo, pero todavía no desarrollo. Los 22 temas restantes están pendientes de material estructurado por las razones documentales que se detallan abajo. La falta de capa no se completa con redacción automática.
+
+El Tema 1 sirve como patrón de secuencia pedagógica y desglose por artículos. Se ha afinado la tercera capa para que contenga solo norma literal: las preguntas de repaso pertenecen al estudio de conceptos y no deben mezclarse con una fuente jurídica. El estándar ampliado está en [ESTANDAR_MATERIAL_TEMAS.md](ESTANDAR_MATERIAL_TEMAS.md).
 
 ## Temas con material
 

@@ -4,8 +4,8 @@
   public/material/constitucion/constitucion-espanola-texto-oficial.md
       Texto consolidado completo de la Constitución. Descarga gratuita (texto oficial, de libre uso).
   public/material/constitucion/<bloque>-3-completo.md
-      Tercera capa de cada bloque de BLOQUES: texto literal de cada artículo y, debajo, los conceptos
-      que se estudian de él (tarjetas de data/constitucion/<bloque>.json).
+      Extracto literal de los artículos incluidos en el temario. El estudio de conceptos se
+      gestiona en la capa de estudio, por separado del texto normativo.
 
 Uso:  python3 scripts/generar_material.py
 Se ejecuta también en el workflow de fuentes BOE, para que el material siga al texto vigente.
@@ -18,7 +18,7 @@ import shutil
 
 FUENTE = pathlib.Path("data/fuentes/BOE-A-1978-31229")
 OUT = pathlib.Path("public/material/constitucion")
-# (fichero de conceptos en data/constitucion, título del material, artículos en orden)
+# (id del bloque, título del material, artículos en orden)
 BLOQUES = [
     ("titulo-preliminar", "Título Preliminar (arts. 1–9)", range(1, 10)),
     ("dignidad-espanoles-extranjeros", "Dignidad, españoles y extranjeros (arts. 10–13)", range(10, 14)),
@@ -38,10 +38,10 @@ def main() -> None:
     fecha = f"{f[6:8]}/{f[4:6]}/{f[0:4]}"
     bloques = {b["id"]: b for b in json.loads((FUENTE / "bloques.json").read_text(encoding="utf-8"))}
     for nombre, titulo, arts in BLOQUES:
-        conceptos = json.loads(pathlib.Path(f"data/constitucion/{nombre}.json").read_text(encoding="utf-8"))["conceptos"]
-        md = [f"# {titulo} · Texto completo y conceptos", "",
-              f"Texto literal del BOE ({meta['id']}, actualización publicada el {fecha}). Debajo de cada artículo, "
-              "los conceptos que BomberoPro te pregunta de él.", ""]
+        md = [f"# {titulo} · Texto oficial (extracto del temario)", "",
+              f"Texto literal del BOE ({meta['id']}, actualización publicada el {fecha}). "
+              "Este bloque contiene solo los artículos incluidos en el temario; el texto completo y vigente "
+              "puede consultarse en la fuente oficial enlazada en la app.", ""]
         for n in arts:
             b = bloques[f"a{n}"]
             md.append(f"## {b['titulo']}")
@@ -53,13 +53,6 @@ def main() -> None:
             if md[-1] == ">":
                 md.pop()
             md.append("")
-            cs = [c for c in conceptos if c["bloque"] == f"a{n}"]
-            if cs:
-                md.append(f"**Conceptos del artículo {n} ({len(cs)}):**")
-                md.append("")
-                for c in cs:
-                    md.append(f"- **{c['tarjeta']['pregunta']}** {c['tarjeta']['respuesta']}")
-                md.append("")
         (OUT / f"{nombre}-3-completo.md").write_text("\n".join(md).rstrip() + "\n", encoding="utf-8")
     print("ok", OUT)
 
