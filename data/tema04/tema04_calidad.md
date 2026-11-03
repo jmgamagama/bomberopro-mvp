@@ -4,7 +4,7 @@
 
 ## Fuente
 
-- Acuerdo de reorganización de la estructura orgánica de la Diputación de Badajoz, aprobado por el Pleno el 29/10/2025 y publicado en el BOP n.º 206, anuncio 4611/2025: https://transparencia.dip-badajoz.es/download/332/equipo-de-gobierno/21026/diputacion-de-badajoz-b-o-p-no-206-anuncio-4611_2025-miercoles-29-de-octubre-de-2025-acuerdo-adoptado-por-el-pleno-de-la-corporacion-provincial-en-sesion-ordinaria-del-dia-29-d.pdf (copia en /workspace/fuentes_oficiales/tema04/). Es un acuerdo publicado en el BOP, no un acuerdo del BOP citado.
+- Acuerdo de reorganización de la estructura orgánica de la Diputación de Badajoz, aprobado por el Pleno el 29/10/2025 y publicado en el BOP n.º 206, anuncio 4611/2025: https://transparencia.dip-badajoz.es/download/332/equipo-de-gobierno/21026/diputacion-de-badajoz-b-o-p-no-206-anuncio-4611_2025-miercoles-29-de-octubre-de-2025-acuerdo-adoptado-por-el-pleno-de-la-corporacion-provincial-en-sesion-ordinaria-del-dia-29-d.pdf (copia en /workspace/fuentes_oficiales/tema04/). Es una publicación de un acuerdo plenario, no un texto consolidado.
 
 ## Auditoría de fuentes y versión (03/11/2026)
 
