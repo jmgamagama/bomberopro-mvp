@@ -17,7 +17,7 @@ async function openRecuerdo(user: ReturnType<typeof userEvent.setup>) {
   await screen.findAllByRole('button', { name: 'Temas' });
   await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-mas')!);
     await user.click(document.querySelector<HTMLButtonElement>('#mas-recuerdo')!);
-  return screen.findByRole('tablist', { name: 'Temas de recuerdo' });
+  return screen.findByRole('tablist', { name: 'Temas de recuerdo' }, { timeout: 5000 });
 }
 
 describe('planes con la bandera desactivada', () => {

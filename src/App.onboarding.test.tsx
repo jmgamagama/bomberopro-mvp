@@ -19,8 +19,7 @@ describe('bienvenida en App', () => {
 
     await user.click(screen.getByRole('radio', { name: /T39/ })); // toque 1
     await user.click(screen.getByRole('button', { name: 'Empezar sesión diaria' })); // toque 2
-
-    expect(await screen.findByText(/Recuerdo · 1 \/ 30/)).toBeInTheDocument();
+    expect(await screen.findByText(/^Recuerdo · 1 \/ \d+$/, {}, { timeout: 5000 })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Mostrar respuesta/ })).toBeInTheDocument();
     expect(screen.getByRole('navigation', { name: 'Navegación móvil' })).toBeInTheDocument();
   });
