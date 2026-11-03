@@ -22,11 +22,23 @@ Las definiciones condicionan la aplicación de todo el Reglamento. Entre ellas d
 
 ### Artículo 4 · Compatibilidad con el CTE
 
-El artículo separa dos escenarios: coexistencia de usos con distinta titularidad dentro de un edificio y actividades subsidiarias dentro de un establecimiento industrial. En el primero, los espacios no industriales se rigen por la normativa que les corresponda, como el DB-SI del CTE. En el segundo, ciertas zonas subsidiarias deben satisfacer esa normativa cuando superan los umbrales de superficie previstos. La superficie y el tipo de uso son decisivos; los umbrales concretos deben comprobarse en el texto oficial.
+El artículo separa dos escenarios: coexistencia de usos con distinta titularidad dentro de un edificio y actividades subsidiarias dentro de un establecimiento industrial. En el primero, los espacios no industriales se rigen por la normativa que les corresponda, como el DB-SI del CTE. En el segundo, las zonas subsidiarias deben satisfacer esa normativa y constituir un sector de incendio independiente cuando superan estos umbrales:
+
+| Uso subsidiario | Umbral del art. 4.2 |
+|---|---:|
+| Administrativo, comercial, docente o pública concurrencia | Superficie construida superior a 250 m² |
+| Residencial vivienda o residencial público | Siempre |
+| Alojamiento | Superficie construida superior a 250 m² |
+| Aparcamiento | Superficie construida superior a 100 m² |
+| Combinación adyacente o superpuesta de los usos a), b), c), d), f) o g) | Más de 250 m² entre todos ellos |
+
+Los espacios complementarios (por ejemplo, vestuarios o descansos) se computan según las reglas específicas del artículo 4.2; no se suman mecánicamente a cualquier zona.
 
 ### Artículos 5–6 · Cumplimiento y exigencias básicas
 
-Las prescripciones del Reglamento son mínimos exigibles. El artículo 5 contempla el cumplimiento prescriptivo y, para casos particulares, soluciones de seguridad equivalente o diseño prestacional sometidos a justificación y condiciones específicas. No equivale a una dispensa informal: la solución debe demostrar que alcanza las exigencias básicas y el nivel de seguridad requerido.
+Las prescripciones del Reglamento son mínimos exigibles. El cumplimiento puede basarse en las prescripciones o, para casos particulares, en técnicas de seguridad equivalente o diseño prestacional debidamente justificados, con responsabilidad del proyectista, conformidad del titular y el informe independiente exigido por el artículo 10.3. No equivale a una dispensa informal.
+
+El artículo 5.2 establece una excepción muy acotada: Qs no superior a 42 MJ/m², superficie construida no superior a 120 m² y recinto propio físicamente separado de otros establecimientos. En ese supuesto se mantienen las obligaciones del artículo 12, los apartados del anexo III sobre extintores y alumbrado de emergencia, y una memoria técnica firmada disponible para la Administración. El artículo 5.3 regula por separado adaptaciones razonables en naves de polígonos con planeamiento aprobado antes de la entrada en vigor o en edificios existentes, con justificación e informe previo favorable de organismo de control.
 
 El artículo 6 enuncia los objetivos que ordenan el resto del Reglamento: limitar la propagación interior y exterior, permitir la evacuación, disponer de instalaciones adecuadas, facilitar la intervención de los servicios de extinción y mantener la resistencia estructural necesaria. Para el examen, asocia cada objetivo al anexo que lo desarrolla.
 
@@ -44,7 +56,8 @@ Los productos de construcción y las instalaciones deben cumplir las reglas de c
 - Uso principal industrial y presencia incidental de una actividad industrial no son equivalentes.
 - Compatibilidad reglamentaria depende de titularidad, tipo de uso y umbrales; no se responde solo por el nombre del edificio.
 - La caracterización precede a la selección de requisitos de los anexos II–IV.
-- Una solución prestacional exige justificación y procedimiento; no es una excepción automática.
+- Una solución prestacional y una adaptación razonable son vías distintas y exigen la documentación e informes que fija la norma.
+- La excepción del artículo 5.2 exige que concurran simultáneamente sus condiciones de carga de fuego, superficie y separación física.
 - No confundir conformidad de un producto con cumplimiento integral de la instalación.
 
 ## Repaso
@@ -53,4 +66,4 @@ Los productos de construcción y las instalaciones deben cumplir las reglas de c
 
 ## Límites pendientes
 
-Este texto no reproduce la lista completa de exclusiones del artículo 2, las definiciones del artículo 3, los umbrales del artículo 4 ni las condiciones completas de las soluciones equivalentes de los artículos 5 y 9. Contrastar esos elementos con los preceptos oficiales antes de publicar.
+Este texto no reproduce la lista completa de exclusiones del artículo 2, las definiciones del artículo 3, las reglas de cómputo de superficie del artículo 4 ni el procedimiento completo de los artículos 5, 8 y 9. Contrastar esos elementos con los preceptos oficiales antes de publicar.

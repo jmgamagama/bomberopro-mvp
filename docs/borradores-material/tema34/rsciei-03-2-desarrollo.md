@@ -12,11 +12,13 @@ Este bloque sigue el ciclo de vida del establecimiento: proyecto, puesta en serv
 
 ### Artículos 10–11 · Proyecto y puesta en servicio
 
-El proyecto o memoria debe justificar los requisitos aplicables al establecimiento y lo redacta y firma una persona técnica titulada competente. Las modificaciones significativas tienen reglas propias y pueden exigir nuevo proyecto. Para la puesta en servicio se presenta la documentación prevista mediante comunicación ante el órgano competente en industria de la comunidad autónoma, para su registro. No confundir ese trámite documental con una autorización general de la actividad.
+El proyecto o memoria justifica los requisitos aplicables y lo redacta y firma una persona técnica titulada competente. Para modificaciones significativas, se vuelve a presentar la documentación respecto de la parte afectada. Si se propone seguridad equivalente o diseño prestacional, el artículo 10.3 exige justificar la solución y acompañarla de informe favorable de tercera parte independiente emitido por organismo de control habilitado.
+
+La puesta en servicio se tramita mediante comunicación y registro ante el órgano competente en industria; alternativamente, cabe declaración responsable cuando así lo establezca dicho órgano. Se aportan proyecto o memoria, certificado técnico y documentación RIPCI. Además, se requiere acta de inspección inicial cuando la suma de las superficies de sectores y áreas de riesgo medio y alto alcanza 1.000 m², o cuando se emplean las vías de los artículos 10.3 o 5.3. No confundir el trámite con una autorización general de la actividad.
 
 ### Artículo 12 · Funcionamiento, mantenimiento y modificaciones
 
-La persona titular debe asegurar que el establecimiento se utiliza y mantiene en condiciones compatibles con las exigencias de seguridad para las que fue diseñado. Los equipos y sistemas sujetos al RIPCI siguen sus obligaciones de mantenimiento. Los ocupantes habituales deben conocer las instrucciones que les correspondan. Antes de modificar actividad, configuración o instalaciones, hay que determinar si el cambio es significativo y qué documentación o medidas activa.
+La persona titular debe asegurar que el establecimiento se utiliza y mantiene en condiciones compatibles con las exigencias para las que fue diseñado; los equipos y sistemas sujetos al RIPCI siguen sus obligaciones de mantenimiento, y los ocupantes habituales deben conocer las características de seguridad y cómo actuar. Si hay una modificación significativa, se vuelve a presentar la documentación de los artículos 10 y 11 para la parte afectada. Si no es significativa, el titular documenta y justifica esa condición y conserva la información a disposición de la Administración y de los organismos de control.
 
 ### Artículos 13–15 · Inspección y medidas correctoras
 
@@ -26,9 +28,9 @@ El artículo 14 permite programas especiales de inspección promovidos por el ó
 
 ### Artículos 16–17 · Comunicación e investigación de incendios
 
-El titular comunica determinados incendios al órgano competente en industria en un máximo de quince días hábiles. El deber se activa por las circunstancias tasadas en el artículo 16 (lesiones que requieran atención médica externa, paralización total o parcial en las condiciones del precepto o daños materiales por encima del umbral legal).
+El titular comunica al órgano competente en industria, en un máximo de quince días hábiles, cualquier incendio que cause: daños personales que requieran atención médica externa; paralización total de la actividad; paralización parcial superior a 14 días; o daños materiales superiores a 30.000 euros.
 
-El artículo 17 regula la recopilación de información o investigación administrativa. Sus supuestos no deben confundirse con todos los supuestos de comunicación del artículo 16: para responder, identifica qué letras del artículo 16 remite el artículo 17 y qué finalidad tiene la investigación.
+El artículo 17 ordena recabar información o investigar cuando concurra alguno de los tres primeros supuestos (letras a, b o c), y también permite hacerlo en otros incendios por sus características o relevancia. Por tanto, el umbral de daños materiales de la letra d) activa comunicación, pero no aparece entre los supuestos automáticos de investigación.
 
 ### Artículo 18 · Infracciones y sanciones
 
@@ -39,7 +41,7 @@ Las infracciones se clasifican y sancionan con arreglo al título V de la Ley 21
 - Proyecto y comunicación de puesta en servicio son trámites distintos.
 - El mínimo de cinco años del artículo 13 no elimina las inspecciones iniciales ni las competencias de la Administración.
 - El plazo máximo de seis meses del artículo 15 se refiere a la subsanación de deficiencias significativas; el riesgo grave e inminente exige aplicar la respuesta específica.
-- Comunicación e investigación tienen supuestos de activación relacionados, pero no idénticos.
+- Comunicación e investigación tienen supuestos de activación relacionados, pero no idénticos: la letra d) del artículo 16 activa comunicación, mientras que el artículo 17 remite automáticamente a a), b) y c).
 - En instalaciones anteriores, revisa las disposiciones transitorias primera y quinta del real decreto.
 
 ## Repaso
@@ -48,4 +50,4 @@ Ordena las actuaciones desde el proyecto hasta una inspección desfavorable. ¿Q
 
 ## Límites pendientes
 
-Se deben cotejar en el BOE los requisitos documentales del artículo 10, el contenido de la comunicación del 11, las modificaciones significativas del 12, los detalles y excepciones de la inspección del 13 y el alcance íntegro del artículo 17. No usar este borrador como lista de comprobación operativa.
+Se deben cotejar en el BOE los casos en que puede sustituirse el proyecto por memoria, el régimen territorial de declaración responsable, las excepciones de inspección del artículo 13 y los detalles del artículo 14. No usar este borrador como lista de comprobación operativa.
