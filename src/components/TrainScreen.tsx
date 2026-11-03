@@ -423,11 +423,11 @@ export default function TrainScreen({
               </h4>
 
               <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="min-w-0 text-xs font-bold px-2 py-0.5 bg-slate-100 text-slate-600 rounded">
                     {conceptTopicLabel(relatedConcept.id, question ? [question] : null)}
                   </span>
-                  <span className="text-xs font-semibold text-indigo-600">
+                  <span className="shrink-0 whitespace-nowrap text-xs font-semibold text-indigo-600">
                     {formatArticle(relatedConcept.article)}
                   </span>
                 </div>

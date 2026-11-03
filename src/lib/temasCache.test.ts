@@ -3,10 +3,11 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const rpc = vi.hoisted(() => vi.fn());
 const order = vi.hoisted(() => vi.fn());
+const from = vi.hoisted(() => vi.fn());
 vi.mock('./supabase', () => ({
   supabase: {
     rpc,
-    from: () => ({ select: () => ({ eq: () => ({ order }) }) }),
+    from,
   },
 }));
 
@@ -23,6 +24,7 @@ describe('caché de «Temas»', () => {
     resetLocalDataOwnerForTests();
     rpc.mockReset();
     order.mockReset();
+    from.mockReset().mockImplementation(() => ({ select: () => ({ eq: () => ({ order }) }) }));
   });
 
   it('sin nada guardado no devuelve nada; tras pedir, devuelve al instante y lo guarda en el dispositivo', async () => {
@@ -51,6 +53,14 @@ describe('caché de «Temas»', () => {
     order.mockRejectedValueOnce(new Error('sin red'));
     expect(await pedirTemas()).toBeNull();
     expect(temasEnCache()).toHaveLength(1);
+  });
+
+  it('si el adaptador falla sincrónicamente, la precarga devuelve null sin propagar la excepción', async () => {
+    from.mockImplementationOnce(() => { throw new TypeError('from unavailable'); });
+    await expect(pedirTemas()).resolves.toBeNull();
+
+    rpc.mockImplementationOnce(() => { throw new TypeError('rpc unavailable'); });
+    await expect(pedirResumen()).resolves.toBeNull();
   });
 
   it('descarta datos dañados en localStorage', () => {

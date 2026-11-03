@@ -31,4 +31,25 @@ describe('DailySession con el plan de hoy', () => {
     await user.click(screen.getByRole('button', { name: /La sabía/ }));
     expect(loadPrioridad()).toEqual({});
   });
+
+  it('si no puede guardar, conserva la ficha, explica el fallo y solo permite reintentar la misma valoración', async () => {
+    const user = userEvent.setup();
+    render(<DailySession autoStart onNavigateHome={vi.fn()} onOpenOrdenaPasos={vi.fn()} />);
+    await screen.findByRole('button', { name: /Mostrar respuesta/ });
+    await user.click(screen.getByRole('button', { name: /Mostrar respuesta/ }));
+
+    const realSetItem = Storage.prototype.setItem;
+    const storageSpy = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
+      throw new DOMException('lleno', 'QuotaExceededError');
+    });
+    await user.click(screen.getByRole('button', { name: /La sabía/ }));
+
+    expect(document.querySelector('#recall-save-error')).toHaveTextContent('almacenamiento local está lleno');
+    expect(screen.getByRole('button', { name: /La sabía/ })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'Reintentar guardado' })).toBeInTheDocument();
+
+    storageSpy.mockImplementation(realSetItem);
+    await user.click(screen.getByRole('button', { name: 'Reintentar guardado' }));
+    expect(document.querySelector('#recall-save-error')).toBeNull();
+  });
 });

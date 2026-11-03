@@ -111,7 +111,7 @@ export default function MaterialTema({ userId, onExit, tema: temaInicial = 1, vo
       <label className="mb-4 block text-sm font-semibold text-slate-700">
         Tema
         <select value={tema} onChange={(e) => { setTema(Number(e.target.value)); setEstudiando(false); }}
-          className="mt-1 block min-h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-900">
+          className="mt-1 block min-h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-base text-slate-900 sm:text-sm">
           {TEMAS.map((n) => (
             <option key={n} value={n}>
               {`Tema ${n}${nombres[n] ? `. ${nombres[n]}` : ''}${materialDeTema(n) ? ' · con material' : ''}`}
@@ -301,7 +301,7 @@ function Capas({ material, foco }: { material: Material; foco?: Props['foco'] })
             setBloqueId(b.id);
             if (!b.capas[capa]) setCapa((CAPAS.find((c) => b.capas[c.id])?.id ?? 'esquema') as CapaId);
           }}
-            className="mt-1 block min-h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-900">
+            className="mt-1 block min-h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-base text-slate-900 sm:text-sm">
             {material.bloques.map((b) => <option key={b.id} value={b.id}>{b.titulo}</option>)}
           </select>
         </label>

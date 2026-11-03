@@ -157,6 +157,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
 
   // Si el guardado local falla, la ficha se queda y se puede reintentar (recordRecallGrade lanza RecallSaveError).
   const [failedGrade, setFailedGrade] = useState<RecallGrade | null>(null);
+  const [saveErrorMessage, setSaveErrorMessage] = useState<string | null>(null);
   const handleGrade = (grade: RecallGrade) => {
     if (current?.deckId) {
       try {
@@ -165,11 +166,13 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
       } catch (err) {
         if (!(err instanceof RecallSaveError)) throw err;
         setFailedGrade(grade);
+        setSaveErrorMessage(err.message);
         return;
       }
       setLiveSrs(loadSrs());
     }
     setFailedGrade(null);
+    setSaveErrorMessage(null);
     setGrades((g) => {
       const next: [number, number, number] = [g[0], g[1], g[2]];
       next[grade] += 1;
@@ -410,13 +413,13 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
               <VerEnEsquema tema={temaNumero(current.topicId)} fuente={current.fuente} origen="esta ficha" />
               {failedGrade !== null && (
                 <div role="alert" id="recall-save-error" className="space-y-2 rounded-xl border border-orange-200 bg-orange-50 p-3 text-sm text-orange-900">
-                  <p>No se ha podido guardar tu respuesta en este dispositivo. La ficha sigue aquí.</p>
+                  <p>{saveErrorMessage ?? 'No se pudo guardar tu respuesta en este dispositivo. La ficha sigue aquí.'}</p>
                   <button type="button" onClick={() => handleGrade(failedGrade)} className="min-h-11 rounded-xl bg-slate-900 px-4 py-2 font-semibold text-white">
                     Reintentar guardado
                   </button>
                 </div>
               )}
-<RecallGradeButtons state={getCardSrs(liveSrs, current.deckId, current.id)} today={today} onGrade={handleGrade} />
+              <RecallGradeButtons state={getCardSrs(liveSrs, current.deckId, current.id)} today={today} onGrade={handleGrade} disabled={failedGrade !== null} />
             </div>
           )}
         </section>

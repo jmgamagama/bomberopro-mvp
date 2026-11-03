@@ -53,6 +53,8 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
   const [mode, setMode] = useState<ModoAcceso>(enlace.invitacion ? 'crear' : initialMode);
   // Correo al que se ha enviado la confirmación: se cambia el formulario por «Revisa tu correo».
   const [enviadoA, setEnviadoA] = useState<string | null>(null);
+  // En el piloto cerrado, priorizar la activación y la confirmación de la invitación.
+  const flujoInvitacion = !abierto && (enlace.invitacion || mode === 'crear' || enviadoA !== null);
   const emailInputRef = useRef<HTMLInputElement>(null);
   const passwordInputRef = useRef<HTMLInputElement>(null);
 
@@ -280,7 +282,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
             </button>
           </section>
         )}
-        {onStartDemo && (
+        {onStartDemo && !flujoInvitacion && (
           <div className="pb-5 mb-5 border-b border-slate-200 text-center space-y-2">
             <button
               type="button"

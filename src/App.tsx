@@ -842,7 +842,7 @@ export default function App() {
 
   return (
     <AbrirMaterialContext.Provider value={abrirMaterial}>
-    <div className="min-h-screen bg-fondo flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
+    <div className="min-h-dvh bg-fondo flex flex-col font-sans text-slate-800 antialiased" id="mira-app-root">
       {materialFoco && (
         <div ref={dialogoMaterial} tabIndex={-1} role="dialog" aria-modal="true" aria-label={`Material del tema ${materialFoco.d.tema}`}
           id="material-contexto" className="fixed inset-0 z-[60] overflow-y-auto bg-fondo px-4 pb-8 pt-4 outline-none">
@@ -997,7 +997,7 @@ export default function App() {
       <main
         id="main-content"
         tabIndex={-1}
-        className="flex-1 max-w-4xl w-full mx-auto px-4 pt-4 pb-24 lg:py-8"
+        className="flex-1 max-w-4xl w-full mx-auto px-4 pt-4 pb-[calc(5rem+env(safe-area-inset-bottom))] lg:py-8"
       >
         <Suspense fallback={<Skeleton label="Cargando la pantalla…" />}>
         {currentScreen === 'dashboard' && (

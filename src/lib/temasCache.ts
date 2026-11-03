@@ -61,7 +61,9 @@ export function pedirTemas(): Promise<TemaNombre[] | null> {
   if (!supabase) return Promise.resolve(null);
   if (temasPend) return temasPend;
   const cliente = supabase;
-  temasPend = Promise.resolve(cliente.from('topics').select('id,numero,nombre').eq('convocatoria_id', 1).order('numero'))
+  // Iniciar dentro de la promesa también captura excepciones síncronas del adaptador.
+  temasPend = Promise.resolve()
+    .then(() => cliente.from('topics').select('id,numero,nombre').eq('convocatoria_id', 1).order('numero'))
     .then(({ data, error }) => {
       if (error || !temasValidos(data) || data.length === 0) return null;
       temasMem = data;
@@ -100,7 +102,8 @@ export function pedirResumen(): Promise<ResumenTemas | null> {
   if (enVuelo) return enVuelo;
   const cliente = supabase;
   const clave = ownedKey(CLAVE_RESUMEN);
-  const p = Promise.resolve(cliente.rpc('get_concept_outline'))
+  const p = Promise.resolve()
+    .then(() => cliente.rpc('get_concept_outline'))
     .then(({ data, error }) => {
       if (error || !Array.isArray(data)) return null;
       const datos: ResumenTemas = Object.fromEntries((data as OutlineTema[]).map((t) => [t.tema, t]));

@@ -66,7 +66,15 @@ describe('recordRecallGrade: fallos de escritura y reintentos', () => {
     const spy = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(() => {
       throw new DOMException('lleno', 'QuotaExceededError');
     });
-    expect(() => recordRecallGrade('tema40', 'c1', GRADE_GOOD, date)).toThrow(RecallSaveError);
+    let saveError: unknown;
+    try {
+      recordRecallGrade('tema40', 'c1', GRADE_GOOD, date);
+    } catch (error) {
+      saveError = error;
+    }
+    expect(saveError).toBeInstanceOf(RecallSaveError);
+    expect(saveError).toMatchObject({ code: 'QUOTA_EXCEEDED' });
+    expect((saveError as Error).message).toContain('almacenamiento local está lleno');
     expect(window.localStorage.getItem(srsStorageKey())).toBeNull();
     expect(loadReviewLog()).toHaveLength(0);
     spy.mockImplementation(realSet);

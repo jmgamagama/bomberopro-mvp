@@ -95,28 +95,47 @@ export function loadSrs(): SrsStore {
   }
 }
 
+export type RecallSaveErrorCode = 'QUOTA_EXCEEDED' | 'STORAGE_UNAVAILABLE' | 'STORAGE_ERROR';
+
+function isQuotaExceeded(error: unknown): boolean {
+  if (typeof error !== 'object' || error === null) return false;
+  const candidate = error as { name?: unknown; code?: unknown };
+  return candidate.name === 'QuotaExceededError' || candidate.name === 'NS_ERROR_DOM_QUOTA_REACHED' || candidate.code === 22;
+}
+
+function saveSrsWithError(store: SrsStore): RecallSaveErrorCode | null {
+  const s = storage();
+  if (!s) return 'STORAGE_UNAVAILABLE';
+  try {
+    const d: Record<string, Record<string, Packed>> = {};
+    for (const [deckId, cards] of Object.entries(store)) {
+      for (const [cardId, state] of Object.entries(cards)) (d[deckId] ??= {})[cardId] = pack(state);
+    }
+    writeOwned(SRS_STORAGE_KEY, JSON.stringify({ v: 1, d }));
+    return null;
+  } catch (error) {
+    return isQuotaExceeded(error) ? 'QUOTA_EXCEEDED' : 'STORAGE_ERROR';
+  }
+}
+
 /** Guarda el estado. Devuelve false si el almacenamiento está lleno o bloqueado (nunca lanza). */
 export function saveSrs(store: SrsStore): boolean {
-  const s = storage();
-  if (!s) return false;
-  const d: Record<string, Record<string, Packed>> = {};
-  for (const [deckId, cards] of Object.entries(store)) {
-    for (const [cardId, state] of Object.entries(cards)) (d[deckId] ??= {})[cardId] = pack(state);
-  }
-  try {
-    writeOwned(SRS_STORAGE_KEY, JSON.stringify({ v: 1, d }));
-    return true;
-  } catch {
-    // Almacenamiento lleno o bloqueado: quien llama decide (recordRecallGrade avisa para reintentar).
-    return false;
-  }
+  return saveSrsWithError(store) === null;
 }
 
 /** El guardado local de una autoevaluación ha fallado: no se ha registrado nada; se puede reintentar. */
 export class RecallSaveError extends Error {
-  constructor() {
-    super('No se pudo guardar la autoevaluación en este dispositivo.');
+  readonly code: RecallSaveErrorCode;
+
+  constructor(code: RecallSaveErrorCode = 'STORAGE_ERROR') {
+    const messages: Record<RecallSaveErrorCode, string> = {
+      QUOTA_EXCEEDED: 'El almacenamiento local está lleno. Libera espacio en el navegador antes de reintentar; tu ficha sigue aquí.',
+      STORAGE_UNAVAILABLE: 'Este navegador no permite guardar datos localmente. Habilita el almacenamiento del sitio y vuelve a intentarlo; tu ficha sigue aquí.',
+      STORAGE_ERROR: 'No se pudo guardar el progreso en este dispositivo. La ficha sigue aquí; puedes reintentar.',
+    };
+    super(messages[code]);
     this.name = 'RecallSaveError';
+    this.code = code;
   }
 }
 
@@ -207,7 +226,8 @@ export function recordRecallGrade(
   const prev = store[deckId]?.[cardId];
   const next = scheduleReview(prev, grade, today);
   (store[deckId] ??= {})[cardId] = next;
-  if (!saveSrs(store)) throw new RecallSaveError();
+  const saveError = saveSrsWithError(store);
+  if (saveError) throw new RecallSaveError(saveError);
   // Registro local para medir el recuerdo diferido (./recallReviewLog); no altera la programación.
   appendReviewLog(deckId, cardId, grade, today, prev?.lastReview, elapsedMs);
   return next;
