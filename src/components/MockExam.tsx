@@ -450,7 +450,7 @@ export default function MockExam({
           </div>
           
           <div className="space-y-2">
-            <h2 className="text-2xl font-black text-slate-800">Simulador de examen</h2>
+            <h2 className="text-2xl font-black text-slate-800">Simulacro</h2>
             <p className="text-base text-slate-600 max-w-md mx-auto">
               {useServerQuestions ? 'Practica con 55 preguntas (50 + 5 de reserva)' : 'Practica con una muestra de preguntas'} siguiendo la estructura indicada en las bases de CPEI Badajoz. Las preguntas pertenecen al banco de BomberoPro y no son preguntas oficiales de exámenes anteriores.
             </p>

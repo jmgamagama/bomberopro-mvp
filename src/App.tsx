@@ -29,6 +29,7 @@ import {
 } from './utils/db';
 import { getAdaptiveQuestion, processAttempt, getAdaptiveDailySession, createNewMemoryState, normalizeSpacedEvidence } from './utils/engine';
 import { MAX_VALID_RESPONSE_SECONDS } from './utils/activeTimer';
+import { SCREEN_TITLES } from './utils/screenTitles';
 
 import type { AccountErrorsState } from './components/AccountErrorPanel';
 const AccesoConfirmado = lazy(() => import('./components/AccesoConfirmado'));
@@ -94,27 +95,6 @@ import Onboarding from './components/Onboarding';
 import { TEMAS_CON_MATERIAL } from './data/materialTemasIndice';
 const Planes = lazy(() => import('./components/Planes'));
 const TuProgreso = lazy(() => import('./components/TuProgreso'));
-
-const SCREEN_TITLES = {
-  dashboard: 'Inicio',
-  train: 'Entrenamiento',
-  errors: 'Errores críticos',
-  forgetting_curve: 'Curva de olvido',
-  mock_exam: 'Simulacro',
-  today_training: 'Entrenamiento de hoy',
-  study_by_topic: 'Estudio por temas',
-  concept_t40: 'Estudiar hoy',
-  constitucion: 'Material por tema',
-  my_reports: 'Mis reportes',
-  recuerdo: 'Recuerdo',
-  sesion_diaria: 'Sesión diaria',
-  onboarding: 'Bienvenida',
-  planes: 'Planes',
-  ordena_pasos: 'Ordena los pasos',
-  supuestos: 'Supuestos prácticos',
-  mas: 'Más',
-  progreso: 'Tu progreso',
-} as const;
 
   const syncAttemptToSupabase = (userId, questionId, isCorrect, answer, confidence, responseTimeSeconds: number | null, modo: 'adaptativo' | 'simulacro' = 'adaptativo', nivel: unknown = 1, sessionId: string | null = null) => {
       if (!supabase || !userId) return;
@@ -1312,7 +1292,7 @@ export default function App() {
         <div className="max-w-4xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
             <p className="font-semibold text-slate-600">BomberoPro — Oposición CPEI Badajoz</p>
-            <p className="text-xs text-slate-600 mt-0.5">Basado en microconceptos, recuerdo activo y repaso espaciado.</p>
+            <p className="text-xs text-slate-600 mt-0.5">Estudio por conceptos, preguntas de test y repaso espaciado.</p>
           </div>
         </div>
       </footer>

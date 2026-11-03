@@ -167,7 +167,7 @@ export default function Dashboard({
 
   return (
     <div className="space-y-6" id="mira-dashboard-container">
-      <h1 className="sr-only">Tu panel de BomberoPro</h1>
+      <h1 className="sr-only">Inicio</h1>
       {/* Simulation Header Indicator */}
       {import.meta.env.DEV && (
       <div className="flex flex-col md:flex-row md:items-center justify-between p-4 bg-slate-900 text-slate-100 rounded-2xl shadow-sm gap-4 border border-slate-800" id="mira-sim-bar">
