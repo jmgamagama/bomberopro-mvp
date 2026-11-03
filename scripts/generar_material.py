@@ -12,6 +12,7 @@ Se ejecuta también en el workflow de fuentes BOE, para que el material siga al 
 """
 from __future__ import annotations
 
+import datetime as dt
 import json
 import pathlib
 import shutil
@@ -34,8 +35,10 @@ def main() -> None:
     shutil.copyfile(FUENTE / "texto.md", OUT / "constitucion-espanola-texto-oficial.md")
 
     meta = json.loads((FUENTE / "meta.json").read_text(encoding="utf-8"))
-    f = meta["fecha_actualizacion_boe"][:8]
-    fecha = f"{f[6:8]}/{f[4:6]}/{f[0:4]}"
+    fecha_iso = meta.get("fecha_actualizacion_publicada")
+    if not fecha_iso:
+        raise SystemExit("Falta fecha_actualizacion_publicada; vuelve a descargar la fuente con scripts/fuente_boe.py")
+    fecha = dt.date.fromisoformat(fecha_iso).strftime("%d/%m/%Y")
     bloques = {b["id"]: b for b in json.loads((FUENTE / "bloques.json").read_text(encoding="utf-8"))}
     for nombre, titulo, arts in BLOQUES:
         md = [f"# {titulo} · Texto oficial (extracto del temario)", "",

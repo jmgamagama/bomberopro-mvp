@@ -1,6 +1,6 @@
 # Dignidad, españoles y extranjeros (arts. 10–13) · Texto oficial (extracto del temario)
 
-Texto literal del BOE (BOE-A-1978-31229, actualización publicada el 29/10/2026). Este bloque contiene solo los artículos incluidos en el temario; el texto completo y vigente puede consultarse en la fuente oficial enlazada en la app.
+Texto literal del BOE (BOE-A-1978-31229, actualización publicada el 20/05/2026). Este bloque contiene solo los artículos incluidos en el temario; el texto completo y vigente puede consultarse en la fuente oficial enlazada en la app.
 
 ## Artículo 10
 

@@ -1,6 +1,6 @@
 # Tema 2 · Competencias de la Comunidad Autónoma · Desarrollo
 **Cobertura:** Título I, arts. 8–14.
-**Fuente de trabajo:** Estatuto de Autonomía de Extremadura, BOE-A-2011-1638, texto consolidado actualizado el 30/10/2026. [Fuente oficial](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638).
+**Fuente de trabajo:** Estatuto de Autonomía de Extremadura, BOE-A-2011-1638, texto consolidado cuya última actualización publicada es del 29/01/2011 (comprobado en la fuente oficial el 03/11/2026). [Fuente oficial](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638).
 > **Estado editorial: BORRADOR.** Explicación didáctica pendiente de revisión humana. No está registrada en la app.
 
 ## Idea general

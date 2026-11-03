@@ -1,6 +1,6 @@
 # Real Decreto 97/2014, de 14 de febrero, por el que se regulan las operaciones de transporte de mercancías peligrosas por carretera en territorio español
 
-Texto consolidado del BOE (BOE-A-2014-2110). Última actualización publicada por el BOE: 26/06/2026.
+Texto consolidado del BOE (BOE-A-2014-2110). Última actualización publicada por el BOE: 04/12/2024.
 Fuente: https://www.boe.es/buscar/act.php?id=BOE-A-2014-2110
 Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
 

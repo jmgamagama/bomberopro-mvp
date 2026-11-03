@@ -35,6 +35,7 @@ Salida en public/material/<carpeta>/:
 """
 from __future__ import annotations
 
+import datetime as dt
 import json
 import re
 import pathlib
@@ -120,8 +121,10 @@ def main() -> None:
                        f"{meta['publicacion']}: [PDF del DOE]({meta['pdf_doe']}). El DOE no tiene API de vigencia: comprobado a mano el {fecha}. "
                        f"Qué se buscó: {meta['busqueda']} Texto con carácter informativo; la versión con valor jurídico es la publicada en el DOE.")
             else:
-                f = meta["fecha_actualizacion_boe"][:8]
-                fecha = f"{f[6:8]}/{f[4:6]}/{f[0:4]}"
+                fecha_iso = meta.get("fecha_actualizacion_publicada")
+                if not fecha_iso:
+                    raise SystemExit(f"{nid}: falta fecha_actualizacion_publicada; vuelve a descargar la fuente con scripts/fuente_boe.py")
+                fecha = dt.date.fromisoformat(fecha_iso).strftime("%d/%m/%Y")
                 cab = (f"Texto consolidado del BOE ({nid}, última actualización publicada el {fecha}). "
                        f"Fuente oficial: [{meta['titulo'].rstrip('.')}]({meta['url']}). Texto con carácter informativo; "
                        "la versión con valor jurídico es la publicada en el BOE.")

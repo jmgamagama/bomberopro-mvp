@@ -83,7 +83,7 @@ Tienen esquema y texto normativo generado desde fuente oficial. El siguiente tra
 
 ### Primera aplicación: Tema 2
 
-Se han preparado seis borradores de desarrollo, uno por bloque, en `docs/borradores-material/tema02/`. Cubren los artículos 1–48 del Estatuto y citan el texto BOE consolidado a 30/10/2026. Siguen marcados como borrador y no se añaden a `public/material` ni al registro de la app hasta completar la revisión humana.
+Se han preparado seis borradores de desarrollo, uno por bloque, en `docs/borradores-material/tema02/`. Cubren los artículos 1–48 del Estatuto y citan el texto consolidado cuya última actualización publicó el BOE el 29/01/2011; la fuente oficial se comprobó el 03/11/2026. Siguen marcados como borrador y no se añaden a `public/material` ni al registro de la app hasta completar la revisión humana.
 
 ### Temas restantes
 

@@ -1,25 +1,25 @@
-# Vigencia del material por tema (API del BOE)
+# Vigencia y fechas del material por tema (API y página oficial del BOE)
 
-Comprobado el 01/11/2026 11:17 con `python3 scripts/verificar_vigencia_boe.py --md docs/VIGENCIA_MATERIAL_BOE.md` (API de datos abiertos, legislación consolidada, `/metadatos`). «Igual a la descargada» compara `fecha_actualizacion` del BOE con `data/fuentes/<ID>/meta.json`.
+Fechas API de la descarga local (01/11/2026) y fechas de última actualización publicada contrastadas en la página consolidada oficial el 03/11/2026. La fecha API identifica la marca de actualización de metadatos y no se presenta como fecha de publicación. «API coincide» compara `fecha_actualizacion` con `fecha_actualizacion_boe`; «BOE coincide» compara la fecha publicada en `act.php` con `fecha_actualizacion_publicada` de `meta.json`.
 
-| Tema | Norma | Última actualización BOE | Vigencia agotada | Consolidación | Igual a la descargada |
-|---|---|---|---|---|---|
-| 1 | BOE-A-1978-31229 | 29/10/2026 | N | Finalizado | sí |
-| 2 | BOE-A-2011-1638 | 30/10/2026 | N | Finalizado | sí |
-| 3 | BOE-A-1985-5392 | 05/10/2026 | N | Finalizado | sí |
-| 6 | BOE-A-1995-24292 | 23/10/2026 | N | Finalizado | sí |
-| 7 | BOE-A-2011-6651 | 19/12/2025 | N | Finalizado | sí |
-| 10 | BOE-A-2017-6606 | 19/12/2025 | N | Finalizado | sí |
-| 12 | BOE-A-2017-6606 | 19/12/2025 | N | Finalizado | sí |
-| 13 | BOE-A-1997-12735 | 18/12/2025 | N | Finalizado | sí |
-| 22 | BOE-A-1997-17824 | 18/12/2025 | N | Finalizado | sí |
-| 25 | BOE-A-2014-2110 | 26/06/2026 | N | Finalizado | sí |
-| 28 | BOE-A-2001-11881 | 18/12/2025 | N | Finalizado | sí |
-| 28 | BOE-A-2002-18099 | 18/12/2025 | N | Finalizado | sí |
-| 31 | BOE-A-1997-17824 | 18/12/2025 | N | Finalizado | sí |
-| 32 | BOE-A-2006-5515 | 18/12/2025 | N | Finalizado | sí |
-| 33 | BOE-A-2017-6606 | 19/12/2025 | N | Finalizado | sí |
-| 34 | BOE-A-2025-7190 | 20/12/2025 | N | Finalizado | sí |
+| Tema | Norma | Marca de actualización API | Última actualización publicada en BOE | Vigencia agotada | Consolidación | API coincide | BOE coincide |
+|---|---|---|---|---|---|---|---|
+| 1 | BOE-A-1978-31229 | 29/10/2026 | 20/05/2026 | N | Finalizado | sí | sí |
+| 2 | BOE-A-2011-1638 | 30/10/2026 | 29/01/2011 | N | Finalizado | sí | sí |
+| 3 | BOE-A-1985-5392 | 05/10/2026 | 03/10/2026 | N | Finalizado | sí | sí |
+| 6 | BOE-A-1995-24292 | 23/10/2026 | 09/04/2026 | N | Finalizado | sí | sí |
+| 7 | BOE-A-2011-6651 | 19/12/2025 | 25/03/2011 | N | Finalizado | sí | sí |
+| 10 | BOE-A-2017-6606 | 19/12/2025 | 03/09/2025 | N | Finalizado | sí | sí |
+| 12 | BOE-A-2017-6606 | 19/12/2025 | 03/09/2025 | N | Finalizado | sí | sí |
+| 13 | BOE-A-1997-12735 | 18/12/2025 | 08/12/2021 | N | Finalizado | sí | sí |
+| 22 | BOE-A-1997-17824 | 18/12/2025 | 13/11/2004 | N | Finalizado | sí | sí |
+| 25 | BOE-A-2014-2110 | 26/06/2026 | 04/12/2024 | N | Finalizado | sí | sí |
+| 28 | BOE-A-2001-11881 | 18/12/2025 | 21/06/2001 | N | Finalizado | sí | sí |
+| 28 | BOE-A-2002-18099 | 18/12/2025 | 03/09/2025 | N | Finalizado | sí | sí |
+| 31 | BOE-A-1997-17824 | 18/12/2025 | 13/11/2004 | N | Finalizado | sí | sí |
+| 32 | BOE-A-2006-5515 | 18/12/2025 | 15/06/2022 | N | Finalizado | sí | sí |
+| 33 | BOE-A-2017-6606 | 19/12/2025 | 03/09/2025 | N | Finalizado | sí | sí |
+| 34 | BOE-A-2025-7190 | 20/12/2025 | 10/04/2025 | N | Finalizado | sí | sí |
 
 ## Normas del DOE (sin API de vigencia: comprobación manual)
 

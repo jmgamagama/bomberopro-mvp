@@ -132,14 +132,16 @@ def main() -> int:
     prefijo = d.get("hash_prefijo", "CE")
     boe = {b["id"]: b for b in json.loads(pathlib.Path(f"data/fuentes/{fuente_id}/bloques.json").read_text(encoding="utf-8"))}
     meta = json.loads(pathlib.Path(f"data/fuentes/{fuente_id}/meta.json").read_text(encoding="utf-8"))
-    fecha = meta["fecha_actualizacion_boe"][:8]
-    fecha_txt = f"{fecha[6:8]}/{fecha[4:6]}/{fecha[0:4]}"
+    fecha_iso = meta.get("fecha_actualizacion_publicada")
+    if not fecha_iso:
+        raise SystemExit("Falta fecha_actualizacion_publicada; vuelve a descargar la fuente con scripts/fuente_boe.py")
+    fecha_txt = f"{fecha_iso[8:10]}/{fecha_iso[5:7]}/{fecha_iso[:4]}"
     tema = int(d["tema"])
     est_c = "publicado" if estado == "publicado" else "borrador"
     est_q = "publicada" if estado == "publicado" else "borrador"
 
     out = [f"-- Generado por scripts/cargar_conceptos.py desde {path} (estado {estado}).",
-           f"-- Texto oficial: {fuente_id}, {meta.get('boletin') or 'actualización BOE ' + fecha_txt}, sha256 {meta['sha256_texto_xml'][:12]}…",
+           f"-- Texto oficial: {fuente_id}, {meta.get('boletin') or 'última actualización publicada el ' + fecha_txt}, sha256 {meta['sha256_texto_xml'][:12]}…",
            "BEGIN;"]
     if crear_tema:
         out.append(f"INSERT INTO public.topics (convocatoria_id, numero, nombre) SELECT 1, {tema}, " + q(d.get('tema_nombre', 'Constitución Española')) + " "

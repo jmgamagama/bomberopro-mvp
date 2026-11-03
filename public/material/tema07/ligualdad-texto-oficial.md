@@ -1,6 +1,6 @@
 # Ley 8/2011, de 23 de marzo, de Igualdad entre mujeres y hombres y contra la violencia de género en Extremadura
 
-Texto consolidado del BOE (BOE-A-2011-6651). Última actualización publicada por el BOE: 19/12/2025.
+Texto consolidado del BOE (BOE-A-2011-6651). Última actualización publicada por el BOE: 25/03/2011.
 Fuente: https://www.boe.es/buscar/act.php?id=BOE-A-2011-6651
 Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
 

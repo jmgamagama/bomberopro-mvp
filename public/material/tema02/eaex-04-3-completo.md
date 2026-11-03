@@ -1,6 +1,6 @@
 # Título II · Instituciones: Asamblea y Presidente (arts. 15–30) · Texto oficial
 
-Texto consolidado del BOE (BOE-A-2011-1638, última actualización publicada el 30/10/2026). Fuente oficial: [Ley Orgánica 1/2011, de 28 de enero, de reforma del Estatuto de Autonomía de la Comunidad Autónoma de Extremadura](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638). Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
+Texto consolidado del BOE (BOE-A-2011-1638, última actualización publicada el 29/01/2011). Fuente oficial: [Ley Orgánica 1/2011, de 28 de enero, de reforma del Estatuto de Autonomía de la Comunidad Autónoma de Extremadura](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638). Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
 
 ## TÍTULO II · De las instituciones de Extremadura
 

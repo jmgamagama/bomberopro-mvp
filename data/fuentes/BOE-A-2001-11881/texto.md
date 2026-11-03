@@ -1,6 +1,6 @@
 # Real Decreto 614/2001, de 8 de junio, sobre disposiciones mínimas para la protección de la salud y seguridad de los trabajadores frente al riesgo eléctrico
 
-Texto consolidado del BOE (BOE-A-2001-11881). Última actualización publicada por el BOE: 18/12/2025.
+Texto consolidado del BOE (BOE-A-2001-11881). Última actualización publicada por el BOE: 21/06/2001.
 Fuente: https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881
 Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
 

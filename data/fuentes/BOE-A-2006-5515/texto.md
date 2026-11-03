@@ -1,6 +1,6 @@
 # Real Decreto 314/2006, de 17 de marzo, por el que se aprueba el Código Técnico de la Edificación
 
-Texto consolidado del BOE (BOE-A-2006-5515). Última actualización publicada por el BOE: 18/12/2025.
+Texto consolidado del BOE (BOE-A-2006-5515). Última actualización publicada por el BOE: 15/06/2022.
 Fuente: https://www.boe.es/buscar/act.php?id=BOE-A-2006-5515
 Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
 

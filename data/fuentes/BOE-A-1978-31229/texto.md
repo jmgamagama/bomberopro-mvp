@@ -1,6 +1,6 @@
 # Constitución Española
 
-Texto consolidado del BOE (BOE-A-1978-31229). Última actualización publicada por el BOE: 29/10/2026.
+Texto consolidado del BOE (BOE-A-1978-31229). Última actualización publicada por el BOE: 20/05/2026.
 Fuente: https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229
 Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
 

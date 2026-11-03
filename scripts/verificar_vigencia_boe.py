@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
-"""Comprueba con la API de datos abiertos del BOE que el material de cada tema usa la versión vigente.
+"""Comprueba la vigencia API y la fecha publicada en la página consolidada oficial del BOE.
 
-Para cada scripts/material/temaNN.json (y cada norma de sus bloques: un tema puede tener varias) y para la
-Constitución del T1 (generada con scripts/generar_material.py) lee los metadatos de la norma en
-  https://www.boe.es/datosabiertos/api/legislacion-consolidada/id/<ID>/metadatos
-y exige: vigencia_agotada = N, estado_consolidacion = Finalizado y que la fecha_actualizacion del BOE
-sea la misma que la de data/fuentes/<ID>/meta.json (la descargada con scripts/fuente_boe.py).
-Si el BOE ha publicado una versión posterior, falla: hay que volver a descargarla y regenerar.
+Para cada scripts/material/temaNN.json y para la Constitución del T1 comprueba el estado y la marca de
+actualización de la API contra data/fuentes/<ID>/meta.json. Además, compara la fecha publicada que muestra
+act.php con fecha_actualizacion_publicada. Si hay diferencias, hay que volver a descargar y regenerar el material.
 
 Uso: python3 scripts/verificar_vigencia_boe.py [--md docs/VIGENCIA_MATERIAL_BOE.md]
 """
@@ -18,6 +15,11 @@ import pathlib
 import sys
 import urllib.request
 import xml.etree.ElementTree as ET
+
+try:
+    from .fuente_boe import consultar_fecha_actualizacion_publicada
+except ImportError:
+    from fuente_boe import consultar_fecha_actualizacion_publicada
 
 API = "https://www.boe.es/datosabiertos/api/legislacion-consolidada/id/{id}/metadatos"
 
@@ -54,22 +56,46 @@ def main() -> None:
             manuales.append(f"| {tema} | {boe_id} | {meta['publicacion']} | {meta['comprobado']} | {meta['busqueda']} |")
             print("DOE ", f"T{tema}", boe_id, "comprobado a mano el", meta["comprobado"])
             continue
-        api = vistos.setdefault(boe_id, metadatos(boe_id))
-        local = meta["fecha_actualizacion_boe"]
-        ok = api["vigencia_agotada"] == "N" and api["estado_consolidacion"] == "Finalizado" and api["fecha_actualizacion"] == local and not api["fecha_derogacion"]
+        if boe_id not in vistos:
+            vistos[boe_id] = {
+                "api": metadatos(boe_id),
+                "publicada": consultar_fecha_actualizacion_publicada(boe_id),
+            }
+        actual = vistos[boe_id]
+        api = actual["api"]
+        local_api = meta["fecha_actualizacion_boe"]
+        local_publicada = meta.get("fecha_actualizacion_publicada")
+        fecha_publicada = actual["publicada"]
+        api_coincide = api["fecha_actualizacion"] == local_api
+        boe_coincide = local_publicada == fecha_publicada
+        ok = (
+            api["vigencia_agotada"] == "N"
+            and api["estado_consolidacion"] == "Finalizado"
+            and api_coincide
+            and boe_coincide
+            and not api["fecha_derogacion"]
+        )
         if not ok:
-            errores.append(f"T{spec['tema']} {boe_id}: API {api} / local {local}")
-        d = local[:8]
-        filas.append(f"| {spec['tema']} | {boe_id} | {d[6:8]}/{d[4:6]}/{d[:4]} | {api['vigencia_agotada']} | {api['estado_consolidacion']} | {'sí' if api['fecha_actualizacion'] == local else 'NO'} |")
-        print(("OK  " if ok else "FAIL"), f"T{spec['tema']}", boe_id, api["fecha_actualizacion"])
+            errores.append(
+                f"T{spec['tema']} {boe_id}: API {api} / local API {local_api}; "
+                f"fecha publicada actual {fecha_publicada} / local {local_publicada}"
+            )
+        api_date = f"{local_api[6:8]}/{local_api[4:6]}/{local_api[:4]}"
+        published_date = f"{fecha_publicada[8:10]}/{fecha_publicada[5:7]}/{fecha_publicada[:4]}"
+        filas.append(
+            f"| {spec['tema']} | {boe_id} | {api_date} | {published_date} | "
+            f"{api['vigencia_agotada']} | {api['estado_consolidacion']} | "
+            f"{'sí' if api_coincide else 'NO'} | {'sí' if boe_coincide else 'NO'} |"
+        )
+        print(("OK  " if ok else "FAIL"), f"T{spec['tema']}", boe_id, "API", api["fecha_actualizacion"], "BOE", fecha_publicada)
     if "--md" in sys.argv:
         out = pathlib.Path(sys.argv[sys.argv.index("--md") + 1])
         hoy = dt.datetime.now().strftime("%d/%m/%Y %H:%M")
-        out.write_text("# Vigencia del material por tema (API del BOE)\n\n"
-                       f"Comprobado el {hoy} con `python3 scripts/verificar_vigencia_boe.py --md {out}` (API de datos abiertos, "
-                       "legislación consolidada, `/metadatos`). «Igual a la descargada» compara `fecha_actualizacion` del BOE con "
-                       "`data/fuentes/<ID>/meta.json`.\n\n"
-                       "| Tema | Norma | Última actualización BOE | Vigencia agotada | Consolidación | Igual a la descargada |\n|---|---|---|---|---|---|\n"
+        out.write_text("# Vigencia y fechas del material por tema (BOE)\n\n"
+                       f"Comprobado el {hoy} con python3 scripts/verificar_vigencia_boe.py --md {out}. "
+                       "La marca API procede de /metadatos; la fecha publicada se obtiene de la página oficial act.php. "
+                       "Ambas comprobaciones se comparan con sus campos separados en data/fuentes/<ID>/meta.json.\n\n"
+                       "| Tema | Norma | Marca de actualización API | Última actualización publicada en BOE | Vigencia agotada | Consolidación | API coincide | BOE coincide |\n|---|---|---|---|---|---|---|---|\n"
                        + "\n".join(filas) + "\n"
                        + ("\n## Normas del DOE (sin API de vigencia: comprobación manual)\n\n"
                           "| Tema | Norma | Publicación | Comprobado | Qué se buscó |\n|---|---|---|---|---|\n"

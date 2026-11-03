@@ -1,6 +1,6 @@
 # Ley 7/1985, de 2 de abril, Reguladora de las Bases del Régimen Local
 
-Texto consolidado del BOE (BOE-A-1985-5392). Última actualización publicada por el BOE: 05/10/2026.
+Texto consolidado del BOE (BOE-A-1985-5392). Última actualización publicada por el BOE: 03/10/2026.
 Fuente: https://www.boe.es/buscar/act.php?id=BOE-A-1985-5392
 Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
 

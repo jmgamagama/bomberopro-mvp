@@ -1,6 +1,6 @@
 # Capítulo IV · Servicios de prevención (arts. 30–32 bis) · Texto oficial
 
-Texto consolidado del BOE (BOE-A-1995-24292, última actualización publicada el 23/10/2026). Fuente oficial: [Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales](https://www.boe.es/buscar/act.php?id=BOE-A-1995-24292). Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
+Texto consolidado del BOE (BOE-A-1995-24292, última actualización publicada el 09/04/2026). Fuente oficial: [Ley 31/1995, de 8 de noviembre, de Prevención de Riesgos Laborales](https://www.boe.es/buscar/act.php?id=BOE-A-1995-24292). Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
 
 ## CAPÍTULO IV · Servicios de prevención
 
