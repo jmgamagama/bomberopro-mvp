@@ -1,20 +1,25 @@
 # Título II · Instituciones: control de los poderes y otras instituciones (arts. 40–48) · Esquema
 
-Texto consolidado del BOE (BOE-A-2011-1638, última actualización publicada el 29/01/2011). Fuente oficial: [Ley Orgánica 1/2011, de 28 de enero, de reforma del Estatuto de Autonomía de la Comunidad Autónoma de Extremadura](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638). Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
+Texto consolidado del BOE (BOE-A-2011-1638, última actualización publicada el 29/01/2011). [Fuente oficial](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638). Texto con carácter informativo; para fines jurídicos debe consultarse la publicación oficial.
 
-9 preceptos. Cada rúbrica (literal) enlaza con el BOE.
+El bloque une publicidad y control de la actividad autonómica con cuatro instituciones estatutarias; conviene separar el tipo de control del órgano que lo ejerce.
 
-**CAPÍTULO IV · Del ejercicio y control de los poderes de la Comunidad**
+## Arts. 40–44 · Publicidad, control y conflictos
+- **Art. 40:** promulgación y publicación de las normas autonómicas; regla general de entrada en vigor a los veinte días de su publicación íntegra en el DOE, salvo que dispongan otra cosa.
+- **Art. 41:** control constitucional de leyes y decretos-leyes; control jurisdiccional de decretos legislativos en los supuestos previstos y de normas reglamentarias y actos.
+- **Art. 42:** responsabilidad por actos legislativos y responsabilidad patrimonial de la Administración.
+- **Art. 43:** conflictos jurisdiccionales planteados para defender competencias.
+- **Art. 44:** conflictos de atribuciones entre instituciones de autogobierno; prevé intervención del Consejo Consultivo y plazos propios.
 
-- [Artículo 40. Publicidad normativa](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a40)
-- [Artículo 41. Control jurisdiccional de disposiciones y actos](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a41)
-- [Artículo 42. Responsabilidad de los poderes públicos y de la Administración](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a42)
-- [Artículo 43. Conflictos jurisdiccionales](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a43)
-- [Artículo 44. Conflictos entre instituciones de autogobierno](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a44)
+## Arts. 45–48 · Instituciones estatutarias
+| Artículo | Institución | Función / sede |
+|---|---|---|
+| 45 | Consejo Consultivo | Órgano consultivo superior; Badajoz. |
+| 46 | Consejo de Cuentas | Control externo de la actividad financiera y presupuestaria; Cáceres. |
+| 47 | Consejo Económico y Social | Órgano consultivo de la Junta en materias socioeconómicas; Mérida. |
+| 48 | Personero del Común | Comisionado de la Asamblea con funciones similares a las del Defensor del Pueblo; Plasencia. Elección por tres quintas partes de los miembros de la Asamblea. |
 
-**CAPÍTULO V · De otras instituciones estatutarias**
-
-- [Artículo 45. Consejo Consultivo](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a45)
-- [Artículo 46. Consejo de Cuentas](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a46)
-- [Artículo 47. Consejo Económico y Social](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a47)
-- [Artículo 48. Personero del Común](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a48)
+## Para memorizar
+- DOE: publicación de referencia de las normas autonómicas; el art. 40 también prevé la publicación en el BOE para leyes y normas con rango legal.
+- No confundas control de constitucionalidad, control contencioso-administrativo y control externo de cuentas.
+- Sedes: Consultivo–Badajoz; Cuentas–Cáceres; Consejo Económico y Social–Mérida; Personero–Plasencia.
