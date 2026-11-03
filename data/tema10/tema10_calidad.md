@@ -4,7 +4,7 @@
 
 ## Fuente
 
-- Real Decreto 513/2017, Reglamento de instalaciones de protección contra incendios — BOE-A-2017-6606, texto consolidado del BOE, última actualización/versión 19/12/2025: https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606 (copia en /workspace/fuentes_oficiales/tema10/)
+- Real Decreto 513/2017, Reglamento de instalaciones de protección contra incendios — BOE-A-2017-6606, texto consolidado del BOE; última actualización publicada el 03/09/2025: https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606 (copia de trabajo en /workspace/fuentes_oficiales/tema10/).
 
 ## Resultado
 
@@ -19,7 +19,7 @@
 
 ## Comprobación automática
 
-- La respuesta aparece en el artículo/bloque citado del texto consolidado (coincidencia normalizada sin tildes ni puntuación o difusa ≥ 0,85 por ventana de palabras).
+- En las fichas normativas se comprueba el artículo o bloque citado del texto consolidado; en las fichas basadas en NTP, el apartado citado del documento oficial del INSST. La coincidencia automática normaliza tildes y puntuación o acepta similitud difusa ≥ 0,85 por ventana de palabras.
 - Se descartan: vacías, bloque inexistente, truncadas (final en preposición/artículo, coma, «…», paréntesis abierto), respuesta dentro de la pregunta (o ≥ 80 % de sus palabras), preguntas duplicadas, no formuladas como pregunta y preguntas que copian el comienzo de la respuesta.
 
 ## Muestra revisada a mano
