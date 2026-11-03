@@ -1,0 +1,4186 @@
+{
+ "norma": "BOP-BA-2012-5370",
+ "documento": "RRI-CPEI",
+ "nombre_norma": "Reglamento de Régimen Interno del CPEI de Badajoz",
+ "abreviatura": "RRI CPEI",
+ "hash_prefijo": "RRI",
+ "tema": 5,
+ "tema_nombre": "El organigrama del CPEI de Badajoz. El Reglamento de Régimen Interno del CPEI de Badajoz",
+ "bloque_temario": "Cap. III (arts. 35-48): régimen disciplinario, recompensas, principios, formación, seguridad y salud, voluntarios",
+ "estado": "borrador",
+ "autor": "Claude (redacción propia a partir del texto único vigente publicado en el BOP de Badajoz n.º 149, de 06/08/2012)",
+ "niveles": {
+  "1": "fácil: 2 opciones, para aprender",
+  "2": "normal: 3 opciones, formato del examen",
+  "3": "difícil: 3 opciones, enunciado o distractores enrevesados sobre el mismo concepto"
+ },
+ "series": {
+  "mg": "faltas muy graves",
+  "g": "faltas graves",
+  "l": "faltas leves"
+ },
+ "conceptos": [
+  {
+   "id": "RRI-a35-regimen",
+   "bloque": "a35",
+   "apartado": "",
+   "orden": 1600,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué régimen disciplinario se aplica a su personal?",
+    "respuesta": "El establecido con carácter general para el personal de la Administración de procedencia, con las precisiones del Reglamento; para el personal laboral tiene carácter de norma convencional (art. 58.1 del Estatuto de los Trabajadores)."
+   },
+   "cita": "será el establecido con carácter general para el resto del personal de la Administración de procedencia",
+   "confundible_con": [
+    "RRI-a36-sanciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿se aplica también al personal laboral el régimen disciplinario del Reglamento?",
+     "opciones": [
+      "Sí, como norma convencional",
+      "No, solo a los funcionarios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: «será aplicable para el personal laboral, teniendo el carácter de norma convencional a los efectos previstos en el artículo 58.1 del Estatuto de los Trabajadores»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, el régimen disciplinario aplicable al personal del CPEI es:",
+     "opciones": [
+      "Uno propio, distinto del de cualquier Administración",
+      "El de la Administración de procedencia, con precisiones",
+      "El del Estatuto de los Trabajadores para todo el personal"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: «será el establecido con carácter general para el resto del personal de la Administración de procedencia, con las precisiones que se contienen en el presente rglamento [sic]»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, para el personal laboral el régimen disciplinario del Reglamento tiene carácter de norma convencional a efectos del art. 58.1 de:",
+     "opciones": [
+      "El Estatuto de los Trabajadores",
+      "El Estatuto Básico del Empleado Público",
+      "La Ley de Prevención de Riesgos Laborales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: «teniendo el carácter de norma convencional a los efectos previstos en el artículo 58.1 del Estatuto de los Trabajadores»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-calificacion",
+   "bloque": "a35",
+   "apartado": "",
+   "orden": 1610,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿cómo se califican las faltas y qué circunstancias se tienen en cuenta?",
+    "respuesta": "Leves, graves o muy graves, según su tipificación en el Reglamento y atendiendo a la intencionalidad, el atentado a la legalidad y al interés público, los daños a la Administración o a los ciudadanos y la reincidencia."
+   },
+   "cita": "Las faltas se calificarán como leves, graves o muy graves",
+   "confundible_con": [
+    "RRI-a35-regimen"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿se tiene en cuenta la reincidencia para calificar una falta?",
+     "opciones": [
+      "No",
+      "Sí"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: las circunstancias son intencionalidad, atentado a la legalidad y al interés público, daños producidos y reincidencia."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, las faltas se califican como:",
+     "opciones": [
+      "Leves, graves o muy graves",
+      "Leves o graves solamente",
+      "Menores, mayores o gravísimas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: «Las faltas se calificarán como leves, graves o muy graves»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas circunstancias NO figura entre las que se atienden para calificar las faltas?",
+     "opciones": [
+      "La intencionalidad",
+      "La antigüedad del trabajador",
+      "Los daños producidos a los ciudadanos"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: a) intencionalidad; b) atentado a la legalidad y al interés público; c) daños producidos a la Administración o a los ciudadanos; d) reincidencia. No cita la antigüedad."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-mg1",
+   "bloque": "a35",
+   "apartado": "mg1",
+   "orden": 1620,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: incumplir el deber de fidelidad a la Constitución?",
+    "respuesta": "Falta muy grave (art. 35, n.º 1 de las faltas muy graves)."
+   },
+   "cita": "incumplimiento del deber de fidelidad a la Constitución",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «El incumplimiento del deber de fidelidad a la Constitución en el ejercicio de las funciones públicas» entre las faltas muy graves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: figura entre las faltas muy graves (n.º 1)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «El incumplimiento del deber de fidelidad a la Constitución en el ejercicio de las funciones públicas»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: faltas muy graves, n.º 1."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas muy graves?",
+     "opciones": [
+      "Incumplir el deber de fidelidad a la Constitución",
+      "Faltar a la obediencia debida a los superiores",
+      "Faltas repetidas de puntualidad en el mismo mes"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: incumplir el deber de fidelidad a la Constitución, falta muy grave (n.º 1 de su lista); faltar a la obediencia debida a los superiores, falta grave (n.º 1 de su lista); faltas repetidas de puntualidad en el mismo mes, falta leve (n.º 6 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-mg2",
+   "bloque": "a35",
+   "apartado": "mg2",
+   "orden": 1630,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: discriminar por razón de raza, sexo o religión?",
+    "respuesta": "Falta muy grave (art. 35, n.º 2 de las faltas muy graves)."
+   },
+   "cita": "discriminación por razón de raza, sexo, religión",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «Toda actuación que suponga discriminación por razón de raza, sexo, religión, lengua, opinión, lugar de nacimiento o vecindad, o cualquier otra circunstancia personal o social» entre las faltas leves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: figura entre las faltas muy graves (n.º 2)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «Toda actuación que suponga discriminación por razón de raza, sexo, religión, lengua, opinión, lugar de nacimiento o vecindad, o cualquier otra circunstancia personal o social»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: faltas muy graves, n.º 2."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas muy graves?",
+     "opciones": [
+      "Discriminar por razón de raza, sexo o religión",
+      "Abusar de autoridad en el ejercicio del cargo",
+      "Descuidar los locales sin causar graves perjuicios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: discriminar por razón de raza, sexo o religión, falta muy grave (n.º 2 de su lista); abusar de autoridad en el ejercicio del cargo, falta grave (n.º 2 de su lista); descuidar los locales sin causar graves perjuicios, falta leve (n.º 7 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-mg3",
+   "bloque": "a35",
+   "apartado": "mg3",
+   "orden": 1640,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: no asistir a las llamadas por un siniestro?",
+    "respuesta": "Falta muy grave (art. 35, n.º 3 de las faltas muy graves)."
+   },
+   "cita": "No asistir a las llamadas que se efectúen con motivo de un siniestro",
+   "confundible_con": [
+    "RRI-a35-l1"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «El abandono de Servicio» entre las faltas muy graves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: figura entre las faltas muy graves (n.º 3)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «El abandono de Servicio»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: faltas muy graves, n.º 3."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿qué conducta se considera abandono de servicio y, por tanto, falta muy grave?",
+     "opciones": [
+      "Presentarse al relevo de turno sin la adecuada uniformidad",
+      "No asistir a las llamadas que se efectúen con motivo de un siniestro",
+      "Negarse a comparecer estando fuera de servicio sin razones de urgencia"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35, faltas muy graves, 3.b): se considera abandono de servicio «No asistir a las llamadas que se efectúen con motivo de un siniestro». El relevo sin uniformidad es falta leve."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-mg4",
+   "bloque": "a35",
+   "apartado": "mg4",
+   "orden": 1650,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: adoptar acuerdos manifiestamente ilegales con perjuicio grave?",
+    "respuesta": "Falta muy grave (art. 35, n.º 4 de las faltas muy graves)."
+   },
+   "cita": "acuerdos manifiestamente ilegales que causen perjuicio grave",
+   "confundible_con": [
+    "RRI-a35-g8"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «La adopción de los acuerdos manifiestamente ilegales que causen perjuicio grave a la Administración o a los ciudadanos» entre las faltas leves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: figura entre las faltas muy graves (n.º 4)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «La adopción de los acuerdos manifiestamente ilegales que causen perjuicio grave a la Administración o a los ciudadanos»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: faltas muy graves, n.º 4."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas muy graves?",
+     "opciones": [
+      "Adoptar acuerdos manifiestamente ilegales con perjuicio grave",
+      "Tolerar faltas muy graves de los subordinados",
+      "Presentarse al relevo sin la uniformidad adecuada"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: adoptar acuerdos manifiestamente ilegales con perjuicio grave, falta muy grave (n.º 4 de su lista); tolerar faltas muy graves de los subordinados, falta grave (n.º 4 de su lista); presentarse al relevo sin la uniformidad adecuada, falta leve (n.º 1 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-mg5",
+   "bloque": "a35",
+   "apartado": "mg5",
+   "orden": 1660,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: utilizar indebidamente secretos oficiales?",
+    "respuesta": "Falta muy grave (art. 35, n.º 5 de las faltas muy graves)."
+   },
+   "cita": "utilización indebida de secretos oficiales",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «La publicación o utilización indebida de secretos oficiales, así declarados por Ley o clasificados como tales» entre las faltas muy graves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: figura entre las faltas muy graves (n.º 5)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «La publicación o utilización indebida de secretos oficiales, así declarados por Ley o clasificados como tales»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: faltas muy graves, n.º 5."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas muy graves?",
+     "opciones": [
+      "Utilizar indebidamente secretos oficiales",
+      "Tratar con grave desconsideración a los compañeros",
+      "Tratar con ligera incorrección al público"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: utilizar indebidamente secretos oficiales, falta muy grave (n.º 5 de su lista); tratar con grave desconsideración a los compañeros, falta grave (n.º 5 de su lista); tratar con ligera incorrección al público, falta leve (n.º 2 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-mg6",
+   "bloque": "a35",
+   "apartado": "mg6",
+   "orden": 1670,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: estar intoxicado por ingerir voluntariamente alcohol?",
+    "respuesta": "Falta muy grave (art. 35, n.º 6 de las faltas muy graves)."
+   },
+   "cita": "La notoria falta de rendimiento que comporte inhibición",
+   "confundible_con": [
+    "RRI-a35-g9"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «La notoria falta de rendimiento que comporte inhibición en el cumplimiento de las tareas encomendadas» entre las faltas leves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: figura entre las faltas muy graves (n.º 6)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «La notoria falta de rendimiento que comporte inhibición en el cumplimiento de las tareas encomendadas»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: faltas muy graves, n.º 6."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, encontrarse en estado de intoxicación por la ingestión voluntaria y deliberada de alcohol es:",
+     "opciones": [
+      "Falta muy grave, como notoria falta de rendimiento",
+      "Falta grave, como simple falta de rendimiento",
+      "Falta leve, como negligencia en sus funciones"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35, faltas muy graves, 6.a): incurren en notoria falta de rendimiento quienes se encontrasen en estado de intoxicación por ingerencia [sic] voluntaria y deliberada de alcohol. Consumir alcohol estando de servicio, sin más, es falta grave (9.c)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-mg7",
+   "bloque": "a35",
+   "apartado": "mg7",
+   "orden": 1680,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: usar sus facultades para influir en procesos electorales?",
+    "respuesta": "Falta muy grave (art. 35, n.º 7 de las faltas muy graves)."
+   },
+   "cita": "violación de la neutralidad o independencia política",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «La violación de la neutralidad o independencia política, utilizando las facultades atribuidas para influir en procesos electorales de cualquier naturaleza o ámbito» entre las faltas muy graves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: figura entre las faltas muy graves (n.º 7)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «La violación de la neutralidad o independencia política, utilizando las facultades atribuidas para influir en procesos electorales de cualquier naturaleza o ámbito»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: faltas muy graves, n.º 7."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas muy graves?",
+     "opciones": [
+      "Usar sus facultades para influir en procesos electorales",
+      "Intervenir en un procedimiento con causa de abstención",
+      "Faltas repetidas de puntualidad en el mismo mes"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: usar sus facultades para influir en procesos electorales, falta muy grave (n.º 7 de su lista); intervenir en un procedimiento con causa de abstención, falta grave (n.º 7 de su lista); faltas repetidas de puntualidad en el mismo mes, falta leve (n.º 6 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-mg8",
+   "bloque": "a35",
+   "apartado": "mg8",
+   "orden": 1690,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: incumplir las normas sobre incompatibilidades?",
+    "respuesta": "Falta muy grave (art. 35, n.º 8 de las faltas muy graves)."
+   },
+   "cita": "El incumplimiento de las normas sobre incompatibilidades",
+   "confundible_con": [
+    "RRI-a35-g11"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «El incumplimiento de las normas sobre incompatibilidades» entre las faltas leves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: figura entre las faltas muy graves (n.º 8)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «El incumplimiento de las normas sobre incompatibilidades»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: faltas muy graves, n.º 8."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas relativas a incompatibilidades es falta muy grave?",
+     "opciones": [
+      "Incumplir plazos de procedimiento sin mantener la incompatibilidad",
+      "Incumplir las normas sobre incompatibilidades",
+      "Retrasarse en presentar la declaración de actividades"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: el incumplimiento de las normas sobre incompatibilidades es falta muy grave (8); el de plazos u otras disposiciones de procedimiento, sin mantener la incompatibilidad, es grave (11)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-mg9",
+   "bloque": "a35",
+   "apartado": "mg9",
+   "orden": 1700,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: obstaculizar el ejercicio de los derechos sindicales?",
+    "respuesta": "Falta muy grave (art. 35, n.º 9 de las faltas muy graves)."
+   },
+   "cita": "obstaculización al ejercicio de las libertades publicas",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «La obstaculización al ejercicio de las libertades publicas y de derechos sindicales» entre las faltas muy graves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: figura entre las faltas muy graves (n.º 9)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «La obstaculización al ejercicio de las libertades publicas y de derechos sindicales»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: faltas muy graves, n.º 9."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas muy graves?",
+     "opciones": [
+      "Obstaculizar el ejercicio de los derechos sindicales",
+      "Incumplir la jornada, acumulado, al menos diez horas al mes",
+      "Incumplir sus deberes por negligencia excusable"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: obstaculizar el ejercicio de los derechos sindicales, falta muy grave (n.º 9 de su lista); incumplir la jornada, acumulado, al menos diez horas al mes, falta grave (n.º 12 de su lista); incumplir sus deberes por negligencia excusable, falta leve (n.º 8 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-mg10",
+   "bloque": "a35",
+   "apartado": "mg10",
+   "orden": 1710,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: coartar el libre ejercicio del derecho de huelga?",
+    "respuesta": "Falta muy grave (art. 35, n.º 10 de las faltas muy graves)."
+   },
+   "cita": "coartar el libre ejercicio del derecho de huelga",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «La realización de actos encaminados a coartar el libre ejercicio del derecho de huelga» entre las faltas leves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: figura entre las faltas muy graves (n.º 10)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «La realización de actos encaminados a coartar el libre ejercicio del derecho de huelga»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: faltas muy graves, n.º 10."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas muy graves?",
+     "opciones": [
+      "Coartar el libre ejercicio del derecho de huelga",
+      "La tercera falta injustificada de asistencia en tres meses",
+      "Presentarse al relevo sin la uniformidad adecuada"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: coartar el libre ejercicio del derecho de huelga, falta muy grave (n.º 10 de su lista); la tercera falta injustificada de asistencia en tres meses, falta grave (n.º 13 de su lista); presentarse al relevo sin la uniformidad adecuada, falta leve (n.º 1 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-mg11",
+   "bloque": "a35",
+   "apartado": "mg11",
+   "orden": 1720,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: hacer huelga quien la tenga prohibida por la Ley?",
+    "respuesta": "Falta muy grave (art. 35, n.º 11 de las faltas muy graves)."
+   },
+   "cita": "La participación en huelgas",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «La participación en huelgas, a los que la tenga expresamente prohibido por la Ley» entre las faltas muy graves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: figura entre las faltas muy graves (n.º 11)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «La participación en huelgas, a los que la tenga expresamente prohibido por la Ley»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: faltas muy graves, n.º 11."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas muy graves?",
+     "opciones": [
+      "Hacer huelga quien la tenga prohibida por la Ley",
+      "Provocar altercados en los locales del Consorcio",
+      "Tratar con ligera incorrección al público"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: hacer huelga quien la tenga prohibida por la Ley, falta muy grave (n.º 11 de su lista); provocar altercados en los locales del Consorcio, falta grave (n.º 14 de su lista); tratar con ligera incorrección al público, falta leve (n.º 2 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-mg12",
+   "bloque": "a35",
+   "apartado": "mg12",
+   "orden": 1730,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: no atender los servicios esenciales en caso de huelga?",
+    "respuesta": "Falta muy grave (art. 35, n.º 12 de las faltas muy graves)."
+   },
+   "cita": "atender los servicios esenciales en caso de huelga",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «El incumplimiento de la obligación de atender los servicios esenciales en caso de huelga» entre las faltas leves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: figura entre las faltas muy graves (n.º 12)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «El incumplimiento de la obligación de atender los servicios esenciales en caso de huelga»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: faltas muy graves, n.º 12."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas muy graves?",
+     "opciones": [
+      "No atender los servicios esenciales en caso de huelga",
+      "Atentar gravemente contra la dignidad de los funcionarios",
+      "Incumplir el documento «cambio de turno»"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: no atender los servicios esenciales en caso de huelga, falta muy grave (n.º 12 de su lista); atentar gravemente contra la dignidad de los funcionarios, falta grave (n.º 15 de su lista); incumplir el documento «cambio de turno», falta leve (n.º 5 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-mg13",
+   "bloque": "a35",
+   "apartado": "mg13",
+   "orden": 1740,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: limitar la libre expresión de pensamiento e ideas?",
+    "respuesta": "Falta muy grave (art. 35, n.º 13 de las faltas muy graves)."
+   },
+   "cita": "Los actos limitativos de la libre expresión de pensamiento",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «Los actos limitativos de la libre expresión de pensamiento, ideas y opiniones» entre las faltas muy graves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: figura entre las faltas muy graves (n.º 13)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «Los actos limitativos de la libre expresión de pensamiento, ideas y opiniones»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: faltas muy graves, n.º 13."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas muy graves?",
+     "opciones": [
+      "Limitar la libre expresión de pensamiento e ideas",
+      "Faltar gravemente a la consideración con los ciudadanos",
+      "Faltas repetidas de puntualidad en el mismo mes"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: limitar la libre expresión de pensamiento e ideas, falta muy grave (n.º 13 de su lista); faltar gravemente a la consideración con los ciudadanos, falta grave (n.º 16 de su lista); faltas repetidas de puntualidad en el mismo mes, falta leve (n.º 6 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-mg14",
+   "bloque": "a35",
+   "apartado": "mg14",
+   "orden": 1750,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: haber sido sancionado por tres faltas graves en un año?",
+    "respuesta": "Falta muy grave (art. 35, n.º 14 de las faltas muy graves)."
+   },
+   "cita": "tres faltas graves en un período de un año",
+   "confundible_con": [
+    "RRI-a35-g18"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «Haber sido sancionado por la comisión, de tres faltas graves en un período de un año» entre las faltas leves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: figura entre las faltas muy graves (n.º 14)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «Haber sido sancionado por la comisión, de tres faltas graves en un período de un año»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: faltas muy graves, n.º 14."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, haber sido sancionado por la comisión de tres faltas graves en un período de un año es:",
+     "opciones": [
+      "Falta grave",
+      "Falta muy grave",
+      "Falta leve agravada"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35, faltas muy graves, 14. Ojo: la reiteración de tres faltas leves es falta grave (18)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-g1",
+   "bloque": "a35",
+   "apartado": "g1",
+   "orden": 1760,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: faltar a la obediencia debida a los superiores?",
+    "respuesta": "Falta grave (art. 35, n.º 1 de las faltas graves)."
+   },
+   "cita": "La falta de obediencia debida a los superiores jerárquicos",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «La falta de obediencia debida a los superiores jerárquicos y a las autoridades» entre las faltas graves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: figura entre las faltas graves (n.º 1)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «La falta de obediencia debida a los superiores jerárquicos y a las autoridades»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: faltas graves, n.º 1."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, negarse a realizar tareas ordenadas por razones de emergencia, aunque no sean de sus funciones ordinarias, es:",
+     "opciones": [
+      "Falta leve, por negligencia excusable",
+      "Falta grave, por falta de obediencia debida",
+      "Conducta permitida, por no ser su función"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35, faltas graves, 1.a): se incluye en la falta de obediencia debida."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-g2",
+   "bloque": "a35",
+   "apartado": "g2",
+   "orden": 1770,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: abusar de autoridad en el ejercicio del cargo?",
+    "respuesta": "Falta grave (art. 35, n.º 2 de las faltas graves)."
+   },
+   "cita": "El abuso de autoridad en el ejercicio del cargo",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «El abuso de autoridad en el ejercicio del cargo» entre las faltas leves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: figura entre las faltas graves (n.º 2)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «El abuso de autoridad en el ejercicio del cargo»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: faltas graves, n.º 2."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas graves?",
+     "opciones": [
+      "Abusar de autoridad en el ejercicio del cargo",
+      "Usar sus facultades para influir en procesos electorales",
+      "Presentarse al relevo sin la uniformidad adecuada"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: abusar de autoridad en el ejercicio del cargo, falta grave (n.º 2 de su lista); usar sus facultades para influir en procesos electorales, falta muy grave (n.º 7 de su lista); presentarse al relevo sin la uniformidad adecuada, falta leve (n.º 1 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-g3",
+   "bloque": "a35",
+   "apartado": "g3",
+   "orden": 1780,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: comerciar con prendas o efectos del Consorcio?",
+    "respuesta": "Falta grave (art. 35, n.º 3 de las faltas graves)."
+   },
+   "cita": "conductas constitutivas de delito doloso",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «Las conductas constitutivas de delito doloso relacionadas con el servicio o que causen daño a la Administración o a los ciudadanos» entre las faltas graves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: figura entre las faltas graves (n.º 3)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «Las conductas constitutivas de delito doloso relacionadas con el servicio o que causen daño a la Administración o a los ciudadanos»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: faltas graves, n.º 3."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, demandar a particulares contraprestación en metálico o especie por las funciones propias es:",
+     "opciones": [
+      "Falta grave",
+      "Falta leve",
+      "Conducta permitida si es voluntaria"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35, faltas graves, 3.c): se incluye entre las conductas constitutivas de delito doloso."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-g4",
+   "bloque": "a35",
+   "apartado": "g4",
+   "orden": 1790,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: tolerar faltas muy graves de los subordinados?",
+    "respuesta": "Falta grave (art. 35, n.º 4 de las faltas graves)."
+   },
+   "cita": "La tolerancia de los superiores respecto de la comisión de faltas muy graves",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «La tolerancia de los superiores respecto de la comisión de faltas muy graves por sus subordinados» entre las faltas leves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: figura entre las faltas graves (n.º 4)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «La tolerancia de los superiores respecto de la comisión de faltas muy graves por sus subordinados»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: faltas graves, n.º 4."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas graves?",
+     "opciones": [
+      "Tolerar faltas muy graves de los subordinados",
+      "Coartar el libre ejercicio del derecho de huelga",
+      "Incumplir el documento «cambio de turno»"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: tolerar faltas muy graves de los subordinados, falta grave (n.º 4 de su lista); coartar el libre ejercicio del derecho de huelga, falta muy grave (n.º 10 de su lista); incumplir el documento «cambio de turno», falta leve (n.º 5 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-g5",
+   "bloque": "a35",
+   "apartado": "g5",
+   "orden": 1800,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: tratar con grave desconsideración a los compañeros?",
+    "respuesta": "Falta grave (art. 35, n.º 5 de las faltas graves)."
+   },
+   "cita": "La grave desconsideración con los superiores, compañeros y subordinados",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «La grave desconsideración con los superiores, compañeros y subordinados» entre las faltas graves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: figura entre las faltas graves (n.º 5)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «La grave desconsideración con los superiores, compañeros y subordinados»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: faltas graves, n.º 5."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas graves?",
+     "opciones": [
+      "Tratar con grave desconsideración a los compañeros",
+      "Hacer huelga quien la tenga prohibida por la Ley",
+      "Faltas repetidas de puntualidad en el mismo mes"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: tratar con grave desconsideración a los compañeros, falta grave (n.º 5 de su lista); hacer huelga quien la tenga prohibida por la Ley, falta muy grave (n.º 11 de su lista); faltas repetidas de puntualidad en el mismo mes, falta leve (n.º 6 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-g6",
+   "bloque": "a35",
+   "apartado": "g6",
+   "orden": 1810,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: causar daños graves en el material del servicio?",
+    "respuesta": "Falta grave (art. 35, n.º 6 de las faltas graves)."
+   },
+   "cita": "Causar daños graves en los locales, material o documentos",
+   "confundible_con": [
+    "RRI-a35-l7"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «Causar daños graves en los locales, material o documentos de los servicios» entre las faltas leves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: figura entre las faltas graves (n.º 6)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «Causar daños graves en los locales, material o documentos de los servicios»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: faltas graves, n.º 6."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, causar daños graves en los locales, material o documentos de los servicios es:",
+     "opciones": [
+      "Falta leve",
+      "Falta grave",
+      "Falta muy grave"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35, faltas graves, 6. El simple descuido sin graves perjuicios es leve (7)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-g7",
+   "bloque": "a35",
+   "apartado": "g7",
+   "orden": 1820,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: intervenir en un procedimiento con causa de abstención?",
+    "respuesta": "Falta grave (art. 35, n.º 7 de las faltas graves)."
+   },
+   "cita": "causas de abstención legalmente señaladas",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «Intervenir en los procedimientos administrativos cuando se dé alguna de las causas de abstención legalmente señaladas» entre las faltas graves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: figura entre las faltas graves (n.º 7)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «Intervenir en los procedimientos administrativos cuando se dé alguna de las causas de abstención legalmente señaladas»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: faltas graves, n.º 7."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas graves?",
+     "opciones": [
+      "Intervenir en un procedimiento con causa de abstención",
+      "Limitar la libre expresión de pensamiento e ideas",
+      "Incumplir sus deberes por negligencia excusable"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: intervenir en un procedimiento con causa de abstención, falta grave (n.º 7 de su lista); limitar la libre expresión de pensamiento e ideas, falta muy grave (n.º 13 de su lista); incumplir sus deberes por negligencia excusable, falta leve (n.º 8 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-g8",
+   "bloque": "a35",
+   "apartado": "g8",
+   "orden": 1830,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: emitir informes manifiestamente ilegales que causen perjuicio?",
+    "respuesta": "Falta grave (art. 35, n.º 8 de las faltas graves)."
+   },
+   "cita": "La emisión de informes y la adopción de acuerdos manifiestamente ilegales",
+   "confundible_con": [
+    "RRI-a35-mg4"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «La emisión de informes y la adopción de acuerdos manifiestamente ilegales cuando causen perjuicio al Consorcio, Administración o a los ciudadanos y no constituyan falta muy grave» entre las faltas leves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: figura entre las faltas graves (n.º 8)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «La emisión de informes y la adopción de acuerdos manifiestamente ilegales cuando causen perjuicio al Consorcio, Administración o a los ciudadanos y no constituyan falta muy grave»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: faltas graves, n.º 8."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas graves?",
+     "opciones": [
+      "Emitir informes manifiestamente ilegales que causen perjuicio",
+      "Haber sido sancionado por tres faltas graves en un año",
+      "Presentarse al relevo sin la uniformidad adecuada"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: emitir informes manifiestamente ilegales que causen perjuicio, falta grave (n.º 8 de su lista); haber sido sancionado por tres faltas graves en un año, falta muy grave (n.º 14 de su lista); presentarse al relevo sin la uniformidad adecuada, falta leve (n.º 1 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-g9",
+   "bloque": "a35",
+   "apartado": "g9",
+   "orden": 1840,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: simular una enfermedad para no realizar el servicio?",
+    "respuesta": "Falta grave (art. 35, n.º 9 de las faltas graves)."
+   },
+   "cita": "Simular enfermedades o impedimentos físicos",
+   "confundible_con": [
+    "RRI-a35-mg6"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «La falta de rendimiento que efectúe al normal funcionamiento de los servicios y no constituya falta muy grave» entre las faltas graves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: figura entre las faltas graves (n.º 9)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «La falta de rendimiento que efectúe al normal funcionamiento de los servicios y no constituya falta muy grave»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: faltas graves, n.º 9."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, consumir bebidas alcohólicas estando de servicio o negarse a las comprobaciones técnicas es:",
+     "opciones": [
+      "Falta leve",
+      "Falta grave",
+      "Falta muy grave"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35, faltas graves, 9.c). Distinto del estado de intoxicación por ingestión voluntaria y deliberada, que es notoria falta de rendimiento (muy grave, 6.a)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-g10",
+   "bloque": "a35",
+   "apartado": "g10",
+   "orden": 1850,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: no guardar el sigilo debido sobre asuntos del cargo?",
+    "respuesta": "Falta grave (art. 35, n.º 10 de las faltas graves)."
+   },
+   "cita": "No guardar el debido sigilo",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «No guardar el debido sigilo respecto de los asuntos que se conozcan por razón de cargo, cuando causen perjuicio al Consorcio, a la Administración o se utilicen en provecho propio» entre las faltas leves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: figura entre las faltas graves (n.º 10)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «No guardar el debido sigilo respecto de los asuntos que se conozcan por razón de cargo, cuando causen perjuicio al Consorcio, a la Administración o se utilicen en provecho propio»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: faltas graves, n.º 10."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas graves?",
+     "opciones": [
+      "No guardar el sigilo debido sobre asuntos del cargo",
+      "Discriminar por razón de raza, sexo o religión",
+      "Incumplir el documento «cambio de turno»"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: no guardar el sigilo debido sobre asuntos del cargo, falta grave (n.º 10 de su lista); discriminar por razón de raza, sexo o religión, falta muy grave (n.º 2 de su lista); incumplir el documento «cambio de turno», falta leve (n.º 5 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-g11",
+   "bloque": "a35",
+   "apartado": "g11",
+   "orden": 1860,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: incumplir plazos de procedimiento en materia de incompatibilidades?",
+    "respuesta": "Falta grave (art. 35, n.º 11 de las faltas graves)."
+   },
+   "cita": "El incumplimiento de los plazos u otras disposiciones de procedimiento en materia de incompatibilidades",
+   "confundible_con": [
+    "RRI-a35-mg8"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿es falta grave incumplir los plazos de procedimiento en materia de incompatibilidades sin mantener una situación de incompatibilidad?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: figura entre las faltas graves (n.º 11)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «El incumplimiento de los plazos u otras disposiciones de procedimiento en materia de incompatibilidades, cuando no supongan mantenimiento de una situación de incompatibilidad»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: faltas graves, n.º 11."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, incumplir los plazos de procedimiento en materia de incompatibilidades, sin mantener una situación de incompatibilidad, es:",
+     "opciones": [
+      "Falta muy grave",
+      "Falta grave",
+      "Falta leve"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35, faltas graves, 11. Si se incumplen las normas sobre incompatibilidades, es muy grave (8)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-g12",
+   "bloque": "a35",
+   "apartado": "g12",
+   "orden": 1870,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: incumplir la jornada, acumulado, al menos diez horas al mes?",
+    "respuesta": "Falta grave (art. 35, n.º 12 de las faltas graves)."
+   },
+   "cita": "un mínimo de diez horas al mes",
+   "confundible_con": [
+    "RRI-a35-l4"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «El incumplimiento injustificado de la jornada de trabajo que acumulado suponga un mínimo de diez horas al mes» entre las faltas leves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: figura entre las faltas graves (n.º 12)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «El incumplimiento injustificado de la jornada de trabajo que acumulado suponga un mínimo de diez horas al mes»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: faltas graves, n.º 12."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, el incumplimiento injustificado de la jornada de trabajo que, acumulado, suponga un mínimo de diez horas al mes es:",
+     "opciones": [
+      "Falta leve",
+      "Falta grave",
+      "Falta muy grave"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35, faltas graves, 12: incumplimiento injustificado de la jornada que acumulado suponga un mínimo de diez horas al mes. Por debajo de ese mínimo, el incumplimiento de la jornada sin causa justificada es falta leve (4)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-g13",
+   "bloque": "a35",
+   "apartado": "g13",
+   "orden": 1880,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: la tercera falta injustificada de asistencia en tres meses?",
+    "respuesta": "Falta grave (art. 35, n.º 13 de las faltas graves)."
+   },
+   "cita": "La tercera falta injustificada de asistencia en un periodo de tres meses",
+   "confundible_con": [
+    "RRI-a35-l3"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «La tercera falta injustificada de asistencia en un periodo de tres meses, cuando las dos anteriores hubieran sido objeto de sanción por falta leve» entre las faltas graves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: figura entre las faltas graves (n.º 13)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «La tercera falta injustificada de asistencia en un periodo de tres meses, cuando las dos anteriores hubieran sido objeto de sanción por falta leve»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: faltas graves, n.º 13."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, la tercera falta injustificada de asistencia en tres meses es falta grave cuando:",
+     "opciones": [
+      "Las dos anteriores se sancionaron como leves",
+      "Se produzca en días de guardia consecutivos",
+      "Afecte a un turno en el que hubo un siniestro"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35, faltas graves, 13: «cuando las dos anteriores hubieran sido objeto de sanción por falta leve»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-g14",
+   "bloque": "a35",
+   "apartado": "g14",
+   "orden": 1890,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: provocar altercados en los locales del Consorcio?",
+    "respuesta": "Falta grave (art. 35, n.º 14 de las faltas graves)."
+   },
+   "cita": "la provocación o participación en altercados o disputas",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «La grave perturbación del servicio» entre las faltas leves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: figura entre las faltas graves (n.º 14)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «La grave perturbación del servicio»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: faltas graves, n.º 14."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿qué se considera grave perturbación del servicio?",
+     "opciones": [
+      "Provocar o participar en altercados en el Consorcio",
+      "El retraso puntual al incorporarse al turno de guardia",
+      "Negarse a firmar el parte de asistencia diario"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35, faltas graves, 14: «la provocación o participación en altercados o disputas en los locales y dependencias del Consorcio»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-g15",
+   "bloque": "a35",
+   "apartado": "g15",
+   "orden": 1900,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: atentar gravemente contra la dignidad de los funcionarios?",
+    "respuesta": "Falta grave (art. 35, n.º 15 de las faltas graves)."
+   },
+   "cita": "El atentado grave a la dignidad de los funcionarios",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «El atentado grave a la dignidad de los funcionarios, del personal del Consorcio, o de la Administración» entre las faltas graves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: figura entre las faltas graves (n.º 15)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «El atentado grave a la dignidad de los funcionarios, del personal del Consorcio, o de la Administración»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: faltas graves, n.º 15."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas graves?",
+     "opciones": [
+      "Atentar gravemente contra la dignidad de los funcionarios",
+      "Coartar el libre ejercicio del derecho de huelga",
+      "Tratar con ligera incorrección al público"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: atentar gravemente contra la dignidad de los funcionarios, falta grave (n.º 15 de su lista); coartar el libre ejercicio del derecho de huelga, falta muy grave (n.º 10 de su lista); tratar con ligera incorrección al público, falta leve (n.º 2 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-g16",
+   "bloque": "a35",
+   "apartado": "g16",
+   "orden": 1910,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: faltar gravemente a la consideración con los ciudadanos?",
+    "respuesta": "Falta grave (art. 35, n.º 16 de las faltas graves)."
+   },
+   "cita": "La grave falta de consideración con los ciudadanos",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «La grave falta de consideración con los ciudadanos» entre las faltas leves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: figura entre las faltas graves (n.º 16)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «La grave falta de consideración con los ciudadanos»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: faltas graves, n.º 16."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas graves?",
+     "opciones": [
+      "Faltar gravemente a la consideración con los ciudadanos",
+      "Hacer huelga quien la tenga prohibida por la Ley",
+      "Incumplir el documento «cambio de turno»"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: faltar gravemente a la consideración con los ciudadanos, falta grave (n.º 16 de su lista); hacer huelga quien la tenga prohibida por la Ley, falta muy grave (n.º 11 de su lista); incumplir el documento «cambio de turno», falta leve (n.º 5 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-g17",
+   "bloque": "a35",
+   "apartado": "g17",
+   "orden": 1920,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: evadir los sistemas de control de horarios?",
+    "respuesta": "Falta grave (art. 35, n.º 17 de las faltas graves)."
+   },
+   "cita": "evadir los sistemas de control de horarios",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «Las acciones u omisiones dirigidas a evadir los sistemas de control de horarios o a impedir que sean detectados los incumplimientos injustificados de la jornada de trabajo» entre las faltas graves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: figura entre las faltas graves (n.º 17)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «Las acciones u omisiones dirigidas a evadir los sistemas de control de horarios o a impedir que sean detectados los incumplimientos injustificados de la jornada de trabajo»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: faltas graves, n.º 17."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas graves?",
+     "opciones": [
+      "Evadir los sistemas de control de horarios",
+      "No atender los servicios esenciales en caso de huelga",
+      "Faltas repetidas de puntualidad en el mismo mes"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: evadir los sistemas de control de horarios, falta grave (n.º 17 de su lista); no atender los servicios esenciales en caso de huelga, falta muy grave (n.º 12 de su lista); faltas repetidas de puntualidad en el mismo mes, falta leve (n.º 6 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-g18",
+   "bloque": "a35",
+   "apartado": "g18",
+   "orden": 1930,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: la reiteración de tres faltas consideradas leves?",
+    "respuesta": "Falta grave (art. 35, n.º 18 de las faltas graves)."
+   },
+   "cita": "La reiteración de tres faltas consideradas como leves",
+   "confundible_con": [
+    "RRI-a35-mg14"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «La reiteración de tres faltas consideradas como leves» entre las faltas leves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: figura entre las faltas graves (n.º 18)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «La reiteración de tres faltas consideradas como leves»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: faltas graves, n.º 18."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, la reiteración de tres faltas consideradas como leves es:",
+     "opciones": [
+      "Falta leve agravada",
+      "Falta grave",
+      "Falta muy grave"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35, faltas graves, 18. Tres faltas graves sancionadas en un año son falta muy grave (14)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-l1",
+   "bloque": "a35",
+   "apartado": "l1",
+   "orden": 1940,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: presentarse al relevo sin la uniformidad adecuada?",
+    "respuesta": "Falta leve (art. 35, n.º 1 de las faltas leves)."
+   },
+   "cita": "la presentación al relevo de turno sin la adecuada uniformidad",
+   "confundible_con": [
+    "RRI-a35-mg3"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «El ligero retraso, negligencia o descuido en el cumplimiento de sus funciones» entre las faltas leves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: figura entre las faltas leves (n.º 1)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «El ligero retraso, negligencia o descuido en el cumplimiento de sus funciones»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 35: faltas leves, n.º 1."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, presentarse al relevo de turno sin la adecuada uniformidad, salvo causa justificada, es:",
+     "opciones": [
+      "Falta grave",
+      "Falta leve",
+      "Falta muy grave"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35, faltas leves, 1: se considera dentro del ligero retraso, negligencia o descuido."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-l2",
+   "bloque": "a35",
+   "apartado": "l2",
+   "orden": 1950,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: tratar con ligera incorrección al público?",
+    "respuesta": "Falta leve (art. 35, n.º 2 de las faltas leves)."
+   },
+   "cita": "La ligera incorrección con el publico",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «La ligera incorrección con el publico, los compañeros o los subordinados» entre las faltas graves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: figura entre las faltas leves (n.º 2)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «La ligera incorrección con el publico, los compañeros o los subordinados»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 35: faltas leves, n.º 2."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas leves?",
+     "opciones": [
+      "Tratar con ligera incorrección al público",
+      "Incumplir el deber de fidelidad a la Constitución",
+      "Intervenir en un procedimiento con causa de abstención"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: tratar con ligera incorrección al público, falta leve (n.º 2 de su lista); incumplir el deber de fidelidad a la Constitución, falta muy grave (n.º 1 de su lista); intervenir en un procedimiento con causa de abstención, falta grave (n.º 7 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-l3",
+   "bloque": "a35",
+   "apartado": "l3",
+   "orden": 1960,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: una falta de asistencia no repetida y sin justificar?",
+    "respuesta": "Falta leve (art. 35, n.º 3 de las faltas leves)."
+   },
+   "cita": "Las faltas no repetidas de asistencia sin causa de justificada",
+   "confundible_con": [
+    "RRI-a35-g13"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «Las faltas no repetidas de asistencia sin causa de justificada» entre las faltas leves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: figura entre las faltas leves (n.º 3)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «Las faltas no repetidas de asistencia sin causa de justificada»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 35, faltas leves, 3. La tercera falta injustificada de asistencia en tres meses, con las dos anteriores sancionadas como leves, es falta grave (13)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas leves?",
+     "opciones": [
+      "Una falta de asistencia no repetida y sin justificar",
+      "Discriminar por razón de raza, sexo o religión",
+      "No guardar el sigilo debido sobre asuntos del cargo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: una falta de asistencia no repetida y sin justificar, falta leve (n.º 3 de su lista); discriminar por razón de raza, sexo o religión, falta muy grave (n.º 2 de su lista); no guardar el sigilo debido sobre asuntos del cargo, falta grave (n.º 10 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-l4",
+   "bloque": "a35",
+   "apartado": "l4",
+   "orden": 1970,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: incumplir la jornada de trabajo sin causa justificada?",
+    "respuesta": "Falta leve (art. 35, n.º 4 de las faltas leves)."
+   },
+   "cita": "El incumplimiento de la jornada de trabajo sin causa justificada",
+   "confundible_con": [
+    "RRI-a35-g12"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «El incumplimiento de la jornada de trabajo sin causa justificada» entre las faltas graves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: figura entre las faltas leves (n.º 4)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «El incumplimiento de la jornada de trabajo sin causa justificada»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 35, faltas leves, 4. Si acumulado supone un mínimo de diez horas al mes, es falta grave (12)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas leves?",
+     "opciones": [
+      "Incumplir la jornada de trabajo sin causa justificada",
+      "No asistir a las llamadas por un siniestro",
+      "Incumplir la jornada, acumulado, al menos diez horas al mes"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: incumplir la jornada de trabajo sin causa justificada, falta leve (n.º 4 de su lista); no asistir a las llamadas por un siniestro, falta muy grave (n.º 3 de su lista); incumplir la jornada, acumulado, al menos diez horas al mes, falta grave (n.º 12 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-l5",
+   "bloque": "a35",
+   "apartado": "l5",
+   "orden": 1980,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: incumplir el documento «cambio de turno»?",
+    "respuesta": "Falta leve (art. 35, n.º 5 de las faltas leves)."
+   },
+   "cita": "El incumplimiento del documento “cambio de turno”",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «El incumplimiento del documento “cambio de turno”» entre las faltas leves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: figura entre las faltas leves (n.º 5)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «El incumplimiento del documento “cambio de turno”»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 35: faltas leves, n.º 5."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas leves?",
+     "opciones": [
+      "Incumplir el documento «cambio de turno»",
+      "Utilizar indebidamente secretos oficiales",
+      "La tercera falta injustificada de asistencia en tres meses"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: incumplir el documento «cambio de turno», falta leve (n.º 5 de su lista); utilizar indebidamente secretos oficiales, falta muy grave (n.º 5 de su lista); la tercera falta injustificada de asistencia en tres meses, falta grave (n.º 13 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-l6",
+   "bloque": "a35",
+   "apartado": "l6",
+   "orden": 1990,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: faltas repetidas de puntualidad en el mismo mes?",
+    "respuesta": "Falta leve (art. 35, n.º 6 de las faltas leves)."
+   },
+   "cita": "Las faltas repetidas de puntualidad dentro del mismo mes",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «Las faltas repetidas de puntualidad dentro del mismo mes sin causa justificada» entre las faltas graves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: figura entre las faltas leves (n.º 6)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «Las faltas repetidas de puntualidad dentro del mismo mes sin causa justificada»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 35: faltas leves, n.º 6."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas leves?",
+     "opciones": [
+      "Faltas repetidas de puntualidad en el mismo mes",
+      "Usar sus facultades para influir en procesos electorales",
+      "Provocar altercados en los locales del Consorcio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: faltas repetidas de puntualidad en el mismo mes, falta leve (n.º 6 de su lista); usar sus facultades para influir en procesos electorales, falta muy grave (n.º 7 de su lista); provocar altercados en los locales del Consorcio, falta grave (n.º 14 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-l7",
+   "bloque": "a35",
+   "apartado": "l7",
+   "orden": 2000,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: descuidar los locales sin causar graves perjuicios?",
+    "respuesta": "Falta leve (art. 35, n.º 7 de las faltas leves)."
+   },
+   "cita": "El descuido en la conservación de los locales",
+   "confundible_con": [
+    "RRI-a35-g6"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «El descuido en la conservación de los locales, el material y los documentos del servicio siempre que no se causen graves perjuicios» entre las faltas leves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: figura entre las faltas leves (n.º 7)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «El descuido en la conservación de los locales, el material y los documentos del servicio siempre que no se causen graves perjuicios»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 35: faltas leves, n.º 7."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, el descuido en la conservación de los locales, el material y los documentos es falta leve:",
+     "opciones": [
+      "Siempre que no se causen graves perjuicios",
+      "En todo caso, aunque haya graves daños",
+      "Solo si lo comete un mando"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35, faltas leves, 7: «siempre que no se causen graves perjuicios». Causar daños graves es falta grave (6)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a35-l8",
+   "bloque": "a35",
+   "apartado": "l8",
+   "orden": 2010,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 35 del RRI del CPEI, ¿qué tipo de falta es: incumplir sus deberes por negligencia excusable?",
+    "respuesta": "Falta leve (art. 35, n.º 8 de las faltas leves)."
+   },
+   "cita": "el incumplimiento de sus deberes por negligencia o descuido excusables",
+   "confundible_con": [],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿figura «En general, el incumplimiento de sus deberes por negligencia o descuido excusables» entre las faltas graves?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 35: figura entre las faltas leves (n.º 8)."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿entre qué faltas incluye «En general, el incumplimiento de sus deberes por negligencia o descuido excusables»?",
+     "opciones": [
+      "Entre las muy graves",
+      "Entre las graves",
+      "Entre las leves"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 35: faltas leves, n.º 8."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 35 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas conductas figura entre las faltas leves?",
+     "opciones": [
+      "Incumplir sus deberes por negligencia excusable",
+      "Coartar el libre ejercicio del derecho de huelga",
+      "Faltar gravemente a la consideración con los ciudadanos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 35: incumplir sus deberes por negligencia excusable, falta leve (n.º 8 de su lista); coartar el libre ejercicio del derecho de huelga, falta muy grave (n.º 10 de su lista); faltar gravemente a la consideración con los ciudadanos, falta grave (n.º 16 de su lista)."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a36-sanciones",
+   "bloque": "a36",
+   "apartado": "",
+   "orden": 2020,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 36 del RRI del CPEI, ¿qué sanciones pueden imponerse por las faltas?",
+    "respuesta": "Las previstas en la normativa aplicable a los funcionarios de la Administración Local; ese régimen se extiende al personal laboral en la medida en que su normativa específica lo admita."
+   },
+   "cita": "las sanciones previstas en la normativa vigente que resulte de aplicación a los funcionarios de la Administración Local",
+   "confundible_con": [
+    "RRI-a35-regimen",
+    "RRI-a36-procedimiento"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36 del Reglamento de Régimen Interno del CPEI, ¿puede extenderse al personal laboral el régimen de sanciones de los funcionarios de la Administración Local?",
+     "opciones": [
+      "Sí, si su normativa específica lo admite",
+      "No, en ningún caso"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.a: el régimen «será igualmente extensivo al personal sometido al régimen laboral en la medida en que su específica normativa así lo admita»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36 del Reglamento de Régimen Interno del CPEI, por las faltas pueden imponerse las sanciones previstas en la normativa aplicable a los funcionarios de:",
+     "opciones": [
+      "La Administración Local",
+      "La Comunidad Autónoma",
+      "Las Fuerzas Armadas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.a: «las sanciones previstas en la normativa vigente que resulte de aplicación a los funcionarios de la Administración Local»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 36 del Reglamento de Régimen Interno del CPEI, el régimen sancionador de los funcionarios de la Administración Local se extiende al personal laboral:",
+     "opciones": [
+      "En todo caso, sea cual sea su normativa",
+      "En la medida en que su normativa lo admita",
+      "Solo si lo acuerda el Consejo de Administración"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 36.a: «en la medida en que su específica normativa así lo admita»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a36-procedimiento",
+   "bloque": "a36",
+   "apartado": "",
+   "orden": 2030,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 36 del RRI del CPEI, ¿qué procedimiento disciplinario se aplica?",
+    "respuesta": "El mismo régimen de los funcionarios de la Administración Local se aplica al procedimiento para determinar y exigir responsabilidades disciplinarias."
+   },
+   "cita": "Asimismo resultará de aplicación dicho régimen en lo que se refiere al procedimiento",
+   "confundible_con": [
+    "RRI-a36-sanciones"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 36 del Reglamento de Régimen Interno del CPEI, ¿se aplica el régimen de los funcionarios de la Administración Local también al procedimiento disciplinario?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.b: «Asimismo resultará de aplicación dicho régimen en lo que se refiere al procedimiento para la determinación y exigencia de responsabilidades disciplinarias»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 36 del Reglamento de Régimen Interno del CPEI, además de a las sanciones, el régimen de los funcionarios de la Administración Local se aplica a:",
+     "opciones": [
+      "El procedimiento disciplinario",
+      "La concesión de medallas",
+      "La compensación de horas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.b: se aplica al «procedimiento para la determinación y exigencia de responsabilidades disciplinarias»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 36 del Reglamento de Régimen Interno del CPEI, el procedimiento para determinar y exigir responsabilidades disciplinarias al personal del CPEI es:",
+     "opciones": [
+      "El de los funcionarios de la Administración Local",
+      "Uno propio, regulado por entero en el Reglamento",
+      "El que decida en cada caso el Gerente"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 36.b: resulta de aplicación «dicho régimen», el de los funcionarios de la Administración Local."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a37-ejemplar",
+   "bloque": "a37",
+   "apartado": "",
+   "orden": 2040,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 37 del RRI del CPEI, ¿con qué puede premiarse la ejemplar conducta?",
+    "respuesta": "Con las recompensas generales de los funcionarios públicos, con las del Reglamento y con otras que pudieran establecerse."
+   },
+   "cita": "La ejemplar conducta en el Consorcio podrá ser premiada",
+   "confundible_con": [
+    "RRI-a37-2-recompensas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37 del Reglamento de Régimen Interno del CPEI, ¿puede premiarse la ejemplar conducta con las recompensas generales de los funcionarios públicos?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37: «podrá ser premiada con las recompensas generales existentes para los funcionarios públicos»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37 del Reglamento de Régimen Interno del CPEI, además de con las recompensas generales de los funcionarios y con las del Reglamento, la ejemplar conducta puede premiarse con:",
+     "opciones": [
+      "Otras que pudieran establecerse",
+      "Ninguna otra recompensa",
+      "Solo gratificaciones económicas"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37: «…y con las que se recogen en el presente reglamento y otras que pudieran establecerse»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 37 del Reglamento de Régimen Interno del CPEI, la ejemplar conducta en el Consorcio:",
+     "opciones": [
+      "Podrá ser premiada con recompensas",
+      "Deberá premiarse siempre con medalla",
+      "Solo se premia si hay heridos en servicio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37: «La ejemplar conducta en el Consorcio podrá ser premiada»; es una posibilidad, no una obligación ligada a una recompensa concreta."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a37-1-circunstancias",
+   "bloque": "a37",
+   "apartado": "1",
+   "orden": 2050,
+   "tipo": "lista",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 37.1 del RRI del CPEI, ¿en qué circunstancias pueden ser premiados los miembros del CPEI?",
+    "respuesta": "a) muertos o heridos en acto de servicio; b) dirigir o realizar un servicio de importancia profesional; c) distinguirse por su competencia; d) trabajos o estudios de importancia singular; e) calidades excepcionales; f) otros actos dignos de recompensa a juicio de sus superiores; g) antigüedad con historial ejemplar."
+   },
+   "cita": "Resulten muertos o heridos en acto de servicio o como consecuencia de este",
+   "confundible_con": [
+    "RRI-a37-2-distinguidos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37.1 del Reglamento de Régimen Interno del CPEI, ¿puede ser premiado un miembro del CPEI que resulte herido como consecuencia de un acto de servicio?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.1.a): «Resulten muertos o heridos en acto de servicio o como consecuencia de este»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37.1 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas circunstancias figura expresamente entre las que permiten premiar?",
+     "opciones": [
+      "Realizar estudios de importancia singular",
+      "No haber sido sancionado nunca",
+      "Superar las pruebas físicas anuales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.1.d): «Realizar trabajos destacados o estudios profesionales o científicos de importancia singular para las funciones propias de los Bomberos»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 37.1 del Reglamento de Régimen Interno del CPEI, la antigüedad en el Consorcio y en la administración de referencia permite premiar si va acompañada de:",
+     "opciones": [
+      "Un historial profesional ejemplar",
+      "Una medalla obtenida antes",
+      "Un informe favorable del Ayuntamiento"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.1.g): «La antigüedad en el Consorcio y en la administración de referencia, con un historial profesional ejemplar»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a37-1-calidades",
+   "bloque": "a37",
+   "apartado": "1",
+   "orden": 2060,
+   "tipo": "lista",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 37.1 e) del RRI del CPEI, ¿qué calidades excepcionales pueden premiarse?",
+    "respuesta": "Valor, lealtad al mando, compañerismo, abnegación, espíritu humanitario y solidaridad social."
+   },
+   "cita": "calidades excepcionales de valor, lealtad al mando, compañerismo, abnegación, espíritu humanitario y solidaridad social",
+   "confundible_con": [
+    "RRI-a37-2-felicitacion-publica"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37.1 del Reglamento de Régimen Interno del CPEI, ¿figura el compañerismo entre las calidades excepcionales que pueden premiarse?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.1.e): «valor, lealtad al mando, compañerismo, abnegación, espíritu humanitario y solidaridad social»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37.1 del Reglamento de Régimen Interno del CPEI, poner de manifiesto calidades excepcionales de valor, lealtad al mando o compañerismo permite:",
+     "opciones": [
+      "Ser premiado",
+      "Ascender sin concurso",
+      "Elegir parque de destino"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.1.e): es una de las circunstancias por las que pueden ser premiados los miembros del CPEI."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 37.1 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas cualidades NO se cita entre las calidades excepcionales que pueden premiarse?",
+     "opciones": [
+      "La abnegación",
+      "La lealtad al mando",
+      "La puntualidad"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 37.1.e): valor, lealtad al mando, compañerismo, abnegación, espíritu humanitario y solidaridad social. No cita la puntualidad."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a37-2-recompensas",
+   "bloque": "a37",
+   "apartado": "2",
+   "orden": 2070,
+   "tipo": "lista",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 37.2 del RRI del CPEI, ¿en qué pueden consistir las recompensas?",
+    "respuesta": "Medalla de servicios Distinguidos, Medalla de servicio, Medalla honorífica, Felicitación pública y Felicitación privada."
+   },
+   "cita": "Dichas recompensas podrán consistir en lo siguiente",
+   "confundible_con": [
+    "RRI-a37-ejemplar"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37.2 del Reglamento de Régimen Interno del CPEI, ¿figura la felicitación privada entre las recompensas?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.2: la lista termina con «Felicitación privada»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37.2 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas NO figura entre las recompensas?",
+     "opciones": [
+      "Felicitación privada",
+      "Medalla honorífica",
+      "Gratificación económica"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 37.2: Medalla de servicios Distinguidos, Medalla de servicio, Medalla honorífica, Felicitación pública y Felicitación privada."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 37.2 del Reglamento de Régimen Interno del CPEI, ¿qué recompensa se enumera sin asignarle ningún supuesto concreto?",
+     "opciones": [
+      "Medalla honorífica",
+      "Felicitación privada",
+      "Felicitación pública"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 37.2: la Medalla honorífica corresponde al supuesto d) y la Felicitación pública a los e) y f); la «Felicitación privada» aparece sin supuesto."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a37-2-distinguidos",
+   "bloque": "a37",
+   "apartado": "2",
+   "orden": 2080,
+   "tipo": "dato",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 37.2 del RRI del CPEI, ¿a qué supuesto corresponde la Medalla de servicios Distinguidos?",
+    "respuesta": "Al supuesto a): resultar muerto o herido en acto de servicio o como consecuencia de este."
+   },
+   "cita": "Medalla de servicios Distinguidos: Supuesto a)",
+   "confundible_con": [
+    "RRI-a37-2-servicio",
+    "RRI-a37-1-circunstancias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37.2 del Reglamento de Régimen Interno del CPEI, ¿corresponde la Medalla de servicios Distinguidos a quien resulte muerto o herido en acto de servicio?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.2: «Medalla de servicios Distinguidos: Supuesto a)», es decir, muertos o heridos en acto de servicio o como consecuencia de este."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37.2 del Reglamento de Régimen Interno del CPEI, la Medalla de servicios Distinguidos corresponde al supuesto de:",
+     "opciones": [
+      "Resultar muerto o herido en acto de servicio",
+      "Realizar estudios profesionales de importancia singular",
+      "Destacar por su valor, lealtad o compañerismo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.2: supuesto a) del apartado 1. Los estudios (d) dan la Medalla honorífica; las calidades excepcionales (e), la Felicitación pública."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Un bombero resulta herido en acto de servicio. Según el art. 37.2 del Reglamento de Régimen Interno del CPEI, ¿qué recompensa prevé para ese supuesto?",
+     "opciones": [
+      "Medalla de servicios Distinguidos",
+      "Medalla de servicio, por ser en acto de servicio",
+      "Felicitación pública por su valor"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.2: «Medalla de servicios Distinguidos: Supuesto a)»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a37-2-servicio",
+   "bloque": "a37",
+   "apartado": "2",
+   "orden": 2090,
+   "tipo": "dato",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 37.2 del RRI del CPEI, ¿a qué supuestos corresponde la Medalla de servicio?",
+    "respuesta": "A los supuestos b) (servicio de importancia profesional), c) (distinguirse por su competencia) y g) (antigüedad con historial ejemplar)."
+   },
+   "cita": "Medalla de servicio: Supuestos b), c) y g)",
+   "confundible_con": [
+    "RRI-a37-2-distinguidos",
+    "RRI-a37-2-honorifica"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37.2 del Reglamento de Régimen Interno del CPEI, ¿corresponde la Medalla de servicio a la antigüedad con un historial profesional ejemplar?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.2: «Medalla de servicio: Supuestos b), c) y g)»; el g) es la antigüedad con historial profesional ejemplar."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37.2 del Reglamento de Régimen Interno del CPEI, distinguirse notoriamente por su competencia y actividad en el cumplimiento de los deberes se recompensa con:",
+     "opciones": [
+      "Medalla de servicio",
+      "Medalla honorífica",
+      "Felicitación privada"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.2: el supuesto c) corresponde a la Medalla de servicio."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 37.2 del Reglamento de Régimen Interno del CPEI, ¿cuál de estos supuestos NO se recompensa con la Medalla de servicio?",
+     "opciones": [
+      "Dirigir un servicio de importancia profesional",
+      "La antigüedad con historial ejemplar",
+      "Realizar estudios científicos de importancia singular"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 37.2: Medalla de servicio para b), c) y g). Los estudios de importancia singular (d) corresponden a la Medalla honorífica."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a37-2-honorifica",
+   "bloque": "a37",
+   "apartado": "2",
+   "orden": 2100,
+   "tipo": "dato",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 37.2 del RRI del CPEI, ¿a qué supuesto corresponde la Medalla honorífica?",
+    "respuesta": "Al supuesto d): realizar trabajos destacados o estudios profesionales o científicos de importancia singular para las funciones de los Bomberos."
+   },
+   "cita": "Medalla honorífica: Supuesto d)",
+   "confundible_con": [
+    "RRI-a37-2-servicio"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37.2 del Reglamento de Régimen Interno del CPEI, ¿corresponde la Medalla honorífica a quien resulte herido en acto de servicio?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 37.2: la Medalla honorífica es para el supuesto d); a los heridos en acto de servicio (a) les corresponde la Medalla de servicios Distinguidos."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37.2 del Reglamento de Régimen Interno del CPEI, realizar trabajos destacados o estudios profesionales o científicos de importancia singular se recompensa con:",
+     "opciones": [
+      "Medalla de servicio",
+      "Medalla honorífica",
+      "Felicitación pública"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 37.2: «Medalla honorífica: Supuesto d)»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 37.2 del Reglamento de Régimen Interno del CPEI, la Medalla honorífica corresponde al supuesto de:",
+     "opciones": [
+      "Distinguirse por su competencia en el cumplimiento de sus deberes",
+      "Realizar estudios de importancia singular para los Bomberos",
+      "Dirigir un servicio que redunde en prestigio del Consorcio"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 37.2: supuesto d). Distinguirse por su competencia (c) y dirigir un servicio de importancia (b) dan la Medalla de servicio."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a37-2-felicitacion-publica",
+   "bloque": "a37",
+   "apartado": "2",
+   "orden": 2110,
+   "tipo": "dato",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 37.2 del RRI del CPEI, ¿a qué supuestos corresponde la Felicitación pública?",
+    "respuesta": "A los supuestos e) (calidades excepcionales de valor, lealtad, compañerismo…) y f) (otros actos que sus superiores consideren dignos de recompensa)."
+   },
+   "cita": "Felicitación pública: Supuesto e) y f)",
+   "confundible_con": [
+    "RRI-a37-1-calidades",
+    "RRI-a37-2-recompensas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37.2 del Reglamento de Régimen Interno del CPEI, ¿corresponde la Felicitación pública a poner de manifiesto calidades excepcionales de valor o compañerismo?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.2: «Felicitación pública: Supuesto e) y f)»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37.2 del Reglamento de Régimen Interno del CPEI, poner de manifiesto calidades excepcionales de valor, lealtad al mando o abnegación se recompensa con:",
+     "opciones": [
+      "Medalla honorífica",
+      "Felicitación pública",
+      "Felicitación privada"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 37.2: el supuesto e) corresponde a la Felicitación pública."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 37.2 del Reglamento de Régimen Interno del CPEI, ¿qué recompensa corresponde a realizar cualquier otro acto que sus superiores consideren digno de recompensa?",
+     "opciones": [
+      "Felicitación privada",
+      "Felicitación pública",
+      "Medalla de servicio"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 37.2: el supuesto f) corresponde, junto con el e), a la Felicitación pública."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a37-3-honorarios",
+   "bloque": "a37",
+   "apartado": "3",
+   "orden": 2120,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 37.3 del RRI del CPEI, ¿qué títulos honoríficos se otorgan, a quién y a propuesta de quién?",
+    "respuesta": "Inspector Honorario o Bombero Honorario, a personas o instituciones que se destaquen por su ayuda, colaboración y entrega al Consorcio, a propuesta del Gerente."
+   },
+   "cita": "se otorgarán el título o distinción de Inspector Honorario o de Bombero Honorario",
+   "confundible_con": [
+    "RRI-a37-4-tramite"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37.3 del Reglamento de Régimen Interno del CPEI, ¿puede otorgarse el título de Bombero Honorario a una institución?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.3: se otorga a «aquellas personas o instituciones que se destaquen por su ayuda, colaboración y entrega a favor del Consorcio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37.3 del Reglamento de Régimen Interno del CPEI, el título de Inspector Honorario o de Bombero Honorario se otorga a propuesta de:",
+     "opciones": [
+      "El Gerente",
+      "El Jefe de parque",
+      "El Alcalde"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.3: «A propuesta del Gerente, previo los trámites reglamentarios»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 37.3 del Reglamento de Régimen Interno del CPEI, ¿a quién se otorgan los títulos de Inspector Honorario o Bombero Honorario?",
+     "opciones": [
+      "Solo a los miembros jubilados del propio Consorcio",
+      "A personas o instituciones que ayuden al Consorcio",
+      "A voluntarios con diez años de servicio activo"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 37.3: a «personas o instituciones que se destaquen por su ayuda, colaboración y entrega a favor del Consorcio»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a37-4-tramite",
+   "bloque": "a37",
+   "apartado": "4",
+   "orden": 2130,
+   "tipo": "procedimiento",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 37.4 del RRI del CPEI, ¿cómo se inicia la propuesta de una recompensa?",
+    "respuesta": "El Jefe inmediato informa detalladamente al Gerente, que, a la vista de los antecedentes y previa tramitación, formula la propuesta."
+   },
+   "cita": "informará detalladamente al Gerente",
+   "confundible_con": [
+    "RRI-a37-4-concesion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37.4 del Reglamento de Régimen Interno del CPEI, ¿debe el Jefe inmediato informar al Gerente cuando en un miembro concurra una circunstancia premiable?",
+     "opciones": [
+      "Sí, detalladamente",
+      "No, lo pide el interesado"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.4: «El Jefe inmediato… informará detalladamente al Gerente»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37.4 del Reglamento de Régimen Interno del CPEI, ¿quién informa al Gerente de que en un miembro concurre una circunstancia premiable?",
+     "opciones": [
+      "Su Jefe inmediato",
+      "Los representantes sindicales",
+      "El propio interesado"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.4: «El Jefe inmediato del personal del Consorcio en el que concurra alguna de las circunstancias… informará detalladamente al Gerente»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 37.4 del Reglamento de Régimen Interno del CPEI, a la vista de los antecedentes y previa la tramitación oportuna, ¿quién formula la propuesta de recompensa?",
+     "opciones": [
+      "El Jefe inmediato",
+      "El Gerente",
+      "El Consejo de Administración"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 37.4: el Gerente, «a la vista de los antecedentes y previa la tramitación oportuna, formulará la propuesta pertinente»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a37-4-concesion",
+   "bloque": "a37",
+   "apartado": "4",
+   "orden": 2140,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 37.4 del RRI del CPEI, ¿quién concede cada recompensa?",
+    "respuesta": "La medalla de servicios distinguidos, el Consejo de Administración, con expediente y a propuesta del Gerente; las medallas del servicio y la mención, el Presidente o persona en quien delegue."
+   },
+   "cita": "La medalla de servicios distinguidos será concedida por resolución del Consejo de Administración",
+   "confundible_con": [
+    "RRI-a37-4-tramite",
+    "RRI-a37-2-distinguidos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37.4 del Reglamento de Régimen Interno del CPEI, ¿concede la medalla de servicios distinguidos el Consejo de Administración?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.4: «será concedida por resolución del Consejo de Administración, con la instrucción del correspondiente expediente, a propuesta del Gerente»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37.4 del Reglamento de Régimen Interno del CPEI, las medallas del servicio y la mención serán otorgadas por orden de:",
+     "opciones": [
+      "El Consejo de Administración",
+      "El Presidente o persona en quien delegue",
+      "El Gerente, sin posibilidad de delegar"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 37.4: «serán otorgadas por orden del Presidente del Consorcio o persona en quien delegue»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 37.4 del Reglamento de Régimen Interno del CPEI, la medalla de servicios distinguidos se concede:",
+     "opciones": [
+      "Por resolución del Consejo de Administración, con expediente",
+      "Por orden del Presidente, sin expediente",
+      "Por resolución del Gerente, a propuesta del Jefe inmediato"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.4: por resolución del Consejo de Administración, con la instrucción del correspondiente expediente, a propuesta del Gerente."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a37-4-hoja",
+   "bloque": "a37",
+   "apartado": "4",
+   "orden": 2150,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 37.4 del RRI del CPEI, ¿dónde constan las recompensas y qué efecto tienen?",
+    "respuesta": "Figuran en la hoja de servicio y cuentan como mérito en los diferentes concursos."
+   },
+   "cita": "figurarán en la hoja de servicio del personal del Consorcio y contará como mérito en los diferentes concursos",
+   "confundible_con": [
+    "RRI-a37-4-concesion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 37.4 del Reglamento de Régimen Interno del CPEI, ¿cuentan las recompensas como mérito en los concursos?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.4: «contará como mérito en los diferentes concursos»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 37.4 del Reglamento de Régimen Interno del CPEI, todas las recompensas figurarán en:",
+     "opciones": [
+      "La hoja de servicio",
+      "El Boletín Oficial de la Provincia",
+      "El tablón de anuncios del parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.4: «Todas las recompensan [sic] figurarán en la hoja de servicio del personal del Consorcio»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 37.4 del Reglamento de Régimen Interno del CPEI, las recompensas:",
+     "opciones": [
+      "Figuran en la hoja de servicio y cuentan como mérito en concursos",
+      "Solo cuentan como mérito si son medallas",
+      "Se anotan en la hoja de servicio, pero no puntúan en concursos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 37.4: todas figuran en la hoja de servicio y cuentan como mérito en los diferentes concursos."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a38-principios",
+   "bloque": "a38",
+   "apartado": "",
+   "orden": 2160,
+   "tipo": "lista",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 38 del RRI del CPEI, ¿qué principios obligan en cualquier actuación del personal?",
+    "respuesta": "El cumplimiento del Reglamento y demás normativa y de las instrucciones recibidas por la estructura jerarquizada de mando, la eficacia en el servicio y el trato correcto a compañeros, superiores y ciudadanos."
+   },
+   "cita": "constituirán principios obligados de cualquier actuación",
+   "confundible_con": [
+    "RRI-a39-cadena"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 38 del Reglamento de Régimen Interno del CPEI, ¿es la eficacia en la prestación del servicio un principio obligado de actuación?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 38: «la eficacia en la prestación del servicio encomendado» figura entre los principios obligados."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 38 del Reglamento de Régimen Interno del CPEI, ¿cuál de estos NO figura entre los principios obligados de actuación?",
+     "opciones": [
+      "La eficacia en el servicio encomendado",
+      "El trato correcto a compañeros y ciudadanos",
+      "La antigüedad en el puesto de trabajo"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 38: cumplimiento del Reglamento y normativa, de las instrucciones por la estructura jerarquizada de mando, eficacia y trato correcto. No la antigüedad."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 38 del Reglamento de Régimen Interno del CPEI, cumplir las instrucciones es principio obligado cuando se reciben a través de:",
+     "opciones": [
+      "La estructura jerarquizada de mando",
+      "Cualquier autoridad presente en el siniestro",
+      "Los representantes de los trabajadores"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 38: «de las instrucciones recibidas a través de la estructura jerarquizada de mando»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a38-ignorancia",
+   "bloque": "a38",
+   "apartado": "",
+   "orden": 2170,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 38 del RRI del CPEI, ¿se puede alegar ignorancia de los principios y deberes para justificar un incumplimiento?",
+    "respuesta": "No, en ningún caso; para asegurar su conocimiento se entrega a cada integrante un ejemplar del Reglamento."
+   },
+   "cita": "En ningún caso se admitirá alegación fundamentada en la ignorancia",
+   "confundible_con": [
+    "RRI-a38-principios",
+    "RRI-a45-aceptacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 38 del Reglamento de Régimen Interno del CPEI, ¿se admite alegar ignorancia de los principios para justificar un incumplimiento profesional?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 38: «En ningún caso se admitirá alegación fundamentada en la ignorancia de dichos principios»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Un bombero alega que desconocía el deber que ha incumplido. Según el art. 38 del Reglamento de Régimen Interno del CPEI, esa alegación:",
+     "opciones": [
+      "Atenúa la falta",
+      "No se admite en ningún caso",
+      "Exime si es nuevo en el Consorcio"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 38: «En ningún caso se admitirá alegación fundamentada en la ignorancia… para justificar el incumplimiento de obligaciones profesionales»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 38 del Reglamento de Régimen Interno del CPEI, para asegurar el conocimiento de los principios y deberes se entregará a cada integrante:",
+     "opciones": [
+      "Un ejemplar del presente documento",
+      "Un curso obligatorio de régimen interno",
+      "Una copia del convenio colectivo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 38: «se hará entrega a cada uno de los integrantes del C.E.P.E.I. [sic] de un ejemplar del presente documento»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a39-cadena",
+   "bloque": "a39",
+   "apartado": "",
+   "orden": 2180,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 39 del RRI del CPEI, ¿qué cadena de mando observa el personal?",
+    "respuesta": "La que se derive del organigrama de funcionamiento vigente en cada momento, para desarrollar sus funciones y cumplir los principios del art. 38."
+   },
+   "cita": "observará la cadena de mando que se derive del organigrama de funcionamiento",
+   "confundible_con": [
+    "RRI-a38-principios",
+    "RRI-a39-conjunta"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 39 del Reglamento de Régimen Interno del CPEI, ¿debe el personal observar la cadena de mando que se derive del organigrama vigente en cada momento?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 39: «observará la cadena de mando que se derive del organigrama de funcionamiento que en cada momento se encuentre vigente»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 39 del Reglamento de Régimen Interno del CPEI, la cadena de mando que debe observar el personal se deriva de:",
+     "opciones": [
+      "El organigrama de funcionamiento",
+      "La antigüedad de cada efectivo",
+      "El convenio colectivo en vigor"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 39: «la cadena de mando que se derive del organigrama de funcionamiento»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 39 del Reglamento de Régimen Interno del CPEI, el personal observa la cadena de mando para:",
+     "opciones": [
+      "Cumplir sus funciones y los principios del art. 38",
+      "Fijar los turnos de guardia de cada parque",
+      "Determinar las recompensas del personal"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 39: «Para el efectivo desarrollo de las funciones que les son propias y el adecuado cumplimiento de los principios señalados en el artículo precedente»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a39-conjunta",
+   "bloque": "a39",
+   "apartado": "",
+   "orden": 2190,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 39 del RRI del CPEI, en una actuación conjunta de efectivos de distintos centros con responsables del mismo nivel, ¿quién manda?",
+    "respuesta": "Quien tenga la competencia habitual sobre la atención de siniestros en esa localidad, salvo orden superior expresa y motivada."
+   },
+   "cita": "ostentará la máxima responsabilidad aquel a quien corresponda la competencia habitual sobre la atención de siniestros",
+   "confundible_con": [
+    "RRI-a39-cadena"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 39 del Reglamento de Régimen Interno del CPEI, en una actuación conjunta con responsables del mismo nivel, ¿manda quien tiene la competencia habitual en esa localidad, salvo orden superior?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 39: ostenta la máxima responsabilidad «aquel a quien corresponda la competencia habitual sobre la atención de siniestros en la localidad de que se trate, salvo orden superior expresa y motivada»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Actúan juntos efectivos de dos parques y sus responsables tienen el mismo nivel jerárquico. Según el art. 39 del Reglamento de Régimen Interno del CPEI, ¿quién ostenta la máxima responsabilidad?",
+     "opciones": [
+      "El que llegue primero al siniestro",
+      "El competente habitual en esa localidad",
+      "El que designe el Ayuntamiento afectado"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 39: aquel a quien corresponda la competencia habitual sobre la atención de siniestros en la localidad, salvo orden superior expresa y motivada."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 39 del Reglamento de Régimen Interno del CPEI, la regla de mando en actuaciones conjuntas de distintos centros con responsables del mismo nivel cede ante:",
+     "opciones": [
+      "Una orden superior expresa y motivada",
+      "La petición del alcalde de la localidad",
+      "El acuerdo verbal entre los responsables"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 39: «salvo orden superior expresa y motivada»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a40-guardia",
+   "bloque": "a40",
+   "apartado": "",
+   "orden": 2200,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 40 del RRI del CPEI, ¿qué pueden proponer los Ayuntamientos donde radican los parques?",
+    "respuesta": "Una guardia en locales, edificios e instalaciones cuando las circunstancias y necesidades lo aconsejen."
+   },
+   "cita": "podrán proponer una guardia en locales, edificios e instalaciones",
+   "confundible_con": [
+    "RRI-a40-audiencia"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 40 del Reglamento de Régimen Interno del CPEI, ¿pueden los Ayuntamientos donde radican los parques proponer una guardia en locales, edificios e instalaciones?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 40: «Los Ayuntamientos donde radiquen los parques podrán proponer una guardia en locales, edificios e instalaciones»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 40 del Reglamento de Régimen Interno del CPEI, ¿quién puede proponer una guardia en locales, edificios e instalaciones?",
+     "opciones": [
+      "Los Ayuntamientos de los parques",
+      "Los jefes de cada turno de guardia",
+      "La Delegación del Gobierno"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 40: «Los Ayuntamientos donde radiquen los parques podrán proponer una guardia»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 40 del Reglamento de Régimen Interno del CPEI, la guardia en locales, edificios e instalaciones puede proponerse:",
+     "opciones": [
+      "Cuando las circunstancias lo aconsejen",
+      "Solo en caso de catástrofe declarada",
+      "Únicamente durante las fiestas locales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 40: «cuando las circunstancias y necesidades lo aconsejen»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a40-audiencia",
+   "bloque": "a40",
+   "apartado": "",
+   "orden": 2210,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 40 del RRI del CPEI, ¿a quién se da audiencia si la guardia afecta a las condiciones laborales del personal?",
+    "respuesta": "A los representantes de los trabajadores, como es preceptivo según la Ley."
+   },
+   "cita": "se dará audiencia a los representantes de los trabajadores",
+   "confundible_con": [
+    "RRI-a40-guardia"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 40 del Reglamento de Régimen Interno del CPEI, si la guardia afecta a las condiciones laborales del personal, ¿se da audiencia a los representantes de los trabajadores?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 40: «se dará audiencia a los representantes de los trabajadores»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 40 del Reglamento de Régimen Interno del CPEI, en lo que la guardia afecte a las condiciones laborales del personal, se dará audiencia a:",
+     "opciones": [
+      "Los representantes de los trabajadores",
+      "Cada bombero afectado, por separado",
+      "El Consejo de Administración"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 40: «como es preceptivo según Ley, se dará audiencia a los representantes de los trabajadores»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 40 del Reglamento de Régimen Interno del CPEI, esa audiencia a los representantes de los trabajadores es:",
+     "opciones": [
+      "Preceptiva según la Ley",
+      "Potestativa del Gerente",
+      "Solo necesaria si hay horas extra"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 40: «como es preceptivo según Ley»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a41-ensenanzas",
+   "bloque": "a41",
+   "apartado": "",
+   "orden": 2220,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 41 del RRI del CPEI, ¿qué formación reciben los Bomberos y para qué?",
+    "respuesta": "Enseñanzas teórico-prácticas, instrucción y ejercicios en las fechas y lugares señalados, para conjuntar a todos los turnos y coordinar los grandes siniestros; las prácticas, si es posible, al final o al comienzo de los turnos."
+   },
+   "cita": "Todos los Bomberos recibirán las enseñanzas teórico–prácticas",
+   "confundible_con": [
+    "RRI-a41-compensacion",
+    "RRI-a42-departamentos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 41 del Reglamento de Régimen Interno del CPEI, ¿reciben enseñanzas teórico-prácticas todos los Bomberos?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 41: «Todos los Bomberos recibirán las enseñanzas teórico–prácticas, adecuada instrucción y realizarán los ejercicios correspondientes»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 41 del Reglamento de Régimen Interno del CPEI, las enseñanzas y ejercicios tienen como fin:",
+     "opciones": [
+      "Coordinar a todos los turnos en grandes siniestros",
+      "Preparar al personal para las pruebas de ascenso",
+      "Evaluar el rendimiento individual de cada bombero"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 41: «para conjuntar a todos los turnos de cara a coordinar los grandes siniestros»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 41 del Reglamento de Régimen Interno del CPEI, en la medida de lo posible, las prácticas se realizarán:",
+     "opciones": [
+      "En el período final o al comienzo de los turnos",
+      "A mitad del turno, cuando hay menos avisos",
+      "En días libres, con compensación económica"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 41: «se procurará que la realización de prácticas tenga lugar en el período final o al comienzo de los turnos de trabajo»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a41-compensacion",
+   "bloque": "a41",
+   "apartado": "",
+   "orden": 2230,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 41 del RRI del CPEI, ¿cómo se compensan las horas de formación del personal libre de servicio?",
+    "respuesta": "Con arreglo al convenio o acuerdos vigentes, sin afectar al número de efectivos de exigida disponibilidad en cada centro."
+   },
+   "cita": "les serán compensadas con arreglo al convenio o acuerdos que se encuentren vigentes en cada momento",
+   "confundible_con": [
+    "RRI-a41-ensenanzas"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 41 del Reglamento de Régimen Interno del CPEI, ¿se compensan las horas de formación del personal libre de servicio?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 41: «Las horas del personal libre de servicio, les serán compensadas»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 41 del Reglamento de Régimen Interno del CPEI, el disfrute de la compensación de esas horas no puede afectar:",
+     "opciones": [
+      "Al número de efectivos disponibles exigido",
+      "Al calendario de vacaciones del personal",
+      "Al complemento de productividad"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 41: «sin que tal disfrute pueda afectar al número de efectivos de exigida disponibilidad en cada centro»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 41 del Reglamento de Régimen Interno del CPEI, las horas de formación del personal libre de servicio se compensan con arreglo a:",
+     "opciones": [
+      "El convenio o acuerdos vigentes en cada momento",
+      "Lo que decida el jefe de parque",
+      "Una tarifa fija establecida en el Reglamento"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 41: «con arreglo al convenio o acuerdos que se encuentren vigentes en cada momento»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a42-departamentos",
+   "bloque": "a42",
+   "apartado": "",
+   "orden": 2240,
+   "tipo": "lista",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 42 del RRI del CPEI, ¿qué Departamentos se prevén?",
+    "respuesta": "Prevención, Formación y Control de Siniestros (preparación y evaluación física y formativa); Asuntos Generales (control y gestión del Servicio); y análisis de procedimientos y protocolos de intervención."
+   },
+   "cita": "los Departamentos de Prevención, Formación y Control de Siniestros",
+   "confundible_con": [
+    "RRI-a42-entes"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 42 del Reglamento de Régimen Interno del CPEI, ¿se crea un Departamento de Asuntos Generales para el control y gestión del Servicio?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 42: «se creará un Departamento de Asuntos Generales a los efectos de control y gestión del Servicio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 42 del Reglamento de Régimen Interno del CPEI, ¿cuál de estos Departamentos NO se prevé?",
+     "opciones": [
+      "Departamento de Asuntos Generales",
+      "Departamento de Comunicación",
+      "Departamento de Control de Siniestros"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 42: Prevención, Formación y Control de Siniestros; Asuntos Generales; y análisis de procedimientos y protocolos de intervención."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 42 del Reglamento de Régimen Interno del CPEI, el control y gestión del Servicio corresponde al Departamento de:",
+     "opciones": [
+      "Asuntos Generales",
+      "Control de Siniestros",
+      "Prevención"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 42: «un Departamento de Asuntos Generales a los efectos de control y gestión del Servicio»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a42-entes",
+   "bloque": "a42",
+   "apartado": "",
+   "orden": 2250,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 42 del RRI del CPEI, ¿qué garantizan los entes consorciados y conforme a qué se aplica el artículo?",
+    "respuesta": "Como máximos responsables, garantizan el buen estado de formación profesional del personal y articulan las medidas disciplinarias por incumplimiento; el artículo se aplica conforme a los Acuerdos de Formación vigentes."
+   },
+   "cita": "garantizará el buen estado de formación profesional del personal adscrito al mismo",
+   "confundible_con": [
+    "RRI-a42-departamentos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 42 del Reglamento de Régimen Interno del CPEI, ¿garantizan los entes consorciados el buen estado de formación profesional del personal?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 42: «Los entes consorciados, como máximos responsable [sic] de este Consorcio, garantizará el buen estado de formación profesional del personal»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 42 del Reglamento de Régimen Interno del CPEI, los entes consorciados, como máximos responsables del Consorcio, garantizan:",
+     "opciones": [
+      "La buena formación profesional del personal",
+      "La renovación periódica de los vehículos",
+      "La construcción de los nuevos parques"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 42: garantizan «el buen estado de formación profesional del personal adscrito al mismo»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 42 del Reglamento de Régimen Interno del CPEI, este artículo se aplicará conforme a los principios y regulación de:",
+     "opciones": [
+      "Los Acuerdos de Formación vigentes",
+      "El Plan Nacional de Formación de Bomberos",
+      "Las instrucciones de cada jefe de parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 42: «conforme a los principios y regulación que se contenga en los Acuerdos de Formación que se encuentren vigentes en cada momento»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a43-injerencias",
+   "bloque": "a43",
+   "apartado": "",
+   "orden": 2260,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 43 del RRI del CPEI, ¿se admiten injerencias de personas ajenas al servicio?",
+    "respuesta": "No, salvo que la cadena de mando lo autorice expresa y motivadamente."
+   },
+   "cita": "no admitirá injerencias en el desarrollo de sus especializadas funciones de personas ajenas al servicio",
+   "confundible_con": [
+    "RRI-a43-sugerencias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 43 del Reglamento de Régimen Interno del CPEI, ¿se admiten injerencias de personas ajenas al servicio sin autorización de la cadena de mando?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 43: no se admiten, «excepción hecha de aquellos supuestos en que así se encuentre expresa y motivadamente autorizado por la cadena de mando»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 43 del Reglamento de Régimen Interno del CPEI, las injerencias de personas ajenas al servicio en las funciones de los efectivos:",
+     "opciones": [
+      "Se admiten si vienen de una autoridad local",
+      "Solo con autorización motivada del mando",
+      "Se admiten si las pide un afectado"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 43: solo cuando lo autorice «expresa y motivadamente» la cadena de mando."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 43 del Reglamento de Régimen Interno del CPEI, para admitir la intervención de personas ajenas al servicio, la autorización de la cadena de mando debe ser:",
+     "opciones": [
+      "Expresa y motivada",
+      "Verbal o escrita",
+      "Posterior al siniestro"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 43: «expresa y motivadamente autorizado por la cadena de mando»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a43-sugerencias",
+   "bloque": "a43",
+   "apartado": "",
+   "orden": 2270,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 43 del RRI del CPEI, ¿qué se hace con las sugerencias de personas ajenas al servicio?",
+    "respuesta": "Los efectivos deben encauzarlas a través de la cadena de mando."
+   },
+   "cita": "deberán encauzar a través de dicha cadena aquellas sugerencias o recomendaciones",
+   "confundible_con": [
+    "RRI-a43-injerencias"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 43 del Reglamento de Régimen Interno del CPEI, ¿deben encauzarse por la cadena de mando las sugerencias de personas ajenas al servicio?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 43: «deberán encauzar a través de dicha cadena aquellas sugerencias o recomendaciones que procedan de personas ajenas al servicio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Un vecino hace una recomendación a un bombero durante una intervención. Según el art. 43 del Reglamento de Régimen Interno del CPEI, el bombero debe:",
+     "opciones": [
+      "Encauzarla por la cadena de mando",
+      "Seguirla si la considera acertada",
+      "Rechazarla y no transmitirla"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 43: las sugerencias o recomendaciones de personas ajenas al servicio se encauzan a través de la cadena de mando."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 43 del Reglamento de Régimen Interno del CPEI, las sugerencias que procedan de personas ajenas al servicio:",
+     "opciones": [
+      "Se encauzan por la cadena de mando",
+      "Se ignoran, pues no se admiten injerencias",
+      "Se aplican si las autoriza el Ayuntamiento"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 43: aunque no se admiten injerencias, «los citados efectivos deberán encauzar a través de dicha cadena aquellas sugerencias o recomendaciones»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a44-uso",
+   "bloque": "a44",
+   "apartado": "",
+   "orden": 2280,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 44 del RRI del CPEI, ¿a qué se destinan los vehículos del Consorcio?",
+    "respuesta": "Exclusivamente a las funciones de prevención y extinción de siniestros y salvamento."
+   },
+   "cita": "se aplicarán exclusivamente al uso para las específicas funciones asignadas de prevención y extinción de siniestros y salvamento",
+   "confundible_con": [
+    "RRI-a44-excepcionales"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 44 del Reglamento de Régimen Interno del CPEI, como regla general, ¿pueden usarse los vehículos del Consorcio para fines distintos de la prevención, la extinción y el salvamento?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 44: «se aplicarán exclusivamente al uso para las específicas funciones asignadas de prevención y extinción de siniestros y salvamento»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 44 del Reglamento de Régimen Interno del CPEI, el uso de los vehículos del Consorcio es:",
+     "opciones": [
+      "Exclusivo de prevención, extinción y salvamento",
+      "Libre para el personal fuera de servicio",
+      "Compartido con los servicios municipales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 44: exclusivamente para prevención y extinción de siniestros y salvamento."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 44 del Reglamento de Régimen Interno del CPEI, ¿en qué supuestos se deja a salvo la necesidad de autorizar los usos excepcionales de los vehículos?",
+     "opciones": [
+      "Emergencia y fuerza mayor",
+      "Actos institucionales",
+      "Traslados de personal"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 44: «dejando a salvo los supuestos de emergencia y fuerza mayor»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a44-excepcionales",
+   "bloque": "a44",
+   "apartado": "",
+   "orden": 2290,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 44 del RRI del CPEI, ¿quién autoriza los usos excepcionales de los vehículos?",
+    "respuesta": "La Presidencia del Consorcio u órgano de gobierno o dirección en quien delegue, salvo emergencia y fuerza mayor."
+   },
+   "cita": "Los usos excepcionales de citados vehículos deberán ser autorizados por la Presidencia del Consorcio",
+   "confundible_con": [
+    "RRI-a44-uso"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 44 del Reglamento de Régimen Interno del CPEI, fuera de la emergencia y la fuerza mayor, ¿deben autorizarse los usos excepcionales de los vehículos?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 44: «Los usos excepcionales… deberán ser autorizados por la Presidencia del Consorcio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 44 del Reglamento de Régimen Interno del CPEI, los usos excepcionales de los vehículos del Consorcio los autoriza:",
+     "opciones": [
+      "La Presidencia del Consorcio o su delegado",
+      "El jefe del parque donde esté destinado",
+      "El Consejo de Administración, sin delegar"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 44: «la Presidencia del Consorcio u órgano de gobierno o dirección en quien delegue tal facultad»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 44 del Reglamento de Régimen Interno del CPEI, la facultad de autorizar los usos excepcionales de los vehículos:",
+     "opciones": [
+      "Es delegable en un órgano de gobierno o dirección",
+      "Es indelegable y la ejerce solo la Presidencia",
+      "Corresponde siempre al Gerente del Consorcio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 44: la Presidencia «u órgano de gobierno o dirección en quien delegue tal facultad»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a45-aceptacion",
+   "bloque": "a45",
+   "apartado": "",
+   "orden": 2300,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 45 del RRI del CPEI, ¿qué conlleva integrarse en el Consorcio?",
+    "respuesta": "La aceptación del Reglamento y su normativa de desarrollo como normas esenciales de su funcionamiento interno."
+   },
+   "cita": "La integración en el Consorcio conlleva la aceptación del presente reglamento",
+   "confundible_con": [
+    "RRI-a38-ignorancia"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 45 del Reglamento de Régimen Interno del CPEI, ¿conlleva la integración en el Consorcio la aceptación del Reglamento?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 45: «La integración en el Consorcio conlleva la aceptación del presente reglamento»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 45 del Reglamento de Régimen Interno del CPEI, ¿qué conlleva la integración en el Consorcio?",
+     "opciones": [
+      "La aceptación del Reglamento y su normativa de desarrollo",
+      "La renuncia a la Administración de procedencia",
+      "La afiliación a un sindicato"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 45: «conlleva la aceptación del presente reglamento y normativa de desarrollo»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 45 del Reglamento de Régimen Interno del CPEI, el Reglamento y su normativa de desarrollo se consideran:",
+     "opciones": [
+      "Normas esenciales del funcionamiento interno",
+      "Recomendaciones de buenas prácticas",
+      "Normas solo supletorias del convenio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 45: «como normas esenciales para la regulación del funcionamiento interno del mismo»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a46-limpieza",
+   "bloque": "a46",
+   "apartado": "",
+   "orden": 2310,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 46 del RRI del CPEI, ¿qué obligación hay sobre los parques?",
+    "respuesta": "Deben mantenerse en el adecuado estado de limpieza."
+   },
+   "cita": "Los parques deberán mantenerse en el adecuado estado de limpieza",
+   "confundible_con": [
+    "RRI-a47-7-epis"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 46 del Reglamento de Régimen Interno del CPEI, ¿deben mantenerse los parques en el adecuado estado de limpieza?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 46: «Los parques deberán mantenerse en el adecuado estado de limpieza»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 46 del Reglamento de Régimen Interno del CPEI, ¿a qué se refiere la obligación de mantener el adecuado estado de limpieza?",
+     "opciones": [
+      "A los parques",
+      "A los domicilios del personal",
+      "A los vehículos particulares"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 46: «Los parques deberán mantenerse en el adecuado estado de limpieza»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "¿Cuál de estas obligaciones recoge el art. 46 del Reglamento de Régimen Interno del CPEI?",
+     "opciones": [
+      "Mantener los parques adecuadamente limpios",
+      "Desinfectar a diario todos los vehículos",
+      "Revisar cada año las instalaciones del parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 46: «Los parques deberán mantenerse en el adecuado estado de limpieza»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a47-1-determinante",
+   "bloque": "a47",
+   "apartado": "1",
+   "orden": 2320,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 47.1 del RRI del CPEI, ¿qué papel tiene la seguridad y salud laboral en las decisiones del Consorcio?",
+    "respuesta": "Su posible repercusión es un aspecto determinante en todas las decisiones administrativas y operativas; la mejora continua en prevención y protección es un objetivo permanente."
+   },
+   "cita": "será un aspecto determinante a contemplar en todas las decisiones",
+   "confundible_con": [
+    "RRI-a47-3-epis-operativo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 47.1 del Reglamento de Régimen Interno del CPEI, ¿es la mejora continua en prevención y protección frente a riesgos laborales un objetivo permanente del Consorcio?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.1: «La mejora continua en ese terreno… será un objetivo permanente del Consorcio»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 47.1 del Reglamento de Régimen Interno del CPEI, la posible repercusión en la seguridad y salud laboral de los trabajadores es, en las decisiones del CPEI:",
+     "opciones": [
+      "Un aspecto determinante a contemplar",
+      "Un criterio secundario frente al coste",
+      "Una cuestión solo de los servicios médicos"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.1: «será un aspecto determinante a contemplar en todas las decisiones que se adopten»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 47.1 del Reglamento de Régimen Interno del CPEI, la mejora continua en prevención y protección frente a riesgos laborales es:",
+     "opciones": [
+      "Un objetivo permanente del Consorcio",
+      "Un objetivo anual revisable",
+      "Una recomendación sin carácter obligatorio"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.1: «será un objetivo permanente del Consorcio»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a47-2-ergonomia",
+   "bloque": "a47",
+   "apartado": "2",
+   "orden": 2330,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 47.2 del RRI del CPEI, ¿qué se contempla para el personal directivo y administrativo?",
+    "respuesta": "Las condiciones ergonómicas de sus puestos, cumpliendo en todo caso los requisitos mínimos del R.D. 488/1997, de 14 de abril."
+   },
+   "cita": "los requisitos mínimos establecidos en el R.D. 488/1997, de 14 de abril",
+   "confundible_con": [
+    "RRI-a47-3-epis-operativo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 47.2 del Reglamento de Régimen Interno del CPEI, ¿se contemplan las condiciones ergonómicas de los puestos del personal directivo y administrativo?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.2: «se contemplará las condiciones ergonómicas de sus puestos de trabajo»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 47.2 del Reglamento de Régimen Interno del CPEI, respecto al personal directivo y administrativo se contemplarán especialmente:",
+     "opciones": [
+      "Las condiciones ergonómicas de sus puestos",
+      "Los equipos de protección individual",
+      "Los botiquines móviles"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.2: «se contemplará las condiciones ergonómicas de sus puestos de trabajo». Los EPIs son para el personal operativo (47.3)."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 47.2 del Reglamento de Régimen Interno del CPEI, las condiciones ergonómicas del personal directivo y administrativo cumplirán los requisitos mínimos del:",
+     "opciones": [
+      "R.D. 488/1997, de 14 de abril",
+      "R.D. 773/1997, de 30 de mayo",
+      "R.D. 486/1997, de 14 de abril"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.2: «los requisitos mínimos establecidos en el R.D. 488/1997, de 14 de abril»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a47-3-epis-operativo",
+   "bloque": "a47",
+   "apartado": "3",
+   "orden": 2340,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 47.3 del RRI del CPEI, ¿a qué se presta especial atención con el personal operativo?",
+    "respuesta": "A dotarlo de todos los EPIs necesarios o que se consideren convenientes para los diferentes escenarios y situaciones de sus intervenciones."
+   },
+   "cita": "se prestará especial atención a dotarlos de todos los equipos de protección individual necesarios",
+   "confundible_con": [
+    "RRI-a47-2-ergonomia",
+    "RRI-a47-4-informacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 47.3 del Reglamento de Régimen Interno del CPEI, ¿se presta especial atención a dotar de EPIs al personal operativo?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.3: «se prestará especial atención a dotarlos de todos los equipos de protección individual necesarios»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 47.3 del Reglamento de Régimen Interno del CPEI, respecto al personal operativo se prestará especial atención a dotarlo de:",
+     "opciones": [
+      "Todos los EPIs necesarios o convenientes",
+      "Condiciones ergonómicas en oficina",
+      "Un seguro de defensa jurídica"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.3: «todos los equipos de protección individual necesarios o que se consideren convenientes»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 47.3 del Reglamento de Régimen Interno del CPEI, los EPIs del personal operativo serán:",
+     "opciones": [
+      "Los necesarios o convenientes para cada escenario",
+      "Solo los mínimos exigidos por la normativa",
+      "Los que cada bombero adquiera por su cuenta"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.3: «necesarios o que se consideren convenientes para los diferentes escenarios y situaciones»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a47-4-informacion",
+   "bloque": "a47",
+   "apartado": "4",
+   "orden": 2350,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 47.4 del RRI del CPEI, ¿cómo se informa sobre los EPIs y qué se valora al adjudicar su suministro?",
+    "respuesta": "Se informa detalladamente y por escrito de su uso, mantenimiento, limpieza y desinfección; al adjudicar se conjugan limpieza y desinfección, comodidad y facilidad de uso con precio, efecto barrera y placabilidad."
+   },
+   "cita": "Se les informará detalladamente, por escrito, del uso de esos equipos",
+   "confundible_con": [
+    "RRI-a47-3-epis-operativo"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 47.4 del Reglamento de Régimen Interno del CPEI, ¿debe informarse por escrito al personal del uso de los EPIs?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.4: «Se les informará detalladamente, por escrito, del uso de esos equipos»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 47.4 del Reglamento de Régimen Interno del CPEI, la información al personal sobre uso, mantenimiento, limpieza y desinfección de los EPIs será:",
+     "opciones": [
+      "Detallada y por escrito",
+      "Verbal, en el relevo de turno",
+      "Solo en el curso de acceso"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.4: «Se les informará detalladamente, por escrito»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 47.4 del Reglamento de Régimen Interno del CPEI, ¿cuál de estos factores NO se cita entre los que se conjugan al adjudicar suministros de EPIs?",
+     "opciones": [
+      "El grado de efecto barrera",
+      "La placabilidad",
+      "La marca del fabricante"
+     ],
+     "correcta": 2,
+     "explicacion": "Art. 47.4: limpieza y desinfección, comodidad y facilidad de uso, precio, grado de efecto barrera y placabilidad. No la marca."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a47-5-desinfectantes",
+   "bloque": "a47",
+   "apartado": "5",
+   "orden": 2360,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 47.5 del RRI del CPEI, ¿qué desinfectantes se proporcionan y cómo se eligen?",
+    "respuesta": "Los más adecuados del mercado, para uso personal ante contactos con sangre o fluidos y para EPIs, herramientas y vehículos; se eligen por su inocuidad o menor toxicidad y su facilidad de uso."
+   },
+   "cita": "Se le proporcionará los desinfectantes más adecuados del mercado",
+   "confundible_con": [
+    "RRI-a47-4-informacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 47.5 del Reglamento de Régimen Interno del CPEI, ¿se proporcionan desinfectantes de uso personal ante posibles contactos con sangre o fluidos orgánicos?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.5: «tanto para uso personal, en previsión de contactos con sangre o fluidos orgánicos ajenos»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 47.5 del Reglamento de Régimen Interno del CPEI, además de para uso personal, los desinfectantes se proporcionan para:",
+     "opciones": [
+      "Los EPIs, herramientas y vehículos",
+      "Los domicilios del personal",
+      "Las dependencias municipales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.5: «como para los EPIs, herramientas y vehículos»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 47.5 del Reglamento de Régimen Interno del CPEI, dos factores determinantes al elegir los desinfectantes son:",
+     "opciones": [
+      "La inocuidad y la facilidad de uso",
+      "El precio y la rapidez de secado",
+      "El olor y el formato del envase"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.5: «su inocuidad o menor riesgo de toxicidad y su mayor facilidad de uso»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a47-6-botiquines",
+   "bloque": "a47",
+   "apartado": "6",
+   "orden": 2370,
+   "tipo": "dato",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 47.6 del RRI del CPEI, ¿qué botiquines tiene cada parque?",
+    "respuesta": "Uno fijo y tantos móviles como dotaciones puedan intervenir simultáneamente en distintos siniestros."
+   },
+   "cita": "Cada parque dispondrá de un botiquín fijo",
+   "confundible_con": [
+    "RRI-a47-5-desinfectantes"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 47.6 del Reglamento de Régimen Interno del CPEI, ¿dispondrá cada parque de un botiquín fijo?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.6: «Cada parque dispondrá de un botiquín fijo»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 47.6 del Reglamento de Régimen Interno del CPEI, el número de botiquines móviles de cada parque será:",
+     "opciones": [
+      "Igual al de dotaciones que intervengan a la vez",
+      "Uno por cada bombero que esté de guardia",
+      "Dos, sean cuantas sean las dotaciones del parque"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.6: «tantos botiquines móviles como dotaciones del mismo puedan intervenir simultáneamente en distintos siniestros»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Un parque puede enviar a la vez tres dotaciones a siniestros distintos. Según el art. 47.6 del Reglamento de Régimen Interno del CPEI, debe disponer de:",
+     "opciones": [
+      "Un botiquín fijo y tres móviles",
+      "Tres botiquines fijos",
+      "Un botiquín fijo y uno móvil"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.6: un botiquín fijo y tantos móviles como dotaciones puedan intervenir simultáneamente en distintos siniestros."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a47-7-epis",
+   "bloque": "a47",
+   "apartado": "7",
+   "orden": 2380,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 47.7 del RRI del CPEI, ¿dónde se limpian los EPIs y qué está prohibido?",
+    "respuesta": "Dentro de las instalaciones de los parques; está terminantemente prohibido llevarlos al domicilio particular para limpiarlos o para cualquier otro fin."
+   },
+   "cita": "quedando terminantemente prohibido llevarlos al domicilio particular",
+   "confundible_con": [
+    "RRI-a46-limpieza"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 47.7 del Reglamento de Régimen Interno del CPEI, ¿puede un bombero llevarse el chaquetón a casa para lavarlo?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 47.7: se limpian dentro de los parques, «quedando terminantemente prohibido llevarlos al domicilio particular para tales fines o cualquier otro»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 47.7 del Reglamento de Régimen Interno del CPEI, ¿qué está terminantemente prohibido respecto a los EPIs y herramientas personales?",
+     "opciones": [
+      "Llevarlos al domicilio particular",
+      "Limpiarlos dentro del parque",
+      "Desinfectarlos tras cada intervención"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.7: «quedando terminantemente prohibido llevarlos al domicilio particular»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 47.7 del Reglamento de Régimen Interno del CPEI, ¿se puede llevar el cubrepantalón al domicilio para algo distinto de su limpieza?",
+     "opciones": [
+      "Sí, si no es para lavarlo",
+      "No, para ningún fin",
+      "Sí, con permiso del jefe de parque"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 47.7: prohibido llevarlos al domicilio «para tales fines o cualquier otro»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a47-8-seguro",
+   "bloque": "a47",
+   "apartado": "8",
+   "orden": 2390,
+   "tipo": "regla",
+   "prioridad": 1,
+   "tarjeta": {
+    "pregunta": "Según el art. 47.8 del RRI del CPEI, ¿qué seguro tiene contratado el Consorcio?",
+    "respuesta": "Un seguro de vida, de accidentes e invalidez para quienes fallezcan en acto de servicio o queden incapacitados por el ejercicio profesional; se procurará asimilar la cobertura de los conductores a la de los demás ocupantes."
+   },
+   "cita": "El Consorcio tendrá contratado un seguro de vida, de accidentes e invalidez",
+   "confundible_con": [
+    "RRI-a48-derechos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 47.8 del Reglamento de Régimen Interno del CPEI, ¿tendrá el Consorcio contratado un seguro de vida, de accidentes e invalidez?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.8: «El Consorcio tendrá contratado un seguro de vida, de accidentes e invalidez»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 47.8 del Reglamento de Régimen Interno del CPEI, el seguro de vida, accidentes e invalidez cubre a los miembros que:",
+     "opciones": [
+      "Fallezcan o se incapaciten por el servicio",
+      "Sufran un accidente en su vida privada",
+      "Se jubilen antes de la edad ordinaria"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.8: los que «pudieran fallecer en acto de servicio» o queden incapacitados por lesiones o enfermedades contraídas «a causa del ejercicio profesional»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 47.8 del Reglamento de Régimen Interno del CPEI, la Administración Provincial procurará que la cobertura de los conductores de vehículos a motor:",
+     "opciones": [
+      "Se asimile a la de los demás ocupantes",
+      "Sea el doble que la de los ocupantes",
+      "Se limite a la responsabilidad civil"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 47.8: «se asimile a aquella que tuviera asegurada el resto de eventuales ocupantes del vehículo»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a48-concepto",
+   "bloque": "a48",
+   "apartado": "",
+   "orden": 2400,
+   "tipo": "definicion",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 48 del RRI del CPEI, ¿quiénes son los bomberos voluntarios y por qué se rigen?",
+    "respuesta": "Personas que, por vocación benéfico-social, colaboran de forma altruista en el CPEI; no tienen relación laboral con él y se rigen por la normativa que establezca un Reglamento."
+   },
+   "cita": "Son bomberos voluntarios las personas que, por su vocación benéfico-social, prestan su colaboración de forma altruista",
+   "confundible_con": [
+    "RRI-a48-organizacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 48 del Reglamento de Régimen Interno del CPEI, ¿tienen los bomberos voluntarios relación laboral con el C.P.E.I.?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 1,
+     "explicacion": "Art. 48: «Los bomberos voluntarios no tienen relación laboral alguna con el C.P.E.I.»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 48 del Reglamento de Régimen Interno del CPEI, los bomberos voluntarios:",
+     "opciones": [
+      "No tienen relación laboral alguna con el C.P.E.I.",
+      "Son personal laboral temporal del C.P.E.I.",
+      "Son funcionarios interinos del C.P.E.I."
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 48: «no tienen relación laboral alguna con el C.P.E.I.»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 48 del Reglamento de Régimen Interno del CPEI, los bomberos voluntarios se rigen por:",
+     "opciones": [
+      "La normativa que se establezca por Reglamento",
+      "El convenio colectivo del personal laboral",
+      "El Estatuto Básico del Empleado Público"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 48: «se rigen por la normativa que se establezca por Reglamento»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a48-organizacion",
+   "bloque": "a48",
+   "apartado": "",
+   "orden": 2410,
+   "tipo": "regla",
+   "prioridad": 3,
+   "tarjeta": {
+    "pregunta": "Según el art. 48 del RRI del CPEI, ¿cómo se organizan los bomberos voluntarios y quién los manda?",
+    "respuesta": "Bajo la organización y supervisión del personal del Consorcio, con estructura jerarquizada; ejerce su mando superior la persona titular del Consorcio que tenga atribuidas esas funciones."
+   },
+   "cita": "están bajo la organización y la supervisión del personal del Consorcio",
+   "confundible_con": [
+    "RRI-a48-concepto"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 48 del Reglamento de Régimen Interno del CPEI, ¿tienen los bomberos voluntarios una estructura y organización jerarquizadas?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 48: «tienen una estructura y una organización jerarquizadas»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 48 del Reglamento de Régimen Interno del CPEI, los bomberos voluntarios están bajo la organización y supervisión:",
+     "opciones": [
+      "Del personal del Consorcio",
+      "Del Ayuntamiento de su municipio",
+      "De Protección Civil"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 48: «están bajo la organización y la supervisión del personal del Consorcio»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 48 del Reglamento de Régimen Interno del CPEI, el mando superior de los bomberos voluntarios lo ejerce:",
+     "opciones": [
+      "El titular del Consorcio que tenga esas funciones",
+      "El voluntario de más antigüedad en el parque",
+      "El alcalde del municipio donde actúen"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 48: «Ejerce su mando superior la persona titular del Consorcio que tenga atribuidas las funciones»."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a48-formacion",
+   "bloque": "a48",
+   "apartado": "",
+   "orden": 2420,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 48 del RRI del CPEI, ¿a quién corresponde la formación de los bomberos voluntarios?",
+    "respuesta": "Al C.P.E.I.: formación, perfeccionamiento y capacitación."
+   },
+   "cita": "La formación, el perfeccionamiento y la capacitación de los bomberos voluntarios corresponde al C.P.E.I.",
+   "confundible_con": [
+    "RRI-a48-derechos"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 48 del Reglamento de Régimen Interno del CPEI, ¿corresponde al C.P.E.I. la formación de los bomberos voluntarios?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 48: «La formación, el perfeccionamiento y la capacitación de los bomberos voluntarios corresponde al C.P.E.I.»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 48 del Reglamento de Régimen Interno del CPEI, la capacitación de los bomberos voluntarios corresponde a:",
+     "opciones": [
+      "El C.P.E.I.",
+      "La Junta de Extremadura",
+      "Una asociación de voluntarios"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 48: corresponde al C.P.E.I."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 48 del Reglamento de Régimen Interno del CPEI, ¿cuál de estas tareas respecto a los voluntarios corresponde al C.P.E.I.?",
+     "opciones": [
+      "Su formación, perfeccionamiento y capacitación",
+      "Su retribución por cada intervención",
+      "Su alta en la Seguridad Social como laborales"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 48: le corresponde su formación, perfeccionamiento y capacitación; no tienen relación laboral con el C.P.E.I."
+    }
+   ]
+  },
+  {
+   "id": "RRI-a48-derechos",
+   "bloque": "a48",
+   "apartado": "",
+   "orden": 2430,
+   "tipo": "regla",
+   "prioridad": 2,
+   "tarjeta": {
+    "pregunta": "Según el art. 48 del RRI del CPEI, ¿qué derechos tienen los bomberos voluntarios y cuándo se les recompensa?",
+    "respuesta": "Seguro de accidentes en acto de servicio y defensa jurídica en causas por actuaciones en el ejercicio de sus funciones; se les distingue o recompensa en los supuestos que determine el Reglamento."
+   },
+   "cita": "tienen derecho a gozar de un seguro que cubra los accidentes que puedan producirse en acto de servicio",
+   "confundible_con": [
+    "RRI-a47-8-seguro",
+    "RRI-a48-formacion"
+   ],
+   "preguntas": [
+    {
+     "nivel": 1,
+     "enunciado": "Según el art. 48 del Reglamento de Régimen Interno del CPEI, ¿tienen derecho los bomberos voluntarios a la defensa jurídica necesaria por actuaciones en el ejercicio de sus funciones?",
+     "opciones": [
+      "Sí",
+      "No"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 48: tienen derecho «a gozar de la defensa jurídica necesaria en las causas instruidas como consecuencia de actuaciones realizadas en el ejercicio de sus funciones»."
+    },
+    {
+     "nivel": 2,
+     "enunciado": "Según el art. 48 del Reglamento de Régimen Interno del CPEI, el seguro al que tienen derecho los bomberos voluntarios cubre:",
+     "opciones": [
+      "Los accidentes en acto de servicio",
+      "Solo las enfermedades profesionales",
+      "La pérdida de ingresos en su trabajo"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 48: «un seguro que cubra los accidentes que puedan producirse en acto de servicio»."
+    },
+    {
+     "nivel": 3,
+     "enunciado": "Según el art. 48 del Reglamento de Régimen Interno del CPEI, los bomberos voluntarios serán distinguidos o recompensados:",
+     "opciones": [
+      "Según los supuestos que fije el Reglamento",
+      "Solo si son heridos en acto de servicio",
+      "Nunca, por su carácter altruista"
+     ],
+     "correcta": 0,
+     "explicacion": "Art. 48: «cuando se aprecie alguna de las circunstancias o alguno de los supuestos que se determinen por Reglamento»."
+    }
+   ]
+  }
+ ]
+}
