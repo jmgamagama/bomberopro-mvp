@@ -2,7 +2,9 @@
 
 Lo que vas a aprender: cómo se distribuye la Diputación en **11 áreas funcionales**, qué servicios y unidades enumera el acuerdo de reorganización y qué organismos autónomos y consorcios dependen de la institución.
 
-**Alcance:** epígrafe del BOP de Badajoz n.º 135, de 17/07/2026. Fuente estructural principal: acuerdo plenario publicado en el BOP n.º 206, anuncio 4611/2025, de 29/10/2025. La página oficial del [organigrama de la Diputación](https://www2.dip-badajoz.es/diputacion/organigrama/index.php) consultada el 03/11/2026 confirma las denominaciones principales de las áreas y de los entes que muestra. El acuerdo es una publicación oficial del BOP, no un texto consolidado.
+**Alcance:** epígrafe del BOP de Badajoz n.º 135, de 17/07/2026. Fuente estructural principal: acuerdo plenario publicado en el BOP n.º 206, anuncio 4611/2025, de 29/10/2025. La página oficial del [organigrama de la Diputación](https://www2.dip-badajoz.es/diputacion/organigrama/index.php), consultada el 03/11/2026, confirma las denominaciones principales de las áreas y de los entes que muestra. El acuerdo es una publicación oficial del BOP, no un texto consolidado.
+
+**Discrepancia pendiente:** la página oficial del [Área de Desarrollo Rural, Reto Demográfico y Turismo](https://desarrollorural.dip-badajoz.es/areas-funcionales) (pie de página 2026) enumera seis puestos, servicios y unidades; el apartado 1.7 del BOP n.º 206/2025 enumera tres. Se conserva cada versión atribuida a su fuente y no se certifica como actual la lista de servicios del acuerdo.
 
 ## Cómo leer la estructura
 
@@ -121,7 +123,7 @@ Lo que vas a aprender: cómo se distribuye la Diputación en **11 áreas funcion
 - Servicio de Coordinación de Desarrollo Rural.
 - Servicio de Reto Demográfico.
 
-El acuerdo atribuye competencias turísticas al área, pero no nombra un servicio específico de turismo en este listado.
+El acuerdo atribuye competencias turísticas al área, pero su listado enumera solo dos servicios además de la Dirección. La página oficial del área, con pie de página 2026, publica una estructura distinta: Dirección de Área; Servicio de Planificación Estratégica de Desarrollo Rural y Sostenibilidad Turística; Servicio de Administración General; Servicio de Reto Demográfico; Servicio de Desarrollo Rural, Agricultura y Ganadería; y Oficina de Promoción Turística. No se ha localizado una publicación formal posterior que explique la diferencia. Las dos fuentes quedan separadas hasta confirmar cuál debe regir el detalle exigible en el examen.
 
 ### 1.8 · Sostenibilidad Ambiental, Energía y Territorio Verde
 **Enfoque:** medio ambiente, transición energética, cambio climático, biodiversidad y cooperación ambiental municipal.
@@ -180,4 +182,4 @@ Los entes instrumentales se vinculan funcionalmente a la II Estrategia de Desarr
 - El epígrafe habla de «Patronatos» en plural; el acuerdo consultado identifica un patronato concreto: el de la Escuela de Tauromaquia.
 - El organigrama oficial consultado confirma las denominaciones principales de las áreas y los cinco entes. Para las unidades detalladas, el borrador sigue el BOP n.º 206/2025.
 
-**Estado editorial:** borrador de trabajo. No está registrado en la app ni ha pasado revisión humana.
+**Estado editorial:** borrador de trabajo. La discrepancia en las unidades de T4.1.7 debe resolverse antes de publicar la lista como vigente. No está registrado en la app ni ha pasado revisión humana.
