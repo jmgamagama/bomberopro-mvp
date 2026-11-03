@@ -1,11 +1,11 @@
-# Tema 13 — informe de calidad (texto oficial)
+# Tema 13 — informe de calidad (fuentes oficiales y técnicas)
 
 **Epígrafe (BOP Badajoz n.º 135, 17/07/2026):** Equipos de protección individual para bomberos: normativa, características, recomendaciones de uso y mantenimiento. Clasificación de los equipos de protección individual. Equipos de protección respiratoria (EPR). Normas básicas de actuación con los Equipos de Respiración Autónoma. Consejos de uso, mantenimiento y conservación de los EPR.
 
 ## Fuente
 
-- Real Decreto 773/1997, utilización por los trabajadores de equipos de protección individual — BOE-A-1997-12735, texto consolidado del BOE, última actualización/versión 18/12/2025: https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735 (copia en /workspace/fuentes_oficiales/tema13/)
-- Reglamento (UE) 2016/425 relativo a los equipos de protección individual — Reglamento (UE) 2016/425, texto consolidado del BOE, última actualización/versión DOUE L 81 de 31/03/2016: https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32016R0425 (copia en /workspace/fuentes_oficiales/tema13/)
+- Real Decreto 773/1997, utilización por los trabajadores de equipos de protección individual — BOE-A-1997-12735, texto consolidado del BOE; última actualización publicada el 08/12/2021: https://www.boe.es/buscar/act.php?id=BOE-A-1997-12735 (copia de trabajo en /workspace/fuentes_oficiales/tema13/).
+- Reglamento (UE) 2016/425 sobre equipos de protección individual — texto consolidado de EUR-Lex, versión de consulta de 29/05/2026; la versión consolidada es documental y el texto auténtico se publica en el DOUE: https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:02016R0425-20260529 (copia de trabajo en /workspace/fuentes_oficiales/tema13/).
 
 ## Resultado
 
@@ -21,7 +21,7 @@
 
 ## Comprobación automática
 
-- La respuesta aparece en el artículo/bloque citado del texto consolidado (coincidencia normalizada sin tildes ni puntuación o difusa ≥ 0,85 por ventana de palabras).
+- Se coteja cada respuesta con el artículo, anexo o párrafo de la fuente citada (BOE, EUR-Lex o documento INSST). La comprobación automática normaliza tildes y puntuación o acepta similitud difusa ≥ 0,85 por ventana de palabras.
 - Se descartan: vacías, bloque inexistente, truncadas (final en preposición/artículo, coma, «…», paréntesis abierto), respuesta dentro de la pregunta (o ≥ 80 % de sus palabras), preguntas duplicadas, no formuladas como pregunta y preguntas que copian el comienzo de la respuesta.
 
 ### Descartes
