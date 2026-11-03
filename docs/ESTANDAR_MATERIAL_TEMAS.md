@@ -81,13 +81,13 @@ Se conserva su recorrido pedagógico por artículos, el esquema condensado y el 
 
 Tienen esquema y texto normativo generado desde fuente oficial. El siguiente trabajo editorial es redactar y revisar sus desarrollos en lotes pequeños. Los temas con varias normas conservan una fuente y un alcance por bloque. No se completa en lote con texto genérico.
 
-### Primeras aplicaciones: Temas 2 y 3
+### Primeras aplicaciones: Temas 2, 3 y 6
 
-Se han preparado seis borradores de desarrollo para T2 en `docs/borradores-material/tema02/` y dos para T3 en `docs/borradores-material/tema03/`. T2 cubre los arts. 1–48 del Estatuto; T3 desarrolla los arts. 31–38 de la Ley 7/1985, con atención a la distribución de funciones y a los umbrales de población. Las fuentes se identifican por norma y fecha de actualización publicada. Todos siguen marcados como borrador y permanecen fuera de `public/material` y del registro de la app hasta completar la revisión humana.
+Se han preparado seis borradores de desarrollo para T2 en `docs/borradores-material/tema02/`, dos para T3 en `docs/borradores-material/tema03/` y cuatro para T6 en `docs/borradores-material/tema06/`. T2 cubre los arts. 1–48 del Estatuto; T3, los arts. 31–38 de la Ley 7/1985, con atención a la distribución de funciones y a los umbrales de población; y T6, los arts. 1–32 bis de la Ley 31/1995, organizados por capítulos. Las fuentes se identifican por norma y fecha de actualización publicada. Los doce documentos siguen marcados como borrador y permanecen fuera de `public/material` y del registro de la app hasta completar la revisión humana.
 
 ### Temas restantes
 
-Los otros 15 temas con esquema y extracto se redactarán y revisarán por bloques. Los 22 temas sin material estructurado requieren primero localizar y validar su fuente. Los temas técnicos y operativos no se rellenan con BOE por defecto. Se identifican primero el documento correcto, su edición y el permiso de uso. Para los procedimientos internos del CPEI, se requiere el documento oficial entregado/autorizado y una revisión del responsable. Si la fuente sigue sin localizarse o confirmarse, se deja documentada como pendiente.
+Los otros 14 temas con esquema y extracto se redactarán y revisarán por bloques. Los 22 temas sin material estructurado requieren primero localizar y validar su fuente. Los temas técnicos y operativos no se rellenan con BOE por defecto. Se identifican primero el documento correcto, su edición y el permiso de uso. Para los procedimientos internos del CPEI, se requiere el documento oficial entregado/autorizado y una revisión del responsable. Si la fuente sigue sin localizarse o confirmarse, se deja documentada como pendiente.
 
 ## Lista de revisión por bloque
 
