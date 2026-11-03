@@ -4,7 +4,16 @@
 
 ## Fuente
 
-- Reglamento de Régimen Interno del CPEI de Badajoz (BOP nº 149, anuncio 5370/2012) — BOP Badajoz nº 149, texto consolidado del BOE, última actualización/versión texto único vigente publicado en el BOP nº 149 de 06/08/2012: https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06 (copia en /workspace/fuentes_oficiales/tema05/)
+- Reglamento de Régimen Interno del CPEI de Badajoz (BOP n.º 149, anuncio 5370/2012): texto único publicado el 06/08/2012, que integra la modificación de 2012. La publicación se tituló «texto único vigente» en esa fecha; no es un texto consolidado del BOE. Fuente: https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06 (copia local de trabajo en /workspace/fuentes_oficiales/tema05/).
+
+## Auditoría de fuente (03/11/2026)
+
+- El BOP n.º 145, anuncio 3393/2022, publicó la aprobación inicial de una modificación puntual del RRI. El anuncio prevé que, si no hay reclamaciones durante el plazo de exposición, el acuerdo se entiende definitivamente adoptado. No se ha localizado el texto completo de la modificación ni una publicación posterior que permita verificar su contenido y desenlace.
+- La página oficial del CPEI enlaza un PDF fechado en octubre de 2006; el texto completo identificado en el repositorio es el texto único del BOP de 2012. Ninguno de los dos permite por sí solo confirmar el estado vigente tras el anuncio de 2022.
+- El organigrama oficial disponible está rotulado «actual (junio 2022)». Su fecha y procedencia son claras; su vigencia organizativa en 2026 no está confirmada.
+- El banco de 259 conceptos del RRI se basa en el texto de 2012. Se conserva sin cambios y queda pendiente de cotejo con el expediente de 2022 antes de certificar su vigencia. No se han modificado datos de producción.
+
+Fuentes: [BOP n.º 145/2022, anuncio 3393/2022](https://www.dip-badajoz.es/toolsphp/descarga.php?fr=6&id=bop_2022-08-01000000_firmado.pdf) · [Documentación oficial del CPEI](https://www.dip-badajoz.es/diputacion/delegaciones/cpei/) · [Reglamento enlazado actualmente por el CPEI](https://www.dip-badajoz.es/diputacion/delegaciones/cpei/doc/reglamento_consorcio.pdf) · [BOP n.º 149/2012, anuncio 5370/2012](https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06).
 
 ## Resultado
 
@@ -13,12 +22,12 @@
 
 ## Cobertura del epígrafe
 
-- Reglamento de Régimen Interno (disposiciones generales, personal, normas de servicio, parques, deberes y faltas): cubierto (texto de 2012; no he localizado modificaciones posteriores publicadas en el BOP)
-- Organigrama del CPEI: PENDIENTE: solo existe como gráfico (2022) en la web, sin texto oficial publicado en el BOP
+- Reglamento de Régimen Interno (disposiciones generales, personal, normas de servicio, parques, deberes y faltas): parcialmente documentado: el banco se elaboró con el texto del BOP de 2012; la vigencia actual queda pendiente de cotejo con la modificación anunciada en 2022
+- Organigrama del CPEI: la Diputación publica un gráfico oficial rotulado «Organigrama actual (junio 2022)»; no se ha localizado una versión posterior y su vigencia en 2026 no está confirmada
 
 ## Comprobación automática
 
-- La respuesta aparece en el artículo/bloque citado del texto consolidado (coincidencia normalizada sin tildes ni puntuación o difusa ≥ 0,85 por ventana de palabras).
+- La respuesta aparece en el artículo/bloque citado del texto del BOP de 2012 (coincidencia normalizada sin tildes ni puntuación o difusa ≥ 0,85 por ventana de palabras).
 - Se descartan: vacías, bloque inexistente, truncadas (final en preposición/artículo, coma, «…», paréntesis abierto), respuesta dentro de la pregunta (o ≥ 80 % de sus palabras), preguntas duplicadas, no formuladas como pregunta y preguntas que copian el comienzo de la respuesta.
 
 ### Descartes

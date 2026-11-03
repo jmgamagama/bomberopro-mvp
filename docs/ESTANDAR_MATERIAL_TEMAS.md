@@ -89,7 +89,7 @@ Hay 63 borradores en `docs/borradores-material/`, distribuidos entre T2 (6), T3 
 
 ### Temas restantes
 
-Los 17 temas que ya tienen esquema y extracto cuentan ahora con al menos un borrador de desarrollo; estos borradores son parciales y no se consideran capas publicadas. Los 22 temas sin material estructurado requieren primero localizar y validar su fuente. Los temas técnicos y operativos no se rellenan con BOE por defecto. Se identifican primero el documento correcto, su edición y el permiso de uso. Para los procedimientos internos del CPEI, se requiere el documento oficial entregado/autorizado y una revisión del responsable. Si la fuente sigue sin localizarse o confirmarse, se deja documentada como pendiente.
+Los 17 temas que ya tienen esquema y extracto cuentan ahora con al menos un borrador de desarrollo; estos borradores son parciales y no se consideran capas publicadas. Los 22 temas sin material estructurado requieren primero localizar y validar su fuente. Los temas técnicos y operativos no se rellenan con BOE por defecto. Se identifican primero el documento correcto, su edición y el permiso de uso. Para los procedimientos internos del CPEI, se requiere el documento oficial entregado/autorizado y una revisión del responsable. Si la fuente sigue sin localizarse o confirmarse, se deja documentada como pendiente. En T5 existe un banco de 259 conceptos derivado del texto del RRI publicado en el BOP en 2012, pero el BOP publicó en 2022 una aprobación inicial de modificación cuyo texto y desenlace aún deben cotejarse; la Diputación publica un organigrama fechado en 2022 sin confirmar su vigencia en 2026. No se deben presentar esas dos fuentes como actualidad confirmada.
 
 ## Lista de revisión por bloque
 

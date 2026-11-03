@@ -55,12 +55,12 @@ El Tema 1 sirve como patrón de secuencia pedagógica y desglose por artículos.
 - **T20, T29 y T30 (DOE):** hay cuatro, cuatro y doce borradores parciales, respectivamente. Las tablas, figuras y organigramas no se copian: se remite a su página del PDF. Quedan fuera del recorte la introducción del PLATERCAEX, el cap. I §4 del INUNCAEX y el 1.3 del PLASISMEX (ámbito): las 4 fichas que los citan abren solo el tema. El PLASISMEX aún cita la Directriz de 1995, sustituida por la [Orden INT/1069/2026 (BOE-A-2026-21145)](https://www.boe.es/eli/es/o/2026/10/07/int1069), efectiva el 11/10/2026; la nueva Directriz fija cuatro años para adaptar los planes.
 - **T32:** el material público cubre solo la Parte I (arts. 1–2, 11 y 12); DB-SI 4, SI 5, SUA 4 y SUA 7 están en la Parte II. El RD 164/2025 modificó parcialmente DB-SI, por lo que cualquier desarrollo técnico de SI debe usar el documento vigente del portal oficial del CTE, no inferirse del extracto BOE de Parte I. DB-SUA también debe consultarse en su fuente oficial. Se ha preparado un desarrollo parcial de objetivos, no de soluciones ni parámetros.
 
-## Temas sin material porque su epígrafe no se apoya en una norma consolidada del BOE
+## Temas sin capas estructuradas o con fuentes pendientes de validación
 
 | Tema | Por qué |
 |---|---|
 | 4 | Estructura orgánica de la Diputación de Badajoz: el epígrafe no cita norma y no hay ninguna en el BOE consolidado (es organización provincial). |
-| 5 | Organigrama y Reglamento de Régimen Interno del CPEI: BOP de Badajoz (`data/fuentes/BOP-BA-2012-5370`), no en el BOE. |
+| 5 | Hay 259 conceptos basados en el texto único del RRI publicado en BOP en 2012, pero no capas de material. En 2022 se publicó una aprobación inicial de otra modificación (BOP n.º 145, anuncio 3393/2022); no se ha localizado el texto definitivo ni su desenlace. La Diputación mantiene en su web un organigrama fechado en 2022, sin confirmación de vigencia actual. |
 | 8, 9, 11 | Teoría del fuego, hidráulica y espumas: contenido técnico sin norma (las UNE no son del BOE). |
 | 14 | Vehículos contra incendios: normas UNE-EN 1846, no BOE. |
 | 15, 16 | Material de rescate y comunicaciones: técnico; el código ICAO no es una norma del BOE. |
@@ -71,6 +71,10 @@ El Tema 1 sirve como patrón de secuencia pedagógica y desglose por artículos.
 | 26 | Guías INSARAG (ONU): no es una norma del BOE. |
 | 27 | Construcción y patología: técnico. |
 | 35–40 | Ver la sección siguiente. |
+
+### Tema 5 · Auditoría de fuentes
+
+El texto íntegro del RRI localizado es el publicado en el [BOP n.º 149/2012, anuncio 5370/2012](https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06). El [BOP n.º 145/2022, anuncio 3393/2022](https://www.dip-badajoz.es/toolsphp/descarga.php?fr=6&id=bop_2022-08-01000000_firmado.pdf) publicó una aprobación inicial de modificación puntual, pero falta localizar el texto de esa modificación y verificar si llegó a ser definitiva. La web oficial del [CPEI](https://www.dip-badajoz.es/diputacion/delegaciones/cpei/) enlaza un [PDF del Reglamento fechado en 2006](https://www.dip-badajoz.es/diputacion/delegaciones/cpei/doc/reglamento_consorcio.pdf), anterior al texto del BOP de 2012. El [organigrama oficial disponible](https://www.dip-badajoz.es/diputacion/delegaciones/cpei/doc/OrganigramaCPE2022.pdf) está fechado en junio de 2022. El banco de conceptos existente parte del texto de 2012 y requiere cotejo antes de afirmar vigencia; por ello, no se redacta todavía una capa oficial del RRI ni se presenta el organigrama como actual en 2026.
 
 ## Temas 35-40 sin esquema generado (no se inventa nada)
 
