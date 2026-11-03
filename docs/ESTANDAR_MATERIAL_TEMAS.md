@@ -81,6 +81,10 @@ Se conserva su recorrido pedagógico por artículos, el esquema condensado y el 
 
 Tienen esquema y texto normativo generado desde fuente oficial. El siguiente trabajo editorial es redactar y revisar sus desarrollos en lotes pequeños. Los temas con varias normas conservan una fuente y un alcance por bloque. No se completa en lote con texto genérico.
 
+### Primera aplicación: Tema 2
+
+Se han preparado seis borradores de desarrollo, uno por bloque, en `docs/borradores-material/tema02/`. Cubren los artículos 1–48 del Estatuto y citan el texto BOE consolidado a 30/10/2026. Siguen marcados como borrador y no se añaden a `public/material` ni al registro de la app hasta completar la revisión humana.
+
 ### Temas restantes
 
 Los temas técnicos y operativos no se rellenan con BOE por defecto. Se identifican primero el documento correcto, su edición y el permiso de uso. Para los procedimientos internos del CPEI, se requiere el documento oficial entregado/autorizado y una revisión del responsable. Si la fuente sigue sin localizarse o confirmarse, se deja documentada como pendiente.
