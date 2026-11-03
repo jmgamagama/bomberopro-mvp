@@ -20,3 +20,6 @@ El capítulo separa al órgano de gobierno autonómico de la Administración que
 - Junta y Administración no son sinónimos: la Junta gobierna y dirige; la Administración ejecuta y sirve al interés general.
 - Decreto-ley: necesidad extraordinaria y urgente + límites materiales + control parlamentario.
 - No confundas la convalidación del art. 33 con la entrada en vigor de normas del art. 40.
+
+## Referencias oficiales por artículo
+[Art. 31](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a31) · [Art. 32](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a32) · [Art. 33](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a33) · [Art. 34](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a34) · [Art. 35](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a35) · [Art. 36](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a36) · [Art. 37](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a37) · [Art. 38](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a38) · [Art. 39](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a39)
