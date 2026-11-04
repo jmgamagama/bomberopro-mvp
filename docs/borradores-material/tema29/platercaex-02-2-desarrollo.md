@@ -32,7 +32,7 @@ No son cuatro órganos equivalentes: la Dirección conduce el Plan; los comités
 
 El Centro de Coordinación Operativa (CECOP) es el nexo entre la Dirección y los servicios operativos. Coordina, controla y sigue las operaciones; mantiene comunicaciones e información de la emergencia. En él se integran la Dirección, los órganos de apoyo y asesoramiento, el Gabinete de Información y el personal operativo del 112.
 
-El Plan prevé que el CECOP pase a funcionar como CECOPI con la incorporación de la persona titular de la Delegación del Gobierno al Comité de Dirección: a solicitud de la Dirección en situación 2 y, en todo caso, en situación 3, de interés nacional. En la situación 3, el Plan contempla la transferencia de responsabilidades al nivel estatal. El Plan lo sitúa en el Centro de Atención de Urgencias y Emergencias 112 de Extremadura, en Mérida. La persona responsable de ese Centro ayuda a la Dirección en la toma de decisiones y en trasladar y ejecutar sus órdenes.
+La persona titular de la Delegación del Gobierno puede incorporarse al Comité de Dirección en situaciones 1 y 2 cuando así lo decida la Dirección del Plan; en situación 3, de interés nacional, su incorporación es obligatoria. Cuando se incorpora, el Comité pasa a ser Comité de Dirección Integrado y el CECOP funciona como CECOPI. En situación 3, el Plan contempla la transferencia de responsabilidades al nivel estatal. El Plan lo sitúa en el Centro de Atención de Urgencias y Emergencias 112 de Extremadura, en Mérida. La persona responsable de ese Centro ayuda a la Dirección en la toma de decisiones y en trasladar y ejecutar sus órdenes.
 
 ## Claves de examen
 
