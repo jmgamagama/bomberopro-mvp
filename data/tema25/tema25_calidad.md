@@ -4,7 +4,12 @@
 
 ## Fuente
 
-- ADR 2025, Anejos A y B (BOE-A-2025-77, BOE nº 3 de 03/01/2025) — BOE-A-2025-77, publicación oficial en el BOE, última actualización/versión BOE nº 3 de 03/01/2025, PDF oficial (ficha BOE actualizada a 20/12/2025): https://www.boe.es/boe/dias/2025/01/03/pdfs/BOE-A-2025-77.pdf (copia en /workspace/fuentes_oficiales/tema25/)
+- ADR 2025, Anejos A y B (BOE-A-2025-77, publicado el 03/01/2025): [texto oficial en PDF](https://www.boe.es/boe/dias/2025/01/03/pdfs/BOE-A-2025-77.pdf) · [ficha del BOE](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-77) · [versión UNECE (ECE/TRANS/352)](https://unece.org/adr-2025-files). En vigor desde el 01/01/2025.
+- Corrección de errores del ADR 2025, BOE-A-2025-8910, publicada el 06/05/2025: [texto oficial](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-8910).
+
+## Control editorial de vigencia
+
+El informe de cada lote no documenta si sus fichas se contrastaron con la corrección BOE-A-2025-8910. Esta rectifica varios pasajes del ADR 2025, incluida la disposición especial 366, cuya excepción pasa a mencionar el galio junto al mercurio. Antes de dar por actualizados los lotes, debe cotejarse cada pregunta y respuesta con las correcciones oficiales. Este cambio registra la fuente y el pendiente; no modifica fichas ni respuestas.
 
 ## Resultado
 
