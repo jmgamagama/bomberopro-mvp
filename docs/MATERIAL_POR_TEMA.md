@@ -6,16 +6,17 @@ anexo I (BOP de Badajoz n.º 135, 17/07/2026; `data/temario/cpei-badajoz-2026-an
 «desarrollo»; se añade solo cuando una persona la redacta y revisa. La vigencia se comprueba con `python3 scripts/verificar_vigencia_boe.py`
 (resultado en `docs/VIGENCIA_MATERIAL_BOE.md`).
 
-Criterio para generar un tema: su epígrafe cita una norma, o pide algo («hidrantes», «distancias de seguridad en función
-de la tensión», «normativa de los EPI»…) que regula una norma concreta con texto consolidado en el BOE. Se genera solo la
-parte de la norma que pide el epígrafe. Cuando el epígrafe se apoya en documentos que no están en el BOE consolidado
-(normas UNE, DOUE, DOE, BOP, guías del INSST, documentos internos), no se genera nada y se deja anotado abajo.
+Criterio para el generador BOE: el epígrafe cita una norma, o pide algo («hidrantes», «distancias de seguridad en función
+de la tensión», «normativa de los EPI»…) que regula una norma con texto consolidado en el BOE. El generador recorta solo
+la parte que pide el epígrafe. Las fuentes UNE, DOUE, DOE, BOP, guías del INSST y documentos internos requieren un
+flujo y una validación propios; no se generan desde BOE. T4 es un ejemplo de material basado en un acuerdo del BOP y
+página oficial, con una discrepancia de vigencia documentada para sus unidades de servicio.
 
 ## Capas y cobertura actual
 
 La app organiza el estudio en **Esquema → Desarrollo → Texto oficial**, además de enlazar y permitir descargar la fuente oficial. El tercer panel contiene un extracto literal limitado al epígrafe del temario; no equivale al texto íntegro de la norma. La norma íntegra se ofrece por separado cuando está disponible.
 
-A 03/11/2026 hay material registrado para **18 de los 40 temas**. El Tema 1 es el único con las tres capas en sus seis bloques; los otros 17 tienen esquema y extracto normativo, pero todavía no desarrollo registrado en la app. Hay 63 borradores de desarrollo, pendientes de revisión humana, distribuidos entre T2 (6), T3 (2), T6 (4), T7 (3), T10 (1), T12 (1), T13 (1), T20 (4), T22 (1), T25 (2), T28 (6), T29 (4), T30 (12), T31 (3), T32 (3), T33 (2) y T34 (8). Los borradores cubren alcances parciales y no se computan como capas publicadas. Los 22 temas restantes están pendientes de material estructurado por las razones documentales que se detallan abajo.
+A 03/11/2026 hay material registrado para **18 de los 40 temas**. El Tema 1 es el único con las tres capas en sus seis bloques; los otros 17 tienen esquema y extracto normativo, pero todavía no desarrollo registrado en la app. Hay 64 borradores de desarrollo en `docs/borradores-material/`, pendientes de revisión humana: T2 (6), T3 (2), T4 (1), T6 (4), T7 (3), T10 (1), T12 (1), T13 (1), T20 (4), T22 (1), T25 (2), T28 (6), T29 (4), T30 (12), T31 (3), T32 (3), T33 (2) y T34 (8). T4 tiene además un esquema y un extracto literal; sus tres archivos están fuera de la app. Los borradores cubren alcances parciales y no se computan como capas publicadas. Los otros 22 temas siguen sin material estructurado registrado en la app; T4 permanece en ese grupo hasta que sus capas pasen revisión y se integren.
 
 El Tema 1 sirve como patrón de secuencia pedagógica y desglose por artículos. Se ha afinado la tercera capa para que contenga solo norma literal: las preguntas de repaso pertenecen al estudio de conceptos y no deben mezclarse con una fuente jurídica. El estándar ampliado está en [ESTANDAR_MATERIAL_TEMAS.md](ESTANDAR_MATERIAL_TEMAS.md).
 
@@ -55,11 +56,11 @@ El Tema 1 sirve como patrón de secuencia pedagógica y desglose por artículos.
 - **T20, T29 y T30 (DOE):** hay cuatro, cuatro y doce borradores parciales, respectivamente. Las tablas, figuras y organigramas no se copian: se remite a su página del PDF. Quedan fuera del recorte la introducción del PLATERCAEX, el cap. I §4 del INUNCAEX y el 1.3 del PLASISMEX (ámbito): las 4 fichas que los citan abren solo el tema. El PLASISMEX aún cita la Directriz de 1995, sustituida por la [Orden INT/1069/2026 (BOE-A-2026-21145)](https://www.boe.es/eli/es/o/2026/10/07/int1069), efectiva el 11/10/2026; la nueva Directriz fija cuatro años para adaptar los planes.
 - **T32:** el material público cubre solo la Parte I (arts. 1–2, 11 y 12); DB-SI 4, SI 5, SUA 4 y SUA 7 están en la Parte II. El RD 164/2025 modificó parcialmente DB-SI, por lo que cualquier desarrollo técnico de SI debe usar el documento vigente del portal oficial del CTE, no inferirse del extracto BOE de Parte I. DB-SUA también debe consultarse en su fuente oficial. Se ha preparado un desarrollo parcial de objetivos, no de soluciones ni parámetros.
 
-## Temas sin material porque su epígrafe no se apoya en una norma consolidada del BOE
+## Temas sin capas estructuradas registradas en la app o con fuentes pendientes de validar
 
 | Tema | Por qué |
 |---|---|
-| 4 | Estructura orgánica de la Diputación de Badajoz: el epígrafe no cita norma y no hay ninguna en el BOE consolidado (es organización provincial). |
+| 4 | No cita norma BOE; existe un mazo de 28 fichas y tres capas en borrador basadas principalmente en el BOP n.º 206/2025. La página oficial del área de Desarrollo Rural consultada en 2026 enumera unidades distintas de las del apartado 1.7 del BOP. No se presentan las capas como actuales ni se integran en la app hasta conciliar las fuentes. |
 | 5 | Organigrama y Reglamento de Régimen Interno del CPEI: BOP de Badajoz (`data/fuentes/BOP-BA-2012-5370`), no en el BOE. |
 | 8, 9, 11 | Teoría del fuego, hidráulica y espumas: contenido técnico sin norma (las UNE no son del BOE). |
 | 14 | Vehículos contra incendios: normas UNE-EN 1846, no BOE. |
@@ -71,6 +72,14 @@ El Tema 1 sirve como patrón de secuencia pedagógica y desglose por artículos.
 | 26 | Guías INSARAG (ONU): no es una norma del BOE. |
 | 27 | Construcción y patología: técnico. |
 | 35–40 | Ver la sección siguiente. |
+
+### Tema 4 · capas en borrador y discrepancia de fuente
+
+- Esquema, desarrollo y extracto literal: [`docs/borradores-material/tema04/`](borradores-material/tema04/).
+- Fuente del extracto: [BOP n.º 206/2025, anuncio 4611/2025](https://transparencia.dip-badajoz.es/download/332/equipo-de-gobierno/21026/diputacion-de-badajoz-b-o-p-no-206-anuncio-4611_2025-miercoles-29-de-octubre-de-2025-acuerdo-adoptado-por-el-pleno-de-la-corporacion-provincial-en-sesion-ordinaria-del-dia-29-d.pdf), acuerdo de reorganización plenario de 29/10/2025.
+- La web oficial de [Áreas Funcionales del Área de Desarrollo Rural](https://desarrollorural.dip-badajoz.es/areas-funcionales), con pie de página 2026, enumera seis entradas en T4.1.7; el BOP n.º 206/2025 enumera tres. No se ha localizado una publicación formal posterior que explique la diferencia. La web central del [organigrama oficial](https://www2.dip-badajoz.es/diputacion/organigrama/index.php) confirma las denominaciones principales de las áreas y entes, pero no resuelve los servicios.
+- El banco de recuerdo contiene 28 fichas; su informe documenta una muestra manual de 20 con cero errores y la revisión de mazos lo mantiene pendiente. No se han cambiado fichas ni datos de producción.
+- Los tres documentos son borradores fuera de `public/material` y del registro de la app. Las unidades de T4.1.7 quedan pendientes de confirmación.
 
 ## Temas 35-40 sin esquema generado (no se inventa nada)
 
