@@ -1,11 +1,11 @@
-# Tema 12 — informe de calidad (texto oficial)
+# Tema 12 — informe de calidad (fuentes oficiales)
 
 **Epígrafe (BOP Badajoz n.º 135, 17/07/2026):** Mecanismos de extincion. Agentes Extintores. Extintores portatiles norma UNE-EN 3.7. Clasificacion, generalidades, cargas nominales. Identificacion de los extintores. Emplazamiento y distribucion. Extintores moviles. Norma UNE-EN1866-1. Cargas nominales, tiempo de utilizacion.
 
 ## Fuente
 
-- Real Decreto 513/2017, Reglamento de instalaciones de protección contra incendios — BOE-A-2017-6606, texto consolidado del BOE, última actualización/versión 19/12/2025: https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606 (copia en /workspace/fuentes_oficiales/tema12/)
-- INSST, Temas específicos del proceso selectivo de Titulados Superiores, Tema 33 (v. abril 2025) — INSST-T33, texto consolidado del BOE, última actualización/versión 30/04/2025: https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i- (copia en /workspace/fuentes_oficiales/tema12/)
+- Real Decreto 513/2017, Reglamento de instalaciones de protección contra incendios — BOE-A-2017-6606, texto consolidado del BOE; última actualización publicada el 03/09/2025: https://www.boe.es/buscar/act.php?id=BOE-A-2017-6606 (copia de trabajo en /workspace/fuentes_oficiales/tema12/).
+- INSST, Temas específicos del proceso selectivo de Titulados Superiores, Tema 33 («El riesgo de incendio I»), edición abril 2025 — material técnico oficial del INSST, no norma jurídica; contrastar cualquier requisito con la normativa vigente: https://www.insst.es/documents/d/portal-insst/tema-33-el-riesgo-de-incendio-i- (copia de trabajo en /workspace/fuentes_oficiales/tema12/).
 
 ## Resultado
 
@@ -17,11 +17,11 @@
 - Generalidades, clasificación portátil/móvil, emplazamiento y distribución, clases de fuego: cubierto
 - Agentes extintores y mecanismo de inhibición: parcial
 - Cargas nominales, identificación y tiempo de utilización (UNE-EN 3-7, UNE-EN 1866-1): PENDIENTE: normas UNE de pago
-- Mecanismos eliminación/sofocación/enfriamiento: PENDIENTE: NTP 99 no descargable desde insst.es (bloqueo de descarga)
+- Mecanismos eliminación/sofocación/enfriamiento: la ficha oficial de la NTP 99 está disponible en la colección del INSST; queda pendiente cotejar la descarga íntegra usada en este lote: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/3-serie-ntp-numeros-086-a-120-ano-1984/ntp-99-metodos-de-extincion-y-agentes-extintores
 
 ## Comprobación automática
 
-- La respuesta aparece en el artículo/bloque citado del texto consolidado (coincidencia normalizada sin tildes ni puntuación o difusa ≥ 0,85 por ventana de palabras).
+- En las fichas normativas se comprueba el artículo o bloque citado del texto consolidado; en las fichas basadas en documentos del INSST, el apartado citado. La coincidencia automática normaliza tildes y puntuación o acepta similitud difusa ≥ 0,85 por ventana de palabras.
 - Se descartan: vacías, bloque inexistente, truncadas (final en preposición/artículo, coma, «…», paréntesis abierto), respuesta dentro de la pregunta (o ≥ 80 % de sus palabras), preguntas duplicadas, no formuladas como pregunta y preguntas que copian el comienzo de la respuesta.
 
 ## Muestra revisada a mano

@@ -1,11 +1,11 @@
-# Tema 12 — informe de calidad (texto oficial)
+# Tema 12 — informe de calidad (fuentes INSST)
 
 **Epígrafe (BOP Badajoz n.º 135, 17/07/2026):** Mecanismos de extincion. Agentes Extintores. Extintores portatiles norma UNE-EN 3.7. Clasificacion, generalidades, cargas nominales. Identificacion de los extintores. Emplazamiento y distribucion. Extintores moviles. Norma UNE-EN1866-1. Cargas nominales, tiempo de utilizacion.
 
 ## Fuente
 
-- INSST, NTP 99: Métodos de extinción y agentes extintores (1984) — INSST-NTP099, texto consolidado del BOE, última actualización/versión 1984: https://www.insst.es/documents/94886/7888278/ntp_099.pdf (copia en /workspace/fuentes_oficiales/tema12/)
-- INSST, NTP 536: Extintores de incendio portátiles: utilización (1999) — INSST-NTP536, texto consolidado del BOE, última actualización/versión 1999: https://www.insst.es/documents/94886/7865585/ntp_536.pdf (copia en /workspace/fuentes_oficiales/tema12/)
+- INSST, NTP 99: Métodos de extinción y agentes extintores (1984) — guía técnica de buenas prácticas, no disposición normativa; sus recomendaciones no son obligatorias salvo incorporación en norma vigente: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/3-serie-ntp-numeros-086-a-120-ano-1984/ntp-99-metodos-de-extincion-y-agentes-extintores
+- INSST, NTP 536: Extintores de incendio portátiles: utilización (1999) — guía técnica de buenas prácticas, no disposición normativa; sus recomendaciones no son obligatorias salvo incorporación en norma vigente: https://www.insst.es/documentacion/colecciones-tecnicas/ntp-notas-tecnicas-de-prevencion/15-serie-ntp-numeros-506-a-540-ano-2000/ntp-536-extintores-de-incendio-portatiles-utilizacion
 
 ## Resultado
 
@@ -20,7 +20,7 @@
 
 ## Comprobación automática
 
-- La respuesta aparece en el artículo/bloque citado del texto consolidado (coincidencia normalizada sin tildes ni puntuación o difusa ≥ 0,85 por ventana de palabras).
+- En las fichas normativas se comprueba el artículo o bloque citado del texto consolidado; en las fichas basadas en documentos del INSST, el apartado citado. La coincidencia automática normaliza tildes y puntuación o acepta similitud difusa ≥ 0,85 por ventana de palabras.
 - Se descartan: vacías, bloque inexistente, truncadas (final en preposición/artículo, coma, «…», paréntesis abierto), respuesta dentro de la pregunta (o ≥ 80 % de sus palabras), preguntas duplicadas, no formuladas como pregunta y preguntas que copian el comienzo de la respuesta.
 
 ## Muestra revisada a mano
