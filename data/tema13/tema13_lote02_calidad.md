@@ -1,4 +1,4 @@
-# Tema 13 — informe de calidad (texto oficial)
+# Tema 13 — informe de calidad (fuentes técnicas INSST)
 
 **Epígrafe (BOP Badajoz n.º 135, 17/07/2026):** Equipos de protección individual. Protección respiratoria.
 
@@ -23,7 +23,7 @@
 
 ## Comprobación automática
 
-- La respuesta aparece en el artículo/bloque citado del texto consolidado (coincidencia normalizada sin tildes ni puntuación o difusa ≥ 0,85 por ventana de palabras).
+- Se coteja cada respuesta con el artículo, anexo o párrafo de la fuente citada (BOE, EUR-Lex o documento INSST). La comprobación automática normaliza tildes y puntuación o acepta similitud difusa ≥ 0,85 por ventana de palabras.
 - Se descartan: vacías, bloque inexistente, truncadas (final en preposición/artículo, coma, «…», paréntesis abierto), respuesta dentro de la pregunta (o ≥ 80 % de sus palabras), preguntas duplicadas, no formuladas como pregunta y preguntas que copian el comienzo de la respuesta.
 
 ## Muestra revisada a mano
