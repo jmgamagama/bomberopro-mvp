@@ -1,10 +1,10 @@
-# Tema 20 — informe de calidad (texto oficial)
+# Tema 20 — informe de calidad (fuente oficial DOE)
 
 **Epígrafe (BOP Badajoz n.º 135, 17/07/2026):** Incendios forestales. Comportamiento del incendio forestal. Seguridad y prevención de riesgos en incendios forestales. Autoprotección. Extinción, operaciones, métodos y formas de realizar el combate de incendios forestales. Estrategia, táctica y operativa en la extinción de incendios forestales. Vehículos autobomba y tendidos de mangueras. Herramientas manuales habituales en incendios forestales.
 
 ## Fuente
 
-- Decreto 132/2022, Plan INFOEX, artículos en la redacción del Decreto 136/2024 — Decreto 136/2024, texto consolidado del BOE, última actualización/versión DOE nº 215 de 05/11/2024 (nueva redacción de los artículos citados): https://doe.juntaex.es/otrosFormatos/html.php?anio=2024&doe=2150o&xml=2024040227 (copia en /workspace/fuentes_oficiales/tema20/)
+- Decreto 132/2022 (Plan INFOEX), en la redacción dada por el Decreto 136/2024 — texto consolidado oficial del DOE; última modificación publicada el 05/11/2024: [texto consolidado](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf) y [decreto modificador, DOE n.º 215](https://doe.juntaex.es/otrosFormatos/html.php?anio=2024&doe=2150o&xml=2024040227) (copia de trabajo en /workspace/fuentes_oficiales/tema20/).
 
 ## Resultado
 
@@ -19,7 +19,7 @@
 
 ## Comprobación automática
 
-- La respuesta aparece en el artículo/bloque citado del texto consolidado (coincidencia normalizada sin tildes ni puntuación o difusa ≥ 0,85 por ventana de palabras).
+- La respuesta aparece en el artículo/bloque citado del texto consolidado del DOE (coincidencia normalizada sin tildes ni puntuación o difusa ≥ 0,85 por ventana de palabras).
 - Se descartan: vacías, bloque inexistente, truncadas (final en preposición/artículo, coma, «…», paréntesis abierto), respuesta dentro de la pregunta (o ≥ 80 % de sus palabras), preguntas duplicadas, no formuladas como pregunta y preguntas que copian el comienzo de la respuesta.
 
 ### Descartes

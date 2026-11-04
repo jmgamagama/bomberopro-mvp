@@ -1,13 +1,17 @@
-# Plan INFOEX · Estructura organizativa (cap. VI, arts. 11–15) · Esquema
+# Plan INFOEX · Estructura organizativa (capítulo VI, arts. 11–15) · Esquema
 
-Texto extraído del PDF oficial: [Decreto 132/2022, de 26 de octubre, por el que se aprueba el Plan de Lucha contra Incendios Forestales de Extremadura (Plan INFOEX)](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf) (texto consolidado del DOE (última modificación publicada el 05/11/2024)). DOE n.º 210, de 02/11/2022; modificado por el Decreto 136/2024, de 29 de octubre (DOE n.º 215, de 05/11/2024): [PDF del DOE](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193.pdf). El DOE no tiene API de vigencia: comprobado a mano el 01/11/2026. Qué se buscó: Ficha ELI del decreto en doe.juntaex.es: la versión consolidada vigente es la de 05/11/2024 (Decreto 136/2024) y no hay otra posterior. Búsqueda de decretos posteriores que modifiquen el Plan INFOEX: ninguno localizado. Texto con carácter informativo; la versión con valor jurídico es la publicada en el DOE.
+Texto consolidado del DOE: Decreto 132/2022, modificado por el Decreto 136/2024; última modificación publicada el 05/11/2024. [Texto consolidado](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf) · [Publicación original](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193.pdf) (https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193.pdf) · [Decreto modificador en el DOE](https://doe.juntaex.es/otrosFormatos/html.php?anio=2024&doe=2150o&xml=2024040227). El texto consolidado es informativo; la publicación oficial es la del DOE. DOE no ofrece API de vigencia: comprobado a mano el 01/11/2026. Qué se buscó: Ficha ELI del decreto en doe.juntaex.es: la versión consolidada vigente es la de 05/11/2024 (Decreto 136/2024) y no hay otra posterior. Búsqueda de decretos posteriores que modifiquen el Plan INFOEX: ninguno localizado.
 
-5 preceptos. Cada rúbrica (literal) enlaza con el PDF oficial.
+Cada rúbrica enlaza con la página correspondiente del PDF oficial.
 
 **CAPÍTULO VI · Estructura organizativa del Plan INFOEX y de su personal**
+- [Artículo 11. Centro Operativo Regional (C.O.R)](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf#page=6) — Centro regional desde el que se planifica y coordina la defensa, y se hace seguimiento del operativo.
+- [Artículo 12. Mando Directivo](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf#page=6) — Órgano de dirección operativa y movilización de recursos, con funciones durante todo el año.
+- [Artículo 13. Bomberas y Bomberos Forestales Coordinadores](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf#page=6) — Asumen, como regla, la dirección técnica de incendios en su zona, con las excepciones previstas.
+- [Artículo 14. Agentes del Medio Natural](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf#page=7) — Asumen con prioridad y urgencia la dirección de extinción de los incendios que se les asignen; también colaboran en extinción, vigilancia, prevención e investigación de causas.
+- [Artículo 15. Bomberos forestales-conductores y bomberas forestales-conductoras](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf#page=8) — Remite las funciones y tareas a las normas de organización y funcionamiento del personal.
 
-- [Artículo 11. Centro Operativo Regional (C.O.R)](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf#page=6)
-- [Artículo 12. Mando Directivo](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf#page=6)
-- [Artículo 13. Bomberas y Bomberos Forestales Coordinadores](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf#page=6)
-- [Artículo 14. Agentes del Medio Natural](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf#page=7)
-- [Artículo 15. Bomberos forestales-conductores y bomberas forestales-conductoras](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf#page=8)
+## Claves de examen
+- El COR coordina y sigue el operativo regional; el Mando Directivo adopta prioridades y moviliza recursos.
+- Coordinación forestal y Agentes del Medio Natural tienen ámbitos y responsabilidades distintas.
+- El art. 15 remite a otra norma: no le atribuyas funciones que no enumera.
