@@ -4,9 +4,11 @@
 
 ## Fuente
 
-- Real Decreto 614/2001, protección de los trabajadores frente al riesgo eléctrico — BOE-A-2001-11881, texto consolidado del BOE, última actualización/versión 18/12/2025: https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881 (copia en /workspace/fuentes_oficiales/tema28/)
-- Real Decreto 842/2002, Reglamento electrotécnico para baja tensión — BOE-A-2002-18099, texto consolidado del BOE, última actualización/versión 18/12/2025: https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099 (copia en /workspace/fuentes_oficiales/tema28/)
-- Real Decreto 223/2008, Reglamento de líneas eléctricas de alta tensión — BOE-A-2008-5269, texto consolidado del BOE, última actualización/versión 19/12/2025: https://www.boe.es/buscar/act.php?id=BOE-A-2008-5269 (copia en /workspace/fuentes_oficiales/tema28/)
+- Real Decreto 614/2001, protección de los trabajadores frente al riesgo eléctrico — BOE-A-2001-11881, última actualización publicada el 21/06/2001: [texto consolidado del BOE](https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881).
+- Real Decreto 842/2002, Reglamento electrotécnico para baja tensión — BOE-A-2002-18099, última actualización publicada el 03/09/2025: [texto consolidado del BOE](https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099).
+- Real Decreto 223/2008, Reglamento de líneas eléctricas de alta tensión — BOE-A-2008-5269, última actualización publicada el 03/09/2025: [texto consolidado del BOE](https://www.boe.es/buscar/act.php?id=BOE-A-2008-5269).
+
+**Fechas contrastadas en las fichas oficiales del BOE: 04/11/2026.**
 
 ## Resultado
 
