@@ -4,10 +4,12 @@
 
 ## Fuente
 
-- Real Decreto 842/2002, Reglamento electrotécnico para baja tensión (ITC-BT-09, 18 y 24) — BOE-A-2002-18099, texto consolidado del BOE, última actualización/versión 18/12/2025: https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099 (copia en /workspace/fuentes_oficiales/tema28/)
-- Real Decreto 337/2014, Reglamento sobre condiciones técnicas y garantías de seguridad en instalaciones eléctricas de alta tensión e ITC-RAT 01 a 23 — BOE-A-2014-6084, texto consolidado del BOE, última actualización/versión 19/12/2025: https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084 (copia en /workspace/fuentes_oficiales/tema28/)
-- Real Decreto 614/2001, de 8 de junio, disposiciones mínimas para la protección de la salud y seguridad de los trabajadores frente al riesgo eléctrico — BOE-A-2001-11881, texto consolidado del BOE, última actualización/versión 18/12/2025: https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881 (copia en /workspace/fuentes_oficiales/tema28/)
-- INSST, NTP 400: Corriente eléctrica: efectos al atravesar el organismo humano (1996) — INSST-NTP400, Nota Técnica de Prevención del INSST (publicación oficial gratuita), última actualización/versión 1996: https://www.insst.es/documents/94886/7873632/ntp_400.pdf (copia en /workspace/fuentes_oficiales/tema28/)
+- Real Decreto 842/2002, Reglamento electrotécnico para baja tensión — BOE-A-2002-18099, última actualización publicada el 03/09/2025: [texto consolidado del BOE](https://www.boe.es/buscar/act.php?id=BOE-A-2002-18099).
+- Real Decreto 337/2014, Reglamento sobre condiciones técnicas y garantías de seguridad en instalaciones eléctricas de alta tensión e ITC-RAT 01 a 23 — BOE-A-2014-6084, última actualización publicada el 01/10/2025: [texto consolidado del BOE](https://www.boe.es/buscar/act.php?id=BOE-A-2014-6084).
+- Real Decreto 614/2001, protección de los trabajadores frente al riesgo eléctrico — BOE-A-2001-11881, última actualización publicada el 21/06/2001: [texto consolidado del BOE](https://www.boe.es/buscar/act.php?id=BOE-A-2001-11881).
+- INSST, NTP 400: Corriente eléctrica: efectos al atravesar el organismo humano — publicada en 1996; documento técnico, no norma legal: [PDF del INSST](https://www.insst.es/documents/94886/7873632/ntp_400.pdf).
+
+**Fechas contrastadas en las fichas oficiales del BOE: 04/11/2026.**
 
 ## Resultado
 
