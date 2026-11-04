@@ -24,6 +24,13 @@ describe('registro de material por tema', () => {
     const arts = [...esq.matchAll(/act\.php\?id=BOE-A-1995-24292#a(\d+(?:bis)?)\)/g)].map((x) => x[1]);
     expect(arts).toEqual([...Array.from({ length: 32 }, (_, i) => String(i + 1)), '32bis']);
   });
+  it('describe el texto oficial como extracto literal de la fuente dentro del epígrafe', () => {
+    const nota = CAPAS.find((c) => c.id === 'completo')!.nota;
+    expect(nota).toContain('Extracto literal de la fuente oficial');
+    expect(nota).toContain('limitado al epígrafe');
+    expect(nota).not.toContain('del BOE');
+  });
+
   it('temas generados del BOE: cada precepto del índice está enlazado en el esquema', () => {
     for (const n of [2, 3, 6, 7, 10, 12, 13, 22, 25, 28, 31, 32, 33, 34]) {
       const m = materialDeTema(n)!;
