@@ -23,8 +23,8 @@ describe('aviso de límite de correcciones', () => {
   it('StudyByTopic', async () => {
     from.mockReturnValue({ select: () => ({ eq: () => ({ order: () => Promise.resolve({ data: [{ id: 18, numero: 18, nombre: 'T18' }], error: null }) }) }) });
     rpc.mockImplementation((fn: string) => Promise.resolve(
-      fn === 'get_topic_questions_v2' ? { data: [{ id: '5', question: '¿P?', options: ['A', 'B'], level: 1 }], error: null }
-      : fn === 'check_answer' ? { data: null, error: limit } : { data: null, error: null }));
+      fn === 'begin_topic_session_v3' ? { data: { session_id: 'topic-session', questions: [{ id: '5', question: '¿P?', options: ['A', 'B'], level: 1 }] }, error: null }
+      : fn === 'submit_question_answer_v3' ? { data: null, error: limit } : { data: null, error: null }));
     render(<StudyByTopic session={{ user: { id: 'u1' } }} onNavigateHome={() => {}} />);
     fireEvent.click(await screen.findByRole('checkbox'));
     fireEvent.click(screen.getByText(/Empezar/));
@@ -35,7 +35,7 @@ describe('aviso de límite de correcciones', () => {
 
   it('TrainScreen', async () => {
     rpc.mockResolvedValue({ data: null, error: { code: 'P0429', message: 'rate_limited_hour' } });
-    const q = { ...INITIAL_QUESTIONS[0], correct_answer: '', explanation: '' };
+    const q = { ...INITIAL_QUESTIONS[0], correct_answer: '', explanation: '', delivery_session_id: 'train-session' };
     const onAnswer = vi.fn();
     const { container } = render(
       <TrainScreen question={q} selectionReason="r" microconcepts={INITIAL_MICROCONCEPTS} memoryStates={{}}
@@ -49,7 +49,7 @@ describe('aviso de límite de correcciones', () => {
   it('TrainScreen bloquea las opciones mientras el servidor corrige', async () => {
     let resolveCheck: (v: unknown) => void = () => {};
     rpc.mockReturnValue(new Promise((resolve) => { resolveCheck = resolve; }));
-    const q = { ...INITIAL_QUESTIONS[0], correct_answer: '', explanation: '' };
+    const q = { ...INITIAL_QUESTIONS[0], correct_answer: '', explanation: '', delivery_session_id: 'train-session' };
     const { container } = render(
       <TrainScreen question={q} selectionReason="r" microconcepts={INITIAL_MICROCONCEPTS} memoryStates={{}}
         sessionCurrent={1} sessionTotal={1} onAnswer={vi.fn()} onNextQuestion={vi.fn()} onNavigateHome={vi.fn()} />);

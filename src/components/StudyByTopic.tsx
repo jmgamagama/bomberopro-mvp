@@ -11,7 +11,7 @@ import { saveAttemptToServer, toLevelInt } from '../lib/saveAttemptToServer';
 import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
 import { shuffleAllOptions } from '../utils/shuffleOptions';
-import { checkAnswer, describeCheckError, fetchKeyless, withRevealedKey } from '../lib/secureQuestions';
+import { checkAnswer, describeCheckError, fetchQuestionSession, withRevealedKey } from '../lib/secureQuestions';
 import { useActiveTimer } from '../hooks/useActiveTimer';
 import { validResponseMs } from '../utils/activeTimer';
 import { newStudySessionId, startStudySession, finishStudySession } from '../lib/studySession';
@@ -75,10 +75,10 @@ const toggleTopic = (id: number) => {
 const startStudy = async () => {
   if (selected.length === 0) return;
   setLoadingQuestions(true);
-  // C2: preguntas SIN clave; se corrigen una a una con check_answer.
+  // C2: preguntas sin clave; la sesión devuelta por el servidor limita las correcciones.
   let data: Question[] | null = null;
   try {
-    data = await fetchKeyless(supabase, 'get_topic_questions_v2', { p_topic_ids: selected, p_limit: 10 });
+    data = await fetchQuestionSession(supabase, 'begin_topic_session_v3', { p_topic_ids: selected, p_limit: 10 });
   } catch (err) {
     console.error('No se pudieron cargar las preguntas del tema:', err);
   }

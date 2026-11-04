@@ -2,11 +2,11 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it, vi } from 'vitest';
 import { INITIAL_QUESTIONS } from '../data/initialData';
-import { checkAnswer, fetchKeyless, gradeExam, hasLocalKey, toKeylessQuestion, withRevealedKey } from './secureQuestions';
+import { checkAnswer, fetchQuestionSession, gradeExam, hasLocalKey, toKeylessQuestion, withRevealedKey } from './secureQuestions';
 import { isDeckBundled } from '../data/recallRegistry';
 
 const local = INITIAL_QUESTIONS[0];
-const keyless = toKeylessQuestion({ ...local, id: 7, respuesta_correcta: 'x', explicacion: 'y', correcta: 'a' });
+const keyless = { ...toKeylessQuestion({ ...local, id: 7, respuesta_correcta: 'x', explicacion: 'y', correcta: 'a' }), delivery_session_id: 'session-1' };
 
 describe('secureQuestions', () => {
   it('toKeylessQuestion quita toda clave y explicación', () => {
@@ -18,13 +18,16 @@ describe('secureQuestions', () => {
     expect(hasLocalKey(local)).toBe(true);
   });
 
-  it('fetchKeyless descarta la clave aunque el servidor la enviara y propaga errores', async () => {
-    const rpc = vi.fn().mockResolvedValue({ data: [local], error: null });
-    const [q] = await fetchKeyless({ rpc }, 'get_exam_questions_v2', { p_seed: 0.3 });
-    expect(rpc).toHaveBeenCalledWith('get_exam_questions_v2', { p_seed: 0.3 });
-    expect(q.correct_answer).toBe('');
-    const failing = vi.fn().mockResolvedValue({ data: null, error: { message: 'boom' } });
-    await expect(fetchKeyless({ rpc: failing }, 'get_study_session_v2', {})).rejects.toEqual({ message: 'boom' });
+  it('fetchQuestionSession valida el sobre y adjunta el token emitido por servidor', async () => {
+    const rpc = vi.fn().mockResolvedValue({
+      data: { session_id: 'server-session', questions: [{ ...local, id: 7, correct_answer: 'secreto' }] },
+      error: null,
+    });
+    const [question] = await fetchQuestionSession({ rpc }, 'begin_study_session_v3', { p_limit: 10 });
+    expect(rpc).toHaveBeenCalledWith('begin_study_session_v3', { p_limit: 10 });
+    expect(question).toMatchObject({ id: '7', delivery_session_id: 'server-session', correct_answer: '' });
+    await expect(fetchQuestionSession({ rpc: vi.fn().mockResolvedValue({ data: [], error: null }) }, 'begin_exam_session_v3', {}))
+      .rejects.toThrow(/formato válido/);
   });
 
   it('checkAnswer: muestra local en el navegador, sin clave en el servidor', async () => {
@@ -33,16 +36,21 @@ describe('secureQuestions', () => {
     expect(offline.correct).toBe(true);
     expect(rpc).not.toHaveBeenCalled();
     const remote = await checkAnswer({ rpc }, keyless, 'A');
-    expect(rpc).toHaveBeenCalledWith('check_answer', { p_question_id: 7, p_respuesta: 'A' });
+    expect(rpc).toHaveBeenCalledWith('submit_question_answer_v3', {
+      p_delivery_session_id: 'session-1', p_question_id: '7', p_respuesta: 'A',
+    });
     expect(remote).toEqual({ questionId: '7', correct: true, correctAnswer: 'A', explanation: 'E' });
     expect(withRevealedKey(keyless, remote)).toMatchObject({ correct_answer: 'A', explanation: 'E' });
-    await expect(checkAnswer(null, keyless, 'A')).resolves.toMatchObject({ correct: false });
+    await expect(checkAnswer(null, keyless, 'A')).rejects.toThrow(/conexión/);
+    await expect(checkAnswer({ rpc }, { ...keyless, delivery_session_id: undefined }, 'A')).rejects.toThrow(/sesión segura/);
   });
 
   it('gradeExam manda solo las preguntas sin clave y exige conexión para ellas', async () => {
     const rpc = vi.fn().mockResolvedValue({ data: { detalle: [{ question_id: '7', acierto: false, correct_answer: 'B', explanation: null }] }, error: null });
     const out = await gradeExam({ rpc }, [local, keyless], { [local.id]: local.correct_answer, '7': 'A' });
-    expect(rpc).toHaveBeenCalledWith('grade_exam', { p_answers: [{ question_id: '7', respuesta: 'A' }] });
+    expect(rpc).toHaveBeenCalledWith('grade_exam_v3', {
+      p_delivery_session_id: 'session-1', p_answers: [{ question_id: '7', respuesta: 'A' }],
+    });
     expect(out[local.id].correct).toBe(true);
     expect(out['7']).toMatchObject({ correct: false, correctAnswer: 'B' });
     await expect(gradeExam(null, [keyless], {})).rejects.toThrow(/conexión/);
@@ -52,6 +60,7 @@ describe('secureQuestions', () => {
     for (const f of ['../components/MockExam.tsx', '../components/StudyByTopic.tsx', '../components/TrainScreen.tsx', '../App.tsx']) {
       const src = readFileSync(new URL(f, import.meta.url), 'utf8');
       expect(src, f).not.toMatch(/rpc\(\s*'(get_blueprint_exam_questions|get_study_session|get_topic_study_questions)'/);
+      expect(src, f).not.toMatch(/rpc\(\s*'(check_answer|grade_exam)'/);
     }
   });
 });

@@ -60,6 +60,8 @@ export interface Microconcept {
 
 export interface Question {
   id: string;
+  /** Token opaco que vincula esta pregunta con una selección emitida por el servidor. */
+  delivery_session_id?: string;
   microconcept_id: string;
   level: QuestionLevel;
   type: QuestionType;
