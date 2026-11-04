@@ -87,16 +87,18 @@ describe('registro de material por tema', () => {
         expect(f?.doe, `T${n} ${b.id}`).toBeDefined();
         expect(m.bloques.find((x) => x.id === b.id)!.boe ?? indice.boe).toBe(b.boe);
         const esq = readFileSync(`public/material/${m.carpeta}/${b.id}-1-esquema.md`, 'utf8');
-        expect(esq).toContain(`comprobado a mano el ${f.doe!.comprobado}`);
         if (n === 29) {
-          // T29 usa una nota editorial legible; conserva las evidencias de vigencia y sus fuentes.
-          expect(esq).toContain('Qué se buscó:');
-          expect(esq).toContain('ficha ELI consultada');
-          expect(esq).toContain('Decreto 39/2025');
-          expect(esq).toContain('Resolución DOE n.º 201/2024');
+          // La nota resumida enlaza las fuentes; la ficha conserva el detalle de la búsqueda.
+          expect(esq).toContain(`Revisión manual: ${f.doe!.comprobado}`);
           expect(esq).toContain('pendiente de confirmar');
+          expect(esq).toContain('La ficha del tema detalla la comprobación');
           expect(esq).toContain('https://doe.juntaex.es/eli/es-ex/d/2019/10/15/187/dof/spa/pdf');
+          expect(f.doe!.busqueda).toContain('ficha ELI consultada');
+          expect(f.doe!.busqueda).toContain('Decreto 39/2025');
+          expect(f.doe!.busqueda).toContain('Resolución DOE n.º 201/2024');
+          expect(f.doe!.busqueda).toContain('pendiente confirmar');
         } else {
+          expect(esq).toContain(`comprobado a mano el ${f.doe!.comprobado}`);
           expect(esq).toContain(`Qué se buscó: ${f.doe!.busqueda}`);
           expect(esq).toContain(`(${f.doe!.pdfDoe})`);
         }
