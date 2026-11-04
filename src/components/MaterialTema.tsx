@@ -215,7 +215,7 @@ function DescargaOficial({ material }: { material: Material }) {
   return (
     <a href={url} download onClick={(e) => descargar(e, url, t.titulo)}
       className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-slate-200 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50">
-      <Download className="h-4 w-4" aria-hidden="true" /> Norma completa (texto oficial)
+      <Download className="h-4 w-4" aria-hidden="true" /> Extracto oficial del temario
     </a>
   );
 }
