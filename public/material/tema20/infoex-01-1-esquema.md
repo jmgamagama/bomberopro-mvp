@@ -1,14 +1,16 @@
-# Plan INFOEX (Decreto 132/2022) · Zonificación y épocas de peligro (caps. II y III, arts. 4–6) · Esquema
+# Plan INFOEX · Zonificación y épocas de peligro (capítulos II–III, arts. 4–6) · Esquema
 
-Texto extraído del PDF oficial: [Decreto 132/2022, de 26 de octubre, por el que se aprueba el Plan de Lucha contra Incendios Forestales de Extremadura (Plan INFOEX)](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf) (texto consolidado del DOE (última modificación publicada el 05/11/2024)). DOE n.º 210, de 02/11/2022; modificado por el Decreto 136/2024, de 29 de octubre (DOE n.º 215, de 05/11/2024): [PDF del DOE](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193.pdf). El DOE no tiene API de vigencia: comprobado a mano el 01/11/2026. Qué se buscó: Ficha ELI del decreto en doe.juntaex.es: la versión consolidada vigente es la de 05/11/2024 (Decreto 136/2024) y no hay otra posterior. Búsqueda de decretos posteriores que modifiquen el Plan INFOEX: ninguno localizado. Texto con carácter informativo; la versión con valor jurídico es la publicada en el DOE.
+Texto consolidado del DOE: Decreto 132/2022, modificado por el Decreto 136/2024; última modificación publicada el 05/11/2024. [Texto consolidado](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf) · [Publicación original](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193.pdf) (https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193.pdf) · [Decreto modificador en el DOE](https://doe.juntaex.es/otrosFormatos/html.php?anio=2024&doe=2150o&xml=2024040227). El texto consolidado es informativo; la publicación oficial es la del DOE. DOE no ofrece API de vigencia: comprobado a mano el 01/11/2026. Qué se buscó: Ficha ELI del decreto en doe.juntaex.es: la versión consolidada vigente es la de 05/11/2024 (Decreto 136/2024) y no hay otra posterior. Búsqueda de decretos posteriores que modifiquen el Plan INFOEX: ninguno localizado.
 
-3 preceptos. Cada rúbrica (literal) enlaza con el PDF oficial.
+Cada rúbrica enlaza con la página correspondiente del PDF oficial.
 
 **CAPÍTULO II · Zonificación del territorio**
+- [Artículo 4. Zonas según Épocas de Peligro](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf#page=3) — Distribuye el territorio por época de peligro: diez zonas en Peligro Alto y cinco en Peligro Bajo o Medio.
+- [Artículo 5. Subzonas de actuación](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf#page=3) — Delimita las áreas de trabajo de los Agentes del Medio Natural de Guardia dentro de cada zona; las subzonas se formalizan por resolución.
 
-- [Artículo 4. Zonas según Épocas de Peligro](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf#page=3)
-- [Artículo 5. Subzonas de actuación](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf#page=3)
+**CAPÍTULO III · Épocas de peligro**
+- [Artículo 6. Épocas de Peligro](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf#page=3) — Establece Peligro Bajo, Medio y Alto según el riesgo de inicio y propagación; su declaración se realiza por orden de la Consejería competente.
 
-**CAPITULO III · Épocas de peligro**
-
-- [Artículo 6. Épocas de Peligro](https://doe.juntaex.es/pdfs/doe/2022/2100o/22040193C.pdf#page=3)
+## Claves de examen
+- Las zonas de coordinación y las subzonas de actuación son divisiones distintas.
+- Peligro Medio puede declararse dentro del Bajo; «Incendios Extremos» es una posible situación preventiva dentro del Alto, no una época ni un nivel operativo.
