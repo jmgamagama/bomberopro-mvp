@@ -2,7 +2,7 @@
 
 Lo que vas a aprender: **3 apartados**. Quién dirige, qué órganos le apoyan y cómo se conecta la coordinación central con las administraciones implicadas.
 
-**Fuente y vigencia.** Texto base: [PDF oficial del PLATERCAEX](https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf), versión fechada el 31/01/2020, remitida por el [Decreto 187/2019](https://doe.juntaex.es/eli/es-ex/d/2019/10/15/187/dof/spa/pdf) (DOE n.º 247, 26/12/2019). **comprobado a mano el 04/11/2026. Qué se buscó:** ficha ELI del Decreto 187/2019 y publicaciones del DOE para localizar modificaciones o una versión revisada; además, el Decreto 39/2025 sobre INUNCAEX y la Resolución DOE n.º 201/2024 sobre el Grupo de Logística. La ficha ELI consultada enlaza únicamente la publicación original. El Decreto 39/2025 alude a una revisión del PLATERCAEX, pero no publica un texto revisado. En la búsqueda consultada no se localizó una modificación o sustitución del Decreto 187/2019; la Resolución de 2024 modifica el protocolo del Grupo de Logística. **La vigencia de la estructura institucional descrita en el PDF queda pendiente de confirmar.**
+**Fuente y vigencia.** [PDF oficial del PLATERCAEX](https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf), fechado el 31/01/2020 y aprobado por el [Decreto 187/2019](https://doe.juntaex.es/eli/es-ex/d/2019/10/15/187/dof/spa/pdf). Revisión manual: 04/11/2026. No se localizó una versión revisada; la vigencia de la estructura institucional del PDF queda pendiente de confirmar. La ficha del tema detalla la comprobación.
 
 ## IV.1 · Dos entramados
 
@@ -15,7 +15,7 @@ Lo que vas a aprender: **3 apartados**. Quién dirige, qué órganos le apoyan y
 | Elemento | Función en el Plan |
 |---|---|
 | **Dirección del Plan** | Activa y dirige la respuesta. En el texto del Plan, la titularidad corresponde a la Consejería competente en protección civil y emergencias. |
-| **Comité de Dirección / Integrado** | Auxilia a la Dirección en la toma de decisiones; el Comité se integra con la Delegación del Gobierno en los supuestos previstos. |
+| **Comité de Dirección / Integrado** | Auxilia a la Dirección en la toma de decisiones. En situaciones 1 y 2, la Delegación del Gobierno puede incorporarse si lo decide la Dirección; en situación 3, su incorporación es obligatoria. Al incorporarse, el Comité pasa a ser Integrado. |
 | **Comité Técnico Asesor** | Analiza la situación y asesora a la Dirección. |
 | **Gabinete de Información** | Canaliza la información pública bajo dependencia de la Dirección y mediante una portavocía oficial. |
 
@@ -25,7 +25,7 @@ La excepción expresamente destacada en el Plan es la **situación 3, de interé
 
 - **CECOP:** centro de coordinación, control, seguimiento, comunicación y centralización de información; enlaza a la Dirección con la respuesta operativa.
 - **CECOPI:** el CECOP funciona como centro integrado cuando se incorporan mandos de otras administraciones para dirigir y coordinar la emergencia o transferir responsabilidades.
-- El Plan prevé la incorporación de la persona titular de la Delegación del Gobierno al Comité de Dirección en situación 2 si lo solicita la Dirección, y en todo caso en situación 3.
+- La persona titular de la Delegación del Gobierno puede incorporarse al Comité de Dirección en situaciones 1 y 2 si lo decide la Dirección; en situación 3 debe incorporarse. Con esa incorporación, el Comité pasa a ser Integrado.
 
 ## Claves de examen
 
