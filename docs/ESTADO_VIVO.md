@@ -1,7 +1,17 @@
 # Estado vivo — BomberoPro (fuente única de verdad)
 
 > Todo chat/agente lee este fichero primero y lo actualiza al cerrar (máx. 60 líneas; lo viejo va a `docs/ESTADO_PROYECTO.md`, que es histórico).
-> Última actualización: 2026-11-02 (Claude, comprobado en producción, Supabase y GitHub). Si tiene más de 7 días, desconfía y verifica.
+> Última revisión estratégica: 2026-11-04 (JM). Datos operativos de entornos/BD siguientes verificados por Claude el 02/11; **no se han vuelto a verificar contra producción**. Si tienen más de 7 días, desconfía y verifica.
+
+## Decisión de producto (JM, 04/11) — ÚNICAMENTE CPEI Badajoz
+- **Contenido equilibrado para beta:** los 40 temas conservan esquema oficial, cobertura por epígrafe visible y acceso solo a desarrollo, conceptos, preguntas y fichas editorialmente validados. «Parcial» nunca equivale a «completo».
+- **Lanzamiento:** beta cerrada para 10 alumnos, con acceso, recuperación, estudio y guardado E2E verificados; permitir cobertura parcial explícita, nunca contenido sin revisión.
+- **Objetivo comercial:** 40 temas con todos sus epígrafes cubiertos y revisados, fuentes trazables y práctica suficiente antes de vender el curso como preparación integral.
+- **No abrir nuevas oposiciones:** Cáceres/Policía Local solo son requisitos futuros de compatibilidad; cero contenido, tablas o migraciones especulativas.
+- **Trabajo activo:** P0 acceso/seguridad/aislamiento Preview–staging; PR #258 cerrada, sus tres métodos aparecen en main, pero falta prueba funcional end-to-end de correo y contraseña. Después unificar «Temas» invitado/registrado sin pérdida de progreso.
+- **Paralelo solo lectura:** inventario CPEI-40 de epígrafes oficiales → desarrollo → conceptos → preguntas → fichas → vínculos → fuentes/QA. Denominadores comprobados, sin porcentajes inferidos. El tema 17 tiene un lote de 14 fichas DEA, no un tema completo.
+- **Después:** fábrica editorial de CPEI y capa visual reusable, sin personalizar solo un tema. Un PR de producto activo y una auditoría en paralelo; sin tocar producción sin aprobación y pruebas.
+- **Plan de ejecución:** issue #217. Este fichero conserva los datos operativos fechados a continuación: no confundir estado antiguo con verificación actual.
 
 ## Entornos
 - Repo `jmgamagama/bomberopro-mvp` (main protegida: PR + check «Lint, build and test»; Vercel despliega al fusionar). **El repositorio es público**: pasarlo a privado (regla 7: material del CPEI solo en privado).
