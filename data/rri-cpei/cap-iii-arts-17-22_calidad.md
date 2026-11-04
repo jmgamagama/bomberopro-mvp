@@ -1,7 +1,7 @@
 # Tema 5 · RRI del CPEI · Cap. III, arts. 17-22 — informe de calidad
 
 Fecha: 31/10/2026. Autor: Claude (redacción propia). Fuente y método: los mismos que `caps-i-ii_calidad.md`
-(texto único vigente, BOP de Badajoz n.º 149, de 06/08/2012; `data/fuentes/BOP-BA-2012-5370/`).
+(texto único publicado en BOP de Badajoz n.º 149, de 06/08/2012; vigencia actual pendiente de cotejo con el anuncio de modificación de 2022; `data/fuentes/BOP-BA-2012-5370/`).
 
 ## Alcance y niveles
 - Instrucciones, circulares y órdenes de servicio (art. 17), impresos normalizados (18), partes, informes y

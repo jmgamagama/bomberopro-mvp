@@ -1,7 +1,7 @@
 # Tema 5 · RRI del CPEI · Caps. IV-VIII, arts. 23-34 — informe de calidad
 
 Fecha: 01/11/2026. Autor: Claude (redacción propia). Fuente y método: los mismos que `caps-i-ii_calidad.md`
-(texto único vigente, BOP de Badajoz n.º 149, de 06/08/2012; `data/fuentes/BOP-BA-2012-5370/`).
+(texto único publicado en BOP de Badajoz n.º 149, de 06/08/2012; vigencia actual pendiente de cotejo con el anuncio de modificación de 2022; `data/fuentes/BOP-BA-2012-5370/`).
 
 ## Alcance y niveles
 - Uniformidad y vestuario (arts. 23-24), organización de los parques (25-26), funcionamiento en los parques
