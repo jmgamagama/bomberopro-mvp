@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 //
-// «Repasar errores» con cuenta: lee los fallos del servidor (get_error_session_v2, migración 45),
+// «Repasar errores» con cuenta: lee los fallos del servidor y los liga a una sesión de entrega,
 // no el progreso local del dispositivo, y lanza una sesión de test solo con esas preguntas.
 
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
@@ -43,6 +43,13 @@ const reply = (data: unknown, error: unknown = null) => {
   p.setHeader = () => p;
   return p;
 };
+const deliverySession = (questions: unknown[]) => ({
+  session_id: 'error-session-1',
+  questions: questions.map((question) => {
+    const { correct_answer: _answer, explanation: _explanation, ...keyless } = question as Record<string, unknown>;
+    return keyless;
+  }),
+});
 
 afterEach(cleanup);
 
@@ -55,7 +62,7 @@ describe('Repasar errores con cuenta', () => {
     rpcMock.mockReset();
     rpcMock.mockImplementation((fn: string) => {
       if (fn === 'get_concept_progress') return reply(progress);
-      if (fn === 'get_error_session_v2') return errores === 'fallo' ? reply(null, { message: 'caída' }) : reply(errores);
+      if (fn === 'begin_error_session_v3') return errores === 'fallo' ? reply(null, { message: 'caída' }) : reply(deliverySession(errores));
       if (fn === 'record_attempt_v2') return reply({ status: 'saved', attempt_id: 1, acierto: true });
       return reply([]);
     });
@@ -68,7 +75,7 @@ describe('Repasar errores con cuenta', () => {
 
     expect(await screen.findByText('¿Pregunta fallada del tema 1?')).toBeInTheDocument();
     expect(screen.getByRole('region', { name: 'Tema 8. Título 8' })).toBeInTheDocument();
-    expect(rpcMock).toHaveBeenCalledWith('get_error_session_v2', { p_limit: 50 });
+    expect(rpcMock).toHaveBeenCalledWith('begin_error_session_v3', { p_limit: 50 });
 
     fireEvent.click(screen.getByRole('button', { name: /Repasar mis errores \(2\)/ }));
     expect(await screen.findByRole('heading', { name: '¿Pregunta fallada del tema 1?' })).toBeInTheDocument();

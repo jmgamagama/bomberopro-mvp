@@ -42,6 +42,10 @@ const pending = (user: string) => ({
     p_confidence: null,
   },
 });
+const questionSession = (sessionId: string, questions: typeof INITIAL_QUESTIONS) => ({
+  session_id: sessionId,
+  questions: questions.map(({ correct_answer: _answer, explanation: _explanation, ...question }) => question),
+});
 
 afterEach(cleanup);
 
@@ -59,8 +63,8 @@ describe('guardado pendiente con la aplicación completa', () => {
   it('un error del selector no llama al exportador antiguo y permite reintentar', async () => {
     getSession.mockResolvedValue({ data: { session: { user: { id: 'user-1' } } }, error: null });
     let requests=0;
-    rpcMock.mockImplementation((fn: string) => Promise.resolve(fn === 'get_study_session_v2'
-      ? ++requests === 1 ? {data: null,error:{message:'Fallo temporal del selector'}} : {data: INITIAL_QUESTIONS.slice(0,1),error:null}
+    rpcMock.mockImplementation((fn: string) => Promise.resolve(fn === 'begin_study_session_v3'
+      ? ++requests === 1 ? {data: null,error:{message:'Fallo temporal del selector'}} : {data: questionSession('retry-session', INITIAL_QUESTIONS.slice(0,1)),error:null}
       : {data:[],error:null}));
     render(<App />);
     await waitFor(() => expect(requests).toBe(1));
@@ -99,8 +103,8 @@ describe('guardado pendiente con la aplicación completa', () => {
     });
     const account = (id: string) => ({ user: { id } });
     getSession.mockResolvedValue({ data: { session: account('A') }, error: null });
-    const resolvers: Array<(result: { data: typeof INITIAL_QUESTIONS; error: null }) => void> = [];
-    rpcMock.mockImplementation((fn: string) => fn === 'get_study_session_v2'
+    const resolvers: Array<(result: { data: ReturnType<typeof questionSession>; error: null }) => void> = [];
+    rpcMock.mockImplementation((fn: string) => fn === 'begin_study_session_v3'
       ? new Promise(resolve => resolvers.push(resolve))
       : Promise.resolve({ data: { status: 'saved', attempt_id: 1 }, error: null }));
 
@@ -109,12 +113,12 @@ describe('guardado pendiente con la aplicación completa', () => {
     await act(async () => authChanged?.('SIGNED_IN', account('B')));
     await waitFor(() => expect(resolvers).toHaveLength(2));
     expect(getProgressOwner()).toBe('B');
-    await act(async () => resolvers[1]({ data: INITIAL_QUESTIONS.slice(0, 2), error: null }));
+    await act(async () => resolvers[1]({ data: questionSession('session-b', INITIAL_QUESTIONS.slice(0, 2)), error: null }));
     fireEvent.click(document.querySelector('#nav-btn-mas')!);
     fireEvent.click(document.querySelector('#mas-today_training')!);
     expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe('2');
 
-    await act(async () => resolvers[0]({ data: INITIAL_QUESTIONS.slice(0, 1), error: null }));
+    await act(async () => resolvers[0]({ data: questionSession('session-a', INITIAL_QUESTIONS.slice(0, 1)), error: null }));
     expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe('2');
   });
   it.each(['B', 'demo'])('una segunda sesión tardía de A no reemplaza las preguntas de %s', async next => {
@@ -128,14 +132,14 @@ describe('guardado pendiente con la aplicación completa', () => {
     const questionB = { ...INITIAL_QUESTIONS[0], id: '201', question: 'Pregunta de B' };
     getSession.mockResolvedValue({ data: { session: account('A') }, error: null });
     let sessionCalls = 0;
-    let resolveSecond!: (result: { data: typeof INITIAL_QUESTIONS; error: null }) => void;
+    let resolveSecond!: (result: { data: ReturnType<typeof questionSession>; error: null }) => void;
     rpcMock.mockImplementation((fn: string) => {
-      // C2: la sesión llega sin clave y la respuesta se corrige en el servidor.
-      if (fn === 'check_answer') return Promise.resolve({ data: { acierto: true, correct_answer: questionA.correct_answer, explanation: '' }, error: null });
-      if (fn !== 'get_study_session_v2') return Promise.resolve({ data: { status: 'saved', attempt_id: 1 }, error: null });
+      // C2: la corrección usa la sesión de entrega y devuelve la clave solo tras responder.
+      if (fn === 'submit_question_answer_v3') return Promise.resolve({ data: { acierto: true, correct_answer: questionA.correct_answer, explanation: '' }, error: null });
+      if (fn !== 'begin_study_session_v3') return Promise.resolve({ data: { status: 'saved', attempt_id: 1 }, error: null });
       sessionCalls += 1;
       if (sessionCalls === 2) return new Promise(resolve => { resolveSecond = resolve; });
-      return Promise.resolve({ data: [sessionCalls === 1 ? questionA : questionB], error: null });
+      return Promise.resolve({ data: questionSession(`session-${sessionCalls}`, [sessionCalls === 1 ? questionA : questionB]), error: null });
     });
 
     render(<App />);
@@ -159,7 +163,7 @@ describe('guardado pendiente con la aplicación completa', () => {
 
     // Resolver antes de navegar: la invalidación debe venir de la cuenta/demo,
     // no de abandonar la pantalla de entrenamiento.
-    await act(async () => resolveSecond({ data: [questionA, { ...questionA, id: '102' }], error: null }));
+    await act(async () => resolveSecond({ data: questionSession('late-session', [questionA, { ...questionA, id: '102' }]), error: null }));
     fireEvent.click(document.querySelector('#nav-btn-mas')!);
     fireEvent.click(document.querySelector('#mas-today_training')!);
     expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe(expectedCount);
@@ -176,16 +180,16 @@ describe('guardado pendiente con la aplicación completa', () => {
     });
     const account = () => ({ user: { id: 'A' } });
     getSession.mockResolvedValue({ data: { session: account() }, error: null });
-    let resolveQuestions!: (result: { data: typeof INITIAL_QUESTIONS; error: null }) => void;
-    rpcMock.mockImplementation((fn: string) => fn === 'get_study_session_v2'
+    let resolveQuestions!: (result: { data: ReturnType<typeof questionSession>; error: null }) => void;
+    rpcMock.mockImplementation((fn: string) => fn === 'begin_study_session_v3'
       ? new Promise(resolve => { resolveQuestions = resolve; })
       : Promise.resolve({ data: { status: 'saved', attempt_id: 1 }, error: null }));
 
     render(<App />);
     await waitFor(() => expect(resolveQuestions).toBeTypeOf('function'));
     await act(async () => authChanged?.('TOKEN_REFRESHED', account()));
-    expect(rpcMock.mock.calls.filter(call => call[0] === 'get_study_session_v2')).toHaveLength(1);
-    await act(async () => resolveQuestions({ data: INITIAL_QUESTIONS.slice(0, 1), error: null }));
+    expect(rpcMock.mock.calls.filter(call => call[0] === 'begin_study_session_v3')).toHaveLength(1);
+    await act(async () => resolveQuestions({ data: questionSession('same-user-session', INITIAL_QUESTIONS.slice(0, 1)), error: null }));
     fireEvent.click(document.querySelector('#nav-btn-mas')!);
     fireEvent.click(document.querySelector('#mas-today_training')!);
     expect(screen.getByText('Preguntas').nextElementSibling?.textContent).toBe('1');

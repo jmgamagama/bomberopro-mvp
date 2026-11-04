@@ -35,7 +35,7 @@ import type { AccountErrorsState } from './components/AccountErrorPanel';
 const AccesoConfirmado = lazy(() => import('./components/AccesoConfirmado'));
 import { retornoAuthInicial, limpiarUrlRetornoAuth } from './lib/authRetorno';
 import { leerEnlaceInvitacion } from './lib/mensajesAcceso';
-import { fetchKeyless } from './lib/secureQuestions';
+import { fetchQuestionSession } from './lib/secureQuestions';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer, toLevelInt } from './lib/saveAttemptToServer';
 import UpdateBanner from './components/UpdateBanner';
@@ -299,9 +299,9 @@ export default function App() {
   // tema según el peso en el examen. El orden que devuelve se respeta tal cual.
   const loadServerSession = async (): Promise<Question[]> => {
     if (!supabase) return [];
-    // C2 (migración 38): la sesión llega SIN clave; TrainScreen corrige con check_answer.
+    // C2 (migración 52): el servidor emite preguntas sin clave y las vincula a una sesión.
     // Fail closed: nunca volver al exportador heredado cuando falla el motor seguro.
-    return shuffleAllOptions(await fetchKeyless(supabase, 'get_study_session_v2', { p_limit: 10 }));
+    return shuffleAllOptions(await fetchQuestionSession(supabase, 'begin_study_session_v3', { p_limit: 10 }));
   };
 
   // Preguntas que el alumno tiene falladas ahora (conceptos y banco), mismo formato que la sesión.
@@ -311,8 +311,8 @@ export default function App() {
     setAccountErrors({ status: 'loading' });
     try {
       if (!supabase) throw new Error('backend_not_configured');
-      // Migración 45: llegan SIN clave; TrainScreen corrige con check_answer.
-      const questions = await fetchKeyless(supabase, 'get_error_session_v2', { p_limit: 50 });
+      // Migración 52: las claves solo se corrigen para preguntas de una sesión emitida.
+      const questions = await fetchQuestionSession(supabase, 'begin_error_session_v3', { p_limit: 50 });
       if (request !== accountErrorsRequest.current || owner !== authUserId.current) return;
       setAccountErrors({ status: 'ready', questions });
     } catch (err) {

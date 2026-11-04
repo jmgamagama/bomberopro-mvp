@@ -1,14 +1,20 @@
 /**
  * Preguntas sin clave y corrección en el servidor (auditoría 2026-10-26, C2 paso 2; migración 38).
  *
- * - Con cuenta: las preguntas llegan SIN `correct_answer` ni `explanation` y se corrigen con
- *   `check_answer` (una) o `grade_exam` (simulacro). La clave solo llega después de responder.
+ * - Con cuenta: el servidor emite preguntas sin clave ligadas a una sesión de entrega. Solo esas
+ *   preguntas se pueden corregir; la clave llega tras la respuesta o al entregar el simulacro.
  * - Sin cuenta o sin conexión: se usa la muestra local ya pública (INITIAL_QUESTIONS), que sí trae
  *   la clave; se corrige en el navegador. Nunca se descargan claves del banco del servidor.
  */
 import type { Question } from '../types';
 
 type RpcClient = { rpc: (fn: string, args?: Record<string, unknown>) => PromiseLike<{ data: any; error: any }> };
+
+export type QuestionSessionRpc =
+  | 'begin_exam_session_v3'
+  | 'begin_study_session_v3'
+  | 'begin_topic_session_v3'
+  | 'begin_error_session_v3';
 
 export interface AnswerCheck {
   questionId: string;
@@ -37,15 +43,33 @@ export function gradeLocally(q: Question, answer: string): AnswerCheck {
   };
 }
 
-export async function fetchKeyless(client: RpcClient, fn: 'get_exam_questions_v2' | 'get_study_session_v2' | 'get_topic_questions_v2' | 'get_error_session_v2', args: Record<string, unknown>): Promise<Question[]> {
+/** Abre una selección ligada a una sesión que el servidor almacena y controla. */
+export async function fetchQuestionSession(
+  client: RpcClient,
+  fn: QuestionSessionRpc,
+  args: Record<string, unknown>,
+): Promise<Question[]> {
   const { data, error } = await client.rpc(fn, args);
   if (error) throw error;
-  return ((data ?? []) as any[]).map(toKeylessQuestion);
+  if (!data || typeof data.session_id !== 'string' || !Array.isArray(data.questions)) {
+    throw new Error('La sesión de preguntas del servidor no tiene un formato válido.');
+  }
+  return data.questions.map((row: any) => {
+    const question = toKeylessQuestion(row);
+    return { ...question, delivery_session_id: data.session_id };
+  });
 }
 
 export async function checkAnswer(client: RpcClient | null, q: Question, answer: string): Promise<AnswerCheck> {
-  if (hasLocalKey(q) || !client) return gradeLocally(q, answer);
-  const { data, error } = await client.rpc('check_answer', { p_question_id: Number(q.id), p_respuesta: answer });
+  if (hasLocalKey(q)) return gradeLocally(q, answer);
+  if (!client) throw new Error('No hay conexión para corregir esta pregunta.');
+  if (!q.delivery_session_id) throw new Error('La pregunta no pertenece a una sesión segura. Vuelve a cargarla.');
+  const { data, error } = await client.rpc('submit_question_answer_v3', {
+    p_delivery_session_id: q.delivery_session_id,
+    // `questions.id` is bigint in Postgres; preserve its decimal text to avoid JS precision loss.
+    p_question_id: q.id,
+    p_respuesta: answer,
+  });
   if (error) throw error;
   return {
     questionId: q.id,
@@ -55,14 +79,19 @@ export async function checkAnswer(client: RpcClient | null, q: Question, answer:
   };
 }
 
-/** Corrige un simulacro. Preguntas con clave local → en el navegador; sin clave → `grade_exam`. */
+/** Corrige un simulacro. Preguntas de muestra → navegador; preguntas de cuenta → sesión v3 del servidor. */
 export async function gradeExam(client: RpcClient | null, questions: Question[], answers: Record<string, string>): Promise<Record<string, AnswerCheck>> {
   const out: Record<string, AnswerCheck> = {};
   const remote = questions.filter((q) => !hasLocalKey(q));
   for (const q of questions) if (hasLocalKey(q)) out[q.id] = gradeLocally(q, answers[q.id] || '');
   if (remote.length === 0) return out;
   if (!client) throw new Error('No hay conexión para corregir el simulacro.');
-  const { data, error } = await client.rpc('grade_exam', {
+  const deliverySessionIds = [...new Set(remote.map(q => q.delivery_session_id).filter((id): id is string => Boolean(id)))];
+  if (deliverySessionIds.length !== 1 || remote.some(q => !q.delivery_session_id)) {
+    throw new Error('El simulacro no pertenece a una sesión segura. Vuelve a iniciarlo.');
+  }
+  const { data, error } = await client.rpc('grade_exam_v3', {
+    p_delivery_session_id: deliverySessionIds[0],
     p_answers: remote.map((q) => ({ question_id: q.id, respuesta: answers[q.id] || '' })),
   });
   if (error) throw error;

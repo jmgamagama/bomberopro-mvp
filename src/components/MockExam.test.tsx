@@ -68,15 +68,15 @@ describe('MockExam', () => {
       />,
     );
 
-    // Mock the RPC call to return INITIAL_QUESTIONS
-    // C2: el servidor entrega las preguntas sin clave (get_exam_questions_v2) y corrige con grade_exam.
+    // El selector seguro entrega las preguntas sin clave ligadas a una sesión emitida por el servidor.
     const served = INITIAL_QUESTIONS.slice(0, 10);
-    (supabase.rpc as any).mockImplementation((fn: string, args: any) => Promise.resolve(fn === 'grade_exam'
+    const keyless = served.map(({ correct_answer: _c, explanation: _e, ...q }) => q);
+    (supabase.rpc as any).mockImplementation((fn: string, args: any) => Promise.resolve(fn === 'grade_exam_v3'
       ? { data: { detalle: args.p_answers.map((a: any) => {
           const q = served.find(x => x.id === a.question_id)!;
           return { question_id: a.question_id, acierto: a.respuesta === q.correct_answer, correct_answer: q.correct_answer, explanation: q.explanation };
         }) }, error: null }
-      : { data: served, error: null }));
+      : { data: { session_id: 'server-exam-1', questions: keyless }, error: null }));
 
     fireEvent.click(screen.getByRole('button', { name: /comenzar simulacro/i }));
 

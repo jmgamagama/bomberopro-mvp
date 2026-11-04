@@ -24,7 +24,7 @@ import { fichasRelacionadas } from '../utils/fichasRelacionadas';
 import { trackFunnel } from '../lib/funnel';
 import { countAnswerChange } from '../utils/attempt';
 import { optionLetter, shuffleAllOptions } from '../utils/shuffleOptions';
-import { describeCheckError, fetchKeyless, gradeExam, isAnswerLimitError, withRevealedKey, type AnswerCheck } from '../lib/secureQuestions';
+import { describeCheckError, fetchQuestionSession, gradeExam, isAnswerLimitError, withRevealedKey, type AnswerCheck } from '../lib/secureQuestions';
 
 interface MockExamProps {
   microconcepts: Microconcept[];
@@ -182,9 +182,9 @@ export default function MockExam({
       setExamSeed(generatedSeed);
 
       if (supabase && useServerQuestions) {
-        // C2: el servidor entrega las preguntas SIN clave; se corrigen con grade_exam al terminar.
+        // C2: la sesión del servidor limita el conjunto que grade_exam_v3 puede corregir.
         try {
-          selected = await fetchKeyless(supabase, 'get_exam_questions_v2', { p_seed: generatedSeed });
+          selected = await fetchQuestionSession(supabase, 'begin_exam_session_v3', { p_seed: generatedSeed });
         } catch (error) {
           console.error('No se pudo obtener el simulacro del servidor; se usa la muestra local:', error);
         }

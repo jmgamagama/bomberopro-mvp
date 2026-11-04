@@ -36,11 +36,11 @@ describe('StudyByTopic registra la sesión', () => {
     from.mockReturnValue({
       select: () => ({ eq: () => ({ order: () => Promise.resolve({ data: [{ id: 18, numero: 18, nombre: 'Incendios estructurales' }], error: null }) }) }),
     });
-    // C2: el servidor entrega la pregunta SIN clave y corrige con check_answer.
+    // C2: el servidor emite la pregunta sin clave y la vincula a una sesión de entrega.
     const { correct_answer: _c, explanation: _e, ...keyless } = question;
     rpc.mockImplementation((fn: string, args: any) => Promise.resolve(
-      fn === 'get_topic_questions_v2' ? { data: [keyless], error: null }
-      : fn === 'check_answer' ? { data: { acierto: args.p_respuesta === 'Correcta', correct_answer: 'Correcta', explanation: 'Porque sí.' }, error: null }
+      fn === 'begin_topic_session_v3' ? { data: { session_id: 'server-topic-1', questions: [keyless] }, error: null }
+      : fn === 'submit_question_answer_v3' ? { data: { acierto: args.p_respuesta === 'Correcta', correct_answer: 'Correcta', explanation: 'Porque sí.' }, error: null }
       : { data: null, error: null }));
   });
 
@@ -59,8 +59,10 @@ describe('StudyByTopic registra la sesión', () => {
     fireEvent.click(screen.getByText('Falsa 1'));
     await waitFor(() => expect(saveAttemptToServer).toHaveBeenCalledTimes(1));
     expect(saveAttemptToServer.mock.calls[0][0]).toMatchObject({ p_session_id: 'sess-0001', p_modo: 'estudio_por_temas', p_respuesta: 'Correcta', p_acierto: true, p_confidence: null });
-    expect(rpc).toHaveBeenCalledWith('get_topic_questions_v2', { p_topic_ids: [18], p_limit: 10 });
-    expect(rpc).toHaveBeenCalledWith('check_answer', { p_question_id: 101, p_respuesta: 'Correcta' });
+    expect(rpc).toHaveBeenCalledWith('begin_topic_session_v3', { p_topic_ids: [18], p_limit: 10 });
+    expect(rpc).toHaveBeenCalledWith('submit_question_answer_v3', {
+      p_delivery_session_id: 'server-topic-1', p_question_id: '101', p_respuesta: 'Correcta',
+    });
     expect(rpc.mock.calls.some(c => c[0] === 'get_topic_study_questions')).toBe(false);
     expect(await screen.findByText('Porque sí.')).toBeInTheDocument();
 
