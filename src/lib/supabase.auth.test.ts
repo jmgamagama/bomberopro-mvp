@@ -1,12 +1,12 @@
 // @vitest-environment jsdom
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-const mocks = vi.hoisted(() => ({ reset: vi.fn(), resend: vi.fn() }));
+const mocks = vi.hoisted(() => ({ reset: vi.fn(), resend: vi.fn(), updateUser: vi.fn() }));
 
 // Mock only the external SDK, keeping our real lazy facade under test.
 vi.mock('@supabase/supabase-js', () => ({
   createClient: () => ({
-    auth: { resetPasswordForEmail: mocks.reset, resend: mocks.resend },
+    auth: { resetPasswordForEmail: mocks.reset, resend: mocks.resend, updateUser: mocks.updateUser },
   }),
 }));
 
@@ -17,6 +17,7 @@ describe('Supabase lazy Auth facade', () => {
     vi.stubEnv('VITE_SUPABASE_ANON_KEY', 'public-test-key');
     mocks.reset.mockReset().mockResolvedValue({ data: {}, error: null });
     mocks.resend.mockReset().mockResolvedValue({ data: {}, error: null });
+    mocks.updateUser.mockReset().mockResolvedValue({ data: {}, error: null });
   });
   afterEach(() => vi.unstubAllEnvs());
 
@@ -43,4 +44,14 @@ describe('Supabase lazy Auth facade', () => {
     expect(mocks.resend).toHaveBeenCalledWith(options);
     expect(result.error).toBeNull();
   });
+  it('forwards the new password after an invitation or recovery link', async () => {
+    const { supabase } = await import('./supabase');
+    expect(supabase).not.toBeNull();
+    const payload = { password: 'clave-nueva-segura' };
+    const result = await supabase!.auth.updateUser(payload);
+    expect(mocks.updateUser).toHaveBeenCalledTimes(1);
+    expect(mocks.updateUser).toHaveBeenCalledWith(payload);
+    expect(result.error).toBeNull();
+  });
+
 });
