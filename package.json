@@ -6,12 +6,13 @@
     "scripts": {
         "dev": "vite --port=3000 --host=0.0.0.0",
         "build": "vite build --configLoader runner",
-        "build:deploy": "node scripts/check-deploy-env.mjs && npm run build",
+        "build:deploy": "node scripts/check-deploy-env.mjs && npm run build && npm run auditar:bundle-pendiente",
         "preview": "vite preview",
         "clean": "node -e \"const fs=require('node:fs'); for (const path of ['dist','server.js']) fs.rmSync(path,{recursive:true,force:true})\"",
         "lint": "tsc --noEmit",
         "test": "vitest run --configLoader runner",
         "auditar:fichas": "vite-node scripts/auditar-fichas.ts",
+        "auditar:bundle-pendiente": "vite-node scripts/auditar-bundle-pendiente.ts",
         "material:preceptos": "vite-node scripts/generar-preceptos-material.ts",
     "cobertura:simulacro": "vite-node scripts/cobertura-simulacro.ts"
     },
