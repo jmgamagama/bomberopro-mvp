@@ -47,7 +47,7 @@ export interface MaterialTema {
   tema: number;
   nombre: string;
   carpeta: string;
-  /** Texto oficial completo descargable (fichero de la carpeta). */
+  /** Extracto del texto oficial limitado al epígrafe del tema (fichero de la carpeta). */
   textoOficial?: { file: string; titulo: string };
   fuentes: readonly FuenteTema[];
   /** Alcance respecto al epígrafe del temario. */
@@ -60,7 +60,7 @@ export interface MaterialTema {
 export const CAPAS: readonly { id: CapaId; label: string; nota: string }[] = [
   { id: 'esquema', label: 'Esquema', nota: 'Lo esencial de un vistazo.' },
   { id: 'desarrollo', label: 'Desarrollo', nota: 'Cada idea con sus matices y las trampas del examen.' },
-  { id: 'completo', label: 'Texto oficial', nota: 'Texto literal del BOE, artículo por artículo.' },
+  { id: 'completo', label: 'Texto oficial', nota: 'Extracto literal de la fuente oficial, limitado al epígrafe.' },
 ];
 
 const ce = (id: string, titulo: string): MaterialBloque => ({
