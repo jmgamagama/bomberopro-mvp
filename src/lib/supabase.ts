@@ -97,6 +97,9 @@ function createLazyClient(): SupabaseClient {
     signInWithOtp: lazyAuthCall('signInWithOtp'),
     signInWithPassword: lazyAuthCall('signInWithPassword'),
     signUp: lazyAuthCall('signUp'),
+    // Usados por Login.tsx: sin estos métodos la fachada fallaba en tiempo de ejecución.
+    resetPasswordForEmail: lazyAuthCall('resetPasswordForEmail'),
+    resend: lazyAuthCall('resend'),
     onAuthStateChange(cb: (...a: unknown[]) => void) {
       let cancelled = false;
       let real: { unsubscribe: () => void } | null = null;
