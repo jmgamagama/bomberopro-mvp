@@ -12,12 +12,13 @@ export interface RecallCardPayload {
 export interface PendingCardLeak {
   deckId: string;
   cardId: string;
-  assetPath: string;
+  assetPaths: string[];
 }
 
 /**
- * Busca el registro completo de una ficha pendiente en cada archivo público.
- * Los IDs por sí solos pueden aparecer en las listas de revisión/cuarentena y no revelan la ficha.
+ * Busca si los tres campos de una ficha pendiente aparecen en el conjunto de archivos públicos.
+ * Vite puede repartir módulos entre chunks; la separación física entre archivos no hace que el
+ * contenido deje de ser descargable o reconstruible por el navegador.
  */
 export function findPendingCardLeaks(
   cards: readonly { deckId: string; card: RecallCardPayload }[],
@@ -27,15 +28,15 @@ export function findPendingCardLeaks(
 
   for (const { deckId, card } of cards) {
     if (!card.id || !card.concepto || !card.respuesta) continue;
-    for (const asset of assets) {
-      if (
-        asset.content.includes(card.id) &&
-        asset.content.includes(card.concepto) &&
-        asset.content.includes(card.respuesta)
-      ) {
-        leaks.push({ deckId, cardId: card.id, assetPath: asset.path });
-      }
-    }
+    const fields = [card.id, card.concepto, card.respuesta];
+    const fieldAssets = fields.map((field) => assets.filter((asset) => asset.content.includes(field)));
+    if (fieldAssets.some((matches) => matches.length === 0)) continue;
+
+    leaks.push({
+      deckId,
+      cardId: card.id,
+      assetPaths: [...new Set(fieldAssets.flatMap((matches) => matches.map(({ path }) => path)))].sort(),
+    });
   }
 
   return leaks;

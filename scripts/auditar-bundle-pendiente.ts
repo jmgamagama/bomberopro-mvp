@@ -11,7 +11,7 @@ interface PublicAsset {
   content: string;
 }
 
-const TEXT_ASSET_EXTENSIONS = new Set(['.css', '.html', '.js', '.json', '.txt', '.webmanifest', '.xml']);
+const TEXT_ASSET_EXTENSIONS = new Set(['.css', '.html', '.js', '.json', '.map', '.mjs', '.svg', '.txt', '.webmanifest', '.xml']);
 
 async function collectFiles(directory: string, root: string): Promise<PublicAsset[]> {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -102,7 +102,9 @@ async function main(): Promise<void> {
 
   const leaks = findPendingCardLeaks(pendingCards, assets);
   if (leaks.length > 0) {
-    const examples = leaks.slice(0, 5).map(({ deckId, assetPath }) => `${deckId} → ${assetPath}`).join('\n');
+    const examples = leaks.slice(0, 5)
+      .map(({ deckId, assetPaths }) => `${deckId} → ${assetPaths.join(', ')}`)
+      .join('\n');
     throw new Error(`${leaks.length} fichas pendientes completas aparecen en dist:\n${examples}`);
   }
 

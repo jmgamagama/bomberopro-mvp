@@ -11,7 +11,7 @@ describe('auditoría del bundle público de fichas pendientes', () => {
     expect(findPendingCardLeaks([pending], [{
       path: 'dist/assets/index.js',
       content: 'CARD-001 Pregunta pendiente completa Respuesta pendiente completa',
-    }])).toEqual([{ deckId: 'tema-ejemplo', cardId: 'CARD-001', assetPath: 'dist/assets/index.js' }]);
+    }])).toEqual([{ deckId: 'tema-ejemplo', cardId: 'CARD-001', assetPaths: ['dist/assets/index.js'] }]);
   });
 
   it('no considera una fuga un ID que aparece solo en metadatos de revisión', () => {
@@ -21,10 +21,15 @@ describe('auditoría del bundle público de fichas pendientes', () => {
     }])).toEqual([]);
   });
 
-  it('no combina ID, pregunta y respuesta repartidos entre archivos distintos', () => {
+  it('detecta la ficha aunque Vite reparta sus campos entre chunks distintos', () => {
     expect(findPendingCardLeaks([pending], [
       { path: 'dist/assets/review.js', content: 'CARD-001' },
-      { path: 'dist/assets/ui.js', content: 'Pregunta pendiente completa Respuesta pendiente completa' },
-    ])).toEqual([]);
+      { path: 'dist/assets/concepts.js', content: 'Pregunta pendiente completa' },
+      { path: 'dist/assets/answers.js', content: 'Respuesta pendiente completa' },
+    ])).toEqual([{
+      deckId: 'tema-ejemplo',
+      cardId: 'CARD-001',
+      assetPaths: ['dist/assets/answers.js', 'dist/assets/concepts.js', 'dist/assets/review.js'],
+    }]);
   });
 });
