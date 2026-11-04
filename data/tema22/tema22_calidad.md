@@ -1,10 +1,10 @@
-# Tema 22 — informe de calidad (texto oficial)
+# Tema 22 — informe de calidad (fuentes oficiales)
 
 **Epígrafe (BOP Badajoz n.º 135, 17/07/2026):** Técnicas de rescate en altura y espacios confinados: normativa y marco legal de trabajos en altura. Material de rescate en altura, dinámica de la progresión, instalación de Sistemas de Anclajes de Seguridad SAS, nudos. Conceptos físicos de las poleas: polea fija y polea móvil. Líneas de vida. El factor de caída. Mantenimiento y caducidad de materiales.
 
 ## Fuente
 
-- Real Decreto 1215/1997, equipos de trabajo (anexo II.4, trabajos temporales en altura, añadido por RD 2177/2004) — BOE-A-1997-17824, texto consolidado del BOE, última actualización/versión 18/12/2025: https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824 (copia en /workspace/fuentes_oficiales/tema22/)
+- Real Decreto 1215/1997, anexo II.4, trabajos temporales en altura — BOE-A-1997-17824, texto consolidado del BOE; última actualización publicada el 13/11/2004. El apartado 4 fue añadido por el RD 2177/2004, BOE-A-2004-19311, publicado el 13/11/2004: [RD 1215/1997](https://www.boe.es/buscar/act.php?id=BOE-A-1997-17824) · [RD 2177/2004](https://www.boe.es/buscar/doc.php?id=BOE-A-2004-19311) (copia de trabajo en /workspace/fuentes_oficiales/tema22/).
 
 ## Resultado
 
@@ -18,7 +18,7 @@
 
 ## Comprobación automática
 
-- La respuesta aparece en el artículo/bloque citado del texto consolidado (coincidencia normalizada sin tildes ni puntuación o difusa ≥ 0,85 por ventana de palabras).
+- La respuesta aparece en el artículo/bloque citado del texto consolidado del BOE (coincidencia normalizada sin tildes ni puntuación o difusa ≥ 0,85 por ventana de palabras).
 - Se descartan: vacías, bloque inexistente, truncadas (final en preposición/artículo, coma, «…», paréntesis abierto), respuesta dentro de la pregunta (o ≥ 80 % de sus palabras), preguntas duplicadas, no formuladas como pregunta y preguntas que copian el comienzo de la respuesta.
 
 ### Descartes
