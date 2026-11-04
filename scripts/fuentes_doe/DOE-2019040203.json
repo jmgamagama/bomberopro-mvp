@@ -8,7 +8,7 @@
  "claves": [
   "Decreto 187/2019"
  ],
- "busqueda": "El decreto (art. único.2) remite el texto íntegro del plan a la web oficial de la Dirección General de Protección Civil y Emergencias; el texto sale de ese PDF. Ficha ELI del decreto en doe.juntaex.es: solo la versión original publicada, sin versiones consolidadas ni modificaciones. Búsqueda de un decreto posterior que actualice el PLATERCAEX: ninguno publicado (la Junta anunció en octubre de 2026 que lo revisará). El PDF de juntaex.es es el mismo fichero (sha256) con el que se hicieron las fichas.",
+ "busqueda": "El Decreto 187/2019 (art. único.2) remite el texto íntegro del Plan a la web oficial de Protección Civil; este material usa el PDF oficial del PLATERCAEX fechado el 31/01/2020. La ficha ELI consultada el 04/11/2026 enlaza únicamente la publicación original. El Decreto 39/2025 sobre INUNCAEX indica que actualizó cargos y operatividad de ese plan de acuerdo con la revisión del PLATERCAEX, pero no publica una versión revisada del PLATERCAEX. No se localizó en el DOE un decreto posterior que modifique o sustituya el Decreto 187/2019. La Resolución DOE n.º 201/2024 modifica el Protocolo del Grupo de Logística, no el decreto del Plan. Se mantiene el PDF oficial disponible como base y queda pendiente confirmar si refleja toda la estructura institucional vigente. PDF descargado y huella SHA-256 cotejada con la copia usada para generar las fichas.",
  "margen_izquierdo": 100,
  "capitulo": "^CAP[ÍI]TULO ([IVX]+)\\b",
  "tablas": [
@@ -68,5 +68,5 @@
    "fin": "V.6"
   }
  ],
- "comprobado": "01/11/2026"
+ "comprobado": "04/11/2026"
 }

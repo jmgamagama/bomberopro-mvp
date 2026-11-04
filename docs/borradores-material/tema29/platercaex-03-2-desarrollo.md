@@ -1,7 +1,9 @@
 # Tema 29 · PLATERCAEX · estructura operativa · Desarrollo
 
 **Cobertura:** Plan Territorial de Protección Civil de Extremadura, capítulo IV, apartado IV.3 (IV.3.1–IV.3.5).
-**Fuente de trabajo:** [Plan Territorial de Protección Civil de Extremadura (PLATERCAEX), PDF oficial de la Junta](https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf), documento de 31/01/2020. [Decreto 187/2019 publicado en el DOE](https://doe.juntaex.es/pdfs/doe/2019/2470o/19040203.pdf), DOE n.º 247, de 26/12/2019. El Decreto remite el texto íntegro del Plan al portal oficial. Comprobación manual de vigencia registrada el 01/11/2026 en docs/MATERIAL_DOE.md; volver a verificar antes de publicar, especialmente porque la Administración anunció una revisión del Plan.
+**Fuente de trabajo:** [Plan Territorial de Protección Civil de Extremadura (PLATERCAEX), PDF oficial de la Junta](https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf), fechado el 31/01/2020. [Decreto 187/2019 en el DOE](https://doe.juntaex.es/eli/es-ex/d/2019/10/15/187/dof/spa/pdf), DOE n.º 247, de 26/12/2019.
+
+**Control de versión (04/11/2026):** el ELI consultado enlaza solo la publicación original. El [Decreto 39/2025 sobre INUNCAEX](https://doe.juntaex.es/pdfs/doe/2025/940o/25040069.pdf) alude a una revisión del PLATERCAEX al actualizar INUNCAEX, pero no publica un PLATERCAEX revisado. No se localizó en el DOE un decreto posterior que modifique o sustituya el 187/2019. La [Resolución DOE n.º 201/2024](https://doe.juntaex.es/otrosFormatos/html.php?anio=2024&doe=2010o&xml=2024063303) actualiza el protocolo del Grupo de Logística, no el decreto del Plan. Este borrador resume el PDF oficial disponible; la vigencia de su estructura institucional está pendiente de confirmación.
 
 > **Estado editorial: BORRADOR.** Fuera de la app y pendiente de revisión humana. El resumen sigue el documento oficial en el alcance indicado; los organigramas, tablas y fichas gráficas se consultan en el PDF enlazado.
 

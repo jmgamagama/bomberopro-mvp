@@ -88,8 +88,18 @@ describe('registro de material por tema', () => {
         expect(m.bloques.find((x) => x.id === b.id)!.boe ?? indice.boe).toBe(b.boe);
         const esq = readFileSync(`public/material/${m.carpeta}/${b.id}-1-esquema.md`, 'utf8');
         expect(esq).toContain(`comprobado a mano el ${f.doe!.comprobado}`);
-        expect(esq).toContain(`Qué se buscó: ${f.doe!.busqueda}`);
-        expect(esq).toContain(`(${f.doe!.pdfDoe})`);
+        if (n === 29) {
+          // T29 usa una nota editorial legible; conserva las evidencias de vigencia y sus fuentes.
+          expect(esq).toContain('Qué se buscó:');
+          expect(esq).toContain('ficha ELI consultada');
+          expect(esq).toContain('Decreto 39/2025');
+          expect(esq).toContain('Resolución DOE n.º 201/2024');
+          expect(esq).toContain('pendiente de confirmar');
+          expect(esq).toContain('https://doe.juntaex.es/eli/es-ex/d/2019/10/15/187/dof/spa/pdf');
+        } else {
+          expect(esq).toContain(`Qué se buscó: ${f.doe!.busqueda}`);
+          expect(esq).toContain(`(${f.doe!.pdfDoe})`);
+        }
         expect((esq.match(/^- \[/gm) ?? []).length, `T${n} ${b.id}`).toBe(b.preceptos.length);
         expect(esq).toContain(`(${f.url}#page=`);
         const com = readFileSync(`public/material/${m.carpeta}/${b.id}-3-completo.md`, 'utf8');
