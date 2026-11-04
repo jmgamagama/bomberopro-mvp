@@ -1,8 +1,7 @@
 # Plan Territorial de Protección Civil de la Comunidad Autónoma de Extremadura (PLATERCAEX)
 
-Texto extraído del PDF oficial: https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf
-Publicación: Decreto 187/2019, de 15 de octubre (DOE n.º 247, de 26/12/2019). PDF del DOE: https://doe.juntaex.es/pdfs/doe/2019/2470o/19040203.pdf
-Versión: PDF del plan de 31/01/2020. Sin API de vigencia; comprobado el 01/11/2026: El decreto (art. único.2) remite el texto íntegro del plan a la web oficial de la Dirección General de Protección Civil y Emergencias; el texto sale de ese PDF. Ficha ELI del decreto en doe.juntaex.es: solo la versión original publicada, sin versiones consolidadas ni modificaciones. Búsqueda de un decreto posterior que actualice el PLATERCAEX: ninguno publicado (la Junta anunció en octubre de 2026 que lo revisará). El PDF de juntaex.es es el mismo fichero (sha256) con el que se hicieron las fichas.
+**Fuente y vigencia.** Texto base: [PDF oficial del PLATERCAEX](https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf), versión fechada el 31/01/2020, remitida por el [Decreto 187/2019](https://doe.juntaex.es/eli/es-ex/d/2019/10/15/187/dof/spa/pdf) (DOE n.º 247, 26/12/2019). **Comprobado a mano el 04/11/2026. Qué se buscó:** ficha ELI del Decreto 187/2019 y publicaciones del DOE para localizar modificaciones o una versión revisada; además, el Decreto 39/2025 sobre INUNCAEX y la Resolución DOE n.º 201/2024 sobre el Grupo de Logística. La ficha ELI consultada enlaza únicamente la publicación original. El Decreto 39/2025 alude a una revisión del PLATERCAEX, pero no publica un texto revisado. En la búsqueda consultada no se localizó una modificación o sustitución del Decreto 187/2019; la Resolución de 2024 modifica el protocolo del Grupo de Logística. **La vigencia de la estructura institucional descrita en el PDF queda pendiente de confirmar.**
+
 Extracto limitado al epígrafe del temario. Las tablas y los gráficos no se copian: se remite a su página del PDF.
 
 ## CAPÍTULO I. OBJETIVO Y ALCANCE DEL PLAN

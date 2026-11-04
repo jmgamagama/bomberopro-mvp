@@ -1,6 +1,6 @@
 # Material de normas del DOE (T20, T29 y T30)
 
-Actualizado el 01/11/2026. El DOE no tiene API de texto consolidado ni de vigencia, así que el método cambia respecto al BOE en dos cosas: de dónde sale el texto y cómo se comprueba la vigencia. Todo lo demás (recorte al epígrafe, esquema con rúbricas literales, texto oficial, tablas remitidas a la fuente) es la misma lógica y el mismo generador.
+Actualizado el 04/11/2026. La comprobación manual de vigencia se actualizó para T29; las otras fechas se conservan en sus registros. El DOE no ofrece una API de texto consolidado ni de vigencia para estas fuentes, así que el método cambia respecto al BOE en dos cosas: de dónde sale el texto y cómo se comprueba la vigencia. Todo lo demás (recorte al epígrafe, esquema con rúbricas literales, texto oficial, tablas remitidas a la fuente) es la misma lógica y el mismo generador.
 
 ## Cómo se genera
 
@@ -30,14 +30,14 @@ Actualizado el 01/11/2026. El DOE no tiene API de texto consolidado ni de vigenc
 
 Los PDF de juntaex.es se descargaron de nuevo el 01/11/2026. Son el mismo fichero (sha256 en `meta.json`) con el que se hicieron las fichas.
 
-## Vigencia (comprobación manual, 01/11/2026)
+## Vigencia (comprobación manual por norma)
 
 - **Fichas ELI** (`doe.juntaex.es/eli/es-ex/d/…`):
-  - Los decretos de los planes solo tienen la versión original publicada.
+  - El ELI del Decreto 187/2019 (PLATERCAEX) consultado el 04/11/2026 enlaza únicamente la publicación original.
+  - El Decreto 39/2025 (INUNCAEX) menciona una revisión del PLATERCAEX como referencia para actualizar su propia estructura y operatividad, pero no publica un texto revisado del PLATERCAEX. No se localizó en el DOE un decreto posterior que modifique o sustituya el 187/2019. La estructura institucional del PDF oficial disponible (31/01/2020) queda pendiente de confirmación.
+  - La Resolución de 26/09/2024 (DOE n.º 201) modifica el protocolo del Grupo de Logística, no el Decreto 187/2019.
   - El Decreto 132/2022 tiene la versión consolidada de 05/11/2024 (Decreto 136/2024) y ninguna posterior.
-- **Búsqueda de decretos posteriores** que actualicen o deroguen cada plan: no se ha localizado ninguno.
-  - El Decreto 39/2025 deroga el 188/2019, que era el INUNCAEX anterior.
-  - La Junta anunció en octubre de 2026 que revisará los planes.
+- **Búsqueda de decretos posteriores** que actualicen o deroguen los planes: se registran los resultados por norma. Para INUNCAEX, el Decreto 39/2025 deroga el 188/2019. Para PLATERCAEX, la referencia de 2025 a una revisión no viene acompañada de un texto revisado del Plan en el DOE.
   - Para el PLASISMEX, la [Orden INT/1069/2026 (BOE-A-2026-21145)](https://www.boe.es/eli/es/o/2026/10/07/int1069), publicada el 10/10/2026 y efectiva desde el 11/10/2026, sustituye la Directriz sísmica de 1995 y establece que los planes se adapten en cuatro años; el PDF de PLASISMEX consultado aún hace referencia a la Directriz anterior.
 - `python3 scripts/verificar_vigencia_boe.py` lista estas normas como «comprobado a mano» (no pueden pasar por la API del BOE). La tabla está en `docs/VIGENCIA_MATERIAL_BOE.md`.
 - Lo que se buscó, por norma, está en `busqueda` de `scripts/fuentes_doe/<ID>.json`, y la pantalla lo muestra.

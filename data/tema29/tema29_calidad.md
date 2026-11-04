@@ -4,12 +4,16 @@
 
 ## Fuente
 
-- Plan Territorial de Protección Civil de la Comunidad Autónoma de Extremadura (PLATERCAEX), aprobado por Decreto 187/2019 (DOE nº 247, 26/12/2019) — Decreto 187/2019, texto íntegro oficial publicado en juntaex.es por remisión del DOE, última actualización/versión versión PDF de 31/01/2020: https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf (copia en /workspace/fuentes_oficiales/tema29/)
+- Plan Territorial de Protección Civil de la Comunidad Autónoma de Extremadura (PLATERCAEX), aprobado por Decreto 187/2019 (DOE nº 247, 26/12/2019) — PDF oficial del PLATERCAEX publicado en juntaex.es por remisión del DOE, versión fechada el 31/01/2020: https://www.juntaex.es/documents/77055/406857/PLATERCAEX_2019_%2B%283%29.pdf
+
+## Vigencia de la fuente
+
+La comprobación de las 20 fichas de la muestra se hizo contra el PDF oficial disponible (31/01/2020); no certifica por sí misma que la estructura institucional siga vigente. El ELI consultado el 04/11/2026 solo enlaza la publicación original del Decreto 187/2019. El Decreto 39/2025 sobre INUNCAEX alude a una revisión del PLATERCAEX al actualizar ese otro plan, pero no publica un texto revisado del PLATERCAEX. No se localizó en el DOE un decreto posterior que modifique o sustituya el 187/2019. La Resolución DOE n.º 201/2024 afecta al protocolo del Grupo de Logística, no al Decreto del Plan. **La vigencia de la organización descrita en el PDF queda pendiente de confirmación.**
 
 ## Resultado
 
 - Fichas propuestas: 82; pasan la comprobación automática: **81**; descartadas: 1.
-- Muestra revisada a mano: 20 fichas; errores: 0 (0.0 %). **Estado: cargado.**
+- Muestra revisada a mano: 20 fichas; errores: 0 (0.0 %) contra el PDF de 31/01/2020. **Estado: cargado respecto al PDF base; vigencia institucional pendiente de confirmar.**
 
 ## Cobertura del epígrafe
 
@@ -21,7 +25,7 @@
 
 ## Comprobación automática
 
-- La respuesta aparece en el artículo/bloque citado del texto consolidado (coincidencia normalizada sin tildes ni puntuación o difusa ≥ 0,85 por ventana de palabras).
+- La respuesta aparece en el artículo/bloque citado del texto extraído del PDF oficial disponible (coincidencia normalizada sin tildes ni puntuación o difusa ≥ 0,85 por ventana de palabras).
 - Se descartan: vacías, bloque inexistente, truncadas (final en preposición/artículo, coma, «…», paréntesis abierto), respuesta dentro de la pregunta (o ≥ 80 % de sus palabras), preguntas duplicadas, no formuladas como pregunta y preguntas que copian el comienzo de la respuesta.
 
 ### Descartes
