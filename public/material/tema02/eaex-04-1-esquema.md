@@ -1,30 +1,34 @@
 # Título II · Instituciones: Asamblea y Presidente (arts. 15–30) · Esquema
 
-Texto consolidado del BOE (BOE-A-2011-1638, última actualización publicada el 29/01/2011). Fuente oficial: [Ley Orgánica 1/2011, de 28 de enero, de reforma del Estatuto de Autonomía de la Comunidad Autónoma de Extremadura](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638). Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
+Texto consolidado del BOE (BOE-A-2011-1638, última actualización publicada el 29/01/2011). [Fuente oficial](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638). Texto con carácter informativo; para fines jurídicos debe consultarse la publicación oficial.
 
-16 preceptos. Cada rúbrica (literal) enlaza con el BOE.
+Dieciséis artículos recorren las instituciones, el funcionamiento de la Asamblea y la elección, atribuciones, control y cese de la Presidencia.
 
-**TÍTULO II · De las instituciones de Extremadura**
+## Art. 15 · Mapa institucional
+- La Comunidad ejerce sus poderes mediante Asamblea, Presidente y Junta.
+- También son instituciones estatutarias el Consejo Consultivo, el Consejo de Cuentas, el Consejo Económico y Social y el Personero del Común.
 
-- [Artículo 15. Instituciones de autogobierno y otras instituciones estatutarias](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a15)
+## Arts. 16–23 · Asamblea de Extremadura
+- **Art. 16:** representa al pueblo extremeño, se elige por cuatro años y ejerce funciones legislativas, presupuestarias y de control, entre otras.
+- **Art. 17:** hasta 65 diputados; sufragio universal, libre, igual, directo y secreto; representación proporcional y provincia como circunscripción. La ley electoral exige tres quintos y las candidaturas se componen con criterios de igualdad de género.
+- **Art. 18:** los diputados representan a toda Extremadura y no están sujetos a mandato imperativo; el Estatuto regula inviolabilidad, detención y jurisdicción.
+- **Arts. 19–20:** órganos de la Cámara (Presidencia, Mesa y Diputación Permanente) y grupos parlamentarios.
+- **Art. 21:** reuniones, sesiones y validez de acuerdos: convocatoria reglamentaria, asistencia de la mayoría de miembros y mayoría simple de votos emitidos, salvo mayoría cualificada.
+- **Art. 22:** la potestad legislativa reside en el Pleno; puede delegarse con límites a comisiones o a la Junta para dictar decretos legislativos.
+- **Art. 23:** iniciativa de diputados, grupos y Junta; también iniciativa local y popular en los términos del Estatuto y la ley. La iniciativa popular requiere al menos 45.000 firmas acreditadas.
 
-**CAPÍTULO I · De la Asamblea de Extremadura**
+## Arts. 24–30 · Presidencia
+- **Art. 24:** el Presidente reúne la más alta representación de Extremadura, la representación ordinaria del Estado y la presidencia de la Junta.
+- **Art. 25:** elección por la Asamblea entre sus miembros y nombramiento por el Rey. Investidura: mayoría absoluta; si no se alcanza, mayoría simple en nueva votación 48 horas después. Si pasan dos meses desde la primera votación sin elección, se disuelve la Asamblea.
+- **Art. 26:** atribuciones como representante autonómico, representante ordinario del Estado y presidente de la Junta.
+- **Art. 27:** disolución anticipada bajo condiciones y límites expresos.
+- **Arts. 28–29:** cuestión de confianza y moción de censura tienen iniciativa, mayorías y efectos distintos.
+- **Art. 30:** otras causas de cese y régimen en funciones o sustitución provisional.
 
-- [Artículo 16. Carácter y atribuciones](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a16)
-- [Artículo 17. Elecciones](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a17)
-- [Artículo 18. Estatuto de los diputados](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a18)
-- [Artículo 19. Órganos](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a19)
-- [Artículo 20. Grupos parlamentarios](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a20)
-- [Artículo 21. Régimen de funcionamiento](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a21)
-- [Artículo 22. Potestad legislativa](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a22)
-- [Artículo 23. Iniciativa legislativa](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a23)
+## Para memorizar
+- Asamblea elige; Rey nombra al Presidente.
+- No confundas la mayoría simple de votos emitidos (acuerdos ordinarios, art. 21) con la mayoría simple de miembros (cuestión de confianza, art. 28).
+- Investidura, confianza y censura son procedimientos distintos: compara quién los inicia, qué mayoría requieren y qué efecto producen.
 
-**CAPÍTULO II · Del Presidente de Extremadura**
-
-- [Artículo 24. Carácter y funciones](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a24)
-- [Artículo 25. Investidura](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a25)
-- [Artículo 26. Atribuciones](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a26)
-- [Artículo 27. Disolución anticipada de la Asamblea](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a27)
-- [Artículo 28. Cuestión de confianza](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a28)
-- [Artículo 29. Moción de censura](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a29)
-- [Artículo 30. Otras causas de cese del Presidente](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a30)
+## Referencias oficiales por artículo
+[Art. 15](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a15) · [Art. 16](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a16) · [Art. 17](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a17) · [Art. 18](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a18) · [Art. 19](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a19) · [Art. 20](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a20) · [Art. 21](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a21) · [Art. 22](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a22) · [Art. 23](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a23) · [Art. 24](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a24) · [Art. 25](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a25) · [Art. 26](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a26) · [Art. 27](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a27) · [Art. 28](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a28) · [Art. 29](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a29) · [Art. 30](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a30)

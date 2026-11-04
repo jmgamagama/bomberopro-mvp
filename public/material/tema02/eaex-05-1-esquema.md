@@ -1,22 +1,25 @@
 # Título II · Instituciones: Junta y Administración (arts. 31–39) · Esquema
 
-Texto consolidado del BOE (BOE-A-2011-1638, última actualización publicada el 29/01/2011). Fuente oficial: [Ley Orgánica 1/2011, de 28 de enero, de reforma del Estatuto de Autonomía de la Comunidad Autónoma de Extremadura](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638). Texto con carácter informativo; la versión con valor jurídico es la publicada en el BOE.
+Texto consolidado del BOE (BOE-A-2011-1638, última actualización publicada el 29/01/2011). [Fuente oficial](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638). Texto con carácter informativo; para fines jurídicos debe consultarse la publicación oficial.
 
-9 preceptos. Cada rúbrica (literal) enlaza con el BOE.
+El capítulo separa al órgano de gobierno autonómico de la Administración que dirige, y ordena sus funciones, composición, potestades y principios.
 
-**CAPÍTULO III · De la Junta de Extremadura y de la Administración**
+## Arts. 31–36 · Junta de Extremadura
+- **Art. 31:** órgano colegiado de gobierno; responde políticamente ante la Asamblea.
+- **Art. 32:** fija la política general, dirige la Administración y ejerce las funciones reglamentaria y ejecutiva previstas.
+- **Art. 33:** decreto-ley para casos de extraordinaria y urgente necesidad, con límites materiales y control de la Asamblea en el plazo estatutario.
+- **Arts. 34–35:** composición y estatuto de sus miembros, con incompatibilidades y condiciones previstas por el Estatuto y la ley.
+- **Art. 36:** cese de la Junta ligado al del Presidente; continúa en funciones hasta la toma de posesión del nuevo Gobierno.
 
-**Sección 1.ª Del Gobierno de la Comunidad Autónoma**
+## Arts. 37–39 · Administración autonómica
+- **Art. 37:** principios de actuación y servicio objetivo a los intereses generales.
+- **Art. 38:** potestades administrativas para ejercer sus competencias, siempre dentro de los límites legales.
+- **Art. 39:** buena administración: calidad, participación, celeridad, transparencia, relaciones telemáticas, simplificación y claridad normativa.
 
-- [Artículo 31. Carácter y función](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a31)
-- [Artículo 32. Atribuciones](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a32)
-- [Artículo 33. Legislación de urgencia](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a33)
-- [Artículo 34. Composición](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a34)
-- [Artículo 35. Estatuto de los miembros](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a35)
-- [Artículo 36. Cese](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a36)
+## Para memorizar
+- Junta y Administración no son sinónimos: la Junta gobierna y dirige; la Administración ejecuta y sirve al interés general.
+- Decreto-ley: necesidad extraordinaria y urgente + límites materiales + control parlamentario.
+- No confundas la convalidación del art. 33 con la entrada en vigor de normas del art. 40.
 
-**Sección 2.ª De la Administración de la Comunidad Autónoma**
-
-- [Artículo 37. Principios rectores](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a37)
-- [Artículo 38. Potestades](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a38)
-- [Artículo 39. Medidas de buena administración](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a39)
+## Referencias oficiales por artículo
+[Art. 31](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a31) · [Art. 32](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a32) · [Art. 33](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a33) · [Art. 34](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a34) · [Art. 35](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a35) · [Art. 36](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a36) · [Art. 37](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a37) · [Art. 38](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a38) · [Art. 39](https://www.boe.es/buscar/act.php?id=BOE-A-2011-1638#a39)
