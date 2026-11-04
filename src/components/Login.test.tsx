@@ -60,6 +60,7 @@ describe('Login', () => {
 
     expect(signInWithPassword).not.toHaveBeenCalled();
     await waitFor(() => expect(signUp).toHaveBeenCalledWith({ email: 'ana@example.com', password: 'secreto123', options: { emailRedirectTo: expect.stringContaining('/?acceso=registro') } }));
+    expect(signUp.mock.calls[0][0].options).not.toHaveProperty('data');
   });
 
   it('si la cuenta ya existe pero la contraseña no coincide, avisa con un mensaje claro', async () => {
@@ -176,6 +177,44 @@ describe('Login', () => {
       expect(screen.getByLabelText(/correo electrónico/i)).toHaveValue('');
       expect(screen.getByLabelText(/correo electrónico/i)).toHaveFocus();
       expect(window.location.search).toBe('');
+    });
+
+    it('el código de piloto activa el alta, se envía a signUp y se limpia de la URL', async () => {
+      window.history.replaceState(null, '', '/?codigo=BP-TEST');
+      signUp.mockResolvedValue({ data: { session: null, user: { id: '1', identities: [{ id: 'i' }] } }, error: null });
+      const user = userEvent.setup();
+      render(<Login />);
+
+      expect(screen.getByRole('button', { name: 'Activar invitación', pressed: true })).toBeInTheDocument();
+      await fillAndSubmit(user);
+
+      await waitFor(() => expect(signUp).toHaveBeenCalledWith({
+        email: 'ana@example.com',
+        password: 'secreto123',
+        options: {
+          emailRedirectTo: expect.stringContaining('/?acceso=registro'),
+          data: { codigo_piloto: 'BP-TEST' },
+        },
+      }));
+      expect(window.location.search).toBe('');
+    });
+
+    it('el reenvío de confirmación no vuelve a enviar el código de piloto', async () => {
+      window.history.replaceState(null, '', '/?codigo=BP-TEST');
+      signUp.mockResolvedValue({ data: { session: null, user: { id: '1', identities: [{ id: 'i' }] } }, error: null });
+      resend.mockResolvedValue({ data: {}, error: null });
+      const user = userEvent.setup();
+      render(<Login />);
+
+      await fillAndSubmit(user);
+      await user.click(await screen.findByRole('button', { name: 'Reenviar el correo' }));
+
+      expect(resend).toHaveBeenCalledWith({
+        type: 'signup',
+        email: 'ana@example.com',
+        options: { emailRedirectTo: expect.stringContaining('/?acceso=registro') },
+      });
+      expect(resend.mock.calls[0][0]).not.toHaveProperty('options.data');
     });
 
     it('oculta la demo durante la activación y mientras el alumno revisa su correo', async () => {
