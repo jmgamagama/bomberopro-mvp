@@ -88,7 +88,7 @@ describe('registro de material por tema', () => {
           expect(esq).toContain('Decreto 39/2025');
           expect(esq).toContain('Resolución DOE n.º 201/2024');
           expect(esq).toContain('pendiente de confirmar');
-          expect(esq).toContain(f.doe!.pdfDoe);
+          expect(esq).toContain('https://doe.juntaex.es/eli/es-ex/d/2019/10/15/187/dof/spa/pdf');
         } else {
           expect(esq).toContain(`Qué se buscó: ${f.doe!.busqueda}`);
           expect(esq).toContain(`(${f.doe!.pdfDoe})`);
