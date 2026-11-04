@@ -61,7 +61,7 @@ El Tema 1 sirve como patrón de secuencia pedagógica y desglose por artículos.
 | Tema | Por qué |
 |---|---|
 | 4 | No cita norma BOE; existe un mazo de 28 fichas y tres capas en borrador basadas principalmente en el BOP n.º 206/2025. La página oficial del área de Desarrollo Rural consultada en 2026 enumera unidades distintas de las del apartado 1.7 del BOP. No se presentan las capas como actuales ni se integran en la app hasta conciliar las fuentes. |
-| 5 | Organigrama y Reglamento de Régimen Interno del CPEI: BOP de Badajoz (`data/fuentes/BOP-BA-2012-5370`), no en el BOE. |
+| 5 | Hay 259 conceptos basados en el texto único del RRI publicado en BOP en 2012, pero no capas de material. En 2022 se publicó una aprobación inicial de otra modificación (BOP n.º 145, anuncio 3393/2022); no se ha localizado el texto definitivo ni su desenlace. La Diputación mantiene en su web un organigrama fechado en 2022, sin confirmación de vigencia actual. |
 | 8, 9, 11 | Teoría del fuego, hidráulica y espumas: contenido técnico sin norma (las UNE no son del BOE). |
 | 14 | Vehículos contra incendios: normas UNE-EN 1846, no BOE. |
 | 15, 16 | Material de rescate y comunicaciones: técnico; el código ICAO no es una norma del BOE. |
@@ -80,6 +80,10 @@ El Tema 1 sirve como patrón de secuencia pedagógica y desglose por artículos.
 - La web oficial de [Áreas Funcionales del Área de Desarrollo Rural](https://desarrollorural.dip-badajoz.es/areas-funcionales), con pie de página 2026, enumera seis entradas en T4.1.7; el BOP n.º 206/2025 enumera tres. No se ha localizado una publicación formal posterior que explique la diferencia. La web central del [organigrama oficial](https://www2.dip-badajoz.es/diputacion/organigrama/index.php) confirma las denominaciones principales de las áreas y entes, pero no resuelve los servicios.
 - El banco de recuerdo contiene 28 fichas; su informe documenta una muestra manual de 20 con cero errores y la revisión de mazos lo mantiene pendiente. No se han cambiado fichas ni datos de producción.
 - Los tres documentos son borradores fuera de `public/material` y del registro de la app. Las unidades de T4.1.7 quedan pendientes de confirmación.
+
+### Tema 5 · Auditoría de fuentes
+
+El texto íntegro del RRI localizado es el publicado en el [BOP n.º 149/2012, anuncio 5370/2012](https://www.dip-badajoz.es/bop/ventana_anuncio.php?id_anuncio=70559&FechaSolicitada=2012-08-06). El [BOP n.º 145/2022, anuncio 3393/2022](https://www.dip-badajoz.es/toolsphp/descarga.php?fr=6&id=bop_2022-08-01000000_firmado.pdf) publicó una aprobación inicial de modificación puntual, pero falta localizar el texto de esa modificación y verificar si llegó a ser definitiva. La web oficial del [CPEI](https://www.dip-badajoz.es/diputacion/delegaciones/cpei/) enlaza un [PDF del Reglamento fechado en 2006](https://www.dip-badajoz.es/diputacion/delegaciones/cpei/doc/reglamento_consorcio.pdf), anterior al texto del BOP de 2012. El [organigrama oficial disponible](https://www.dip-badajoz.es/diputacion/delegaciones/cpei/doc/OrganigramaCPE2022.pdf) está fechado en junio de 2022. El banco de conceptos existente parte del texto de 2012 y requiere cotejo antes de afirmar vigencia; por ello, no se redacta todavía una capa oficial del RRI ni se presenta el organigrama como actual en 2026.
 
 ## Temas 35-40 sin esquema generado (no se inventa nada)
 

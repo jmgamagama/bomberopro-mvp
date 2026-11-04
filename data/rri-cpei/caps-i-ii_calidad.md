@@ -8,13 +8,13 @@ Fecha: 31/10/2026. Autor: Claude (redacción propia). Estado: en borrador hasta 
 - No tenía estudio por conceptos: 182 preguntas publicadas, ninguna ligada a concepto ni con nivel 3.
 
 ## Fuente oficial
-- Reglamento de Régimen Interno del CPEI, **texto único vigente** publicado en el BOP de Badajoz n.º 149, de
-  06/08/2012, anuncio 5370/2012 (integra la modificación de los arts. 6.1.d y 25 aprobada el 21/05/2012).
+- Reglamento de Régimen Interno del CPEI, **texto único publicado como vigente en esa fecha** en el BOP de Badajoz n.º 149, de 06/08/2012, anuncio 5370/2012 (integra la modificación de los arts. 6.1.d y 25 aprobada el 21/05/2012).
 - Descargado de dip-badajoz.es con `scripts/fuente_bop.py BOP-BA-2012-5370` (nuevo; mismo formato que
   `fuente_boe.py`) → `data/fuentes/BOP-BA-2012-5370/` (HTML original, `bloques.json`, `texto.md`, `meta.json` con sha256).
-- No se ha encontrado ninguna modificación posterior publicada (búsqueda web del 31/10/2026).
-- Descartado como fuente el PDF del Drive «7-REGLAMENTO CPEI BADAJOZ.pdf»: es un manual basado en la versión de
-  2006, no el texto oficial vigente.
+- El BOP n.º 145, anuncio 3393/2022 (01/08/2022), publicó la aprobación inicial de otra modificación puntual. El anuncio abrió un plazo de 30 días y dispone que, si no hay reclamaciones, el acuerdo se entiende definitivamente adoptado; no se ha localizado el texto completo de esa modificación ni una publicación posterior que permita comprobar su alcance y desenlace.
+- La página oficial del CPEI consultada el 03/11/2026 enlaza un PDF del Reglamento fechado en octubre de 2006. El texto íntegro de 2012 es la última versión completa localizada, pero su vigencia actual no está confirmada. No tratar el PDF de 2006 como una versión posterior.
+- Fuentes para cotejo: [BOP n.º 145/2022, anuncio 3393/2022](https://www.dip-badajoz.es/toolsphp/descarga.php?fr=6&id=bop_2022-08-01000000_firmado.pdf); [documentación oficial del CPEI](https://www.dip-badajoz.es/diputacion/delegaciones/cpei/); [PDF de Reglamento que actualmente enlaza el CPEI](https://www.dip-badajoz.es/diputacion/delegaciones/cpei/doc/reglamento_consorcio.pdf).
+- Se mantiene el descarte del PDF del Drive «7-REGLAMENTO CPEI BADAJOZ.pdf»: es un manual basado en la versión de 2006, no evidencia de una versión posterior.
 
 ## Recuentos
 - 41 conceptos, 123 preguntas nuevas (41 por nivel). Orden 10-410. Prioridad 1: 14; 2: 21; 3: 6.
