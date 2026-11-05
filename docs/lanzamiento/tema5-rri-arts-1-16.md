@@ -11,7 +11,7 @@ Estado: **LISTO para aprobar**. Va como una fila de `docs/LANZAMIENTO.md`. Fecha
 - 154 preguntas que ya estaban publicadas se ligan a su concepto con nivel 2 (33 de los arts. 1-16, 18 de los arts. 17-22, 70 de los arts. 23-34 y 33 de los arts. 35-48). Antes del cambio, el valor anterior se guarda en `qa_changes_20260923`.
 - 7 preguntas duplicadas se despublican, con registro: 7002, 12293, 12296, 6993, 6995, 6996 y 6997.
 - No hay migraciones. Solo datos y un cambio del cargador (`scripts/cargar_conceptos.py`), que no se ejecuta en la app: muestra «Art. 35 (faltas graves, n.º 12)» en las listas del art. 35.
-- Requisito: fusionar antes la PR #212 (ficheros de los arts. 17-48).
+- Requisito: la PR #212 (arts. 17-48) ya está fusionada; falta fusionar la corrección de la revisión de Codex (capítulos de los arts. 23-48 y una pregunta del art. 25).
 
 ## Pasos, en este orden (tema 5 resuelto por número, nunca por id)
 1. Carga de contenido ya publicado:
@@ -29,11 +29,12 @@ Estado: **LISTO para aprobar**. Va como una fila de `docs/LANZAMIENTO.md`. Fecha
    - `python3 scripts/aplicar_vinculos.py data/rri-cpei/vinculos-produccion-cap-iii-arts-35-48.json`
 3. Comprobación (lectura). Debe dar exactamente:
    - 777 preguntas `RRI:%` publicadas y 259 conceptos `RRI-%` publicados.
-   - md5 de preguntas `3183519f8526d0df7e3c7ac6d6ac06b5` y md5 de conceptos `17ca49c8d765a2efe57e6b79960687d3` (consultas en «Huella»).
+   - md5 de preguntas `790c335f7b2115dcff79c09e4ca758da` y md5 de conceptos `17ca49c8d765a2efe57e6b79960687d3` (consultas en «Huella»).
    - 154 preguntas antiguas con `concept_id like 'RRI-%'` y nivel 2.
    - 7 duplicadas con estado `duplicada`.
 
 ## Comprobado
+- 05/11: corrección de la revisión de Codex. Las etiquetas de capítulo pasan a «Caps. IV-VIII» (arts. 23-34) y «Caps. VIII-XI» (arts. 35-48); antes ponían «Cap. IV-VII» y «Cap. III». La pregunta de nivel 3 sobre el Parque Comarcal (art. 25.b) se reescribió porque el Central también podía defenderse; la revisión ciega la da por inequívoca. Huella de preguntas nueva.
 - Staging (`fxhvgvehhekqeqpkxtrm`), 31/10 y 01/11 (arts. 23-34 cargados el 01/11 en 7 tramos, misma huella que la carga entera en memoria):
   - Carga completa de los cinco bloques en estado publicado: 777/777 preguntas y 259 conceptos, sin órdenes repetidos.
   - Huella idéntica a una carga independiente en Postgres en memoria hecha desde el repo (preguntas y conceptos).

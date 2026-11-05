@@ -6,7 +6,7 @@
  "hash_prefijo": "RRI",
  "tema": 5,
  "tema_nombre": "El organigrama del CPEI de Badajoz. El Reglamento de Régimen Interno del CPEI de Badajoz",
- "bloque_temario": "Cap. IV-VII (arts. 23-34): uniformidad, parques, funcionamiento, deberes específicos y responsabilidad",
+ "bloque_temario": "Caps. IV-VIII (arts. 23-34): uniformidad, parques, funcionamiento, deberes específicos y responsabilidad",
  "estado": "borrador",
  "autor": "Claude (redacción propia a partir del texto único vigente publicado en el BOP de Badajoz n.º 149, de 06/08/2012)",
  "niveles": {
@@ -757,14 +757,14 @@
     },
     {
      "nivel": 3,
-     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿qué tipo de parque, además de cubrir su ámbito territorial, apoya a otros parques cuando las circunstancias lo requieren?",
+     "enunciado": "Según el art. 25 del Reglamento de Régimen Interno del CPEI, ¿qué tipo de parque tiene capacidad de apoyo a los parques locales cuando las circunstancias lo requieran?",
      "opciones": [
       "El Central",
       "El Comarcal",
       "El Local"
      ],
      "correcta": 1,
-     "explicacion": "Art. 25.b): el Parque Comarcal apoya a los parques locales. El Central solo acude fuera en sucesos de extrema gravedad u ocasiones especiales."
+     "explicacion": "Art. 25.b): el Parque Comarcal tendrá capacidad de cobertura de su ámbito territorial «y de apoyo a los parques locales, cuando las circunstancias lo requieran». El Central, en cambio, normalmente no puede acudir en ayuda de otro parque (art. 25.a); el Local depende del sector de un Comarcal (art. 25.c)."
     }
    ]
   },
