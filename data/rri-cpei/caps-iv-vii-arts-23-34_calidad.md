@@ -42,3 +42,7 @@ comillas de las explicaciones se comprobaron por script contra el texto del BOP:
 
 ## Pruebas
 - `vinculos_rri_cpei.pglite.mjs` carga ahora los cinco bloques: 3/3.
+
+## Corrección tras la revisión de Codex (05/11/2026)
+- Art. 25, nivel 3 (Parque Comarcal): con el enunciado anterior («apoya a otros parques») también podía defenderse el Central, que acude en sucesos de extrema gravedad (25.a). Ahora pregunta por el apoyo a los parques locales, como dice el 25.b. Nueva revisión ciega: inequívoca.
+- La etiqueta de capítulo pasa a «Caps. IV-VIII»: el art. 34 está en el cap. VIII.

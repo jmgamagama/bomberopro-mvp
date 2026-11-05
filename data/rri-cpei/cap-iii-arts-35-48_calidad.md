@@ -1,4 +1,4 @@
-# Tema 5 · RRI del CPEI · Cap. III, arts. 35-48 — informe de calidad
+# Tema 5 · RRI del CPEI · Caps. VIII-XI, arts. 35-48 — informe de calidad
 
 Fecha: 01/11/2026. Autor: Claude (redacción propia). Fuente y método: los mismos que `caps-i-ii_calidad.md`
 (texto único publicado en BOP de Badajoz n.º 149, de 06/08/2012; vigencia actual pendiente de cotejo con el anuncio de modificación de 2022; `data/fuentes/BOP-BA-2012-5370/`).
