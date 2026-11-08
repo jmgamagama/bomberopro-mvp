@@ -1,5 +1,6 @@
 /** Corrección local de los supuestos prácticos (sin red ni servidor). */
 import type { PreguntaSupuesto, Supuesto } from './supuestosTypes';
+import { ownedKey, readOwned, writeOwned } from '../../utils/localOwner';
 
 /** Respuesta del alumno: índice de opción (test) o texto numérico (cálculo). */
 export type RespuestaSupuesto = number | string | undefined;
@@ -64,7 +65,8 @@ export function corregirSupuesto(
 // ---------------------------------------------------------------------------
 
 export const SUPUESTOS_STORAGE_KEY = 'mira_supuestos_v1';
-// Nota: esta clave guarda solo aciertos/total/fecha por id (sin contenido), también de los privados.
+// Nota: solo aciertos/total/fecha por id (sin enunciados). Por cuenta, igual que SRS/racha:
+// `mira_supuestos_v1:<userId|demo>` vía localOwner (migra la clave antigua sin sufijo una vez).
 
 export interface UltimoResultado {
   aciertos: number;
@@ -72,9 +74,14 @@ export interface UltimoResultado {
   fecha: string;
 }
 
+/** Clave del propietario actual (tests y diagnóstico). */
+export function supuestosResultadosStorageKey(): string {
+  return ownedKey(SUPUESTOS_STORAGE_KEY);
+}
+
 export function leerUltimosResultados(): Record<string, UltimoResultado> {
   try {
-    const raw = window.localStorage.getItem(SUPUESTOS_STORAGE_KEY);
+    const raw = readOwned(SUPUESTOS_STORAGE_KEY);
     const parsed: unknown = raw ? JSON.parse(raw) : {};
     return parsed && typeof parsed === 'object' ? (parsed as Record<string, UltimoResultado>) : {};
   } catch {
@@ -86,7 +93,7 @@ export function guardarResultado(id: string, r: ResultadoSupuesto, fecha = new D
   try {
     const all = leerUltimosResultados();
     all[id] = { aciertos: r.aciertos, total: r.total, fecha: fecha.toISOString() };
-    window.localStorage.setItem(SUPUESTOS_STORAGE_KEY, JSON.stringify(all));
+    writeOwned(SUPUESTOS_STORAGE_KEY, JSON.stringify(all));
   } catch {
     /* almacenamiento no disponible: el resultado se ve igualmente en pantalla */
   }
