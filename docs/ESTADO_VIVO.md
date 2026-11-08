@@ -38,7 +38,7 @@
 4. Claude → plan por usuario (fases B y C del embudo): hoy `getPlan()` es global; el invitado ve T35-T40 completos (incluye T38-T40, material interno del CPEI). Depende del punto 2.
 5. Claude → correo de confirmación en español, botón «Entrar» visible en modo invitado, vista previa al compartir el enlace (og:image), logo único.
 6. Claude → aplicar 43, 46, 47, 49 y 50 en staging y, con «sí» de JM, en producción (orden y guardas en la #218).
-7. PR abiertas (08/11): solo #265 (texto de registro por código, Claude), con CI en curso → fusionable si pasa CI; la limpieza de octubre ya no está pendiente.
+7. PR abiertas (08/11): #266 (este reparto, documental) y #267 (marca única, Claude, producto). #265 ya fusionada. La limpieza de octubre ya no está pendiente.
 8. JM → equipo de agentes (reglas en `AGENTS.md`, autonomía comprobada en `docs/OPERACION.md`): (a) la app de Codex ya revisa cada PR gratis; propuesta: quitar el paso redundante de `auto-codex-review.yml` (necesita una PR de CI aparte); (b) crear las etiquetas `deepseek`, `gemini` y `grok` (ya existen `claude`, `codex` y `antigravity`; la sesión de Claude no tiene herramienta para crearlas, puede hacerlo Codex o JM); (c) dar acceso a `bomberopro-editorial` a la sesión que deba coordinar DeepSeek; (d) la comprobación semanal de CI necesita el ordenador: activarlo o pasarla a la nube.
 
 ## Decisiones cerradas (no reabrir sin dato nuevo)
