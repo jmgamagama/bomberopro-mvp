@@ -10,8 +10,8 @@ class EditorialGatekeeperTests(unittest.TestCase):
         self.item = {
             'id_pregunta':'x1','id_origen':'f-1','tema':'17','epigrafe':'SVB',
             'fuente':'documento oficial','localizacion':'apartado 1',
-            'enunciado':'Pregunta?','opcion_a':'Uno','opcion_b':'Dos',
-            'opcion_c':'Tres','correcta':'A','explicacion':'Explicación',
+            'enunciado':'¿Cuál es el protocolo general de actuación?','opcion_a':'Uno','opcion_b':'Dos',
+            'opcion_c':'Tres','correcta':'A','explicacion':'La respuesta se deduce del apartado 1 del documento citado.',
             'nivel':'2','estado':'borrador','version_fuente':'2026'
         }
 
@@ -26,6 +26,18 @@ class EditorialGatekeeperTests(unittest.TestCase):
 
     def test_valid_single_draft(self):
         self.assertEqual([],self.validate([self.item]))
+
+    def test_reject_empty_stem_in_draft(self):
+        row=dict(self.item,enunciado=' ')
+        self.assertIn('SHORT_STEM',[x['code'] for x in self.validate([row])])
+
+    def test_reject_short_explanation(self):
+        row=dict(self.item,explicacion='corta')
+        self.assertIn('SHORT_EXPLANATION',[x['code'] for x in self.validate([row])])
+
+    def test_reject_missing_option(self):
+        row=dict(self.item,opcion_a='')
+        self.assertIn('DUPLICATE_OPTIONS',[x['code'] for x in self.validate([row])])
 
     def test_reject_duplicate_answer_options(self):
         row=dict(self.item,opcion_c='Uno')
