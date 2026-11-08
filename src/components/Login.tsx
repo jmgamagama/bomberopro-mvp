@@ -8,7 +8,8 @@ import {
   type MensajeAcceso, type ModoAcceso,
 } from '../lib/mensajesAcceso';
 import { describeGuestProgress, guestProgressSummary, hasGuestSignupIntent, markGuestSignupIntent } from '../utils/guestProgress';
-import { Lock, Loader2, Flame, ScrollText, Timer, Brain, ArrowRight, BookOpen, Eye, EyeOff, MailCheck, Save } from 'lucide-react';
+import { Lock, Loader2, ScrollText, Timer, Brain, ArrowRight, BookOpen, Eye, EyeOff, MailCheck, Save } from 'lucide-react';
+import BrandMark from './BrandMark';
 
 interface LoginProps {
   onStartDemo?: () => void;
@@ -233,9 +234,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
         <div className="max-w-md mx-auto px-5">
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-2.5">
-              <div className="w-10 h-10 rounded-xl bg-orange-600 flex items-center justify-center">
-                <Flame className="w-6 h-6 text-white" aria-hidden="true" />
-              </div>
+              <BrandMark size={40} />
               <h1 className="text-xl font-black tracking-tight">BomberoPro</h1>
             </div>
             {!abierto && <span className="text-xs font-bold bg-white/15 rounded-full px-3 py-1">Grupo piloto</span>}
@@ -245,7 +244,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
             {abierto
               ? 'Preguntas del temario que se adaptan a lo que te cuesta.'
               : mode === 'crear'
-                ? 'Actívala en un minuto con el correo al que te llegó.'
+                ? 'Crea tu cuenta en un minuto con tu correo y confírmalo.'
                 : 'Entra con el correo al que te llegó la invitación.'}
           </p>
         </div>

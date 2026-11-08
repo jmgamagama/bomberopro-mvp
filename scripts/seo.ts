@@ -48,12 +48,23 @@ export function jsonLd(siteUrl?: string, page: 'app' | 'landing' = 'app'): strin
   return JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
 }
 
+/**
+ * Base de la imagen para compartir. WhatsApp, Telegram y Facebook exigen una URL absoluta: sin ella no hay
+ * vista previa. Con VITE_SITE_URL manda esa; si no, se usa el dominio de producción que Vercel expone al construir
+ * (VERCEL_PROJECT_PRODUCTION_URL). Solo afecta a og:image: canonical, og:url y sitemap siguen exigiendo VITE_SITE_URL.
+ */
+export function imageBase(siteUrl?: string): string {
+  if (siteUrl) return siteUrl.replace(/\/$/, '');
+  const vercel = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  return vercel ? `https://${vercel.replace(/^https?:\/\//, '').replace(/\/$/, '')}` : '';
+}
+
 function headMeta(siteUrl: string | undefined, page: 'app' | 'landing'): string {
   const url = siteUrl ? siteUrl.replace(/\/$/, '') + (page === 'landing' ? LANDING_PATH : '/') : null;
   return [
     url ? `<link rel="canonical" href="${esc(url)}" />` : '',
     url ? `<meta property="og:url" content="${esc(url)}" />` : '',
-    siteUrl ? `<meta property="og:image" content="${esc(siteUrl.replace(/\/$/, ''))}/og-image.png" />` : '<meta property="og:image" content="/og-image.png" />',
+    `<meta property="og:image" content="${esc(imageBase(siteUrl))}/og-image.png" />`,
     `<script type="application/ld+json">${jsonLd(siteUrl, page)}</script>`,
   ].filter(Boolean).join('\n    ');
 }

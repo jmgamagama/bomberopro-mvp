@@ -30,6 +30,7 @@ import {
 import { getAdaptiveQuestion, processAttempt, getAdaptiveDailySession, createNewMemoryState, normalizeSpacedEvidence } from './utils/engine';
 import { MAX_VALID_RESPONSE_SECONDS } from './utils/activeTimer';
 import { SCREEN_TITLES } from './utils/screenTitles';
+import BrandMark from './components/BrandMark';
 
 import type { AccountErrorsState } from './components/AccountErrorPanel';
 const AccesoConfirmado = lazy(() => import('./components/AccesoConfirmado'));
@@ -910,9 +911,7 @@ export default function App() {
             onClick={() => handleNavigate('dashboard')}
             id="brand-logo"
           >
-            <div className="p-2 bg-orange-600 text-white rounded-xl shadow-md shadow-orange-100">
-              <Flame className="w-5 h-5" aria-hidden="true" />
-            </div>
+            <BrandMark size={36} />
             <div>
               <span className="text-base font-black tracking-tight text-slate-950">
                 BomberoPro
