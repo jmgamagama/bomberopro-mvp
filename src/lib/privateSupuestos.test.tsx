@@ -163,7 +163,7 @@ describe('con la aplicación completa', () => {
     await user.click(within(p('EJEMPLO-01-p1')).getAllByRole('radio')[1]);
     await user.click(screen.getByRole('button', { name: /Corregir/ }));
     expect(document.querySelector('#supuesto-resultado')).toBeInTheDocument();
-    expect(JSON.parse(window.localStorage.getItem('mira_supuestos_v1') ?? '{}')).toHaveProperty(['cuenta:EJEMPLO-CUENTA']);
+    expect(JSON.parse(window.localStorage.getItem('mira_supuestos_v1:user-A') ?? '{}')).toHaveProperty(['cuenta:EJEMPLO-CUENTA']);
   });
 
   it('si la tabla no existe, la app funciona igual y no sale «Casos» (alumno sin supuestos)', async () => {

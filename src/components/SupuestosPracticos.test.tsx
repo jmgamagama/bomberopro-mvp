@@ -44,7 +44,7 @@ describe('SupuestosPracticos', () => {
     expect(screen.getAllByText('Incorrecta')).toHaveLength(1);
     expect(document.body.textContent).toMatch(/2 × 160 = 320 l\/min.*320 × 60 = 19.200 l/);
     expect(screen.getAllByRole('link', { name: /Fuente oficial/ })[0]).toHaveAttribute('href', expect.stringMatching(/^https:\/\/www\.boe\.es\//));
-    expect(JSON.parse(window.localStorage.getItem('mira_supuestos_v1')!)['supuesto-t33-agua-01']).toMatchObject({ aciertos: 7, total: 8 });
+    expect(JSON.parse(window.localStorage.getItem('mira_supuestos_v1:demo')!)['supuesto-t33-agua-01']).toMatchObject({ aciertos: 7, total: 8 });
 
     await user.click(screen.getByRole('button', { name: /Repetir/ }));
     expect(screen.getByRole('button', { name: /Corregir \(0\/8 respondidas\)/ })).toBeInTheDocument();

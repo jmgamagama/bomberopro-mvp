@@ -5,6 +5,7 @@ import { resetLocalDataOwnerForTests, setLocalDataOwner } from './localOwner';
 import { GRADE_GOOD, loadSrs, recordRecallGrade } from './recallSrs';
 import { loadReviewLog } from './recallReviewLog';
 import { buildLocalDataExport, deleteLocalStudyData, ownedLocalKeys } from './localData';
+import { guardarResultado } from '../data/supuestos/supuestosCorreccion';
 
 const ls = () => window.localStorage;
 
@@ -54,8 +55,15 @@ describe('exportar datos locales', () => {
 describe('borrar datos locales', () => {
   it('borra lo de la cuenta actual y conserva respuestas pendientes y otras cuentas', () => {
     seed();
+    guardarResultado('supuesto-a', { aciertos: 1, total: 2, proporcion: 0.5, porPregunta: {} });
+    setLocalDataOwner('cuenta-b');
+    guardarResultado('supuesto-b', { aciertos: 2, total: 2, proporcion: 1, porPregunta: {} });
+    setLocalDataOwner('cuenta-a');
     const removed = deleteLocalStudyData();
     expect(removed).toContain('mira_recall_srs_v1:cuenta-a');
+    expect(removed).toContain('mira_supuestos_v1:cuenta-a');
+    expect(ls().getItem('mira_supuestos_v1:cuenta-a')).toBeNull();
+    expect(ls().getItem('mira_supuestos_v1:cuenta-b')).not.toBeNull();
     expect(loadSrs()).toEqual({});
     expect(loadReviewLog()).toEqual([]);
     expect(ls().getItem('bomberopro:pending-attempts:v1:cuenta-a')).not.toBeNull();

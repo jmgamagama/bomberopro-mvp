@@ -18,6 +18,7 @@ import {
 } from './supuestosCorreccion';
 import { REVIEWED_DECKS } from '../recallReviewMotivos';
 import { setRevisionViewer } from '../../utils/revisionAccess';
+import { resetLocalDataOwnerForTests, setLocalDataOwner } from '../../utils/localOwner';
 import type { PreguntaCalculo, Supuesto } from './supuestosTypes';
 
 function jsonFiles(dir: string): string[] {
@@ -120,9 +121,66 @@ describe('corrección local', () => {
 
   it('guarda el último resultado solo en este dispositivo', () => {
     window.localStorage.clear();
+    resetLocalDataOwnerForTests();
+    setLocalDataOwner('cuenta-a');
     guardarResultado('supuesto-x', { aciertos: 2, total: 3, proporcion: 2 / 3, porPregunta: {} }, new Date('2026-10-18T10:00:00Z'));
     expect(leerUltimosResultados()['supuesto-x']).toEqual({ aciertos: 2, total: 3, fecha: '2026-10-18T10:00:00.000Z' });
-    window.localStorage.setItem(SUPUESTOS_STORAGE_KEY, '{roto');
+    expect(window.localStorage.getItem(`${SUPUESTOS_STORAGE_KEY}:cuenta-a`)).not.toBeNull();
+    expect(window.localStorage.getItem(SUPUESTOS_STORAGE_KEY)).toBeNull();
+    window.localStorage.setItem(`${SUPUESTOS_STORAGE_KEY}:cuenta-a`, '{roto');
+    expect(leerUltimosResultados()).toEqual({});
+  });
+});
+
+describe('aislamiento de resultados de supuestos entre cuentas', () => {
+  beforeEach(() => {
+    window.localStorage.clear();
+    resetLocalDataOwnerForTests();
+  });
+  afterEach(() => resetLocalDataOwnerForTests());
+
+  it('los resultados de Ana no aparecen al cambiar a Luis (P1 filtración entre cuentas)', () => {
+    setLocalDataOwner('ana');
+    guardarResultado(
+      'supuesto-x',
+      { aciertos: 2, total: 3, proporcion: 2 / 3, porPregunta: {} },
+      new Date('2026-10-18T10:00:00Z'),
+    );
+    expect(leerUltimosResultados()['supuesto-x']).toEqual({
+      aciertos: 2,
+      total: 3,
+      fecha: '2026-10-18T10:00:00.000Z',
+    });
+
+    setLocalDataOwner('luis');
+    expect(leerUltimosResultados()).toEqual({});
+    expect(window.localStorage.getItem(SUPUESTOS_STORAGE_KEY)).toBeNull();
+    expect(window.localStorage.getItem(`${SUPUESTOS_STORAGE_KEY}:luis`)).toBeNull();
+    expect(window.localStorage.getItem(`${SUPUESTOS_STORAGE_KEY}:ana`)).not.toBeNull();
+
+    setLocalDataOwner('ana');
+    expect(leerUltimosResultados()['supuesto-x']).toEqual({
+      aciertos: 2,
+      total: 3,
+      fecha: '2026-10-18T10:00:00.000Z',
+    });
+  });
+
+  it('migra la clave antigua sin sufijo al primer propietario resuelto', () => {
+    window.localStorage.setItem(
+      SUPUESTOS_STORAGE_KEY,
+      JSON.stringify({ 'supuesto-legacy': { aciertos: 1, total: 1, fecha: '2026-10-01T00:00:00.000Z' } }),
+    );
+    setLocalDataOwner('ana');
+    expect(leerUltimosResultados()['supuesto-legacy']).toEqual({
+      aciertos: 1,
+      total: 1,
+      fecha: '2026-10-01T00:00:00.000Z',
+    });
+    expect(window.localStorage.getItem(SUPUESTOS_STORAGE_KEY)).toBeNull();
+    expect(window.localStorage.getItem(`${SUPUESTOS_STORAGE_KEY}:ana`)).not.toBeNull();
+
+    setLocalDataOwner('luis');
     expect(leerUltimosResultados()).toEqual({});
   });
 });
