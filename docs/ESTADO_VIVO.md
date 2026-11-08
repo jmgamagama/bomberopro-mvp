@@ -16,6 +16,7 @@
 ## Entornos
 - Repo `jmgamagama/bomberopro-mvp` (main protegida: PR + check «Lint, build and test»; Vercel despliega al fusionar). **El repositorio es público**: pasarlo a privado (regla 7: material del CPEI solo en privado).
 - Supabase producción `yndoaprnpkjqiggeyefz`; staging `fxhvgvehhekqeqpkxtrm`. Cambios: staging → test → producción, con «sí» escrito de JM (skill `bomberopro-cambio-seguro`).
+- Comprobado el 08/11: la web responde 200, CI de main en verde, 0 PRs abiertos en GitHub; no se ha revisado el estado de la base de datos desde el 02/11.
 - Producción sirve `cb958b0` (#219: 34 temas, 2.886 fichas, recorrido del alumno, material por tema). Vercel: proyecto `bomberopro-mvp`; `bomberopro.com` da 502 (sin asignar).
 - Examen: CPEI Badajoz 2026, BOP nº 135 (anuncio 2843/2026): 50+5 reserva, 3 opciones, 60 min, +0,200/−0,066/0, 30 % de temas 35-40. Fecha sin publicar.
 
@@ -36,7 +37,7 @@
 2. JM → hacer privado el repositorio; cambiar la contraseña de aplicación de Gmail (se pegó en un chat); dar los correos de los 10 alumnos (Claude los añade a `piloto_invitados` en Supabase, nunca al repo).
 3. JM → decidir: tema 37, ficha CPEI-T39-SPE-006, distractores del simulacro de invitado, fuentes INSST, 8 fichas de T33-lote02 abiertas por criterio propio, 165 códigos INE del T36.
 4. Claude → plan por usuario (fases B y C del embudo): hoy `getPlan()` es global; el invitado ve T35-T40 completos (incluye T38-T40, material interno del CPEI). Depende del punto 2.
-5. Claude → correo de confirmación en español, botón «Entrar» visible en modo invitado, vista previa al compartir el enlace (og:image), logo único.
+5. Claude → logo único (gota azul/blanca/amarilla = icono de la PWA) hecho en la PR de marca única (cabecera y acceso); «Entrar» ya está en el aviso del modo demo; og:image pasa a URL absoluta con `VERCEL_PROJECT_PRODUCTION_URL` (comprobar al desplegar). Falta: JM pega las plantillas de `supabase/templates/*.html` (español) en Supabase → Auth → Email Templates y asigna `bomberopro.com` en Vercel: las plantillas cargan el logo desde ese dominio.
 6. Claude → aplicar 43, 46, 47, 49 y 50 en staging y, con «sí» de JM, en producción (orden y guardas en la #218).
 7. JM → limpiar PRs: 17 abiertas, 9 de octubre sin actividad (#82, #98, #103, #104, #107, #108, #117, #136, #167) y duplicadas (#210, #211).
 

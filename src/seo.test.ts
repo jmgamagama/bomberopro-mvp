@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest';
-import { FAQ, jsonLd, landingHtml, SEO_DESCRIPTION, SEO_TITLE } from '../scripts/seo';
+import { describe, expect, it, vi } from 'vitest';
+import { FAQ, imageBase, jsonLd, landingHtml, SEO_DESCRIPTION, SEO_TITLE } from '../scripts/seo';
 import { CONVOCATORIA_CPEI_2026 as C } from './data/convocatoria';
 
 describe('SEO y landing Badajoz 2026', () => {
@@ -28,7 +28,9 @@ describe('SEO y landing Badajoz 2026', () => {
   });
   it('metadatos sociales: og:image, og:url y twitter:card summary_large_image (issue #229)', () => {
     // Without VITE_SITE_URL the og:image is a relative path, never absent
+    vi.stubEnv('VERCEL_PROJECT_PRODUCTION_URL', '');
     const noUrl = landingHtml();
+    vi.unstubAllEnvs();
     expect(noUrl).toContain('property="og:image"');
     expect(noUrl).toContain('content="/og-image.png"');
     expect(noUrl).toContain('name="twitter:card" content="summary_large_image"');
@@ -38,6 +40,21 @@ describe('SEO y landing Badajoz 2026', () => {
     expect(withUrl).toContain('content="https://bomberopro.com/oposiciones-bombero-badajoz-2026/"');
     expect(withUrl).toContain('property="og:image" content="https://bomberopro.com/og-image.png"');
     expect(withUrl).toContain('name="twitter:card" content="summary_large_image"');
+  });
+
+  it('sin VITE_SITE_URL, la imagen para compartir usa el dominio de producción de Vercel (URL absoluta)', () => {
+    vi.stubEnv('VERCEL_PROJECT_PRODUCTION_URL', 'bomberopro-mvp.vercel.app');
+    try {
+      expect(imageBase()).toBe('https://bomberopro-mvp.vercel.app');
+      expect(landingHtml()).toContain('property="og:image" content="https://bomberopro-mvp.vercel.app/og-image.png"');
+      // VITE_SITE_URL manda sobre el dominio de Vercel
+      expect(imageBase('https://bomberopro.com/')).toBe('https://bomberopro.com');
+      // canonical y og:url siguen sin emitirse sin VITE_SITE_URL
+      expect(landingHtml()).not.toContain('rel="canonical"');
+    } finally {
+      vi.unstubAllEnvs();
+    }
+    expect(imageBase()).toBe('');
   });
   it('public/og-image.png existe, es 1200x630 y pesa ≤ 300 KB (issue #229)', async () => {
     const { readFileSync, statSync } = await import('node:fs');
