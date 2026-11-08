@@ -35,6 +35,11 @@ def lint(path):
         for field in sorted(FIELDS):
             if not (row.get(field) or '').strip():
                 issue('EMPTY_FIELD',field)
+        # Structural minimums apply to drafts as well as reviewed material.
+        if len(norm(row.get('enunciado'))) < 15:
+            issue('SHORT_STEM', 'enunciado must contain at least 15 characters')
+        if len(norm(row.get('explicacion'))) < 20:
+            issue('SHORT_EXPLANATION', 'explicacion must contain at least 20 characters')
         if not ident or ident in seen_ids:
             issue('DUPLICATE_ID',ident)
         seen_ids.add(ident)
@@ -50,7 +55,7 @@ def lint(path):
         except ValueError:
             issue('BAD_TOPIC','tema must be an integer')
         opts = [norm(row.get('opcion_'+x)) for x in ('a','b','c')]
-        if len(set(opts)) != 3:
+        if not all(opts) or len(set(opts)) != 3:
             issue('DUPLICATE_OPTIONS','three different options are required')
         signature = hashlib.sha256(('\u241f'.join([norm(row.get('enunciado'))]+sorted(opts))).encode()).hexdigest()
         if signature in seen_signatures:
