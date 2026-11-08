@@ -6,7 +6,7 @@
 Ingeniería principal de producto: funcionalidades, experiencia del alumno (móvil, rapidez, accesibilidad), rendimiento y pruebas E2E. Sigues siendo responsable del algoritmo MIRA/FSRS y del esquema de datos: cualquier PR ajena que los cambie necesita tu revisión (etiqueta `necesita-claude`).
 
 ## Ramas
-`claude/<tipo>-<descripcion>`. El flujo `auto-codex-review` etiqueta tus PR con `codex-review-pendiente`; hoy esa etiqueta no significa que Codex haya revisado (ver `docs/OPERACION.md`).
+`claude/<tipo>-<descripcion>`. Codex revisa cada PR automáticamente con su app de GitHub: atiende sus hallazgos antes de dar la PR por lista. La etiqueta `codex-review-pendiente` del flujo `auto-codex-review` no indica el estado de esa revisión (ver `docs/OPERACION.md`).
 
 ## Al empezar una sesión o volver de un límite de cuota
 1. PR abiertas: clasifícalas según `AGENTS.md` antes de crear trabajo nuevo.
