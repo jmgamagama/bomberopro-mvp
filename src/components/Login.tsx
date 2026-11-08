@@ -245,7 +245,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
             {abierto
               ? 'Preguntas del temario que se adaptan a lo que te cuesta.'
               : mode === 'crear'
-                ? 'Actívala en un minuto con el correo al que te llegó.'
+                ? 'Crea tu cuenta en un minuto con tu correo y confírmalo.'
                 : 'Entra con el correo al que te llegó la invitación.'}
           </p>
         </div>
