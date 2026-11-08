@@ -16,10 +16,24 @@ Todo lo demás (Alfredo, obra, SEPE, PC…) va en chats aparte, fuera de Bombero
 2. **Una decisión, un sitio:** decisiones cerradas en `ESTADO_VIVO.md` (sección «Decisiones»); detalle técnico en `docs/DECISIONS.md`.
 3. **Cada pendiente nombra a quien responde y dónde:** «JM → …» o «Claude → …».
 4. **Cambios en BD:** siempre staging → test → producción, migración con `_down` y registro en `qa_changes_20260923`.
-5. **Reparto de agentes** (CLAUDE.md): Claude = algoritmo/schema/decisiones; Codex = revisión de PRs y tests; Antigravity = vigilancia de convocatorias.
+5. **Reparto de agentes, autonomía y permisos:** `AGENTS.md`, apartado «Equipo de agentes». Aquí solo se registra el estado comprobado de cada uno (tabla de abajo).
 6. **Cierre de chat:** 5 líneas: hecho / verificado cómo / pendiente con dueño / riesgos / PR enlazadas.
 
 ## Arranque de cada chat (copiar/pegar)
 - Construir: «Lee docs/ESTADO_VIVO.md y CLAUDE.md. Rol: CTO y auditor (error >2 % ⇒ no lanzar). Tarea: …»
 - Contenido: «Lee docs/ESTADO_VIVO.md y usa la skill bomberopro-contenido-temario. Tema: …»
 - Crecimiento: «Lee docs/ESTADO_VIVO.md. Rol: CEO/CMO. Objetivo: primeros 10 usuarios beta de pago.»
+
+## Autonomía comprobada de cada agente (08/11/2026)
+Estados definidos en `AGENTS.md`. Se cambia solo con evidencia enlazada; lo no comprobado queda NO VERIFICADO.
+
+| Agente | Estado | Evidencia / qué falta |
+|---|---|---|
+| Claude | AUTÓNOMO VERIFICADO (tareas programadas) · BAJO SESIÓN (código) | Tareas diarias con última ejecución correcta el 08/11: reportes de preguntas, 3 opciones y tildes, vigilancia BOE. La comprobación semanal de CI necesita el ordenador de JM y no se ejecuta desde el 26/10. Las PR de código (#265) salen de sesiones abiertas. |
+| Codex | BAJO SESIÓN | Ramas `codex/` y PR #263. La revisión automática de `auto-codex-review.yml` **no funciona**: el paso termina en 0 s y no publica comentarios (ejecución del 08/11 en #265). Probable falta de `OPENAI_API_KEY`, que sería gasto de API; el nombre del paquete del CLI tampoco está comprobado. La etiqueta `codex-review-pendiente` solo indica que la PR viene de `claude/` o `antigravity/`. |
+| Grok | BAJO SESIÓN | PR #264 (rama `grok/`), fusionada el 08/11. Ejecución desatendida sin comprobar. `auto-codex-review` no se activa para `grok/`. |
+| Gemini | NO VERIFICADO | Sus auditorías llegan al repo a través de PR de otros (`docs/AUDITORIA_GEMINI_*`, #263). Sin ramas ni PR propias. |
+| DeepSeek | NO VERIFICADO | Sin ramas ni commits en este repo. Su trabajo está en `bomberopro-editorial`, al que Claude no tiene acceso: falta comprobar la PR #2 allí. |
+| Antigravity | NO VERIFICADO | Última rama `antigravity/` del 02/08. La vigilancia de convocatorias la hace la tarea programada de Claude, no Antigravity. |
+
+Para subir a AUTÓNOMO VERIFICADO: una tarea asignada por incidencia y resuelta con PR sin que JM abra una conversación, sin coste de API adicional.

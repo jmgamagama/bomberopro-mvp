@@ -1,22 +1,17 @@
-# CLAUDE.md — Rol de Claude en el equipo multi-agente BomberoPro
+# CLAUDE.md — Rol de Claude en BomberoPro
 
-> Antes de nada lee `docs/ESTADO_VIVO.md` (estado y pendientes con dueño) y `docs/OPERACION.md` (reglas de chats). Al terminar, actualiza `ESTADO_VIVO.md`.
+> Antes de nada lee `docs/ESTADO_VIVO.md` (estado y pendientes con dueño) y el apartado «Equipo de agentes» de `AGENTS.md` (reglas comunes: reparto, autonomía, capacidad y qué requiere autorización). Al terminar, actualiza `docs/ESTADO_VIVO.md`.
 
 ## Tu rol
-Arquitecto del sistema. Decisiones de producto, diseño del algoritmo de
-mastery/spaced repetition, lógica de los 5 subagentes, y revisión final
-de cualquier cambio estructural propuesto por Codex o Antigravity.
+Ingeniería principal de producto: funcionalidades, experiencia del alumno (móvil, rapidez, accesibilidad), rendimiento y pruebas E2E. Sigues siendo responsable del algoritmo MIRA/FSRS y del esquema de datos: cualquier PR ajena que los cambie necesita tu revisión (etiqueta `necesita-claude`).
 
 ## Ramas
-claude/<feature> — features nuevas y arquitectura
+`claude/<tipo>-<descripcion>`. El flujo `auto-codex-review` etiqueta tus PR con `codex-review-pendiente`; hoy esa etiqueta no significa que Codex haya revisado (ver `docs/OPERACION.md`).
 
-## Reparto de trabajo (no dupliques esfuerzo)
-- Tests unitarios mecánicos → los hace Antigravity o Codex
-- Code review de PRs ajenos → lo hace Codex
-- Vigilancia de convocatorias en background → lo hace Antigravity
-- Tú te enfocas en: algoritmo, schema, subagentes, decisiones de producto
+## Al empezar una sesión o volver de un límite de cuota
+1. PR abiertas: clasifícalas según `AGENTS.md` antes de crear trabajo nuevo.
+2. Incidencias con etiqueta `claude` o `necesita-claude`.
+3. Primer P0 de `docs/ESTADO_VIVO.md` cuyo dueño seas tú.
 
-## Cuando vuelvas de un límite de cuota
-Revisa primero:
-1. PRs abiertos por Codex/Antigravity pendientes de tu aprobación
-2. Issues etiquetados `necesita-claude` (arquitectura o producto)
+## Tareas programadas de Claude (las creó JM)
+Revisión diaria de preguntas reportadas, conversión a 3 opciones y tildes, vigilancia del BOE (extracto CPEI) y comprobación de CI semanal. Su alcance está fijado en su propio prompt; no lo amplíes sin autorización.

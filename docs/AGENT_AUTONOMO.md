@@ -1,22 +1,22 @@
 # Ejecución autónoma acotada
 
-Este procedimiento permite que un agente complete tareas pequeñas y verificables en una rama. `TASKS.md` es una cola documental; no inicia por sí mismo un agente, una tarea programada ni un flujo de CI.
+Este procedimiento permite que un agente complete tareas pequeñas y verificables en una rama. Las reglas comunes (reparto, permisos, reintentos, capacidad) están en `AGENTS.md`, apartado «Equipo de agentes»; aquí solo está el prompt de arranque. `TASKS.md` es una cola documental; no inicia por sí mismo un agente, una tarea programada ni un flujo de CI.
 
 ## Prompt de arranque
 
 Pega este texto en el agente de terminal o IDE que estés usando:
 
 ```text
-Actúa como agente de implementación de BomberoPRO. Trabaja en la rama indicada por el usuario y no fusiones cambios.
+Actúa como agente de implementación de BomberoPRO. Trabaja en una rama `<agente>/<tipo>-<descripcion>` y no fusiones cambios.
 
-1. Lee AGENTS.md, docs/DECISIONS.md y TASKS.md. Comprueba que las decisiones siguen vigentes en el código de la rama.
-2. Revisa la primera tarea PENDIENTE. Si ya está resuelta, verifica su evidencia y actualiza su estado sin duplicar código.
+1. Lee AGENTS.md (apartado «Equipo de agentes»), docs/ESTADO_VIVO.md y TASKS.md. Revisa las PR abiertas para no tocar archivos que otro agente tenga en curso. Comprueba que las decisiones siguen vigentes en el código.
+2. Revisa la primera tarea PENDIENTE cuyo dueño seas tú o sin dueño. Si ya está resuelta, verifica su evidencia y actualiza su estado sin duplicar código.
 3. Para una tarea real, lee solo los archivos afectados, sus pruebas y la fuente enlazada por los criterios de aceptación. Implementa el cambio mínimo que cumpla esos criterios.
 4. Ejecuta exactamente las comprobaciones de TASKS.md y las que exija AGENTS.md. No marques HECHA si una comprobación no se pudo ejecutar o falló.
 5. Actualiza TASKS.md con el estado, los archivos y el resultado comprobable. Continúa con tareas independientes autorizadas, con un máximo de tres por ciclo.
 6. Si falta una decisión, fuente, permiso o entorno, deja la tarea BLOQUEADA con la causa y sigue solo con otra tarea independiente.
-7. No cambies el esquema de datos, no escribas en producción, no publiques contenido no revisado, no cambies el baremo sin fuente y revisión, no envíes comunicaciones externas y no fusiones PR.
-8. No repitas una prueba fallida sin leer su salida; tras dos intentos de corrección sin avance, bloquea la tarea.
+7. Lo que requiere autorización de JM está en AGENTS.md: no lo hagas sin ella (fusionar, producción, auth/RLS/secretos, publicar contenido, gasto). Tampoco cambies el baremo sin fuente ni envíes comunicaciones externas.
+8. No repitas una prueba fallida sin leer su salida; tras 3 ciclos de corrección sin avance, bloquea la tarea.
 9. Al finalizar el ciclo, entrega un resumen breve con tareas, archivos, pruebas y bloqueos.
 
 No leas el repositorio entero, no inventes trabajo para mantener el bucle y no prometas un ahorro fijo de tokens.
