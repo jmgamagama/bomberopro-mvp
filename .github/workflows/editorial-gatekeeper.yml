@@ -1,0 +1,60 @@
+name: Editorial Gatekeeper (draft only)
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'lotes/**/*.csv'
+      - 'scripts/editorial_gatekeeper.py'
+      - 'scripts/hash_cache.py'
+      - 'scripts/test_editorial_gatekeeper.py'
+      - '.github/workflows/editorial-gatekeeper.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: editorial-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deterministic:
+    name: Validate editorial drafts (not publication approval)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: '3.12'
+      - name: Unit tests
+        env:
+          PYTHONPATH: scripts
+        run: python -m unittest discover -s scripts -p 'test_editorial_gatekeeper.py' -v
+      - name: Lint all available CSV drafts
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p editorial-reports
+          count=0
+          while IFS= read -r -d '' csv; do
+            count=$((count + 1))
+            name="$(printf '%s' "$csv" | sha256sum | cut -c1-16)"
+            python scripts/editorial_gatekeeper.py "$csv" --report "editorial-reports/${name}-lint.json"
+            python scripts/hash_cache.py "$csv" --evaluator-version deterministic-v1 --out "editorial-reports/${name}-hash.json"
+          done < <(find lotes -type f -name '*.csv' -print0 2>/dev/null || true)
+          echo "Validación estructural: $count archivos CSV"
+      - name: Upload reports (IDs and hashes only)
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: editorial-structural-results
+          path: editorial-reports/
+          if-no-files-found: ignore
+          retention-days: 7
+# Passing checks DO NOT imply semantic validity, independent editorial review or publication permission.
+# Do not give this job secrets or pull-requests:write. The approved cache stays outside PR control.
