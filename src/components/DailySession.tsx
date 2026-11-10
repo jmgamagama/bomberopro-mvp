@@ -17,7 +17,7 @@ import { canAccessTopic, getVisibleBloques, getVisibleTopic, getVisibleTopics } 
 import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreferences';
 import { loadRecallPoolForPlan } from '../data/recallCards';
 import { canSeeStats, getDailySessionSize, getPlan } from '../utils/plan';
-import { isPlanesEnabled } from '../config/features';
+import { limitesPorPlanActivos } from '../config/features';
 import {
   estimateSecondsPerCard,
   getDailyMinutes,
@@ -62,7 +62,7 @@ type Phase = 'intro' | 'study' | 'done' | 'stats';
 
 export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false, onOpenPlanes, demo = true, onGuestSignup, onTryExam }: DailySessionProps) {
   const plan = getPlan();
-  const planesOn = isPlanesEnabled();
+  const planesOn = limitesPorPlanActivos();
   const planSessionSize = getDailySessionSize(plan);
   // Ritmo propio (registro local) leído al abrir: la sesión de hoy no cambia mientras se estudia.
   const [reviewLog] = useState(() => loadReviewLog());

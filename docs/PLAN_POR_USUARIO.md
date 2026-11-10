@@ -1,6 +1,6 @@
 # Plan por usuario (fases B y C del embudo) — diseño
 
-Autor: Claude (arquitecto) · 10/11/2026 · Estado: **propuesta, pendiente de 3 decisiones de JM** (§7). No hay código ni migraciones en este PR.
+Autor: Claude (arquitecto) · 10/11/2026 · Estado: **fase B implementada y apagada** (§8); fase C pendiente de las decisiones de JM (§7).
 
 ## 1. Problema (verificado en el código)
 - `getPlan()` (`src/utils/plan.ts`) es **global y depende de una bandera de compilación**: con `VITE_FEATURE_PLANES` apagada devuelve `'pro'` para **todo el mundo**, incluido el invitado sin cuenta. Hoy el modo demo abre todos los mazos de «Recuerdo».
@@ -65,3 +65,16 @@ Orden obligatorio (cada paso se verifica antes del siguiente):
 3. **Aprobar el orden de la fase C**, con el repositorio privado como primer paso.
 
 Estimación: servidor 0,5 día · cliente y tests 1 día · cambio de muestra 0,5 día · carga y despliegue de la fase C 1 día. La fase B se puede preparar ya, apagada; la fase C depende de los puntos 1-3.
+
+## 8. Fase B implementada (10/11/2026) — apagada
+- **Migración `53_plan_por_usuario.sql` (+ `_down`), SIN APLICAR en ningún entorno.** Añade `plan_usuarios` (solo `user_id`, `plan`, `origen`), `mi_plan()` y reescribe `_user_plan()`. Diferencia con el diseño de §3: las **cuentas que ya existen al aplicarla quedan como `pro`** (`cuenta_previa`); sin eso, con la lista de invitados vacía, todas las cuentas actuales (incluida la de JM) pasarían a `free` y chocarían con el tope de 150/día. Se baja de plan a mano con `update plan_usuarios set plan = 'free' where user_id = '…'`.
+- Test SQL `supabase/tests/sql/53_plan_por_usuario.test.sql` (esquema de producción): cuenta previa → pro; invitada con correo en mayúsculas y espacios → pro; extraña → free y bloqueada en la pregunta 151; anon y sin sesión rechazados; la tabla no es legible; idempotente; reversible. Se comprobó que falla si se quita el paso de las cuentas previas.
+- Cliente tras `VITE_PLAN_POR_USUARIO` (**apagada**: sin ella, cero cambios): `planStore`, `lib/miPlan.ts` (copia por usuario 7 días; sin respuesta ni copia = free), hooks `usePlanPorUsuario` y `usePlanActual`, `getPlan()` lee el almacén. `limitesPorPlanActivos()` aplica accesos y límites con cualquiera de las dos banderas; la página de precios sigue dependiendo solo de `isPlanesEnabled()`.
+- **No hecho aún:** cambiar el contenido de muestra del plan gratis (hoy `tema40`; decisión §7.1), esqueleto de carga en `RecallHub`, y probar la app completa con la bandera encendida en staging.
+
+### Orden para activarla (cada paso con «sí» de JM)
+1. Igualar staging con producción y aplicar la 53 allí; ejecutar el test SQL y `mi_plan()` con una cuenta de prueba.
+2. Cambiar el plan gratis a un tema con fuentes públicas (§7.1) y probar con la bandera encendida en una vista previa.
+3. Aplicar la 53 en producción (plan de `DESPLIEGUE_SEGURIDAD_2026-10-30.md`); comprobar que las cuentas existentes son `pro`.
+4. Encender `VITE_PLAN_POR_USUARIO` en Vercel y verificar con cuenta beta y sin cuenta.
+

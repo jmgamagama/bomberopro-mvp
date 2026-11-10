@@ -8,7 +8,7 @@
  */
 import { getAccessibleDecks, isCardVisible } from '../data/recallRegistry';
 import { getDailySessionSize, getPlan } from './plan';
-import { isPlanesEnabled } from '../config/features';
+import { limitesPorPlanActivos } from '../config/features';
 import { classifyCard, loadSrs, type SrsStore } from './recallSrs';
 import { loadDailyStreak, type DailyStreak } from './dailySession';
 import { dayNumberFromKey, toLocalDateKey } from './localDate';
@@ -75,7 +75,7 @@ export function resumenSesionHoy(
 /** Tamaño de la sesión de hoy, igual que en DailySession (plan, minutos elegidos y ritmo propio). */
 export function tamanoSesionHoy(): number {
   const plan = getPlan();
-  return resolveDailySessionSize(getDailySessionSize(plan), getDailyMinutes(), loadReviewLog(), isPlanesEnabled() && plan === 'free');
+  return resolveDailySessionSize(getDailySessionSize(plan), getDailyMinutes(), loadReviewLog(), limitesPorPlanActivos() && plan === 'free');
 }
 
 /** Miles con punto también en 4 cifras («1.500»), como en la bienvenida. */
