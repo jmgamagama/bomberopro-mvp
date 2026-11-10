@@ -76,6 +76,43 @@ describe('guardado pendiente con la aplicación completa', () => {
     expect(rpcMock.mock.calls.some(call=>call[0]==='get_preparer_session_questions')).toBe(false);
   });
 
+  it('al fallar la renovación, no recicla el mismo banco de preguntas y permite reintentar', async () => {
+    getSession.mockResolvedValue({ data: { session: { user: { id: 'user-1' } } }, error: null });
+    let requests = 0;
+    const first = { ...INITIAL_QUESTIONS[0], id: '101' };
+    const second = { ...INITIAL_QUESTIONS[1], id: '102' };
+    rpcMock.mockImplementation((fn: string) => {
+      if (fn === 'begin_study_session_v3') {
+        requests += 1;
+        return Promise.resolve(requests === 2
+          ? { data: null, error: { message: 'Selector no disponible' } }
+          : { data: questionSession(`delivery-${requests}`, [requests === 1 ? first : second]), error: null });
+      }
+      if (fn === 'submit_question_answer_v3') {
+        return Promise.resolve({ data: { acierto: true, correct_answer: first.correct_answer, explanation: 'Bien' }, error: null });
+      }
+      return Promise.resolve({ data: { status: 'saved', attempt_id: 1 }, error: null });
+    });
+
+    render(<App />);
+    await waitFor(() => expect(requests).toBe(1));
+    fireEvent.click(document.querySelector('#nav-btn-mas')!);
+    fireEvent.click(document.querySelector('#mas-today_training')!);
+    fireEvent.click(await screen.findByRole('button', { name: /comenzar sesión automática/i }));
+    expect(await screen.findByRole('heading', { name: first.question })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: first.correct_answer }));
+    fireEvent.click(document.querySelector('#conf-btn-alta')!);
+    await screen.findByRole('button', { name: /siguiente pregunta/i });
+    fireEvent.click(document.querySelector('#nav-btn-inicio')!);
+    fireEvent.click(await screen.findByRole('button', { name: /practicar preguntas/i }));
+    await waitFor(() => expect(requests).toBe(2));
+    expect(await screen.findByText('Selector no disponible')).toBeInTheDocument();
+    expect(screen.queryByRole('heading', { name: first.question })).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: /reintentar sesión/i }));
+    await waitFor(() => expect(requests).toBe(3));
+    expect(await screen.findByRole('heading', { name: second.question })).toBeInTheDocument();
+  });
+
   it('con la sesión caducada, la pantalla de acceso avisa de lo pendiente (el aviso no desaparece con la pantalla)', async () => {
     enqueuePending(pending('user-1'));
     getSession.mockResolvedValue({ data: { session: null }, error: null });
