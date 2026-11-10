@@ -313,7 +313,8 @@ describe('Login', () => {
       expect(signInWithOtp).toHaveBeenCalledWith(expect.objectContaining({
         options: expect.objectContaining({ shouldCreateUser: false }),
       }));
-      expect(await screen.findByRole('status')).toHaveTextContent(/te hemos enviado un enlace/i);
+      expect(await screen.findByRole('status')).toHaveTextContent(/si este correo corresponde a una cuenta activa/i);
+      expect(screen.getByRole('status')).toHaveTextContent(/la solicitud no confirma la entrega/i);
     });
 
     it('con contraseña incorrecta sugiere activar la invitación si es la primera vez', async () => {
