@@ -116,7 +116,9 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
     }
   };
 
-  // Acceso sin contraseña: opción distinta al restablecimiento de contraseña.
+  // Acceso sin contraseña para cuentas EXISTENTES. Mantener shouldCreateUser: false:
+  // el trigger BEFORE INSERT ON auth.users exige invitación en cualquier alta nueva,
+  // incluidos OAuth y OTP. No convertir este enlace de recuperación en un registro.
   const handleMagicLink = async () => {
     if (!email.trim()) {
       setMessage({ type: 'error', text: 'Escribe primero tu correo y vuelve a pulsar.' });
@@ -132,7 +134,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
       });
       setMessage(error
         ? { type: 'error', ...mensajeErrorEnlace(error, abierto) }
-        : { type: 'success', text: `Te hemos enviado un enlace a ${correo()}. Ábrelo desde este móvil para entrar sin contraseña.` });
+        : { type: 'success', text: 'Si este correo corresponde a una cuenta activa, recibirás un enlace para entrar sin contraseña. Revisa Spam o Promociones; si no llega en unos minutos, avisa al equipo de BomberoPRO. La solicitud no confirma la entrega.' });
     } catch {
       setMessage({ type: 'error', text: SIN_CONEXION });
     } finally {
@@ -176,7 +178,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
       // El botón de reenviar se mantiene también tras un fallo (límite, sin conexión) para reintentar.
       setMessage(error
         ? { type: 'error', ...mensajeErrorAcceso('crear', error, abierto), accion: 'reenviar' }
-        : { type: 'success', text: `Te hemos vuelto a enviar el correo a ${correo()}. Mira también en Spam o Promociones.`, accion: 'reenviar' });
+        : { type: 'success', text: 'Si la dirección puede recibir una confirmación, llegará un correo. Revisa Spam o Promociones; si no llega en unos minutos, avisa al equipo.', accion: 'reenviar' });
     } catch {
       setMessage({ type: 'error', text: SIN_CONEXION, accion: 'reenviar' });
     } finally {
