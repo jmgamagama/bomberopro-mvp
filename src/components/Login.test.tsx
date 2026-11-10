@@ -273,7 +273,7 @@ describe('Login', () => {
       expect(aviso).not.toHaveTextContent(/te hemos enviado un correo/i);
       await user.click(screen.getByRole('button', { name: 'Reenviar el correo' }));
       expect(resend).toHaveBeenCalledWith({ type: 'signup', email: 'ana@example.com', options: { emailRedirectTo: expect.stringContaining('/?acceso=registro') } });
-      expect(await screen.findByRole('status')).toHaveTextContent(/vuelto a enviar/i);
+      expect(await screen.findByRole('status')).toHaveTextContent(/si la dirección puede recibir una confirmación/i);
     });
 
     it('si el reenvío falla, el botón de reenviar sigue para reintentar', async () => {
