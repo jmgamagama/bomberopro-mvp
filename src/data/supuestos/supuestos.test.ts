@@ -166,6 +166,21 @@ describe('aislamiento de resultados de supuestos entre cuentas', () => {
     });
   });
 
+  it('guardar directamente no traspasa legado de otra cuenta', () => {
+    window.localStorage.setItem(
+      SUPUESTOS_STORAGE_KEY,
+      JSON.stringify({ 'resultado-de-ana': { aciertos: 1, total: 2, fecha: '2026-10-01T00:00:00.000Z' } }),
+    );
+    setLocalDataOwner('luis');
+    guardarResultado('nuevo-luis', { aciertos: 2, total: 2, proporcion: 1, porPregunta: {} });
+    expect(leerUltimosResultados()).toHaveProperty('nuevo-luis');
+    expect(leerUltimosResultados()).not.toHaveProperty('resultado-de-ana');
+    expect(window.localStorage.getItem(SUPUESTOS_STORAGE_KEY)).toBeNull();
+    expect(window.localStorage.getItem(`${SUPUESTOS_STORAGE_KEY}:legado_sin_propietario`)).not.toBeNull();
+    setLocalDataOwner('ana');
+    expect(leerUltimosResultados()).toEqual({});
+  });
+
   it('no adjudica el legado de Ana a Luis si Luis entra primero', () => {
     window.localStorage.setItem(
       SUPUESTOS_STORAGE_KEY,
