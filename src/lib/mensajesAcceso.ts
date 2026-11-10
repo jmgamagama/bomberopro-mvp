@@ -15,7 +15,9 @@ export interface ErrorAuth {
 export interface MensajeAcceso {
   text: string;
   /** Qué ofrecer junto al mensaje: reenviar el correo de confirmación o pasar a «Entrar». */
-  accion?: 'reenviar' | 'ir_a_entrar' | 'ir_a_crear';
+  accion?: 'reenviar' | 'ir_a_entrar' | 'ir_a_crear' | 'enlace';
+  /** Segunda opción bajo el mismo aviso (p. ej. «Activar invitación» junto a «Recibir enlace»). */
+  accionSecundaria?: 'ir_a_crear';
 }
 
 const msg = (e: ErrorAuth) => (e.message ?? '').toLowerCase();
@@ -69,8 +71,10 @@ export function mensajeErrorAcceso(modo: ModoAcceso, e: ErrorAuth, registroAbier
     return {
       text: registroAbierto
         ? 'El correo o la contraseña no coinciden. Si no la recuerdas, pulsa «He olvidado la contraseña».'
-        : 'El correo o la contraseña no coinciden. Si es tu primera vez, activa antes tu invitación; si no recuerdas la contraseña, pulsa «He olvidado la contraseña».',
-      accion: registroAbierto ? undefined : 'ir_a_crear',
+        : 'El correo o la contraseña no coinciden. Si ya tienes cuenta, pide un enlace para entrar sin contraseña; si es tu primera vez, activa antes tu invitación.',
+      // Piloto cerrado: la causa más probable es una cuenta ya creada, no una primera vez.
+      accion: registroAbierto ? undefined : 'enlace',
+      accionSecundaria: registroAbierto ? undefined : 'ir_a_crear',
     };
   }
   return { text: 'No hemos podido entrar. Revisa tus datos e inténtalo de nuevo.' };

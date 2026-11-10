@@ -54,6 +54,9 @@ describe('mensajes de la pantalla de entrada', () => {
   it('contraseña corta, correo sin confirmar y límite de correos tienen su propio mensaje', () => {
     expect(mensajeErrorAcceso('crear', { status: 422, code: 'weak_password' }, false).text).toMatch(/6 caracteres/);
     expect(mensajeErrorAcceso('entrar', { status: 400, code: 'email_not_confirmed' }, false)).toMatchObject({ accion: 'reenviar' });
+    expect(mensajeErrorAcceso('entrar', { status: 400, code: 'invalid_credentials' }, false))
+      .toMatchObject({ accion: 'enlace', accionSecundaria: 'ir_a_crear' });
+    expect(mensajeErrorAcceso('entrar', { status: 400, code: 'invalid_credentials' }, true).accion).toBeUndefined();
     expect(mensajeErrorAcceso('crear', { status: 429, code: 'over_email_send_rate_limit' }, false).text).toMatch(/varios correos/);
   });
 

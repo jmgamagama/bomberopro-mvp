@@ -190,13 +190,15 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
     setEnviadoA(null);
   };
 
-  const accionBoton = message?.accion === 'reenviar'
-    ? { label: 'Reenviar el correo', onClick: handleResend }
-    : message?.accion === 'ir_a_crear' && mode === 'entrar'
-      ? { label: textoAlta(), onClick: () => switchMode('crear') }
-      : message?.accion === 'ir_a_entrar' && mode === 'crear'
-        ? { label: 'Ir a «Entrar»', onClick: () => switchMode('entrar') }
-        : null;
+  const botonDeAccion = (accion: MensajeAcceso['accion']) => {
+    if (accion === 'reenviar') return { label: 'Reenviar el correo', onClick: handleResend };
+    if (accion === 'enlace' && mode === 'entrar') return { label: 'Recibir enlace para entrar', onClick: handleMagicLink };
+    if (accion === 'ir_a_crear' && mode === 'entrar') return { label: textoAlta(), onClick: () => switchMode('crear') };
+    if (accion === 'ir_a_entrar' && mode === 'crear') return { label: 'Ir a «Entrar»', onClick: () => switchMode('entrar') };
+    return null;
+  };
+  const botonesAviso = [botonDeAccion(message?.accion), botonDeAccion(message?.accionSecundaria)]
+    .filter((b): b is NonNullable<typeof b> => b !== null);
 
   const avisoEl = message && (
             <div
@@ -213,15 +215,20 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
                 {message.type === 'success' && <MailCheck className="w-5 h-5 shrink-0" aria-hidden="true" />}
                 <span>{message.text}</span>
               </p>
-              {accionBoton && (
-                <button
-                  type="button"
-                  onClick={accionBoton.onClick}
-                  disabled={loading}
-                  className="mt-2 min-h-11 font-bold underline underline-offset-2"
-                >
-                  {accionBoton.label}
-                </button>
+              {botonesAviso.length > 0 && (
+                <div className="mt-2 flex flex-col items-start">
+                  {botonesAviso.map((b) => (
+                    <button
+                      key={b.label}
+                      type="button"
+                      onClick={b.onClick}
+                      disabled={loading}
+                      className="min-h-11 font-bold underline underline-offset-2"
+                    >
+                      {b.label}
+                    </button>
+                  ))}
+                </div>
               )}
             </div>
           );
