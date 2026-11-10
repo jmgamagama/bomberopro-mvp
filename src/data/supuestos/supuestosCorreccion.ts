@@ -79,8 +79,28 @@ export function supuestosResultadosStorageKey(): string {
   return ownedKey(SUPUESTOS_STORAGE_KEY);
 }
 
+/** 
+ * La clave anterior no identifica a su propietario. NO adjudicarla al primer
+ * usuario que inicie sesión: podría mostrar el resultado de otra persona.
+ * Se conserva fuera del flujo de lectura para recuperación local supervisada.
+ */
+function aislarResultadosLegadosSinPropietario(): void {
+  try {
+    const storage = window.localStorage;
+    const legacy = storage.getItem(SUPUESTOS_STORAGE_KEY);
+    if (legacy === null) return;
+    const quarantineKey = `${SUPUESTOS_STORAGE_KEY}:legado_sin_propietario`;
+    if (storage.getItem(quarantineKey) === null) storage.setItem(quarantineKey, legacy);
+    storage.removeItem(SUPUESTOS_STORAGE_KEY);
+  } catch {
+    // Fallar cerrado: no permitimos que readOwned migre el legado desconocido.
+    throw new Error('No se puede aislar el resultado legado sin propietario');
+  }
+}
+
 export function leerUltimosResultados(): Record<string, UltimoResultado> {
   try {
+    aislarResultadosLegadosSinPropietario();
     const raw = readOwned(SUPUESTOS_STORAGE_KEY);
     const parsed: unknown = raw ? JSON.parse(raw) : {};
     return parsed && typeof parsed === 'object' ? (parsed as Record<string, UltimoResultado>) : {};
