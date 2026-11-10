@@ -45,8 +45,7 @@ vecino, el 4.4, citado así en la explicación).
   - fin-emerg N2, interfase-local N1, fases-sit2-decl N1: faltaba el sujeto o la autoridad supramunicipal; reescritas.
   - interfase-ccaa N3: «Situación de emergencia 1 y 2» queda pegado al último supuesto y puede leerse como de los tres;
     se sustituye por el segundo supuesto, que no tiene ambigüedad.
-- La última versión de interfase-ccaa N3 (pregunta sustituida) la comprobé yo contra el texto, **sin revisor independiente**:
-  pendiente de una pasada ciega antes de publicar.
+- interfase-ccaa N3 (versión sustituida): revisada después por un agente independiente en ciego (respuesta A, coincide con la clave, sin ambigüedad). Con esto, todas las preguntas tienen revisión independiente.
 - Incoherencia del propio texto oficial (no de las preguntas): el apdo. 2.2 fija el umbral de notificación EFAS en
   ≥ 30 % sobre período de retorno de 5 años y el apdo. 3 habla de > 50 % sobre 5 años para monitorizar. Son umbrales
   de dos cosas distintas (notificación del EFAS frente a monitorización del plan) y cada pregunta cita el suyo.
