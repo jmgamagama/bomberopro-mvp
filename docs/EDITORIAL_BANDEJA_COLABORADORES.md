@@ -33,4 +33,6 @@ Fase siguiente: conectar el Site a un backend privado de lectura de PR/estados, 
 - Revisión completa de 30/30 con informe, comentarios y decisión reproducible; cero duplicados y cero errores críticos. Todas las preguntas siguen en borrador.
 - **Solo entonces** se permite iniciar el lote siguiente; la integración en la app requiere su propio gate, prueba y autorización.
 
+Cómo se validan los lotes sin hacerlos públicos: `docs/EDITORIAL_GATEKEEPER_V1.md`, apartado «Decisión (10/11/2026)».
+
 Estado de este archivo: **protocolo propuesto**, aún no conectado al Site ni activo sobre un repositorio privado de lotes.
