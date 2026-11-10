@@ -1,7 +1,7 @@
 # Estado vivo — BomberoPro (fuente única de verdad)
 
 > Todo chat/agente lee este fichero primero y lo actualiza al cerrar (máx. 60 líneas; lo viejo va a `docs/ESTADO_PROYECTO.md`, que es histórico).
-> Última revisión estratégica: 2026-11-04 (JM). Datos operativos de entornos/BD siguientes verificados por Claude el 02/11; **no se han vuelto a verificar contra producción**. Si tienen más de 7 días, desconfía y verifica.
+> Última revisión estratégica: 2026-11-04 (JM). Equipo de agentes revisado por Claude el 08/11 (etiquetas y PR abiertas, el 10/11). Datos operativos de entornos/BD siguientes verificados por Claude el 02/11; **no se han vuelto a verificar contra producción**. Si tienen más de 7 días, desconfía y verifica.
 
 ## Decisión de producto (JM, 04/11) — ÚNICAMENTE CPEI Badajoz
 - **Contenido equilibrado para beta:** los 40 temas conservan esquema oficial, cobertura por epígrafe visible y acceso solo a desarrollo, conceptos, preguntas y fichas editorialmente validados. «Parcial» nunca equivale a «completo».
@@ -14,9 +14,9 @@
 - **Plan de ejecución:** issue #217. Este fichero conserva los datos operativos fechados a continuación: no confundir estado antiguo con verificación actual.
 
 ## Entornos
-- Repo `jmgamagama/bomberopro-mvp` (main protegida: PR + check «Lint, build and test»; Vercel despliega al fusionar). **El repositorio es público**: pasarlo a privado (regla 7: material del CPEI solo en privado).
+- Repo `jmgamagama/bomberopro-mvp` (main protegida: PR + check «Lint, build and test»; Vercel despliega al fusionar). **Sigue público (comprobado 08/11)**; plan de paso a privado en «Abierto» punto 2.
 - Supabase producción `yndoaprnpkjqiggeyefz`; staging `fxhvgvehhekqeqpkxtrm`. Cambios: staging → test → producción, con «sí» escrito de JM (skill `bomberopro-cambio-seguro`).
-- Comprobado el 08/11: la web responde 200, CI de main en verde, 0 PRs abiertos en GitHub; no se ha revisado el estado de la base de datos desde el 02/11.
+- Comprobado el 08/11: la web responde 200 y CI de main en verde; no se ha revisado el estado de la base de datos desde el 02/11.
 - Producción sirve `cb958b0` (#219: 34 temas, 2.886 fichas, recorrido del alumno, material por tema). Vercel: proyecto `bomberopro-mvp`; `bomberopro.com` ya sirve la misma app que `bomberopro-mvp.vercel.app` (200 y mismo bundle, 08/11).
 - Examen: CPEI Badajoz 2026, BOP nº 135 (anuncio 2843/2026): 50+5 reserva, 3 opciones, 60 min, +0,200/−0,066/0, 30 % de temas 35-40. Fecha sin publicar.
 
@@ -34,12 +34,13 @@
 
 ## Abierto (dueño → siguiente acción)
 1. JM → fusionar #216 (almacenamiento persistente) y #221 (rendimiento de «Temas»), ambas con CI en verde.
-2. JM → hacer privado el repositorio; cambiar la contraseña de aplicación de Gmail (se pegó en un chat); dar los correos de los 10 alumnos (Claude los añade a `piloto_invitados` en Supabase, nunca al repo).
+2. JM → decidir el paso a privado del repo (08/11). Riesgo real hoy: cualquiera puede copiar temario, fichas, supuestos y auditorías internas de `src/data` y `docs/` con su historial; no se han visto claves en el árbol actual (historial sin revisar). Ojo: privado no oculta lo que ya va dentro del JS público de la web. Antes de cambiar, comprobar: (a) protección de `main` en repo privado con cuenta gratuita (puede exigir GitHub Pro); (b) minutos de Actions (11 flujos; los privados tienen cupo mensual); (c) que Vercel siga desplegando commits de otros autores. Orden propuesto: comprobar a-c → elegir plan → cambiar visibilidad en un momento sin fusiones pendientes → verificar un despliegue y el check de `main`. Cambiar la contraseña de aplicación de Gmail (se pegó en un chat); dar los correos de los 10 alumnos (Claude los añade a `piloto_invitados` en Supabase, nunca al repo).
 3. JM → decidir: tema 37, ficha CPEI-T39-SPE-006, distractores del simulacro de invitado, fuentes INSST, 8 fichas de T33-lote02 abiertas por criterio propio, 165 códigos INE del T36.
 4. JM → decidir las 3 cuestiones de `docs/PLAN_POR_USUARIO.md` §7 (muestra para invitados, beta = acceso completo, orden de la fase C). Después, Claude prepara la fase B apagada. Hoy `getPlan()` es global (todos «pro») y el plan gratis regala `tema40`, material interno del CPEI.
 5. Claude → logo único (gota = icono de la PWA) hecho en la PR de marca única (cabecera y acceso); «Entrar» ya está en el aviso del modo demo; og:image pasa a URL absoluta con `VERCEL_PROJECT_PRODUCTION_URL` (comprobar tras desplegar). Falta: JM pega las plantillas de `supabase/templates/*.html` (español) en Supabase → Auth → Email Templates (el logo del correo ya carga desde bomberopro.com).
 6. Claude → aplicar 43, 46, 47, 49 y 50 en staging y, con «sí» de JM, en producción (orden y guardas en la #218).
-7. JM → limpiar PRs: 17 abiertas, 9 de octubre sin actividad (#82, #98, #103, #104, #107, #108, #117, #136, #167) y duplicadas (#210, #211).
+7. PR abiertas: no se copian aquí (se desactualizan en horas); consultar GitHub y clasificarlas según `AGENTS.md`. Foto del 10/11, 18:15 UTC: #266, #272, #273, #274, #275 y #276. La limpieza de octubre ya no está pendiente.
+8. JM → equipo de agentes (reglas en `AGENTS.md`, autonomía comprobada en `docs/OPERACION.md`): (a) la app de Codex ya revisa cada PR gratis; propuesta: quitar el paso redundante de `auto-codex-review.yml` (necesita una PR de CI aparte); (b) crear las etiquetas `deepseek`, `gemini` y `grok` (comprobado el 10/11: existen `claude`, `codex`, `antigravity` y `necesita-claude`; no existen las tres nuevas ni ninguna `agente:*`; la sesión de Claude no tiene herramienta para crearlas, puede hacerlo Codex o JM); (c) dar acceso a `bomberopro-editorial` a la sesión que deba coordinar DeepSeek; (d) la comprobación semanal de CI necesita el ordenador: activarlo o pasarla a la nube.
 
 ## Decisiones cerradas (no reabrir sin dato nuevo)
 - Paleta A «Brasa y Noche»; estado = icono + texto + contorno, relleno sólido solo en acciones. Marca: gota azul marino, blanca y amarilla en todas partes.
