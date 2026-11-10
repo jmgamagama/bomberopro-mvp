@@ -106,7 +106,7 @@ describe('guardado pendiente con la aplicación completa', () => {
     fireEvent.click(document.querySelector('#nav-btn-inicio')!);
     fireEvent.click(await screen.findByRole('button', { name: /practicar preguntas/i }));
     await waitFor(() => expect(requests).toBe(2));
-    expect(await screen.findByText('Selector no disponible')).toBeInTheDocument();
+    expect(await screen.findByText('No se pudo renovar la sesión.')).toBeInTheDocument();
     expect(screen.queryByRole('heading', { name: first.question })).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole('button', { name: /reintentar sesión/i }));
     await waitFor(() => expect(requests).toBe(3));
