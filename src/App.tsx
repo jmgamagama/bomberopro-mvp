@@ -42,7 +42,8 @@ import { saveAttemptToServer, toLevelInt } from './lib/saveAttemptToServer';
 import UpdateBanner from './components/UpdateBanner';
 import SaveFailureBanner from './components/SaveFailureBanner';
 import { hasCompletedOnboarding } from './utils/onboarding';
-import { isPlanesEnabled, textoAlta } from './config/features';
+import { isPlanesEnabled, isPlanPorUsuarioEnabled, textoAlta } from './config/features';
+import { iniciarPlan } from './utils/planStore';
 import SaveStatus from './components/SaveStatus';
 import { useRemoteConceptProgress } from './lib/useRemoteConceptProgress';
 import { useAttemptSync } from './lib/useAttemptSync';
@@ -220,6 +221,13 @@ export default function App() {
         authUserId.current = nextId;
         questionsRequest.current += 1;
         trainingRequest.current += 1;
+      }
+      if (isPlanPorUsuarioEnabled()) {
+        void iniciarPlan(nextId, async () => {
+          const { data, error } = await supabase!.rpc('mi_plan');
+          if (error) throw error;
+          return data;
+        });
       }
       setSession(nextSession);
       setLoadingAuth(false);

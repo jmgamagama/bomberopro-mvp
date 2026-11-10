@@ -6,7 +6,8 @@
  * - Con la bandera activada, el usuario está en 'free' (aún no hay forma de
  *   contratar Pro: ni pasarela ni SDK de pago). Solo se guarda el interés.
  */
-import { isPlanesEnabled } from '../config/features';
+import { isPlanesEnabled, isPlanPorUsuarioEnabled } from '../config/features';
+import { getPlanSnapshot } from './planStore';
 
 export type Plan = 'free' | 'pro';
 
@@ -78,6 +79,8 @@ export function planFeatures(plan: Plan, allDecksLabel: string): string[] {
 export const PLAN_INTEREST_STORAGE_KEY = 'mira_planes_interes_v1';
 
 export function getPlan(): Plan {
+  // Plan por usuario (bandera apagada por defecto): lo decide el servidor vía planStore; desconocido = 'free'.
+  if (isPlanPorUsuarioEnabled()) return getPlanSnapshot().plan;
   return isPlanesEnabled() ? 'free' : 'pro';
 }
 
