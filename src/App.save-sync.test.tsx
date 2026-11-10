@@ -95,6 +95,40 @@ describe('guardado pendiente con la aplicación completa', () => {
     await waitFor(() => expect(countAllPending()).toBe(0));
   });
 
+  it('no pide un nuevo lote mientras una respuesta pendiente no esté confirmada', async () => {
+    enqueuePending(pending('user-1'));
+    getSession.mockResolvedValue({ data: { session: { user: { id: 'user-1' } } }, error: null });
+    let finishSave!: (value: { data: { status: string }; error: null }) => void;
+    rpcMock.mockImplementation((fn: string) => {
+      if (fn === 'record_attempt_v2') return new Promise(resolve => { finishSave = resolve; });
+      if (fn === 'begin_study_session_v3') return Promise.resolve({
+        data: questionSession('after-save', INITIAL_QUESTIONS.slice(0, 1)), error: null,
+      });
+      return Promise.resolve({ data: [], error: null });
+    });
+    render(<App />);
+    await waitFor(() => expect(finishSave).toBeTypeOf('function'));
+    expect(rpcMock.mock.calls.some(([fn]) => fn === 'begin_study_session_v3')).toBe(false);
+    await act(async () => finishSave({ data: { status: 'saved' }, error: null }));
+    await waitFor(() => expect(countAllPending()).toBe(0));
+    await waitFor(() => expect(rpcMock.mock.calls.some(([fn]) => fn === 'begin_study_session_v3')).toBe(true));
+  });
+
+  it('sin confirmar el guardado no recicla una nueva selección ni oculta el error', async () => {
+    enqueuePending(pending('user-1'));
+    getSession.mockResolvedValue({ data: { session: { user: { id: 'user-1' } } }, error: null });
+    rpcMock.mockImplementation((fn: string) => Promise.resolve(fn === 'record_attempt_v2'
+      ? { data: null, error: { code: 'PGRST301', message: 'Sesión caducada' }, status: 401 }
+      : { data: questionSession('must-not-serve', INITIAL_QUESTIONS.slice(0, 1)), error: null }));
+    render(<App />);
+    await waitFor(() => expect(rpcMock).toHaveBeenCalledWith('record_attempt_v2', expect.anything()));
+    await waitFor(() => expect(countAllPending()).toBe(1));
+    expect(rpcMock.mock.calls.some(([fn]) => fn === 'begin_study_session_v3')).toBe(false);
+    fireEvent.click(document.querySelector('#nav-btn-mas')!);
+    fireEvent.click(document.querySelector('#mas-today_training')!);
+    expect(await screen.findByText(/Hay respuestas pendientes de guardar/)).toBeInTheDocument();
+  });
+
   it('un cambio A → B descarta la respuesta tardía de preguntas de A', async () => {
     let authChanged: ((event: string, session: unknown) => void) | undefined;
     onAuthStateChange.mockImplementation(callback => {
