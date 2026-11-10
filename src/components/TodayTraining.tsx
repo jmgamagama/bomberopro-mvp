@@ -35,7 +35,7 @@ export default function TodayTraining({ questions, isLoading, error, onRetry, on
         ) : error ? (
           <div className="py-8 px-4 sm:px-6 bg-red-50 rounded-2xl border border-red-200 text-center space-y-3 max-w-sm mx-auto" role="alert">
             <p className="text-red-600 font-bold text-sm">No se pudo cargar la sesión</p>
-            <p className="text-red-700 text-sm">Comprueba tu conexión y vuelve a intentarlo.</p>
+            <p className="text-red-700 text-sm">{error.startsWith('Hay respuestas sin confirmar') ? error : 'Comprueba tu conexión y vuelve a intentarlo.'}</p>
             <button type="button" onClick={onRetry} className="rounded-xl bg-indigo-700 px-4 py-3 text-sm font-semibold text-white">Reintentar</button>
           </div>
         ) : questions.length === 0 ? (
