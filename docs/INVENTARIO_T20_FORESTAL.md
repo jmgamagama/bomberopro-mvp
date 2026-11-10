@@ -20,6 +20,14 @@ Epígrafe (BOP Badajoz n.º 135, 17/07/2026): incendios forestales; comportamien
 | 6. Estrategia, táctica y operativa | — | Manual de extinción para cuadrillas (2014), apuntes de combate | Pendiente: solo manuales |
 | 7. Autobombas, mangueras y herramientas | — | «Equipos, herramientas y maquinaria utilizados en incendios forestales» | Pendiente: solo manuales |
 
+## Lectura selectiva: CONBÉ cap. 11 «Incendios forestales» (MF0402) — 10/11/2026
+Solo estructura (apartados), sin copiar contenido; el texto extraído por el conector está incompleto.
+- **Comportamiento (bloque 2):** concepto y clasificación, tipos de fuego (suelo, copas), partes del incendio, transmisión del calor (conducción, radiación, convección), topografía y meteorología, columna, intensidad lineal, velocidad de propagación, tipos de humo.
+- **Herramientas (bloque 7):** tipos de herramientas y su mantenimiento; uso de vehículos de extinción y tendidos.
+- **Extinción y táctica (bloques 5 y 6):** ataque directo e indirecto, líneas de control, protección de estructuras, uso del fuego, medios aéreos, asignación de funciones.
+- **Seguridad y autoprotección (bloques 3 y 4):** criterios básicos, maniobra básica de autoprotección, identificación del riesgo, situación de atrapamiento.
+- Conclusión provisional: cubre los bloques 2 a 7 en esquema. Falta comprobar profundidad, vigencia de cifras (p. ej. velocidades y longitudes de llama) y que cada punto del epígrafe tenga su apartado.
+
 ## Qué NO se usa como fuente
 - **Decreto 52/2010 (Plan INFOEX antiguo):** derogado. Solo histórico; no estudiar ni generar fichas.
 - **Borradores de IA** que JM descartó (nombres con «no me gusta», «no es muy bueno»): no son fuente.

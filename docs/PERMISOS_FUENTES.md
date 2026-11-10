@@ -8,6 +8,12 @@
 > - Pendiente: guardar junto a este documento la autorización por escrito (o el correo que la confirme), sobre
 >   todo para los manuales del CEIS Guadalajara (CC BY-NC-SA, no comercial) si la app tiene plan de pago.
 >
+> **Decisión de JM (10/11/2026):** los manuales CONBÉ (incl. MF0402) son públicos y pueden ser fuente de datos y
+> conceptos. Las preguntas y explicaciones deben ser **originales de BomberoPro**: redacción propia, sin copiar
+> párrafos, tablas ni imágenes, y con cita precisa (manual, edición y apartado o página) en cada ficha. Al no ser
+> norma oficial, cada dato técnico se etiqueta como «material técnico» y se contrasta con la norma vigente cuando
+> exista.
+>
 > Lo que sigue es el análisis anterior (11/10/2026), que se conserva como histórico.
 
 Fecha: 11/10/2026. Rama `feat/temas-fase2-oficial`.
