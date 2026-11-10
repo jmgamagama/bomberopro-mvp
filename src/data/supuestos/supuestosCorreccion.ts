@@ -66,7 +66,8 @@ export function corregirSupuesto(
 
 export const SUPUESTOS_STORAGE_KEY = 'mira_supuestos_v1';
 // Nota: solo aciertos/total/fecha por id (sin enunciados). Por cuenta, igual que SRS/racha:
-// `mira_supuestos_v1:<userId|demo>` vía localOwner (migra la clave antigua sin sufijo una vez).
+// `mira_supuestos_v1:<userId|demo>` vía localOwner. La clave legacy sin dueño
+// NO se migra: no hay evidencia fiable para atribuirla a una cuenta.
 
 export interface UltimoResultado {
   aciertos: number;
@@ -79,8 +80,21 @@ export function supuestosResultadosStorageKey(): string {
   return ownedKey(SUPUESTOS_STORAGE_KEY);
 }
 
+/** La clave legacy no lleva identidad. Nunca adjudicarla al primer login. */
+function aislarResultadosSinPropietario(): void {
+  const store = window.localStorage;
+  const legacy = store.getItem(SUPUESTOS_STORAGE_KEY);
+  if (legacy === null) return;
+  const quarantine = `${SUPUESTOS_STORAGE_KEY}:legado_sin_propietario`;
+  // Conservamos una copia local no visible para una posible recuperación supervisada.
+  // Si falla el almacenamiento, la lectura aborta y no migra datos a otro usuario.
+  if (store.getItem(quarantine) === null) store.setItem(quarantine, legacy);
+  store.removeItem(SUPUESTOS_STORAGE_KEY);
+}
+
 export function leerUltimosResultados(): Record<string, UltimoResultado> {
   try {
+    aislarResultadosSinPropietario();
     const raw = readOwned(SUPUESTOS_STORAGE_KEY);
     const parsed: unknown = raw ? JSON.parse(raw) : {};
     return parsed && typeof parsed === 'object' ? (parsed as Record<string, UltimoResultado>) : {};
