@@ -2,7 +2,7 @@
 
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import './test/setup';
 
 vi.mock('./lib/supabase', () => ({ supabase: null }));
@@ -27,6 +27,8 @@ import App from './App';
 import { INITIAL_QUESTIONS } from './data/initialData';
 
 describe('finite training session', () => {
+  beforeEach(() => { vi.spyOn(Math, 'random').mockReturnValue(0.5); });
+  afterEach(() => { vi.mocked(Math.random).mockRestore(); });
   it('answers each question once and closes the chosen pool', async () => {
     const user = userEvent.setup();
     render(<App />);
