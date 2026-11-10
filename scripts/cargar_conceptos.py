@@ -133,8 +133,10 @@ def main() -> int:
     boe = {b["id"]: b for b in json.loads(pathlib.Path(f"data/fuentes/{fuente_id}/bloques.json").read_text(encoding="utf-8"))}
     meta = json.loads(pathlib.Path(f"data/fuentes/{fuente_id}/meta.json").read_text(encoding="utf-8"))
     fecha_iso = meta.get("fecha_actualizacion_publicada")
-    if meta.get("boletin"):
-        referencia_fuente = meta["boletin"]
+    # Boletín o publicación oficial citable (BOP, DOE): se cita tal cual en vez de un «texto consolidado» del BOE.
+    ref_pub = meta.get("boletin") or meta.get("publicacion")
+    if ref_pub:
+        referencia_fuente = ref_pub
     elif fecha_iso:
         fecha_txt = f"{fecha_iso[8:10]}/{fecha_iso[5:7]}/{fecha_iso[:4]}"
         referencia_fuente = f"última actualización publicada el {fecha_txt}"
@@ -143,12 +145,18 @@ def main() -> int:
         fecha_api = meta.get("fecha_actualizacion_boe", "")[:8]
         fecha_api_txt = f"{fecha_api[6:8]}/{fecha_api[4:6]}/{fecha_api[:4]}" if len(fecha_api) == 8 else "sin fecha"
         referencia_fuente = f"metadatos de la API del BOE (no es fecha de publicación): {fecha_api_txt}"
+    # evita paréntesis anidados en la fuente: «Decreto 39/2025 (DOE n.º 94)» -> «Decreto 39/2025, DOE n.º 94»
+    ref_par = ref_pub.replace(" (", ", ").replace(")", "") if ref_pub and "(" in ref_pub else ref_pub
+    # Etiqueta de la unidad citada: «Art.» por defecto; los planes del DOE se dividen en apartados («Apdo.») y
+    # cada concepto puede dar su ubicación exacta en «ref» (p. ej. «cap. IV, 2.1»), que se muestra tal cual.
+    etiqueta = d.get("etiqueta", "Art.")
+    et = f"{etiqueta} " if etiqueta else ""  # con etiqueta vacía, «ref» va solo (p. ej. «cap. IV, apdo. 2.1»)
     tema = int(d["tema"])
     est_c = "publicado" if estado == "publicado" else "borrador"
     est_q = "publicada" if estado == "publicado" else "borrador"
 
     out = [f"-- Generado por scripts/cargar_conceptos.py desde {path} (estado {estado}).",
-           f"-- Texto oficial: {fuente_id}, {referencia_fuente}, sha256 {meta['sha256_texto_xml'][:12]}…",
+           f"-- Texto oficial: {fuente_id}, {referencia_fuente}, sha256 {(meta.get('sha256_texto_xml') or meta['sha256_pdf'])[:12]}…",
            "BEGIN;"]
     if crear_tema:
         out.append(f"INSERT INTO public.topics (convocatoria_id, numero, nombre) SELECT 1, {tema}, " + q(d.get('tema_nombre', 'Constitución Española')) + " "
@@ -169,9 +177,11 @@ def main() -> int:
         # el fichero da el nombre de cada serie en «series» y se muestra «Art. 35 (faltas muy graves, n.º 3)».
         if (m := re.fullmatch(r"([a-z]+)(\d+)", c["apartado"])) and m.group(1) in d.get("series", {}):
             ref = f"{art} ({d['series'][m.group(1)]}, n.º {m.group(2)})"
-        apartado = f"{d['bloque_temario'].split(' (')[0]} · Art. {ref}"
-        # Normas del BOP (meta.json con «boletin»): se cita el boletín, no un «texto consolidado» del BOE.
-        fuente = (f"{nombre}, art. {ref} ({meta['boletin']})" if meta.get("boletin")
+        if c.get("ref"):
+            ref = c["ref"]
+        apartado = f"{d['bloque_temario'].split(' (')[0]} · {et}{ref}"
+        # Normas del BOP o del DOE (meta.json con «boletin» o «publicacion»): se cita esa publicación.
+        fuente = (f"{nombre}, {et.lower()}{ref} ({ref_par})" if ref_pub
                   else f"{nombre}, art. {ref} ({fuente_id}, texto consolidado, act. {fecha_txt})")
         filas_c.append({"id": c["id"], "apartado": apartado, "orden": c["orden"], "pregunta": c["tarjeta"]["pregunta"],
                         "respuesta": c["tarjeta"]["respuesta"], "fuente": fuente, "cita": c["cita"], "tipo": c["tipo"],
@@ -195,8 +205,8 @@ def main() -> int:
             correcta = letras[orden.index(p["correcta"])]
             ops = json.dumps(opciones, ensure_ascii=False)
             explicacion = explicacion_con_cita(p, boe, abrev)
-            if meta.get("boletin"):
-                fuente_n = f"Art. {ref} {abrev} ({meta['boletin']})"
+            if ref_pub:
+                fuente_n = f"{et}{ref} {abrev} ({ref_par})"
             elif abrev != "CE":
                 fuente_n = f"Art. {ref} {abrev} (texto consolidado BOE {fuente_id}, act. {fecha_txt})"
             else:
