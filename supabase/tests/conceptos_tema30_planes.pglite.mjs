@@ -5,16 +5,23 @@
 //   npm i --no-save @electric-sql/pglite
 //   node supabase/tests/conceptos_tema30_planes.pglite.mjs
 import { PGlite } from '@electric-sql/pglite';
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { strict as assert } from 'node:assert';
 
 const read = (f) => readFileSync(new URL(`../migrations/${f}`, import.meta.url), 'utf8');
 const py = (...a) => execFileSync('python3', a, { encoding: 'utf8' });
+// Los ficheros de preguntas inéditas NO se guardan en este repositorio público (AGENTS.md).
+// Se leen de TEMA30_DIR (repositorio privado o carpeta local); si no están, la prueba se omite.
+const DIR = process.env.TEMA30_DIR ?? 'data/tema30';
 // [fichero, prefijo del hash, texto que debe citar la fuente]
 const PLANES = [
-  ['data/tema30/inuncaex.json', 'INU', 'Decreto 39/2025'],
-];
+  ['inuncaex.json', 'INU', 'Decreto 39/2025'],
+  ['transcaex.json', 'TRA', 'Decreto 189/2019'],
+  ['radiocaex.json', 'RAD', 'Decreto 200/2019'],
+  ['plasismex.json', 'PLA', 'Decreto 127/2009'],
+].map(([f, p, t]) => [`${DIR}/${f}`, p, t]).filter(([f]) => existsSync(f));
+if (!PLANES.length) { console.log(`omitida: no hay ficheros de planes en ${DIR} (TEMA30_DIR)`); process.exit(0); }
 const carga = PLANES.map(([c]) => py('scripts/cargar_conceptos.py', c, '--estado', 'borrador')).join('\n');
 const cargaCompacta = PLANES.map(([c]) => py('scripts/cargar_conceptos.py', c, '--estado', 'borrador', '--compacto')).join('\n');
 const conceptos = PLANES.flatMap(([c]) => JSON.parse(readFileSync(c, 'utf8')).conceptos);
