@@ -21,6 +21,8 @@ Este apartado es el contrato común. `CLAUDE.md`, `docs/OPERACION.md`, `docs/AGE
 | Grok | pruebas adversariales, reproducción de fallos y su corrección en rama propia | `grok` |
 | Antigravity | ejecución local y automatizaciones compatibles con su entorno | `antigravity` |
 
+Etiquetas: una por agente con su nombre exacto (`claude`, `codex`…), sin prefijo `agente:`. Aparte, `necesita-claude` marca una PR o incidencia bloqueada hasta que Claude revise algoritmo o esquema; no indica dueño.
+
 «Propietario preferente» no es monopolio: cualquiera puede tocar cualquier archivo si antes comprueba en GitHub que no hay otra PR abierta sobre él. Si la hay, comenta en esa PR o abre una incidencia en vez de editar en paralelo. Nunca empujar a la rama de otro agente.
 
 **Autonomía (verificada, no declarada).** Estados: AUTÓNOMO VERIFICADO (recibe tareas y entrega sin conversación abierta), OPERATIVO BAJO SESIÓN (crea ramas y PR, pero solo mientras JM tiene una sesión abierta) y NO VERIFICADO. Solo se sube de estado con evidencia enlazada. Estado actual y evidencia: `docs/OPERACION.md`. No se asume que una suscripción incluye API o ejecución desatendida, y no se construyen puentes de pago entre agentes. No afirmar que otro agente está trabajando si no se ve en GitHub.
@@ -50,6 +52,7 @@ npm run test
 Documentar resultados y limitaciones reales. Para documentación aislada, revisar enlaces, coherencia y diff.
 
 ## Seguridad de contenido y datos
+- **El repositorio es público.** No subir a él preguntas inéditas, exámenes o supuestos no publicados oficialmente, material interno del CPEI, auditorías con respuestas ni datos de alumnos (correos incluidos). Ese material va a un repositorio privado o a Supabase. Si dudas, no lo subas y pregunta en la incidencia.
 - Las preguntas `borrador_ia` o `validado_automatico` no deben llegar al alumno hasta revisión humana. Verificar filtros en consultas, RPC y vistas, no solo en la interfaz.
 - No cargar datos en Supabase de producción ni modificar el esquema sin comprobar el contrato real, usar entorno de prueba y preparar una recuperación.
 - No exponer la clave `service_role` en el frontend, commits, registros o artefactos. Mantenerla solo en ejecución de servidor segura.

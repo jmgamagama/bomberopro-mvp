@@ -1,7 +1,7 @@
 # Estado vivo — BomberoPro (fuente única de verdad)
 
 > Todo chat/agente lee este fichero primero y lo actualiza al cerrar (máx. 60 líneas; lo viejo va a `docs/ESTADO_PROYECTO.md`, que es histórico).
-> Última revisión estratégica: 2026-11-04 (JM). Equipo de agentes y PR abiertas revisados por Claude el 08/11. Datos operativos de entornos/BD siguientes verificados por Claude el 02/11; **no se han vuelto a verificar contra producción**. Si tienen más de 7 días, desconfía y verifica.
+> Última revisión estratégica: 2026-11-04 (JM). Equipo de agentes revisado por Claude el 08/11 (etiquetas y PR abiertas, el 10/11). Datos operativos de entornos/BD siguientes verificados por Claude el 02/11; **no se han vuelto a verificar contra producción**. Si tienen más de 7 días, desconfía y verifica.
 
 ## Decisión de producto (JM, 04/11) — ÚNICAMENTE CPEI Badajoz
 - **Contenido equilibrado para beta:** los 40 temas conservan esquema oficial, cobertura por epígrafe visible y acceso solo a desarrollo, conceptos, preguntas y fichas editorialmente validados. «Parcial» nunca equivale a «completo».
@@ -16,7 +16,7 @@
 ## Entornos
 - Repo `jmgamagama/bomberopro-mvp` (main protegida: PR + check «Lint, build and test»; Vercel despliega al fusionar). **Sigue público (comprobado 08/11)**; plan de paso a privado en «Abierto» punto 2.
 - Supabase producción `yndoaprnpkjqiggeyefz`; staging `fxhvgvehhekqeqpkxtrm`. Cambios: staging → test → producción, con «sí» escrito de JM (skill `bomberopro-cambio-seguro`).
-- Comprobado el 08/11: la web responde 200, CI de main en verde, 0 PRs abiertos en GitHub; no se ha revisado el estado de la base de datos desde el 02/11.
+- Comprobado el 08/11: la web responde 200 y CI de main en verde; no se ha revisado el estado de la base de datos desde el 02/11.
 - Producción sirve `cb958b0` (#219: 34 temas, 2.886 fichas, recorrido del alumno, material por tema). Vercel: proyecto `bomberopro-mvp`; `bomberopro.com` ya sirve la misma app que `bomberopro-mvp.vercel.app` (200 y mismo bundle, 08/11).
 - Examen: CPEI Badajoz 2026, BOP nº 135 (anuncio 2843/2026): 50+5 reserva, 3 opciones, 60 min, +0,200/−0,066/0, 30 % de temas 35-40. Fecha sin publicar.
 
@@ -39,8 +39,8 @@
 4. JM → decidir las 3 cuestiones de `docs/PLAN_POR_USUARIO.md` §7 (muestra para invitados, beta = acceso completo, orden de la fase C). Después, Claude prepara la fase B apagada. Hoy `getPlan()` es global (todos «pro») y el plan gratis regala `tema40`, material interno del CPEI.
 5. Claude → logo único (gota = icono de la PWA) hecho en la PR de marca única (cabecera y acceso); «Entrar» ya está en el aviso del modo demo; og:image pasa a URL absoluta con `VERCEL_PROJECT_PRODUCTION_URL` (comprobar tras desplegar). Falta: JM pega las plantillas de `supabase/templates/*.html` (español) en Supabase → Auth → Email Templates (el logo del correo ya carga desde bomberopro.com).
 6. Claude → aplicar 43, 46, 47, 49 y 50 en staging y, con «sí» de JM, en producción (orden y guardas en la #218).
-7. PR abiertas (08/11, 23:05): solo #266 (este reparto, documental). #264, #265 y #267 ya fusionadas. La limpieza de octubre ya no está pendiente.
-8. JM → equipo de agentes (reglas en `AGENTS.md`, autonomía comprobada en `docs/OPERACION.md`): (a) la app de Codex ya revisa cada PR gratis; propuesta: quitar el paso redundante de `auto-codex-review.yml` (necesita una PR de CI aparte); (b) crear las etiquetas `deepseek`, `gemini` y `grok` (ya existen `claude`, `codex` y `antigravity`; la sesión de Claude no tiene herramienta para crearlas, puede hacerlo Codex o JM); (c) dar acceso a `bomberopro-editorial` a la sesión que deba coordinar DeepSeek; (d) la comprobación semanal de CI necesita el ordenador: activarlo o pasarla a la nube.
+7. PR abiertas: no se copian aquí (se desactualizan en horas); consultar GitHub y clasificarlas según `AGENTS.md`. Foto del 10/11, 18:15 UTC: #266, #272, #273, #274, #275 y #276. La limpieza de octubre ya no está pendiente.
+8. JM → equipo de agentes (reglas en `AGENTS.md`, autonomía comprobada en `docs/OPERACION.md`): (a) la app de Codex ya revisa cada PR gratis; propuesta: quitar el paso redundante de `auto-codex-review.yml` (necesita una PR de CI aparte); (b) crear las etiquetas `deepseek`, `gemini` y `grok` (comprobado el 10/11: existen `claude`, `codex`, `antigravity` y `necesita-claude`; no existen las tres nuevas ni ninguna `agente:*`; la sesión de Claude no tiene herramienta para crearlas, puede hacerlo Codex o JM); (c) dar acceso a `bomberopro-editorial` a la sesión que deba coordinar DeepSeek; (d) la comprobación semanal de CI necesita el ordenador: activarlo o pasarla a la nube.
 
 ## Decisiones cerradas (no reabrir sin dato nuevo)
 - Paleta A «Brasa y Noche»; estado = icono + texto + contorno, relleno sólido solo en acciones. Marca: gota azul marino, blanca y amarilla en todas partes.

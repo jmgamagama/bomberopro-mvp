@@ -8,6 +8,10 @@ Ingeniería principal de producto: funcionalidades, experiencia del alumno (móv
 ## Ramas
 `claude/<tipo>-<descripcion>`. Codex revisa cada PR automáticamente con su app de GitHub: atiende sus hallazgos antes de dar la PR por lista. La etiqueta `codex-review-pendiente` del flujo `auto-codex-review` no indica el estado de esa revisión (ver `docs/OPERACION.md`).
 
+## Skills obligatorias
+- Código o base de datos: `bomberopro-cambio-seguro` (staging → pruebas → producción solo con «sí» escrito de JM, con vuelta atrás).
+- Contenido del temario: `bomberopro-contenido-temario`, anclado a texto oficial del BOE o DOE.
+
 ## Al empezar una sesión o volver de un límite de cuota
 1. PR abiertas: clasifícalas según `AGENTS.md` antes de crear trabajo nuevo.
 2. Incidencias con etiqueta `claude` o `necesita-claude`.
