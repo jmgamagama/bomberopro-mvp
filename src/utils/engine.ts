@@ -412,12 +412,14 @@ export function getAdaptiveQuestion(
     };
   });
 
-  // Sort by priorityScore descending. If tied, pick a random one
-  scoredQuestions.sort((a, b) => b.priorityScore - a.priorityScore);
+  // Prioridad pedagógica primero. Dentro de una misma prioridad alternamos
+  // preguntas: antes el sort estable elegía siempre la primera del banco.
+  const randomized = scoredQuestions.map((entry) => ({ ...entry, tieBreaker: Math.random() }));
+  randomized.sort((a, b) => b.priorityScore - a.priorityScore || a.tieBreaker - b.tieBreaker);
 
   return {
-    question: scoredQuestions[0].question,
-    reason: scoredQuestions[0].reason
+    question: randomized[0].question,
+    reason: randomized[0].reason
   };
 }
 
