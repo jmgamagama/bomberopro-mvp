@@ -29,6 +29,18 @@ La huella incluye pregunta, alternativas, correcta, explicación, fuente, versi�
 - El Site editorial actual no está conectado a este control de CI. Un informe verde significa solo **estructura compatible**, jamás revisión jurídica o aprobación de publicación.
 - **No existe en este cambio:** tribunal normativo IA, reconciliación con la base de preguntas, caché confiable persistente ni revisión humana de lote 001.
 
+## Decisión (10/11/2026): validar los lotes en el repositorio privado
+
+Los lotes con preguntas inéditas **no se suben a este repositorio mientras sea público**; `lotes/` no existe aquí y no debe crearse. El validador se ejecuta donde viven los lotes, sin copiar ni bifurcar el código:
+
+1. **Una sola fuente de las herramientas:** este repositorio (código sin datos sensibles). El flujo de `bomberopro-editorial` hace `checkout` de `jmgamagama/bomberopro-mvp` **fijado a un SHA concreto** (no a una rama) en una carpeta aparte y ejecuta desde ahí `scripts/editorial_gatekeeper.py` y `scripts/hash_cache.py` sobre `lotes/**/*.csv` del repositorio privado. Al ser público no necesita token ni secretos.
+2. **Herramientas fuera del alcance de quien propone el lote:** como los scripts vienen de un SHA fijado y no de la PR, el autor de un lote no puede alterar su propia validación (lo que pedía la sección «Seguridad»). Subir el SHA es un cambio revisado por una persona.
+3. **Sin deriva:** el contrato (15 columnas de arriba) se cambia solo aquí, con sus pruebas, y el repositorio privado adopta la versión subiendo el SHA.
+4. **Protección contra errores:** una comprobación en este repositorio debe fallar si una PR añade `lotes/**` (pendiente de implementar en su propia PR de CI). Cuando el repositorio pase a privado esta regla se revisa.
+5. El exportador de DeepSeek (`tools/exportar_gatekeeper.py`) vive en el repositorio privado. El contrato real exige las 15 columnas de arriba; si su exportación añade otras, el validador las ignora.
+
+Un informe verde sigue significando solo «estructura compatible».
+
 ## Próxima iteración
 
 Crear almacén editorial privado con identidad de DeepSeek de permisos mínimos, conectarlo mediante PR y aplicar la revisión de los 30 ítems del lote 001. Registrar decisiones editorialmente aprobadas fuera del control de los autores de la propuesta. No abrir el lote 002 hasta resolver los 30 y obtener autorización explícita.
