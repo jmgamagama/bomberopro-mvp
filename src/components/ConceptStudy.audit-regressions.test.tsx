@@ -16,7 +16,7 @@ vi.mock('../lib/conceptEngine', () => ({
 vi.mock('../lib/studySession', () => ({ startStudySession: async () => {}, finishStudySession: async () => {} }));
 vi.mock('../lib/streak', () => ({ useStudyStreak: () => null }));
 vi.mock('./ReportQuestionButton', () => ({ default: () => null }));
-vi.mock('./SessionCelebration', () => ({ default: () => <p>FIN DE SESION</p> }));
+vi.mock('./SessionCelebration', () => ({ default: ({ children }: { children?: import('react').ReactNode }) => <><p>FIN DE SESION</p>{children}</> }));
 import ConceptStudy from './ConceptStudy';
 const item = { pos: 1, concept_id: 'CE-a7-sindicatos-funciones', formato: 'test', motivo: 'REPASO_VENCIDO', question_id: 8193, question: 'Caso de auditoría', options: ['Los sindicatos de trabajadores', 'Las asociaciones empresariales', 'A y B son correctas'], fuente: 'CE' };
 beforeEach(() => {
@@ -98,4 +98,27 @@ it('no inserta recuperación de un tema anterior después de cambiar de tema', a
   await user.click(screen.getByRole('button', { name: 'Empezar' }));
   expect(screen.queryByText('Tema anterior')).toBeNull();
   expect(screen.getByRole('button', { name: 'Confirmar respuesta' })).toBeDisabled();
+});
+
+it('explica el desglose de una sesión: pasos frente a preguntas de comprobación', async () => {
+  mocks.event.mockResolvedValue({ saved: true, data: { correct: true, correct_answer: item.options[0] }, pending: 0, rejected: 0 });
+  const user = userEvent.setup();
+  render(<ConceptStudy userId="audit" onExit={() => {}} />);
+  await user.click(screen.getByRole('button', { name: 'Empezar' }));
+  await user.click((await screen.findAllByRole('radio'))[0]);
+  await user.click(screen.getByRole('button', { name: 'Lo sé' }));
+  await user.click(screen.getByRole('button', { name: 'Confirmar respuesta' }));
+  await screen.findByText('Correcto');
+  await user.click(screen.getByRole('button', { name: 'Siguiente' }));
+  expect(await screen.findByTestId('desglose-sesion')).toHaveTextContent('Has trabajado 1 pasos');
+  expect(screen.getByTestId('desglose-sesion')).toHaveTextContent('1 preguntas de comprobación');
+  expect(screen.getByTestId('desglose-sesion')).toHaveTextContent('El porcentaje de aciertos solo cuenta las preguntas');
+});
+
+it('distingue la primera recuperación programada dentro de la sesión', async () => {
+  mocks.session.mockResolvedValue([{ ...item, motivo: 'NUEVO_RECUPERACION' }]);
+  const user = userEvent.setup();
+  render(<ConceptStudy userId="audit" onExit={() => {}} />);
+  await user.click(screen.getByRole('button', { name: 'Empezar' }));
+  expect(await screen.findByText('Primera recuperación del concepto recién estudiado')).toBeInTheDocument();
 });
