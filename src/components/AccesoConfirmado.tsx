@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle2, AlertTriangle, KeyRound, Loader2 } from 'lucide-react';
+import { CheckCircle2, AlertTriangle, KeyRound, Loader2, Eye, EyeOff } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import type { RetornoAuth } from '../lib/authRetorno';
 
@@ -117,6 +117,7 @@ function Mensaje({ retorno, conSesion, onContinuar }: AccesoConfirmadoProps) {
 
 function FormularioContrasena({ retorno, onHecho }: { retorno: RetornoAuth; onHecho: () => void }) {
   const [password, setPassword] = useState('');
+  const [verPassword, setVerPassword] = useState(false);
   const [guardando, setGuardando] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [guardada, setGuardada] = useState(false);
@@ -169,15 +170,26 @@ function FormularioContrasena({ retorno, onHecho }: { retorno: RetornoAuth; onHe
         <label htmlFor="nueva-contrasena" className="block text-sm font-bold text-slate-800 mb-1.5">
           Nueva contraseña
         </label>
-        <input
-          id="nueva-contrasena"
-          type="password"
-          autoComplete="new-password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-          aria-describedby="nueva-contrasena-ayuda"
-          className="w-full min-h-12 px-4 py-3 rounded-xl border border-slate-400 text-base focus:border-indigo-600"
-        />
+        <div className="relative">
+          <input
+            id="nueva-contrasena"
+            type={verPassword ? 'text' : 'password'}
+            autoComplete="new-password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            aria-describedby="nueva-contrasena-ayuda"
+            className="w-full min-h-12 px-4 py-3 pr-12 rounded-xl border border-slate-400 text-base focus:border-indigo-600"
+          />
+          <button
+            type="button"
+            onClick={() => setVerPassword(v => !v)}
+            aria-label={verPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'}
+            aria-pressed={verPassword}
+            className="absolute inset-y-0 right-0 w-12 flex items-center justify-center text-slate-600 hover:text-slate-900"
+          >
+            {verPassword ? <EyeOff className="w-5 h-5" aria-hidden="true" /> : <Eye className="w-5 h-5" aria-hidden="true" />}
+          </button>
+        </div>
         <p id="nueva-contrasena-ayuda" className="text-sm text-slate-600 mt-1.5">Al menos 6 caracteres.</p>
       </div>
       {error && <p role="alert" className="text-sm font-medium text-red-700">{error}</p>}
