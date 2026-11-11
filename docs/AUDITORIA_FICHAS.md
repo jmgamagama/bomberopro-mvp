@@ -63,7 +63,7 @@ Problemas detectados: **0**.
 | tema36-lote06 | pendiente | 55 | 0 % | 0 | `dec31a096fd4be45` | sin enlace público |
 | tema36-lote07 | pendiente | 55 | 0 % | 0 | `48129d076a0c25a4` | sin enlace público |
 | tema36-lote08 | pendiente | 55 | 0 % | 0 | `f6a303626f601434` | sin enlace público |
-| tema37 | revisado | 37 | 0 % | 0 | `6d0345414c1918e5` | sin enlace público |
+| tema37 | revisado | 37 | 100 % | 0 | `52760234c15c455b` |  |
 | tema38 | revisado | 198 | 0 % | 0 | `b6cea1fdfc24ec97` | sin enlace público |
 | tema39 | revisado | 149 | 0 % | 0 | `968a1cd93a6f265f` | sin enlace público |
 | tema40 | revisado | 213 | 0 % | 0 | `841cf5d962ed36ce` | sin enlace público |

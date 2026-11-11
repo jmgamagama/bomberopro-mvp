@@ -9,6 +9,7 @@ import { measuredElapsedMs } from '../utils/recallReviewLog';
 import FuenteOficial from './FuenteOficial';
 import { solicitarAlmacenamientoPersistente } from '../lib/almacenamientoPersistente';
 import VerEnEsquema from './VerEnEsquema';
+import ReportCardButton from './ReportCardButton';
 
 interface RecallDeckProps {
   deck: RecallDeckData;
@@ -191,7 +192,10 @@ function RecallDeckViewer({
                     Localización: {card.localizacion}
                   </p>
                 )}
-                <VerEnEsquema tema={deck.tema} fuente={card.fuente} origen="esta ficha" className="mt-2" />
+                <div className="mt-2 flex flex-wrap items-center gap-2">
+                  <VerEnEsquema tema={deck.tema} fuente={card.fuente} origen="esta ficha" />
+                  <ReportCardButton deckId={deck.id} cardId={card.id} />
+                </div>
               </div>
               {failedGrade !== null && (
                 <div role="alert" id="recall-save-error" className="space-y-2 rounded-xl border border-orange-200 bg-orange-50 p-3 text-sm text-orange-900">

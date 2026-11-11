@@ -23,4 +23,16 @@ describe('fuentes oficiales', () => {
     expect(resolverFuente('Ficha', 'D98').url).toBeNull();
     expect(resolverFuente('Ficha', 'CE').url).toBe(boeUrl('BOE-A-1978-31229'));
   });
+  it('reconoce los PDF del portal de transparencia de la Diputación (antes no enlazaban, bug detectado en tema 4)', () => {
+    const url = 'https://transparencia.dip-badajoz.es/download/332/equipo-de-gobierno/21026/acuerdo.pdf#page=1';
+    const f = resolverFuente(`Acuerdo de reorganización, pág. 1. Texto íntegro oficial: ${url}`);
+    expect(f.url).toBe(url);
+    expect(f.texto).not.toContain('https://');
+  });
+  it('enlaza al BOP de Badajoz en la página exacta citada (p. ej. tema 37)', () => {
+    const url = 'https://www.dip-badajoz.es/ficheros/bop/bopedictos/2026-06-22000000_2242.pdf#page=6';
+    const f = resolverFuente(`Plan de prevención de riesgos laborales del CPEI; texto íntegro oficial (BOP nº 117 de 22/06/2026): ${url}`);
+    expect(f.url).toBe(url);
+    expect(f.etiqueta).toBe('Ver texto oficial');
+  });
 });
