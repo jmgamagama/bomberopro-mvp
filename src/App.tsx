@@ -39,6 +39,7 @@ const AccesoConfirmado = lazy(() => import('./components/AccesoConfirmado'));
 import { retornoAuthInicial, limpiarUrlRetornoAuth } from './lib/authRetorno';
 import { leerEnlaceInvitacion } from './lib/mensajesAcceso';
 import { fetchQuestionSession } from './lib/secureQuestions';
+import { loadStudySessionAfterSync } from './lib/loadStudySessionAfterSync';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer, toLevelInt } from './lib/saveAttemptToServer';
 import UpdateBanner from './components/UpdateBanner';
@@ -305,9 +306,13 @@ export default function App() {
   // tema según el peso en el examen. El orden que devuelve se respeta tal cual.
   const loadServerSession = async (): Promise<Question[]> => {
     if (!supabase) return [];
-    // C2 (migración 52): el servidor emite preguntas sin clave y las vincula a una sesión.
-    // Fail closed: nunca volver al exportador heredado cuando falla el motor seguro.
-    return shuffleAllOptions(await fetchQuestionSession(supabase, 'begin_study_session_v3', { p_limit: 10 }));
+    const owner = authUserId.current;
+    if (!owner) throw new Error('Necesitas una sesión válida para estudiar con el banco completo.');
+    // La cola actualiza review_queue; esperar antes de seleccionar evita servir
+    // preguntas todavía marcadas como vencidas por respuestas sin confirmar.
+    return loadStudySessionAfterSync(owner, async () =>
+      shuffleAllOptions(await fetchQuestionSession(supabase, 'begin_study_session_v3', { p_limit: 10 })),
+    );
   };
 
   // Preguntas que el alumno tiene falladas ahora (conceptos y banco), mismo formato que la sesión.
@@ -457,9 +462,16 @@ export default function App() {
       } catch (err) {
         if (!isCurrentRequest()) return;
         console.error('No se pudo pedir una sesión nueva:', err);
+        setDbQuestionsError(err instanceof Error ? err.message : 'No se pudo renovar la sesión.');
+        // Evita repetir silenciosamente el banco anterior tras un fallo.
+        setSessionQuestionPool([]);
+        setActiveQuestion(null);
+        setSessionCompleted(false);
+        return;
       }
     }
     if (!isCurrentRequest()) return;
+    setDbQuestionsError(null);
     sessionCompletedRef.current = false;
     // Las opciones se barajan al montar cada sesión, venga del servidor o de la demo: las 15
     // preguntas de la demo tienen la correcta siempre en la primera posición y sin barajar el
@@ -1091,8 +1103,13 @@ export default function App() {
             <h2 className="text-lg font-bold text-slate-800">No hay preguntas disponibles</h2>
             <p className="text-sm text-slate-600">{activeConceptId
               ? `No hay preguntas disponibles para el microconcepto ${activeConceptId} en esta sesión.`
-              : 'No hay preguntas disponibles para esta sesión.'}</p>
-            <button type="button" onClick={() => handleNavigate('dashboard')} className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm">
+              : dbQuestionsError ?? 'No hay preguntas disponibles para esta sesión.'}</p>
+            {dbQuestionsError && serverMode && (
+              <button type="button" onClick={() => { void startTrainingSession(null); }} className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm">
+                Reintentar sesión
+              </button>
+            )}
+            <button type="button" onClick={() => handleNavigate('dashboard')} className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold rounded-xl text-sm">
               Volver al inicio
             </button>
           </section>
