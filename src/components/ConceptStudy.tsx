@@ -384,7 +384,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
           secondary={{ label: 'Volver al inicio', onClick: exit }}
         >
           <p className="rounded-lg bg-slate-50 px-3 py-2 text-sm text-slate-700" data-testid="desglose-sesion">
-            Has trabajado {items.length} pasos: {stats.nuevos} conceptos nuevos, {stats.tests} preguntas de comprobación y {Math.max(0, items.length - stats.nuevos - stats.tests)} ejercicios de recuerdo. El porcentaje de aciertos solo cuenta las preguntas de comprobación, no todos los pasos.
+            Has trabajado {items.length} {items.length === 1 ? 'paso' : 'pasos'}: {stats.nuevos} {stats.nuevos === 1 ? 'concepto nuevo' : 'conceptos nuevos'}, {stats.tests} {stats.tests === 1 ? 'pregunta de comprobación' : 'preguntas de comprobación'} y {Math.max(0, items.length - stats.nuevos - stats.tests)} ejercicios de recuerdo. El porcentaje de aciertos solo cuenta las preguntas de comprobación, no todos los pasos.
           </p>
           <p className="sr-only">{stats.nuevos} conceptos nuevos · {stats.aciertos} de {stats.tests} preguntas bien.</p>
           {calibracion && <p className="rounded-lg bg-indigo-50 px-3 py-2 text-sm text-indigo-900" data-testid="calibracion">{calibracion}</p>}
