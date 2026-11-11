@@ -7,6 +7,7 @@ export type ModoAcceso = 'entrar' | 'crear';
 
 /** Lo que necesitamos de un error de Supabase Auth (AuthApiError o similar). */
 export interface ErrorAuth {
+  name?: string;
   status?: number;
   code?: string;
   message?: string;
@@ -22,7 +23,16 @@ export interface MensajeAcceso {
 
 const msg = (e: ErrorAuth) => (e.message ?? '').toLowerCase();
 
+/**
+ * Supabase Auth no lanza sin conexión: devuelve AuthRetryableFetchError con estado 0 (y 502-504 con su
+ * estado). No es un error de los datos del alumno y no debe decirse «Revisa tus datos».
+ */
+const sinConexion = (e: ErrorAuth) => e.status === 0 || (e.name === 'AuthRetryableFetchError' && !e.status);
+const servicioCaido = (e: ErrorAuth) => (typeof e.status === 'number' && e.status >= 500) || e.code === 'unexpected_failure';
+const SERVICIO_CAIDO = 'BomberoPro no responde ahora mismo. No es un problema de tus datos: inténtalo de nuevo en unos minutos.';
+
 export function mensajeErrorAcceso(modo: ModoAcceso, e: ErrorAuth, registroAbierto: boolean): MensajeAcceso {
+  if (sinConexion(e)) return { text: SIN_CONEXION };
   if (e.code === 'over_email_send_rate_limit') {
     return { text: 'Hemos enviado varios correos seguidos a esta dirección. Espera unos minutos y vuelve a intentarlo.' };
   }
@@ -77,11 +87,13 @@ export function mensajeErrorAcceso(modo: ModoAcceso, e: ErrorAuth, registroAbier
       accionSecundaria: registroAbierto ? undefined : 'ir_a_crear',
     };
   }
+  if (servicioCaido(e)) return { text: SERVICIO_CAIDO };
   return { text: 'No hemos podido entrar. Revisa tus datos e inténtalo de nuevo.' };
 }
 
 /** Error al pedir el enlace de acceso sin contraseña («He olvidado la contraseña»). */
 export function mensajeErrorEnlace(e: ErrorAuth, registroAbierto: boolean): MensajeAcceso {
+  if (sinConexion(e)) return { text: SIN_CONEXION };
   if (e.status === 429 || e.code === 'over_email_send_rate_limit' || e.code === 'over_request_rate_limit') {
     return { text: 'Ya te hemos enviado un enlace hace poco. Mira tu correo o espera un minuto para pedir otro.' };
   }
@@ -94,11 +106,13 @@ export function mensajeErrorEnlace(e: ErrorAuth, registroAbierto: boolean): Mens
   if (e.code === 'email_address_invalid') {
     return { text: 'Revisa el correo: parece que falta algo (por ejemplo, la @ o el dominio).' };
   }
+  if (servicioCaido(e)) return { text: SERVICIO_CAIDO };
   return { text: 'No hemos podido enviar el enlace. Revisa el correo escrito e inténtalo de nuevo.' };
 }
 
 /** Errores al solicitar el restablecimiento, sin revelar si la dirección tiene cuenta. */
 export function mensajeErrorRecuperacion(e: ErrorAuth): MensajeAcceso {
+  if (sinConexion(e)) return { text: SIN_CONEXION };
   if (e.status === 429 || e.code === 'over_email_send_rate_limit' || e.code === 'over_request_rate_limit') {
     return { text: 'Ya se ha solicitado un correo hace poco. Espera unos minutos antes de volver a intentarlo.' };
   }
@@ -112,6 +126,20 @@ export function mensajeErrorRecuperacion(e: ErrorAuth): MensajeAcceso {
 }
 
 export const SIN_CONEXION = 'No hay conexión con BomberoPro. Comprueba tu internet e inténtalo de nuevo.';
+
+/** Supabase Auth no tiene tiempo límite: sin respuesta en este plazo se avisa y se desbloquea el formulario. */
+export const ACCESO_TIMEOUT_MS = 20_000;
+export const SIN_RESPUESTA = 'No hemos recibido respuesta de BomberoPro. Comprueba tu conexión e inténtalo de nuevo.';
+
+/** Rechaza con `SinRespuesta` si `promesa` no termina en `ms`. La petición original no se cancela. */
+export class SinRespuesta extends Error {
+  constructor() { super('sin_respuesta'); this.name = 'SinRespuesta'; }
+}
+export function conTiempoLimite<T>(promesa: Promise<T>, ms = ACCESO_TIMEOUT_MS): Promise<T> {
+  let t: ReturnType<typeof setTimeout> | undefined;
+  const limite = new Promise<never>((_, reject) => { t = setTimeout(() => reject(new SinRespuesta()), ms); });
+  return Promise.race([promesa, limite]).finally(() => clearTimeout(t));
+}
 
 /**
  * Lee el enlace de invitación: `?invitacion=1` (genérico) o `?codigo=XXXX` (piloto con cupo).
