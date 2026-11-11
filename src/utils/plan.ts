@@ -29,7 +29,7 @@ export interface PlanLimits {
 export const ANSWER_CHECK_LIMITS = { perHour: 300, perDay: 1500 } as const;
 
 export const PLAN_LIMITS: Record<Plan, PlanLimits> = {
-  free: { deckIds: ['tema40'], dailySessionSize: 10, stats: false, dailyDistinctQuestions: 150 },
+  free: { deckIds: ['tema1'], dailySessionSize: 10, stats: false, dailyDistinctQuestions: 150 },
   pro: { deckIds: 'all', dailySessionSize: 30, stats: true, dailyDistinctQuestions: null },
 };
 
@@ -45,7 +45,8 @@ export const PLAN_COPY = {
   proPrice: 'Precio de lanzamiento próximamente',
 } as const;
 
-const FREE_DECK_LABEL = 'Recuerdo del tema 40 (Procedimientos de trabajo CPEI-Badajoz)';
+// Muestra gratis: solo contenido con fuente pública (BOE). Nunca material interno del CPEI (decisión 1A, 11/2026).
+const FREE_DECK_LABEL = 'Recuerdo del tema 1 (La Constitución Española, texto oficial del BOE)';
 
 /** Resumen de una línea por plan, para la Bienvenida y los avisos (sin precios: no hay ninguno publicado). */
 export function planSummary(plan: Plan): string {
@@ -91,7 +92,8 @@ export function canAccessDeck(deckId: string, plan: Plan = getPlan()): boolean {
 
 /**
  * Temas del bloque de procedimientos de Badajoz (T35-T40) que se abren por defecto en modo invitado.
- * Orden de preferencia: el tema 40 (el del plan gratis, fichas en el propio bundle) y luego 35→39.
+ * Orden de preferencia: el tema 40 y luego 35→39. Con el plan gratis (muestra = tema 1) ningún T35-40 es accesible
+ * y se cae al primer mazo accesible, el tema 1.
  */
 export const GUEST_DEFAULT_TEMAS: readonly number[] = [40, 35, 36, 37, 38, 39];
 

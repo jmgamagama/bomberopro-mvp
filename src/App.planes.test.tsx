@@ -62,14 +62,14 @@ describe('planes con la bandera activada', () => {
     expect(window.localStorage.getItem('mira_planes_interes_v1')).not.toBeNull();
   });
 
-  it('Recuerdo: candado en temas Pro y el tema 40 abierto por defecto', async () => {
+  it('Recuerdo: candado en temas Pro y el tema 1 (muestra pública) abierto por defecto', async () => {
     vi.stubEnv('VITE_FEATURE_PLANES', 'true');
     const user = userEvent.setup();
     render(<App />);
     const tablist = await openRecuerdo(user);
     expect(within(tablist).getAllByRole('tab', { name: /\(Pro\)/ })).toHaveLength(RECALL_TOPICS.length - 1);
-    expect(within(tablist).getByRole('tab', { name: /T40/ })).toHaveAttribute('aria-selected', 'true');
-    expect(await screen.findByText(/Ficha 1 de 213/)).toBeInTheDocument();
+    expect(within(tablist).getByRole('tab', { name: /^T1 / })).toHaveAttribute('aria-selected', 'true');
+    expect(await screen.findByText(/Ficha 1 de \d+/)).toBeInTheDocument();
 
     // Tema 36: todos sus lotes con candado.
     await user.click(within(tablist).getByRole('tab', { name: /^T36/ }));
@@ -85,7 +85,7 @@ describe('planes con la bandera activada', () => {
     expect(await screen.findByText('Precio de lanzamiento próximamente')).toBeInTheDocument();
   });
 
-  it('Sesión diaria Gratis: 10 fichas del tema 40', async () => {
+  it('Sesión diaria Gratis: 10 fichas del tema 1', async () => {
     vi.stubEnv('VITE_FEATURE_PLANES', 'true');
     const user = userEvent.setup();
     render(<App />);
@@ -94,8 +94,8 @@ describe('planes con la bandera activada', () => {
     await user.click(document.querySelector<HTMLButtonElement>('#mas-sesion_diaria')!);
     expect(await screen.findByText(/Hasta 10 fichas/)).toBeInTheDocument();
     expect(document.querySelector('#daily-session-plan')).toHaveTextContent('Plan Gratis');
-    await waitFor(() => expect(document.querySelector('#daily-session-decks')).toHaveTextContent('T40'));
-    expect(document.querySelector('#daily-session-decks')!.textContent).not.toMatch(/T35|T36|T38/);
+    await waitFor(() => expect(document.querySelector('#daily-session-decks')).toHaveTextContent('T1'));
+    expect(document.querySelector('#daily-session-decks')!.textContent).not.toMatch(/T35|T36|T38|T40/);
     await user.click(screen.getByRole('button', { name: /Empezar sesión/ }));
     expect(screen.getByText(/Recuerdo · 1 \/ 10/)).toBeInTheDocument();
   });

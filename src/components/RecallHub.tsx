@@ -156,7 +156,7 @@ export default function RecallHub({ onNavigateHome, initialDeckId, onOpenPlanes,
             </p>
             <h1 className="text-lg font-bold leading-snug">{deck.title}</h1>
             <p className="text-sm text-slate-700">
-              {deck.count} fichas de repaso con su fuente oficial. Con el plan Gratis tienes el Recuerdo del tema 40.
+              {deck.count} fichas de repaso con su fuente oficial. Con el plan Gratis tienes el Recuerdo del tema 1 (Constitución).
             </p>
             {planesOn && onOpenPlanes && (
               <button
