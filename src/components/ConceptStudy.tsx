@@ -383,6 +383,9 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
           primary={{ label: 'Otra sesión', onClick: () => setPhase('inicio') }}
           secondary={{ label: 'Volver al inicio', onClick: exit }}
         >
+          <p className="rounded-lg bg-slate-50 px-3 py-2 text-sm text-slate-700" data-testid="desglose-sesion">
+            Has trabajado {items.length} pasos: {stats.nuevos} conceptos nuevos, {stats.tests} preguntas de comprobación y {Math.max(0, items.length - stats.nuevos - stats.tests)} ejercicios de recuerdo. El porcentaje de aciertos solo cuenta las preguntas de comprobación, no todos los pasos.
+          </p>
           <p className="sr-only">{stats.nuevos} conceptos nuevos · {stats.aciertos} de {stats.tests} preguntas bien.</p>
           {calibracion && <p className="rounded-lg bg-indigo-50 px-3 py-2 text-sm text-indigo-900" data-testid="calibracion">{calibracion}</p>}
           {progress && <div className="text-left"><ProgressBar p={progress} /></div>}
@@ -443,7 +446,9 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
                 : item.motivo === 'VERIFICAR' ? 'Dijiste que lo sabías: compruébalo'
                 : item.motivo === 'ERROR_RECIENTE' ? 'Lo fallaste hace poco'
                 : item.motivo === 'BAJA_NIVEL' ? 'Afianza la base de este apartado'
-                : item.motivo === 'REPASO_VENCIDO' ? 'Repaso' : 'Comprueba lo aprendido'}
+                : item.motivo === 'REPASO_VENCIDO' ? 'Repaso programado: tocaba volver a verlo'
+                : item.motivo === 'NUEVO_RECUPERACION' ? 'Primera recuperación del concepto recién estudiado'
+                : 'Comprueba lo aprendido'}
             </p>
             <h2 className="mt-2 text-lg font-bold text-slate-900">{item.question}</h2>
             <div className="mt-2 flex justify-end"><ReportQuestionButton questionId={item.question_id} onReported={next} /></div>
