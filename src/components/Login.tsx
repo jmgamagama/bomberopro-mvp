@@ -4,7 +4,7 @@ import { trackFunnel } from '../lib/funnel';
 import { isRegistroAbierto, textoAlta } from '../config/features';
 import { urlRetornoAuth } from '../lib/authRetorno';
 import {
-  leerEnlaceInvitacion, mensajeErrorAcceso, mensajeErrorEnlace, mensajeErrorRecuperacion, SIN_CONEXION,
+  leerEnlaceInvitacion, mensajeErrorAcceso, mensajeErrorEnlace, mensajeErrorRecuperacion, SIN_CONEXION, SIN_RESPUESTA, SinRespuesta, conTiempoLimite,
   type MensajeAcceso, type ModoAcceso,
 } from '../lib/mensajesAcceso';
 import { describeGuestProgress, guestProgressSummary, hasGuestSignupIntent, markGuestSignupIntent } from '../utils/guestProgress';
@@ -79,14 +79,14 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
     if (mode === 'crear') trackFunnel('signup_submit');
     try {
       if (mode === 'crear') {
-        const result = await supabase!.auth.signUp({
+        const result = await conTiempoLimite(supabase!.auth.signUp({
           email: correo(),
           password,
           options: {
             emailRedirectTo: urlRetornoAuth('registro'),
             ...(enlace.codigo ? { data: { codigo_piloto: enlace.codigo } } : {}),
           },
-        });
+        }));
         if (result.error) {
           setMessage({ type: 'error', ...mensajeErrorAcceso('crear', result.error, abierto) });
           focusEmail();
@@ -103,14 +103,14 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
         }
         // Con sesión, la app pasa sola al inicio.
       } else {
-        const result = await supabase!.auth.signInWithPassword({ email: correo(), password });
+        const result = await conTiempoLimite(supabase!.auth.signInWithPassword({ email: correo(), password }));
         if (result.error) {
           setMessage({ type: 'error', ...mensajeErrorAcceso('entrar', result.error, abierto) });
           focusEmail();
         }
       }
-    } catch {
-      setMessage({ type: 'error', text: SIN_CONEXION });
+    } catch (err) {
+      setMessage({ type: 'error', text: err instanceof SinRespuesta ? SIN_RESPUESTA : SIN_CONEXION });
     } finally {
       setLoading(false);
     }
@@ -128,15 +128,15 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
     setLoading(true);
     setMessage(null);
     try {
-      const { error } = await supabase!.auth.signInWithOtp({
+      const { error } = await conTiempoLimite(supabase!.auth.signInWithOtp({
         email: correo(),
         options: { shouldCreateUser: false, emailRedirectTo: urlRetornoAuth('enlace') },
-      });
+      }));
       setMessage(error
         ? { type: 'error', ...mensajeErrorEnlace(error, abierto) }
         : { type: 'success', text: 'Si este correo corresponde a una cuenta activa, recibirás un enlace para entrar sin contraseña. Revisa Spam o Promociones; si no llega en unos minutos, avisa al equipo de BomberoPRO. La solicitud no confirma la entrega.' });
-    } catch {
-      setMessage({ type: 'error', text: SIN_CONEXION });
+    } catch (err) {
+      setMessage({ type: 'error', text: err instanceof SinRespuesta ? SIN_RESPUESTA : SIN_CONEXION });
     } finally {
       setLoading(false);
     }
@@ -151,17 +151,17 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
     setLoading(true);
     setMessage(null);
     try {
-      const { error } = await supabase!.auth.resetPasswordForEmail(correo(), {
+      const { error } = await conTiempoLimite(supabase!.auth.resetPasswordForEmail(correo(), {
         redirectTo: urlRetornoAuth('recuperar'),
-      });
+      }));
       setMessage(error
         ? { type: 'error', ...mensajeErrorRecuperacion(error) }
         : {
             type: 'success',
             text: `Si ${correo()} tiene una cuenta, recibirá un correo con los pasos para cambiar la contraseña. Revisa también Spam o Promociones.`,
           });
-    } catch {
-      setMessage({ type: 'error', text: SIN_CONEXION });
+    } catch (err) {
+      setMessage({ type: 'error', text: err instanceof SinRespuesta ? SIN_RESPUESTA : SIN_CONEXION });
     } finally {
       setLoading(false);
     }
@@ -170,17 +170,17 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
   const handleResend = async () => {
     setLoading(true);
     try {
-      const { error } = await supabase!.auth.resend({
+      const { error } = await conTiempoLimite(supabase!.auth.resend({
         type: 'signup',
         email: correo(),
         options: { emailRedirectTo: urlRetornoAuth('registro') },
-      });
+      }));
       // El botón de reenviar se mantiene también tras un fallo (límite, sin conexión) para reintentar.
       setMessage(error
         ? { type: 'error', ...mensajeErrorAcceso('crear', error, abierto), accion: 'reenviar' }
         : { type: 'success', text: 'Si la dirección puede recibir una confirmación, llegará un correo. Revisa Spam o Promociones; si no llega en unos minutos, avisa al equipo.', accion: 'reenviar' });
-    } catch {
-      setMessage({ type: 'error', text: SIN_CONEXION, accion: 'reenviar' });
+    } catch (err) {
+      setMessage({ type: 'error', text: err instanceof SinRespuesta ? SIN_RESPUESTA : SIN_CONEXION, accion: 'reenviar' });
     } finally {
       setLoading(false);
     }
