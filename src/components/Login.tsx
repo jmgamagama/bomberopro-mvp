@@ -116,7 +116,9 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
     }
   };
 
-  // Acceso sin contraseña: opción distinta al restablecimiento de contraseña.
+  // Acceso sin contraseña para cuentas EXISTENTES. Mantener shouldCreateUser: false:
+  // el trigger BEFORE INSERT ON auth.users exige invitación en cualquier alta nueva,
+  // incluidos OAuth y OTP. No convertir este enlace de recuperación en un registro.
   const handleMagicLink = async () => {
     if (!email.trim()) {
       setMessage({ type: 'error', text: 'Escribe primero tu correo y vuelve a pulsar.' });
@@ -132,7 +134,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
       });
       setMessage(error
         ? { type: 'error', ...mensajeErrorEnlace(error, abierto) }
-        : { type: 'success', text: `Te hemos enviado un enlace a ${correo()}. Ábrelo desde este móvil para entrar sin contraseña.` });
+        : { type: 'success', text: 'Si este correo corresponde a una cuenta activa, recibirás un enlace para entrar sin contraseña. Revisa Spam o Promociones; si no llega en unos minutos, avisa al equipo de BomberoPRO. La solicitud no confirma la entrega.' });
     } catch {
       setMessage({ type: 'error', text: SIN_CONEXION });
     } finally {
@@ -176,7 +178,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
       // El botón de reenviar se mantiene también tras un fallo (límite, sin conexión) para reintentar.
       setMessage(error
         ? { type: 'error', ...mensajeErrorAcceso('crear', error, abierto), accion: 'reenviar' }
-        : { type: 'success', text: `Te hemos vuelto a enviar el correo a ${correo()}. Mira también en Spam o Promociones.`, accion: 'reenviar' });
+        : { type: 'success', text: 'Si la dirección puede recibir una confirmación, llegará un correo. Revisa Spam o Promociones; si no llega en unos minutos, avisa al equipo.', accion: 'reenviar' });
     } catch {
       setMessage({ type: 'error', text: SIN_CONEXION, accion: 'reenviar' });
     } finally {
@@ -190,13 +192,15 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
     setEnviadoA(null);
   };
 
-  const accionBoton = message?.accion === 'reenviar'
-    ? { label: 'Reenviar el correo', onClick: handleResend }
-    : message?.accion === 'ir_a_crear' && mode === 'entrar'
-      ? { label: textoAlta(), onClick: () => switchMode('crear') }
-      : message?.accion === 'ir_a_entrar' && mode === 'crear'
-        ? { label: 'Ir a «Entrar»', onClick: () => switchMode('entrar') }
-        : null;
+  const botonDeAccion = (accion: MensajeAcceso['accion']) => {
+    if (accion === 'reenviar') return { label: 'Reenviar el correo', onClick: handleResend };
+    if (accion === 'enlace' && mode === 'entrar') return { label: 'Recibir enlace para entrar', onClick: handleMagicLink };
+    if (accion === 'ir_a_crear' && mode === 'entrar') return { label: textoAlta(), onClick: () => switchMode('crear') };
+    if (accion === 'ir_a_entrar' && mode === 'crear') return { label: 'Ir a «Entrar»', onClick: () => switchMode('entrar') };
+    return null;
+  };
+  const botonesAviso = [botonDeAccion(message?.accion), botonDeAccion(message?.accionSecundaria)]
+    .filter((b): b is NonNullable<typeof b> => b !== null);
 
   const avisoEl = message && (
             <div
@@ -213,15 +217,20 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
                 {message.type === 'success' && <MailCheck className="w-5 h-5 shrink-0" aria-hidden="true" />}
                 <span>{message.text}</span>
               </p>
-              {accionBoton && (
-                <button
-                  type="button"
-                  onClick={accionBoton.onClick}
-                  disabled={loading}
-                  className="mt-2 min-h-11 font-bold underline underline-offset-2"
-                >
-                  {accionBoton.label}
-                </button>
+              {botonesAviso.length > 0 && (
+                <div className="mt-2 flex flex-col items-start">
+                  {botonesAviso.map((b) => (
+                    <button
+                      key={b.label}
+                      type="button"
+                      onClick={b.onClick}
+                      disabled={loading}
+                      className="min-h-11 font-bold underline underline-offset-2"
+                    >
+                      {b.label}
+                    </button>
+                  ))}
+                </div>
               )}
             </div>
           );

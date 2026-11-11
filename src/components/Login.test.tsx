@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 
 import '../test/setup';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -273,7 +273,7 @@ describe('Login', () => {
       expect(aviso).not.toHaveTextContent(/te hemos enviado un correo/i);
       await user.click(screen.getByRole('button', { name: 'Reenviar el correo' }));
       expect(resend).toHaveBeenCalledWith({ type: 'signup', email: 'ana@example.com', options: { emailRedirectTo: expect.stringContaining('/?acceso=registro') } });
-      expect(await screen.findByRole('status')).toHaveTextContent(/vuelto a enviar/i);
+      expect(await screen.findByRole('status')).toHaveTextContent(/si la dirección puede recibir una confirmación/i);
     });
 
     it('si el reenvío falla, el botón de reenviar sigue para reintentar', async () => {
@@ -300,13 +300,30 @@ describe('Login', () => {
       expect(screen.getByRole('button', { name: 'Reenviar el correo' })).toBeInTheDocument();
     });
 
+    it('con contraseña incorrecta ofrece primero el enlace por correo, porque la cuenta puede existir ya', async () => {
+      signInWithPassword.mockResolvedValue({ data: { session: null }, error: { status: 400, code: 'invalid_credentials', message: 'Invalid login credentials' } });
+      signInWithOtp.mockResolvedValue({ data: {}, error: null });
+      const user = userEvent.setup();
+      render(<Login />);
+      await fillAndSubmit(user);
+      const aviso = await screen.findByRole('alert');
+      const botones = within(aviso).getAllByRole('button').map((b) => b.textContent);
+      expect(botones).toEqual(['Recibir enlace para entrar', 'Activar invitación']);
+      await user.click(within(aviso).getByRole('button', { name: 'Recibir enlace para entrar' }));
+      expect(signInWithOtp).toHaveBeenCalledWith(expect.objectContaining({
+        options: expect.objectContaining({ shouldCreateUser: false }),
+      }));
+      expect(await screen.findByRole('status')).toHaveTextContent(/si este correo corresponde a una cuenta activa/i);
+      expect(screen.getByRole('status')).toHaveTextContent(/la solicitud no confirma la entrega/i);
+    });
+
     it('con contraseña incorrecta sugiere activar la invitación si es la primera vez', async () => {
       signInWithPassword.mockResolvedValue({ data: { session: null }, error: { status: 400, code: 'invalid_credentials', message: 'Invalid login credentials' } });
       const user = userEvent.setup();
       render(<Login />);
       await fillAndSubmit(user);
       expect(await screen.findByRole('alert')).toHaveTextContent(/no coinciden/i);
-      await user.click(screen.getAllByRole('button', { name: 'Activar invitación' }).at(-1)!);
+      await user.click(within(screen.getByRole('alert')).getByRole('button', { name: 'Activar invitación' }));
       expect(screen.getByRole('button', { name: 'Activar invitación', pressed: true })).toBeInTheDocument();
     });
 
