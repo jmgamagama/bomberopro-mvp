@@ -40,6 +40,7 @@ import { retornoAuthInicial, limpiarUrlRetornoAuth } from './lib/authRetorno';
 import { leerEnlaceInvitacion } from './lib/mensajesAcceso';
 import { fetchQuestionSession } from './lib/secureQuestions';
 import { loadStudySessionAfterSync } from './lib/loadStudySessionAfterSync';
+import { isSecureTrainingQuestion, mustReloadAuthenticatedPool } from './lib/trainingSource';
 import { supabase } from './lib/supabase';
 import { saveAttemptToServer, toLevelInt } from './lib/saveAttemptToServer';
 import UpdateBanner from './components/UpdateBanner';
@@ -454,7 +455,9 @@ export default function App() {
     // y para incluir los repasos que hayan vencido desde la última vez.
     if (fixedPool) {
       source = fixedPool;
-    } else if (serverMode && !targetId && sessionCompletedRef.current) {
+    } else if (serverMode && !targetId && mustReloadAuthenticatedPool(
+      source, sessionCompletedRef.current, dbQuestionsLoading,
+    )) {
       try {
         source = await loadServerSession();
         if (!isCurrentRequest()) return;
@@ -471,6 +474,15 @@ export default function App() {
       }
     }
     if (!isCurrentRequest()) return;
+    // Fail closed incluso para fixedPool o rutas de acceso futuras. Las
+    // respuestas de la demo jamás deben corregirse como estudio autenticado.
+    if (serverMode && source.some(q => !isSecureTrainingQuestion(q))) {
+      setDbQuestionsError('La sesión no procede del banco seguro. Vuelve a intentarlo para cargar preguntas reales.');
+      setSessionQuestionPool([]);
+      setActiveQuestion(null);
+      setSessionCompleted(false);
+      return;
+    }
     setDbQuestionsError(null);
     sessionCompletedRef.current = false;
     // Las opciones se barajan al montar cada sesión, venga del servidor o de la demo: las 15
