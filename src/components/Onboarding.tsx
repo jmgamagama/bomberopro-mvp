@@ -13,7 +13,7 @@ import {
   setExamDate,
 } from '../utils/studyPlan';
 import { loadReviewLog } from '../utils/recallReviewLog';
-import { isPlanesEnabled } from '../config/features';
+import { isPlanesEnabled, limitesPorPlanActivos } from '../config/features';
 import ExamDateField from './ExamDateField';
 import DailyMinutesField from './DailyMinutesField';
 import TopicSearch from './TopicSearch';
@@ -61,7 +61,7 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, c
   const [minutes, setMinutesChoice] = useState<number | null>(() => getDailyMinutes());
   const [reviewLog] = useState(() => loadReviewLog());
   const planSize = getDailySessionSize(plan);
-  const sessionSize = resolveDailySessionSize(planSize, minutes, reviewLog, isPlanesEnabled() && plan === 'free');
+  const sessionSize = resolveDailySessionSize(planSize, minutes, reviewLog, limitesPorPlanActivos() && plan === 'free');
 
   /** Guarda tema, minutos y fecha elegidos (tanto al empezar la sesión como al ir al simulacro). */
   const savePreferences = () => {
@@ -251,7 +251,7 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, c
           plan={plan}
           minutes={minutes}
           sessionSize={sessionSize}
-          cardsAt30={resolveDailySessionSize(planSize, 30, reviewLog, isPlanesEnabled() && plan === 'free')}
+          cardsAt30={resolveDailySessionSize(planSize, 30, reviewLog, limitesPorPlanActivos() && plan === 'free')}
           preferredTopicId={choice === ALL ? null : choice}
         />
       </div>

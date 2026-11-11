@@ -6,7 +6,7 @@ import TopicSearch from './TopicSearch';
 import TemasEnPreparacion from './TemasEnPreparacion';
 import { matchesTopic } from '../utils/topicSearch';
 import { canAccessTopic, getVisibleBloques, getVisibleDecks, getVisibleTopics, getVisibleTotalCards, getTemasEnPreparacion, type RecallDeck as RecallDeckData } from '../data/recallRegistry';
-import { isPlanesEnabled } from '../config/features';
+import { limitesPorPlanActivos } from '../config/features';
 import { canAccessDeck, getPlan, pickDefaultDeck, PLAN_COPY } from '../utils/plan';
 
 interface RecallHubProps {
@@ -32,7 +32,7 @@ const tabClass = (selected: boolean) =>
  */
 export default function RecallHub({ onNavigateHome, initialDeckId, onOpenPlanes, demo = true }: RecallHubProps) {
   const plan = getPlan();
-  const planesOn = isPlanesEnabled();
+  const planesOn = limitesPorPlanActivos();
   // Solo mazos publicados (revisados), salvo propietario/admin de revisión.
   const RECALL_DECKS = getVisibleDecks();
   const RECALL_TOPICS = getVisibleTopics();

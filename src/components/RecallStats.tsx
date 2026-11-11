@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { ArrowLeft, Lock } from 'lucide-react';
 import LocalDataPanel from './LocalDataPanel';
 import { canAccessTopic, getVisibleTopics, getVisibleTotalCards } from '../data/recallRegistry';
-import { isPlanesEnabled } from '../config/features';
+import { limitesPorPlanActivos } from '../config/features';
 import { canAccessDeck, canSeeStats, getPlan, PLAN_COPY } from '../utils/plan';
 import { localDayNumber } from '../utils/localDate';
 import { loadDailyStreak } from '../utils/dailySession';
@@ -60,7 +60,7 @@ export default function RecallStats({ onBack, onOpenPlanes, date }: RecallStatsP
   // Al borrar los datos locales se vuelve a pintar con el estado vacío.
   const [, setRefresh] = useState(0);
   const refresh = () => setRefresh((n) => n + 1);
-  const planesOn = isPlanesEnabled();
+  const planesOn = limitesPorPlanActivos();
   const plan = getPlan();
   const backButton = (
     <button

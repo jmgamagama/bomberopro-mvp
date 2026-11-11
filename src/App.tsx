@@ -31,6 +31,8 @@ import { getAdaptiveQuestion, processAttempt, getAdaptiveDailySession, createNew
 import { MAX_VALID_RESPONSE_SECONDS } from './utils/activeTimer';
 import { SCREEN_TITLES } from './utils/screenTitles';
 import BrandMark from './components/BrandMark';
+import { usePlanPorUsuario } from './hooks/usePlanPorUsuario';
+import { usePlanActual } from './hooks/usePlanActual';
 
 import type { AccountErrorsState } from './components/AccountErrorPanel';
 const AccesoConfirmado = lazy(() => import('./components/AccesoConfirmado'));
@@ -151,6 +153,9 @@ export default function App() {
   const [dbQuestionsLoading, setDbQuestionsLoading] = useState(false);
   const [dbQuestionsError, setDbQuestionsError] = useState<string | null>(null);
   const [loadingAuth, setLoadingAuth] = useState(true);
+  // Plan por usuario (apagado por defecto): el servidor decide; usePlanActual() repinta la app cuando cambia.
+  usePlanPorUsuario(supabase, session?.user?.id ?? null, !loadingAuth);
+  usePlanActual();
   const [showLegacyImport, setShowLegacyImport] = useState(false);
   const questionsRequest = useRef(0);
   const trainingRequest = useRef(0);
