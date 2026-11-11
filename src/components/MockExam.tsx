@@ -53,7 +53,15 @@ interface MockExamProps {
   onStudyTopic?: (topicId: string) => void;
   /** Empieza el simulacro al montar (atajo «Probar un simulacro de muestra» de la Bienvenida). */
   autoStart?: boolean;
+  /**
+   * Avisa a la app de si hay un intento a medias, para que la navegación general (barra inferior,
+   * logotipo, «Salir») pida la misma confirmación que el botón propio antes de desmontar el simulacro.
+   */
+  onInProgressChange?: (inProgress: boolean) => void;
 }
+
+/** Confirmación única al abandonar un simulacro a medias (botón propio y navegación general). */
+export const EXAM_LEAVE_CONFIRM = 'El simulacro sigue en curso. Si sales ahora, perderás las respuestas de este intento. ¿Quieres salir?';
 
 /** Pregunta fallada con los datos que ya trae (clave revelada al corregir, explicación, cita y fuente). */
 interface FailedQuestion {
@@ -118,7 +126,8 @@ export default function MockExam({
   useServerQuestions = false,
   onGuestSignup,
   autoStart = false,
-  onStudyTopic
+  onStudyTopic,
+  onInProgressChange
 }: MockExamProps) {
   const [examStarted, setExamStarted] = useState(false);
   const [examFinished, setExamFinished] = useState(false);
@@ -141,6 +150,12 @@ export default function MockExam({
   const [totalElapsedTime, setTotalElapsedTime] = useState(0);
   const [remainingTime, setRemainingTime] = useState(EXAM_DURATION_SECONDS);
   const hasExamInProgress = examStarted && !examFinished;
+  const onInProgressChangeRef = useRef(onInProgressChange);
+  onInProgressChangeRef.current = onInProgressChange;
+  useEffect(() => {
+    onInProgressChangeRef.current?.(hasExamInProgress);
+  }, [hasExamInProgress]);
+  useEffect(() => () => onInProgressChangeRef.current?.(false), []);
   // Fichas para enlazar cada fallo con las suyas (se cargan al ver el resultado).
   const [recallPool, setRecallPool] = useState<RecallCard[]>([]);
   useEffect(() => {
@@ -240,11 +255,13 @@ export default function MockExam({
   const handleNavigateHome = () => {
     if (
       hasExamInProgress
-      && !window.confirm('El simulacro sigue en curso. Si sales ahora, perderás las respuestas de este intento. ¿Quieres salir?')
+      && !window.confirm(EXAM_LEAVE_CONFIRM)
     ) {
       return;
     }
 
+    // Ya confirmado aquí: la app no debe volver a preguntar al navegar.
+    onInProgressChangeRef.current?.(false);
     onNavigateHome();
   };
 

@@ -83,6 +83,8 @@ const TodayTraining = lazy(() => import('./components/TodayTraining'));
 const ErrorPanel = lazy(() => import('./components/ErrorPanel'));
 const ForgettingCurve = lazy(() => import('./components/ForgettingCurve'));
 const MockExam = lazy(() => import('./components/MockExam'));
+// Mismo texto que el botón propio del simulacro (MockExam.EXAM_LEAVE_CONFIRM); aquí sin importar el chunk diferido.
+const EXAM_LEAVE_CONFIRM = 'El simulacro sigue en curso. Si sales ahora, perderás las respuestas de este intento. ¿Quieres salir?';
 const Login = lazy(() => import('./components/Login'));
 // Quien abre un enlace de invitación (?invitacion o ?codigo) aterriza en «crear cuenta», no en modo invitado.
 const llegaPorInvitacion = typeof window !== 'undefined' && leerEnlaceInvitacion(window.location.search).invitacion;
@@ -180,6 +182,14 @@ export default function App() {
   // Sesión de entrenamiento en el servidor: el id se crea al empezar, pero la sesión solo se abre
   // con la primera respuesta (abrir la pantalla sin responder no cuenta como sesión).
   const trainingSessionId = useRef<string>(newStudySessionId());
+  // Simulacro con un intento a medias (lo avisa MockExam). La navegación general pide confirmación.
+  const examInProgress = useRef(false);
+  const confirmLeaveExam = (): boolean => {
+    if (!examInProgress.current) return true;
+    if (!window.confirm(EXAM_LEAVE_CONFIRM)) return false;
+    examInProgress.current = false;
+    return true;
+  };
   const trainingSessionOpened = useRef(false);
   const trainingSessionFinished = useRef(false);
 
@@ -387,6 +397,8 @@ export default function App() {
   const handleNavigate = (
     screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes' | 'mas' | 'progreso'
   ) => {
+    // Salir de la pantalla desmonta el simulacro: sin confirmar se perderían todas sus respuestas.
+    if (screen !== 'mock_exam' && !confirmLeaveExam()) return;
     if (screen === 'planes') trackFunnel('planes_view');
     setDailyAutoStart(false);
     setMockAutoStart(false);
@@ -787,6 +799,7 @@ export default function App() {
   };
 
   const handleLogout = async () => {
+    if (!confirmLeaveExam()) return;
     if (isDemoMode) {
       handleExitDemo();
       return;
@@ -1200,6 +1213,7 @@ export default function App() {
           <MockExam
             microconcepts={INITIAL_MICROCONCEPTS}
             onFinishExam={handleFinishExam}
+            onInProgressChange={(inProgress) => { examInProgress.current = inProgress; }}
             onNavigateHome={() => handleNavigate('dashboard')}
             useServerQuestions={!!session && !isDemoMode}
             onGuestSignup={supabase && !session ? handleDemoSignup : undefined}
