@@ -68,8 +68,8 @@ describe('secureQuestions', () => {
 describe('C1: mazos empaquetados', () => {
   it('sin la bandera se empaqueta todo; con ella, solo los gratis', () => {
     expect(isDeckBundled('tema1', false)).toBe(true);
-    expect(isDeckBundled('tema40', true)).toBe(true);
-    expect(isDeckBundled('tema1', true)).toBe(false);
+    expect(isDeckBundled('tema1', true)).toBe(true);
+    expect(isDeckBundled('tema40', true)).toBe(false);
     expect(isDeckBundled('tema36-lote01', true)).toBe(false);
   });
 });

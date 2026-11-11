@@ -40,15 +40,16 @@ describe('plan: bandera VITE_FEATURE_PLANES activada', () => {
   });
   afterEach(() => vi.unstubAllEnvs());
 
-  it('el usuario está en Gratis: solo tema 40 y 10 fichas al día', async () => {
+  it('el usuario está en Gratis: solo tema 1 (fuente pública, BOE) y 10 fichas al día', async () => {
     expect(isPlanesEnabled()).toBe(true);
     expect(getPlan()).toBe('free');
-    expect(getAccessibleDecks().map((d) => d.id)).toEqual(['tema40']);
+    expect(getAccessibleDecks().map((d) => d.id)).toEqual(['tema1']);
     expect(canAccessDeck('tema35')).toBe(false);
+    expect(canAccessDeck('tema40')).toBe(false); // material interno del CPEI: nunca en la muestra gratis
     expect(getDailySessionSize()).toBe(10);
     const cards = await loadRecallPoolForPlan();
-    expect(cards).toHaveLength(213);
-    expect(cards.every((c) => c.deckId === 'tema40')).toBe(true);
+    expect(cards.length).toBeGreaterThan(0);
+    expect(cards.every((c) => c.deckId === 'tema1')).toBe(true);
   });
 
   it('Pro sigue dando acceso completo cuando se pide explícitamente', () => {
@@ -83,6 +84,19 @@ describe('fuente única del plan gratis (embudo 2026-10-26)', () => {
   });
 });
 
+describe('muestra gratis: solo fuentes públicas', () => {
+  it('ningún mazo del plan gratis es de los temas 35-40 (material interno del CPEI)', async () => {
+    const { PLAN_LIMITS } = await import('./plan');
+    const ids = PLAN_LIMITS.free.deckIds;
+    expect(ids).not.toBe('all');
+    for (const id of ids as readonly string[]) {
+      const deck = RECALL_DECKS.find((d) => d.id === id)!;
+      expect(deck, id).toBeDefined();
+      expect(deck.tema).toBeLessThan(35);
+    }
+  });
+});
+
 describe('pickDefaultDeck: tema por defecto en Temas', () => {
   const decks = [
     { id: 'tema1', tema: 1 },
@@ -93,24 +107,25 @@ describe('pickDefaultDeck: tema por defecto en Temas', () => {
     const { pickDefaultDeck } = await import('./plan');
     expect(pickDefaultDeck(decks, 'pro', true)?.id).toBe('tema40');
   });
-  it('invitado con plan gratis: abre un mazo de T35-40 al que tiene acceso', async () => {
+  it('invitado con plan gratis: abre la muestra pública (tema 1), nunca un T35-40', async () => {
     const { pickDefaultDeck } = await import('./plan');
     const d = pickDefaultDeck(decks, 'free', true)!;
-    expect(d.tema).toBeGreaterThanOrEqual(35);
+    expect(d.id).toBe('tema1');
     expect(canAccessDeck(d.id, 'free')).toBe(true);
   });
   it('con cuenta conserva el primer mazo accesible del registro', async () => {
     const { pickDefaultDeck } = await import('./plan');
     expect(pickDefaultDeck(decks, 'pro', false)?.id).toBe('tema1');
-    expect(pickDefaultDeck(decks, 'free', false)?.id).toBe('tema40');
+    expect(pickDefaultDeck(decks, 'free', false)?.id).toBe('tema1');
   });
-  it('en el registro real hay un mazo accesible de T35-40 para el invitado', async () => {
+  it('en el registro real: pro abre un mazo T35-40 y free la muestra pública (tema 1)', async () => {
     const { pickDefaultDeck } = await import('./plan');
-    for (const plan of ['free', 'pro'] as const) {
-      const d = pickDefaultDeck(RECALL_DECKS, plan, true)!;
-      expect(d.tema).toBeGreaterThanOrEqual(35);
-      expect(d.tema).toBeLessThanOrEqual(40);
-      expect(canAccessDeck(d.id, plan)).toBe(true);
-    }
+    const pro = pickDefaultDeck(RECALL_DECKS, 'pro', true)!;
+    expect(pro.tema).toBeGreaterThanOrEqual(35);
+    expect(pro.tema).toBeLessThanOrEqual(40);
+    expect(canAccessDeck(pro.id, 'pro')).toBe(true);
+    const free = pickDefaultDeck(RECALL_DECKS, 'free', true)!;
+    expect(free.id).toBe('tema1');
+    expect(canAccessDeck(free.id, 'free')).toBe(true);
   });
 });

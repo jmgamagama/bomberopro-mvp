@@ -208,7 +208,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
             </p>
             {planesOn && plan === 'free' && (
               <p className="mx-auto max-w-md rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-900" id="daily-session-plan">
-                Plan Gratis: {planSessionSize} fichas al día del tema 40. Con Pro, sesión completa de 30 fichas de todos los temas.
+                Plan Gratis: {planSessionSize} fichas al día del tema 1 (Constitución). Con Pro, sesión completa de 30 fichas de todos los temas.
                 {onOpenPlanes && (
                   <>
                     {' '}
