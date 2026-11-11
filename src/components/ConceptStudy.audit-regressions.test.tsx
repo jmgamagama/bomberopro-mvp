@@ -110,8 +110,8 @@ it('explica el desglose de una sesión: pasos frente a preguntas de comprobació
   await user.click(screen.getByRole('button', { name: 'Confirmar respuesta' }));
   await screen.findByText('Correcto');
   await user.click(screen.getByRole('button', { name: 'Siguiente' }));
-  expect(await screen.findByTestId('desglose-sesion')).toHaveTextContent('Has trabajado 1 pasos');
-  expect(screen.getByTestId('desglose-sesion')).toHaveTextContent('1 preguntas de comprobación');
+  expect(await screen.findByTestId('desglose-sesion')).toHaveTextContent('Has trabajado 1 paso');
+  expect(screen.getByTestId('desglose-sesion')).toHaveTextContent('1 pregunta de comprobación');
   expect(screen.getByTestId('desglose-sesion')).toHaveTextContent('El porcentaje de aciertos solo cuenta las preguntas');
 });
 
