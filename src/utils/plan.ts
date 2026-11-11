@@ -111,7 +111,9 @@ export function pickDefaultDeck<D extends { id: string; tema: number }>(
       if (hit) return hit;
     }
   }
-  return accessible[0] ?? decks[0];
+  // Nunca devolver un mazo prohibido solo porque no hay ninguno accesible.
+  // El consumidor mostrará un estado bloqueado si el catálogo no contiene accesibles.
+  return accessible[0];
 }
 
 export function getDailySessionSize(plan: Plan = getPlan()): number {
