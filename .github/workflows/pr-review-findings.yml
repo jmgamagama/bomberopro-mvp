@@ -9,8 +9,6 @@ on:
     types: [submitted, dismissed, edited]
   pull_request_review_comment:
     types: [created, edited, deleted]
-  issue_comment:
-    types: [created, edited]
 
 permissions:
   contents: read
@@ -18,7 +16,6 @@ permissions:
 
 jobs:
   review-findings:
-    if: github.event_name != 'issue_comment' || github.event.issue.pull_request != null
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
