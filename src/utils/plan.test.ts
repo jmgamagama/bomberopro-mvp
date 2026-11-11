@@ -99,6 +99,14 @@ describe('pickDefaultDeck: tema por defecto en Temas', () => {
     expect(d.tema).toBeGreaterThanOrEqual(35);
     expect(canAccessDeck(d.id, 'free')).toBe(true);
   });
+  it('no devuelve contenido restringido si ningún mazo es accesible', async () => {
+    const { pickDefaultDeck } = await import('./plan');
+    const onlyRestricted = [{ id: 'tema17', tema: 17 }, { id: 'tema37', tema: 37 }];
+    expect(pickDefaultDeck(onlyRestricted, 'free', true)).toBeUndefined();
+    expect(pickDefaultDeck(onlyRestricted, 'free', false)).toBeUndefined();
+    expect(pickDefaultDeck([], 'free', false)).toBeUndefined();
+  });
+
   it('con cuenta conserva el primer mazo accesible del registro', async () => {
     const { pickDefaultDeck } = await import('./plan');
     expect(pickDefaultDeck(decks, 'pro', false)?.id).toBe('tema1');
