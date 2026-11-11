@@ -20,9 +20,10 @@
 - Producción sirve `cb958b0` (#219: 34 temas, 2.886 fichas, recorrido del alumno, material por tema). Vercel: proyecto `bomberopro-mvp`; `bomberopro.com` ya sirve la misma app que `bomberopro-mvp.vercel.app` (200 y mismo bundle, 08/11).
 - Examen: CPEI Badajoz 2026, BOP nº 135 (anuncio 2843/2026): 50+5 reserva, 3 opciones, 60 min, +0,200/−0,066/0, 30 % de temas 35-40. Fecha sin publicar.
 
-## Base de datos (comprobado el 02/11)
-- Producción tiene aplicadas las migraciones hasta la 45 y la **48** (registro solo por invitación). **Sin aplicar:** 37 (embudo ampliado), 43 y 46 (#194), 47 (#209), 49 y 50 (#218; la #220 corrige la 50 antes de aplicarla).
-- Registro **cerrado**: lista de invitados **vacía** (0), 21 cuentas. Auth: correo propio por Gmail (SMTP), «Confirm email» activado, URL del sitio correcta. «Prevent leaked passwords» exige plan Pro (no activado).
+## Base de datos (comprobado el 11/11 por Claude, vía lista de migraciones de Supabase)
+- Producción tiene aplicadas las migraciones hasta la 45, la **48** (registro solo por invitación), la **51** (código de piloto con cupo, aplicada 02/11) y, desde hoy 11/11 ~05:55 UTC con «sí» de JM (dado fuera de este fichero; anotado aquí para que conste), **49 y 50** (estudio por niveles 1-2-3, #218/#220). **Sin aplicar:** 37 (embudo ampliado), 43 y 46 (#194), 47 (#209).
+- Pendiente de acuerdo: para que cualquier agente sepa el estado real sin tener que preguntar, el «sí» de JM para producción se da (o se repite) en un comentario del PR o issue correspondiente, no solo de palabra en otro chat.
+- Registro **cerrado**: lista de invitados **vacía** (0) el 02/11, 21 cuentas. Auth: correo propio por Gmail (SMTP), «Confirm email» activado, URL del sitio correcta. «Prevent leaked passwords» exige plan Pro (no activado, confirmado 11/11).
 - Staging: 48 aplicada y probada; el resto sin verificar.
 
 ## Verificado con cuenta de prueba (02/11)
