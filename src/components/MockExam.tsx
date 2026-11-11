@@ -24,6 +24,7 @@ import { fichasRelacionadas } from '../utils/fichasRelacionadas';
 import { trackFunnel } from '../lib/funnel';
 import { countAnswerChange } from '../utils/attempt';
 import { optionLetter, shuffleAllOptions } from '../utils/shuffleOptions';
+import { descartarSimulacroEnCurso, guardarSimulacroEnCurso, recuperarSimulacroEnCurso } from '../utils/simulacroEnCurso';
 import { describeCheckError, fetchQuestionSession, gradeExam, isAnswerLimitError, withRevealedKey, type AnswerCheck } from '../lib/secureQuestions';
 
 interface MockExamProps {
@@ -58,6 +59,11 @@ interface MockExamProps {
    * logotipo, «Salir») pida la misma confirmación que el botón propio antes de desmontar el simulacro.
    */
   onInProgressChange?: (inProgress: boolean) => void;
+  /**
+   * Cuenta con sesión. Con ella, un intento a medias se conserva en memoria de la pestaña si la sesión
+   * se pierde (y la app desmonta el simulacro) y se recupera al volver a entrar con la MISMA cuenta.
+   */
+  ownerId?: string | null;
 }
 
 /** Confirmación única al abandonar un simulacro a medias (botón propio y navegación general). */
@@ -127,26 +133,29 @@ export default function MockExam({
   onGuestSignup,
   autoStart = false,
   onStudyTopic,
-  onInProgressChange
+  onInProgressChange,
+  ownerId = null
 }: MockExamProps) {
-  const [examStarted, setExamStarted] = useState(false);
+  // Intento a medias de esta cuenta que se quedó sin sesión (solo con preguntas del servidor).
+  const [recuperado] = useState(() => (ownerId && useServerQuestions ? recuperarSimulacroEnCurso(ownerId) : null));
+  const [examStarted, setExamStarted] = useState(() => recuperado !== null);
   const [examFinished, setExamFinished] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [questions, setQuestions] = useState<Question[]>([]);
+  const [questions, setQuestions] = useState<Question[]>(() => recuperado?.questions ?? []);
   const [gradeError, setGradeError] = useState<string | null>(null);
-  const [sampleMode, setSampleMode] = useState(false);
-  const [blueprintWarning, setBlueprintWarning] = useState<string | null>(null);
-  const [currentIdx, setCurrentIdx] = useState(0);
-  const [examSeed, setExamSeed] = useState<number | null>(null);
+  const [sampleMode, setSampleMode] = useState(() => recuperado?.sampleMode ?? false);
+  const [blueprintWarning, setBlueprintWarning] = useState<string | null>(() => recuperado?.blueprintWarning ?? null);
+  const [currentIdx, setCurrentIdx] = useState(() => recuperado?.currentIdx ?? 0);
+  const [examSeed, setExamSeed] = useState<number | null>(() => recuperado?.examSeed ?? null);
   
   // User states
-  const [answers, setAnswers] = useState<Record<string, string>>({});
-  const [confidences, setConfidences] = useState<Record<string, ConfidenceLevel>>({});
-  const [responseTimes, setResponseTimes] = useState<Record<string, number>>({});
+  const [answers, setAnswers] = useState<Record<string, string>>(() => recuperado?.answers ?? {});
+  const [confidences, setConfidences] = useState<Record<string, ConfidenceLevel>>(() => recuperado?.confidences ?? {});
+  const [responseTimes, setResponseTimes] = useState<Record<string, number>>(() => recuperado?.responseTimes ?? {});
   
   // Time keeping
-  const [startTime, setStartTime] = useState<number>(0);
-  const [currentQuestionStart, setCurrentQuestionStart] = useState<number>(0);
+  const [startTime, setStartTime] = useState<number>(() => recuperado?.startTime ?? 0);
+  const [currentQuestionStart, setCurrentQuestionStart] = useState<number>(() => (recuperado ? Date.now() : 0));
   const [totalElapsedTime, setTotalElapsedTime] = useState(0);
   const [remainingTime, setRemainingTime] = useState(EXAM_DURATION_SECONDS);
   // Tiempo agotado: se congelan las respuestas y la corrección automática se intenta una sola vez.
@@ -159,6 +168,18 @@ export default function MockExam({
     onInProgressChangeRef.current?.(hasExamInProgress);
   }, [hasExamInProgress]);
   useEffect(() => () => onInProgressChangeRef.current?.(false), []);
+  // Copia en memoria del intento a medias (por cuenta) para recuperarlo si la sesión se pierde.
+  useEffect(() => {
+    if (!ownerId || !useServerQuestions) return;
+    if (!hasExamInProgress) {
+      if (examFinished) descartarSimulacroEnCurso(ownerId);
+      return;
+    }
+    guardarSimulacroEnCurso(ownerId, {
+      questions, answers, confidences, responseTimes, answerChanges: { ...answerChangesRef.current },
+      currentIdx, startTime, sampleMode, blueprintWarning, examSeed,
+    });
+  }, [ownerId, useServerQuestions, hasExamInProgress, examFinished, questions, answers, confidences, responseTimes, currentIdx, startTime, sampleMode, blueprintWarning, examSeed]);
   // Fichas para enlazar cada fallo con las suyas (se cargan al ver el resultado).
   const [recallPool, setRecallPool] = useState<RecallCard[]>([]);
   useEffect(() => {
@@ -168,7 +189,7 @@ export default function MockExam({
     return () => { alive = false; };
   }, [examFinished]);
   const finishStartedRef = useRef(false);
-  const answerChangesRef = useRef<Record<string, number>>({});
+  const answerChangesRef = useRef<Record<string, number>>(recuperado?.answerChanges ?? {});
   const resultsSummaryRef = useRef<HTMLDivElement>(null);
 
   // Results cache for the local review screen
@@ -268,6 +289,7 @@ export default function MockExam({
     }
 
     // Ya confirmado aquí: la app no debe volver a preguntar al navegar.
+    if (ownerId) descartarSimulacroEnCurso(ownerId);
     onInProgressChangeRef.current?.(false);
     onNavigateHome();
   };
@@ -531,6 +553,12 @@ export default function MockExam({
       )}
 
       {/* ACTIVE EXAM RUNNING */}
+      {recuperado && examStarted && !examFinished && (
+        <p role="status" id="mock-recuperado" className="rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-900">
+          Se cerró tu sesión durante el simulacro. Hemos recuperado tu simulacro en curso con tus respuestas; el tiempo ha seguido corriendo.
+        </p>
+      )}
+
       {gradeError && !examFinished && (
         <div role="alert" id="mock-exam-grade-error" className="p-3 rounded-xl border border-rose-300 bg-rose-50 text-rose-900 text-sm">
           {gradeError}

@@ -52,6 +52,7 @@ import { useRemoteConceptProgress } from './lib/useRemoteConceptProgress';
 import { useAttemptSync } from './lib/useAttemptSync';
 import { setRevisionViewer } from './utils/revisionAccess';
 import { setLocalDataOwner } from './utils/localOwner';
+import { descartarSimulacroEnCurso } from './utils/simulacroEnCurso';
 import { cargarSupuestosCuenta } from './lib/privateSupuestos';
 import { shuffleAllOptions } from './utils/shuffleOptions';
 import { newStudySessionId, startStudySession, finishStudySession } from './lib/studySession';
@@ -188,6 +189,8 @@ export default function App() {
     if (!examInProgress.current) return true;
     if (!window.confirm(EXAM_LEAVE_CONFIRM)) return false;
     examInProgress.current = false;
+    // Salida voluntaria: el intento no se recupera después (solo tras una pérdida de sesión).
+    descartarSimulacroEnCurso();
     return true;
   };
   const trainingSessionOpened = useRef(false);
@@ -1211,6 +1214,9 @@ export default function App() {
 
         {currentScreen === 'mock_exam' && (
           <MockExam
+            // Un simulacro pertenece a una cuenta: al cambiar de cuenta se monta otro (A→B nunca hereda el de A).
+            key={session?.user?.id ?? 'sin-cuenta'}
+            ownerId={!isDemoMode ? session?.user?.id ?? null : null}
             microconcepts={INITIAL_MICROCONCEPTS}
             onFinishExam={handleFinishExam}
             onInProgressChange={(inProgress) => { examInProgress.current = inProgress; }}
