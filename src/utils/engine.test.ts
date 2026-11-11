@@ -3,6 +3,23 @@ import { describe, expect, it } from 'vitest';
 import { calculateRetrievability, getRetrievabilityRisk, getAdaptiveDailySession, createNewMemoryState, processAttempt, getAdaptiveQuestion } from './engine';
 import { Question, MemoryState } from '../types';
 
+describe('adaptive selection with equal pedagogical priority', () => {
+  it('does not always choose the first question when candidates have equal priority', () => {
+    const q1 = { id: 'q1', microconcept_id: 'mc1' } as Question;
+    const q2 = { id: 'q2', microconcept_id: 'mc2' } as Question;
+    const originalRandom = Math.random;
+    try {
+      let values = [0.9, 0.1];
+      Math.random = () => values.shift() ?? 0.5;
+      expect(getAdaptiveQuestion([q1, q2], {}, new Date())?.question.id).toBe('q2');
+      values = [0.1, 0.9];
+      expect(getAdaptiveQuestion([q1, q2], {}, new Date())?.question.id).toBe('q1');
+    } finally {
+      Math.random = originalRandom;
+    }
+  });
+});
+
 describe('calculateRetrievability', () => {
   it('returns full retrievability immediately after a review', () => {
     expect(calculateRetrievability(0, 7)).toBe(1);

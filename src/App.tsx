@@ -1098,6 +1098,23 @@ export default function App() {
           </section>
         )}
 
+        {currentScreen === 'train' && !serverMode && sessionTotal === INITIAL_QUESTIONS.length && !sessionCompleted && (
+          <aside role="note" id="training-sample-notice" className="mb-4 rounded-xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-950">
+            <p className="font-bold">Muestra de 15 preguntas, no el entrenamiento completo</p>
+            <p className="mt-1">
+              Esta sesión usa un banco fijo de demostración. Al repetirla encontrarás las mismas preguntas,
+              aunque cambie el orden. El entrenamiento con cuenta obtiene preguntas del servidor.
+            </p>
+            {supabase && !session && (
+              <button type="button" onClick={handleExitDemo} className="mt-2 min-h-11 font-semibold underline underline-offset-2">
+                Entrar con mi cuenta para estudiar
+              </button>
+            )}
+            {!supabase && (
+              <p className="mt-2 font-semibold">El banco completo no está conectado en esta versión de la aplicación.</p>
+            )}
+          </aside>
+        )}
         {currentScreen === 'train' && !sessionCompleted && sessionTotal > 0 && (
           <TrainScreen
             question={activeQuestion}

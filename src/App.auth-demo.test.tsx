@@ -2,7 +2,7 @@
 
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import './test/setup';
 
 const {
@@ -56,6 +56,7 @@ import App from './App';
 
 describe('App demo mode flow when Supabase is configured but no session', () => {
   beforeEach(() => {
+    vi.spyOn(Math, 'random').mockReturnValue(0.5); // Keep first question stable; selector variability has its own unit test.
     saveAttempt.mockClear();
     saveMemoryState.mockClear();
     rpcMock.mockClear();
@@ -63,6 +64,8 @@ describe('App demo mode flow when Supabase is configured but no session', () => 
     // cuenta entra directo como invitado: ver App.guest-first.test.tsx.
     window.localStorage.setItem('bomberopro:prefer-login:v1', '1');
   });
+
+  afterEach(() => { vi.mocked(Math.random).mockRestore(); });
 
   it('permite recorrer una primera sesión de estudio en demo, salir y reingresar sin arrastrar progreso en memoria ni persistir datos', async () => {
     const user = userEvent.setup();
