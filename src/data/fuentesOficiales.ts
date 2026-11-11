@@ -35,7 +35,7 @@ export function nombreDocumento(codigo: string): string {
 }
 
 const BOE_ID = /BOE-A-\d{4}-\d+/;
-const URL_OFICIAL = /https?:\/\/(?:www\.)?(?:boe\.es|doe\.juntaex\.es|bop\.dip-badajoz\.es|www\.dip-badajoz\.es)[^\s)»"]*/i;
+const URL_OFICIAL = /https?:\/\/(?:www\.)?(?:boe\.es|doe\.juntaex\.es|bop\.dip-badajoz\.es|www\.dip-badajoz\.es|transparencia\.dip-badajoz\.es)[^\s)»"]*/i;
 
 export function boeUrl(id: string, articulo?: string): string {
   return `https://www.boe.es/buscar/act.php?id=${id}${articulo ? `#a${articulo}` : ''}`;
