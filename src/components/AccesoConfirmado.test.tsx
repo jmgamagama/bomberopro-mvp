@@ -75,6 +75,20 @@ describe('AccesoConfirmado · restablecer contraseña', () => {
     expect(onContinuar).toHaveBeenCalledOnce();
   });
 
+  it('permite ver y ocultar la contraseña escrita', async () => {
+    const user = userEvent.setup();
+    render(<AccesoConfirmado retorno={{ tipo: 'recuperar' }} conSesion onContinuar={vi.fn()} />);
+
+    const input = screen.getByLabelText(/nueva contraseña/i);
+    expect(input).toHaveAttribute('type', 'password');
+
+    await user.click(screen.getByRole('button', { name: 'Mostrar contraseña' }));
+    expect(input).toHaveAttribute('type', 'text');
+
+    await user.click(screen.getByRole('button', { name: 'Ocultar contraseña' }));
+    expect(input).toHaveAttribute('type', 'password');
+  });
+
   it('rechaza una contraseña demasiado corta sin llamar a Supabase', async () => {
     const user = userEvent.setup();
     render(<AccesoConfirmado retorno={{ tipo: 'recuperar' }} conSesion onContinuar={vi.fn()} />);
