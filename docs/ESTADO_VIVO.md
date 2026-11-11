@@ -38,7 +38,7 @@
 3. JM → decidir: tema 37, ficha CPEI-T39-SPE-006, distractores del simulacro de invitado, fuentes INSST, 8 fichas de T33-lote02 abiertas por criterio propio, 165 códigos INE del T36.
 4. Plan por usuario: fase B hecha y apagada (PR de `claude/plan-por-usuario`: migración 53 SIN aplicar + cliente tras `VITE_PLAN_POR_USUARIO`). JM → decidir la muestra del plan gratis (hoy regala `tema40`, material interno; `docs/PLAN_POR_USUARIO.md` §7). 53 aplicada y probada en staging (§8); producción pendiente del «sí» escrito de JM (y de aplicar antes 47/52 según plan).
 5. Claude → logo único (gota = icono de la PWA) hecho en la PR de marca única (cabecera y acceso); «Entrar» ya está en el aviso del modo demo; og:image pasa a URL absoluta con `VERCEL_PROJECT_PRODUCTION_URL` (comprobar tras desplegar). Falta: JM pega las plantillas de `supabase/templates/*.html` (español) en Supabase → Auth → Email Templates (el logo del correo ya carga desde bomberopro.com).
-6. Claude → aplicar 43, 46, 47, 49 y 50 en staging y, con «sí» de JM, en producción (orden y guardas en la #218).
+6. Claude → 11/11 (solo lectura en producción): las guardas md5 de la 43 (21/21) y la 46 (117/117) coinciden, así que se aplicarían sin abortar. Staging NO sirve para probarlas (no tiene esas preguntas) y ya tiene 47/49/50/52/53. Producción: faltan 43, 46, 47, 49, 50, 52 y 53; aplicar con «sí» de JM (orden y guardas en la #218).
 7. JM → limpiar PRs: 17 abiertas, 9 de octubre sin actividad (#82, #98, #103, #104, #107, #108, #117, #136, #167) y duplicadas (#210, #211).
 
 ## Decisiones cerradas (no reabrir sin dato nuevo)
