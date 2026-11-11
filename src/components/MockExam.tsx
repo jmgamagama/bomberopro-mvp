@@ -149,6 +149,9 @@ export default function MockExam({
   const [currentQuestionStart, setCurrentQuestionStart] = useState<number>(0);
   const [totalElapsedTime, setTotalElapsedTime] = useState(0);
   const [remainingTime, setRemainingTime] = useState(EXAM_DURATION_SECONDS);
+  // Tiempo agotado: se congelan las respuestas y la corrección automática se intenta una sola vez.
+  const [timeUp, setTimeUp] = useState(false);
+  const autoFinishTriedRef = useRef(false);
   const hasExamInProgress = examStarted && !examFinished;
   const onInProgressChangeRef = useRef(onInProgressChange);
   onInProgressChangeRef.current = onInProgressChange;
@@ -228,6 +231,8 @@ export default function MockExam({
       setResponseTimes({});
       answerChangesRef.current = {};
       finishStartedRef.current = false;
+      autoFinishTriedRef.current = false;
+      setTimeUp(false);
       setExamStarted(true);
       setExamFinished(false);
       setTestResults(null);
@@ -242,6 +247,7 @@ export default function MockExam({
   };
 
   const handleSelectAnswer = (option: string) => {
+    if (timeUp) return;
     const questionId = questions[currentIdx].id;
     answerChangesRef.current[questionId] = (answerChangesRef.current[questionId] || 0)
       + countAnswerChange(answers[questionId] ?? null, option);
@@ -249,6 +255,7 @@ export default function MockExam({
   };
 
   const handleSelectConfidence = (conf: ConfidenceLevel) => {
+    if (timeUp) return;
     setConfidences(prev => ({ ...prev, [questions[currentIdx].id]: conf }));
   };
 
@@ -266,6 +273,10 @@ export default function MockExam({
   };
 
   const handleNext = () => {
+    if (timeUp) {
+      finishAndEvaluate();
+      return;
+    }
     // Record time taken for current question
     const elapsed = Math.round((Date.now() - currentQuestionStart) / 1000);
     setResponseTimes(prev => ({ ...prev, [questions[currentIdx].id]: elapsed }));
@@ -402,7 +413,12 @@ export default function MockExam({
       setRemainingTime(remaining);
 
       if (remaining === 0) {
-        finishAndEvaluate();
+        setTimeUp(true);
+        // Sin red no se reintenta cada segundo: el alumno vuelve a pulsar «Finalizar».
+        if (!autoFinishTriedRef.current) {
+          autoFinishTriedRef.current = true;
+          finishAndEvaluate();
+        }
       }
     };
 
@@ -573,6 +589,7 @@ export default function MockExam({
                     key={idx}
                     id={`mock-option-${idx}`}
                     onClick={() => handleSelectAnswer(option)}
+                    disabled={timeUp}
                     aria-pressed={isSelected}
                     className={`w-full min-h-12 text-left px-4 py-3 text-base rounded-xl border transition flex items-center justify-between leading-snug ${
                       isSelected
@@ -607,6 +624,7 @@ export default function MockExam({
                       key={lvl}
                       id={`mock-conf-btn-${lvl}`}
                       onClick={() => handleSelectConfidence(lvl as ConfidenceLevel)}
+                      disabled={timeUp}
                       aria-pressed={isSelected}
                       aria-label={`Confianza ${lvl}`}
                       className={`min-h-12 p-3 text-base font-semibold rounded-xl border transition text-center capitalize ${selectedStyle}`}
@@ -621,11 +639,11 @@ export default function MockExam({
             {/* Next Button */}
             <button
               id="btn-mock-next"
-              disabled={!!answers[questions[currentIdx].id] && !confidences[questions[currentIdx].id]}
+              disabled={!timeUp && !!answers[questions[currentIdx].id] && !confidences[questions[currentIdx].id]}
               onClick={handleNext}
               className="w-full py-4 bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-100 text-white disabled:text-slate-500 rounded-xl font-semibold text-base transition shadow-sm text-center flex items-center justify-center gap-1"
             >
-              {currentIdx === questions.length - 1 ? 'Finalizar Examen' : 'Siguiente'}
+              {timeUp || currentIdx === questions.length - 1 ? 'Finalizar Examen' : 'Siguiente'}
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
