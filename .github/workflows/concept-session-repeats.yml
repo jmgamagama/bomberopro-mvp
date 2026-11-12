@@ -1,4 +1,4 @@
-name: Concept session repetition audit
+name: Concept session repetition regression
 on:
   pull_request:
     paths:
@@ -21,11 +21,11 @@ jobs:
         run: npm install --prefix "$RUNNER_TEMP/pg-runtime" --no-save --ignore-scripts @electric-sql/pglite@0.5.11
       - name: Audit consecutive sessions with synthetic data
         run: NODE_PATH="$RUNNER_TEMP/pg-runtime/node_modules" node supabase/tests/concept_session_repeats_299.pglite.mjs
-      - name: Verify known negative case is reproduced
+      - name: Verify baseline reproduces the regression
         shell: bash
         run: |
           set +e
-          NODE_PATH="$RUNNER_TEMP/pg-runtime/node_modules" node supabase/tests/concept_session_repeats_299.pglite.mjs --assert-refuerzo-once > "$RUNNER_TEMP/refuerzo-negative.log" 2>&1
+          NODE_PATH="$RUNNER_TEMP/pg-runtime/node_modules" node supabase/tests/concept_session_repeats_299.pglite.mjs --baseline --assert-refuerzo-once > "$RUNNER_TEMP/refuerzo-negative.log" 2>&1
           result=$?
           set -e
           cat "$RUNNER_TEMP/refuerzo-negative.log"

@@ -1,7 +1,7 @@
-// Auditoría independiente de #299. Solo datos sintéticos y Postgres en memoria.
+// Regresión de #299 con migración 56. Solo datos sintéticos y Postgres en memoria.
 // NODE_PATH=/tmp/pg/node_modules node supabase/tests/concept_session_repeats_299.pglite.mjs
-// --assert-refuerzo-once: regresión negativa conocida; falla con el selector 49 actual.
-// No aplica migraciones a servidores ni cambia el algoritmo. No prueba navegador,
+// --baseline --assert-refuerzo-once: prueba roja del selector 49, sin aplicar la 56.
+// Aplica las migraciones SOLO en memoria. No prueba navegador,
 // concurrencia ni transporte Supabase; PGlite no es el Postgres 17 de producción.
 import { createRequire } from 'node:module';
 import { readFileSync } from 'node:fs';
@@ -43,6 +43,15 @@ await db.exec(`
 for (const name of ['09_motor_conceptos_v1.sql','18_conceptos_test_evaluacion_servidor.sql',
   '19_escalera_conceptos.sql','49_conceptos_por_niveles.sql']) await db.exec(migration(name));
 // Solo DDL original de las tablas privadas 52; no se simulan sus RPC v3.
+const baselineDef = (await one("select pg_get_functiondef('public._concept_session(uuid,integer,integer,timestamptz)'::regprocedure) d")).d;
+const baselineHash = (await one("select md5(pg_get_functiondef('public._concept_session(uuid,integer,integer,timestamptz)'::regprocedure)) h")).h;
+console.log('BASE selector fingerprint:', baselineHash);
+const baselineContract = await one("select prosecdef,proconfig,proacl::text,pg_get_function_result(oid) result from pg_proc where oid='public._concept_session(uuid,integer,integer,timestamptz)'::regprocedure");
+const baseline = process.argv.includes('--baseline');
+if (!baseline) {
+  await db.exec(migration('56_refuerzo_por_episodio.sql'));
+  console.log('PATCH selector fingerprint:', (await one("select md5(pg_get_functiondef('public._concept_session(uuid,integer,integer,timestamptz)'::regprocedure)) h")).h);
+}
 const sql52 = migration('52_sesiones_de_preguntas_con_correccion_vinculada.sql');
 const endDDL = sql52.indexOf('-- Helper no expuesto:');
 assert.ok(endDDL > 0, 'revisar fixture si cambia el límite del DDL 52');
@@ -167,7 +176,7 @@ try {
     assert.equal((await session()).find(x=>x.formato==='test').question_id,q);
     console.log('OBSERVADO: solape de rutas; no demuestra repetición prematura de un concepto ya guardado.');
   });
-  await test('caracterización: refuerzo N2 vuelve después de acierto si N3 sigue fallado', async () => {
+  await test('refuerzo N2 después de acierto: baseline repite, corrección no repite', async () => {
     const [q2]=await seed('BASE',1,2,'BLOQUE');
     const [q3]=await seed('HARD',1,3,'BLOQUE');
     await event('BASE','test',at(-86400000),{q:q2,correct:true});
@@ -178,8 +187,120 @@ try {
     const next=await session(at(180000));
     assert.ok(new Date((await state('BASE')).due_at).getTime()>T+180000);
     const repeated=next.some(x=>x.concept_id==='BASE' && x.motivo==='BAJA_NIVEL');
-    if(process.argv.includes('--assert-refuerzo-once')) assert.equal(repeated,false,'N2 correcto vuelve antes de due_at por el mismo fallo N3');
+    if(!baseline || process.argv.includes('--assert-refuerzo-once')) assert.equal(repeated,false,'N2 correcto vuelve antes de due_at por el mismo fallo N3');
     else { assert.equal(repeated,true); console.log('OBSERVADO: refuerzo repetido no vencido; no corregido por esta suite.'); }
   });
-  console.log(`\n${passed} comprobaciones; 2 caracterizan limitaciones actuales, no correcciones. Sin datos remotos.`);
+
+  if (!baseline) {
+    await test('un nuevo fallo N3 reactiva la base ya evaluada en un episodio anterior', async () => {
+      const [q2]=await seed('BASE',1,2,'BLOQUE');
+      const [q3]=await seed('HARD',1,3,'BLOQUE');
+      await event('BASE','test',at(-86400000),{q:q2,correct:true});
+      await event('HARD','test',at(0),{q:q3,correct:false});
+      await event('BASE','test',at(60000),{q:q2,correct:true});
+      assert.ok(!(await session(at(120000))).some(x=>x.concept_id==='BASE'));
+      await event('HARD','test',at(180000),{q:q3,correct:false});
+      assert.equal((await session(at(240000))).find(x=>x.concept_id==='BASE').motivo,'BAJA_NIVEL');
+    });
+    await test('reloj empatado: el orden de eventos distingue el nuevo fallo del refuerzo posterior', async () => {
+      const [q2]=await seed('BASE',1,2,'BLOQUE');
+      const [q3]=await seed('HARD',1,3,'BLOQUE');
+      await event('BASE','test',at(0),{q:q2,correct:true});
+      await event('HARD','test',at(0),{q:q3,correct:false});
+      assert.equal((await session(at(0))).find(x=>x.concept_id==='BASE').motivo,'BAJA_NIVEL');
+      await event('BASE','test',at(0),{q:q2,correct:true});
+      assert.ok(!(await session(at(0))).some(x=>x.concept_id==='BASE'));
+      await event('HARD','test',at(0),{q:q3,correct:false});
+      assert.equal((await session(at(0))).find(x=>x.concept_id==='BASE').motivo,'BAJA_NIVEL');
+    });
+    await test('tres bases: tras completar las dos primeras se ofrece la tercera, sin reciclarlas', async () => {
+      const bases=[];
+      for(let i=1;i<=3;i++) {
+        const id=`BASE${i}`; const [q]=await seed(id,1,2,'BLOQUE'); bases.push([id,q]);
+        await event(id,'test',at(-86400000+i*1000),{q,correct:true});
+      }
+      const [q3]=await seed('HARD',1,3,'BLOQUE');
+      await event('HARD','test',at(0),{q:q3,correct:false});
+      let s=(await session(at(60000))).filter(x=>x.motivo==='BAJA_NIVEL');
+      assert.deepEqual(s.map(x=>x.concept_id),['BASE1','BASE2']);
+      for(const x of s) await event(x.concept_id,'test',at(120000),{q:x.question_id,correct:true});
+      s=(await session(at(180000))).filter(x=>x.motivo==='BAJA_NIVEL');
+      assert.deepEqual(s.map(x=>x.concept_id),['BASE3']);
+      await event('BASE3','test',at(240000),{q:bases[2][1],correct:true});
+      assert.equal((await session(at(300000))).filter(x=>x.motivo==='BAJA_NIVEL').length,0);
+    });
+    await test('fallar el refuerzo conserva los diez minutos de reaprendizaje, sin repetir al instante', async () => {
+      const [q2]=await seed('BASE',1,2,'BLOQUE');
+      const [q3]=await seed('HARD',1,3,'BLOQUE');
+      await event('BASE','test',at(-86400000),{q:q2,correct:true});
+      await event('HARD','test',at(0),{q:q3,correct:false});
+      await event('BASE','test',at(60000),{q:q2,correct:false});
+      assert.ok(!(await session(at(120000))).some(x=>x.concept_id==='BASE'));
+      assert.equal((await session(at(11*60000))).find(x=>x.concept_id==='BASE').motivo,'ERROR_RECIENTE');
+    });
+    await test('base evaluada después del fallo sigue disponible al vencer su propio repaso', async () => {
+      const [q2]=await seed('BASE',1,2,'BLOQUE');
+      const [q3]=await seed('HARD',1,3,'BLOQUE');
+      await event('BASE','test',at(-86400000),{q:q2,correct:true});
+      await event('HARD','test',at(0),{q:q3,correct:false});
+      await event('BASE','test',at(60000),{q:q2,correct:true});
+      const due=new Date(new Date((await state('BASE')).due_at).getTime()+1000).toISOString();
+      const x=(await session(due)).find(x=>x.concept_id==='BASE');
+      assert.ok(x); assert.equal(x.motivo,'REPASO_VENCIDO');
+    });
+    await test('nuevo fallo de otra cuenta no reactiva el refuerzo propio', async () => {
+      const [q2]=await seed('BASE',1,2,'BLOQUE');
+      const [q3]=await seed('HARD',1,3,'BLOQUE');
+      await event('BASE','test',at(-86400000),{q:q2,correct:true});
+      await event('HARD','test',at(0),{q:q3,correct:false});
+      await event('BASE','test',at(60000),{q:q2,correct:true});
+      await event('HARD','test',at(120000),{q:q3,correct:false,user:V});
+      assert.ok(!(await session(at(180000))).some(x=>x.concept_id==='BASE'));
+    });
+
+    await test('contrato y permisos de _concept_session no cambian con 56', async () => {
+      const contract=await one("select prosecdef,proconfig,proacl::text,pg_get_function_result(oid) result from pg_proc where oid='public._concept_session(uuid,integer,integer,timestamptz)'::regprocedure");
+      assert.deepEqual(contract,baselineContract);
+    });
+    await test('varios N3 fallados: cuenta el fallo más reciente del bloque', async () => {
+      const [q2]=await seed('BASE',1,2,'BLOQUE');
+      const [qa]=await seed('HARD-A',1,3,'BLOQUE');
+      const [qb]=await seed('HARD-B',1,3,'BLOQUE');
+      await event('BASE','test',at(-86400000),{q:q2,correct:true});
+      await event('HARD-A','test',at(0),{q:qa,correct:false});
+      await event('BASE','test',at(60000),{q:q2,correct:true});
+      assert.ok(!(await session(at(120000))).some(x=>x.concept_id==='BASE'));
+      await event('HARD-B','test',at(180000),{q:qb,correct:false});
+      assert.equal((await session(at(240000))).find(x=>x.concept_id==='BASE').motivo,'BAJA_NIVEL');
+    });
+    await test('estado histórico sin eventos: usa fechas y no inventa un episodio en un empate', async () => {
+      const [q2]=await seed('BASE',1,2,'BLOQUE');
+      const [q3]=await seed('HARD',1,3,'BLOQUE');
+      await event('BASE','test',at(-86400000),{q:q2,correct:true});
+      await event('HARD','test',at(0),{q:q3,correct:false});
+      await db.exec('delete from concept_events');
+      assert.equal((await session(at(60000))).find(x=>x.concept_id==='BASE').motivo,'BAJA_NIVEL');
+      await db.query("update user_concept_state set last_review_at=$1 where user_id=$2 and concept_id='BASE'",[at(0),U]);
+      assert.ok(!(await session(at(60000))).some(x=>x.concept_id==='BASE'));
+    });
+    await test('56 idempotente; rollback exacto y reaplicación sin borrar progreso', async () => {
+      const [q]=await seed('KEEP',1);
+      await event('KEEP','test',at(0),{q,correct:true});
+      const before=await state('KEEP');
+      await db.exec(migration('56_refuerzo_por_episodio.sql'));
+      await db.exec(migration('56_refuerzo_por_episodio_down.sql'));
+      assert.equal((await one("select pg_get_functiondef('public._concept_session(uuid,integer,integer,timestamptz)'::regprocedure) d")).d,baselineDef);
+      assert.deepEqual(await state('KEEP'),before);
+      await db.exec(migration('56_refuerzo_por_episodio.sql'));
+      assert.deepEqual(await state('KEEP'),before);
+    });
+    await test('56 rechaza sobrescribir una definición desconocida', async () => {
+      const def=(await one("select pg_get_functiondef('public._concept_session(uuid,integer,integer,timestamptz)'::regprocedure) d")).d;
+      await db.exec(def.replace('Refuerzo por episodio (56)','Definición ajena con modificación (56)'));
+      await assert.rejects(db.exec(migration('56_refuerzo_por_episodio.sql')),/56:.*versión/);
+      await assert.rejects(db.exec(migration('56_refuerzo_por_episodio_down.sql')),/56 down:.*versión/);
+      await db.exec(def);
+    });
+  }
+  console.log(`\n${passed} comprobaciones. Baseline: ${baseline}. El solape v3 sigue sin cambios. Sin datos remotos.`);
 } finally { await db.close(); }
