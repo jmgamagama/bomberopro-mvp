@@ -4,18 +4,22 @@
  * `conTiempoLimite` usa `Promise.race` y no cancela `signInWithPassword`. El SDK, al recibir
  * el HTTP de A después de que B ya entró, llama a `_saveSession(A)` y emite `SIGNED_IN(A)`.
  * Esta guarda envuelve `fetch` del cliente: cada petición que puede escribir una sesión
- * (`/token?grant_type=password`, `/signup`) lleva un número de intento; si al llegar la
- * respuesta ya hay un intento más nuevo (reintento o la otra pestaña, vía localStorage),
- * se descarta y el SDK no guarda ni notifica esa sesión. La comprobación se repite tras leer el
- * cuerpo completo, porque cabeceras y cuerpo pueden llegar en momentos distintos.
+ * (`/token?grant_type=password`, `/signup`) lleva un identificador único de intento; si al
+ * llegar la respuesta el identificador compartido (localStorage, visible entre pestañas) ya
+ * no es el de este intento, se descarta y el SDK no guarda ni notifica esa sesión. Un
+ * identificador único evita la colisión del contador monótono: si dos pestañas leen el
+ * mismo valor y después escriben el mismo «siguiente» número, ambas aceptarían la respuesta.
+ * La comprobación se repite tras leer el cuerpo completo, porque cabeceras y cuerpo pueden
+ * llegar en momentos distintos.
  *
  * No cancela la petición HTTP en el servidor; solo impide que una respuesta obsoleta se
- * aplique en este dispositivo. Los refrescos (`grant_type=refresh_token`) no incrementan
- * el intento ni se descartan.
+ * aplique en este dispositivo. Los refrescos (`grant_type=refresh_token`) no registran
+ * un intento nuevo ni se descartan.
  */
 export const AUTH_EPOCH_KEY = 'bomberopro:auth-attempt-epoch:v1';
 
-let memoryEpoch = 0;
+let memoryAttemptId = '';
+let attemptSeq = 0;
 
 function store(): Storage | null {
   try {
@@ -25,30 +29,45 @@ function store(): Storage | null {
   }
 }
 
-export function currentAuthEpoch(): number {
-  let stored = 0;
+function newAuthAttemptId(): string {
+  attemptSeq += 1;
+  const uniq = typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
+    ? crypto.randomUUID()
+    : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 12)}`;
+  return `${uniq}-${attemptSeq}`;
+}
+
+/** Identificador del último intento de acceso visto en este dispositivo (almacén compartido). */
+export function currentAuthAttemptId(): string {
   try {
-    stored = Number.parseInt(store()?.getItem(AUTH_EPOCH_KEY) ?? '0', 10) || 0;
+    const stored = store()?.getItem(AUTH_EPOCH_KEY);
+    if (stored) return stored;
   } catch {
-    stored = 0;
+    /* almacenamiento bloqueado: se usa el de esta pestaña */
   }
-  return Math.max(memoryEpoch, stored);
+  return memoryAttemptId;
+}
+
+/** @deprecated el intento ya no es un contador; se conserva para no romper imports de prueba. */
+export function currentAuthEpoch(): string {
+  return currentAuthAttemptId();
 }
 
 /** Abre un intento nuevo de acceso que puede escribir sesión. Visible entre pestañas. */
-export function beginAuthAttempt(): number {
-  const next = currentAuthEpoch() + 1;
-  memoryEpoch = next;
+export function beginAuthAttempt(): string {
+  const id = newAuthAttemptId();
+  memoryAttemptId = id;
   try {
-    store()?.setItem(AUTH_EPOCH_KEY, String(next));
+    store()?.setItem(AUTH_EPOCH_KEY, id);
   } catch {
-    /* almacenamiento bloqueado: basta el contador en memoria de esta pestaña */
+    /* almacenamiento bloqueado: basta el identificador en memoria de esta pestaña */
   }
-  return next;
+  return id;
 }
 
 export function resetAuthAttemptForTests(): void {
-  memoryEpoch = 0;
+  memoryAttemptId = '';
+  attemptSeq = 0;
   try {
     store()?.removeItem(AUTH_EPOCH_KEY);
   } catch {
@@ -56,7 +75,7 @@ export function resetAuthAttemptForTests(): void {
   }
 }
 
-/** Peticiones cuyo cuerpo de éxito hace que el SDK guarde sesión y emita SIGNED_IN. */
+/** Peticiones cuyo cuerpo de éxito hace que el SDK guarde sesión y emite SIGNED_IN. */
 export function isAuthSessionWriteUrl(url: string): boolean {
   try {
     const u = new URL(url, 'http://local');
@@ -85,10 +104,10 @@ function staleAttemptError(): Error {
 export function wrapAuthFetch(baseFetch: typeof fetch = fetch): typeof fetch {
   return async (input: RequestInfo | URL, init?: RequestInit): Promise<Response> => {
     const url = typeof input === 'string' ? input : input instanceof URL ? input.href : input.url;
-    const epochAtStart = isAuthSessionWriteUrl(url) ? beginAuthAttempt() : undefined;
+    const attemptAtStart = isAuthSessionWriteUrl(url) ? beginAuthAttempt() : undefined;
     const response = await baseFetch(input, init);
-    if (epochAtStart === undefined) return response;
-    if (currentAuthEpoch() !== epochAtStart) throw staleAttemptError();
+    if (attemptAtStart === undefined) return response;
+    if (currentAuthAttemptId() !== attemptAtStart) throw staleAttemptError();
     if (response.body && !response.bodyUsed) {
       try {
         await response.clone().arrayBuffer();
@@ -96,7 +115,7 @@ export function wrapAuthFetch(baseFetch: typeof fetch = fetch): typeof fetch {
         /* el original fallará igual al leerlo; el SDK no guardará sesión */
       }
     }
-    if (currentAuthEpoch() !== epochAtStart) throw staleAttemptError();
+    if (currentAuthAttemptId() !== attemptAtStart) throw staleAttemptError();
     return response;
   };
 }
