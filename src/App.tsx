@@ -241,6 +241,16 @@ export default function App() {
         questionsRequest.current += 1;
         trainingRequest.current += 1;
       }
+      // El propietario local debe coincidir con la sesión antes del render:
+      // Recuerdo y la sesión diaria leen el SRS en el useState inicial, y un
+      // useLayoutEffect posterior llega tarde si el árbol se remonta con la cuenta nueva.
+      if (nextId) {
+        markPreferLogin();
+        const wasGuest = hasGuestSignupIntent();
+        migrateGuestProgress(nextId);
+        if (wasGuest) trackFunnel('signup_complete');
+      }
+      setLocalDataOwner(nextId);
       setSession(nextSession);
       setLoadingAuth(false);
     };
@@ -1254,11 +1264,18 @@ export default function App() {
           )}
 
           {currentScreen === 'recuerdo' && (
-            <RecallHub key={recallTarget ?? 'recuerdo'} initialDeckId={recallTarget} demo={isDemoMode || !session} onNavigateHome={() => handleNavigate('dashboard')} onOpenPlanes={openPlanes} />
+            <RecallHub
+              key={`${session?.user?.id ?? 'sin-cuenta'}:${recallTarget ?? 'recuerdo'}`}
+              initialDeckId={recallTarget}
+              demo={isDemoMode || !session}
+              onNavigateHome={() => handleNavigate('dashboard')}
+              onOpenPlanes={openPlanes}
+            />
           )}
 
           {currentScreen === 'sesion_diaria' && (
             <DailySession
+              key={session?.user?.id ?? 'sin-cuenta'}
               demo={isDemoMode || !session}
               autoStart={dailyAutoStart}
               onOpenPlanes={openPlanes}
