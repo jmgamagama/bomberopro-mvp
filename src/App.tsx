@@ -164,6 +164,8 @@ export default function App() {
   const [showLegacyImport, setShowLegacyImport] = useState(false);
   const questionsRequest = useRef(0);
   const trainingRequest = useRef(0);
+  // La tanda en curso vino de «Errores» (no del selector general): al caducar se recarga desde allí.
+  const trainingFromFixedPool = useRef(false);
   const authUserId = useRef<string | null>(null);
   
   // Current active train question and its selection reason
@@ -461,18 +463,19 @@ export default function App() {
     }
   }, [currentScreen, activeQuestion?.id]);
 
-  const startTrainingSession = async (targetId: string | null, fixedPool?: Question[]) => {
+  const startTrainingSession = async (targetId: string | null, fixedPool?: Question[], forceReload = false) => {
     const request = ++trainingRequest.current;
     const owner = authUserId.current;
     const isCurrentRequest = () => request === trainingRequest.current && owner === authUserId.current;
     let source = dbQuestions;
+    trainingFromFixedPool.current = !!fixedPool;
     // Cada sesión nueva pide una sesión nueva al servidor, para no repetir las mismas 20
     // y para incluir los repasos que hayan vencido desde la última vez.
     if (fixedPool) {
       source = fixedPool;
-    } else if (serverMode && !targetId && mustReloadAuthenticatedPool(
+    } else if (serverMode && (forceReload || (!targetId && mustReloadAuthenticatedPool(
       source, sessionCompletedRef.current, dbQuestionsLoading,
-    )) {
+    )))) {
       try {
         source = await loadServerSession();
         if (!isCurrentRequest()) return;
@@ -481,6 +484,9 @@ export default function App() {
         if (!isCurrentRequest()) return;
         console.error('No se pudo pedir una sesión nueva:', err);
         setDbQuestionsError(err instanceof Error ? err.message : 'No se pudo renovar la sesión.');
+        // La tanda anterior ya no sirve (completada, caducada o rechazada por el servidor): si se
+        // conservara, «Reintentar» podría volver a ella cuando el reloj del navegador no la ve vieja.
+        setDbQuestions([]);
         // Evita repetir silenciosamente el banco anterior tras un fallo.
         setSessionQuestionPool([]);
         setActiveQuestion(null);
@@ -1175,6 +1181,11 @@ export default function App() {
               handleNextQuestion();
             }}
             onNavigateHome={() => handleNavigate('dashboard')}
+            onSessionExpired={() => {
+              // La tanda caducó en el servidor (2 h): se pide otra; reintentar la misma nunca corregiría.
+              if (trainingFromFixedPool.current) handleNavigate('errors');
+              else void startTrainingSession(activeConceptId, undefined, true);
+            }}
           />
         )}
 

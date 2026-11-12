@@ -11,7 +11,7 @@ import { saveAttemptToServer, toLevelInt } from '../lib/saveAttemptToServer';
 import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
 import { shuffleAllOptions } from '../utils/shuffleOptions';
-import { checkAnswer, describeCheckError, fetchQuestionSession, withRevealedKey } from '../lib/secureQuestions';
+import { checkAnswer, describeCheckError, fetchQuestionSession, isQuestionSessionExpired, withRevealedKey } from '../lib/secureQuestions';
 import { useActiveTimer } from '../hooks/useActiveTimer';
 import { validResponseMs } from '../utils/activeTimer';
 import { newStudySessionId, startStudySession, finishStudySession } from '../lib/studySession';
@@ -56,6 +56,8 @@ export default function StudyByTopic({ session, onNavigateHome, onOpenMaterial }
   const finishedRef = useRef(false);
   const answeringRef = useRef(false);
   const [checkError, setCheckError] = useState<string | null>(null);
+  // La tanda caducó en el servidor (2 h): se ofrece cargar otra con los mismos temas.
+  const [sessionExpired, setSessionExpired] = useState(false);
 
 useEffect(() => {
   // Con lista guardada se pinta al instante; se actualiza por detrás (lib/temasCache).
@@ -83,6 +85,11 @@ const startStudy = async () => {
     console.error('No se pudieron cargar las preguntas del tema:', err);
   }
   if (data) {
+    setCheckError(null);
+    setSessionExpired(false);
+    answeringRef.current = false;
+    setAnswer('');
+    setAnswered(false);
     setQuestions(shuffleAllOptions(data as Question[]));
     finishedRef.current = false;
     answeringRef.current = false;
@@ -123,6 +130,7 @@ const confirmAnswer = async (chosen: string) => {
   } catch (err) {
     console.error('No se pudo corregir la respuesta:', err);
     setCheckError(describeCheckError(err));
+    setSessionExpired(isQuestionSessionExpired(err));
     setAnswer('');
     answeringRef.current = false;
     return;
@@ -267,6 +275,15 @@ return h('div', { className: 'min-h-screen bg-fondo p-4' },
            ),
            checkError
            ? h('p', { role: 'alert', id: 'topic-check-error', className: 'mb-3 p-3 rounded-lg border border-rose-300 bg-rose-50 text-rose-900 text-sm' }, checkError)
+           : null,
+           checkError && sessionExpired
+           ? h('button', {
+               type: 'button',
+               id: 'topic-renew-session',
+               onClick: () => { void startStudy(); },
+               disabled: loadingQuestions,
+               className: 'mb-3 w-full min-h-[44px] px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg text-sm disabled:opacity-60'
+             }, loadingQuestions ? 'Cargando…' : 'Cargar preguntas nuevas')
            : null,
            h('div', { className: 'bg-white rounded-xl p-5 shadow mb-4' },
              h('p', { className: 'text-slate-900 font-medium mb-4' }, currentQuestion.question),

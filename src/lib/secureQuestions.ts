@@ -43,21 +43,39 @@ export function gradeLocally(q: Question, answer: string): AnswerCheck {
   };
 }
 
+/**
+ * El servidor caduca cada selección a las 2 h (migración 52, `expires_at`). Se renueva antes,
+ * con 10 min de margen para no servir una tanda que caduque mientras el alumno responde.
+ */
+export const DELIVERY_SESSION_RENEW_AFTER_MS = 110 * 60 * 1000;
+
 /** Abre una selección ligada a una sesión que el servidor almacena y controla. */
 export async function fetchQuestionSession(
   client: RpcClient,
   fn: QuestionSessionRpc,
   args: Record<string, unknown>,
+  now: () => number = Date.now,
 ): Promise<Question[]> {
   const { data, error } = await client.rpc(fn, args);
   if (error) throw error;
   if (!data || typeof data.session_id !== 'string' || !Array.isArray(data.questions)) {
     throw new Error('La sesión de preguntas del servidor no tiene un formato válido.');
   }
+  const issuedAt = now();
   return data.questions.map((row: any) => {
     const question = toKeylessQuestion(row);
-    return { ...question, delivery_session_id: data.session_id };
+    return { ...question, delivery_session_id: data.session_id, delivery_issued_at: issuedAt };
   });
+}
+
+/** ¿La selección de esta pregunta está a punto de caducar (o ya caducó) en el servidor? */
+export function isDeliveryStale(q: Pick<Question, 'delivery_issued_at'>, now: number = Date.now()): boolean {
+  return typeof q.delivery_issued_at === 'number' && now - q.delivery_issued_at >= DELIVERY_SESSION_RENEW_AFTER_MS;
+}
+
+/** El servidor rechazó la corrección porque la tanda de preguntas caducó (2 h). */
+export function isQuestionSessionExpired(err: unknown): boolean {
+  return (err as { message?: string } | null)?.message === 'question_session_expired';
 }
 
 export async function checkAnswer(client: RpcClient | null, q: Question, answer: string): Promise<AnswerCheck> {
@@ -129,5 +147,7 @@ export function describeCheckError(err: unknown): string {
     if (msg === 'daily_question_limit') return `El plan gratis permite corregir ${ANSWER_CHECK_LIMITS.freeDistinctPerDay} preguntas distintas al día. Puedes repasar las que ya has hecho o volver mañana.`;
     return 'Has llegado al límite de correcciones. Vuelve a intentarlo más tarde.';
   }
+  // No es un fallo de red: cada tanda dura 2 h. Reintentar la misma no sirve; hay que pedir otra.
+  if (isQuestionSessionExpired(err)) return 'Esta tanda de preguntas ha caducado (cada tanda dura 2 horas). Carga preguntas nuevas para seguir.';
   return 'No se pudo corregir la respuesta. Revisa la conexión y vuelve a intentarlo.';
 }

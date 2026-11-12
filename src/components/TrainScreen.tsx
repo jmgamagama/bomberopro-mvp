@@ -15,7 +15,7 @@ import { optionLetter } from '../utils/shuffleOptions';
 import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
 import { supabase } from '../lib/supabase';
-import { checkAnswer, describeCheckError, type AnswerCheck } from '../lib/secureQuestions';
+import { checkAnswer, describeCheckError, isQuestionSessionExpired, type AnswerCheck } from '../lib/secureQuestions';
 
 interface TrainScreenProps {
   question: Question | null;
@@ -44,6 +44,8 @@ interface TrainScreenProps {
   onNavigateHome: () => void;
   /** Salta la pregunta actual sin contarla (tras reportarla). */
   onSkipQuestion?: () => void;
+  /** La tanda caducó en el servidor (2 h): pedir otra en lugar de reintentar la misma. */
+  onSessionExpired?: () => void;
 }
 
 export default function TrainScreen({
@@ -56,7 +58,8 @@ export default function TrainScreen({
   onAnswer,
   onNextQuestion,
   onSkipQuestion,
-  onNavigateHome
+  onNavigateHome,
+  onSessionExpired
 }: TrainScreenProps) {
   // Confidence state
   const [selectedConfidence, setSelectedConfidence] = useState<ConfidenceLevel | null>(null);
@@ -80,6 +83,7 @@ export default function TrainScreen({
   // C2: clave y explicación recibidas del servidor DESPUÉS de responder.
   const [revealed, setRevealed] = useState<AnswerCheck | null>(null);
   const [checkError, setCheckError] = useState<string | null>(null);
+  const [sessionExpired, setSessionExpired] = useState(false);
   const checkingRef = useRef(false);
 
   // Feedback states
@@ -99,9 +103,11 @@ export default function TrainScreen({
     setFeedback(null);
     setRevealed(null);
     setCheckError(null);
+    setSessionExpired(false);
     setIsChecking(false);
     checkingRef.current = false;
-  }, [question?.id]);
+    // La tanda nueva puede traer la misma pregunta: también se reinicia al cambiar de tanda.
+  }, [question?.id, question?.delivery_session_id]);
 
   useEffect(() => {
     if (feedback) feedbackRef.current?.focus();
@@ -160,11 +166,13 @@ export default function TrainScreen({
     } catch (err) {
       console.error('No se pudo corregir la respuesta:', err);
       setCheckError(describeCheckError(err));
+      setSessionExpired(isQuestionSessionExpired(err));
       checkingRef.current = false;
       setIsChecking(false);
       return;
     }
     setCheckError(null);
+    setSessionExpired(false);
     setIsChecking(false);
     setRevealed(check);
     setIsAnswered(true);
@@ -338,6 +346,16 @@ export default function TrainScreen({
             {/* Confidence Selection Widget - MANDATORY BEFORE ANSWERING */}
             {checkError && !isAnswered && (
               <p role="alert" id="train-check-error" className="text-sm text-rose-800 bg-rose-50 border border-rose-300 rounded-xl p-3">{checkError}</p>
+            )}
+            {checkError && !isAnswered && sessionExpired && onSessionExpired && (
+              <button
+                type="button"
+                id="train-renew-session"
+                onClick={onSessionExpired}
+                className="w-full min-h-[44px] px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm"
+              >
+                Cargar preguntas nuevas
+              </button>
             )}
             {!isAnswered && (
               <div className="pt-3 border-t border-slate-200 space-y-2 scroll-mb-28 md:scroll-mb-4" id="confidence-selector">

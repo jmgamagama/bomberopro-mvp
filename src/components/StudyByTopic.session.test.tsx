@@ -75,6 +75,37 @@ describe('StudyByTopic registra la sesión', () => {
     );
   });
 
+  it('#278: si la tanda caducó en el servidor, no culpa a la red y carga otra con los mismos temas', async () => {
+    const { correct_answer: _c, explanation: _e, ...keyless } = question;
+    let begins = 0;
+    rpc.mockImplementation((fn: string, args: any) => {
+      if (fn === 'begin_topic_session_v3') {
+        begins += 1;
+        return Promise.resolve({ data: { session_id: `server-topic-${begins}`, questions: [keyless] }, error: null });
+      }
+      if (fn === 'submit_question_answer_v3') {
+        return Promise.resolve(args.p_delivery_session_id === 'server-topic-1'
+          ? { data: null, error: { code: '42501', message: 'question_session_expired' } }
+          : { data: { acierto: true, correct_answer: 'Correcta', explanation: 'Porque sí.' }, error: null });
+      }
+      return Promise.resolve({ data: null, error: null });
+    });
+    render(<StudyByTopic session={{ user: { id: 'user-1' } }} onNavigateHome={() => {}} />);
+    fireEvent.click(await screen.findByRole('checkbox'));
+    fireEvent.click(screen.getByText(/Empezar/));
+    fireEvent.click(await screen.findByText('Correcta'));
+    const alert = await screen.findByRole('alert');
+    expect(alert.textContent).toMatch(/caducado/);
+    expect(alert.textContent).not.toMatch(/conexión/);
+    expect(saveAttemptToServer).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole('button', { name: /cargar preguntas nuevas/i }));
+    await waitFor(() => expect(begins).toBe(2));
+    await waitFor(() => expect(screen.queryByRole('alert')).not.toBeInTheDocument());
+    fireEvent.click(screen.getByText('Correcta'));
+    await waitFor(() => expect(saveAttemptToServer).toHaveBeenCalledTimes(1));
+    expect(rpc).toHaveBeenCalledWith('submit_question_answer_v3', expect.objectContaining({ p_delivery_session_id: 'server-topic-2' }));
+  });
+
   it('sin cuenta no abre sesión', async () => {
     render(<StudyByTopic session={null} onNavigateHome={() => {}} />);
     fireEvent.click(await screen.findByRole('checkbox'));
