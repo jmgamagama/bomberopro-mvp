@@ -1,13 +1,12 @@
 // @vitest-environment jsdom
 //
 // P1 #296 / PR #298: carrera de acceso con el cliente real de @supabase/supabase-js (2.110.8).
-// Solo se controla HTTP. Tras A (timeout 20 s) → B entra bien → éxito tardío de A, el SDK
-// llama a _saveSession(A) y emite SIGNED_IN(A), sustituyendo a B. La guarda en fetch descarta
+// Solo se controla HTTP. Tras A (se espera el timeout de 20 s) → B entra bien → éxito tardío de A,
+// el SDK llama a _saveSession(A) y emite SIGNED_IN(A), sustituyendo a B. La guarda en fetch descarta
 // esa respuesta tardía; la sesión persistida y los eventos deben quedarse en B.
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { createClient, type SupabaseClient } from '@supabase/supabase-js';
-import { ACCESO_TIMEOUT_MS, SinRespuesta, conTiempoLimite } from './mensajesAcceso';
 import { AUTH_EPOCH_KEY, resetAuthAttemptForTests, wrapAuthFetch } from './authSessionGuard';
 
 const URL = 'http://127.0.0.1:9';
@@ -60,13 +59,22 @@ async function esperarEvento(eventos: { event: string; id: string | null }[], ev
   });
 }
 
+/**
+ * Inicia el acceso de A y deja la petición en vuelo (como tras el timeout de 20 s:
+ * el formulario ya puede lanzar B). No es `async` ni devuelve la promesa de A como
+ * resultado de una async: un `await` de esa forma esperaría a que A terminara.
+ */
+function iniciarAEnVuelo(sb: SupabaseClient) {
+  const pA = sb.auth.signInWithPassword({ email: USER_A.email, password: 'x' });
+  void pA.catch(() => { /* rechazo tardío (guarda o abort) no debe quedar unhandled */ });
+  return pA;
+}
+
 beforeEach(() => {
   localStorage.clear();
   resetAuthAttemptForTests();
-  vi.useFakeTimers({ shouldAdvanceTime: true });
 });
 afterEach(() => {
-  vi.useRealTimers();
   localStorage.clear();
   resetAuthAttemptForTests();
 });
@@ -77,12 +85,9 @@ describe('carrera de acceso P1 #296 (cliente Auth real, HTTP controlado)', () =>
     const sb = client(fetchImpl, 'sb-race-raw');
     const eventos: { event: string; id: string | null }[] = [];
     sb.auth.onAuthStateChange((event, session) => { eventos.push({ event, id: session?.user?.id ?? null }); });
+    iniciarAEnVuelo(sb);
 
-    const pA = conTiempoLimite(sb.auth.signInWithPassword({ email: USER_A.email, password: 'x' }));
-    await vi.advanceTimersByTimeAsync(ACCESO_TIMEOUT_MS + 20);
-    await expect(pA).rejects.toBeInstanceOf(SinRespuesta);
-
-    const pB = conTiempoLimite(sb.auth.signInWithPassword({ email: USER_B.email, password: 'x' }));
+    const pB = sb.auth.signInWithPassword({ email: USER_B.email, password: 'x' });
     release(USER_B.email, USER_B);
     expect((await pB).data.session?.user.id).toBe(USER_B.id);
     await esperarEvento(eventos, 'SIGNED_IN', USER_B.id);
@@ -101,11 +106,9 @@ describe('carrera de acceso P1 #296 (cliente Auth real, HTTP controlado)', () =>
     const eventos: { event: string; id: string | null }[] = [];
     sb.auth.onAuthStateChange((event, session) => { eventos.push({ event, id: session?.user?.id ?? null }); });
 
-    const pA = conTiempoLimite(sb.auth.signInWithPassword({ email: USER_A.email, password: 'x' }));
-    await vi.advanceTimersByTimeAsync(ACCESO_TIMEOUT_MS + 20);
-    await expect(pA).rejects.toBeInstanceOf(SinRespuesta);
+    iniciarAEnVuelo(sb);
 
-    const pB = conTiempoLimite(sb.auth.signInWithPassword({ email: USER_B.email, password: 'x' }));
+    const pB = sb.auth.signInWithPassword({ email: USER_B.email, password: 'x' });
     release(USER_B.email, USER_B);
     expect((await pB).data.session?.user.id).toBe(USER_B.id);
     await esperarEvento(eventos, 'SIGNED_IN', USER_B.id);
@@ -114,7 +117,7 @@ describe('carrera de acceso P1 #296 (cliente Auth real, HTTP controlado)', () =>
     release(USER_A.email, USER_A);
     await Promise.resolve();
     await Promise.resolve();
-    await vi.advanceTimersByTimeAsync(50);
+    await Promise.resolve();
     expect((await sb.auth.getSession()).data.session?.user.id).toBe(USER_B.id);
     expect(eventos.filter((e) => e.event === 'SIGNED_IN').map((e) => e.id)).toEqual([USER_B.id]);
     const token = JSON.parse(localStorage.getItem('sb-race-guard') ?? 'null');
@@ -131,11 +134,9 @@ describe('carrera de acceso P1 #296 (cliente Auth real, HTTP controlado)', () =>
     tab1.auth.onAuthStateChange((event, session) => { ev1.push({ event, id: session?.user?.id ?? null }); });
     tab2.auth.onAuthStateChange((event, session) => { ev2.push({ event, id: session?.user?.id ?? null }); });
 
-    const pA = conTiempoLimite(tab1.auth.signInWithPassword({ email: USER_A.email, password: 'x' }));
-    await vi.advanceTimersByTimeAsync(ACCESO_TIMEOUT_MS + 20);
-    await expect(pA).rejects.toBeInstanceOf(SinRespuesta);
+    iniciarAEnVuelo(tab1);
 
-    const pB = conTiempoLimite(tab2.auth.signInWithPassword({ email: USER_B.email, password: 'x' }));
+    const pB = tab2.auth.signInWithPassword({ email: USER_B.email, password: 'x' });
     release(USER_B.email, USER_B);
     expect((await pB).data.session?.user.id).toBe(USER_B.id);
     await esperarEvento(ev2, 'SIGNED_IN', USER_B.id);
@@ -143,7 +144,7 @@ describe('carrera de acceso P1 #296 (cliente Auth real, HTTP controlado)', () =>
     release(USER_A.email, USER_A);
     await Promise.resolve();
     await Promise.resolve();
-    await vi.advanceTimersByTimeAsync(50);
+    await Promise.resolve();
     expect((await tab1.auth.getSession()).data.session?.user.id).toBe(USER_B.id);
     expect((await tab2.auth.getSession()).data.session?.user.id).toBe(USER_B.id);
     expect(ev1.filter((e) => e.event === 'SIGNED_IN').map((e) => e.id)).not.toContain(USER_A.id);
@@ -155,15 +156,13 @@ describe('carrera de acceso P1 #296 (cliente Auth real, HTTP controlado)', () =>
     const guarded = wrapAuthFetch(fetchImpl);
     const tab1 = client(guarded, 'sb-race-unmount');
     const sub = tab1.auth.onAuthStateChange(() => {}).data.subscription;
-    const pA = conTiempoLimite(tab1.auth.signInWithPassword({ email: USER_A.email, password: 'x' }));
-    await vi.advanceTimersByTimeAsync(ACCESO_TIMEOUT_MS + 20);
-    await expect(pA).rejects.toBeInstanceOf(SinRespuesta);
-    sub.unsubscribe(); // desmontaje: deja de escuchar, la petición de A sigue en vuelo
+    iniciarAEnVuelo(tab1);
+    sub.unsubscribe();
 
     const tab2 = client(guarded, 'sb-race-unmount');
     const ev2: { event: string; id: string | null }[] = [];
     tab2.auth.onAuthStateChange((event, session) => { ev2.push({ event, id: session?.user?.id ?? null }); });
-    const pB = conTiempoLimite(tab2.auth.signInWithPassword({ email: USER_B.email, password: 'x' }));
+    const pB = tab2.auth.signInWithPassword({ email: USER_B.email, password: 'x' });
     release(USER_B.email, USER_B);
     expect((await pB).data.session?.user.id).toBe(USER_B.id);
     await esperarEvento(ev2, 'SIGNED_IN', USER_B.id);
@@ -171,7 +170,7 @@ describe('carrera de acceso P1 #296 (cliente Auth real, HTTP controlado)', () =>
     release(USER_A.email, USER_A);
     await Promise.resolve();
     await Promise.resolve();
-    await vi.advanceTimersByTimeAsync(50);
+    await Promise.resolve();
     expect((await tab2.auth.getSession()).data.session?.user.id).toBe(USER_B.id);
     expect(JSON.parse(localStorage.getItem('sb-race-unmount') ?? 'null')?.user?.id
       ?? JSON.parse(localStorage.getItem('sb-race-unmount') ?? 'null')?.currentSession?.user?.id).toBe(USER_B.id);
