@@ -6,7 +6,8 @@
  * Esta guarda envuelve `fetch` del cliente: cada petición que puede escribir una sesión
  * (`/token?grant_type=password`, `/signup`) lleva un número de intento; si al llegar la
  * respuesta ya hay un intento más nuevo (reintento o la otra pestaña, vía localStorage),
- * se descarta y el SDK no guarda ni notifica esa sesión.
+ * se descarta y el SDK no guarda ni notifica esa sesión. La comprobación se repite tras leer el
+ * cuerpo completo, porque cabeceras y cuerpo pueden llegar en momentos distintos.
  *
  * No cancela la petición HTTP en el servidor; solo impide que una respuesta obsoleta se
  * aplique en este dispositivo. Los refrescos (`grant_type=refresh_token`) no incrementan
@@ -67,17 +68,35 @@ export function isAuthSessionWriteUrl(url: string): boolean {
   }
 }
 
+function staleAttemptError(): Error {
+  const err = new Error('The user aborted a request.');
+  err.name = 'AbortError';
+  return err;
+}
+
+/**
+ * La comprobación del intento se hace DESPUÉS de leer el cuerpo completo (#298): si solo se
+ * mirara al llegar las cabeceras, el cuerpo de A podría llegar después de que B entre y el SDK
+ * guardaría A al hacer `response.json()`. Leemos una copia (`clone()`) para que el SDK siga
+ * pudiendo consumir el original; el cuerpo ya está en memoria y su lectura no espera más red.
+ * Si la lectura de la copia falla (red cortada, cancelación), se entrega la respuesta tal cual:
+ * el SDK leerá el mismo error del original y no guardará sesión.
+ */
 export function wrapAuthFetch(baseFetch: typeof fetch = fetch): typeof fetch {
-  return (input: RequestInfo | URL, init?: RequestInit): Promise<Response> => {
+  return async (input: RequestInfo | URL, init?: RequestInit): Promise<Response> => {
     const url = typeof input === 'string' ? input : input instanceof URL ? input.href : input.url;
     const epochAtStart = isAuthSessionWriteUrl(url) ? beginAuthAttempt() : undefined;
-    return Promise.resolve(baseFetch(input, init)).then((response) => {
-      if (epochAtStart !== undefined && currentAuthEpoch() !== epochAtStart) {
-        const err = new Error('The user aborted a request.');
-        err.name = 'AbortError';
-        return Promise.reject(err);
+    const response = await baseFetch(input, init);
+    if (epochAtStart === undefined) return response;
+    if (currentAuthEpoch() !== epochAtStart) throw staleAttemptError();
+    if (response.body && !response.bodyUsed) {
+      try {
+        await response.clone().arrayBuffer();
+      } catch {
+        /* el original fallará igual al leerlo; el SDK no guardará sesión */
       }
-      return response;
-    });
+    }
+    if (currentAuthEpoch() !== epochAtStart) throw staleAttemptError();
+    return response;
   };
 }
