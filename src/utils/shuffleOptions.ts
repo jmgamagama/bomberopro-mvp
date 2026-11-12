@@ -13,8 +13,13 @@ import type { Question } from '../types';
  * Las preguntas cuyas opciones se refieren a otras por su posición ("todas las
  * anteriores", "a y b son correctas"…) se dejan en su orden original, porque al
  * barajarlas dejarían de tener sentido.
+ *
+ * Debe cubrir, como mínimo, lo mismo que `public._opciones_referenciales` en el servidor
+ * (que decide no reducir esas preguntas a 3 opciones): si el servidor las conserva enteras
+ * y la app las baraja, «Todas son correctas» o «Más de una es correcta» pueden salir en
+ * primer lugar, antes de las opciones a las que aluden.
  */
-const POSITIONAL = /(anteriores|ambas|las dos|\b[a-d]\)?\s+(y|e|o)\s+[a-d]\b|respuestas?\s+[a-d]\b|opci[oó]n(es)?\s+[a-d]\b)/i;
+const POSITIONAL = /(anteriores|ambas|\btodas\b|las dos|m[aá]s de una|ninguna de (las|ellas|estas)|\bson correctas\b|\b[a-d]\)?\s+(y|e|o)\s+[a-d]\b|respuestas?\s+[a-d]\b|opci[oó]n(es)?\s+[a-d]\b)/i;
 
 export const hasPositionalOptions = (options: string[]): boolean =>
   options.some(o => POSITIONAL.test(o));

@@ -47,3 +47,21 @@ describe('shuffleOptions', () => {
     expect(shuffleQuestionOptions(ref, () => 0).options).toEqual(ref.options);
   });
 });
+
+describe('opciones de cierre: misma cobertura que el servidor (_opciones_referenciales)', () => {
+  it.each([
+    ['Más de una es correcta'],
+    ['Todas son correctas'],
+    ['Ninguna de ellas'],
+    ['Ninguna de estas'],
+    ['La primera y la tercera son correctas'],
+  ])('no baraja una pregunta con la opción «%s»', (cierre) => {
+    const question = { options: ['Uno', 'Dos', 'Tres', cierre] };
+    expect(hasPositionalOptions(question.options)).toBe(true);
+    expect(shuffleQuestionOptions(question, () => 0).options).toEqual(question.options);
+  });
+
+  it('sigue barajando las preguntas normales', () => {
+    expect(hasPositionalOptions(['Agua', 'Espuma', 'Polvo'])).toBe(false);
+  });
+});
