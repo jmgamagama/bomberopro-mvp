@@ -15,7 +15,7 @@ import { optionLetter } from '../utils/shuffleOptions';
 import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
 import { supabase } from '../lib/supabase';
-import { checkAnswer, describeCheckError, type AnswerCheck } from '../lib/secureQuestions';
+import { checkAnswer, describeCheckError, isQuestionSessionExpired, type AnswerCheck } from '../lib/secureQuestions';
 
 interface TrainScreenProps {
   question: Question | null;
@@ -44,6 +44,8 @@ interface TrainScreenProps {
   onNavigateHome: () => void;
   /** Salta la pregunta actual sin contarla (tras reportarla). */
   onSkipQuestion?: () => void;
+  /** La tanda caducó en el servidor (2 h): pedir otra en lugar de reintentar la misma. */
+  onSessionExpired?: () => void;
 }
 
 export default function TrainScreen({
@@ -56,7 +58,8 @@ export default function TrainScreen({
   onAnswer,
   onNextQuestion,
   onSkipQuestion,
-  onNavigateHome
+  onNavigateHome,
+  onSessionExpired
 }: TrainScreenProps) {
   // Confidence state
   const [selectedConfidence, setSelectedConfidence] = useState<ConfidenceLevel | null>(null);
@@ -65,7 +68,8 @@ export default function TrainScreen({
   // Mientras el servidor corrige no se puede cambiar de opción: la corrección y lo que se ve irían a distinta respuesta.
   const [isChecking, setIsChecking] = useState(false);
   // Cronómetro de tiempo ACTIVO: se pausa con la pestaña oculta, mientras el servidor corrige y al responder.
-  const timer = useActiveTimer(question?.id, { running: !isAnswered && !isChecking, display: true });
+  // La tanda forma parte de la clave: si la tanda nueva trae la misma pregunta, el tiempo empieza de cero.
+  const timer = useActiveTimer(`${question?.id ?? ''}|${question?.delivery_session_id ?? ''}`, { running: !isAnswered && !isChecking, display: true });
   const [timerVisible, setTimerVisible] = useState<boolean>(() => {
     try { return window.localStorage.getItem('bomberopro_timer_visible') !== 'false'; } catch { return true; }
   });
@@ -80,7 +84,17 @@ export default function TrainScreen({
   // C2: clave y explicación recibidas del servidor DESPUÉS de responder.
   const [revealed, setRevealed] = useState<AnswerCheck | null>(null);
   const [checkError, setCheckError] = useState<string | null>(null);
+  const [sessionExpired, setSessionExpired] = useState(false);
   const checkingRef = useRef(false);
+  // Pregunta y tanda en pantalla: una corrección que vuelve tarde solo se aplica si siguen siendo las mismas.
+  const questionKey = question ? `${question.id}|${question.delivery_session_id ?? ''}` : '';
+  const questionKeyRef = useRef(questionKey);
+  questionKeyRef.current = questionKey;
+  const mountedRef = useRef(true);
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => { mountedRef.current = false; };
+  }, []);
 
   // Feedback states
   const [feedback, setFeedback] = useState<{
@@ -99,9 +113,11 @@ export default function TrainScreen({
     setFeedback(null);
     setRevealed(null);
     setCheckError(null);
+    setSessionExpired(false);
     setIsChecking(false);
     checkingRef.current = false;
-  }, [question?.id]);
+    // La tanda nueva puede traer la misma pregunta: también se reinicia al cambiar de tanda.
+  }, [question?.id, question?.delivery_session_id]);
 
   useEffect(() => {
     if (feedback) feedbackRef.current?.focus();
@@ -155,19 +171,30 @@ export default function TrainScreen({
     // Se mide antes de esperar al servidor: la red no cuenta como tiempo del alumno.
     const elapsed = validResponseSeconds(timer.getElapsedMs());
     let check: AnswerCheck;
+    const submittedKey = questionKey;
+    const isStillCurrent = () => mountedRef.current && questionKeyRef.current === submittedKey;
     try {
       check = await checkAnswer(supabase, question, selectedAnswer);
     } catch (err) {
       console.error('No se pudo corregir la respuesta:', err);
+      // Respuesta tardía de una pregunta o tanda ya sustituida (o pantalla cerrada): su error no es de esta.
+      if (!isStillCurrent()) return;
       setCheckError(describeCheckError(err));
+      setSessionExpired(isQuestionSessionExpired(err));
       checkingRef.current = false;
       setIsChecking(false);
       return;
     }
-    setCheckError(null);
-    setIsChecking(false);
-    setRevealed(check);
-    setIsAnswered(true);
+    // Si la pregunta cambió mientras se corregía, la respuesta confirmada se registra igual (como antes),
+    // pero su clave y su resultado no se pintan sobre la pregunta que hay ahora en pantalla.
+    const stillCurrent = isStillCurrent();
+    if (stillCurrent) {
+      setCheckError(null);
+      setSessionExpired(false);
+      setIsChecking(false);
+      setRevealed(check);
+      setIsAnswered(true);
+    }
 
     const result = onAnswer(
       question.id,
@@ -179,6 +206,7 @@ export default function TrainScreen({
       check.correct
     );
 
+    if (!stillCurrent) return;
     setFeedback({
       title: result.feedbackTitle,
       message: result.feedbackMessage,
@@ -338,6 +366,16 @@ export default function TrainScreen({
             {/* Confidence Selection Widget - MANDATORY BEFORE ANSWERING */}
             {checkError && !isAnswered && (
               <p role="alert" id="train-check-error" className="text-sm text-rose-800 bg-rose-50 border border-rose-300 rounded-xl p-3">{checkError}</p>
+            )}
+            {checkError && !isAnswered && sessionExpired && onSessionExpired && (
+              <button
+                type="button"
+                id="train-renew-session"
+                onClick={onSessionExpired}
+                className="w-full min-h-[44px] px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm"
+              >
+                Cargar preguntas nuevas
+              </button>
             )}
             {!isAnswered && (
               <div className="pt-3 border-t border-slate-200 space-y-2 scroll-mb-28 md:scroll-mb-4" id="confidence-selector">

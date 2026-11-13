@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 // Estudio por temas: cada sesión abre una sesión en el servidor, todas sus respuestas llevan ese id
 // y al llegar a resultados se cierra una sola vez.
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import '../test/setup';
 
@@ -73,6 +73,158 @@ describe('StudyByTopic registra la sesión', () => {
         ['finish_study_session', { p_session_id: 'sess-0001', p_modo: 'estudio_por_temas' }],
       ])
     );
+  });
+
+  it('#278: si la tanda caducó en el servidor, no culpa a la red y carga otra con los mismos temas', async () => {
+    const { correct_answer: _c, explanation: _e, ...keyless } = question;
+    let begins = 0;
+    rpc.mockImplementation((fn: string, args: any) => {
+      if (fn === 'begin_topic_session_v3') {
+        begins += 1;
+        return Promise.resolve({ data: { session_id: `server-topic-${begins}`, questions: [keyless] }, error: null });
+      }
+      if (fn === 'submit_question_answer_v3') {
+        return Promise.resolve(args.p_delivery_session_id === 'server-topic-1'
+          ? { data: null, error: { code: '42501', message: 'question_session_expired' } }
+          : { data: { acierto: true, correct_answer: 'Correcta', explanation: 'Porque sí.' }, error: null });
+      }
+      return Promise.resolve({ data: null, error: null });
+    });
+    render(<StudyByTopic session={{ user: { id: 'user-1' } }} onNavigateHome={() => {}} />);
+    fireEvent.click(await screen.findByRole('checkbox'));
+    fireEvent.click(screen.getByText(/Empezar/));
+    fireEvent.click(await screen.findByText('Correcta'));
+    const alert = await screen.findByRole('alert');
+    expect(alert.textContent).toMatch(/caducado/);
+    expect(alert.textContent).not.toMatch(/conexión/);
+    expect(saveAttemptToServer).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole('button', { name: /cargar preguntas nuevas/i }));
+    await waitFor(() => expect(begins).toBe(2));
+    await waitFor(() => expect(screen.queryByRole('alert')).not.toBeInTheDocument());
+    fireEvent.click(screen.getByText('Correcta'));
+    await waitFor(() => expect(saveAttemptToServer).toHaveBeenCalledTimes(1));
+    expect(rpc).toHaveBeenCalledWith('submit_question_answer_v3', expect.objectContaining({ p_delivery_session_id: 'server-topic-2' }));
+  });
+
+  it('#278: una respuesta tardía de la tanda antigua no pinta su error sobre la tanda nueva', async () => {
+    const { correct_answer: _c, explanation: _e, ...keyless } = question;
+    let begins = 0;
+    let submits = 0;
+    let resolverTardia!: (r: unknown) => void;
+    rpc.mockImplementation((fn: string, args: any) => {
+      if (fn === 'begin_topic_session_v3') {
+        begins += 1;
+        return Promise.resolve({ data: { session_id: `server-topic-${begins}`, questions: [keyless] }, error: null });
+      }
+      if (fn === 'submit_question_answer_v3') {
+        if (args.p_delivery_session_id !== 'server-topic-1') {
+          return Promise.resolve({ data: { acierto: true, correct_answer: 'Correcta', explanation: 'Porque sí.' }, error: null });
+        }
+        submits += 1;
+        if (submits === 1) return Promise.resolve({ data: null, error: { code: '42501', message: 'question_session_expired' } });
+        return new Promise(resolve => { resolverTardia = resolve; });
+      }
+      return Promise.resolve({ data: null, error: null });
+    });
+    render(<StudyByTopic session={{ user: { id: 'user-1' } }} onNavigateHome={() => {}} />);
+    fireEvent.click(await screen.findByRole('checkbox'));
+    fireEvent.click(screen.getByText(/Empezar/));
+    fireEvent.click(await screen.findByText('Correcta'));
+    await screen.findByRole('button', { name: /cargar preguntas nuevas/i });
+    fireEvent.click(screen.getByText('Correcta'));
+    await waitFor(() => expect(resolverTardia).toBeTypeOf('function'));
+    fireEvent.click(screen.getByRole('button', { name: /cargar preguntas nuevas/i }));
+    await waitFor(() => expect(begins).toBe(2));
+    await waitFor(() => expect(screen.queryByRole('alert')).not.toBeInTheDocument());
+    await act(async () => resolverTardia({ data: null, error: { code: '42501', message: 'question_session_expired' } }));
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /cargar preguntas nuevas/i })).not.toBeInTheDocument();
+    fireEvent.click(screen.getByText('Correcta'));
+    await waitFor(() => expect(saveAttemptToServer).toHaveBeenCalledTimes(1));
+    expect(rpc).toHaveBeenLastCalledWith('submit_question_answer_v3', expect.objectContaining({ p_delivery_session_id: 'server-topic-2' }));
+  });
+
+  it('#278: si falla la carga de la tanda nueva, lo dice y deja volver a intentarlo', async () => {
+    const { correct_answer: _c, explanation: _e, ...keyless } = question;
+    let begins = 0;
+    rpc.mockImplementation((fn: string) => {
+      if (fn === 'begin_topic_session_v3') {
+        begins += 1;
+        return Promise.resolve(begins === 2
+          ? { data: null, error: { message: 'TypeError: Failed to fetch' } }
+          : { data: { session_id: `server-topic-${begins}`, questions: [keyless] }, error: null });
+      }
+      if (fn === 'submit_question_answer_v3') return Promise.resolve({ data: null, error: { code: '42501', message: 'question_session_expired' } });
+      return Promise.resolve({ data: null, error: null });
+    });
+    render(<StudyByTopic session={{ user: { id: 'user-1' } }} onNavigateHome={() => {}} />);
+    fireEvent.click(await screen.findByRole('checkbox'));
+    fireEvent.click(screen.getByText(/Empezar/));
+    fireEvent.click(await screen.findByText('Correcta'));
+    fireEvent.click(await screen.findByRole('button', { name: /cargar preguntas nuevas/i }));
+    await waitFor(() => expect(begins).toBe(2));
+    expect((await screen.findByRole('alert')).textContent).toMatch(/no se pudieron cargar preguntas nuevas/i);
+    fireEvent.click(screen.getByRole('button', { name: /cargar preguntas nuevas/i }));
+    await waitFor(() => expect(begins).toBe(3));
+    await waitFor(() => expect(screen.queryByRole('alert')).not.toBeInTheDocument());
+  });
+
+  it('#278: si entra otra cuenta con una corrección en vuelo, la tanda de A desaparece y su resultado no se pinta a B', async () => {
+    const { correct_answer: _c, explanation: _e, ...keyless } = question;
+    let resolverCorreccionA!: (r: unknown) => void;
+    rpc.mockImplementation((fn: string) => {
+      if (fn === 'begin_topic_session_v3') return Promise.resolve({ data: { session_id: 'server-topic-A', questions: [keyless] }, error: null });
+      if (fn === 'submit_question_answer_v3') return new Promise(resolve => { resolverCorreccionA = resolve; });
+      return Promise.resolve({ data: null, error: null });
+    });
+    const { rerender } = render(<StudyByTopic session={{ user: { id: 'user-1' } }} onNavigateHome={() => {}} />);
+    fireEvent.click(await screen.findByRole('checkbox'));
+    fireEvent.click(screen.getByText(/Empezar/));
+    fireEvent.click(await screen.findByText('Correcta'));
+    await waitFor(() => expect(resolverCorreccionA).toBeTypeOf('function'));
+    rerender(<StudyByTopic session={{ user: { id: 'user-2' } }} onNavigateHome={() => {}} />);
+    // B no hereda la tanda emitida para A: vuelve a la elección de temas.
+    await waitFor(() => expect(screen.queryByText('¿Pregunta de prueba?')).not.toBeInTheDocument());
+    await act(async () => resolverCorreccionA({ data: { acierto: true, correct_answer: 'Correcta', explanation: 'Porque sí.' }, error: null }));
+    expect(screen.queryByText('¿Pregunta de prueba?')).not.toBeInTheDocument();
+    expect(screen.queryByText('Porque sí.')).not.toBeInTheDocument();
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    expect(screen.getByText(/Empezar/)).toBeInTheDocument();
+    // La respuesta de A, ya confirmada, se guarda a nombre de A (su cola), nunca de B.
+    await waitFor(() => expect(saveAttemptToServer).toHaveBeenCalledTimes(1));
+    expect(saveAttemptToServer).toHaveBeenCalledWith(expect.objectContaining({ p_user_id: 'user-1' }));
+  });
+
+  it('#278: al renovar la tanda, el tiempo de respuesta empieza de cero (no arrastra el de la pregunta caducada)', async () => {
+    const { correct_answer: _c, explanation: _e, ...keyless } = question;
+    const T0 = Date.UTC(2026, 10, 13, 8, 0, 0);
+    const now = vi.spyOn(Date, 'now').mockReturnValue(T0);
+    let begins = 0;
+    rpc.mockImplementation((fn: string, args: any) => {
+      if (fn === 'begin_topic_session_v3') {
+        begins += 1;
+        return Promise.resolve({ data: { session_id: `server-topic-${begins}`, questions: [keyless] }, error: null });
+      }
+      if (fn === 'submit_question_answer_v3') {
+        return Promise.resolve(args.p_delivery_session_id === 'server-topic-1'
+          ? { data: null, error: { code: '42501', message: 'question_session_expired' } }
+          : { data: { acierto: true, correct_answer: 'Correcta', explanation: 'Porque sí.' }, error: null });
+      }
+      return Promise.resolve({ data: null, error: null });
+    });
+    render(<StudyByTopic session={{ user: { id: 'user-1' } }} onNavigateHome={() => {}} />);
+    fireEvent.click(await screen.findByRole('checkbox'));
+    fireEvent.click(screen.getByText(/Empezar/));
+    await screen.findByText('Correcta');
+    now.mockReturnValue(T0 + 90_000);            // 90 s mirando la pregunta de la tanda que caduca
+    fireEvent.click(screen.getByText('Correcta'));
+    fireEvent.click(await screen.findByRole('button', { name: /cargar preguntas nuevas/i }));
+    await waitFor(() => expect(begins).toBe(2));
+    await waitFor(() => expect(screen.queryByRole('alert')).not.toBeInTheDocument());
+    now.mockReturnValue(T0 + 95_000);            // 5 s con la pregunta de la tanda nueva
+    fireEvent.click(screen.getByText('Correcta'));
+    await waitFor(() => expect(saveAttemptToServer).toHaveBeenCalledTimes(1));
+    expect(saveAttemptToServer).toHaveBeenCalledWith(expect.objectContaining({ p_tiempo_ms: 5000 }));
   });
 
   it('sin cuenta no abre sesión', async () => {

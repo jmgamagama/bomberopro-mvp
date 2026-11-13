@@ -164,6 +164,8 @@ export default function App() {
   const [showLegacyImport, setShowLegacyImport] = useState(false);
   const questionsRequest = useRef(0);
   const trainingRequest = useRef(0);
+  // La tanda en curso vino de «Errores» (no del selector general): al caducar se recarga desde allí.
+  const trainingFromFixedPool = useRef(false);
   const authUserId = useRef<string | null>(null);
   
   // Current active train question and its selection reason
@@ -176,6 +178,10 @@ export default function App() {
   // Aciertos de la sesión actual (para la pantalla de celebración final).
   const [sessionCorrectCount, setSessionCorrectCount] = useState(0);
   const [sessionQuestionPool, setSessionQuestionPool] = useState<Question[]>([]);
+  // Tanda de la sesión en curso, siempre la última: permite saber si una corrección que vuelve tarde
+  // pertenece a una sesión que ya se sustituyó.
+  const sessionPoolRef = useRef<Question[]>(sessionQuestionPool);
+  sessionPoolRef.current = sessionQuestionPool;
   const [sessionCompleted, setSessionCompleted] = useState(false);
   const answeredQuestionIds = useRef<Set<string>>(new Set());
   // true cuando la sesión cargada ya se ha usado (se ha respondido algo): la siguiente sesión se pide de nuevo.
@@ -461,18 +467,19 @@ export default function App() {
     }
   }, [currentScreen, activeQuestion?.id]);
 
-  const startTrainingSession = async (targetId: string | null, fixedPool?: Question[]) => {
+  const startTrainingSession = async (targetId: string | null, fixedPool?: Question[], forceReload = false) => {
     const request = ++trainingRequest.current;
     const owner = authUserId.current;
     const isCurrentRequest = () => request === trainingRequest.current && owner === authUserId.current;
     let source = dbQuestions;
+    trainingFromFixedPool.current = !!fixedPool;
     // Cada sesión nueva pide una sesión nueva al servidor, para no repetir las mismas 20
     // y para incluir los repasos que hayan vencido desde la última vez.
     if (fixedPool) {
       source = fixedPool;
-    } else if (serverMode && !targetId && mustReloadAuthenticatedPool(
+    } else if (serverMode && (forceReload || (!targetId && mustReloadAuthenticatedPool(
       source, sessionCompletedRef.current, dbQuestionsLoading,
-    )) {
+    )))) {
       try {
         source = await loadServerSession();
         if (!isCurrentRequest()) return;
@@ -481,6 +488,9 @@ export default function App() {
         if (!isCurrentRequest()) return;
         console.error('No se pudo pedir una sesión nueva:', err);
         setDbQuestionsError(err instanceof Error ? err.message : 'No se pudo renovar la sesión.');
+        // La tanda anterior ya no sirve (completada, caducada o rechazada por el servidor): si se
+        // conservara, «Reintentar» podría volver a ella cuando el reloj del navegador no la ve vieja.
+        setDbQuestions([]);
         // Evita repetir silenciosamente el banco anterior tras un fallo.
         setSessionQuestionPool([]);
         setActiveQuestion(null);
@@ -567,10 +577,31 @@ export default function App() {
     serverCorrect?: boolean
   ) => {
     const now = getCurrentDate();
-    answeredQuestionIds.current.add(questionId);
     // C2: si la pregunta llegó sin clave, el acierto lo decide el servidor (check_answer).
     const isCorrect = serverCorrect ?? ((sessionQuestionPool.find(q => q.id === questionId)
       ?? dbQuestions.find(q => q.id === questionId))?.correct_answer === answer);
+    // La corrección puede volver cuando ya ha entrado otra cuenta (o ninguna). El progreso local y los
+    // contadores son de la cuenta actual: esta respuesta no se les aplica. Si era de una cuenta, queda en
+    // la cola de envío de ESA cuenta (se manda cuando vuelva a iniciar sesión), sin ligarla a una sesión
+    // de estudio que ya puede ser de otra persona.
+    const answerOwner = session?.user?.id ?? null;
+    if (!isDemoMode && answerOwner !== authUserId.current) {
+      const staleQuestion = sessionQuestionPool.find(q => q.id === questionId) ?? dbQuestions.find(q => q.id === questionId);
+      syncAttemptToSupabase(answerOwner, questionId, isCorrect, answer, confidence, responseTime, 'adaptativo', staleQuestion?.level, null);
+      const untouched = createNewMemoryState(microconceptId);
+      const preview = processAttempt(untouched, isCorrect, confidence, responseTime ?? MAX_VALID_RESPONSE_SECONDS, now);
+      return {
+        feedbackTitle: preview.feedbackTitle,
+        feedbackMessage: preview.feedbackMessage,
+        feedbackType: preview.feedbackType,
+        updatedState: preview.updatedState
+      };
+    }
+    // Misma cuenta, pero la sesión en la que se respondió ya se sustituyó por otra mientras se corregía:
+    // la respuesta (confirmada por el servidor) se guarda en el progreso de la cuenta, sin contar en la
+    // sesión nueva ni atribuirse a su sesión de estudio.
+    const staleSession = !isDemoMode && sessionQuestionPool !== sessionPoolRef.current;
+    if (!staleSession) answeredQuestionIds.current.add(questionId);
 
     // Load current memory state
     const currentStates = isDemoMode ? memoryStates : getSafeMemoryStates();
@@ -613,20 +644,22 @@ export default function App() {
       // Save to local database
       saveMemoryState(result.updatedState);
       saveAttempt(newAttempt);
-      sessionCompletedRef.current = true;
+      if (!staleSession) sessionCompletedRef.current = true;
       const answeredQuestion = sessionQuestionPool.find(q => q.id === questionId) ?? dbQuestions.find(q => q.id === questionId);
-      if (session?.user?.id && !trainingSessionOpened.current) {
+      if (session?.user?.id && !trainingSessionOpened.current && !staleSession) {
         trainingSessionOpened.current = true;
         void startStudySession(trainingSessionId.current, 'adaptativo', null, sessionQuestionPool.length || null);
       }
-      syncAttemptToSupabase(session?.user?.id, questionId, isCorrect, answer, confidence, responseTime, 'adaptativo', answeredQuestion?.level, trainingSessionId.current);
+      syncAttemptToSupabase(session?.user?.id, questionId, isCorrect, answer, confidence, responseTime, 'adaptativo', answeredQuestion?.level, staleSession ? null : trainingSessionId.current);
 
       // Reload state in memory
       const updatedStates = getSafeMemoryStates();
       setMemoryStates(updatedStates);
       setAttempts(getAttempts());
-      setSessionAnsweredCount(prev => prev + 1);
-      if (isCorrect) setSessionCorrectCount(prev => prev + 1);
+      if (!staleSession) {
+        setSessionAnsweredCount(prev => prev + 1);
+        if (isCorrect) setSessionCorrectCount(prev => prev + 1);
+      }
     }
 
     return {
@@ -1175,6 +1208,14 @@ export default function App() {
               handleNextQuestion();
             }}
             onNavigateHome={() => handleNavigate('dashboard')}
+            onSessionExpired={() => {
+              // La tanda caducó en el servidor (2 h): se pide otra; reintentar la misma nunca corregiría.
+              if (trainingFromFixedPool.current) { handleNavigate('errors'); return; }
+              // Se conserva el recorrido en curso. El entrenamiento de un solo concepto solo se abre desde
+              // el panel de errores sin cuenta (preguntas locales, sin tandas del servidor), así que con
+              // tandas v3 `activeConceptId` es siempre null y esto renueva la sesión general.
+              void startTrainingSession(activeConceptId, undefined, true);
+            }}
           />
         )}
 

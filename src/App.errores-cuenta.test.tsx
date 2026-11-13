@@ -83,6 +83,40 @@ describe('Repasar errores con cuenta', () => {
     expect(screen.getByText(/La fallaste: repásala/)).toBeInTheDocument();
   });
 
+  it('#278: si la tanda de errores caducó, vuelve a «Tus errores» con una tanda nueva y se puede responder', async () => {
+    errores = [fallo('11', '¿Pregunta fallada del tema 1?', 1)];
+    let sesiones = 0;
+    const base = rpcMock.getMockImplementation()!;
+    rpcMock.mockImplementation((fn: string, args: { p_delivery_session_id?: string }) => {
+      if (fn === 'begin_error_session_v3') {
+        sesiones += 1;
+        return reply({ ...deliverySession(errores as unknown[]), session_id: `error-session-${sesiones}` });
+      }
+      if (fn === 'submit_question_answer_v3') {
+        return args.p_delivery_session_id === 'error-session-1'
+          ? reply(null, { code: '42501', message: 'question_session_expired' })
+          : reply({ acierto: true, correct_answer: 'Correcta', explanation: '' });
+      }
+      return base(fn);
+    });
+    render(<App />);
+    fireEvent.click(await screen.findByRole('button', { name: /Repasar errores/ }));
+    fireEvent.click(await screen.findByRole('button', { name: /Repasar mis errores \(1\)/ }));
+    await screen.findByRole('heading', { name: '¿Pregunta fallada del tema 1?' });
+    fireEvent.click(screen.getByRole('button', { name: /Correcta/ }));
+    fireEvent.click(document.querySelector('#conf-btn-alta')!);
+    expect((await screen.findByRole('alert')).textContent).toMatch(/caducado/);
+    fireEvent.click(screen.getByRole('button', { name: /cargar preguntas nuevas/i }));
+    await waitFor(() => expect(sesiones).toBe(2));
+    fireEvent.click(await screen.findByRole('button', { name: /Repasar mis errores \(1\)/ }));
+    await screen.findByRole('heading', { name: '¿Pregunta fallada del tema 1?' });
+    fireEvent.click(screen.getByRole('button', { name: /Correcta/ }));
+    fireEvent.click(document.querySelector('#conf-btn-alta')!);
+    await screen.findByRole('button', { name: /siguiente pregunta|finalizar|ver resultado/i });
+    expect(rpcMock).toHaveBeenCalledWith('submit_question_answer_v3', expect.objectContaining({ p_delivery_session_id: 'error-session-2' }));
+    expect(sesiones).toBe(2);
+  });
+
   it('sin errores lo dice y ofrece estudiar', async () => {
     render(<App />);
     fireEvent.click(await screen.findByRole('button', { name: /Repasar errores/ }));

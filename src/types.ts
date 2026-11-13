@@ -62,6 +62,8 @@ export interface Question {
   id: string;
   /** Token opaco que vincula esta pregunta con una selección emitida por el servidor. */
   delivery_session_id?: string;
+  /** Momento (reloj del navegador, ms) en que llegó la selección. El servidor la caduca a las 2 h. */
+  delivery_issued_at?: number;
   microconcept_id: string;
   level: QuestionLevel;
   type: QuestionType;
