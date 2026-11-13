@@ -33,6 +33,18 @@ describe('tanda v3 con caducidad', () => {
     expect(isDeliveryStale({}, T0 + 10 * DELIVERY_SESSION_RENEW_AFTER_MS)).toBe(false);
   });
 
+  it('límites del reloj del navegador: después del umbral, reloj atrasado, adelantado y sin marca de tiempo', () => {
+    const q = { delivery_issued_at: T0 };
+    expect(isDeliveryStale(q, T0 + DELIVERY_SESSION_RENEW_AFTER_MS + 1)).toBe(true);
+    // Reloj atrasado (o que retrocede): la tanda no parece vieja; decide el rechazo del servidor.
+    expect(isDeliveryStale(q, T0 - 60 * 60 * 1000)).toBe(false);
+    // Reloj adelantado: se renueva antes de tiempo, que solo cuesta una petición.
+    expect(isDeliveryStale(q, T0 + 24 * 60 * 60 * 1000)).toBe(true);
+    // Sin marca (tanda de una versión anterior de la app) o con un valor no numérico: no se da por vieja.
+    expect(isDeliveryStale({ delivery_issued_at: undefined }, T0)).toBe(false);
+    expect(isDeliveryStale({ delivery_issued_at: 'ayer' as unknown as number }, T0 + 10 * DELIVERY_SESSION_RENEW_AFTER_MS)).toBe(false);
+  });
+
   it('una tanda sin completar se reutiliza mientras es reciente y se renueva al envejecer', () => {
     const pool = [{ id: '1', correct_answer: '', delivery_session_id: 's-1', delivery_issued_at: T0 }] as Question[];
     expect(mustReloadAuthenticatedPool(pool, false, false, T0 + 60 * 60 * 1000)).toBe(false);

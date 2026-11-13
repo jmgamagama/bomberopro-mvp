@@ -573,10 +573,27 @@ export default function App() {
     serverCorrect?: boolean
   ) => {
     const now = getCurrentDate();
-    answeredQuestionIds.current.add(questionId);
     // C2: si la pregunta llegó sin clave, el acierto lo decide el servidor (check_answer).
     const isCorrect = serverCorrect ?? ((sessionQuestionPool.find(q => q.id === questionId)
       ?? dbQuestions.find(q => q.id === questionId))?.correct_answer === answer);
+    // La corrección puede volver cuando ya ha entrado otra cuenta (o ninguna). El progreso local y los
+    // contadores son de la cuenta actual: esta respuesta no se les aplica. Si era de una cuenta, queda en
+    // la cola de envío de ESA cuenta (se manda cuando vuelva a iniciar sesión), sin ligarla a una sesión
+    // de estudio que ya puede ser de otra persona.
+    const answerOwner = session?.user?.id ?? null;
+    if (!isDemoMode && answerOwner !== authUserId.current) {
+      const staleQuestion = sessionQuestionPool.find(q => q.id === questionId) ?? dbQuestions.find(q => q.id === questionId);
+      syncAttemptToSupabase(answerOwner, questionId, isCorrect, answer, confidence, responseTime, 'adaptativo', staleQuestion?.level, null);
+      const untouched = createNewMemoryState(microconceptId);
+      const preview = processAttempt(untouched, isCorrect, confidence, responseTime ?? MAX_VALID_RESPONSE_SECONDS, now);
+      return {
+        feedbackTitle: preview.feedbackTitle,
+        feedbackMessage: preview.feedbackMessage,
+        feedbackType: preview.feedbackType,
+        updatedState: preview.updatedState
+      };
+    }
+    answeredQuestionIds.current.add(questionId);
 
     // Load current memory state
     const currentStates = isDemoMode ? memoryStates : getSafeMemoryStates();
@@ -1184,9 +1201,10 @@ export default function App() {
             onSessionExpired={() => {
               // La tanda caducó en el servidor (2 h): se pide otra; reintentar la misma nunca corregiría.
               if (trainingFromFixedPool.current) { handleNavigate('errors'); return; }
-              // Una tanda nueva de 10 no garantiza preguntas del concepto elegido: se sigue con la sesión general.
-              setActiveConceptId(null);
-              void startTrainingSession(null, undefined, true);
+              // Se conserva el recorrido en curso. El entrenamiento de un solo concepto solo se abre desde
+              // el panel de errores sin cuenta (preguntas locales, sin tandas del servidor), así que con
+              // tandas v3 `activeConceptId` es siempre null y esto renueva la sesión general.
+              void startTrainingSession(activeConceptId, undefined, true);
             }}
           />
         )}

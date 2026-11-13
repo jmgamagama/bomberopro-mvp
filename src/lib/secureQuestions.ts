@@ -44,8 +44,10 @@ export function gradeLocally(q: Question, answer: string): AnswerCheck {
 }
 
 /**
- * El servidor caduca cada selección a las 2 h (migración 52, `expires_at`). Se renueva antes,
- * con 10 min de margen para no servir una tanda que caduque mientras el alumno responde.
+ * El servidor caduca cada selección a las 2 h (migración 52, `expires_at`). El cliente pide otra a los
+ * 110 min de haberla recibido, medidos con el reloj del navegador. Es solo una ayuda para no empezar
+ * con una tanda vieja: NO garantiza que la tanda siga vigente (el reloj puede estar mal o la tanda
+ * caducar a mitad). Quien decide es el servidor; su rechazo se atiende con `isQuestionSessionExpired`.
  */
 export const DELIVERY_SESSION_RENEW_AFTER_MS = 110 * 60 * 1000;
 

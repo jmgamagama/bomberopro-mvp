@@ -180,6 +180,25 @@ const restart = () => {
   setSelected([]);
 };
 
+// Las tandas se emiten para una cuenta. Si entra otra (o se cierra la sesión) con la pantalla abierta,
+// la tanda anterior se descarta: ni se muestra a la cuenta nueva ni recibe correcciones tardías.
+const userId = session?.user?.id ?? null;
+const lastUserId = useRef(userId);
+useEffect(() => {
+  if (lastUserId.current === userId) return;
+  lastUserId.current = userId;
+  batchRef.current += 1;
+  answeringRef.current = false;
+  sessionIdRef.current = null;
+  setCheckError(null);
+  setSessionExpired(false);
+  setAnswer('');
+  setAnswered(false);
+  setCorrectCount(0);
+  restart();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [userId]);
+
 const h = React.createElement;
 
 if (!started) {

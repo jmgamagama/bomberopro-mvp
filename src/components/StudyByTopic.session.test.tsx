@@ -169,6 +169,32 @@ describe('StudyByTopic registra la sesión', () => {
     await waitFor(() => expect(screen.queryByRole('alert')).not.toBeInTheDocument());
   });
 
+  it('#278: si entra otra cuenta con una corrección en vuelo, la tanda de A desaparece y su resultado no se pinta a B', async () => {
+    const { correct_answer: _c, explanation: _e, ...keyless } = question;
+    let resolverCorreccionA!: (r: unknown) => void;
+    rpc.mockImplementation((fn: string) => {
+      if (fn === 'begin_topic_session_v3') return Promise.resolve({ data: { session_id: 'server-topic-A', questions: [keyless] }, error: null });
+      if (fn === 'submit_question_answer_v3') return new Promise(resolve => { resolverCorreccionA = resolve; });
+      return Promise.resolve({ data: null, error: null });
+    });
+    const { rerender } = render(<StudyByTopic session={{ user: { id: 'user-1' } }} onNavigateHome={() => {}} />);
+    fireEvent.click(await screen.findByRole('checkbox'));
+    fireEvent.click(screen.getByText(/Empezar/));
+    fireEvent.click(await screen.findByText('Correcta'));
+    await waitFor(() => expect(resolverCorreccionA).toBeTypeOf('function'));
+    rerender(<StudyByTopic session={{ user: { id: 'user-2' } }} onNavigateHome={() => {}} />);
+    // B no hereda la tanda emitida para A: vuelve a la elección de temas.
+    await waitFor(() => expect(screen.queryByText('¿Pregunta de prueba?')).not.toBeInTheDocument());
+    await act(async () => resolverCorreccionA({ data: { acierto: true, correct_answer: 'Correcta', explanation: 'Porque sí.' }, error: null }));
+    expect(screen.queryByText('¿Pregunta de prueba?')).not.toBeInTheDocument();
+    expect(screen.queryByText('Porque sí.')).not.toBeInTheDocument();
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    expect(screen.getByText(/Empezar/)).toBeInTheDocument();
+    // La respuesta de A, ya confirmada, se guarda a nombre de A (su cola), nunca de B.
+    await waitFor(() => expect(saveAttemptToServer).toHaveBeenCalledTimes(1));
+    expect(saveAttemptToServer).toHaveBeenCalledWith(expect.objectContaining({ p_user_id: 'user-1' }));
+  });
+
   it('sin cuenta no abre sesión', async () => {
     render(<StudyByTopic session={null} onNavigateHome={() => {}} />);
     fireEvent.click(await screen.findByRole('checkbox'));
