@@ -68,7 +68,8 @@ export default function TrainScreen({
   // Mientras el servidor corrige no se puede cambiar de opción: la corrección y lo que se ve irían a distinta respuesta.
   const [isChecking, setIsChecking] = useState(false);
   // Cronómetro de tiempo ACTIVO: se pausa con la pestaña oculta, mientras el servidor corrige y al responder.
-  const timer = useActiveTimer(question?.id, { running: !isAnswered && !isChecking, display: true });
+  // La tanda forma parte de la clave: si la tanda nueva trae la misma pregunta, el tiempo empieza de cero.
+  const timer = useActiveTimer(`${question?.id ?? ''}|${question?.delivery_session_id ?? ''}`, { running: !isAnswered && !isChecking, display: true });
   const [timerVisible, setTimerVisible] = useState<boolean>(() => {
     try { return window.localStorage.getItem('bomberopro_timer_visible') !== 'false'; } catch { return true; }
   });

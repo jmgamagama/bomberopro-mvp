@@ -195,6 +195,38 @@ describe('StudyByTopic registra la sesión', () => {
     expect(saveAttemptToServer).toHaveBeenCalledWith(expect.objectContaining({ p_user_id: 'user-1' }));
   });
 
+  it('#278: al renovar la tanda, el tiempo de respuesta empieza de cero (no arrastra el de la pregunta caducada)', async () => {
+    const { correct_answer: _c, explanation: _e, ...keyless } = question;
+    const T0 = Date.UTC(2026, 10, 13, 8, 0, 0);
+    const now = vi.spyOn(Date, 'now').mockReturnValue(T0);
+    let begins = 0;
+    rpc.mockImplementation((fn: string, args: any) => {
+      if (fn === 'begin_topic_session_v3') {
+        begins += 1;
+        return Promise.resolve({ data: { session_id: `server-topic-${begins}`, questions: [keyless] }, error: null });
+      }
+      if (fn === 'submit_question_answer_v3') {
+        return Promise.resolve(args.p_delivery_session_id === 'server-topic-1'
+          ? { data: null, error: { code: '42501', message: 'question_session_expired' } }
+          : { data: { acierto: true, correct_answer: 'Correcta', explanation: 'Porque sí.' }, error: null });
+      }
+      return Promise.resolve({ data: null, error: null });
+    });
+    render(<StudyByTopic session={{ user: { id: 'user-1' } }} onNavigateHome={() => {}} />);
+    fireEvent.click(await screen.findByRole('checkbox'));
+    fireEvent.click(screen.getByText(/Empezar/));
+    await screen.findByText('Correcta');
+    now.mockReturnValue(T0 + 90_000);            // 90 s mirando la pregunta de la tanda que caduca
+    fireEvent.click(screen.getByText('Correcta'));
+    fireEvent.click(await screen.findByRole('button', { name: /cargar preguntas nuevas/i }));
+    await waitFor(() => expect(begins).toBe(2));
+    await waitFor(() => expect(screen.queryByRole('alert')).not.toBeInTheDocument());
+    now.mockReturnValue(T0 + 95_000);            // 5 s con la pregunta de la tanda nueva
+    fireEvent.click(screen.getByText('Correcta'));
+    await waitFor(() => expect(saveAttemptToServer).toHaveBeenCalledTimes(1));
+    expect(saveAttemptToServer).toHaveBeenCalledWith(expect.objectContaining({ p_tiempo_ms: 5000 }));
+  });
+
   it('sin cuenta no abre sesión', async () => {
     render(<StudyByTopic session={null} onNavigateHome={() => {}} />);
     fireEvent.click(await screen.findByRole('checkbox'));

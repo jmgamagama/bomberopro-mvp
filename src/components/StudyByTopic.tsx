@@ -49,7 +49,8 @@ export default function StudyByTopic({ session, onNavigateHome, onOpenMaterial }
   const [answer, setAnswer] = useState('');
   const [answered, setAnswered] = useState(false);
   // Tiempo ACTIVO de la pregunta (se pausa con la pestaña oculta y al responder; ver utils/activeTimer).
-  const timer = useActiveTimer(`${started}-${idx}`, { running: started && !answered });
+  // La tanda forma parte de la clave: al renovarla en la misma posición, el tiempo empieza de cero.
+  const timer = useActiveTimer(`${started}-${idx}-${questions[idx]?.delivery_session_id ?? ''}`, { running: started && !answered });
   const [correctCount, setCorrectCount] = useState(0);
   // Sesión de estudio en curso (para medir sesiones terminadas). null si no hay cuenta.
   const sessionIdRef = useRef<string | null>(null);
