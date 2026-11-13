@@ -1183,8 +1183,10 @@ export default function App() {
             onNavigateHome={() => handleNavigate('dashboard')}
             onSessionExpired={() => {
               // La tanda caducó en el servidor (2 h): se pide otra; reintentar la misma nunca corregiría.
-              if (trainingFromFixedPool.current) handleNavigate('errors');
-              else void startTrainingSession(activeConceptId, undefined, true);
+              if (trainingFromFixedPool.current) { handleNavigate('errors'); return; }
+              // Una tanda nueva de 10 no garantiza preguntas del concepto elegido: se sigue con la sesión general.
+              setActiveConceptId(null);
+              void startTrainingSession(null, undefined, true);
             }}
           />
         )}

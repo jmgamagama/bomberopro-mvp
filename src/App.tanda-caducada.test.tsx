@@ -6,6 +6,7 @@
 // y, si el servidor la rechaza por caducada, se ofrece cargar otra.
 
 import { act, fireEvent, render, screen, waitFor, cleanup } from '@testing-library/react';
+import { StrictMode } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import './test/setup';
 
@@ -164,6 +165,96 @@ describe('Entrenar con una tanda v3 caducada', () => {
     // begins: 1 (al abrir) + 1 (fallida) + 1 (reintento, mock base devuelve la «tanda nueva»)
     await waitFor(() => expect(begins).toBe(3));
     expect(await screen.findByRole('heading', { name: /Pregunta de la tanda nueva/ })).toBeInTheDocument();
+  });
+
+  it('sesión vigente: a los 30 min se reutiliza la tanda y la respuesta se corrige con ella', async () => {
+    const now = vi.spyOn(Date, 'now').mockReturnValue(T0);
+    render(<App />);
+    await waitFor(() => expect(begins).toBe(1));
+    now.mockReturnValue(T0 + 30 * 60 * 1000);
+    await entrarEnEntrenar();
+    expect(await screen.findByRole('heading', { name: /Pregunta de la primera tanda/ })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: first.correct_answer }));
+    fireEvent.click(document.querySelector('#conf-btn-alta')!);
+    await screen.findByRole('button', { name: /siguiente pregunta/i });
+    expect(begins).toBe(1);
+    expect(rpcMock).toHaveBeenCalledWith('submit_question_answer_v3', expect.objectContaining({ p_delivery_session_id: 'tanda-1' }));
+    expect(screen.queryByRole('button', { name: /cargar preguntas nuevas/i })).not.toBeInTheDocument();
+  });
+
+  it('un error de red no se trata como caducidad: ni ofrece ni pide otra tanda, y el reintento corrige la misma', async () => {
+    const base = rpcMock.getMockImplementation()!;
+    let redCaida = true;
+    rpcMock.mockImplementation((fn: string, args: unknown) => {
+      if (fn === 'submit_question_answer_v3' && redCaida) {
+        return Promise.resolve({ data: null, error: { message: 'TypeError: Failed to fetch' } });
+      }
+      return base(fn, args);
+    });
+    render(<App />);
+    await waitFor(() => expect(begins).toBe(1));
+    await entrarEnEntrenar();
+    expect(await screen.findByRole('heading', { name: /Pregunta de la primera tanda/ })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: first.correct_answer }));
+    fireEvent.click(document.querySelector('#conf-btn-alta')!);
+    const alert = await screen.findByRole('alert');
+    expect(alert.textContent).toMatch(/conexión/);
+    expect(screen.queryByRole('button', { name: /cargar preguntas nuevas/i })).not.toBeInTheDocument();
+    expect(begins).toBe(1);
+    redCaida = false;
+    fireEvent.click(document.querySelector('#conf-btn-alta')!);
+    await screen.findByRole('button', { name: /siguiente pregunta/i });
+    expect(begins).toBe(1);
+    const submits = rpcMock.mock.calls.filter(([fn]) => fn === 'submit_question_answer_v3');
+    expect(submits.every(([, a]) => (a as { p_delivery_session_id: string }).p_delivery_session_id === 'tanda-1')).toBe(true);
+  });
+
+  it('respuesta tardía de la tanda antigua: no pinta su error sobre la tanda nueva ni bloquea responderla', async () => {
+    const base = rpcMock.getMockImplementation()!;
+    let retener = false;
+    let resolverTardia!: (r: unknown) => void;
+    rpcMock.mockImplementation((fn: string, args: { p_delivery_session_id?: string }) => {
+      if (fn === 'submit_question_answer_v3' && retener && args.p_delivery_session_id === 'tanda-1') {
+        return new Promise(resolve => { resolverTardia = resolve; });
+      }
+      return base(fn, args);
+    });
+    render(<App />);
+    await waitFor(() => expect(begins).toBe(1));
+    await entrarEnEntrenar();
+    expect(await screen.findByRole('heading', { name: /Pregunta de la primera tanda/ })).toBeInTheDocument();
+    expireOnServer = true;
+    fireEvent.click(screen.getByRole('button', { name: first.correct_answer }));
+    fireEvent.click(document.querySelector('#conf-btn-alta')!);
+    await screen.findByRole('button', { name: /cargar preguntas nuevas/i });
+    // El alumno reintenta (queda en vuelo) y, sin esperar, pide preguntas nuevas.
+    retener = true;
+    fireEvent.click(document.querySelector('#conf-btn-alta')!);
+    await waitFor(() => expect(resolverTardia).toBeTypeOf('function'));
+    fireEvent.click(screen.getByRole('button', { name: /cargar preguntas nuevas/i }));
+    expect(await screen.findByRole('heading', { name: /Pregunta de la tanda nueva/ })).toBeInTheDocument();
+    await act(async () => resolverTardia({ data: null, error: { code: '42501', message: 'question_session_expired' } }));
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /cargar preguntas nuevas/i })).not.toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Pregunta de la tanda nueva/ })).toBeInTheDocument();
+    // La tanda nueva se responde con su propia sesión y se registra una sola vez.
+    fireEvent.click(screen.getByRole('button', { name: second.correct_answer }));
+    fireEvent.click(document.querySelector('#conf-btn-alta')!);
+    await screen.findByRole('button', { name: /siguiente pregunta/i });
+    const submits = rpcMock.mock.calls.filter(([fn]) => fn === 'submit_question_answer_v3').map(([, a]) => (a as { p_delivery_session_id: string }).p_delivery_session_id);
+    expect(submits[submits.length - 1]).toBe('tanda-2');
+    await waitFor(() => expect(rpcMock.mock.calls.filter(([fn]) => fn === 'record_attempt_v2')).toHaveLength(1));
+  });
+
+  it('con StrictMode (como en main.tsx) una respuesta normal se corrige y se muestra', async () => {
+    render(<StrictMode><App /></StrictMode>);
+    await waitFor(() => expect(begins).toBeGreaterThanOrEqual(1));
+    await entrarEnEntrenar();
+    await screen.findByRole('heading', { name: /Pregunta de la/ });
+    const opcion = screen.queryByRole('button', { name: first.correct_answer }) ?? screen.getByRole('button', { name: second.correct_answer });
+    fireEvent.click(opcion);
+    fireEvent.click(document.querySelector('#conf-btn-alta')!);
+    await screen.findByRole('button', { name: /siguiente pregunta/i });
   });
 
   it('cambio de cuenta durante la renovación: la tanda tardía de A nunca llega a B', async () => {

@@ -58,6 +58,8 @@ export default function StudyByTopic({ session, onNavigateHome, onOpenMaterial }
   const [checkError, setCheckError] = useState<string | null>(null);
   // La tanda caducó en el servidor (2 h): se ofrece cargar otra con los mismos temas.
   const [sessionExpired, setSessionExpired] = useState(false);
+  // Cambia con cada tanda cargada: una corrección que vuelve tarde de la tanda anterior no toca la nueva.
+  const batchRef = useRef(0);
 
 useEffect(() => {
   // Con lista guardada se pinta al instante; se actualiza por detrás (lib/temasCache).
@@ -83,8 +85,11 @@ const startStudy = async () => {
     data = await fetchQuestionSession(supabase, 'begin_topic_session_v3', { p_topic_ids: selected, p_limit: 10 });
   } catch (err) {
     console.error('No se pudieron cargar las preguntas del tema:', err);
+    // Solo al renovar una tanda caducada: sin aviso, el botón parecería no hacer nada.
+    if (started) setCheckError('No se pudieron cargar preguntas nuevas. Revisa la conexión y vuelve a intentarlo.');
   }
   if (data) {
+    batchRef.current += 1;
     setCheckError(null);
     setSessionExpired(false);
     answeringRef.current = false;
@@ -122,22 +127,30 @@ const confirmAnswer = async (chosen: string) => {
   // Se mide antes de esperar al servidor; más de 2 min activos = sin dato (null).
   const responseMs = validResponseMs(timer.getElapsedMs());
   let isCorrect = false;
+  const batch = batchRef.current;
   try {
     const check = await checkAnswer(supabase, currentQuestion, chosen);
     isCorrect = check.correct;
     const answeredIdx = idx;
-    setQuestions(prev => prev.map((q, i) => (i === answeredIdx ? withRevealedKey(q, check) : q)));
+    if (batchRef.current === batch) {
+      setQuestions(prev => prev.map((q, i) => (i === answeredIdx ? withRevealedKey(q, check) : q)));
+    }
   } catch (err) {
     console.error('No se pudo corregir la respuesta:', err);
+    // Respuesta tardía de una tanda ya sustituida: su error no pertenece a las preguntas en pantalla.
+    if (batchRef.current !== batch) return;
     setCheckError(describeCheckError(err));
     setSessionExpired(isQuestionSessionExpired(err));
     setAnswer('');
     answeringRef.current = false;
     return;
   }
-  setCheckError(null);
-  if (isCorrect) setCorrectCount(c => c + 1);
-  setAnswered(true);
+  // Si la tanda cambió mientras se corregía, la respuesta confirmada se guarda igual, sin tocar la pantalla.
+  if (batchRef.current === batch) {
+    setCheckError(null);
+    if (isCorrect) setCorrectCount(c => c + 1);
+    setAnswered(true);
+  }
   if (supabase && session?.user?.id) {
     await saveAttemptToServer({
       p_user_id: session.user.id,

@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 // Estudio por temas: cada sesión abre una sesión en el servidor, todas sus respuestas llevan ese id
 // y al llegar a resultados se cierra una sola vez.
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import '../test/setup';
 
@@ -104,6 +104,69 @@ describe('StudyByTopic registra la sesión', () => {
     fireEvent.click(screen.getByText('Correcta'));
     await waitFor(() => expect(saveAttemptToServer).toHaveBeenCalledTimes(1));
     expect(rpc).toHaveBeenCalledWith('submit_question_answer_v3', expect.objectContaining({ p_delivery_session_id: 'server-topic-2' }));
+  });
+
+  it('#278: una respuesta tardía de la tanda antigua no pinta su error sobre la tanda nueva', async () => {
+    const { correct_answer: _c, explanation: _e, ...keyless } = question;
+    let begins = 0;
+    let submits = 0;
+    let resolverTardia!: (r: unknown) => void;
+    rpc.mockImplementation((fn: string, args: any) => {
+      if (fn === 'begin_topic_session_v3') {
+        begins += 1;
+        return Promise.resolve({ data: { session_id: `server-topic-${begins}`, questions: [keyless] }, error: null });
+      }
+      if (fn === 'submit_question_answer_v3') {
+        if (args.p_delivery_session_id !== 'server-topic-1') {
+          return Promise.resolve({ data: { acierto: true, correct_answer: 'Correcta', explanation: 'Porque sí.' }, error: null });
+        }
+        submits += 1;
+        if (submits === 1) return Promise.resolve({ data: null, error: { code: '42501', message: 'question_session_expired' } });
+        return new Promise(resolve => { resolverTardia = resolve; });
+      }
+      return Promise.resolve({ data: null, error: null });
+    });
+    render(<StudyByTopic session={{ user: { id: 'user-1' } }} onNavigateHome={() => {}} />);
+    fireEvent.click(await screen.findByRole('checkbox'));
+    fireEvent.click(screen.getByText(/Empezar/));
+    fireEvent.click(await screen.findByText('Correcta'));
+    await screen.findByRole('button', { name: /cargar preguntas nuevas/i });
+    fireEvent.click(screen.getByText('Correcta'));
+    await waitFor(() => expect(resolverTardia).toBeTypeOf('function'));
+    fireEvent.click(screen.getByRole('button', { name: /cargar preguntas nuevas/i }));
+    await waitFor(() => expect(begins).toBe(2));
+    await waitFor(() => expect(screen.queryByRole('alert')).not.toBeInTheDocument());
+    await act(async () => resolverTardia({ data: null, error: { code: '42501', message: 'question_session_expired' } }));
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /cargar preguntas nuevas/i })).not.toBeInTheDocument();
+    fireEvent.click(screen.getByText('Correcta'));
+    await waitFor(() => expect(saveAttemptToServer).toHaveBeenCalledTimes(1));
+    expect(rpc).toHaveBeenLastCalledWith('submit_question_answer_v3', expect.objectContaining({ p_delivery_session_id: 'server-topic-2' }));
+  });
+
+  it('#278: si falla la carga de la tanda nueva, lo dice y deja volver a intentarlo', async () => {
+    const { correct_answer: _c, explanation: _e, ...keyless } = question;
+    let begins = 0;
+    rpc.mockImplementation((fn: string) => {
+      if (fn === 'begin_topic_session_v3') {
+        begins += 1;
+        return Promise.resolve(begins === 2
+          ? { data: null, error: { message: 'TypeError: Failed to fetch' } }
+          : { data: { session_id: `server-topic-${begins}`, questions: [keyless] }, error: null });
+      }
+      if (fn === 'submit_question_answer_v3') return Promise.resolve({ data: null, error: { code: '42501', message: 'question_session_expired' } });
+      return Promise.resolve({ data: null, error: null });
+    });
+    render(<StudyByTopic session={{ user: { id: 'user-1' } }} onNavigateHome={() => {}} />);
+    fireEvent.click(await screen.findByRole('checkbox'));
+    fireEvent.click(screen.getByText(/Empezar/));
+    fireEvent.click(await screen.findByText('Correcta'));
+    fireEvent.click(await screen.findByRole('button', { name: /cargar preguntas nuevas/i }));
+    await waitFor(() => expect(begins).toBe(2));
+    expect((await screen.findByRole('alert')).textContent).toMatch(/no se pudieron cargar preguntas nuevas/i);
+    fireEvent.click(screen.getByRole('button', { name: /cargar preguntas nuevas/i }));
+    await waitFor(() => expect(begins).toBe(3));
+    await waitFor(() => expect(screen.queryByRole('alert')).not.toBeInTheDocument());
   });
 
   it('sin cuenta no abre sesión', async () => {

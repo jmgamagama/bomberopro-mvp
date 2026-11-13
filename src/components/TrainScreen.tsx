@@ -85,6 +85,15 @@ export default function TrainScreen({
   const [checkError, setCheckError] = useState<string | null>(null);
   const [sessionExpired, setSessionExpired] = useState(false);
   const checkingRef = useRef(false);
+  // Pregunta y tanda en pantalla: una corrección que vuelve tarde solo se aplica si siguen siendo las mismas.
+  const questionKey = question ? `${question.id}|${question.delivery_session_id ?? ''}` : '';
+  const questionKeyRef = useRef(questionKey);
+  questionKeyRef.current = questionKey;
+  const mountedRef = useRef(true);
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => { mountedRef.current = false; };
+  }, []);
 
   // Feedback states
   const [feedback, setFeedback] = useState<{
@@ -161,21 +170,30 @@ export default function TrainScreen({
     // Se mide antes de esperar al servidor: la red no cuenta como tiempo del alumno.
     const elapsed = validResponseSeconds(timer.getElapsedMs());
     let check: AnswerCheck;
+    const submittedKey = questionKey;
+    const isStillCurrent = () => mountedRef.current && questionKeyRef.current === submittedKey;
     try {
       check = await checkAnswer(supabase, question, selectedAnswer);
     } catch (err) {
       console.error('No se pudo corregir la respuesta:', err);
+      // Respuesta tardía de una pregunta o tanda ya sustituida (o pantalla cerrada): su error no es de esta.
+      if (!isStillCurrent()) return;
       setCheckError(describeCheckError(err));
       setSessionExpired(isQuestionSessionExpired(err));
       checkingRef.current = false;
       setIsChecking(false);
       return;
     }
-    setCheckError(null);
-    setSessionExpired(false);
-    setIsChecking(false);
-    setRevealed(check);
-    setIsAnswered(true);
+    // Si la pregunta cambió mientras se corregía, la respuesta confirmada se registra igual (como antes),
+    // pero su clave y su resultado no se pintan sobre la pregunta que hay ahora en pantalla.
+    const stillCurrent = isStillCurrent();
+    if (stillCurrent) {
+      setCheckError(null);
+      setSessionExpired(false);
+      setIsChecking(false);
+      setRevealed(check);
+      setIsAnswered(true);
+    }
 
     const result = onAnswer(
       question.id,
@@ -187,6 +205,7 @@ export default function TrainScreen({
       check.correct
     );
 
+    if (!stillCurrent) return;
     setFeedback({
       title: result.feedbackTitle,
       message: result.feedbackMessage,
