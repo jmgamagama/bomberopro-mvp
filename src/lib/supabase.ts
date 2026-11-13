@@ -14,6 +14,7 @@ import './authRetorno';
  * pero ya no bloquea el primer pintado. `getSupabaseClient()` da el cliente real.
  */
 import type { SupabaseClient } from '@supabase/supabase-js';
+import { wrapAuthFetch } from './authSessionGuard';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
@@ -26,7 +27,7 @@ let loading = false;
 export function getSupabaseClient(): Promise<SupabaseClient> {
   if (!loading) {
     loading = true;
-    import('@supabase/supabase-js').then(({ createClient }) => resolveClient(createClient(supabaseUrl, supabaseAnonKey)), rejectClient);
+    import('@supabase/supabase-js').then(({ createClient }) => resolveClient(createClient(supabaseUrl, supabaseAnonKey, { global: { fetch: wrapAuthFetch() } })), rejectClient);
   }
   return clientReady;
 }
