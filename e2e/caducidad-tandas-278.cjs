@@ -6,6 +6,8 @@
 // propio reloj. Ese contrato está verificado aparte contra las funciones reales en
 // supabase/tests/caducidad_tandas_278.pglite.mjs.
 // Reloj: el del navegador (page.clock) y el del simulador avanzan juntos, sin esperar 2 h.
+// Cuentas: A y B ficticias; el simulador decide la cuenta por el token de cada petición. El cambio A→B se
+// provoca con el mismo canal entre pestañas que usa supabase-js (BroadcastChannel), sin pasar por el formulario.
 //
 // Uso:
 //   VITE_SUPABASE_URL=http://127.0.0.1:9 VITE_SUPABASE_ANON_KEY=e2e npx vite build && npx vite preview --port 4316 &
@@ -16,28 +18,31 @@ const res = []; const check = (n, ok, d = '') => { res.push(ok); console.log(`${
 const T0 = Date.UTC(2026, 10, 13, 8, 0, 0);
 const H = 3600 * 1000;
 const USER = { id: '00000000-0000-4000-8000-00000000000a', email: 'a@example.test', aud: 'authenticated', role: 'authenticated', app_metadata: {}, user_metadata: {} };
-const session = () => ({ access_token: 'e2e', refresh_token: 'r', token_type: 'bearer', expires_in: 864000, expires_at: Math.floor(T0 / 1000) + 864000, user: USER });
+const USER_B = { ...USER, id: '00000000-0000-4000-8000-00000000000b', email: 'b@example.test' };
+const session = (user = USER) => ({ access_token: user === USER ? 'e2e' : 'e2e-b', refresh_token: 'r', token_type: 'bearer', expires_in: 864000, expires_at: Math.floor(T0 / 1000) + 864000, user });
 
 function backend() {
   const s = { now: T0, tandas: new Map(), begins: { study: 0, topic: 0, errors: 0 }, submits: [], attempts: new Map(), n: 0,
-    topicArgs: [], failNextBegin: false, abortNextSubmit: false, holdNextSubmit: false, held: [] };
+    topicArgs: [], saves: [], failNextBegin: false, abortNextSubmit: false, holdNextSubmit: false, held: [] };
   const pregunta = (tanda, k, modo) => ({
     id: String(tanda * 100 + k), microconcept_id: 'tema-1', level: 'N1', type: 'test_literal',
     question: `Tanda ${tanda} (${modo}) pregunta ${k}`, options: [`Correcta ${tanda}-${k}`, `Mala uno ${tanda}-${k}`, `Mala dos ${tanda}-${k}`],
     fuente: 'Fuente ficticia', tema: { numero: 1, titulo: 'Tema ficticio' }, motivo: modo === 'errors' ? 'error' : 'nueva', fallado_at: '2026-11-01T10:00:00Z',
   });
-  const begin = (modo) => {
+  const begin = (modo, owner) => {
     s.n += 1; s.begins[modo] += 1;
     const id = `00000000-0000-4000-8000-${String(s.n).padStart(12, '0')}`;
     const questions = [1, 2].map((k) => pregunta(s.n, k, modo));
-    s.tandas.set(id, { n: s.n, modo, expiresAt: s.now + 2 * H, ids: questions.map((q) => q.id), recibos: new Map() });
+    s.tandas.set(id, { n: s.n, modo, owner, expiresAt: s.now + 2 * H, ids: questions.map((q) => q.id), recibos: new Map() });
     return { session_id: id, questions: questions.map((q) => ({ ...q, delivery_session_id: id })) };
   };
   const err = (route, status, code, message) => route.fulfill({ status, json: { code, message, details: null, hint: null } });
   s.handle = async (route) => {
     const req = route.request(); const url = req.url();
-    if (url.includes('/auth/v1/user')) return route.fulfill({ json: USER });
-    if (url.includes('/auth/v1/token')) return route.fulfill({ json: session() });
+    // La cuenta la decide el token de la petición, como en el servidor real.
+    const owner = (req.headers().authorization || '').endsWith('e2e-b') ? USER_B.id : USER.id;
+    if (url.includes('/auth/v1/user')) return route.fulfill({ json: owner === USER_B.id ? USER_B : USER });
+    if (url.includes('/auth/v1/token')) return route.fulfill({ json: session(owner === USER_B.id ? USER_B : USER) });
     if (url.includes('/rest/v1/topics')) return route.fulfill({ json: [{ id: 1, numero: 1, nombre: 'Tema ficticio' }] });
     const m = url.match(/\/rpc\/([a-z0-9_]+)/); const fn = m && m[1];
     const body = req.method() === 'POST' ? (req.postDataJSON() || {}) : {};
@@ -45,14 +50,14 @@ function backend() {
     if (modo) {
       if (modo === 'topic') s.topicArgs.push(body.p_topic_ids);
       if (s.failNextBegin) { s.failNextBegin = false; s.begins[modo] += 1; return err(route, 500, 'XX000', 'selector no disponible'); }
-      return route.fulfill({ json: begin(modo) });
+      return route.fulfill({ json: begin(modo, owner) });
     }
     if (fn === 'submit_question_answer_v3') {
       if (s.abortNextSubmit) { s.abortNextSubmit = false; return route.abort('failed'); }
       const answer = () => {
         const t = s.tandas.get(body.p_delivery_session_id);
         s.submits.push({ tanda: t ? t.n : null, q: body.p_question_id });
-        if (!t) return err(route, 403, '42501', 'question_session_not_found');
+        if (!t || t.owner !== owner) return err(route, 403, '42501', 'question_session_not_found');
         if (!t.ids.includes(String(body.p_question_id))) return err(route, 403, '42501', 'question_not_in_session');
         const previo = t.recibos.get(String(body.p_question_id));
         if (previo) return route.fulfill({ json: { ...previo, status: 'duplicate' } });
@@ -68,6 +73,7 @@ function backend() {
     if (fn === 'record_attempt_v2') {
       const k = body.p_client_attempt_id; const dup = s.attempts.has(k);
       if (!dup) s.attempts.set(k, body.p_question_id);
+      s.saves.push({ token: owner, user: body.p_user_id, q: body.p_question_id, session: body.p_session_id });
       return route.fulfill({ json: { status: dup ? 'duplicate' : 'saved', attempt_id: s.attempts.size } });
     }
     if (fn === 'get_concept_progress') return route.fulfill({ json: { total: 5, por_aprender: 5, aprendiendo: 0, debil: 0, dominado: 0, consolidado: 0, vencidos: 0, dominio_ponderado: null } });
@@ -268,6 +274,76 @@ async function abrir(browser) {
     await t.responder(`Correcta ${n2}-${k2}`);
     await page.getByRole('button', { name: /siguiente pregunta/i }).waitFor();
     check('Errores · la tanda nueva se corrige', n2 !== n1 && srv.submits[srv.submits.length - 1].tanda === Number(n2));
+    await t.ctx.close();
+  }
+
+  // ── 8. Éxito tardío tras sustituir la tanda (misma cuenta) ────────────────────────────────────
+  {
+    const t = await abrir(browser); const { srv, page } = t;
+    await t.entrenar();
+    await page.getByRole('heading', { name: /Tanda 1 \(study\) pregunta/ }).waitFor();
+    const k = (await page.getByRole('heading', { name: /Tanda 1 \(study\) pregunta/ }).innerText()).match(/pregunta (\d)/)[1];
+    srv.holdNextSubmit = true;
+    await t.responder(`Correcta 1-${k}`);                    // el servidor la recibe a tiempo; la respuesta tarda
+    await page.waitForTimeout(300);
+    await t.inicio();
+    await t.avanzar(111 * 60000);                            // la tanda sigue vigente en el servidor (< 2 h)
+    await t.entrenar();
+    await page.getByRole('heading', { name: /Tanda 2 \(study\) pregunta/ }).waitFor();
+    const antes = await page.getByRole('heading', { name: /Tanda 2 \(study\) pregunta/ }).innerText();
+    for (const answer of srv.held) await answer();
+    await page.waitForTimeout(800);
+    const despues = await page.getByRole('heading', { name: /Tanda 2 \(study\) pregunta/ }).innerText();
+    const contador = await page.getByText('Pregunta 1 de 2').count();
+    const siguiente = await page.getByRole('button', { name: /siguiente pregunta/i }).count();
+    check('Éxito tardío · la tanda nueva conserva pregunta y contador, sin resultado ajeno en pantalla',
+      antes === despues && contador === 1 && siguiente === 0 && (await t.aviso().count()) === 0, `«${despues}» contador=${contador}`);
+    const guardado = srv.saves.filter((x) => String(x.q) === `10${k}`);
+    check('Éxito tardío · el intento confirmado se guarda una vez, sin sesión de estudio asociada',
+      guardado.length === 1 && guardado[0].session === null && srv.saves.length === 1, JSON.stringify(srv.saves));
+    await t.ctx.close();
+  }
+
+  // ── 9 y 10. Cambio de cuenta A→B con una corrección de A en vuelo (éxito y error) ─────────────
+  for (const caso of ['éxito', 'error']) {
+    const t = await abrir(browser); const { srv, page } = t;
+    await t.entrenar();
+    await page.getByRole('heading', { name: /Tanda 1 \(study\) pregunta/ }).waitFor();
+    const k = (await page.getByRole('heading', { name: /Tanda 1 \(study\) pregunta/ }).innerText()).match(/pregunta (\d)/)[1];
+    srv.holdNextSubmit = true;
+    await t.responder(`Correcta 1-${k}`);
+    await page.waitForTimeout(300);
+    // Entra B en este navegador (como al iniciar sesión en otra pestaña): mismo mecanismo que usa supabase-js.
+    await page.evaluate(([ses]) => {
+      localStorage.setItem('sb-127-auth-token', JSON.stringify(ses));
+      new BroadcastChannel('sb-127-auth-token').postMessage({ event: 'SIGNED_IN', session: ses });
+    }, [session(USER_B)]);
+    await page.getByRole('heading', { name: /Tanda 1 \(study\)/ }).waitFor({ state: 'detached' });
+    await page.waitForTimeout(800);
+    const colaA = 'bomberopro:pending-attempts:v1:' + USER.id;
+    const foto = () => page.evaluate((k2) => { const o = {}; for (let i = 0; i < localStorage.length; i++) { const key = localStorage.key(i); if (key !== k2) o[key] = localStorage.getItem(key); } return JSON.stringify(o); }, colaA);
+    const antes = await foto();
+    if (caso === 'error') await t.avanzar(2 * H + 60000);  // al llegar, la tanda de A ya ha caducado
+    for (const answer of srv.held) await answer();
+    await page.waitForTimeout(800);
+    const despues = await foto();
+    const enColaA = await page.evaluate((k2) => JSON.parse(localStorage.getItem(k2) || '[]').map((e) => e.params.p_user_id), colaA);
+    check(`A→B, ${caso} tardío de A · el progreso guardado de B no cambia`, antes === despues);
+    check(`A→B, ${caso} tardío de A · sin aviso de corrección ni resultado de A en pantalla`,
+      (await t.aviso().count()) === 0 && (await t.renovar().count()) === 0 && (await page.getByRole('button', { name: /siguiente pregunta/i }).count()) === 0 && (await page.getByText(/Tanda 1 \(study\)/).count()) === 0);
+    check(`A→B, ${caso} tardío de A · ${caso === 'éxito' ? 'el intento confirmado queda solo en la cola de A' : 'no queda ningún intento en cola'}`,
+      caso === 'éxito' ? (enColaA.length === 1 && enColaA[0] === USER.id) : enColaA.length === 0, JSON.stringify(enColaA));
+    await t.entrenar();
+    await page.getByRole('heading', { name: /\(study\) pregunta/ }).waitFor();
+    const h = await page.getByRole('heading', { name: /\(study\) pregunta/ }).innerText();
+    const [, n, kb] = h.match(/Tanda (\d+) \(study\) pregunta (\d)/);
+    const propia = [...srv.tandas.values()].find((x) => x.n === Number(n));
+    await t.responder(`Correcta ${n}-${kb}`);
+    await page.getByRole('button', { name: /siguiente pregunta/i }).waitFor();
+    await page.waitForTimeout(500);
+    check(`A→B, ${caso} tardío de A · B estudia su propia tanda desde la pregunta 1`, propia.owner === USER_B.id && n !== '1');
+    check(`A→B, ${caso} tardío de A · con la sesión de B no se envía nada a nombre de A`,
+      srv.saves.every((x) => x.token === USER_B.id && x.user === USER_B.id) && srv.saves.length === 1, JSON.stringify(srv.saves));
     await t.ctx.close();
   }
 
