@@ -257,6 +257,48 @@ describe('Entrenar con una tanda v3 caducada', () => {
     await screen.findByRole('button', { name: /siguiente pregunta/i });
   });
 
+  it('éxito tardío de la tanda anterior (misma cuenta): se guarda la respuesta, pero no cuenta en la sesión nueva', async () => {
+    const now = vi.spyOn(Date, 'now').mockReturnValue(T0);
+    const base = rpcMock.getMockImplementation()!;
+    let resolverTardia!: (r: unknown) => void;
+    rpcMock.mockImplementation((fn: string, args: { p_delivery_session_id?: string }) => {
+      if (fn === 'submit_question_answer_v3' && args.p_delivery_session_id === 'tanda-1') {
+        return new Promise(resolve => { resolverTardia = resolve; });
+      }
+      return base(fn, args);
+    });
+    render(<App />);
+    await waitFor(() => expect(begins).toBe(1));
+    await entrarEnEntrenar();
+    expect(await screen.findByRole('heading', { name: /Pregunta de la primera tanda/ })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: first.correct_answer }));
+    fireEvent.click(document.querySelector('#conf-btn-alta')!);
+    await waitFor(() => expect(resolverTardia).toBeTypeOf('function'));
+    // Sin esperar la corrección, sale y vuelve a entrar cuando la tanda ya es vieja: llega una tanda nueva.
+    fireEvent.click(document.querySelector('#nav-btn-inicio')!);
+    now.mockReturnValue(T0 + 111 * 60 * 1000);
+    await entrarEnEntrenar();
+    expect(await screen.findByRole('heading', { name: /Pregunta de la tanda nueva/ })).toBeInTheDocument();
+    expect(screen.getByText('Pregunta 1 de 2')).toBeInTheDocument();
+    // El servidor había recibido a tiempo la respuesta de la tanda anterior: su corrección llega ahora.
+    await act(async () => resolverTardia({ data: { acierto: true, correct_answer: first.correct_answer, explanation: '' }, error: null }));
+    expect(screen.getByRole('heading', { name: /Pregunta de la tanda nueva/ })).toBeInTheDocument();
+    expect(screen.getByText('Pregunta 1 de 2')).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /siguiente pregunta/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('alert')).not.toBeInTheDocument();
+    // La respuesta es de esta cuenta y el servidor la confirmó: se guarda una vez, sin atribuirla a la sesión de estudio nueva.
+    await waitFor(() => expect(rpcMock.mock.calls.filter(([fn]) => fn === 'record_attempt_v2')).toHaveLength(1));
+    const guardado = rpcMock.mock.calls.find(([fn]) => fn === 'record_attempt_v2')![1] as { p_question_id: number; p_session_id: string | null };
+    expect(guardado).toMatchObject({ p_question_id: 101, p_session_id: null });
+    expect(rpcMock.mock.calls.filter(([fn]) => fn === 'start_study_session')).toHaveLength(0);
+    // La sesión nueva sigue su curso: su primera respuesta es la primera que cuenta.
+    fireEvent.click(screen.getByRole('button', { name: second.correct_answer }));
+    fireEvent.click(document.querySelector('#conf-btn-alta')!);
+    await screen.findByRole('button', { name: /siguiente pregunta/i });
+    fireEvent.click(screen.getByRole('button', { name: /siguiente pregunta/i }));
+    expect(await screen.findByText('Pregunta 2 de 2')).toBeInTheDocument();
+  });
+
   it('cambio de cuenta durante la renovación: la tanda tardía de A nunca llega a B', async () => {
     let authChanged: ((event: string, session: unknown) => void) | undefined;
     onAuthStateChange.mockImplementation((callback: (event: string, session: unknown) => void) => {

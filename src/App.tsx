@@ -178,6 +178,10 @@ export default function App() {
   // Aciertos de la sesión actual (para la pantalla de celebración final).
   const [sessionCorrectCount, setSessionCorrectCount] = useState(0);
   const [sessionQuestionPool, setSessionQuestionPool] = useState<Question[]>([]);
+  // Tanda de la sesión en curso, siempre la última: permite saber si una corrección que vuelve tarde
+  // pertenece a una sesión que ya se sustituyó.
+  const sessionPoolRef = useRef<Question[]>(sessionQuestionPool);
+  sessionPoolRef.current = sessionQuestionPool;
   const [sessionCompleted, setSessionCompleted] = useState(false);
   const answeredQuestionIds = useRef<Set<string>>(new Set());
   // true cuando la sesión cargada ya se ha usado (se ha respondido algo): la siguiente sesión se pide de nuevo.
@@ -593,7 +597,11 @@ export default function App() {
         updatedState: preview.updatedState
       };
     }
-    answeredQuestionIds.current.add(questionId);
+    // Misma cuenta, pero la sesión en la que se respondió ya se sustituyó por otra mientras se corregía:
+    // la respuesta (confirmada por el servidor) se guarda en el progreso de la cuenta, sin contar en la
+    // sesión nueva ni atribuirse a su sesión de estudio.
+    const staleSession = !isDemoMode && sessionQuestionPool !== sessionPoolRef.current;
+    if (!staleSession) answeredQuestionIds.current.add(questionId);
 
     // Load current memory state
     const currentStates = isDemoMode ? memoryStates : getSafeMemoryStates();
@@ -636,20 +644,22 @@ export default function App() {
       // Save to local database
       saveMemoryState(result.updatedState);
       saveAttempt(newAttempt);
-      sessionCompletedRef.current = true;
+      if (!staleSession) sessionCompletedRef.current = true;
       const answeredQuestion = sessionQuestionPool.find(q => q.id === questionId) ?? dbQuestions.find(q => q.id === questionId);
-      if (session?.user?.id && !trainingSessionOpened.current) {
+      if (session?.user?.id && !trainingSessionOpened.current && !staleSession) {
         trainingSessionOpened.current = true;
         void startStudySession(trainingSessionId.current, 'adaptativo', null, sessionQuestionPool.length || null);
       }
-      syncAttemptToSupabase(session?.user?.id, questionId, isCorrect, answer, confidence, responseTime, 'adaptativo', answeredQuestion?.level, trainingSessionId.current);
+      syncAttemptToSupabase(session?.user?.id, questionId, isCorrect, answer, confidence, responseTime, 'adaptativo', answeredQuestion?.level, staleSession ? null : trainingSessionId.current);
 
       // Reload state in memory
       const updatedStates = getSafeMemoryStates();
       setMemoryStates(updatedStates);
       setAttempts(getAttempts());
-      setSessionAnsweredCount(prev => prev + 1);
-      if (isCorrect) setSessionCorrectCount(prev => prev + 1);
+      if (!staleSession) {
+        setSessionAnsweredCount(prev => prev + 1);
+        if (isCorrect) setSessionCorrectCount(prev => prev + 1);
+      }
     }
 
     return {
