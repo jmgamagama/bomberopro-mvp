@@ -18,14 +18,17 @@
 //   ese archivo cada respuesta del operador en lugar del teclado); MANIFIESTO=/ruta (por defecto, junto al guion).
 //
 // ESCRITURAS EN STAGING Y CÓMO SE DESHACEN (ver también supabase/tests/sql/aceptacion_staging_278.sql)
-//   1. Caducidad. El guion captura el identificador de la tanda que ESTA ejecución acaba de recibir e imprime un
-//      UPDATE acotado a esa tanda, que exige dueño del dominio de pruebas, tanda aún vigente y exactamente 1 fila,
-//      y que devuelve el `expires_at` original. La escritura se confirma (tiene que verla el navegador); por eso
-//      NO se deshace con ROLLBACK, sino con un UPDATE compensatorio.
-//   2. Restauración. En cuanto se ha observado el rechazo (y también si el recorrido falla o se interrumpe), el
-//      guion imprime el UPDATE que devuelve `expires_at` a su valor original en esa misma fila y pide el
-//      resultado: 1 fila y `restaurada = t`. Sin esa confirmación la ejecución termina en FALLO.
-//   3. Registros ficticios que crea la ejecución: tandas (A y B), sus recibos, los intentos guardados y la sesión
+//   1. Lectura previa (no escribe). El guion captura el identificador de la tanda que ESTA ejecución acaba de
+//      recibir y pide su `expires_at` exacto, exigiendo dueño del dominio de pruebas, tanda vigente y 1 fila.
+//      Ese valor se guarda en un CHECKPOINT local (con el SQL de restauración ya escrito) ANTES de imprimir la
+//      mutación: el estado de restauración existe antes de que nadie escriba en staging.
+//   2. Caducidad. UPDATE acotado a esa tanda y condicionado a que siga con el valor leído. Se confirma (tiene que
+//      verla el navegador); por eso NO se deshace con ROLLBACK, sino con un UPDATE compensatorio.
+//   3. Restauración. Idempotente: vale se haya aplicado o no la caducidad, y `restaurada` se comprueba en la
+//      fila. Se pide en cuanto se ha observado el rechazo y también si el recorrido falla, si la respuesta del
+//      operador se pierde o llega mal formada, o si se escribe ABORTAR. Si el proceso muere, el checkpoint queda
+//      en disco y la siguiente ejecución no arranca hasta cerrarlo (RESOLVER_CHECKPOINT=1).
+//   4. Registros ficticios que crea la ejecución: tandas (A y B), sus recibos, los intentos guardados y la sesión
 //      de estudio. Sus identificadores quedan en el MANIFIESTO local (no se imprime ni se sube). No se borra nada
 //      por cuenta completa: se quedan como datos de prueba, o se borran por esos identificadores exactos con el
 //      SQL comentado del archivo anterior, solo con el «sí» de JM.
@@ -37,6 +40,11 @@
 //   SIMULADO=1 SIMULAR_FALLO=1 BASE_URL=http://localhost:4316 node e2e/aceptacion-staging-278.cjs      → debe salir 1
 //   SIMULAR_PERDIDA borra el intento de A antes de comprobarlo (control negativo de la conservación).
 //   SIMULAR_FALLO corta el recorrido con la tanda ya caducada (control negativo de la restauración).
+//   SIMULADO=1 SIMULAR_RESPUESTA_PERDIDA=1 …  → sale 1: la caducidad se aplicó pero la respuesta del operador llega
+//     mal formada; se restaura igual y se comprueba en la fila.
+//   SIMULADO=1 SIMULAR_CORTE=1 …              → sale 3: el proceso muere con la caducidad aplicada; queda el
+//     checkpoint con la tanda, su valor original y el SQL. La siguiente ejecución sale 4 hasta cerrarlo con
+//     RESOLVER_CHECKPOINT=1.
 const { chromium } = require('playwright');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -64,22 +72,32 @@ function intentoConservado(cola, esperado) {
 }
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
-const sqlCaducar = (sid) => `-- SOLO OPERADOR · STAGING · no copiar a GitHub
-with objetivo as (
-  select s.id, s.expires_at
-    from private.question_delivery_sessions s join auth.users u on u.id = s.user_id
-   where s.id = '${sid}' and u.email like '%${DOMINIO_PRUEBAS}' and s.mode = 'study' and s.expires_at > now()
-), cambio as (
+const CHECKPOINT = process.env.CHECKPOINT || path.join(__dirname, 'aceptacion-staging-278.checkpoint.json');
+// 1) Lectura previa, sin escribir nada: valor exacto de `expires_at` de ESA tanda.
+const sqlLeer = (sid) => `-- SOLO OPERADOR · STAGING · SOLO LECTURA · no copiar a GitHub
+select count(*) as filas, min(s.expires_at) as expires_at_original
+  from private.question_delivery_sessions s join auth.users u on u.id = s.user_id
+ where s.id = '${sid}' and u.email like '%${DOMINIO_PRUEBAS}' and s.mode = 'study' and s.expires_at > now();`;
+// 2) Mutación: solo si la fila sigue exactamente como se leyó.
+const sqlCaducar = (sid, original) => `-- SOLO OPERADOR · STAGING · no copiar a GitHub
+with cambio as (
   update private.question_delivery_sessions s set expires_at = now() - interval '1 second'
-    from objetivo o where s.id = o.id returning s.id
+    from auth.users u
+   where u.id = s.user_id and s.id = '${sid}' and u.email like '%${DOMINIO_PRUEBAS}' and s.mode = 'study'
+     and s.expires_at = '${original}'::timestamptz
+  returning s.id
 )
-select (select count(*) from cambio) as filas, (select expires_at from objetivo) as expires_at_original;`;
+select count(*) as filas from cambio;`;
+// 3) Compensación idempotente: vale tanto si la mutación se aplicó como si no. `restaurada` describe la fila tal
+//    como queda (si no hubo que cambiar nada, se lee de la tabla).
 const sqlRestaurar = (sid, original) => `-- SOLO OPERADOR · STAGING · no copiar a GitHub
 with cambio as (
   update private.question_delivery_sessions set expires_at = '${original}'::timestamptz
-   where id = '${sid}' and expires_at < now() returning expires_at
+   where id = '${sid}' and expires_at <> '${original}'::timestamptz returning expires_at
 )
-select (select count(*) from cambio) as filas, (select bool_and(expires_at = '${original}'::timestamptz) from cambio) as restaurada;`;
+select (select count(*) from cambio) as filas,
+       coalesce((select bool_and(expires_at = '${original}'::timestamptz) from cambio),
+                (select expires_at = '${original}'::timestamptz from private.question_delivery_sessions where id = '${sid}')) as restaurada;`;
 
 if (!BASE || !A.email || !A.password || !B.email || !B.password) {
   console.error('BLOQUEO: faltan BASE_URL o las credenciales de las dos cuentas ficticias (E2E_EMAIL_A/E2E_PASSWORD_A/E2E_EMAIL_B/E2E_PASSWORD_B).');
@@ -88,6 +106,12 @@ if (!BASE || !A.email || !A.password || !B.email || !B.password) {
 if (!SIMULADO && (!A.email.endsWith(DOMINIO_PRUEBAS) || !B.email.endsWith(DOMINIO_PRUEBAS) || A.email === B.email)) {
   console.error('BLOQUEO: las dos cuentas deben ser distintas y del dominio de pruebas. No se usan cuentas de alumnos.');
   process.exit(2);
+}
+
+// Un checkpoint de una ejecución anterior significa que pudo quedar una tanda caducada sin restaurar.
+if (fs.existsSync(CHECKPOINT) && process.env.RESOLVER_CHECKPOINT !== '1') {
+  console.error(`BLOQUEO: hay un checkpoint de una ejecución anterior sin cerrar (${path.basename(CHECKPOINT)}).\nContiene la tanda, su expires_at original y el SQL de restauración. Ejecuta ese SQL en STAGING y vuelve a lanzar el guion con RESOLVER_CHECKPOINT=1 para confirmarlo. No se inicia otra ejecución hasta entonces.`);
+  process.exit(4);
 }
 
 const preguntar = async (mensaje) => {
@@ -185,27 +209,55 @@ const preguntar = async (mensaje) => {
   const idCuenta = () => page.evaluate(() => { for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (/^sb-.*-auth-token$/.test(k)) { try { return JSON.parse(localStorage.getItem(k)).user.id; } catch { return null; } } } return null; });
 
   // Caducidad y restauración: mismas reglas en real (las ejecuta el operador) y en simulado (las aplica el guion).
-  const caducar = async (sid) => {
-    if (SIMULADO) {
-      const t = srv.tandas.get(sid);
-      if (!t || t.owner !== sim.USER.id || t.expiresAt <= srv.now) return { filas: 0 };
-      const original = t.expiresAt; t.expiresAt = srv.now - 1000; return { filas: 1, original: String(original) };
-    }
-    const r = await preguntar(`Ejecuta en STAGING (y solo en staging) este SQL. Después escribe aquí el resultado como  filas|expires_at_original  (por ejemplo  1|2026-11-13 10:15:00.123456+00), o ABORTAR:\n\n${sqlCaducar(sid)}\n`);
+  const escribirCheckpoint = (estado) => fs.writeFileSync(CHECKPOINT, JSON.stringify({
+    aviso: 'SOLO OPERADOR. No subir. Si este archivo existe, puede haber una tanda de prueba caducada sin restaurar en STAGING.',
+    estado, tanda: pendienteRestaurar.sid, expires_at_original: pendienteRestaurar.original,
+    sql_restauracion: sqlRestaurar(pendienteRestaurar.sid, pendienteRestaurar.original),
+    resultado_esperado: 'filas 0 o 1, restaurada = t',
+  }, null, 2));
+  const leerOriginal = async (sid) => {
+    if (SIMULADO) { const t = srv.tandas.get(sid); return t && t.owner === sim.USER.id && t.expiresAt > srv.now ? { filas: 1, original: String(t.expiresAt) } : { filas: 0 }; }
+    const r = await preguntar(`LECTURA PREVIA (no escribe nada). Ejecuta en STAGING y escribe el resultado como  filas|expires_at_original  (por ejemplo  1|2026-11-13 10:15:00.123456+00):\n\n${sqlLeer(sid)}\n`);
     const [filas, original] = r.split('|').map((x) => x.trim());
     return { filas: Number(filas), original };
   };
+  const aplicarCaducidad = async ({ sid, original }) => {
+    if (SIMULADO) {
+      const t = srv.tandas.get(sid);
+      const aplica = t && String(t.expiresAt) === original;
+      if (aplica) t.expiresAt = srv.now - 1000;
+      if (process.env.SIMULAR_CORTE === '1') { console.log('CORTE SIMULADO: el proceso muere con la mutación ya aplicada y sin leer la respuesta.'); process.exit(3); }
+      if (process.env.SIMULAR_RESPUESTA_PERDIDA === '1') return { filas: NaN };
+      return { filas: aplica ? 1 : 0 };
+    }
+    const r = await preguntar(`CADUCIDAD. El valor original ya está guardado en el checkpoint local. Ejecuta en STAGING y escribe el número de filas (debe ser 1):\n\n${sqlCaducar(sid, original)}\n`);
+    return { filas: Number(r.split('|')[0].trim()) };
+  };
   const restaurar = async ({ sid, original }) => {
-    if (SIMULADO) { const t = srv.tandas.get(sid); if (!t || t.expiresAt > srv.now) return { filas: 0, restaurada: false }; t.expiresAt = Number(original); return { filas: 1, restaurada: t.expiresAt === Number(original) }; }
-    const r = await preguntar(`RESTAURACIÓN. Ejecuta en STAGING este SQL y escribe el resultado como  filas|restaurada  (debe ser  1|t):\n\n${sqlRestaurar(sid, original)}\n`);
+    if (SIMULADO) { const t = srv.tandas.get(sid); if (!t) return { filas: 0, restaurada: false }; const cambia = String(t.expiresAt) !== original; if (cambia) t.expiresAt = Number(original); return { filas: cambia ? 1 : 0, restaurada: String(t.expiresAt) === original }; }
+    const r = await preguntar(`RESTAURACIÓN (vale se haya aplicado o no la caducidad). Ejecuta en STAGING y escribe el resultado como  filas|restaurada  (debe ser  0|t  o  1|t):\n\n${sqlRestaurar(sid, original)}\n`);
     const [filas, restaurada] = r.split('|').map((x) => x.trim());
     return { filas: Number(filas), restaurada: /^(t|true)$/i.test(restaurada || '') };
   };
   const restaurarSiHaceFalta = async () => {
     if (!pendienteRestaurar) return;
-    const r = await restaurar(pendienteRestaurar).catch(() => ({ filas: 0, restaurada: false }));
-    if (check('Restauración · `expires_at` de la tanda caducada vuelve a su valor original (1 fila)', r.filas === 1 && r.restaurada)) pendienteRestaurar = null;
+    const r = await restaurar(pendienteRestaurar).catch(() => ({ filas: NaN, restaurada: false }));
+    if (check('Restauración · `expires_at` de la tanda queda en su valor original, comprobado en la fila', (r.filas === 0 || r.filas === 1) && r.restaurada)) {
+      pendienteRestaurar = null; fs.rmSync(CHECKPOINT, { force: true });
+    }
   };
+  // Si el proceso se interrumpe, el operador se queda con la instrucción de compensación ya guardada.
+  process.on('SIGINT', () => { if (pendienteRestaurar) console.error(`\nINTERRUMPIDO con una tanda posiblemente caducada. El SQL de restauración está en ${path.basename(CHECKPOINT)}.`); process.exit(130); });
+
+  if (process.env.RESOLVER_CHECKPOINT === '1') {
+    const previo = fs.existsSync(CHECKPOINT) ? JSON.parse(fs.readFileSync(CHECKPOINT, 'utf8')) : null;
+    if (!previo) { console.log('No hay checkpoint pendiente.'); await browser.close(); process.exit(0); }
+    pendienteRestaurar = { sid: previo.tanda, original: previo.expires_at_original };
+    if (SIMULADO) { fs.rmSync(CHECKPOINT, { force: true }); check('Checkpoint anterior · cerrado (SIMULADO: el backend simulado no persiste entre ejecuciones)', true); pendienteRestaurar = null; } else await restaurarSiHaceFalta();
+    await browser.close();
+    console.log(res.every(Boolean) ? 'CHECKPOINT CERRADO' : 'CHECKPOINT SIGUE PENDIENTE');
+    process.exit(res.every(Boolean) ? 0 : 1);
+  }
 
   let fallo = null;
   try {
@@ -237,9 +289,14 @@ const preguntar = async (mensaje) => {
     // ── 2. Caducidad de ESA tanda, renovación y respuesta nueva ──────────────────────────────────
     const sid = ultimaTanda('A');
     if (!UUID.test(sid || '')) throw new Error('No se pudo identificar la tanda de esta ejecución.');
-    const c = await caducar(sid);
-    if (!check('Caducidad · afecta exactamente a 1 fila: la tanda de esta ejecución, de una cuenta de prueba', c.filas === 1 && Boolean(c.original))) throw new Error('La caducidad no afectó a exactamente una fila: no se continúa.');
-    pendienteRestaurar = { sid, original: c.original };
+    const previa = await leerOriginal(sid);
+    if (!check('Lectura previa · existe exactamente 1 tanda vigente de esta ejecución, de una cuenta de prueba', previa.filas === 1 && Boolean(previa.original))) throw new Error('La lectura previa no identificó exactamente una fila: no se escribe nada.');
+    // El estado de restauración y el checkpoint existen ANTES de que nadie ejecute la mutación.
+    pendienteRestaurar = { sid, original: previa.original };
+    escribirCheckpoint('valor original guardado; mutación aún no confirmada');
+    const c = await aplicarCaducidad(pendienteRestaurar);
+    if (!check('Caducidad · el operador confirma exactamente 1 fila modificada', c.filas === 1)) throw new Error('La caducidad no quedó confirmada con exactamente una fila: se restaura y no se continúa.');
+    escribirCheckpoint('mutación confirmada; pendiente de restaurar');
     if (process.env.SIMULAR_FALLO === '1') throw new Error('Fallo provocado con la tanda ya caducada: la restauración debe ejecutarse igual.');
     const rechazo = page.waitForResponse((r) => new URL(r.url()).pathname.endsWith('/rpc/submit_question_answer_v3'), { timeout: ESPERA });
     await responder();
@@ -313,7 +370,7 @@ const preguntar = async (mensaje) => {
     check('Recorrido · termina sin errores', false, fallo.split('\n')[0]);
   } finally {
     await restaurarSiHaceFalta();                        // también si el recorrido falló a medias
-    if (pendienteRestaurar) check('Restauración · confirmada antes de terminar', false, 'QUEDA PENDIENTE: ejecutar el SQL de restauración impreso arriba');
+    if (pendienteRestaurar) check('Restauración · confirmada antes de terminar', false, `QUEDA PENDIENTE: el SQL de restauración está en ${path.basename(CHECKPOINT)}; la próxima ejecución no arranca hasta cerrarlo`);
     const destinoManifiesto = process.env.MANIFIESTO || path.join(__dirname, 'aceptacion-staging-278.manifiesto.json');
     fs.writeFileSync(destinoManifiesto, JSON.stringify(manifiesto, null, 2));
     console.log(`\nRegistros ficticios de esta ejecución: ${manifiesto.tandas.length} tandas y ${manifiesto.intentos.length} intentos enviados. Identificadores en el manifiesto local (no subir).`);
