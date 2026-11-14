@@ -19,9 +19,10 @@ async function run(browser,width,mode) {
     if(fn==='record_concept_event') return route.fulfill({json:{status:'saved'}});
     if(fn==='report_question') return route.fulfill({json:{status:'received'}});
     if(fn==='get_concept_calibration') return route.fulfill({json:null});
+    if(fn==='get_study_streak') return route.fulfill({json:{racha:2,mejor:3,hoy:true,semana:Array.from({length:7},(_,i)=>({dia:`2026-11-${String(7+i).padStart(2,'0')}`,activo:i>=5}))}});
     return route.fulfill({json:[]});
   });
-  const page=await ctx.newPage(); await page.goto(base);
+  const page=await ctx.newPage(); const pageErrors=[]; page.on('pageerror',error=>pageErrors.push(error.message)); await page.goto(base);
   await page.evaluate(s=>{localStorage.setItem('mira_onboarding_v1',JSON.stringify({outcome:'started',at:new Date().toISOString()}));localStorage.setItem('sb-127-auth-token',JSON.stringify(s));},session());
   await page.reload();
   const nav=page.getByRole('navigation',{name:width===360?'Navegación móvil':'Navegación principal'});
@@ -52,6 +53,7 @@ async function run(browser,width,mode) {
   await page.getByRole('button',{name:'Mostrar respuesta'}).click();
   await page.getByRole('button',{name:'Lo sabía',exact:true}).click();
   const sum=page.getByTestId('desglose-sesion'); await sum.waitFor();
+  await page.locator('[aria-label="Racha de 2 días"]').waitFor();
   const txt=await sum.innerText(); const expected=mode==='before'?'9 pasos':'10 pasos';
   const ok=txt.includes(expected)&&txt.includes('5 conceptos nuevos')&&txt.includes(mode==='before'?'3 preguntas de comprobación':'4 preguntas de comprobación')&&txt.includes('1 ejercicio de recuerdo')&&(mode==='before'?txt.includes('1 paso omitido'):!txt.includes('omitido'));
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);
@@ -64,7 +66,7 @@ async function run(browser,width,mode) {
     return r.top>=0&&r.bottom<=innerHeight&&(innerWidth>1023||!nav||r.bottom<=nav.getBoundingClientRect().top);
   });
   await page.screenshot({path:`browser-evidence/visual300-${width}-${mode}.png`,fullPage:true});
-  console.log(JSON.stringify({width,mode,ok,overflow,actionReachable,summary:txt.replace(/\s+/g,' ').slice(0,220)}));
-  await ctx.close(); if(!ok||overflow||!actionReachable)throw Error(`visual check failed ${width}/${mode}`);
+  console.log(JSON.stringify({width,mode,ok,overflow,actionReachable,pageErrors,summary:txt.replace(/\s+/g,' ').slice(0,220)}));
+  await ctx.close(); if(!ok||overflow||!actionReachable||pageErrors.length)throw Error(`visual check failed ${width}/${mode}`);
 }
 (async()=>{const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});try{for(const width of [360,1280])for(const mode of ['normal','before','after'])await run(browser,width,mode)}finally{await browser.close()}})().catch(e=>{console.error(e);process.exit(1)});
