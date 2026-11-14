@@ -15,8 +15,9 @@ vi.mock('../lib/conceptEngine', () => ({
 }));
 vi.mock('../lib/studySession', () => ({ startStudySession: async () => {}, finishStudySession: async () => {} }));
 vi.mock('../lib/streak', () => ({ useStudyStreak: () => null }));
-vi.mock('./ReportQuestionButton', () => ({ default: () => null }));
-vi.mock('./SessionCelebration', () => ({ default: () => <p>FIN DE SESION</p> }));
+// Simula la continuación tras un reporte confirmado; conserva el callback real del padre.
+vi.mock('./ReportQuestionButton', () => ({ default: ({ onReported }: { onReported: () => void }) => <button onClick={onReported}>Reporte confirmado: seguir estudiando</button> }));
+vi.mock('./SessionCelebration', () => ({ default: ({ children }: { children?: import('react').ReactNode }) => <><p>FIN DE SESION</p>{children}</> }));
 import ConceptStudy from './ConceptStudy';
 const item = { pos: 1, concept_id: 'CE-a7-sindicatos-funciones', formato: 'test', motivo: 'REPASO_VENCIDO', question_id: 8193, question: 'Caso de auditoría', options: ['Los sindicatos de trabajadores', 'Las asociaciones empresariales', 'A y B son correctas'], fuente: 'CE' };
 beforeEach(() => {
@@ -99,3 +100,64 @@ it('no inserta recuperación de un tema anterior después de cambiar de tema', a
   expect(screen.queryByText('Tema anterior')).toBeNull();
   expect(screen.getByRole('button', { name: 'Confirmar respuesta' })).toBeDisabled();
 });
+
+it('explica el desglose de una sesión: pasos frente a preguntas de comprobación', async () => {
+  mocks.event.mockResolvedValue({ saved: true, data: { correct: true, correct_answer: item.options[0] }, pending: 0, rejected: 0 });
+  const user = userEvent.setup();
+  render(<ConceptStudy userId="audit" onExit={() => {}} />);
+  await user.click(screen.getByRole('button', { name: 'Empezar' }));
+  await user.click((await screen.findAllByRole('radio'))[0]);
+  await user.click(screen.getByRole('button', { name: 'Lo sé' }));
+  await user.click(screen.getByRole('button', { name: 'Confirmar respuesta' }));
+  await screen.findByText('Correcto');
+  await user.click(screen.getByRole('button', { name: 'Siguiente' }));
+  expect(await screen.findByTestId('desglose-sesion')).toHaveTextContent('Has trabajado 1 paso');
+  expect(screen.getByTestId('desglose-sesion')).toHaveTextContent('1 pregunta de comprobación');
+  expect(screen.getByTestId('desglose-sesion')).toHaveTextContent('El porcentaje de aciertos solo cuenta las preguntas');
+});
+
+it('distingue la primera recuperación programada dentro de la sesión', async () => {
+  mocks.session.mockResolvedValue([{ ...item, motivo: 'NUEVO_RECUPERACION' }]);
+  const user = userEvent.setup();
+  render(<ConceptStudy userId="audit" onExit={() => {}} />);
+  await user.click(screen.getByRole('button', { name: 'Empezar' }));
+  expect(await screen.findByText('Primera recuperación del concepto recién estudiado')).toBeInTheDocument();
+});
+
+
+it.each(['sin reporte', 'reporte antes de responder', 'reporte después de responder'])(
+  'desglosa 5 fichas, 4 tests y 1 recuerdo: %s', async (mode) => {
+    const session = [
+      ...Array.from({ length: 5 }, (_, i) => ({ ...item, pos: i + 1, concept_id: `synthetic-${i}`, formato: 'ficha', question_id: null, concept_pregunta: `Ficha ${i}`, concept_respuesta: 'Dato ficticio' })),
+      ...Array.from({ length: 4 }, (_, i) => ({ ...item, pos: i + 6, concept_id: `synthetic-${i}`, question_id: 9000 + i })),
+      { ...item, pos: 10, concept_id: 'synthetic-4', formato: 'recuerdo', question_id: null, concept_pregunta: 'Recuerda el dato', concept_respuesta: 'Dato ficticio' },
+    ];
+    mocks.session.mockResolvedValue(session);
+    mocks.event.mockResolvedValue({ saved: true, data: { correct: true, correct_answer: item.options[0] }, pending: 0, rejected: 0 });
+    const user = userEvent.setup();
+    render(<ConceptStudy userId="audit" onExit={() => {}} />);
+    await user.click(screen.getByRole('button', { name: 'Empezar' }));
+    for (let i = 0; i < 5; i++) await user.click(await screen.findByRole('button', { name: 'Entendido' }));
+    for (let i = 0; i < 4; i++) {
+      if (i === 0 && mode === 'reporte antes de responder') {
+        await user.click(screen.getByRole('button', { name: 'Reporte confirmado: seguir estudiando' }));
+        continue;
+      }
+      await user.click(screen.getAllByRole('radio')[0]);
+      await user.click(screen.getByRole('button', { name: 'Lo sé' }));
+      await user.click(screen.getByRole('button', { name: 'Confirmar respuesta' }));
+      await screen.findByText('Correcto');
+      await user.click(screen.getByRole('button', { name: i === 0 && mode === 'reporte después de responder' ? 'Reporte confirmado: seguir estudiando' : 'Siguiente' }));
+    }
+    await user.click(screen.getByRole('button', { name: 'Mostrar respuesta' }));
+    await user.click(screen.getByRole('button', { name: 'Lo sabía' }));
+    const summary = await screen.findByTestId('desglose-sesion');
+    expect(summary).toHaveTextContent(`Has trabajado ${mode === 'reporte antes de responder' ? 9 : 10} pasos`);
+    expect(summary).toHaveTextContent('5 conceptos nuevos');
+    expect(summary).toHaveTextContent(`${mode === 'reporte antes de responder' ? 3 : 4} preguntas de comprobación`);
+    expect(summary).toHaveTextContent('1 ejercicio de recuerdo');
+    if (mode === 'reporte antes de responder') expect(summary).toHaveTextContent('1 paso omitido');
+    else expect(summary).not.toHaveTextContent('omitido');
+    expect(mocks.event.mock.calls.filter(([, ev]) => ev.p_kind === 'recuerdo')).toHaveLength(1);
+  },
+);
