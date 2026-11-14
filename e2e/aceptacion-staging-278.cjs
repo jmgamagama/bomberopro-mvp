@@ -145,12 +145,22 @@ const preguntar = async (mensaje) => {
   let retener = null;           // { capturada, resolver } mientras se espera la corrección que hay que retener
   let pendienteRestaurar = null; // { sid, original } entre la caducidad y su restauración
 
-  // Guardia de destino + retención de UNA corrección. Todo lo demás pasa sin tocar.
-  await ctx.route(/^https?:\/\/[^/]*(supabase\.co|127\.0\.0\.1:9)\//, async (route) => {
+  // Guardia de destino: TODA petición de red pasa por aquí. Solo el origen de la app y el backend autorizado
+  // (staging, o el simulado en SIMULADO) salen; cualquier otro host se aborta antes de llegar a la red,
+  // incluidos los dominios personalizados de Auth.
+  const ORIGEN_APP = new URL(BASE).origin;
+  const BACKEND_OK = SIMULADO ? '127.0.0.1:9' : STAGING;
+  let controlEnCurso = false; const controlBloqueos = [];
+  // Retención de UNA corrección. Todo lo demás pasa sin tocar.
+  await ctx.route('**/*', async (route) => {
     const req = route.request(); const u = new URL(req.url());
+    if (u.origin === ORIGEN_APP) return route.continue();
+    if (u.host !== BACKEND_OK) {
+      const conContrasena = req.method() === 'POST' && /password/i.test(req.postData() || '');
+      if (controlEnCurso) controlBloqueos.push({ host: u.host, conContrasena }); else ajenos.push(u.host);
+      return route.abort('blockedbyclient');
+    }
     hosts.add(u.host);
-    const permitido = SIMULADO ? u.host === '127.0.0.1:9' : u.host === STAGING;
-    if (!permitido) { ajenos.push(u.host); return route.abort('blockedbyclient'); }
     if (u.pathname.endsWith('/rpc/record_attempt_v2')) { const b = req.postDataJSON() || {}; manifiesto.intentos.push({ cuenta: cuentaActual, clave: b.p_client_attempt_id }); }
     if (u.pathname.endsWith('/rpc/submit_question_answer_v3') && retener && !retener.hecho) {
       retener.hecho = true;
@@ -268,8 +278,26 @@ const preguntar = async (mensaje) => {
     });
     await page.reload();
 
+    // ── Control negativo · host ajeno (Auth personalizado) con contraseña ────────────────────────
+    // Se lanza una petición con contraseña directamente desde la página. Debe abortarse en la guardia:
+    // ninguna solicitud con contraseña puede salir hacia un host no autorizado.
+    controlEnCurso = true;
+    const intento = await page.evaluate(async () => {
+      try {
+        await fetch('https://auth.ejemplo.test/auth/v1/token?grant_type=password', { method: 'POST', mode: 'no-cors', headers: { 'content-type': 'text/plain' }, body: JSON.stringify({ email: 'control@bomberopro-test.invalid', password: 'clave-ficticia-control' }) });
+        return 'llegó';
+      } catch { return 'bloqueada'; }
+    }).catch(() => 'error');
+    controlEnCurso = false;
+    const conContrasenaBloqueada = controlBloqueos.filter((x) => x.conContrasena && x.host === 'auth.ejemplo.test').length;
+    check('Control negativo · host ajeno con contraseña: la petición se aborta y no sale ninguna solicitud con contraseña',
+      intento === 'bloqueada' && conContrasenaBloqueada >= 1 && ajenos.length === 0,
+      `intento=${intento} bloqueadas_con_contraseña=${conContrasenaBloqueada} salidas_ajenas=${ajenos.length}`);
+
     // ── 0. Acceso y configuración efectiva ───────────────────────────────────────────────────────
     await page.locator('#email').waitFor({ timeout: ESPERA });
+    // Destino verificado ANTES de rellenar credenciales: si la app ya intentó otro host, no se escribe nada.
+    if (ajenos.length) throw new Error('ABORTADO: la app intentó contactar un host no autorizado antes de pedir credenciales.');
     await entrar(A, 'A');
     const destino = [...hosts];
     const soloStaging = ajenos.length === 0 && destino.length === 1 && (SIMULADO || destino[0] === STAGING);
