@@ -57,6 +57,8 @@ async function run(browser,width,mode) {
   const txt=await sum.innerText(); const expected=mode==='before'?'9 pasos':'10 pasos';
   const ok=txt.includes(expected)&&txt.includes('5 conceptos nuevos')&&txt.includes(mode==='before'?'3 preguntas de comprobación':'4 preguntas de comprobación')&&txt.includes('1 ejercicio de recuerdo')&&(mode==='before'?txt.includes('1 paso omitido'):!txt.includes('omitido'));
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);
+  await page.evaluate(()=>window.scrollTo(0,0));
+  await page.screenshot({path:`browser-evidence/visual300-${width}-${mode}.png`,fullPage:true});
   await page.evaluate(()=>window.scrollTo(0,document.documentElement.scrollHeight));
   const actionReachable=await page.evaluate(()=>{
     const action=[...document.querySelectorAll('#session-celebration button')].find(b=>b.textContent?.trim()==='Otra sesión');
@@ -65,7 +67,7 @@ async function run(browser,width,mode) {
     const r=action.getBoundingClientRect();
     return r.top>=0&&r.bottom<=innerHeight&&(innerWidth>1023||!nav||r.bottom<=nav.getBoundingClientRect().top);
   });
-  await page.screenshot({path:`browser-evidence/visual300-${width}-${mode}.png`,fullPage:true});
+  if(width===360) await page.screenshot({path:`browser-evidence/visual300-${width}-${mode}-accion.png`});
   console.log(JSON.stringify({width,mode,ok,overflow,actionReachable,pageErrors,summary:txt.replace(/\s+/g,' ').slice(0,220)}));
   await ctx.close(); if(!ok||overflow||!actionReachable||pageErrors.length)throw Error(`visual check failed ${width}/${mode}`);
 }
