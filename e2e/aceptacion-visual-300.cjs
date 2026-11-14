@@ -18,6 +18,7 @@ async function run(browser,width,mode) {
     if(fn==='submit_concept_answer') return route.fulfill({json:{status:'saved',correct:true,correct_answer:'Opción A',explanation:null,concept_respuesta:'Dato ficticio'}});
     if(fn==='record_concept_event') return route.fulfill({json:{status:'saved'}});
     if(fn==='report_question') return route.fulfill({json:{status:'received'}});
+    if(fn==='get_concept_calibration') return route.fulfill({json:null});
     return route.fulfill({json:[]});
   });
   const page=await ctx.newPage(); await page.goto(base);
@@ -54,8 +55,16 @@ async function run(browser,width,mode) {
   const txt=await sum.innerText(); const expected=mode==='before'?'9 pasos':'10 pasos';
   const ok=txt.includes(expected)&&txt.includes('5 conceptos nuevos')&&txt.includes(mode==='before'?'3 preguntas de comprobación':'4 preguntas de comprobación')&&txt.includes('1 ejercicio de recuerdo')&&(mode==='before'?txt.includes('1 paso omitido'):!txt.includes('omitido'));
   const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);
+  await page.evaluate(()=>window.scrollTo(0,document.documentElement.scrollHeight));
+  const actionReachable=await page.evaluate(()=>{
+    const action=[...document.querySelectorAll('#session-celebration button')].find(b=>b.textContent?.trim()==='Otra sesión');
+    const nav=document.querySelector('nav[aria-label="Navegación móvil"]');
+    if(!action)return false;
+    const r=action.getBoundingClientRect();
+    return r.top>=0&&r.bottom<=innerHeight&&(innerWidth>1023||!nav||r.bottom<=nav.getBoundingClientRect().top);
+  });
   await page.screenshot({path:`browser-evidence/visual300-${width}-${mode}.png`,fullPage:true});
-  console.log(JSON.stringify({width,mode,ok,overflow,summary:txt.replace(/\s+/g,' ').slice(0,220)}));
-  await ctx.close(); if(!ok||overflow)throw Error(`visual check failed ${width}/${mode}`);
+  console.log(JSON.stringify({width,mode,ok,overflow,actionReachable,summary:txt.replace(/\s+/g,' ').slice(0,220)}));
+  await ctx.close(); if(!ok||overflow||!actionReachable)throw Error(`visual check failed ${width}/${mode}`);
 }
 (async()=>{const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});try{for(const width of [360,1280])for(const mode of ['normal','before','after'])await run(browser,width,mode)}finally{await browser.close()}})().catch(e=>{console.error(e);process.exit(1)});
