@@ -49,7 +49,7 @@ async function run(browser,width,mode) {
     } else await page.getByRole('button',{name:'Siguiente'}).click();
   }
   await page.getByRole('button',{name:'Mostrar respuesta'}).click();
-  await page.getByRole('button',{name:'Lo sabía'}).click();
+  await page.getByRole('button',{name:'Lo sabía',exact:true}).click();
   const sum=page.getByTestId('desglose-sesion'); await sum.waitFor();
   const txt=await sum.innerText(); const expected=mode==='before'?'9 pasos':'10 pasos';
   const ok=txt.includes(expected)&&txt.includes('5 conceptos nuevos')&&txt.includes(mode==='before'?'3 preguntas de comprobación':'4 preguntas de comprobación')&&txt.includes('1 ejercicio de recuerdo')&&(mode==='before'?txt.includes('1 paso omitido'):!txt.includes('omitido'));
