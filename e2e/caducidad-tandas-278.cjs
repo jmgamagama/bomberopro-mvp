@@ -41,6 +41,11 @@ function backend() {
     const req = route.request(); const url = req.url();
     // La cuenta la decide el token de la petición, como en el servidor real.
     const owner = (req.headers().authorization || '').endsWith('e2e-b') ? USER_B.id : USER.id;
+    if (url.includes('/auth/v1/logout')) return route.fulfill({ status: 204, body: '' });
+    if (url.includes('/auth/v1/token') && url.includes('grant_type=password')) {
+      const email = (req.postDataJSON() || {}).email;
+      return route.fulfill({ json: session(email === USER_B.email ? USER_B : USER) });
+    }
     if (url.includes('/auth/v1/user')) return route.fulfill({ json: owner === USER_B.id ? USER_B : USER });
     if (url.includes('/auth/v1/token')) return route.fulfill({ json: session(owner === USER_B.id ? USER_B : USER) });
     if (url.includes('/rest/v1/topics')) return route.fulfill({ json: [{ id: 1, numero: 1, nombre: 'Tema ficticio' }] });
@@ -111,7 +116,7 @@ async function abrir(browser) {
   return { ctx, srv, page, nav, avanzar, responder, entrenar, inicio, aviso, renovar };
 }
 
-(async () => {
+const main = async () => {
   const browser = await chromium.launch();
   console.log(`Chromium ${browser.version()} · ${BASE}`);
 
@@ -351,4 +356,7 @@ async function abrir(browser) {
   const ok = res.every(Boolean);
   console.log(ok ? `TODO OK (${res.length})` : `HAY FALLOS (${res.filter((x) => !x).length}/${res.length})`);
   process.exit(ok ? 0 : 1);
-})().catch((e) => { console.error(e); process.exit(1); });
+};
+
+module.exports = { backend, USER, USER_B, H };
+if (require.main === module) main().catch((e) => { console.error(e); process.exit(1); });
