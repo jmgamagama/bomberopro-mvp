@@ -98,14 +98,14 @@ export default function ConceptOutline({ tema }: { tema: number }) {
               const clave = `${d.documento}|${a.apartado}`;
               const abierto = !!abiertos[clave];
               return (
-                <li key={clave} className="bg-white rounded-lg border border-slate-200">
+                <li key={clave} className="bg-white rounded-lg border-2 border-indigo-200">
                   <button
                     type="button"
                     aria-expanded={abierto}
                     onClick={() => setAbiertos((p) => ({ ...p, [clave]: !p[clave] }))}
-                    className="w-full min-h-11 flex items-center justify-between gap-2 px-3 py-2 text-left"
+                    className="w-full min-h-11 flex items-center justify-between gap-2 px-3 py-2 text-left hover:bg-indigo-50"
                   >
-                    <span className="flex items-center gap-1.5 text-sm text-slate-800">
+                    <span className="flex items-center gap-1.5 text-sm font-bold text-slate-900">
                       {abierto ? <ChevronDown className="w-4 h-4 shrink-0" aria-hidden="true" /> : <ChevronRight className="w-4 h-4 shrink-0" aria-hidden="true" />}
                       {a.apartado || 'General'}
                     </span>
