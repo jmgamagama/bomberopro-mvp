@@ -84,7 +84,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
   const [rejectedSave, setRejectedSave] = useState(0);
   const [limitNotice, setLimitNotice] = useState<string | null>(null);
   const [volatileSaveFailure, setVolatileSaveFailure] = useState(false);
-  const [stats, setStats] = useState({ tests: 0, aciertos: 0, nuevos: 0 });
+  const [stats, setStats] = useState({ tests: 0, aciertos: 0, nuevos: 0, recuerdos: 0, omitidos: 0 });
   const [calibracion, setCalibracion] = useState<string | null>(null);
   const sessionId = useRef<string>(newAttemptKey());
   const sessionFinished = useRef(false);
@@ -118,7 +118,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
     sessionEpoch.current += 1;
     setRecoveryPending(false); setRecoveryNote(null);
     setPhase('inicio'); setItems([]); setProgress(null); setStaging(false);
-    setStats({ tests: 0, aciertos: 0, nuevos: 0 });
+    setStats({ tests: 0, aciertos: 0, nuevos: 0, recuerdos: 0, omitidos: 0 });
     const retry = async () => {
       const pending = await flushConceptEvents(userId);
       if (!active) return;
@@ -168,7 +168,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
       sessionFinished.current = false;
       // Registro de la sesión para medir cuántas se terminan (mejor esfuerzo, nunca bloquea).
       void startStudySession(sessionId.current, 'conceptos', topicId == null ? null : [topicId], data.length);
-      setItems(data); setIdx(0); setStats({ tests: 0, aciertos: 0, nuevos: 0 }); resetItem();
+      setItems(data); setIdx(0); setStats({ tests: 0, aciertos: 0, nuevos: 0, recuerdos: 0, omitidos: 0 }); resetItem();
       setPhase('sesion');
     } catch {
       if (ownerRef.current !== userId) return;
@@ -217,7 +217,10 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
 
   const onRecall = async (g: SelfGrade) => {
     if (staging) return;
-    if (await save({ p_concept_id: item.concept_id, p_kind: 'recuerdo', p_self_grade: g })) next();
+    if (await save({ p_concept_id: item.concept_id, p_kind: 'recuerdo', p_self_grade: g })) {
+      setStats(s => ({ ...s, recuerdos: s.recuerdos + 1 }));
+      next();
+    }
   };
 
   const onConfirmTest = async () => {
@@ -383,6 +386,9 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
           primary={{ label: 'Otra sesión', onClick: () => setPhase('inicio') }}
           secondary={{ label: 'Volver al inicio', onClick: exit }}
         >
+          <p className="rounded-lg bg-slate-50 px-3 py-2 text-sm text-slate-700" data-testid="desglose-sesion">
+            Has trabajado {stats.nuevos + stats.tests + stats.recuerdos} {stats.nuevos + stats.tests + stats.recuerdos === 1 ? 'paso' : 'pasos'}: {stats.nuevos} {stats.nuevos === 1 ? 'concepto nuevo' : 'conceptos nuevos'}, {stats.tests} {stats.tests === 1 ? 'pregunta de comprobación' : 'preguntas de comprobación'} y {stats.recuerdos} {stats.recuerdos === 1 ? 'ejercicio de recuerdo' : 'ejercicios de recuerdo'}.{stats.omitidos > 0 && <> {stats.omitidos} {stats.omitidos === 1 ? 'paso omitido' : 'pasos omitidos'} tras reportar preguntas sin responder.</>} El porcentaje de aciertos solo cuenta las preguntas de comprobación, no todos los pasos.
+          </p>
           <p className="sr-only">{stats.nuevos} conceptos nuevos · {stats.aciertos} de {stats.tests} preguntas bien.</p>
           {calibracion && <p className="rounded-lg bg-indigo-50 px-3 py-2 text-sm text-indigo-900" data-testid="calibracion">{calibracion}</p>}
           {progress && <div className="text-left"><ProgressBar p={progress} /></div>}
@@ -443,10 +449,16 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
                 : item.motivo === 'VERIFICAR' ? 'Dijiste que lo sabías: compruébalo'
                 : item.motivo === 'ERROR_RECIENTE' ? 'Lo fallaste hace poco'
                 : item.motivo === 'BAJA_NIVEL' ? 'Afianza la base de este apartado'
-                : item.motivo === 'REPASO_VENCIDO' ? 'Repaso' : 'Comprueba lo aprendido'}
+                : item.motivo === 'REPASO_VENCIDO' ? 'Repaso programado: tocaba volver a verlo'
+                : item.motivo === 'NUEVO_RECUPERACION' ? 'Primera recuperación del concepto recién estudiado'
+                : 'Comprueba lo aprendido'}
             </p>
             <h2 className="mt-2 text-lg font-bold text-slate-900">{item.question}</h2>
-            <div className="mt-2 flex justify-end"><ReportQuestionButton questionId={item.question_id} onReported={next} /></div>
+            <div className="mt-2 flex justify-end"><ReportQuestionButton questionId={item.question_id} onReported={() => {
+              if (recoveryPending || staging) return;
+              if (!answered) setStats(s => ({ ...s, omitidos: s.omitidos + 1 }));
+              next();
+            }} /></div>
             <div className="mt-4 flex flex-col gap-2" role="radiogroup" aria-label="Opciones">
               {options.map((opt, idx) => {
                 const isSel = chosen === opt;
