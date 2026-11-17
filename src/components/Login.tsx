@@ -50,6 +50,11 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
   const [password, setPassword] = useState('');
   const [verPassword, setVerPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  // Una sola petición de acceso a la vez (doble toque, Enter). La respuesta de una petición que ya superó el
+  // tiempo límite la descarta conTiempoLimite; con la pantalla desmontada no se actualiza nada.
+  const enVuelo = useRef(false);
+  const montado = useRef(true);
+  useEffect(() => { montado.current = true; return () => { montado.current = false; }; }, []);
   const [message, setMessage] = useState<Aviso>(null);
   const [mode, setMode] = useState<ModoAcceso>(enlace.invitacion ? 'crear' : initialMode);
   // Correo al que se ha enviado la confirmación: se cambia el formulario por «Revisa tu correo».
@@ -73,6 +78,8 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (enVuelo.current) return;
+    enVuelo.current = true;
     setLoading(true);
     setMessage(null);
 
@@ -87,6 +94,7 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
             ...(enlace.codigo ? { data: { codigo_piloto: enlace.codigo } } : {}),
           },
         }));
+        if (!montado.current) return;
         if (result.error) {
           setMessage({ type: 'error', ...mensajeErrorAcceso('crear', result.error, abierto) });
           focusEmail();
@@ -104,15 +112,17 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
         // Con sesión, la app pasa sola al inicio.
       } else {
         const result = await conTiempoLimite(supabase!.auth.signInWithPassword({ email: correo(), password }));
+        if (!montado.current) return;
         if (result.error) {
           setMessage({ type: 'error', ...mensajeErrorAcceso('entrar', result.error, abierto) });
           focusEmail();
         }
       }
     } catch (err) {
-      setMessage({ type: 'error', text: err instanceof SinRespuesta ? SIN_RESPUESTA : SIN_CONEXION });
+      if (montado.current) setMessage({ type: 'error', text: err instanceof SinRespuesta ? SIN_RESPUESTA : SIN_CONEXION });
     } finally {
-      setLoading(false);
+      enVuelo.current = false;
+      if (montado.current) setLoading(false);
     }
   };
 
@@ -125,6 +135,8 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
       focusEmail();
       return;
     }
+    if (enVuelo.current) return;
+    enVuelo.current = true;
     setLoading(true);
     setMessage(null);
     try {
@@ -132,13 +144,15 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
         email: correo(),
         options: { shouldCreateUser: false, emailRedirectTo: urlRetornoAuth('enlace') },
       }));
+      if (!montado.current) return;
       setMessage(error
         ? { type: 'error', ...mensajeErrorEnlace(error, abierto) }
         : { type: 'success', text: 'Si este correo corresponde a una cuenta activa, recibirás un enlace para entrar sin contraseña. Revisa Spam o Promociones; si no llega en unos minutos, avisa al equipo de BomberoPRO. La solicitud no confirma la entrega.' });
     } catch (err) {
-      setMessage({ type: 'error', text: err instanceof SinRespuesta ? SIN_RESPUESTA : SIN_CONEXION });
+      if (montado.current) setMessage({ type: 'error', text: err instanceof SinRespuesta ? SIN_RESPUESTA : SIN_CONEXION });
     } finally {
-      setLoading(false);
+      enVuelo.current = false;
+      if (montado.current) setLoading(false);
     }
   };
 
@@ -148,12 +162,15 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
       focusEmail();
       return;
     }
+    if (enVuelo.current) return;
+    enVuelo.current = true;
     setLoading(true);
     setMessage(null);
     try {
       const { error } = await conTiempoLimite(supabase!.auth.resetPasswordForEmail(correo(), {
         redirectTo: urlRetornoAuth('recuperar'),
       }));
+      if (!montado.current) return;
       setMessage(error
         ? { type: 'error', ...mensajeErrorRecuperacion(error) }
         : {
@@ -161,13 +178,16 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
             text: `Si ${correo()} tiene una cuenta, recibirá un correo con los pasos para cambiar la contraseña. Revisa también Spam o Promociones.`,
           });
     } catch (err) {
-      setMessage({ type: 'error', text: err instanceof SinRespuesta ? SIN_RESPUESTA : SIN_CONEXION });
+      if (montado.current) setMessage({ type: 'error', text: err instanceof SinRespuesta ? SIN_RESPUESTA : SIN_CONEXION });
     } finally {
-      setLoading(false);
+      enVuelo.current = false;
+      if (montado.current) setLoading(false);
     }
   };
 
   const handleResend = async () => {
+    if (enVuelo.current) return;
+    enVuelo.current = true;
     setLoading(true);
     try {
       const { error } = await conTiempoLimite(supabase!.auth.resend({
@@ -175,14 +195,16 @@ export default function Login({ onStartDemo, initialMode = 'entrar', onContinueG
         email: correo(),
         options: { emailRedirectTo: urlRetornoAuth('registro') },
       }));
+      if (!montado.current) return;
       // El botón de reenviar se mantiene también tras un fallo (límite, sin conexión) para reintentar.
       setMessage(error
         ? { type: 'error', ...mensajeErrorAcceso('crear', error, abierto), accion: 'reenviar' }
         : { type: 'success', text: 'Si la dirección puede recibir una confirmación, llegará un correo. Revisa Spam o Promociones; si no llega en unos minutos, avisa al equipo.', accion: 'reenviar' });
     } catch (err) {
-      setMessage({ type: 'error', text: err instanceof SinRespuesta ? SIN_RESPUESTA : SIN_CONEXION, accion: 'reenviar' });
+      if (montado.current) setMessage({ type: 'error', text: err instanceof SinRespuesta ? SIN_RESPUESTA : SIN_CONEXION, accion: 'reenviar' });
     } finally {
-      setLoading(false);
+      enVuelo.current = false;
+      if (montado.current) setLoading(false);
     }
   };
 
