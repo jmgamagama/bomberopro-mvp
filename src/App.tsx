@@ -1058,6 +1058,14 @@ export default function App() {
         <Suspense fallback={<Skeleton label="Cargando la pantalla…" />}>
         {currentScreen === 'dashboard' && (
           <>
+          <SesionHoyCard
+            preguntasPendientes={pendingCount}
+            onOpenPreguntas={() => handleNavigate('today_training')}
+            onOpen={(directo) => {
+              handleNavigate('sesion_diaria');
+              setDailyAutoStart(directo);
+            }}
+          />
           {!isDemoMode && session?.user?.id && supabase && (
             <button
               type="button"
@@ -1078,14 +1086,6 @@ export default function App() {
               Mis reportes
             </button>
           )}
-          <SesionHoyCard
-            preguntasPendientes={pendingCount}
-            onOpenPreguntas={() => handleNavigate('today_training')}
-            onOpen={(directo) => {
-              handleNavigate('sesion_diaria');
-              setDailyAutoStart(directo);
-            }}
-          />
           <Badajoz2026Card
             onOpenSupuestos={supuestosVisibles ? () => handleNavigate('supuestos') : undefined}
             onOpenProgress={() => handleNavigate('progreso')}

@@ -5,11 +5,11 @@ Feedback real de un alumno que se registró con la invitación. Clasificado en b
 ## Bloque 1: cambios rápidos
 - [x] Quitar el botón «Estudiar hoy» de la pantalla de inicio (duplicado de «Tu plan de hoy»; el acceso queda en la barra).
 - [x] Quitar el recordatorio diario de la pantalla de inicio (se mantiene al final de la sesión).
-- [ ] Mover «Ver tu progreso por tema» al cuadro «Tu progreso».
-- [ ] Resaltar los botones de desplegar tema y bloque en Material por temas.
-- [ ] Opción de tiempo ilimitado en Estudiar.
-- [ ] Opción de ocultar el tiempo de respuesta.
-- [ ] Orden de inicio: plan de hoy, material por tema, progreso, dudas.
+- [x] «Ver tu progreso por tema» ya está dentro del cuadro «Tu progreso». Falta identificar el duplicado que quiere quitar (pregunta a Roberto).
+- [x] Resaltar los botones de desplegar tema y bloque (borde e indicación más visibles).
+- [ ] Opción de tiempo ilimitado en Estudiar (pendiente: no encuentro dónde se aplica el límite).
+- [x] Ocultar el tiempo de respuesta: ya existía en Estudiar (botón Ocultar/Mostrar). Roberto no lo localizó; conviene destacarlo.
+- [x] Orden de inicio: plan de hoy, material por tema, progreso, dudas.
 
 ## Bloque 2: nombres (pendientes de decisión de JM)
 - «Estudio hoy» → «Repaso a tu gusto» (propuesta).
