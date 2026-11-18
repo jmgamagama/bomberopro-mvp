@@ -11,12 +11,12 @@ import MiTutor from './MiTutor';
 describe('MiTutor', () => {
   beforeEach(() => { rpc.mockReset(); vi.spyOn(window, 'confirm').mockReturnValue(true); });
 
-  it('explica qué ve el tutor y qué no, y muestra con quién se comparte', async () => {
+  it('la explicación de qué ve el tutor va plegada (consentimiento informado) y muestra con quién se comparte', async () => {
     rpc.mockResolvedValue({ data: [{ tutor_id: 't1', nombre: 'Roberto', desde: '2026-11-18T08:00:00Z' }], error: null });
     render(<MiTutor onExit={() => {}} />);
     await waitFor(() => expect(screen.getByText('Roberto')).toBeTruthy());
-    expect(screen.getByText('Qué ve tu tutor')).toBeTruthy();
-    expect(screen.getByText('Qué no ve')).toBeTruthy();
+    expect(screen.getByText('¿Qué ve mi tutor?')).toBeTruthy();
+    expect(screen.getByText(/No ve tu contraseña, datos de pago/)).toBeTruthy();
   });
 
   it('con código inválido muestra el error y no cambia la lista', async () => {

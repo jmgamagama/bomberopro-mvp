@@ -51,21 +51,14 @@ export default function MiTutor({ onExit }: { onExit: () => void }) {
         <h2 className="text-xl font-bold text-slate-900">Mi tutor</h2>
         <button type="button" onClick={onExit} className="min-h-11 rounded-lg px-3 py-1.5 text-sm font-semibold text-slate-600 hover:bg-slate-100">Volver</button>
       </div>
-      <p className="mb-4 text-sm text-slate-700">
-        Si tienes un profesor o tutor, puedes dejar que vea tu progreso para que te dé feedback personalizado. Tú decides y puedes dejar de compartir cuando quieras.
+      <p className="mb-3 text-sm text-slate-700">
+        ¿Estudias con un profesor o academia? Introduce el código que te ha dado y podrá ver tu progreso para ayudarte mejor.
       </p>
-      <div className="mb-4 rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-700">
-        <p className="mb-2 font-semibold text-slate-900">Qué ve tu tutor</p>
-        <ul className="list-disc space-y-1 pl-5">
-          <li>Tu correo, tus días de estudio y el tiempo estimado que respondes.</li>
-          <li>Tus aciertos y fallos por tema, y cuándo dudas.</li>
-        </ul>
-        <p className="mt-2 font-semibold text-slate-900">Qué no ve</p>
-        <ul className="list-disc space-y-1 pl-5">
-          <li>Tu contraseña ni datos de pago.</li>
-          <li>El contenido exacto de tus respuestas.</li>
-        </ul>
-      </div>
+      <details className="mb-4 rounded-xl border border-slate-200 bg-white p-3 text-sm text-slate-700">
+        <summary className="cursor-pointer font-semibold text-slate-900">¿Qué ve mi tutor?</summary>
+        <p className="mt-2">Tu correo, tus días de estudio, el tiempo estimado que respondes y tus aciertos, fallos y dudas por tema.</p>
+        <p className="mt-1">No ve tu contraseña, datos de pago ni el contenido de tus respuestas. Puedes dejar de compartir cuando quieras.</p>
+      </details>
 
       {aviso && (
         <p role="status" className={`mb-4 rounded-lg p-3 text-sm ${aviso.tipo === 'ok' ? 'bg-emerald-50 text-emerald-800' : 'bg-red-50 text-red-700'}`}>{aviso.texto}</p>

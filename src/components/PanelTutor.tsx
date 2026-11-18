@@ -103,6 +103,9 @@ export default function PanelTutor({ onExit }: { onExit: () => void }) {
   return (
     <div className="mx-auto max-w-3xl p-4" data-testid="panel-tutor">
       {cabecera(`Panel de ${estado.nombre ?? 'tutor'}`, onExit)}
+      <p className="mb-3 text-sm text-slate-700">
+        Aquí ves el progreso de tus alumnos: cuánto estudian, en qué temas van bien y dónde necesitan refuerzo, para que dediques tu clase a lo que más les ayuda.
+      </p>
       <div className="mb-4 rounded-xl border border-indigo-200 bg-indigo-50 p-4 text-sm text-slate-700">
         <p className="font-semibold text-slate-900">Tu código para alumnos</p>
         <p className="my-1 text-2xl font-bold tracking-widest text-indigo-800" data-testid="codigo-tutor">{estado.codigo}</p>
