@@ -74,7 +74,7 @@ describe('Repasar errores con cuenta', () => {
     fireEvent.click(await screen.findByRole('button', { name: /Repasar errores/ }));
 
     expect(await screen.findByText('¿Pregunta fallada del tema 1?')).toBeInTheDocument();
-    expect(screen.getByRole('region', { name: 'Tema 8. Título 8' })).toBeInTheDocument();
+    expect(screen.getByRole('region', { name: 'T8 · Título 8' })).toBeInTheDocument();
     expect(rpcMock).toHaveBeenCalledWith('begin_error_session_v3', { p_limit: 50 });
 
     fireEvent.click(screen.getByRole('button', { name: /Repasar mis errores \(2\)/ }));

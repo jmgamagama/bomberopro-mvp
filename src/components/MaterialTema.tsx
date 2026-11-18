@@ -114,7 +114,7 @@ export default function MaterialTema({ userId, onExit, tema: temaInicial = 1, vo
           className="mt-1 block min-h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-base text-slate-900 sm:text-sm">
           {TEMAS.map((n) => (
             <option key={n} value={n}>
-              {`Tema ${n}${nombres[n] ? `. ${nombres[n]}` : ''}${materialDeTema(n) ? ' · con material' : ''}`}
+              {`T${n}${nombres[n] ? ` · ${nombres[n]}` : ''}${materialDeTema(n) ? ' · con material' : ''}`}
             </option>
           ))}
         </select>

@@ -237,7 +237,7 @@ if (!started) {
                          className: 'w-4 h-4'
                        }),
                        h('span', { className: 'flex flex-col' },
-                         h('span', { className: 'text-sm text-slate-800' }, 'Tema ' + t.numero + '. ' + t.nombre),
+                         h('span', { className: 'text-sm text-slate-800' }, 'T' + t.numero + ' · ' + t.nombre),
                          h(ConceptCountBadge, { tema: conceptSummary[t.numero], listo: conceptSummaryListo })
                        )
                      ),
