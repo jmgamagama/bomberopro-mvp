@@ -15,7 +15,7 @@ import { optionLetter } from '../utils/shuffleOptions';
 import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
 import { supabase } from '../lib/supabase';
-import { checkAnswer, describeCheckError, isQuestionSessionExpired, type AnswerCheck } from '../lib/secureQuestions';
+import { checkAnswer, describeCheckError, needsNewQuestionSession, type AnswerCheck } from '../lib/secureQuestions';
 
 interface TrainScreenProps {
   question: Question | null;
@@ -181,7 +181,7 @@ export default function TrainScreen({
       // Respuesta tardía de una pregunta o tanda ya sustituida (o pantalla cerrada): su error no es de esta.
       if (!isStillCurrent()) return;
       setCheckError(describeCheckError(err));
-      setSessionExpired(isQuestionSessionExpired(err));
+      setSessionExpired(needsNewQuestionSession(err));
       checkingRef.current = false;
       setIsChecking(false);
       return;
