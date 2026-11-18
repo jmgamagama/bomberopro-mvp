@@ -15,7 +15,7 @@ export default defineConfig(({mode}) => {
       react(),
       seo(env.VITE_SITE_URL),
       tailwindcss(),
-      VitePWA(buildPwaOptions(env.VITE_SUPABASE_URL)),
+      VitePWA(buildPwaOptions(env.VITE_SUPABASE_URL, process.env.VERCEL_ENV)),
     ],
     resolve: {
       alias: {

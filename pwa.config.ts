@@ -51,7 +51,7 @@ export const NAVIGATE_FALLBACK_DENYLIST = [/^\/api\//, /^\/auth\//, /^\/rest\//,
  * @param supabaseUrl VITE_SUPABASE_URL (opcional): si apunta a un dominio propio,
  * también se marca como red solamente.
  */
-export function buildPwaOptions(supabaseUrl?: string): Partial<VitePWAOptions> {
+export function buildPwaOptions(supabaseUrl?: string, vercelEnvironment?: string): Partial<VitePWAOptions> {
   const networkOnlyPatterns: RegExp[] = [SUPABASE_URL_PATTERN];
   if (supabaseUrl) {
     try {
@@ -69,7 +69,15 @@ export function buildPwaOptions(supabaseUrl?: string): Partial<VitePWAOptions> {
     injectRegister: 'script-defer',
     // Los iconos ya entran por globPatterns: evita entradas duplicadas en el precache.
     includeManifestIcons: false,
-    manifest: pwaManifest,
+    // Una instalación de preview conserva su propio origen: debe distinguirse de la app de alumnos.
+    manifest: vercelEnvironment === 'preview'
+      ? {
+          ...pwaManifest,
+          name: 'BomberoPro · PRUEBAS · No usar para estudiar',
+          short_name: 'BomberoPro QA',
+          description: 'Versión de pruebas. Para estudiar utiliza https://bomberopro.com.',
+        }
+      : pwaManifest,
     workbox: {
       // manifest.webmanifest lo añade el propio plugin.
       globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
