@@ -13,3 +13,5 @@ content/
 supabase/migrations/*_datos_*.sql
 pwa-capturas/
 __pycache__/
+e2e/*.manifiesto.json
+e2e/*.checkpoint.json
