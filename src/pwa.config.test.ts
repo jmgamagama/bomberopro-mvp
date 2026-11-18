@@ -20,6 +20,24 @@ function pngSize(path: string): { width: number; height: number } {
 }
 
 describe('PWA: manifest', () => {
+  it('distingue instalaciones de preview sin cambiar su origen ni el comportamiento offline', () => {
+    const preview = buildPwaOptions(undefined, 'preview');
+    const manifest = preview.manifest as typeof pwaManifest;
+    expect(manifest.name).toContain('PRUEBAS');
+    expect(manifest.short_name).toBe('BomberoPro QA');
+    expect(manifest.description).toContain('https://bomberopro.com');
+    expect(manifest.start_url).toBe('/');
+    expect(manifest.id).toBe('/');
+    expect(manifest.scope).toBe('/');
+    expect(manifest.icons).toEqual(pwaManifest.icons);
+    expect(preview.workbox).toEqual(buildPwaOptions().workbox);
+  });
+
+  it('conserva la identidad de producción y del build local sin entorno Vercel', () => {
+    expect(buildPwaOptions(undefined, 'production').manifest).toEqual(pwaManifest);
+    expect(buildPwaOptions().manifest).toEqual(pwaManifest);
+  });
+
   it('es instalable: nombre, idioma, display standalone, start_url y scope en la raíz', () => {
     expect(pwaManifest.name).toBe('BomberoPro · Oposiciones bombero CPEI Badajoz');
     expect(pwaManifest.short_name).toBe('BomberoPro');
