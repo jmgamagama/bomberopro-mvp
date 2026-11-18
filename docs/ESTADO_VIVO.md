@@ -46,6 +46,8 @@
 9. Piloto 14 días (propuesta, `docs/AUTORIZACIONES.md`): congelar PR no esenciales, máx. 2 abiertas; Claude + Codex + ChatGPT en camino crítico. Hipótesis nº 1 de que no llegue el correo: la contraseña de aplicación de Gmail del SMTP fue cambiada (punto 2) y Supabase aún tiene la antigua. JM → comprobarlo en Supabase → Auth → SMTP; Claude → leer Auth Logs. JM → pasar los 10 correos por canal privado. Las autorizaciones de ese fichero siguen pendientes hasta que JM fusione la PR.
 10. Decisión Claude (11/11, JM delegó): el esquema del Tema 2 en adelante se ve menos trabajado que el del Tema 1 (observación correcta de JM); es la diferencia ya documentada en `docs/MATERIAL_POR_TEMA.md`/`ESTANDAR_MATERIAL_TEMAS.md` entre el Tema 1 (redactado y revisado a mano) y el resto (esquema generado del BOE, sin capa «desarrollo»). Mejorarlo es trabajo editorial de fondo, exactamente lo que congela el piloto: **se deja para después de los 14 días**, salvo que el feedback real de los 10 alumnos señale un tema concreto como bloqueante.
 
+11. Claude → feedback de Roberto (17/11): bloque 1 casi cerrado en `claude/feedback-roberto-bloque2` (cronómetro oculto por defecto; PR en borrador). Pendiente de JM: nombres del bloque 2, decisiones del bloque 4 y el plan de seguimiento de tutor (sin código; los cambios de datos necesitan «sí» escrito y staging). Detalle en `docs/FEEDBACK_ROBERTO.md`.
+
 ## Decisiones cerradas (no reabrir sin dato nuevo)
 - Paleta A «Brasa y Noche»; estado = icono + texto + contorno, relleno sólido solo en acciones. Marca: gota azul marino, blanca y amarilla en todas partes.
 - WhatsApp como tutor IA descartado (restricciones Meta 2026); Telegram o app de Claude.

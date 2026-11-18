@@ -70,8 +70,9 @@ export default function TrainScreen({
   // Cronómetro de tiempo ACTIVO: se pausa con la pestaña oculta, mientras el servidor corrige y al responder.
   // La tanda forma parte de la clave: si la tanda nueva trae la misma pregunta, el tiempo empieza de cero.
   const timer = useActiveTimer(`${question?.id ?? ''}|${question?.delivery_session_id ?? ''}`, { running: !isAnswered && !isChecking, display: true });
+  // Oculto por defecto (pantalla limpia, feedback de Roberto). Solo se muestra si el alumno lo activó antes.
   const [timerVisible, setTimerVisible] = useState<boolean>(() => {
-    try { return window.localStorage.getItem('bomberopro_timer_visible') !== 'false'; } catch { return true; }
+    try { return window.localStorage.getItem('bomberopro_timer_visible') === 'true'; } catch { return false; }
   });
   const toggleTimer = () => {
     setTimerVisible(v => {

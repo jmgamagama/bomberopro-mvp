@@ -176,6 +176,7 @@ describe('TrainScreen: tiempo de respuesta activo', () => {
 
   it('pasados 2 min activos el tiempo es «sin dato» (null) y el contador no enseña cifras enormes', async () => {
     const { container, onAnswer } = renderTrain();
+    fireEvent.click(screen.getByRole('button', { name: 'Mostrar' }));
     act(() => { vi.advanceTimersByTime(150_000); });
     expect(container.querySelector('#automation-timer')).toHaveTextContent('+2 min');
     expect(container.querySelector('#automation-timer')).toHaveTextContent('Sin medir');
@@ -184,14 +185,15 @@ describe('TrainScreen: tiempo de respuesta activo', () => {
     expect(onAnswer.mock.calls[0][4]).toBeNull();
   });
 
-  it('el indicador se puede ocultar y se recuerda la elección', () => {
+  it('el cronómetro empieza oculto por defecto y la elección del alumno se recuerda', () => {
     const { container } = renderTrain();
     const timer = container.querySelector('#automation-timer')!;
+    expect(timer).not.toHaveTextContent('En objetivo');
+    fireEvent.click(screen.getByRole('button', { name: 'Mostrar' }));
     expect(timer).toHaveTextContent('En objetivo');
+    expect(window.localStorage.getItem('bomberopro_timer_visible')).toBe('true');
     fireEvent.click(screen.getByRole('button', { name: 'Ocultar' }));
     expect(timer).not.toHaveTextContent('En objetivo');
     expect(window.localStorage.getItem('bomberopro_timer_visible')).toBe('false');
-    fireEvent.click(screen.getByRole('button', { name: 'Mostrar' }));
-    expect(timer).toHaveTextContent('En objetivo');
   });
 });
