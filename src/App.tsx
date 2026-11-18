@@ -4,7 +4,7 @@
  */
 
 import React, { useState, useEffect, useLayoutEffect, useRef, useCallback, lazy, Suspense } from 'react';
-import { Brain, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles, ClipboardList, Menu } from 'lucide-react';
+import { Brain, BarChart2, Target, BookOpen, AlertTriangle, HelpCircle, LayoutDashboard, RotateCcw, LogOut, Flame, Layers, Sparkles, ClipboardList, Menu, Users } from 'lucide-react';
 import { trackFunnel } from './lib/funnel';
 import { getVisibleSupuestos } from './data/supuestos/supuestosRegistry';
 import { SUPUESTOS_PRIVADOS_EVENT, contarSupuestosPrivados } from './data/supuestos/supuestosPrivados';
@@ -42,6 +42,7 @@ import { fetchQuestionSession } from './lib/secureQuestions';
 import { loadStudySessionAfterSync } from './lib/loadStudySessionAfterSync';
 import { isSecureTrainingQuestion, mustReloadAuthenticatedPool } from './lib/trainingSource';
 import { supabase } from './lib/supabase';
+import { getEsTutor } from './lib/tutor';
 import { saveAttemptToServer, toLevelInt } from './lib/saveAttemptToServer';
 import UpdateBanner from './components/UpdateBanner';
 import SaveFailureBanner from './components/SaveFailureBanner';
@@ -90,6 +91,8 @@ const Login = lazy(() => import('./components/Login'));
 const llegaPorInvitacion = typeof window !== 'undefined' && leerEnlaceInvitacion(window.location.search).invitacion;
 const StudyByTopic = lazy(() => import('./components/StudyByTopic'));
 const MyReports = lazy(() => import('./components/MyReports'));
+const MiTutor = lazy(() => import('./components/MiTutor'));
+const PanelTutor = lazy(() => import('./components/PanelTutor'));
 const AccountErrorPanel = lazy(() => import('./components/AccountErrorPanel'));
 const ConceptStudy = lazy(() => import('./components/ConceptStudy'));
 const MaterialConstitucion = lazy(() => import('./components/MaterialConstitucion'));
@@ -124,7 +127,7 @@ const TuProgreso = lazy(() => import('./components/TuProgreso'));
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<
-    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes' | 'mas' | 'progreso'
+    'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes' | 'mas' | 'progreso' | 'mi_tutor' | 'panel_tutor'
   >(() => (hasCompletedOnboarding() ? (isSupuestosHash() ? 'supuestos' : 'dashboard') : 'onboarding'));
   // Página de planes: solo con VITE_FEATURE_PLANES=true (por defecto no aparece nada).
   const planesEnabled = isPlanesEnabled();
@@ -146,10 +149,19 @@ export default function App() {
   // Supabase Auth and Data state
   const [session, setSession] = useState<any>(null);
   const [isDemoMode, setIsDemoMode] = useState(false);
+  // Acceso de tutor: lo decide el servidor (tabla `tutores`); aquí solo se muestra u oculta la opción de menú.
+  const [esTutor, setEsTutor] = useState(false);
   const demoFirstAnswerTracked = useRef(false);
   // Reenvía las respuestas pendientes al haber sesión y al recuperar la conexión.
   useAttemptSync(session?.user?.id);
   const conceptOwner = session?.user?.id && !isDemoMode ? session.user.id : null;
+  useEffect(() => {
+    if (!conceptOwner) { setEsTutor(false); return; }
+    let vivo = true;
+    // Si falla (sin red o función no disponible) simplemente no se ofrece la opción: nunca bloquea al alumno.
+    Promise.resolve(getEsTutor()).then(r => { if (vivo) setEsTutor(r?.es_tutor === true); }).catch(() => { if (vivo) setEsTutor(false); });
+    return () => { vivo = false; };
+  }, [conceptOwner]);
   // El recuento de repasos se pide en todas las pantallas menos durante el estudio por conceptos:
   // así, al salir del estudio, el botón «Repasar (N)» se recalcula con lo que ya se ha repasado.
   const remoteConcepts = useRemoteConceptProgress(conceptOwner, currentScreen !== 'concept_t40');
@@ -403,7 +415,7 @@ export default function App() {
 
   // Handle switching screens
   const handleNavigate = (
-    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes' | 'mas' | 'progreso'
+    screen: 'dashboard' | 'train' | 'errors' | 'forgetting_curve' | 'mock_exam' | 'today_training' | 'study_by_topic' | 'concept_t40' | 'constitucion' | 'my_reports' | 'recuerdo' | 'sesion_diaria' | 'ordena_pasos' | 'supuestos' | 'onboarding' | 'planes' | 'mas' | 'progreso' | 'mi_tutor' | 'panel_tutor'
   ) => {
     // Salir de la pantalla desmonta el simulacro: sin confirmar se perderían todas sus respuestas.
     if (screen !== 'mock_exam' && !confirmLeaveExam()) return;
@@ -853,7 +865,7 @@ export default function App() {
   // Navegación única (móvil, tableta y escritorio): 5 secciones. Lo menos usado vive en «Más» para no abrumar al alumno.
   type Screen = typeof currentScreen;
   const estudiarScreen: Screen = conceptOwner ? 'concept_t40' : 'train';
-  const MAS_SCREENS: Screen[] = ['mas', 'errors', 'forgetting_curve', 'recuerdo', 'sesion_diaria', 'ordena_pasos', 'today_training', 'supuestos', 'my_reports', 'planes', 'constitucion'];
+  const MAS_SCREENS: Screen[] = ['mas', 'errors', 'forgetting_curve', 'recuerdo', 'sesion_diaria', 'ordena_pasos', 'today_training', 'supuestos', 'my_reports', 'planes', 'constitucion', 'mi_tutor', 'panel_tutor'];
   const mobileTabs: { key: string; label: string; Icon: typeof LayoutDashboard; target: Screen; active: Screen[] }[] = [
     { key: 'inicio', label: 'Inicio', Icon: LayoutDashboard, target: 'dashboard', active: ['dashboard', 'progreso'] },
     { key: 'estudiar', label: 'Estudiar', Icon: Target, target: estudiarScreen, active: ['concept_t40', 'train'] },
@@ -869,6 +881,8 @@ export default function App() {
     { key: 'forgetting_curve', label: 'Curva de olvido', detail: 'Qué se te está olvidando.', Icon: BarChart2, target: 'forgetting_curve' },
     ...(supuestosVisibles ? [{ key: 'supuestos', label: 'Casos prácticos', detail: 'Supuestos del segundo ejercicio.', Icon: ClipboardList, target: 'supuestos' as Screen }] : []),
     ...(!isDemoMode && session?.user?.id ? [{ key: 'my_reports', label: 'Mis reportes', detail: 'Errores que has avisado en preguntas.', Icon: HelpCircle, target: 'my_reports' as Screen }] : []),
+    ...(!isDemoMode && session?.user?.id ? [{ key: 'mi_tutor', label: 'Mi tutor', detail: 'Comparte tu progreso con tu profesor.', Icon: Users, target: 'mi_tutor' as Screen }] : []),
+    ...(esTutor && !isDemoMode ? [{ key: 'panel_tutor', label: 'Panel de tutor', detail: 'Progreso de tus alumnos.', Icon: BarChart2, target: 'panel_tutor' as Screen }] : []),
     ...(planesEnabled ? [{ key: 'planes', label: 'Planes', detail: 'Opciones de acceso.', Icon: Sparkles, target: 'planes' as Screen }] : []),
   ];
 
@@ -1106,6 +1120,14 @@ export default function App() {
 
         {currentScreen === 'my_reports' && session?.user?.id && !isDemoMode && (
           <MyReports onExit={() => handleNavigate('dashboard')} />
+        )}
+
+        {currentScreen === 'mi_tutor' && session?.user?.id && !isDemoMode && (
+          <MiTutor onExit={() => handleNavigate('mas')} />
+        )}
+
+        {currentScreen === 'panel_tutor' && session?.user?.id && !isDemoMode && esTutor && (
+          <PanelTutor onExit={() => handleNavigate('mas')} />
         )}
 
         {currentScreen === 'constitucion' && session?.user?.id && !isDemoMode && (

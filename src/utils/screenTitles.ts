@@ -21,4 +21,6 @@ export const SCREEN_TITLES = {
   supuestos: 'Supuestos prácticos',
   mas: 'Más',
   progreso: 'Tu progreso',
+  mi_tutor: 'Mi tutor',
+  panel_tutor: 'Panel de tutor',
 } as const;
