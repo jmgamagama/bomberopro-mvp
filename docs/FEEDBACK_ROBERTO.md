@@ -40,13 +40,20 @@ Objetivo de sesión, aviso a los 50-55 min y resumen final: producto nuevo, pend
 
 ## Decisiones de Claude (18/11, JM delegó; referentes: Duolingo for Schools, Khan Academy, Brainscape, Anki)
 Lo que hacen bien los referentes: el profesor ve **tiempo, precisión y racha de un vistazo** (Duolingo, Khan); la **confianza** declarada solo vale junto a resultados reales (Brainscape); Anki/Quizlet no dan nada al profesor, ese es nuestro hueco. El alumno ve su progreso en limpio y el tutor, un panel aparte.
-1. **Panel de tutor: construido** (migración 57 + «Mi tutor» + «Panel de tutor»). El alumno da un código y puede revocar; el tutor ve días activos, tiempo estimado, aciertos, dudas y «seguro y falla» por tema. Sin tiempo de lectura (no se mide hoy; solo tiempo respondiendo, tope 2 min). **Producción pendiente del «sí» escrito de JM** (migración 57 ya probada en staging).
+1. **Panel de tutor: construido** (migración 57 + «Mi tutor» + «Panel de tutor»). El alumno da un código y puede revocar; el tutor ve días activos, tiempo estimado, aciertos, dudas y «seguro y falla» por tema. Sin tiempo de lectura (no se mide hoy; solo tiempo respondiendo, tope 2 min). En producción desde el 18/11 (migración 57; Roberto dado de alta como tutor).
 2. **Resultado del simulacro por seguridad:** siguiente. La confianza ya se guarda en `attempts`; solo falta mostrarla al final.
 3. **Guía de uso:** tres pasos máximo, dentro de la primera sesión (valor primero, como Duolingo), no una pantalla previa.
 4. **Filtros por dificultad y buscador:** después; `concepts.dificultad` ya existe.
 5. **«Estudio hoy» → «Repaso a tu gusto»:** descartado. «Estudiar» es una sesión guiada, no de libre elección: el nombre prometería otra cosa.
 6. **Prueba de nivel de 100 y simulacro en dos vueltas:** se mantienen en pausa (cobertura de preguntas; no confundir práctica con examen).
 7. **«% de dominio»:** solo con ≥10 respuestas por tema (ya aplicado en el panel de tutor: por debajo, «Pocos datos»).
+
+## Reunión con Roberto (18/11): cómo prepara hoy y qué añadimos
+Hoy: clases presenciales preparadas en papel (ejercicios y documentos entregados de forma tradicional), presentaciones con NotebookLM u otras IA, y comunicación por WhatsApp (cambios de hora, documentos al grupo). No queremos sustituir nada de eso: **complementarlo**.
+Tres planes (modelo de negocio): Alumno online · Alumno con academia (el tutor lo gestiona) · Profesor/Academia (panel, clases, avisos).
+Construido (migración 58, PR «clases del tutor»): el tutor crea una **clase** con fecha, temas, material enlazado (Drive/NotebookLM), aviso a los alumnos, notas privadas (repaso oral, simulacro en clase) y estado Borrador → Preparada → Impartida. Lista de preparación de 5 puntos. «Repetir esta clase» copia una que funcionó como borrador nuevo. **Ficha de lectura**: el alumno confirma «He leído el tema» y el tutor ve quién ha leído y cómo van en esos temas. **Aviso para WhatsApp** listo para enviar o copiar (WhatsApp sigue siendo el canal; la app solo lo prepara). El alumno ve solo clases «Preparada», en «Mi tutor» → «Próximas clases», sin notas privadas.
+Pendiente de que Roberto lo pruebe: test/ficha enviados por clase con fecha límite, repaso oral y simulacro «en clase» con resultados anotados por el tutor, calendario del alumno, recordatorio automático del día antes.
+Fuera de alcance por ahora: chat y videollamada propios (WhatsApp y Meet ya lo cubren).
 
 ## Lo que se mantiene
 Nombre, logo y paleta; cuadro resumen de la oposición; seguimiento de conceptos nuevos, adquiridos y fallos; «ordena los pasos»; simulacro en el menú.

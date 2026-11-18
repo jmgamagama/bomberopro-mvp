@@ -5,7 +5,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 const rpc = vi.fn();
 vi.mock('./supabase', () => ({ supabase: { rpc: (...a: unknown[]) => rpc(...a) } }));
 
-import { formatearMinutos, lecturaTema, vincularTutor } from './tutor';
+import { CLASE_VACIA, formatearMinutos, lecturaTema, preparacionClase, textoWhatsApp, vincularTutor } from './tutor';
 
 describe('formatearMinutos', () => {
   it('usa minutos por debajo de una hora y horas con minutos de dos cifras por encima', () => {
@@ -45,5 +45,32 @@ describe('vincularTutor', () => {
     expect(await vincularTutor('x')).toEqual({ ok: false, motivo: 'limite' });
     rpc.mockRejectedValueOnce(new Error('network'));
     expect(await vincularTutor('x')).toEqual({ ok: false, motivo: 'error' });
+  });
+});
+
+
+describe('clases del tutor', () => {
+  it('la lista de preparación marca solo lo que está hecho', () => {
+    const vacia = preparacionClase({ ...CLASE_VACIA, pide_lectura: false });
+    expect(vacia.filter(x => x.hecho)).toHaveLength(0);
+    const completa = preparacionClase({ ...CLASE_VACIA, fecha: '2026-11-20T17:00:00Z', temas: [1], aviso_alumnos: 'Traed el test', notas_tutor: 'Repaso oral' });
+    expect(completa.every(x => x.hecho)).toBe(true);
+  });
+
+  it('el texto de WhatsApp incluye temas, aviso, enlaces y la ficha de lectura', () => {
+    const t = textoWhatsApp(
+      { ...CLASE_VACIA, titulo: 'Constitución', fecha: '2026-11-20T17:00:00Z', lugar: 'Aula 3', aviso_alumnos: 'Traed el test', enlaces: [{ titulo: 'Presentación', url: 'https://drive.google.com/x' }] },
+      [{ numero: 1, nombre: 'Constitución Española' }],
+    );
+    expect(t).toContain('📚 Constitución');
+    expect(t).toContain('Aula 3');
+    expect(t).toContain('T1 · Constitución Española');
+    expect(t).toContain('Traed el test');
+    expect(t).toContain('Presentación: https://drive.google.com/x');
+    expect(t).toContain('He leído el tema');
+  });
+
+  it('sin ficha de lectura no se pide en el texto', () => {
+    expect(textoWhatsApp({ ...CLASE_VACIA, titulo: 'Repaso', pide_lectura: false }, [])).not.toContain('He leído el tema');
   });
 });

@@ -4,6 +4,7 @@ import {
   type AlumnoDetalle, type AlumnoResumen, type EstadoTutor,
 } from '../lib/tutor';
 import Skeleton from './Skeleton';
+import ClasesTutor from './ClasesTutor';
 
 const TONO = {
   ok: 'bg-emerald-100 text-emerald-800',
@@ -28,6 +29,7 @@ export default function PanelTutor({ onExit }: { onExit: () => void }) {
   const [sel, setSel] = useState<AlumnoResumen | null>(null);
   const [detalle, setDetalle] = useState<AlumnoDetalle | null>(null);
   const [cargandoDetalle, setCargandoDetalle] = useState(false);
+  const [pestana, setPestana] = useState<'alumnos' | 'clases'>('alumnos');
 
   useEffect(() => {
     let vivo = true;
@@ -111,10 +113,17 @@ export default function PanelTutor({ onExit }: { onExit: () => void }) {
         <p className="my-1 text-2xl font-bold tracking-widest text-indigo-800" data-testid="codigo-tutor">{estado.codigo}</p>
         <p>El alumno lo introduce en <strong>Más → Mi tutor</strong>. Solo verás a quien lo haga, y puede dejar de compartir cuando quiera.</p>
       </div>
-      {alumnos === null && <Skeleton label="Cargando alumnos…" block={false} />}
-      {alumnos?.length === 0 && <p className="text-sm text-slate-500">Todavía no hay alumnos que compartan su progreso contigo.</p>}
+      <div role="tablist" aria-label="Secciones del panel" className="mb-4 flex gap-2">
+        {([['alumnos', 'Alumnos'], ['clases', 'Clases']] as const).map(([k, t]) => (
+          <button key={k} type="button" role="tab" aria-selected={pestana === k} onClick={() => setPestana(k)}
+            className={`min-h-11 flex-1 rounded-lg border px-4 text-sm font-bold ${pestana === k ? 'border-indigo-700 bg-indigo-700 text-white' : 'border-slate-300 bg-white text-slate-700'}`}>{t}</button>
+        ))}
+      </div>
+      {pestana === 'clases' && <ClasesTutor />}
+      {pestana === 'alumnos' && alumnos === null && <Skeleton label="Cargando alumnos…" block={false} />}
+      {pestana === 'alumnos' && alumnos?.length === 0 && <p className="text-sm text-slate-500">Todavía no hay alumnos que compartan su progreso contigo.</p>}
       <ul className="space-y-2">
-        {alumnos?.map(a => (
+        {pestana === 'alumnos' && alumnos?.map(a => (
           <li key={a.alumno_id}>
             <button type="button" onClick={() => void abrir(a)} className="w-full rounded-xl border border-slate-200 bg-white p-3 text-left hover:border-indigo-300">
               <div className="flex flex-wrap items-center justify-between gap-2">
