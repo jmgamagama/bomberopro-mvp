@@ -90,7 +90,7 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, c
   type Option = { id: string; label: string; detail: string; locked: boolean };
   const toOption = (t: RecallTopic): Option => ({
     id: t.id,
-    label: t.decks.length > 1 ? `${t.title}` : `${t.shortLabel} · ${t.name}`,
+    label: `${t.shortLabel} · ${t.name}`,
     detail: t.decks.length > 1 ? `${t.count} fichas · ${t.decks.length} lotes` : `${t.count} fichas`,
     locked: !canAccessTopic(t, plan),
   });

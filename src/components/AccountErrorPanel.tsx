@@ -24,7 +24,7 @@ export default function AccountErrorPanel({ state, onStart, onRetry, onStudy, on
   const questions = state.status === 'ready' ? state.questions : [];
   const byTopic = new Map<string, Question[]>();
   for (const q of questions) {
-    const key = q.tema ? `Tema ${q.tema.numero}. ${q.tema.titulo}` : 'Otros';
+    const key = q.tema ? `T${q.tema.numero} · ${q.tema.titulo}` : 'Otros';
     byTopic.set(key, [...(byTopic.get(key) ?? []), q]);
   }
 

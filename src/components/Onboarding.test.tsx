@@ -39,16 +39,15 @@ describe('Onboarding', () => {
       expect(within(group).getByRole('radio', { name: new RegExp(`^${topic.shortLabel} ·`) })).toHaveTextContent(topic.name);
     }
     const t36 = RECALL_TOPICS.find((t) => t.id === 'tema36')!;
-    const t36Radio = within(group).getByRole('radio', { name: /Tema 36 \(todos los lotes\)/ });
+    const t36Radio = within(group).getByRole('radio', { name: /^T36 ·/ });
     expect(t36Radio).toHaveTextContent(`${t36.count} fichas · ${t36.decks.length} lotes`);
-    expect(within(group).queryByRole('radio', { name: /T36·/ })).toBeNull();
     expect(RECALL_TOPICS.find((t) => t.id === 'tema40')!.name).toBe('Procedimientos de trabajo CPEI-Badajoz');
   });
 
-  it('elegir «Tema 36 (todos los lotes)» guarda el tema completo', async () => {
+  it('elegir «T36» (con todos sus lotes) guarda el tema completo', async () => {
     const user = userEvent.setup();
     render(<Onboarding onStart={vi.fn()} onSkip={vi.fn()} />);
-    await user.click(screen.getByRole('radio', { name: /Tema 36 \(todos los lotes\)/ }));
+    await user.click(screen.getByRole('radio', { name: /^T36 ·/ }));
     await user.click(screen.getByRole('button', { name: 'Empezar sesión diaria' }));
     expect(getPreferredDeckId()).toBe('tema36');
   });

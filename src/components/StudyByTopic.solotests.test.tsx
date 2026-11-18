@@ -36,13 +36,13 @@ describe('StudyByTopic · Solo tests', () => {
     expect(await screen.findByText('Solo tests')).toBeInTheDocument();
     expect(screen.getAllByText('Solo tests')).toHaveLength(1);
     expect(screen.getByText(/3 conceptos · 9 preguntas/)).toBeInTheDocument();
-    expect(screen.getByText('Tema 7. Tema sin conceptos').parentElement).toHaveTextContent('Solo tests');
+    expect(screen.getByText('T7 · Tema sin conceptos').parentElement).toHaveTextContent('Solo tests');
   });
 
   it('si el resumen falla no marca ningún tema como «Solo tests»', async () => {
     rpc.mockResolvedValue({ data: null, error: { message: 'boom' } });
     render(<StudyByTopic session={{ user: { id: 'user-1' } }} onNavigateHome={() => {}} />);
-    await screen.findByText('Tema 7. Tema sin conceptos');
+    await screen.findByText('T7 · Tema sin conceptos');
     expect(screen.queryByText('Solo tests')).toBeNull();
   });
 });

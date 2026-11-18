@@ -27,7 +27,7 @@ describe('selectores de tema agrupados por bloque', () => {
     const grupo = document.querySelector<HTMLElement>('#onboarding-grupo-especifica')!;
     expect(grupo).toHaveTextContent(`Parte específica · ${temas(ESPECIFICA.length)}`);
     expect(within(grupo).getAllByRole('radio')).toHaveLength(ESPECIFICA.length);
-    expect(within(grupo).getByRole('radio', { name: /^Tema 16 \(todos los lotes\)/ })).toBeInTheDocument();
+    expect(within(grupo).getByRole('radio', { name: /^T16 ·/ })).toBeInTheDocument();
     const comun = document.querySelector<HTMLElement>('#onboarding-grupo-comun');
     if (COMUN.length === 0) expect(comun).toBeNull();
     else expect(within(comun!).getAllByRole('radio')).toHaveLength(COMUN.length);
