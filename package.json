@@ -14,7 +14,8 @@
         "auditar:fichas": "vite-node scripts/auditar-fichas.ts",
         "auditar:bundle-pendiente": "vite-node scripts/auditar-bundle-pendiente.ts",
         "material:preceptos": "vite-node scripts/generar-preceptos-material.ts",
-    "cobertura:simulacro": "vite-node scripts/cobertura-simulacro.ts"
+        "cobertura:simulacro": "vite-node scripts/cobertura-simulacro.ts",
+        "calidad:temario:baseline": "ACTUALIZAR_BASELINE_TEMARIO=1 vitest run --configLoader runner src/data/calidadTemario.test.ts"
     },
     "dependencies": {
         "@supabase/supabase-js": "^2.110.8",
