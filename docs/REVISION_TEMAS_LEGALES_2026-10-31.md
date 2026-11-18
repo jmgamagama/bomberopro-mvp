@@ -30,7 +30,7 @@ José acepta como fuentes oficiales la guía INSARAG (T26) y los Documentos Bás
 
 ## Pendiente (31/10/2026, 3.ª tanda)
 
-- Sin fichas: T11, T18 (T19 excluido).
+- Sin fichas: T11, T18 (T19 excluido). *Nota 18/11/2026: JM decidió incluir el T19; queda pendiente junto a T11 y T18 (issue #318).*
 - Solo INSST, ocultas (decisión del 31/10): 23 de T8, 5 de T12, 12 de T28-lote02 (NTP 400). Su contenido (fisiología de la corriente, mecanismos de extinción, teoría del fuego) no está en el RD 614/2001 ni en otra norma vigente; solo se reescribieron contra el RIPCI las clases de fuego C y D del T8.
 - T5: oculto. BOP nº 145 de 01/08/2022 (anuncio 3393/2022) publica solo la exposición pública de una modificación puntual del RRI, sin texto. Revisados los BOP del 02/08 al 31/12/2022: no hay aprobación definitiva ni texto publicado.
 - T21 y T21-lote02: Manual de la DGT, no BOE/DOE/BOP; ocultos.
