@@ -14,9 +14,9 @@ Estado a 18/11/2026 (rama `claude/feedback-roberto-bloque2`).
 - [x] Orden de inicio: plan de hoy, material por tema, progreso, dudas. En main desde #311.
 
 ## Bloque 2: nombres (pendientes de decisión de JM)
-- «Estudio hoy» → «Repaso a tu gusto» (propuesta). No localizado en el código: el texto de Estudiar que más se parece es «Estudiar hoy» (`ConceptStudy.tsx`, `screenTitles.ts`). Pendiente de confirmar la pantalla exacta con Roberto.
-- «Tarjetas recuerdo» → «Tarjetas pro» (propuesta). La pantalla «Recuerdo» de `App.tsx` es la candidata. Pendiente de confirmar.
-Sin aplicar hasta que JM confirme los nombres.
+- «Estudio hoy» → «Repaso a tu gusto»: aprobado por JM el 18/11, sin aplicar porque no encuentro el texto en el código. Pendiente de la pantalla exacta.
+- [x] «Tarjetas recuerdo» → «Tarjetas pro»: aplicado a la opción de menú «Recuerdo» (`App.tsx`), aprobado por JM el 18/11.
+- «Estudio hoy» → sin aplicar: no hay ninguna pantalla con ese texto en el código. Pendiente de que Roberto indique dónde lo ve.
 
 ## Bloque 3: funciones medianas (en este orden)
 1. Guía de uso en la primera visita (pasos, no vídeo). Pendiente: diseño de contenido y decisión de JM.
