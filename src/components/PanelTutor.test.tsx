@@ -37,4 +37,18 @@ describe('PanelTutor', () => {
     expect(screen.getByText('1 h 35 min')).toBeTruthy();
     expect(rpc).toHaveBeenCalledWith('get_panel_tutor_alumno_v1', { p_alumno: 'a1', p_dias: 30 });
   });
+
+  it('el tutor cambia entre Alumnos y Clases', async () => {
+    rpc.mockImplementation((nombre: string) => {
+      if (nombre === 'get_es_tutor') return Promise.resolve({ data: { es_tutor: true, nombre: 'Roberto', codigo: 'ABCDE12345' }, error: null });
+      if (nombre === 'get_panel_tutor_v1') return Promise.resolve({ data: { dias: 14, alumnos: [alumno] }, error: null });
+      if (nombre === 'tutor_clases_listar') return Promise.resolve({ data: [], error: null });
+      return Promise.resolve({ data: null, error: null });
+    });
+    render(<PanelTutor onExit={() => {}} />);
+    expect(await screen.findByText('ana@ejemplo.es')).toBeTruthy();
+    fireEvent.click(screen.getByRole('tab', { name: 'Clases' }));
+    expect(await screen.findByTestId('clases-tutor')).toBeTruthy();
+    expect(screen.queryByText('ana@ejemplo.es')).toBeNull();
+  });
 });
