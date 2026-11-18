@@ -27,7 +27,7 @@ describe('navegación de recuerdo', () => {
     const tablist = await screen.findByRole('tablist', { name: 'Temas de recuerdo' });
     const tabs = within(tablist).getAllByRole('tab');
     expect(tabs.map((t) => Array.from(t.querySelectorAll('[aria-hidden="true"]')).map((e) => e.textContent).join(''))).toEqual(RECALL_TOPICS.map((t) => `${t.shortLabel}${t.count}`));
-    expect(document.title).toBe('Recuerdo | BomberoPro');
+    expect(document.title).toBe('Tarjetas pro | BomberoPro');
 
     await user.click(within(tablist).getByRole('tab', { name: /T40/ }));
     expect(screen.getByRole('heading', { name: /Tema 40/ })).toBeInTheDocument();

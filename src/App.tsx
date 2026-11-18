@@ -863,7 +863,7 @@ export default function App() {
   ];
   const masItems: { key: string; label: string; detail: string; Icon: typeof LayoutDashboard; target: Screen }[] = [
     { key: 'errors', label: 'Errores críticos', detail: 'Repasa lo que has fallado.', Icon: AlertTriangle, target: 'errors' },
-    { key: 'recuerdo', label: 'Recuerdo', detail: 'Tarjetas para memorizar datos clave.', Icon: Layers, target: 'recuerdo' },
+    { key: 'recuerdo', label: 'Tarjetas pro', detail: 'Tarjetas para memorizar datos clave.', Icon: Layers, target: 'recuerdo' },
     { key: 'sesion_diaria', label: 'Sesión diaria', detail: 'Fichas con tiempo fijo al día.', Icon: Flame, target: 'sesion_diaria' },
     { key: 'today_training', label: 'Entrenamiento de hoy', detail: 'Preguntas pendientes de repaso.', Icon: Target, target: 'today_training' },
     { key: 'forgetting_curve', label: 'Curva de olvido', detail: 'Qué se te está olvidando.', Icon: BarChart2, target: 'forgetting_curve' },
