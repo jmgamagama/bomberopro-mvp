@@ -63,3 +63,4 @@ jobs:
           node supabase/tests/registro_48.pglite.mjs
           node supabase/tests/simulacro_40.pglite.mjs
           node supabase/tests/question_delivery_sessions_52.pglite.mjs
+          node supabase/tests/cross_mode_recency_299.pglite.mjs
