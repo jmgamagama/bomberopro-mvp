@@ -38,5 +38,15 @@ Orden de trabajo:
 3. Tiempo activo por tema y lecturas por concepto. Cambio de datos: solo cuenta desde ahora, no hay histórico fiable de las «26 horas» que indica Roberto. Requiere «sí» escrito de JM y pasar por staging.
 Objetivo de sesión, aviso a los 50-55 min y resumen final: producto nuevo, pendiente de decisión de JM.
 
+## Decisiones de Claude (18/11, JM delegó; referentes: Duolingo for Schools, Khan Academy, Brainscape, Anki)
+Lo que hacen bien los referentes: el profesor ve **tiempo, precisión y racha de un vistazo** (Duolingo, Khan); la **confianza** declarada solo vale junto a resultados reales (Brainscape); Anki/Quizlet no dan nada al profesor, ese es nuestro hueco. El alumno ve su progreso en limpio y el tutor, un panel aparte.
+1. **Panel de tutor: construido** (migración 57 + «Mi tutor» + «Panel de tutor»). El alumno da un código y puede revocar; el tutor ve días activos, tiempo estimado, aciertos, dudas y «seguro y falla» por tema. Sin tiempo de lectura (no se mide hoy; solo tiempo respondiendo, tope 2 min). **Producción pendiente del «sí» escrito de JM** (migración 57 ya probada en staging).
+2. **Resultado del simulacro por seguridad:** siguiente. La confianza ya se guarda en `attempts`; solo falta mostrarla al final.
+3. **Guía de uso:** tres pasos máximo, dentro de la primera sesión (valor primero, como Duolingo), no una pantalla previa.
+4. **Filtros por dificultad y buscador:** después; `concepts.dificultad` ya existe.
+5. **«Estudio hoy» → «Repaso a tu gusto»:** descartado. «Estudiar» es una sesión guiada, no de libre elección: el nombre prometería otra cosa.
+6. **Prueba de nivel de 100 y simulacro en dos vueltas:** se mantienen en pausa (cobertura de preguntas; no confundir práctica con examen).
+7. **«% de dominio»:** solo con ≥10 respuestas por tema (ya aplicado en el panel de tutor: por debajo, «Pocos datos»).
+
 ## Lo que se mantiene
 Nombre, logo y paleta; cuadro resumen de la oposición; seguimiento de conceptos nuevos, adquiridos y fallos; «ordena los pasos»; simulacro en el menú.
