@@ -53,7 +53,7 @@
 
 11. Claude → feedback de Roberto: en producción cronómetro oculto, «Tarjetas pro», panel de tutor (migración 57, Roberto es tutor) y temas «T16 · Nombre». Clases del tutor + ficha de lectura + aviso WhatsApp: migración 58, PR `claude/feat-clases-tutor`. Pendiente: que Roberto actualice la app (aviso «Actualizar») y pruebe; Casimiro sin alta. Detalle en `docs/FEEDBACK_ROBERTO.md`.
 
-14. Claude → simulacro del tutor (propuesta de Roberto, 18/11): diseño en `docs/DISENO_SIMULACRO_TUTOR.md` (PR en borrador). Sin código ni migración. JM → decidir mantener «Simulacro libre» y cuándo ve el alumno la corrección. Dato de producción 19/11: 0 alumnos vinculados al tutor; `questions.nivel` no sirve para la alerta (84 % vale 1 por defecto).
+14. Claude → simulacro del tutor (propuesta de Roberto, 18/11): diseño en `docs/DISENO_SIMULACRO_TUTOR.md`, PR #320 en borrador. Decidido 19/11: se mantiene «Simulacro libre»; nota al entregar y corrección al cerrar. Fase 1 escrita: migración 59 + `supabase/tests/simulacro_tutor_59.pglite.mjs` (12 pruebas en verde, en CI). **Sin aplicar en ningún entorno**: la prueba en staging (transacción que se deshace) espera la confirmación de JM en el conector de Supabase. Dato de producción 19/11: 0 alumnos vinculados al tutor; `questions.nivel` no sirve para la alerta (84 % vale 1 por defecto).
 
 ## Decisiones cerradas (no reabrir sin dato nuevo)
 - Paleta A «Brasa y Noche»; estado = icono + texto + contorno, relleno sólido solo en acciones. Marca: gota azul marino, blanca y amarilla en todas partes.

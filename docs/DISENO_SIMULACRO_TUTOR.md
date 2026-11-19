@@ -1,6 +1,7 @@
 # Diseño: simulacro del tutor (propuesta de Roberto, 18/11/2026)
 
-> Estado: **propuesta para aprobar por JM**. Sin código ni migraciones aplicadas. Producción nunca sin «sí» escrito.
+> Estado (19/11): decisiones del §10 tomadas (se mantiene «Simulacro libre»; nota al entregar, corrección al cerrar).
+> Fase 1 escrita: `supabase/migrations/59_simulacro_tutor.sql` + pruebas PGlite. Sin aplicar en ningún entorno. Producción nunca sin «sí» escrito.
 > Autor: Claude. Base: `main` en `e94261c` y lectura de producción del 19/11 (solo agregados, sin datos personales).
 
 ## 1. Qué pide Roberto y qué recomendamos
@@ -168,8 +169,11 @@ causa más dañina para la confianza del alumno.
 
 Estimación: fases 1-3 en 2-3 sesiones de trabajo. Producción solo tras la fase 3 completa en staging.
 
-**Por qué no se implementa ya la fase 1:** necesita migración (aunque sea aditiva) y el diseño de datos depende de dos
-decisiones de JM. Cambiar las tablas después de aplicarlas cuesta más que esperar a la aprobación.
+**Cambios respecto al borrador inicial al escribir la fase 1:** la tabla de preguntas congela también enunciado, opciones
+mostradas y respuesta correcta (todos ven la misma pregunta y las estadísticas comparan lo mismo); la entrega no usa la
+tanda de la 52 sino su propia tabla (una fila por alumno y simulacro), así no depende de su caducidad de 2 h ni consume el
+límite diario de correcciones del plan gratis. Se corrige con la clave vigente si la pregunta sigue publicada y, si no,
+con la congelada. Hay `tutor_simulacro_detalle` y `tutor_simulacro_borrar` además de las RPC de la tabla.
 
 ## 10. Decisiones para JM
 
