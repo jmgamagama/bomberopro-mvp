@@ -310,6 +310,45 @@ await test('clave corregida después de entregar: la nota, la corrección y el i
   }
 });
 
+await test('margen de entrega tras cierra_at: nadie ve la corrección hasta que acaba', async () => {
+  await como(TUTOR);
+  const id = (await val('select public.tutor_simulacro_guardar(null, $1)', [{ titulo: 'Margen', preguntas: preguntas(IDS) }])).id;
+  await one("select public.tutor_simulacro_estado($1, 'abierto')", [id]);
+  const det = await val('select public.tutor_simulacro_detalle($1)', [id]);
+  const todas = det.preguntas.map(p => ({ question_id: String(p.question_id), respuesta: p.correcta }));
+  for (const a of [ALUMNOS[0], ALUMNOS[1]]) { await como(a); await one('select public.alumno_simulacro_empezar($1)', [id]); }
+  await como(ALUMNOS[0]);
+  await one('select public.alumno_simulacro_entregar($1, $2)', [id, JSON.stringify(todas)]);
+  // Cierre hace 5 min: dentro del margen.
+  await db.query("update public.tutor_simulacros set abre_at = now() - interval '1 day', cierra_at = now() - interval '5 minutes' where id = $1", [id]);
+  assert.equal(await code(() => one('select public.alumno_simulacro_correccion($1)', [id])), 'correccion_al_cerrar');
+  assert.equal((await val('select public.alumno_simulacros_v1()')).find(s => s.id === id).correccion_disponible, false);
+  await como(ALUMNOS[1]);
+  assert.equal((await val('select public.alumno_simulacro_entregar($1, $2)', [id, JSON.stringify(todas)])).status, 'saved', 'aún puede entregar');
+  // Margen agotado: ya nadie entrega y la corrección se ve.
+  await db.query("update public.tutor_simulacros set cierra_at = now() - interval '11 minutes' where id = $1", [id]);
+  await como(ALUMNOS[0]);
+  assert.equal((await val('select public.alumno_simulacro_correccion($1)', [id])).detalle.length, 10);
+  assert.equal((await val('select public.alumno_simulacros_v1()')).find(s => s.id === id).correccion_disponible, true);
+});
+
+await test('la propuesta rellena con preguntas sin concepto (sin nivel) si faltan', async () => {
+  const ops = (i) => JSON.stringify(['a', 'b', 'c'].map(l => ({ letra: l, texto: `S${i} opción ${l}` })));
+  await db.query("insert into public.topics values (3, 3, 'Sin conceptos', 1)");
+  for (let i = 1000; i < 1012; i++) {
+    await db.query("insert into public.questions values ($1, 3, $2, $3, 'a', '', 'publicada', 1, null)", [i, `Sin concepto ${i}`, ops(i)]);
+  }
+  try {
+    await como(TUTOR);
+    const prop = await val("select public.tutor_simulacro_proponer('{3}', 10)");
+    assert.equal(prop.length, 10);
+    assert.ok(prop.every(p => p.nivel_sugerido === null));
+  } finally {
+    await db.query('delete from public.questions where id >= 1000 and id < 1012');
+    await db.query('delete from public.topics where id = 3');
+  }
+});
+
 await test('la vuelta atrás borra todo lo de la 60 y deja intactas 57 y 58', async () => {
   await db.exec(read('60_simulacro_tutor_down.sql'));
   const r = await one(`select to_regclass('public.tutor_simulacros') s, to_regclass('public.tutor_clases') c,

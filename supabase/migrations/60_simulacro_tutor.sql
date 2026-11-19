@@ -94,6 +94,13 @@ RETURNS boolean LANGUAGE sql STABLE SET search_path TO 'public' AS $$
   SELECT s.estado = 'cerrado' OR (s.estado = 'abierto' AND s.cierra_at IS NOT NULL AND s.cierra_at <= now());
 $$;
 
+-- ¿Se puede ver ya la corrección? Si el tutor lo cerró, o pasados los 10 min de margen de entrega tras la fecha de
+-- cierre: mientras alguien pueda entregar, nadie que ya entregó ve la clave (no podría pasarla a quien aún entrega).
+CREATE OR REPLACE FUNCTION public._simulacro_tutor_correccion_visible(s public.tutor_simulacros)
+RETURNS boolean LANGUAGE sql STABLE SET search_path TO 'public' AS $$
+  SELECT s.estado = 'cerrado' OR (s.estado = 'abierto' AND s.cierra_at IS NOT NULL AND s.cierra_at + interval '10 minutes' < now());
+$$;
+
 -- Nota sobre 10 con la regla del examen (+0,200 / −0,066 / 0; sin bajar de 0), para n preguntas.
 CREATE OR REPLACE FUNCTION public._simulacro_tutor_nota(p_aciertos integer, p_fallos integer, p_n integer)
 RETURNS numeric LANGUAGE sql IMMUTABLE SET search_path TO 'public' AS $$
@@ -124,7 +131,8 @@ RETURNS text LANGUAGE sql STABLE SET search_path TO 'public' AS $$
     FROM (SELECT btrim(public._correct_option_text(p_question_id)) AS clave) v;
 $$;
 
-REVOKE ALL ON FUNCTION public._simulacro_tutor_cerrado(public.tutor_simulacros), public._simulacro_tutor_nota(integer, integer, integer),
+REVOKE ALL ON FUNCTION public._simulacro_tutor_cerrado(public.tutor_simulacros), public._simulacro_tutor_correccion_visible(public.tutor_simulacros),
+  public._simulacro_tutor_nota(integer, integer, integer),
   public._simulacro_tutor_opciones(bigint), public._simulacro_tutor_clave(bigint, text[], text) FROM PUBLIC, anon, authenticated;
 
 -- ---------------------------------------------------------------------------
@@ -162,7 +170,8 @@ BEGIN
       -- Relleno si faltan de algún nivel: primero las que tienen concepto, luego las demás (sin nivel).
       SELECT * FROM (
         SELECT * FROM ord
-         WHERE NOT ((nivel = 1 AND rn <= v_n1) OR (nivel = 2 AND rn <= v_n2) OR (nivel = 3 AND rn <= v_n - v_n1 - v_n2))
+         -- coalesce: sin concepto, nivel es NULL y la condición sería NULL (las excluiría del relleno).
+         WHERE NOT coalesce((nivel = 1 AND rn <= v_n1) OR (nivel = 2 AND rn <= v_n2) OR (nivel = 3 AND rn <= v_n - v_n1 - v_n2), false)
          ORDER BY con_concepto DESC, r
          LIMIT greatest(0, v_n - (SELECT count(*) FROM ord
                  WHERE (nivel = 1 AND rn <= v_n1) OR (nivel = 2 AND rn <= v_n2) OR (nivel = 3 AND rn <= v_n - v_n1 - v_n2)))
@@ -462,7 +471,7 @@ BEGIN
       'id', s.id, 'tutor_nombre', t.nombre, 'titulo', s.titulo, 'objetivo', s.objetivo, 'duracion_min', s.duracion_min,
       'abre_at', s.abre_at, 'cierra_at', s.cierra_at,
       'preguntas', (SELECT count(*) FROM tutor_simulacro_preguntas p WHERE p.simulacro_id = s.id),
-      'cerrado', public._simulacro_tutor_cerrado(s),
+      'cerrado', public._simulacro_tutor_cerrado(s), 'correccion_disponible', public._simulacro_tutor_correccion_visible(s),
       'empezado_at', e.empezado_at, 'entregado_at', e.entregado_at, 'nota', e.nota,
       'aciertos', e.aciertos, 'fallos', e.fallos, 'blancos', e.blancos
     ) ORDER BY coalesce(s.cierra_at, s.created_at))
@@ -483,7 +492,8 @@ BEGIN
   IF v_uid IS NULL THEN RAISE EXCEPTION 'not_authenticated' USING ERRCODE = '42501'; END IF;
   SELECT s.* INTO v_s FROM tutor_simulacros s
     JOIN tutor_vinculos v ON v.tutor_id = s.tutor_id AND v.alumno_id = v_uid AND v.revocado_at IS NULL
-   WHERE s.id = p_id AND s.estado IN ('abierto', 'cerrado');
+   WHERE s.id = p_id AND s.estado IN ('abierto', 'cerrado')
+     FOR SHARE OF s;  -- espera a un cambio de estado del tutor en curso (FOR UPDATE) y relee el estado ya confirmado
   IF NOT FOUND THEN RAISE EXCEPTION 'forbidden' USING ERRCODE = '42501'; END IF;
   SELECT * INTO v_e FROM tutor_simulacro_entregas WHERE simulacro_id = p_id AND alumno_id = v_uid;
   IF v_e.entregado_at IS NOT NULL THEN RAISE EXCEPTION 'ya_entregado' USING ERRCODE = '22023'; END IF;
@@ -581,7 +591,7 @@ BEGIN
   IF NOT FOUND THEN RAISE EXCEPTION 'forbidden' USING ERRCODE = '42501'; END IF;
   SELECT * INTO v_e FROM tutor_simulacro_entregas WHERE simulacro_id = p_id AND alumno_id = v_uid AND entregado_at IS NOT NULL;
   IF NOT FOUND THEN RAISE EXCEPTION 'no_entregado' USING ERRCODE = '22023'; END IF;
-  IF NOT public._simulacro_tutor_cerrado(v_s) THEN RAISE EXCEPTION 'correccion_al_cerrar' USING ERRCODE = '22023'; END IF;
+  IF NOT public._simulacro_tutor_correccion_visible(v_s) THEN RAISE EXCEPTION 'correccion_al_cerrar' USING ERRCODE = '22023'; END IF;
   RETURN jsonb_build_object(
     'id', p_id, 'titulo', v_s.titulo, 'total', (SELECT count(*) FROM tutor_simulacro_preguntas WHERE simulacro_id = p_id),
     'aciertos', v_e.aciertos, 'fallos', v_e.fallos, 'blancos', v_e.blancos, 'nota', v_e.nota,

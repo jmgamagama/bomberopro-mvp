@@ -6,7 +6,7 @@ DROP FUNCTION IF EXISTS public.tutor_simulacro_proponer(integer[], integer), pub
 DROP TABLE IF EXISTS public.tutor_simulacro_respuestas;
 DROP TABLE IF EXISTS public.tutor_simulacro_entregas;
 DROP TABLE IF EXISTS public.tutor_simulacro_preguntas;
-DROP FUNCTION IF EXISTS public._simulacro_tutor_cerrado(public.tutor_simulacros), public._simulacro_tutor_nota(integer, integer, integer),
+DROP FUNCTION IF EXISTS public._simulacro_tutor_cerrado(public.tutor_simulacros), public._simulacro_tutor_correccion_visible(public.tutor_simulacros), public._simulacro_tutor_nota(integer, integer, integer),
   public._simulacro_tutor_opciones(bigint),
   public._simulacro_tutor_clave(bigint, text[], text);
 DROP TABLE IF EXISTS public.tutor_simulacros;
