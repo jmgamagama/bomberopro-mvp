@@ -39,6 +39,7 @@ Orden obligatorio (cada paso se verifica antes del siguiente):
 2. Cargar en `recall_cards` las fichas revisadas de los temas 37-40 (script con aprobación de JM; las filas nunca van al repo).
 3. Comprobar con una cuenta beta que `get_recall_deck_cards` devuelve los recuentos esperados.
 4. Activar `VITE_PRO_DECKS_FROM_SERVER` **y** pasar `tema40` al servidor (hoy se carga siempre en el cliente).
+   *Preparado (19/11/2026):* `tema40` ya va detrás de la bandera y hay una activación mínima solo para el material interno, `VITE_INTERNAL_DECKS_FROM_SERVER` (453 fichas). Ver `docs/MAZOS_INTERNOS_SERVIDOR.md`. Sobre el paso 1: hacer privado el repo no retira el texto del bundle publicado; por eso este paso va antes.
 5. Quitar `tema3{7,8,9}Recall.ts` y `tema40Recall.ts` del bundle; verificar que ningún fichero público contiene su texto (búsqueda en `dist/`).
 6. Desplegar con el plan de `DESPLIEGUE_SEGURIDAD_2026-10-30.md` (base de datos primero, cliente después, marcha atrás probada).
 

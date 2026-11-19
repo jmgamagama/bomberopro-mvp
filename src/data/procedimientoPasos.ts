@@ -1,7 +1,13 @@
 /**
  * Pasos ordenados extraídos fielmente de fichas de procedimiento (temas 38 y 40).
  * Solo recall / ordenación; sin opciones inventadas de examen.
+ *
+ * Todo es material interno del CPEI (ITF y PT03): con VITE_INTERNAL_DECKS_FROM_SERVER (o la bandera
+ * Pro) la lista queda vacía en el build y estos textos no viajan en el bundle; «Ordena los pasos»
+ * muestra su aviso de «sin fichas». Ver docs/MAZOS_INTERNOS_SERVIDOR.md.
  */
+const INTERNAL_FROM_SERVER =
+  import.meta.env.VITE_PRO_DECKS_FROM_SERVER === 'true' || import.meta.env.VITE_INTERNAL_DECKS_FROM_SERVER === 'true';
 
 export interface ProcedimientoPasos {
   id: string;
@@ -10,7 +16,7 @@ export interface ProcedimientoPasos {
   fuente: string;
 }
 
-export const PROCEDIMIENTO_PASOS: ProcedimientoPasos[] = [
+export const PROCEDIMIENTO_PASOS: ProcedimientoPasos[] = INTERNAL_FROM_SERVER ? [] : [
   {
     "id": "CPEI-T40-PT03-079",
     "titulo": "¿Cuáles son las fases de la intervención en que se estructura el procedimiento del apartado 9?",
