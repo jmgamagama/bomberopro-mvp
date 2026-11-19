@@ -11,6 +11,17 @@
  */
 import type { RecallSourceCard } from './recallRegistry';
 
+/** Una justificación solo vale para la diferencia exacta que se revisó. */
+export function anotarDiferenciasAnexo(
+  actuales: Record<string, string>,
+  anteriores: Record<string, { diferencia: string; nota: string }> = {},
+): Record<string, { diferencia: string; nota: string }> {
+  return Object.fromEntries(Object.entries(actuales).map(([tema, diferencia]) => [tema, {
+    diferencia,
+    nota: anteriores[tema]?.diferencia === diferencia ? anteriores[tema].nota : 'PENDIENTE: explicar',
+  }]));
+}
+
 // ── 1. Fichas ────────────────────────────────────────────────────────────────
 
 /** Longitud máxima de una cita de fuente legible en la tarjeta. */

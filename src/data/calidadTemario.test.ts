@@ -4,6 +4,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+  anotarDiferenciasAnexo,
   FALLOS_FICHA,
   FALLOS_MATERIAL,
   diferenciaEpigrafe,
@@ -78,6 +79,24 @@ const pares = (fichas: Baseline['fichas'], material: Baseline['material']) => [
 ];
 
 describe('reglas de los validadores', () => {
+  it('anexo: una diferencia nueva exige explicación nueva al regenerar el baseline', () => {
+    expect(anotarDiferenciasAnexo(
+      { T1: '+igual', T37: '+nuevo', T40: '+primero' },
+      {
+        T1: { diferencia: '+igual', nota: 'Justificación vigente' },
+        T37: { diferencia: '+mapa +descargable', nota: 'Nota sobre mapa descargable' },
+        T12: { diferencia: '+resuelto', nota: 'Ya no aparece' },
+      },
+    )).toEqual({
+      T1: { diferencia: '+igual', nota: 'Justificación vigente' },
+      T37: { diferencia: '+nuevo', nota: 'PENDIENTE: explicar' },
+      T40: { diferencia: '+primero', nota: 'PENDIENTE: explicar' },
+    });
+    expect(anotarDiferenciasAnexo({ T37: '+nuevo' })).toEqual({
+      T37: { diferencia: '+nuevo', nota: 'PENDIENTE: explicar' },
+    });
+  });
+
   it('fichas: acepta una cita breve con norma y enlace', () => {
     expect(
       fallosFicha({
@@ -148,9 +167,7 @@ describe('trinquete del temario (calidadTemario.baseline.json)', () => {
           'Solo debe encoger: no lo regeneres para tapar un fallo nuevo. En «anexo», cada diferencia lleva una nota escrita a mano.',
         fichas,
         material,
-        anexo: Object.fromEntries(
-          Object.entries(anexo).map(([t, d]) => [t, { diferencia: d, nota: prev?.anexo[t]?.nota ?? 'PENDIENTE: explicar' }]),
-        ),
+        anexo: anotarDiferenciasAnexo(anexo, prev?.anexo),
       };
       writeFileSync(BASELINE_PATH, `${JSON.stringify(nuevo, null, 1)}\n`);
       return;
