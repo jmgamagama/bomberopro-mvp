@@ -1,4 +1,4 @@
-// Inicio con un solo cuadro «Tu progreso» (feedback de Roberto, 18/11): navegador real (Chromium) con el
+// Inicio con un solo cuadro «Tu progreso» (petición de producto, 18/11): navegador real (Chromium) con el
 // cliente REAL compilado y Supabase SIMULADO con page.route. No acredita staging ni producción.
 // Mide dónde quedan los 5 estados y comprueba que no hay barras por tema a la vista ni segundo «Tu progreso».
 //
@@ -12,8 +12,8 @@ const SHOTS = process.env.SHOTS || '';
 const res = []; const check = (n, ok, d = '') => { res.push(ok); console.log(`${ok ? 'OK  ' : 'FAIL'} ${n} ${d}`); };
 const user = { id: '00000000-0000-4000-8000-00000000000a', email: 'alumno@example.test', aud: 'authenticated', role: 'authenticated', app_metadata: {}, user_metadata: {} };
 const session = () => ({ access_token: 'e2e', refresh_token: 'r', token_type: 'bearer', expires_in: 3600, expires_at: Math.floor(Date.now() / 1000) + 3600, user });
-// Mismas cifras que la captura de Roberto.
-const progreso = { total: 1308, por_aprender: 1287, aprendiendo: 17, debil: 4, dominado: 0, consolidado: 0, vencidos: 11, dominio_ponderado: 0.02 };
+// Cifras ficticias y coherentes (suman el total); con miles para comprobar el separador «1.200».
+const progreso = { total: 1500, por_aprender: 1200, aprendiendo: 180, debil: 40, dominado: 60, consolidado: 20, vencidos: 9, dominio_ponderado: 0.18 };
 const equipos = [
   ['iphone-se', devices['iPhone SE']],
   ['pixel7', devices['Pixel 7']],
@@ -45,7 +45,7 @@ async function run(browser, nombre, equipo, conCuenta) {
     const estados = page.locator('#progreso-estados');
     await estados.waitFor({ timeout: 10000 });
     check(`${tag} 5 estados a la vista`, (await estados.locator('[data-estado]').count()) === 5 && await estados.isVisible());
-    check(`${tag} cifras de la cuenta`, (await estados.innerText()).includes('1.287') && (await page.locator('#progreso-cuenta-resumen').innerText()).includes('1.308'));
+    check(`${tag} cifras de la cuenta`, (await estados.innerText()).includes('1.200') && (await page.locator('#progreso-cuenta-resumen').innerText()).includes('1.500'));
     check(`${tag} sin segundo cuadro «Tu progreso»`, (await page.getByRole('heading', { name: 'Tu progreso' }).count()) === 1);
     const caja = await estados.boundingBox();
     console.log(`     ${tag} los 5 estados empiezan en y=${Math.round(caja.y)} px (alto de pantalla ${page.viewportSize().height})`);
