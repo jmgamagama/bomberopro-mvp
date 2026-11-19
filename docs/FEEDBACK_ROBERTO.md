@@ -6,7 +6,7 @@ Estado a 18/11/2026 (rama `claude/feedback-roberto-bloque2`).
 ## Bloque 1: cambios rápidos
 - [x] Quitar el botón «Estudiar hoy» de la pantalla de inicio (duplicado de «Tu plan de hoy»; el acceso queda en la barra). En main desde #311.
 - [x] Quitar el recordatorio diario de la pantalla de inicio (se mantiene al final de la sesión). En main desde #311.
-- [x] «Ver tu progreso por tema» ya está dentro del cuadro «Tu progreso». Falta identificar el duplicado que quiere quitar (pregunta a Roberto).
+- [x] Un solo cuadro «Tu progreso» en inicio (informe del 18/11): se mantiene el aviso amarillo, «Ver tu progreso por tema» sube junto al título, los 5 estados (por aprender, aprendiendo, débil, dominado, consolidado) pasan arriba y todas las barras por tema quedan plegadas en «Ver el avance de los N temas». Se quita el segundo cuadro «Tu progreso» del final. Rama `claude/project-thread-0wewrc` (PR en borrador).
 - [x] Resaltar los botones de desplegar tema y bloque (borde e indicación más visibles). En main desde #311.
 - [x] Cronómetro oculto por defecto en Estudiar (pantalla limpia). Se respeta la elección guardada de cada alumno. Esta rama.
 - [ ] «Tiempo ilimitado» en Estudiar: reinterpretado en la conversación de voz del 17/11 como «ocultar el cronómetro», ya cubierto por el punto anterior. Cerrar si Roberto confirma. El límite de 2 min (`MAX_VALID_RESPONSE_SECONDS`) se mantiene: sirve para no contar pausas como tiempo de estudio.

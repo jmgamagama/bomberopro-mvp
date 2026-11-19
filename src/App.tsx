@@ -1113,10 +1113,11 @@ export default function App() {
           <Badajoz2026Card
             onOpenSupuestos={supuestosVisibles ? () => handleNavigate('supuestos') : undefined}
             onOpenProgress={() => handleNavigate('progreso')}
+            remoteProgress={conceptOwner ? remoteConcepts.state : undefined}
+            onRetryProgress={() => { void remoteConcepts.refresh(); }}
           />
           <Dashboard
             remoteProgress={conceptOwner ? remoteConcepts.state : undefined}
-            onRetryProgress={() => { void remoteConcepts.refresh(); }}
             memoryStates={memoryStates}
             attempts={attempts}
             microconcepts={INITIAL_MICROCONCEPTS}

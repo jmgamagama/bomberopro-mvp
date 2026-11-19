@@ -55,6 +55,8 @@
 
 14. Claude → «Por temas» repetía siempre las mismas 10 preguntas (informe de Roberto): migración 59 + selector 10/25/50 en PR en borrador (rama `claude/por-temas-rotacion`). Ensayada en staging con vuelta atrás (19/11). JM → «sí» escrito para producción.
 
+12. Claude → inicio con un solo cuadro «Tu progreso» (informe de Roberto 18/11): PR en borrador desde `claude/project-thread-0wewrc`, solo cliente, sin migración. Los otros 3 puntos del informe (botones 10/25/60/ilimitado, temas 39+40 con 10 preguntas repetidas, simulacro como herramienta del profesor) siguen sin hilo.
+
 ## Decisiones cerradas (no reabrir sin dato nuevo)
 - Paleta A «Brasa y Noche»; estado = icono + texto + contorno, relleno sólido solo en acciones. Marca: gota azul marino, blanca y amarilla en todas partes.
 - WhatsApp como tutor IA descartado (restricciones Meta 2026); Telegram o app de Claude.
