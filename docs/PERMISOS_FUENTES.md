@@ -24,7 +24,7 @@ Fecha: 11/10/2026. Rama `feat/temas-fase2-oficial`.
 | --- | --- | --- |
 | 15 | Material específico de rescate | Manuales excluidos. Desde el 17/10/2026 hay un mazo `tema15` (pendiente de revisión) hecho solo con fuentes oficiales gratuitas; ver abajo |
 | 18 | Incendios estructurales | Excluido: sin fichas |
-| 19 | Incendios industriales | Excluido: sin fichas. El CEP 38 (instalaciones urbanas eléctricas), que se había marcado como T19, no corresponde a este epígrafe; se cargó en el tema 28 (ver abajo) |
+| 19 | Incendios industriales | Sin fichas, pero **incluido** desde el 18/11/2026 (decisión de JM: deben estar todos los temas; issue #318). El CEP 38 (instalaciones urbanas eléctricas), que se había marcado como T19, no corresponde a este epígrafe; se cargó en el tema 28 (ver abajo) |
 
 ## Motivo
 
@@ -106,7 +106,7 @@ no se ha copiado nada de él.
   (Electricidad)**. Por eso no se ha creado un mazo `tema19`: se ha añadido `tema28-lote02` (74 fichas, pendiente)
   con fuentes oficiales gratuitas: REBT ITC-BT-09, 18 y 24 y RD 337/2014 (ITC-RAT 01, 14 y 15), en boe.es, más el
   RD 614/2001 (puntos que no estaban en el lote 1) y la NTP 400 del INSST (mismo aviso «sin ánimo de lucro» que el
-  resto de NTP). El tema 19 sigue excluido: no hay fuente oficial gratuita localizada para su epígrafe.
+  resto de NTP). No hay fuente oficial gratuita localizada para el epígrafe del tema 19; desde el 18/11/2026 el tema está incluido y pendiente (decisión de JM, issue #318).
 - **CEP 39 (instalaciones urbanas de gas natural y GLP)** no tiene tema propio en el anexo I del BOP 135. Lo más
   cercano son el tema 25 (mercancías peligrosas, BLEVE) y el tema 21 (vehículos a gas, ya cubierto en
   `tema21-lote02`). No se han creado fichas del RD 919/2006 ni de sus ITC-ICG porque el temario oficial no lo incluye.

@@ -66,7 +66,7 @@ El Tema 1 sirve como patrón de secuencia pedagógica y desglose por artículos.
 | 14 | Vehículos contra incendios: normas UNE-EN 1846, no BOE. |
 | 15, 16 | Material de rescate y comunicaciones: técnico; el código ICAO no es una norma del BOE. |
 | 17, 18 | Socorrismo e incendios estructurales: técnico. |
-| 19 | Excluido por encargo. |
+| 19 | Incluido (decisión de JM, 18/11/2026: deben estar todos los temas del anexo I). Pendiente: sin fichas ni material; falta localizar fuente oficial o aceptada para «Incendios industriales». Entra en el reparto editorial con T11 y T18 (issue #318). |
 | 21, 23 | Accidentes de tráfico e inundaciones: el epígrafe no cita norma (contenido técnico y operativo). |
 | 24 | Himenópteros: pide «marco legal» sin citar norma; no se elige una por nuestra cuenta (la vespa velutina figura en el Catálogo de especies exóticas invasoras, RD 630/2013, pero el epígrafe no lo dice). Pendiente de que JM confirme. |
 | 26 | Guías INSARAG (ONU): no es una norma del BOE. |
