@@ -1,7 +1,7 @@
 # Diseño: simulacro del tutor (propuesta de Roberto, 18/11/2026)
 
 > Estado (19/11): decisiones del §10 tomadas (se mantiene «Simulacro libre»; nota al entregar, corrección al cerrar).
-> Fase 1 escrita: `supabase/migrations/59_simulacro_tutor.sql` + pruebas PGlite. Sin aplicar en ningún entorno. Producción nunca sin «sí» escrito.
+> Fase 1 escrita: `supabase/migrations/60_simulacro_tutor.sql` + pruebas PGlite. Sin aplicar en ningún entorno. Producción nunca sin «sí» escrito.
 > Autor: Claude. Base: `main` en `e94261c` y lectura de producción del 19/11 (solo agregados, sin datos personales).
 
 ## 1. Qué pide Roberto y qué recomendamos
@@ -14,9 +14,9 @@ Hidráulica hay dos preguntas de nivel 1 y la mayoría falla, algo falla en el s
 1. Añadir **«Simulacro de clase»** (lo crea el tutor y lo hacen sus alumnos) **sin quitar** el simulacro actual del
    alumno, que pasa a llamarse **«Simulacro libre»**. Motivo: el plan «Alumno online» no tiene tutor y perdería su única
    prueba tipo examen; además el simulacro libre ya está en producción y probado.
-2. **Reutilizar lo que ya existe:** tutores y vínculo con consentimiento (migración 57), clases (58) y la corrección
-   segura en servidor (`question_delivery_sessions` + `grade_exam_v3`, migración 52). Lo nuevo es pequeño: 3 tablas y
-   unas RPC.
+2. **Reutilizar lo que ya existe:** tutores y vínculo con consentimiento (migración 57) y clases (58). Lo nuevo es
+   pequeño: 4 tablas y unas RPC, con la misma regla que la 52 (el alumno nunca recibe la clave antes de entregar) pero
+   con entrega propia, sin las tandas de 2 h de la 52.
 3. **El «nivel» de cada pregunta lo fija el tutor al crear el simulacro y se congela**, porque el dato actual no sirve
    para la alerta (ver §3).
 
@@ -26,7 +26,7 @@ Hidráulica hay dos preguntas de nivel 1 y la mayoría falla, algo falla en el s
 |---|---|---|
 | Tutor dado de alta por JM, código, vínculo que el alumno da y revoca | 57 (`tutores`, `tutor_vinculos`) | Quién puede crear y quién puede hacer cada simulacro |
 | Clases con temas, aviso y estados | 58 (`tutor_clases`) | Un simulacro puede colgar de una clase |
-| Tanda de preguntas sin clave y corrección en servidor, una entrega por tanda | 52 (`begin_exam_session_v3`, `grade_exam_v3`) | El alumno nunca recibe la clave antes de entregar |
+| Regla de seguridad: preguntas sin clave y corrección en servidor | 52 (`begin_exam_session_v3`, `grade_exam_v3`) | Se copia la regla, no la tanda: el simulacro de clase lleva su propia entrega (§6) |
 | Puntuación +0,200 / −0,066 / 0 | `src/utils/examScoring.ts` | Misma nota en simulacro libre y de clase |
 | Pantalla de examen | `src/components/MockExam.tsx` | Se reutiliza con otra fuente de preguntas |
 
@@ -77,7 +77,7 @@ intentos, exportar a hoja de cálculo, aviso automático por WhatsApp (hoy se re
 Si el alumno revoca el vínculo, sus resultados dejan de verse en el panel (igual que en la 57).
 Riesgo asumido: el tutor ve la clave de las preguntas que pone en su simulacro (es profesor y lo da de alta JM a mano).
 
-## 6. Modelo de datos (migración 59, propuesta)
+## 6. Modelo de datos (migración 60, propuesta)
 
 Todas con RLS activado y **sin permisos directos**: acceso solo por RPC `SECURITY DEFINER`, como 57 y 58.
 
@@ -85,44 +85,51 @@ Todas con RLS activado y **sin permisos directos**: acceso solo por RPC `SECURIT
 tutor_simulacros (
   id bigint PK, tutor_id uuid → tutores, clase_id bigint NULL → tutor_clases ON DELETE SET NULL,
   titulo text (1-120), objetivo text (≤600), periodo text CHECK IN ('clase','semanal','mensual','trimestral'),
-  temas int[] (≤40), duracion_min int (5-90), abre_at timestamptz, cierra_at timestamptz,
+  duracion_min int (5-90), abre_at timestamptz, cierra_at timestamptz (> abre_at),
   estado text CHECK IN ('borrador','abierto','cerrado'), created_at, updated_at
 )
-tutor_simulacro_preguntas (
-  simulacro_id → tutor_simulacros ON DELETE CASCADE, orden smallint, question_id bigint → questions,
-  tema int, nivel_esperado smallint NULL CHECK 1-3,   -- congelados al guardar
+tutor_simulacro_preguntas (                -- todo congelado al guardar: todos ven exactamente la misma pregunta
+  simulacro_id → tutor_simulacros ON DELETE CASCADE, question_id bigint, orden smallint, tema int,
+  nivel_esperado smallint NULL CHECK 1-3, enunciado text, opciones text[] (2-6, las que verá el alumno),
+  correcta text,
   PRIMARY KEY (simulacro_id, question_id)
 )
 tutor_simulacro_entregas (
-  simulacro_id, alumno_id uuid, delivery_session_id uuid,  -- la tanda segura de la 52
-  empezado_at, entregado_at NULL, aciertos, fallos, blancos, nota numeric(4,2),
+  simulacro_id, alumno_id uuid, empezado_at, entregado_at NULL, aciertos, fallos, blancos, nota numeric(5,2),
   PRIMARY KEY (simulacro_id, alumno_id)                  -- un intento por alumno
 )
 tutor_simulacro_respuestas (
   simulacro_id, alumno_id, question_id, respuesta text NULL, acierto boolean, confianza text NULL,
-  PRIMARY KEY (simulacro_id, alumno_id, question_id)
+  PRIMARY KEY (simulacro_id, alumno_id, question_id), FK (simulacro_id, alumno_id) → entregas ON DELETE CASCADE
 )
 ```
 
-No se toca ninguna tabla ni función existente. Deshacer: `59_simulacro_tutor_down.sql` borra las 4 tablas y sus
-funciones. Lo que el alumno responda también queda en `attempts` (modo `simulacro`) como hoy, así cuenta para su
-progreso y para el panel de tutor de la 57.
+Opciones congeladas: la correcta + 2 al azar, o todas si alguna es referencial («Todas las anteriores»), misma regla
+que el simulacro libre (migración 20). Corrección: con la clave vigente si la pregunta sigue publicada (por si se
+corrigió) y, si no, con la congelada. La entrega propia no caduca a las 2 h ni consume el límite diario de correcciones
+del plan gratis (`_consume_answer_checks`): un simulacro de clase es acotado (≤ 55 preguntas, una entrega por alumno).
+
+No se toca ninguna tabla ni función existente. Deshacer: `60_simulacro_tutor_down.sql` borra las 4 tablas y sus
+funciones. Lo que el alumno responda quedará también en `attempts` (modo `simulacro`): lo registra el cliente con
+`record_attempt_v2` en la fase 2, como hoy el simulacro libre, para que cuente en su progreso y en el panel de la 57.
 
 ### RPC
 
 | RPC | Quién | Qué hace |
 |---|---|---|
-| `tutor_simulacro_proponer(temas, n, mezcla)` | tutor | Devuelve preguntas candidatas con enunciado, clave y nivel sugerido. No guarda |
-| `tutor_simulacro_guardar(id, datos)` | tutor | Crea o edita en borrador; valida temas de la convocatoria 1, preguntas publicadas y 3 opciones |
-| `tutor_simulacro_estado(id, estado)` | tutor | Borrador → abierto → cerrado. Abrir exige ≥10 preguntas y todas con nivel |
-| `tutor_simulacros_listar()` | tutor | Lista con participación (entregados / alumnos) |
+| `tutor_simulacro_proponer(temas, n)` | tutor | Devuelve preguntas candidatas con enunciado, clave y nivel sugerido (50/35/15 %, primero las que tienen concepto). No guarda |
+| `tutor_simulacro_guardar(id, datos)` | tutor | Crea o edita; las preguntas solo en borrador. Valida convocatoria 1, publicadas, ≥3 opciones, sin repetir; congela opciones y clave |
+| `tutor_simulacro_estado(id, estado)` | tutor | Borrador → abierto (≥10 preguntas, todas con nivel) → cerrado; abierto → borrador solo si nadie ha empezado |
+| `tutor_simulacro_borrar(id)` | tutor | Solo si nadie ha empezado |
+| `tutor_simulacros_listar()` | tutor | Lista con participación (entregados / alumnos con vínculo activo) |
+| `tutor_simulacro_detalle(id)` | tutor | Para el editor, con clave |
 | `tutor_simulacro_resultados(id)` | tutor | Estadísticas de §8 y alertas |
-| `alumno_simulacros_v1()` | alumno | Abiertos y hechos de sus tutores |
-| `alumno_simulacro_empezar(id)` | alumno | Comprueba vínculo, ventana y que no lo haya hecho; emite la tanda con `_issue_question_delivery_session('exam', …)` en el orden del tutor |
-| `alumno_simulacro_entregar(id, respuestas)` | alumno | Llama a `grade_exam_v3`, guarda entrega y respuestas; devuelve **solo la nota** hasta el cierre |
-| `alumno_simulacro_correccion(id)` | alumno | Detalle con clave y explicación, solo si está cerrado |
+| `alumno_simulacros_v1()` | alumno | Abiertos (dentro de la ventana) y los que ya hizo, de sus tutores |
+| `alumno_simulacro_empezar(id)` | alumno | Comprueba vínculo, ventana y que no lo haya entregado; registra el inicio (retomar no reinicia el tiempo) y devuelve las preguntas **sin clave** en el orden del tutor |
+| `alumno_simulacro_entregar(id, respuestas)` | alumno | Exige el conjunto exacto de preguntas y opciones mostradas; corrige en servidor, guarda entrega y respuestas y devuelve **solo la nota**. Repetir devuelve lo mismo. Margen de 10 min sobre `cierra_at` |
+| `alumno_simulacro_correccion(id)` | alumno | Detalle con clave y explicación, solo si está cerrado y lo entregó |
 
-Duración: la tanda de la 52 caduca a las 2 h; el MVP limita `duracion_min` a 90.
+Cerrado = el tutor lo cierra o pasa `cierra_at`. El MVP limita `duracion_min` a 90.
 
 ## 7. Pantallas
 
@@ -162,18 +169,14 @@ causa más dañina para la confianza del alumno.
 |---|---|---|---|
 | 0 | Este documento (PR en borrador) | Ninguno | Aprobación de JM |
 | 0b | Que los alumnos de Roberto introduzcan su código de tutor | Ninguno | Roberto / JM |
-| 1 | Migración 59 + pruebas PGlite (permisos, una entrega por alumno, sin clave antes del cierre, revocación) + staging con `begin … rollback` | Bajo: solo tablas y funciones nuevas | — |
+| 1 | Migración 60 + pruebas PGlite (permisos, una entrega por alumno, sin clave antes del cierre, revocación) + staging con `begin … rollback` | Bajo: solo tablas y funciones nuevas | — |
 | 2 | Pantallas del tutor (crear, abrir, cerrar) y del alumno (hacer, nota, corrección al cierre). Renombrar el actual a «Simulacro libre» | Medio: toca `MockExam` | Pruebas E2E en móvil |
 | 3 | Resultados y las tres alertas; botón «Preparar clase de refuerzo» | Bajo | — |
-| 4 | Producción: paquete de lanzamiento con la 59 | — | «Sí» escrito de JM |
+| 4 | Producción: paquete de lanzamiento con la 60 | — | «Sí» escrito de JM |
 
 Estimación: fases 1-3 en 2-3 sesiones de trabajo. Producción solo tras la fase 3 completa en staging.
 
-**Cambios respecto al borrador inicial al escribir la fase 1:** la tabla de preguntas congela también enunciado, opciones
-mostradas y respuesta correcta (todos ven la misma pregunta y las estadísticas comparan lo mismo); la entrega no usa la
-tanda de la 52 sino su propia tabla (una fila por alumno y simulacro), así no depende de su caducidad de 2 h ni consume el
-límite diario de correcciones del plan gratis. Se corrige con la clave vigente si la pregunta sigue publicada y, si no,
-con la congelada. Hay `tutor_simulacro_detalle` y `tutor_simulacro_borrar` además de las RPC de la tabla.
+La fase 1 es el contrato de §6 (migración 60; la 59 de main es «Por temas»).
 
 ## 10. Decisiones para JM
 

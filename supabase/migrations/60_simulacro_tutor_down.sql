@@ -1,4 +1,4 @@
--- Deshace 59_simulacro_tutor.sql (borra los simulacros del tutor, sus entregas y respuestas; no toca nada más).
+-- Deshace 60_simulacro_tutor.sql (borra los simulacros del tutor, sus entregas y respuestas; no toca nada más).
 DROP FUNCTION IF EXISTS public.tutor_simulacro_proponer(integer[], integer), public.tutor_simulacro_guardar(bigint, jsonb),
   public.tutor_simulacro_estado(bigint, text), public.tutor_simulacro_borrar(bigint), public.tutor_simulacros_listar(),
   public.tutor_simulacro_detalle(bigint), public.tutor_simulacro_resultados(bigint), public.alumno_simulacros_v1(),

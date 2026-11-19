@@ -57,7 +57,7 @@
 
 12. Claude → inicio con un solo cuadro «Tu progreso» (informe de Roberto 18/11): PR en borrador desde `claude/project-thread-0wewrc`, solo cliente, sin migración. Los otros 3 puntos del informe (botones 10/25/60/ilimitado, temas 39+40 con 10 preguntas repetidas, simulacro como herramienta del profesor) siguen sin hilo.
 
-14. Claude → simulacro del tutor (propuesta de Roberto, 18/11): diseño en `docs/DISENO_SIMULACRO_TUTOR.md`, PR #320 en borrador. Decidido 19/11: se mantiene «Simulacro libre»; nota al entregar y corrección al cerrar. Fase 1 escrita: migración 59 + `supabase/tests/simulacro_tutor_59.pglite.mjs` (12 pruebas en verde, en CI). **Sin aplicar en ningún entorno**: la prueba en staging (transacción que se deshace) espera la confirmación de JM en el conector de Supabase. Dato de producción 19/11: 0 alumnos vinculados al tutor; `questions.nivel` no sirve para la alerta (84 % vale 1 por defecto).
+15. Claude → simulacro del tutor (propuesta de Roberto, 18/11): diseño en `docs/DISENO_SIMULACRO_TUTOR.md`, PR #320 en borrador. Decidido 19/11: se mantiene «Simulacro libre»; nota al entregar y corrección al cerrar. Fase 1 escrita: migración 60 + `supabase/tests/simulacro_tutor_60.pglite.mjs` (12 pruebas en verde, en CI). **Sin aplicar en ningún entorno**: la prueba en staging (transacción que se deshace) espera la confirmación de JM en el conector de Supabase. Dato de producción 19/11: 0 alumnos vinculados al tutor; `questions.nivel` no sirve para la alerta (84 % vale 1 por defecto).
 
 ## Decisiones cerradas (no reabrir sin dato nuevo)
 - Paleta A «Brasa y Noche»; estado = icono + texto + contorno, relleno sólido solo en acciones. Marca: gota azul marino, blanca y amarilla en todas partes.

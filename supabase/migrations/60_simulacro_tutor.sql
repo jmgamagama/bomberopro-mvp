@@ -1,5 +1,5 @@
 -- ==============================================================================
--- Migración 59: simulacro de clase creado por el tutor (propuesta de Roberto, 18/11/2026)
+-- Migración 60: simulacro de clase creado por el tutor (propuesta de Roberto, 18/11/2026)
 -- ==============================================================================
 -- Diseño: docs/DISENO_SIMULACRO_TUTOR.md. Decisiones (19/11): el simulacro actual del alumno se mantiene como
 -- «Simulacro libre»; el alumno ve su nota al entregar y la corrección cuando el simulacro se cierra.
@@ -21,7 +21,7 @@
 -- El registro en `attempts` (progreso del alumno y panel de la 57) lo hará el cliente con record_attempt_v2,
 -- igual que hoy en el simulacro libre (fase 2).
 --
--- Deshacer: 59_simulacro_tutor_down.sql (borra las 4 tablas y sus funciones; no toca nada más).
+-- Deshacer: 60_simulacro_tutor_down.sql (borra las 4 tablas y sus funciones; no toca nada más).
 -- ==============================================================================
 
 CREATE TABLE IF NOT EXISTS public.tutor_simulacros (
