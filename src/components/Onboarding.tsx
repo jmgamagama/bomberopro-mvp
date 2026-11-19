@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BookOpenCheck, CalendarClock, Check, FileText, Flame, HelpCircle, Lock, Play } from 'lucide-react';
 import { CONVOCATORIA_CPEI_2026 as C } from '../data/convocatoria';
 import { canAccessTopic, getVisibleBloques, getVisibleTopic, getVisibleTotalCards, type RecallTopic } from '../data/recallRegistry';
@@ -20,7 +20,8 @@ import TopicSearch from './TopicSearch';
 import TemasEnPreparacion from './TemasEnPreparacion';
 import { matchesTopic } from '../utils/topicSearch';
 import { canAccessDeck, getDailySessionSize, getPlan, planSummary, PLAN_COPY } from '../utils/plan';
-import { getTemasEnPreparacion, getVisibleDecks, resumenFichasRevisadas } from '../data/recallRegistry';
+import { getTemasEnPreparacion, getVisibleDecks } from '../data/recallRegistry';
+import { loadPublishedConceptSummary, type PublishedConceptSummary } from '../lib/publishedConceptSummary';
 
 /** Miles con punto también en 4 cifras («2.483»), como en el resto de textos del proyecto. */
 const formatMiles = (n: number) => new Intl.NumberFormat('es-ES', { useGrouping: 'always' } as Intl.NumberFormatOptions).format(n);
@@ -49,7 +50,17 @@ const ALL = 'todos';
  */
 export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, cuenta = false }: OnboardingProps) {
   const plan = getPlan();
-  const resumen = resumenFichasRevisadas();
+  const [resumen, setResumen] = useState<PublishedConceptSummary | null>(null);
+  useEffect(() => {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000);
+    setResumen(null);
+    void loadPublishedConceptSummary(controller.signal).then((result) => {
+      if (!controller.signal.aborted) setResumen(result);
+      clearTimeout(timeout);
+    });
+    return () => { clearTimeout(timeout); controller.abort(); };
+  }, [cuenta]);
   const showPlans = isPlanesEnabled() && plan === 'free';
   const planCards = getVisibleDecks().filter((d) => canAccessDeck(d.id, plan)).reduce((n, d) => n + d.count, 0);
   const [choice, setChoice] = useState<string>(() => {
@@ -114,9 +125,11 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, c
           <h1 id="onboarding-title" className="mt-0.5 text-xl font-black leading-tight text-slate-900 sm:text-2xl">
             Prepara tu oposición a {C.plaza} del {C.organismo}
           </h1>
-          {/* Valor en una línea, con las cifras reales de lo que ve este alumno (mazos revisados del registro). */}
+          {/* Publicado no acredita revisión humana; sin consulta válida no se anuncian cifras. */}
           <p id="onboarding-valor" className="mt-1 text-[13px] leading-snug text-slate-700 sm:text-sm">
-            <strong className="text-slate-900">{formatMiles(resumen.fichas)} fichas revisadas de {resumen.temas} temas</strong>, cada una con su fuente oficial, y simulacro con la puntuación del examen.
+            <strong className="text-slate-900">{resumen
+              ? `${formatMiles(resumen.fichas)} fichas publicadas de ${resumen.temas} temas`
+              : 'Fichas por temas'}</strong>, cada una con su fuente oficial, y simulacro con la puntuación del examen.
             {!cuenta && ' Empiezas sin cuenta.'}
           </p>
         </div>
