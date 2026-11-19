@@ -51,15 +51,21 @@ const ALL = 'todos';
 export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, cuenta = false }: OnboardingProps) {
   const plan = getPlan();
   const [resumen, setResumen] = useState<PublishedConceptSummary | null>(null);
+  const [resumenLoading, setResumenLoading] = useState(true);
   useEffect(() => {
+    let disposed = false;
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 5000);
     setResumen(null);
+    setResumenLoading(true);
     void loadPublishedConceptSummary(controller.signal).then((result) => {
-      if (!controller.signal.aborted) setResumen(result);
+      if (!disposed) {
+        setResumen(controller.signal.aborted ? null : result);
+        setResumenLoading(false);
+      }
       clearTimeout(timeout);
     });
-    return () => { clearTimeout(timeout); controller.abort(); };
+    return () => { disposed = true; clearTimeout(timeout); controller.abort(); };
   }, [cuenta]);
   const showPlans = isPlanesEnabled() && plan === 'free';
   const planCards = getVisibleDecks().filter((d) => canAccessDeck(d.id, plan)).reduce((n, d) => n + d.count, 0);
@@ -126,7 +132,7 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, c
             Prepara tu oposición a {C.plaza} del {C.organismo}
           </h1>
           {/* Publicado no acredita revisión humana; sin consulta válida no se anuncian cifras. */}
-          <p id="onboarding-valor" className="mt-1 text-[13px] leading-snug text-slate-700 sm:text-sm">
+          <p id="onboarding-valor" aria-busy={resumenLoading} className="mt-1 text-[13px] leading-snug text-slate-700 sm:text-sm">
             <strong className="text-slate-900">{resumen
               ? `${formatMiles(resumen.fichas)} fichas publicadas de ${resumen.temas} temas`
               : 'Fichas por temas'}</strong>, cada una con su fuente oficial, y simulacro con la puntuación del examen.

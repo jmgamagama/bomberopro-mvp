@@ -92,10 +92,12 @@ describe('Bienvenida del invitado', () => {
     render(<Onboarding onStart={() => {}} onSkip={() => {}} />);
     const valor = document.getElementById('onboarding-valor')!;
     expect(valor).toHaveTextContent('Fichas por temas');
+    expect(valor).toHaveAttribute('aria-busy', 'true');
     const published = rows.filter((row) => row.estado === 'publicado');
     const count = new Intl.NumberFormat('es-ES', { useGrouping: 'always' } as Intl.NumberFormatOptions).format(published.length);
     const distinctTopics = new Set(published.map((row) => row.topic_id)).size;
     await waitFor(() => expect(valor).toHaveTextContent(`${count} fichas publicadas de ${distinctTopics} temas`));
+    expect(valor).toHaveAttribute('aria-busy', 'false');
     expect(query).toHaveBeenCalledTimes(3);
     expect(valor).toHaveTextContent(/fuente oficial/);
     expect(valor).toHaveTextContent('Empiezas sin cuenta.');
@@ -154,6 +156,7 @@ describe('Bienvenida del invitado', () => {
       render(<Onboarding onStart={() => {}} onSkip={() => {}} />);
       await act(async () => { await vi.advanceTimersByTimeAsync(5000); });
       expect(aborted).toBe(true);
+      expect(document.getElementById('onboarding-valor')!).toHaveAttribute('aria-busy', 'false');
       expect(document.getElementById('onboarding-valor')!.textContent).not.toMatch(/\d/);
     } finally { vi.useRealTimers(); }
   });

@@ -12,10 +12,16 @@ async function run(browser, width, mode) {
   const context = await browser.newContext({ viewport: { width, height: 800 }, serviceWorkers: 'block', isMobile: width === 360, hasTouch: width === 360 });
   const requests = [], errors = [], unexpected = [];
   let querySettled = false;
+  let timeoutStarted = 0, timeoutCancelled = 0;
   const page = await context.newPage();
   page.on('pageerror', e => errors.push(e.message));
   page.on('requestfinished', r => { if (r.url().includes('/rest/v1/concepts?')) querySettled = true; });
-  page.on('requestfailed', r => { if (r.url().includes('/rest/v1/concepts?')) querySettled = true; });
+  page.on('requestfailed', r => {
+    if (r.url().includes('/rest/v1/concepts?')) {
+      querySettled = true;
+      if (mode === 'timeout' && r.failure()?.errorText.includes('ERR_ABORTED')) timeoutCancelled = Date.now();
+    }
+  });
   if (mode === 'published') await context.addInitScript(s => localStorage.setItem('sb-127-auth-token', JSON.stringify(s)), session);
   await context.route('**/*', async route => {
     const request = route.request(), url = new URL(request.url());
@@ -29,9 +35,9 @@ async function run(browser, width, mode) {
       if (mode === 'denied') return route.fulfill({ status: 403, json: { message: 'fictional permission denied' } });
       if (mode === 'offline') return route.abort('failed');
       if (mode === 'timeout') {
-        // Hold the request until the client's five-second deadline aborts it.
-        await new Promise(resolve => setTimeout(resolve, 6500));
-        return route.abort().catch(() => {});
+        // Leave the request pending. Only the client's deadline may cancel it.
+        timeoutStarted = Date.now();
+        return;
       }
       const offset = Number(url.searchParams.get('offset')), limit = Number(url.searchParams.get('limit'));
       const data = rows.slice(offset, offset + limit);
@@ -53,13 +59,18 @@ async function run(browser, width, mode) {
       await page.waitForFunction(() => document.getElementById('onboarding-valor')?.textContent.includes('1.308 fichas publicadas de 11 temas'));
       assert.deepEqual(requests.map(r => r.offset), [0, 500, 1000]);
     } else {
-      const deadline = Date.now() + 15000;
-      while (!querySettled && Date.now() < deadline) await new Promise(resolve => setTimeout(resolve, 100));
-      assert.equal(querySettled, true, 'the fallback must be checked after the query settles');
+      // ARIA busy ends when loadPublishedConceptSummary resolves, including SDK retries.
+      await page.locator('#onboarding-valor[aria-busy="false"]').waitFor({ timeout: 8000 });
+      assert.equal(querySettled, true);
       const value = await page.locator('#onboarding-valor').innerText();
       assert.match(value, /Fichas por temas/);
       assert.doesNotMatch(value, /\d|revisadas/);
-      assert.equal(requests.length, 1);
+      if (mode === 'offline') assert.ok(requests.length > 1, 'exercise SDK retries before final fallback');
+      else assert.equal(requests.length, 1);
+      if (mode === 'timeout') {
+        assert.ok(timeoutCancelled > timeoutStarted, 'observe cancellation by the client');
+        assert.ok(timeoutCancelled - timeoutStarted <= 6000, 'client must cancel within its five-second deadline plus margin');
+      }
     }
     assert.ok(requests.length > 0);
     for (const r of requests) {
