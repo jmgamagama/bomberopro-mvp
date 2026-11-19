@@ -44,7 +44,31 @@ interface Props {
 const ESCALERA_SEPARACION = 2;
 const ESCALERA_TIMEOUT_MS = 8_000;
 
-const MINUTES = [10, 20, 45, 60];
+/** Tiempo de la sesión (informe de alumnos, 18/11/2026): 10, 25 o 60 minutos, o sin límite. */
+export const SESSION_TIMES = [
+  { minutes: 10, label: '10 min', hint: 'Lo justo para no perder lo que ya sabes.' },
+  { minutes: 25, label: '25 min', hint: 'Un bloque de estudio: repasos pendientes y conceptos nuevos.' },
+  { minutes: 60, label: '60 min', hint: 'Sesión larga: avanzas temario después de repasar.' },
+  { minutes: null, label: 'Ilimitado', hint: 'Sigues hasta que pulses «Terminar sesión» o no quede nada que estudiar.' },
+] as const;
+type SessionMinutes = (typeof SESSION_TIMES)[number]['minutes'];
+const DEFAULT_MINUTES: SessionMinutes = 25;
+/** El servidor acota el presupuesto a 180 min (_concept_session): «Ilimitado» pide el máximo. */
+const UNLIMITED_BUDGET = 180;
+const MINUTES_KEY = 'bomberopro:concept-minutes:v1';
+
+function readSavedMinutes(): SessionMinutes {
+  try {
+    const raw = window.localStorage.getItem(MINUTES_KEY);
+    if (raw === 'ilimitado') return null;
+    const n = Number(raw);
+    return SESSION_TIMES.find(t => t.minutes === n)?.minutes ?? DEFAULT_MINUTES;
+  } catch { return DEFAULT_MINUTES; }
+}
+
+function saveMinutes(m: SessionMinutes) {
+  try { window.localStorage.setItem(MINUTES_KEY, m === null ? 'ilimitado' : String(m)); } catch { /* sin almacenamiento: solo esta vez */ }
+}
 const ORDER: VisibleState[] = ['consolidado', 'dominado', 'aprendiendo', 'debil', 'por_aprender'];
 
 /** Barra de progreso del tema por estado de los conceptos (capa 2: progreso). */
@@ -72,7 +96,8 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
   const [phase, setPhase] = useState<'inicio' | 'cargando' | 'sesion' | 'fin'>('inicio');
   // Racha de la cuenta: se lee al terminar la sesión (migración 24).
   const streak = useStudyStreak(phase === 'fin');
-  const [minutes, setMinutes] = useState(20);
+  const [minutes, setMinutesState] = useState<SessionMinutes>(readSavedMinutes);
+  const setMinutes = (m: SessionMinutes) => { setMinutesState(m); saveMinutes(m); };
   const [progress, setProgress] = useState<ConceptProgress | null>(null);
   const [items, setItems] = useState<ConceptSessionItem[]>([]);
   const [idx, setIdx] = useState(0);
@@ -156,7 +181,7 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
   const start = async () => {
     setPhase('cargando'); setError(null);
     try {
-      const data = await loadConceptSession(topicId, minutes, userId);
+      const data = await loadConceptSession(topicId, minutes ?? UNLIMITED_BUDGET, userId);
       if (ownerRef.current !== userId) return;
       if (data.length === 0) {
         setError('Hoy no tienes nada pendiente en este tema. Vuelve mañana.');
@@ -194,16 +219,17 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
     }
   };
 
-  const next = () => {
-    if (recoveryPending || staging) return;
-    if (idx + 1 >= items.length) {
-      setPhase('fin');
+  const finish = () => {
+    setPhase('fin');
       if (!sessionFinished.current) { sessionFinished.current = true; void finishStudySession(sessionId.current, 'conceptos'); }
       void refreshProgress();
       const owner = userId;
       void loadCalibration(topicId, userId).then(c => { if (ownerRef.current === owner) setCalibracion(calibrationMessage(c)); });
-      return;
-    }
+  };
+
+  const next = () => {
+    if (recoveryPending || staging) return;
+    if (idx + 1 >= items.length) { finish(); return; }
     setIdx(i => i + 1);
     resetItem();
   };
@@ -312,7 +338,14 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
       <button type="button" onClick={exit} className="flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-slate-900">
         <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Volver al inicio
       </button>
-      {phase === 'sesion' && <span className="text-sm text-slate-500">{idx + 1} de {items.length}</span>}
+      {phase === 'sesion' && (minutes === null
+        ? (
+          <button type="button" onClick={finish} disabled={staging || recoveryPending}
+            className="min-h-11 rounded-xl border border-slate-300 px-3 text-sm font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-60">
+            Terminar sesión <span className="font-normal text-slate-500">· {idx + 1} de {items.length}</span>
+          </button>
+        )
+        : <span className="text-sm text-slate-500">{idx + 1} de {items.length}</span>)}
     </div>
   );
 
@@ -350,14 +383,17 @@ export default function ConceptStudy({ userId, onExit, topicId = ALL_TOPICS, eti
           {progress && <div className="mt-5"><ProgressBar p={progress} /></div>}
           <fieldset className="mt-6">
             <legend className="text-sm font-semibold text-slate-800">¿Cuánto tiempo tienes?</legend>
-            <div className="mt-2 grid grid-cols-4 gap-2">
-              {MINUTES.map(m => (
-                <button key={m} type="button" aria-pressed={minutes === m} onClick={() => setMinutes(m)}
-                  className={`rounded-xl border py-2 text-sm font-semibold ${minutes === m ? 'border-indigo-600 bg-indigo-50 text-indigo-700' : 'border-slate-200 text-slate-600'}`}>
-                  {m} min
+            <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
+              {SESSION_TIMES.map(t => (
+                <button key={t.label} type="button" aria-pressed={minutes === t.minutes} onClick={() => setMinutes(t.minutes)}
+                  className={`min-h-12 rounded-xl border-2 px-2 text-base font-bold ${minutes === t.minutes ? 'border-indigo-600 bg-indigo-600 text-white shadow-sm' : 'border-slate-200 bg-white text-slate-700 hover:border-indigo-300 hover:bg-indigo-50'}`}>
+                  {t.label}
                 </button>
               ))}
             </div>
+            <p className="mt-2 text-xs text-slate-600" data-testid="tiempo-sesion-detalle">
+              {SESSION_TIMES.find(t => t.minutes === minutes)?.hint}
+            </p>
           </fieldset>
           {error && <p role="alert" className="mt-4 text-sm font-semibold text-red-700">{error}</p>}
           <button type="button" onClick={start} disabled={phase === 'cargando'}
