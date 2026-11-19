@@ -26,16 +26,31 @@ describe('Badajoz 2026', () => {
     expect(describeExamDate('fecha rara', now)).toMatch(/pendiente de publicar/);
   });
 
-  it('Inicio compacto: resumen global, 3 temas «para seguir» y el resto plegado', () => {
+  it('Un solo «Tu progreso»: botón por tema arriba y todas las barras por tema plegadas', () => {
     window.localStorage.clear();
-    render(<Badajoz2026Card />);
+    render(<Badajoz2026Card onOpenProgress={vi.fn()} />);
     expect(screen.getByRole('heading', { name: 'Tu progreso' })).toBeInTheDocument();
-    expect(screen.getByRole('progressbar', { name: /progreso global: 0 %/i })).toBeInTheDocument();
+    // Sin cuenta, el resumen global de fichas sigue a la vista.
+    const global = screen.getByRole('progressbar', { name: /progreso global: 0 %/i });
+    expect(global.closest('details')).toBeNull();
     expect(screen.getByText(/0 de \d+ fichas vistas/)).toBeInTheDocument();
-    const paraSeguir = document.getElementById('badajoz-para-seguir')!;
-    expect(paraSeguir.querySelectorAll('li')).toHaveLength(3);
+    // El botón va junto al título, antes de cualquier barra por tema.
+    const boton = screen.getByRole('button', { name: 'Ver tu progreso por tema' });
     const todos = document.getElementById('badajoz-todos') as HTMLDetailsElement;
+    expect(boton.compareDocumentPosition(todos) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(todos.open).toBe(false);
-    expect(todos.querySelectorAll('#badajoz-progreso li').length).toBeGreaterThan(3);
+    expect(document.getElementById('badajoz-para-seguir')).toBeNull();
+    const barrasTema = screen.getAllByRole('progressbar', { hidden: true }).filter((b) => b !== global);
+    expect(barrasTema.length).toBeGreaterThan(3);
+    for (const b of barrasTema) expect(b.closest('details')).toBe(todos);
+  });
+
+  it('Con cuenta: los 5 estados arriba y las fichas del dispositivo dentro del plegable', () => {
+    window.localStorage.clear();
+    const data = { total: 10, por_aprender: 6, aprendiendo: 1, debil: 1, dominado: 1, consolidado: 1, vencidos: 2, dominio_ponderado: 0.5 };
+    render(<Badajoz2026Card onOpenProgress={vi.fn()} remoteProgress={{ status: 'ready', data }} />);
+    const todos = document.getElementById('badajoz-todos') as HTMLDetailsElement;
+    expect(document.getElementById('progreso-estados')!.closest('details')).toBeNull();
+    for (const b of screen.getAllByRole('progressbar', { hidden: true })) expect(b.closest('details')).toBe(todos);
   });
 });

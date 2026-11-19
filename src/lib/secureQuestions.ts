@@ -80,6 +80,12 @@ export function isQuestionSessionExpired(err: unknown): boolean {
   return (err as { message?: string } | null)?.message === 'question_session_expired';
 }
 
+/** Una respuesta ya confirmada con otra opción no admite reintentos en la misma tanda. */
+export function needsNewQuestionSession(err: unknown): boolean {
+  return isQuestionSessionExpired(err)
+    || (err as { message?: string } | null)?.message === 'question_already_submitted';
+}
+
 export async function checkAnswer(client: RpcClient | null, q: Question, answer: string): Promise<AnswerCheck> {
   if (hasLocalKey(q)) return gradeLocally(q, answer);
   if (!client) throw new Error('No hay conexión para corregir esta pregunta.');
@@ -151,5 +157,6 @@ export function describeCheckError(err: unknown): string {
   }
   // No es un fallo de red: cada tanda dura 2 h. Reintentar la misma no sirve; hay que pedir otra.
   if (isQuestionSessionExpired(err)) return 'Esta tanda de preguntas ha caducado (cada tanda dura 2 horas). Carga preguntas nuevas para seguir.';
+  if (msg === 'question_already_submitted') return 'El servidor ya recibió otra respuesta para esta pregunta. No podemos sustituirla ni confirmar aquí su resultado. Carga preguntas nuevas para seguir.';
   return 'No se pudo corregir la respuesta. Revisa la conexión y vuelve a intentarlo.';
 }

@@ -6,7 +6,7 @@ Estado a 18/11/2026 (rama `claude/feedback-roberto-bloque2`).
 ## Bloque 1: cambios rápidos
 - [x] Quitar el botón «Estudiar hoy» de la pantalla de inicio (duplicado de «Tu plan de hoy»; el acceso queda en la barra). En main desde #311.
 - [x] Quitar el recordatorio diario de la pantalla de inicio (se mantiene al final de la sesión). En main desde #311.
-- [x] «Ver tu progreso por tema» ya está dentro del cuadro «Tu progreso». Falta identificar el duplicado que quiere quitar (pregunta a Roberto).
+- [x] Un solo cuadro «Tu progreso» en inicio (informe del 18/11): se mantiene el aviso amarillo, «Ver tu progreso por tema» sube junto al título, los 5 estados (por aprender, aprendiendo, débil, dominado, consolidado) pasan arriba y todas las barras por tema quedan plegadas en «Ver el avance de los N temas». Se quita el segundo cuadro «Tu progreso» del final. Rama `claude/project-thread-0wewrc` (PR en borrador).
 - [x] Resaltar los botones de desplegar tema y bloque (borde e indicación más visibles). En main desde #311.
 - [x] Cronómetro oculto por defecto en Estudiar (pantalla limpia). Se respeta la elección guardada de cada alumno. Esta rama.
 - [ ] «Tiempo ilimitado» en Estudiar: reinterpretado en la conversación de voz del 17/11 como «ocultar el cronómetro», ya cubierto por el punto anterior. Cerrar si Roberto confirma. El límite de 2 min (`MAX_VALID_RESPONSE_SECONDS`) se mantiene: sirve para no contar pausas como tiempo de estudio.
@@ -54,6 +54,11 @@ Tres planes (modelo de negocio): Alumno online · Alumno con academia (el tutor 
 Construido (migración 58, PR «clases del tutor»): el tutor crea una **clase** con fecha, temas, material enlazado (Drive/NotebookLM), aviso a los alumnos, notas privadas (repaso oral, simulacro en clase) y estado Borrador → Preparada → Impartida. Lista de preparación de 5 puntos. «Repetir esta clase» copia una que funcionó como borrador nuevo. **Ficha de lectura**: el alumno confirma «He leído el tema» y el tutor ve quién ha leído y cómo van en esos temas. **Aviso para WhatsApp** listo para enviar o copiar (WhatsApp sigue siendo el canal; la app solo lo prepara). El alumno ve solo clases «Preparada», en «Mi tutor» → «Próximas clases», sin notas privadas.
 Pendiente de que Roberto lo pruebe: test/ficha enviados por clase con fecha límite, repaso oral y simulacro «en clase» con resultados anotados por el tutor, calendario del alumno, recordatorio automático del día antes.
 Fuera de alcance por ahora: chat y videollamada propios (WhatsApp y Meet ya lo cubren).
+
+## Informe Web (18/11): «solo 10 preguntas y siempre las mismas» en Temas (p. ej. 39 + 40)
+- Causa (leída en staging el 19/11): el servidor ponía delante, para siempre, toda pregunta fallada alguna vez (`fallos > 0` nunca baja); las no vistas iban detrás. Con 10 por tanda, tras 10 fallos en esos temas cada tanda salía del mismo grupo. Además la app pedía siempre 10. No es falta de banco (inventario: T39 tiene 238 preguntas; sin verificar en producción).
+- Arreglo (rama `claude/por-temas-rotacion`, migración 59, sin aplicar): hasta 60 % repasos vencidos, resto preguntas no vistas, luego rotación por las vistas hace más tiempo; tandas de 10/25/50 y botón «Otras N preguntas». Producción solo con «sí» de JM.
+- Pendiente en otros hilos: fusionar los dos cuadros de progreso, botones 10/25/60/ilimitado en «Tu sesión de hoy», simulacro como herramienta del profesor con estadística por pregunta.
 
 ## Lo que se mantiene
 Nombre, logo y paleta; cuadro resumen de la oposición; seguimiento de conceptos nuevos, adquiridos y fallos; «ordena los pasos»; simulacro en el menú.

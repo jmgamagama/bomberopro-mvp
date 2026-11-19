@@ -11,7 +11,7 @@ import { saveAttemptToServer, toLevelInt } from '../lib/saveAttemptToServer';
 import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
 import { shuffleAllOptions } from '../utils/shuffleOptions';
-import { checkAnswer, describeCheckError, fetchQuestionSession, isQuestionSessionExpired, withRevealedKey } from '../lib/secureQuestions';
+import { checkAnswer, describeCheckError, fetchQuestionSession, needsNewQuestionSession, withRevealedKey } from '../lib/secureQuestions';
 import { useActiveTimer } from '../hooks/useActiveTimer';
 import { validResponseMs } from '../utils/activeTimer';
 import { newStudySessionId, startStudySession, finishStudySession } from '../lib/studySession';
@@ -27,6 +27,13 @@ interface TopicOption {
   nombre: string;
 }
 
+/** Tamaños de tanda (el servidor admite hasta 50, migración 59). ~30 s por pregunta. */
+export const TAMANOS_TANDA = [
+  { n: 10, etiqueta: '10', tiempo: '≈5 min' },
+  { n: 25, etiqueta: '25', tiempo: '≈12 min' },
+  { n: 50, etiqueta: '50', tiempo: '≈25 min' },
+] as const;
+
 interface StudyByTopicProps {
   session: any;
   onNavigateHome: () => void;
@@ -37,6 +44,7 @@ interface StudyByTopicProps {
 export default function StudyByTopic({ session, onNavigateHome, onOpenMaterial }: StudyByTopicProps) {
   const [topics, setTopics] = useState<TopicOption[]>(() => (temasEnCache() ?? []) as TopicOption[]);
   const [selected, setSelected] = useState<number[]>([]);
+  const [tanda, setTanda] = useState<number>(10);
   const [topicQuery, setTopicQuery] = useState('');
   const [loadingTopics, setLoadingTopics] = useState(() => temasEnCache() === null);
   // Recuentos reales de conceptos por tema y mapa de conceptos desplegable (migración 23).
@@ -83,7 +91,7 @@ const startStudy = async () => {
   // C2: preguntas sin clave; la sesión devuelta por el servidor limita las correcciones.
   let data: Question[] | null = null;
   try {
-    data = await fetchQuestionSession(supabase, 'begin_topic_session_v3', { p_topic_ids: selected, p_limit: 10 });
+    data = await fetchQuestionSession(supabase, 'begin_topic_session_v3', { p_topic_ids: selected, p_limit: tanda });
   } catch (err) {
     console.error('No se pudieron cargar las preguntas del tema:', err);
     // Solo al renovar una tanda caducada: sin aviso, el botón parecería no hacer nada.
@@ -141,7 +149,7 @@ const confirmAnswer = async (chosen: string) => {
     // Respuesta tardía de una tanda ya sustituida: su error no pertenece a las preguntas en pantalla.
     if (batchRef.current !== batch) return;
     setCheckError(describeCheckError(err));
-    setSessionExpired(isQuestionSessionExpired(err));
+    setSessionExpired(needsNewQuestionSession(err));
     setAnswer('');
     answeringRef.current = false;
     return;
@@ -257,6 +265,22 @@ if (!started) {
                    outlineTema === t.numero ? h(ConceptOutline, { tema: t.numero }) : null
                  ))
                  ),
+             h('fieldset', { className: 'mb-4' },
+               h('legend', { className: 'text-sm font-semibold text-slate-800 mb-2' }, '¿Cuántas preguntas?'),
+               h('div', { className: 'grid grid-cols-3 gap-2', role: 'radiogroup' },
+                 TAMANOS_TANDA.map(o => h('button', {
+                   key: o.n,
+                   type: 'button',
+                   role: 'radio',
+                   'aria-checked': tanda === o.n,
+                   'aria-label': o.n + ' preguntas, ' + o.tiempo.replace('≈', 'unos '),
+                   onClick: () => setTanda(o.n),
+                   className: 'min-h-11 rounded-lg border px-2 py-2 text-sm font-semibold ' +
+                     (tanda === o.n ? 'border-indigo-600 bg-indigo-50 text-indigo-800' : 'border-slate-200 bg-white text-slate-700')
+                 }, o.etiqueta, h('span', { className: 'block text-xs font-normal text-slate-500' }, o.tiempo)))
+               ),
+               h('p', { className: 'mt-2 text-xs text-slate-500' }, 'Primero tus repasos pendientes y después preguntas que aún no has visto. Al terminar puedes pedir otra tanda.')
+             ),
              h('button', {
                onClick: startStudy,
                disabled: selected.length === 0 || loadingQuestions,
@@ -282,8 +306,20 @@ if (idx >= questions.length) {
            h('div', { className: 'max-w-md w-full text-center bg-white rounded-xl p-6 shadow' },
              h('h2', { className: 'text-xl font-bold text-slate-900 mb-2' }, 'Sesión completada'),
              h('p', { className: 'text-slate-600 mb-4' }, 'Acertaste ' + correctCount + ' de ' + questions.length + ' preguntas.'),
+             questions.length < tanda
+             ? h('p', { className: 'text-sm text-slate-500 mb-4', 'data-testid': 'banco-corto' },
+                 'Estos temas tienen ' + questions.length + ' pregunta' + (questions.length === 1 ? '' : 's') + ' disponible' + (questions.length === 1 ? '' : 's') + ' por ahora.')
+             : null,
+             checkError ? h('p', { role: 'alert', className: 'mb-3 text-sm text-rose-800' }, checkError) : null,
+             h('button', {
+               type: 'button',
+               id: 'topic-next-batch',
+               onClick: () => { void startStudy(); },
+               disabled: loadingQuestions,
+               className: 'w-full mb-2 min-h-11 bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg font-semibold disabled:opacity-60'
+             }, loadingQuestions ? 'Cargando…' : 'Otras ' + tanda + ' preguntas de estos temas'),
              h('div', { className: 'flex gap-2' },
-               h('button', { onClick: restart, className: 'flex-1 bg-indigo-600 text-white py-2 rounded-lg font-semibold' }, 'Elegir otros temas'),
+               h('button', { onClick: restart, className: 'flex-1 bg-slate-200 text-slate-800 py-2 rounded-lg font-semibold' }, 'Elegir otros temas'),
                h('button', { onClick: onNavigateHome, className: 'flex-1 bg-slate-200 text-slate-800 py-2 rounded-lg font-semibold' }, 'Inicio')
                )
              )

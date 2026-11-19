@@ -1,0 +1,23 @@
+name: Por temas rotation (migration 59)
+on:
+  pull_request:
+    paths:
+      - 'supabase/migrations/59_por_temas_rotacion*.sql'
+      - 'supabase/tests/por_temas_rotacion_59.pglite.mjs'
+      - '.github/workflows/por-temas-rotacion.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  rotation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated Postgres runtime
+        run: npm install --prefix "$RUNNER_TEMP/pg-runtime" --no-save --ignore-scripts @electric-sql/pglite@0.5.11
+      - name: Reproduce the old selector and verify migration 59 (up, guard, down)
+        run: NODE_PATH="$RUNNER_TEMP/pg-runtime/node_modules" node supabase/tests/por_temas_rotacion_59.pglite.mjs

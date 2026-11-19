@@ -15,7 +15,6 @@ import Skeleton from './Skeleton';
 
 export interface DashboardProps {
   remoteProgress?: RemoteConceptState;
-  onRetryProgress?: () => void;
   memoryStates: Record<string, MemoryState>;
   attempts: Attempt[];
   microconcepts: Microconcept[];
@@ -27,7 +26,6 @@ export interface DashboardProps {
 
 export default function Dashboard({
   remoteProgress,
-  onRetryProgress,
   memoryStates,
   attempts = [],
   microconcepts,
@@ -36,7 +34,7 @@ export default function Dashboard({
   onReset,
   onSimulateDays
 }: DashboardProps) {
-  if (remoteProgress) return <Suspense fallback={<Skeleton label="Cargando el progreso de tu cuenta…" className="mt-6" />}><RemoteDashboard state={remoteProgress} onRetry={onRetryProgress} onNavigate={onNavigate} /></Suspense>;
+  if (remoteProgress) return <Suspense fallback={<Skeleton label="Cargando tus accesos…" className="mt-6" />}><RemoteDashboard onNavigate={onNavigate} /></Suspense>;
   // Calculations
   // NOTE: the legacy single-topic "SM-2 mastery" widget (Articulo 1 demo,
   // hardcoded to 5 microconcepts) was removed from the UI below because it
