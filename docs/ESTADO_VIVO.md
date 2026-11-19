@@ -53,6 +53,8 @@
 
 11. Claude → feedback de Roberto: en producción cronómetro oculto, «Tarjetas pro», panel de tutor (migración 57, Roberto es tutor) y temas «T16 · Nombre». Clases del tutor + ficha de lectura + aviso WhatsApp: migración 58, PR `claude/feat-clases-tutor`. Pendiente: que Roberto actualice la app (aviso «Actualizar») y pruebe; Casimiro sin alta. Detalle en `docs/FEEDBACK_ROBERTO.md`.
 
+14. Claude → «Por temas» repetía siempre las mismas 10 preguntas (informe de Roberto): migración 59 + selector 10/25/50 en PR en borrador (rama `claude/por-temas-rotacion`). Ensayada en staging con vuelta atrás (19/11). JM → «sí» escrito para producción.
+
 ## Decisiones cerradas (no reabrir sin dato nuevo)
 - Paleta A «Brasa y Noche»; estado = icono + texto + contorno, relleno sólido solo en acciones. Marca: gota azul marino, blanca y amarilla en todas partes.
 - WhatsApp como tutor IA descartado (restricciones Meta 2026); Telegram o app de Claude.

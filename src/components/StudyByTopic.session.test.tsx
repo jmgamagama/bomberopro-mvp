@@ -234,4 +234,36 @@ describe('StudyByTopic registra la sesión', () => {
     await screen.findByText('¿Pregunta de prueba?');
     expect(rpc.mock.calls.some(c => c[0] === 'start_study_session')).toBe(false);
   });
+
+  it('Roberto: se elige el tamaño de la tanda y al terminar se pide otra con los mismos temas', async () => {
+    const { correct_answer: _c, explanation: _e, ...keyless } = question;
+    let begins = 0;
+    rpc.mockImplementation((fn: string) => {
+      if (fn === 'begin_topic_session_v3') {
+        begins += 1;
+        return Promise.resolve({ data: { session_id: `server-topic-${begins}`, questions: [{ ...keyless, id: String(100 + begins) }] }, error: null });
+      }
+      if (fn === 'submit_question_answer_v3') return Promise.resolve({ data: { acierto: true, correct_answer: 'Correcta', explanation: 'Porque sí.' }, error: null });
+      return Promise.resolve({ data: null, error: null });
+    });
+    render(<StudyByTopic session={{ user: { id: 'user-1' } }} onNavigateHome={() => {}} />);
+    fireEvent.click(await screen.findByRole('checkbox'));
+    const r25 = screen.getByRole('radio', { name: /^25 preguntas/ });
+    fireEvent.click(r25);
+    expect(r25).toHaveAttribute('aria-checked', 'true');
+    fireEvent.click(screen.getByText(/Empezar/));
+    fireEvent.click(await screen.findByText('Correcta'));
+    fireEvent.click(await screen.findByRole('button', { name: /Ver resultado/ }));
+    await screen.findByText('Sesión completada');
+    // Banco más corto que la tanda pedida: se dice con la cifra.
+    expect(screen.getByTestId('banco-corto').textContent).toMatch(/1 pregunta disponible/);
+    fireEvent.click(screen.getByRole('button', { name: 'Otras 25 preguntas de estos temas' }));
+    await waitFor(() => expect(begins).toBe(2));
+    expect(rpc.mock.calls.filter(c => c[0] === 'begin_topic_session_v3')).toEqual([
+      ['begin_topic_session_v3', { p_topic_ids: [18], p_limit: 25 }],
+      ['begin_topic_session_v3', { p_topic_ids: [18], p_limit: 25 }],
+    ]);
+    expect(await screen.findByText('¿Pregunta de prueba?')).toBeInTheDocument();
+    expect(rpc.mock.calls.filter(c => c[0] === 'start_study_session').map(c => c[1].p_session_id)).toHaveLength(2);
+  });
 });

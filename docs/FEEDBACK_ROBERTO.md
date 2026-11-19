@@ -55,5 +55,10 @@ Construido (migración 58, PR «clases del tutor»): el tutor crea una **clase**
 Pendiente de que Roberto lo pruebe: test/ficha enviados por clase con fecha límite, repaso oral y simulacro «en clase» con resultados anotados por el tutor, calendario del alumno, recordatorio automático del día antes.
 Fuera de alcance por ahora: chat y videollamada propios (WhatsApp y Meet ya lo cubren).
 
+## Informe Web (18/11): «solo 10 preguntas y siempre las mismas» en Temas (p. ej. 39 + 40)
+- Causa (leída en staging el 19/11): el servidor ponía delante, para siempre, toda pregunta fallada alguna vez (`fallos > 0` nunca baja); las no vistas iban detrás. Con 10 por tanda, tras 10 fallos en esos temas cada tanda salía del mismo grupo. Además la app pedía siempre 10. No es falta de banco (inventario: T39 tiene 238 preguntas; sin verificar en producción).
+- Arreglo (rama `claude/por-temas-rotacion`, migración 59, sin aplicar): hasta 60 % repasos vencidos, resto preguntas no vistas, luego rotación por las vistas hace más tiempo; tandas de 10/25/50 y botón «Otras N preguntas». Producción solo con «sí» de JM.
+- Pendiente en otros hilos: fusionar los dos cuadros de progreso, botones 10/25/60/ilimitado en «Tu sesión de hoy», simulacro como herramienta del profesor con estadística por pregunta.
+
 ## Lo que se mantiene
 Nombre, logo y paleta; cuadro resumen de la oposición; seguimiento de conceptos nuevos, adquiridos y fallos; «ordena los pasos»; simulacro en el menú.
