@@ -35,7 +35,12 @@ async function run(browser, width, mode) {
       }
       const offset = Number(url.searchParams.get('offset')), limit = Number(url.searchParams.get('limit'));
       const data = rows.slice(offset, offset + limit);
-      return route.fulfill({ json: data, headers: { 'content-range': `${offset}-${offset + data.length - 1}/${rows.length}` } });
+      // Match PostgREST's CORS contract: the SDK must be able to read Content-Range.
+      return route.fulfill({ json: data, headers: {
+        'content-range': `${offset}-${offset + data.length - 1}/${rows.length}`,
+        'access-control-allow-origin': '*',
+        'access-control-expose-headers': 'content-range',
+      } });
     }
     if (url.pathname === '/auth/v1/user') return route.fulfill({ json: user });
     if (url.pathname === '/auth/v1/token') return route.fulfill({ json: session });
@@ -72,6 +77,7 @@ async function run(browser, width, mode) {
     await page.locator('#onboarding-valor').waitFor({ state: 'detached' });
     console.log(JSON.stringify({ width, mode, result: 'PASS', queryPages: requests.length, overflow: false, pageErrors: errors, externalOrigins: unexpected }));
   } catch (error) {
+    console.error(JSON.stringify({ width, mode, requests, querySettled, errors, unexpected, value: await page.locator('#onboarding-valor').textContent().catch(() => null) }));
     await page.screenshot({ path: `browser-evidence/cifras-${width}-${mode}-FAILED.png`, fullPage: true }).catch(() => {});
     throw error;
   } finally { await context.close(); }
