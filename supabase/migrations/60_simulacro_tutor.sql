@@ -113,8 +113,18 @@ RETURNS text[] LANGUAGE sql VOLATILE SET search_path TO 'public' AS $$
   FROM questions q WHERE q.id = p_question_id;
 $$;
 
+-- Clave con la que se puntúa y corrige: la vigente si la pregunta se corrigió y su texto sigue entre las opciones
+-- congeladas que vio el alumno; si no (la corrección cambió el texto de la opción correcta), la congelada al crear el
+-- simulacro. Así ninguna corrección de contenido posterior produce una respuesta imposible ni la penaliza.
+CREATE OR REPLACE FUNCTION public._simulacro_tutor_clave(p_question_id bigint, p_opciones text[], p_correcta text)
+RETURNS text LANGUAGE sql STABLE SET search_path TO 'public' AS $$
+  SELECT CASE WHEN v.clave IS NOT NULL AND v.clave = ANY (SELECT btrim(o) FROM unnest(p_opciones) o) THEN v.clave
+              ELSE btrim(p_correcta) END
+    FROM (SELECT btrim(public._correct_option_text(p_question_id)) AS clave) v;
+$$;
+
 REVOKE ALL ON FUNCTION public._simulacro_tutor_cerrado(public.tutor_simulacros), public._simulacro_tutor_nota(integer, integer, integer),
-  public._simulacro_tutor_opciones(bigint) FROM PUBLIC, anon, authenticated;
+  public._simulacro_tutor_opciones(bigint), public._simulacro_tutor_clave(bigint, text[], text) FROM PUBLIC, anon, authenticated;
 
 -- ---------------------------------------------------------------------------
 -- Tutor
@@ -339,7 +349,10 @@ BEGIN
   v_pocos := v_entregados < 3;
 
   WITH pq AS (
-    SELECT p.*, coalesce(public._correct_option_text(p.question_id), p.correcta) AS clave FROM tutor_simulacro_preguntas p WHERE p.simulacro_id = p_id
+    SELECT k.*, k.vigente IS NOT NULL AND k.vigente IS DISTINCT FROM k.clave AS clave_fuera
+      FROM (SELECT p.*, public._simulacro_tutor_clave(p.question_id, p.opciones, p.correcta) AS clave,
+                   btrim(public._correct_option_text(p.question_id)) AS vigente
+              FROM tutor_simulacro_preguntas p WHERE p.simulacro_id = p_id) k
   ), st AS (
     SELECT pq.question_id,
            count(r.*) AS respondidas,
@@ -370,7 +383,7 @@ BEGIN
     coalesce(jsonb_agg(jsonb_build_object(
       'question_id', f.question_id, 'orden', f.orden, 'tema', f.tema, 'nivel', f.nivel_esperado, 'enunciado', f.enunciado,
       'opciones', to_jsonb(f.opciones), 'correcta', f.clave, 'respondidas', f.respondidas, 'aciertos', f.aciertos,
-      'blancos', f.blancos, 'pct_acierto', f.pct, 'error_mas_elegido', f.err_top,
+      'blancos', f.blancos, 'pct_acierto', f.pct, 'clave_cambiada_tras_crear', f.clave_fuera, 'error_mas_elegido', f.err_top,
       'pct_error_mas_elegido', round(100.0 * f.err_top_n / nullif(v_entregados, 0)),
       'reparto', coalesce((SELECT jsonb_object_agg(re.respuesta, re.n) FROM reparto re WHERE re.question_id = f.question_id), '{}'::jsonb),
       'alerta', f.alerta
@@ -527,10 +540,10 @@ BEGIN
     RAISE EXCEPTION 'respuesta_no_es_opcion' USING ERRCODE = '22023';
   END IF;
 
-  -- Clave vigente si la pregunta sigue publicada (por si se corrigió); si no, la congelada.
+  -- Clave: la vigente si sigue entre las opciones mostradas; si no, la congelada (ver _simulacro_tutor_clave).
   INSERT INTO tutor_simulacro_respuestas (simulacro_id, alumno_id, question_id, respuesta, acierto, confianza)
   SELECT p_id, v_uid, p.question_id, nullif(btrim(coalesce(a->>'respuesta', '')), ''),
-         coalesce(btrim(a->>'respuesta'), '') <> '' AND btrim(a->>'respuesta') = btrim(coalesce(public._correct_option_text(p.question_id), p.correcta)),
+         coalesce(btrim(a->>'respuesta'), '') <> '' AND btrim(a->>'respuesta') = public._simulacro_tutor_clave(p.question_id, p.opciones, p.correcta),
          a->>'confianza'
     FROM jsonb_array_elements(p_respuestas) a
     JOIN tutor_simulacro_preguntas p ON p.simulacro_id = p_id AND p.question_id = (a->>'question_id')::bigint;
@@ -564,7 +577,7 @@ BEGIN
     'detalle', coalesce((SELECT jsonb_agg(jsonb_build_object(
         'question_id', p.question_id::text, 'question', p.enunciado, 'options', to_jsonb(p.opciones), 'tema', p.tema,
         'respuesta', coalesce(r.respuesta, ''), 'acierto', coalesce(r.acierto, false), 'confianza', r.confianza,
-        'correct_answer', coalesce(public._correct_option_text(p.question_id), p.correcta),
+        'correct_answer', public._simulacro_tutor_clave(p.question_id, p.opciones, p.correcta),
         'explanation', (SELECT q.explicacion FROM questions q WHERE q.id = p.question_id AND q.estado = 'publicada')
       ) ORDER BY p.orden)
       FROM tutor_simulacro_preguntas p

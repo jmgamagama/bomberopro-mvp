@@ -105,8 +105,10 @@ tutor_simulacro_respuestas (
 ```
 
 Opciones congeladas: la correcta + 2 al azar, o todas si alguna es referencial («Todas las anteriores»), misma regla
-que el simulacro libre (migración 20). Corrección: con la clave vigente si la pregunta sigue publicada (por si se
-corrigió) y, si no, con la congelada. La entrega propia no caduca a las 2 h ni consume el límite diario de correcciones
+que el simulacro libre (migración 20). Corrección: con la clave vigente solo si su texto está entre las opciones
+congeladas que vio el alumno (corrección válida); si no (se cambió el texto de la correcta o la pregunta dejó de
+estar publicada), con la clave congelada, y el tutor lo ve marcado como `clave_cambiada_tras_crear` en los
+resultados. Nunca se puntúa ni se muestra una respuesta que el alumno no pudo elegir. La entrega propia no caduca a las 2 h ni consume el límite diario de correcciones
 del plan gratis (`_consume_answer_checks`): un simulacro de clase es acotado (≤ 55 preguntas, una entrega por alumno).
 
 No se toca ninguna tabla ni función existente. Deshacer: `60_simulacro_tutor_down.sql` borra las 4 tablas y sus

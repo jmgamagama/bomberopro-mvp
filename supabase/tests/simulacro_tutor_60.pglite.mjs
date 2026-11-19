@@ -235,6 +235,45 @@ await test('fecha de cierre pasada cierra el simulacro sin que el tutor lo haga'
   assert.ok(!(await val('select public.alumno_simulacros_v1()')).some(s => s.id === id));
 });
 
+await test('clave corregida tras crear: se puntúa con la vigente si se mostró; si no, con la congelada', async () => {
+  await como(TUTOR);
+  const id = (await val('select public.tutor_simulacro_guardar(null, $1)', [{ titulo: 'Clave cambiada', preguntas: preguntas(IDS) }])).id;
+  await one("select public.tutor_simulacro_estado($1, 'abierto')", [id]);
+  const det = await val('select public.tutor_simulacro_detalle($1)', [id]);
+  const congelada = Object.fromEntries(det.preguntas.map(p => [p.question_id, p.correcta]));
+  // Pregunta 2: la clave pasa a otra opción que sí se mostró (corrección válida).
+  const p2 = det.preguntas.find(p => p.question_id === 2);
+  const nueva2 = p2.opciones.find(o => o !== p2.correcta);
+  const letra2 = nueva2.split(' ').at(-1);
+  await como(ALUMNOS[1]);
+  await one('select public.alumno_simulacro_empezar($1)', [id]);
+  // Cambios de contenido tras emitir el examen (caso de la revisión de Codex en la pregunta 1).
+  await db.query(`update public.questions set opciones = jsonb_set(opciones, '{0,texto}', to_jsonb('Correcta corregida fuera del snapshot'::text)) where id = 1`);
+  await db.query('update public.questions set correcta = $1 where id = 2', [letra2]);
+  try {
+    const todas = det.preguntas.map(p => ({ question_id: String(p.question_id), respuesta: congelada[p.question_id] }));
+    const r = await val('select public.alumno_simulacro_entregar($1, $2)', [id, JSON.stringify(todas)]);
+    assert.equal(r.aciertos, 9, 'la 1 cuenta como acierto con la clave congelada; la 2 falla con la clave vigente');
+    await como(TUTOR);
+    const res = await val('select public.tutor_simulacro_resultados($1)', [id]);
+    const f1 = res.preguntas.find(p => p.question_id === 1), f2 = res.preguntas.find(p => p.question_id === 2);
+    assert.equal(f1.clave_cambiada_tras_crear, true);
+    assert.equal(f1.correcta, congelada[1]);
+    assert.equal(f2.clave_cambiada_tras_crear, false);
+    assert.equal(f2.correcta, nueva2);
+    await one("select public.tutor_simulacro_estado($1, 'cerrado')", [id]);
+    await como(ALUMNOS[1]);
+    const corr = await val('select public.alumno_simulacro_correccion($1)', [id]);
+    for (const q of corr.detalle) assert.ok(q.options.includes(q.correct_answer), `clave mostrada en ${q.question_id}`);
+    assert.equal(corr.detalle.find(q => q.question_id === '1').acierto, true);
+    assert.equal(corr.detalle.find(q => q.question_id === '2').correct_answer, nueva2);
+    assert.equal(corr.detalle.find(q => q.question_id === '2').acierto, false);
+  } finally {
+    await db.query(`update public.questions set opciones = jsonb_set(opciones, '{0,texto}', to_jsonb('P1 opción a'::text)) where id = 1`);
+    await db.query("update public.questions set correcta = 'a' where id = 2");
+  }
+});
+
 await test('la vuelta atrás borra todo lo de la 60 y deja intactas 57 y 58', async () => {
   await db.exec(read('60_simulacro_tutor_down.sql'));
   const r = await one(`select to_regclass('public.tutor_simulacros') s, to_regclass('public.tutor_clases') c,
