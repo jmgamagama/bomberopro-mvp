@@ -274,6 +274,42 @@ await test('clave corregida tras crear: se puntúa con la vigente si se mostró;
   }
 });
 
+await test('clave corregida después de entregar: la nota, la corrección y el informe siguen la clave usada', async () => {
+  await como(TUTOR);
+  const id = (await val('select public.tutor_simulacro_guardar(null, $1)', [{ titulo: 'Clave tras entregar', preguntas: preguntas(IDS) }])).id;
+  await one("select public.tutor_simulacro_estado($1, 'abierto')", [id]);
+  const det = await val('select public.tutor_simulacro_detalle($1)', [id]);
+  const todas = det.preguntas.map(p => ({ question_id: String(p.question_id), respuesta: p.correcta }));
+  const p1 = det.preguntas.find(p => p.question_id === 1);
+  const otra = p1.opciones.find(o => o !== p1.correcta);
+  await como(ALUMNOS[2]);
+  await one('select public.alumno_simulacro_empezar($1)', [id]);
+  const r = await val('select public.alumno_simulacro_entregar($1, $2)', [id, JSON.stringify(todas)]);
+  assert.equal(r.aciertos, 10);
+  await db.query('update public.questions set correcta = $1 where id = 1', [otra.split(' ').at(-1)]);
+  try {
+    const dup = await val('select public.alumno_simulacro_entregar($1, $2)', [id, JSON.stringify(todas)]);
+    assert.deepEqual([dup.status, dup.aciertos], ['duplicate', 10]);
+    await como(TUTOR);
+    const res = await val('select public.tutor_simulacro_resultados($1)', [id]);
+    const f1 = res.preguntas.find(p => p.question_id === 1);
+    assert.equal(f1.clave_distinta_en_entregas, true, 'el tutor ve que la clave cambió tras entregar');
+    assert.equal(Number(f1.pct_acierto), 100);
+    assert.equal(f1.error_mas_elegido, null, 'el error más elegido sigue la clave usada');
+    assert.equal(res.preguntas.find(p => p.question_id === 3).clave_distinta_en_entregas, false);
+    await one("select public.tutor_simulacro_estado($1, 'cerrado')", [id]);
+    await como(ALUMNOS[2]);
+    const corr = await val('select public.alumno_simulacro_correccion($1)', [id]);
+    assert.equal(corr.aciertos, 10);
+    for (const q of corr.detalle) {
+      assert.equal(q.acierto, q.respuesta === q.correct_answer, `coherente en ${q.question_id}`);
+      assert.ok(q.options.includes(q.correct_answer));
+    }
+  } finally {
+    await db.query("update public.questions set correcta = 'a' where id = 1");
+  }
+});
+
 await test('la vuelta atrás borra todo lo de la 60 y deja intactas 57 y 58', async () => {
   await db.exec(read('60_simulacro_tutor_down.sql'));
   const r = await one(`select to_regclass('public.tutor_simulacros') s, to_regclass('public.tutor_clases') c,

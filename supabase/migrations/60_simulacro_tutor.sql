@@ -71,6 +71,7 @@ CREATE TABLE IF NOT EXISTS public.tutor_simulacro_respuestas (
   question_id bigint NOT NULL,
   respuesta text,
   acierto boolean NOT NULL,
+  clave text NOT NULL,            -- clave con la que se calificó; la corrección y las estadísticas usan esta, no la de hoy
   confianza text CHECK (confianza IS NULL OR confianza IN ('alta', 'media', 'baja')),
   PRIMARY KEY (simulacro_id, alumno_id, question_id),
   FOREIGN KEY (simulacro_id, alumno_id) REFERENCES public.tutor_simulacro_entregas(simulacro_id, alumno_id) ON DELETE CASCADE
@@ -367,11 +368,19 @@ BEGIN
      WHERE r.simulacro_id = p_id AND r.alumno_id IN (SELECT unnest(v_ids)) AND coalesce(r.respuesta, '') <> ''
      GROUP BY 1, 2
   ), top_err AS (
-    SELECT DISTINCT ON (re.question_id) re.question_id, re.respuesta, re.n
-      FROM reparto re JOIN pq ON pq.question_id = re.question_id AND re.respuesta IS DISTINCT FROM pq.clave
-     ORDER BY re.question_id, re.n DESC, re.respuesta
+    -- Error más elegido según la clave con la que se calificó cada entrega (coherente con los aciertos guardados).
+    SELECT DISTINCT ON (r.question_id) r.question_id, r.respuesta, count(*) AS n
+      FROM tutor_simulacro_respuestas r
+     WHERE r.simulacro_id = p_id AND r.alumno_id IN (SELECT unnest(v_ids)) AND coalesce(r.respuesta, '') <> '' AND NOT r.acierto
+     GROUP BY r.question_id, r.respuesta
+     ORDER BY r.question_id, count(*) DESC, r.respuesta
+  ), cambio AS (
+    -- Preguntas cuya clave de hoy difiere de la usada en alguna entrega ya calificada (no se recalifica sola).
+    SELECT DISTINCT r.question_id
+      FROM tutor_simulacro_respuestas r JOIN pq ON pq.question_id = r.question_id
+     WHERE r.simulacro_id = p_id AND r.alumno_id IN (SELECT unnest(v_ids)) AND r.clave IS DISTINCT FROM pq.clave
   ), fila AS (
-    SELECT pq.*, st.respondidas, st.aciertos, st.blancos,
+    SELECT pq.*, st.respondidas, st.aciertos, st.blancos, (pq.question_id IN (SELECT question_id FROM cambio)) AS clave_distinta,
            round(100.0 * st.aciertos / nullif(v_entregados, 0)) AS pct,
            te.respuesta AS err_top, te.n AS err_top_n,
            CASE WHEN v_pocos OR pq.nivel_esperado IS DISTINCT FROM 1 OR 100.0 * st.aciertos / nullif(v_entregados, 0) >= 50 THEN NULL
@@ -383,7 +392,7 @@ BEGIN
     coalesce(jsonb_agg(jsonb_build_object(
       'question_id', f.question_id, 'orden', f.orden, 'tema', f.tema, 'nivel', f.nivel_esperado, 'enunciado', f.enunciado,
       'opciones', to_jsonb(f.opciones), 'correcta', f.clave, 'respondidas', f.respondidas, 'aciertos', f.aciertos,
-      'blancos', f.blancos, 'pct_acierto', f.pct, 'clave_cambiada_tras_crear', f.clave_fuera, 'error_mas_elegido', f.err_top,
+      'blancos', f.blancos, 'pct_acierto', f.pct, 'clave_cambiada_tras_crear', f.clave_fuera, 'clave_distinta_en_entregas', f.clave_distinta, 'error_mas_elegido', f.err_top,
       'pct_error_mas_elegido', round(100.0 * f.err_top_n / nullif(v_entregados, 0)),
       'reparto', coalesce((SELECT jsonb_object_agg(re.respuesta, re.n) FROM reparto re WHERE re.question_id = f.question_id), '{}'::jsonb),
       'alerta', f.alerta
@@ -541,12 +550,14 @@ BEGIN
   END IF;
 
   -- Clave: la vigente si sigue entre las opciones mostradas; si no, la congelada (ver _simulacro_tutor_clave).
-  INSERT INTO tutor_simulacro_respuestas (simulacro_id, alumno_id, question_id, respuesta, acierto, confianza)
+  -- Se guarda la clave usada: una corrección posterior de la pregunta no cambia ni contradice esta entrega.
+  INSERT INTO tutor_simulacro_respuestas (simulacro_id, alumno_id, question_id, respuesta, acierto, clave, confianza)
   SELECT p_id, v_uid, p.question_id, nullif(btrim(coalesce(a->>'respuesta', '')), ''),
-         coalesce(btrim(a->>'respuesta'), '') <> '' AND btrim(a->>'respuesta') = public._simulacro_tutor_clave(p.question_id, p.opciones, p.correcta),
-         a->>'confianza'
+         coalesce(btrim(a->>'respuesta'), '') <> '' AND btrim(a->>'respuesta') = k.clave,
+         k.clave, a->>'confianza'
     FROM jsonb_array_elements(p_respuestas) a
-    JOIN tutor_simulacro_preguntas p ON p.simulacro_id = p_id AND p.question_id = (a->>'question_id')::bigint;
+    JOIN tutor_simulacro_preguntas p ON p.simulacro_id = p_id AND p.question_id = (a->>'question_id')::bigint
+    CROSS JOIN LATERAL (SELECT public._simulacro_tutor_clave(p.question_id, p.opciones, p.correcta) AS clave) k;
 
   SELECT count(*) FILTER (WHERE acierto), count(*) FILTER (WHERE NOT acierto AND respuesta IS NOT NULL), count(*) FILTER (WHERE respuesta IS NULL)
     INTO v_ok, v_bad, v_blank
@@ -577,7 +588,7 @@ BEGIN
     'detalle', coalesce((SELECT jsonb_agg(jsonb_build_object(
         'question_id', p.question_id::text, 'question', p.enunciado, 'options', to_jsonb(p.opciones), 'tema', p.tema,
         'respuesta', coalesce(r.respuesta, ''), 'acierto', coalesce(r.acierto, false), 'confianza', r.confianza,
-        'correct_answer', public._simulacro_tutor_clave(p.question_id, p.opciones, p.correcta),
+        'correct_answer', coalesce(r.clave, public._simulacro_tutor_clave(p.question_id, p.opciones, p.correcta)),
         'explanation', (SELECT q.explicacion FROM questions q WHERE q.id = p.question_id AND q.estado = 'publicada')
       ) ORDER BY p.orden)
       FROM tutor_simulacro_preguntas p
