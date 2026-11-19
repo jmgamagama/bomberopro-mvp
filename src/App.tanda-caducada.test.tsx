@@ -47,11 +47,13 @@ afterEach(() => {
 describe('Entrenar con una tanda v3 caducada', () => {
   let begins: number;
   let expireOnServer: boolean;
+  let rejectionMessage: string;
 
   beforeEach(() => {
     window.localStorage.clear();
     begins = 0;
     expireOnServer = false;
+    rejectionMessage = 'question_session_expired';
     getSession.mockResolvedValue({ data: { session: { user: { id: 'user-1' } } }, error: null });
     rpcMock.mockImplementation((fn: string, args: { p_delivery_session_id?: string }) => {
       if (fn === 'begin_study_session_v3') {
@@ -61,7 +63,7 @@ describe('Entrenar con una tanda v3 caducada', () => {
       }
       if (fn === 'submit_question_answer_v3') {
         if (expireOnServer && args.p_delivery_session_id === 'tanda-1') {
-          return Promise.resolve({ data: null, error: { code: '42501', message: 'question_session_expired' } });
+          return Promise.resolve({ data: null, error: { code: rejectionMessage === 'question_already_submitted' ? '23505' : '42501', message: rejectionMessage } });
         }
         const q = args.p_delivery_session_id === 'tanda-1' ? first : second;
         return Promise.resolve({ data: { acierto: true, correct_answer: q.correct_answer, explanation: '' }, error: null });
@@ -86,7 +88,11 @@ describe('Entrenar con una tanda v3 caducada', () => {
     expect(await screen.findByRole('heading', { name: /Pregunta de la tanda nueva/ })).toBeInTheDocument();
   });
 
-  it('si el servidor rechaza la tanda por caducada, no culpa a la red y permite cargar otra', async () => {
+  it.each([
+    ['question_session_expired', /caducado/],
+    ['question_already_submitted', /ya recibió otra respuesta/],
+  ] as const)('rechazo %s: no culpa a la red ni inventa un intento y permite cargar otra tanda', async (message, expectedNotice) => {
+    rejectionMessage = message;
     render(<App />);
     await waitFor(() => expect(begins).toBe(1));
     await entrarEnEntrenar();
@@ -95,12 +101,12 @@ describe('Entrenar con una tanda v3 caducada', () => {
     fireEvent.click(screen.getByRole('button', { name: first.correct_answer }));
     fireEvent.click(document.querySelector('#conf-btn-alta')!);
     const alert = await screen.findByRole('alert');
-    expect(alert.textContent).toMatch(/caducado/);
+    expect(alert.textContent).toMatch(expectedNotice);
     expect(alert.textContent).not.toMatch(/conexión/);
     fireEvent.click(screen.getByRole('button', { name: /cargar preguntas nuevas/i }));
     await waitFor(() => expect(begins).toBe(2));
     expect(await screen.findByRole('heading', { name: /Pregunta de la tanda nueva/ })).toBeInTheDocument();
-    expect(screen.queryByRole('button', { name: /cargar preguntas nuevas/i })).not.toBeInTheDocument();
+    await waitFor(() => expect(screen.queryByRole('button', { name: /cargar preguntas nuevas/i })).not.toBeInTheDocument());
     // La respuesta rechazada no se registra: ningún intento sin corrección del servidor.
     expect(rpcMock.mock.calls.filter(([fn]) => fn === 'record_attempt_v2')).toHaveLength(0);
   });

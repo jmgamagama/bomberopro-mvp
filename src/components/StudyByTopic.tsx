@@ -11,7 +11,7 @@ import { saveAttemptToServer, toLevelInt } from '../lib/saveAttemptToServer';
 import StudentConsultation from './StudentConsultationModal';
 import ReportQuestionButton from './ReportQuestionButton';
 import { shuffleAllOptions } from '../utils/shuffleOptions';
-import { checkAnswer, describeCheckError, fetchQuestionSession, isQuestionSessionExpired, withRevealedKey } from '../lib/secureQuestions';
+import { checkAnswer, describeCheckError, fetchQuestionSession, needsNewQuestionSession, withRevealedKey } from '../lib/secureQuestions';
 import { useActiveTimer } from '../hooks/useActiveTimer';
 import { validResponseMs } from '../utils/activeTimer';
 import { newStudySessionId, startStudySession, finishStudySession } from '../lib/studySession';
@@ -141,7 +141,7 @@ const confirmAnswer = async (chosen: string) => {
     // Respuesta tardía de una tanda ya sustituida: su error no pertenece a las preguntas en pantalla.
     if (batchRef.current !== batch) return;
     setCheckError(describeCheckError(err));
-    setSessionExpired(isQuestionSessionExpired(err));
+    setSessionExpired(needsNewQuestionSession(err));
     setAnswer('');
     answeringRef.current = false;
     return;

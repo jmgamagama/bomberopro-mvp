@@ -106,6 +106,37 @@ describe('StudyByTopic registra la sesión', () => {
     expect(rpc).toHaveBeenCalledWith('submit_question_answer_v3', expect.objectContaining({ p_delivery_session_id: 'server-topic-2' }));
   });
 
+  it('una respuesta ya confirmada permite renovar sin inventar un resultado', async () => {
+    const { correct_answer: _c, explanation: _e, ...keyless } = question;
+    let begins = 0;
+    rpc.mockImplementation((fn: string, args: any) => {
+      if (fn === 'begin_topic_session_v3') {
+        begins += 1;
+        return Promise.resolve({ data: { session_id: `server-topic-${begins}`, questions: [keyless] }, error: null });
+      }
+      if (fn === 'submit_question_answer_v3') {
+        return Promise.resolve(args.p_delivery_session_id === 'server-topic-1'
+          ? { data: null, error: { code: '23505', message: 'question_already_submitted' } }
+          : { data: { acierto: true, correct_answer: 'Correcta', explanation: 'Porque sí.' }, error: null });
+      }
+      return Promise.resolve({ data: null, error: null });
+    });
+    render(<StudyByTopic session={{ user: { id: 'user-1' } }} onNavigateHome={() => {}} />);
+    fireEvent.click(await screen.findByRole('checkbox'));
+    fireEvent.click(screen.getByText(/Empezar/));
+    fireEvent.click(await screen.findByText('Correcta'));
+    const alert = await screen.findByRole('alert');
+    expect(alert.textContent).toMatch(/ya recibió otra respuesta/);
+    expect(alert.textContent).not.toMatch(/conexión/);
+    expect(saveAttemptToServer).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole('button', { name: /cargar preguntas nuevas/i }));
+    await waitFor(() => expect(begins).toBe(2));
+    await waitFor(() => expect(screen.queryByRole('alert')).not.toBeInTheDocument());
+    fireEvent.click(screen.getByText('Correcta'));
+    await waitFor(() => expect(saveAttemptToServer).toHaveBeenCalledTimes(1));
+    expect(rpc).toHaveBeenCalledWith('submit_question_answer_v3', expect.objectContaining({ p_delivery_session_id: 'server-topic-2' }));
+  });
+
   it('#278: una respuesta tardía de la tanda antigua no pinta su error sobre la tanda nueva', async () => {
     const { correct_answer: _c, explanation: _e, ...keyless } = question;
     let begins = 0;
