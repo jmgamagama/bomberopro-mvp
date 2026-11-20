@@ -18,4 +18,7 @@ jobs:
           case "$STAGING_DB_URL" in *"[YOUR-"*|*"YOUR-PASSWORD"*) echo "FALLO: la cadena aún contiene el marcador [YOUR-PASSWORD]"; exit 1;; esac
           out=$(psql "$STAGING_DB_URL" -v ON_ERROR_STOP=1 -At -F '|' -c "select current_user, (select count(*) from public.topics), (select max(version) from supabase_migrations.schema_migrations)" 2>&1) || { echo "FALLO de conexión:"; echo "$out" | sed -E 's#(postgres(ql)?://[^:]+:)[^@]+@#\1***@#g'; exit 1; }
           echo "Resultado (usuario|temas|última migración): $out"
-          case "$out" in *fxhvgvehhekqeqpkxtrm*) echo "OK: es la base de datos de STAGING";; *) echo "FALLO: no parece staging, se detiene"; exit 1;; esac
+          case "$STAGING_DB_URL" in *fxhvgvehhekqeqpkxtrm*) ;; *) echo "FALLO: la cadena no apunta al proyecto de staging, se detiene"; exit 1;; esac
+          topics=$(echo "$out" | cut -d'|' -f2)
+          if [ "$topics" -gt 10 ]; then echo "FALLO: tiene $topics temas, parece producción, se detiene"; exit 1; fi
+          echo "OK: es la base de datos de STAGING"
