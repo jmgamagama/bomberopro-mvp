@@ -20,7 +20,8 @@
 import { canAccessDeck, getPlan, PLAN_LIMITS, type Plan } from '../utils/plan';
 import { getDeckRevision, type RecallRevision } from './recallReview';
 import { canSeePendingDecks, pendingDecksBundled } from '../utils/revisionAccess';
-import { readServerDeckCache, saveServerDeckCache } from './serverDeckCache';
+import { clearServerDeckCache, readServerDeckCache, saveServerDeckCache } from './serverDeckCache';
+import { getLocalDataOwner } from '../utils/localOwner';
 import { isCardOutOfSyllabus, isCardReviewedInPendingDeck, outOfSyllabusCount, reviewedCardCount } from './recallCardReview';
 
 /**
@@ -67,10 +68,19 @@ export async function loadServerDeckCards(deckId: string): Promise<readonly Reca
     saveServerDeckCache(deckId, cards);
     return cards;
   } catch (err) {
+    // QA #333: si el servidor dice que la cuenta ya no tiene plan, su copia offline deja de valer.
+    if (isPlanRequired(err)) {
+      clearServerDeckCache(deckId);
+      throw err;
+    }
     const cached = readServerDeckCache(deckId);
     if (cached) return cached;
     throw err;
   }
+}
+
+function isPlanRequired(err: unknown): boolean {
+  return !!err && typeof err === 'object' && /plan_required/.test(String((err as { message?: unknown }).message ?? ''));
 }
 
 /** T39 con la bandera de mazos internos: parte pública del bundle + parte SOS del servidor (o de la caché). */
@@ -83,6 +93,8 @@ async function loadPartialInternalDeck(
   let complete = true;
   try {
     serverCards = await loadServerDeckCards(deckId);
+    // QA #333: recall_cards aún vacía (bandera activada antes de la carga): se degrada a la parte pública.
+    if (serverCards.length === 0) complete = false;
   } catch {
     complete = false; // sin cuenta, sin plan o sin red y sin copia: el alumno estudia la parte pública
   }
@@ -106,6 +118,14 @@ export function isDeckBundled(
   if (!fromServer) return true;
   const free = PLAN_LIMITS.free.deckIds;
   return free !== 'all' && free.includes(deckId);
+}
+
+/**
+ * ¿Depende este mazo (todo o en parte) del servidor? Sus fichas descargadas pertenecen a la cuenta que
+ * las pidió: no se reutilizan en memoria para otra cuenta ni para el invitado (QA #333).
+ */
+export function isServerServedDeck(deckId: string): boolean {
+  return (INTERNAL_DECKS_FROM_SERVER && INTERNAL_DECK_IDS.includes(deckId)) || !isDeckBundled(deckId);
 }
 
 export type { RecallRevision } from './recallReview';
@@ -941,19 +961,35 @@ export function canAccessTopic(topic: RecallTopic, plan: Plan = getPlan()): bool
 }
 
 const cardCache = new Map<string, readonly RecallSourceCard[]>();
+/** Cuenta que descargó cada mazo servido (isServerServedDeck); los del bundle no la necesitan. */
+const cacheOwner = new Map<string, string>();
 const pending = new Map<string, Promise<readonly RecallSourceCard[]>>();
+
+/** Fichas en memoria de un mazo, solo si pertenecen al propietario actual cuando vienen del servidor. */
+function cachedCards(id: string): readonly RecallSourceCard[] | undefined {
+  const cards = cardCache.get(id);
+  if (cards && isServerServedDeck(id) && cacheOwner.get(id) !== getLocalDataOwner()) {
+    cardCache.delete(id);
+    cacheOwner.delete(id);
+    return undefined;
+  }
+  return cards;
+}
 
 /** Fichas de un mazo ya cargado, tal como las ve el usuario actual (o `undefined` si aún no se ha pedido). */
 export function getLoadedDeckCards(id: string): readonly RecallSourceCard[] | undefined {
-  const cards = cardCache.get(id);
+  const cards = cachedCards(id);
   return cards && viewFor(id, cards);
 }
 
 /** Carga (una sola vez) TODAS las fichas de un mazo: import dinámico de su módulo (auditoría, revisión). */
 export function loadRawRecallDeckCards(id: string): Promise<readonly RecallSourceCard[]> {
-  const cached = cardCache.get(id);
+  const cached = cachedCards(id);
   if (cached) return Promise.resolve(cached);
-  const inFlight = pending.get(id);
+  const served = isServerServedDeck(id);
+  const owner = getLocalDataOwner();
+  const pendingKey = served ? `${id}\u0000${owner}` : id;
+  const inFlight = pending.get(pendingKey);
   if (inFlight) return inFlight;
   const load = LOADERS.get(id);
   if (!load) return Promise.reject(new Error(`Mazo de recuerdo desconocido: ${id}`));
@@ -966,11 +1002,16 @@ export function loadRawRecallDeckCards(id: string): Promise<readonly RecallSourc
       if (cards.length !== esperadas) {
         throw new Error(`Mazo ${deck.label}: se esperaban ${deck.count} fichas y hay ${cards.length}`);
       }
+      if (served) {
+        // La respuesta llegó tras cambiar de cuenta: no se entrega ni se guarda para la siguiente.
+        if (getLocalDataOwner() !== owner) throw new Error(`Mazo ${deck.label}: cambió la cuenta durante la descarga.`);
+        cacheOwner.set(id, owner);
+      }
       cardCache.set(id, cards);
       return cards;
     })
-    .finally(() => pending.delete(id));
-  pending.set(id, promise);
+    .finally(() => pending.delete(pendingKey));
+  pending.set(pendingKey, promise);
   return promise;
 }
 

@@ -1,0 +1,44 @@
+name: Bundle sin material interno (bandera)
+
+# Issue #333: con VITE_INTERNAL_DECKS_FROM_SERVER=true, dist/ no puede llevar texto de T38 (ITF),
+# la parte SOS del T39 ni T40 (PT01/PT03), ni la muestra de invitado ni «Ordena los pasos».
+# Compara huellas sha256 (scripts/centinelas-mazos-internos.json), nunca texto. Sin red a Supabase.
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bundle-interno-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    name: Bundle con bandera sin material interno
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      VITE_INTERNAL_DECKS_FROM_SERVER: 'true'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Build con VITE_INTERNAL_DECKS_FROM_SERVER=true
+        run: npm run build
+      - name: Buscar frases e ids internos en dist/
+        run: npm run auditar:bundle-interno
+      - name: La comprobación detecta fugas (build sin bandera debe fallar)
+        run: |
+          rm -rf dist
+          VITE_INTERNAL_DECKS_FROM_SERVER= npm run build
+          if npm run auditar:bundle-interno; then
+            echo "::error::La auditoría no detectó el material interno en un build sin bandera."
+            exit 1
+          fi

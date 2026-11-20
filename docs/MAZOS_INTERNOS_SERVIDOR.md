@@ -49,8 +49,16 @@ anexo I del BOP 135/2026).
 3. **Activar `VITE_INTERNAL_DECKS_FROM_SERVER=true` en Vercel** (Preview primero, después Production).
 4. **Desplegar** y verificar en el `dist/` publicado que no hay texto interno.
 5. **PR posterior** que retire `tema38Recall.ts`, `tema39SosRecall.ts`, `tema40Recall.ts`,
-   `initialDataInterno.ts` y los pasos de `procedimientoPasos.ts` del repositorio (y adapte sus tests).
+   `initialDataInterno.ts` y los pasos de `procedimientoPasos.ts` del repositorio (y adapte sus tests),
+   **y también** `data/tema38/fichas_198.json`, `data/tema40/fichas_213.json` y la parte SOS de
+   `data/tema39/fichas_149.json` (QA #333: no estaban en esta lista). Los ids de `OUT_OF_SYLLABUS_CARDS`
+   (`CPEI-T38-GES-*`, `CPEI-T39-SPE-*`) siguen en el bundle sin texto: moverlos o quitarlos en esa PR.
    Ojo: retirarlos de `main` no los borra del historial de git.
+
+Comprobación automática (QA #333): el workflow `bundle-interno.yml` construye con la bandera y ejecuta
+`npm run auditar:bundle-interno`, que busca en `dist/` huellas sha256 de frases de los módulos internos
+(`scripts/centinelas-mazos-internos.json`, sin texto) y sus ids. Si cambian las fichas internas:
+`npm run auditar:bundle-interno -- --generar`. Informe: `docs/QA_BANDERA_MAZOS_INTERNOS_2026-11-20.md`.
 
 Consecuencias de activar: las personas sin cuenta dejan de ver T38, T40 y la parte SOS del T39 (el
 servidor exige sesión); las cuentas `free` del servidor también (exige plan `pro`). Los revisores dejan
