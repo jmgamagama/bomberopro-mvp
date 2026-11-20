@@ -1,7 +1,7 @@
 # Diseño: simulacro del tutor (propuesta de Roberto, 18/11/2026)
 
 > Estado (19/11): decisiones del §10 tomadas (se mantiene «Simulacro libre»; nota al entregar, corrección al cerrar).
-> Fase 1 escrita: `supabase/migrations/60_simulacro_tutor.sql` + pruebas PGlite. Sin aplicar en ningún entorno. Producción nunca sin «sí» escrito.
+> Fase 1 escrita: `supabase/migrations/62_simulacro_tutor.sql` + pruebas PGlite. Sin aplicar en ningún entorno. Producción nunca sin «sí» escrito.
 > Autor: Claude. Base: `main` en `e94261c` y lectura de producción del 19/11 (solo agregados, sin datos personales).
 
 ## 1. Qué pide Roberto y qué recomendamos
@@ -77,7 +77,7 @@ intentos, exportar a hoja de cálculo, aviso automático por WhatsApp (hoy se re
 Si el alumno revoca el vínculo, sus resultados dejan de verse en el panel (igual que en la 57).
 Riesgo asumido: el tutor ve la clave de las preguntas que pone en su simulacro (es profesor y lo da de alta JM a mano).
 
-## 6. Modelo de datos (migración 60, propuesta)
+## 6. Modelo de datos (migración 62, propuesta)
 
 Todas con RLS activado y **sin permisos directos**: acceso solo por RPC `SECURITY DEFINER`, como 57 y 58.
 
@@ -114,7 +114,7 @@ corrección de la pregunta después de entregar no contradice la nota; el tutor 
 `clave_distinta_en_entregas` (no hay recalificación automática). La entrega propia no caduca a las 2 h ni consume el límite diario de correcciones
 del plan gratis (`_consume_answer_checks`): un simulacro de clase es acotado (≤ 55 preguntas, una entrega por alumno).
 
-No se toca ninguna tabla ni función existente. Deshacer: `60_simulacro_tutor_down.sql` borra las 4 tablas y sus
+No se toca ninguna tabla ni función existente. Deshacer: `62_simulacro_tutor_down.sql` borra las 4 tablas y sus
 funciones. Lo que el alumno responda quedará también en `attempts` (modo `simulacro`): lo registra el cliente con
 `record_attempt_v2` en la fase 2, como hoy el simulacro libre, para que cuente en su progreso y en el panel de la 57.
 
@@ -181,7 +181,7 @@ causa más dañina para la confianza del alumno.
 
 Estimación: fases 1-3 en 2-3 sesiones de trabajo. Producción solo tras la fase 3 completa en staging.
 
-La fase 1 es el contrato de §6 (migración 60; la 59 de main es «Por temas»).
+La fase 1 es el contrato de §6 (migración 62; la 59 de main es «Por temas»; 60 y 61 son el cierre de temas internos).
 
 ## 10. Decisiones para JM
 

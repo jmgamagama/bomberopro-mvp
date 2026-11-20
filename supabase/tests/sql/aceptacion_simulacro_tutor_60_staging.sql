@@ -1,8 +1,8 @@
--- PR #320 · Aceptación de la migración 60 (simulacro del tutor) contra el backend REAL de STAGING.
+-- PR #320 · Aceptación de la migración 62 (simulacro del tutor) contra el backend REAL de STAGING.
 -- SOLO staging (fxhvgvehhekqeqpkxtrm). No ejecutar en producción.
 --
 -- Cómo se ejecuta: en UNA sola llamada, este orden concatenado:
---   60_simulacro_tutor.sql ; 60_simulacro_tutor_down.sql ; 60_simulacro_tutor.sql ; este bloque DO.
+--   62_simulacro_tutor.sql ; 62_simulacro_tutor_down.sql ; 62_simulacro_tutor.sql ; este bloque DO.
 -- El bloque termina SIEMPRE con una excepción «ROLLBACK_OK {…}», que aborta la transacción entera: se
 -- deshacen la migración, la vuelta atrás y todos los datos de prueba. El resultado se lee en el texto de
 -- esa excepción. Después se comprueba aparte que `to_regclass('public.tutor_simulacros')` sigue siendo null.

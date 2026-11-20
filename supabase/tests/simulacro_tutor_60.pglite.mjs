@@ -1,4 +1,4 @@
-// Pruebas de la migración 60 (simulacro de clase del tutor) en Postgres en memoria. No usa Supabase remoto.
+// Pruebas de la migración 62 (simulacro de clase del tutor) en Postgres en memoria. No usa Supabase remoto.
 // Carga las migraciones reales 57 (tutor) y 58 (clases) sobre un esquema mínimo y después la 60 y su vuelta atrás.
 import { PGlite } from '@electric-sql/pglite';
 import { readFileSync } from 'node:fs';
@@ -57,7 +57,7 @@ await db.query("insert into public.questions values (25, 1, 'Referencial', $1, '
 
 await db.exec(read('57_panel_tutor.sql'));
 await db.exec(read('58_clases_tutor.sql'));
-await db.exec(read('60_simulacro_tutor.sql'));
+await db.exec(read('62_simulacro_tutor.sql'));
 await db.exec(`
   insert into public.users_app values
     ('${TUTOR}', 'tutor@x.invalid'), ('${OTRO_TUTOR}', 'otro@x.invalid'), ('${AJENO}', 'ajeno@x.invalid'),
@@ -350,11 +350,11 @@ await test('la propuesta rellena con preguntas sin concepto (sin nivel) si falta
 });
 
 await test('la vuelta atrás borra todo lo de la 60 y deja intactas 57 y 58', async () => {
-  await db.exec(read('60_simulacro_tutor_down.sql'));
+  await db.exec(read('62_simulacro_tutor_down.sql'));
   const r = await one(`select to_regclass('public.tutor_simulacros') s, to_regclass('public.tutor_clases') c,
     to_regclass('public.tutor_vinculos') v, (select count(*)::int from pg_proc where proname like '%simulacro%') f`);
   assert.deepEqual(r, { s: null, c: 'tutor_clases', v: 'tutor_vinculos', f: 0 });
-  await db.exec(read('60_simulacro_tutor.sql'));
+  await db.exec(read('62_simulacro_tutor.sql'));
 });
 
 console.log(`\n${passed} pruebas superadas`);

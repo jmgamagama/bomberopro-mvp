@@ -21,7 +21,7 @@
 -- El registro en `attempts` (progreso del alumno y panel de la 57) lo hará el cliente con record_attempt_v2,
 -- igual que hoy en el simulacro libre (fase 2).
 --
--- Deshacer: 60_simulacro_tutor_down.sql (borra las 4 tablas y sus funciones; no toca nada más).
+-- Deshacer: 62_simulacro_tutor_down.sql (borra las 4 tablas y sus funciones; no toca nada más).
 -- ==============================================================================
 
 CREATE TABLE IF NOT EXISTS public.tutor_simulacros (
