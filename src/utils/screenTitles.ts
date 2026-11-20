@@ -13,7 +13,7 @@ export const SCREEN_TITLES = {
   concept_t40: 'Estudiar hoy',
   constitucion: 'Material por tema',
   my_reports: 'Mis reportes',
-  recuerdo: 'Tarjetas pro',
+  recuerdo: 'Repasar fichas',
   sesion_diaria: 'Sesión diaria',
   onboarding: 'Bienvenida',
   planes: 'Planes',

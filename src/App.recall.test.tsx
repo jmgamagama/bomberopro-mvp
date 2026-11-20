@@ -23,11 +23,11 @@ describe('navegación de recuerdo', () => {
     // «Recuerdo» vive en «Más», igual en escritorio y en móvil.
     await screen.findAllByRole('button', { name: 'Temas' });
     await user.click(document.querySelector<HTMLButtonElement>('#nav-btn-mas')!);
-    await user.click(document.querySelector<HTMLButtonElement>('#mas-recuerdo')!);
+    await user.click(screen.getByRole('button', { name: /^Repasar fichas/ }));
     const tablist = await screen.findByRole('tablist', { name: 'Temas de recuerdo' });
     const tabs = within(tablist).getAllByRole('tab');
     expect(tabs.map((t) => Array.from(t.querySelectorAll('[aria-hidden="true"]')).map((e) => e.textContent).join(''))).toEqual(RECALL_TOPICS.map((t) => `${t.shortLabel}${t.count}`));
-    expect(document.title).toBe('Tarjetas pro | BomberoPro');
+    expect(document.title).toBe('Repasar fichas | BomberoPro');
 
     await user.click(within(tablist).getByRole('tab', { name: /T40/ }));
     expect(screen.getByRole('heading', { name: /Tema 40/ })).toBeInTheDocument();

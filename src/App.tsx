@@ -884,11 +884,11 @@ export default function App() {
     { key: 'mas', label: 'Más', Icon: Menu, target: 'mas', active: MAS_SCREENS },
   ];
   const masItems: { key: string; label: string; detail: string; Icon: typeof LayoutDashboard; target: Screen }[] = [
-    { key: 'errors', label: 'Errores críticos', detail: 'Repasa lo que has fallado.', Icon: AlertTriangle, target: 'errors' },
-    { key: 'recuerdo', label: 'Tarjetas pro', detail: 'Tarjetas para memorizar datos clave.', Icon: Layers, target: 'recuerdo' },
-    { key: 'sesion_diaria', label: 'Sesión diaria', detail: 'Fichas con tiempo fijo al día.', Icon: Flame, target: 'sesion_diaria' },
-    { key: 'today_training', label: 'Entrenamiento de hoy', detail: 'Preguntas pendientes de repaso.', Icon: Target, target: 'today_training' },
-    { key: 'forgetting_curve', label: 'Curva de olvido', detail: 'Qué se te está olvidando.', Icon: BarChart2, target: 'forgetting_curve' },
+    { key: 'errors', label: 'Errores críticos', detail: 'Vuelve a intentar las preguntas que has fallado.', Icon: AlertTriangle, target: 'errors' },
+    { key: 'recuerdo', label: 'Repasar fichas', detail: 'Elige un tema e intenta recordar antes de ver la respuesta.', Icon: Layers, target: 'recuerdo' },
+    { key: 'sesion_diaria', label: 'Sesión diaria', detail: 'Haz un repaso guiado con fichas de varios temas.', Icon: Flame, target: 'sesion_diaria' },
+    { key: 'today_training', label: 'Entrenamiento de hoy', detail: 'Responde los test que tienes pendientes de repasar.', Icon: Target, target: 'today_training' },
+    { key: 'forgetting_curve', label: 'Curva de olvido', detail: 'Consulta qué temas necesitan más repaso.', Icon: BarChart2, target: 'forgetting_curve' },
     ...(supuestosVisibles ? [{ key: 'supuestos', label: 'Casos prácticos', detail: 'Supuestos del segundo ejercicio.', Icon: ClipboardList, target: 'supuestos' as Screen }] : []),
     ...(!isDemoMode && session?.user?.id ? [{ key: 'my_reports', label: 'Mis reportes', detail: 'Errores que has avisado en preguntas.', Icon: HelpCircle, target: 'my_reports' as Screen }] : []),
     ...(!isDemoMode && session?.user?.id ? [{ key: 'mi_tutor', label: 'Mi tutor', detail: 'Comparte tu progreso con tu profesor.', Icon: Users, target: 'mi_tutor' as Screen }] : []),
