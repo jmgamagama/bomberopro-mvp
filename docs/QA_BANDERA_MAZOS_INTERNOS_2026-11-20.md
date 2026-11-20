@@ -259,3 +259,39 @@ Con C2 abierto, una cuenta gratis aún recibe conceptos del T40 en Estudiar.
 - El relleno real del simulacro gratis.
 - Una pasada de todas las migraciones más la 60 en PGlite.
 - Llamadas reales por PostgREST con JWT firmados. Simulé `request.jwt.claims` y el rol en SQL.
+
+## 5. Revisión de la migración 61 (PR #335, cabeza ee3783b), 20/11 hacia las 17:20 (hora de Madrid)
+
+Solo en staging. Cada prueba corrió en una transacción revertida (bloque `DO` que termina en excepción) con cuentas ficticias @example.com: anónimo, sin plan, free, pro, pro por invitación, y una cuenta pro que pasa a free. Los fallos del repaso de errores se simularon dentro de la transacción: 5 preguntas falladas del T40, 5 del T30, y un concepto fallado de cada uno de esos temas. Al terminar no queda ningún resto: 6 usuarios en `auth.users`, y 0 filas de las cuentas QA en las 15 tablas con `user_id`, incluida `private.question_delivery_sessions`.
+
+**Definición viva frente a la PR.** Apliqué a mano los cuatro reemplazos de la 61 sobre las definiciones que había antes. El resultado es idéntico a lo que hay vivo en `get_topic_study_questions`, `get_error_session`, `get_concept_session_v2` y `submit_concept_answer`. Cada fragmento aparece una sola vez. Las demás funciones (`_concept_session`, `get_topic_questions_v2`, `get_error_session_v2`, `submit_question_answer_v3`, `record_concept_event` y `_record_concept_event`) no han cambiado. Las cuatro siguen siendo SECURITY DEFINER con `search_path=public`. Las funciones internas (`get_topic_study_questions`, `get_error_session` y `_concept_session`) no las puede ejecutar ni un usuario autenticado ni uno anónimo.
+
+| Prueba (T40 salvo que se diga) | anónimo | sin plan / free | pro / invitado |
+|---|---|---|---|
+| C1 `get_topic_questions_v2` | denegado | 0 (T30: 30; mezcla T40+T30: 0 del T40) | 19 |
+| C1 `begin_topic_session_v3` | denegado | 0 (T30: 5) | 10 |
+| C2 `get_concept_session_v2(40)` | denegado | 0 | 36 (27 con respuesta) |
+| C2 `get_concept_session_v2(NULL)` | denegado | 0 del T40 (166 en total) | 30 del T40 (196 en total) |
+| C3 `submit_concept_answer` | denegado | `published_question_not_found`; T30 corrige | revela (correcto) |
+| C6 `get_error_session_v2` / `begin_error_session_v3` | denegado | 0 de 5 del T40; las 5 del T30 sí; contestar funciona | 5 del T40 y 5 del T30 |
+| `submit_question_answer_v3`, id del T40 en sesión del T30 | denegado | `question_not_in_session` | `question_not_in_session` |
+
+Cambio de pro a free. Si se cambian los claims en caliente, o se baja el plan con un UPDATE dentro de la misma transacción, Temas, Estudiar, el repaso de errores y `submit_concept_answer` cierran el T40 al momento.
+
+**`_down` de la 61.** Lo ejecuté dentro de `BEGIN` y una excepción, sin COMMIT. Las cuatro funciones quedan iguales, carácter a carácter, a como estaban antes de la 61, y todas las pruebas vuelven a abrirse para free (19/10/36/27/30, revela, 5). Después del rollback la 61 sigue aplicada (mismo md5 de `get_error_session`).
+
+### Hallazgos
+
+- **Bajo D1, sesión emitida siendo pro.** Una cuenta pro abre una sesión de Temas con el T40 y pasa a free. `submit_question_answer_v3` sobre esa sesión sigue devolviendo la respuesta correcta, porque `question_delivery_sessions` no vuelve a comprobar el plan. El alcance es pequeño: solo afecta a preguntas que ya se le sirvieron siendo pro, y mientras dure la sesión.
+- **Bajo D2, `record_concept_event`.** No comprueba el plan. Una cuenta free puede registrar una «ficha» o un «recuerdo» de un concepto del T40 si conoce su id. Devuelve `status`/`due_at`/`estado` y escribe en `user_concept_state`. No devuelve contenido, y ese estado no se convierte en preguntas porque el repaso de errores filtra por `visibles`. Lo único que confirma es que existe un id, y ensucia el progreso. Se arregla con un `_puede_ver_concepto` en la comprobación de concepto publicado.
+- **Bajo D3, Estudiar sin elegir tema.** Para free filtra el T40 después de `_concept_session` y no rellena con otros conceptos: la sesión sale con 166 elementos en vez de 196. Es un tema de experiencia de uso, no una fuga.
+- **C5 sigue abierto (bajo).** Un anónimo puede ejecutar `_puede_ver_concepto` y `_puede_ver_pregunta`, y uno autenticado `_puede_ver_pregunta`. Solo devuelven booleanos según el plan de quien llama.
+- **C7 sigue abierto (bajo).** La regla va por número de tema (T38, T39 sin MOV, T40). Si hubiera material interno en T1–37, quedaría abierto.
+- C1, C2, C3 y C6 quedan **cerrados** en staging.
+
+### Qué no pude comprobar
+
+- Producción.
+- T38 y T39 SOS/MOV, porque staging no tiene datos.
+- Llamadas por PostgREST con JWT firmados.
+- La UI de Temas y de Estudiar con cuenta free en un navegador.
