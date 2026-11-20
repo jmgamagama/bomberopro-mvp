@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BookOpenCheck, CalendarClock, Check, FileText, Flame, HelpCircle, Lock, Play } from 'lucide-react';
 import { CONVOCATORIA_CPEI_2026 as C } from '../data/convocatoria';
-import { canAccessTopic, getVisibleBloques, getVisibleTopic, getVisibleTotalCards, type RecallTopic } from '../data/recallRegistry';
+import { canAccessTopic, getVisibleBloques, getVisibleTopic, type RecallTopic } from '../data/recallRegistry';
 import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreferences';
 import { completeOnboarding } from '../utils/onboarding';
 import {
@@ -19,8 +19,8 @@ import DailyMinutesField from './DailyMinutesField';
 import TopicSearch from './TopicSearch';
 import TemasEnPreparacion from './TemasEnPreparacion';
 import { matchesTopic } from '../utils/topicSearch';
-import { canAccessDeck, getDailySessionSize, getPlan, planSummary, PLAN_COPY } from '../utils/plan';
-import { getTemasEnPreparacion, getVisibleDecks } from '../data/recallRegistry';
+import { getDailySessionSize, getPlan, planSummary, PLAN_COPY } from '../utils/plan';
+import { getTemasEnPreparacion } from '../data/recallRegistry';
 import { loadPublishedConceptSummary, type PublishedConceptSummary } from '../lib/publishedConceptSummary';
 
 /** Miles con punto también en 4 cifras («2.483»), como en el resto de textos del proyecto. */
@@ -68,7 +68,6 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, c
     return () => { disposed = true; clearTimeout(timeout); controller.abort(); };
   }, [cuenta]);
   const showPlans = isPlanesEnabled() && plan === 'free';
-  const planCards = getVisibleDecks().filter((d) => canAccessDeck(d.id, plan)).reduce((n, d) => n + d.count, 0);
   const [choice, setChoice] = useState<string>(() => {
     const stored = getVisibleTopic(getPreferredDeckId() ?? '');
     return stored && canAccessTopic(stored, plan) ? stored.id : ALL;
@@ -104,7 +103,7 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, c
   };
 
   const [query, setQuery] = useState('');
-  type Option = { id: string; label: string; detail: string; locked: boolean };
+  type Option = { id: string; label: string; detail?: string; locked: boolean };
   const toOption = (t: RecallTopic): Option => ({
     id: t.id,
     label: `${t.shortLabel} · ${t.name}`,
@@ -113,7 +112,7 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, c
   });
   // «Todos los temas» y, debajo, los temas agrupados por bloque (parte común / específica).
   const groups: { id: string; label: string | null; options: Option[] }[] = [
-    { id: ALL, label: null, options: [{ id: ALL, label: showPlans ? 'Todos los temas de tu plan' : 'Todos los temas', detail: showPlans ? `${planCards} fichas en Gratis` : `${getVisibleTotalCards()} fichas`, locked: false }] },
+    { id: ALL, label: null, options: [{ id: ALL, label: showPlans ? 'Todos los temas de tu plan' : 'Todos los temas', locked: false }] },
     ...getVisibleBloques()
       .map((b) => ({ b, topics: b.topics.filter((t) => matchesTopic(query, t.tema, t.name, t.title, t.shortLabel)) }))
       .filter(({ topics }) => topics.length > 0)
@@ -133,8 +132,8 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, c
           </h1>
           {/* Publicado no acredita revisión humana; sin consulta válida no se anuncian cifras. */}
           <p id="onboarding-valor" aria-busy={resumenLoading} className="mt-1 text-[13px] leading-snug text-slate-700 sm:text-sm">
-            <strong className="text-slate-900">{resumen
-              ? `${formatMiles(resumen.fichas)} fichas publicadas de ${resumen.temas} temas`
+            <strong className="text-slate-900">{cuenta && resumen
+              ? `${formatMiles(resumen.fichas)} fichas publicadas en ${resumen.temas} temas`
               : 'Fichas por temas'}</strong>, cada una con su fuente oficial, y simulacro con la puntuación del examen.
             {!cuenta && ' Empiezas sin cuenta.'}
           </p>
@@ -234,7 +233,7 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, c
                     <span className="min-w-0">
                       <span className="block font-semibold leading-snug break-words">
                         {o.locked && <Lock className="mr-1 inline h-3.5 w-3.5 align-[-2px]" aria-hidden="true" />}
-                        {o.label} <span className="font-normal text-slate-600">· {o.detail}{o.locked ? ` · ${PLAN_COPY.lockedDeck}` : ''}</span>
+                        {o.label}{o.detail && <span className="font-normal text-slate-600"> · {o.detail}{o.locked ? ` · ${PLAN_COPY.lockedDeck}` : ''}</span>}
                       </span>
                     </span>
                     <span
