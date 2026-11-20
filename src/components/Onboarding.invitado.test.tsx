@@ -89,19 +89,28 @@ describe('Bienvenida del invitado', () => {
       { estado: 'borrador_ia', topic_id: 99 },
     ];
     const query = queryFixture(rows);
-    render(<Onboarding onStart={() => {}} onSkip={() => {}} />);
+    render(<Onboarding onStart={() => {}} onSkip={() => {}} cuenta />);
     const valor = document.getElementById('onboarding-valor')!;
     expect(valor).toHaveTextContent('Fichas por temas');
     expect(valor).toHaveAttribute('aria-busy', 'true');
     const published = rows.filter((row) => row.estado === 'publicado');
     const count = new Intl.NumberFormat('es-ES', { useGrouping: 'always' } as Intl.NumberFormatOptions).format(published.length);
     const distinctTopics = new Set(published.map((row) => row.topic_id)).size;
-    await waitFor(() => expect(valor).toHaveTextContent(`${count} fichas publicadas de ${distinctTopics} temas`));
+    await waitFor(() => expect(valor).toHaveTextContent(`${count} fichas publicadas en ${distinctTopics} temas`));
     expect(valor).toHaveAttribute('aria-busy', 'false');
     expect(query).toHaveBeenCalledTimes(3);
     expect(valor).toHaveTextContent(/fuente oficial/);
-    expect(valor).toHaveTextContent('Empiezas sin cuenta.');
     expect(valor.textContent).not.toMatch(/revisadas|2\.886|34 temas|€|gratis|pro\b/i);
+  });
+
+  it('la bienvenida invitada no anuncia el inventario editorial ni el total local', async () => {
+    queryFixture([{ estado: 'publicado', topic_id: 1 }]);
+    render(<Onboarding onStart={() => {}} onSkip={() => {}} />);
+    const valor = document.getElementById('onboarding-valor')!;
+    await waitFor(() => expect(valor).toHaveAttribute('aria-busy', 'false'));
+    expect(valor).toHaveTextContent('Fichas por temas');
+    expect(valor.textContent).not.toMatch(/\d/);
+    expect(screen.getByRole('radio', { name: 'Todos los temas' })).toBeInTheDocument();
   });
 
   it('sin Supabase mantiene el texto sin cifra ni promesa de revisión', async () => {
