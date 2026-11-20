@@ -56,7 +56,7 @@ async function run(browser, width, mode) {
     await page.goto(base);
     await page.locator('#onboarding-valor').waitFor();
     if (mode === 'published') {
-      await page.waitForFunction(() => document.getElementById('onboarding-valor')?.textContent.includes('1.308 fichas publicadas de 11 temas'));
+      await page.waitForFunction(() => document.getElementById('onboarding-valor')?.textContent.includes('1.308 fichas publicadas en 11 temas'));
       assert.deepEqual(requests.map(r => r.offset), [0, 500, 1000]);
     } else {
       // ARIA busy ends when loadPublishedConceptSummary resolves, including SDK retries.
