@@ -63,3 +63,14 @@ export function readServerDeckCache(deckId: string): readonly RecallSourceCard[]
     return null;
   }
 }
+
+/** Borra la copia de la cuenta actual (p. ej. el servidor dice que ya no tiene plan: QA #333). */
+export function clearServerDeckCache(deckId: string): void {
+  const s = store();
+  if (!s) return;
+  try {
+    s.removeItem(serverDeckCacheKey(deckId));
+  } catch {
+    // almacenamiento bloqueado
+  }
+}

@@ -8,6 +8,7 @@
 import {
   getAccessibleDecks,
   getVisibleDecks,
+  isServerServedDeck,
   loadRecallDeckCards,
   type RecallDeck,
   type RecallRevision,
@@ -43,10 +44,19 @@ export function toRecallCards(deck: RecallDeck, cards: readonly RecallSourceCard
   }));
 }
 
-/** Carga (bajo demanda) las fichas de los mazos indicados y las une en un pool. */
+/**
+ * Carga (bajo demanda) las fichas de los mazos indicados y las une en un pool. Un mazo servido desde el
+ * servidor que no llega (invitado, plan gratis, sin red ni copia) se omite en vez de vaciar la Sesión
+ * diaria entera (QA #333); el fallo de un mazo del bundle sigue rompiendo, porque es un defecto.
+ */
 export async function loadRecallPool(decks: readonly RecallDeck[] = getVisibleDecks()): Promise<RecallCard[]> {
-  const loaded = await Promise.all(decks.map((deck) => loadRecallDeckCards(deck.id)));
-  return decks.flatMap((deck, i) => toRecallCards(deck, loaded[i]));
+  const loaded = await Promise.allSettled(decks.map((deck) => loadRecallDeckCards(deck.id)));
+  return decks.flatMap((deck, i) => {
+    const r = loaded[i];
+    if (r.status === 'fulfilled') return toRecallCards(deck, r.value);
+    if (isServerServedDeck(deck.id)) return [];
+    throw r.reason;
+  });
 }
 
 /** Pool de los mazos accesibles para el plan (por defecto, el plan actual). */
