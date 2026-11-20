@@ -12,23 +12,12 @@ vi.mock('../lib/supabase', () => ({ get supabase() { return client.value; } }));
 beforeEach(() => { client.value = null; });
 
 let fixtureId = 0;
-function queryFixture(rows: { estado: string; topic_id: number | null }[]) {
+function rpcFixture(body: unknown, status = 200) {
   const fetch = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
     const url = new URL(String(input));
-    expect(url.pathname).toBe('/rest/v1/concepts');
-    expect(init?.method ?? 'GET').toBe('GET');
-    expect(url.searchParams.get('select')).toBe('topic_id');
-    expect(url.searchParams.get('estado')).toBe('eq.publicado');
-    expect(url.searchParams.get('order')).toBe('id.asc');
-    expect(new Headers(init?.headers).get('prefer')).toContain('count=exact');
-    const published = rows.filter((r) => r.estado === 'publicado');
-    const offset = Number(url.searchParams.get('offset'));
-    const limit = Number(url.searchParams.get('limit'));
-    const data = published.slice(offset, offset + limit).map(({ topic_id }) => ({ topic_id }));
-    return new Response(JSON.stringify(data), { headers: {
-      'content-type': 'application/json',
-      'content-range': `${offset}-${offset + data.length - 1}/${published.length}`,
-    } });
+    expect(url.pathname).toBe('/rest/v1/rpc/get_catalogo_publico');
+    expect(init?.method).toBe('POST');
+    return new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json' } });
   });
   client.value = createClient('https://fixture.supabase.co', 'fictional-anon-key', {
     global: { fetch }, auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false, storageKey: `fictional-${++fixtureId}` },
@@ -83,74 +72,56 @@ describe('Bienvenida del invitado', () => {
     expect(planSummary('pro')).toContain(`${PLAN_LIMITS.pro.dailySessionSize} fichas al día`);
   });
 
-  it('la web muestra el count exacto y los temas distintos de la consulta, con paginación', async () => {
-    const rows = [
-      ...Array.from({ length: 1308 }, (_, i) => ({ estado: 'publicado', topic_id: i % 11 + 1 })),
-      { estado: 'borrador_ia', topic_id: 99 },
-    ];
-    const query = queryFixture(rows);
+  it('la web muestra las preguntas publicadas y los temas que devuelve la función pública', async () => {
+    const rpc = rpcFixture([{ preguntas: 11195, temas: 40 }]);
     render(<Onboarding onStart={() => {}} onSkip={() => {}} />);
     const valor = document.getElementById('onboarding-valor')!;
-    expect(valor).toHaveTextContent('Fichas por temas');
+    expect(valor).toHaveTextContent('Preguntas por temas');
     expect(valor).toHaveAttribute('aria-busy', 'true');
-    const published = rows.filter((row) => row.estado === 'publicado');
-    const count = new Intl.NumberFormat('es-ES', { useGrouping: 'always' } as Intl.NumberFormatOptions).format(published.length);
-    const distinctTopics = new Set(published.map((row) => row.topic_id)).size;
-    await waitFor(() => expect(valor).toHaveTextContent(`${count} fichas publicadas de ${distinctTopics} temas`));
+    await waitFor(() => expect(valor).toHaveTextContent('11.195 preguntas publicadas · 40 temas'));
     expect(valor).toHaveAttribute('aria-busy', 'false');
-    expect(query).toHaveBeenCalledTimes(3);
-    expect(valor).toHaveTextContent(/fuente oficial/);
+    expect(rpc).toHaveBeenCalledTimes(1);
+    expect(valor).toHaveTextContent(/fuente normativa/);
     expect(valor).toHaveTextContent('Empiezas sin cuenta.');
-    expect(valor.textContent).not.toMatch(/revisadas|2\.886|34 temas|€|gratis|pro\b/i);
+    expect(valor.textContent).not.toMatch(/revisadas|1\.660|13 temas|34 temas|€|gratis|pro\b/i);
   });
 
   it('sin Supabase mantiene el texto sin cifra ni promesa de revisión', async () => {
     render(<Onboarding onStart={() => {}} onSkip={() => {}} />);
     const valor = document.getElementById('onboarding-valor')!;
-    await waitFor(() => expect(valor).toHaveTextContent('Fichas por temas'));
+    await waitFor(() => expect(valor).toHaveTextContent('Preguntas por temas'));
     expect(valor.textContent).not.toMatch(/\d|revisadas/);
   });
 
-  it('una denegación de acceso o un fallo de red deja la web utilizable sin cifras', async () => {
-    queryFixture([]);
-    const query = vi.spyOn(client.value!, 'from').mockImplementation(() => { throw new Error('permission denied / offline'); });
+  it('un fallo de red o de acceso deja la web utilizable sin cifras', async () => {
+    rpcFixture({ message: 'permission denied' }, 401);
     render(<Onboarding onStart={() => {}} onSkip={() => {}} />);
-    await waitFor(() => expect(query).toHaveBeenCalled());
-    expect(document.getElementById('onboarding-valor')!).toHaveTextContent('Fichas por temas');
+    const valor = document.getElementById('onboarding-valor')!;
+    await waitFor(() => expect(valor).toHaveAttribute('aria-busy', 'false'));
+    expect(valor).toHaveTextContent('Preguntas por temas');
+    expect(valor.textContent).not.toMatch(/\d/);
     await userEvent.setup().click(screen.getByRole('button', { name: 'Saltar' }));
   });
 
-  it('count(distinct topic_id) ignora NULL y los duplicados', async () => {
-    queryFixture([{ estado: 'publicado', topic_id: 1 }, { estado: 'publicado', topic_id: 1 }, { estado: 'publicado', topic_id: null }]);
-    expect(await loadPublishedConceptSummary(new AbortController().signal)).toEqual({ fichas: 3, temas: 1 });
-  });
+  it.each([[[]], [[{ preguntas: -1, temas: 40 }]], [[{ preguntas: '11195', temas: 40 }]], [[{ preguntas: 5.5, temas: 2 }]]])(
+    'una respuesta inválida (%j) no produce cifras', async (body) => {
+      rpcFixture(body);
+      expect(await loadPublishedConceptSummary(new AbortController().signal)).toBeNull();
+    });
 
-  it('un inventario vacío es cero, no el registro de fichas local', async () => {
-    queryFixture([]);
-    expect(await loadPublishedConceptSummary(new AbortController().signal)).toEqual({ fichas: 0, temas: 0 });
-  });
-
-  it.each([null, -1, 1308])('count inválido o página incompleta (%s) no produce cifras parciales', async (count) => {
-    queryFixture([]);
-    vi.spyOn(client.value!, 'from').mockReturnValue({
-      select: () => ({ eq: () => ({ order: () => ({ range: () => ({ abortSignal: () => Promise.resolve({ data: [], count, error: null }) }) }) }) }),
-    } as never);
-    expect(await loadPublishedConceptSummary(new AbortController().signal)).toBeNull();
+  it('una respuesta válida se devuelve tal cual, también con ceros', async () => {
+    rpcFixture([{ preguntas: 0, temas: 0 }]);
+    expect(await loadPublishedConceptSummary(new AbortController().signal)).toEqual({ preguntas: 0, temas: 0 });
   });
 
   it('cancela una consulta lenta y conserva el texto sin cifra', async () => {
-    queryFixture([]);
     let aborted = false;
-    vi.spyOn(client.value!, 'from').mockReturnValue({
-      select: () => ({ eq: () => ({ order: () => ({ range: () => ({
-        abortSignal: (signal: AbortSignal) => new Promise((resolve) => {
-          signal.addEventListener('abort', () => {
-            aborted = true;
-            resolve({ data: null, count: null, error: { message: 'aborted' } });
-          });
-        }),
-      }) }) }) }),
-    } as never);
+    const fetch = vi.fn((_i: RequestInfo | URL, init?: RequestInit) => new Promise<Response>((_res, rej) => {
+      init?.signal?.addEventListener('abort', () => { aborted = true; rej(new DOMException('aborted', 'AbortError')); });
+    }));
+    client.value = createClient('https://fixture.supabase.co', 'fictional-anon-key', {
+      global: { fetch }, auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false, storageKey: `fictional-${++fixtureId}` },
+    });
     vi.useFakeTimers();
     try {
       render(<Onboarding onStart={() => {}} onSkip={() => {}} />);
@@ -164,7 +135,7 @@ describe('Bienvenida del invitado', () => {
   it('con cuenta no dice «sin cuenta»', () => {
     render(<Onboarding onStart={() => {}} onSkip={() => {}} cuenta />);
     const valor = document.getElementById('onboarding-valor')!;
-    expect(valor).toHaveTextContent('Fichas por temas');
+    expect(valor).toHaveTextContent('Preguntas por temas');
     expect(valor).not.toHaveTextContent(/sin cuenta/i);
   });
 });

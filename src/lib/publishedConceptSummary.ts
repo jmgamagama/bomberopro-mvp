@@ -1,45 +1,26 @@
 import { supabase } from './supabase';
 
+/** Totales públicos del catálogo: preguntas publicadas y temas con preguntas (convocatoria CPEI Badajoz). */
 export interface PublishedConceptSummary {
-  fichas: number;
+  preguntas: number;
   temas: number;
 }
 
 /**
- * Only SELECTs topic IDs: count(*) and count(distinct topic_id) for published concepts.
- * Pagination avoids Supabase's row cap. NULL topics do not count, as in SQL.
- * Current production access is authenticated-only; denied/offline reads return null.
- * No registry fallback: recall cards are a different inventory.
+ * Llama a `get_catalogo_publico` (migración 63): solo devuelve dos números, sin contenido.
+ * Si falla, está offline o la respuesta no es válida, devuelve null y la web no anuncia cifras.
+ * Sin respaldo local: el registro de fichas es otro inventario.
  */
 export async function loadPublishedConceptSummary(signal: AbortSignal): Promise<PublishedConceptSummary | null> {
   if (!supabase) return null;
-  const topics = new Set<number | string>();
-  let received = 0;
-  let total: number | null = null;
   try {
-    do {
-      const { data, count, error } = await supabase
-        .from('concepts')
-        .select('topic_id', { count: 'exact' })
-        .eq('estado', 'publicado')
-        .order('id', { ascending: true })
-        .range(received, received + 499)
-        .abortSignal(signal);
-      if (signal.aborted || error || !Array.isArray(data) || count === null ||
-          !Number.isSafeInteger(count) || count < 0 ||
-          (total !== null && total !== count)) return null;
-      total = count;
-      if (data.length === 0 && received < total) return null;
-      for (const row of data) {
-        if (row.topic_id !== null) {
-          if (typeof row.topic_id !== 'number' && typeof row.topic_id !== 'string') return null;
-          topics.add(row.topic_id);
-        }
-      }
-      received += data.length;
-      if (received > total) return null;
-    } while (received < total);
-    return { fichas: total, temas: topics.size };
+    const { data, error } = await supabase.rpc('get_catalogo_publico').abortSignal(signal);
+    if (signal.aborted || error) return null;
+    const row = Array.isArray(data) ? data[0] : data;
+    const p = row?.preguntas;
+    const t = row?.temas;
+    if (!Number.isSafeInteger(p) || !Number.isSafeInteger(t) || p < 0 || t < 0) return null;
+    return { preguntas: p, temas: t };
   } catch {
     return null;
   }
