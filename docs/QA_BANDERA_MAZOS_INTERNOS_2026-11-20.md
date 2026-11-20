@@ -157,3 +157,105 @@ VITE_INTERNAL_DECKS_FROM_SERVER=true VITE_SUPABASE_URL=http://127.0.0.1:9 VITE_S
 npx vite preview --outDir /tmp/dist-flag --port 4333 &
 BASE_URL=http://localhost:4333 NODE_PATH=/workspace/pwa-e2e/node_modules node e2e/adversarial-mazos-internos-360.cjs
 ```
+
+## 4. Revisión de la migración 60 (PR #335, cierre de A1), 20/11 tarde
+
+Revisado el 20/11 hacia las 17:00 (hora de Madrid), solo en **staging** (`fxhvgvehhekqeqpkxtrm`).
+Las pruebas con escritura van dentro de transacciones que terminan en excepción, así que no queda nada:
+después se comprobó que hay 0 usuarios, 0 invitaciones, 0 planes, 0 sesiones y 0 recibos `qa-*@example.com`,
+y que `auth.users` sigue en 6. Producción y Vercel no se han tocado. Sin contenido ni secretos.
+
+### Resumen
+
+| # | Sev. | Hallazgo | Estado |
+|---|---|---|---|
+| C1 | **Alta** | `begin_topic_session_v3` y `get_topic_questions_v2` (pantalla **Temas**, `StudyByTopic.tsx`) **no** comprueban el plan. Una cuenta gratis o sin plan que pide el tema 40 recibe sus 19 preguntas. Al contestar, `submit_question_answer_v3` le devuelve la respuesta correcta y la explicación | Abierto → necesita Claude |
+| C2 | **Alta** | `get_concept_session_v2` y `_concept_session` (pantalla **Estudiar**, `conceptEngine.ts`) **no** comprueban el plan. La cuenta gratis recibe 36 filas del T40, con 27 respuestas de concepto. Con `p_topic = NULL` recibe 30 filas del T40 mezcladas con el resto | Abierto → necesita Claude |
+| C3 | Media | `submit_concept_answer` corrige y devuelve la respuesta correcta y la explicación de una pregunta del T40 a una cuenta gratis, si conoce los ids y el texto de una opción (antiguo pro o datos obtenidos por C1/C2) | Abierto |
+| C4 | Media | Choque de número: la #326 (borrador de Claude) también trae `60_simulacro_tutor.sql`. `check-migrations` fallará en la que se fusione después | Renumerar una de las dos |
+| C5 | Baja | `_puede_ver_concepto` y `_puede_ver_pregunta` tienen `GRANT EXECUTE` a `anon`, así que se pueden llamar por la API. `_puede_ver_pregunta` (texto libre) solo hace falta dentro de funciones con permisos del propietario. La política RLS necesita `_puede_ver_concepto` para `authenticated`, pero no para `anon` | Sugerencia: `REVOKE` de `anon` (y de `authenticated` en `_pregunta`) |
+| C6 | Baja | `get_error_session_v2` (preguntas falladas antes) no comprueba el plan: un antiguo pro sigue recibiendo sus fallos de T38-40 | Abierto |
+| C7 | Baja | La regla va por `topics.numero` (38/39/40) y por el documento `MOV` del T39. Cierra cualquier documento nuevo del T39 (bien), pero abre cualquier material interno que aparezca en T1-37 | Documentado |
+| C8 | Info | La cabecera del `_down` está copiada de la subida y dice «cierra las vías…» | Cosmético |
+
+### 4.1 Revisión de código y comparación con lo aplicado
+
+- **Igual que la PR**:
+  - Los helpers `_puede_ver_concepto` y `_puede_ver_pregunta` (`SECURITY DEFINER`, `search_path` `public, pg_temp`).
+  - `get_concept_outline`, `get_concept_outline_tema` y `get_concept_step_question` (`SECURITY DEFINER`, `search_path` `public`).
+  - Los cuerpos normalizados coinciden con la definición aplicada en staging.
+- **Parches de texto**: el filtro está presente una vez y el original sin filtro no aparece en `get_study_session` ni en `get_blueprint_exam_questions`.
+- **Política**: `concepts_read`, solo `authenticated`, con el filtro. `topics` es legible (`true`), así que la subconsulta del número no da `NULL`. `questions` sigue sin `SELECT` directo para `anon` y `authenticated`.
+- **Inventario**: funciones de `public` que leen `concepts` o `questions`, con su vía de entrada:
+
+| Función | Quién la llama | Comprueba el plan |
+|---|---|---|
+| `get_concept_outline` / `_tema` | anon, authenticated | ✓ |
+| `get_concept_step_question` | authenticated | ✓ |
+| `get_study_session(_v2)` / `begin_study_session_v3` | authenticated | ✓ |
+| `get_blueprint_exam_questions` → `get_exam_questions_v2` / `begin_exam_session_v3` | authenticated | ✓ |
+| `get_topic_study_questions` → `get_topic_questions_v2` / `begin_topic_session_v3` | authenticated | ✗ (C1) |
+| `_concept_session` → `get_concept_session_v2` | authenticated | ✗ (C2) |
+| `submit_concept_answer` (+ `check_answer`, `grade_exam`) | authenticated | ✗ (C3) |
+| `get_error_session` → `get_error_session_v2` / `begin_error_session_v3` | authenticated | ✗ (C6) |
+| `submit_question_answer_v3`, `grade_exam_v3` | authenticated | No hace falta: solo corrigen preguntas de una sesión emitida por el servidor a esa cuenta. Heredan C1 y C6 |
+| `get_my_reports`, `report_question`, `send_question_feedback`, `get_concept_progress` / `_calibration`, `record_concept_event`, paneles de tutor (`_actividad_alumno`) | authenticated | ✗, pero solo devuelven datos propios, recuentos o la actividad del alumno al tutor. Riesgo bajo |
+
+### 4.2 Pruebas en staging (con rollback)
+
+Cuentas ficticias (`qa-*@example.com`), invitadas para pasar el trigger `a_exigir_invitacion_piloto`.
+Planes efectivos: sin plan = `free`, `free`, `pro` (`plan_usuarios`) y `pro` por invitación.
+
+| Vía (T40 salvo indicación) | anon | sin plan / free | pro / pro invitado |
+|---|---|---|---|
+| `get_concept_outline` T40 · T1-37 | 0 · 785 | 0 · 785 | 27 · 785 |
+| `get_concept_outline_tema(40)` · `(30)` | 0 · 363 | 0 · 363 | 27 · 363 |
+| `get_concept_step_question` T40 · T30 | sin permiso | `plan_required` · 1 | 1 · 1 |
+| `SELECT` directo `concepts` T40 · T30 | sin permiso | 0 · 363 | 27 · 363 |
+| `SELECT` directo `questions` | sin permiso | sin permiso | sin permiso |
+| `get_study_session_v2(30)`: T40 / total | sin permiso | 0 / 30 | 15 / 30 |
+| `get_exam_questions_v2`: T40 / total | sin permiso | 0 / 38 (*) | 17 / 55 |
+| **`get_topic_questions_v2([40])`** | sin permiso | **19** | 19 |
+| **`begin_topic_session_v3([40])` + `submit_question_answer_v3`** | sin permiso | **10 preguntas; devuelve la correcta y la explicación** | igual |
+| **`get_concept_session_v2(40)`** (con respuesta) | sin permiso | **36 (27)** | 36 (27) |
+| **`get_concept_session_v2(NULL)`**: filas del T40 | sin permiso | **30** | 30 |
+| `submit_concept_answer` T40 (ids y opción conocidos) | sin permiso | **devuelve la correcta** | igual |
+| Pro → free en la misma transacción (cambio de `sub` y `UPDATE plan_usuarios`) | — | `outline_tema(40)` 27 → 0, `SELECT` 0, escalón `plan_required` | — |
+
+(*) Staging no tiene datos de T35-39, así que el simulacro gratis se queda en 38 sin error. El relleno
+con T35-37 y T39 público solo lo ha comprobado Claude en producción. T1-37 siguen abiertos en todas
+las vías: T1, T5, T6 y T30 son los temas con datos en staging.
+
+### 4.3 El `_down` (en staging, en una transacción con rollback)
+
+`BEGIN` + `_down` + comprobaciones + excepción. Con el `_down`:
+
+- Desaparecen los dos helpers.
+- No queda ninguna función que los referencie.
+- Los parches de estudio y simulacro se retiran.
+- La política vuelve a `estado = 'publicado'`.
+- La cuenta gratis vuelve a ver el T40 (índice 27, escalón 1, `SELECT` 27, estudio 15/30, simulacro 17/55).
+- No falla ninguna llamada.
+
+Las definiciones restauradas de `get_concept_outline(_tema)` son idénticas a las de la migración 23.
+`get_concept_step_question` es idéntica a la de la 32, salvo un comentario. El `_down` no tiene nada
+que impida ejecutarlo en una transacción. Tras el rollback, la 60 sigue aplicada: helpers, parches y
+política presentes.
+
+### 4.4 Impacto en esta PR (#334)
+
+`main` no ha cambiado (`b3ad379`) y la #334 sigue en `CLEAN`/verde. No hace falta fusionar ni rebasar.
+Los arreglos de cliente son del Recuerdo (`recall_cards`) y no dependen de la 60:
+
+- El T39 público del Recuerdo son las 107 fichas del bundle. Los 243 conceptos del T39 público son de Estudiar o Temas.
+- Con `plan_required` en el escalón, `loadStepQuestion` devuelve `null` y la sesión sigue sin escalón (sin error visible).
+
+Con C2 abierto, una cuenta gratis aún recibe conceptos del T40 en Estudiar.
+
+### Qué no pude comprobar
+
+- Producción, por las restricciones de la tarea.
+- T38 y T39 (SOS/MOV) en staging, porque no hay datos.
+- El relleno real del simulacro gratis.
+- Una pasada de todas las migraciones más la 60 en PGlite.
+- Llamadas reales por PostgREST con JWT firmados. Simulé `request.jwt.claims` y el rol en SQL.
