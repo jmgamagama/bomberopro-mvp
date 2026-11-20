@@ -160,7 +160,7 @@ BASE_URL=http://localhost:4333 NODE_PATH=/workspace/pwa-e2e/node_modules node e2
 
 ## 4. Revisión de la migración 60 (PR #335, cierre de A1), 20/11 tarde
 
-Revisado el 20/11 hacia las 17:00 (hora de Madrid), solo en **staging** (`fxhvgvehhekqeqpkxtrm`).
+Revisado el 20/11 entre las 16:30 y las 17:00 (hora de Madrid), solo en **staging** (`fxhvgvehhekqeqpkxtrm`).
 Las pruebas con escritura van dentro de transacciones que terminan en excepción, así que no queda nada:
 después se comprobó que hay 0 usuarios, 0 invitaciones, 0 planes, 0 sesiones y 0 recibos `qa-*@example.com`,
 y que `auth.users` sigue en 6. Producción y Vercel no se han tocado. Sin contenido ni secretos.
