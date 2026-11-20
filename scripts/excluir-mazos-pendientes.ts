@@ -19,8 +19,9 @@ import { REVIEWED_CARDS_IN_PENDING_DECKS } from '../src/data/recallCardReview';
 /** Extrae de recallRegistry.ts el par (id de mazo → módulo) de cada entrada de DECK_SOURCES. */
 export function deckModulesFromRegistry(source: string): { deckId: string; module: string }[] {
   const out: { deckId: string; module: string }[] = [];
-  // `load` puede llevar delante la bandera de la migración 38 (PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : …).
-  const re = /meta:\s*\{([^{}]*?)\},\s*load:\s*\(\)\s*=>\s*(?:PRO_DECKS_FROM_SERVER\s*\?\s*serverOnlyDeck\(\)\s*:\s*)?import\('\.\/([\w-]+)'\)/g;
+  // `load` puede llevar delante una bandera de servidor (PRO_DECKS_FROM_SERVER / INTERNAL_DECKS_FROM_SERVER
+  // ? serverOnlyDeck() | tema39PublicoMasServidor() : …).
+  const re = /meta:\s*\{([^{}]*?)\},\s*load:\s*\(\)\s*=>\s*(?:[A-Z_]+_FROM_SERVER\s*\?\s*\w+\(\)\s*:\s*)?import\('\.\/([\w-]+)'\)/g;
   for (const m of source.matchAll(re)) {
     const tema = /tema:\s*(\d+)/.exec(m[1])?.[1];
     const lote = /lote:\s*['"]([\w-]+)['"]/.exec(m[1])?.[1];

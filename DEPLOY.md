@@ -43,6 +43,7 @@ La 38 retira EXECUTE a `get_blueprint_exam_questions`, `get_study_session` y
 |----------|--------------------|--------|
 | `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY` | las de producción | `npm run build:deploy` lo comprueba. |
 | `VITE_PRO_DECKS_FROM_SERVER` | **sin poner (false)** | Solo encender cuando `recall_cards` esté cargada (paso pendiente; la 38 no carga fichas). Encendida antes, los mazos Pro quedan vacíos. |
+| `VITE_INTERNAL_DECKS_FROM_SERVER` | **sin poner (false)** | Saca del bundle el material interno del CPEI (T38, SOS del T39, T40). Solo encender con `recall_cards` cargada para esos mazos y permiso de JM. Ver `docs/MAZOS_INTERNOS_SERVIDOR.md`. |
 | `VITE_INCLUDE_PENDING_DECKS` | **sin poner** | Si se pone, los mazos pendientes vuelven al bundle público. |
 | `VITE_FEATURE_REVISION_ADMIN` | sin poner | Solo para previews internas. |
 | `VITE_REVISION_OWNERS` | id/correo del propietario | Quién ve los mazos pendientes con sesión. |

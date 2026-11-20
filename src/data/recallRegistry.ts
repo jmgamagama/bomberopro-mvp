@@ -20,6 +20,7 @@
 import { canAccessDeck, getPlan, PLAN_LIMITS, type Plan } from '../utils/plan';
 import { getDeckRevision, type RecallRevision } from './recallReview';
 import { canSeePendingDecks, pendingDecksBundled } from '../utils/revisionAccess';
+import { readServerDeckCache, saveServerDeckCache } from './serverDeckCache';
 import { isCardOutOfSyllabus, isCardReviewedInPendingDeck, outOfSyllabusCount, reviewedCardCount } from './recallCardReview';
 
 /**
@@ -31,21 +32,77 @@ import { isCardOutOfSyllabus, isCardReviewedInPendingDeck, outOfSyllabusCount, r
  */
 const PRO_DECKS_FROM_SERVER = import.meta.env.VITE_PRO_DECKS_FROM_SERVER === 'true';
 
+/**
+ * Material interno del CPEI (no publicado en boletín): T38 (ITF), la parte SOS del T39 y T40 (PT01, PT03).
+ * Con VITE_INTERNAL_DECKS_FROM_SERVER=true (o con la bandera Pro, que la implica) esas fichas NO entran
+ * en el bundle: Vite sustituye la bandera por una constante y Rollup elimina sus `import()`. Las 107
+ * fichas públicas del T39 (protocolo del BOP 224/2025) siguen en el cliente. Desactivada por defecto.
+ * Activación y carga de `recall_cards`: docs/MAZOS_INTERNOS_SERVIDOR.md.
+ */
+const INTERNAL_DECKS_FROM_SERVER = PRO_DECKS_FROM_SERVER || import.meta.env.VITE_INTERNAL_DECKS_FROM_SERVER === 'true';
+
+/** Mazos cuyo contenido (todo o en parte) es material interno; ver INTERNAL_DECKS_FROM_SERVER. */
+export const INTERNAL_DECK_IDS: readonly string[] = ['tema38', 'tema39', 'tema40'];
+/** Mazos internos solo en parte: el cliente lleva la parte pública y pide al servidor el resto. */
+const PARTIAL_INTERNAL_DECK_IDS: readonly string[] = ['tema39'];
+
 function serverOnlyDeck(): Promise<readonly RecallSourceCard[]> {
   return Promise.reject(new Error('Mazo Pro: se sirve desde el servidor.'));
 }
 
-/** Fichas de un mazo Pro desde el servidor (el servidor decide si el plan da acceso). */
+/** Cargas incompletas (p. ej. solo la parte pública del T39 sin conexión): no se cachean ni se cuentan. */
+const INCOMPLETE_LOADS = new WeakSet<readonly RecallSourceCard[]>();
+
+/**
+ * Fichas de un mazo desde el servidor (el servidor decide si el plan da acceso). Si la petición falla
+ * (sin red, sesión caducada…), se usa la última copia descargada por ESTA cuenta en este dispositivo.
+ */
 export async function loadServerDeckCards(deckId: string): Promise<readonly RecallSourceCard[]> {
-  const { supabase } = await import('../lib/supabase');
-  if (!supabase) throw new Error('Sin conexión con el servidor: los mazos Pro no están disponibles sin conexión.');
-  const { data, error } = await supabase.rpc('get_recall_deck_cards', { p_deck_id: deckId });
-  if (error) throw error;
-  return (data ?? []) as RecallSourceCard[];
+  try {
+    const { supabase } = await import('../lib/supabase');
+    if (!supabase) throw new Error('Sin conexión con el servidor: los mazos Pro no están disponibles sin conexión.');
+    const { data, error } = await supabase.rpc('get_recall_deck_cards', { p_deck_id: deckId });
+    if (error) throw error;
+    const cards = (data ?? []) as RecallSourceCard[];
+    saveServerDeckCache(deckId, cards);
+    return cards;
+  } catch (err) {
+    const cached = readServerDeckCache(deckId);
+    if (cached) return cached;
+    throw err;
+  }
 }
 
-/** ¿Se empaqueta este mazo en el cliente? Con la bandera, solo los gratis. */
-export function isDeckBundled(deckId: string, fromServer: boolean = PRO_DECKS_FROM_SERVER): boolean {
+/** T39 con la bandera de mazos internos: parte pública del bundle + parte SOS del servidor (o de la caché). */
+async function loadPartialInternalDeck(
+  deckId: string,
+  loadPublic: () => Promise<readonly RecallSourceCard[]>,
+): Promise<readonly RecallSourceCard[]> {
+  const publicCards = await loadPublic();
+  let serverCards: readonly RecallSourceCard[] = [];
+  let complete = true;
+  try {
+    serverCards = await loadServerDeckCards(deckId);
+  } catch {
+    complete = false; // sin cuenta, sin plan o sin red y sin copia: el alumno estudia la parte pública
+  }
+  const byId = new Map<string, RecallSourceCard>();
+  for (const c of [...publicCards, ...serverCards]) byId.set(c.id, c);
+  const merged = [...byId.values()].sort((a, b) => a.orden - b.orden);
+  if (!complete) INCOMPLETE_LOADS.add(merged);
+  return merged;
+}
+
+/**
+ * ¿Se empaqueta este mazo (entero) en el cliente? Con la bandera Pro, solo los gratis. Con la de
+ * mazos internos, todos menos los internos; los internos parciales (T39) se resuelven en su `load`.
+ */
+export function isDeckBundled(
+  deckId: string,
+  fromServer: boolean = PRO_DECKS_FROM_SERVER,
+  internalFromServer: boolean = INTERNAL_DECKS_FROM_SERVER || fromServer,
+): boolean {
+  if (internalFromServer && INTERNAL_DECK_IDS.includes(deckId)) return PARTIAL_INTERNAL_DECK_IDS.includes(deckId) && !fromServer;
   if (!fromServer) return true;
   const free = PLAN_LIMITS.free.deckIds;
   return free !== 'all' && free.includes(deckId);
@@ -135,6 +192,11 @@ const TOPIC_NAMES: Record<number, string> = {
   34: 'Reglamento de seguridad contra incendios en los establecimientos industriales (RD 164/2025)',
   36: 'Territorio de la provincia de Badajoz: municipios, límites, orografía e hidrografía',
 };
+
+/** T39 con mazos internos en servidor: solo el módulo público viaja en el bundle. */
+function tema39PublicoMasServidor(): Promise<readonly RecallSourceCard[]> {
+  return loadPartialInternalDeck('tema39', () => import('./tema39PublicoRecall').then((m) => m.TEMA39_PUBLICO_RECALL_CARDS));
+}
 
 const DECK_SOURCES: readonly DeckSource[] = [
   {
@@ -509,7 +571,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 129,
       source: "Fase 2 · texto consolidado BOE-A-1978-31229 (arts. 1-55; últ. act. 20/05/2026)",
     },
-    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema1Recall').then((m) => m.TEMA1_RECALL_CARDS),
+    load: () => import('./tema1Recall').then((m) => m.TEMA1_RECALL_CARDS),
   },
   {
     meta: {
@@ -652,7 +714,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 198,
       source: 'ITF oficiales CPEI (Horario 2022, Vestuario/Limpieza/Gestión EPIs 2026) rebuild desde PDFs',
     },
-    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema38Recall').then((m) => m.TEMA38_RECALL_CARDS),
+    load: () => INTERNAL_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema38Recall').then((m) => m.TEMA38_RECALL_CARDS),
   },
   {
     meta: {
@@ -661,7 +723,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 149,
       source: 'Protocolo movilización BOP 224/2025 + SOS operativo/personal (rebuild desde PDFs oficiales)',
     },
-    load: () => PRO_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema39Recall').then((m) => m.TEMA39_RECALL_CARDS),
+    load: () => INTERNAL_DECKS_FROM_SERVER ? tema39PublicoMasServidor() : import('./tema39Recall').then((m) => m.TEMA39_RECALL_CARDS),
   },
   {
     meta: {
@@ -670,7 +732,7 @@ const DECK_SOURCES: readonly DeckSource[] = [
       count: 213,
       source: 'PT01 conducción (26) + PT03 amianto oficial (187)',
     },
-    load: () => import('./tema40Recall').then((m) => m.TEMA40_RECALL_CARDS),
+    load: () => INTERNAL_DECKS_FROM_SERVER ? serverOnlyDeck() : import('./tema40Recall').then((m) => m.TEMA40_RECALL_CARDS),
   },
 ];
 
@@ -899,6 +961,7 @@ export function loadRawRecallDeckCards(id: string): Promise<readonly RecallSourc
   const promise = load()
     .then((cards) => {
       // Build de producción: de un mazo pendiente solo viajan sus fichas revisadas sueltas (excluir-mazos-pendientes).
+      if (INCOMPLETE_LOADS.has(cards)) return cards; // parte pública sin la del servidor: se reintenta luego
       const esperadas = deck.revision !== 'revisado' && !pendingDecksBundled() ? reviewedCardCount(id) : deck.count;
       if (cards.length !== esperadas) {
         throw new Error(`Mazo ${deck.label}: se esperaban ${deck.count} fichas y hay ${cards.length}`);
