@@ -134,6 +134,7 @@ export default function App() {
   const openPlanes = planesEnabled ? () => handleNavigate('planes') : undefined;
   // La bienvenida abre la sesión diaria directamente en la primera ficha.
   const [dailyAutoStart, setDailyAutoStart] = useState(false);
+  const [firstRecall, setFirstRecall] = useState(false);
   const [mockAutoStart, setMockAutoStart] = useState(false);
   const [recallTarget, setRecallTarget] = useState<string | undefined>(undefined);
   // Material por tema: tema abierto y pantalla a la que vuelve («Estudio por temas» o el inicio).
@@ -431,6 +432,7 @@ export default function App() {
     if (screen !== 'mock_exam' && !confirmLeaveExam()) return;
     if (screen === 'planes') trackFunnel('planes_view');
     setDailyAutoStart(false);
+    setFirstRecall(false);
     setMockAutoStart(false);
     setRecallTarget(undefined);
     setCurrentScreen(screen);
@@ -1297,6 +1299,11 @@ export default function App() {
                 handleNavigate('sesion_diaria');
                 setDailyAutoStart(true);
               }}
+              onFirstRecall={isDemoMode || !session ? () => {
+                handleNavigate('sesion_diaria');
+                setDailyAutoStart(true);
+                setFirstRecall(true);
+              } : undefined}
               onSkip={() => handleNavigate('dashboard')}
               onTryExam={isDemoMode || !session ? () => {
                 handleNavigate('mock_exam');
@@ -1325,6 +1332,7 @@ export default function App() {
               key={session?.user?.id ?? 'sin-cuenta'}
               demo={isDemoMode || !session}
               autoStart={dailyAutoStart}
+              firstRecall={firstRecall}
               onOpenPlanes={openPlanes}
               onNavigateHome={() => handleNavigate('dashboard')}
               onOpenOrdenaPasos={() => handleNavigate('ordena_pasos')}

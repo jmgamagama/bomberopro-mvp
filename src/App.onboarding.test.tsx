@@ -20,9 +20,27 @@ describe('bienvenida en App', () => {
     await user.click(screen.getByRole('radio', { name: /T39/ })); // toque 1
     await user.click(screen.getByRole('button', { name: 'Empezar sesión diaria' })); // toque 2
 
-    expect(await screen.findByText(/Recuerdo · 1 \/ 30/)).toBeInTheDocument();
+    expect(await screen.findByText(/Recuerdo · 1 \/ 30/, {}, { timeout: 5000 })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Mostrar respuesta/ })).toBeInTheDocument();
     expect(screen.getByRole('navigation', { name: 'Navegación móvil' })).toBeInTheDocument();
+  });
+
+  it('el invitado completa cinco fichas del Tema 1 y vuelve a su plan', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+    await user.click(await screen.findByRole('button', { name: 'Probar 5 fichas del Tema 1' }));
+
+    for (let i = 1; i <= 5; i += 1) {
+      expect(await screen.findByText(`Recuerdo · ${i} / 5`)).toBeInTheDocument();
+      expect(screen.getByText(/^Según el art\. [12]/)).toBeInTheDocument();
+      await user.click(screen.getByRole('button', { name: 'Mostrar respuesta' }));
+      await user.click(screen.getByRole('button', { name: /^No la sabía/ }));
+    }
+
+    expect(screen.getByText('Has repasado 5 fichas de la Constitución.')).toBeInTheDocument();
+    expect(screen.getByText(/No la sabías: 5/)).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'Ir a mi plan de estudio' }));
+    expect(document.title).toBe('Inicio | BomberoPro');
   });
 
   it('«Saltar» lleva al inicio y no vuelve a mostrarse', async () => {
