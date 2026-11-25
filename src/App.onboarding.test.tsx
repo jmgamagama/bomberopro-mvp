@@ -41,6 +41,7 @@ describe('bienvenida en App', () => {
     expect(screen.getByText(/No la sabías: 5/)).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: 'Ir a mi plan de estudio' }));
     expect(document.title).toBe('Inicio | BomberoPro');
+    expect(await screen.findByRole('button', { name: 'Empezar mi plan de hoy' }, { timeout: 5000 })).toBeInTheDocument();
   });
 
   it('«Saltar» lleva al inicio y no vuelve a mostrarse', async () => {
