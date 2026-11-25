@@ -191,9 +191,10 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
 
   const handleNext = () => {
     if (index + 1 >= session.length) {
-      const nextStreak = completeDailySession();
-      setStreak(nextStreak);
-      sincronizarRecordatorio();
+      if (!firstRecall) {
+        setStreak(completeDailySession());
+        sincronizarRecordatorio();
+      }
       setPhase('done');
       return;
     }
