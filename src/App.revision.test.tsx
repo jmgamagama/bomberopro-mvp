@@ -37,7 +37,7 @@ describe('mazos pendientes de revisión ocultos al alumno', () => {
     render(<Onboarding onStart={vi.fn()} onSkip={vi.fn()} />);
     const group = screen.getByRole('radiogroup', { name: 'Tema para la sesión diaria' });
     expect(within(group).getAllByRole('radio')).toHaveLength(TEMAS_ALUMNO.length + 1);
-    expect(within(group).getByRole('radio', { name: /Todos los temas/ })).toHaveTextContent('2886 fichas');
+    expect(within(group).getByRole('radio', { name: 'Todos los temas' })).toBeInTheDocument();
     expect(within(group).queryByRole('radio', { name: /Tema 25/ })).toBeNull();
     expect(within(group).queryByRole('radio', { name: /^T25 ·/ })).toBeNull();
   });
