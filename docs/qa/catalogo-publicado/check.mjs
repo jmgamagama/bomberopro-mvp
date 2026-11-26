@@ -7,7 +7,10 @@ try {
   await db.exec(`
     create role anon;
     create role authenticated;
+    create role service_role;
     create role unrelated;
+    alter default privileges in schema public grant execute on functions
+      to anon, authenticated, service_role;
     create table public.topics(id int primary key, convocatoria_id int not null);
     create table public.concepts(id text primary key, topic_id int not null references public.topics(id), estado text not null);
     alter table public.concepts enable row level security;
@@ -16,7 +19,17 @@ try {
       ('c',2,'publicado'),('d',3,'publicado'),('e',4,'borrador');
   `);
   await db.exec(install);
-  for (const role of ['anon','authenticated']) {
+  const { rows: acl } = await db.query(`
+    select case when a.grantee = p.proowner then 'owner'
+                when a.grantee = 0 then 'PUBLIC'
+                else pg_get_userbyid(a.grantee) end as grantee
+    from pg_proc p cross join lateral aclexplode(p.proacl) a
+    where p.oid = 'public.catalogo_publicado_resumen()'::regprocedure
+      and a.privilege_type = 'EXECUTE'
+    order by 1
+  `);
+  assert.deepEqual(acl.map(row => row.grantee), ['anon', 'authenticated', 'owner', 'service_role']);
+  for (const role of ['anon', 'authenticated', 'service_role']) {
     await db.exec('set role '+role);
     assert.deepEqual((await db.query('select * from public.catalogo_publicado_resumen()')).rows,
       [{conceptos_publicados:3,temas_publicados:2}]);

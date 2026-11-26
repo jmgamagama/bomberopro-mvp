@@ -27,10 +27,21 @@ commit;
 ```
 
 La exposición queda limitada a dos recuentos, sin argumentos ni SQL dinámico.
-Antes de aplicar, revisar el propietario efectivo y su acceso a las dos tablas,
-las ACL resultantes y la configuración de Data API. La prueba aislada usa el
-propietario de las tablas como ejecutor y no representa el modelo de roles de
-staging. Referencias: [PostgreSQL, CREATE FUNCTION](https://www.postgresql.org/docs/current/sql-createfunction.html)
+### Contrato de la prueba propuesta en staging
+
+La inspección de solo lectura del 26/11/2026 identificó a `postgres` como
+ejecutor y propietario de ambas tablas, con `BYPASSRLS`. La propuesta presupone
+ese ejecutor y conserva la ACL predeterminada de funciones de ese rol en
+`public`, incluida la concesión directa a `service_role`, igual que el RPC
+existente de catálogo. Se espera `EXECUTE` para el propietario, `anon`,
+`authenticated` y `service_role`. Revocar a `PUBLIC` impide la concesión
+general. El filtro de publicación y convocatoria se aplica en la propia
+función.
+
+Antes de una prueba autorizada, volver a comprobar ejecutor y ACL por defecto.
+Si difieren de lo observado, detener la aplicación y revisar el contrato.
+Comprobar propietario y ACL de la función instalada antes de probar la
+Data API. El arnés aislado reproduce las concesiones observadas. Referencias: [PostgreSQL, CREATE FUNCTION](https://www.postgresql.org/docs/current/sql-createfunction.html)
 y [Supabase, Database Functions](https://supabase.com/docs/guides/database/functions).
 
 Reversión de una instalación autorizada de esta función nueva:
