@@ -319,7 +319,7 @@ function Capas({ material, foco }: { material: Material; foco?: Props['foco'] })
         })}
       </div>
 
-      <article className="mt-3 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm" role="tabpanel" aria-label={actual.label}>
+      <article className="mt-3 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm [overflow-wrap:anywhere]" role="tabpanel" aria-label={actual.label}>
         {!file ? (
           <p className="text-sm text-slate-700" data-testid="capa-ausente">
             Este bloque no tiene <strong>{actual.label.toLowerCase()}</strong> todavía. No se rellena con texto inventado:
