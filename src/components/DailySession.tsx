@@ -13,9 +13,9 @@ import RecallStats from './RecallStats';
 import { localDayNumber } from '../utils/localDate';
 import { getCardSrs, loadSrs, RecallSaveError, recordRecallGrade, type RecallGrade, type SrsStore } from '../utils/recallSrs';
 import type { RecallCard } from '../data/recallCards';
-import { canAccessTopic, getVisibleBloques, getVisibleTopic, getVisibleTopics } from '../data/recallRegistry';
+import { getAccessibleDecks, canAccessTopic, getVisibleBloques, getVisibleTopic, getVisibleTopics } from '../data/recallRegistry';
 import { getPreferredDeckId, setPreferredDeckId } from '../utils/studyPreferences';
-import { loadRecallPoolForPlan } from '../data/recallCards';
+import { loadRecallPool, loadRecallPoolForPlan } from '../data/recallCards';
 import { canSeeStats, getDailySessionSize, getPlan } from '../utils/plan';
 import { limitesPorPlanActivos } from '../config/features';
 import {
@@ -50,6 +50,7 @@ interface DailySessionProps {
   onOpenOrdenaPasos: () => void;
   /** Empieza directamente en la primera ficha (p. ej. al venir de la bienvenida). */
   autoStart?: boolean;
+  firstRecall?: boolean;
   /** Abre la página de planes (solo con VITE_FEATURE_PLANES activado). */
   onOpenPlanes?: () => void;
   /** Invitado sin cuenta: al terminar, ofrecer guardar el progreso creando una cuenta. */
@@ -60,7 +61,7 @@ interface DailySessionProps {
 
 type Phase = 'intro' | 'study' | 'done' | 'stats';
 
-export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false, onOpenPlanes, demo = true, onGuestSignup, onTryExam }: DailySessionProps) {
+export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoStart = false, firstRecall = false, onOpenPlanes, demo = true, onGuestSignup, onTryExam }: DailySessionProps) {
   const plan = getPlan();
   const planesOn = limitesPorPlanActivos();
   const planSessionSize = getDailySessionSize(plan);
@@ -98,7 +99,10 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
   const [loadError, setLoadError] = useState(false);
   useEffect(() => {
     let alive = true;
-    loadRecallPoolForPlan(plan).then(
+    const cardsForSession = firstRecall
+      ? loadRecallPool(getAccessibleDecks(plan).filter((deck) => deck.topicId === 'tema1'))
+      : loadRecallPoolForPlan(plan);
+    cardsForSession.then(
       (cards) => alive && setPool(cards),
       () => {
         if (!alive) return;
@@ -109,7 +113,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
     return () => {
       alive = false;
     };
-  }, [plan]);
+  }, [firstRecall, plan]);
 
   // Un tema prioritario que el plan no incluye se ignora (reparto equilibrado).
   const preferredTopicRaw = preferredDeckId ? getVisibleTopic(preferredDeckId) : undefined;
@@ -118,9 +122,13 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
   // Misma selección que «Tu plan de hoy» del Inicio (src/utils/planHoy.ts): prioridades de mañana,
   // tema con más fallos recientes si no se eligió uno, y el reparto de pickDailyRecallSession.
   const session = useMemo(
-    () => (pool ? planHoyDelDispositivo(pool, { size: sessionSize, srs: srsSnapshot, preferredDeckId: effectivePreferred }).cards : []),
+    () => {
+      if (!pool) return [];
+      if (firstRecall) return pool.slice(0, 5);
+      return planHoyDelDispositivo(pool, { size: sessionSize, srs: srsSnapshot, preferredDeckId: effectivePreferred }).cards;
+    },
     // finalStretch se lee dentro; se mantiene como dependencia para recalcular si cambia la fecha.
-    [effectivePreferred, finalStretch, pool, sessionSize, srsSnapshot],
+    [effectivePreferred, finalStretch, firstRecall, pool, sessionSize, srsSnapshot],
   );
   const mix = useMemo(() => summarizeSession(session, srsSnapshot), [session, srsSnapshot]);
   const loading = pool === null;
@@ -183,9 +191,10 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
 
   const handleNext = () => {
     if (index + 1 >= session.length) {
-      const nextStreak = completeDailySession();
-      setStreak(nextStreak);
-      sincronizarRecordatorio();
+      if (!firstRecall) {
+        setStreak(completeDailySession());
+        sincronizarRecordatorio();
+      }
       setPhase('done');
       return;
     }
@@ -428,6 +437,17 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
       {phase === 'stats' && <RecallStats onBack={() => setPhase(returnPhase)} onOpenPlanes={onOpenPlanes} />}
 
       {phase === 'done' && (
+        firstRecall ? (
+          <section className="space-y-4 rounded-2xl border border-emerald-100 bg-white p-6 text-center shadow-sm" aria-labelledby="first-recall-done">
+            <h2 id="first-recall-done" className="text-xl font-bold text-slate-800">Primer repaso completado</h2>
+            <p>Has repasado {session.length} fichas de la Constitución.</p>
+            <p>La sabías: {grades[2]} · Dudosas: {grades[1]} · No la sabías: {grades[0]}</p>
+            <p className="text-sm text-slate-600">En Inicio puedes ver tu próximo repaso y seguir estudiando.</p>
+            <button type="button" onClick={onNavigateHome} className="min-h-11 rounded-xl bg-indigo-600 px-4 py-2 font-semibold text-white hover:bg-indigo-700">
+              Ir a mi plan de estudio
+            </button>
+          </section>
+        ) : (
         <section className="space-y-5 rounded-2xl border border-emerald-100 bg-white p-8 text-center shadow-sm" role="status" aria-live="polite">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600">
             <CheckCircle2 className="h-8 w-8" aria-hidden="true" />
@@ -489,6 +509,7 @@ export default function DailySession({ onNavigateHome, onOpenOrdenaPasos, autoSt
             </button>
           </div>
         </section>
+        )
       )}
     </div>
   );

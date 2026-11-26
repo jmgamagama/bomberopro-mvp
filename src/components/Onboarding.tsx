@@ -29,6 +29,7 @@ const formatMiles = (n: number) => new Intl.NumberFormat('es-ES', { useGrouping:
 interface OnboardingProps {
   /** El opositor pulsó «Empezar sesión diaria»: abrir la sesión ya en la primera ficha. */
   onStart: () => void;
+  onFirstRecall?: () => void;
   /** «Saltar»: ir al inicio sin cambiar preferencias. */
   onSkip: () => void;
   /** Invitado: ir directo a la primera pregunta de un simulacro de muestra. */
@@ -48,7 +49,7 @@ const ALL = 'todos';
  * Bienvenida para usuario nuevo: convocatoria + elegir tema (o todos) + empezar.
  * Dos toques hasta la primera ficha: tema → «Empezar sesión diaria».
  */
-export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, cuenta = false }: OnboardingProps) {
+export default function Onboarding({ onStart, onSkip, onFirstRecall, onTryExam, onOpenPlanes, cuenta = false }: OnboardingProps) {
   const plan = getPlan();
   const [resumen, setResumen] = useState<PublishedConceptSummary | null>(null);
   const [resumenLoading, setResumenLoading] = useState(true);
@@ -146,6 +147,21 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, c
           Saltar
         </button>
       </div>
+
+      {!cuenta && onFirstRecall && (
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            onClick={() => { completeOnboarding('started'); onFirstRecall(); }}
+            className="min-h-12 rounded-xl bg-indigo-600 px-5 py-3 font-bold text-white hover:bg-indigo-700"
+          >
+            Probar 5 fichas del Tema 1
+          </button>
+          <a href="#onboarding-buscar-tema" className="inline-flex min-h-11 items-center px-2 font-semibold text-indigo-700 underline">
+            Elegir otro tema
+          </a>
+        </div>
+      )}
 
       <div className="space-y-2 rounded-2xl border border-indigo-100 bg-white p-3.5 shadow-sm sm:space-y-3 sm:p-5" id="onboarding-convocatoria">
         <p className="text-sm font-bold text-slate-900 sm:text-base">
@@ -280,7 +296,9 @@ export default function Onboarding({ onStart, onSkip, onTryExam, onOpenPlanes, c
           type="button"
           id="btn-onboarding-empezar"
           onClick={start}
-          className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 text-base font-bold text-white shadow-md hover:bg-indigo-700"
+          className={`flex min-h-12 w-full items-center justify-center gap-2 rounded-xl px-6 py-3 text-base font-bold ${!cuenta && onFirstRecall
+            ? 'border border-indigo-200 bg-white text-indigo-700 hover:bg-indigo-50'
+            : 'bg-indigo-600 text-white shadow-md hover:bg-indigo-700'}`}
         >
           <Play className="h-5 w-5 fill-current" aria-hidden="true" />
           {cuenta ? 'Empezar por el Tema 1' : 'Empezar sesión diaria'}
