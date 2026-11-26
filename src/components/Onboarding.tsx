@@ -133,7 +133,7 @@ export default function Onboarding({ onStart, onSkip, onFirstRecall, onTryExam, 
           </h1>
           {/* Publicado no acredita revisión humana; sin consulta válida no se anuncian cifras. */}
           <p id="onboarding-valor" aria-busy={resumenLoading} className="mt-1 text-[13px] leading-snug text-slate-700 sm:text-sm">
-            <strong className="text-slate-900">{cuenta && resumen
+            <strong className="text-slate-900">{resumen
               ? `${formatMiles(resumen.fichas)} fichas publicadas en ${resumen.temas} temas`
               : 'Fichas por temas'}</strong>, cada una con su fuente oficial, y simulacro con la puntuación del examen.
             {!cuenta && ' Empiezas sin cuenta.'}

@@ -12,23 +12,13 @@ vi.mock('../lib/supabase', () => ({ get supabase() { return client.value; } }));
 beforeEach(() => { client.value = null; });
 
 let fixtureId = 0;
-function queryFixture(rows: { estado: string; topic_id: number | null }[]) {
+function queryFixture(data: unknown, status = 200) {
   const fetch = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
     const url = new URL(String(input));
-    expect(url.pathname).toBe('/rest/v1/concepts');
+    expect(url.pathname).toBe('/rest/v1/rpc/catalogo_publicado_resumen');
+    expect(url.search).toBe('');
     expect(init?.method ?? 'GET').toBe('GET');
-    expect(url.searchParams.get('select')).toBe('topic_id');
-    expect(url.searchParams.get('estado')).toBe('eq.publicado');
-    expect(url.searchParams.get('order')).toBe('id.asc');
-    expect(new Headers(init?.headers).get('prefer')).toContain('count=exact');
-    const published = rows.filter((r) => r.estado === 'publicado');
-    const offset = Number(url.searchParams.get('offset'));
-    const limit = Number(url.searchParams.get('limit'));
-    const data = published.slice(offset, offset + limit).map(({ topic_id }) => ({ topic_id }));
-    return new Response(JSON.stringify(data), { headers: {
-      'content-type': 'application/json',
-      'content-range': `${offset}-${offset + data.length - 1}/${published.length}`,
-    } });
+    return new Response(JSON.stringify(data), { status, headers: { 'content-type': 'application/json' } });
   });
   client.value = createClient('https://fixture.supabase.co', 'fictional-anon-key', {
     global: { fetch }, auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false, storageKey: `fictional-${++fixtureId}` },
@@ -83,28 +73,23 @@ describe('Bienvenida del invitado', () => {
     expect(planSummary('pro')).toContain(`${PLAN_LIMITS.pro.dailySessionSize} fichas al día`);
   });
 
-  it('la web muestra el count exacto y los temas distintos de la consulta, con paginación', async () => {
-    const rows = [
-      ...Array.from({ length: 1308 }, (_, i) => ({ estado: 'publicado', topic_id: i % 11 + 1 })),
-      { estado: 'borrador_ia', topic_id: 99 },
-    ];
-    const query = queryFixture(rows);
-    render(<Onboarding onStart={() => {}} onSkip={() => {}} cuenta />);
+  it.each([false, true])('muestra el agregado con una petición (cuenta: %s)', async (cuenta) => {
+    const query = queryFixture([{ conceptos_publicados: 1308, temas_publicados: 11 }]);
+    render(<Onboarding onStart={() => {}} onSkip={() => {}} cuenta={cuenta} />);
     const valor = document.getElementById('onboarding-valor')!;
     expect(valor).toHaveTextContent('Fichas por temas');
     expect(valor).toHaveAttribute('aria-busy', 'true');
-    const published = rows.filter((row) => row.estado === 'publicado');
-    const count = new Intl.NumberFormat('es-ES', { useGrouping: 'always' } as Intl.NumberFormatOptions).format(published.length);
-    const distinctTopics = new Set(published.map((row) => row.topic_id)).size;
+    const count = new Intl.NumberFormat('es-ES', { useGrouping: 'always' } as Intl.NumberFormatOptions).format(1308);
+    const distinctTopics = 11;
     await waitFor(() => expect(valor).toHaveTextContent(`${count} fichas publicadas en ${distinctTopics} temas`));
     expect(valor).toHaveAttribute('aria-busy', 'false');
-    expect(query).toHaveBeenCalledTimes(3);
+    expect(query).toHaveBeenCalledTimes(1);
     expect(valor).toHaveTextContent(/fuente oficial/);
     expect(valor.textContent).not.toMatch(/revisadas|2\.886|34 temas|€|gratis|pro\b/i);
   });
 
   it('la bienvenida invitada no anuncia el inventario editorial ni el total local', async () => {
-    queryFixture([{ estado: 'publicado', topic_id: 1 }]);
+    queryFixture({ message: 'denied' }, 403);
     render(<Onboarding onStart={() => {}} onSkip={() => {}} />);
     const valor = document.getElementById('onboarding-valor')!;
     await waitFor(() => expect(valor).toHaveAttribute('aria-busy', 'false'));
@@ -120,45 +105,36 @@ describe('Bienvenida del invitado', () => {
     expect(valor.textContent).not.toMatch(/\d|revisadas/);
   });
 
-  it('una denegación de acceso o un fallo de red deja la web utilizable sin cifras', async () => {
-    queryFixture([]);
-    const query = vi.spyOn(client.value!, 'from').mockImplementation(() => { throw new Error('permission denied / offline'); });
+  it('una denegación de acceso deja la web utilizable sin cifras', async () => {
+    const query = queryFixture({ message: 'denied' }, 403);
     render(<Onboarding onStart={() => {}} onSkip={() => {}} />);
-    await waitFor(() => expect(query).toHaveBeenCalled());
-    expect(document.getElementById('onboarding-valor')!).toHaveTextContent('Fichas por temas');
+    const valor = document.getElementById('onboarding-valor')!;
+    await waitFor(() => expect(valor).toHaveAttribute('aria-busy', 'false'));
+    expect(query).toHaveBeenCalledTimes(1);
+    expect(valor).toHaveTextContent('Fichas por temas');
     await userEvent.setup().click(screen.getByRole('button', { name: 'Saltar' }));
   });
 
-  it('count(distinct topic_id) ignora NULL y los duplicados', async () => {
-    queryFixture([{ estado: 'publicado', topic_id: 1 }, { estado: 'publicado', topic_id: 1 }, { estado: 'publicado', topic_id: null }]);
-    expect(await loadPublishedConceptSummary(new AbortController().signal)).toEqual({ fichas: 3, temas: 1 });
-  });
-
   it('un inventario vacío es cero, no el registro de fichas local', async () => {
-    queryFixture([]);
+    queryFixture([{ conceptos_publicados: 0, temas_publicados: 0 }]);
     expect(await loadPublishedConceptSummary(new AbortController().signal)).toEqual({ fichas: 0, temas: 0 });
   });
 
-  it.each([null, -1, 1308])('count inválido o página incompleta (%s) no produce cifras parciales', async (count) => {
-    queryFixture([]);
-    vi.spyOn(client.value!, 'from').mockReturnValue({
-      select: () => ({ eq: () => ({ order: () => ({ range: () => ({ abortSignal: () => Promise.resolve({ data: [], count, error: null }) }) }) }) }),
-    } as never);
+  it.each([null, -1, '42', 0])('agregado inconsistente (%s) no produce cifras', async (count) => {
+    queryFixture([{ conceptos_publicados: count, temas_publicados: 1 }]);
     expect(await loadPublishedConceptSummary(new AbortController().signal)).toBeNull();
   });
 
   it('cancela una consulta lenta y conserva el texto sin cifra', async () => {
     queryFixture([]);
     let aborted = false;
-    vi.spyOn(client.value!, 'from').mockReturnValue({
-      select: () => ({ eq: () => ({ order: () => ({ range: () => ({
-        abortSignal: (signal: AbortSignal) => new Promise((resolve) => {
-          signal.addEventListener('abort', () => {
-            aborted = true;
-            resolve({ data: null, count: null, error: { message: 'aborted' } });
-          });
-        }),
-      }) }) }) }),
+    vi.spyOn(client.value!, 'rpc').mockReturnValue({
+      abortSignal: (signal: AbortSignal) => new Promise((resolve) => {
+        signal.addEventListener('abort', () => {
+          aborted = true;
+          resolve({ data: null, error: { message: 'aborted' } });
+        });
+      }),
     } as never);
     vi.useFakeTimers();
     try {
